@@ -34,7 +34,7 @@ declare void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull a
 declare void @_ZN14BufferNodeListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN27G1RedirtyCardsLocalQueueSet24enqueue_completed_bufferEP10BufferNode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN27G1RedirtyCardsLocalQueueSet24enqueue_completed_bufferEP10BufferNode(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -95,7 +95,7 @@ declare noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr n
 declare void @_ZN11PtrQueueSet13retry_enqueueER8PtrQueuePv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BufferNodeList) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind noalias writable writeonly sret(%struct.BufferNodeList) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.BufferNodeList, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -148,10 +148,10 @@ _ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList.exit: ; preds = %
 declare void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit, label %4
@@ -247,7 +247,7 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet26take_all_completed_buffersEv(pt
 declare void @_ZN14BufferNodeListC1EP10BufferNodeS1_m(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(408) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

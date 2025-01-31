@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [35 x i8] c"unity_launcher_entry_get_quicklist\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @callback(ptr nocapture readnone %0, i32 %1, ptr noundef %2) #0 {
+define hidden void @callback(ptr readnone captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr @jvm_xawt, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #5
   %6 = load ptr, ptr %5, align 8
@@ -144,7 +144,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XTaskbarPeer_init(ptr noundef
 declare i32 @gtk_load(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XTaskbarPeer_runloop(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XTaskbarPeer_runloop(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gtk, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -161,7 +161,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_runloop(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @gtk, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
@@ -194,7 +194,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setBadge(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -224,7 +224,7 @@ define void @Java_sun_awt_X11_XTaskbarPeer_setUrgent(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XTaskbarPeer_updateProgress(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, double noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XTaskbarPeer_updateProgress(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, double noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @gtk, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
@@ -369,7 +369,7 @@ sub_0:                                            ; preds = %37
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XTaskbarPeer_setNativeMenu(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XTaskbarPeer_setNativeMenu(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8

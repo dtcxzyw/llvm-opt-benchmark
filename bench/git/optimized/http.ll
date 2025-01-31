@@ -291,7 +291,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external local_unnamed_addr constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @fread_buffer(ptr nocapture noundef writeonly %ptr, i64 noundef %eltsize, i64 noundef %nmemb, ptr nocapture noundef %buffer_) local_unnamed_addr #0 {
+define dso_local i64 @fread_buffer(ptr noundef writeonly captures(none) %ptr, i64 noundef %eltsize, i64 noundef %nmemb, ptr noundef captures(none) %buffer_) local_unnamed_addr #0 {
 entry:
   %mul = mul i64 %nmemb, %eltsize
   %len = getelementptr inbounds nuw i8, ptr %buffer_, i64 8
@@ -312,10 +312,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @seek_buffer(ptr nocapture noundef %clientp, i64 noundef %offset, i32 noundef %origin) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @seek_buffer(ptr noundef captures(none) %clientp, i64 noundef %offset, i32 noundef %origin) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %origin, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -364,7 +364,7 @@ entry:
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @fwrite_null(ptr nocapture noundef readnone %ptr, i64 noundef %eltsize, i64 noundef returned %nmemb, ptr nocapture noundef readnone %data) local_unnamed_addr #5 {
+define dso_local noundef i64 @fwrite_null(ptr noundef readnone captures(none) %ptr, i64 noundef %eltsize, i64 noundef returned %nmemb, ptr noundef readnone captures(none) %data) local_unnamed_addr #5 {
 entry:
   ret i64 %nmemb
 }
@@ -401,7 +401,7 @@ declare i32 @trace_want(ptr noundef) local_unnamed_addr #4
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @curl_trace(ptr nocapture readnone %handle, i32 noundef %type, ptr noundef %data, i64 noundef %size, ptr nocapture readnone %userp) #2 {
+define internal noundef i32 @curl_trace(ptr readnone captures(none) %handle, i32 noundef %type, ptr noundef %data, i64 noundef %size, ptr readnone captures(none) %userp) #2 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   switch i32 %type, label %return [
@@ -920,7 +920,7 @@ set_from_env.exit53:                              ; preds = %set_from_env.exit49
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %set_from_env.exit53
-  %call45 = call i64 @strtol(ptr nocapture noundef nonnull %call42, ptr noundef null, i32 noundef 10) #21
+  %call45 = call i64 @strtol(ptr noundef nonnull captures(none) %call42, ptr noundef null, i32 noundef 10) #21
   store i64 %call45, ptr @curl_low_speed_limit, align 8
   br label %if.end46
 
@@ -930,7 +930,7 @@ if.end46:                                         ; preds = %if.then44, %set_fro
   br i1 %tobool48.not, label %if.end51, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
-  %call50 = call i64 @strtol(ptr nocapture noundef nonnull %call47, ptr noundef null, i32 noundef 10) #21
+  %call50 = call i64 @strtol(ptr noundef nonnull captures(none) %call47, ptr noundef null, i32 noundef 10) #21
   store i64 %call50, ptr @curl_low_speed_time, align 8
   br label %if.end51
 
@@ -1062,12 +1062,12 @@ get_curl_http_version_opt.exit.i:                 ; preds = %for.cond.i.i
 if.then12.i:                                      ; preds = %for.body.i.i
   %opt_token.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %32 = load i64, ptr %opt_token.i.i, align 8
-  %call13.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 84, i64 noundef %32) #21
+  %call13.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 84, i64 noundef %32) #21
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %get_curl_http_version_opt.exit.i, %if.end.i
-  %call16.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 51, i32 noundef 1) #21
-  %call17.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 107, i64 noundef -17) #21
+  %call16.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 51, i32 noundef 1) #21
+  %call17.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 107, i64 noundef -17) #21
   %33 = load ptr, ptr @curl_deleg, align 8
   %tobool18.not.i = icmp eq ptr %33, null
   br i1 %tobool18.not.i, label %if.end33.i, label %for.body.i69
@@ -1083,7 +1083,7 @@ for.body.i69:                                     ; preds = %if.end15.i, %for.in
 for.end.thread.i:                                 ; preds = %for.body.i69
   %curl_deleg_param.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %35 = load i64, ptr %curl_deleg_param.i, align 8
-  %call26.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 210, i64 noundef %35) #21
+  %call26.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 210, i64 noundef %35) #21
   br label %if.end33.i
 
 for.inc.i:                                        ; preds = %for.body.i69
@@ -1109,7 +1109,7 @@ land.lhs.true.i:                                  ; preds = %if.end33.i
   br i1 %or.cond.i, label %if.end41.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %land.lhs.true.i
-  %call40.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 216, i32 noundef 2) #21
+  %call40.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 216, i32 noundef 2) #21
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then39.i, %land.lhs.true.i, %if.end33.i
@@ -1147,15 +1147,15 @@ curl_empty_auth_enabled.exit.i.i:                 ; preds = %if.then.i80.i
   br i1 %tobool2.not.i.i, label %if.end44.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %curl_empty_auth_enabled.exit.i.i, %land.lhs.true.i.i.i
-  %call4.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10005, ptr noundef nonnull @.str.164) #21
+  %call4.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10005, ptr noundef nonnull @.str.164) #21
   br label %if.end44.i
 
 if.end5.i.i:                                      ; preds = %lor.lhs.false.i.i
   call void @credential_fill(ptr noundef nonnull @http_auth) #21
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 72), align 8
-  %call6.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10173, ptr noundef %43) #21
+  %call6.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10173, ptr noundef %43) #21
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 80), align 8
-  %call7.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10174, ptr noundef %44) #21
+  %call7.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10174, ptr noundef %44) #21
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end5.i.i, %if.then3.i.i, %curl_empty_auth_enabled.exit.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i, %if.end41.i
@@ -1189,7 +1189,7 @@ for.body60.i:                                     ; preds = %land.lhs.true51.i, 
 for.end73.thread.i:                               ; preds = %for.body60.i
   %ssl_version.i = getelementptr inbounds nuw i8, ptr %arrayidx62.i, i64 8
   %48 = load i64, ptr %ssl_version.i, align 8
-  %call69.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 32, i64 noundef %48) #21
+  %call69.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 32, i64 noundef %48) #21
   br label %if.end79.i
 
 for.inc71.i:                                      ; preds = %for.body60.i
@@ -1222,7 +1222,7 @@ land.lhs.true87.i:                                ; preds = %if.end84.i, %if.end
   br i1 %tobool89.not.i, label %if.end92.i, label %if.then90.i
 
 if.then90.i:                                      ; preds = %land.lhs.true87.i
-  %call91.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10083, ptr noundef nonnull %49) #21
+  %call91.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10083, ptr noundef nonnull %49) #21
   br label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.then90.i, %land.lhs.true87.i, %if.end84.i
@@ -1231,7 +1231,7 @@ if.end92.i:                                       ; preds = %if.then90.i, %land.
   br i1 %tobool93.not.i, label %if.end96.i, label %if.then94.i
 
 if.then94.i:                                      ; preds = %if.end92.i
-  %call95.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10025, ptr noundef nonnull %51) #21
+  %call95.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10025, ptr noundef nonnull %51) #21
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then94.i, %if.end92.i
@@ -1240,7 +1240,7 @@ if.end96.i:                                       ; preds = %if.then94.i, %if.en
   br i1 %tobool97.not.i, label %if.end100.i, label %if.then98.i
 
 if.then98.i:                                      ; preds = %if.end96.i
-  %call99.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10086, ptr noundef nonnull %52) #21
+  %call99.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10086, ptr noundef nonnull %52) #21
   br label %if.end100.i
 
 if.end100.i:                                      ; preds = %if.then98.i, %if.end96.i
@@ -1272,7 +1272,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.then103.i:                                     ; preds = %if.then2.i.i, %if.end.i.i
   %57 = phi ptr [ %.pre.i, %if.then2.i.i ], [ %55, %if.end.i.i ]
-  %call104.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10026, ptr noundef %57) #21
+  %call104.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10026, ptr noundef %57) #21
   br label %if.end105.i
 
 if.end105.i:                                      ; preds = %if.then103.i, %if.end100.i
@@ -1281,7 +1281,7 @@ if.end105.i:                                      ; preds = %if.then103.i, %if.e
   br i1 %tobool106.not.i, label %if.end109.i, label %if.then107.i
 
 if.then107.i:                                     ; preds = %if.end105.i
-  %call108.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10087, ptr noundef nonnull %58) #21
+  %call108.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10087, ptr noundef nonnull %58) #21
   br label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then107.i, %if.end105.i
@@ -1290,7 +1290,7 @@ if.end109.i:                                      ; preds = %if.then107.i, %if.e
   br i1 %tobool110.not.i, label %if.end113.i, label %if.then111.i
 
 if.then111.i:                                     ; preds = %if.end109.i
-  %call112.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10088, ptr noundef nonnull %59) #21
+  %call112.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10088, ptr noundef nonnull %59) #21
   br label %if.end113.i
 
 if.end113.i:                                      ; preds = %if.then111.i, %if.end109.i
@@ -1299,7 +1299,7 @@ if.end113.i:                                      ; preds = %if.then111.i, %if.e
   br i1 %tobool114.not.i, label %if.end117.i, label %if.then115.i
 
 if.then115.i:                                     ; preds = %if.end113.i
-  %call116.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10097, ptr noundef nonnull %60) #21
+  %call116.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10097, ptr noundef nonnull %60) #21
   br label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.then115.i, %if.end113.i
@@ -1308,7 +1308,7 @@ if.end117.i:                                      ; preds = %if.then115.i, %if.e
   br i1 %tobool118.not.i, label %if.end121.i, label %if.then119.i
 
 if.then119.i:                                     ; preds = %if.end117.i
-  %call120.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10230, ptr noundef nonnull %61) #21
+  %call120.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10230, ptr noundef nonnull %61) #21
   br label %if.end121.i
 
 if.end121.i:                                      ; preds = %if.then119.i, %if.end117.i
@@ -1325,7 +1325,7 @@ land.lhs.true123.i:                               ; preds = %if.end121.i
   br i1 %or.cond1.i, label %if.else131.i, label %if.then128.i
 
 if.then128.i:                                     ; preds = %land.lhs.true123.i
-  %call129.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10065, ptr noundef null) #21
+  %call129.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10065, ptr noundef null) #21
   br label %if.end146.sink.split.i
 
 if.else131.i:                                     ; preds = %land.lhs.true123.i, %if.end121.i
@@ -1340,7 +1340,7 @@ if.then136.i:                                     ; preds = %if.else131.i
   br i1 %cmp132.i, label %if.then138.i, label %if.end140.i
 
 if.then138.i:                                     ; preds = %if.then136.i
-  %call139.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10065, ptr noundef nonnull %64) #21
+  %call139.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10065, ptr noundef nonnull %64) #21
   %.pr166.i = load ptr, ptr @http_proxy_ssl_ca_info, align 8
   br label %if.end140.i
 
@@ -1351,7 +1351,7 @@ if.end140.i:                                      ; preds = %if.then138.i, %if.t
 
 if.end146.sink.split.i:                           ; preds = %if.end140.i, %if.then128.i
   %.sink199.i = phi ptr [ null, %if.then128.i ], [ %66, %if.end140.i ]
-  %call143.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10246, ptr noundef %.sink199.i) #21
+  %call143.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10246, ptr noundef %.sink199.i) #21
   br label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.end146.sink.split.i, %if.end140.i, %if.else131.i
@@ -1363,14 +1363,14 @@ if.end146.i:                                      ; preds = %if.end146.sink.spli
   br i1 %or.cond3.i, label %if.then152.i, label %if.end155.i
 
 if.then152.i:                                     ; preds = %if.end146.i
-  %call153.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 19, i64 noundef %67) #21
+  %call153.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 19, i64 noundef %67) #21
   %69 = load i64, ptr @curl_low_speed_time, align 8
-  %call154.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 20, i64 noundef %69) #21
+  %call154.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 20, i64 noundef %69) #21
   br label %if.end155.i
 
 if.end155.i:                                      ; preds = %if.then152.i, %if.end146.i
-  %call156.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 68, i32 noundef 20) #21
-  %call157.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 161, i32 noundef 7) #21
+  %call156.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 68, i32 noundef 20) #21
+  %call157.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 161, i32 noundef 7) #21
   %call.i86.i = call i32 @is_transport_allowed(ptr noundef nonnull @.str.4, i32 noundef 0) #21
   %tobool.not.i87.i = icmp ne i32 %call.i86.i, 0
   %spec.select.i.i = zext i1 %tobool.not.i87.i to i64
@@ -1386,7 +1386,7 @@ if.end155.i:                                      ; preds = %if.then152.i, %if.e
   %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
   %or14.i.i = or disjoint i64 %bits.2.i.i, 8
   %bits.3.i.i = select i1 %tobool12.not.i.i, i64 %bits.2.i.i, i64 %or14.i.i
-  %call159.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 182, i64 noundef %bits.3.i.i) #21
+  %call159.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 182, i64 noundef %bits.3.i.i) #21
   %call.i90.i = call i32 @is_transport_allowed(ptr noundef nonnull @.str.4, i32 noundef -1) #21
   %tobool.not.i91.i = icmp ne i32 %call.i90.i, 0
   %spec.select.i92.i = zext i1 %tobool.not.i91.i to i64
@@ -1402,7 +1402,7 @@ if.end155.i:                                      ; preds = %if.then152.i, %if.e
   %tobool12.not.i102.i = icmp eq i32 %call11.i101.i, 0
   %or14.i103.i = or disjoint i64 %bits.2.i100.i, 8
   %bits.3.i104.i = select i1 %tobool12.not.i102.i, i64 %bits.2.i100.i, i64 %or14.i103.i
-  %call161.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 181, i64 noundef %bits.3.i104.i) #21
+  %call161.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 181, i64 noundef %bits.3.i104.i) #21
   %call162.i = call ptr @getenv(ptr noundef nonnull @.str.121) #21
   %tobool163.not.i = icmp eq ptr %call162.i, null
   br i1 %tobool163.not.i, label %if.end165.i, label %if.then164.i
@@ -1418,9 +1418,9 @@ if.end165.i:                                      ; preds = %if.then164.i, %if.e
   br i1 %tobool.not.i106.i, label %setup_curl_trace.exit.i, label %if.end.i107.i
 
 if.end.i107.i:                                    ; preds = %if.end165.i
-  %call1.i108.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 41, i64 noundef 1) #21
-  %call2.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 20094, ptr noundef nonnull @curl_trace) #21
-  %call3.i109.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10095, ptr noundef null) #21
+  %call1.i108.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 41, i64 noundef 1) #21
+  %call2.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 20094, ptr noundef nonnull @curl_trace) #21
+  %call3.i109.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10095, ptr noundef null) #21
   br label %setup_curl_trace.exit.i
 
 setup_curl_trace.exit.i:                          ; preds = %if.end.i107.i, %if.end165.i
@@ -1452,13 +1452,13 @@ cond.false.i:                                     ; preds = %if.end173.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end173.i
   %cond.i = phi ptr [ %call175.i, %cond.false.i ], [ %70, %if.end173.i ]
-  %call176.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10018, ptr noundef %cond.i) #21
+  %call176.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10018, ptr noundef %cond.i) #21
   %71 = load i32, ptr @curl_ftp_no_epsv, align 4
   %tobool177.not.i = icmp eq i32 %71, 0
   br i1 %tobool177.not.i, label %if.end180.i, label %if.then178.i
 
 if.then178.i:                                     ; preds = %cond.end.i
-  %call179.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 85, i32 noundef 0) #21
+  %call179.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 85, i32 noundef 0) #21
   br label %if.end180.i
 
 if.end180.i:                                      ; preds = %if.then178.i, %cond.end.i
@@ -1467,7 +1467,7 @@ if.end180.i:                                      ; preds = %if.then178.i, %cond
   br i1 %tobool181.not.i, label %if.end184.i, label %if.then182.i
 
 if.then182.i:                                     ; preds = %if.end180.i
-  %call183.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 119, i32 noundef 1) #21
+  %call183.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 119, i32 noundef 1) #21
   br label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.then182.i, %if.end180.i
@@ -1555,7 +1555,7 @@ land.lhs.true204.i:                               ; preds = %if.end202.i, %if.en
   br i1 %cmp207.i, label %if.then209.i, label %if.then213.i
 
 if.then209.i:                                     ; preds = %land.lhs.true204.i
-  %call210.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10004, ptr noundef nonnull @.str.114) #21
+  %call210.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10004, ptr noundef nonnull @.str.114) #21
   br label %if.end269.i
 
 if.then213.i:                                     ; preds = %land.lhs.true204.i
@@ -1564,7 +1564,7 @@ if.then213.i:                                     ; preds = %land.lhs.true204.i
   br i1 %tobool215.not.i, label %if.else218.i, label %if.then216.i
 
 if.then216.i:                                     ; preds = %if.then213.i
-  %call217.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 101, i32 noundef 7) #21
+  %call217.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 101, i32 noundef 7) #21
   br label %if.end255.i
 
 if.else218.i:                                     ; preds = %if.then213.i
@@ -1574,7 +1574,7 @@ if.else218.i:                                     ; preds = %if.then213.i
   br i1 %tobool220.not.i, label %if.else223.i, label %if.then221.i
 
 if.then221.i:                                     ; preds = %if.else218.i
-  %call222.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 101, i32 noundef 5) #21
+  %call222.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 101, i32 noundef 5) #21
   br label %if.end255.i
 
 if.else223.i:                                     ; preds = %if.else218.i
@@ -1584,7 +1584,7 @@ if.else223.i:                                     ; preds = %if.else218.i
   br i1 %tobool225.not.i, label %if.else228.i, label %if.then226.i
 
 if.then226.i:                                     ; preds = %if.else223.i
-  %call227.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 101, i32 noundef 6) #21
+  %call227.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 101, i32 noundef 6) #21
   br label %if.end255.i
 
 if.else228.i:                                     ; preds = %if.else223.i
@@ -1594,7 +1594,7 @@ if.else228.i:                                     ; preds = %if.else223.i
   br i1 %tobool230.not.i, label %if.else233.i, label %if.then231.i
 
 if.then231.i:                                     ; preds = %if.else228.i
-  %call232.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 101, i32 noundef 4) #21
+  %call232.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 101, i32 noundef 4) #21
   br label %if.end255.i
 
 if.else233.i:                                     ; preds = %if.else228.i
@@ -1604,13 +1604,13 @@ if.else233.i:                                     ; preds = %if.else228.i
   br i1 %tobool235.not.i, label %if.end255.i, label %if.then236.i
 
 if.then236.i:                                     ; preds = %if.else233.i
-  %call237.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 101, i32 noundef 2) #21
+  %call237.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 101, i32 noundef 2) #21
   %85 = load ptr, ptr @http_proxy_ssl_cert, align 8
   %tobool238.not.i = icmp eq ptr %85, null
   br i1 %tobool238.not.i, label %if.end241.i, label %if.then239.i
 
 if.then239.i:                                     ; preds = %if.then236.i
-  %call240.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10254, ptr noundef nonnull %85) #21
+  %call240.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10254, ptr noundef nonnull %85) #21
   br label %if.end241.i
 
 if.end241.i:                                      ; preds = %if.then239.i, %if.then236.i
@@ -1619,7 +1619,7 @@ if.end241.i:                                      ; preds = %if.then239.i, %if.t
   br i1 %tobool242.not.i, label %if.end245.i, label %if.then243.i
 
 if.then243.i:                                     ; preds = %if.end241.i
-  %call244.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10256, ptr noundef nonnull %86) #21
+  %call244.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10256, ptr noundef nonnull %86) #21
   br label %if.end245.i
 
 if.end245.i:                                      ; preds = %if.then243.i, %if.end241.i
@@ -1629,7 +1629,7 @@ if.end245.i:                                      ; preds = %if.then243.i, %if.e
 
 if.then248.i:                                     ; preds = %if.end245.i
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @proxy_cert_auth, i64 80), align 8
-  %call249.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10258, ptr noundef %87) #21
+  %call249.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10258, ptr noundef %87) #21
   br label %if.end255.i
 
 if.end255.i:                                      ; preds = %if.then248.i, %if.end245.i, %if.else233.i, %if.then231.i, %if.then226.i, %if.then221.i, %if.then216.i
@@ -1639,12 +1639,12 @@ if.end255.i:                                      ; preds = %if.then248.i, %if.e
   br i1 %tobool257.not.i, label %if.else259.i, label %if.then258.i
 
 if.then258.i:                                     ; preds = %if.end255.i
-  call void @credential_from_url(ptr noundef nonnull @proxy_auth, ptr noundef %88) #21
+  call void @credential_from_url(ptr noundef nonnull @proxy_auth, ptr noundef nonnull %88) #21
   br label %if.end260.i
 
 if.else259.i:                                     ; preds = %if.end255.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %url.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.fetch_pack_index.buf, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %url.i, ptr noundef nonnull @.str.135, ptr noundef %88) #21
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %url.i, ptr noundef nonnull @.str.135, ptr noundef nonnull %88) #21
   %buf.i = getelementptr inbounds nuw i8, ptr %url.i, i64 16
   %89 = load ptr, ptr %buf.i, align 8
   call void @credential_from_url(ptr noundef nonnull @proxy_auth, ptr noundef %89) #21
@@ -1662,7 +1662,7 @@ if.then262.i:                                     ; preds = %if.end260.i
   unreachable
 
 if.end263.i:                                      ; preds = %if.end260.i
-  %call264.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10004, ptr noundef nonnull %90) #21
+  %call264.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10004, ptr noundef nonnull %90) #21
   %call265.i = call ptr @getenv(ptr noundef nonnull @.str.137) #21
   %tobool.not.i134.i = icmp eq ptr %call265.i, null
   %.pre190.pre.i = load ptr, ptr @curl_no_proxy, align 8
@@ -1688,7 +1688,7 @@ if.then.i140.i:                                   ; preds = %var_override.exit13
 
 var_override.exit143.i:                           ; preds = %if.then.i140.i, %var_override.exit138.i
   %92 = phi ptr [ %.pre190.i, %var_override.exit138.i ], [ %call.i141.i, %if.then.i140.i ]
-  %call267.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10177, ptr noundef %92) #21
+  %call267.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 10177, ptr noundef %92) #21
   br label %if.end269.i
 
 if.end269.i:                                      ; preds = %var_override.exit143.i, %if.then209.i, %if.end202.i
@@ -1762,7 +1762,7 @@ get_curl_handle.exit:                             ; preds = %var_override.exit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @http_options(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %data) #2 {
@@ -1772,7 +1772,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @curl_http_version, ptr noundef %var, ptr noundef %value) #21
+  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @curl_http_version, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1781,7 +1781,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call5 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call5, ptr @curl_ssl_verify, align 4
   br label %return
 
@@ -1791,7 +1791,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end6
-  %call10 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_cipherlist, ptr noundef %var, ptr noundef %value) #21
+  %call10 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_cipherlist, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end11:                                         ; preds = %if.end6
@@ -1800,7 +1800,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %tobool13.not, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end11
-  %call15 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_version, ptr noundef %var, ptr noundef %value) #21
+  %call15 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_version, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end16:                                         ; preds = %if.end11
@@ -1809,7 +1809,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %tobool18.not, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end16
-  %call20 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_cert, ptr noundef %var, ptr noundef %value) #21
+  %call20 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_cert, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end21:                                         ; preds = %if.end16
@@ -1818,7 +1818,7 @@ if.end21:                                         ; preds = %if.end16
   br i1 %tobool23.not, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end21
-  %call25 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_cert_type, ptr noundef %var, ptr noundef %value) #21
+  %call25 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_cert_type, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end26:                                         ; preds = %if.end21
@@ -1827,7 +1827,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %tobool28.not, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end26
-  %call30 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_key, ptr noundef %var, ptr noundef %value) #21
+  %call30 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_key, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end31:                                         ; preds = %if.end26
@@ -1836,7 +1836,7 @@ if.end31:                                         ; preds = %if.end26
   br i1 %tobool33.not, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.end31
-  %call35 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_key_type, ptr noundef %var, ptr noundef %value) #21
+  %call35 = tail call i32 @git_config_string(ptr noundef nonnull @ssl_key_type, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end36:                                         ; preds = %if.end31
@@ -1845,7 +1845,7 @@ if.end36:                                         ; preds = %if.end31
   br i1 %tobool38.not, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  %call40 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_capath, ptr noundef %var, ptr noundef %value) #21
+  %call40 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_capath, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end41:                                         ; preds = %if.end36
@@ -1854,7 +1854,7 @@ if.end41:                                         ; preds = %if.end36
   br i1 %tobool43.not, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end41
-  %call45 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_cainfo, ptr noundef %var, ptr noundef %value) #21
+  %call45 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_cainfo, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end46:                                         ; preds = %if.end41
@@ -1863,7 +1863,7 @@ if.end46:                                         ; preds = %if.end41
   br i1 %tobool48.not, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end46
-  %call50 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call50 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call50, ptr @ssl_cert_password_required, align 4
   br label %return
 
@@ -1873,7 +1873,7 @@ if.end51:                                         ; preds = %if.end46
   br i1 %tobool53.not, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %if.end51
-  %call55 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call55 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call55, ptr @curl_ssl_try, align 4
   br label %return
 
@@ -1903,7 +1903,7 @@ if.end61:                                         ; preds = %if.end56
   br i1 %tobool63.not, label %if.then64, label %if.end66
 
 if.then64:                                        ; preds = %if.end61
-  %call65 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call65 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call65, ptr @http_schannel_check_revoke, align 4
   br label %return
 
@@ -1913,7 +1913,7 @@ if.end66:                                         ; preds = %if.end61
   br i1 %tobool68.not, label %if.then69, label %if.end71
 
 if.then69:                                        ; preds = %if.end66
-  %call70 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call70 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call70, ptr @http_schannel_use_ssl_cainfo, align 4
   br label %return
 
@@ -1924,7 +1924,7 @@ if.end71:                                         ; preds = %if.end66
 
 if.then74:                                        ; preds = %if.end71
   %1 = load ptr, ptr %ctx, align 8
-  %call75 = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %1) #21
+  %call75 = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %1) #21
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %call75, i32 1)
   store i32 %spec.store.select, ptr @min_curl_sessions, align 4
   br label %return
@@ -1936,7 +1936,7 @@ if.end78:                                         ; preds = %if.end71
 
 if.then81:                                        ; preds = %if.end78
   %2 = load ptr, ptr %ctx, align 8
-  %call83 = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %2) #21
+  %call83 = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %2) #21
   store i32 %call83, ptr @max_requests, align 4
   br label %return
 
@@ -1947,7 +1947,7 @@ if.end84:                                         ; preds = %if.end78
 
 if.then87:                                        ; preds = %if.end84
   %3 = load ptr, ptr %ctx, align 8
-  %call89 = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %3) #21
+  %call89 = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %3) #21
   %conv = sext i32 %call89 to i64
   store i64 %conv, ptr @curl_low_speed_limit, align 8
   br label %return
@@ -1959,7 +1959,7 @@ if.end90:                                         ; preds = %if.end84
 
 if.then93:                                        ; preds = %if.end90
   %4 = load ptr, ptr %ctx, align 8
-  %call95 = tail call i32 @git_config_int(ptr noundef %var, ptr noundef %value, ptr noundef %4) #21
+  %call95 = tail call i32 @git_config_int(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %4) #21
   %conv96 = sext i32 %call95 to i64
   store i64 %conv96, ptr @curl_low_speed_time, align 8
   br label %return
@@ -1970,7 +1970,7 @@ if.end97:                                         ; preds = %if.end90
   br i1 %tobool99.not, label %if.then100, label %if.end102
 
 if.then100:                                       ; preds = %if.end97
-  %call101 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call101 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call101, ptr @curl_ftp_no_epsv, align 4
   br label %return
 
@@ -1980,7 +1980,7 @@ if.end102:                                        ; preds = %if.end97
   br i1 %tobool104.not, label %if.then105, label %if.end107
 
 if.then105:                                       ; preds = %if.end102
-  %call106 = tail call i32 @git_config_string(ptr noundef nonnull @curl_http_proxy, ptr noundef %var, ptr noundef %value) #21
+  %call106 = tail call i32 @git_config_string(ptr noundef nonnull @curl_http_proxy, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end107:                                        ; preds = %if.end102
@@ -1989,7 +1989,7 @@ if.end107:                                        ; preds = %if.end102
   br i1 %tobool109.not, label %if.then110, label %if.end112
 
 if.then110:                                       ; preds = %if.end107
-  %call111 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_authmethod, ptr noundef %var, ptr noundef %value) #21
+  %call111 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_authmethod, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end112:                                        ; preds = %if.end107
@@ -1998,7 +1998,7 @@ if.end112:                                        ; preds = %if.end107
   br i1 %tobool114.not, label %if.then115, label %if.end117
 
 if.then115:                                       ; preds = %if.end112
-  %call116 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_cert, ptr noundef %var, ptr noundef %value) #21
+  %call116 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_cert, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end117:                                        ; preds = %if.end112
@@ -2007,7 +2007,7 @@ if.end117:                                        ; preds = %if.end112
   br i1 %tobool119.not, label %if.then120, label %if.end122
 
 if.then120:                                       ; preds = %if.end117
-  %call121 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_key, ptr noundef %var, ptr noundef %value) #21
+  %call121 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_key, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end122:                                        ; preds = %if.end117
@@ -2016,7 +2016,7 @@ if.end122:                                        ; preds = %if.end117
   br i1 %tobool124.not, label %if.then125, label %if.end127
 
 if.then125:                                       ; preds = %if.end122
-  %call126 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_ca_info, ptr noundef %var, ptr noundef %value) #21
+  %call126 = tail call i32 @git_config_string(ptr noundef nonnull @http_proxy_ssl_ca_info, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end127:                                        ; preds = %if.end122
@@ -2025,7 +2025,7 @@ if.end127:                                        ; preds = %if.end122
   br i1 %tobool129.not, label %if.then130, label %if.end132
 
 if.then130:                                       ; preds = %if.end127
-  %call131 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call131 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call131, ptr @proxy_ssl_cert_password_required, align 4
   br label %return
 
@@ -2035,7 +2035,7 @@ if.end132:                                        ; preds = %if.end127
   br i1 %tobool134.not, label %if.then135, label %if.end137
 
 if.then135:                                       ; preds = %if.end132
-  %call136 = tail call i32 @git_config_pathname(ptr noundef nonnull @curl_cookie_file, ptr noundef %var, ptr noundef %value) #21
+  %call136 = tail call i32 @git_config_pathname(ptr noundef nonnull @curl_cookie_file, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end137:                                        ; preds = %if.end132
@@ -2044,7 +2044,7 @@ if.end137:                                        ; preds = %if.end132
   br i1 %tobool139.not, label %if.then140, label %if.end142
 
 if.then140:                                       ; preds = %if.end137
-  %call141 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call141 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   store i32 %call141, ptr @curl_save_cookies, align 4
   br label %return
 
@@ -2055,7 +2055,7 @@ if.end142:                                        ; preds = %if.end137
 
 if.then145:                                       ; preds = %if.end142
   %5 = load ptr, ptr %ctx, align 8
-  %call147 = tail call i64 @git_config_ssize_t(ptr noundef %var, ptr noundef %value, ptr noundef %5) #21
+  %call147 = tail call i64 @git_config_ssize_t(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %5) #21
   store i64 %call147, ptr @http_post_buffer, align 8
   %cmp148 = icmp slt i64 %call147, 0
   br i1 %cmp148, label %if.then150, label %if.end152
@@ -2090,7 +2090,7 @@ if.end157:                                        ; preds = %if.end142
   br i1 %tobool159.not, label %if.then160, label %if.end162
 
 if.then160:                                       ; preds = %if.end157
-  %call161 = tail call i32 @git_config_string(ptr noundef nonnull @user_agent, ptr noundef %var, ptr noundef %value) #21
+  %call161 = tail call i32 @git_config_string(ptr noundef nonnull @user_agent, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end162:                                        ; preds = %if.end157
@@ -2108,7 +2108,7 @@ land.lhs.true:                                    ; preds = %if.then165
   br i1 %tobool168.not, label %if.end171, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.then165
-  %call170 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call170 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   br label %if.end171
 
 if.end171:                                        ; preds = %land.lhs.true, %if.else
@@ -2122,7 +2122,7 @@ if.end172:                                        ; preds = %if.end162
   br i1 %tobool174.not, label %if.then175, label %if.end177
 
 if.then175:                                       ; preds = %if.end172
-  %call176 = tail call i32 @git_config_string(ptr noundef nonnull @curl_deleg, ptr noundef %var, ptr noundef %value) #21
+  %call176 = tail call i32 @git_config_string(ptr noundef nonnull @curl_deleg, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end177:                                        ; preds = %if.end172
@@ -2131,7 +2131,7 @@ if.end177:                                        ; preds = %if.end172
   br i1 %tobool179.not, label %if.then180, label %if.end182
 
 if.then180:                                       ; preds = %if.end177
-  %call181 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_pinnedkey, ptr noundef %var, ptr noundef %value) #21
+  %call181 = tail call i32 @git_config_pathname(ptr noundef nonnull @ssl_pinnedkey, ptr noundef nonnull %var, ptr noundef %value) #21
   br label %return
 
 if.end182:                                        ; preds = %if.end177
@@ -2144,7 +2144,7 @@ if.then185:                                       ; preds = %if.end182
   br i1 %tobool186.not, label %if.then187, label %if.else190
 
 if.then187:                                       ; preds = %if.then185
-  %call188 = tail call i32 @config_error_nonbool(ptr noundef %var) #21
+  %call188 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #21
   br label %return
 
 if.else190:                                       ; preds = %if.then185
@@ -2170,7 +2170,7 @@ if.then200:                                       ; preds = %if.end197
   br i1 %tobool201.not, label %if.then202, label %if.else205
 
 if.then202:                                       ; preds = %if.then200
-  %call203 = tail call i32 @config_error_nonbool(ptr noundef %var) #21
+  %call203 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #21
   br label %return
 
 if.else205:                                       ; preds = %if.then200
@@ -2211,7 +2211,7 @@ if.then220:                                       ; preds = %land.lhs.true217
   br label %return
 
 if.else221:                                       ; preds = %land.lhs.true217, %if.then215
-  %call222 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #21
+  %call222 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #21
   %tobool223.not = icmp eq i32 %call222, 0
   br i1 %tobool223.not, label %if.else225, label %if.then224
 
@@ -2224,7 +2224,7 @@ if.else225:                                       ; preds = %if.else221
   br label %return
 
 if.end228:                                        ; preds = %if.end212
-  %call229 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %data) #21
+  %call229 = tail call i32 @git_default_config(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %data) #21
   br label %return
 
 return:                                           ; preds = %if.then220, %if.else225, %if.then224, %if.else193, %if.then192, %if.end152, %if.then155, %if.end228, %if.end211, %if.then202, %if.then187, %if.then180, %if.then175, %if.end171, %if.then160, %if.then140, %if.then135, %if.then130, %if.then125, %if.then120, %if.then115, %if.then110, %if.then105, %if.then100, %if.then93, %if.then87, %if.then81, %if.then74, %if.then69, %if.then64, %xstrdup_or_null.exit, %if.then54, %if.then49, %if.then44, %if.then39, %if.then34, %if.then29, %if.then24, %if.then19, %if.then14, %if.then9, %if.then4, %if.then
@@ -2241,7 +2241,7 @@ declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @urlmatch_config_entry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -2311,15 +2311,15 @@ for.end:                                          ; preds = %for.body, %land.rhs
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @curl_multi_init() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @credential_from_url(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2438,7 +2438,7 @@ declare void @curl_global_cleanup() local_unnamed_addr #4
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @get_active_slot() local_unnamed_addr #2 {
@@ -2777,7 +2777,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #4
 declare ptr @curl_easy_duphandle(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @start_active_slot(ptr nocapture noundef %slot) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @start_active_slot(ptr noundef captures(none) %slot) local_unnamed_addr #2 {
 entry:
   %num_transfers = alloca i32, align 4
   %0 = load ptr, ptr @curlm, align 8
@@ -3004,7 +3004,7 @@ if.end:                                           ; preds = %if.end16.i, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @run_active_slot(ptr nocapture noundef initializes((24, 32)) %slot) local_unnamed_addr #2 {
+define dso_local void @run_active_slot(ptr noundef captures(none) initializes((24, 32)) %slot) local_unnamed_addr #2 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %writefds = alloca %struct.fd_set, align 8
@@ -3169,7 +3169,7 @@ append_remote_object_url.exit:                    ; preds = %entry, %if.then.i
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @normalize_curl_result(ptr nocapture noundef %result, i64 noundef %http_code, ptr noundef %errorstr, i64 noundef %errorlen) local_unnamed_addr #2 {
+define dso_local void @normalize_curl_result(ptr noundef captures(none) %result, i64 noundef %http_code, ptr noundef %errorstr, i64 noundef %errorlen) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %result, align 4
   %cmp = icmp eq i32 %0, 0
@@ -3189,7 +3189,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @run_one_slot(ptr nocapture noundef initializes((32, 40)) %slot, ptr noundef %results) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @run_one_slot(ptr noundef captures(none) initializes((32, 40)) %slot, ptr noundef %results) local_unnamed_addr #2 {
 entry:
   %num_transfers.i = alloca i32, align 4
   %results1 = getelementptr inbounds nuw i8, ptr %slot, i64 32
@@ -3543,7 +3543,7 @@ if.then60.i:                                      ; preds = %for.body57.i
   %arrayidx63.i = getelementptr inbounds nuw ptr, ptr %call38.i, i64 %indvars.iv.i
   %17 = load ptr, ptr %arrayidx63.i, align 8
   %call.i52.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #22
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %17, i64 noundef %call.i52.i) #21
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %17, i64 noundef %call.i52.i) #21
   %18 = sub nsw i64 %max_q.0.lcssa.i, %indvars.iv.i
   %19 = trunc i64 %18 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull %q_format.i, i32 noundef %19) #21
@@ -3552,7 +3552,7 @@ if.then60.i:                                      ; preds = %for.body57.i
 if.end69.critedge.i:                              ; preds = %for.body57.i
   %20 = load ptr, ptr %call38.i, align 8
   %call.i53.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #22
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %20, i64 noundef %call.i53.i) #21
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %20, i64 noundef %call.i53.i) #21
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.end69.critedge.i, %if.then60.i
@@ -3662,7 +3662,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %if.then3.i, !llvm.loop !8
 
 if.then3.i:                                       ; preds = %do.cond.i.i
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 2136, ptr noundef nonnull @.str.182, ptr noundef %url, ptr noundef %3) #20
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 2136, ptr noundef nonnull @.str.182, ptr noundef nonnull %url, ptr noundef %3) #20
   unreachable
 
 if.end5.i:                                        ; preds = %do.body.i.i
@@ -3675,14 +3675,14 @@ if.end5.i:                                        ; preds = %do.body.i.i
 lor.lhs.false.i.i:                                ; preds = %if.end5.i
   %sub.i.i = sub nuw i64 %6, %call.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i, ptr readonly %str.addr.0.i.i, i64 %call.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i, ptr nonnull readonly %str.addr.0.i.i, i64 %call.i.i)
   %tobool.not.i12.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i12.i, label %if.end11.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %lor.lhs.false.i.i, %if.end5.i
   %call9.i = tail call fastcc ptr @_(ptr noundef nonnull @.str.183)
   %7 = load ptr, ptr %buf.i, align 8
-  tail call void (ptr, ...) @die(ptr noundef %call9.i, ptr noundef %url, ptr noundef %7) #20
+  tail call void (ptr, ...) @die(ptr noundef %call9.i, ptr noundef nonnull %url, ptr noundef %7) #20
   unreachable
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i.i
@@ -3796,7 +3796,7 @@ cleanup:                                          ; preds = %land.lhs.true, %if.
 declare ptr @git_fopen(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @finalize_object_file(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3927,7 +3927,7 @@ declare void @strbuf_rtrim(ptr noundef) local_unnamed_addr #4
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @http_get_info_packs(ptr noundef %base_url, ptr nocapture noundef %packs_head) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @http_get_info_packs(ptr noundef %base_url, ptr noundef captures(none) %packs_head) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca %struct.strbuf, align 8
   %options = alloca %struct.http_get_options, align 8
@@ -4144,7 +4144,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @finish_http_pack_request(ptr nocapture noundef %preq) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @finish_http_pack_request(ptr noundef captures(none) %preq) local_unnamed_addr #2 {
 entry:
   %ip = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ip, ptr noundef nonnull align 8 dereferenceable(120) @__const.finish_http_pack_request.ip, i64 120, i1 false)
@@ -4200,10 +4200,10 @@ declare i32 @run_command(ptr noundef) local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @http_install_packfile(ptr noundef %p, ptr nocapture noundef %list_to_remove_from) local_unnamed_addr #2 {
+define dso_local void @http_install_packfile(ptr noundef %p, ptr noundef captures(none) %list_to_remove_from) local_unnamed_addr #2 {
 entry:
   br label %while.cond
 
@@ -4321,13 +4321,13 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @sha1_pack_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @new_http_object_request(ptr noundef %base_url, ptr noundef %oid) local_unnamed_addr #2 {
@@ -4352,7 +4352,7 @@ entry:
   %localfile = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store i32 -1, ptr %localfile, align 8
   %1 = load ptr, ptr @the_repository, align 8
-  %call3 = call ptr @loose_object_path(ptr noundef %1, ptr noundef nonnull %filename, ptr noundef %oid) #21
+  %call3 = call ptr @loose_object_path(ptr noundef %1, ptr noundef nonnull %filename, ptr noundef nonnull %oid) #21
   %buf = getelementptr inbounds nuw i8, ptr %filename, i64 16
   %2 = load ptr, ptr %buf, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %tmpfile, ptr noundef nonnull @.str.36, ptr noundef %2) #21
@@ -4550,10 +4550,10 @@ declare ptr @loose_object_path(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @unlink_or_warn(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #14
@@ -4562,7 +4562,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #12
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #12
 
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #4
 
@@ -4669,7 +4669,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @process_http_object_request(ptr nocapture noundef %freq) local_unnamed_addr #16 {
+define dso_local void @process_http_object_request(ptr noundef captures(none) %freq) local_unnamed_addr #16 {
 entry:
   %slot = getelementptr inbounds nuw i8, ptr %freq, i64 2944
   %0 = load ptr, ptr %slot, align 8
@@ -4831,7 +4831,7 @@ return:                                           ; preds = %if.then3, %if.then8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @git_inflate_end(ptr noundef) local_unnamed_addr #4
 
@@ -5035,7 +5035,7 @@ if.then4:                                         ; preds = %for.body
 if.end6:                                          ; preds = %if.then4, %for.body
   %4 = phi ptr [ %.pre, %if.then4 ], [ %3, %for.body ]
   %call.i14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text) #22
-  call void @strbuf_insert(ptr noundef %4, i64 noundef 0, ptr noundef %text, i64 noundef %call.i14) #21
+  call void @strbuf_insert(ptr noundef %4, i64 noundef 0, ptr noundef nonnull %text, i64 noundef %call.i14) #21
   %5 = load ptr, ptr %header.025, align 8
   %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text) #22
   call void @strbuf_insert(ptr noundef %5, i64 noundef %call7, ptr noundef nonnull @.str.73, i64 noundef 2) #21
@@ -5099,7 +5099,7 @@ for.end:                                          ; preds = %for.inc, %strbuf_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @curl_dump_data(ptr noundef %text, ptr nocapture noundef readonly %ptr, i64 noundef %size) unnamed_addr #2 {
+define internal fastcc void @curl_dump_data(ptr noundef %text, ptr noundef readonly captures(none) %ptr, i64 noundef %size) unnamed_addr #2 {
 entry:
   %out = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.fetch_pack_index.buf, i64 24, i1 false)
@@ -5490,7 +5490,7 @@ if.end61:                                         ; preds = %do.cond.i44, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -5505,7 +5505,7 @@ declare ptr @strbuf_split_buf(ptr noundef, i64 noundef, i32 noundef, i32 noundef
 declare void @strbuf_insert(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @git_config_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -6044,16 +6044,16 @@ if.end82:                                         ; preds = %if.end57, %curlinfo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #12
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @fwrite_wwwauth(ptr noundef %ptr, i64 noundef %eltsize, i64 noundef %nmemb, ptr nocapture readnone %p) #2 {
+define internal noundef i64 @fwrite_wwwauth(ptr noundef %ptr, i64 noundef %eltsize, i64 noundef %nmemb, ptr readnone captures(none) %p) #2 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %mul = mul i64 %nmemb, %eltsize
@@ -6212,7 +6212,7 @@ declare ptr @strvec_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare void @strvec_clear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @has_pack_index(ptr noundef) local_unnamed_addr #4
 
@@ -6232,7 +6232,7 @@ declare i32 @git_inflate(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
@@ -6241,10 +6241,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

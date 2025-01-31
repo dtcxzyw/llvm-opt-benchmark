@@ -55,13 +55,13 @@ define dso_local zeroext i1 @cgroup_freezing(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef nonnull ptr @freezer_css_alloc(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef nonnull ptr @freezer_css_alloc(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 208) #9
   %4 = icmp eq ptr %3, null
@@ -70,7 +70,7 @@ define internal noundef nonnull ptr @freezer_css_alloc(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @freezer_css_online(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef i32 @freezer_css_online(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   tail call void @cpus_read_lock() #8
@@ -102,7 +102,7 @@ define internal noundef i32 @freezer_css_online(ptr nocapture noundef %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @freezer_css_offline(ptr nocapture noundef %0) #0 align 16 {
+define internal void @freezer_css_offline(ptr noundef captures(none) %0) #0 align 16 {
   tail call void @cpus_read_lock() #8
   tail call void @mutex_lock(ptr noundef nonnull @freezer_mutex) #8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -261,7 +261,7 @@ declare dso_local zeroext i1 @freeze_task(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @cgroup_taskset_next(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @freezer_read(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.css_task_iter, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -606,7 +606,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 1
@@ -616,7 +616,7 @@ define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i64 0, 2) i64 @freezer_parent_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 2) i64 @freezer_parent_freezing_read(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 2
@@ -641,7 +641,7 @@ declare dso_local ptr @of_css(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @css_next_child(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -662,7 +662,7 @@ declare dso_local void @css_task_iter_end(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @freezing_slow_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #2

@@ -221,7 +221,7 @@ pmix_obj_new_tma.exit128:                         ; preds = %.lr.ph.i.i125, %46,
 .lr.ph.i:                                         ; preds = %84, %.lr.ph.i
   %90 = phi ptr [ %92, %.lr.ph.i ], [ %89, %84 ]
   %.07.i = phi ptr [ %91, %.lr.ph.i ], [ %88, %84 ]
-  tail call void %90(ptr noundef %42) #10
+  tail call void %90(ptr noundef nonnull %42) #10
   %91 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i129 = icmp eq ptr %92, null
@@ -409,7 +409,7 @@ pmix_obj_new_tma.exit143:                         ; preds = %.lr.ph.i.i140, %134
 .lr.ph.i145:                                      ; preds = %172, %.lr.ph.i145
   %178 = phi ptr [ %180, %.lr.ph.i145 ], [ %177, %172 ]
   %.07.i146 = phi ptr [ %179, %.lr.ph.i145 ], [ %176, %172 ]
-  tail call void %178(ptr noundef %42) #10
+  tail call void %178(ptr noundef nonnull %42) #10
   %179 = getelementptr inbounds nuw i8, ptr %.07.i146, i64 8
   %180 = load ptr, ptr %179, align 8
   %.not.i147 = icmp eq ptr %180, null
@@ -490,10 +490,10 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %197
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @tool_switchyard(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @tool_switchyard(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 488
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
@@ -806,7 +806,7 @@ pmix_obj_new_tma.exit100:                         ; preds = %.lr.ph.i.i97, %100,
 .lr.ph.i102:                                      ; preds = %164, %.lr.ph.i102
   %170 = phi ptr [ %172, %.lr.ph.i102 ], [ %169, %164 ]
   %.07.i103 = phi ptr [ %171, %.lr.ph.i102 ], [ %168, %164 ]
-  tail call void %170(ptr noundef %9) #10
+  tail call void %170(ptr noundef nonnull %9) #10
   %171 = getelementptr inbounds nuw i8, ptr %.07.i103, i64 8
   %172 = load ptr, ptr %171, align 8
   %.not.i104 = icmp eq ptr %172, null
@@ -906,7 +906,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7
@@ -924,7 +924,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

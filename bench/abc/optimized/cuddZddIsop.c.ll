@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [48 x i8] c"*** ERROR : illegal condition for ISOP (U < L).\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %6 = load i32, ptr %5, align 8
   store i32 0, ptr %5, align 8
@@ -26,7 +26,7 @@ define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1040,7 +1040,7 @@ declare ptr @cuddUniqueInterIVO(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

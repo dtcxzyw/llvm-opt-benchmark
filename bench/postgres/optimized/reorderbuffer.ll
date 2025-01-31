@@ -152,7 +152,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @SlabContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -229,7 +229,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferFree(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferFree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   tail call void @MemoryContextDelete(ptr noundef %3) #18
@@ -242,7 +242,7 @@ define dso_local void @ReorderBufferFree(ptr nocapture noundef readonly %0) loca
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ReorderBufferGetChange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @ReorderBufferGetChange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 80) #18
@@ -251,7 +251,7 @@ define dso_local noundef ptr @ReorderBufferGetChange(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferReturnChange(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferReturnChange(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %4, label %ReorderBufferChangeMemoryUpdate.exit
 
 4:                                                ; preds = %3
@@ -484,13 +484,13 @@ define dso_local void @ReorderBufferReturnTupleBuf(ptr noundef %0) local_unnamed
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferReturnRelids(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferReturnRelids(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @pfree(ptr noundef %1) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ReorderBufferGetTupleBuf(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ReorderBufferGetTupleBuf(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = add i64 %1, 47
@@ -502,7 +502,7 @@ define dso_local ptr @ReorderBufferGetTupleBuf(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ReorderBufferGetRelids(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ReorderBufferGetRelids(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -1114,7 +1114,7 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %22, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %7, i64 %6, i1 false)
-  call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %3, ptr noundef %17, i1 noundef zeroext false)
+  call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %3, ptr noundef nonnull %17, i1 noundef zeroext false)
   store ptr %14, ptr @CurrentMemoryContext, align 8
   br label %36
 
@@ -1163,7 +1163,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @SetupHistoricSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1211,7 +1211,7 @@ define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ReorderBufferSetRestartPoint(ptr nocapture noundef writeonly initializes((272, 280)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local void @ReorderBufferSetRestartPoint(ptr noundef writeonly captures(none) initializes((272, 280)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 %1, ptr %3, align 8
   ret void
@@ -1616,7 +1616,7 @@ ReorderBufferStreamCommit.exit:                   ; preds = %22, %19, %29, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -1685,7 +1685,7 @@ ReorderBufferTXNByXid.exit.thread16:              ; preds = %13, %ReorderBufferT
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferSkipPrepare(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferSkipPrepare(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -1962,7 +1962,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %16, %ReorderBufferT
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferCleanupTXN(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferCleanupTXN(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -2258,7 +2258,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %10, %ReorderBufferT
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferImmediateInvalidation(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferImmediateInvalidation(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #18
   br i1 %4, label %5, label %.critedge
 
@@ -2357,7 +2357,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferForget(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferForget(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -2460,7 +2460,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %9, %ReorderBufferTX
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferInvalidate(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferInvalidate(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -2589,7 +2589,7 @@ define dso_local void @ReorderBufferAddSnapshot(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 5, ptr %9, align 8
-  tail call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %7, i1 noundef zeroext false)
+  tail call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %7, i1 noundef zeroext false)
   ret void
 }
 
@@ -2687,7 +2687,7 @@ define dso_local void @ReorderBufferAddNewCommandId(ptr noundef %0, i32 noundef 
   store i32 %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 6, ptr %9, align 8
-  tail call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %7, i1 noundef zeroext false)
+  tail call void @ReorderBufferQueueChange(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %7, i1 noundef zeroext false)
   ret void
 }
 
@@ -2743,7 +2743,7 @@ dlist_push_tail.exit:                             ; preds = %9, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true, ptr noundef null, i64 noundef %2, i1 noundef zeroext true)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8
@@ -2802,7 +2802,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %40, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %4, i64 %.pre-phi39, i1 false)
-  tail call void @ReorderBufferQueueChange(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, ptr noundef %37, i1 noundef zeroext false)
+  tail call void @ReorderBufferQueueChange(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %37, i1 noundef zeroext false)
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -2942,7 +2942,7 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 declare i32 @xidComparator(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -3004,7 +3004,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %8, %ReorderBufferTX
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -3171,7 +3171,7 @@ declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.LogicalRewriteMappingData, align 4
   %9 = alloca %struct.ReorderBufferTupleCidKey, align 4
@@ -5784,7 +5784,7 @@ declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferToastReset(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferToastReset(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -5847,7 +5847,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr %.64.val, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferToastAppendChunk(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr %.64.val, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -5999,7 +5999,7 @@ declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #1
 declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef readonly %0, ptr noundef initializes((128, 132)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr noundef readonly captures(none) %0, ptr noundef initializes((128, 132)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 46
@@ -6093,7 +6093,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %9, %._crit_edge.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferTruncateTXN(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferTruncateTXN(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -6218,7 +6218,7 @@ declare void @FreeErrorData(ptr noundef) local_unnamed_addr #1
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #6 {
+define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %sext = shl i64 %0, 32
   %5 = ashr exact i64 %sext, 32
@@ -6233,7 +6233,7 @@ define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = load i64, ptr %4, align 8
@@ -6760,7 +6760,7 @@ ReorderBufferSerializeChange.exit:                ; preds = %226, %231
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.iovec, align 8
   %6 = alloca %struct.iovec, align 8
   %7 = alloca [1024 x i8], align 16
@@ -7332,13 +7332,13 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 declare i32 @PathNameOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -7357,7 +7357,7 @@ declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -7470,7 +7470,7 @@ declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @binaryheap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferRestoreCleanup(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -7527,34 +7527,34 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 declare void @SnapBuildSnapDecRefcount(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @ReadDirExtended(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #14
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %3, align 8
@@ -7566,7 +7566,7 @@ define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr nocapture noundef rea
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -7575,10 +7575,10 @@ declare void @llvm.assume(i1 noundef) #15
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

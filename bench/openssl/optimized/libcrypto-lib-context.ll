@@ -395,7 +395,7 @@ return:                                           ; preds = %if.end94, %entry, %
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_LIB_CTX_new_from_dispatch(ptr nocapture noundef readnone %handle, ptr noundef %in) local_unnamed_addr #0 {
+define ptr @OSSL_LIB_CTX_new_from_dispatch(ptr noundef readnone captures(none) %handle, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 320, ptr noundef nonnull @.str, i32 noundef 423) #3
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -956,7 +956,7 @@ return:                                           ; preds = %ossl_lib_ctx_is_glo
 declare void @ossl_ctx_thread_stop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @context_deinit_objs(ptr nocapture noundef %ctx) unnamed_addr #0 {
+define internal fastcc void @context_deinit_objs(ptr noundef captures(none) %ctx) unnamed_addr #0 {
 entry:
   %evp_method_store = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %0 = load ptr, ptr %evp_method_store, align 8
@@ -1226,7 +1226,7 @@ declare ptr @ossl_child_prov_ctx_new(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_property_parse_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @CRYPTO_THREAD_init_local(ptr noundef, ptr noundef) local_unnamed_addr #1
 

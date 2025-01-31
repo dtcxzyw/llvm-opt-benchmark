@@ -415,7 +415,7 @@ if.end:                                           ; preds = %cpu_get_clock_locke
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_timer_notify_cb(ptr nocapture noundef readnone %opaque, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local void @qemu_timer_notify_cb(ptr noundef readnone captures(none) %opaque, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @use_icount, align 4
   %tobool = icmp eq i32 %0, 0
@@ -466,7 +466,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 declare void @async_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @do_nothing(ptr nocapture readnone %cpu, i64 %unused.coerce) #3 {
+define internal void @do_nothing(ptr readnone captures(none) %cpu, i64 %unused.coerce) #3 {
 entry:
   ret void
 }
@@ -487,12 +487,12 @@ declare void @cpu_throttle_init() local_unnamed_addr #1
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal zeroext i1 @icount_state_needed(ptr nocapture readnone %opaque) #6 {
+define internal zeroext i1 @icount_state_needed(ptr readnone captures(none) %opaque) #6 {
 entry:
   %0 = load i32, ptr @use_icount, align 4
   %tobool = icmp ne i32 %0, 0
@@ -500,7 +500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @warp_timer_state_needed(ptr nocapture noundef readonly %opaque) #7 {
+define internal zeroext i1 @warp_timer_state_needed(ptr noundef readonly captures(none) %opaque) #7 {
 entry:
   %icount_warp_timer = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %0 = load ptr, ptr %icount_warp_timer, align 8
@@ -509,7 +509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @adjust_timers_state_needed(ptr nocapture noundef readonly %opaque) #7 {
+define internal zeroext i1 @adjust_timers_state_needed(ptr noundef readonly captures(none) %opaque) #7 {
 entry:
   %icount_rt_timer = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %0 = load ptr, ptr %icount_rt_timer, align 8
@@ -518,7 +518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal zeroext i1 @icount_shift_state_needed(ptr nocapture readnone %opaque) #6 {
+define internal zeroext i1 @icount_shift_state_needed(ptr readnone captures(none) %opaque) #6 {
 entry:
   %0 = load i32, ptr @use_icount, align 4
   %cmp = icmp eq i32 %0, 2
@@ -526,10 +526,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

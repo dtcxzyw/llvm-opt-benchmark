@@ -66,13 +66,13 @@ $_ZN5frameC2EPlS0_S0_Ph = comdat any
 @_ZN15StackWatermarksD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15StackWatermarksD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15StackWatermarksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15StackWatermarksC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15StackWatermarksD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15StackWatermarksD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -93,21 +93,21 @@ define hidden void @_ZN15StackWatermarksD2Ev(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17StackWatermarkSet8set_headEP10JavaThreadP14StackWatermark(ptr nocapture noundef writeonly initializes((1376, 1384)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17StackWatermarkSet8set_headEP10JavaThreadP14StackWatermark(ptr noundef writeonly captures(none) initializes((1376, 1384)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWatermark(ptr nocapture noundef %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWatermark(ptr noundef captures(none) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -326,7 +326,7 @@ _ZN14StackWatermark11ensure_safeERK5frame.exit:   ; preds = %13, %_ZNK5frame7rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #10
   br i1 %3, label %.loopexit, label %4
 
@@ -401,7 +401,7 @@ _ZN14StackWatermark12on_iterationERK5frame.exit:  ; preds = %9, %14, %_ZNK5frame
 declare noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StackWatermarkSet12on_safepointEP10JavaThread(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17StackWatermarkSet12on_safepointEP10JavaThread(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %.07.i = load ptr, ptr %2, align 8
   %.not8.i = icmp eq ptr %.07.i, null
@@ -431,7 +431,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread: ; pred
 declare void @_ZN14StackWatermark12on_safepointEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %.07.i = load ptr, ptr %3, align 8
   %.not8.i = icmp eq ptr %.07.i, null
@@ -461,7 +461,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread: ; pred
 declare void @_ZN14StackWatermark16start_processingEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %.06 = load ptr, ptr %2, align 8
   %.not7 = icmp eq ptr %.06, null
@@ -486,7 +486,7 @@ define hidden noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10
 declare noundef zeroext i1 @_ZNK14StackWatermark18processing_startedEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %.07.i = load ptr, ptr %4, align 8
   %.not8.i = icmp eq ptr %.07.i, null
@@ -516,7 +516,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread: ; pred
 declare void @_ZN14StackWatermark17finish_processingEPv(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -1) i64 @_ZN17StackWatermarkSet16lowest_watermarkEP10JavaThread(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, -1) i64 @_ZN17StackWatermarkSet16lowest_watermarkEP10JavaThread(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %.011 = load ptr, ptr %2, align 8
   %.not12 = icmp eq ptr %.011, null
@@ -810,7 +810,7 @@ _ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame.exit: ; preds = %_ZN1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 

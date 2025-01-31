@@ -107,7 +107,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @DH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_clear_flags(ptr nocapture noundef %d, i32 noundef %flags) local_unnamed_addr #2 {
+define void @DSA_clear_flags(ptr noundef captures(none) %d, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %not = xor i32 %flags, -1
   %flags1 = getelementptr inbounds nuw i8, ptr %d, i64 120
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @DSA_test_flags(ptr nocapture noundef readonly %d, i32 noundef %flags) local_unnamed_addr #3 {
+define i32 @DSA_test_flags(ptr noundef readonly captures(none) %d, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %d, i64 120
   %0 = load i32, ptr %flags1, align 8
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_set_flags(ptr nocapture noundef %d, i32 noundef %flags) local_unnamed_addr #2 {
+define void @DSA_set_flags(ptr noundef captures(none) %d, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %d, i64 120
   %0 = load i32, ptr %flags1, align 8
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_engine(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_engine(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %engine = getelementptr inbounds nuw i8, ptr %d, i64 168
   %0 = load ptr, ptr %engine, align 8
@@ -180,7 +180,7 @@ if.end10:                                         ; preds = %if.then7, %if.end
 declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get_method(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get_method(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %meth = getelementptr inbounds nuw i8, ptr %d, i64 160
   %0 = load ptr, ptr %meth, align 8
@@ -386,7 +386,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @DSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @DSA_up_ref(ptr noundef captures(none) %r) local_unnamed_addr #4 {
 entry:
   %references = getelementptr inbounds nuw i8, ptr %r, i64 136
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_dsa_set0_libctx(ptr nocapture noundef writeonly initializes((184, 192)) %d, ptr noundef %libctx) local_unnamed_addr #5 {
+define void @ossl_dsa_set0_libctx(ptr noundef writeonly captures(none) initializes((184, 192)) %d, ptr noundef %libctx) local_unnamed_addr #5 {
 entry:
   %libctx1 = getelementptr inbounds nuw i8, ptr %d, i64 184
   store ptr %libctx, ptr %libctx1, align 8
@@ -455,7 +455,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @ossl_ffc_params_set0_pqg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_p(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_p(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %params = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_q(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_q(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %q = getelementptr inbounds nuw i8, ptr %d, i64 16
   %0 = load ptr, ptr %q, align 8
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_g(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_g(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %g = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %g, align 8
@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_pub_key(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_pub_key(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %pub_key = getelementptr inbounds nuw i8, ptr %d, i64 104
   %0 = load ptr, ptr %pub_key, align 8
@@ -487,7 +487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @DSA_get0_priv_key(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
+define ptr @DSA_get0_priv_key(ptr noundef readonly captures(none) %d) local_unnamed_addr #3 {
 entry:
   %priv_key = getelementptr inbounds nuw i8, ptr %d, i64 112
   %0 = load ptr, ptr %priv_key, align 8
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_get0_key(ptr nocapture noundef readonly %d, ptr noundef writeonly %pub_key, ptr noundef writeonly %priv_key) local_unnamed_addr #2 {
+define void @DSA_get0_key(ptr noundef readonly captures(none) %d, ptr noundef writeonly %pub_key, ptr noundef writeonly %priv_key) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pub_key, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -521,7 +521,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DSA_set0_key(ptr nocapture noundef %d, ptr noundef %pub_key, ptr noundef %priv_key) local_unnamed_addr #0 {
+define noundef i32 @DSA_set0_key(ptr noundef captures(none) %d, ptr noundef %pub_key, ptr noundef %priv_key) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pub_key, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -553,7 +553,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DSA_security_bits(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define i32 @DSA_security_bits(ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -583,7 +583,7 @@ declare i32 @BN_security_bits(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DSA_bits(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define i32 @DSA_bits(ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8

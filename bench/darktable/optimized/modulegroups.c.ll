@@ -358,7 +358,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #16
   ret ptr %2
 }
@@ -367,22 +367,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 999
 }
 
@@ -516,8 +516,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %119 = tail call i32 (...) %118() #16
   %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %114) #17
   %121 = trunc i64 %120 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %115, ptr noundef nonnull %116, i32 noundef %119, ptr noundef %114, i32 noundef %121, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %114) #16
+  tail call void @dt_lib_presets_add(ptr noundef %115, ptr noundef nonnull %116, i32 noundef %119, ptr noundef nonnull %114, i32 noundef %121, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %114) #16
   %122 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5) #16
   br i1 %9, label %131, label %123
 
@@ -579,8 +579,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %174 = tail call i32 (...) %173() #16
   %175 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #17
   %176 = trunc i64 %175 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %172, ptr noundef nonnull %116, i32 noundef %174, ptr noundef %171, i32 noundef %176, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %171) #16
+  tail call void @dt_lib_presets_add(ptr noundef %172, ptr noundef nonnull %116, i32 noundef %174, ptr noundef nonnull %171, i32 noundef %176, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %171) #16
   %177 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5) #16
   %178 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %177, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #16
   %179 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %178, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14) #16
@@ -644,8 +644,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %237 = tail call i32 (...) %236() #16
   %238 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %234) #17
   %239 = trunc i64 %238 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %235, ptr noundef nonnull %116, i32 noundef %237, ptr noundef %234, i32 noundef %239, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %234) #16
+  tail call void @dt_lib_presets_add(ptr noundef %235, ptr noundef nonnull %116, i32 noundef %237, ptr noundef nonnull %234, i32 noundef %239, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %234) #16
   %240 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5) #16
   %241 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %240, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #16
   %242 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %241, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #16
@@ -728,16 +728,16 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %311 = tail call i32 (...) %310() #16
   %312 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %308) #17
   %313 = trunc i64 %312 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %309, ptr noundef nonnull %116, i32 noundef %311, ptr noundef %308, i32 noundef %313, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %308) #16
+  tail call void @dt_lib_presets_add(ptr noundef %309, ptr noundef nonnull %116, i32 noundef %311, ptr noundef nonnull %308, i32 noundef %313, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %308) #16
   %314 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.112) #16
   %315 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.113, i32 noundef 5) #16
   %316 = load ptr, ptr %117, align 8, !tbaa !13
   %317 = tail call i32 (...) %316() #16
   %318 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %314) #17
   %319 = trunc i64 %318 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %315, ptr noundef nonnull %116, i32 noundef %317, ptr noundef %314, i32 noundef %319, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %314) #16
+  tail call void @dt_lib_presets_add(ptr noundef %315, ptr noundef nonnull %116, i32 noundef %317, ptr noundef nonnull %314, i32 noundef %319, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %314) #16
   %320 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.112) #16
   %321 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.114, i64 noundef 12) #16
   %322 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %320, ptr noundef nonnull @.str.24, ptr noundef %321, ptr noundef nonnull @.str.26) #16
@@ -748,8 +748,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %327 = tail call i32 (...) %326() #16
   %328 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %324) #17
   %329 = trunc i64 %328 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %325, ptr noundef nonnull %116, i32 noundef %327, ptr noundef %324, i32 noundef %329, i32 noundef 1, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %324) #16
+  tail call void @dt_lib_presets_add(ptr noundef %325, ptr noundef nonnull %116, i32 noundef %327, ptr noundef nonnull %324, i32 noundef %329, i32 noundef 1, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %324) #16
   %330 = tail call i32 @dt_conf_key_exists(ptr noundef nonnull @.str.116) #16
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %332, label %446
@@ -761,10 +761,10 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %336 = tail call i32 (...) %335() #16
   %337 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %333) #17
   %338 = trunc i64 %337 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %334, ptr noundef nonnull %116, i32 noundef %336, ptr noundef %333, i32 noundef %338, i32 noundef 0, i32 noundef 0) #16
+  tail call void @dt_lib_presets_add(ptr noundef %334, ptr noundef nonnull %116, i32 noundef %336, ptr noundef nonnull %333, i32 noundef %338, i32 noundef 0, i32 noundef 0) #16
   %339 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.118, i32 noundef 5) #16
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.116, ptr noundef %339) #16
-  tail call void @g_free(ptr noundef %333) #16
+  tail call void @g_free(ptr noundef nonnull %333) #16
   %340 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.158) #16
   %341 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %340, ptr noundef nonnull dereferenceable(17) @.str.159) #17
   %342 = icmp eq i32 %341, 0
@@ -934,8 +934,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %443 = tail call i32 (...) %442() #16
   %444 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %440) #17
   %445 = trunc i64 %444 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %441, ptr noundef nonnull %116, i32 noundef %443, ptr noundef %440, i32 noundef %445, i32 noundef 0, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %440) #16
+  tail call void @dt_lib_presets_add(ptr noundef %441, ptr noundef nonnull %116, i32 noundef %443, ptr noundef nonnull %440, i32 noundef %445, i32 noundef 0, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %440) #16
   br label %446
 
 446:                                              ; preds = %.loopexit12, %268
@@ -1024,8 +1024,8 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %501 = call i32 (...) %500() #16
   %502 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %499) #17
   %503 = trunc i64 %502 to i32
-  call void @dt_lib_presets_add(ptr noundef %467, ptr noundef nonnull %116, i32 noundef %501, ptr noundef %499, i32 noundef %503, i32 noundef 0, i32 noundef 0) #16
-  call void @g_free(ptr noundef %499) #16
+  call void @dt_lib_presets_add(ptr noundef %467, ptr noundef nonnull %116, i32 noundef %501, ptr noundef nonnull %499, i32 noundef %503, i32 noundef 0, i32 noundef 0) #16
+  call void @g_free(ptr noundef nonnull %499) #16
   call void @g_free(ptr noundef %497) #16
   call void @g_free(ptr noundef %498) #16
   %504 = load ptr, ptr %2, align 8, !tbaa !14
@@ -1066,7 +1066,7 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @dt_is_scene_referred() local_unnamed_addr #4
 
@@ -1083,7 +1083,7 @@ declare ptr @g_dpgettext(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @dt_lib_presets_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
@@ -1222,7 +1222,7 @@ define internal fastcc ptr @_preset_retrieve_old_layout(ptr noundef readonly %0,
 
 81:                                               ; preds = %79, %73
   %82 = phi ptr [ %80, %79 ], [ %42, %73 ]
-  tail call void @g_free(ptr noundef %54) #16
+  tail call void @g_free(ptr noundef nonnull %54) #16
   br label %83
 
 83:                                               ; preds = %81, %46, %.split.us
@@ -1332,15 +1332,15 @@ define internal fastcc ptr @_preset_retrieve_old_layout(ptr noundef readonly %0,
 declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 {
+define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 {
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noundef ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = tail call fastcc ptr @_preset_to_string(ptr %4, i32 noundef 0)
@@ -1351,7 +1351,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_preset_to_string(ptr nocapture readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc ptr @_preset_to_string(ptr readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, i64 80, i64 96
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
@@ -1664,7 +1664,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_manage_editor_groups_cleanup(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc void @_manage_editor_groups_cleanup(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = icmp eq i32 %1, 0
@@ -1780,7 +1780,7 @@ define internal fastcc void @_manage_editor_groups_cleanup(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc void @_preset_from_string(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %137, label %5
 
@@ -2241,7 +2241,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #7
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_scroll_group_buttons(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_scroll_group_buttons(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !32
@@ -2329,7 +2329,7 @@ declare ptr @dtgtk_togglebutton_new(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dtgtk_cairo_paint_modulegroup_basics(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_manage_direct_basic_popup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_manage_direct_basic_popup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !116
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %6, label %11
@@ -2550,7 +2550,7 @@ declare ptr @dt_action_define(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @dtgtk_cairo_paint_modulegroup_active(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_manage_direct_active_popup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_manage_direct_active_popup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !116
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %6, label %27
@@ -2596,7 +2596,7 @@ declare ptr @dtgtk_button_new(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @dtgtk_cairo_paint_presets(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_presets_pressed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_presets_pressed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !121
   %6 = tail call i32 @gtk_accelerator_get_default_mod_mask() #16
@@ -2623,7 +2623,7 @@ declare void @gtk_entry_set_placeholder_text(ptr noundef, ptr noundef) local_unn
 declare i64 @gtk_entry_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @_text_entry_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_text_entry_changed_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !119
@@ -3396,7 +3396,7 @@ define internal void @_lib_modulegroups_update_visibility_proxy(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_lib_modulegroups_get(ptr nocapture noundef readonly %0) #8 {
+define internal i32 @_lib_modulegroups_get(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = load i32, ptr %3, align 8, !tbaa !50
@@ -3404,7 +3404,7 @@ define internal i32 @_lib_modulegroups_get(ptr nocapture noundef readonly %0) #8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_lib_modulegroups_get_activated(ptr nocapture noundef readonly %0) #1 {
+define internal i32 @_lib_modulegroups_get_activated(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = load i32, ptr %3, align 8, !tbaa !50
@@ -3456,7 +3456,7 @@ define internal i32 @_lib_modulegroups_get_activated(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_lib_modulegroups_test(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal i32 @_lib_modulegroups_test(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %8
 
@@ -3558,7 +3558,7 @@ define internal void @_lib_modulegroups_switch_group(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_lib_modulegroups_test_visible(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_modulegroups_test_visible(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -3646,7 +3646,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_dev_image_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_dt_dev_image_changed_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -4215,7 +4215,7 @@ define void @manage_presets(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @view_leave(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define void @view_leave(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(9) @.str.145) #17
   %6 = icmp eq i32 %5, 0
@@ -4256,10 +4256,10 @@ define void @view_leave(ptr nocapture noundef readonly %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @view_enter(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(9) @.str.145) #17
   %6 = icmp eq i32 %5, 0
@@ -4297,14 +4297,14 @@ define void @view_enter(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
 declare i32 @dt_lib_presets_apply(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @preset_autoapply(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @preset_autoapply(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 declare i32 @dt_iop_so_is_hidden(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #4
 
@@ -4315,7 +4315,7 @@ declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #4
 
@@ -4342,7 +4342,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_basics_init_item(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @_basics_init_item(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !34
   %3 = icmp eq ptr %2, null
   br i1 %3, label %76, label %4
@@ -4556,7 +4556,7 @@ define internal fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr nounde
 declare ptr @gtk_menu_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #1 {
   %7 = icmp eq i32 %4, 0
   %8 = select i1 %7, ptr @_manage_editor_basics_add, ptr @_manage_direct_basics_module_toggle
   %9 = icmp eq ptr %0, null
@@ -4812,7 +4812,7 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
 
 165:                                              ; preds = %158, %153
   %166 = phi ptr [ %159, %158 ], [ null, %153 ]
-  tail call void @g_free(ptr noundef %155) #16
+  tail call void @g_free(ptr noundef nonnull %155) #16
   br label %167
 
 167:                                              ; preds = %165, %143, %142
@@ -4949,7 +4949,7 @@ define internal void @_manage_editor_basics_add(ptr noundef %0, ptr noundef %1) 
 declare ptr @gtk_check_menu_item_new_with_label(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @_action_label(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 {
+define internal fastcc noalias ptr @_action_label(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !147
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %common.ret, label %4
@@ -4980,7 +4980,7 @@ common.ret:                                       ; preds = %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @_action_id(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc noalias ptr @_action_id(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !147
   %3 = icmp eq i32 %2, 4
   br i1 %3, label %common.ret, label %4
@@ -5013,7 +5013,7 @@ common.ret:                                       ; preds = %4, %1
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_basics_item_find(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
+define internal i32 @_basics_item_find(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !34
   %4 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef %1) #16
   ret i32 %4
@@ -5037,7 +5037,7 @@ declare void @gtk_widget_set_tooltip_markup(ptr noundef, ptr noundef) local_unna
 declare ptr @g_object_get_data(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 3) i32 @_lib_modulegroups_basics_module_toggle_action(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 1, 3) i32 @_lib_modulegroups_basics_module_toggle_action(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = tail call fastcc ptr @_action_id(ptr noundef %1)
@@ -5143,8 +5143,8 @@ define internal fastcc void @_manage_direct_save(ptr noundef %0) unnamed_addr #1
   %9 = tail call i32 (...) %8() #16
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
   %11 = trunc i64 %10 to i32
-  tail call void @dt_lib_presets_add(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %9, ptr noundef %4, i32 noundef %11, i32 noundef 0, i32 noundef 0) #16
-  tail call void @g_free(ptr noundef %4) #16
+  tail call void @dt_lib_presets_add(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %9, ptr noundef nonnull %4, i32 noundef %11, i32 noundef 0, i32 noundef 0) #16
+  tail call void @g_free(ptr noundef nonnull %4) #16
   %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef 5) #16
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.116, ptr noundef %12) #16
   %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef 5) #16
@@ -5334,7 +5334,7 @@ declare void @gtk_label_set_xalign(ptr noundef, float noundef) local_unnamed_add
 declare void @dtgtk_cairo_paint_remove(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_basics_remove(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_manage_editor_basics_remove(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
@@ -6048,7 +6048,7 @@ define internal fastcc range(i32 0, 3) i32 @_basics_add_items_from_module_widget
   store ptr %1, ptr %49, align 8, !tbaa !137
   %50 = load ptr, ptr %48, align 8, !tbaa !180
   tail call fastcc void @_basics_add_widget(ptr noundef %0, ptr noundef nonnull %30, ptr noundef %50, i32 noundef %3)
-  tail call void @g_free(ptr noundef %26) #16
+  tail call void @g_free(ptr noundef nonnull %26) #16
   br label %99
 
 51:                                               ; preds = %43, %39, %34, %.preheader9
@@ -6392,7 +6392,7 @@ declare void @dtgtk_cairo_paint_switch(ptr noundef, i32 noundef, i32 noundef, i3
 declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_basics_on_off_callback(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_basics_on_off_callback(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !63
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !119
@@ -6416,7 +6416,7 @@ define internal void @_basics_on_off_callback(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_basics_on_off_callback2(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_basics_on_off_callback2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !189
   %6 = tail call i64 @gtk_container_get_type() #19
@@ -6471,7 +6471,7 @@ declare void @gtk_box_reorder_child(ptr noundef, ptr noundef, i32 noundef) local
 declare void @gtk_grid_attach(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_sync_visibility(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_sync_visibility(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !199
   %6 = icmp eq ptr %5, %0
@@ -6512,7 +6512,7 @@ define internal void @_sync_visibility(ptr noundef readnone %0, ptr nocapture re
 declare void @gtk_widget_destroyed(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_manage_direct_module_popup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_manage_direct_module_popup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %6 = tail call ptr @g_object_get_data(ptr noundef %5, ptr noundef nonnull @.str.225) #16
@@ -6550,7 +6550,7 @@ declare void @dtgtk_cairo_paint_link(ptr noundef, i32 noundef, i32 noundef, i32 
 declare void @gtk_widget_set_valign(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_basics_goto_module(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef i32 @_basics_goto_module(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !86
   tail call void @dt_dev_modulegroups_switch(ptr noundef %4, ptr noundef %2) #16
   tail call void @dt_iop_gui_set_expanded(ptr noundef %2, i32 noundef 1, i32 noundef 1) #16
@@ -6578,7 +6578,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @g_main_context_invoke(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_modulegroups_set_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_lib_modulegroups_set_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !140
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !142
@@ -6629,10 +6629,10 @@ define internal noundef i32 @_lib_modulegroups_set_gui_thread(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_modulegroups_upd_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_lib_modulegroups_upd_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !140
   tail call fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef %2)
   tail call void @free(ptr noundef %0) #16
@@ -6715,7 +6715,7 @@ define internal fastcc nonnull ptr @_buttons_get_icon_fct(ptr noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_manage_direct_popup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_manage_direct_popup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !116
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %6, label %18
@@ -7075,7 +7075,7 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @g_list_copy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @_manage_editor_module_so_add_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 -2147483647, -2147483648) i32 @_manage_editor_module_so_add_sort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !211
   %5 = tail call ptr %4() #16
@@ -7109,7 +7109,7 @@ declare void @gtk_window_set_default_size(ptr noundef, i32 noundef, i32 noundef)
 declare void @gtk_window_set_title(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_resize_dialog(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @_manage_editor_resize_dialog(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca %struct._cairo_rectangle_int, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -7133,7 +7133,7 @@ declare void @gtk_container_set_border_width(ptr noundef, i32 noundef) local_unn
 declare ptr @gtk_combo_box_text_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_preset_change(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_manage_preset_change(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -7157,7 +7157,7 @@ define internal void @_manage_preset_change(ptr nocapture readnone %0, ptr nound
 declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_preset_delete(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_manage_preset_delete(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.275) #16
@@ -7553,8 +7553,8 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
   %247 = call i32 (...) %246() #16
   %248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %243) #17
   %249 = trunc i64 %248 to i32
-  call void @dt_lib_presets_add(ptr noundef %245, ptr noundef nonnull %48, i32 noundef %247, ptr noundef %243, i32 noundef %249, i32 noundef 0, i32 noundef 0) #16
-  call void @g_free(ptr noundef %243) #16
+  call void @dt_lib_presets_add(ptr noundef %245, ptr noundef nonnull %48, i32 noundef %247, ptr noundef nonnull %243, i32 noundef %249, i32 noundef 0, i32 noundef 0) #16
+  call void @g_free(ptr noundef nonnull %243) #16
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 1, ptr %250, align 8, !tbaa !215
   call fastcc void @_manage_preset_update_list(ptr noundef %1)
@@ -7579,8 +7579,8 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
   %263 = call i32 (...) %262() #16
   %264 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %259) #17
   %265 = trunc i64 %264 to i32
-  call void @dt_lib_presets_add(ptr noundef %261, ptr noundef nonnull %48, i32 noundef %263, ptr noundef %259, i32 noundef %265, i32 noundef 0, i32 noundef 0) #16
-  call void @g_free(ptr noundef %259) #16
+  call void @dt_lib_presets_add(ptr noundef %261, ptr noundef nonnull %48, i32 noundef %263, ptr noundef nonnull %259, i32 noundef %265, i32 noundef 0, i32 noundef 0) #16
+  call void @g_free(ptr noundef nonnull %259) #16
   %266 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 1, ptr %266, align 8, !tbaa !215
   call fastcc void @_manage_preset_update_list(ptr noundef %1)
@@ -7604,7 +7604,7 @@ define internal void @_manage_editor_preset_action(ptr noundef readnone %0, ptr 
 declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_search_toggle(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_manage_editor_search_toggle(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -7651,7 +7651,7 @@ define internal void @_manage_editor_search_toggle(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_basics_toggle(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_manage_editor_basics_toggle(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -7701,7 +7701,7 @@ define internal void @_manage_editor_basics_toggle(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_full_active_toggle(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_manage_editor_full_active_toggle(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -7724,7 +7724,7 @@ define internal void @_manage_editor_full_active_toggle(ptr noundef %0, ptr noca
 declare void @dtgtk_cairo_paint_preferences(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_preset_autoapply_edit(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
@@ -7844,7 +7844,7 @@ define internal void @_preset_autoapply_edit(ptr nocapture readnone %0, ptr noun
 declare void @dtgtk_cairo_paint_square_plus(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_add(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal void @_manage_editor_group_add(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #20
@@ -7875,7 +7875,7 @@ declare void @gtk_widget_set_vexpand(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @gtk_button_new_with_label(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_reset(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal void @_manage_editor_reset(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -8329,7 +8329,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 .preheader:                                       ; preds = %206, %.preheader
   %231 = phi ptr [ %237, %.preheader ], [ %216, %206 ]
   %232 = load ptr, ptr %231, align 8, !tbaa !15
-  %233 = call fastcc ptr @_manage_editor_group_init_modules_box(ptr noundef %1, ptr noundef %232)
+  %233 = call fastcc ptr @_manage_editor_group_init_modules_box(ptr noundef nonnull %1, ptr noundef %232)
   call void @gtk_widget_show_all(ptr noundef %233) #16
   %234 = load ptr, ptr %15, align 8, !tbaa !169
   %235 = call ptr @g_type_check_instance_cast(ptr noundef %234, i64 noundef %20) #16
@@ -8354,7 +8354,7 @@ define internal fastcc void @_manage_editor_load(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_destroy(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_manage_editor_destroy(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   tail call fastcc void @_manage_editor_save(ptr noundef %1)
@@ -8412,7 +8412,7 @@ declare i64 @g_utf8_strlen(ptr noundef, i64 noundef) local_unnamed_addr #10
 declare ptr @gtk_window_get_title(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_preset_name_verify(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_manage_editor_preset_name_verify(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr %1, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -8463,7 +8463,7 @@ declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @dt_gui_presets_show_edit_dialog(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_preset_autoapply_changed(ptr nocapture noundef readonly %0) #1 {
+define internal void @_preset_autoapply_changed(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8, !tbaa !221
@@ -8781,7 +8781,7 @@ define internal fastcc void @_manage_editor_group_update_arrows(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_icon_popup(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_manage_editor_group_icon_popup(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %5 = tail call ptr @g_object_get_data(ptr noundef %4, ptr noundef nonnull @.str.235) #16
   %6 = tail call ptr @gtk_popover_new(ptr noundef %0) #16
@@ -8949,7 +8949,7 @@ define internal void @_manage_editor_group_icon_popup(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_name_changed(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_manage_editor_group_name_changed(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %5 = tail call ptr @g_object_get_data(ptr noundef %4, ptr noundef nonnull @.str.235) #16
   %6 = tail call i64 @gtk_entry_get_type() #19
@@ -8963,7 +8963,7 @@ define internal void @_manage_editor_group_name_changed(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_remove(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_manage_editor_group_remove(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -9137,7 +9137,7 @@ define internal fastcc void @_manage_editor_module_update_list(ptr noundef %0, p
 declare void @dtgtk_cairo_paint_line_arrow(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_move_left(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_manage_editor_group_move_left(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
@@ -9170,7 +9170,7 @@ define internal void @_manage_editor_group_move_left(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_module_add_popup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal void @_manage_editor_module_add_popup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %5 = tail call ptr @g_object_get_data(ptr noundef %4, ptr noundef nonnull @.str.235) #16
   tail call fastcc void @_manage_module_add_popup(ptr noundef %0, ptr noundef %5, ptr noundef nonnull @_manage_editor_module_add, ptr noundef %2, i32 noundef 0)
@@ -9178,7 +9178,7 @@ define internal void @_manage_editor_module_add_popup(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_move_right(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_manage_editor_group_move_right(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
@@ -9221,7 +9221,7 @@ define internal void @_manage_editor_group_move_right(ptr noundef %0, ptr nocapt
 declare ptr @gtk_popover_new(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_group_icon_changed(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #1 {
+define internal void @_manage_editor_group_icon_changed(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %5 = tail call ptr @g_object_get_data(ptr noundef %4, ptr noundef nonnull @.str.301) #16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9257,7 +9257,7 @@ declare void @gtk_popover_popdown(ptr noundef) local_unnamed_addr #4
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_module_remove(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_manage_editor_module_remove(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %5 = tail call ptr @g_object_get_data(ptr noundef %4, ptr noundef nonnull @.str.310) #16
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
@@ -9367,8 +9367,8 @@ define internal fastcc void @_manage_editor_save(ptr noundef %0) unnamed_addr #1
   %26 = load ptr, ptr %4, align 8, !tbaa !216
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #17
   %28 = trunc i64 %27 to i32
-  tail call void @dt_lib_presets_update(ptr noundef %21, ptr noundef nonnull %22, i32 noundef %25, ptr noundef %26, ptr noundef nonnull @.str.202, ptr noundef %20, i32 noundef %28) #16
-  tail call void @g_free(ptr noundef %20) #16
+  tail call void @dt_lib_presets_update(ptr noundef %21, ptr noundef nonnull %22, i32 noundef %25, ptr noundef %26, ptr noundef nonnull @.str.202, ptr noundef nonnull %20, i32 noundef %28) #16
+  tail call void @g_free(ptr noundef nonnull %20) #16
   %29 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.116) #16
   %30 = load ptr, ptr %4, align 8, !tbaa !216
   %31 = tail call i32 @g_strcmp0(ptr noundef %29, ptr noundef %30) #16
@@ -9407,16 +9407,16 @@ declare void @gtk_combo_box_set_active(ptr noundef, i32 noundef) local_unnamed_a
 declare void @dt_lib_presets_update(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_manage_editor_basics_add_popup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal void @_manage_editor_basics_add_popup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   tail call fastcc void @_manage_basics_add_popup(ptr noundef %0, ptr noundef %2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }

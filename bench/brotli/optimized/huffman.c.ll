@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kReverseBits = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr nocapture noundef writeonly %table, ptr nocapture noundef readonly %code_lengths, ptr nocapture noundef readonly %count) local_unnamed_addr #0 {
+define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly captures(none) %table, ptr noundef readonly captures(none) %code_lengths, ptr noundef readonly captures(none) %count) local_unnamed_addr #0 {
 entry:
   %sorted = alloca [18 x i32], align 16
   %offset = alloca [6 x i32], align 16
@@ -208,10 +208,10 @@ do.end115:                                        ; preds = %for.end110, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %root_table, i32 noundef %root_bits, ptr nocapture noundef readonly %symbol_lists, ptr nocapture noundef %count) local_unnamed_addr #0 {
+define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %root_table, i32 noundef %root_bits, ptr noundef readonly captures(none) %symbol_lists, ptr noundef captures(none) %count) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -528,7 +528,7 @@ for.end83:                                        ; preds = %for.end78, %while.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr nocapture noundef %table, i32 noundef %root_bits, ptr nocapture noundef %val, i32 noundef %num_symbols) local_unnamed_addr #0 {
+define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr noundef captures(none) %table, i32 noundef %root_bits, ptr noundef captures(none) %val, i32 noundef %num_symbols) local_unnamed_addr #0 {
 entry:
   %shl = shl nuw i32 1, %root_bits
   switch i32 %num_symbols, label %sw.epilog [

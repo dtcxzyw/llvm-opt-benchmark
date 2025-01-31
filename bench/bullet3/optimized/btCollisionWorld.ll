@@ -297,7 +297,7 @@ $_ZTI17DebugDrawcallback = comdat any
 @_ZN16btCollisionWorldD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16btCollisionWorldD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(121) initializes((0, 8), (12, 20), (24, 33), (40, 65), (72, 83), (84, 89), (92, 97), (104, 121)) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr nocapture readnone %collisionConfiguration) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(121) initializes((0, 8), (12, 20), (24, 33), (40, 65), (72, 83), (84, 89), (92, 97), (104, 121)) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr readnone captures(none) %collisionConfiguration) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btCollisionWorld, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -348,7 +348,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16btCollisionWorldD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(121) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(121) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btCollisionWorld, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -474,7 +474,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld22refreshBroadphaseProxyEP17btCollisionObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef %collisionObject) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld22refreshBroadphaseProxyEP17btCollisionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef %collisionObject) unnamed_addr #5 align 2 {
 entry:
   %trans = alloca %class.btTransform, align 4
   %minAabb = alloca %class.btVector3, align 4
@@ -531,7 +531,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld18addCollisionObjectEP17btCollisionObjectii(ptr nocapture noundef nonnull align 8 dereferenceable(121) %this, ptr noundef initializes((236, 240)) %collisionObject, i32 noundef %collisionFilterGroup, i32 noundef %collisionFilterMask) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld18addCollisionObjectEP17btCollisionObjectii(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %this, ptr noundef initializes((236, 240)) %collisionObject, i32 noundef %collisionFilterGroup, i32 noundef %collisionFilterMask) unnamed_addr #5 align 2 {
 entry:
   %trans = alloca %class.btTransform, align 4
   %minAabb = alloca %class.btVector3, align 4
@@ -653,7 +653,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef %colObj) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN16btCollisionWorld16updateSingleAabbEP17btCollisionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef %colObj) local_unnamed_addr #6 align 2 {
 entry:
   %minAabb = alloca %class.btVector3, align 4
   %maxAabb = alloca %class.btVector3, align 4
@@ -896,7 +896,7 @@ if.end40:                                         ; preds = %if.else, %land.lhs.
 declare void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld11updateAabbsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorld11updateAabbsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.4)
@@ -961,7 +961,7 @@ declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferencea
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld23computeOverlappingPairsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorld23computeOverlappingPairsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.5)
@@ -1056,7 +1056,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr nocapture noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %collisionObject) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 captures(none) dereferenceable(121) %this, ptr noundef %collisionObject) unnamed_addr #5 align 2 {
 entry:
   %m_broadphaseHandle.i = getelementptr inbounds nuw i8, ptr %collisionObject, i64 192
   %0 = load ptr, ptr %m_broadphaseHandle.i, align 8
@@ -1196,7 +1196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackE(ptr noundef nonnull align 4 dereferenceable(64) %rayFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %rayToTrans, ptr nocapture noundef readonly %collisionObjectWrap, ptr noundef nonnull align 8 dereferenceable(36) %resultCallback) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackE(ptr noundef nonnull align 4 dereferenceable(64) %rayFromTrans, ptr noundef nonnull align 4 dereferenceable(64) %rayToTrans, ptr noundef readonly captures(none) %collisionObjectWrap, ptr noundef nonnull align 8 dereferenceable(36) %resultCallback) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %pointShape = alloca %class.btSphereShape, align 8
   %castResult = alloca %"struct.btConvexCast::CastResult", align 8
@@ -2049,7 +2049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
@@ -2344,7 +2344,7 @@ if.end90:                                         ; preds = %if.then3.i.i.i64, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTester11ProcessLeafEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTester11ProcessLeafEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %i) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childWorldTrans = alloca %class.btTransform, align 4
   %tmpOb = alloca %struct.btCollisionObjectWrapper, align 8
@@ -2520,7 +2520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTesterD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTesterD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -3934,7 +3934,7 @@ if.end19:                                         ; preds = %if.then3.i.i.i147, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShape(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %childTrans, ptr noundef %childCollisionShape) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShape(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %childTrans, ptr noundef %childCollisionShape) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childWorldTrans = alloca %class.btTransform, align 4
   %my_cb = alloca %struct.LocalInfoAdder, align 8
@@ -4102,7 +4102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallbackD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallbackD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -4234,7 +4234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %castShape, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexFromWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexToWorld, ptr noundef nonnull align 8 dereferenceable(20) %resultCallback, float noundef %allowedCcdPenetration) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %castShape, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %convexFromWorld, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %convexToWorld, ptr noundef nonnull align 8 dereferenceable(20) %resultCallback, float noundef %allowedCcdPenetration) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %retval.i = alloca %class.btQuaternion, align 8
   %axis.i = alloca %class.btVector3, align 4
@@ -6026,7 +6026,7 @@ if.end136:                                        ; preds = %for.inc132, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld25serializeCollisionObjectsEP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef %serializer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btCollisionWorld25serializeCollisionObjectsEP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef %serializer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %serializedShapes = alloca %class.btHashMap, align 8
   %shape = alloca ptr, align 8
@@ -6625,7 +6625,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld25serializeContactManifoldsEP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef %serializer) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld25serializeContactManifoldsEP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef %serializer) local_unnamed_addr #5 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
@@ -6693,7 +6693,7 @@ declare noundef i32 @_ZNK20btPersistentManifold28calculateSerializeBufferSizeEv(
 declare noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(880), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btCollisionWorld9serializeEP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef %serializer) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btCollisionWorld9serializeEP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef %serializer) unnamed_addr #5 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
@@ -6776,7 +6776,7 @@ entry:
 declare void @_ZN25btTriangleRaycastCallback15processTriangleEP9btVector3ii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallback9reportHitERK9btVector3fii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitNormalLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #6 align 2 {
+define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallback9reportHitERK9btVector3fii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitNormalLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #6 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   %rayResult = alloca %"struct.btCollisionWorld::LocalRayResult", align 8
@@ -6850,7 +6850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallback9reportHitE_0RK9btVector3fii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitNormalLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #6 align 2 {
+define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN29BridgeTriangleRaycastCallback9reportHitE_0RK9btVector3fii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitNormalLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #6 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   %rayResult = alloca %"struct.btCollisionWorld::LocalRayResult", align 8
@@ -6926,7 +6926,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTester7ProcessEPK10btDbvtNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %leaf) unnamed_addr #5 align 2 {
+define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN9RayTester7ProcessEPK10btDbvtNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %leaf) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %leaf, i64 40
   %1 = load i32, ptr %0, align 8
@@ -7003,7 +7003,7 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN15LocalInfoAdder2D2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN15LocalInfoAdder2D2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -7016,7 +7016,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEENK15LocalInfoAdder214needsCollisionEP17btBroadphaseProxy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr noundef %p) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEENK15LocalInfoAdder214needsCollisionEP17btBroadphaseProxy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, ptr noundef %p) unnamed_addr #5 align 2 {
 entry:
   %m_userCallback = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_userCallback, align 8
@@ -7028,7 +7028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN15LocalInfoAdder215addSingleResultERNS_14LocalRayResultEb(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(36) %r, i1 noundef zeroext %b) unnamed_addr #5 align 2 {
+define internal noundef float @_ZZN16btCollisionWorld21rayTestSingleInternalERK11btTransformS2_PK24btCollisionObjectWrapperRNS_17RayResultCallbackEEN15LocalInfoAdder215addSingleResultERNS_14LocalRayResultEb(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(36) %r, i1 noundef zeroext %b) unnamed_addr #5 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   store i32 -1, ptr %shapeInfo, align 4
@@ -7073,7 +7073,7 @@ entry:
 declare void @_ZN28btTriangleConvexcastCallback15processTriangleEP9btVector3ii(ptr noundef nonnull align 8 dereferenceable(220), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallback9reportHitERK9btVector3SE_fii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitNormalLocal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitPointLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 align 2 {
+define internal noundef float @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallback9reportHitERK9btVector3SE_fii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitNormalLocal, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitPointLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   %convexResult = alloca %"struct.btCollisionWorld::LocalConvexResult", align 8
@@ -7119,7 +7119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallback9reportHitE_0RK9btVector3SE_fii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitNormalLocal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %hitPointLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 align 2 {
+define internal noundef float @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN32BridgeTriangleConvexcastCallback9reportHitE_0RK9btVector3SE_fii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitNormalLocal, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %hitPointLocal, float noundef %hitFraction, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   %convexResult = alloca %"struct.btCollisionWorld::LocalConvexResult", align 8
@@ -7164,7 +7164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback7ProcessEPK10btDbvtNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %leaf) unnamed_addr #5 align 2 {
+define internal void @_ZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback7ProcessEPK10btDbvtNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %leaf) unnamed_addr #5 align 2 {
 entry:
   %childTrans = alloca %class.btTransform, align 4
   %0 = getelementptr inbounds nuw i8, ptr %leaf, i64 40
@@ -7192,7 +7192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeEN14LocalInfoAdderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeEN14LocalInfoAdderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -7205,7 +7205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeENK14LocalInfoAdder14needsCollisionEP17btBroadphaseProxy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef %p) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeENK14LocalInfoAdder14needsCollisionEP17btBroadphaseProxy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, ptr noundef %p) unnamed_addr #5 align 2 {
 entry:
   %m_userCallback = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_userCallback, align 8
@@ -7217,7 +7217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeEN14LocalInfoAdder15addSingleResultERNS_17LocalConvexResultEb(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(52) %r, i1 noundef zeroext %b) unnamed_addr #5 align 2 {
+define internal noundef float @_ZZZN16btCollisionWorld25objectQuerySingleInternalEPK13btConvexShapeRK11btTransformS5_PK24btCollisionObjectWrapperRNS_20ConvexResultCallbackEfEN22btCompoundLeafCallback12ProcessChildEiS5_PK16btCollisionShapeEN14LocalInfoAdder15addSingleResultERNS_17LocalConvexResultEb(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(52) %r, i1 noundef zeroext %b) unnamed_addr #5 align 2 {
 entry:
   %shapeInfo = alloca %"struct.btCollisionWorld::LocalShapeInfo", align 4
   store i32 -1, ptr %shapeInfo, align 4
@@ -8526,7 +8526,7 @@ if.end:                                           ; preds = %for.body20, %for.co
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #16
@@ -8535,10 +8535,10 @@ declare float @llvm.sqrt.f32(float) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

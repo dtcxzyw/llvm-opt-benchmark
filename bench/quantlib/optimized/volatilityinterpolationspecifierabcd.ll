@@ -104,7 +104,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVariance
 @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC1EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd = unnamed_addr alias void (ptr, i64, i64, ptr, ptr, double), ptr @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, i64 noundef %period, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %originalVariances, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %timesForSmallRates, double noundef %lastCapletVol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, i64 noundef %period, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %originalVariances, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %timesForSmallRates, double noundef %lastCapletVol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1020,12 +1020,12 @@ unreachable:                                      ; preds = %invoke.cont92, %inv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib29PiecewiseConstantAbcdVarianceESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2888,7 +2888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd9getPeriodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd9getPeriodEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %period_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %period_, align 8, !tbaa !6
@@ -2896,7 +2896,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd9getOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %offset_, align 8, !tbaa !25
@@ -2904,7 +2904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd13getNoBigRatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd13getNoBigRatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %noBigRates_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i64, ptr %noBigRates_, align 8, !tbaa !40
@@ -2912,7 +2912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd15getNoSmallRatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd15getNoSmallRatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %noSmallRates_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load i64, ptr %noSmallRates_, align 8, !tbaa !41
@@ -3240,13 +3240,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -3261,7 +3261,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3331,7 +3331,7 @@ declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, p
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

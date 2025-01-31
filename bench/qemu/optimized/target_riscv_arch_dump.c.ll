@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RISCV_CPU = private unnamed_addr constant [10 x i8] c"RISCV_CPU\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf64_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf64_note(ptr noundef readonly captures(none) %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %note = alloca %struct.riscv64_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
@@ -67,14 +67,14 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @cpu_to_dump32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i64 @cpu_to_dump64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf32_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf32_note(ptr noundef readonly captures(none) %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %note = alloca %struct.riscv32_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
@@ -122,7 +122,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @cpu_get_dump_info(ptr nocapture noundef writeonly %info, ptr nocapture noundef readnone %guest_phys_blocks) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cpu_get_dump_info(ptr noundef writeonly captures(none) %info, ptr noundef readnone captures(none) %guest_phys_blocks) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
@@ -164,7 +164,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

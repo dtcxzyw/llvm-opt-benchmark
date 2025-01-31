@@ -245,7 +245,7 @@ define dso_local double @rb_genrand_real() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_random_mark(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @rb_random_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark(i64 noundef %2) #22
   ret void
@@ -254,12 +254,12 @@ define dso_local void @rb_random_mark(ptr nocapture noundef readonly %0) #0 {
 declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @random_memsize(ptr nocapture readnone %0) #3 {
+define internal noundef i64 @random_memsize(ptr readnone captures(none) %0) #3 {
   ret i64 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @rb_random_base_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
+define dso_local void @rb_random_base_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #4 {
   store i64 1, ptr %0, align 8
   ret void
 }
@@ -989,7 +989,7 @@ declare i64 @rb_funcallv_public(i64 noundef, i64 noundef, i32 noundef, ptr nound
 declare i32 @rb_num_negative_p(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_rand_bytes_int32(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @rb_rand_bytes_int32(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i64 %3, 3
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1104,7 +1104,7 @@ rand_bytes.exit:                                  ; preds = %try_rand_if.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @ruby_sip_hash13(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = and i64 %2, 7
   %6 = sub nsw i64 0, %5
@@ -1791,7 +1791,7 @@ rb_class_of.exit19:                               ; preds = %39, %42, %43, %44, 
 declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_f_srand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal i64 @rb_f_srand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca [5 x i32], align 16
   %5 = alloca [5 x i32], align 16
   %6 = load ptr, ptr @default_rand_key, align 8
@@ -1880,7 +1880,7 @@ random_seed.exit:                                 ; preds = %24, %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_f_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @rb_f_rand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [5 x i32], align 16
   %5 = load ptr, ptr @default_rand_key, align 8
   %6 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %5) #22
@@ -2021,7 +2021,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @random_init(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = tail call fastcc ptr @try_get_rnd(i64 noundef %2)
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2101,7 +2101,7 @@ rb_check_frozen_inline.exit:                      ; preds = %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 5, 4) i64 @random_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i64 5, 4) i64 @random_rand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc ptr @try_get_rnd(i64 noundef %2)
   %5 = tail call fastcc i64 @rand_random(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %4)
   switch i64 %5, label %check_random_number.exit [
@@ -2470,7 +2470,7 @@ define internal i64 @rand_mt_equal(i64 noundef %0, i64 noundef %1) #0 {
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 5, 4) i64 @random_s_rand(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i64 5, 4) i64 @random_s_rand(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca [5 x i32], align 16
   %5 = load ptr, ptr @default_rand_key, align 8
   %6 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %5) #22
@@ -2874,7 +2874,7 @@ declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @rb_extend_object(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rand_random_number(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @rand_random_number(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc ptr @try_get_rnd(i64 noundef %2)
   %5 = tail call fastcc i64 @rand_random(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %4)
   switch i64 %5, label %rand_random.exit [
@@ -2935,7 +2935,7 @@ define hidden void @Init_Random() local_unnamed_addr #0 {
 declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rand_init(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef returned %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef returned %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #22
@@ -3019,7 +3019,7 @@ declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 nou
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare ptr @rb_errno_ptr() local_unnamed_addr #1
 
@@ -3028,7 +3028,7 @@ declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr
 declare i32 @getentropy(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @rand_mt_init(ptr noundef initializes((8, 12)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #12 {
+define internal void @rand_mt_init(ptr noundef initializes((8, 12)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 19650218, ptr %4, align 8
   br label %5
@@ -3168,7 +3168,7 @@ define internal i32 @rand_mt_get_int32(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @rand_mt_get_bytes(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 {
+define internal void @rand_mt_get_bytes(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #2 {
   %4 = icmp ugt i64 %2, 3
   br i1 %4, label %.lr.ph.i.preheader, label %._crit_edge.i
 
@@ -3229,7 +3229,7 @@ rb_rand_bytes_int32.exit:                         ; preds = %18, %._crit_edge.i
 declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @random_mt_memsize(ptr nocapture readnone %0) #3 {
+define internal noundef i64 @random_mt_memsize(ptr readnone captures(none) %0) #3 {
   ret i64 2520
 }
 
@@ -3239,7 +3239,7 @@ declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #1
 declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #16
@@ -4197,7 +4197,7 @@ declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_integer_unpack(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @limited_big_rand(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @limited_big_rand(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #22
   %6 = shl i64 %5, 1
@@ -4310,7 +4310,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rand_init_default(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @rand_init_default(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = load i64, ptr %0, align 8
@@ -4360,7 +4360,7 @@ make_seed_value.exit:                             ; preds = %15, %23
 declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rand_random(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rand_random(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
 
@@ -4541,7 +4541,7 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_equal(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @default_rand_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @default_rand_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark(i64 noundef %2) #22
   ret void
@@ -4554,7 +4554,7 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -4563,10 +4563,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

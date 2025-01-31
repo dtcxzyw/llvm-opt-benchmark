@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_214ChromaticitiesC2ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %red, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %green, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %blue, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %white) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214ChromaticitiesC2ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %red, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %green, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %blue, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %white) unnamed_addr #3 align 2 {
 entry:
   %0 = load float, ptr %red, align 4
   store float %0, ptr %this, align 4
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_214ChromaticitieseqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %c) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_214ChromaticitieseqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %c) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %1 = load float, ptr %c, align 4
@@ -122,7 +122,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_214ChromaticitiesneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %c) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_214ChromaticitiesneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %c) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %1 = load float, ptr %c, align 4
@@ -183,7 +183,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Matrix44") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %chroma, float noundef %Y) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr noalias writeonly sret(%"class.Imath_3_2::Matrix44") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %chroma, float noundef %Y) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %white = getelementptr inbounds nuw i8, ptr %chroma, i64 24
   %y = getelementptr inbounds nuw i8, ptr %chroma, i64 28
@@ -360,7 +360,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28XYZtoRGBERKNS_14ChromaticitiesEf(ptr noalias sret(%"class.Imath_3_2::Matrix44") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %chroma, float noundef %Y) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_28XYZtoRGBERKNS_14ChromaticitiesEf(ptr noalias sret(%"class.Imath_3_2::Matrix44") align 4 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %chroma, float noundef %Y) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Matrix44", align 4
   call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(32) %chroma, float noundef %Y)
@@ -962,7 +962,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

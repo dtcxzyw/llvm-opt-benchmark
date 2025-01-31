@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [8 x i8] c"testfs:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.statfs, align 8
   %8 = alloca i32, align 4
@@ -122,7 +122,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %.not21.i.i, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call i32 @ADIOI_Strncpy(ptr noundef %.0.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
+  %46 = call i32 @ADIOI_Strncpy(ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
   br label %ADIO_FileSysType_parentdir.exit.i
 
 47:                                               ; preds = %43
@@ -140,8 +140,8 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 ADIO_FileSysType_parentdir.exit.i:                ; preds = %51, %49, %45
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  %52 = call i32 @statfs(ptr noundef %.0.i.i, ptr noundef nonnull %7) #9
-  call void @ADIOI_Free_fn(ptr noundef %.0.i.i, i32 noundef 386, ptr noundef nonnull @.str.2) #9
+  %52 = call i32 @statfs(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %7) #9
+  call void @ADIOI_Free_fn(ptr noundef nonnull %.0.i.i, i32 noundef 386, ptr noundef nonnull @.str.2) #9
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.critedge24.i, label %.critedge23.i
 
@@ -218,7 +218,7 @@ ADIO_FileSysType_fncall.exit:                     ; preds = %54, %.critedge23.i,
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #10
-  %77 = tail call i32 @strncasecmp(ptr noundef %75, ptr noundef nonnull %1, i64 noundef %76) #10
+  %77 = tail call i32 @strncasecmp(ptr noundef nonnull %75, ptr noundef nonnull %1, i64 noundef %76) #10
   %.not14.i = icmp eq i32 %77, 0
   br i1 %.not14.i, label %.loopexit.i.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -270,7 +270,7 @@ ADIO_FileSysType_prefix.exit.thread:              ; preds = %.loopexit.i, %ADIO_
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #10
-  %92 = call i32 @strncasecmp(ptr noundef %90, ptr noundef nonnull %84, i64 noundef %91) #10
+  %92 = call i32 @strncasecmp(ptr noundef nonnull %90, ptr noundef nonnull %84, i64 noundef %91) #10
   %.not14.i46 = icmp eq i32 %92, 0
   br i1 %.not14.i46, label %.loopexit.i50.loopexit, label %.lr.ph70, !llvm.loop !6
 
@@ -357,7 +357,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @PMPI_Allreduce(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @MPIO_Err_create_code(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -370,14 +370,14 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @ADIOI_Strdup(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -385,16 +385,16 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @ADIOI_Strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

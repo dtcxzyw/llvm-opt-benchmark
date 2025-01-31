@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [74 x i8] c"Genlib library used in the mapped design is not longer a current library.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Prs_ManWriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Prs_ManWriteBlif(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val.i.i = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val.i.i, 0
@@ -320,21 +320,21 @@ Prs_ManWriteBlifNtk.exit:                         ; preds = %137, %Prs_ManWriteB
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_ManWriteBlifLines(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Cba_ManWriteBlifLines(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 92
   %.val279 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val279, 1
@@ -1239,7 +1239,7 @@ declare ptr @Mio_GateReadPinName(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_ManWriteBlifArray(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @Cba_ManWriteBlifArray(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val9 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val9, 0
@@ -1273,7 +1273,7 @@ define void @Cba_ManWriteBlifArray(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_ManWriteBlifNtk(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Cba_ManWriteBlifNtk(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 12
   %.val13 = load i32, ptr %3, align 4
@@ -1347,7 +1347,7 @@ Cba_ManWriteBlifArray.exit23:                     ; preds = %26, %Cba_ManWriteBl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_ManWriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Cba_ManWriteBlif(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1616
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1405,7 +1405,7 @@ Cba_ManNtk.exit:                                  ; preds = %Cba_ManNtk.exit.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Vec_IntGetEntry(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @Vec_IntGetEntry(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = add nsw i32 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1507,19 +1507,19 @@ Vec_IntFillExtra.exit:                            ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

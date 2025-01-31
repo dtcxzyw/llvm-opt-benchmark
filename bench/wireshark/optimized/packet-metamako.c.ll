@@ -169,7 +169,7 @@ define hidden void @proto_register_metamako() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @sub_nanos_base_custom(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @sub_nanos_base_custom(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 0x3E70000000000000
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.68, double noundef %4) #6
@@ -210,7 +210,7 @@ define hidden void @proto_reg_handoff_metamako() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_metamako(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_metamako(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -630,7 +630,7 @@ proto_item_set_generated.exit235:                 ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 

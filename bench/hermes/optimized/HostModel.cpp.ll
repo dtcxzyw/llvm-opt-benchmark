@@ -143,13 +143,13 @@ _ZN6hermes2vm12JSObjectInitL12initToHandleINS0_25FinalizableNativeFunctionEEENS0
 declare noundef i32 @_ZN6hermes2vm8Callable28defineNameLengthAndPrototypeENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDEjNS2_INS0_8JSObjectEEENS1_17WritablePrototypeEb(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i32 noundef, ptr, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6hermes2vm15HostObjectProxyD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes2vm15HostObjectProxyD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN6hermes2vm15HostObjectProxyD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15HostObjectProxyD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -184,7 +184,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm10HostObject22createWithoutPrototypeERNS0_7RuntimeESt10unique_ptrINS0_15HostObjectProxyESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef %proxy) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm10HostObject22createWithoutPrototypeERNS0_7RuntimeESt10unique_ptrINS0_15HostObjectProxyESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef captures(none) %proxy) local_unnamed_addr #0 align 2 {
 entry:
   %objectPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 24
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9536
@@ -335,7 +335,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8

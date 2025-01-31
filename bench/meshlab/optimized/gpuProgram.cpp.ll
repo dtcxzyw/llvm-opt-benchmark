@@ -237,7 +237,7 @@ _ZN10GPUProgram6attachEv.exit.i:                  ; preds = %._ZN10GPUProgram6at
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgram21setGeometryParametersEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN10GPUProgram21setGeometryParametersEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -267,7 +267,7 @@ define void @_ZN10GPUProgram21setGeometryParametersEiii(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10GPUProgram13attachAndLinkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN10GPUProgram13attachAndLinkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
@@ -805,7 +805,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgram6detachEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10GPUProgram6detachEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -857,7 +857,7 @@ define void @_ZN10GPUProgram6detachEv(ptr nocapture noundef nonnull readonly ali
 declare void @_ZN9GPUShaderD1Ev(ptr noundef nonnull align 8 dereferenceable(42)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgram6attachEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10GPUProgram6attachEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -906,7 +906,7 @@ define void @_ZN10GPUProgram6attachEv(ptr nocapture noundef nonnull readonly ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10GPUProgram4linkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN10GPUProgram4linkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   store i32 1, ptr %2, align 4
   %3 = load ptr, ptr @__glewLinkProgram, align 8
@@ -1722,7 +1722,7 @@ define void @_ZN10GPUProgram12addAttributeERKNSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10GPUProgram16haveShaderOfTypeE11SHADER_TYPE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN10GPUProgram16haveShaderOfTypeE11SHADER_TYPE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   switch i32 %1, label %14 [
     i32 0, label %3
     i32 1, label %6
@@ -1757,7 +1757,7 @@ define noundef zeroext i1 @_ZN10GPUProgram16haveShaderOfTypeE11SHADER_TYPE(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgram8filenameB5cxx11E11SHADER_TYPE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10GPUProgram8filenameB5cxx11E11SHADER_TYPE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.14", align 1
   switch i32 %2, label %16 [
     i32 0, label %5
@@ -1831,13 +1831,13 @@ define internal void @_GLOBAL__sub_I_gpuProgram.cpp() #10 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

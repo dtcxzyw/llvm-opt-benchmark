@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [36 x i8] c"BIO_ADDR_copy(dst->peer, src->peer)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr nocapture noundef initializes((0, 8)) %qtserv, ptr nocapture noundef %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr noundef captures(none) initializes((0, 8)) %qtserv, ptr noundef captures(none) %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
 entry:
   %alpn = alloca [9 x i8], align 1
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8
@@ -485,10 +485,10 @@ return:                                           ; preds = %if.end223, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @SSL_new(ptr noundef) local_unnamed_addr #3
 
@@ -536,7 +536,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @bio_f_noisy_dgram_filter() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @noise_msg_callback(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr noundef %ssl, ptr nocapture noundef readonly %arg) #0 {
+define internal void @noise_msg_callback(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr noundef %ssl, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %pkt = alloca %struct.PACKET, align 8
   %frame_type = alloca i64, align 8
@@ -680,7 +680,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fake_now_cb(ptr nocapture readnone %arg) #0 {
+define internal i64 @fake_now_cb(ptr readnone captures(none) %arg) #0 {
 entry:
   %0 = load ptr, ptr @fake_now_lock, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %0) #10
@@ -1312,7 +1312,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @packet_plain_finish(ptr nocapture noundef initializes((104, 120)) %arg) #0 {
+define internal void @packet_plain_finish(ptr noundef captures(none) initializes((104, 120)) %arg) #0 {
 entry:
   %pplainio = getelementptr inbounds nuw i8, ptr %arg, i64 96
   %0 = load ptr, ptr %pplainio, align 8
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handshake_finish(ptr nocapture noundef %arg) #0 {
+define internal void @handshake_finish(ptr noundef captures(none) %arg) #0 {
 entry:
   %handbuf = getelementptr inbounds nuw i8, ptr %arg, i64 136
   %0 = load ptr, ptr %handbuf, align 8
@@ -1346,7 +1346,7 @@ entry:
 declare i32 @ossl_quic_tserver_set_plain_packet_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr nocapture noundef readonly %hdrin, ptr nocapture noundef readonly %iovecin, i64 noundef %numin, ptr nocapture noundef writeonly %hdrout, ptr nocapture noundef writeonly %iovecout, ptr nocapture noundef writeonly %numout, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr noundef readonly captures(none) %hdrin, ptr noundef readonly captures(none) %iovecin, i64 noundef %numin, ptr noundef writeonly captures(none) %hdrout, ptr noundef writeonly captures(none) %iovecout, ptr noundef writeonly captures(none) %numout, ptr noundef %arg) #0 {
 entry:
   %cmp31.not = icmp eq i64 %numin, 0
   br i1 %cmp31.not, label %for.end, label %for.body
@@ -1422,7 +1422,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr noundef captures(none) %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %pplainio = getelementptr inbounds nuw i8, ptr %fault, i64 96
   %buf_len = getelementptr inbounds nuw i8, ptr %fault, i64 104
@@ -1457,7 +1457,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_prepend_frame(ptr nocapture noundef %fault, ptr nocapture noundef readonly %frame, i64 noundef %frame_len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_prepend_frame(ptr noundef captures(none) %fault, ptr noundef readonly captures(none) %frame, i64 noundef %frame_len) local_unnamed_addr #0 {
 entry:
   %pplainbuf_alloc = getelementptr inbounds nuw i8, ptr %fault, i64 112
   %0 = load i64, ptr %pplainbuf_alloc, align 8
@@ -1506,7 +1506,7 @@ return:                                           ; preds = %qtest_fault_resize_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @qtest_fault_set_handshake_listener(ptr noundef initializes((160, 176)) %fault, ptr noundef %handshakecb, ptr noundef %handshakecbarg) local_unnamed_addr #0 {
@@ -1523,7 +1523,7 @@ entry:
 declare i32 @ossl_quic_tserver_set_handshake_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @handshake_mutate(ptr nocapture noundef readonly %msgin, i64 noundef %msginlen, ptr nocapture noundef writeonly %msgout, ptr nocapture noundef writeonly %msgoutlen, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @handshake_mutate(ptr noundef readonly captures(none) %msgin, i64 noundef %msginlen, ptr noundef writeonly captures(none) %msgout, ptr noundef writeonly captures(none) %msgoutlen, ptr noundef %arg) #0 {
 entry:
   %ee = alloca %struct.qtest_fault_encrypted_extensions, align 8
   %add = add i64 %msginlen, 1024
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr noundef captures(none) %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %handbuflen = getelementptr inbounds nuw i8, ptr %fault, i64 152
   %0 = load i64, ptr %handbuflen, align 8
@@ -1657,7 +1657,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_resize_message(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_message(ptr noundef captures(none) %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %add = add i64 %newlen, 4
   %handbuflen.i = getelementptr inbounds nuw i8, ptr %fault, i64 152
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_delete_extension(ptr nocapture noundef %fault, i32 noundef %exttype, ptr noundef %ext, ptr nocapture noundef %extlen, ptr noundef %old_ext) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_delete_extension(ptr noundef captures(none) %fault, i32 noundef %exttype, ptr noundef %ext, ptr noundef captures(none) %extlen, ptr noundef %old_ext) local_unnamed_addr #0 {
 entry:
   %old_ext_wpkt = alloca %struct.wpacket_st, align 8
   %w = alloca i64, align 8
@@ -2056,7 +2056,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @qtest_fault_set_packet_cipher_listener(ptr nocapture noundef writeonly initializes((192, 208)) %fault, ptr noundef %pciphercb, ptr noundef %pciphercbarg) local_unnamed_addr #7 {
+define dso_local noundef i32 @qtest_fault_set_packet_cipher_listener(ptr noundef writeonly captures(none) initializes((192, 208)) %fault, ptr noundef %pciphercb, ptr noundef %pciphercbarg) local_unnamed_addr #7 {
 entry:
   %pciphercb1 = getelementptr inbounds nuw i8, ptr %fault, i64 192
   store ptr %pciphercb, ptr %pciphercb1, align 8
@@ -2066,7 +2066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @qtest_fault_set_datagram_listener(ptr nocapture noundef writeonly initializes((208, 224)) %fault, ptr noundef %datagramcb, ptr noundef %datagramcbarg) local_unnamed_addr #7 {
+define dso_local noundef i32 @qtest_fault_set_datagram_listener(ptr noundef writeonly captures(none) initializes((208, 224)) %fault, ptr noundef %datagramcb, ptr noundef %datagramcbarg) local_unnamed_addr #7 {
 entry:
   %datagramcb1 = getelementptr inbounds nuw i8, ptr %fault, i64 208
   store ptr %datagramcb, ptr %datagramcb1, align 8
@@ -2076,7 +2076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qtest_fault_resize_datagram(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_datagram(ptr noundef captures(none) %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %msgalloc = getelementptr inbounds nuw i8, ptr %fault, i64 264
   %0 = load i64, ptr %msgalloc, align 8
@@ -2107,7 +2107,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr nocapture noundef initializes((8, 16), (32, 40)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr noundef captures(none) initializes((8, 16), (32, 40)) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %1 = load ptr, ptr %src, align 8
@@ -2176,7 +2176,7 @@ declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_run(ptr nocapture noundef readonly %arg) #0 {
+define internal noundef ptr @thread_run(ptr noundef readonly captures(none) %arg) #0 {
 entry:
   tail call void %arg() #10
   ret ptr null

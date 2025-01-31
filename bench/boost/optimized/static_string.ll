@@ -6464,7 +6464,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br i1 %9, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit: ; preds = %6, %10
@@ -6491,7 +6491,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br i1 %9, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKcm.exit: ; preds = %6, %10
@@ -6603,7 +6603,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   br i1 %9, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %8, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignEPKc.exit: ; preds = %6, %10
@@ -6719,7 +6719,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assign
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef i64 @_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE8max_sizeEv(ptr noundef nonnull align 2 dereferenceable(423) %0) local_unnamed_addr #3 comdat align 2 {
@@ -7631,10 +7631,10 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEPKcSt16initializer_listIcE(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
@@ -7940,7 +7940,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6appendEPKcm.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6appendEPKcm.exit: ; preds = %9, %12
@@ -8028,7 +8028,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6appendEPKc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6appendEPKc.exit: ; preds = %9, %12
@@ -8087,7 +8087,7 @@ define weak_odr hidden noundef i32 @_ZNK5boost14static_strings19basic_static_str
   br i1 %9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %8
-  %10 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef %1, i64 noundef %5) #36
+  %10 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %5) #36
   %.fr24.i = freeze i32 %10
   %11 = icmp slt i32 %.fr24.i, 1
   br i1 %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
@@ -8104,7 +8104,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br i1 %15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i:   ; preds = %14
-  %16 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef %1, i64 noundef %6) #36
+  %16 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %6) #36
   %.fr.i = freeze i32 %16
   %17 = icmp sgt i32 %.fr.i, -1
   br i1 %17, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
@@ -8117,7 +8117,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i: ; preds = %_ZNSt11char_tr
   br i1 %19, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef %1, i64 noundef %5) #36
+  %21 = tail call i32 @memcmp(ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %5) #36
   br label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
 
 _ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, %18, %20
@@ -8150,7 +8150,7 @@ _ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE13capp
   br i1 %15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %14
-  %16 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.sroa.speculated.i) #36
+  %16 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %.sroa.speculated.i) #36
   %.fr24.i = freeze i32 %16
   %17 = icmp slt i32 %.fr24.i, 1
   br i1 %17, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
@@ -8167,7 +8167,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br i1 %21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i:   ; preds = %20
-  %22 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %12) #36
+  %22 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %12) #36
   %.fr.i = freeze i32 %22
   %23 = icmp sgt i32 %.fr.i, -1
   br i1 %23, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
@@ -8180,7 +8180,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i: ; preds = %_ZNSt11char_tr
   br i1 %25, label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.sroa.speculated.i) #36
+  %27 = tail call i32 @memcmp(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef %.sroa.speculated.i) #36
   br label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
 
 _ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i, %24, %26
@@ -8511,7 +8511,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replac
   %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %12)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.speculated.i.i
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %9
-  %15 = tail call noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef %3, ptr noundef %14)
+  %15 = tail call noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %14)
   ret ptr %15
 }
 
@@ -8792,7 +8792,7 @@ _ZN5boost14static_strings6detail16copy_with_traitsISt11char_traitsIcEPKccEEvT0_S
 define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceEPKcS6_S6_(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %7 = tail call noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
+  %7 = tail call noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret ptr %7
 }
 
@@ -9125,7 +9125,7 @@ define weak_odr hidden noundef i64 @_ZNK5boost14static_strings19basic_static_str
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %12, %10
   %.0.idx35.i = phi i64 [ %.add.i, %10 ], [ %.0.add.i, %12 ]
   %.0.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx35.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.0.ptr.i, ptr %1, i64 %4)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.0.ptr.i, ptr nonnull %1, i64 %4)
   %.not30.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not30.i, label %11, label %12
 
@@ -9521,7 +9521,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %14, %_ZNSt11char_tr
   %.0814.i.i = phi ptr [ %15, %14 ], [ %9, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.preheader.i ]
   %11 = load i8, ptr %.0814.i.i, align 1, !tbaa !9
   %12 = sext i8 %11 to i32
-  %13 = tail call ptr @memchr(ptr noundef %1, i32 noundef %12, i64 noundef %4) #36
+  %13 = tail call ptr @memchr(ptr noundef nonnull %1, i32 noundef %12, i64 noundef %4) #36
   %.not10.i.i = icmp eq ptr %13, null
   br i1 %.not10.i.i, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i, label %14
 
@@ -9656,7 +9656,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %8, %18
   %14 = getelementptr inbounds i8, ptr %13, i64 -1
   %15 = load i8, ptr %14, align 1, !tbaa !9, !noalias !44
   %16 = sext i8 %15 to i32
-  %17 = tail call ptr @memchr(ptr noundef %1, i32 noundef %16, i64 noundef %4) #36, !noalias !44
+  %17 = tail call ptr @memchr(ptr noundef nonnull %1, i32 noundef %16, i64 noundef %4) #36, !noalias !44
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i, label %18
 
@@ -9748,7 +9748,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK5boost14static_strings19basic_sta
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %bcmp = tail call i32 @bcmp(ptr nonnull %9, ptr %1, i64 %3)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %9, ptr nonnull %1, i64 %3)
   %10 = icmp eq i32 %bcmp, 0
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit
 
@@ -9793,7 +9793,7 @@ define weak_odr hidden noundef zeroext i1 @_ZNK5boost14static_strings19basic_sta
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = sub nuw nsw i64 %5, %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
-  %bcmp = tail call i32 @bcmp(ptr nonnull %11, ptr %1, i64 %3)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %11, ptr nonnull %1, i64 %3)
   %12 = icmp eq i32 %bcmp, 0
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit
 
@@ -25073,7 +25073,7 @@ _ZN5boost14static_strings19basic_static_stringILm20EcSt11char_traitsIcEEC2EPKc.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5boost14static_strings18testToStaticStringEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -25116,7 +25116,7 @@ _ZN5boost14static_strings6testTSIiEEbT_PKcb.exit:
   store i8 48, ptr %30, align 1
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 0, ptr %32, align 1, !tbaa !9, !alias.scope !79
-  %33 = call i64 @strtoll(ptr nocapture noundef nonnull %30, ptr noundef null, i32 noundef 10) #36
+  %33 = call i64 @strtoll(ptr noundef nonnull captures(none) %30, ptr noundef null, i32 noundef 10) #36
   %34 = and i64 %33, 4294967295
   %35 = icmp eq i64 %34, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %23) #36
@@ -25129,7 +25129,7 @@ _ZN5boost14static_strings6testTSIiEEbT_PKcb.exit:
   store i8 48, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 0, ptr %39, align 1, !tbaa !9, !alias.scope !86
-  %40 = call i64 @strtoull(ptr nocapture noundef nonnull %38, ptr noundef null, i32 noundef 10) #36
+  %40 = call i64 @strtoull(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #36
   %41 = and i64 %40, 4294967295
   %42 = icmp eq i64 %41, 0
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #36
@@ -25195,7 +25195,7 @@ _ZN5boost14static_strings6testTSIxEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %82, align 1, !tbaa !9, !alias.scope !99
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #36, !noalias !99
-  %83 = call i64 @strtoll(ptr nocapture noundef nonnull %80, ptr noundef null, i32 noundef 10) #36
+  %83 = call i64 @strtoll(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #36
   %84 = icmp eq i64 %83, 9223372036854775807
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %21) #36
   %85 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1385, ptr noundef nonnull @.str.13, i32 noundef 3958, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings18testToStaticStringEv, i1 noundef zeroext %84)
@@ -25230,7 +25230,7 @@ _ZN5boost14static_strings6testTSIxEEbT_PKcb.exit23: ; preds = %.lr.ph.i.i.i.i
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 21
   store i8 0, ptr %94, align 1, !tbaa !9, !alias.scope !109
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #36, !noalias !109
-  %95 = call i64 @strtoll(ptr nocapture noundef nonnull %93, ptr noundef null, i32 noundef 10) #36
+  %95 = call i64 @strtoll(ptr noundef nonnull captures(none) %93, ptr noundef null, i32 noundef 10) #36
   %96 = icmp eq i64 %95, -9223372036854775808
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %19) #36
   %97 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1386, ptr noundef nonnull @.str.13, i32 noundef 3959, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings18testToStaticStringEv, i1 noundef zeroext %96)
@@ -25260,7 +25260,7 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i2
   %105 = getelementptr inbounds nuw i8, ptr %17, i64 21
   store i8 0, ptr %105, align 1, !tbaa !9, !alias.scope !117
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #36, !noalias !117
-  %106 = call i64 @strtoull(ptr nocapture noundef nonnull %104, ptr noundef null, i32 noundef 10) #36
+  %106 = call i64 @strtoull(ptr noundef nonnull captures(none) %104, ptr noundef null, i32 noundef 10) #36
   %107 = icmp eq i64 %106, -1
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %17) #36
   %108 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1387, ptr noundef nonnull @.str.13, i32 noundef 3960, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings18testToStaticStringEv, i1 noundef zeroext %107)
@@ -25290,7 +25290,7 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 21
   store i8 0, ptr %116, align 1, !tbaa !9, !alias.scope !125
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #36, !noalias !125
-  %117 = call i64 @strtoull(ptr nocapture noundef nonnull %115, ptr noundef null, i32 noundef 10) #36
+  %117 = call i64 @strtoull(ptr noundef nonnull captures(none) %115, ptr noundef null, i32 noundef 10) #36
   %118 = icmp eq i64 %117, -1
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %15) #36
   %119 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1387, ptr noundef nonnull @.str.13, i32 noundef 3961, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings18testToStaticStringEv, i1 noundef zeroext %118)
@@ -26289,7 +26289,7 @@ _ZN5boost14static_strings16to_static_stringEi.exit: ; preds = %30, %34
   store i8 0, ptr %40, align 1, !tbaa !9, !alias.scope !221
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #36, !noalias !221
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %42 = call i64 @strtoll(ptr nocapture noundef nonnull %41, ptr noundef null, i32 noundef 10) #36
+  %42 = call i64 @strtoll(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #36
   %43 = trunc i64 %42 to i32
   %44 = icmp eq i32 %0, %43
   %brmerge.not = and i1 %2, %44
@@ -26307,7 +26307,7 @@ _ZN5boost14static_strings16to_static_stringEi.exit: ; preds = %30, %34
   br i1 %50, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %51
 
 51:                                               ; preds = %49
-  %bcmp.i = call i32 @bcmp(ptr nonnull %41, ptr %1, i64 %47)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %41, ptr nonnull %1, i64 %47)
   %52 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26378,7 +26378,7 @@ _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
   %26 = getelementptr inbounds nuw [11 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !9, !alias.scope !230
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #36, !noalias !230
-  %27 = call i64 @strtoull(ptr nocapture noundef nonnull %25, ptr noundef null, i32 noundef 10) #36
+  %27 = call i64 @strtoull(ptr noundef nonnull captures(none) %25, ptr noundef null, i32 noundef 10) #36
   %28 = trunc i64 %27 to i32
   %29 = icmp eq i32 %0, %28
   %brmerge.not = and i1 %2, %29
@@ -26390,7 +26390,7 @@ _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
   br i1 %or.cond.not.i, label %32, label %_ZN5boost14static_stringseqILm10EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
 32:                                               ; preds = %30
-  %bcmp.i = call i32 @bcmp(ptr nonnull %25, ptr %1, i64 %18)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %25, ptr nonnull %1, i64 %18)
   %33 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm10EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26515,7 +26515,7 @@ _ZN5boost14static_strings16to_static_stringEx.exit: ; preds = %28, %32
   store i8 0, ptr %38, align 1, !tbaa !9, !alias.scope !238
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #36, !noalias !238
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %40 = call i64 @strtoll(ptr nocapture noundef nonnull %39, ptr noundef null, i32 noundef 10) #36
+  %40 = call i64 @strtoll(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #36
   %41 = icmp eq i64 %40, %0
   %brmerge.not = and i1 %2, %41
   br i1 %brmerge.not, label %42, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
@@ -26532,7 +26532,7 @@ _ZN5boost14static_strings16to_static_stringEx.exit: ; preds = %28, %32
   br i1 %47, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %48
 
 48:                                               ; preds = %46
-  %bcmp.i = call i32 @bcmp(ptr nonnull %39, ptr %1, i64 %44)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %39, ptr nonnull %1, i64 %44)
   %49 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26603,7 +26603,7 @@ _ZN5boost14static_strings16to_static_stringEd.exit: ; preds = %16, %19
   br i1 %brmerge, label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %26
 
 26:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEd.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr %24, i64 %13)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr nonnull %24, i64 %13)
   %27 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26693,7 +26693,7 @@ _ZN5boost14static_strings16to_static_stringEe.exit: ; preds = %16, %19
   br i1 %brmerge, label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %26
 
 26:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEe.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr %24, i64 %13)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr nonnull %24, i64 %13)
   %27 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26784,7 +26784,7 @@ _ZN5boost14static_strings16to_static_stringEf.exit: ; preds = %17, %20
   br i1 %brmerge, label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %27
 
 27:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEf.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %18, ptr %25, i64 %14)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %18, ptr nonnull %25, i64 %14)
   %28 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -101792,13 +101792,13 @@ define hidden noundef i32 @main() local_unnamed_addr #16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #17
@@ -101860,7 +101860,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -101869,7 +101869,7 @@ declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_
 declare ptr @wmemmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
@@ -104031,10 +104031,10 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #28
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #28
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ...) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -104090,7 +104090,7 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112bas
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #20
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #29
@@ -104726,7 +104726,7 @@ define internal void @_GLOBAL__sub_I_static_string.cpp() #30 section ".text.star
 declare void @llvm.assume(i1 noundef) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #33

@@ -158,7 +158,7 @@ declare void @_ZN4cvc58internal6ResultC1ERKNSt7__cxx1112basic_stringIcSt11char_t
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyDeclarationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyDeclarationEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((104, 108)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
@@ -319,7 +319,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11Fatal
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState22notifyCheckSynthResultERKNS0_11SynthResultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, ptr noundef nonnull align 4 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState22notifyCheckSynthResultERKNS0_11SynthResultE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((104, 108)) %this, ptr noundef nonnull align 4 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef nonnull align 4 dereferenceable(8) %r)
   %cmp = icmp eq i32 %call, 1
@@ -332,7 +332,7 @@ entry:
 declare noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyGetAbductEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyGetAbductEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 5, i32 1
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyGetInterpolEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyGetInterpolEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 6, i32 1
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyFindSynthEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyFindSynthEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 8, i32 1
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3smt17SolverEngineState14markFinishInitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((16, 17)) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17SolverEngineState14markFinishInitEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) initializes((16, 17)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_fullyInited = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %d_fullyInited, align 8
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState13isFullyInitedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState13isFullyInitedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_fullyInited = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %d_fullyInited, align 8
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState11isQueryMadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState11isQueryMadeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_queryMade = getelementptr inbounds nuw i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
@@ -461,7 +461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal3smt17SolverEngineState7getModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal3smt17SolverEngineState7getModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %d_smtMode, align 8
@@ -637,7 +637,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

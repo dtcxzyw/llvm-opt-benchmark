@@ -59,7 +59,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN5sound21OggVorbisBufferSource9read_funcEPvmmS1_(ptr nocapture noundef writeonly %ptr, i64 noundef %size, i64 %nmemb, ptr nocapture noundef %datasource) #3 align 2 {
+define dso_local noundef i64 @_ZN5sound21OggVorbisBufferSource9read_funcEPvmmS1_(ptr noundef writeonly captures(none) %ptr, i64 noundef %size, i64 %nmemb, ptr noundef captures(none) %datasource) #3 align 2 {
 entry:
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %datasource, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8, !tbaa !4
@@ -77,16 +77,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN5sound21OggVorbisBufferSource9seek_funcEPvli(ptr nocapture noundef %datasource, i64 noundef %offset, i32 noundef %whence) #6 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN5sound21OggVorbisBufferSource9seek_funcEPvli(ptr noundef captures(none) %datasource, i64 noundef %offset, i32 noundef %whence) #6 align 2 {
 entry:
   switch i32 %whence, label %cleanup [
     i32 0, label %if.then
@@ -185,7 +185,7 @@ delete.end:                                       ; preds = %_ZN5sound21OggVorbi
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN5sound21OggVorbisBufferSource9tell_funcEPv(ptr nocapture noundef readonly %datasource) #9 align 2 {
+define dso_local noundef i64 @_ZN5sound21OggVorbisBufferSource9tell_funcEPv(ptr noundef readonly captures(none) %datasource) #9 align 2 {
 entry:
   %cur_offset = getelementptr inbounds nuw i8, ptr %datasource, i64 32
   %0 = load i64, ptr %cur_offset, align 8, !tbaa !11
@@ -432,7 +432,7 @@ declare i64 @ov_pcm_total(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare double @ov_time_total(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN5sound11RAIIOggFile10loadBufferERKNS_17OggFileDecodeInfoEjj(ptr dead_on_unwind noalias writable sret(%"struct.sound::RAIIALSoundBuffer") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(952) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info, i32 noundef %pcm_start, i32 noundef %pcm_end) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound11RAIIOggFile10loadBufferERKNS_17OggFileDecodeInfoEjj(ptr dead_on_unwind noalias writable sret(%"struct.sound::RAIIALSoundBuffer") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %decode_info, i32 noundef %pcm_start, i32 noundef %pcm_end) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bitStream = alloca i32, align 4
   %m_file = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -875,7 +875,7 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 

@@ -51,7 +51,7 @@ $_ZTIN3irr5video15IContextManagerE = comdat any
 @_ZTIN3irr5video11CSDLManagerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5video11CSDLManagerE, ptr @_ZTIN3irr5video15IContextManagerE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video11CSDLManagerC2EPNS_13CIrrDeviceSDLE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %device) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video11CSDLManagerC2EPNS_13CIrrDeviceSDLE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 32), (40, 48)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %device) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -79,10 +79,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video11CSDLManagerC1EPNS_13CIrrDeviceSDLE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 68)) %this, ptr noundef %device) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video11CSDLManagerC1EPNS_13CIrrDeviceSDLE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 32), (40, 68)) %this, ptr noundef %device) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3irr5video11CSDLManager10initializeERKNS_27SIrrlichtCreationParametersERKNS0_17SExposedVideoDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 40)) %this, ptr nocapture nonnull readnone align 8 %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN3irr5video11CSDLManager10initializeERKNS_27SIrrlichtCreationParametersERKNS0_17SExposedVideoDataE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((8, 40)) %this, ptr nonnull readnone align 8 captures(none) %params, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %data) unnamed_addr #3 align 2 {
 entry:
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Data, ptr noundef nonnull align 8 dereferenceable(32) %data, i64 32, i1 false), !tbaa.struct !16
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr5video11CSDLManager10getContextEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
@@ -117,13 +117,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr5video11CSDLManager15activateContextERKNS0_17SExposedVideoDataEb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %videoData, i1 zeroext %restorePrimaryOnZero) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN3irr5video11CSDLManager15activateContextERKNS0_17SExposedVideoDataEb(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %videoData, i1 zeroext %restorePrimaryOnZero) unnamed_addr #5 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5video11CSDLManager14getProcAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %procName) unnamed_addr #6 align 2 {
+define noundef ptr @_ZN3irr5video11CSDLManager14getProcAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %procName) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %procName, align 8, !tbaa !18
   %call2 = tail call ptr @SDL_GL_GetProcAddress(ptr noundef %0) #13
@@ -133,7 +133,7 @@ entry:
 declare ptr @SDL_GL_GetProcAddress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5video11CSDLManager11swapBuffersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN3irr5video11CSDLManager11swapBuffersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
   %SDLDevice = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %SDLDevice, align 8, !tbaa !6

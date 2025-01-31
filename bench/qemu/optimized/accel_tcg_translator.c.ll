@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.plugin_insn_append = private unnamed_addr constant [19 x i8] c"plugin_insn_append\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @translator_io_start(ptr nocapture noundef %db) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @translator_io_start(ptr noundef captures(none) %db) local_unnamed_addr #0 {
 entry:
   %saved_can_do_io.i = getelementptr inbounds nuw i8, ptr %db, i64 37
   %0 = load i8, ptr %saved_can_do_io.i, align 1
@@ -40,7 +40,7 @@ if.end:                                           ; preds = %if.then, %set_can_d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @translator_use_goto_tb(ptr nocapture noundef readonly %db, i64 noundef %dest) local_unnamed_addr #1 {
+define dso_local zeroext i1 @translator_use_goto_tb(ptr noundef readonly captures(none) %db, i64 noundef %dest) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %db, align 8
   %cflags.i = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -62,7 +62,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @translator_loop(ptr noundef %cpu, ptr noundef %tb, ptr nocapture noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc, ptr nocapture noundef readonly %ops, ptr noundef initializes((0, 38), (40, 56)) %db) local_unnamed_addr #0 {
+define dso_local void @translator_loop(ptr noundef %cpu, ptr noundef %tb, ptr noundef captures(none) %max_insns, i64 noundef %pc, ptr noundef %host_pc, ptr noundef readonly captures(none) %ops, ptr noundef initializes((0, 38), (40, 56)) %db) local_unnamed_addr #0 {
 entry:
   %cflags.i = getelementptr inbounds nuw i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -1134,13 +1134,13 @@ declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -5966,7 +5966,7 @@ _ZN4llvm11SmallVectorIPN5clang9api_notes14APINotesReaderELj2EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN5clang9api_notes15APINotesManager12findAPINotesENS_14SourceLocationE(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.647") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32) local_unnamed_addr #1
 
@@ -7552,7 +7552,7 @@ declare noundef ptr @_ZN5clang11DeclContext16getRedeclContextEv(ptr noundef nonn
 declare void @_ZN5clang9api_notes14APINotesReader18lookupEnumConstantEN4llvm9StringRefE(ptr dead_on_unwind writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.1113") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @"_ZZN5clang4Sema15ProcessAPINotesEPNS_4DeclEENK3$_0clEPNS_9api_notes14APINotesReaderE"(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc range(i64 0, 8589934592) i64 @"_ZZN5clang4Sema15ProcessAPINotesEPNS_4DeclEENK3$_0clEPNS_9api_notes14APINotesReaderE"(ptr captures(none) %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %.0.val, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %4 = load i32, ptr %3, align 4
@@ -8422,7 +8422,7 @@ declare noundef zeroext i1 @_ZNK5clang11DeclContext17isInlineNamespaceEv(ptr nou
 declare i64 @_ZN5clang9api_notes14APINotesReader17lookupNamespaceIDEN4llvm9StringRefESt8optionalINS0_9ContextIDEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
@@ -8630,7 +8630,7 @@ _ZSt4copyIPPPN5clang13NamespaceDeclES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -8638,7 +8638,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -8932,7 +8932,7 @@ declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -12860,7 +12860,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang13SwiftNameAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3, ptr nocapture readonly %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123handleAPINotedAttributeIN5clang13SwiftNameAttrEEEvRNS1_4SemaEPNS1_4DeclEbNS_21VersionedInfoMetadataEN4llvm12function_refIFPT_vEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3, ptr readonly captures(none) %4, i64 %5) unnamed_addr #0 {
   %.sroa.06.0.copyload = load i64, ptr %3, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8
@@ -13108,7 +13108,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm12function_refIFPN5clang13S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes12VariableInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes12VariableInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.clang::SourceLocation", align 4
@@ -13550,7 +13550,7 @@ _ZL21isIndirectPointerTypeN5clang8QualTypeE.exit.thread: ; preds = %_ZL21isIndir
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes16CommonEntityInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   %7 = alloca ptr, align 8
@@ -15229,7 +15229,7 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i8 } @"_ZZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clES3_NS_8QualTypeES4_"(ptr nonnull %.0.val, ptr nocapture noundef readonly %0, i64 %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i8 } @"_ZZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataEENK3$_0clES3_NS_8QualTypeES4_"(ptr nonnull %.0.val, ptr noundef readonly captures(none) %0, i64 %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::QualType", align 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16641,7 +16641,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm12function_refIFPN5clang13S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEN4llvm12PointerUnionIJPNS_12FunctionDeclEPNS_14ObjCMethodDeclEEEERKNS_9api_notes12FunctionInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEN4llvm12PointerUnionIJPNS_12FunctionDeclEPNS_14ObjCMethodDeclEEEERKNS_9api_notes12FunctionInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.clang::SourceLocation", align 4
@@ -17354,7 +17354,7 @@ _ZN4llvm11SmallVectorIN5clang8QualTypeELj4EED2Ev.exit: ; preds = %266, %_ZNK5cla
 declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL35handleAPINotedRetainCountConventionRN5clang4SemaEPNS_4DeclEN12_GLOBAL__N_121VersionedInfoMetadataESt8optionalINS_9api_notes25RetainCountConventionKindEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL35handleAPINotedRetainCountConventionRN5clang4SemaEPNS_4DeclEN12_GLOBAL__N_121VersionedInfoMetadataESt8optionalINS_9api_notes25RetainCountConventionKindEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17560) %0, ptr noundef %1, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   %7 = alloca %"class.clang::AttributeCommonInfo", align 8
@@ -18802,7 +18802,7 @@ _ZL34handleAPINotedRetainCountAttributeIN5clang21CFUnknownTransferAttrEEvRNS0_4S
 declare void @_ZN5clang12NoEscapeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL34handleAPINotedRetainCountAttributeIN5clang21CFReturnsRetainedAttrEEvRNS0_4SemaEPNS0_4DeclEbN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17560) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   %.sroa.07.0.copyload = load i64, ptr %3, align 8
@@ -19184,7 +19184,7 @@ declare void @_ZN5clang21NSReturnsRetainedAttrC1ERNS_10ASTContextERKNS_19Attribu
 declare void @_ZN5clang24NSReturnsNotRetainedAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11ContextInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11ContextInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17560) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::api_notes::ContextInfo", align 8
   %5 = alloca %"struct.(anonymous namespace)::VersionedInfoMetadata", align 8
   %6 = alloca %class.anon.1465, align 1
@@ -19364,7 +19364,7 @@ declare void @_ZN5clang27SwiftImportAsNonGenericAttrC1ERNS_10ASTContextERKNS_19A
 declare void @_ZN5clang20SwiftObjCMembersAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEPNS_4DeclERKNS_9api_notes14CommonTypeInfoEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef readonly byval(%"struct.(anonymous namespace)::VersionedInfoMetadata") align 8 captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::optional.1179", align 8
   %6 = alloca %class.anon.1482, align 8
   %7 = alloca %"class.std::optional.1179", align 8
@@ -20208,16 +20208,16 @@ define internal noalias noundef nonnull ptr @_ZN4llvm12function_refIFPN5clang13S
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

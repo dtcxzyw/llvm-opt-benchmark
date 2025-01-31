@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9VectorSetC1EP5Arena = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9VectorSetC2EP5Arena
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSetC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -51,7 +51,7 @@ _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSet4initEP5Arena(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -88,7 +88,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSetC2EP5Arena(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -125,7 +125,7 @@ _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSet4growEj(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = add i32 %1, 1
   %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
   %or.cond.i.i = icmp eq i32 %4, 1
@@ -174,7 +174,7 @@ define hidden void @_ZN9VectorSet4growEj(ptr nocapture noundef nonnull align 8 d
 declare noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSet6insertEj(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSet6insertEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = lshr i32 %1, 5
   %4 = load i32, ptr %0, align 8
   %.not = icmp ult i32 %3, %4
@@ -239,7 +239,7 @@ _ZN9VectorSet4growEj.exit:                        ; preds = %._crit_edge.i, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %._crit_edge, label %.lr.ph
@@ -271,7 +271,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3

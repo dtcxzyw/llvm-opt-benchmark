@@ -54,7 +54,7 @@ define noalias noundef ptr @Dsd_TreeNodeCreate(i32 noundef %0, i32 noundef %1, i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -92,10 +92,10 @@ define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr nocapture noundef %1) local_
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dsd_TreeUnmark(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Dsd_TreeUnmark(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -125,7 +125,7 @@ define void @Dsd_TreeUnmark(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeUnmark_rec(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @Dsd_TreeUnmark_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, -1
@@ -169,7 +169,7 @@ define internal fastcc void @Dsd_TreeUnmark_rec(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dsd_TreeNodeGetInfo(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define void @Dsd_TreeNodeGetInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   store i32 0, ptr @s_DepthMax, align 4
   store i32 0, ptr @s_GateSizeMax, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -219,7 +219,7 @@ define void @Dsd_TreeNodeGetInfo(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeGetInfo_rec(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @Dsd_TreeGetInfo_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %.off = add i32 %3, -3
   %switch = icmp ult i32 %.off, 2
@@ -310,7 +310,7 @@ define void @Dsd_TreeNodeGetInfoOne(ptr noundef %0, ptr noundef writeonly %1, pt
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeGetAigCost_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Dsd_TreeGetAigCost_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i32
@@ -376,7 +376,7 @@ define i32 @Dsd_TreeGetAigCost(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountNonTerminalNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @Dsd_TreeCountNonTerminalNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -432,7 +432,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, 1
@@ -487,7 +487,7 @@ define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountPrimeNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @Dsd_TreeCountPrimeNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -543,7 +543,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, 1
@@ -601,7 +601,7 @@ define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define i32 @Dsd_TreeCollectDecomposableVars(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -616,7 +616,7 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp slt i16 %5, 2
@@ -731,7 +731,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -840,7 +840,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %48, %Dsd_TreeCountN
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %5 = load i16, ptr %4, align 2
   %6 = add i16 %5, 1
@@ -887,7 +887,7 @@ define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
+define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = alloca i32, align 4
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, -2
@@ -906,7 +906,7 @@ define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @Dsd_TreePrint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca i32, align 4
   store i32 1, ptr %7, align 4
   %8 = icmp eq i32 %5, -1
@@ -962,7 +962,7 @@ define void @Dsd_TreePrint(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7) unnamed_addr #2 {
+define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, i32 noundef %7) unnamed_addr #2 {
   %9 = alloca [100 x i8], align 16
   tail call void @Extra_PrintSymbols(ptr noundef %0, i8 noundef signext 32, i32 noundef %5, i32 noundef 0) #14
   %.not = icmp eq i32 %2, 0
@@ -1718,7 +1718,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @Dsd_TreeGetPrimeFunction(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1727,7 +1727,7 @@ declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
 declare i32 @Abc_TtCanonicize(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_TreePrint2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @Dsd_TreePrint2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq i32 %4, -1
   br i1 %6, label %.preheader, label %27
 
@@ -1800,7 +1800,7 @@ define void @Dsd_NodePrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #2 {
+define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca [100 x i8], align 16
   tail call void @Extra_PrintSymbols(ptr noundef %0, i8 noundef signext 32, i32 noundef %4, i32 noundef 0) #14
   %.not = icmp eq i32 %2, 0
@@ -2150,7 +2150,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @Cudd_Ref(ptr noundef %5) #14
@@ -2282,16 +2282,16 @@ declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #3
 declare void @Extra_PrintSymbols(ptr noundef, i8 noundef signext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11

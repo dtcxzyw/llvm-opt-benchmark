@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_resolver_init(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly initializes((0, 8)) %resolver) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_init(ptr noundef readnone captures(none) %easy, ptr noundef writeonly captures(none) initializes((0, 8)) %resolver) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_resolver_duphandle(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly initializes((0, 8)) %to, ptr nocapture noundef readnone %from) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_duphandle(ptr noundef readnone captures(none) %easy, ptr noundef writeonly captures(none) initializes((0, 8)) %to, ptr noundef readnone captures(none) %from) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_resolver_cancel(ptr nocapture noundef %data) local_unnamed_addr #1 {
+define hidden void @Curl_resolver_cancel(ptr noundef captures(none) %data) local_unnamed_addr #1 {
 entry:
   %async = getelementptr inbounds nuw i8, ptr %data, i64 3624
   tail call fastcc void @destroy_async_data(ptr noundef nonnull %async)
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @destroy_async_data(ptr nocapture noundef %async) unnamed_addr #1 {
+define internal fastcc void @destroy_async_data(ptr noundef captures(none) %async) unnamed_addr #1 {
 entry:
   %tdata = getelementptr inbounds nuw i8, ptr %async, i64 16
   %0 = load ptr, ptr %tdata, align 8
@@ -155,7 +155,7 @@ if.end22:                                         ; preds = %if.end20, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_resolver_kill(ptr nocapture noundef %data) local_unnamed_addr #1 {
+define hidden void @Curl_resolver_kill(ptr noundef captures(none) %data) local_unnamed_addr #1 {
 entry:
   %tdata = getelementptr inbounds nuw i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
@@ -262,7 +262,7 @@ thread_wait_resolv.exit:                          ; preds = %if.end26.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %entry1) local_unnamed_addr #1 {
+define hidden i32 @Curl_resolver_is_resolved(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 8)) %entry1) local_unnamed_addr #1 {
 entry:
   %async = getelementptr inbounds nuw i8, ptr %data, i64 3624
   %tdata = getelementptr inbounds nuw i8, ptr %data, i64 3640
@@ -366,7 +366,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #3
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %data, ptr nocapture noundef writeonly %socks) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %data, ptr noundef writeonly captures(none) %socks) local_unnamed_addr #1 {
 entry:
   %tdata = getelementptr inbounds nuw i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
@@ -420,7 +420,7 @@ if.end17:                                         ; preds = %if.end16, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly initializes((0, 4)) %waitp) local_unnamed_addr #1 {
+define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr noundef writeonly captures(none) initializes((0, 4)) %waitp) local_unnamed_addr #1 {
 entry:
   %resolver = getelementptr inbounds nuw i8, ptr %data, i64 3648
   %0 = load ptr, ptr %resolver, align 8
@@ -622,30 +622,30 @@ return:                                           ; preds = %if.end17, %if.then1
 declare zeroext i1 @Curl_ipv6works(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_set_dns_servers(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %servers) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_set_dns_servers(ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %servers) local_unnamed_addr #0 {
 entry:
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_set_dns_interface(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %interf) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_set_dns_interface(ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %interf) local_unnamed_addr #0 {
 entry:
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_set_dns_local_ip4(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %local_ip4) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_set_dns_local_ip4(ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %local_ip4) local_unnamed_addr #0 {
 entry:
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @Curl_set_dns_local_ip6(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %local_ip6) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_set_dns_local_ip6(ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %local_ip6) local_unnamed_addr #0 {
 entry:
   ret i32 4
 }
@@ -789,7 +789,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare i32 @Curl_getaddrinfo_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7

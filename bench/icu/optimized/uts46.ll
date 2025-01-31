@@ -42,7 +42,7 @@ entry:
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_754IDNAD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_754IDNAD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
@@ -356,14 +356,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4612labelToASCIIERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4612labelToASCIIERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret ptr %dest
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %src, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %src, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -822,14 +822,14 @@ return:                                           ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4614labelToUnicodeERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4614labelToUnicodeERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret ptr %dest
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4611nameToASCIIERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4611nameToASCIIERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
@@ -911,21 +911,21 @@ if.end:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4613nameToUnicodeERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4613nameToUnicodeERKNS_13UnicodeStringERS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS467processERKNS_13UnicodeStringEaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret ptr %dest
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4617labelToASCII_UTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4617labelToASCII_UTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, i8 noundef signext 1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %src.coerce0, i32 %src.coerce1, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %src.coerce0, i32 %src.coerce1, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::StringPiece", align 8
   %destString = alloca %"class.icu_75::UnicodeString", align 8
@@ -1511,21 +1511,21 @@ ehcleanup:                                        ; preds = %lpad147, %lpad140, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4618labelToUnicodeUTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4618labelToUnicodeUTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr %label.coerce0, i32 %label.coerce1, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4616nameToASCII_UTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4616nameToASCII_UTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4617nameToUnicodeUTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4617nameToUnicodeUTF8ENS_11StringPieceERNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNK6icu_755UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr %name.coerce0, i32 %name.coerce1, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
@@ -1538,7 +1538,7 @@ declare noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull a
 declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4614processUnicodeERKNS_13UnicodeStringEiiaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %src, i32 noundef %labelStart, i32 noundef %mappingStart, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755UTS4614processUnicodeERKNS_13UnicodeStringEiiaaRS1_RNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %src, i32 noundef %labelStart, i32 noundef %mappingStart, i8 noundef signext %isLabel, i8 noundef signext %toASCII, ptr noundef nonnull returned align 8 dereferenceable(64) %dest, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %cmp = icmp eq i32 %mappingStart, 0
@@ -1806,7 +1806,7 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKDsi(ptr nocapture noundef readonly %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKDsi(ptr noundef readonly captures(none) %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
 entry:
   %wide.trip.count = zext nneg i32 %length to i64
   br label %for.body
@@ -1877,7 +1877,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7511StringPieceC1ERKS0_i(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKci(ptr nocapture noundef readonly %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L13isASCIIOkBiDiEPKci(ptr noundef readonly captures(none) %s, i32 noundef range(i32 1, -2147483648) %length) unnamed_addr #6 {
 entry:
   %wide.trip.count = zext nneg i32 %length to i64
   br label %for.body
@@ -1947,7 +1947,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 declare void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_755UTS4612processLabelERNS_13UnicodeStringEiiaRNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %labelLength, i8 noundef signext %toASCII, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_755UTS4612processLabelERNS_13UnicodeStringEiiaRNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %labelLength, i8 noundef signext %toASCII, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %fromPunycode = alloca %"class.icu_75::UnicodeString", align 8
@@ -2672,7 +2672,7 @@ return:                                           ; preds = %entry, %cleanup310
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_755UTS4611mapDevCharsERNS_13UnicodeStringEiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %mappingStart, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_755UTS4611mapDevCharsERNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %mappingStart, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %normalized = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -2918,7 +2918,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare ptr @u_memmove_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_755UTS4615markBadACELabelERNS_13UnicodeStringEiiaRNS_8IDNAInfoER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %labelLength, i8 noundef signext %toASCII, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6icu_755UTS4615markBadACELabelERNS_13UnicodeStringEiiaRNS_8IDNAInfoER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %labelLength, i8 noundef signext %toASCII, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %0 = load i32, ptr %errorCode, align 4
@@ -3084,7 +3084,7 @@ return:                                           ; preds = %if.end29, %if.then3
 declare i32 @u_strFromPunycode_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_75L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %destLabelStart, i32 noundef %destLabelLength, ptr noundef nonnull align 8 dereferenceable(64) %label, i32 noundef %labelLength, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 {
+define internal fastcc noundef i32 @_ZN6icu_75L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %destLabelStart, i32 noundef %destLabelLength, ptr noundef nonnull align 8 dereferenceable(64) %label, i32 noundef %labelLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3122,7 +3122,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4614checkLabelBiDiEPKDsiRNS_8IDNAInfoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %label, i32 noundef %labelLength, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(11) %info) local_unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4614checkLabelBiDiEPKDsiRNS_8IDNAInfoE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %label, i32 noundef %labelLength, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(11) %info) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %label, align 2
   %conv = zext i16 %0 to i32
@@ -3295,7 +3295,7 @@ if.end86:                                         ; preds = %if.then85, %if.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_755UTS4617isLabelOkContextJEPKDsi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %label, i32 noundef %labelLength) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_755UTS4617isLabelOkContextJEPKDsi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(none) %label, i32 noundef %labelLength) local_unnamed_addr #4 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %label, i64 -2
   %cmp48 = icmp sgt i32 %labelLength, 0
@@ -3479,7 +3479,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755UTS4618checkLabelContextOEPKDsiRNS_8IDNAInfoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %label, i32 noundef %labelLength, ptr nocapture noundef nonnull align 4 dereferenceable(11) %info) local_unnamed_addr #4 align 2 {
+define void @_ZNK6icu_755UTS4618checkLabelContextOEPKDsiRNS_8IDNAInfoE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %label, i32 noundef %labelLength, ptr noundef nonnull align 4 captures(none) dereferenceable(11) %info) local_unnamed_addr #4 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   %errorCode59 = alloca i32, align 4
@@ -4467,7 +4467,7 @@ return:                                           ; preds = %entry, %if.then16.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #5
 
@@ -4809,13 +4809,13 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

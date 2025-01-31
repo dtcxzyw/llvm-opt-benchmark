@@ -165,7 +165,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @get_args(ptr nocapture readnone %self, ptr noundef %args) #2 {
+define internal noundef nonnull ptr @get_args(ptr readnone captures(none) %self, ptr noundef %args) #2 {
 entry:
   %cmp = icmp eq ptr %args, null
   %spec.store.select = select i1 %cmp, ptr @_Py_NoneStruct, ptr %args
@@ -183,7 +183,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @get_kwargs(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr noundef %kwargs) #2 {
+define internal noundef nonnull ptr @get_kwargs(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr noundef %kwargs) #2 {
 entry:
   %cmp = icmp eq ptr %kwargs, null
   %spec.store.select = select i1 %cmp, ptr @_Py_NoneStruct, ptr %kwargs
@@ -201,7 +201,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_B(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_B(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.43, ptr noundef nonnull %value) #6
@@ -220,7 +220,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_C(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_C(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %c = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.44, ptr noundef nonnull %c) #6
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_D(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_D(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %cval = alloca %struct.Py_complex, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.45, ptr noundef nonnull %cval) #6
@@ -259,7 +259,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_H(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_H(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i16, align 2
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.46, ptr noundef nonnull %value) #6
@@ -278,7 +278,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_I(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_I(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.47, ptr noundef nonnull %value) #6
@@ -297,7 +297,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_K(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_K(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.48, ptr noundef nonnull %value) #6
@@ -315,7 +315,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_L(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_L(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.49, ptr noundef nonnull %value) #6
@@ -333,7 +333,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @getargs_S(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @getargs_S(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.50, ptr noundef nonnull %obj) #6
@@ -357,7 +357,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @getargs_U(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @getargs_U(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.51, ptr noundef nonnull %obj) #6
@@ -381,7 +381,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @getargs_Y(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @getargs_Y(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.52, ptr noundef nonnull %obj) #6
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_b(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_b(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.53, ptr noundef nonnull %value) #6
@@ -424,7 +424,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_c(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_c(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %c = alloca i8, align 1
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.54, ptr noundef nonnull %c) #6
@@ -443,7 +443,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_d(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_d(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %d = alloca double, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.55, ptr noundef nonnull %d) #6
@@ -461,7 +461,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_es(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_es(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg = alloca ptr, align 8
   %encoding = alloca ptr, align 8
@@ -491,7 +491,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_es_hash(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_es_hash(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg = alloca ptr, align 8
   %encoding = alloca ptr, align 8
@@ -620,7 +620,7 @@ return:                                           ; preds = %if.end8, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_et(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_et(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg = alloca ptr, align 8
   %encoding = alloca ptr, align 8
@@ -650,7 +650,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_et_hash(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_et_hash(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %arg = alloca ptr, align 8
   %encoding = alloca ptr, align 8
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.end8, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_f(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_f(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %f = alloca float, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.67, ptr noundef nonnull %f) #6
@@ -798,7 +798,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_h(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_h(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i16, align 2
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.68, ptr noundef nonnull %value) #6
@@ -817,7 +817,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_i(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_i(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.69, ptr noundef nonnull %value) #6
@@ -836,7 +836,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_k(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_k(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.70, ptr noundef nonnull %value) #6
@@ -854,7 +854,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_keyword_only(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @getargs_keyword_only(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %required = alloca i32, align 4
   %optional = alloca i32, align 4
@@ -879,7 +879,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_keywords(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @getargs_keywords(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %int_args = alloca [10 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %int_args, i8 -1, i64 40, i1 false)
@@ -916,7 +916,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_l(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_l(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.82, ptr noundef nonnull %value) #6
@@ -934,7 +934,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_n(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_n(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.83, ptr noundef nonnull %value) #6
@@ -952,7 +952,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_p(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_p(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %value = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.84, ptr noundef nonnull %value) #6
@@ -971,7 +971,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_positional_only_and_keywords(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @getargs_positional_only_and_keywords(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %required = alloca i32, align 4
   %optional = alloca i32, align 4
@@ -996,7 +996,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_s(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_s(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.88, ptr noundef nonnull %str) #6
@@ -1014,7 +1014,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_s_hash(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_s_hash(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -1034,7 +1034,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_s_star(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_s_star(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.90, ptr noundef nonnull %buffer) #6
@@ -1055,7 +1055,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_tuple(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_tuple(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %a = alloca i32, align 4
   %b = alloca i32, align 4
@@ -1077,7 +1077,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_w_star(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_w_star(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.92, ptr noundef nonnull %buffer) #6
@@ -1113,7 +1113,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_empty(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @getargs_empty(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 8
   %args.val = load ptr, ptr %0, align 8
@@ -1178,7 +1178,7 @@ return:                                           ; preds = %if.end, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_y(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_y(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.99, ptr noundef nonnull %str) #6
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_y_hash(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_y_hash(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -1216,7 +1216,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_y_star(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_y_star(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.101, ptr noundef nonnull %buffer) #6
@@ -1237,7 +1237,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_z(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_z(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.102, ptr noundef nonnull %str) #6
@@ -1259,7 +1259,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_z_hash(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_z_hash(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %str = alloca ptr, align 8
   %size = alloca i64, align 8
@@ -1283,7 +1283,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getargs_z_star(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @getargs_z_star(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.104, ptr noundef nonnull %buffer) #6
@@ -1322,7 +1322,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_tuple_and_keywords(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @parse_tuple_and_keywords(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %sub_args = alloca ptr, align 8
   %sub_kwargs = alloca ptr, align 8
@@ -1624,7 +1624,7 @@ return:                                           ; preds = %if.then40, %PyTuple
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gh_99240_clear_args(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @gh_99240_clear_args(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -1691,7 +1691,7 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 

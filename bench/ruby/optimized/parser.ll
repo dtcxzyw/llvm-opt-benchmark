@@ -801,7 +801,7 @@ declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @JSON_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @JSON_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark_maybe(i64 noundef %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -842,7 +842,7 @@ fbuffer_free.exit:                                ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @JSON_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal i64 @JSON_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -859,7 +859,7 @@ declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -894,10 +894,10 @@ declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 declare i64 @rb_str_conv_enc(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_value(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %1, %2
   br i1 %7, label %.loopexit, label %.preheader255
@@ -1926,7 +1926,7 @@ JSON_parse_integer.exit:                          ; preds = %JSON_parse_float.ex
 declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef initializes((24, 32)) %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_string(ptr noundef captures(none) initializes((24, 32)) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = icmp eq ptr %1, %2
@@ -2129,10 +2129,10 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @JSON_parse_array(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %2 to i64
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2501,7 +2501,7 @@ define internal fastcc nonnull ptr @JSON_parse_array(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_object(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   store i64 4, ptr %6, align 8
@@ -3531,10 +3531,10 @@ declare i64 @rb_hash_new() local_unnamed_addr #1
 declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

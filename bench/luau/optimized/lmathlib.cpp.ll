@@ -797,7 +797,7 @@ declare double @llvm.exp.f64(double) #3
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_Z15lua_pushintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -820,7 +820,7 @@ declare double @llvm.log2.f64(double) #3
 declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.pow.f64(double, double) #3

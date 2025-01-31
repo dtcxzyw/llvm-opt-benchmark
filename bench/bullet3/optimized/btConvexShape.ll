@@ -19,7 +19,7 @@ $_ZNK16btCollisionShape28calculateSerializeBufferSizeEv = comdat any
 @_ZN13btConvexShapeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN13btConvexShapeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13btConvexShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 12), (16, 32)) %this) unnamed_addr #0 align 2 {
 entry:
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 35, ptr %m_shapeType.i, align 8
@@ -34,13 +34,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN13btConvexShapeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN13btConvexShapeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN13btConvexShapeD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN13btConvexShapeD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -50,7 +50,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13btConvexShape7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %max, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %witnesPtMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %witnesPtMax) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK13btConvexShape7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trans, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dir, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %max, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %witnesPtMin, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %witnesPtMax) unnamed_addr #4 align 2 {
 entry:
   %localAxis = alloca %class.btVector3, align 8
   %ref.tmp8 = alloca %class.btVector3, align 8
@@ -218,7 +218,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(16) %localDir) local_unnamed_addr #4 align 2 {
@@ -622,7 +622,7 @@ return:                                           ; preds = %entry, %sw.default1
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %localDir) local_unnamed_addr #4 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %localDir) local_unnamed_addr #4 align 2 {
 entry:
   %localDirNorm = alloca %class.btVector3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %localDirNorm, ptr noundef nonnull align 4 dereferenceable(16) %localDir, i64 16, i1 false)
@@ -1329,7 +1329,7 @@ declare i64 @llvm.smax.i64(i64, i64) #10
 declare float @llvm.sqrt.f32(float) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

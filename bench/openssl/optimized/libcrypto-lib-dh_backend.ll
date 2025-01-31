@@ -326,7 +326,7 @@ declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare void @DH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_dh_key_from_pkcs8(ptr noundef %p8inf, ptr nocapture noundef readnone %libctx, ptr nocapture noundef readnone %propq) local_unnamed_addr #0 {
+define ptr @ossl_dh_key_from_pkcs8(ptr noundef %p8inf, ptr noundef readnone captures(none) %libctx, ptr noundef readnone captures(none) %propq) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %pm = alloca ptr, align 8

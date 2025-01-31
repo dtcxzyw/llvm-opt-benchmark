@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [19 x i8] c"callback test pass\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %alloc_fn.i = alloca ptr, align 8
   %free_fn.i = alloca ptr, align 8
@@ -675,7 +675,7 @@ declare ptr @ASYNC_WAIT_CTX_new() local_unnamed_addr #1
 declare i32 @ASYNC_start_job(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @only_pause(ptr nocapture readnone %args) #0 {
+define internal noundef i32 @only_pause(ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call i32 @ASYNC_pause_job() #5
   ret i32 1
@@ -690,7 +690,7 @@ declare i32 @ASYNC_pause_job() local_unnamed_addr #1
 declare i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @test_callback(ptr nocapture readnone %arg) #2 {
+define internal noundef i32 @test_callback(ptr readnone captures(none) %arg) #2 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   ret i32 1
@@ -703,7 +703,7 @@ declare i32 @ASYNC_WAIT_CTX_set_status(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ASYNC_WAIT_CTX_get_status(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_two(ptr nocapture readnone %args) #0 {
+define internal noundef i32 @add_two(ptr readnone captures(none) %args) #0 {
 entry:
   %0 = load i32, ptr @ctr, align 4
   %inc = add nsw i32 %0, 1
@@ -716,7 +716,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @save_current(ptr nocapture readnone %args) #0 {
+define internal noundef i32 @save_current(ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @ASYNC_get_current_job() #5
   store ptr %call, ptr @currjob, align 8
@@ -727,7 +727,7 @@ entry:
 declare ptr @ASYNC_get_current_job() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @waitfd(ptr nocapture readnone %args) #0 {
+define internal range(i32 0, 2) i32 @waitfd(ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @ASYNC_get_current_job() #5
   %cmp = icmp eq ptr %call, null
@@ -778,7 +778,7 @@ declare i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blockpause(ptr nocapture readnone %args) #0 {
+define internal noundef i32 @blockpause(ptr readnone captures(none) %args) #0 {
 entry:
   tail call void @ASYNC_block_pause() #5
   %call = tail call i32 @ASYNC_pause_job() #5
@@ -796,7 +796,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 declare ptr @OSSL_LIB_CTX_set0_default(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @change_deflt_libctx(ptr nocapture readnone %args) #0 {
+define internal range(i32 0, 2) i32 @change_deflt_libctx(ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
   %cmp = icmp eq ptr %call, null
@@ -832,7 +832,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ASYNC_set_mem_functions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @test_alloc_stack(ptr nocapture noundef readonly %num) #0 {
+define internal noalias ptr @test_alloc_stack(ptr noundef readonly captures(none) %num) #0 {
 entry:
   store i1 true, ptr @custom_alloc_used, align 4
   %0 = load i64, ptr %num, align 8
@@ -855,16 +855,16 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

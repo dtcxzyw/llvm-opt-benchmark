@@ -174,7 +174,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo8EmitMOPSENS_10AArch64ISD8NodeTypeERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES8_S8_S8_NS_5AlignEbNS_18MachinePointerInfoESA_(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(904) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef byval(%"class.llvm::SDValue") align 8 %7, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %8, i8 %9, i1 noundef zeroext %10, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %11, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %12) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo8EmitMOPSENS_10AArch64ISD8NodeTypeERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES8_S8_S8_NS_5AlignEbNS_18MachinePointerInfoESA_(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(904) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %7, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %8, i8 %9, i1 noundef zeroext %10, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %11, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %12) local_unnamed_addr #0 align 2 {
   %14 = alloca %"struct.llvm::AAMDNodes", align 8
   %15 = alloca [4 x %"class.llvm::SDValue"], align 16
   %16 = alloca [3 x %"struct.llvm::EVT"], align 16
@@ -295,10 +295,10 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %44, %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #4
 
@@ -307,7 +307,7 @@ declare noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_8Arr
 declare void @_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(904), ptr noundef, ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo33EmitStreamingCompatibleMemLibCallERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5RTLIB7LibcallE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %5, ptr nocapture noundef byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo33EmitStreamingCompatibleMemLibCallERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5RTLIB7LibcallE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %7, i32 noundef %8) local_unnamed_addr #0 align 2 {
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit:
   %.sroa.0225 = alloca { ptr, %"class.llvm::SDValue" }, align 8
   %.sroa.0174 = alloca { ptr, %"class.llvm::SDValue" }, align 8
@@ -643,7 +643,7 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForMemcpyERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbbNS_18MachinePointerInfoES8_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %7, i8 %8, i1 noundef zeroext %9, i1 zeroext %10, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %11, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %12) unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForMemcpyERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbbNS_18MachinePointerInfoES8_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %7, i8 %8, i1 noundef zeroext %9, i1 zeroext %10, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %11, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %12) unnamed_addr #0 align 2 {
   %14 = alloca %"class.llvm::AttributeList", align 8
   %15 = alloca %"class.llvm::SMEAttrs", align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -694,7 +694,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForMemsetERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbbNS_18MachinePointerInfoE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %7, i8 %8, i1 noundef zeroext %9, i1 zeroext %10, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %11) unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForMemsetERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbbNS_18MachinePointerInfoE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %7, i8 %8, i1 noundef zeroext %9, i1 zeroext %10, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %11) unnamed_addr #0 align 2 {
   %13 = alloca %"class.llvm::AttributeList", align 8
   %14 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %15 = alloca %"class.llvm::SMEAttrs", align 4
@@ -747,7 +747,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo24EmitTargetCodeForMemmoveERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbNS_18MachinePointerInfoES8_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %7, i8 %8, i1 noundef zeroext %9, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %10, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %11) unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo24EmitTargetCodeForMemmoveERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_S6_NS_5AlignEbNS_18MachinePointerInfoES8_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %7, i8 %8, i1 noundef zeroext %9, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %10, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %11) unnamed_addr #0 align 2 {
   %13 = alloca %"class.llvm::AttributeList", align 8
   %14 = alloca %"class.llvm::SMEAttrs", align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -798,7 +798,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo24EmitTargetCod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForSetTagERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_NS_18MachinePointerInfoEb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr nocapture noundef byval(%"class.llvm::SDValue") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::SDValue") align 8 %6, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCodeForSetTagERNS_12SelectionDAGERKNS_5SDLocENS_7SDValueES6_S6_NS_18MachinePointerInfoEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::SDValue") align 8 captures(none) %6, ptr noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 captures(none) %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::SmallVector.287", align 8
   %11 = alloca %"class.llvm::ArrayRef.118", align 8
   %12 = alloca [3 x %"class.llvm::SDValue"], align 8
@@ -1130,7 +1130,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm22SelectionDAGTargetInfo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
@@ -1328,10 +1328,10 @@ define internal void @_GLOBAL__sub_I_AArch64SelectionDAGInfo.cpp() #9 section ".
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

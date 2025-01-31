@@ -17,7 +17,7 @@ $_ZN6VlWideILm3EEcvPjEv = comdat any
 @llvm.global.annotations = appending global [13 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @_ZN6VlWideILm3EEcvPjEv, ptr @.str.3, ptr @.str.4, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL10VL_LTS_IIIijj, ptr @.str.3, ptr @.str.5, i32 921, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13VL_SHIFTL_IIIiiijj, ptr @.str.6, ptr @.str.5, i32 1727, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_Ii, ptr @.str.6, ptr @.str.5, i32 104, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL10VL_GTS_IIIijj, ptr @.str.3, ptr @.str.5, i32 897, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13VL_EXTENDS_QQiim, ptr @.str.3, ptr @.str.5, i32 574, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z11VL_FATAL_MTPKciS0_S0_, ptr @.str.6, ptr @.str.5, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL15VL_EXTENDSIGN_Qim, ptr @.str.3, ptr @.str.5, i32 266, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL14VL_SHIFTRS_IIIiiijj, ptr @.str.3, ptr @.str.5, i32 1868, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL13VL_SHIFTR_IIIiiijj, ptr @.str.3, ptr @.str.5, i32 1796, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_ZL11VL_LTES_IIIijj, ptr @.str.3, ptr @.str.5, i32 932, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_Qi, ptr @.str.6, ptr @.str.5, i32 106, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @_Z15VL_RAND_RESET_WiPj, ptr @.str.6, ptr @.str.5, i32 108, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z34Vmycpu_top___024root___eval_staticP20Vmycpu_top___024root(ptr nocapture noundef writeonly initializes((680, 684), (1152, 1280), (1360, 1456)) %0) local_unnamed_addr #0 {
+define dso_local void @_Z34Vmycpu_top___024root___eval_staticP20Vmycpu_top___024root(ptr noundef writeonly captures(none) initializes((680, 684), (1152, 1280), (1360, 1456)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -28,7 +28,7 @@ define dso_local void @_Z34Vmycpu_top___024root___eval_staticP20Vmycpu_top___024
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z39Vmycpu_top___024root___eval_static__TOPP20Vmycpu_top___024root(ptr nocapture noundef writeonly initializes((680, 684), (1152, 1280), (1360, 1456)) %0) local_unnamed_addr #0 {
+define dso_local void @_Z39Vmycpu_top___024root___eval_static__TOPP20Vmycpu_top___024root(ptr noundef writeonly captures(none) initializes((680, 684), (1152, 1280), (1360, 1456)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %2, i8 0, i64 128, i1 false)
@@ -44,7 +44,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm3EEcvPjEv(ptr noundef no
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z35Vmycpu_top___024root___eval_initialP20Vmycpu_top___024root(ptr nocapture noundef initializes((42, 43), (217, 218), (221, 223)) %0) local_unnamed_addr #2 {
+define dso_local void @_Z35Vmycpu_top___024root___eval_initialP20Vmycpu_top___024root(ptr noundef captures(none) initializes((42, 43), (217, 218), (221, 223)) %0) local_unnamed_addr #2 {
   tail call void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top___024root(ptr noundef %0) #12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %3 = load i8, ptr %2, align 2
@@ -60,7 +60,7 @@ define dso_local void @_Z35Vmycpu_top___024root___eval_initialP20Vmycpu_top___02
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top___024root(ptr nocapture noundef writeonly initializes((42, 43)) %0) local_unnamed_addr #3 {
+define dso_local void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top___024root(ptr noundef writeonly captures(none) initializes((42, 43)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1568
@@ -185,7 +185,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL10VL_GTS_IIIijj(i32 noundef %0, 
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret void
 }
 
@@ -8676,7 +8676,7 @@ define internal noundef range(i64 -9223372036854775808, 1) i64 @_ZL15VL_EXTENDSI
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11

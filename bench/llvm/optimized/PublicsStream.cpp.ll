@@ -88,7 +88,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb13PublicsStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb13PublicsStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb13PublicsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16704) initializes((0, 8), (16, 48), (56, 57), (64, 96), (104, 105), (112, 144), (152, 153), (16552, 16584), (16592, 16593), (16600, 16632), (16640, 16641), (16648, 16680), (16688, 16689)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13PublicsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16704) initializes((0, 8), (16, 48), (56, 57), (64, 96), (104, 105), (112, 144), (152, 153), (16552, 16584), (16592, 16593), (16600, 16632), (16640, 16641), (16648, 16680), (16688, 16689)) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -589,7 +589,7 @@ _ZN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEED2Ev.exit: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream10getSymHashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream10getSymHashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
@@ -598,7 +598,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream10getSymHashEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i16 @_ZNK4llvm3pdb13PublicsStream20getThunkTableSectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i16 @_ZNK4llvm3pdb13PublicsStream20getThunkTableSectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -608,7 +608,7 @@ define dso_local noundef zeroext i16 @_ZNK4llvm3pdb13PublicsStream20getThunkTabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream19getThunkTableOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13PublicsStream19getThunkTableOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16704) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -2262,7 +2262,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 {
@@ -2794,7 +2794,7 @@ declare void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr n
 declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 comdat align 2 {
@@ -2936,10 +2936,10 @@ declare void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef 
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

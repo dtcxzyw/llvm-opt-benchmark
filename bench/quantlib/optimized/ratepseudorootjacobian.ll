@@ -96,7 +96,7 @@ $_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cx
 @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC1ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_ = unnamed_addr alias void (ptr, ptr, i64, i64, ptr, ptr), ptr @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31RatePseudoRootJacobianNumericalC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES8_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr noundef nonnull align 8 dereferenceable(24) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31RatePseudoRootJacobianNumericalC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES8_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull align 8 dereferenceable(24) %taus, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pseudoBumps, ptr noundef nonnull align 8 dereferenceable(24) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %aliveIndex.addr = alloca i64, align 8
   %numeraire.addr = alloca i64, align 8
@@ -1528,10 +1528,10 @@ unreachable:                                      ; preds = %invoke.cont217, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -1986,7 +1986,7 @@ _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EED2Ev.exit: ; preds = %invoke.cont,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31RatePseudoRootJacobianNumerical8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(24) %oldRates, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %newRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %gaussians, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31RatePseudoRootJacobianNumerical8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(24) %oldRates, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %newRates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %gaussians, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2494,7 +2494,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare double @exp(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22RatePseudoRootJacobianC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES6_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22RatePseudoRootJacobianC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES6_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %taus, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pseudoBumps, ptr noundef captures(none) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberRates = alloca i64, align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -3835,7 +3835,7 @@ unreachable:                                      ; preds = %invoke.cont218, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22RatePseudoRootJacobian8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RNS_6MatrixE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %oldRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %discountRatios, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %newRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %gaussians, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22RatePseudoRootJacobian8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RNS_6MatrixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %oldRates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %discountRatios, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %newRates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %gaussians, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4551,7 +4551,7 @@ unreachable:                                      ; preds = %invoke.cont65, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 56)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %taus, ptr noundef captures(none) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5361,7 +5361,7 @@ unreachable:                                      ; preds = %invoke.cont114, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33RatePseudoRootJacobianAllElements8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RS1_INS_6MatrixESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %oldRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %discountRatios, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %newRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %gaussians, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33RatePseudoRootJacobianAllElements8getBumpsERKSt6vectorIdSaIdEES5_S5_S5_RS1_INS_6MatrixESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %oldRates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %discountRatios, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %newRates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %gaussians, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %B) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6104,7 +6104,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
@@ -6119,12 +6119,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -6961,7 +6961,7 @@ unreachable:                                      ; preds = %invoke.cont21
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

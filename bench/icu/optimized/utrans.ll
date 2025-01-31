@@ -33,13 +33,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515ReplaceableGlue17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515ReplaceableGlue17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7515ReplaceableGlue16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515ReplaceableGlueC2EPPvPK21UReplaceableCallbacks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %replaceable, ptr noundef %funcCallback) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7515ReplaceableGlueC2EPPvPK21UReplaceableCallbacks(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %replaceable, ptr noundef %funcCallback) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515ReplaceableGlueE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ReplaceableGlue9getLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6icu_7515ReplaceableGlue9getLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK6icu_7515ReplaceableGlue9getCharAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %offset) unnamed_addr #4 align 2 {
+define noundef zeroext i16 @_ZNK6icu_7515ReplaceableGlue9getCharAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %offset) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ReplaceableGlue11getChar32AtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %offset) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6icu_7515ReplaceableGlue11getChar32AtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %offset) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515ReplaceableGlue20handleReplaceBetweenEiiRKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 8 dereferenceable(64) %text) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515ReplaceableGlue20handleReplaceBetweenEiiRKNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 8 dereferenceable(64) %text) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -150,7 +150,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7515ReplaceableGlue14extractBetweenEiiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 8 dereferenceable(64) %target) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_7515ReplaceableGlue14extractBetweenEiiRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 8 dereferenceable(64) %target) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -170,7 +170,7 @@ declare noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull a
 declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515ReplaceableGlue4copyEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %dest) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515ReplaceableGlue4copyEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %start, i32 noundef %limit, i32 noundef %dest) unnamed_addr #4 align 2 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %func, align 8
@@ -722,7 +722,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @utrans_trans_75(ptr noundef %trans, ptr noundef %rep, ptr noundef %repFunc, i32 noundef %start, ptr noundef %limit, ptr noundef %status) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -1136,7 +1136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL17utrans_enum_countP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %uenum, ptr noundef readonly %pErrorCode) #8 {
+define internal noundef i32 @_ZL17utrans_enum_countP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %uenum, ptr noundef readonly %pErrorCode) #8 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1157,7 +1157,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17utrans_enum_unextP12UEnumerationPiP10UErrorCode(ptr nocapture noundef %uenum, ptr noundef writeonly %resultLength, ptr noundef readonly %pErrorCode) #4 {
+define internal noundef ptr @_ZL17utrans_enum_unextP12UEnumerationPiP10UErrorCode(ptr noundef captures(none) %uenum, ptr noundef writeonly %resultLength, ptr noundef readonly %pErrorCode) #4 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %if.else9.i, %if.the
 declare ptr @uenum_nextDefault_75(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17utrans_enum_resetP12UEnumerationP10UErrorCode(ptr nocapture noundef writeonly %uenum, ptr noundef readonly %pErrorCode) #4 {
+define internal void @_ZL17utrans_enum_resetP12UEnumerationP10UErrorCode(ptr noundef writeonly captures(none) %uenum, ptr noundef readonly %pErrorCode) #4 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false

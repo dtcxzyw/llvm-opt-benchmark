@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [129 x i8] c"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_DiagnosticCommandImpl_setNotificationEnabled(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_DiagnosticCommandImpl_setNotificationEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @jmm_version_management_ext, align 4
   %5 = icmp slt i32 %4, 536936963
   br i1 %5, label %6, label %7
@@ -44,7 +44,7 @@ define void @Java_com_sun_management_internal_DiagnosticCommandImpl_setNotificat
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnosticCommands(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnosticCommands(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface_management_ext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %5 = load ptr, ptr %4, align 8
@@ -287,12 +287,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @JNU_NewObjectByName(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnosticCommandInfo(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnosticCommandInfo(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.jmmOptionalSupport, align 4
   %5 = load ptr, ptr @jmm_interface_management_ext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -593,7 +593,7 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_executeDiagnosticCommand(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_executeDiagnosticCommand(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface_management_ext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %6 = load ptr, ptr %5, align 8

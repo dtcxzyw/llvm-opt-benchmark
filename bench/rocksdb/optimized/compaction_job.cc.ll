@@ -977,7 +977,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -994,7 +994,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.23(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.23(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -1011,7 +1011,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.26(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.26(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -1028,7 +1028,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.34(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.34(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -1045,7 +1045,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.37(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.37(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -1096,7 +1096,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJobC2EiPNS_10CompactionERKNS_18ImmutableDBOptionsERKNS_16MutableDBOptionsERKNS_11FileOptionsEPNS_10VersionSetEPKSt6atomicIbEPNS_9LogBufferEPNS_11FSDirectoryESL_SL_PNS_10StatisticsEPNS_17InstrumentedMutexEPNS_12ErrorHandlerESt6vectorImSaImEEmPKNS_15SnapshotCheckerEPNS_10JobContextESt10shared_ptrINS_5CacheEEPNS_11EventLoggerEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18CompactionJobStatsENS_3Env8PriorityERKS10_INS_8IOTracerEERSG_S1C_S1C_S1A_S1A_PNS_26BlobFileCompletionCallbackEPiS1O_(ptr noundef nonnull align 8 dereferenceable(1456) initializes((0, 204), (208, 209), (216, 404), (408, 524)) %this, i32 noundef %job_id, ptr noundef %compaction, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(144) %mutable_db_options, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %shutting_down, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_directory, ptr noundef %blob_output_directory, ptr noundef %stats, ptr noundef %db_mutex, ptr noundef %db_error_handler, ptr nocapture noundef %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, ptr nocapture noundef %table_cache, ptr noundef %event_logger, i1 noundef zeroext %paranoid_file_checks, i1 noundef zeroext %measure_io_stats, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %compaction_job_stats, i32 noundef %thread_pri, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 1 dereferenceable(1) %manual_compaction_canceled, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %trim_ts, ptr noundef %blob_callback, ptr noundef %bg_compaction_scheduled, ptr noundef %bg_bottom_compaction_scheduled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJobC2EiPNS_10CompactionERKNS_18ImmutableDBOptionsERKNS_16MutableDBOptionsERKNS_11FileOptionsEPNS_10VersionSetEPKSt6atomicIbEPNS_9LogBufferEPNS_11FSDirectoryESL_SL_PNS_10StatisticsEPNS_17InstrumentedMutexEPNS_12ErrorHandlerESt6vectorImSaImEEmPKNS_15SnapshotCheckerEPNS_10JobContextESt10shared_ptrINS_5CacheEEPNS_11EventLoggerEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18CompactionJobStatsENS_3Env8PriorityERKS10_INS_8IOTracerEERSG_S1C_S1C_S1A_S1A_PNS_26BlobFileCompletionCallbackEPiS1O_(ptr noundef nonnull align 8 dereferenceable(1456) initializes((0, 204), (208, 209), (216, 404), (408, 524)) %this, i32 noundef %job_id, ptr noundef %compaction, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(144) %mutable_db_options, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %shutting_down, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_directory, ptr noundef %blob_output_directory, ptr noundef %stats, ptr noundef %db_mutex, ptr noundef %db_error_handler, ptr noundef captures(none) %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, ptr noundef captures(none) %table_cache, ptr noundef %event_logger, i1 noundef zeroext %paranoid_file_checks, i1 noundef zeroext %measure_io_stats, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %compaction_job_stats, i32 noundef %thread_pri, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 1 dereferenceable(1) %manual_compaction_canceled, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %trim_ts, ptr noundef %blob_callback, ptr noundef %bg_compaction_scheduled, ptr noundef %bg_bottom_compaction_scheduled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.18", align 8
@@ -2033,7 +2033,7 @@ declare void @_ZN7rocksdb16ThreadStatusUtil15SetColumnFamilyEPKNS_16ColumnFamily
 declare void @_ZN7rocksdb16ThreadStatusUtil18SetThreadOperationENS_12ThreadStatus13OperationTypeE(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb13CompactionJob23ReportStartedCompactionEPNS_10CompactionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr noundef %compaction) local_unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb13CompactionJob23ReportStartedCompactionEPNS_10CompactionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef %compaction) local_unnamed_addr #9 align 2 {
 entry:
   %job_id_ = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load i32, ptr %job_id_, align 8
@@ -4753,7 +4753,7 @@ declare noundef i64 @_ZN7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTime
 declare void @_ZN7rocksdb31AutoThreadOperationStageUpdaterD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -2147483647, 6442450943) i64 @_ZN7rocksdb13CompactionJob22GetSubcompactionsLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this) local_unnamed_addr #12 align 2 {
+define noundef range(i64 -2147483647, 6442450943) i64 @_ZN7rocksdb13CompactionJob22GetSubcompactionsLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this) local_unnamed_addr #12 align 2 {
 entry:
   %extra_num_subcompaction_threads_reserved_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
   %0 = load i32, ptr %extra_num_subcompaction_threads_reserved_, align 8
@@ -4770,7 +4770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob29AcquireSubcompactionResourcesEi(ptr nocapture noundef nonnull align 8 dereferenceable(1456) %this, i32 noundef %num_extra_required_subcompactions) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob29AcquireSubcompactionResourcesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1456) %this, i32 noundef %num_extra_required_subcompactions) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutable_db_options_copy_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %max_background_flushes = getelementptr inbounds nuw i8, ptr %this, i64 520
@@ -4872,7 +4872,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit7:     ; preds = %invoke.cont16
 declare i64 @_ZN7rocksdb6DBImpl14GetBGJobLimitsEiiib(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob28ShrinkSubcompactionResourcesEm(ptr nocapture noundef nonnull align 8 dereferenceable(1456) %this, i64 noundef %num_extra_resources) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb13CompactionJob28ShrinkSubcompactionResourcesEm(ptr noundef nonnull align 8 captures(none) dereferenceable(1456) %this, i64 noundef %num_extra_resources) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq i64 %num_extra_resources, 0
   br i1 %cmp, label %return, label %if.end
@@ -4914,7 +4914,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob29ReleaseSubcompactionResourcesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob29ReleaseSubcompactionResourcesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extra_num_subcompaction_threads_reserved_ = getelementptr inbounds nuw i8, ptr %this, i64 1312
   %0 = load i32, ptr %extra_num_subcompaction_threads_reserved_, align 8
@@ -7088,7 +7088,7 @@ ehcleanup420:                                     ; preds = %ehcleanup419, %lpad
 declare void @_ZN7rocksdb9LogBuffer16FlushBufferToLogEv(ptr noundef nonnull align 16 dereferenceable(2408)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob13LogCompactionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob13LogCompactionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inputs_summary = alloca %"struct.rocksdb::Compaction::InputLevelSummaryBuffer", align 1
   %scratch = alloca [2345 x i8], align 16
@@ -10436,10 +10436,10 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 declare void @_ZNK7rocksdb18SubcompactionState10GetOutputsEv(ptr sret(%"struct.rocksdb::OutputIterator") align 8, ptr noundef nonnull align 8 dereferenceable(1050)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7rocksdb13CompactionJob3RunEvENK3$_0clERNS_6StatusE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %output_status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7rocksdb13CompactionJob3RunEvENK3$_0clERNS_6StatusE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %output_status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %verify_table_read_options = alloca %"struct.rocksdb::ReadOptions", align 8
@@ -10949,7 +10949,7 @@ declare void @_ZN7rocksdb13TableFileNameB5cxx11ERKSt6vectorINS_6DbPathESaIS1_EEm
 declare void @_ZN7rocksdb15CompactionState24AggregateCompactionStatsERNS_13InternalStats19CompactionStatsFullERNS_18CompactionJobStatsE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(392), ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13CompactionJob21UpdateCompactionStatsEPm(ptr nocapture noundef nonnull align 8 dereferenceable(1456) initializes((80, 88)) %this, ptr noundef %num_input_range_del) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13CompactionJob21UpdateCompactionStatsEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(1456) initializes((80, 88)) %this, ptr noundef %num_input_range_del) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
   %fn = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13396,7 +13396,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11: ; preds = %lpad, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob24InstallCompactionResultsERKNS_16MutableCFOptionsEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %compaction_released) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob24InstallCompactionResultsERKNS_16MutableCFOptionsEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %compaction_released) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i85 = alloca %"struct.std::pair.946", align 8
   %new_cursor.i = alloca %"class.rocksdb::InternalKey", align 8
@@ -14489,7 +14489,7 @@ eh.resume:                                        ; preds = %lpad38, %lpad.i77, 
 declare noundef i32 @_ZNK7rocksdb10Compaction19GetPenultimateLevelEv(ptr noundef nonnull align 16 dereferenceable(4788)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb13CompactionJob24UpdateCompactionJobStatsERKNS_13InternalStats15CompactionStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %stats) local_unnamed_addr #5 align 2 {
+define void @_ZNK7rocksdb13CompactionJob24UpdateCompactionJobStatsERKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %stats) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %stats, align 8
   %compaction_job_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 608
@@ -14578,7 +14578,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob17CleanupCompactionEv(ptr nocapture noundef nonnull align 8 dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob17CleanupCompactionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compact_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %compact_, align 8
@@ -14633,7 +14633,7 @@ delete.end:                                       ; preds = %_ZN7rocksdb15Compac
 declare void @_ZN7rocksdb17EventLoggerStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob26NotifyOnSubcompactionBeginEPNS_18SubcompactionStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr noundef %sub_compact) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob26NotifyOnSubcompactionBeginEPNS_18SubcompactionStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef %sub_compact) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info = alloca %"struct.rocksdb::SubcompactionJobInfo", align 8
   %compact_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14915,7 +14915,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob30NotifyOnSubcompactionCompletedEPNS_18SubcompactionStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr noundef %sub_compact) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13CompactionJob30NotifyOnSubcompactionCompletedEPNS_18SubcompactionStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef %sub_compact) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info = alloca %"struct.rocksdb::SubcompactionJobInfo", align 8
   %db_options_ = getelementptr inbounds nuw i8, ptr %this, i64 408
@@ -15063,10 +15063,10 @@ declare noundef signext i8 @_ZN7rocksdb13CompactionJob46ProcessKeyValueCompactio
 declare void @_ZNK7rocksdb10Compaction22CreateCompactionFilterEv(ptr sret(%"class.std::unique_ptr.578") align 8, ptr noundef nonnull align 16 dereferenceable(4788)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN7rocksdb13CompactionJob22GetRateLimiterPriorityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %versions_ = getelementptr inbounds nuw i8, ptr %this, i64 1072
   %0 = load ptr, ptr %versions_, align 8
@@ -15269,7 +15269,7 @@ declare noundef zeroext i1 @_ZN7rocksdb24ShouldReportDetailedTimeEPNS_3EnvEPNS_1
 declare void @_ZN7rocksdb18CompactionIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(1097)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob17RecordDroppedKeysERKNS_24CompactionIterationStatsEPNS_18CompactionJobStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %c_iter_stats, ptr noundef %compaction_job_stats) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb13CompactionJob17RecordDroppedKeysERKNS_24CompactionIterationStatsEPNS_18CompactionJobStatsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %c_iter_stats, ptr noundef %compaction_job_stats) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %c_iter_stats, align 8
   %cmp = icmp sgt i64 %0, 0
@@ -15561,7 +15561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7rocksdb13CompactionJob15GetCompactionIdEPNS_18SubcompactionStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, ptr nocapture noundef readonly %sub_compact) local_unnamed_addr #15 align 2 {
+define noundef i64 @_ZNK7rocksdb13CompactionJob15GetCompactionIdEPNS_18SubcompactionStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, ptr noundef readonly captures(none) %sub_compact) local_unnamed_addr #15 align 2 {
 entry:
   %job_id_ = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load i32, ptr %job_id_, align 8
@@ -17796,7 +17796,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter9BlobStatsEESaIS5_ENSt8_
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb13CompactionJob23RecordCompactionIOStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this) unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb13CompactionJob23RecordCompactionIOStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this) unnamed_addr #9 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 576
   %0 = load ptr, ptr %stats_, align 8
@@ -19662,7 +19662,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 declare noundef zeroext i1 @_ZNK7rocksdb10Compaction23SupportsPerKeyPlacementEv(ptr noundef nonnull align 16 dereferenceable(4788)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13CompactionJob16GetTableFileNameB5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %this, i64 noundef %file_number) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb13CompactionJob16GetTableFileNameB5cxx11Em(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1456) %this, i64 noundef %file_number) unnamed_addr #5 align 2 {
 entry:
   %compact_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %compact_, align 8
@@ -21597,7 +21597,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN7rocksdb15TablePropertiesEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22956,7 +22956,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairIiN7rocksdb12FileMetaDataEEEEvT_S7_.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb16BlobFileAdditionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(88) %__args) local_unnamed_addr #5 comdat align 2 {
@@ -24140,7 +24140,7 @@ if.then:                                          ; preds = %_ZNKSt6vectorIN7roc
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #29
   tail call void @_ZN7rocksdb17CompactionOutputs6OutputD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %add.ptr) #29
-  br label %invoke.cont31
+  br label %if.then.i31
 
 if.else:                                          ; preds = %invoke.cont20
   %17 = landingpad { ptr, i32 }
@@ -24148,22 +24148,22 @@ if.else:                                          ; preds = %invoke.cont20
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #29
   %cmp.not3.i.i.i24 = icmp eq ptr %call5.i.i.i, %incdec.ptr
-  br i1 %cmp.not3.i.i.i24, label %invoke.cont31, label %for.body.i.i.i25
+  br i1 %cmp.not3.i.i.i24, label %if.then.i31, label %for.body.i.i.i25
 
 for.body.i.i.i25:                                 ; preds = %if.else, %for.body.i.i.i25
   %__first.addr.04.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i25 ], [ %call5.i.i.i, %if.else ]
   tail call void @_ZN7rocksdb17CompactionOutputs6OutputD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %__first.addr.04.i.i.i26) #29
   %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i26, i64 392
   %cmp.not.i.i.i28 = icmp eq ptr %__first.addr.04.i.i.i26, %call.i.i.i.i20
-  br i1 %cmp.not.i.i.i28, label %invoke.cont31, label %for.body.i.i.i25, !llvm.loop !88
+  br i1 %cmp.not.i.i.i28, label %if.then.i31, label %for.body.i.i.i25, !llvm.loop !88
 
-lpad29:                                           ; preds = %invoke.cont31
+lpad29:                                           ; preds = %if.then.i31
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-invoke.cont31:                                    ; preds = %for.body.i.i.i25, %if.else, %if.then
+if.then.i31:                                      ; preds = %for.body.i.i.i25, %if.then, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #28
   invoke void @__cxa_rethrow() #32
           to label %unreachable unwind label %lpad29
@@ -24178,7 +24178,7 @@ terminate.lpad:                                   ; preds = %lpad29
   tail call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont31
+unreachable:                                      ; preds = %if.then.i31
   unreachable
 }
 
@@ -27840,7 +27840,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb13CompactionJob3RunEvE3$_0St17reference_wrapperINS3_6StatusEEEEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb13CompactionJob3RunEvE3$_0St17reference_wrapperINS3_6StatusEEEEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -30624,7 +30624,7 @@ _ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 declare void @_ZN7rocksdb18CompactionIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(1097)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(328) %__args) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(328) %__args) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
@@ -30634,7 +30634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -30659,7 +30659,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsERKS1_RKNS0_5SliceEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_1E9_M_invokeERKSt9_Any_dataS3_S5_S8_"(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(328) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsERKS1_RKNS0_5SliceEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_1E9_M_invokeERKSt9_Any_dataS3_S5_S8_"(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(328) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #5 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %0 = load ptr, ptr %__functor.val, align 8, !noalias !213
@@ -30680,7 +30680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsERKS1_RKNS0_5SliceEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsERKS1_RKNS0_5SliceEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #5 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -31220,7 +31220,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter9BlobStatsEESaIS5_ENSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb6StatusEEZNS0_13CompactionJob24InstallCompactionResultsERKNS0_16MutableCFOptionsEPbE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb6StatusEEZNS0_13CompactionJob24InstallCompactionResultsERKNS0_16MutableCFOptionsEPbE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__args) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.i.i.i = alloca %"class.rocksdb::Status", align 8
@@ -31304,7 +31304,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN7rocksdb6StatusEEZNS0_13CompactionJob24InstallCompactionResultsERKNS0_16MutableCFOptionsEPbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN7rocksdb6StatusEEZNS0_13CompactionJob24InstallCompactionResultsERKNS0_16MutableCFOptionsEPbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -32986,10 +32986,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #23
 declare i32 @llvm.abs.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
@@ -33013,7 +33013,7 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [23 x i8] c"unable to replace name\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G_link_to_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %61, label %4
 
@@ -159,12 +159,12 @@ declare i32 @H5VL_native_addr_to_token(ptr noundef, i32 noundef, i64 noundef, pt
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @H5L_find_class(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.H5O_loc_t, align 8
   %9 = alloca %struct.H5O_stab_t, align 8
@@ -174,7 +174,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = add i64 %13, 1
-  %15 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef %1, i64 noundef %14, ptr noundef %12, ptr noundef nonnull %7) #9
+  %15 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef %1, i64 noundef %14, ptr noundef nonnull %12, ptr noundef nonnull %7) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -330,7 +330,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   %99 = load ptr, ptr %98, align 8
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #10
   %101 = add i64 %100, 1
-  %102 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef %1, i64 noundef %101, ptr noundef %99, ptr noundef nonnull %10) #9
+  %102 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef %1, i64 noundef %101, ptr noundef nonnull %99, ptr noundef nonnull %10) #9
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %108
 
@@ -363,7 +363,7 @@ declare void @H5G__ent_reset(ptr noundef) local_unnamed_addr #1
 declare i32 @H5HL_insert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1
 
@@ -376,7 +376,7 @@ declare i32 @H5O_unprotect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @H5O_msg_read_oh(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__link_to_loc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__link_to_loc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, -2
   %or.cond = icmp ult i32 %5, 62
@@ -433,7 +433,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_loc(ptr nocapture noundef readonly %0,
 declare i32 @H5G_name_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @H5G__link_sort_table(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef i32 @H5G__link_sort_table(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %14, label %6
@@ -472,10 +472,10 @@ define noundef i32 @H5G__link_sort_table(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5G__link_cmp_name_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @H5G__link_cmp_name_inc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -485,7 +485,7 @@ define internal i32 @H5G__link_cmp_name_inc(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5G__link_cmp_name_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @H5G__link_cmp_name_dec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -495,7 +495,7 @@ define internal i32 @H5G__link_cmp_name_dec(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -505,7 +505,7 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -515,7 +515,7 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5G__link_iterate_table(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %.thread
 
@@ -584,7 +584,7 @@ define i32 @H5G__link_iterate_table(ptr nocapture noundef readonly %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__link_release_table(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__link_release_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %20, label %.lr.ph
@@ -668,7 +668,7 @@ declare i32 @H5G_name_replace(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare i32 @H5RS_decr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #8

@@ -245,7 +245,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_lwres(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -437,14 +437,14 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
   %135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #5
   %136 = trunc i64 %135 to i32
   %137 = load i32, ptr @ett_adn_addr, align 4
-  %138 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %92, ptr noundef %0, i32 noundef %.282.i.i, i32 noundef 10, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.141, ptr noundef %134) #4
+  %138 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %92, ptr noundef %0, i32 noundef %.282.i.i, i32 noundef 10, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.141, ptr noundef nonnull %134) #4
   %139 = load i32, ptr @hf_adn_family, align 4
   %140 = tail call ptr @proto_tree_add_uint(ptr noundef %138, i32 noundef %139, ptr noundef %0, i32 noundef %.282.i.i, i32 noundef 4, i32 noundef %129) #4
   %141 = load i32, ptr @hf_adn_addr_len, align 4
   %142 = zext i16 %131 to i32
   %143 = tail call ptr @proto_tree_add_uint(ptr noundef %138, i32 noundef %141, ptr noundef %0, i32 noundef %130, i32 noundef 2, i32 noundef %142) #4
   %144 = load i32, ptr @hf_adn_addr_addr, align 4
-  %145 = tail call ptr @proto_tree_add_string(ptr noundef %138, i32 noundef %144, ptr noundef %0, i32 noundef %133, i32 noundef %136, ptr noundef %134) #4
+  %145 = tail call ptr @proto_tree_add_string(ptr noundef %138, i32 noundef %144, ptr noundef %0, i32 noundef %133, i32 noundef %136, ptr noundef nonnull %134) #4
   %146 = add i32 %.282.i.i, 10
   %147 = add nuw nsw i32 %.183.i.i, 1
   %exitcond84.not.i.i = icmp eq i32 %147, %126
@@ -475,7 +475,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
   %166 = load i32, ptr @hf_adn_addr_len, align 4
   %167 = tail call ptr @proto_tree_add_uint(ptr noundef %161, i32 noundef %166, ptr noundef %0, i32 noundef 36, i32 noundef 2, i32 noundef %159) #4
   %168 = load i32, ptr @hf_adn_addr_addr, align 4
-  %169 = tail call ptr @proto_tree_add_string(ptr noundef %161, i32 noundef %168, ptr noundef %0, i32 noundef 38, i32 noundef %158, ptr noundef %154) #4
+  %169 = tail call ptr @proto_tree_add_string(ptr noundef %161, i32 noundef %168, ptr noundef %0, i32 noundef 38, i32 noundef %158, ptr noundef nonnull %154) #4
   br label %dissect_noop.exit
 
 170:                                              ; preds = %148
@@ -818,7 +818,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -829,10 +829,10 @@ declare i32 @get_dns_name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, pt
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

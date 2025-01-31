@@ -209,7 +209,7 @@ define internal i32 @crypto_ecb_create(ptr noundef %0, ptr noundef %1) #2 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -218,10 +218,10 @@ declare dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef, ptr noundef)
 declare dso_local i32 @lskcipher_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, -1) i32 @crypto_ecb_encrypt2(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #2 align 16 {
+define internal range(i32 0, -1) i32 @crypto_ecb_encrypt2(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -259,7 +259,7 @@ define internal range(i32 0, -1) i32 @crypto_ecb_encrypt2(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, -1) i32 @crypto_ecb_decrypt2(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #2 align 16 {
+define internal range(i32 0, -1) i32 @crypto_ecb_decrypt2(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -314,7 +314,7 @@ define internal void @lskcipher_free_instance_simple2(ptr noundef %0) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lskcipher_setkey_simple2(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal i32 @lskcipher_setkey_simple2(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -331,7 +331,7 @@ define internal i32 @lskcipher_setkey_simple2(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lskcipher_init_tfm_simple2(ptr nocapture noundef %0) #2 align 16 {
+define internal i32 @lskcipher_init_tfm_simple2(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -355,7 +355,7 @@ define internal i32 @lskcipher_init_tfm_simple2(ptr nocapture noundef %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @lskcipher_exit_tfm_simple2(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @lskcipher_exit_tfm_simple2(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #5

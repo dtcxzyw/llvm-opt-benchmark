@@ -79,14 +79,14 @@ return:                                           ; preds = %if.end, %if.then12.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_ADDR_clear(ptr nocapture noundef writeonly initializes((0, 112)) %ap) local_unnamed_addr #3 {
+define void @BIO_ADDR_clear(ptr noundef writeonly captures(none) initializes((0, 112)) %ap) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %ap, i8 0, i64 112, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_make(ptr nocapture noundef writeonly %ap, ptr nocapture noundef readonly %sa) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @BIO_ADDR_make(ptr noundef writeonly captures(none) %ap, ptr noundef readonly captures(none) %sa) local_unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %sa, align 2
   switch i16 %0, label %return [
@@ -159,13 +159,13 @@ if.end4:                                          ; preds = %if.then12.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %ap, i32 noundef %family, ptr nocapture noundef readonly %where, i64 noundef %wherelen, i16 noundef zeroext %port) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %ap, i32 noundef %family, ptr noundef readonly captures(none) %where, i64 noundef %wherelen, i16 noundef zeroext %port) local_unnamed_addr #6 {
 entry:
   switch i32 %family, label %return [
     i32 1, label %if.then
@@ -220,10 +220,10 @@ return:                                           ; preds = %entry, %if.then15, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @BIO_ADDR_family(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @BIO_ADDR_family(ptr noundef readonly captures(none) %ap) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %ap, align 4
   %conv = zext i16 %0 to i32
@@ -231,7 +231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr nocapture noundef readonly %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr noundef readonly captures(none) %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %return [
@@ -277,10 +277,10 @@ return:                                           ; preds = %entry, %if.end23, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @BIO_ADDR_rawport(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
+define zeroext i16 @BIO_ADDR_rawport(ptr noundef readonly captures(none) %ap) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %return [
@@ -490,7 +490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 16, 113) i32 @BIO_ADDR_sockaddr_size(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
+define range(i32 16, 113) i32 @BIO_ADDR_sockaddr_size(ptr noundef readonly captures(none) %ap) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %if.end13 [

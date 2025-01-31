@@ -249,7 +249,7 @@ entry:
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @throttle_group_get_name(ptr nocapture noundef readonly %tgm) local_unnamed_addr #2 {
+define dso_local ptr @throttle_group_get_name(ptr noundef readonly captures(none) %tgm) local_unnamed_addr #2 {
 entry:
   %throttle_state = getelementptr inbounds nuw i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
@@ -726,7 +726,7 @@ entry:
 declare void @throttle_config(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @throttle_group_get_config(ptr nocapture noundef readonly %tgm, ptr noundef %cfg) local_unnamed_addr #0 {
+define dso_local void @throttle_group_get_config(ptr noundef readonly captures(none) %tgm, ptr noundef %cfg) local_unnamed_addr #0 {
 entry:
   %throttle_state = getelementptr inbounds nuw i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8
@@ -1390,7 +1390,7 @@ if.end16:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @throttle_group_obj_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @throttle_group_obj_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.19, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -1420,7 +1420,7 @@ declare void @throttle_init(ptr noundef) local_unnamed_addr #1
 declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @throttle_group_can_be_deleted(ptr nocapture noundef readonly %uc) #5 {
+define internal zeroext i1 @throttle_group_can_be_deleted(ptr noundef readonly captures(none) %uc) #5 {
 entry:
   %ref = getelementptr inbounds nuw i8, ptr %uc, i64 24
   %0 = load i32, ptr %ref, align 8
@@ -1431,7 +1431,7 @@ entry:
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @throttle_group_get(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @throttle_group_get(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %value = alloca i64, align 8
@@ -1487,7 +1487,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @throttle_group_set(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @throttle_group_set(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 63, ptr noundef nonnull @__func__.THROTTLE_GROUP) #7
@@ -1571,7 +1571,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb21, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @throttle_group_get_limits(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @throttle_group_get_limits(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %arg = alloca %struct.ThrottleLimits, align 8
@@ -1592,7 +1592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @throttle_group_set_limits(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @throttle_group_set_limits(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %argp = alloca ptr, align 8
@@ -1638,7 +1638,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare zeroext i1 @visit_type_int64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @throttle_config_to_limits(ptr noundef, ptr noundef) local_unnamed_addr #1
 

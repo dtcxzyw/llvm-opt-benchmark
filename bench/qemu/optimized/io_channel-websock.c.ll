@@ -379,11 +379,11 @@ if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i23.i
   %10 = load i64, ptr %_now.i.i.i.i.i, align 8
   %tv_usec.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i, ptr noundef %5) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i, ptr noundef nonnull %5) #15
   br label %trace_qio_channel_websock_http_greeting.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i23.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull %call.i, ptr noundef %5) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull %call.i, ptr noundef nonnull %5) #15
   br label %trace_qio_channel_websock_http_greeting.exit.i.i.i
 
 trace_qio_channel_websock_http_greeting.exit.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.end.i.i.i
@@ -398,12 +398,12 @@ if.then3.i.i.i:                                   ; preds = %trace_qio_channel_w
 
 if.end4.i.i.i:                                    ; preds = %trace_qio_channel_websock_http_greeting.exit.i.i.i
   store i8 0, ptr %call1.i.i22.i, align 1
-  %call5.i.i.i = call i32 @g_str_equal(ptr noundef %5, ptr noundef nonnull @.str.41) #15
+  %call5.i.i.i = call i32 @g_str_equal(ptr noundef nonnull %5, ptr noundef nonnull @.str.41) #15
   %tobool6.not.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %tobool6.not.i.i.i, label %if.then7.i.i.i, label %if.end8.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end4.i.i.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 238, ptr noundef nonnull @__func__.qio_channel_websock_extract_headers, ptr noundef nonnull @.str.42, ptr noundef %5) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 238, ptr noundef nonnull @__func__.qio_channel_websock_extract_headers, ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #15
   br label %bad_request.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i.i
@@ -418,7 +418,7 @@ if.then11.i.i.i:                                  ; preds = %if.end8.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end8.i.i.i
   store i8 0, ptr %call9.i.i.i, align 1
-  %call13.i.i.i = call i32 @g_str_equal(ptr noundef %add.ptr.i.i.i, ptr noundef nonnull @.str.44) #15
+  %call13.i.i.i = call i32 @g_str_equal(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @.str.44) #15
   %tobool14.not.i.i.i = icmp eq i32 %call13.i.i.i, 0
   br i1 %tobool14.not.i.i.i, label %if.then15.i.i.i, label %if.end16.i.i.i
 
@@ -435,7 +435,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then15.i.i.i
 qio_channel_websock_handshake_send_res_err.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then15.i.i.i
   call void (ptr, ptr, ...) @qio_channel_websock_handshake_send_res(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.45, ptr noundef %call1.i.i.i.i.i)
   call void @g_free(ptr noundef %call1.i.i.i.i.i) #15
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 253, ptr noundef nonnull @__func__.qio_channel_websock_extract_headers, ptr noundef nonnull @.str.46, ptr noundef %add.ptr.i.i.i) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.12, i32 noundef 253, ptr noundef nonnull @__func__.qio_channel_websock_extract_headers, ptr noundef nonnull @.str.46, ptr noundef nonnull %add.ptr.i.i.i) #15
   br label %qio_channel_websock_handshake_process.exit.i
 
 if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
@@ -932,7 +932,7 @@ return:                                           ; preds = %trace_qio_channel_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 32) i32 @qio_channel_websock_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #2 {
+define internal range(i32 0, 32) i32 @qio_channel_websock_source_prepare(ptr noundef readonly captures(none) %source, ptr noundef writeonly captures(none) initializes((0, 4)) %timeout) #2 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %wioc.i = getelementptr inbounds nuw i8, ptr %source, i64 96
@@ -963,7 +963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 32) i32 @qio_channel_websock_source_check(ptr nocapture noundef readonly %source) #3 {
+define internal range(i32 0, 32) i32 @qio_channel_websock_source_check(ptr noundef readonly captures(none) %source) #3 {
 entry:
   %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
@@ -993,7 +993,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_websock_source_dispatch(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %callback, ptr noundef %user_data) #0 {
+define internal i32 @qio_channel_websock_source_dispatch(ptr noundef readonly captures(none) %source, ptr noundef readonly captures(none) %callback, ptr noundef %user_data) #0 {
 entry:
   %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_websock_source_finalize(ptr nocapture noundef readonly %source) #0 {
+define internal void @qio_channel_websock_source_finalize(ptr noundef readonly captures(none) %source) #0 {
 entry:
   %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
@@ -1053,7 +1053,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1288,8 +1288,8 @@ entry:
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #16
   %encoutput = getelementptr inbounds nuw i8, ptr %ioc, i64 144
   call void @buffer_reserve(ptr noundef nonnull %encoutput, i64 noundef %call2) #15
-  call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef %call, i64 noundef %call2) #15
-  call void @g_free(ptr noundef %call) #15
+  call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef nonnull %call, i64 noundef %call2) #15
+  call void @g_free(ptr noundef nonnull %call) #15
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret void
 }
@@ -1305,7 +1305,7 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @buffer_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1320,7 +1320,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
@@ -1372,7 +1372,7 @@ return:                                           ; preds = %qio_channel_websock
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1429,7 +1429,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_websock_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @qio_channel_websock_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #15
   %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -1458,7 +1458,7 @@ declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #1
 declare void @error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -9223372036854775808, 8193) i64 @qio_channel_websock_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i64 -9223372036854775808, 8193) i64 @qio_channel_websock_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr readnone captures(none) %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %conv = trunc i64 %niov to i32
@@ -1609,7 +1609,7 @@ return:                                           ; preds = %if.then.i21, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_websock_readv(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal i64 @qio_channel_websock_readv(ptr noundef %ioc, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr readnone captures(none) %fds, ptr readnone captures(none) %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
@@ -1992,7 +1992,7 @@ declare i16 @llvm.bswap.i16(i16) #9
 declare i64 @llvm.bswap.i64(i64) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_websock_flush(ptr nocapture readnone %ioc, i32 noundef %condition, ptr noundef %user_data) #0 {
+define internal noundef i32 @qio_channel_websock_flush(ptr readnone captures(none) %ioc, i32 noundef %condition, ptr noundef %user_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %user_data, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %and = and i32 %condition, 4
@@ -2658,10 +2658,10 @@ qio_channel_websock_write_wire.exit:              ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2682,10 +2682,10 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14

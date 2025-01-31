@@ -89,7 +89,7 @@ define hidden void @proto_reg_handoff_ixiatrailer() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.vec_t, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #3

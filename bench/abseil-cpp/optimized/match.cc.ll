@@ -202,7 +202,7 @@ land.end:                                         ; preds = %_ZN4absl16EqualsIgn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr nocapture readonly %b.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr readonly captures(none) %b.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %b.coerce0, i64 %a.coerce0)
   %cmp = icmp ult i64 %.sroa.speculated, 8
@@ -290,7 +290,7 @@ return:                                           ; preds = %do.end, %while.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonSuffixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr nocapture readonly %b.coerce1) local_unnamed_addr #5 {
+define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonSuffixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr readonly captures(none) %b.coerce1) local_unnamed_addr #5 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %b.coerce0, i64 %a.coerce0)
   %cmp = icmp eq i64 %.sroa.speculated, 0
@@ -331,7 +331,7 @@ return:                                           ; preds = %land.rhs, %while.bo
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7

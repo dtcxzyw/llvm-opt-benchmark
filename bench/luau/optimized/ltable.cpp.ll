@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"table overflow\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 2) i32 @_Z9luaH_nextP9lua_StateP5TableP10lua_TValue(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @_Z9luaH_nextP9lua_StateP5TableP10lua_TValue(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %.thread.i [
@@ -99,7 +99,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z9luaH_nextP9lua_StateP5TableP10lua_
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds %struct.LuaNode, ptr %.030.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = tail call noundef i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TValue(ptr noundef nonnull %48, ptr noundef %2)
+  %49 = tail call noundef i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TValue(ptr noundef nonnull %48, ptr noundef nonnull %2)
   %.not27.i = icmp eq i32 %49, 0
   br i1 %.not27.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
@@ -200,7 +200,7 @@ _ZL9findindexP9lua_StateP5TableP10lua_TValue.exit: ; preds = %._ZL9findindexP9lu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z16luaH_resizearrayP9lua_StateP5Tablei(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -224,7 +224,7 @@ define hidden void @_Z16luaH_resizearrayP9lua_StateP5Tablei(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @luaH_dummynode
@@ -813,7 +813,7 @@ declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64
 declare hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_Z11luaH_getnumP5Tablei(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden noundef ptr @_Z11luaH_getnumP5Tablei(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = add nsw i32 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -892,7 +892,7 @@ define hidden noundef ptr @_Z11luaH_getnumP5Tablei(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -937,7 +937,7 @@ define hidden noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z8luaH_getP5TablePK10lua_TValue(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z8luaH_getP5TablePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %87 [
@@ -1084,7 +1084,7 @@ define hidden noundef ptr @_Z8luaH_getP5TablePK10lua_TValue(ptr nocapture nounde
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds %struct.LuaNode, ptr %.025, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = tail call noundef i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TValue(ptr noundef nonnull %98, ptr noundef %1)
+  %99 = tail call noundef i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TValue(ptr noundef nonnull %98, ptr noundef nonnull %1)
   %.not = icmp eq i32 %99, 0
   br i1 %.not, label %.lr.ph, label %_Z11luaH_getstrP5TableP7TString.exit, !llvm.loop !16
 
@@ -1094,7 +1094,7 @@ _Z11luaH_getstrP5TableP7TString.exit:             ; preds = %81, %77, %27, %23, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL12mainpositionPK5TablePK10lua_TValue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL12mainpositionPK5TablePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %56 [
@@ -1400,7 +1400,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %52, label %_ZL10getfreeposP5Table.exit, label %42, !llvm.loop !17
 
 53:                                               ; preds = %42
-  tail call fastcc void @_ZL6rehashP9lua_StateP5TablePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @_ZL6rehashP9lua_StateP5TablePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %54 = load i32, ptr %5, align 4
   %55 = icmp eq i32 %54, 3
   br i1 %55, label %56, label %tailrecurse.backedge
@@ -1727,7 +1727,7 @@ _Z11luaH_getstrP5TableP7TString.exit:             ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z9luaH_getnP5Table(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z9luaH_getnP5Table(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
@@ -1897,7 +1897,7 @@ _ZL15updateaboundaryP5Tablei.exit:                ; preds = %_ZL15updateaboundar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z10luaH_cloneP9lua_StateP5Table(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z10luaH_cloneP9lua_StateP5Table(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = tail call noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 noundef 48, i8 noundef zeroext %4)
@@ -2029,7 +2029,7 @@ declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, 
 declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_Z10luaH_clearP5Table(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @_Z10luaH_clearP5Table(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -2321,7 +2321,7 @@ _ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i32, %90, %8
 declare hidden void @_Z17luaC_barriertableP9lua_StateP5TableP8GCObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

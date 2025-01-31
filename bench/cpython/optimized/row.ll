@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [6 x i8] c"tuple\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pysqlite_row_item(ptr nocapture noundef readonly %self, i64 noundef %idx) #0 {
+define hidden ptr @pysqlite_row_item(ptr noundef readonly captures(none) %self, i64 noundef %idx) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -108,7 +108,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @pysqlite_row_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @pysqlite_row_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %description, align 8
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_row_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %_other, i32 noundef %opid) #0 {
+define internal ptr @pysqlite_row_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %_other, i32 noundef %opid) #0 {
 entry:
   %cmp = icmp ne i32 %opid, 2
   %0 = add i32 %opid, -4
@@ -177,7 +177,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_iter(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @pysqlite_iter(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @pysqlite_row_length(ptr nocapture noundef readonly %self) #2 {
+define internal i64 @pysqlite_row_length(ptr noundef readonly captures(none) %self) #2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_row_subscript(ptr nocapture noundef readonly %self, ptr noundef %idx) #0 {
+define internal ptr @pysqlite_row_subscript(ptr noundef readonly captures(none) %self, ptr noundef %idx) #0 {
 entry:
   %0 = getelementptr i8, ptr %idx, i64 8
   %idx.val = load ptr, ptr %0, align 8
@@ -422,7 +422,7 @@ return:                                           ; preds = %if.end.i.i.i29, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_row_new(ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal ptr @pysqlite_row_new(ptr noundef %type, ptr noundef readonly captures(none) %args, ptr noundef %kwargs) #0 {
 entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sqlite3module) #3
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #3
@@ -547,7 +547,7 @@ exit:                                             ; preds = %_Py_NewRef.exit8.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @row_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @row_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -590,7 +590,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @row_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @row_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -648,7 +648,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_row_keys(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pysqlite_row_keys(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 0) #3
   %tobool.not.i = icmp eq ptr %call.i, null

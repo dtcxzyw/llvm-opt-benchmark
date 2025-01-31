@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [21 x i8] c"avtab_extended_perms\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %125, label %5
 
@@ -219,13 +219,13 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread9, label %4
 
@@ -423,10 +423,10 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -499,13 +499,13 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @avtab_init(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @avtab_init(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #6 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread1, label %4
 
@@ -547,7 +547,7 @@ define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc_dup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc_dup(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc_dup(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @avtab_read_item(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.avtab_key, align 8
   %7 = alloca %struct.avtab_datum, align 8
   %8 = alloca %struct.avtab_extended_perms, align 4
@@ -929,7 +929,7 @@ declare dso_local i32 @policydb_type_isvalid(ptr noundef, i32 noundef) local_unn
 declare dso_local i32 @policydb_class_isvalid(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4
@@ -1069,7 +1069,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %131, label %6
 
@@ -1258,7 +1258,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #8 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #8 align 16 {
   %4 = alloca [7 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1364,7 +1364,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #9 align 16 {
   %4 = alloca [7 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8

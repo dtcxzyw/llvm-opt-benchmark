@@ -448,7 +448,7 @@ declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MD5_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_md5_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %md_out) unnamed_addr #2 {
+define internal void @tls1_md5_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) initializes((0, 16)) %md_out) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %conv = trunc i32 %0 to i8
@@ -536,7 +536,7 @@ declare void @MD5_Transform(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 20)) %md_out) unnamed_addr #2 {
+define internal void @tls1_sha1_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) initializes((0, 20)) %md_out) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24
@@ -644,7 +644,7 @@ declare void @SHA1_Transform(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SHA224_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @tls1_sha256_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #3 {
+define internal void @tls1_sha256_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %md_out) unnamed_addr #3 {
 entry:
   br label %for.body
 
@@ -686,7 +686,7 @@ declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #1
 declare i32 @SHA384_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @tls1_sha512_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #3 {
+define internal void @tls1_sha512_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %md_out) unnamed_addr #3 {
 entry:
   br label %for.body
 
@@ -746,10 +746,10 @@ declare void @SHA512_Transform(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SHA512_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 

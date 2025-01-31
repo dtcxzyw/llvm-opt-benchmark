@@ -102,12 +102,12 @@ throwPCSCException.exit:                          ; preds = %22, %16, %10, %4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @JNI_OnLoad(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define noundef i32 @JNI_OnLoad(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret i32 65540
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr @scardEstablishContext, align 8
@@ -301,16 +301,16 @@ throwOutOfMemoryError.exit:                       ; preds = %20, %15, %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr @scardListReaders, align 8
@@ -428,7 +428,7 @@ throwOutOfMemoryError.exit:                       ; preds = %26, %20, %14, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store i64 0, ptr %7, align 8
@@ -494,7 +494,7 @@ handleRV.exit.thread:                             ; preds = %41, %35, %29, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.SCARD_IO_REQUEST, align 8
   %9 = alloca [8192 x i8], align 16
   %10 = alloca i64, align 8
@@ -587,7 +587,7 @@ handleRV.exit.thread:                             ; preds = %46, %40, %34, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca i64, align 8
   %7 = alloca [128 x i8], align 16
@@ -685,7 +685,7 @@ handleRV.exit.thread:                             ; preds = %33, %27, %21, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @scardDisconnect, align 8
   %6 = sext i32 %3 to i64
   %7 = tail call i64 %5(i64 noundef %2, i64 noundef %6) #7
@@ -729,7 +729,7 @@ handleRV.exit:                                    ; preds = %4, %9, %15, %21, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
@@ -977,10 +977,10 @@ throwOutOfMemoryError.exit:                       ; preds = %21, %17, %._crit_ed
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @scardBeginTransaction, align 8
   %5 = tail call i64 %4(i64 noundef %2) #7
   %6 = icmp eq i64 %5, 0
@@ -1023,7 +1023,7 @@ handleRV.exit:                                    ; preds = %3, %7, %13, %19, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @scardEndTransaction, align 8
   %6 = sext i32 %3 to i64
   %7 = tail call i64 %5(i64 noundef %2, i64 noundef %6) #7
@@ -1067,7 +1067,7 @@ handleRV.exit:                                    ; preds = %4, %9, %15, %21, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [8192 x i8], align 16
   %7 = alloca i64, align 8
   %8 = load ptr, ptr %0, align 8

@@ -68,7 +68,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp3FBX5TokenC1EPKcS3_NS0_9TokenTypeEjj = hidden unnamed_addr alias void (ptr, ptr, ptr, i32, i32, i32), ptr @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEjj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 20), (24, 36)) %this, ptr noundef %sbegin, ptr noundef %send, i32 noundef %type, i32 noundef %line, i32 noundef %column) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 20), (24, 36)) %this, ptr noundef %sbegin, ptr noundef %send, i32 noundef %type, i32 noundef %line, i32 noundef %column) unnamed_addr #0 align 2 {
 entry:
   store ptr %sbegin, ptr %this, align 8
   %send3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX8TokenizeERSt6vectorIPKNS0_5TokenESaIS4_EEPKcRNS_14StackAllocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %output_tokens, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX8TokenizeERSt6vectorIPKNS0_5TokenESaIS4_EEPKcRNS_14StackAllocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %output_tokens, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %token_begin = alloca ptr, align 8
   %token_end = alloca ptr, align 8
@@ -492,7 +492,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #2
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_116ProcessDataTokenERSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorERPKcSD_jjNS0_9TokenTypeEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %output_tokens, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator, ptr nocapture noundef nonnull align 8 dereferenceable(8) %start, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end, i32 noundef %line, i32 noundef %column, i32 noundef range(i32 2, 6) %type, i1 noundef zeroext %must_have_token) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_116ProcessDataTokenERSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorERPKcSD_jjNS0_9TokenTypeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %output_tokens, ptr noundef nonnull align 8 dereferenceable(40) %token_allocator, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %start, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %end, i32 noundef %line, i32 noundef %column, i32 noundef range(i32 2, 6) %type, i1 noundef zeroext %must_have_token) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator.5", align 1
@@ -1097,7 +1097,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
@@ -1159,7 +1159,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -1214,10 +1214,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

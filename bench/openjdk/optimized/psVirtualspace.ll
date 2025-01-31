@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14PSVirtualSpaceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14PSVirtualSpaceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14PSVirtualSpaceC2E13ReservedSpacem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14PSVirtualSpaceC2E13ReservedSpacem(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 49)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -40,7 +40,7 @@ define hidden void @_ZN14PSVirtualSpaceC2E13ReservedSpacem(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14PSVirtualSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14PSVirtualSpaceC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 49)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -51,7 +51,7 @@ define hidden void @_ZN14PSVirtualSpaceC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 49)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((16, 49)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %.sroa.02.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -73,7 +73,7 @@ define hidden void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14PSVirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 8), (16, 49)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN14PSVirtualSpaceD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 8), (16, 49)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14PSVirtualSpace, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %2, i8 0, i64 33, i1 false)
@@ -81,14 +81,14 @@ define hidden void @_ZN14PSVirtualSpaceD2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14PSVirtualSpace7releaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 49)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14PSVirtualSpace7releaseEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((16, 49)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %2, i8 0, i64 33, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9expand_byEm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9expand_byEm(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9expand_byEm(ptr nocapture 
 declare noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9shrink_byEm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9shrink_byEm(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -178,7 +178,7 @@ define hidden noundef zeroext i1 @_ZN14PSVirtualSpace9shrink_byEm(ptr nocapture 
 declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14PSVirtualSpace25print_space_boundaries_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14PSVirtualSpace25print_space_boundaries_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -195,7 +195,7 @@ define hidden void @_ZNK14PSVirtualSpace25print_space_boundaries_onEP12outputStr
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

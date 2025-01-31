@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [29 x i8] c"starting load-detect on CRT\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_crt_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_crt_port_enabled(ptr noundef %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
@@ -58,7 +58,7 @@ define dso_local zeroext i1 @intel_crt_port_enabled(ptr noundef %0, i32 %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_crt_reset(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @intel_crt_reset(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2632
   %4 = load i16, ptr %3, align 8
@@ -397,7 +397,7 @@ define internal void @hsw_crt_get_config(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local zeroext i1 @intel_ddi_get_hw_state(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @hsw_crt_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @hsw_crt_compute_config(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %6 = load i32, ptr %5, align 8
@@ -478,7 +478,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_crt_compute_config(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_pre_pll_enable_crt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @hsw_pre_pll_enable_crt(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 860
   %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
@@ -515,7 +515,7 @@ define internal void @hsw_pre_pll_enable_crt(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_pre_enable_crt(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @hsw_pre_enable_crt(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1648
@@ -557,7 +557,7 @@ define internal void @hsw_pre_enable_crt(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_enable_crt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @hsw_enable_crt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1648
@@ -668,7 +668,7 @@ define internal void @hsw_enable_crt(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_disable_crt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @hsw_disable_crt(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 860
   %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
@@ -705,7 +705,7 @@ define internal void @hsw_disable_crt(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_post_disable_crt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @hsw_post_disable_crt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %1, align 8
   tail call void @intel_crtc_vblank_off(ptr noundef %2) #5
@@ -826,7 +826,7 @@ declare dso_local zeroext i1 @hsw_ddi_is_clock_enabled(ptr noundef) #1
 declare dso_local void @intel_ddi_buf_trans_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @pch_crt_compute_config(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pch_crt_compute_config(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -850,12 +850,12 @@ define internal noundef range(i32 -22, 1) i32 @pch_crt_compute_config(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @pch_disable_crt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #2 align 16 {
+define internal void @pch_disable_crt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pch_post_disable_crt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @pch_post_disable_crt(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2624
@@ -924,7 +924,7 @@ define internal void @pch_post_disable_crt(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 -22, 1) i32 @intel_crt_compute_config(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_crt_compute_config(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -944,7 +944,7 @@ define internal noundef range(i32 -22, 1) i32 @intel_crt_compute_config(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_disable_crt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_disable_crt(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2624
@@ -1013,7 +1013,7 @@ define internal void @intel_disable_crt(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_crt_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((636, 640)) %1) #0 align 16 {
+define internal void @intel_crt_get_config(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((636, 640)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 2
@@ -1044,7 +1044,7 @@ define internal void @intel_crt_get_config(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_crt_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @intel_crt_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %5 = load i32, ptr %4, align 4
@@ -1079,7 +1079,7 @@ define internal zeroext i1 @intel_crt_get_hw_state(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_enable_crt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_enable_crt(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2624
@@ -1175,7 +1175,7 @@ declare dso_local void @drm_atomic_helper_connector_destroy_state(ptr noundef, p
 declare dso_local void @intel_encoder_destroy(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_spurious_crt_detect_dmi_callback(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @intel_spurious_crt_detect_dmi_callback(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %3) #5
@@ -1783,7 +1783,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_crt_mode_valid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @intel_crt_mode_valid(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8076
   %5 = load i32, ptr %4, align 4

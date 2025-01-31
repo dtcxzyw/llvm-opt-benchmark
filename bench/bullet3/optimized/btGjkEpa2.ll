@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %shape0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs1, ptr noundef nonnull align 4 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %shape0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs1, ptr noundef nonnull align 4 dereferenceable(16) %guess, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp2.i.i = alloca %class.btVector3, align 8
   %shape = alloca %"struct.gjkepa2_impl::MinkowskiDiff", align 8
@@ -379,7 +379,7 @@ return:                                           ; preds = %if.else, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12gjkepa2_implL10InitializeEPK13btConvexShapeRK11btTransformS2_S5_RN15btGjkEpaSolver28sResultsERNS_13MinkowskiDiffEb(ptr noundef %shape0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(56) initializes((0, 36)) %results, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 144)) %shape, i1 noundef zeroext %withmargins) unnamed_addr #2 {
+define internal fastcc void @_ZN12gjkepa2_implL10InitializeEPK13btConvexShapeRK11btTransformS2_S5_RN15btGjkEpaSolver28sResultsERNS_13MinkowskiDiffEb(ptr noundef %shape0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(56) initializes((0, 36)) %results, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 144)) %shape, i1 noundef zeroext %withmargins) unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %results, i8 0, i64 36, i1 false)
   store ptr %shape0, ptr %shape, align 8
@@ -1332,10 +1332,10 @@ sw.epilog208:                                     ; preds = %sw.epilog208.sink.s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsEb(ptr noundef %shape0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(56) initializes((0, 36)) %results, i1 noundef zeroext %usemargins) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsEb(ptr noundef %shape0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %guess, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(56) initializes((0, 36)) %results, i1 noundef zeroext %usemargins) local_unnamed_addr #1 align 2 {
 entry:
   %shape = alloca %"struct.gjkepa2_impl::MinkowskiDiff", align 8
   %gjk = alloca %"struct.gjkepa2_impl::GJK", align 8
@@ -2278,7 +2278,7 @@ return:                                           ; preds = %if.end255, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransformRNS_8sResultsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %position, float noundef %margin, ptr noundef %shape0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs0, ptr nocapture noundef nonnull align 4 dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransformRNS_8sResultsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, float noundef %margin, ptr noundef %shape0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs0, ptr noundef nonnull align 4 captures(none) dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %ref.tmp2.i.i = alloca %class.btVector3, align 8
   %shape = alloca %"struct.gjkepa2_impl::MinkowskiDiff", align 8
@@ -2733,7 +2733,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef float @_ZNK13btConvexShape19getMarginNonVirtualEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %shape0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %wtrs1, ptr noundef nonnull align 4 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %shape0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %wtrs1, ptr noundef nonnull align 4 dereferenceable(16) %guess, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(56) initializes((0, 36)) %results) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef %shape0, ptr noundef nonnull align 4 dereferenceable(64) %wtrs0, ptr noundef %shape1, ptr noundef nonnull align 4 dereferenceable(64) %wtrs1, ptr noundef nonnull align 4 dereferenceable(16) %guess, ptr noundef nonnull align 4 dereferenceable(56) %results)
   br i1 %call, label %return, label %if.then
@@ -3498,7 +3498,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3.exit: ; preds = %memptr.v
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3GJK13EncloseOriginEv(ptr noundef nonnull align 8 dereferenceable(460) %this) local_unnamed_addr #1 comdat align 2 {
@@ -5331,10 +5331,10 @@ declare void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable
 declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

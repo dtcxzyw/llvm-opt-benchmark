@@ -118,14 +118,14 @@ define void @arkPrintAdaptMem(ptr noundef readonly %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @arkExpStab(ptr noundef, double noundef, ptr noundef, ptr noundef) #3
 
 declare i32 @SUNAdaptController_Write(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = icmp eq ptr %0, null
@@ -292,7 +292,7 @@ declare i32 @SUNAdaptController_EstimateStep(ptr noundef, double noundef, i32 no
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6

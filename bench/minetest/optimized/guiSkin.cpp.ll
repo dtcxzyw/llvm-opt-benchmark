@@ -61,7 +61,7 @@ $_ZTIN3irr3gui8IGUISkinE = comdat any
 @_ZTIN3irr3gui7GUISkinE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr3gui7GUISkinE, ptr @_ZTIN3irr3gui8IGUISkinE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkinC2ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8), (336, 344)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui7GUISkinC2ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8), (336, 344)) %this, ptr noundef readonly captures(none) %vtt, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -415,13 +415,13 @@ _ZN3irr4core6stringIwED2Ev.exit.7:                ; preds = %_ZNKSt7__cxx1112bas
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3irr3gui7GUISkinC1ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8), (336, 344), (616, 636)) %this, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -766,7 +766,7 @@ _ZN3irr4core6stringIwED2Ev.exit.7:                ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -1115,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_ZNK3irr3gui7GUISkin8getColorENS0_18EGUI_DEFAULT_COLORE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %color) unnamed_addr #6 align 2 {
+define dso_local i32 @_ZNK3irr3gui7GUISkin8getColorENS0_18EGUI_DEFAULT_COLORE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %color) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %color, 25
   br i1 %cmp, label %if.then, label %return
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui7GUISkin8setColorENS0_18EGUI_DEFAULT_COLORENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(616) %this, i32 noundef %which, i32 %newColor.coerce) unnamed_addr #7 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin8setColorENS0_18EGUI_DEFAULT_COLORENS_5video6SColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %which, i32 %newColor.coerce) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %which, 25
   br i1 %cmp, label %if.then, label %if.end
@@ -1150,7 +1150,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getSizeENS0_17EGUI_DEFAULT_SIZEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %size) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getSizeENS0_17EGUI_DEFAULT_SIZEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %size) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %size, 23
   br i1 %cmp, label %if.then, label %return
@@ -1168,7 +1168,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui7GUISkin7setSizeENS0_17EGUI_DEFAULT_SIZEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(616) %this, i32 noundef %which, i32 noundef %size) unnamed_addr #7 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin7setSizeENS0_17EGUI_DEFAULT_SIZEEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %which, i32 noundef %size) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %which, 23
   br i1 %cmp, label %if.then, label %if.end
@@ -1185,7 +1185,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3irr3gui7GUISkin7getFontENS0_17EGUI_DEFAULT_FONTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %which) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZNK3irr3gui7GUISkin7getFontENS0_17EGUI_DEFAULT_FONTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %which) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %which, 5
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1209,7 +1209,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin7setFontEPNS0_8IGUIFontENS0_17EGUI_DEFAULT_FONTE(ptr nocapture noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %font, i32 noundef %which) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin7setFontEPNS0_8IGUIFontENS0_17EGUI_DEFAULT_FONTE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %font, i32 noundef %which) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %which, 5
   %tobool = icmp ne ptr %font, null
@@ -1260,7 +1260,7 @@ if.end16:                                         ; preds = %if.end12, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3irr3gui7GUISkin13getSpriteBankEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZNK3irr3gui7GUISkin13getSpriteBankEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this) unnamed_addr #6 align 2 {
 entry:
   %SpriteBank = getelementptr inbounds nuw i8, ptr %this, i64 336
   %0 = load ptr, ptr %SpriteBank, align 8, !tbaa !7
@@ -1268,7 +1268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin13setSpriteBankEPNS0_14IGUISpriteBankE(ptr nocapture noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %bank) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin13setSpriteBankEPNS0_14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %this, ptr noundef %bank) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %bank, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1315,7 +1315,7 @@ if.end9:                                          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getIconENS0_17EGUI_DEFAULT_ICONE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %icon) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getIconENS0_17EGUI_DEFAULT_ICONE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %icon) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %icon, 23
   br i1 %cmp, label %if.then, label %return
@@ -1333,7 +1333,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui7GUISkin7setIconENS0_17EGUI_DEFAULT_ICONEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(616) %this, i32 noundef %icon, i32 noundef %index) unnamed_addr #7 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin7setIconENS0_17EGUI_DEFAULT_ICONEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %icon, i32 noundef %index) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %icon, 23
   br i1 %cmp, label %if.then, label %if.end
@@ -1350,7 +1350,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK3irr3gui7GUISkin14getDefaultTextENS0_17EGUI_DEFAULT_TEXTE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, i32 noundef %text) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZNK3irr3gui7GUISkin14getDefaultTextENS0_17EGUI_DEFAULT_TEXTE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, i32 noundef %text) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %text, 8
   %Texts = getelementptr inbounds nuw i8, ptr %this, i64 344
@@ -1495,7 +1495,7 @@ if.end:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin31drawColored3DButtonPaneStandardEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %element, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin31drawColored3DButtonPaneStandardEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %element, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -1679,7 +1679,7 @@ cleanup.cont:                                     ; preds = %cleanup, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin30drawColored3DButtonPanePressedEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture readnone %element, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin30drawColored3DButtonPanePressedEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr readnone captures(none) %element, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 8
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -1806,7 +1806,7 @@ return:                                           ; preds = %if.end52, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin23drawColored3DSunkenPaneEPNS0_11IGUIElementENS_5video6SColorEbbRKNS_4core4rectIiEEPS9_PKS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture readnone %element, i32 %bgcolor.coerce, i1 noundef zeroext %flat, i1 noundef zeroext %fillBackGround, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin23drawColored3DSunkenPaneEPNS0_11IGUIElementENS_5video6SColorEbbRKNS_4core4rectIiEEPS9_PKS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr readnone captures(none) %element, i32 %bgcolor.coerce, i1 noundef zeroext %flat, i1 noundef zeroext %fillBackGround, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -1983,7 +1983,7 @@ return:                                           ; preds = %if.end202, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZN3irr3gui7GUISkin29drawColored3DWindowBackgroundEPNS0_11IGUIElementEbNS_5video6SColorERKNS_4core4rectIiEEPS9_PS8_PKS5_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture readnone %element, i1 noundef zeroext %drawTitleBar, i32 %titleBarColor.coerce, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef writeonly %checkClientArea, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local { i64, i64 } @_ZN3irr3gui7GUISkin29drawColored3DWindowBackgroundEPNS0_11IGUIElementEbNS_5video6SColorERKNS_4core4rectIiEEPS9_PS8_PKS5_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr readnone captures(none) %element, i1 noundef zeroext %drawTitleBar, i32 %titleBarColor.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef writeonly %checkClientArea, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -2388,7 +2388,7 @@ return:                                           ; preds = %if.else231, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin21drawColored3DMenuPaneEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %element, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin21drawColored3DMenuPaneEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %element, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -2528,7 +2528,7 @@ cleanup.cont:                                     ; preds = %cleanup, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin20drawColored3DToolBarEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture readnone %element, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin20drawColored3DToolBarEPNS0_11IGUIElementERKNS_4core4rectIiEEPS7_PKNS_5video6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr readnone captures(none) %element, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 4
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -2617,7 +2617,7 @@ return:                                           ; preds = %if.end64, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin22drawColored3DTabButtonEPNS0_11IGUIElementEbRKNS_4core4rectIiEEPS7_NS0_14EGUI_ALIGNMENTEPKNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture readnone %element, i1 zeroext %active, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %frameRect, ptr noundef %clip, i32 noundef %alignment, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin22drawColored3DTabButtonEPNS0_11IGUIElementEbRKNS_4core4rectIiEEPS7_NS0_14EGUI_ALIGNMENTEPKNS_5video6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr readnone captures(none) %element, i1 zeroext %active, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %frameRect, ptr noundef %clip, i32 noundef %alignment, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %tr = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -2750,7 +2750,7 @@ return:                                           ; preds = %if.end148, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin20drawColored3DTabBodyEPNS0_11IGUIElementEbbRKNS_4core4rectIiEEPS7_iNS0_14EGUI_ALIGNMENTEPKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture readnone %element, i1 noundef zeroext %border, i1 noundef zeroext %background, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rect, ptr noundef %clip, i32 noundef %tabHeight, i32 noundef %alignment, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin20drawColored3DTabBodyEPNS0_11IGUIElementEbbRKNS_4core4rectIiEEPS7_iNS0_14EGUI_ALIGNMENTEPKNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr readnone captures(none) %element, i1 noundef zeroext %border, i1 noundef zeroext %background, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rect, ptr noundef %clip, i32 noundef %tabHeight, i32 noundef %alignment, ptr noundef readonly %colors) unnamed_addr #0 align 2 {
 entry:
   %tr = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -2980,7 +2980,7 @@ return:                                           ; preds = %land.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK3irr3gui7GUISkin7getTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this) unnamed_addr #6 align 2 {
 entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 612
   %0 = load i32, ptr %Type, align 4, !tbaa !22
@@ -2988,7 +2988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkin15draw2DRectangleEPNS0_11IGUIElementERKNS_5video6SColorERKNS_4core4rectIiEEPSB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture readnone %element, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, ptr noundef nonnull align 4 dereferenceable(16) %pos, ptr noundef %clip) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin15draw2DRectangleEPNS0_11IGUIElementERKNS_5video6SColorERKNS_4core4rectIiEEPSB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr readnone captures(none) %element, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, ptr noundef nonnull align 4 dereferenceable(16) %pos, ptr noundef %clip) unnamed_addr #0 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600
   %0 = load ptr, ptr %Driver, align 8, !tbaa !21
@@ -3001,7 +3001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3irr3gui7GUISkin9getColorsEPNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture noundef writeonly initializes((0, 100)) %colors) unnamed_addr #8 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin9getColorsEPNS_5video6SColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr noundef writeonly captures(none) initializes((0, 100)) %colors) unnamed_addr #8 align 2 {
 entry:
   %Colors = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Colors, align 8, !tbaa !23
@@ -3244,7 +3244,7 @@ declare void @llvm.trap() #12
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #15
 
@@ -3252,7 +3252,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.floor.v2f32(<2 x float>) #11

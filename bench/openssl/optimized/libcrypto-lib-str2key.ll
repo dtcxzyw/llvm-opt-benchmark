@@ -54,14 +54,14 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @DES_set_key_unchecked(ptr noundef nonnull %key, ptr noundef nonnull %ks) #5
   %sext = shl i64 %call, 32
   %conv38 = ashr exact i64 %sext, 32
-  %call39 = call i32 @DES_cbc_cksum(ptr noundef %str, ptr noundef nonnull %key, i64 noundef %conv38, ptr noundef nonnull %ks, ptr noundef nonnull %key) #5
+  %call39 = call i32 @DES_cbc_cksum(ptr noundef nonnull %str, ptr noundef nonnull %key, i64 noundef %conv38, ptr noundef nonnull %ks, ptr noundef nonnull %key) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %ks, i64 noundef 128) #5
   call void @DES_set_odd_parity(ptr noundef nonnull %key) #5
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #2
 
@@ -157,9 +157,9 @@ if.end69:                                         ; preds = %if.then68, %for.end
   call void @DES_set_key_unchecked(ptr noundef nonnull %key1, ptr noundef nonnull %ks) #5
   %sext = shl i64 %call, 32
   %conv70 = ashr exact i64 %sext, 32
-  %call71 = call i32 @DES_cbc_cksum(ptr noundef %str, ptr noundef nonnull %key1, i64 noundef %conv70, ptr noundef nonnull %ks, ptr noundef nonnull %key1) #5
+  %call71 = call i32 @DES_cbc_cksum(ptr noundef nonnull %str, ptr noundef nonnull %key1, i64 noundef %conv70, ptr noundef nonnull %ks, ptr noundef nonnull %key1) #5
   call void @DES_set_key_unchecked(ptr noundef nonnull %key2, ptr noundef nonnull %ks) #5
-  %call73 = call i32 @DES_cbc_cksum(ptr noundef %str, ptr noundef nonnull %key2, i64 noundef %conv70, ptr noundef nonnull %ks, ptr noundef nonnull %key2) #5
+  %call73 = call i32 @DES_cbc_cksum(ptr noundef nonnull %str, ptr noundef nonnull %key2, i64 noundef %conv70, ptr noundef nonnull %ks, ptr noundef nonnull %key2) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %ks, i64 noundef 128) #5
   call void @DES_set_odd_parity(ptr noundef nonnull %key1) #5
   call void @DES_set_odd_parity(ptr noundef nonnull %key2) #5

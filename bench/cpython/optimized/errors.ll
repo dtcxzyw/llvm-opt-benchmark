@@ -946,7 +946,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.54 = private unnamed_addr constant [8 x i8] c"replace\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_SetRaisedException(ptr nocapture noundef %tstate, ptr noundef %exc) local_unnamed_addr #0 {
+define hidden void @_PyErr_SetRaisedException(ptr noundef captures(none) %tstate, ptr noundef %exc) local_unnamed_addr #0 {
 entry:
   %current_exception = getelementptr inbounds nuw i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception, align 8
@@ -975,7 +975,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_Restore(ptr nocapture noundef %tstate, ptr noundef %type, ptr noundef %value, ptr noundef %traceback) local_unnamed_addr #0 {
+define hidden void @_PyErr_Restore(ptr noundef captures(none) %tstate, ptr noundef %type, ptr noundef %value, ptr noundef %traceback) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %type, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1398,7 +1398,7 @@ _PyErr_SetRaisedException.exit:                   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_PyErr_GetTopmostException(ptr nocapture noundef readonly %tstate) local_unnamed_addr #1 {
+define hidden noundef ptr @_PyErr_GetTopmostException(ptr noundef readonly captures(none) %tstate) local_unnamed_addr #1 {
 entry:
   %exc_info1 = getelementptr inbounds nuw i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1, align 8
@@ -1423,7 +1423,7 @@ while.end:                                        ; preds = %while.cond, %land.r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_SetObject(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %value) local_unnamed_addr #0 {
+define hidden void @_PyErr_SetObject(ptr noundef captures(none) %tstate, ptr noundef %exception, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %exception, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -1837,7 +1837,7 @@ return:                                           ; preds = %if.then1.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyErr_Format(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyErr_Format(ptr noundef captures(none) %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -1893,7 +1893,7 @@ _PyErr_FormatV.exit:                              ; preds = %_PyErr_Restore.exit
 declare i32 @PyObject_IsSubclass(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_Clear(ptr nocapture noundef %tstate) local_unnamed_addr #0 {
+define hidden void @_PyErr_Clear(ptr noundef captures(none) %tstate) local_unnamed_addr #0 {
 entry:
   %current_exception.i.i = getelementptr inbounds nuw i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i.i, align 8
@@ -1922,7 +1922,7 @@ _PyErr_Restore.exit:                              ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @_PyErr_GetRaisedException(ptr nocapture noundef %tstate) local_unnamed_addr #3 {
+define hidden ptr @_PyErr_GetRaisedException(ptr noundef captures(none) %tstate) local_unnamed_addr #3 {
 entry:
   %current_exception = getelementptr inbounds nuw i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception, align 8
@@ -1981,7 +1981,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_SetNone(ptr nocapture noundef %tstate, ptr noundef %exception) local_unnamed_addr #0 {
+define hidden void @_PyErr_SetNone(ptr noundef captures(none) %tstate, ptr noundef %exception) local_unnamed_addr #0 {
 entry:
   tail call void @_PyErr_SetObject(ptr noundef %tstate, ptr noundef %exception, ptr noundef null)
   ret void
@@ -1997,7 +1997,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_SetString(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %string) local_unnamed_addr #0 {
+define hidden void @_PyErr_SetString(ptr noundef captures(none) %tstate, ptr noundef %exception, ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %string) #16
   %cmp.not = icmp eq ptr %call, null
@@ -2134,7 +2134,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #2
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyErr_ExceptionMatches(ptr nocapture noundef readonly %tstate, ptr noundef %exc) local_unnamed_addr #0 {
+define hidden i32 @_PyErr_ExceptionMatches(ptr noundef readonly captures(none) %tstate, ptr noundef %exc) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %0, align 8
@@ -2174,7 +2174,7 @@ _PyErr_ExceptionMatches.exit:                     ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_NormalizeException(ptr nocapture noundef %tstate, ptr nocapture noundef %exc, ptr nocapture noundef %val, ptr nocapture noundef %tb) local_unnamed_addr #0 {
+define hidden void @_PyErr_NormalizeException(ptr noundef captures(none) %tstate, ptr noundef captures(none) %exc, ptr noundef captures(none) %val, ptr noundef captures(none) %tb) local_unnamed_addr #0 {
 entry:
   %recursion_headroom = getelementptr inbounds nuw i8, ptr %tstate, i64 48
   %0 = load i32, ptr %recursion_headroom, align 8
@@ -2454,7 +2454,7 @@ return:                                           ; preds = %restart, %if.end34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyErr_Fetch(ptr nocapture noundef %tstate, ptr nocapture noundef writeonly initializes((0, 8)) %p_type, ptr nocapture noundef writeonly initializes((0, 8)) %p_value, ptr nocapture noundef writeonly initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
+define hidden void @_PyErr_Fetch(ptr noundef captures(none) %tstate, ptr noundef writeonly captures(none) initializes((0, 8)) %p_type, ptr noundef writeonly captures(none) initializes((0, 8)) %p_value, ptr noundef writeonly captures(none) initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
 entry:
   %current_exception.i = getelementptr inbounds nuw i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
@@ -2506,7 +2506,7 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.t
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyErr_NormalizeException(ptr nocapture noundef %exc, ptr nocapture noundef %val, ptr nocapture noundef %tb) local_unnamed_addr #0 {
+define dso_local void @PyErr_NormalizeException(ptr noundef captures(none) %exc, ptr noundef captures(none) %val, ptr noundef captures(none) %tb) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2526,7 +2526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @PyErr_Fetch(ptr nocapture noundef writeonly initializes((0, 8)) %p_type, ptr nocapture noundef writeonly initializes((0, 8)) %p_value, ptr nocapture noundef writeonly initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
+define dso_local void @PyErr_Fetch(ptr noundef writeonly captures(none) initializes((0, 8)) %p_type, ptr noundef writeonly captures(none) initializes((0, 8)) %p_value, ptr noundef writeonly captures(none) initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2608,7 +2608,7 @@ _PyErr_Clear.exit:                                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_GetExcInfo(ptr nocapture noundef readonly %tstate, ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #0 {
+define hidden void @_PyErr_GetExcInfo(ptr noundef readonly captures(none) %tstate, ptr noundef writeonly captures(none) %p_type, ptr noundef writeonly captures(none) %p_value, ptr noundef writeonly captures(none) %p_traceback) local_unnamed_addr #0 {
 entry:
   %exc_info1.i = getelementptr inbounds nuw i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1.i, align 8
@@ -2708,7 +2708,7 @@ _Py_XNewRef.exit25:                               ; preds = %if.then.i.i21, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @_PyErr_GetHandledException(ptr nocapture noundef readonly %tstate) local_unnamed_addr #7 {
+define hidden ptr @_PyErr_GetHandledException(ptr noundef readonly captures(none) %tstate) local_unnamed_addr #7 {
 entry:
   %exc_info1.i = getelementptr inbounds nuw i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info1.i, align 8
@@ -2782,7 +2782,7 @@ _PyErr_GetHandledException.exit:                  ; preds = %land.rhs.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_SetHandledException(ptr nocapture noundef readonly %tstate, ptr noundef %exc) local_unnamed_addr #0 {
+define hidden void @_PyErr_SetHandledException(ptr noundef readonly captures(none) %tstate, ptr noundef %exc) local_unnamed_addr #0 {
 entry:
   %exc_info = getelementptr inbounds nuw i8, ptr %tstate, i64 112
   %0 = load ptr, ptr %exc_info, align 8
@@ -2872,7 +2872,7 @@ _PyErr_SetHandledException.exit:                  ; preds = %_Py_XNewRef.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyErr_GetExcInfo(ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #0 {
+define dso_local void @PyErr_GetExcInfo(ptr noundef writeonly captures(none) %p_type, ptr noundef writeonly captures(none) %p_value, ptr noundef writeonly captures(none) %p_traceback) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2986,7 +2986,7 @@ Py_XDECREF.exit17:                                ; preds = %Py_XDECREF.exit9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyErr_StackItemToExcInfoTuple(ptr nocapture noundef readonly %err_info) local_unnamed_addr #0 {
+define hidden ptr @_PyErr_StackItemToExcInfoTuple(ptr noundef readonly captures(none) %err_info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %err_info, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -3262,7 +3262,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyErr_FormatFromCauseTstate(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyErr_FormatFromCauseTstate(ptr noundef captures(none) %tstate, ptr noundef %exception, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %vargs)
@@ -3272,7 +3272,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PyErr_FormatVFromCause(ptr nocapture noundef %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs) unnamed_addr #0 {
+define internal fastcc void @_PyErr_FormatVFromCause(ptr noundef captures(none) %tstate, ptr noundef %exception, ptr noundef %format, ptr noundef nonnull %vargs) unnamed_addr #0 {
 _PyErr_Restore.exit.i:
   %current_exception.i = getelementptr inbounds nuw i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
@@ -4093,7 +4093,7 @@ if.then17:                                        ; preds = %if.end15
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %name to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call18 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %name, i64 noundef %sub.ptr.sub) #16
+  %call18 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %name, i64 noundef %sub.ptr.sub) #16
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %Py_XDECREF.exit, label %if.end21
 
@@ -4284,7 +4284,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyErr_InitTypes(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef nonnull @UnraisableHookArgsType, ptr noundef nonnull @UnraisableHookArgs_desc, i64 noundef 0) #16
   %cmp = icmp slt i32 %call.i, 0
@@ -4310,7 +4310,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyErr_FiniTypes(ptr noundef %interp) local_unnamed_addr #0 {
@@ -5427,7 +5427,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @format_unraisable(ptr noundef %obj, ptr nocapture readnone %format, ...) unnamed_addr #0 {
+define internal void @format_unraisable(ptr noundef %obj, ptr readnone captures(none) %format, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -6369,12 +6369,12 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #2
 declare ptr @Py_UniversalNewlineFgets(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #14
@@ -6383,10 +6383,10 @@ declare void @llvm.va_start.p0(ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

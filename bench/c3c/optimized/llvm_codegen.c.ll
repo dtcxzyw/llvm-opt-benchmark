@@ -258,7 +258,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.llvm_append_function_attributes = private unnamed_addr constant [3 x i32] [i32 80, i32 67, i32 68], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @llvm_create_builder(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @llvm_create_builder(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMCreateBuilderInContext(ptr noundef %3) #10
@@ -320,7 +320,7 @@ define dso_local ptr @llvm_emit_memclear_size_align(ptr noundef %0, ptr noundef 
 declare ptr @LLVMBuildMemSet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_selector(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_selector(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #10
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.5, ptr noundef %1) #10
   %3 = tail call ptr @scratch_buffer_to_string() #10
@@ -346,7 +346,7 @@ define dso_local ptr @llvm_get_selector(ptr nocapture noundef readonly %0, ptr n
   tail call void @LLVMSetGlobalConstant(ptr noundef %15, i32 noundef 1) #10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @LLVMConstStringInContext(ptr noundef %20, ptr noundef %1, i32 noundef %11, i32 noundef 0) #10
+  %21 = tail call ptr @LLVMConstStringInContext(ptr noundef %20, ptr noundef nonnull %1, i32 noundef %11, i32 noundef 0) #10
   tail call void @LLVMSetInitializer(ptr noundef %15, ptr noundef %21) #10
   tail call void @LLVMSetLinkage(ptr noundef %15, i32 noundef 3) #10
   %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
@@ -376,7 +376,7 @@ declare ptr @scratch_buffer_to_string() local_unnamed_addr #1
 declare ptr @LLVMGetNamedGlobal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -387,7 +387,7 @@ declare void @LLVMSetInitializer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @LLVMSetLinkage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_set_comdat(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_set_comdat(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
   %4 = and i16 %3, 8192
   %.not = icmp eq i16 %4, 0
@@ -407,7 +407,7 @@ define dso_local void @llvm_set_comdat(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_macho_xtor(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_macho_xtor(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %4
 
@@ -461,7 +461,7 @@ declare void @LLVMSetSection(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @LLVMSetAlignment(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @llvm_abi_alignment(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @llvm_abi_alignment(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @LLVMABIAlignmentOfType(ptr noundef %4, ptr noundef %1) #10
@@ -1426,7 +1426,7 @@ declare ptr @LLVMStructGetTypeAtIndex(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @llvm_abi_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @llvm_abi_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @LLVMABISizeOfType(ptr noundef %4, ptr noundef %1) #10
@@ -1901,7 +1901,7 @@ llvm_set_global_tls.exit:                         ; preds = %82, %89, %94
 declare void @decl_append_links_to_global(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -2047,7 +2047,7 @@ declare void @LLVMDeleteGlobal(ptr noundef) local_unnamed_addr #1
 declare void @llvm_emit_debug_global_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gencontext_print_llvm_ir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @gencontext_print_llvm_ir(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2070,7 +2070,7 @@ define dso_local void @gencontext_print_llvm_ir(ptr nocapture noundef readonly %
 declare i32 @LLVMPrintModuleToFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @llvm_emit_alloca(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @llvm_emit_alloca(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @LLVMGetInsertBlock(ptr noundef %6) #10
@@ -2114,7 +2114,7 @@ define dso_local noundef ptr @llvm_emit_alloca_aligned(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_and_set_decl_alloca(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_and_set_decl_alloca(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @type_lowering(ptr noundef %4)
@@ -2176,7 +2176,7 @@ declare void @LLVMSetComdatSelectionKind(ptr noundef, i32 noundef) local_unnamed
 declare void @LLVMSetComdat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_set_linkonce(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_set_linkonce(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @LLVMSetLinkage(ptr noundef %1, i32 noundef 2) #10
   tail call void @LLVMSetVisibility(ptr noundef %1, i32 noundef 0) #10
   %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
@@ -2198,7 +2198,7 @@ llvm_set_comdat.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_set_weak(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_set_weak(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @LLVMSetLinkage(ptr noundef %1, i32 noundef 5) #10
   tail call void @LLVMSetVisibility(ptr noundef %1, i32 noundef 0) #10
   %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
@@ -2246,7 +2246,7 @@ define dso_local void @llvm_value_set_int(ptr noundef %0, ptr noundef %1, ptr no
 declare void @llvm_value_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @llvm_value_is_const(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @llvm_value_is_const(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @LLVMIsConstant(ptr noundef %3) #10
@@ -2297,7 +2297,7 @@ define dso_local void @llvm_value_set_decl(ptr noundef %0, ptr noundef %1, ptr n
 declare void @llvm_value_set_decl_address(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_basic_block_new(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_basic_block_new(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @LLVMCreateBasicBlockInContext(ptr noundef %4, ptr noundef %1) #10
@@ -2934,7 +2934,7 @@ common.ret166:                                    ; preds = %66, %68, %44, %37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @type_get_resolved_prototype(ptr noundef %4) #10
@@ -3077,7 +3077,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   %85 = load ptr, ptr %27, align 8
   %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #11
   %87 = trunc i64 %86 to i32
-  %88 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %85, ptr noundef nonnull @.str.21, i32 noundef 16, ptr noundef %84, i32 noundef %87) #10
+  %88 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %85, ptr noundef nonnull @.str.21, i32 noundef 16, ptr noundef nonnull %84, i32 noundef %87) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %88) #10
   br label %89
 
@@ -3098,7 +3098,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nocap
   %98 = load ptr, ptr %27, align 8
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #11
   %100 = trunc i64 %99 to i32
-  %101 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %98, ptr noundef nonnull @.str.22, i32 noundef 16, ptr noundef %97, i32 noundef %100) #10
+  %101 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %98, ptr noundef nonnull @.str.22, i32 noundef 16, ptr noundef nonnull %97, i32 noundef %100) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %7, i32 noundef -1, ptr noundef %101) #10
   br label %102
 
@@ -3161,7 +3161,7 @@ llvm_call_convention_from_call.exit:              ; preds = %125, %switch.lookup
 declare ptr @type_get_resolved_prototype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef range(i32 -32767, 32769) %4, i32 noundef range(i32 -32768, 32768) %5) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, i32 noundef range(i32 -32767, 32769) %4, i32 noundef range(i32 -32768, 32768) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 2
@@ -3280,20 +3280,20 @@ llvm_attribute_add_range.exit:                    ; preds = %29, %26, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_string(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_string(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %9 = trunc i64 %8 to i32
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
   %11 = trunc i64 %10 to i32
-  %12 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %7, ptr noundef %2, i32 noundef %9, ptr noundef %3, i32 noundef %11) #10
+  %12 = tail call ptr @LLVMCreateStringAttribute(ptr noundef %7, ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef %11) #10
   tail call void @LLVMAddAttributeAtIndex(ptr noundef %1, i32 noundef %4, ptr noundef %12) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %6, i32 noundef %2, i64 noundef 0) #10
@@ -3304,7 +3304,7 @@ define dso_local void @llvm_attribute_add(ptr nocapture noundef readonly %0, ptr
 declare zeroext i1 @arch_is_wasm(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_int(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_int(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %7, i32 noundef %2, i64 noundef %3) #10
@@ -3325,7 +3325,7 @@ declare ptr @LLVMAddFunction(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @llvm_get_typeid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_gen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_gen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %1147, label %3
 
@@ -3803,7 +3803,7 @@ gencontext_init.exit:                             ; preds = %203, %206, %209, %2
   %236 = load ptr, ptr %228, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.161, ptr noundef %235, ptr noundef %236) #10
   %237 = tail call ptr @scratch_buffer_to_string() #10
-  %238 = tail call ptr @llvm_emit_string_const(ptr noundef %193, ptr noundef %237, ptr noundef nonnull @.str.162) #10
+  %238 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %193, ptr noundef %237, ptr noundef nonnull @.str.162) #10
   %.not.i942 = icmp eq ptr %.18221074, null
   br i1 %.not.i942, label %239, label %242
 
@@ -4228,7 +4228,7 @@ gencontext_init.exit964:                          ; preds = %432, %435, %438, %4
   %465 = load ptr, ptr %457, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.161, ptr noundef %464, ptr noundef %465) #10
   %466 = tail call ptr @scratch_buffer_to_string() #10
-  %467 = tail call ptr @llvm_emit_string_const(ptr noundef %422, ptr noundef %466, ptr noundef nonnull @.str.173) #10
+  %467 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %422, ptr noundef %466, ptr noundef nonnull @.str.173) #10
   %.not.i965 = icmp eq ptr %.17901085, null
   br i1 %.not.i965, label %468, label %471
 
@@ -4774,7 +4774,7 @@ gencontext_init.exit994:                          ; preds = %721, %724, %727, %7
   %754 = load ptr, ptr %746, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.161, ptr noundef %753, ptr noundef %754) #10
   %755 = tail call ptr @scratch_buffer_to_string() #10
-  %756 = tail call ptr @llvm_emit_string_const(ptr noundef %715, ptr noundef %755, ptr noundef nonnull @.str.162) #10
+  %756 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %715, ptr noundef %755, ptr noundef nonnull @.str.162) #10
   %.not.i995 = icmp eq ptr %.18361053, null
   br i1 %.not.i995, label %757, label %760
 
@@ -5203,7 +5203,7 @@ gencontext_init.exit1016:                         ; preds = %953, %956, %959, %9
   %986 = load ptr, ptr %978, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.161, ptr noundef %985, ptr noundef %986) #10
   %987 = tail call ptr @scratch_buffer_to_string() #10
-  %988 = tail call ptr @llvm_emit_string_const(ptr noundef %947, ptr noundef %987, ptr noundef nonnull @.str.173) #10
+  %988 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %947, ptr noundef %987, ptr noundef nonnull @.str.173) #10
   %.not.i1017 = icmp eq ptr %.18071061, null
   br i1 %.not.i1017, label %989, label %992
 
@@ -5647,7 +5647,7 @@ gencontext_init.exit:                             ; preds = %53, %56, %59, %62
   %.0268369 = phi i1 [ false, %.lr.ph371 ], [ %.3, %245 ]
   %75 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv449
   %76 = load ptr, ptr %75, align 8
-  tail call void @gencontext_init_file_emit(ptr noundef %43, ptr noundef %76) #10
+  tail call void @gencontext_init_file_emit(ptr noundef nonnull %43, ptr noundef %76) #10
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 240
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 248
   %79 = load ptr, ptr %78, align 8
@@ -5677,7 +5677,7 @@ gencontext_init.exit:                             ; preds = %53, %56, %59, %62
   %indvars.iv425 = phi i64 [ %indvars.iv.next426, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv425
   %90 = load ptr, ptr %89, align 8
-  tail call void @llvm_emit_function_decl(ptr noundef %43, ptr noundef %90) #10
+  tail call void @llvm_emit_function_decl(ptr noundef nonnull %43, ptr noundef %90) #10
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next426, %wide.trip.count428
   br i1 %exitcond429.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
@@ -5693,7 +5693,7 @@ gencontext_init.exit:                             ; preds = %53, %56, %59, %62
   br i1 %.not330, label %97, label %96
 
 96:                                               ; preds = %.lr.ph.split
-  tail call void @llvm_emit_function_decl(ptr noundef %43, ptr noundef nonnull %92) #10
+  tail call void @llvm_emit_function_decl(ptr noundef nonnull %43, ptr noundef nonnull %92) #10
   br label %97
 
 97:                                               ; preds = %.lr.ph.split, %96
@@ -5770,7 +5770,7 @@ gencontext_init.exit:                             ; preds = %53, %56, %59, %62
 110:                                              ; preds = %.lr.ph353._crit_edge, %.lr.ph353._crit_edge, %.lr.ph353._crit_edge, %.lr.ph353._crit_edge, %.lr.ph353._crit_edge, %.lr.ph353._crit_edge
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call ptr @llvm_get_typeid(ptr noundef %43, ptr noundef %112) #10
+  %113 = tail call ptr @llvm_get_typeid(ptr noundef nonnull %43, ptr noundef %112) #10
   br label %llvm_emit_type_decls.exit
 
 llvm_emit_type_decls.exit:                        ; preds = %.lr.ph353, %110, %.lr.ph353._crit_edge
@@ -5847,7 +5847,7 @@ llvm_emit_type_decls.exit:                        ; preds = %.lr.ph353, %110, %.
 126:                                              ; preds = %.lr.ph357._crit_edge, %.lr.ph357._crit_edge, %.lr.ph357._crit_edge, %.lr.ph357._crit_edge, %.lr.ph357._crit_edge, %.lr.ph357._crit_edge
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 72
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call ptr @llvm_get_typeid(ptr noundef %43, ptr noundef %128) #10
+  %129 = tail call ptr @llvm_get_typeid(ptr noundef nonnull %43, ptr noundef %128) #10
   br label %llvm_emit_type_decls.exit332
 
 llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.lr.ph357._crit_edge
@@ -6025,7 +6025,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br label %220
 
 220:                                              ; preds = %212, %181
-  tail call void @llvm_emit_function_decl(ptr noundef %43, ptr noundef nonnull %136) #10
+  tail call void @llvm_emit_function_decl(ptr noundef nonnull %43, ptr noundef nonnull %136) #10
   br label %221
 
 221:                                              ; preds = %184, %145, %137, %220
@@ -6064,7 +6064,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not322, label %234, label %233
 
 233:                                              ; preds = %229, %.lr.ph366
-  tail call void @llvm_emit_function_decl(ptr noundef %43, ptr noundef %228) #10
+  tail call void @llvm_emit_function_decl(ptr noundef nonnull %43, ptr noundef %228) #10
   br label %234
 
 234:                                              ; preds = %229, %233
@@ -6094,7 +6094,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not321, label %245, label %244
 
 244:                                              ; preds = %240
-  tail call void @llvm_emit_function_decl(ptr noundef %43, ptr noundef nonnull %239) #10
+  tail call void @llvm_emit_function_decl(ptr noundef nonnull %43, ptr noundef nonnull %239) #10
   br label %245
 
 245:                                              ; preds = %._crit_edge367, %237, %240, %244
@@ -6157,7 +6157,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   %indvars.iv457 = phi i64 [ %indvars.iv.next458, %.lr.ph377.split.us ], [ 0, %.lr.ph377 ]
   %266 = getelementptr inbounds nuw ptr, ptr %262, i64 %indvars.iv457
   %267 = load ptr, ptr %266, align 8
-  %268 = tail call ptr @llvm_get_ref(ptr noundef %43, ptr noundef %267)
+  %268 = tail call ptr @llvm_get_ref(ptr noundef nonnull %43, ptr noundef %267)
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
   br i1 %exitcond461.not, label %._crit_edge378, label %.lr.ph377.split.us, !llvm.loop !31
@@ -6174,7 +6174,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not314, label %276, label %274
 
 274:                                              ; preds = %.lr.ph377.split
-  %275 = tail call ptr @llvm_get_ref(ptr noundef %43, ptr noundef nonnull %270)
+  %275 = tail call ptr @llvm_get_ref(ptr noundef nonnull %43, ptr noundef nonnull %270)
   br label %276
 
 276:                                              ; preds = %.lr.ph377.split, %274
@@ -6214,7 +6214,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not313, label %287, label %286
 
 286:                                              ; preds = %282, %.lr.ph383
-  tail call void @llvm_emit_global_variable_init(ptr noundef %43, ptr noundef %281)
+  tail call void @llvm_emit_global_variable_init(ptr noundef nonnull %43, ptr noundef %281)
   br label %287
 
 287:                                              ; preds = %282, %286
@@ -6283,7 +6283,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not312, label %315, label %314
 
 314:                                              ; preds = %311
-  tail call void @llvm_emit_function_body(ptr noundef %43, ptr noundef nonnull %294) #10
+  tail call void @llvm_emit_function_body(ptr noundef nonnull %43, ptr noundef nonnull %294) #10
   br label %315
 
 315:                                              ; preds = %311, %314, %307, %303, %298
@@ -6324,7 +6324,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not308, label %328, label %327
 
 327:                                              ; preds = %323, %.lr.ph395
-  tail call void @llvm_emit_function_body(ptr noundef %43, ptr noundef %322) #10
+  tail call void @llvm_emit_function_body(ptr noundef nonnull %43, ptr noundef %322) #10
   br label %328
 
 328:                                              ; preds = %323, %327
@@ -6354,7 +6354,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not304, label %339, label %338
 
 338:                                              ; preds = %334
-  tail call void @llvm_emit_function_body(ptr noundef %43, ptr noundef nonnull %333) #10
+  tail call void @llvm_emit_function_body(ptr noundef nonnull %43, ptr noundef nonnull %333) #10
   br label %339
 
 339:                                              ; preds = %338, %334, %331, %._crit_edge396
@@ -6395,7 +6395,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   br i1 %.not307, label %355, label %354
 
 354:                                              ; preds = %351
-  tail call void @llvm_emit_function_body(ptr noundef %43, ptr noundef nonnull %346) #10
+  tail call void @llvm_emit_function_body(ptr noundef nonnull %43, ptr noundef nonnull %346) #10
   br label %355
 
 355:                                              ; preds = %351, %347, %354
@@ -6406,7 +6406,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
 
 ._crit_edge402:                                   ; preds = %355, %339, %342
   %.14.lcssa = phi i1 [ %.13, %342 ], [ %.13, %339 ], [ %.15, %355 ]
-  tail call void @gencontext_end_file_emit(ptr noundef %43, ptr noundef %253) #10
+  tail call void @gencontext_end_file_emit(ptr noundef nonnull %43, ptr noundef %253) #10
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count480
   br i1 %exitcond481.not, label %._crit_edge408, label %251, !llvm.loop !36
@@ -6415,7 +6415,7 @@ llvm_emit_type_decls.exit332:                     ; preds = %.lr.ph357, %126, %.
   %.4.lcssa = phi i1 [ %.0268.lcssa509, %._crit_edge372.thread506 ], [ %.3, %._crit_edge372 ], [ false, %gencontext_init.exit ], [ %.14.lcssa, %._crit_edge402 ]
   %356 = getelementptr inbounds nuw i8, ptr %43, i64 440
   %357 = load ptr, ptr %356, align 8
-  tail call void @llvm_emit_dynamic_functions(ptr noundef %43, ptr noundef %357) #10
+  tail call void @llvm_emit_dynamic_functions(ptr noundef nonnull %43, ptr noundef %357) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %358 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
@@ -6628,7 +6628,7 @@ gencontext_verify_ir.exit:                        ; preds = %gencontext_print_ll
 declare i32 @LLVMLinkModules2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_debug_file(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_debug_file(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6671,7 +6671,7 @@ define dso_local ptr @llvm_get_debug_file(ptr nocapture noundef %0, i16 noundef 
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #11
-  %24 = tail call ptr @LLVMDIBuilderCreateFile(ptr noundef %17, ptr noundef %19, i64 noundef %20, ptr noundef %22, i64 noundef %23) #10
+  %24 = tail call ptr @LLVMDIBuilderCreateFile(ptr noundef %17, ptr noundef nonnull %19, i64 noundef %20, ptr noundef nonnull %22, i64 noundef %23) #10
   %25 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %29
@@ -6741,14 +6741,14 @@ declare ptr @source_file_by_id(i16 noundef zeroext) local_unnamed_addr #1
 declare ptr @LLVMDIBuilderCreateFile(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @LLVMCreateEnumAttribute(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @LLVMAddAttributeAtIndex(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_type(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_type(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @LLVMCreateTypeAttribute(ptr noundef %7, i32 noundef %2, ptr noundef %3) #10
@@ -6759,7 +6759,7 @@ define dso_local void @llvm_attribute_add_type(ptr nocapture noundef readonly %0
 declare ptr @LLVMCreateTypeAttribute(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_call_type(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_call_type(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @LLVMCreateTypeAttribute(ptr noundef %7, i32 noundef %2, ptr noundef %4) #10
@@ -6770,7 +6770,7 @@ define dso_local void @llvm_attribute_add_call_type(ptr nocapture noundef readon
 declare void @LLVMAddCallSiteAttribute(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_call(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_call(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @LLVMCreateEnumAttribute(ptr noundef %7, i32 noundef %2, i64 noundef %4) #10
@@ -6779,7 +6779,7 @@ define dso_local void @llvm_attribute_add_call(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_attribute_add_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @llvm_attribute_add_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not7 = icmp sgt i32 %3, %4
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -6803,7 +6803,7 @@ define dso_local void @llvm_attribute_add_range(ptr nocapture noundef readonly %
 declare ptr @LLVMCreateStringAttribute(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @llvm_bitsize(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @llvm_bitsize(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @LLVMSizeOfTypeInBits(ptr noundef %4, ptr noundef %1) #10
@@ -6861,7 +6861,7 @@ define dso_local ptr @llvm_emit_memcpy(ptr noundef %0, ptr noundef %1, i32 nound
 declare ptr @LLVMBuildMemCpy(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_memcpy_to_decl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_memcpy_to_decl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %10
 
@@ -6886,7 +6886,7 @@ define dso_local void @llvm_emit_memcpy_to_decl(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @llvm_store_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @llvm_store_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @LLVMStoreSizeOfType(ptr noundef %4, ptr noundef %1) #10
@@ -6897,7 +6897,7 @@ define dso_local i32 @llvm_store_size(ptr nocapture noundef readonly %0, ptr nou
 declare i64 @LLVMStoreSizeOfType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @llvm_alloc_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @llvm_alloc_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @LLVMABISizeOfType(ptr noundef %4, ptr noundef %1) #10
@@ -6948,7 +6948,7 @@ declare void @LLVMDisposePassBuilderOptions(ptr noundef) local_unnamed_addr #1
 declare i32 @LLVMVerifyModule(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @LLVMDumpModule(ptr noundef) local_unnamed_addr #1
 
@@ -6971,7 +6971,7 @@ declare void @LLVMDisposeTargetData(ptr noundef) local_unnamed_addr #1
 declare void @LLVMDisposeTargetMachine(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @LLVMLookupIntrinsicID(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -7042,14 +7042,14 @@ declare void @LLVMDIBuilderFinalize(ptr noundef) local_unnamed_addr #1
 declare void @LLVMDisposeDIBuilder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @LLVMContextCreate() local_unnamed_addr #1
 
 declare void @LLVMContextSetDiagnosticHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @diagnostics_handler(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @diagnostics_handler(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call ptr @LLVMGetDiagInfoDescription(ptr noundef %0) #10
   %4 = tail call i32 @LLVMGetDiagInfoSeverity(ptr noundef %0) #10
   %cond = icmp eq i32 %4, 0
@@ -7140,20 +7140,20 @@ declare void @gencontext_end_file_emit(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm_emit_dynamic_functions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @LLVMGetNamedFunction(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @LLVMGetFirstBasicBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

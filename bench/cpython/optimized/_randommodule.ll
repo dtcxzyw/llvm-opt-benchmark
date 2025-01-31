@@ -56,7 +56,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_random_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_random_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -78,7 +78,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_random_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @_random_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -132,7 +132,7 @@ do.end8:                                          ; preds = %do.body1, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_random_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @_random_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %0, align 8
@@ -269,7 +269,7 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @random_init(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @random_init(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, ptr noundef %kwds) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -333,7 +333,7 @@ return:                                           ; preds = %lor.lhs.false8, %if
 declare void @PyObject_Free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_random_Random_random(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_random_Random_random(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc i32 @genrand_uint32(ptr noundef %self)
   %shr.i = lshr i32 %call.i, 5
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_random_Random_seed(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_random_Random_seed(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -379,7 +379,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_random_Random_getstate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyTuple_New(i64 noundef 625) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -441,7 +441,7 @@ _random_Random_getstate_impl.exit:                ; preds = %entry, %if.end14.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_random_Random_setstate(ptr nocapture noundef writeonly %self, ptr noundef %state) #0 {
+define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captures(none) %self, ptr noundef %state) #0 {
 entry:
   %new_state.i = alloca [624 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %new_state.i)
@@ -529,7 +529,7 @@ _random_Random_setstate_impl.exit:                ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_random_Random_getrandbits(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal ptr @_random_Random_getrandbits(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #8
   %cmp = icmp eq i32 %call, -1
@@ -555,7 +555,7 @@ exit:                                             ; preds = %entry.split, %land.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @genrand_uint32(ptr nocapture noundef %self) unnamed_addr #2 {
+define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %self) unnamed_addr #2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %self, i64 20
   %index = getelementptr inbounds nuw i8, ptr %self, i64 16
@@ -665,7 +665,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr nocapture noundef %self, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(none) %self, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %key.i23 = alloca [5 x i32], align 16
   %key.i = alloca [624 x i32], align 16
@@ -1135,7 +1135,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_random_Random_getrandbits_impl(ptr nocapture noundef %self, i32 noundef %k) unnamed_addr #0 {
+define internal fastcc ptr @_random_Random_getrandbits_impl(ptr noundef captures(none) %self, i32 noundef %k) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %k, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1219,13 +1219,13 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

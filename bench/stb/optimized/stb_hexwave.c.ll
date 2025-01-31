@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexblep = local_unnamed_addr global %struct.anon zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @hexwave_change(ptr nocapture noundef writeonly initializes((24, 44)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #0 {
+define void @hexwave_change(ptr noundef writeonly captures(none) initializes((24, 44)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #0 {
 entry:
   %pending = getelementptr inbounds nuw i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending, align 4
@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @hexwave_create(ptr nocapture noundef initializes((0, 300)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
+define void @hexwave_create(ptr noundef captures(none) initializes((0, 300)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %hex, i8 0, i64 300, i1 false)
   %pending.i = getelementptr inbounds nuw i8, ptr %hex, i64 24
@@ -62,13 +62,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @hex_add_oversampled_bleplike(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define void @hex_add_oversampled_bleplike(ptr noundef captures(none) %output, float noundef %time_since_transition, float noundef %scale, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr @hexblep, align 8
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 4), align 4
@@ -119,7 +119,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @hex_blep(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
+define void @hex_blep(ptr noundef captures(none) %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 8), align 8
   %1 = load i32, ptr @hexblep, align 8
@@ -168,7 +168,7 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @hex_blamp(ptr nocapture noundef %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
+define void @hex_blamp(ptr noundef captures(none) %output, float noundef %time_since_transition, float noundef %scale) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 16), align 8
   %1 = load i32, ptr @hexblep, align 8
@@ -217,7 +217,7 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @hexwave_generate_linesegs(ptr nocapture noundef initializes((0, 8), (12, 20), (24, 32), (36, 44)) %vert, ptr nocapture noundef readonly %hex, float noundef %dt) local_unnamed_addr #6 {
+define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0, 8), (12, 20), (24, 32), (36, 44)) %vert, ptr noundef readonly captures(none) %hex, float noundef %dt) local_unnamed_addr #6 {
 entry:
   %div = fmul float %dt, 3.906250e-03
   store float 0.000000e+00, ptr %vert, align 4
@@ -376,7 +376,7 @@ for.end147:                                       ; preds = %for.inc145
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @hexwave_generate_samples(ptr nocapture noundef %output, i32 noundef %num_samples, ptr nocapture noundef %hex, float noundef %freq) local_unnamed_addr #7 {
+define void @hexwave_generate_samples(ptr noundef captures(none) %output, i32 noundef %num_samples, ptr noundef captures(none) %hex, float noundef %freq) local_unnamed_addr #7 {
 entry:
   %vert = alloca [9 x %struct.hexvert], align 16
   %temp_output = alloca [128 x float], align 16
@@ -902,7 +902,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @hexwave_init(i32 noundef %width, i32 noundef %oversample, ptr noundef %user_buffer) local_unnamed_addr #10 {

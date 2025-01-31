@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dbExpiresDictType = external global %struct.dictType, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyfreeFreeObject(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyfreeFreeObject(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   tail call void @decrRefCount(ptr noundef %0) #5
@@ -39,7 +39,7 @@ entry:
 declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyfreeFreeDatabase(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyfreeFreeDatabase(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 8
@@ -83,7 +83,7 @@ declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeTrackingTable(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyFreeTrackingTable(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %numele = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -97,7 +97,7 @@ entry:
 declare void @freeTrackingRadixTree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeLuaScripts(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyFreeLuaScripts(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeFunctionsCtx(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyFreeFunctionsCtx(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %call = tail call i64 @functionsLibCtxfunctionsLen(ptr noundef %0) #5
@@ -127,7 +127,7 @@ declare i64 @functionsLibCtxfunctionsLen(ptr noundef) local_unnamed_addr #1
 declare void @functionsLibCtxFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeReplicationBacklogRefMem(ptr nocapture noundef readonly %args) #0 {
+define dso_local void @lazyFreeReplicationBacklogRefMem(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 8

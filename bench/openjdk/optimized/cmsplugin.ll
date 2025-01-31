@@ -64,7 +64,7 @@ define hidden noundef i32 @_cmsAdjustEndianess32(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsAdjustEndianess64(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @_cmsAdjustEndianess64(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %3, ptr %4, align 1
@@ -421,7 +421,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Number(ptr noundef %0, i16 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca i16, align 2
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -482,7 +482,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteFloat32Number(ptr noundef %0, float 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsWriteUInt64Number(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsWriteUInt64Number(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %1, align 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -547,7 +547,7 @@ define hidden i32 @_cmsDoubleTo15Fixed16(double noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_cmsWriteXYZNumber(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden i32 @_cmsWriteXYZNumber(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.cmsEncodedXYZNumber, align 4
   %4 = load double, ptr %1, align 8
   %5 = tail call double @llvm.fmuladd.f64(double %4, double 6.553600e+04, double 5.000000e-01)
@@ -601,7 +601,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #1 {
+define hidden void @_cmsDecodeDateTimeNumber(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 36)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
@@ -648,7 +648,7 @@ define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsEncodeDateTimeNumber(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @_cmsEncodeDateTimeNumber(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8
   %4 = trunc i32 %3 to i16
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
@@ -715,7 +715,7 @@ define hidden i32 @_cmsWriteTypeBase(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnamed_addr #2 {
@@ -776,7 +776,7 @@ define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_cmsIOPrintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #2 {
+define hidden i32 @_cmsIOPrintf(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [2048 x i8], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -816,7 +816,7 @@ define hidden i32 @_cmsIOPrintf(ptr noundef %0, ptr nocapture noundef readonly %
 declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #5
@@ -1318,7 +1318,7 @@ declare void @_cmsInstallAllocFunctions(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @_cmsMalloc(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
@@ -1652,7 +1652,7 @@ _cmsGetContext.exit.i:                            ; preds = %.sink.split.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsGetTime(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_cmsGetTime(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = tail call i64 @time(ptr noundef null) #12
   store i64 %3, ptr %2, align 8
@@ -1690,10 +1690,10 @@ declare i16 @llvm.bswap.i16(i16) #10
 declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

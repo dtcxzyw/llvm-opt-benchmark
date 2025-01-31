@@ -295,7 +295,7 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i64 @ossl_sa_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @leaf_check_all(i64 noundef %n, ptr noundef %value, ptr nocapture noundef initializes((24, 28)) %arg) #0 {
+define internal void @leaf_check_all(i64 noundef %n, ptr noundef %value, ptr noundef captures(none) initializes((24, 28)) %arg) #0 {
 entry:
   %cases1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %cases1, align 8
@@ -371,7 +371,7 @@ return:                                           ; preds = %for.end, %if.then
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @leaf_delete(i64 noundef %n, ptr noundef %value, ptr nocapture noundef initializes((24, 28)) %arg) #0 {
+define internal void @leaf_delete(i64 noundef %n, ptr noundef %value, ptr noundef captures(none) initializes((24, 28)) %arg) #0 {
 entry:
   %cases1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %cases1, align 8
@@ -418,7 +418,7 @@ return:                                           ; preds = %for.end, %if.then
 declare void @ossl_sa_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 

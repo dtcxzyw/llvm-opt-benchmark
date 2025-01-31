@@ -152,7 +152,7 @@ define hidden void @zbee_security_register(ptr noundef %0, i32 noundef %1) local
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = load ptr, ptr %0, align 8
@@ -162,7 +162,7 @@ define internal void @uat_key_records_string_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -189,7 +189,7 @@ define internal void @uat_key_records_string_tostr_cb(ptr nocapture noundef read
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_byte_order_set_cb(ptr nocapture noundef writeonly initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_byte_order_set_cb(ptr noundef writeonly captures(none) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -232,7 +232,7 @@ define internal void @uat_key_records_byte_order_set_cb(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_byte_order_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_byte_order_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -281,7 +281,7 @@ define internal void @uat_key_records_byte_order_tostr_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_label_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -292,7 +292,7 @@ define internal void @uat_key_records_label_set_cb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_records_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_key_records_label_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -324,7 +324,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 9), (16, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 9), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -341,7 +341,7 @@ define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @uat_key_record_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca [16 x i8], align 16
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -388,7 +388,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_key_record_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_key_record_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -982,7 +982,7 @@ proto_item_set_generated.exit252:                 ; preds = %251, %248, %247, %.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1029,7 +1029,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_sec_decrypt_payload(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 0, 17) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zbee_sec_decrypt_payload(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 0, 17) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [13 x i8], align 1
@@ -1186,7 +1186,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
   %11 = alloca [16 x i8], align 16
@@ -1429,7 +1429,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1442,7 +1442,7 @@ declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zbee_sec_add_key_to_keyring(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @zbee_sec_add_key_to_keyring(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.key_record_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -1520,7 +1520,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1529,7 +1529,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -1652,7 +1652,7 @@ define internal void @zbee_free_key_record(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zbee_sec_hash(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 17, 33) %1, ptr noundef initializes((0, 16)) %2) unnamed_addr #0 {
+define internal fastcc void @zbee_sec_hash(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 17, 33) %1, ptr noundef initializes((0, 16)) %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1679,9 +1679,9 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef nonnull readonl
 
 13:                                               ; preds = %.preheader
   %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @gcry_cipher_setkey(ptr noundef %14, ptr noundef %2, i64 noundef 16) #11
+  %15 = call i32 @gcry_cipher_setkey(ptr noundef %14, ptr noundef nonnull %2, i64 noundef 16) #11
   %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @gcry_cipher_encrypt(ptr noundef %16, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
+  %17 = call i32 @gcry_cipher_encrypt(ptr noundef %16, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
   br label %18
 
 18:                                               ; preds = %13, %18
@@ -1717,9 +1717,9 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef nonnull readonl
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @gcry_cipher_setkey(ptr noundef %29, ptr noundef %2, i64 noundef 16) #11
+  %30 = call i32 @gcry_cipher_setkey(ptr noundef %29, ptr noundef nonnull %2, i64 noundef 16) #11
   %31 = load ptr, ptr %5, align 8
-  %32 = call i32 @gcry_cipher_encrypt(ptr noundef %31, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
+  %32 = call i32 @gcry_cipher_encrypt(ptr noundef %31, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
   br label %33
 
 33:                                               ; preds = %28, %33
@@ -1753,9 +1753,9 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef nonnull readonl
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 %44, ptr %45, align 1
   %46 = load ptr, ptr %5, align 8
-  %47 = call i32 @gcry_cipher_setkey(ptr noundef %46, ptr noundef %2, i64 noundef 16) #11
+  %47 = call i32 @gcry_cipher_setkey(ptr noundef %46, ptr noundef nonnull %2, i64 noundef 16) #11
   %48 = load ptr, ptr %5, align 8
-  %49 = call i32 @gcry_cipher_encrypt(ptr noundef %48, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
+  %49 = call i32 @gcry_cipher_encrypt(ptr noundef %48, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull %4, i64 noundef 16) #11
   br label %50
 
 50:                                               ; preds = %._crit_edge, %50
@@ -1780,13 +1780,13 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

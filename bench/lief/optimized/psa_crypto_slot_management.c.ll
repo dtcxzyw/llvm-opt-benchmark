@@ -55,7 +55,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #2 {
 declare i32 @psa_wipe_key_slot(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -151, 1) i32 @psa_get_empty_key_slot(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden range(i32 -151, 1) i32 @psa_get_empty_key_slot(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 1792), align 8
   %4 = and i8 %3, 1
   %.not = icmp eq i8 %4, 0
@@ -147,7 +147,7 @@ psa_lock_key_slot.exit:                           ; preds = %.thread51, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #2 {
+define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8
@@ -348,7 +348,7 @@ define hidden range(i32 -151, 1) i32 @psa_unlock_key_slot(ptr noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_location(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_location(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %0, 256
   %. = select i1 %3, i32 0, i32 -135
   ret i32 %.
@@ -363,7 +363,7 @@ define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_persistence(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_open_key(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #2 {
+define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %4, 0
@@ -521,7 +521,7 @@ psa_unlock_key_slot.exit:                         ; preds = %10, %3, %.loopexit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_psa_get_stats(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #5 {
+define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -622,7 +622,7 @@ define hidden void @mbedtls_psa_get_stats(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @psa_load_persistent_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -631,10 +631,10 @@ declare i32 @psa_copy_key_material_into_slot(ptr noundef, ptr noundef, i64 nound
 declare void @psa_free_persistent_key_data(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

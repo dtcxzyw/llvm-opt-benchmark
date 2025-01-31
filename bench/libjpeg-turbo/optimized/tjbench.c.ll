@@ -324,7 +324,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.101 = private unnamed_addr constant [4 x i8] c"N/A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1325,7 +1325,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1248, ptr @tjErrorLine, align 4
-  %421 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1248, ptr noundef %410)
+  %421 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1248, ptr noundef nonnull %410)
   br label %425
 
 422:                                              ; preds = %408
@@ -1366,7 +1366,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1250, ptr @tjErrorLine, align 4
-  %442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1250, ptr noundef %431)
+  %442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1250, ptr noundef nonnull %431)
   br label %446
 
 443:                                              ; preds = %429
@@ -1406,7 +1406,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1252, ptr @tjErrorLine, align 4
-  %463 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1252, ptr noundef %452)
+  %463 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1252, ptr noundef nonnull %452)
   br label %467
 
 464:                                              ; preds = %450
@@ -1453,7 +1453,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1256, ptr @tjErrorLine, align 4
-  %486 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1256, ptr noundef %475)
+  %486 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1256, ptr noundef nonnull %475)
   br label %530
 
 487:                                              ; preds = %473
@@ -1492,7 +1492,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1259, ptr @tjErrorLine, align 4
-  %506 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1259, ptr noundef %495)
+  %506 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1259, ptr noundef nonnull %495)
   br label %530
 
 507:                                              ; preds = %493
@@ -1531,7 +1531,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 1262, ptr @tjErrorLine, align 4
-  %526 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1262, ptr noundef %515)
+  %526 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 1262, ptr noundef nonnull %515)
   br label %530
 
 527:                                              ; preds = %513
@@ -1661,7 +1661,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %577 = load i32, ptr %3, align 4
   %578 = load i32, ptr %4, align 4
   %579 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %399, ptr noundef %.2, i32 noundef %577, i32 noundef %578, i32 noundef %.0414, i32 noundef %.2409628, ptr noundef %579)
+  call fastcc void @fullTest(ptr noundef nonnull %399, ptr noundef %.2, i32 noundef %577, i32 noundef %578, i32 noundef %.0414, i32 noundef %.2409628, ptr noundef %579)
   %580 = add nsw i32 %.2409628, -1
   %.not510.not = icmp sgt i32 %.2409628, %.0411
   br i1 %.not510.not, label %.lr.ph630, label %._crit_edge631, !llvm.loop !8
@@ -1684,7 +1684,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %584 = load i32, ptr %3, align 4
   %585 = load i32, ptr %4, align 4
   %586 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %399, ptr noundef %.2, i32 noundef %584, i32 noundef %585, i32 noundef 3, i32 noundef %.3610, ptr noundef %586)
+  call fastcc void @fullTest(ptr noundef nonnull %399, ptr noundef %.2, i32 noundef %584, i32 noundef %585, i32 noundef 3, i32 noundef %.3610, ptr noundef %586)
   %587 = add nsw i32 %.3610, -1
   %.not502.not = icmp sgt i32 %.3610, %.0411
   br i1 %.not502.not, label %.lr.ph611, label %._crit_edge, !llvm.loop !9
@@ -1704,7 +1704,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %590 = load i32, ptr %3, align 4
   %591 = load i32, ptr %4, align 4
   %592 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %399, ptr noundef %.2, i32 noundef %590, i32 noundef %591, i32 noundef 2, i32 noundef %.4613, ptr noundef %592)
+  call fastcc void @fullTest(ptr noundef nonnull %399, ptr noundef %.2, i32 noundef %590, i32 noundef %591, i32 noundef 2, i32 noundef %.4613, ptr noundef %592)
   %593 = add nsw i32 %.4613, -1
   %.not504.not = icmp sgt i32 %.4613, %.0411
   br i1 %.not504.not, label %.lr.ph615, label %._crit_edge616, !llvm.loop !10
@@ -1720,7 +1720,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %595 = load i32, ptr %3, align 4
   %596 = load i32, ptr %4, align 4
   %597 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %399, ptr noundef %.2, i32 noundef %595, i32 noundef %596, i32 noundef 1, i32 noundef %.5618, ptr noundef %597)
+  call fastcc void @fullTest(ptr noundef nonnull %399, ptr noundef %.2, i32 noundef %595, i32 noundef %596, i32 noundef 1, i32 noundef %.5618, ptr noundef %597)
   %598 = add nsw i32 %.5618, -1
   %.not506.not = icmp sgt i32 %.5618, %.0411
   br i1 %.not506.not, label %.lr.ph620, label %._crit_edge621, !llvm.loop !11
@@ -1736,7 +1736,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %600 = load i32, ptr %3, align 4
   %601 = load i32, ptr %4, align 4
   %602 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %399, ptr noundef %.2, i32 noundef %600, i32 noundef %601, i32 noundef 0, i32 noundef %.6623, ptr noundef %602)
+  call fastcc void @fullTest(ptr noundef nonnull %399, ptr noundef %.2, i32 noundef %600, i32 noundef %601, i32 noundef 0, i32 noundef %.6623, ptr noundef %602)
   %603 = add nsw i32 %.6623, -1
   %.not508.not = icmp sgt i32 %.6623, %.0411
   br i1 %.not508.not, label %.lr.ph625, label %._crit_edge626, !llvm.loop !12
@@ -1757,7 +1757,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 declare ptr @tj3GetScalingFactors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @tj3GetErrorStr(ptr noundef) local_unnamed_addr #1
 
@@ -1915,25 +1915,25 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #3 {
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @dummyDCTFilter(ptr nocapture noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 %5, i32 %6, ptr nocapture readnone %7) #7 {
+define internal noundef i32 @dummyDCTFilter(ptr noundef captures(none) %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 %5, i32 %6, ptr readnone captures(none) %7) #7 {
   %.sroa.16.8.extract.trunc = trunc i64 %2 to i32
   %.sroa.3.8.extract.shift = lshr i64 %2, 32
   %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
@@ -1960,7 +1960,7 @@ define internal noundef i32 @dummyDCTFilter(ptr nocapture noundef %0, i64 %1, i6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #5
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @toupper(i32 noundef) local_unnamed_addr #5
@@ -1974,10 +1974,10 @@ declare i32 @tj3GetErrorCode(ptr noundef) local_unnamed_addr #1
 declare i32 @tj3Get(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare ptr @tj3LoadImage8(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2115,7 +2115,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 659, ptr @tjErrorLine, align 4
-  %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 659, ptr noundef %68)
+  %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 659, ptr noundef nonnull %68)
   br label %83
 
 80:                                               ; preds = %66
@@ -2156,7 +2156,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 661, ptr @tjErrorLine, align 4
-  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 661, ptr noundef %89)
+  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 661, ptr noundef nonnull %89)
   br label %104
 
 101:                                              ; preds = %87
@@ -2198,7 +2198,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 663, ptr @tjErrorLine, align 4
-  %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 663, ptr noundef %110)
+  %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 663, ptr noundef nonnull %110)
   br label %125
 
 122:                                              ; preds = %108
@@ -2239,7 +2239,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 665, ptr @tjErrorLine, align 4
-  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 665, ptr noundef %131)
+  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 665, ptr noundef nonnull %131)
   br label %146
 
 143:                                              ; preds = %129
@@ -2280,7 +2280,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 667, ptr @tjErrorLine, align 4
-  %163 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 667, ptr noundef %152)
+  %163 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 667, ptr noundef nonnull %152)
   br label %167
 
 164:                                              ; preds = %150
@@ -2321,7 +2321,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 669, ptr @tjErrorLine, align 4
-  %184 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 669, ptr noundef %173)
+  %184 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 669, ptr noundef nonnull %173)
   br label %188
 
 185:                                              ; preds = %171
@@ -2361,7 +2361,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 671, ptr @tjErrorLine, align 4
-  %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 671, ptr noundef %194)
+  %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 671, ptr noundef nonnull %194)
   br label %209
 
 206:                                              ; preds = %192
@@ -2401,7 +2401,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 673, ptr @tjErrorLine, align 4
-  %226 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 673, ptr noundef %215)
+  %226 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 673, ptr noundef nonnull %215)
   br label %230
 
 227:                                              ; preds = %213
@@ -2440,7 +2440,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 676, ptr @tjErrorLine, align 4
-  %246 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 676, ptr noundef %235)
+  %246 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 676, ptr noundef nonnull %235)
   br label %250
 
 247:                                              ; preds = %233
@@ -2505,7 +2505,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 686, ptr @tjErrorLine, align 4
-  %279 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 686, ptr noundef %268)
+  %279 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 686, ptr noundef nonnull %268)
   br label %283
 
 280:                                              ; preds = %266
@@ -2546,7 +2546,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 688, ptr @tjErrorLine, align 4
-  %300 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 688, ptr noundef %289)
+  %300 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 688, ptr noundef nonnull %289)
   br label %304
 
 301:                                              ; preds = %287
@@ -2626,7 +2626,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 701, ptr @tjErrorLine, align 4
-  %337 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 701, ptr noundef %326)
+  %337 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 701, ptr noundef nonnull %326)
   br label %341
 
 338:                                              ; preds = %324
@@ -2667,7 +2667,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 703, ptr @tjErrorLine, align 4
-  %359 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 703, ptr noundef %348)
+  %359 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 703, ptr noundef nonnull %348)
   br label %363
 
 360:                                              ; preds = %346
@@ -3253,14 +3253,14 @@ switch.early.test:                                ; preds = %569
 649:                                              ; preds = %.outer, %678
   %.0557 = phi double [ %673, %678 ], [ %.0557.ph, %.outer ]
   %650 = call double @getTime() #21
-  %651 = call i32 @tj3Transform(ptr noundef %57, ptr noundef nonnull %29, i64 noundef %21, i32 noundef %647, ptr noundef nonnull %calloc909, ptr noundef nonnull %calloc, ptr noundef nonnull %560) #21
+  %651 = call i32 @tj3Transform(ptr noundef nonnull %57, ptr noundef nonnull %29, i64 noundef %21, i32 noundef %647, ptr noundef nonnull %calloc909, ptr noundef nonnull %calloc, ptr noundef nonnull %560) #21
   %652 = icmp eq i32 %651, -1
   br i1 %652, label %653, label %670
 
 653:                                              ; preds = %649
-  %654 = call i32 @tj3GetErrorCode(ptr noundef %57) #21
-  %655 = call ptr @tj3GetErrorStr(ptr noundef %57) #21
-  %656 = call i32 @tj3Get(ptr noundef %57, i32 noundef 0) #21
+  %654 = call i32 @tj3GetErrorCode(ptr noundef nonnull %57) #21
+  %655 = call ptr @tj3GetErrorStr(ptr noundef nonnull %57) #21
+  %656 = call i32 @tj3Get(ptr noundef nonnull %57, i32 noundef 0) #21
   %657 = icmp eq i32 %656, 0
   %658 = icmp eq i32 %654, 0
   %or.cond133 = select i1 %657, i1 %658, i1 false
@@ -3283,7 +3283,7 @@ switch.early.test:                                ; preds = %569
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 826, ptr @tjErrorLine, align 4
-  %666 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 826, ptr noundef %655)
+  %666 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 826, ptr noundef nonnull %655)
   br label %670
 
 667:                                              ; preds = %653
@@ -3403,7 +3403,7 @@ switch.early.test:                                ; preds = %569
   %.not709 = icmp eq i32 %.1572, 0
   %724 = select i1 %.not709, ptr %calloc909, ptr %2
   %725 = select i1 %.not709, ptr %calloc, ptr %3
-  %726 = call fastcc i32 @decomp(ptr noundef %724, ptr noundef %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef %0, i32 noundef %spec.select716, i32 noundef %.2595)
+  %726 = call fastcc i32 @decomp(ptr noundef %724, ptr noundef %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %spec.select716, i32 noundef %.2595)
   %727 = icmp eq i32 %726, -1
   br i1 %727, label %.loopexit768, label %732
 
@@ -3484,7 +3484,7 @@ switch.early.test:                                ; preds = %569
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #9
@@ -3735,7 +3735,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 446, ptr @tjErrorLine, align 4
-  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 446, ptr noundef %127)
+  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 446, ptr noundef nonnull %127)
   br label %142
 
 139:                                              ; preds = %125
@@ -3774,7 +3774,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 448, ptr @tjErrorLine, align 4
-  %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 448, ptr noundef %147)
+  %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 448, ptr noundef nonnull %147)
   br label %162
 
 159:                                              ; preds = %145
@@ -3815,7 +3815,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 450, ptr @tjErrorLine, align 4
-  %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 450, ptr noundef %168)
+  %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 450, ptr noundef nonnull %168)
   br label %183
 
 180:                                              ; preds = %166
@@ -3856,7 +3856,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 452, ptr @tjErrorLine, align 4
-  %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 452, ptr noundef %189)
+  %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 452, ptr noundef nonnull %189)
   br label %204
 
 201:                                              ; preds = %187
@@ -3897,7 +3897,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 454, ptr @tjErrorLine, align 4
-  %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 454, ptr noundef %210)
+  %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 454, ptr noundef nonnull %210)
   br label %225
 
 222:                                              ; preds = %208
@@ -3938,7 +3938,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 456, ptr @tjErrorLine, align 4
-  %242 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 456, ptr noundef %231)
+  %242 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 456, ptr noundef nonnull %231)
   br label %246
 
 243:                                              ; preds = %229
@@ -3978,7 +3978,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 458, ptr @tjErrorLine, align 4
-  %263 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 458, ptr noundef %252)
+  %263 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 458, ptr noundef nonnull %252)
   br label %267
 
 264:                                              ; preds = %250
@@ -4022,7 +4022,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 461, ptr @tjErrorLine, align 4
-  %285 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 461, ptr noundef %274)
+  %285 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 461, ptr noundef nonnull %274)
   br label %309
 
 286:                                              ; preds = %272
@@ -4061,7 +4061,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 464, ptr @tjErrorLine, align 4
-  %305 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 464, ptr noundef %294)
+  %305 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 464, ptr noundef nonnull %294)
   br label %309
 
 306:                                              ; preds = %292
@@ -4101,7 +4101,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 467, ptr @tjErrorLine, align 4
-  %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 467, ptr noundef %315)
+  %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 467, ptr noundef nonnull %315)
   br label %330
 
 327:                                              ; preds = %313
@@ -4141,7 +4141,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 469, ptr @tjErrorLine, align 4
-  %347 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 469, ptr noundef %336)
+  %347 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 469, ptr noundef nonnull %336)
   br label %351
 
 348:                                              ; preds = %334
@@ -4181,7 +4181,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 471, ptr @tjErrorLine, align 4
-  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 471, ptr noundef %357)
+  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 471, ptr noundef nonnull %357)
   br label %372
 
 369:                                              ; preds = %355
@@ -4312,7 +4312,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 515, ptr @tjErrorLine, align 4
-  %426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 515, ptr noundef %415)
+  %426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 515, ptr noundef nonnull %415)
   br label %506
 
 427:                                              ; preds = %405
@@ -4346,7 +4346,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 511, ptr @tjErrorLine, align 4
-  %443 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 511, ptr noundef %432)
+  %443 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 511, ptr noundef nonnull %432)
   br label %506
 
 444:                                              ; preds = %405
@@ -4380,7 +4380,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 520, ptr @tjErrorLine, align 4
-  %460 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 520, ptr noundef %449)
+  %460 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 520, ptr noundef nonnull %449)
   br label %506
 
 461:                                              ; preds = %402
@@ -4417,7 +4417,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 502, ptr @tjErrorLine, align 4
-  %480 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 502, ptr noundef %469)
+  %480 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 502, ptr noundef nonnull %469)
   br label %481
 
 481:                                              ; preds = %478, %475, %461
@@ -4464,7 +4464,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 506, ptr @tjErrorLine, align 4
-  %505 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 506, ptr noundef %494)
+  %505 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 506, ptr noundef nonnull %494)
   br label %506
 
 506:                                              ; preds = %503, %500, %486, %458, %455, %444, %441, %438, %427, %424, %421, %410
@@ -4789,7 +4789,7 @@ declare void @tj3Destroy(ptr noundef) local_unnamed_addr #1
 declare void @tj3Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #10
@@ -4798,19 +4798,19 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @tj3DecompressHeader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4876,7 +4876,7 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare i64 @tj3JPEGBufSize(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4887,7 +4887,7 @@ declare double @getTime() local_unnamed_addr #1
 declare i32 @tj3Transform(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr noundef nonnull returned writeonly %1, i32 noundef range(i32 80, 1025) %2) unnamed_addr #13 {
@@ -4915,7 +4915,7 @@ define internal fastcc noundef nonnull ptr @sigfig(double noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca [1024 x i8], align 16
   %12 = alloca [24 x i8], align 16
   %13 = alloca [16 x i8], align 16
@@ -5007,7 +5007,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 200, ptr @tjErrorLine, align 4
-  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 200, ptr noundef %53)
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 200, ptr noundef nonnull %53)
   br label %68
 
 65:                                               ; preds = %51
@@ -5048,7 +5048,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 202, ptr @tjErrorLine, align 4
-  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 202, ptr noundef %74)
+  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 202, ptr noundef nonnull %74)
   br label %89
 
 86:                                               ; preds = %72
@@ -5089,7 +5089,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 204, ptr @tjErrorLine, align 4
-  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 204, ptr noundef %95)
+  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 204, ptr noundef nonnull %95)
   br label %110
 
 107:                                              ; preds = %93
@@ -5130,7 +5130,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 206, ptr @tjErrorLine, align 4
-  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 206, ptr noundef %116)
+  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 206, ptr noundef nonnull %116)
   br label %131
 
 128:                                              ; preds = %114
@@ -5171,7 +5171,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 208, ptr @tjErrorLine, align 4
-  %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 208, ptr noundef %137)
+  %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 208, ptr noundef nonnull %137)
   br label %152
 
 149:                                              ; preds = %135
@@ -5211,7 +5211,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 210, ptr @tjErrorLine, align 4
-  %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 210, ptr noundef %158)
+  %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 210, ptr noundef nonnull %158)
   br label %173
 
 170:                                              ; preds = %156
@@ -5251,7 +5251,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 212, ptr @tjErrorLine, align 4
-  %190 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 212, ptr noundef %179)
+  %190 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 212, ptr noundef nonnull %179)
   br label %194
 
 191:                                              ; preds = %177
@@ -5306,7 +5306,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 216, ptr @tjErrorLine, align 4
-  %221 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 216, ptr noundef %210)
+  %221 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 216, ptr noundef nonnull %210)
   br label %225
 
 222:                                              ; preds = %208
@@ -5346,7 +5346,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 219, ptr @tjErrorLine, align 4
-  %242 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 219, ptr noundef %231)
+  %242 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 219, ptr noundef nonnull %231)
   br label %246
 
 243:                                              ; preds = %229
@@ -5387,7 +5387,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 221, ptr @tjErrorLine, align 4
-  %264 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 221, ptr noundef %253)
+  %264 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 221, ptr noundef nonnull %253)
   br label %268
 
 265:                                              ; preds = %251
@@ -5600,14 +5600,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   ]
 
 357:                                              ; preds = %350
-  %358 = tail call i32 @tj3Decompress12(ptr noundef %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
+  %358 = tail call i32 @tj3Decompress12(ptr noundef nonnull %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
   %359 = icmp eq i32 %358, -1
   br i1 %359, label %360, label %455
 
 360:                                              ; preds = %357
-  %361 = tail call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %362 = tail call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %363 = tail call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %361 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %362 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %363 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %364 = icmp eq i32 %363, 0
   %365 = icmp eq i32 %361, 0
   %or.cond65.us.us.us = select i1 %364, i1 %365, i1 false
@@ -5630,18 +5630,18 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 296, ptr @tjErrorLine, align 4
-  %373 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 296, ptr noundef %362)
+  %373 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 296, ptr noundef nonnull %362)
   br label %455
 
 374:                                              ; preds = %350
-  %375 = tail call i32 @tj3Decompress8(ptr noundef %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
+  %375 = tail call i32 @tj3Decompress8(ptr noundef nonnull %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
   %376 = icmp eq i32 %375, -1
   br i1 %376, label %377, label %455
 
 377:                                              ; preds = %374
-  %378 = tail call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %379 = tail call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %380 = tail call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %378 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %379 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %380 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %381 = icmp eq i32 %380, 0
   %382 = icmp eq i32 %378, 0
   %or.cond61.us.us.us = select i1 %381, i1 %382, i1 false
@@ -5664,18 +5664,18 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 292, ptr @tjErrorLine, align 4
-  %390 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 292, ptr noundef %379)
+  %390 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 292, ptr noundef nonnull %379)
   br label %455
 
 391:                                              ; preds = %350
-  %392 = tail call i32 @tj3Decompress16(ptr noundef %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
+  %392 = tail call i32 @tj3Decompress16(ptr noundef nonnull %42, ptr noundef %353, i64 noundef %355, ptr noundef %.0479639.us.us.us, i32 noundef %281, i32 noundef %356) #21
   %393 = icmp eq i32 %392, -1
   br i1 %393, label %394, label %455
 
 394:                                              ; preds = %391
-  %395 = tail call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %396 = tail call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %397 = tail call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %395 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %396 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %397 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %398 = icmp eq i32 %397, 0
   %399 = icmp eq i32 %395, 0
   %or.cond69.us.us.us = select i1 %398, i1 %399, i1 false
@@ -5698,7 +5698,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 300, ptr @tjErrorLine, align 4
-  %407 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 300, ptr noundef %396)
+  %407 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 300, ptr noundef nonnull %396)
   br label %455
 
 408:                                              ; preds = %345
@@ -5707,14 +5707,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   %411 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv726
   %412 = load i64, ptr %411, align 8
   %413 = load i32, ptr @yuvAlign, align 4
-  %414 = tail call i32 @tj3DecompressToYUV8(ptr noundef %42, ptr noundef %410, i64 noundef %412, ptr noundef %.1481, i32 noundef %413) #21
+  %414 = tail call i32 @tj3DecompressToYUV8(ptr noundef nonnull %42, ptr noundef %410, i64 noundef %412, ptr noundef %.1481, i32 noundef %413) #21
   %415 = icmp eq i32 %414, -1
   br i1 %415, label %416, label %430
 
 416:                                              ; preds = %408
-  %417 = tail call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %418 = tail call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %419 = tail call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %417 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %418 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %419 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %420 = icmp eq i32 %419, 0
   %421 = icmp eq i32 %417, 0
   %or.cond53.us.us.us = select i1 %420, i1 %421, i1 false
@@ -5737,21 +5737,21 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 282, ptr @tjErrorLine, align 4
-  %429 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 282, ptr noundef %418)
+  %429 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 282, ptr noundef nonnull %418)
   br label %430
 
 430:                                              ; preds = %427, %424, %408
   %431 = tail call double @getTime() #21
   %432 = load i32, ptr @yuvAlign, align 4
   %433 = load i32, ptr @pf, align 4
-  %434 = tail call i32 @tj3DecodeYUV8(ptr noundef %42, ptr noundef %.1481, i32 noundef %432, ptr noundef %.0479639.us.us.us, i32 noundef %348, i32 noundef %281, i32 noundef %349, i32 noundef %433) #21
+  %434 = tail call i32 @tj3DecodeYUV8(ptr noundef nonnull %42, ptr noundef %.1481, i32 noundef %432, ptr noundef %.0479639.us.us.us, i32 noundef %348, i32 noundef %281, i32 noundef %349, i32 noundef %433) #21
   %435 = icmp eq i32 %434, -1
   br i1 %435, label %436, label %450
 
 436:                                              ; preds = %430
-  %437 = tail call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %438 = tail call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %439 = tail call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %437 = tail call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %438 = tail call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %439 = tail call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %440 = icmp eq i32 %439, 0
   %441 = icmp eq i32 %437, 0
   %or.cond57.us.us.us = select i1 %440, i1 %441, i1 false
@@ -5774,7 +5774,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 286, ptr @tjErrorLine, align 4
-  %449 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 286, ptr noundef %438)
+  %449 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 286, ptr noundef nonnull %438)
   br label %450
 
 450:                                              ; preds = %447, %444, %430
@@ -6023,14 +6023,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   ]
 
 567:                                              ; preds = %564
-  %568 = call i32 @tj3SaveImage8(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
+  %568 = call i32 @tj3SaveImage8(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
   %569 = icmp eq i32 %568, -1
   br i1 %569, label %570, label %627
 
 570:                                              ; preds = %567
-  %571 = call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %572 = call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %573 = call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %571 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %572 = call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %573 = call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %574 = icmp eq i32 %573, 0
   %575 = icmp eq i32 %571, 0
   %or.cond75 = select i1 %574, i1 %575, i1 false
@@ -6053,7 +6053,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 355, ptr @tjErrorLine, align 4
-  %583 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 355, ptr noundef %572)
+  %583 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 355, ptr noundef nonnull %572)
   br label %627
 
 584:                                              ; preds = %570
@@ -6062,14 +6062,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   br label %627
 
 587:                                              ; preds = %564
-  %588 = call i32 @tj3SaveImage12(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
+  %588 = call i32 @tj3SaveImage12(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
   %589 = icmp eq i32 %588, -1
   br i1 %589, label %590, label %627
 
 590:                                              ; preds = %587
-  %591 = call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %592 = call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %593 = call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %591 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %592 = call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %593 = call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %594 = icmp eq i32 %593, 0
   %595 = icmp eq i32 %591, 0
   %or.cond79 = select i1 %594, i1 %595, i1 false
@@ -6092,7 +6092,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 359, ptr @tjErrorLine, align 4
-  %603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 359, ptr noundef %592)
+  %603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 359, ptr noundef nonnull %592)
   br label %627
 
 604:                                              ; preds = %590
@@ -6101,14 +6101,14 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   br label %627
 
 607:                                              ; preds = %564
-  %608 = call i32 @tj3SaveImage16(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
+  %608 = call i32 @tj3SaveImage16(ptr noundef nonnull %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %566) #21
   %609 = icmp eq i32 %608, -1
   br i1 %609, label %610, label %627
 
 610:                                              ; preds = %607
-  %611 = call i32 @tj3GetErrorCode(ptr noundef %42) #21
-  %612 = call ptr @tj3GetErrorStr(ptr noundef %42) #21
-  %613 = call i32 @tj3Get(ptr noundef %42, i32 noundef 0) #21
+  %611 = call i32 @tj3GetErrorCode(ptr noundef nonnull %42) #21
+  %612 = call ptr @tj3GetErrorStr(ptr noundef nonnull %42) #21
+  %613 = call i32 @tj3Get(ptr noundef nonnull %42, i32 noundef 0) #21
   %614 = icmp eq i32 %613, 0
   %615 = icmp eq i32 %611, 0
   %or.cond83 = select i1 %614, i1 %615, i1 false
@@ -6131,7 +6131,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @tjErrorStr, i64 199), align 1
   store i1 true, ptr @tjErrorCode, align 4
   store i32 363, ptr @tjErrorLine, align 4
-  %623 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 363, ptr noundef %612)
+  %623 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef 363, ptr noundef nonnull %612)
   br label %627
 
 624:                                              ; preds = %610
@@ -6146,7 +6146,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
 627:                                              ; preds = %314, %320, %.split661.us, %.split665.us, %.split653.us, %.split.us, %.split657.us, %584, %604, %624, %538, %598, %601, %587, %618, %621, %607, %567, %581, %578
   %.0480 = phi ptr [ null, %314 ], [ null, %320 ], [ %.1481, %.split665.us ], [ %.1481, %.split661.us ], [ %.1481, %.split653.us ], [ %.1481, %.split.us ], [ %.1481, %.split657.us ], [ %.1481, %581 ], [ %.1481, %578 ], [ %.1481, %584 ], [ %.1481, %567 ], [ %.1481, %601 ], [ %.1481, %598 ], [ %.1481, %604 ], [ %.1481, %587 ], [ %.1481, %621 ], [ %.1481, %618 ], [ %.1481, %624 ], [ %.1481, %607 ], [ %.1481, %538 ]
   %.0470 = phi i32 [ -1, %314 ], [ -1, %320 ], [ -1, %.split665.us ], [ -1, %.split661.us ], [ -1, %.split653.us ], [ -1, %.split.us ], [ -1, %.split657.us ], [ 0, %581 ], [ 0, %578 ], [ -1, %584 ], [ 0, %567 ], [ 0, %601 ], [ 0, %598 ], [ -1, %604 ], [ 0, %587 ], [ 0, %621 ], [ 0, %618 ], [ -1, %624 ], [ 0, %607 ], [ 0, %538 ]
-  call void @tj3Destroy(ptr noundef %42) #21
+  call void @tj3Destroy(ptr noundef nonnull %42) #21
   br i1 %.not605, label %628, label %629
 
 628:                                              ; preds = %627
@@ -6161,7 +6161,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log10(double noundef) local_unnamed_addr #16
@@ -6201,7 +6201,7 @@ declare i32 @tj3Compress12(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @tj3Compress16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18

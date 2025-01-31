@@ -232,7 +232,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN20ThreadSafepointStateC1EP10JavaThread = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN20ThreadSafepointStateC2EP10JavaThread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21SafepointStateTrackerC2Emb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21SafepointStateTrackerC2Emb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i64 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -241,7 +241,7 @@ define hidden void @_ZN21SafepointStateTrackerC2Emb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN21SafepointStateTracker23safepoint_state_changedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN21SafepointStateTracker23safepoint_state_changedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = load i64, ptr @_ZN20SafepointSynchronize13_safepoint_idE, align 8
   %.not = icmp eq i64 %2, %3
@@ -262,7 +262,7 @@ define hidden noundef zeroext i1 @_ZN21SafepointStateTracker23safepoint_state_ch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SafepointSynchronize4initEP6Thread(ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20SafepointSynchronize4initEP6Thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store volatile i32 0, ptr %3, align 4
@@ -538,7 +538,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ThreadSafepointState23examine_state_of_threadEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20ThreadSafepointState23examine_state_of_threadEm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1092
@@ -608,7 +608,7 @@ _ZN20SafepointSynchronize21try_stable_load_stateEP15JavaThreadStateP10JavaThread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN20SafepointSynchronize19synchronize_threadsEliPi(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN20SafepointSynchronize19synchronize_threadsEliPi(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1363,7 +1363,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ThreadSafepointState7restartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ThreadSafepointState7restartEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   ret void
@@ -1503,7 +1503,7 @@ define hidden void @_ZN16SafepointTracing3endEv() local_unnamed_addr #2 align 2 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20SafepointSynchronize21try_stable_load_stateEP15JavaThreadStateP10JavaThreadm(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN20SafepointSynchronize21try_stable_load_stateEP15JavaThreadStateP10JavaThreadm(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   %5 = load volatile i32, ptr %4, align 4
   store i32 %5, ptr %0, align 4
@@ -2037,7 +2037,7 @@ define hidden void @_ZN20ThreadSafepointState6createEP10JavaThread(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ThreadSafepointState7destroyEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20ThreadSafepointState7destroyEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2053,7 +2053,7 @@ define hidden void @_ZN20ThreadSafepointState7destroyEP10JavaThread(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ThreadSafepointState19account_safe_threadEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN20ThreadSafepointState19account_safe_threadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr @_ZN20SafepointSynchronize17_waiting_to_blockE, align 4
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr @_ZN20SafepointSynchronize17_waiting_to_blockE, align 4
@@ -4849,13 +4849,13 @@ declare void @_ZN16LinuxWaitBarrier6disarmEv(ptr noundef nonnull align 4 derefer
 declare void @_ZN16LinuxWaitBarrier4waitEi(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

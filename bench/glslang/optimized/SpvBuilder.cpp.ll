@@ -509,7 +509,7 @@ _ZN3spv7Builder16clearAccessChainEv.exit:         ; preds = %_ZNSt6vectorIjSaIjE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3spv7Builder16clearAccessChainEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) initializes((488, 492), (520, 524), (552, 561), (564, 568)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN3spv7Builder16clearAccessChainEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) initializes((488, 492), (520, 524), (552, 561), (564, 568)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -1528,7 +1528,7 @@ define void @_ZN3spv7BuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(141
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder6importEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder6importEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
@@ -2957,7 +2957,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %116
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder22makeCompositeDebugTypeERKSt6vectorIjSaIjEEPKcNS_47NonSemanticShaderDebugInfo100DebugCompositeTypeEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder22makeCompositeDebugTypeERKSt6vectorIjSaIjEEPKcNS_47NonSemanticShaderDebugInfo100DebugCompositeTypeEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.2", align 1
@@ -3405,7 +3405,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN3spv6Module14map
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
@@ -6288,7 +6288,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder14makeStructTypeERKSt6vectorIjSaIjEEPKcb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder14makeStructTypeERKSt6vectorIjSaIjEEPKcb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
@@ -6551,7 +6551,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder7addNameEjPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder7addNameEjPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %3, align 8
@@ -8333,7 +8333,7 @@ define noundef i32 @_ZN3spv7Builder38makeCooperativeMatrixTypeWithSameShapeEjj(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder15makeGenericTypeENS_2OpERSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -9179,7 +9179,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder16makeFunctionTypeEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder16makeFunctionTypeEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -9589,7 +9589,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder21makeDebugFunctionTypeEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder21makeDebugFunctionTypeEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -9839,7 +9839,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -13632,7 +13632,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder14addInstructionESt10unique_ptrINS_11InstructionESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder14addInstructionESt10unique_ptrINS_11InstructionESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -15239,7 +15239,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder14getDerefTypeIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder14getDerefTypeIdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -15266,7 +15266,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 25, 23) i32 @_ZNK3spv7Builder21getMostBasicTypeClassEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef range(i32 25, 23) i32 @_ZNK3spv7Builder21getMostBasicTypeClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -15307,7 +15307,7 @@ tailrecurse.backedge:                             ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder22getNumTypeConstituentsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder22getNumTypeConstituentsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -15360,7 +15360,7 @@ define noundef i32 @_ZNK3spv7Builder22getNumTypeConstituentsEj(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder15getScalarTypeIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder15getScalarTypeIdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -15412,7 +15412,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEji(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -15458,7 +15458,7 @@ define noundef i32 @_ZNK3spv7Builder18getContainedTypeIdEji(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3spv7Builder27getResultingAccessChainTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3spv7Builder27getResultingAccessChainTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -15589,7 +15589,7 @@ _ZNK3spv7Builder18getContainedTypeIdEji.exit11:   ; preds = %.lr.ph, %64, %60, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3spv7Builder12containsTypeEjNS_2OpEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3spv7Builder12containsTypeEjNS_2OpEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load ptr, ptr %5, align 8
   br label %tailrecurse
@@ -15666,7 +15666,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit:      ; preds = %tailrecurse, %tailr
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3spv7Builder36containsPhysicalStorageBufferOrArrayEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3spv7Builder36containsPhysicalStorageBufferOrArrayEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -15872,7 +15872,7 @@ define noundef i32 @_ZN3spv7Builder18findScalarConstantENS_2OpES1_jjj(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK3spv7Builder16isConstantOpCodeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK3spv7Builder16isConstantOpCodeENS_2OpE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   switch i32 %1, label %3 [
     i32 1, label %4
     i32 41, label %4
@@ -15899,7 +15899,7 @@ define noundef zeroext i1 @_ZNK3spv7Builder16isConstantOpCodeENS_2OpE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK3spv7Builder20isSpecConstantOpCodeENS_2OpE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK3spv7Builder20isSpecConstantOpCodeENS_2OpE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   switch i32 %1, label %3 [
     i32 48, label %4
     i32 49, label %4
@@ -17930,7 +17930,7 @@ define noundef i32 @_ZN3spv7Builder44importNonSemanticShaderDebugInfoInstruction
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 792
@@ -18017,7 +18017,7 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -18095,7 +18095,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder21makeCompositeConstantEjRKSt6vectorIjSaIjEEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder21makeCompositeConstantEjRKSt6vectorIjSaIjEEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.2", align 1
@@ -18659,7 +18659,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN3spv7Builder13addEntryPointENS_14ExecutionModelEPNS_8FunctionEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3spv7Builder13addEntryPointENS_14ExecutionModelEPNS_8FunctionEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
@@ -18812,7 +18812,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -18954,7 +18954,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %5
 
@@ -19109,7 +19109,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder18addExecutionModeIdEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder18addExecutionModeIdEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %5
 
@@ -19264,7 +19264,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13addMemberNameEjiPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13addMemberNameEjiPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
@@ -19415,7 +19415,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -19539,7 +19539,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -19693,7 +19693,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %6
 
@@ -19846,7 +19846,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIPKcSaIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13addDecorationEjNS_10DecorationERKSt6vectorIPKcSaIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %6
 
@@ -20137,7 +20137,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder20addLinkageDecorationEjPKcNS_11LinkageTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder20addLinkageDecorationEjPKcNS_11LinkageTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %4, align 8
@@ -20289,7 +20289,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationEj(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationEj(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -20406,7 +20406,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder15addDecorationIdEjNS_10DecorationERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, 2147483647
   br i1 %5, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %6
 
@@ -20559,7 +20559,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = icmp eq i32 %3, 2147483647
   br i1 %6, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -20684,7 +20684,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 align 2 {
   %6 = icmp eq i32 %3, 2147483647
   br i1 %6, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -20839,7 +20839,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = icmp eq i32 %3, 2147483647
   br i1 %6, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %7
 
@@ -20993,7 +20993,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIPKcSaIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder19addMemberDecorationEjjNS_10DecorationERKSt6vectorIPKcSaIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = icmp eq i32 %3, 2147483647
   br i1 %6, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %7
 
@@ -21318,7 +21318,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %2, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN3spv7Builder17makeFunctionEntryENS_10DecorationEjPKcNS_11LinkageTypeERKSt6vectorIjSaIjEERKS5_IS5_IS1_SaIS1_EESaISB_EEPPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef %7) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3spv7Builder17makeFunctionEntryENS_10DecorationEjPKcNS_11LinkageTypeERKSt6vectorIjSaIjEERKS5_IS5_IS1_SaIS1_EESaISB_EEPPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef captures(none) %7) local_unnamed_addr #3 align 2 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.2", align 1
   %11 = tail call noundef i32 @_ZN3spv7Builder16makeFunctionTypeEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -22312,7 +22312,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder23setupDebugFunctionEntryEPNS_8FunctionEPKciRKSt6vectorIjSaIjEERKS5_IS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder23setupDebugFunctionEntryEPNS_8FunctionEPKciRKSt6vectorIjSaIjEERKS5_IS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.2", align 1
@@ -22525,7 +22525,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE3popEv.exit:        ; preds = %111, %113
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3spv7Builder20unmangleFunctionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1416) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK3spv7Builder20unmangleFunctionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1416) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext 40, i64 noundef -1) #22
   %.not = icmp eq i64 %4, -1
   br i1 %.not, label %7, label %5
@@ -22544,7 +22544,7 @@ define void @_ZNK3spv7Builder20unmangleFunctionNameERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder17makeDebugFunctionEPNS_8FunctionEjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder17makeDebugFunctionEPNS_8FunctionEjj(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %4 = alloca i32, align 4
   store i32 %3, ptr %4, align 4
@@ -22996,7 +22996,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder30createAndSetNoPredecessorBlockEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture readnone %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder30createAndSetNoPredecessorBlockEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
@@ -23114,7 +23114,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE4pushERKj.exit:     ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder17leaveLexicalBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) initializes((144, 145)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder17leaveLexicalBlockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) initializes((144, 145)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -23536,7 +23536,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
@@ -23573,14 +23573,14 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpERKSt6vectorIjSaIjEEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder23makeStatementTerminatorENS_2OpERKSt6vectorIjSaIjEEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 align 2 {
   tail call void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   tail call void @_ZN3spv7Builder30createAndSetNoPredecessorBlockEPKc(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr poison)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
@@ -24048,7 +24048,7 @@ _ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit: ; preds = %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3spv7Builder35sanitizeMemoryAccessForStorageClassENS_16MemoryAccessMaskENS_12StorageClassE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK3spv7Builder35sanitizeMemoryAccessForStorageClassENS_16MemoryAccessMaskENS_12StorageClassE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   switch i32 %2, label %4 [
     i32 2, label %6
     i32 4, label %6
@@ -24307,7 +24307,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %_ZNSt10unique_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder17createAccessChainENS_12StorageClassEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder17createAccessChainENS_12StorageClassEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noundef i32 @_ZNK3spv7Builder27getResultingAccessChainTypeEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   %7 = tail call noundef i32 @_ZN3spv7Builder11makePointerENS_12StorageClassEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %6)
@@ -24536,7 +24536,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjSaIjEES6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder20createSpecConstantOpENS_2OpEjRKSt6vectorIjSaIjEES6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %8 = load i32, ptr %7, align 8
@@ -25112,7 +25112,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::vector.33", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -25294,7 +25294,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder21createCompositeInsertEjjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder21createCompositeInsertEjjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -25580,7 +25580,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16createNoResultOpENS_2OpERKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %5, align 8
@@ -26020,7 +26020,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -26115,7 +26115,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder8createOpENS_2OpEjRKSt6vectorINS_11IdImmediateESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -26218,7 +26218,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder18createFunctionCallEPNS_8FunctionERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder18createFunctionCallEPNS_8FunctionERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -26325,7 +26325,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::vector.33", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -26493,7 +26493,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %89, %_ZNSt10uni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder19createLvalueSwizzleEjjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder19createLvalueSwizzleEjjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -26819,7 +26819,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13promoteScalarENS_10DecorationERjS2_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13promoteScalarENS_10DecorationERjS2_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #3 align 2 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %7 = zext i32 %5 to i64
@@ -27405,7 +27405,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %4, %143, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder17createBuiltinCallEjjiRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder17createBuiltinCallEjjiRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -27509,7 +27509,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder17createTextureCallENS_10DecorationEjbbbbbRKNS0_17TextureParametersENS_17ImageOperandsMaskE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %8, i32 noundef %9) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder17createTextureCallENS_10DecorationEjbbbbbRKNS0_17TextureParametersENS_17ImageOperandsMaskE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %8, i32 noundef %9) local_unnamed_addr #3 align 2 {
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:
   %10 = alloca %"class.std::unique_ptr", align 8
   %11 = load i32, ptr %8, align 4
@@ -28924,7 +28924,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %583, %_ZN3spv7Build
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder22createTextureQueryCallENS_2OpERKNS0_17TextureParametersEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder22createTextureQueryCallENS_2OpERKNS0_17TextureParametersEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   switch i32 %1, label %93 [
     i32 104, label %6
@@ -29543,7 +29543,7 @@ _ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit57: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   %6 = alloca %"class.std::unique_ptr", align 8
@@ -29941,7 +29941,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::vector.33", align 8
   %6 = alloca %"class.std::vector.33", align 8
   %7 = alloca i32, align 4
@@ -30423,7 +30423,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %227, %_ZN3spv7Build
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 1
@@ -30510,7 +30510,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3spv7Builder23createMatrixConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN3spv7Builder23createMatrixConstructorENS_10DecorationERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::vector.33", align 8
   %6 = alloca %"class.std::vector.33", align 8
   %7 = alloca %"class.std::vector.33", align 8
@@ -32049,7 +32049,7 @@ _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %_ZNK3spv7Builder18g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder2IfC2EjjRS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1416) %3) unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder2IfC2EjjRS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1416) %3) unnamed_addr #3 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
@@ -32163,7 +32163,7 @@ _ZN3spv8Function8addBlockEPNS_5BlockE.exit:       ; preds = %37, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder2If13makeBeginElseEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder2If13makeBeginElseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -32340,7 +32340,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder2If9makeEndIfEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder2If9makeEndIfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -32486,7 +32486,7 @@ _ZN3spv8Function8addBlockEPNS_5BlockE.exit:       ; preds = %50, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder20createSelectionMergeEPNS_5BlockEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder20createSelectionMergeEPNS_5BlockEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
 _ZN3spv11Instruction15reserveOperandsEm.exit:
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
@@ -32605,7 +32605,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder10makeSwitchEjjiRKSt6vectorIiSaIiEES5_iRS1_IPNS_5BlockESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i32 noundef %6, ptr nocapture noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder10makeSwitchEjjiRKSt6vectorIiSaIiEES5_iRS1_IPNS_5BlockESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, i32 noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %7) local_unnamed_addr #3 align 2 {
   %9 = alloca ptr, align 8
   %10 = alloca %"class.std::unique_ptr", align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -33055,7 +33055,7 @@ _ZN3spv7Builder12createBranchEPNS_5BlockE.exit:   ; preds = %_ZNSt5stackIPN3spv5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder17nextSwitchSegmentERSt6vectorIPNS_5BlockESaIS3_EEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder17nextSwitchSegmentERSt6vectorIPNS_5BlockESaIS3_EEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %6, label %_ZNK3spv5Block12isTerminatedEv.exit.thread
@@ -33206,7 +33206,7 @@ _ZN3spv8Function8addBlockEPNS_5BlockE.exit:       ; preds = %48, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder9endSwitchERSt6vectorIPNS_5BlockESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder9endSwitchERSt6vectorIPNS_5BlockESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33365,7 +33365,7 @@ _ZNSt5stackIPN3spv5BlockESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %59, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(137) ptr @_ZN3spv7Builder12makeNewBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(137) ptr @_ZN3spv7Builder12makeNewBlockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -33634,7 +33634,7 @@ _ZN3spv7Builder12createBranchEPNS_5BlockE.exit:   ; preds = %_ZNSt5stackIN3spv7B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder9closeLoopEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder9closeLoopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
@@ -34022,7 +34022,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3spv7Builder26simplifyAccessChainSwizzleEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN3spv7Builder26simplifyAccessChainSwizzleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -36958,7 +36958,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIbSaIbE
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11InstructionESt14default_deleteIS6_EESaIS9_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK3spv7Builder16dumpInstructionsERSt6vectorIjSaIjEERKS1_ISt10unique_ptrINS_11InstructionESt14default_deleteIS6_EESaIS9_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -37025,7 +37025,7 @@ define void @_ZNK3spv7Builder22dumpSourceInstructionsERSt6vectorIjSaIjEE(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3spv7Builder19dumpModuleProcessesERSt6vectorIjSaIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK3spv7Builder19dumpModuleProcessesERSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.spv::Instruction", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -37403,7 +37403,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %79, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder15createLoopMergeEPNS_5BlockES2_jRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder15createLoopMergeEPNS_5BlockES2_jRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::unique_ptr", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11InstructionE, i64 16), ptr %7, align 8
@@ -37513,7 +37513,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3spv7Builder22dumpSourceInstructionsEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIjSaIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK3spv7Builder22dumpSourceInstructionsEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.spv::Instruction", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38062,7 +38062,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIbSaIbEE13_M_reallocateEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
@@ -38168,7 +38168,7 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZNSt6vectorIbSaIb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 {
@@ -39483,7 +39483,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -41201,13 +41201,13 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

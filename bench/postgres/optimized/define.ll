@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.errorConflictingDefElem = private unnamed_addr constant [24 x i8] c"errorConflictingDefElem\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defGetString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @defGetString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -134,7 +134,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @defGetNumeric(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local double @defGetNumeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -185,10 +185,10 @@ define dso_local double @defGetNumeric(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #3
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @defGetBoolean(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @defGetBoolean(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -249,7 +249,7 @@ define dso_local noundef zeroext i1 @defGetBoolean(ptr nocapture noundef readonl
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @defGetInt32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @defGetInt32(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -287,7 +287,7 @@ define dso_local i32 @defGetInt32(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @defGetInt64(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @defGetInt64(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -343,7 +343,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @int8in(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @defGetObjectId(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @defGetObjectId(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -397,7 +397,7 @@ define dso_local i32 @defGetObjectId(ptr nocapture noundef readonly %0) local_un
 declare i64 @oidin(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defGetQualifiedName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @defGetQualifiedName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -448,7 +448,7 @@ define dso_local ptr @defGetQualifiedName(ptr nocapture noundef readonly %0) loc
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defGetTypeName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @defGetTypeName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -494,7 +494,7 @@ define dso_local ptr @defGetTypeName(ptr nocapture noundef readonly %0) local_un
 declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @defGetTypeLength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -574,7 +574,7 @@ define dso_local i32 @defGetTypeLength(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defGetStringList(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -642,7 +642,7 @@ define dso_local ptr @defGetStringList(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local void @errorConflictingDefElem(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @errorConflictingDefElem(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 16801924) #7

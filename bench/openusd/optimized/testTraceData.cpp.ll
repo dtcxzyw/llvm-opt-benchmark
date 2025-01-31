@@ -282,7 +282,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z8FindNodeN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z8FindNodeN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -669,7 +669,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEE10_RemoveRe
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
@@ -3985,7 +3985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector13_StoreDataRecIRKNS_18Trac
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i64 @llvm.x86.rdtsc() #9
@@ -4020,7 +4020,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14Trace
   %.010.i.i.i.i = phi ptr [ %18, %.noexc.i ], [ %13, %5 ]
   %.0.i.i.i.i = phi ptr [ %19, %.noexc.i ], [ %14, %5 ]
   store ptr %.0.i.i.i.i, ptr %12, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i, ptr align 1 %6, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i, ptr nonnull align 1 %6, i64 %11, i1 false)
   %21 = load ptr, ptr %.0.i.i, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %22, ptr %.0.i.i, align 8
@@ -4094,7 +4094,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14Trace
   %.010.i.i.i.i.i = phi ptr [ %22, %.noexc.i.i ], [ %17, %9 ]
   %.0.i.i.i.i.i = phi ptr [ %23, %.noexc.i.i ], [ %18, %9 ]
   store ptr %.0.i.i.i.i.i, ptr %16, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i.i, ptr align 1 %10, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i.i, ptr nonnull align 1 %10, i64 %15, i1 false)
   %25 = load ptr, ptr %.0.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %26, ptr %.0.i.i.i, align 8
@@ -4140,7 +4140,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_StoreDataEPNS0_14_PerThr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TraceDataBuffer9Allocator13AllocateBlockEmm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef, i64 noundef) local_unnamed_addr #0
 
@@ -4245,7 +4245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_StoreDataEPNS0_14_PerThr
   %.010.i.i.i.i.i.i = phi ptr [ %54, %.noexc.i.i.i ], [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_StoreDataEPNS0_14_PerThreadDataERKNS_8TraceKeyEjPKc.exit ]
   %.0.i.i.i.i.i.i = phi ptr [ %55, %.noexc.i.i.i ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_StoreDataEPNS0_14_PerThreadDataERKNS_8TraceKeyEjPKc.exit ]
   store ptr %.0.i.i.i.i.i.i, ptr %48, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i.i.i, ptr align 1 %43, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.i.i.i.i.i.i, ptr nonnull align 1 %43, i64 %47, i1 false)
   %57 = load ptr, ptr %.0.i.i.i.i, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %58, ptr %.0.i.i.i.i, align 8
@@ -4838,10 +4838,10 @@ define internal void @_GLOBAL__sub_I_testTraceData.cpp() #13 section ".text.star
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

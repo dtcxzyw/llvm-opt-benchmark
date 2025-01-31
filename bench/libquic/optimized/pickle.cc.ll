@@ -84,7 +84,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base11PickleSizer8AddBytesEi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %length) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base11PickleSizer8AddBytesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %conv = sext i32 %length to i64
   %sub.i = add nsw i64 %conv, 3
@@ -234,7 +234,7 @@ _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14PickleIteratorC2ERKNS_6PickleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pickle) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base14PickleIteratorC2ERKNS_6PickleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %pickle) unnamed_addr #3 align 2 {
 entry:
   %header_.i = getelementptr inbounds nuw i8, ptr %pickle, i64 8
   %0 = load ptr, ptr %header_.i, align 8
@@ -261,7 +261,7 @@ _ZNK4base6Pickle12payload_sizeEv.exit:            ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %num_bytes) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %num_bytes) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %num_bytes, 0
   %end_index_3.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadBoolEPb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadBoolEPb(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -330,7 +330,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %entry, %_ZN4b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -357,7 +357,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadLongEPl(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadLongEPl(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -384,7 +384,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt16EPt(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt16EPt(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -412,7 +412,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -439,7 +439,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadInt64EPl(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadInt64EPl(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -466,7 +466,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt64EPm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt64EPm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
@@ -493,7 +493,7 @@ _ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadFloatEPf(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadFloatEPf(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i, align 8
@@ -520,10 +520,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadDoubleEPd(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadDoubleEPd(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #3 align 2 {
 entry:
   %end_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i, align 8
@@ -550,7 +550,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
 entry:
   %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
@@ -601,7 +601,7 @@ return:                                           ; preds = %_ZN4base14PickleIte
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator15ReadStringPieceEPNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator15ReadStringPieceEPNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -654,7 +654,7 @@ return:                                           ; preds = %_ZN4base14PickleIte
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
 entry:
   %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
@@ -712,7 +712,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKtm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %result) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece.5", align 8
   %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -772,7 +772,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadDataEPPKcPi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %length) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadDataEPPKcPi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 4)) %length) local_unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %length, align 4
   store ptr null, ptr %data, align 8
@@ -831,7 +831,7 @@ return:                                           ; preds = %if.end.i, %_ZN4base
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadBytesEPPKci(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %data, i32 noundef %length) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadBytesEPPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %data, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %cmp.i = icmp slt i32 %length, 0
   %end_index_3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -873,20 +873,20 @@ return:                                           ; preds = %_ZN4base14PickleIte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base11PickleSizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base11PickleSizerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base11PickleSizerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4base11PickleSizerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11PickleSizer9AddStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11PickleSizer9AddStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %add.i.i.i.i = add i64 %0, 4
@@ -905,7 +905,7 @@ entry:
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11PickleSizer11AddString16ERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11PickleSizer11AddString16ERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %add.i.i.i.i = add i64 %0, 4
@@ -925,7 +925,7 @@ entry:
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11PickleSizer7AddDataEi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11PickleSizer7AddDataEi(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1.addr.i = alloca i32, align 4
   %v2.addr.i = alloca i32, align 4
@@ -968,7 +968,7 @@ if.end:                                           ; preds = %_ZN7logging11CheckG
 declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base11PickleSizer13AddAttachmentEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11PickleSizer13AddAttachmentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %add.i.i.i.i = add i64 %0, 8
@@ -1084,7 +1084,7 @@ if.end14:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base6PickleC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %data, i32 noundef %data_len) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base6PickleC2EPKci(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef %data, i32 noundef %data_len) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1132,7 +1132,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base6PickleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base6PickleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %other) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1163,7 +1163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN4base6PickleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4base6PickleD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
   %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base6PickleD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
@@ -1342,7 +1342,7 @@ return:                                           ; preds = %if.then30.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base6Pickle10WriteBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %data, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base6Pickle10WriteBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly captures(none) %data, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sext i32 %length to i64
   %sub.i.i.i = add nsw i64 %conv, 3
@@ -1470,7 +1470,7 @@ return:                                           ; preds = %if.then30.i.i.i, %i
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base6Pickle9WriteDataEPKci(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %data, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base6Pickle9WriteDataEPKci(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly captures(none) %data, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp sgt i32 %length, -1
   br i1 %cmp, label %land.lhs.true, label %land.end
@@ -1573,28 +1573,28 @@ if.end28:                                         ; preds = %if.then25, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base6Pickle15WriteAttachmentE13scoped_refptrINS0_10AttachmentEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %attachment) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base6Pickle15WriteAttachmentE13scoped_refptrINS0_10AttachmentEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %attachment) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base6Pickle14ReadAttachmentEPNS_14PickleIteratorEP13scoped_refptrINS0_10AttachmentEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %iter, ptr nocapture readnone %attachment) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base6Pickle14ReadAttachmentEPNS_14PickleIteratorEP13scoped_refptrINS0_10AttachmentEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %iter, ptr readnone captures(none) %attachment) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base6Pickle14HasAttachmentsEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base6Pickle14HasAttachmentsEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK4base6Pickle21GetTotalAllocatedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef i64 @_ZNK4base6Pickle21GetTotalAllocatedSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #13 align 2 {
 entry:
   %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
@@ -1663,7 +1663,7 @@ cleanup.done:                                     ; preds = %_ZN4base6Pickle31Cl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN4base6Pickle8FindNextEmPKcS2_(i64 noundef %header_size, ptr noundef %start, ptr noundef %end) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
@@ -1692,7 +1692,7 @@ _ZN4base6Pickle8PeekNextEmPKcS2_Pm.exit:          ; preds = %entry, %if.end27.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4base6Pickle8PeekNextEmPKcS2_Pm(i64 noundef %header_size, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %pickle_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base6Pickle8PeekNextEmPKcS2_Pm(i64 noundef %header_size, ptr noundef %start, ptr noundef %end, ptr noundef writeonly captures(none) %pickle_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end22:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %start to i64
@@ -1726,10 +1726,10 @@ declare noundef ptr @_ZN7logging17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stri
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #15

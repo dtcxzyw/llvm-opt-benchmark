@@ -236,7 +236,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_immutable_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -581,7 +581,7 @@ declare dso_local ptr @drm_atomic_get_plane_state(ptr noundef, ptr noundef) loca
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @drm_atomic_state_zpos_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal i32 @drm_atomic_state_zpos_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 80

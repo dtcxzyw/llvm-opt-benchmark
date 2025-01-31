@@ -329,7 +329,7 @@ define dso_local i32 @snd_minor_info_init() local_unnamed_addr #2 section ".init
 declare dso_local ptr @snd_info_create_module_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_minor_info_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @snd_minor_info_read(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @sound_mutex) #5
   br label %3
 

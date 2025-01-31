@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @iac_origHostNameID = hidden local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @ia_initialized, align 4
   br i1 %.b, label %63, label %3
 
@@ -120,7 +120,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_java_net_InetAddress_isIPv4Available(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_java_net_InetAddress_isIPv4Available(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @ipv4_available() #2
   %4 = trunc i32 %3 to i8
   ret i8 %4
@@ -129,7 +129,7 @@ define zeroext i8 @Java_java_net_InetAddress_isIPv4Available(ptr nocapture nound
 declare i32 @ipv4_available(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_java_net_InetAddress_isIPv6Supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_java_net_InetAddress_isIPv6Supported(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @ipv6_available() #2
   %4 = trunc i32 %3 to i8
   ret i8 %4

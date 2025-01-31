@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Type_match_size_f08 = weak alias void (ptr, ptr, ptr, ptr), ptr @ompi_type_match_size_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_type_match_size_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef writeonly %3) #0 {
+define void @ompi_type_match_size_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
   %7 = trunc i8 %6 to i1

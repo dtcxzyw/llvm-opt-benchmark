@@ -1012,7 +1012,7 @@ do.end:                                           ; preds = %Py_XDECREF.exit15, 
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tb_traverse(ptr nocapture noundef readonly %tb, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @tb_traverse(ptr noundef readonly captures(none) %tb, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %tb_next = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %0 = load ptr, ptr %tb_next, align 8
@@ -1044,7 +1044,7 @@ return:                                           ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tb_clear(ptr nocapture noundef %tb) #0 {
+define internal noundef i32 @tb_clear(ptr noundef captures(none) %tb) #0 {
 entry:
   %tb_next = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %0 = load ptr, ptr %tb_next, align 8
@@ -1096,7 +1096,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tb_new(ptr nocapture readnone %type, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @tb_new(ptr readnone captures(none) %type, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %0 = getelementptr i8, ptr %args, i64 16
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3492,7 +3492,7 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 declare void @_PyTrash_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tb_dir(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @tb_dir(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #10
   ret ptr %call
@@ -3501,7 +3501,7 @@ entry:
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @tb_next_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused__) #3 {
+define internal noundef nonnull ptr @tb_next_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused__) #3 {
 entry:
   %tb_next = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %tb_next, align 8
@@ -3521,7 +3521,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @tb_next_set(ptr noundef %self, ptr noundef %new_next, ptr nocapture readnone %_unused__) #0 {
+define internal range(i32 -1, 1) i32 @tb_next_set(ptr noundef %self, ptr noundef %new_next, ptr readnone captures(none) %_unused__) #0 {
 entry:
   %tobool.not = icmp eq ptr %new_next, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3611,7 +3611,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tb_lineno_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused__) #0 {
+define internal ptr @tb_lineno_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused__) #0 {
 entry:
   %tb_lineno = getelementptr inbounds nuw i8, ptr %self, i64 36
   %0 = load i32, ptr %tb_lineno, align 4
@@ -3781,7 +3781,7 @@ declare ptr @PyUnicode_EncodeFSDefault(ptr noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @_PySys_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3792,7 +3792,7 @@ declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyList_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @_PyObject_CallMethodFormat(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3812,10 +3812,10 @@ declare i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef) local_unnamed_addr
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

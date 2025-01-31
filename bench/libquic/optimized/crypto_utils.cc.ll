@@ -131,7 +131,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net11CryptoUtils10IsValidSNIEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %sni.coerce0, i64 %sni.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -294,7 +294,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net11CryptoUtils10DeriveKeysEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjS9_S9_RKS8_NS_11PerspectiveENS0_15DiversificationEPNS_11CrypterPairEPS8_(ptr %premaster_secret.coerce0, i64 %premaster_secret.coerce1, i32 noundef %aead, ptr %client_nonce.coerce0, i64 %client_nonce.coerce1, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %server_nonce, ptr noundef nonnull align 8 dereferenceable(32) %hkdf_input, i32 noundef %perspective, ptr nocapture noundef readonly byval(%"class.net::CryptoUtils::Diversification") align 8 %diversification, ptr nocapture noundef %crypters, ptr noundef %subkey_secret) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net11CryptoUtils10DeriveKeysEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjS9_S9_RKS8_NS_11PerspectiveENS0_15DiversificationEPNS_11CrypterPairEPS8_(ptr %premaster_secret.coerce0, i64 %premaster_secret.coerce1, i32 noundef %aead, ptr %client_nonce.coerce0, i64 %client_nonce.coerce1, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %server_nonce, ptr noundef nonnull align 8 dereferenceable(32) %hkdf_input, i32 noundef %perspective, ptr noundef readonly byval(%"class.net::CryptoUtils::Diversification") align 8 captures(none) %diversification, ptr noundef captures(none) %crypters, ptr noundef %subkey_secret) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %premaster_secret = alloca %"class.base::BasicStringPiece", align 8
   %client_nonce = alloca %"class.base::BasicStringPiece", align 8
@@ -1056,7 +1056,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateServerHelloERKNS_22CryptoHandshakeMessageERKSt6vectorINS_11QuicVersionESaIS5_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %server_hello, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %negotiated_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateServerHelloERKNS_22CryptoHandshakeMessageERKSt6vectorINS_11QuicVersionESaIS5_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %server_hello, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %negotiated_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
 entry:
   %supported_version_tags = alloca ptr, align 8
   %num_supported_versions = alloca i64, align 8
@@ -1131,7 +1131,7 @@ declare noundef i32 @_ZNK3net22CryptoHandshakeMessage10GetTaglistEjPPKjPm(ptr no
 declare noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateClientHelloERKNS_22CryptoHandshakeMessageENS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %client_hello, i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %supported_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateClientHelloERKNS_22CryptoHandshakeMessageENS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %client_hello, i32 noundef %version, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %supported_versions, ptr noundef %error_details) local_unnamed_addr #0 align 2 {
 entry:
   %client_version_tag = alloca i32, align 4
   %0 = load i32, ptr %client_hello, align 8

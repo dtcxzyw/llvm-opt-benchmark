@@ -355,7 +355,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @interval_tree_iter_first(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -517,7 +517,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 nound
 declare dso_local void @__rb_insert_augmented(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) #3 align 16 {
+define internal void @interval_tree_augment_rotate(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((40, 48)) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -561,7 +561,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

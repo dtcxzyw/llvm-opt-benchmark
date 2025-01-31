@@ -71,14 +71,14 @@ $_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE17_M_default_appendEm = comdat any
 @_ZN4base5debug25ScopedProcessWaitActivityC1EPKNS_7ProcessE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base5debug25ScopedProcessWaitActivityC2EPKNS_7ProcessE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZN4base5debug12ActivityData9ForThreadERKNS_20PlatformThreadHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %handle) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN4base5debug12ActivityData9ForThreadERKNS_20PlatformThreadHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %handle) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %handle, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug8Activity8FillFromEPS1_PKvNS1_4TypeERKNS0_12ActivityDataE(ptr nocapture noundef writeonly initializes((0, 24), (96, 97), (104, 112)) %activity, ptr noundef %origin, i8 noundef zeroext %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug8Activity8FillFromEPS1_PKvNS1_4TypeERKNS0_12ActivityDataE(ptr noundef writeonly captures(none) initializes((0, 24), (96, 97), (104, 112)) %activity, ptr noundef %origin, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %data) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call, ptr %activity, align 8
@@ -98,7 +98,7 @@ entry:
 declare i64 @_ZN4base9TimeTicks3NowEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base5debug16ActivitySnapshotC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #4 align 2 {
@@ -133,7 +133,7 @@ _ZNSt6vectorIN4base5debug8ActivityESaIS2_EED2Ev.exit: ; preds = %entry, %if.then
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr nocapture noundef nonnull align 8 dereferenceable(30) initializes((0, 29)) %this, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(30) initializes((0, 29)) %this, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i64 16), ptr %this, align 8
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -260,7 +260,7 @@ declare noundef i64 @_ZN4base7strlcpyEPcPKcm(ptr noundef, ptr noundef, i64 nound
 declare noundef ptr @_ZN4base14PlatformThread7GetNameEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker7IsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker7IsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this) local_unnamed_addr #6 align 2 {
 entry:
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
@@ -319,7 +319,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTrackerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4base5debug21ThreadActivityTrackerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -335,7 +335,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTracker12PushActivityEPKvNS0_8Activity4TypeERKNS0_12ActivityDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this, ptr noundef %origin, i8 noundef zeroext %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug21ThreadActivityTracker12PushActivityEPKvNS0_8Activity4TypeERKNS0_12ActivityDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this, ptr noundef %origin, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %data) local_unnamed_addr #1 align 2 {
 entry:
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
@@ -379,7 +379,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity4TypeERKNS0_12ActivityDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity4TypeERKNS0_12ActivityDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
@@ -419,7 +419,7 @@ if.end23:                                         ; preds = %if.end18, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTracker11PopActivityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21ThreadActivityTracker11PopActivityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
@@ -432,7 +432,7 @@ if.end:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker8SnapshotEPNS0_16ActivitySnapshotE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this, ptr noundef %output_snapshot) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker8SnapshotEPNS0_16ActivitySnapshotE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this, ptr noundef %output_snapshot) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -726,7 +726,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -741,7 +741,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerC2EjPvm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 29)) %this, i32 noundef %mem_reference, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerC2EjPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 29)) %this, i32 noundef %mem_reference, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %this, ptr noundef %base, i64 noundef %size)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %this, align 8
@@ -753,7 +753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
@@ -815,7 +815,7 @@ terminate.lpad:                                   ; preds = %call6.i.noexc, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %tracker) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef readonly captures(none) %tracker) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 monotonic.i:
   %mem_reference_ = getelementptr inbounds nuw i8, ptr %tracker, i64 32
   %0 = load i32, ptr %mem_reference_, align 8
@@ -937,7 +937,7 @@ _ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21GlobalActivityTracker19CreateWithAllocatorESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr nocapture noundef %allocator, i32 noundef %stack_depth) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21GlobalActivityTracker19CreateWithAllocatorESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef captures(none) %allocator, i32 noundef %stack_depth) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
@@ -1416,7 +1416,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 declare noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21GlobalActivityTrackerC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %this, ptr nocapture noundef %allocator, i32 noundef %stack_depth) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21GlobalActivityTrackerC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS3_EEi(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %this, ptr noundef captures(none) %allocator, i32 noundef %stack_depth) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %allocator, align 8
   store i64 %0, ptr %this, align 8
@@ -1557,10 +1557,10 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug14ScopedActivityC2ERKN15tracked_objects8LocationEhji(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %location, i8 noundef zeroext %action, i32 noundef %id, i32 noundef %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug14ScopedActivityC2ERKN15tracked_objects8LocationEhji(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %location, i8 noundef zeroext %action, i32 noundef %id, i32 noundef %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %program_counter_.i = getelementptr inbounds nuw i8, ptr %location, i64 24
   %0 = load ptr, ptr %program_counter_.i, align 8
@@ -1638,7 +1638,7 @@ if.end:                                           ; preds = %if.end.i.i3.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug14ScopedActivity12ChangeActionEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i8 noundef zeroext %action) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug14ScopedActivity12ChangeActionEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i8 noundef zeroext %action) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %0 = or i8 %action, -16
   %1 = load ptr, ptr %this, align 8
@@ -1669,7 +1669,7 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %id_, align 8
@@ -1705,7 +1705,7 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug14ScopedActivity19ChangeActionAndInfoEhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i8 noundef zeroext %action, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug14ScopedActivity19ChangeActionAndInfoEhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, i8 noundef zeroext %action, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %0 = or i8 %action, -16
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1745,7 +1745,7 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug21ScopedTaskRunActivityC2ERKNS_11PendingTaskE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %task) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug21ScopedTaskRunActivityC2ERKNS_11PendingTaskE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %task) unnamed_addr #1 align 2 {
 entry:
   %program_counter_.i = getelementptr inbounds nuw i8, ptr %task, i64 56
   %0 = load ptr, ptr %program_counter_.i, align 8
@@ -1819,7 +1819,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug25ScopedLockAcquireActivityC2EPKNS_8internal8LockImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %lock) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug25ScopedLockAcquireActivityC2EPKNS_8internal8LockImplE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %lock) unnamed_addr #1 align 2 {
 entry:
   %0 = ptrtoint ptr %lock to i64
   %1 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
@@ -1878,7 +1878,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug23ScopedEventWaitActivityC2EPKNS_13WaitableEventE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %event) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug23ScopedEventWaitActivityC2EPKNS_13WaitableEventE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %event) unnamed_addr #1 align 2 {
 entry:
   %0 = ptrtoint ptr %event to i64
   %1 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
@@ -1947,7 +1947,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug24ScopedThreadJoinActivityC2EPKNS_20PlatformThreadHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %thread) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug24ScopedThreadJoinActivityC2EPKNS_20PlatformThreadHandleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef readonly captures(none) %thread) unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %thread, align 8
   %1 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
@@ -2016,7 +2016,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base5debug25ScopedProcessWaitActivityC2EPKNS_7ProcessE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull %process) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug25ScopedProcessWaitActivityC2EPKNS_7ProcessE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull %process) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK4base7Process3PidEv(ptr noundef nonnull align 4 dereferenceable(4) %process)
   %conv = sext i32 %call to i64
@@ -2091,7 +2091,7 @@ declare noundef i32 @_ZNK4base7Process3PidEv(ptr noundef nonnull align 4 derefer
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2240,10 +2240,10 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

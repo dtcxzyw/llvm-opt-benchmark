@@ -46,7 +46,7 @@ return:                                           ; preds = %if.then7, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ossl_qrl_enc_level_set_have_el(ptr nocapture noundef readonly %els, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_qrl_enc_level_set_have_el(ptr noundef readonly captures(none) %els, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i32 %enc_level, 4
   tail call void @llvm.assume(i1 %cmp.i)
@@ -767,7 +767,7 @@ return:                                           ; preds = %el_teardown_keyslot
 declare i32 @ossl_qrl_get_suite_secret_len(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef %els, i32 noundef %enc_level) local_unnamed_addr #1 {

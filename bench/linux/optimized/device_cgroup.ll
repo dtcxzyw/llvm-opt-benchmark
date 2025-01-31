@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_devcgroup_ch
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_devcgroup_check_permission696], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @devcgroup_css_alloc(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef ptr @devcgroup_css_alloc(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(224) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 224) #8
   %4 = icmp eq ptr %3, null
@@ -138,7 +138,7 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devcgroup_offline(ptr nocapture noundef writeonly initializes((216, 220)) %0) #0 align 16 {
+define internal void @devcgroup_offline(ptr noundef writeonly captures(none) initializes((216, 220)) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %2, align 8
@@ -426,10 +426,10 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -883,7 +883,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca [13 x i8], align 2
   %4 = alloca [13 x i8], align 2
   %5 = alloca [4 x i8], align 4
@@ -1019,7 +1019,7 @@ define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr nocapture re
 declare dso_local ptr @of_css(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
@@ -1061,7 +1061,7 @@ define internal fastcc void @dev_exception_clean(ptr noundef readonly %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1309,7 +1309,7 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -1378,7 +1378,7 @@ define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2010,7 +2010,7 @@ declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #3
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

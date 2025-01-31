@@ -34,7 +34,7 @@ $_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa = comdat any
 @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 0], align 4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr noalias nocapture writeonly sret(%"struct.absl::Time::Breakdown") align 8 initializes((0, 53), (56, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, ptr %tz.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr noalias writeonly sret(%"struct.absl::Time::Breakdown") align 8 captures(none) initializes((0, 53), (56, 64)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, ptr %tz.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp = alloca %"class.std::chrono::time_point", align 8
   %al = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
@@ -215,7 +215,7 @@ return:                                           ; preds = %_ZN4absl13time_inte
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
@@ -500,7 +500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tp) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %tp) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %tp, align 8
   %div.i.i = sdiv i64 %retval.sroa.0.0.copyload.i.i, 1000000000
@@ -557,7 +557,7 @@ _ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl10
 declare { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64, i32, i64, i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr noalias nocapture writeonly sret(%"struct.absl::TimeZone::CivilInfo") align 8 initializes((0, 33), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr noalias writeonly sret(%"struct.absl::TimeZone::CivilInfo") align 8 captures(none) initializes((0, 33), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp = alloca %"class.std::chrono::time_point", align 8
   %al = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
@@ -637,7 +637,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE(ptr noalias nocapture writeonly sret(%"struct.absl::TimeZone::TimeInfo") align 4 initializes((4, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %ct.coerce0, i64 %ct.coerce1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE(ptr noalias writeonly sret(%"struct.absl::TimeZone::TimeInfo") align 4 captures(none) initializes((4, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %ct.coerce0, i64 %ct.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %cs = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
@@ -685,7 +685,7 @@ sw.epilog:                                        ; preds = %entry, %sw.epilog.s
 declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cs, ptr noundef nonnull align 8 dereferenceable(8) %tz) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sec, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cs, ptr noundef nonnull align 8 dereferenceable(8) %tz) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %max = alloca %"class.std::chrono::time_point", align 8
   %min = alloca %"class.std::chrono::time_point", align 8
@@ -852,7 +852,7 @@ return:                                           ; preds = %land.rhs28.i, %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14NextTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1, ptr nocapture noundef writeonly %trans) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14NextTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1, ptr noundef writeonly captures(none) %trans) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp.i = alloca %"class.std::chrono::time_point", align 8
   %tr.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_transition", align 8
@@ -908,7 +908,7 @@ _ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_K
 declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15next_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14PrevTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1, ptr nocapture noundef writeonly %trans) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14PrevTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1, ptr noundef writeonly captures(none) %trans) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp.i = alloca %"class.std::chrono::time_point", align 8
   %tr.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_transition", align 8
@@ -964,7 +964,7 @@ _ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_K
 declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15prev_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr noalias nocapture sret(%"struct.absl::TimeConversion") align 4 initializes((24, 36)) %agg.result, i64 noundef %year, i32 noundef %mon, i32 noundef %day, i32 noundef %hour, i32 noundef %min, i32 noundef %sec, i64 %tz.coerce) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr noalias sret(%"struct.absl::TimeConversion") align 4 captures(none) initializes((24, 36)) %agg.result, i64 noundef %year, i32 noundef %mon, i32 noundef %day, i32 noundef %hour, i32 noundef %min, i32 noundef %sec, i64 %tz.coerce) local_unnamed_addr #0 {
 entry:
   %cs.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
@@ -1091,7 +1091,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local { i64, i32 } @_ZN4absl6FromTMERK2tmNS_8TimeZoneE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %tm, ptr %tz.coerce) local_unnamed_addr #7 {
+define dso_local { i64, i32 } @_ZN4absl6FromTMERK2tmNS_8TimeZoneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %tm, ptr %tz.coerce) local_unnamed_addr #7 {
 entry:
   %cs.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
@@ -1152,7 +1152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr noalias nocapture writeonly sret(%struct.tm) align 8 initializes((0, 56)) %agg.result, i64 %t.coerce0, i32 %t.coerce1, ptr %tz.coerce) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr noalias writeonly sret(%struct.tm) align 8 captures(none) initializes((0, 56)) %agg.result, i64 %t.coerce0, i32 %t.coerce1, ptr %tz.coerce) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %tp.i = alloca %"class.std::chrono::time_point", align 8
   %al.i = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
@@ -1313,7 +1313,7 @@ _ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tag
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1814,10 +1814,10 @@ declare noundef i64 @_ZN4absl18ToInt64NanosecondsENS_8DurationE(i64, i32) local_
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

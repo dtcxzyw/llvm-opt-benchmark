@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net14QuicDataWriterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net14QuicDataWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicDataWriterC2EmPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %size, ptr noundef %buffer) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicDataWriterC2EmPc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, i64 noundef %size, ptr noundef %buffer) unnamed_addr #0 align 2 {
 entry:
   store ptr %buffer, ptr %this, align 8
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20,20 +20,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net14QuicDataWriterD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net14QuicDataWriterD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net14QuicDataWriter4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN3net14QuicDataWriter4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i8 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
@@ -58,7 +58,7 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %data, i64 noundef %data_len) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %data, i64 noundef %data_len) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i, align 8
@@ -86,7 +86,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i16 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
@@ -114,7 +114,7 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
@@ -142,7 +142,7 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i.i, align 8
@@ -190,7 +190,7 @@ land.end:                                         ; preds = %if.end.i.i11, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
@@ -218,7 +218,7 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ult i64 %value, 4096
   br i1 %cmp, label %if.then, label %if.else
@@ -286,7 +286,7 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %if.end60, %if.end.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter18WriteStringPiece16EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr %val.coerce0, i64 %val.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter18WriteStringPiece16EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr %val.coerce0, i64 %val.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca %"class.base::BasicStringPiece", align 8
   store ptr %val.coerce0, ptr %val, align 8
@@ -349,7 +349,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net14QuicDataWriter10BeginWriteEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %length) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN3net14QuicDataWriter10BeginWriteEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %length) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
@@ -366,10 +366,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef zeroext %byte, i64 noundef %count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i8 noundef zeroext %byte, i64 noundef %count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i, align 8
@@ -397,10 +397,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net14QuicDataWriter12WritePaddingEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicDataWriter12WritePaddingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8

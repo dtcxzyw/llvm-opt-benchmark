@@ -212,7 +212,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_bool(ptr noundef %0, ptr nounde
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix20_bfrop_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1043,7 +1043,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr nounde
   %22 = getelementptr i8, ptr %21, i64 -1
   store i8 0, ptr %22, align 1
   %23 = load ptr, ptr %5, align 8
-  %24 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %23, ptr noundef %19) #7
+  %24 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %23, ptr noundef nonnull %19) #7
   %25 = icmp slt i32 %24, 0
   %26 = load ptr, ptr %5, align 8
   %.not19 = icmp eq ptr %26, %1
@@ -1065,7 +1065,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_time(ptr noundef %0, ptr nounde
 declare ptr @ctime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1623,22 +1623,22 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_proc(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix20_bfrop_print_buf(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
+define noundef i32 @pmix20_bfrop_print_buf(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix20_bfrop_print_app(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
+define noundef i32 @pmix20_bfrop_print_app(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix20_bfrop_print_kval(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
+define noundef i32 @pmix20_bfrop_print_kval(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix20_bfrop_print_modex(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
+define noundef i32 @pmix20_bfrop_print_modex(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
@@ -1692,7 +1692,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_persist(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1731,7 +1731,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_scope(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1770,7 +1770,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_range(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1811,7 +1811,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_cmd(ptr noundef %0, ptr noundef
 declare ptr @pmix_command_string(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_infodirs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -1935,7 +1935,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_ptr(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_pstate(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2048,7 +2048,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2087,7 +2087,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2260,7 +2260,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2321,7 +2321,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_rank(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %10
@@ -2362,7 +2362,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_alloc_directive(ptr noundef %0,
 declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2448,10 +2448,10 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

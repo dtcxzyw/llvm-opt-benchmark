@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Dist_graph_create_adjacent_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @ompi_dist_graph_create_adjacent_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_dist_graph_create_adjacent_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef writeonly %9, ptr noundef writeonly %10) #0 {
+define void @ompi_dist_graph_create_adjacent_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly %10) #0 {
   %12 = alloca ptr, align 8
   %13 = load i32, ptr %0, align 4
   %14 = tail call ptr @PMPI_Comm_f2c(i32 noundef %13) #2

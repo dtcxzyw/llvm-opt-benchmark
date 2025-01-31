@@ -408,7 +408,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib17YoYInflationIndexEEE = comdat any
 @_ZN8QuantLib17YoYInflationIndexC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_25YoYInflationTermStructureEEE = unnamed_addr alias void (ptr, ptr, ptr, i1, i1, i32, ptr, ptr, ptr), ptr @_ZN8QuantLib17YoYInflationIndexC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_25YoYInflationTermStructureEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -493,7 +493,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -708,10 +708,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZNK8QuantLib14InflationIndex4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -763,7 +763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib3CPI12laggedFixingERKN5boost10shared_ptrINS_18ZeroInflationIndexEEERKNS_4DateERKNS_6PeriodENS0_17InterpolationTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(8) %date, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %interpolationType) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib3CPI12laggedFixingERKN5boost10shared_ptrINS_18ZeroInflationIndexEEERKNS_4DateERKNS_6PeriodENS0_17InterpolationTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(8) %date, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %interpolationType) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %fixingPeriod = alloca %"struct.std::pair", align 8
@@ -1186,7 +1186,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14InflationIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6RegionEbNS_9FrequencyERKNS_6PeriodENS_8CurrencyE(ptr noundef nonnull align 8 dereferenceable(232) initializes((16, 20), (24, 32)) %this, ptr noundef %familyName, ptr nocapture noundef %region, i1 noundef zeroext %revised, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %availabilityLag, ptr nocapture noundef %currency) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14InflationIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6RegionEbNS_9FrequencyERKNS_6PeriodENS_8CurrencyE(ptr noundef nonnull align 8 dereferenceable(232) initializes((16, 20), (24, 32)) %this, ptr noundef %familyName, ptr noundef captures(none) %region, i1 noundef zeroext %revised, i32 noundef %frequency, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %availabilityLag, ptr noundef captures(none) %currency) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i56 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -2344,7 +2344,7 @@ _ZN5boost10shared_ptrIN8QuantLib6Region4DataEED2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14InflationIndex14fixingCalendarEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Calendar") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14InflationIndex14fixingCalendarEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Calendar") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK8QuantLib14InflationIndex14fixingCalendarEvE1c acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -3582,7 +3582,7 @@ unreachable:                                      ; preds = %invoke.cont168, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ZeroInflationIndexC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_26ZeroInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %familyName, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %region, i1 noundef zeroext %revised, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %availabilityLag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %currency, ptr nocapture noundef %zeroInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ZeroInflationIndexC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_26ZeroInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %familyName, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %region, i1 noundef zeroext %revised, i32 noundef %frequency, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %availabilityLag, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %currency, ptr noundef captures(none) %zeroInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4352,7 +4352,7 @@ unreachable:                                      ; preds = %invoke.cont35
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib18ZeroInflationIndex13needsForecastERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib18ZeroInflationIndex13needsForecastERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %fixingDate) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
@@ -5768,7 +5768,7 @@ lpad:                                             ; preds = %_ZN8QuantLib6Handle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17YoYInflationIndexC2ERKN5boost10shared_ptrINS_18ZeroInflationIndexEEEbNS_6HandleINS_25YoYInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlyingIndex, i1 noundef zeroext %interpolated, ptr nocapture noundef %yoyInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17YoYInflationIndexC2ERKN5boost10shared_ptrINS_18ZeroInflationIndexEEEbNS_6HandleINS_25YoYInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %underlyingIndex, i1 noundef zeroext %interpolated, ptr noundef captures(none) %yoyInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6702,7 +6702,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17YoYInflationIndexC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_25YoYInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %familyName, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %region, i1 noundef zeroext %revised, i1 noundef zeroext %interpolated, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %availabilityLag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %currency, ptr nocapture noundef %yoyInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17YoYInflationIndexC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6RegionEbbNS_9FrequencyERKNS_6PeriodERKNS_8CurrencyENS_6HandleINS_25YoYInflationTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %familyName, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %region, i1 noundef zeroext %revised, i1 noundef zeroext %interpolated, i32 noundef %frequency, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %availabilityLag, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %currency, ptr noundef captures(none) %yoyInflation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9094,7 +9094,7 @@ lpad:                                             ; preds = %_ZN8QuantLib6Handle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 1, 0) i32 @_ZN8QuantLib6detail3CPI26effectiveInterpolationTypeERKNS_3CPI17InterpolationTypeE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %type) local_unnamed_addr #13 {
+define noundef range(i32 1, 0) i32 @_ZN8QuantLib6detail3CPI26effectiveInterpolationTypeERKNS_3CPI17InterpolationTypeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %type) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %type, align 4, !tbaa !156
   %. = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
@@ -10583,7 +10583,7 @@ declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull al
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -11341,7 +11341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10shared_ptrIN8QuantLib17YoYInflationIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11497,7 +11497,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

@@ -115,7 +115,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_cassP8PJconsts(ptr n
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal { double, double } @_ZL14cass_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #2 {
+define internal { double, double } @_ZL14cass_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %5 = load double, ptr %4, align 8
   %6 = fadd double %1, %5
@@ -132,7 +132,7 @@ define internal { double, double } @_ZL14cass_s_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal { double, double } @_ZL14cass_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #2 {
+define internal { double, double } @_ZL14cass_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = tail call double @cos(double noundef %1) #8
   %5 = tail call double @sin(double noundef %0) #8
   %6 = fmul double %4, %5
@@ -235,7 +235,7 @@ define internal { double, double } @_ZL14cass_e_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL14cass_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL14cass_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @sin(double noundef %1) #8
@@ -310,7 +310,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 declare double @tan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef double @_Z11pj_inv_mlfndPKd(double noundef, ptr noundef) local_unnamed_addr #1
 

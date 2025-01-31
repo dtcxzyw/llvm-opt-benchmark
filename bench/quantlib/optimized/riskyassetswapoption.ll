@@ -221,7 +221,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -306,7 +306,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -547,7 +547,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20RiskyAssetSwapOptionC2EN5boost10shared_ptrINS_14RiskyAssetSwapEEERKNS_4DateEdd(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %vtt, ptr nocapture noundef %asw, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %expiry, double noundef %marketSpread, double noundef %spreadVolatility) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib20RiskyAssetSwapOptionC2EN5boost10shared_ptrINS_14RiskyAssetSwapEEERKNS_4DateEdd(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %vtt, ptr noundef captures(none) %asw, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %expiry, double noundef %marketSpread, double noundef %spreadVolatility) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   tail call void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %0)
@@ -587,10 +587,10 @@ entry:
 declare void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20RiskyAssetSwapOptionC1EN5boost10shared_ptrINS_14RiskyAssetSwapEEERKNS_4DateEdd(ptr noundef nonnull align 8 dereferenceable(144) initializes((144, 152), (160, 164), (168, 176)) %this, ptr nocapture noundef %asw, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %expiry, double noundef %marketSpread, double noundef %spreadVolatility) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20RiskyAssetSwapOptionC1EN5boost10shared_ptrINS_14RiskyAssetSwapEEERKNS_4DateEdd(ptr noundef nonnull align 8 dereferenceable(144) initializes((144, 152), (160, 164), (168, 176)) %this, ptr noundef captures(none) %asw, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %expiry, double noundef %marketSpread, double noundef %spreadVolatility) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
@@ -649,7 +649,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib20RiskyAssetSwapOption9isExpiredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib20RiskyAssetSwapOption9isExpiredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::detail::simple_event", align 8
   %ref.tmp2 = alloca %"class.QuantLib::Date", align 8
@@ -3078,7 +3078,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -3136,7 +3136,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #17
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -259,7 +259,7 @@ rb_class_of.exit:                                 ; preds = %58, %60, %61, %62, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 21) i32 @rb_range_values(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 21) i32 @rb_range_values(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i64, ptr @rb_cRange, align 8
   %6 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %5) #10
   %.not = icmp eq i64 %6, 0
@@ -346,7 +346,7 @@ declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_check_funcall(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i64 4, 21) i64 @rb_range_component_beg_len(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden range(i64 4, 21) i64 @rb_range_component_beg_len(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i64 %0, 4
   br i1 %8, label %rb_num2long_inline.exit, label %9
 
@@ -426,7 +426,7 @@ rb_num2long_inline.exit42:                        ; preds = %21, %19, %rb_num2lo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 21) i64 @rb_range_beg_len(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i64 0, 21) i64 @rb_range_beg_len(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -5553,7 +5553,7 @@ define internal noundef i32 @each_i(i64 noundef %0, i64 %1) #0 {
 declare ptr @rb_obj_classname(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_each_func(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @range_each_func(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -5970,7 +5970,7 @@ declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @first_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @first_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = inttoptr i64 %1 to ptr
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
@@ -6316,10 +6316,10 @@ declare i32 @llvm.scmp.i32.i64(i64, i64) #8
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

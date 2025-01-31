@@ -502,7 +502,7 @@ $_ZTSN4pbrt20RGBSigmoidPolynomialE = comdat any
 @_ZN4pbrt21RGBIlluminantSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE = dso_local unnamed_addr alias void (ptr, ptr, <2 x float>, float), ptr @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN4pbrt21SpectrumToPhotometricENS_8SpectrumE(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local noundef float @_ZN4pbrt21SpectrumToPhotometricENS_8SpectrumE(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %lambda.addr.i = alloca float, align 4
   %op.i = alloca %class.anon.12, align 8
@@ -576,7 +576,7 @@ for.end:                                          ; preds = %_ZNK4pbrt22DenselyS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, float } @_ZN4pbrt13SpectrumToXYZENS_8SpectrumE(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define dso_local { <2 x float>, float } @_ZN4pbrt13SpectrumToXYZENS_8SpectrumE(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %lambda.addr.i5.i26 = alloca float, align 4
   %op.i6.i27 = alloca %class.anon.12, align 8
@@ -724,7 +724,7 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit48:   ; preds = %for.body.i30
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt8Spectrum8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt8Spectrum8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
@@ -853,7 +853,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrumclEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, float noundef %lambda) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrumclEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, float noundef %lambda) local_unnamed_addr #3 align 2 {
 entry:
   %nStored.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -936,7 +936,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrum8MaxValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZNK4pbrt23PiecewiseLinearSpectrum8MaxValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
   %nStored.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -1427,7 +1427,7 @@ ehcleanup18:                                      ; preds = %lpad.i, %ehcleanup,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %s) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt25FindMatchingNamedSpectrumB5cxx11ENS_8SpectrumE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %lambda.addr.i5.i = alloca float, align 4
   %op.i6.i = alloca %class.anon.12, align 8
@@ -1538,7 +1538,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrum4ReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrum4ReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i38 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1998,10 +1998,10 @@ declare void @_ZN4pbrt13ReadFloatFileENSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture readonly %samples.coerce0, i64 %samples.coerce1, i1 noundef zeroext %normalize, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr readonly captures(none) %samples.coerce0, i64 %samples.coerce1, i1 noundef zeroext %normalize, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lambda.addr.i5.i = alloca float, align 4
   %op.i6.i = alloca %class.anon.12, align 8
@@ -2718,7 +2718,7 @@ _ZN4pbrt12StringPrintfIJRKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16ConstantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16ConstantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
 entry:
   %retval = alloca %"class.pbrt::SampledSpectrum", align 8
   %1 = load float, ptr %this, align 4
@@ -3075,7 +3075,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToXYZERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToXYZERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i139 = alloca %"class.pbrt::SampledSpectrum", align 8
   %a.i140 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -3479,7 +3479,7 @@ _ZNK4pbrt15SampledSpectrum7AverageEv.exit168:     ; preds = %for.body.i160
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef float @_ZNK4pbrt15SampledSpectrum1yERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZNK4pbrt15SampledSpectrum1yERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %lambda) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i8 = alloca %"class.pbrt::SampledSpectrum", align 8
   %a.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -3619,7 +3619,7 @@ _ZNK4pbrt15SampledSpectrum7AverageEv.exit:        ; preds = %for.body.i19
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToRGBERKNS_18SampledWavelengthsERKNS_13RGBColorSpaceE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %lambda, ptr noundef nonnull align 8 dereferenceable(152) %cs) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToRGBERKNS_18SampledWavelengthsERKNS_13RGBColorSpaceE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %lambda, ptr noundef nonnull align 8 dereferenceable(152) %cs) local_unnamed_addr #1 align 2 {
 entry:
   %xyz.i = alloca %"class.pbrt::XYZ", align 8
   %call = tail call { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToXYZERKNS_18SampledWavelengthsE(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
@@ -3636,7 +3636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17RGBAlbedoSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt17RGBAlbedoSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
   %call = tail call { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1)
   %call.fca.0.extract = extractvalue { <2 x float>, float } %call, 0
@@ -3650,7 +3650,7 @@ entry:
 declare { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(152), <2 x float>, float) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt20RGBUnboundedSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt20RGBUnboundedSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca [3 x float], align 4
   %rgb.sroa.0.0.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 0
@@ -3698,7 +3698,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca [3 x float], align 4
   %illuminant = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6328,7 +6328,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4pbrt16GetNamedSpectrumENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Spectrum") align 8 %agg.result, ptr noundef %name) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt16GetNamedSpectrumENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.pbrt::Spectrum") align 8 captures(none) %agg.result, ptr noundef %name) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pbrt7Spectra12_GLOBAL__N_112namedSpectraB5cxx11E, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %0, null
@@ -6954,7 +6954,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #6
 
@@ -8296,7 +8296,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
@@ -15127,10 +15127,10 @@ declare float @llvm.sqrt.f32(float) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

@@ -526,7 +526,7 @@ define dso_local void @enable_timeout_at(i32 noundef %0, i64 noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enable_timeouts(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @enable_timeouts(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
   %3 = tail call i64 @GetCurrentTimestamp() #9
   %4 = icmp sgt i32 %1, 0
@@ -697,7 +697,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @disable_timeouts(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @disable_timeouts(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -892,12 +892,12 @@ define dso_local i64 @get_timeout_finish_time(i32 noundef %0) local_unnamed_addr
 declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @TimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i32 @setitimer(i32 noundef, ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @setitimer(i32 noundef, ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

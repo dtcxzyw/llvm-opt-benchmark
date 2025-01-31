@@ -296,7 +296,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video19COpenGLCacheHandler12setAlphaFuncEjf(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %mode, float noundef %ref) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video19COpenGLCacheHandler12setAlphaFuncEjf(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i32 noundef %mode, float noundef %ref) local_unnamed_addr #0 align 2 {
 entry:
   %AlphaMode = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i32, ptr %AlphaMode, align 8, !tbaa !6
@@ -318,7 +318,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video19COpenGLCacheHandler12setAlphaTestEb(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i1 noundef zeroext %enable) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video19COpenGLCacheHandler12setAlphaTestEb(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i1 noundef zeroext %enable) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %AlphaTest = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -348,7 +348,7 @@ if.end9:                                          ; preds = %if.end, %entry
 declare void @glEnable(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i1 noundef zeroext %vertex, i1 noundef zeroext %normal, i1 noundef zeroext %color, i1 noundef zeroext %texCoord0) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i1 noundef zeroext %vertex, i1 noundef zeroext %normal, i1 noundef zeroext %color, i1 noundef zeroext %texCoord0) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %vertex to i8
   %frombool1 = zext i1 %normal to i8
@@ -466,7 +466,7 @@ if.end54:                                         ; preds = %if.end50, %if.end40
 declare void @glEnableClientState(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %texture) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i32 noundef %texture) local_unnamed_addr #0 align 2 {
 entry:
   %ClientActiveTexture = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i32, ptr %ClientActiveTexture, align 8, !tbaa !19
@@ -494,7 +494,7 @@ if.end:                                           ; preds = %_ZN3irr5video23COpe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video19COpenGLCacheHandler13setMatrixModeEj(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %mode) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video19COpenGLCacheHandler13setMatrixModeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i32 noundef %mode) local_unnamed_addr #0 align 2 {
 entry:
   %MatrixMode = getelementptr inbounds nuw i8, ptr %this, i64 204
   %0 = load i32, ptr %MatrixMode, align 4, !tbaa !18
@@ -716,7 +716,7 @@ for.inc.3:                                        ; preds = %delete.notnull.i.3,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #5

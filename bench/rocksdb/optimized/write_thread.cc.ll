@@ -83,7 +83,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) initializes((0, 26), (32, 75), (76, 81), (88, 146), (152, 174), (176, 190), (192, 200), (304, 320)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) initializes((0, 26), (32, 75), (76, 81), (88, 146), (152, 174), (176, 190), (192, 200), (304, 320)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %max_yield_usec_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -217,7 +217,7 @@ _ZN7rocksdb6StatusD2Ev.exit4:                     ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN7rocksdb11WriteThread18BlockingAwaitStateEPNS0_6WriterEh(ptr nocapture nonnull readnone align 16 %this, ptr noundef %w, i8 noundef zeroext %goal_mask) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN7rocksdb11WriteThread18BlockingAwaitStateEPNS0_6WriterEh(ptr nonnull readnone align 16 captures(none) %this, ptr noundef %w, i8 noundef zeroext %goal_mask) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.std::unique_lock", align 8
   %made_waitable.i = getelementptr inbounds nuw i8, ptr %w, i64 80
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %if.then3.i.i, %if.e
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i8 @_ZN7rocksdb11WriteThread10AwaitStateEPNS0_6WriterEhPNS0_17AdaptationContextE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef %w, i8 noundef zeroext %goal_mask, ptr nocapture noundef %ctx) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN7rocksdb11WriteThread10AwaitStateEPNS0_6WriterEhPNS0_17AdaptationContextE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(432) %this, ptr noundef %w, i8 noundef zeroext %goal_mask, ptr noundef captures(none) %ctx) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_write_thread_wait_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
   %state2 = getelementptr inbounds nuw i8, ptr %w, i64 81
@@ -639,7 +639,7 @@ terminate.lpad:                                   ; preds = %_ZN7rocksdb10Record
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr noundef %w, i8 noundef zeroext %new_state) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef %w, i8 noundef zeroext %new_state) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state2 = getelementptr inbounds nuw i8, ptr %w, i64 81
   %0 = load atomic i8, ptr %state2 acquire, align 1
@@ -676,7 +676,7 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
 declare void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb11WriteThread7LinkOneEPNS0_6WriterEPSt6atomicIS2_E(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr noundef %w, ptr nocapture noundef %newest_writer) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11WriteThread7LinkOneEPNS0_6WriterEPSt6atomicIS2_E(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr noundef %w, ptr noundef captures(none) %newest_writer) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp3 = alloca %"class.rocksdb::Slice", align 8
@@ -872,7 +872,7 @@ return:                                           ; preds = %_ZNSt10lock_guardIS
 declare void @_ZN7rocksdb4port7CondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr nocapture noundef %newest_writer) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %write_group, ptr noundef captures(none) %newest_writer) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %write_group, align 8
   %last_writer3 = getelementptr inbounds nuw i8, ptr %write_group, i64 8
@@ -921,7 +921,7 @@ if.then8:                                         ; preds = %_ZNSt6atomicIPN7roc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr noundef %head) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef %head) local_unnamed_addr #7 align 2 {
 entry:
   %link_older5 = getelementptr inbounds nuw i8, ptr %head, i64 240
   %0 = load ptr, ptr %link_older5, align 16
@@ -948,7 +948,7 @@ while.end:                                        ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread14CompleteLeaderERNS0_10WriteGroupE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread14CompleteLeaderERNS0_10WriteGroupE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %write_group, align 8
   %size = getelementptr inbounds nuw i8, ptr %write_group, i64 48
@@ -1008,7 +1008,7 @@ _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread16CompleteFollowerEPNS0_6WriterERNS0_10WriteGroupE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr noundef %w, ptr nocapture noundef nonnull align 8 dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread16CompleteFollowerEPNS0_6WriterERNS0_10WriteGroupE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef %w, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %last_writer = getelementptr inbounds nuw i8, ptr %write_group, i64 8
   %0 = load ptr, ptr %last_writer, align 8
@@ -1297,7 +1297,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit2:                  ; preds = %lpad
 declare void @_ZN7rocksdb4port7CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN7rocksdb11WriteThread31GetBegunCountOfOutstandingStallEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this) local_unnamed_addr #8 align 2 {
+define noundef i64 @_ZN7rocksdb11WriteThread31GetBegunCountOfOutstandingStallEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(432) %this) local_unnamed_addr #8 align 2 {
 entry:
   %stall_begun_count_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %0 = load i64, ptr %stall_begun_count_, align 16
@@ -1401,7 +1401,7 @@ if.end5:                                          ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
+define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6WriterEPNS0_10WriteGroupE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1547,7 +1547,7 @@ while.end:                                        ; preds = %if.end50, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_10WriteGroupE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1658,7 +1658,7 @@ declare noundef zeroext i1 @_ZNK7rocksdb10WriteBatch8HasMergeEv(ptr noundef nonn
 declare noundef i32 @_ZN7rocksdb18WriteBatchInternal5CountEPKNS_10WriteBatchE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread20ExitAsMemTableWriterEPNS0_6WriterERNS0_10WriteGroupE(ptr nocapture noundef nonnull align 16 dereferenceable(432) %this, ptr nocapture noundef readnone %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread20ExitAsMemTableWriterEPNS0_6WriterERNS0_10WriteGroupE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %1 = load ptr, ptr %write_group, align 8
@@ -1869,7 +1869,7 @@ _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit43: ; preds = %_ZNSt13__ato
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread29LaunchParallelMemTableWritersEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(432) %this, ptr nocapture noundef %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread29LaunchParallelMemTableWritersEPNS0_10WriteGroupE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(432) %this, ptr noundef captures(none) %write_group) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %write_group, i64 48
   %0 = load i64, ptr %size, align 8
@@ -1925,7 +1925,7 @@ for.end:                                          ; preds = %_ZN7rocksdb11WriteT
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb11WriteThread30CompleteParallelMemTableWriterEPNS0_6WriterE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11WriteThread30CompleteParallelMemTableWriterEPNS0_6WriterE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(432) %this, ptr noundef %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i11 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
@@ -2100,7 +2100,7 @@ return:                                           ; preds = %_ZN7rocksdb6Statusa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread24ExitAsBatchGroupFollowerEPNS0_6WriterE(ptr nocapture noundef nonnull align 16 dereferenceable(432) %this, ptr nocapture noundef readonly %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread24ExitAsBatchGroupFollowerEPNS0_6WriterE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef readonly captures(none) %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_group2 = getelementptr inbounds nuw i8, ptr %w, i64 88
   %0 = load ptr, ptr %write_group2, align 8
@@ -2139,7 +2139,7 @@ _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread22ExitAsBatchGroupLeaderERNS0_10WriteGroupERNS_6StatusE(ptr nocapture noundef nonnull align 16 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(56) %write_group, ptr noundef nonnull align 8 dereferenceable(16) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread22ExitAsBatchGroupLeaderERNS0_10WriteGroupERNS_6StatusE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(56) %write_group, ptr noundef nonnull align 8 dereferenceable(16) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i180 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i36 = alloca %"class.std::unique_ptr", align 8
@@ -3010,7 +3010,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread13ExitUnbatchedEPNS0_6WriterE(ptr nocapture noundef nonnull align 16 dereferenceable(432) %this, ptr noundef %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThread13ExitUnbatchedEPNS0_6WriterE(ptr noundef nonnull align 16 captures(none) dereferenceable(432) %this, ptr noundef %w) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newest_writer_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = ptrtoint ptr %w to i64
@@ -3166,7 +3166,7 @@ _ZN7rocksdb11WriteThreadD2Ev.exit:                ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -3248,10 +3248,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 declare extern_weak void @_ZTHN7rocksdb10perf_levelE() #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

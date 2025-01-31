@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.check_expirations = private unnamed_addr constant [51 x i8] c"void check_expirations(TimedAverage *, uint64_t *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timed_average_init(ptr nocapture noundef writeonly initializes((0, 96)) %ta, i32 noundef %clock_type, i64 noundef %period) local_unnamed_addr #0 {
+define dso_local void @timed_average_init(ptr noundef writeonly captures(none) initializes((0, 96)) %ta, i32 noundef %clock_type, i64 noundef %period) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %clock_type) #4
   %mul = shl i64 %period, 2
@@ -41,7 +41,7 @@ entry:
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timed_average_account(ptr nocapture noundef %ta, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local void @timed_average_account(ptr noundef captures(none) %ta, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
@@ -130,7 +130,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, -1) i64 @timed_average_min(ptr nocapture noundef %ta) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @timed_average_min(ptr noundef captures(none) %ta) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
@@ -188,7 +188,7 @@ check_expirations.exit:                           ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timed_average_avg(ptr nocapture noundef %ta) local_unnamed_addr #0 {
+define dso_local i64 @timed_average_avg(ptr noundef captures(none) %ta) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
@@ -256,7 +256,7 @@ cond.end:                                         ; preds = %check_expirations.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timed_average_max(ptr nocapture noundef %ta) local_unnamed_addr #0 {
+define dso_local i64 @timed_average_max(ptr noundef captures(none) %ta) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
@@ -312,7 +312,7 @@ check_expirations.exit:                           ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timed_average_sum(ptr nocapture noundef %ta, ptr noundef writeonly %elapsed) local_unnamed_addr #0 {
+define dso_local i64 @timed_average_sum(ptr noundef captures(none) %ta, ptr noundef writeonly %elapsed) local_unnamed_addr #0 {
 entry:
   %clock_type.i = getelementptr inbounds nuw i8, ptr %ta, i64 92
   %0 = load i32, ptr %clock_type.i, align 4
@@ -387,7 +387,7 @@ check_expirations.exit:                           ; preds = %for.end.i, %if.then
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

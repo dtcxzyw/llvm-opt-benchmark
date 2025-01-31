@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::gapi::GBackend") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::gapi::GBackend") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load atomic i8, ptr @_ZGVZN2cv4gapi8compound7backendEvE12this_backend acquire, align 8
   %4 = icmp eq i8 %3, 0
@@ -387,7 +387,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_gcompoundbackend.cpp() #8 section ".text.startup" {

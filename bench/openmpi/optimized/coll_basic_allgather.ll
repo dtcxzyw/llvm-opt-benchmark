@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_allgather_inter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_allgather_inter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %10, align 4
@@ -101,7 +101,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8, %16
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %52 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = tail call i32 %51(ptr noundef %.0100162, i64 noundef %45, ptr noundef %5, i32 noundef %53, i32 noundef -10, ptr noundef %6, ptr noundef nonnull %52) #4
+  %54 = tail call i32 %51(ptr noundef %.0100162, i64 noundef %45, ptr noundef nonnull %5, i32 noundef %53, i32 noundef -10, ptr noundef nonnull %6, ptr noundef nonnull %52) #4
   %.not130 = icmp eq i32 %54, 0
   br i1 %.not130, label %50, label %.loopexit
 
@@ -151,7 +151,7 @@ opal_datatype_span.exit:                          ; preds = %58, %65
   %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %85 = mul nsw i32 %21, %4
   %86 = sext i32 %85 to i64
-  %87 = call i32 %84(ptr noundef %3, i64 noundef %86, ptr noundef %5, i32 noundef 0, i32 noundef -10, i32 noundef 4, ptr noundef %6, ptr noundef nonnull %9) #4
+  %87 = call i32 %84(ptr noundef %3, i64 noundef %86, ptr noundef nonnull %5, i32 noundef 0, i32 noundef -10, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %9) #4
   %.not127 = icmp eq i32 %87, 0
   br i1 %.not127, label %88, label %.loopexit
 
@@ -159,7 +159,7 @@ opal_datatype_span.exit:                          ; preds = %58, %65
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %90 = mul nsw i32 %.val137.val, %1
   %91 = sext i32 %90 to i64
-  %92 = call i32 %89(ptr noundef nonnull %83, i64 noundef %91, ptr noundef nonnull %2, i32 noundef 0, i32 noundef -10, ptr noundef %6, ptr noundef null) #4
+  %92 = call i32 %89(ptr noundef nonnull %83, i64 noundef %91, ptr noundef nonnull %2, i32 noundef 0, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #4
   %.not128 = icmp eq i32 %92, 0
   br i1 %.not128, label %93, label %.loopexit
 
@@ -194,7 +194,7 @@ ompi_coll_base_free_reqs.exit.thread183:          ; preds = %22
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv171
   %103 = trunc nuw nsw i64 %indvars.iv171 to i32
-  %104 = call i32 %102(ptr noundef nonnull %83, i64 noundef %91, ptr noundef %2, i32 noundef %103, i32 noundef -10, i32 noundef 4, ptr noundef %6, ptr noundef %gep) #4
+  %104 = call i32 %102(ptr noundef nonnull %83, i64 noundef %91, ptr noundef nonnull %2, i32 noundef %103, i32 noundef -10, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %gep) #4
   %.not133 = icmp eq i32 %104, 0
   br i1 %.not133, label %100, label %.loopexit
 
@@ -277,7 +277,7 @@ declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unname
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

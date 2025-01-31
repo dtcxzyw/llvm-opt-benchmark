@@ -21,7 +21,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef writeonly %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef readonly %table) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16VertexScoreTableE(ptr noundef writeonly %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr noundef readonly captures(none) %table) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %adjacency = alloca %"struct.meshopt::TriangleAdjacency", align 8
@@ -407,13 +407,13 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %adjacency, ptr nocapture noundef readonly %indices, i64 noundef range(i64 1, 0) %index_count, i64 noundef range(i64 1, 0) %vertex_count, ptr nocapture noundef nonnull align 8 dereferenceable(200) %allocator) unnamed_addr #0 {
+define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %adjacency, ptr noundef readonly captures(none) %indices, i64 noundef range(i64 1, 0) %index_count, i64 noundef range(i64 1, 0) %vertex_count, ptr noundef nonnull align 8 captures(none) dereferenceable(200) %allocator) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903

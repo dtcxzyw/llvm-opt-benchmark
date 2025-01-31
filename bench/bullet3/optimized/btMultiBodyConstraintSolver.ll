@@ -615,7 +615,7 @@ if.end282:                                        ; preds = %for.inc279, %for.in
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleConstraintRowGenericERK27btMultiBodySolverConstraint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(788) %this, ptr nocapture noundef nonnull align 8 dereferenceable(220) %c) local_unnamed_addr #2 align 2 {
+define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleConstraintRowGenericERK27btMultiBodySolverConstraint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(788) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(220) %c) local_unnamed_addr #2 align 2 {
 entry:
   %m_rhs = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load float, ptr %m_rhs, align 8
@@ -1153,7 +1153,7 @@ if.end120:                                        ; preds = %for.body.i157, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFrictionConstraintRowsERK27btMultiBodySolverConstraintS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(788) %this, ptr nocapture noundef nonnull align 8 dereferenceable(220) %cA1, ptr nocapture noundef nonnull align 8 dereferenceable(220) %cB) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFrictionConstraintRowsERK27btMultiBodySolverConstraintS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(788) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(220) %cA1, ptr noundef nonnull align 8 captures(none) dereferenceable(220) %cB) local_unnamed_addr #3 align 2 {
 entry:
   %m_rhs = getelementptr inbounds nuw i8, ptr %cB, i64 128
   %0 = load float, ptr %m_rhs, align 8
@@ -2767,7 +2767,7 @@ for.end:                                          ; preds = %for.inc, %_ZN20btAl
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver13applyDeltaVeeEPffii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(788) %this, ptr nocapture noundef readonly %delta_vee, float noundef %impulse, i32 noundef %velocityIndex, i32 noundef %ndof) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver13applyDeltaVeeEPffii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(788) %this, ptr noundef readonly captures(none) %delta_vee, float noundef %impulse, i32 noundef %velocityIndex, i32 noundef %ndof) local_unnamed_addr #4 align 2 {
 entry:
   %cmp4 = icmp sgt i32 %ndof, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
@@ -2800,7 +2800,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver31setupMultiBodyContactConstraintER27btMultiBodySolverConstraintRK9btVector3RKfR15btManifoldPointRK19btContactSolverInfoRfbff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 8 dereferenceable(220) %solverConstraint, ptr noundef nonnull align 4 dereferenceable(16) %contactNormal, ptr nocapture nonnull readnone align 4 %appliedImpulse, ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %relaxation, i1 noundef zeroext %isFriction, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver31setupMultiBodyContactConstraintER27btMultiBodySolverConstraintRK9btVector3RKfR15btManifoldPointRK19btContactSolverInfoRfbff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 8 dereferenceable(220) %solverConstraint, ptr noundef nonnull align 4 dereferenceable(16) %contactNormal, ptr nonnull readnone align 4 captures(none) %appliedImpulse, ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %relaxation, i1 noundef zeroext %isFriction, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i646 = alloca %class.btVector3, align 4
   %ref.tmp.i = alloca %class.btVector3, align 4
@@ -4898,7 +4898,7 @@ declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferencea
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZNK11btMultiBody30calcAccelerationDeltasMultiDofEPKfPfR20btAlignedObjectArrayIfERS3_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
@@ -4908,7 +4908,7 @@ declare noundef float @_ZN35btSequentialImpulseConstraintSolver16restitutionCurv
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver41setupMultiBodyTorsionalFrictionConstraintER27btMultiBodySolverConstraintRK9btVector3R15btManifoldPointfRK19btContactSolverInfoRfbff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 8 dereferenceable(220) %solverConstraint, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormal, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %relaxation, i1 noundef zeroext %isFriction, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver41setupMultiBodyTorsionalFrictionConstraintER27btMultiBodySolverConstraintRK9btVector3R15btManifoldPointfRK19btContactSolverInfoRfbff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 8 dereferenceable(220) %solverConstraint, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormal, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %relaxation, i1 noundef zeroext %isFriction, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %ref.tmp115 = alloca %class.btVector3, align 4
@@ -6155,7 +6155,7 @@ if.end575:                                        ; preds = %if.then569.if.end57
 declare void @_ZNK11btMultiBody30fillConstraintJacobianMultiDofEiRK9btVector3S2_S2_PfR20btAlignedObjectArrayIfERS4_IS0_ERS4_I11btMatrix3x3E(ptr noundef nonnull align 8 dereferenceable(640), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr nocapture nonnull readnone align 4 %appliedImpulse, ptr nocapture noundef readonly %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver30addMultiBodyFrictionConstraintERK9btVector3RKfP20btPersistentManifoldiR15btManifoldPointP17btCollisionObjectSA_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr nonnull readnone align 4 captures(none) %appliedImpulse, ptr noundef readonly captures(none) %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relaxation.addr = alloca float, align 4
   %__profile = alloca %class.CProfileSample, align 1
@@ -6351,7 +6351,7 @@ invoke.cont37:                                    ; preds = %if.end35
 declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(372), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr nocapture noundef readonly %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver39addMultiBodyTorsionalFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr noundef readonly captures(none) %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relaxation.addr = alloca float, align 4
   %__profile = alloca %class.CProfileSample, align 1
@@ -6637,7 +6637,7 @@ invoke.cont46:                                    ; preds = %if.end44
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver38addMultiBodySpinningFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr nocapture noundef readonly %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(220) ptr @_ZN27btMultiBodyConstraintSolver38addMultiBodySpinningFrictionConstraintERK9btVector3P20btPersistentManifoldiR15btManifoldPointfP17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalAxis, ptr noundef readonly captures(none) %manifold, i32 noundef %frictionIndex, ptr noundef nonnull align 8 dereferenceable(204) %cp, float noundef %combinedTorsionalFriction, ptr noundef %colObj0, ptr noundef %colObj1, float noundef %relaxation, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, float %desiredVelocity, float %cfmSlip) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relaxation.addr = alloca float, align 4
   %__profile = alloca %class.CProfileSample, align 1
@@ -6831,7 +6831,7 @@ invoke.cont37:                                    ; preds = %if.end35
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver23convertMultiBodyContactEP20btPersistentManifoldRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef %manifold, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver23convertMultiBodyContactEP20btPersistentManifoldRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef %manifold, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 {
 entry:
   %relaxation = alloca float, align 4
   %m_body0.i = getelementptr inbounds nuw i8, ptr %manifold, i64 840
@@ -7227,7 +7227,7 @@ for.end:                                          ; preds = %for.inc, %cond.end2
 declare void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr nocapture noundef readonly %manifoldPtr, i32 noundef %numManifolds, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef readonly captures(none) %manifoldPtr, i32 noundef %numManifolds, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
 entry:
   %cmp89 = icmp sgt i32 %numManifolds, 0
   br i1 %cmp89, label %for.body.preheader, label %for.cond7.preheader
@@ -7505,7 +7505,7 @@ entry:
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btMultiBodyConstraintSolver30writeBackSolverBodyToMultiBodyER27btMultiBodySolverConstraintf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %c, float noundef %deltaTime) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN27btMultiBodyConstraintSolver30writeBackSolverBodyToMultiBodyER27btMultiBodySolverConstraintf(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %c, float noundef %deltaTime) local_unnamed_addr #6 align 2 {
 entry:
   %force = alloca %class.btVector3, align 8
   %torque = alloca %class.btVector3, align 8
@@ -8316,16 +8316,16 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #13

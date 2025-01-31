@@ -91,7 +91,7 @@ define internal i32 @iolatency_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @iolatency_pd_alloc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #2 align 16 {
+define internal noundef ptr @iolatency_pd_alloc(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %2, 17
@@ -380,7 +380,7 @@ define internal void @iolatency_pd_free(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @iolatency_pd_stat(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @iolatency_pd_stat(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.latency_stat, align 8
   %4 = load i8, ptr @blkcg_debug_stats, align 1, !range !11, !noundef !12
   %5 = icmp eq i8 %4, 0
@@ -511,7 +511,7 @@ define internal void @iolatency_pd_stat(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iolatency_print_limit(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef i32 @iolatency_print_limit(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @of_css(ptr noundef %4) #14
@@ -723,7 +723,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
 declare dso_local void @blkcg_print_blkgs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @iolatency_prfill_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #2 align 16 {
+define internal noundef i64 @iolatency_prfill_limit(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @blkg_dev_name(ptr noundef %4) #14
   %6 = icmp eq ptr %5, null
@@ -745,10 +745,10 @@ define internal noundef i64 @iolatency_prfill_limit(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @of_css(ptr noundef) local_unnamed_addr #1
@@ -760,7 +760,7 @@ declare dso_local ptr @blkg_dev_name(ptr noundef) local_unnamed_addr #1
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @blkg_conf_init(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -775,7 +775,7 @@ declare dso_local i32 @blkg_conf_prep(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @iolatency_set_min_lat_nsec(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
@@ -898,7 +898,7 @@ declare dso_local i32 @blkcg_activate_policy(ptr noundef, ptr noundef) local_unn
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blkiolatency_timer_fn(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = tail call i64 @ktime_get() #14
   tail call void @__rcu_read_lock() #14
   %3 = getelementptr i8, ptr %0, i64 -32
@@ -1158,7 +1158,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16781312
@@ -1479,7 +1479,7 @@ define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blkcg_iolatency_done_bio(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.latency_stat, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2061,7 +2061,7 @@ declare dso_local void @blkcg_schedule_throttle(ptr noundef, i1 noundef zeroext)
 declare dso_local void @rq_qos_wait(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @iolat_acquire_inflight(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal zeroext i1 @iolat_acquire_inflight(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @rq_wait_inc_below(ptr noundef %0, i32 noundef %4) #14
@@ -2069,7 +2069,7 @@ define internal zeroext i1 @iolat_acquire_inflight(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @iolat_cleanup_cb(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @iolat_cleanup_cb(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #14, !srcloc !16
   %4 = tail call i32 @__wake_up(ptr noundef %0, i32 noundef 3, i32 noundef 1, ptr noundef null) #14
@@ -2098,7 +2098,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scale_cookie_change(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @scale_cookie_change(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2199,7 +2199,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @blkcg_policy_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

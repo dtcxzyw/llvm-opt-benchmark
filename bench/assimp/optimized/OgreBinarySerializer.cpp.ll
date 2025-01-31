@@ -539,7 +539,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -577,7 +577,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -615,7 +615,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -653,7 +653,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %numBytes) #24
   %m_reader.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -695,7 +695,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit: ; preds = %entry
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %vec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -733,7 +733,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %quat) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %quat) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -784,7 +784,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp4Ogre20OgreBinarySerializer5AtEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp4Ogre20OgreBinarySerializer5AtEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadStringB5cxx11Em(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %len) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadStringB5cxx11Em(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i64 noundef %len) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %len)
@@ -873,7 +873,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -949,7 +949,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %invok
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext %readLen) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, i1 noundef zeroext %readLen) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -1021,7 +1021,7 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -1054,7 +1054,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
@@ -1303,7 +1303,7 @@ declare void @_ZN6Assimp4Ogre4MeshC1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadMeshEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadMeshEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca ptr, align 8
@@ -1639,7 +1639,7 @@ lpad4:                                            ; preds = %invoke.cont
 declare void @_ZN6Assimp4Ogre10VertexDataC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadGeometryEPNS0_10VertexDataE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadGeometryEPNS0_10VertexDataE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -1782,7 +1782,7 @@ if.end17:                                         ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer11ReadSubMeshEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer11ReadSubMeshEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2375,7 +2375,7 @@ _ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE9push_backERKS3_.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadMeshSkeletonLinkEPNS0_4MeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadMeshSkeletonLinkEPNS0_4MeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
@@ -2386,7 +2386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %dest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2567,7 +2567,7 @@ _ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer15ReadMeshLodInfoEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer15ReadMeshLodInfoEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.ensured15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2906,7 +2906,7 @@ for.end42:                                        ; preds = %if.end14, %for.inc4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadMeshBoundsEPNS0_4MeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadMeshBoundsEPNS0_4MeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
@@ -2939,7 +2939,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadSubMeshNamesEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadSubMeshNamesEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %submeshIndex = alloca i16, align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3095,7 +3095,7 @@ if.end18:                                         ; preds = %if.end, %if.then16,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadEdgeListEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadEdgeListEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
@@ -3524,7 +3524,7 @@ if.end35:                                         ; preds = %if.end27, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadPosesEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadPosesEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3768,7 +3768,7 @@ if.end14:                                         ; preds = %_ZNSt6vectorIPN6Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadAnimationsEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadAnimationsEPNS0_4MeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3980,7 +3980,7 @@ if.end13:                                         ; preds = %_ZNSt6vectorIPN6Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadMeshExtremesEPNS0_4MeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadMeshExtremesEPNS0_4MeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i32, ptr %this, align 8
   %conv = zext i32 %1 to i64
@@ -4016,7 +4016,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %vertexData) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %vertexData) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %influencedVertices = alloca %"class.std::set", align 8
   %tobool.not = icmp eq ptr %vertexData, null
@@ -4469,7 +4469,7 @@ lpad16:                                           ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %submesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) %submesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -4506,7 +4506,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer23ReadSubMeshTextureAliasEPNS0_7SubMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %submesh) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer23ReadSubMeshTextureAliasEPNS0_7SubMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %submesh) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4653,7 +4653,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadGeometryVertexDeclarationEPNS0_10VertexDataE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadGeometryVertexDeclarationEPNS0_10VertexDataE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
@@ -4749,7 +4749,7 @@ if.end10:                                         ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer24ReadGeometryVertexBufferEPNS0_10VertexDataE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer24ReadGeometryVertexBufferEPNS0_10VertexDataE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.130", align 1
@@ -5150,7 +5150,7 @@ lpad18:                                           ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadGeometryVertexElementEPNS0_10VertexDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadGeometryVertexElementEPNS0_10VertexDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %element = alloca %"class.Assimp::Ogre::VertexElement", align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5507,7 +5507,7 @@ lpad10:                                           ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadPoseVerticesEPNS0_4PoseE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %pose) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadPoseVerticesEPNS0_4PoseE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %pose) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"struct.Assimp::Ogre::Pose::Vertex", align 4
   %m_reader.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5801,12 +5801,12 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN6Assimp4Ogre9AnimationC1EPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer13ReadAnimationEPNS0_9AnimationE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %anim) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer13ReadAnimationEPNS0_9AnimationE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %anim) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %track = alloca %"struct.Assimp::Ogre::VertexAnimationTrack", align 8
@@ -6060,7 +6060,7 @@ if.end25:                                         ; preds = %if.then23, %while.e
 declare void @_ZN6Assimp4Ogre20VertexAnimationTrackC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer22ReadAnimationKeyFramesEPNS0_9AnimationEPNS0_20VertexAnimationTrackE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %anim, ptr noundef %track) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer22ReadAnimationKeyFramesEPNS0_9AnimationEPNS0_20VertexAnimationTrackE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %anim, ptr noundef %track) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kf = alloca %"struct.Assimp::Ogre::MorphKeyFrame", align 8
   %kf29 = alloca %"struct.Assimp::Ogre::PoseKeyFrame", align 8
@@ -7428,7 +7428,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZN6Assimp4Ogre17OgreXmlSerializer14ImportSkeletonEPNS_8IOSystemEPNS0_4MeshE(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10OpenReaderEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.86") align 8 %agg.result, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10OpenReaderEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::shared_ptr.86") align 8 captures(none) %agg.result, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.3", align 1
@@ -7628,7 +7628,7 @@ return:                                           ; preds = %_ZNSt14__shared_cou
 declare void @_ZN6Assimp4Ogre8SkeletonC1Ev(ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadSkeletonEPNS0_8SkeletonE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadSkeletonEPNS0_8SkeletonE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.std::__cxx11::basic_string", align 8
   %version = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8342,7 +8342,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadBoneEPNS0_8SkeletonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadBoneEPNS0_8SkeletonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
@@ -8606,7 +8606,7 @@ _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE9push_backERKS3_.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadBoneParentEPNS0_8SkeletonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadBoneParentEPNS0_8SkeletonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childId = alloca i16, align 2
   %parentId = alloca i16, align 2
@@ -8699,7 +8699,7 @@ lpad:                                             ; preds = %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer21ReadSkeletonAnimationEPNS0_8SkeletonE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer21ReadSkeletonAnimationEPNS0_8SkeletonE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8963,7 +8963,7 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(20) %this)
@@ -9096,7 +9096,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6Assimp4Ogre9AnimationC1EPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer26ReadSkeletonAnimationTrackEPNS0_8SkeletonEPNS0_9AnimationE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture readnone %0, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer26ReadSkeletonAnimationTrackEPNS0_8SkeletonEPNS0_9AnimationE(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %this, ptr readnone captures(none) %0, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %boneId = alloca i16, align 2
   %track = alloca %"struct.Assimp::Ogre::VertexAnimationTrack", align 8
@@ -9361,7 +9361,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadSkeletonAnimationKeyFrameEPNS0_20VertexAnimationTrackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadSkeletonAnimationKeyFrameEPNS0_20VertexAnimationTrackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef captures(none) %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keyframe = alloca %"struct.Assimp::Ogre::TransformKeyFrame", align 4
   call void @_ZN6Assimp4Ogre17TransformKeyFrameC1Ev(ptr noundef nonnull align 4 dereferenceable(44) %keyframe)
@@ -9608,7 +9608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJEPKcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(8) %u) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10674,7 +10674,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger13formatMessageIJEmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(8) %u) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12672,7 +12672,7 @@ return:                                           ; preds = %if.end12.i78, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(112) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15443,10 +15443,10 @@ declare i16 @llvm.fshl.i16(i16, i16, i16) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

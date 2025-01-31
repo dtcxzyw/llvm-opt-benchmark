@@ -16,7 +16,7 @@ $__clang_call_terminate = comdat any
 @_ZN8DataHashD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8DataHashD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9HashValue4InitE9HASH_TYPE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9HashValue4InitE9HASH_TYPE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(36) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = add i32 %1, -1
   %or.cond = icmp ult i32 %3, 2
@@ -41,10 +41,10 @@ define void @_ZN9HashValue4InitE9HASH_TYPE(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK9HashValueeqERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK9HashValueeqERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %27, label %5
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZNK9HashValueeqERKS_(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8DataHashC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
+define void @_ZN8DataHashC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   store i32 0, ptr %0, align 8
@@ -156,7 +156,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8DataHash4InitE9HASH_TYPEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8DataHash4InitE9HASH_TYPEj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -243,7 +243,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_Z13blake2sp_initP14blake2sp_state(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8DataHash6UpdateEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZN8DataHash6UpdateEPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %12
@@ -293,7 +293,7 @@ declare noundef i32 @_Z5CRC32jPKvm(i32 noundef, ptr noundef, i64 noundef) local_
 declare void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8DataHash6ResultEP9HashValue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN8DataHash6ResultEP9HashValue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %struct.blake2sp_state, align 8
   %4 = load i32, ptr %0, align 8
   store i32 %4, ptr %1, align 4
@@ -424,7 +424,7 @@ _ZN14blake2sp_stateC2ERS_.exit:                   ; preds = %51, %65
 declare void @_Z14blake2sp_finalP14blake2sp_statePh(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN8DataHash8GetCRC32Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZN8DataHash8GetCRC32Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -435,7 +435,7 @@ define noundef i32 @_ZN8DataHash8GetCRC32Ev(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = alloca %struct.HashValue, align 4
   call void @_ZN8DataHash6ResultEP9HashValue(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4)
   %.not = icmp eq ptr %2, null
@@ -496,7 +496,7 @@ _ZNK9HashValueeqERKS_.exit:                       ; preds = %6, %9, %18, %24, %2
 declare void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

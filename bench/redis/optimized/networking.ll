@@ -465,7 +465,7 @@ return:                                           ; preds = %sw.bb13.i8, %sw.bb9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #4 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -513,7 +513,7 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @dupClientReplyValue(ptr nocapture noundef readonly %o) #0 {
+define dso_local noalias ptr @dupClientReplyValue(ptr noundef readonly captures(none) %o) #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %add = add i64 %0, 16
@@ -528,7 +528,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeClientReplyValue(ptr noundef %o) #0 {
@@ -565,7 +565,7 @@ declare i64 @intrev64(i64 noundef) local_unnamed_addr #1
 declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @authRequired(ptr nocapture noundef readonly %c) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @authRequired(ptr noundef readonly captures(none) %c) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @DefaultUser, align 8
   %flags = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -752,7 +752,7 @@ declare i32 @connEnableTcpNoDelay(ptr noundef) local_unnamed_addr #1
 declare i32 @connKeepAlive(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @readQueryFromClient(ptr nocapture noundef readonly %conn) #0 {
+define dso_local void @readQueryFromClient(ptr noundef readonly captures(none) %conn) #0 {
 entry:
   %0 = getelementptr i8, ptr %conn, i64 32
   %conn.val = load ptr, ptr %0, align 8
@@ -1386,7 +1386,7 @@ if.end4:                                          ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sendReplyToClient(ptr nocapture noundef readonly %conn) #0 {
+define dso_local void @sendReplyToClient(ptr noundef readonly captures(none) %conn) #0 {
 entry:
   %0 = getelementptr i8, ptr %conn, i64 32
   %conn.val = load ptr, ptr %0, align 8
@@ -1569,7 +1569,7 @@ return:                                           ; preds = %if.end.i, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @clientHasPendingReplies(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clientHasPendingReplies(ptr noundef readonly captures(none) %c) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags.i, align 8
@@ -1640,7 +1640,7 @@ return:                                           ; preds = %if.else, %lor.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @_addReplyToBuffer(ptr nocapture noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #8 {
+define dso_local i64 @_addReplyToBuffer(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #8 {
 entry:
   %reply = getelementptr inbounds nuw i8, ptr %c, i64 176
   %0 = load ptr, ptr %reply, align 8
@@ -1681,7 +1681,7 @@ return:                                           ; preds = %if.end, %if.then13,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_addReplyProtoToList(ptr noundef %c, ptr noundef %reply_list, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @_addReplyProtoToList(ptr noundef %c, ptr noundef %reply_list, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %usable_size = alloca i64, align 8
   %tail = getelementptr inbounds nuw i8, ptr %reply_list, i64 8
@@ -1880,7 +1880,7 @@ declare void @ssubscribeCommand(ptr noundef) #1
 declare void @sunsubscribeCommand(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_addReplyToBufferOrList(ptr noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %usable_size.i = alloca i64, align 8
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -2062,7 +2062,7 @@ if.end24:                                         ; preds = %entry, %_addReplyPr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 4) i32 @getClientType(ptr nocapture noundef readonly %c) local_unnamed_addr #4 {
+define dso_local range(i32 0, 4) i32 @getClientType(ptr noundef readonly captures(none) %c) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -2139,7 +2139,7 @@ freeClientAsync.exit:                             ; preds = %do.end, %if.then5.i
 declare void @reqresSaveClientReplyOffset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReply(ptr noundef %c, ptr nocapture noundef readonly %obj) local_unnamed_addr #0 {
+define dso_local void @addReply(ptr noundef %c, ptr noundef readonly captures(none) %obj) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call i32 @prepareClientToWrite(ptr noundef %c)
@@ -2287,7 +2287,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 declare void @sdsfree(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyProto(ptr noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @addReplyProto(ptr noundef %c, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not = icmp eq i32 %call, 0
@@ -2302,7 +2302,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyErrorLength(ptr noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @addReplyErrorLength(ptr noundef %c, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %len, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -2349,7 +2349,7 @@ addReplyProto.exit16:                             ; preds = %if.end, %if.end.i15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @afterErrorReply(ptr nocapture noundef %c, ptr noundef %s, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local void @afterErrorReply(ptr noundef captures(none) %c, ptr noundef %s, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags1, align 8
@@ -2545,7 +2545,7 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @showLatestBacklog() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyErrorObject(ptr noundef %c, ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
+define dso_local void @addReplyErrorObject(ptr noundef %c, ptr noundef readonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   tail call void @addReply(ptr noundef %c, ptr noundef %err)
   %ptr = getelementptr inbounds nuw i8, ptr %err, i64 8
@@ -2598,7 +2598,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyOrErrorObject(ptr noundef %c, ptr nocapture noundef readonly %reply) local_unnamed_addr #0 {
+define dso_local void @addReplyOrErrorObject(ptr noundef %c, ptr noundef readonly captures(none) %reply) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %reply, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -2729,14 +2729,14 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 define dso_local void @addReplyError(ptr noundef %c, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %err) #30
-  tail call void @addReplyErrorLength(ptr noundef %c, ptr noundef %err, i64 noundef %call)
+  tail call void @addReplyErrorLength(ptr noundef %c, ptr noundef nonnull %err, i64 noundef %call)
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %err) #30
-  tail call void @afterErrorReply(ptr noundef %c, ptr noundef %err, i64 noundef %call1, i32 noundef 0)
+  tail call void @afterErrorReply(ptr noundef %c, ptr noundef nonnull %err, i64 noundef %call1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyErrorSdsEx(ptr noundef %c, ptr noundef %err, i32 noundef %flags) local_unnamed_addr #0 {
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyStatusLength(ptr noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @addReplyStatusLength(ptr noundef %c, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @prepareClientToWrite(ptr noundef %c)
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -3035,7 +3035,7 @@ addReplyProto.exit10:                             ; preds = %addReplyProto.exit6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyStatus(ptr noundef %c, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
+define dso_local void @addReplyStatus(ptr noundef %c, ptr noundef readonly captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %status) #30
   %call.i.i = tail call i32 @prepareClientToWrite(ptr noundef %c)
@@ -3052,7 +3052,7 @@ addReplyProto.exit.i:                             ; preds = %if.end.i.i, %entry
   br i1 %cmp.not.i4.i, label %if.end.i5.i, label %addReplyProto.exit6.i
 
 if.end.i5.i:                                      ; preds = %addReplyProto.exit.i
-  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef readonly %status, i64 noundef %call)
+  tail call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull readonly %status, i64 noundef %call)
   br label %addReplyProto.exit6.i
 
 addReplyProto.exit6.i:                            ; preds = %if.end.i5.i, %addReplyProto.exit.i
@@ -3150,7 +3150,7 @@ addReplyStatusLength.exit:                        ; preds = %addReplyProto.exit6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trimReplyUnusedTailSpace(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @trimReplyUnusedTailSpace(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %usable_size = alloca i64, align 8
   %reply = getelementptr inbounds nuw i8, ptr %c, i64 176
@@ -3287,7 +3287,7 @@ return:                                           ; preds = %entry, %trimReplyUn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setDeferredReply(ptr noundef %c, ptr noundef %node, ptr nocapture noundef readonly %s, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local void @setDeferredReply(ptr noundef %c, ptr noundef %node, ptr noundef readonly captures(none) %s, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %usable_size = alloca i64, align 8
   %cmp = icmp eq ptr %node, null
@@ -3408,7 +3408,7 @@ if.end70:                                         ; preds = %entry, %if.else, %i
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @setDeferredAggregateLen(ptr noundef %c, ptr noundef %node, i64 noundef %length, i8 noundef signext %prefix) local_unnamed_addr #0 {
@@ -3480,7 +3480,7 @@ return:                                           ; preds = %cond.end, %if.end32
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @setDeferredArrayLen(ptr noundef %c, ptr noundef %node, i64 noundef %length) local_unnamed_addr #0 {
@@ -3741,7 +3741,7 @@ declare i32 @d2string(ptr noundef, i64 noundef, double noundef) local_unnamed_ad
 declare i32 @digits10(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyBigNum(ptr noundef %c, ptr nocapture noundef readonly %num, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @addReplyBigNum(ptr noundef %c, ptr noundef readonly captures(none) %num, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i32, ptr %resp, align 8
@@ -3795,7 +3795,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyBulkCBuffer(ptr noundef %c, ptr nocapture noundef readonly %p, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef readonly captures(none) %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   tail call void @addReplyLongLongWithPrefix(ptr noundef %c, i64 noundef %len, i8 noundef signext 36)
   %call.i = tail call i32 @prepareClientToWrite(ptr noundef %c)
@@ -4630,7 +4630,7 @@ addReplyBulkCBuffer.exit:                         ; preds = %addReplyProto.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyVerbatim(ptr noundef %c, ptr nocapture noundef readonly %s, i64 noundef %len, ptr nocapture noundef readonly %ext) local_unnamed_addr #0 {
+define dso_local void @addReplyVerbatim(ptr noundef %c, ptr noundef readonly captures(none) %s, i64 noundef %len, ptr noundef readonly captures(none) %ext) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
@@ -4707,7 +4707,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addExtendedReplyHelp(ptr noundef %c, ptr nocapture noundef readonly %help, ptr noundef readonly %extended_help) local_unnamed_addr #0 {
+define dso_local void @addExtendedReplyHelp(ptr noundef %c, ptr noundef readonly captures(none) %help, ptr noundef readonly %extended_help) local_unnamed_addr #0 {
 entry:
   %lenstr.i.i = alloca [128 x i8], align 16
   %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
@@ -4803,7 +4803,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
 declare void @sdstoupper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyHelp(ptr noundef %c, ptr nocapture noundef readonly %help) local_unnamed_addr #0 {
+define dso_local void @addReplyHelp(ptr noundef %c, ptr noundef readonly captures(none) %help) local_unnamed_addr #0 {
 entry:
   tail call void @addExtendedReplyHelp(ptr noundef %c, ptr noundef %help, ptr noundef null)
   ret void
@@ -4830,7 +4830,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AddReplyFromClient(ptr noundef %dst, ptr nocapture noundef %src) local_unnamed_addr #0 {
+define dso_local void @AddReplyFromClient(ptr noundef %dst, ptr noundef captures(none) %src) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %flags = getelementptr inbounds nuw i8, ptr %src, i64 8
@@ -5537,7 +5537,7 @@ cond.end202:                                      ; preds = %cond.end195, %cond.
 declare void @listJoin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deferredAfterErrorReply(ptr nocapture noundef %c, ptr noundef %errors) local_unnamed_addr #0 {
+define dso_local void @deferredAfterErrorReply(ptr noundef captures(none) %c, ptr noundef %errors) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   call void @listRewind(ptr noundef %errors, ptr noundef nonnull %li) #27
@@ -5607,7 +5607,7 @@ declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @copyReplicaOutputBuffer(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local void @copyReplicaOutputBuffer(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %bufpos = getelementptr inbounds nuw i8, ptr %src, i64 752
   %0 = load i32, ptr %bufpos, align 8
@@ -5774,7 +5774,7 @@ return:                                           ; preds = %if.end6.i19, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getClientPeerId(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local ptr @getClientPeerId(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %ip.i.i = alloca [128 x i8], align 16
   %port.i.i = alloca i32, align 4
@@ -5841,7 +5841,7 @@ if.end:                                           ; preds = %genClientAddrString
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getClientSockname(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local ptr @getClientSockname(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %ip.i.i = alloca [128 x i8], align 16
   %port.i.i = alloca i32, align 4
@@ -5910,7 +5910,7 @@ if.end:                                           ; preds = %genClientAddrString
 declare void @moduleFireServerEvent(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @acceptCommonHandler(ptr noundef %conn, i32 noundef %flags, ptr nocapture noundef readnone %ip) local_unnamed_addr #0 {
+define dso_local void @acceptCommonHandler(ptr noundef %conn, i32 noundef %flags, ptr noundef readnone captures(none) %ip) local_unnamed_addr #0 {
 entry:
   %ip.i55 = alloca [128 x i8], align 16
   %port.i56 = alloca i32, align 4
@@ -6147,7 +6147,7 @@ if.end64:                                         ; preds = %if.end62, %if.end42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare i64 @getClusterConnectionsCount() local_unnamed_addr #1
 
@@ -6603,7 +6603,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeClientOriginalArgv(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @freeClientOriginalArgv(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %original_argv = getelementptr inbounds nuw i8, ptr %c, i64 112
   %0 = load ptr, ptr %original_argv, align 8
@@ -6644,7 +6644,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeClientArgv(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @freeClientArgv(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
@@ -7139,7 +7139,7 @@ entry:
 declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_writeToClient(ptr nocapture noundef %c, ptr nocapture noundef writeonly initializes((0, 8)) %nwritten) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_writeToClient(ptr noundef captures(none) %c, ptr noundef writeonly captures(none) initializes((0, 8)) %nwritten) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %nwritten, align 8
   %flags.i = getelementptr inbounds nuw i8, ptr %c, i64 8
@@ -7315,7 +7315,7 @@ return:                                           ; preds = %if.then58, %if.end5
 declare void @incrementalTrimReplicationBacklog(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr nocapture noundef %c, ptr nocapture noundef writeonly %nwritten) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef captures(none) %c, ptr noundef writeonly captures(none) %nwritten) unnamed_addr #0 {
 entry:
   %iter = alloca %struct.listIter, align 8
   %conn = getelementptr inbounds nuw i8, ptr %c, i64 16
@@ -7963,7 +7963,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resetClient(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @resetClient(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
@@ -9440,9 +9440,9 @@ if.then471:                                       ; preds = %if.else461
 clientSetNameOrReply.exit:                        ; preds = %if.then471
   %129 = load ptr, ptr %err.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #30
-  call void @addReplyErrorLength(ptr noundef nonnull %c, ptr noundef %129, i64 noundef %call.i.i)
+  call void @addReplyErrorLength(ptr noundef nonnull %c, ptr noundef nonnull %129, i64 noundef %call.i.i)
   %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #30
-  call void @afterErrorReply(ptr noundef nonnull %c, ptr noundef %129, i64 noundef %call1.i.i, i32 noundef 0)
+  call void @afterErrorReply(ptr noundef nonnull %c, ptr noundef nonnull %129, i64 noundef %call1.i.i, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   br label %if.end922
 
@@ -10033,22 +10033,22 @@ while.body874.lr.ph:                              ; preds = %if.then866
 while.body874:                                    ; preds = %while.body874.lr.ph, %addReplyBulkCBuffer.exit
   %180 = load ptr, ptr %key, align 8
   %181 = load i64, ptr %key_len, align 8
-  call void @addReplyLongLongWithPrefix(ptr noundef %c, i64 noundef %181, i8 noundef signext 36)
-  %call.i.i416 = call i32 @prepareClientToWrite(ptr noundef %c)
+  call void @addReplyLongLongWithPrefix(ptr noundef nonnull %c, i64 noundef %181, i8 noundef signext 36)
+  %call.i.i416 = call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i.i = icmp eq i32 %call.i.i416, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %addReplyProto.exit.i
 
 if.end.i.i:                                       ; preds = %while.body874
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef readonly %180, i64 noundef %181)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef readonly %180, i64 noundef %181)
   br label %addReplyProto.exit.i
 
 addReplyProto.exit.i:                             ; preds = %if.end.i.i, %while.body874
-  %call.i4.i = call i32 @prepareClientToWrite(ptr noundef %c)
+  %call.i4.i = call i32 @prepareClientToWrite(ptr noundef nonnull %c)
   %cmp.not.i5.i = icmp eq i32 %call.i4.i, 0
   br i1 %cmp.not.i5.i, label %if.end.i6.i, label %addReplyBulkCBuffer.exit
 
 if.end.i6.i:                                      ; preds = %addReplyProto.exit.i
-  call void @_addReplyToBufferOrList(ptr noundef %c, ptr noundef nonnull @.str.6, i64 noundef 2)
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %c, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %addReplyBulkCBuffer.exit
 
 addReplyBulkCBuffer.exit:                         ; preds = %addReplyProto.exit.i, %if.end.i6.i
@@ -10115,7 +10115,7 @@ if.end922:                                        ; preds = %if.then191, %client
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @protectClient(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @protectClient(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -10337,7 +10337,7 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
   %sub.ptr.lhs.cast = ptrtoint ptr %newline.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call22 = tail call ptr @sdsnewlen(ptr noundef %add.ptr, i64 noundef %sub.ptr.sub) #27
+  %call22 = tail call ptr @sdsnewlen(ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #27
   %call23 = call ptr @sdssplitargs(ptr noundef %call22, ptr noundef nonnull %argc) #27
   call void @sdsfree(ptr noundef %call22) #27
   %cmp24 = icmp eq ptr %call23, null
@@ -11955,7 +11955,7 @@ declare ptr @sdsMakeRoomFor(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @genClientAddrString(ptr nocapture noundef readonly %client, ptr nocapture noundef writeonly %addr, i64 noundef %addr_len, i32 noundef %remote) local_unnamed_addr #0 {
+define dso_local void @genClientAddrString(ptr noundef readonly captures(none) %client, ptr noundef writeonly captures(none) %addr, i64 noundef %addr_len, i32 noundef %remote) local_unnamed_addr #0 {
 entry:
   %ip.i = alloca [128 x i8], align 16
   %port.i = alloca i32, align 4
@@ -12189,7 +12189,7 @@ while.end:                                        ; preds = %while.cond, %while.
 declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 1) i32 @validateClientAttr(ptr nocapture noundef readonly %val) local_unnamed_addr #14 {
+define dso_local range(i32 -1, 1) i32 @validateClientAttr(ptr noundef readonly captures(none) %val) local_unnamed_addr #14 {
 entry:
   %0 = load i8, ptr %val, align 1
   %tobool.not4 = icmp eq i8 %0, 0
@@ -12300,7 +12300,7 @@ return:                                           ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @clientSetName(ptr nocapture noundef %c, ptr noundef %name, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @clientSetName(ptr noundef captures(none) %c, ptr noundef %name, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %name, null
   br i1 %cmp.not.i, label %if.then5, label %cond.true.i
@@ -12471,9 +12471,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
-  call void @addReplyErrorLength(ptr noundef %c, ptr noundef %0, i64 noundef %call.i)
+  call void @addReplyErrorLength(ptr noundef %c, ptr noundef nonnull %0, i64 noundef %call.i)
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
-  call void @afterErrorReply(ptr noundef %c, ptr noundef %0, i64 noundef %call1.i, i32 noundef 0)
+  call void @afterErrorReply(ptr noundef %c, ptr noundef nonnull %0, i64 noundef %call1.i, i32 noundef 0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -12604,7 +12604,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @resetCommand(ptr noundef %c) local_unnamed_addr #0 {
@@ -12645,7 +12645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i32 -1, 4) i32 @getClientTypeByName(ptr nocapture noundef readonly %name) local_unnamed_addr #17 {
+define dso_local range(i32 -1, 4) i32 @getClientTypeByName(ptr noundef readonly captures(none) %name) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %name, ptr noundef nonnull @.str.231) #30
   %tobool.not = icmp eq i32 %call, 0
@@ -12686,7 +12686,7 @@ declare i32 @getRangeLongFromObjectOrReply(ptr noundef, ptr noundef, i64 noundef
 declare ptr @ACLGetUserByName(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @moduleBlockedClientMayTimeout(ptr noundef) local_unnamed_addr #1
 
@@ -13389,7 +13389,7 @@ return:                                           ; preds = %if.end57, %if.end57
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @redactClientCommandArgument(ptr nocapture noundef %c, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @redactClientCommandArgument(ptr noundef captures(none) %c, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %original_argv.i = getelementptr inbounds nuw i8, ptr %c, i64 112
   %0 = load ptr, ptr %original_argv.i, align 8
@@ -13878,7 +13878,7 @@ if.end40:                                         ; preds = %if.then30, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @getClientOutputBufferMemoryUsage(ptr nocapture noundef readonly %c) local_unnamed_addr #7 {
+define dso_local i64 @getClientOutputBufferMemoryUsage(ptr noundef readonly captures(none) %c) local_unnamed_addr #7 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags.i, align 8
@@ -13956,7 +13956,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @checkClientOutputBufferLimits(ptr nocapture noundef %c) local_unnamed_addr #20 {
+define dso_local range(i32 0, 2) i32 @checkClientOutputBufferLimits(ptr noundef captures(none) %c) local_unnamed_addr #20 {
 entry:
   %flags.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags.i.i, align 8
@@ -15553,10 +15553,10 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #25

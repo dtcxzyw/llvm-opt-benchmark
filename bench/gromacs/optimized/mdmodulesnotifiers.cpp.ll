@@ -17,7 +17,7 @@ $__clang_call_terminate = comdat any
 @_ZN3gmx19EnsembleTemperatureC1ERK10t_inputrec = unnamed_addr alias void (ptr, ptr), ptr @_ZN3gmx19EnsembleTemperatureC2ERK10t_inputrec
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx32EnergyCalculationFrequencyErrorsC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx32EnergyCalculationFrequencyErrorsC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -25,7 +25,7 @@ define void @_ZN3gmx32EnergyCalculationFrequencyErrorsC2El(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK3gmx32EnergyCalculationFrequencyErrors32energyCalculationIntervalInStepsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK3gmx32EnergyCalculationFrequencyErrors32energyCalculationIntervalInStepsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   ret i64 %2
 }
@@ -205,7 +205,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK3gmx32EnergyCalculat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19EnsembleTemperatureC2ERK10t_inputrec(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 5)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19EnsembleTemperatureC2ERK10t_inputrec(ptr noundef nonnull align 4 captures(none) dereferenceable(8) initializes((4, 5)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
   %4 = tail call noundef zeroext i1 @_Z31haveConstantEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856) %1)
@@ -237,7 +237,7 @@ declare noundef zeroext i1 @_Z31haveConstantEnsembleTemperatureRK10t_inputrec(pt
 declare noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

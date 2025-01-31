@@ -223,7 +223,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.184 = private unnamed_addr constant [3 x i8] c"-o\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @load_builtin_commands(ptr nocapture noundef readnone %prefix, ptr nocapture noundef readnone %cmds) local_unnamed_addr #0 {
+define dso_local void @load_builtin_commands(ptr noundef readnone captures(none) %prefix, ptr noundef readnone captures(none) %cmds) local_unnamed_addr #0 {
 entry:
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str) #16
   unreachable
@@ -367,10 +367,10 @@ for.end61:                                        ; preds = %for.body55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %msgid) unnamed_addr #2 {
@@ -518,7 +518,7 @@ if.then:                                          ; preds = %entry
 if.then57:                                        ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %2, i64 noundef %call.i) #17
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %2, i64 noundef %call.i) #17
   %len = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %3 = load i64, ptr %len, align 8
   %cmp59.not100 = icmp eq i64 %3, 0
@@ -610,7 +610,7 @@ strbuf_strip_suffix.exit:                         ; preds = %while.end.thread, %
 
 if.then70:                                        ; preds = %strbuf_strip_suffix.exit
   %call71 = call fastcc ptr @_(ptr noundef nonnull @.str.30)
-  call void (ptr, ...) @die(ptr noundef %call71, ptr noundef %2) #16
+  call void (ptr, ...) @die(ptr noundef %call71, ptr noundef nonnull %2) #16
   unreachable
 
 if.end:                                           ; preds = %strbuf_strip_suffix.exit
@@ -1061,7 +1061,7 @@ return:                                           ; preds = %cleanup, %_.exit72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @cmd_list(i32 noundef %argc, ptr nocapture readnone %argv) #2 {
+define internal range(i32 -1, 1) i32 @cmd_list(i32 noundef %argc, ptr readnone captures(none) %argv) #2 {
 entry:
   %cmp.not = icmp eq i32 %argc, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1472,7 +1472,7 @@ _.exit:                                           ; preds = %if.then31, %if.end3
 
 if.end33:                                         ; preds = %if.then27
   %call.i20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
-  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %4, i64 noundef %call.i20) #17
+  call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %4, i64 noundef %call.i20) #17
   %9 = load ptr, ptr %buf.i21, align 8
   %call.i22 = call ptr @strbuf_realpath_forgiving(ptr noundef nonnull %buf, ptr noundef %9, i32 noundef 1) #17
   %10 = load ptr, ptr %buf.i21, align 8
@@ -1495,7 +1495,7 @@ if.end3.i24:                                      ; preds = %if.then36
 
 _.exit27:                                         ; preds = %if.then36, %if.end3.i24
   %retval.0.i26 = phi ptr [ %call.i25, %if.end3.i24 ], [ @.str.160, %if.then36 ]
-  %call38 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i26, ptr noundef %4) #17
+  %call38 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i26, ptr noundef nonnull %4) #17
   br label %if.end41
 
 if.else:                                          ; preds = %if.end33
@@ -1507,7 +1507,7 @@ if.end3.i29:                                      ; preds = %if.else
 
 _.exit32:                                         ; preds = %if.else, %if.end3.i29
   %retval.0.i31 = phi ptr [ %call.i30, %if.end3.i29 ], [ @.str.161, %if.else ]
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i31, ptr noundef %4) #17
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i31, ptr noundef nonnull %4) #17
   br label %if.end41
 
 if.end41:                                         ; preds = %_.exit32, %_.exit27
@@ -1823,7 +1823,7 @@ entry:
 declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
@@ -1839,7 +1839,7 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #6
 declare ptr @repo_default_branch_name(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @run_git(ptr noundef %arg, ...) unnamed_addr #2 {
@@ -2149,7 +2149,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -2181,7 +2181,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @git_config_set_gently(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_scalar_config(ptr nocapture noundef nonnull readonly %config, i32 noundef range(i32 0, 2) %reconfigure) unnamed_addr #2 {
+define internal fastcc i32 @set_scalar_config(ptr noundef nonnull readonly captures(none) %config, i32 noundef range(i32 0, 2) %reconfigure) unnamed_addr #2 {
 entry:
   %value = alloca ptr, align 8
   store ptr null, ptr %value, align 8
@@ -2236,7 +2236,7 @@ declare i32 @fsm_settings__get_reason(ptr noundef) local_unnamed_addr #6
 declare i32 @fsmonitor_ipc__get_state() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_enlistment_directory(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef nonnull %usagestr, ptr noundef nonnull %options, ptr noundef %enlistment_root) unnamed_addr #2 {
+define internal fastcc void @setup_enlistment_directory(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef nonnull %usagestr, ptr noundef nonnull %options, ptr noundef %enlistment_root) unnamed_addr #2 {
 entry:
   %path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_diagnose.diagnostics_root, i64 24, i1 false)
@@ -2460,7 +2460,7 @@ declare ptr @strbuf_realpath_forgiving(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_scalar_repos(ptr nocapture noundef readonly %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %data) #2 {
+define internal noundef i32 @get_scalar_repos(ptr noundef readonly captures(none) %key, ptr noundef %value, ptr readnone captures(none) %ctx, ptr noundef %data) #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(12) @.str.126) #18
   %tobool.not = icmp eq i32 %call, 0
@@ -2498,7 +2498,7 @@ declare i32 @remove_dir_recursively(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @get_version_info(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -2509,16 +2509,16 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

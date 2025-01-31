@@ -1374,13 +1374,13 @@ declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @test_empty_function(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @test_empty_function(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @objects_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @objects_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -1412,7 +1412,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_object_converter(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @bytes_object_converter(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1436,7 +1436,7 @@ exit:                                             ; preds = %if.end.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @byte_array_object_converter(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @byte_array_object_converter(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1477,7 +1477,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unicode_converter(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @unicode_converter(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1501,7 +1501,7 @@ exit:                                             ; preds = %if.end.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bool_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @bool_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 4
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1575,7 +1575,7 @@ exit:                                             ; preds = %land.lhs.true23, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @char_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @char_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [14 x i8], align 1
   %out.i = alloca [14 x ptr], align 16
@@ -2894,7 +2894,7 @@ exit:                                             ; preds = %lor.lhs.false, %cha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unsigned_char_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unsigned_char_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i8], align 1
   %out.i = alloca [3 x ptr], align 16
@@ -3125,7 +3125,7 @@ exit:                                             ; preds = %land.lhs.true55, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @short_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @short_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -3263,7 +3263,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unsigned_short_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unsigned_short_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -3449,7 +3449,7 @@ exit:                                             ; preds = %land.lhs.true25, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @int_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @int_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -3751,7 +3751,7 @@ exit:                                             ; preds = %land.lhs.true18, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unsigned_int_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unsigned_int_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -3937,7 +3937,7 @@ exit:                                             ; preds = %land.lhs.true24, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @long_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @long_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -4057,7 +4057,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unsigned_long_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unsigned_long_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -4246,7 +4246,7 @@ exit:                                             ; preds = %if.end11, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @long_long_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @long_long_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -4366,7 +4366,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unsigned_long_long_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -4555,7 +4555,7 @@ exit:                                             ; preds = %if.end11, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_ssize_t_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @py_ssize_t_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -4788,7 +4788,7 @@ exit:                                             ; preds = %if.end35, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @slice_index_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @slice_index_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %in.i = alloca [3 x i64], align 16
   %out.i = alloca [3 x ptr], align 16
@@ -4971,7 +4971,7 @@ exit:                                             ; preds = %if.end19, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @size_t_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @size_t_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %a = alloca i64, align 8
   store i64 12, ptr %a, align 8
@@ -5092,7 +5092,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @float_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -5226,7 +5226,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @double_converter(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @double_converter(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -5357,7 +5357,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_complex_converter(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @py_complex_converter(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -5460,7 +5460,7 @@ exit:                                             ; preds = %PyTuple_SET_ITEM.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @str_converter(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @str_converter(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %out.i = alloca [3 x ptr], align 16
   %a = alloca ptr, align 8
@@ -5589,7 +5589,7 @@ exit:                                             ; preds = %entry, %str_convert
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @str_converter_encoding(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @str_converter_encoding(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %out.i = alloca [3 x ptr], align 16
   %a = alloca ptr, align 8
@@ -5724,7 +5724,7 @@ exit:                                             ; preds = %entry, %str_convert
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_buffer_converter(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @py_buffer_converter(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %out.i.sroa.0 = alloca ptr, align 16
   %out.i.sroa.8 = alloca ptr, align 8
@@ -5887,7 +5887,7 @@ if.end8:                                          ; preds = %if.then7, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keywords(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keywords(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -5916,7 +5916,7 @@ exit:                                             ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keywords_kwonly(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keywords_kwonly(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @keywords_kwonly._parser, i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %argsbuf) #9
@@ -5936,7 +5936,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keywords_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keywords_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6025,7 +6025,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keywords_opt_kwonly(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keywords_opt_kwonly(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6129,7 +6129,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keywords_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keywords_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6220,7 +6220,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_keywords(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_keywords(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -6249,7 +6249,7 @@ exit:                                             ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_kwonly(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_kwonly(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @posonly_kwonly._parser, i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %argsbuf) #9
@@ -6269,7 +6269,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_keywords_kwonly(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_keywords_kwonly(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @posonly_keywords_kwonly._parser, i32 noundef 2, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %argsbuf) #9
@@ -6291,7 +6291,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_keywords_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_keywords_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6382,7 +6382,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_opt_keywords_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_opt_keywords_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6484,7 +6484,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6566,7 +6566,7 @@ exit:                                             ; preds = %cond.end, %skip_opt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_opt_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_opt_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6668,7 +6668,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_keywords_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_keywords_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6752,7 +6752,7 @@ exit:                                             ; preds = %cond.end, %skip_opt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_keywords_opt_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_keywords_opt_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6858,7 +6858,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_opt_keywords_opt_kwonly_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_opt_keywords_opt_kwonly_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -6958,7 +6958,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keyword_only_parameter(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @keyword_only_parameter(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %call = call ptr @_PyArg_UnpackKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @keyword_only_parameter._parser, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %argsbuf) #9
@@ -6976,7 +6976,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @posonly_vararg(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @posonly_vararg(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %call = call ptr @_PyArg_UnpackKeywordsWithVararg(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @posonly_vararg._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %argsbuf) #9
@@ -7015,7 +7015,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vararg_and_posonly(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @vararg_and_posonly(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %call = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.43, i64 noundef %nargs, i64 noundef 1, i64 noundef 9223372036854775807) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -7074,7 +7074,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.end, %ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vararg(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @vararg(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %call = call ptr @_PyArg_UnpackKeywordsWithVararg(ptr noundef %args, i64 noundef %nargs, ptr noundef null, ptr noundef %kwnames, ptr noundef nonnull @vararg._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %argsbuf) #9
@@ -7111,7 +7111,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vararg_with_default(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @vararg_with_default(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cond = tail call i64 @llvm.smin.i64(i64 %nargs, i64 1)
@@ -7213,7 +7213,7 @@ Py_XDECREF.exit:                                  ; preds = %cond.end3, %exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vararg_with_only_defaults(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @vararg_with_only_defaults(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7303,7 +7303,7 @@ Py_XDECREF.exit:                                  ; preds = %cond.end.thread, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gh_32092_oob(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @gh_32092_oob(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7371,7 +7371,7 @@ Py_XDECREF.exit:                                  ; preds = %cond.end3, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gh_32092_kw_pass(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @gh_32092_kw_pass(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7439,7 +7439,7 @@ Py_XDECREF.exit:                                  ; preds = %cond.end3, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gh_99233_refcount(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @gh_99233_refcount(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %call = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.49, i64 noundef %nargs, i64 noundef 0, i64 noundef 9223372036854775807) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -7495,7 +7495,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gh_99240_double_free(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @gh_99240_double_free(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -7518,7 +7518,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @null_or_tuple_for_varargs(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @null_or_tuple_for_varargs(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cond = tail call i64 @llvm.smin.i64(i64 %nargs, i64 1)
@@ -7630,7 +7630,7 @@ Py_XDECREF.exit:                                  ; preds = %cond.end3, %exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @clone_f1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @clone_f1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path_length = alloca i64, align 8
@@ -7683,7 +7683,7 @@ exit:                                             ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @clone_f2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @clone_f2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path_length = alloca i64, align 8
@@ -7736,7 +7736,7 @@ exit:                                             ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clone_with_conv_f1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @clone_with_conv_f1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7792,7 +7792,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clone_with_conv_f2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @clone_with_conv_f2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7848,7 +7848,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos0_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos0_len1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq i64 %nargs, 1
@@ -7880,7 +7880,7 @@ exit:                                             ; preds = %cond.end, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos0_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos0_len2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %0 = add i64 %nargs, -1
@@ -7915,7 +7915,7 @@ exit:                                             ; preds = %cond.end, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos0_len3_with_kwd(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @depr_star_pos0_len3_with_kwd(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %0 = add i64 %nargs, -1
@@ -7940,7 +7940,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos1_len1_opt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos1_len1_opt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8007,7 +8007,7 @@ exit:                                             ; preds = %if.end18, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos1_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos1_len1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq i64 %nargs, 2
@@ -8039,7 +8039,7 @@ exit:                                             ; preds = %cond.end, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos1_len2_with_kwd(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @depr_star_pos1_len2_with_kwd(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %0 = and i64 %nargs, -2
@@ -8064,7 +8064,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos2_len1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos2_len1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cmp = icmp eq i64 %nargs, 3
@@ -8096,7 +8096,7 @@ exit:                                             ; preds = %cond.end, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_pos2_len2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_pos2_len2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %0 = add i64 %nargs, -3
@@ -8131,7 +8131,7 @@ exit:                                             ; preds = %cond.end, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_pos2_len2_with_kwd(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @depr_star_pos2_len2_with_kwd(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %0 = add i64 %nargs, -3
@@ -8156,7 +8156,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_noinline(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @depr_star_noinline(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -8187,7 +8187,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @depr_star_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @depr_star_multi(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [8 x ptr], align 16
   %0 = add i64 %nargs, -2
@@ -8212,7 +8212,7 @@ exit:                                             ; preds = %if.end3, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_required_1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_required_1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8246,7 +8246,7 @@ exit:                                             ; preds = %if.then7, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_required_2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_required_2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8280,7 +8280,7 @@ exit:                                             ; preds = %if.then7, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_optional_1(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_optional_1(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8389,7 +8389,7 @@ exit:                                             ; preds = %if.end25, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_optional_2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_optional_2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8510,7 +8510,7 @@ exit:                                             ; preds = %if.end29, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_optional_3(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_optional_3(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8639,7 +8639,7 @@ exit:                                             ; preds = %if.end34, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_required_optional(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_required_optional(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8754,7 +8754,7 @@ exit:                                             ; preds = %if.end26, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_noinline(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_noinline(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -8839,7 +8839,7 @@ exit:                                             ; preds = %if.end13, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_kwd_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_kwd_multi(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [8 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -8873,7 +8873,7 @@ exit:                                             ; preds = %if.then7, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_multi(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_multi(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [7 x ptr], align 16
   %0 = add i64 %nargs, -5
@@ -9024,7 +9024,7 @@ declare i32 @_PyObject_IsFreed(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef nonnull %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull captures(none) %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -9090,7 +9090,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @PyBytes_GET_SIZE(ptr nocapture noundef readonly %op) unnamed_addr #0 {
+define internal fastcc i64 @PyBytes_GET_SIZE(ptr noundef readonly captures(none) %op) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -9127,7 +9127,7 @@ Py_SIZE.exit:                                     ; preds = %cond.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @PyByteArray_GET_SIZE(ptr nocapture noundef readonly %op) unnamed_addr #0 {
+define internal fastcc i64 @PyByteArray_GET_SIZE(ptr noundef readonly captures(none) %op) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -9167,7 +9167,7 @@ Py_SIZE.exit:                                     ; preds = %entry, %cond.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PyByteArray_AS_STRING(ptr nocapture noundef readonly %op) unnamed_addr #0 {
+define internal fastcc ptr @PyByteArray_AS_STRING(ptr noundef readonly captures(none) %op) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -9217,7 +9217,7 @@ return:                                           ; preds = %Py_SIZE.exit, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
@@ -9288,7 +9288,7 @@ declare ptr @_PyArg_UnpackKeywordsWithVararg(ptr noundef, i64 noundef, ptr nound
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -9399,7 +9399,7 @@ exit:                                             ; preds = %cond.end38, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_new_clone(ptr nocapture readnone %type, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_new_clone(ptr readnone captures(none) %type, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -9465,7 +9465,7 @@ exit:                                             ; preds = %if.end18, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @depr_star_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_star_init(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -9566,7 +9566,7 @@ exit:                                             ; preds = %if.end42, %cond.end
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @depr_star_init_clone(ptr nocapture readnone %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @depr_star_init_clone(ptr readnone captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -9632,7 +9632,7 @@ exit:                                             ; preds = %if.end18, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @depr_star_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_star_init_noinline(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -9805,7 +9805,7 @@ exit:                                             ; preds = %cond.end33.thread52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @depr_kwd_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_kwd_init(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -9911,7 +9911,7 @@ exit:                                             ; preds = %if.end49, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @depr_kwd_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_kwd_init_noinline(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -10024,10 +10024,10 @@ declare void @llvm.va_end.p0(ptr) #6
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

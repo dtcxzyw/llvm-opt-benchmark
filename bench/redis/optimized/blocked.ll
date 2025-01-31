@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.signalKeyAsReadyLogic = private unnamed_addr constant [6 x i64] [i64 1, i64 poison, i64 6, i64 poison, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initClientBlockingState(ptr nocapture noundef writeonly initializes((464, 468), (472, 484), (488, 500), (504, 512), (520, 528)) %c) local_unnamed_addr #0 {
+define dso_local void @initClientBlockingState(ptr noundef writeonly captures(none) initializes((464, 468), (472, 484), (488, 500), (504, 512), (520, 528)) %c) local_unnamed_addr #0 {
 entry:
   %bstate = getelementptr inbounds nuw i8, ptr %c, i64 464
   store i32 0, ptr %bstate, align 8
@@ -354,7 +354,7 @@ if.end.i32:                                       ; preds = %if.then21
 
 while.body.i36:                                   ; preds = %if.end.i32, %while.body.i36
   %call78.i37 = phi ptr [ %call7.i38, %while.body.i36 ], [ %call76.i34, %if.end.i32 ]
-  tail call fastcc void @releaseBlockedEntry(ptr noundef %c, ptr noundef nonnull %call78.i37, i32 noundef 0)
+  tail call fastcc void @releaseBlockedEntry(ptr noundef nonnull %c, ptr noundef nonnull %call78.i37, i32 noundef 0)
   %call7.i38 = tail call ptr @dictNext(ptr noundef %call.i33) #6
   %cmp8.not.i39 = icmp eq ptr %call7.i38, null
   br i1 %cmp8.not.i39, label %while.end.i40, label %while.body.i36, !llvm.loop !7
@@ -1035,7 +1035,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blockForKeys(ptr noundef initializes((472, 480)) %c, i32 noundef %btype, ptr nocapture noundef readonly %keys, i32 noundef %numkeys, i64 noundef %timeout, i32 noundef %unblock_on_nokey) local_unnamed_addr #0 {
+define dso_local void @blockForKeys(ptr noundef initializes((472, 480)) %c, i32 noundef %btype, ptr noundef readonly captures(none) %keys, i32 noundef %numkeys, i64 noundef %timeout, i32 noundef %unblock_on_nokey) local_unnamed_addr #0 {
 entry:
   %db_blocked_existing_entry = alloca ptr, align 8
   %timeout1 = getelementptr inbounds nuw i8, ptr %c, i64 472
@@ -1744,10 +1744,10 @@ declare i32 @moduleTryServeClientBlockedOnKey(ptr noundef, ptr noundef) local_un
 declare void @moduleUnblockClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

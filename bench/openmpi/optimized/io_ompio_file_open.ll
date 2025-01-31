@@ -52,7 +52,7 @@ define i32 @mca_io_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %
 declare i32 @mca_common_ompio_file_open(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_io_ompio_file_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @mca_io_ompio_file_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -71,7 +71,7 @@ define i32 @mca_io_ompio_file_close(ptr nocapture noundef readonly %0) local_unn
 declare i32 @mca_common_ompio_file_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -196,13 +196,13 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %73 = sub nsw i64 %spec.select, %.06890
   %spec.select84 = call i64 @llvm.smin.i64(i64 %73, i64 33554432)
   %74 = trunc i64 %spec.select84 to i32
-  %75 = call i32 @mca_common_ompio_file_read(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
+  %75 = call i32 @mca_common_ompio_file_read(ptr noundef nonnull %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %75, ptr %3, align 4
   %.not82 = icmp eq i32 %75, 0
   br i1 %.not82, label %76, label %.loopexit86
 
 76:                                               ; preds = %.lr.ph
-  %77 = call i32 @mca_common_ompio_file_write(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
+  %77 = call i32 @mca_common_ompio_file_write(ptr noundef nonnull %8, ptr noundef nonnull %69, i32 noundef %74, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %77, ptr %3, align 4
   %.not83 = icmp eq i32 %77, 0
   br i1 %.not83, label %78, label %.loopexit86
@@ -238,7 +238,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %89 = sub nsw i64 %1, %.16992
   %spec.select85 = call i64 @llvm.smin.i64(i64 %89, i64 33554432)
   %90 = trunc i64 %spec.select85 to i32
-  %91 = call i32 @mca_common_ompio_file_write(ptr noundef %8, ptr noundef nonnull %69, i32 noundef %90, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
+  %91 = call i32 @mca_common_ompio_file_write(ptr noundef nonnull %8, ptr noundef nonnull %69, i32 noundef %90, ptr noundef nonnull @ompi_mpi_byte, ptr noundef null) #9
   store i32 %91, ptr %3, align 4
   %.not81 = icmp eq i32 %91, 0
   br i1 %.not81, label %92, label %.loopexit86
@@ -251,7 +251,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
 
 .loopexit:                                        ; preds = %92, %83, %._crit_edge
   %95 = load i64, ptr %6, align 8
-  %96 = call i32 @mca_common_ompio_set_explicit_offset(ptr noundef %8, i64 noundef %95) #9
+  %96 = call i32 @mca_common_ompio_set_explicit_offset(ptr noundef nonnull %8, i64 noundef %95) #9
   br label %.loopexit86
 
 .loopexit86:                                      ; preds = %76, %.lr.ph, %.lr.ph94, %59, %.loopexit, %72
@@ -274,7 +274,7 @@ define i32 @mca_io_ompio_file_preallocate(ptr noundef %0, i64 noundef %1) local_
   %109 = load ptr, ptr %39, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %111(ptr noundef %8, i64 noundef %1) #9
+  %112 = call i32 %111(ptr noundef nonnull %8, i64 noundef %1) #9
   br label %113
 
 113:                                              ; preds = %.loopexit86, %108
@@ -308,7 +308,7 @@ declare i32 @mca_common_ompio_file_read(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @mca_common_ompio_file_write(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @mca_common_ompio_set_explicit_offset(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -436,7 +436,7 @@ define i32 @mca_io_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local_unn
 declare i32 @mca_common_ompio_file_get_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mca_io_ompio_file_get_amode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define noundef i32 @mca_io_ompio_file_get_amode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -446,7 +446,7 @@ define noundef i32 @mca_io_ompio_file_get_amode(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @mca_io_ompio_file_get_type_extent(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define noundef i32 @mca_io_ompio_file_get_type_extent(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 48
   %.val = load i64, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 56
@@ -526,7 +526,7 @@ define range(i32 -1, 36) i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
@@ -852,7 +852,7 @@ define i32 @mca_io_ompio_file_get_position(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr @opal_uses_threads, align 1

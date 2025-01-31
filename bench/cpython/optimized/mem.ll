@@ -92,7 +92,7 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @pymem_api_misuse(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noundef nonnull ptr @pymem_api_misuse(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 16) #4
   tail call void @PyMem_RawFree(ptr noundef %call) #4
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pymem_buffer_overflow(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noundef ptr @pymem_buffer_overflow(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 16) #4
   %cmp = icmp eq ptr %call, null
@@ -122,7 +122,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @pymem_malloc_without_gil(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noundef nonnull ptr @pymem_malloc_without_gil(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @PyEval_SaveThread() #4
   %call1 = tail call ptr @PyMem_Malloc(i64 noundef 10) #4
@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @pyobject_malloc_without_gil(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal noundef nonnull ptr @pyobject_malloc_without_gil(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call = tail call ptr @PyEval_SaveThread() #4
   %call1 = tail call ptr @PyObject_Malloc(i64 noundef 10) #4
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @remove_mem_hooks(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @remove_mem_hooks(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @FmHook, align 8
   %tobool.not.i = icmp eq i32 %0, 0
@@ -160,7 +160,7 @@ fm_remove_hooks.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @set_nomemory(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @set_nomemory(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %alloc.i = alloca %struct.PyMemAllocatorEx, align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
@@ -206,7 +206,7 @@ return:                                           ; preds = %entry, %fm_setup_ho
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_pymem_alloc0(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_pymem_alloc0(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyMem_RawMalloc(i64 noundef 0) #4
   %cmp = icmp eq ptr %call, null
@@ -282,21 +282,21 @@ return:                                           ; preds = %if.end20, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_pymem_setallocators(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_pymem_setallocators(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @test_setallocators(i32 noundef 1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_pymem_setrawallocators(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_pymem_setrawallocators(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @test_setallocators(i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_pyobject_new(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_pyobject_new(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef nonnull @PyBaseObject_Type) #4
   %cmp = icmp eq ptr %call, null
@@ -391,14 +391,14 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_pyobject_setallocators(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_pyobject_setallocators(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @test_setallocators(i32 noundef 2)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tracemalloc_track(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @tracemalloc_track(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %domain = alloca i32, align 4
   %ptr_obj = alloca ptr, align 8
@@ -453,7 +453,7 @@ return:                                           ; preds = %if.end11, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tracemalloc_untrack(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @tracemalloc_untrack(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %domain = alloca i32, align 4
   %ptr_obj = alloca ptr, align 8
@@ -506,7 +506,7 @@ declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hook_fmalloc(ptr nocapture noundef readonly %ctx, i64 noundef %size) #0 {
+define internal ptr @hook_fmalloc(ptr noundef readonly captures(none) %ctx, i64 noundef %size) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
@@ -537,7 +537,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hook_fcalloc(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
+define internal ptr @hook_fcalloc(ptr noundef readonly captures(none) %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
@@ -568,7 +568,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hook_frealloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
+define internal ptr @hook_frealloc(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
@@ -599,7 +599,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hook_ffree(ptr nocapture noundef readonly %ctx, ptr noundef %ptr) #0 {
+define internal void @hook_ffree(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr) #0 {
 entry:
   %free = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
@@ -842,7 +842,7 @@ finally:                                          ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_malloc(ptr noundef %ctx, i64 noundef %size) #0 {
@@ -925,10 +925,10 @@ declare i32 @PyTraceMalloc_Track(i32 noundef, i64 noundef, i64 noundef) local_un
 declare i32 @PyTraceMalloc_Untrack(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1117,7 +1117,7 @@ $_ZTIN8facebook5velox16VectorSerializerE = comdat any
 @_ZTIN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStreamE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStreamE, ptr @_ZTIN8facebook5velox12OutputStreamE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde22estimateSerializedSizeESt10shared_ptrINS0_10BaseVectorEERKN5folly5RangeIPKNS0_10IndexRangeEEEPPiRNS0_7ScratchE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %vector, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr nocapture nonnull readnone align 8 %scratch) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde22estimateSerializedSizeESt10shared_ptrINS0_10BaseVectorEERKN5folly5RangeIPKNS0_10IndexRangeEEEPPiRNS0_7ScratchE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %vector, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr nonnull readnone align 8 captures(none) %scratch) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vector, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -4724,7 +4724,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde22estimateSerializedSizeESt10shared_ptrINS0_10BaseVectorEEN5folly5RangeIPKiEEPPiRNS0_7ScratchE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %vector, ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %sizes, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde22estimateSerializedSizeESt10shared_ptrINS0_10BaseVectorEEN5folly5RangeIPKiEEPPiRNS0_7ScratchE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %vector, ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %sizes, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #0 align 2 {
 entry:
   %rows = alloca %"class.folly::Range.3", align 8
   store ptr %rows.coerce0, ptr %rows, align 8
@@ -7614,7 +7614,7 @@ sw.epilog:                                        ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %type, i32 noundef %numRows, ptr noundef %streamArena, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %type, i32 noundef %numRows, ptr noundef %streamArena, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %types.i.i = alloca %"class.std::vector.48", align 8
   %cmp.i = icmp eq ptr %options, null
@@ -8086,7 +8086,7 @@ _ZN8facebook5velox10serializer6presto17PrestoVectorSerde13PrestoOptionsD2Ev.exit
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16serializeEncodedERKSt10shared_ptrINS0_9RowVectorEEPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsEPNS0_12OutputStreamE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector, ptr noundef %streamArena, ptr noundef %options, ptr noundef %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16serializeEncodedERKSt10shared_ptrINS0_9RowVectorEEPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsEPNS0_12OutputStreamE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %vector, ptr noundef %streamArena, ptr noundef %options, ptr noundef %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11.i899.i.i.i.i.i = alloca %"class.folly::Range", align 8
   %ref.tmp11.i824.i.i.i.i.i = alloca %"class.folly::Range", align 8
@@ -12365,7 +12365,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox7RowTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde11deserializeEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_7RowTypeEEPS9_INS0_9RowVectorEEiPKNS0_11VectorSerde7OptionsE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %source, ptr noundef %pool, ptr nocapture noundef readonly %type, ptr nocapture noundef %result, i32 noundef %resultOffset, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde11deserializeEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_7RowTypeEEPS9_INS0_9RowVectorEEiPKNS0_11VectorSerde7OptionsE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %source, ptr noundef %pool, ptr noundef readonly captures(none) %type, ptr noundef captures(none) %result, i32 noundef %resultOffset, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %codecMarker.addr.i = alloca i32, align 4
   %numRows.addr.i = alloca i32, align 4
@@ -13555,7 +13555,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_111readColumnsEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaISD_EERS9_ISA_INS0_10BaseVectorEESaISJ_EEib(ptr noundef %source, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %types, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %results, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_111readColumnsEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaISD_EERS9_ISA_INS0_10BaseVectorEESaISJ_EEib(ptr noundef %source, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %types, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %results, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i850 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp.i640 = alloca i64, align 8
@@ -16729,7 +16729,7 @@ declare void @_ZN8facebook5velox15ByteInputStream9readBytesEPhi(ptr noundef nonn
 declare void @_ZN5folly2io5Codec10uncompressEPKNS_5IOBufENS_8OptionalImEE(ptr sret(%"class.std::unique_ptr.63") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17602,7 +17602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_129estimateWrapperSerializedSizeERKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPKNS0_10BaseVectorERNS0_7ScratchE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr nocapture noundef readonly %sizes, ptr noundef %wrapper) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_129estimateWrapperSerializedSizeERKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPKNS0_10BaseVectorERNS0_7ScratchE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef readonly captures(none) %sizes, ptr noundef %wrapper) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp38 = alloca %"class.folly::Range", align 8
   %vtable = load ptr, ptr %wrapper, align 8
@@ -17904,7 +17904,7 @@ _ZNSt6vectorIN8facebook5velox10IndexRangeESaIS2_EED2Ev.exit34: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef %vector, ptr nocapture noundef readonly %rawOffsets, ptr nocapture noundef readonly %rawSizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr nocapture noundef readonly %sizes, ptr nocapture noundef nonnull %childRanges, ptr nocapture noundef nonnull %childSizes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef %vector, ptr noundef readonly captures(none) %rawOffsets, ptr noundef readonly captures(none) %rawSizes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef readonly captures(none) %sizes, ptr noundef nonnull captures(none) %childRanges, ptr noundef nonnull captures(none) %childSizes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %e_.i = getelementptr inbounds nuw i8, ptr %ranges, i64 8
   %0 = load ptr, ptr %e_.i, align 8
@@ -18136,13 +18136,13 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_125estimateSerializedSizeIntEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPPiRNS0_7ScratchEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_125estimateSerializedSizeIntEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPPiRNS0_7ScratchEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nullsHolder.i2214.i = alloca %"class.facebook::velox::ScratchPtr.298", align 8
   %nonNullsHolder.i2215.i = alloca %"class.facebook::velox::ScratchPtr.299", align 8
@@ -24551,7 +24551,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112rowsToRangesEN5folly5RangeIPKiEEPKmS7_S7_PPiRNS0_10ScratchPtrINS0_10IndexRangeELi0EEEPNSD_ISB_Li0EEEPNS3_12VectorStreamERNS0_7ScratchE(ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %rawNulls, ptr nocapture noundef readonly %offsets, ptr nocapture noundef readonly %sizes, ptr noundef readonly %sizesPtr, ptr noundef nonnull align 8 dereferenceable(36) %rangesHolder, ptr noundef %sizesHolder, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112rowsToRangesEN5folly5RangeIPKiEEPKmS7_S7_PPiRNS0_10ScratchPtrINS0_10IndexRangeELi0EEEPNSD_ISB_Li0EEEPNS3_12VectorStreamERNS0_7ScratchE(ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %rawNulls, ptr noundef readonly captures(none) %offsets, ptr noundef readonly captures(none) %sizes, ptr noundef readonly %sizesPtr, ptr noundef nonnull align 8 dereferenceable(36) %rangesHolder, ptr noundef %sizesHolder, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %nonNullHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
   %innerRowsHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
@@ -25796,7 +25796,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #14
@@ -25898,10 +25898,10 @@ if.end22:                                         ; preds = %if.end14, %for.end
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_144estimateFlatSerializedSizeVarcharOrVarbinaryEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPPiRNS0_7ScratchE(ptr %vector.40.val, ptr nocapture readonly %vector.216.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rows, ptr nocapture noundef readonly %sizes, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_144estimateFlatSerializedSizeVarcharOrVarbinaryEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPPiRNS0_7ScratchE(ptr %vector.40.val, ptr readonly captures(none) %vector.216.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rows, ptr noundef readonly captures(none) %sizes, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %nullsHolder = alloca %"class.facebook::velox::ScratchPtr.298", align 8
   %nonNullsHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
@@ -26625,7 +26625,7 @@ return:                                           ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream11appendNullsEPKmiii(ptr noundef nonnull align 8 dereferenceable(281) %this, ptr nocapture noundef readonly %nulls, i32 noundef %end, i32 noundef %numNonNull) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream11appendNullsEPKmiii(ptr noundef nonnull align 8 dereferenceable(281) %this, ptr noundef readonly captures(none) %nulls, i32 noundef %end, i32 noundef %numNonNull) unnamed_addr #0 align 2 {
 entry:
   %inverted = alloca i64, align 8
   %smallNulls = alloca [16 x i64], align 16
@@ -26862,7 +26862,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 declare void @_ZN8facebook5velox16ByteOutputStream16appendStringViewESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(60), i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer13flushInternalEiPNS0_12OutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %numRows, ptr noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer13flushInternalEiPNS0_12OutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %numRows, ptr noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i60.i7 = alloca i64, align 8
   %codecMarker.addr.i.i8 = alloca i32, align 4
@@ -34341,7 +34341,7 @@ sw.epilog14:                                      ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE33EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE33EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca %"struct.facebook::velox::UnknownValue", align 1
   %0 = icmp ne ptr %vector, null
@@ -34505,7 +34505,7 @@ for.end12:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_116serializeWrappedEPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_116serializeWrappedEPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::Range", align 8
   %ref.tmp39 = alloca %"class.folly::Range", align 8
@@ -34895,7 +34895,7 @@ _ZNSt6vectorIN8facebook5velox10IndexRangeESaIS2_EED2Ev.exit39: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE35EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE35EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.std::shared_ptr.160", align 8
   %0 = icmp ne ptr %vector, null
@@ -35399,7 +35399,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE0EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE0EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca i8, align 1
   %0 = icmp ne ptr %vector, null
@@ -35576,7 +35576,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE3EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE3EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = icmp ne ptr %vector, null
@@ -35751,7 +35751,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE1EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE1EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca i8, align 1
   %0 = icmp ne ptr %vector, null
@@ -35926,7 +35926,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE2EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE2EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca i16, align 2
   %0 = icmp ne ptr %vector, null
@@ -36101,7 +36101,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE4EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE4EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %0 = icmp ne ptr %vector, null
@@ -36276,7 +36276,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE10EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE10EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %val.i.i = alloca i128, align 16
   %0 = icmp ne ptr %vector, null
@@ -36469,7 +36469,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE5EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE5EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca float, align 4
   %0 = icmp ne ptr %vector, null
@@ -36644,7 +36644,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE6EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE6EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca double, align 8
   %0 = icmp ne ptr %vector, null
@@ -36819,7 +36819,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE7EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE7EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %0 = icmp ne ptr %vector, null
   tail call void @llvm.assume(i1 %0)
@@ -37002,7 +37002,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 declare void @_ZN8facebook5velox16ByteOutputStream16appendStringViewENS0_10StringViewE(ptr noundef nonnull align 8 dereferenceable(60), i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE8EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE8EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %0 = icmp ne ptr %vector, null
   tail call void @llvm.assume(i1 %0)
@@ -37183,7 +37183,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca %"struct.facebook::velox::Timestamp", align 8
   %0 = icmp ne ptr %vector, null
@@ -37483,7 +37483,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE30EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE30EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca %"struct.facebook::velox::ComplexType", align 1
   %0 = icmp ne ptr %vector, null
@@ -37647,7 +37647,7 @@ for.end12:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE31EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE31EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca %"struct.facebook::velox::ComplexType", align 1
   %0 = icmp ne ptr %vector, null
@@ -37811,7 +37811,7 @@ for.end12:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE32EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantVectorILNS0_8TypeKindE32EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ranges, ptr noundef %stream) unnamed_addr #0 {
 entry:
   %value = alloca %"struct.facebook::velox::ComplexType", align 1
   %0 = icmp ne ptr %vector, null
@@ -39590,7 +39590,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -40952,7 +40952,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @_ZN8facebook5velox11StreamArenaC1EPNS0_6memory10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 declare void @_ZN8facebook5velox16ByteOutputStream6extendEi(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef) local_unnamed_addr #3
 
@@ -40967,7 +40967,7 @@ declare void @_ZN8facebook5velox15ByteInputStream5seekpESt4fposI11__mbstate_tE(p
 declare void @__cxa_bad_cast() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIbEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIbEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.boost::intrusive_ptr", align 8
   %agg.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -41969,7 +41969,7 @@ ehcleanup25:                                      ; preds = %lpad21.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIaEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIaEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.boost::intrusive_ptr", align 8
   %agg.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -42766,7 +42766,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIsEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIsEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.boost::intrusive_ptr", align 8
   %agg.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -43620,7 +43620,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIiEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIiEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i = alloca %class.anon.534, align 8
   %source.addr.i = alloca ptr, align 8
@@ -44267,7 +44267,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIlEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIlEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i = alloca %class.anon.537, align 8
   %source.addr.i = alloca ptr, align 8
@@ -44925,7 +44925,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readInEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readInEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i.i.i83.i.i.i.i = alloca i128, align 16
   %value.i.i11.i.i.i.i.i = alloca i128, align 16
@@ -45624,7 +45624,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIfEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIfEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i = alloca %class.anon.543, align 8
   %source.addr.i = alloca ptr, align 8
@@ -46279,7 +46279,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIdEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readIdEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS7_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i = alloca %class.anon.546, align 8
   %source.addr.i = alloca ptr, align 8
@@ -46945,7 +46945,7 @@ ehcleanup24:                                      ; preds = %lpad20.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_9TimestampEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_9TimestampEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i114 = alloca %class.anon.553, align 8
   %agg.tmp3.i.i.i115 = alloca %class.anon.552, align 8
@@ -48313,7 +48313,7 @@ ehcleanup36:                                      ; preds = %lpad32.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_10StringViewEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture nonnull readnone align 8 %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_10StringViewEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr nonnull readnone align 8 captures(none) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.boost::intrusive_ptr", align 8
   %ref.tmp.sroa.2 = alloca [12 x i8], align 4
@@ -48616,7 +48616,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %cleanup,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readArrayVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115readArrayVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %childTypes = alloca %"class.std::vector.48", align 8
   %ref.tmp = alloca [1 x %"class.std::shared_ptr.0"], align 8
@@ -49600,7 +49600,7 @@ eh.resume:                                        ; preds = %lpad9.body, %ehclea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113readMapVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113readMapVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %childTypes = alloca %"class.std::vector.48", align 8
   %ref.tmp = alloca [2 x %"class.std::shared_ptr.0"], align 8
@@ -50860,7 +50860,7 @@ eh.resume:                                        ; preds = %arraydestroy.body22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113readRowVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113readRowVectorEPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS6_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 noundef zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.0", align 8
   %ref.tmp1.i = alloca %"class.std::shared_ptr.398", align 8
@@ -51276,7 +51276,7 @@ return:                                           ; preds = %for.end, %_ZN8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_12UnknownValueEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture readnone %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_14readINS0_12UnknownValueEEEvPNS0_15ByteInputStreamERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS8_INS0_10BaseVectorEEib(ptr noundef %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr readnone captures(none) %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result, i32 noundef %resultOffset, i1 zeroext %useLosslessTimestamp) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.boost::intrusive_ptr", align 8
   %agg.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -52502,7 +52502,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef %source, i32 noundef %size, i32 noundef %offset, ptr nocapture noundef nonnull readonly %nulls, i32 noundef %nullCount, ptr %values.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef %source, i32 noundef %size, i32 noundef %offset, ptr noundef nonnull readonly captures(none) %nulls, i32 noundef %nullCount, ptr %values.0.val) unnamed_addr #0 {
 entry:
   %vtable.i = load ptr, ptr %values.0.val, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
@@ -56815,7 +56815,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIiEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIiEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -57773,7 +57773,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIlEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIlEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -59577,7 +59577,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIfEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIfEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -60539,7 +60539,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIdEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIdEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -61505,7 +61505,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_127readLosslessTimestampValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_ENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_127readLosslessTimestampValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_ENK3$_0clEi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -61634,7 +61634,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_121readLosslessTimestampEPNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesINS0_9TimestampEEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSB_ENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox10serializer6presto12_GLOBAL__N_110readValuesINS0_9TimestampEEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSB_ENK3$_0clEi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -65341,7 +65341,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN8facebook5velox10BaseVector16wrapInDictionaryEN5boost13intrusive_ptrINS0_6BufferEEES5_iSt10shared_ptrIS1_E(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_118typeToEncodingNameERKSt10shared_ptrIKNS0_4TypeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_118typeToEncodingNameERKSt10shared_ptrIKNS0_4TypeEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %type, align 8
   %kind_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -69762,7 +69762,7 @@ declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE6resizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i64 noundef %__new_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val7 = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -69880,7 +69880,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS5_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNSt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -69897,7 +69897,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -69940,7 +69940,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializerE, i64 16), ptr %this, align 8
   %streams_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -70058,7 +70058,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializerD2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer6appendERKSt10shared_ptrINS0_9RowVectorEERKN5folly5RangeIPKNS0_10IndexRangeEEERNS0_7ScratchE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr nocapture nonnull readnone align 8 %scratch) unnamed_addr #0 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer6appendERKSt10shared_ptrINS0_9RowVectorEERKN5folly5RangeIPKNS0_10IndexRangeEEERNS0_7ScratchE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr nonnull readnone align 8 captures(none) %scratch) unnamed_addr #0 align 2 {
 entry:
   %ranges.val = load ptr, ptr %ranges, align 8
   %0 = getelementptr inbounds nuw i8, ptr %ranges, i64 8
@@ -70219,7 +70219,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer6appendERKSt10shared_ptrINS0_9RowVectorEERKN5folly5RangeIPKiEERNS0_7ScratchE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(16) %rows, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #0 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer6appendERKSt10shared_ptrINS0_9RowVectorEERKN5folly5RangeIPKiEERNS0_7ScratchE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(16) %rows, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #0 align 2 {
 entry:
   %e_.i = getelementptr inbounds nuw i8, ptr %rows, i64 8
   %0 = load ptr, ptr %e_.i, align 8
@@ -70276,7 +70276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer17maxSerializedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZNK8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer17maxSerializedSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out.i = alloca %"class.facebook::velox::serializer::presto::(anonymous namespace)::CountingOutputStream", align 8
   %streams_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -70327,7 +70327,7 @@ cond.end:                                         ; preds = %for.end, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer5flushEPNS0_12OutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %out) unnamed_addr #0 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122PrestoVectorSerializer5flushEPNS0_12OutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %out) unnamed_addr #0 align 2 {
 entry:
   %numRows_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %numRows_, align 8
@@ -70336,7 +70336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamC2ERKSt10shared_ptrIKNS0_4TypeEESt8optionalINS0_14VectorEncoding6SimpleEEPNS0_11StreamArenaEib(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 25), (28, 41), (64, 75), (80, 124), (128, 139), (144, 188), (192, 203), (208, 252), (256, 281)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 %encoding.coerce, ptr noundef %streamArena, i32 noundef %initialNumRows, i1 noundef zeroext %useLosslessTimestamp) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamC2ERKSt10shared_ptrIKNS0_4TypeEESt8optionalINS0_14VectorEncoding6SimpleEEPNS0_11StreamArenaEib(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 25), (28, 41), (64, 75), (80, 124), (128, 139), (144, 188), (192, 203), (208, 252), (256, 281)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, i64 %encoding.coerce, ptr noundef %streamArena, i32 noundef %initialNumRows, i1 noundef zeroext %useLosslessTimestamp) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.316", align 8
   %ref.tmp33 = alloca %"class.std::unique_ptr.316", align 8
@@ -70923,7 +70923,7 @@ _ZN8facebook5velox16ByteOutputStreamD2Ev.exit141: ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %children_, align 8
@@ -74915,7 +74915,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_116serializeWrappedEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchE(ptr noundef %vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rows, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_116serializeWrappedEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchE(ptr noundef %vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rows, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %innerRowsHolder = alloca %"class.facebook::velox::ScratchPtr", align 8
   %ref.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -75267,7 +75267,7 @@ _ZN8facebook5velox10ScratchPtrIiLi1EED2Ev.exit:   ; preds = %if.end49, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN8facebook5velox10serializer6presto12_GLOBAL__N_115serializeColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchEENK3$_0clEvENKUlvE_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN8facebook5velox10serializer6presto12_GLOBAL__N_115serializeColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchEENK3$_0clEvENKUlvE_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nonNullHolder.i.i2169 = alloca %"class.facebook::velox::ScratchPtr.299", align 8
   %nullsHolder.i2170 = alloca %"class.facebook::velox::ScratchPtr.298", align 8
@@ -83783,7 +83783,7 @@ return:                                           ; preds = %for.body, %_ZN8face
 declare noundef i64 @_ZNK5folly2io5Codec19maxCompressedLengthEm(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStreamD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #27 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStreamD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #27 align 2 {
 entry:
   ret void
 }
@@ -83796,7 +83796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5writeEPKcl(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture readnone %0, i64 noundef %count) unnamed_addr #28 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5writeEPKcl(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr readnone captures(none) %0, i64 noundef %count) unnamed_addr #28 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %pos_, align 8
@@ -83816,7 +83816,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { i64, i64 } @_ZNK8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5tellpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #29 align 2 {
+define internal { i64, i64 } @_ZNK8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5tellpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #29 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload = load i64, ptr %pos_, align 8
@@ -83828,7 +83828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5seekpESt4fposI11__mbstate_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 40)) %this, i64 %pos.coerce0, i64 %pos.coerce1) unnamed_addr #30 align 2 {
+define internal void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120CountingOutputStream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((24, 40)) %this, i64 %pos.coerce0, i64 %pos.coerce1) unnamed_addr #30 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %pos.coerce0, ptr %pos_, align 8
@@ -83856,10 +83856,10 @@ declare i64 @llvm.umax.i64(i64, i64) #32
 declare i64 @llvm.umin.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34
@@ -83874,7 +83874,7 @@ declare i32 @llvm.smax.i32(i32, i32) #32
 declare i32 @llvm.umax.i32(i32, i32) #32
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #32

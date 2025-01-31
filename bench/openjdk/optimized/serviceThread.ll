@@ -416,7 +416,7 @@ declare void @_ZN10JavaThread27vm_exit_on_osthread_failureEPS_(ptr noundef) loca
 declare void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef, ptr noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -472,7 +472,7 @@ declare void @_ZN11JvmtiTagMap28flush_all_object_free_eventsEv() local_unnamed_a
 declare void @_ZN11OopMapCache7cleanupEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ServiceThread22enqueue_deferred_eventEP18JvmtiDeferredEvent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ServiceThread22enqueue_deferred_eventEP18JvmtiDeferredEvent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @Service_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit.critedge, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit

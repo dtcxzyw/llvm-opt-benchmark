@@ -254,18 +254,18 @@ define dso_local noundef ptr @_ZN19AbsProgramGenerator11GetInstanceEv() local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN19AbsProgramGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN19AbsProgramGeneratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19AbsProgramGenerator, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN19AbsProgramGeneratorD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define dso_local void @_ZN19AbsProgramGeneratorD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN19AbsProgramGeneratorD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #10 align 2 {
+define dso_local void @_ZN19AbsProgramGeneratorD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   tail call void @llvm.trap() #16
   unreachable
 }

@@ -27,7 +27,7 @@ $_ZGVZN8QuantLib9SingletonINS_13SeedGeneratorESt17integral_constantIbLb0EEE8inst
 @_ZN8QuantLib17LecuyerUniformRngC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN8QuantLib17LecuyerUniformRngC2El
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17LecuyerUniformRngC2El(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 48)) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17LecuyerUniformRngC2El(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((24, 48)) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
@@ -142,7 +142,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i64 @_ZN8QuantLib13SeedGenerator3getEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define { double, double } @_ZNK8QuantLib17LecuyerUniformRng4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QuantLib17LecuyerUniformRng4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !11
   %div = sdiv i64 %0, 53668
@@ -217,7 +217,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #5
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

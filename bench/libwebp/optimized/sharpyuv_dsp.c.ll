@@ -31,7 +31,7 @@ define hidden void @SharpYuvInitDsp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @SharpYuvUpdateY_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal i64 @SharpYuvUpdateY_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #1 {
   %notmask = shl nsw i32 -1, %4
   %6 = xor i32 %notmask, -1
   %7 = icmp sgt i32 %3, 0
@@ -73,7 +73,7 @@ define internal i64 @SharpYuvUpdateY_C(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SharpYuvUpdateRGB_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) #1 {
+define internal void @SharpYuvUpdateRGB_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) #1 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -101,7 +101,7 @@ define internal void @SharpYuvUpdateRGB_C(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SharpYuvFilterRow_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+define internal void @SharpYuvFilterRow_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) #1 {
   %notmask = shl nsw i32 -1, %5
   %7 = xor i32 %notmask, -1
   %8 = icmp sgt i32 %2, 0

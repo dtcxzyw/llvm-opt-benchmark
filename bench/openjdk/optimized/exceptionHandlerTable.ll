@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN22ImplicitExceptionTableC1EPK7nmethod = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN22ImplicitExceptionTableC2EPK7nmethod
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -84,7 +84,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -116,7 +116,7 @@ define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ExceptionHandlerTableC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ExceptionHandlerTableC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %6, label %4
 
@@ -141,7 +141,7 @@ define hidden void @_ZN21ExceptionHandlerTableC2Ei(ptr nocapture noundef nonnull
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN21ExceptionHandlerTableC2EPK7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN21ExceptionHandlerTableC2EPK7nmethod(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 186
@@ -165,7 +165,7 @@ define hidden void @_ZN21ExceptionHandlerTableC2EPK7nmethod(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ExceptionHandlerTable12add_subtableEiP13GrowableArrayIlES2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ExceptionHandlerTable12add_subtableEiP13GrowableArrayIlES2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %2, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.loopexit
@@ -351,7 +351,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 186
@@ -370,7 +370,7 @@ define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN21ExceptionHandlerTable13copy_bytes_toEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN21ExceptionHandlerTable13copy_bytes_toEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -383,10 +383,10 @@ define hidden void @_ZN21ExceptionHandlerTable13copy_bytes_toEPh(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK21ExceptionHandlerTable9entry_forEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK21ExceptionHandlerTable9entry_forEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -441,7 +441,7 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread: ; preds = %16, %25, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %1, align 4
   %.not = icmp eq ptr %2, null
   %5 = load ptr, ptr @tty, align 8
@@ -502,7 +502,7 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @tty, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -532,7 +532,7 @@ define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21ExceptionHandlerTable18print_subtable_forEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK21ExceptionHandlerTable18print_subtable_forEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -584,7 +584,7 @@ _ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ImplicitExceptionTable8set_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ImplicitExceptionTable8set_sizeEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = shl i32 %1, 1
   %4 = zext i32 %3 to i64
@@ -598,7 +598,7 @@ define hidden void @_ZN22ImplicitExceptionTable8set_sizeEj(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -645,7 +645,7 @@ define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -683,7 +683,7 @@ define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -766,7 +766,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ImplicitExceptionTableC2EPK7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN22ImplicitExceptionTableC2EPK7nmethod(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -802,7 +802,7 @@ define hidden void @_ZN22ImplicitExceptionTableC2EPK7nmethod(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ImplicitExceptionTable7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN22ImplicitExceptionTable7copy_toEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -831,7 +831,7 @@ _ZN22ImplicitExceptionTable13copy_bytes_toEPhi.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ImplicitExceptionTable13copy_bytes_toEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN22ImplicitExceptionTable13copy_bytes_toEPhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -854,7 +854,7 @@ define hidden void @_ZN22ImplicitExceptionTable13copy_bytes_toEPhi(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0

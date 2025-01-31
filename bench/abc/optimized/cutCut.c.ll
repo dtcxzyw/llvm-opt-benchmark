@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [13 x i8] c"Cannot merge\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @Cut_CutAlloc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
@@ -54,10 +54,10 @@ define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Cut_CutRecycle(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
@@ -88,7 +88,7 @@ define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unna
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @Cut_CutCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = lshr i32 %3, 28
   %5 = load i32, ptr %1, align 8
@@ -134,7 +134,7 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutDupList(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Cut_CutDupList(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = icmp eq ptr %1, null
@@ -171,10 +171,10 @@ define ptr @Cut_CutDupList(ptr nocapture noundef readonly %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @Cut_CutRecycleList(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Cut_CutRecycleList(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -320,7 +320,7 @@ define void @Cut_CutNumberList(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cut_CutCreateTriv(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Cut_CutCreateTriv(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
@@ -408,7 +408,7 @@ Cut_CutAlloc.exit:                                ; preds = %2, %31
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @Cut_CutPrint(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8
   %4 = lshr i32 %3, 28
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4)
@@ -462,7 +462,7 @@ define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
@@ -483,7 +483,7 @@ define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
+define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %putchar = tail call i32 @putchar(i32 10)
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 28
@@ -626,7 +626,7 @@ define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef re
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -130,7 +130,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %9, %17
 declare void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49), i64 noundef, i64 noundef, i64 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -157,7 +157,7 @@ declare noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull a
 declare void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -181,13 +181,13 @@ define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23JfrVirtualMemoryManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManagerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JfrVirtualMemoryManagerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManagerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -220,7 +220,7 @@ _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %.lr.ph, %6
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((16, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   %5 = mul i64 %2, %1
@@ -231,7 +231,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 184) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
@@ -289,7 +289,7 @@ _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK23JfrVirtualMemoryManager11can_reserveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK23JfrVirtualMemoryManager11can_reserveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -304,7 +304,7 @@ define hidden noundef zeroext i1 @_ZNK23JfrVirtualMemoryManager11can_reserveEv(p
 declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JfrVirtualMemoryManager4linkEP23JfrVirtualMemorySegment(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManager4linkEP23JfrVirtualMemorySegment(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -330,7 +330,7 @@ define hidden void @_ZN23JfrVirtualMemoryManager4linkEP23JfrVirtualMemorySegment
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_byEP23JfrVirtualMemorySegmentm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_byEP23JfrVirtualMemorySegmentm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %6 = lshr i64 %5, 3
@@ -351,7 +351,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN23JfrVirtualMemoryManager19inc_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManager19inc_committed_wordsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
@@ -360,7 +360,7 @@ define hidden void @_ZN23JfrVirtualMemoryManager19inc_committed_wordsEm(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN23JfrVirtualMemoryManager18inc_reserved_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManager18inc_reserved_wordsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
@@ -369,14 +369,14 @@ define hidden void @_ZN23JfrVirtualMemoryManager18inc_reserved_wordsEm(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN23JfrVirtualMemoryManager7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN23JfrVirtualMemoryManager7currentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -441,7 +441,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN23JfrVirtualMemoryManager6commitEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN23JfrVirtualMemoryManager6commitEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -507,13 +507,13 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit11:     ; preds = %34, %24, %20, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16JfrVirtualMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN16JfrVirtualMemoryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JfrVirtualMemoryD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrVirtualMemoryD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -552,14 +552,14 @@ _ZN23JfrVirtualMemoryManagerD2Ev.exit:            ; preds = %_ZN23JfrVirtualMemo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK16JfrVirtualMemory24aligned_datum_size_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK16JfrVirtualMemory24aligned_datum_size_bytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 48) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -711,7 +711,7 @@ _ZN16JfrVirtualMemory19commit_memory_blockEv.exit: ; preds = %_ZN23JfrVirtualMem
 declare noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory19commit_memory_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory19commit_memory_blockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -791,7 +791,7 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit.thread: ; preds = %26, %22, %_ZN23Jfr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory6commitEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory6commitEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -858,7 +858,7 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit:       ; preds = %_ZN23JfrVirtualMemo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -868,7 +868,7 @@ define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory8is_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -878,7 +878,7 @@ define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory8is_emptyEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory9new_datumEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory9new_datumEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -974,7 +974,7 @@ _ZN16JfrVirtualMemory19commit_memory_blockEv.exit.thread: ; preds = %32, %28, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory9index_ptrEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory9index_ptrEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
@@ -985,7 +985,7 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory9index_ptrEm(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory3getEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory3getEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
@@ -996,7 +996,7 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory3getEm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK16JfrVirtualMemory5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK16JfrVirtualMemory5countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1011,7 +1011,7 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory5countEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK16JfrVirtualMemory8live_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK16JfrVirtualMemory8live_setEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1023,7 +1023,7 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory8live_setEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK16JfrVirtualMemory13reserved_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK16JfrVirtualMemory13reserved_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1035,7 +1035,7 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory13reserved_sizeEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory7compactEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory7compactEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
@@ -1065,13 +1065,13 @@ declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

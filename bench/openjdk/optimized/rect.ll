@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XRectangle = type { i16, i16, i16, i16 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %2, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7

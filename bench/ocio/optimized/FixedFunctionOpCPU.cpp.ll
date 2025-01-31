@@ -534,7 +534,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_FwdE, i64 16), ptr %this, align 8
   %m_1minusScale = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -547,7 +547,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp43 = icmp sgt i64 %numPixels, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end
@@ -669,7 +669,7 @@ for.end:                                          ; preds = %if.end25, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture nonnull readnone align 8 %data) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr nonnull readnone align 8 captures(none) %data) unnamed_addr #3 align 2 {
 entry:
   %m_1minusScale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float 0x3FC3333300000000, ptr %m_1minusScale.i, align 8
@@ -682,7 +682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp48 = icmp sgt i64 %numPixels, 0
   br i1 %cmp48, label %for.body.lr.ph, label %for.end
@@ -800,7 +800,7 @@ for.end:                                          ; preds = %if.end37, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_FwdE, i64 16), ptr %this, align 8
   %m_1minusScale = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -813,7 +813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp22 = icmp sgt i64 %numPixels, 0
   br i1 %cmp22, label %for.body.lr.ph, label %for.end
@@ -910,7 +910,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture nonnull readnone align 8 %data) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr nonnull readnone align 8 captures(none) %data) unnamed_addr #3 align 2 {
 entry:
   %m_1minusScale.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float 0x3FC70A3D80000000, ptr %m_1minusScale.i, align 8
@@ -923,7 +923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp27 = icmp sgt i64 %numPixels, 0
   br i1 %cmp27, label %for.body.lr.ph, label %for.end
@@ -1019,7 +1019,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture nonnull readnone align 8 %0, float noundef %glowGain, float noundef %glowMid) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr nonnull readnone align 8 captures(none) %0, float noundef %glowGain, float noundef %glowMid) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_FwdE, i64 16), ptr %this, align 8
   %m_glowGain = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1030,7 +1030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp28 = icmp sgt i64 %numPixels, 0
   br i1 %cmp28, label %for.body.lr.ph, label %for.end
@@ -1131,7 +1131,7 @@ for.end:                                          ; preds = %if.end14, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture nonnull readnone align 8 %data, float noundef %glowGain, float noundef %glowMid) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr nonnull readnone align 8 captures(none) %data, float noundef %glowGain, float noundef %glowMid) unnamed_addr #3 align 2 {
 entry:
   %m_glowGain.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %glowGain, ptr %m_glowGain.i, align 8
@@ -1142,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp31 = icmp sgt i64 %numPixels, 0
   br i1 %cmp31, label %for.body.lr.ph, label %for.end
@@ -1253,7 +1253,7 @@ for.end:                                          ; preds = %if.end19, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture nonnull readnone align 8 %0, float noundef %gamma) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr nonnull readnone align 8 captures(none) %0, float noundef %gamma) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_FwdE, i64 16), ptr %this, align 8
   %sub = fadd float %gamma, -1.000000e+00
@@ -1263,7 +1263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp15 = icmp sgt i64 %numPixels, 0
   br i1 %cmp15, label %for.body.lr.ph, label %for.end
@@ -1350,7 +1350,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_FwdE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr %data, align 8
@@ -1456,7 +1456,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp65 = icmp sgt i64 %numPixels, 0
   br i1 %cmp65, label %for.body.lr.ph, label %for.end
@@ -1587,7 +1587,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_FwdE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr %data, align 8
@@ -1692,7 +1692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp73 = icmp sgt i64 %numPixels, 0
   br i1 %cmp73, label %for.body.lr.ph, label %for.end
@@ -1850,7 +1850,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev25Renderer_REC2100_SurroundC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev25Renderer_REC2100_SurroundC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev25Renderer_REC2100_SurroundE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr %data, align 8
@@ -1870,7 +1870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev25Renderer_REC2100_Surround5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev25Renderer_REC2100_Surround5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp15 = icmp sgt i64 %numPixels, 0
   br i1 %cmp15, label %for.body.lr.ph, label %for.end
@@ -1921,14 +1921,14 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @powf(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSVC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSVC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSVE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSV5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSV5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp55 = icmp sgt i64 %numPixels, 0
   br i1 %cmp55, label %for.body, label %for.end
@@ -2020,14 +2020,14 @@ for.end:                                          ; preds = %if.end28, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGBC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGBC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGBE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGB5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGB5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp42 = icmp sgt i64 %numPixels, 0
   br i1 %cmp42, label %for.body, label %for.end
@@ -2106,14 +2106,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyYC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyYC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyYE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyY5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyY5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
   br i1 %cmp16, label %for.body, label %for.end
@@ -2154,14 +2154,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZ5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
   br i1 %cmp16, label %for.body, label %for.end
@@ -2204,14 +2204,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvYC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvYC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvYE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvY5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvY5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
   br i1 %cmp16, label %for.body, label %for.end
@@ -2254,14 +2254,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZ5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
   br i1 %cmp16, label %for.body, label %for.end
@@ -2306,14 +2306,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUVC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUVC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUVE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUV5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUV5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp20 = icmp sgt i64 %numPixels, 0
   br i1 %cmp20, label %for.body, label %for.end
@@ -2375,14 +2375,14 @@ for.end:                                          ; preds = %cond.end13, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZ5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp23 = icmp sgt i64 %numPixels, 0
   br i1 %cmp23, label %for.body, label %for.end
@@ -2447,7 +2447,7 @@ for.end:                                          ; preds = %cond.end11, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27GetFixedFunctionCPURendererERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %func) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27GetFixedFunctionCPURendererERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noalias writeonly sret(%"class.std::shared_ptr.13") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %func) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %func, align 8
   %m_style.i = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3252,7 +3252,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_InvESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 {

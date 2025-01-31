@@ -13,7 +13,7 @@ define noundef nonnull ptr @_ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv() local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::serialization::library_version_type") align 2 initializes((0, 2)) %0) local_unnamed_addr #1 {
+define void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::serialization::library_version_type") align 2 captures(none) initializes((0, 2)) %0) local_unnamed_addr #1 {
   store i16 20, ptr %0, align 2, !tbaa !3
   ret void
 }

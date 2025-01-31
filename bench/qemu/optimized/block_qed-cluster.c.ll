@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qed_read_l2_table, ptr @.str, ptr @.str.1, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_find_cluster, ptr @.str, ptr @.str.2, i32 91, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_find_cluster(ptr noundef %s, ptr noundef %request, i64 noundef %pos, ptr nocapture noundef %len, ptr nocapture noundef writeonly %img_offset) #0 {
+define dso_local i32 @qed_find_cluster(ptr noundef %s, ptr noundef %request, i64 noundef %pos, ptr noundef captures(none) %len, ptr noundef writeonly captures(none) %img_offset) #0 {
 entry:
   %0 = load i64, ptr %len, align 8
   %l1_shift = getelementptr inbounds nuw i8, ptr %s, i64 156

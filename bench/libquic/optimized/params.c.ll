@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dh1024_safe_prime_4 = internal constant [16 x i64] [i64 5802292317940729963, i64 -8712995370023270832, i64 1319896600921659048, i64 -7543917565666478629, i64 -1541447574348388804, i64 6936896934585491550, i64 6998237296162806620, i64 4483084360912938975, i64 4062545243323397, i64 3429243984362511176, i64 -6417900205751347806, i64 -426256083161111642, i64 3035536719735269232, i64 -7946740620755008162, i64 9003118708282128782, i64 -1831103311930203348], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_1024_160(ptr nocapture noundef readnone %engine) local_unnamed_addr #0 {
+define hidden ptr @DH_get_1024_160(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -63,7 +63,7 @@ get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_224(ptr nocapture noundef readnone %engine) local_unnamed_addr #0 {
+define hidden ptr @DH_get_2048_224(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -99,7 +99,7 @@ get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DH_get_2048_256(ptr nocapture noundef readnone %engine) local_unnamed_addr #0 {
+define hidden ptr @DH_get_2048_256(ptr noundef readnone captures(none) %engine) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @DH_new() #2
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -135,7 +135,7 @@ get_standard_parameters.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DH_check_standard_parameters(ptr nocapture noundef %dh) local_unnamed_addr #0 {
+define hidden void @DH_check_standard_parameters(ptr noundef captures(none) %dh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dh, align 8
   %cmp = icmp eq ptr %0, null

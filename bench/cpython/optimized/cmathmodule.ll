@@ -108,7 +108,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_acos(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_acos(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -243,7 +243,7 @@ exit:                                             ; preds = %entry, %if.else10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_acosh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_acosh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -374,7 +374,7 @@ exit:                                             ; preds = %entry, %if.else10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_asin(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_asin(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -417,7 +417,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_asinh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_asinh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -458,7 +458,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_atan(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_atan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -501,7 +501,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_atanh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_atanh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -542,7 +542,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_cos(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_cos(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -584,7 +584,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_cosh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_cosh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -625,7 +625,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_exp(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_exp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -801,7 +801,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isclose(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @cmath_isclose(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -973,7 +973,7 @@ exit:                                             ; preds = %land.lhs.true67, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isfinite(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_isfinite(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -998,7 +998,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isinf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_isinf(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1023,7 +1023,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_isnan(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_isnan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1046,7 +1046,7 @@ exit:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_log(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @cmath_log(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -1137,7 +1137,7 @@ exit:                                             ; preds = %if.end15.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_log10(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_log10(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1180,7 +1180,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_phase(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_phase(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1277,7 +1277,7 @@ exit:                                             ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_polar(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_polar(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1378,7 +1378,7 @@ exit:                                             ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_rect(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @cmath_rect(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1576,7 +1576,7 @@ exit:                                             ; preds = %if.else48.i, %math_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sin(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_sin(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1619,7 +1619,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sinh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_sinh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1660,7 +1660,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_sqrt(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_sqrt(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1701,7 +1701,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_tan(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_tan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -1744,7 +1744,7 @@ exit:                                             ; preds = %entry, %if.else10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cmath_tanh(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @cmath_tanh(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %arg) #10
   %call1 = tail call ptr @PyErr_Occurred() #10
@@ -4052,7 +4052,7 @@ return:                                           ; preds = %if.end26, %if.end21
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #9

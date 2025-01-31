@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [17 x i8] c"pointer expected\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @is_integer(ptr nocapture noundef readonly %ty) local_unnamed_addr #0 {
+define dso_local zeroext i1 @is_integer(ptr noundef readonly captures(none) %ty) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ty, align 8
   %1 = add i32 %0, -1
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @is_flonum(ptr nocapture noundef readonly %ty) local_unnamed_addr #0 {
+define dso_local zeroext i1 @is_flonum(ptr noundef readonly captures(none) %ty) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ty, align 8
   %.off = add i32 %0, -6
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @is_numeric(ptr nocapture noundef readonly %ty) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(none) %ty) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ty, align 8
   %switch.tableidx = add i32 %0, -1
@@ -244,7 +244,7 @@ entry:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @pointer_to(ptr noundef %base) local_unnamed_addr #5 {
@@ -750,7 +750,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usual_arith_conv(ptr nocapture noundef nonnull %lhs, ptr nocapture noundef nonnull %rhs) unnamed_addr #7 {
+define internal fastcc void @usual_arith_conv(ptr noundef nonnull captures(none) %lhs, ptr noundef nonnull captures(none) %rhs) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %lhs, align 8
   %ty1 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -95,7 +95,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MAC_CTX_dup(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define ptr @EVP_MAC_CTX_dup(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %algctx = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %algctx, align 8
@@ -154,17 +154,17 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_CTX_get0_mac(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_MAC_CTX_get0_mac(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EVP_MAC_CTX_get_mac_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %sz.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -219,7 +219,7 @@ get_size_t_ctx_param.exit:                        ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EVP_MAC_CTX_get_block_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %sz.i = alloca i64, align 8
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
@@ -274,7 +274,7 @@ get_size_t_ctx_param.exit:                        ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_init(ptr nocapture noundef readonly %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MAC_init(ptr noundef readonly captures(none) %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %init = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #0 {
+define i32 @EVP_MAC_update(ptr noundef readonly captures(none) %ctx, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %update = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_get_params(ptr nocapture noundef readonly %mac, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MAC_get_params(ptr noundef readonly captures(none) %mac, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %get_params = getelementptr inbounds nuw i8, ptr %mac, i64 112
   %0 = load ptr, ptr %get_params, align 8
@@ -488,7 +488,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MAC_CTX_get_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %get_ctx_params = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -508,7 +508,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_CTX_set_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MAC_CTX_set_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %set_ctx_params = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -528,7 +528,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_mac_get_number(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
+define i32 @evp_mac_get_number(ptr noundef readonly captures(none) %mac) local_unnamed_addr #3 {
 entry:
   %name_id = getelementptr inbounds nuw i8, ptr %mac, i64 8
   %0 = load i32, ptr %name_id, align 8
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_get0_name(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
+define ptr @EVP_MAC_get0_name(ptr noundef readonly captures(none) %mac) local_unnamed_addr #3 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %mac, i64 16
   %0 = load ptr, ptr %type_name, align 8
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MAC_get0_description(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
+define ptr @EVP_MAC_get0_description(ptr noundef readonly captures(none) %mac) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %mac, i64 24
   %0 = load ptr, ptr %description, align 8
@@ -574,7 +574,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MAC_names_do_all(ptr nocapture noundef readonly %mac, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_MAC_names_do_all(ptr noundef readonly captures(none) %mac, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %mac, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -761,7 +761,7 @@ return:                                           ; preds = %if.end, %EVP_MAC_CT
 declare ptr @EVP_MAC_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @EVP_MAC_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 
@@ -776,10 +776,10 @@ declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

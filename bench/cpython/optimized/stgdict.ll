@@ -906,7 +906,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [16 x i8] c"unexpected type\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @PyCStgDict_clone(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyCStgDict_clone(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @PyCStgDict_clear(ptr noundef %dst)
   %elements = getelementptr inbounds nuw i8, ptr %dst, i64 88
@@ -1085,7 +1085,7 @@ return:                                           ; preds = %if.end34, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PyCStgDict_clear(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc void @PyCStgDict_clear(ptr noundef captures(none) %self) unnamed_addr #0 {
 entry:
   %proto = getelementptr inbounds nuw i8, ptr %self, i64 96
   %0 = load ptr, ptr %proto, align 8
@@ -1208,17 +1208,17 @@ do.end28:                                         ; preds = %do.body22, %if.then
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @PyCStgDict_dealloc(ptr noundef %self) #0 {
@@ -1261,7 +1261,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @PyType_stgdict(ptr nocapture noundef readonly %obj) local_unnamed_addr #5 {
+define hidden ptr @PyType_stgdict(ptr noundef readonly captures(none) %obj) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -1290,7 +1290,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @PyObject_stgdict(ptr nocapture noundef readonly %self) local_unnamed_addr #5 {
+define hidden ptr @PyObject_stgdict(ptr noundef readonly captures(none) %self) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -2706,7 +2706,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2723,7 +2723,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 declare ptr @PyCField_FromDesc(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @_ctypes_alloc_format_string_with_shape(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2932,7 +2932,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyCStgDict_sizeof(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @PyCStgDict_sizeof(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call i64 @_PyDict_SizeOf(ptr noundef %self) #9
   %add = add i64 %call, 144
@@ -2986,7 +2986,7 @@ declare ptr @PySequence_Fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @MakeFields(ptr noundef %type, ptr nocapture noundef nonnull readonly %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @MakeFields(ptr noundef %type, ptr noundef nonnull readonly captures(none) %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %fname = alloca ptr, align 8
   %ftype = alloca ptr, align 8

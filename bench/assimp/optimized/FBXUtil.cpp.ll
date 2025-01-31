@@ -143,7 +143,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %tok) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %tok) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %ref.tmp20 = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4611686018427387904) i64 @_ZN6Assimp3FBX4Util24ComputeDecodedSizeBase64EPKcm(ptr nocapture noundef readonly %in, i64 noundef %inLength) local_unnamed_addr #2 {
+define hidden noundef range(i64 0, 4611686018427387904) i64 @_ZN6Assimp3FBX4Util24ComputeDecodedSizeBase64EPKcm(ptr noundef readonly captures(none) %in, i64 noundef %inLength) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %inLength, 2
   br i1 %cmp, label %return, label %if.end
@@ -313,7 +313,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX4Util12DecodeBase64EPKcmPhm(ptr nocapture noundef readonly %in, i64 noundef %inLength, ptr nocapture noundef writeonly %out, i64 noundef %maxOutLength) local_unnamed_addr #3 {
+define hidden noundef i64 @_ZN6Assimp3FBX4Util12DecodeBase64EPKcmPhm(ptr noundef readonly captures(none) %in, i64 noundef %inLength, ptr noundef writeonly captures(none) %out, i64 noundef %maxOutLength) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %maxOutLength, 0
   %cmp1 = icmp ult i64 %inLength, 2
@@ -395,7 +395,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nocapture noundef readonly %bytes, ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %string_pos) local_unnamed_addr #1 {
+define hidden void @_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef readonly captures(none) %bytes, ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %string_pos) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %bytes, align 1
   %1 = lshr i8 %0, 2
@@ -441,7 +441,7 @@ entry:
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX4Util12EncodeBase64B5cxx11EPKcm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %data, i64 noundef %length) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX4Util12EncodeBase64B5cxx11EPKcm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %data, i64 noundef %length) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %finalBytes.sroa.0 = alloca i32, align 4
@@ -652,7 +652,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5

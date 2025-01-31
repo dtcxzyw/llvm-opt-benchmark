@@ -128,7 +128,7 @@ define noundef ptr @_Z15effnDescriptioni(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z9sffn2effnPPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i32 @_Z9sffn2effnPPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %1, %10
@@ -158,10 +158,10 @@ define noundef i32 @_Z9sffn2effnPPKc(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL16lmc_exp_one_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL16lmc_exp_one_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = fneg double %0
   %4 = load double, ptr %1, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -183,7 +183,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL16lmc_exp_two_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL16lmc_exp_two_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = fneg double %0
@@ -208,7 +208,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %10, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL11lmc_exp_expdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL11lmc_exp_expdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = fneg double %0
   %4 = load double, ptr %1, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -256,7 +256,7 @@ _ZL8safe_expd.exit10:                             ; preds = %_ZL8safe_expd.exit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL14lmc_exp_5_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL14lmc_exp_5_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = fneg double %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -308,7 +308,7 @@ _ZL8safe_expd.exit11:                             ; preds = %_ZL8safe_expd.exit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL14lmc_exp_7_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL14lmc_exp_7_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -378,7 +378,7 @@ _ZL8safe_expd.exit21:                             ; preds = %_ZL8safe_expd.exit1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL14lmc_exp_9_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL14lmc_exp_9_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
@@ -469,7 +469,7 @@ _ZL8safe_expd.exit29:                             ; preds = %_ZL8safe_expd.exit2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fmul double %4, 2.000000e+00
@@ -572,7 +572,7 @@ _ZL8safe_expd.exit36:                             ; preds = %_ZL8safe_expd.exit3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load double, ptr %3, align 8
   %5 = fcmp une double %4, 0.000000e+00
@@ -606,7 +606,7 @@ define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL17lmc_errest_3_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL17lmc_errest_3_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -684,7 +684,7 @@ _ZL10safe_expm1d.exit28:                          ; preds = %26, %24, %20, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef double @_ZL15lmc_pres_6_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef double @_ZL15lmc_pres_6_parmdPKd(double noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load double, ptr %3, align 8
   %5 = fcmp une double %4, 0.000000e+00
@@ -820,10 +820,10 @@ define noundef double @_Z12fit_functioniPKdd(i32 noundef %0, ptr noundef %1, dou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z8do_lmfitiPKfPffS0_ffPK16gmx_output_env_tbiPdiPKc(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, float noundef %3, ptr noundef readonly %4, float noundef %5, float noundef %6, ptr noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef float @_Z8do_lmfitiPKfPffS0_ffPK16gmx_output_env_tbiPdiPKc(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, float noundef %3, ptr noundef readonly %4, float noundef %5, float noundef %6, ptr noundef %7, i1 noundef zeroext %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %14 = alloca ptr, align 8
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1564,7 +1564,7 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #6 {
+define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #6 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -1632,7 +1632,7 @@ _Z11effnNparamsi.exit26.us:                       ; preds = %_Z11effnNparamsi.ex
 declare noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
@@ -1644,7 +1644,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %7, ptr %6) #18
+  %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %7, ptr nonnull %6) #18
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #18
@@ -1753,7 +1753,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #9
@@ -2148,13 +2148,13 @@ declare noundef zeroext i1 @_Z10bDebugModev() local_unnamed_addr #8
 declare noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef, i32 noundef, float noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
@@ -2166,16 +2166,16 @@ declare double @llvm.sqrt.f64(double) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -49,7 +49,7 @@ $_ZGVZN8QuantLib9SingletonINS_18ObservableSettingsESt17integral_constantIbLb0EEE
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -134,10 +134,10 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25simplifyNotificationGraphERNS_10InstrumentERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS6_EEb(ptr noundef nonnull align 8 dereferenceable(104) %instrument, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, i1 noundef zeroext %unregisterCoupons) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25simplifyNotificationGraphERNS_10InstrumentERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS6_EEb(ptr noundef nonnull align 8 dereferenceable(104) %instrument, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, i1 noundef zeroext %unregisterCoupons) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp10 = alloca %"class.boost::shared_ptr.16", align 8

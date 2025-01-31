@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8proxygen6WindowC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN8proxygen6WindowC2Ej
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen6WindowC2Ej(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen6WindowC2Ej(ptr noundef nonnull align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this, i32 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store i32 0, ptr %this, align 4
@@ -70,7 +70,7 @@ cleanup.done:                                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %capacity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %capacity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
   %ref.tmp38 = alloca %"class.google::LogMessage", align 8
@@ -184,7 +184,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_.i, align 4
@@ -205,7 +205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen6Window7reserveEjb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %amount, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen6Window7reserveEjb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %amount, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %ref.tmp40 = alloca %"class.google::LogMessage", align 8
@@ -399,7 +399,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen6Window4freeEj(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %amount) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen6Window4freeEj(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %amount) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
   %ref.tmp39 = alloca %"class.google::LogMessage", align 8

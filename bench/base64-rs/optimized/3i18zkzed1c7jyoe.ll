@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ed0a7902a43aae889103a61b6651f3dd.1.llvm.18260278607425210501 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2bc48660E(ptr noalias nocapture noundef writeonly sret({ { i8, i8, i8 }, [64 x i8], [256 x i8] }) align 1 dereferenceable(323) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1, i24 %2) unnamed_addr #0 {
+define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2bc48660E(ptr noalias noundef writeonly sret({ { i8, i8, i8 }, [64 x i8], [256 x i8] }) align 1 captures(none) dereferenceable(323) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(64) %1, i24 %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -54,7 +54,7 @@ _ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E.exit: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$15internal_encode17hbc625876c38fee73E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(323) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull writeonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$15internal_encode17hbc625876c38fee73E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(323) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef nonnull writeonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 26)
   %.not = icmp ult i64 %2, 27
   br i1 %.not, label %.loopexit, label %.preheader
@@ -495,7 +495,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define { i64, i64 } @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$29internal_decoded_len_estimate17hb2977f14a1518521E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(323) %0, i64 noundef %1) unnamed_addr #2 {
+define { i64, i64 } @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$29internal_decoded_len_estimate17hb2977f14a1518521E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(323) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = and i64 %1, 3
   %4 = lshr i64 %1, 2
   %5 = icmp ne i64 %3, 0
@@ -508,7 +508,7 @@ define { i64, i64 } @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$15internal_decode17hb0a0b4550c25f168E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 1 dereferenceable(323) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$15internal_decode17hb0a0b4550c25f168E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 dereferenceable(323) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) unnamed_addr #1 personality ptr @rust_eh_personality {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 67
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !range !51, !noundef !9
@@ -741,7 +741,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %287
 
 ._crit_edge.i:                                    ; preds = %190, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit216.i"
-  tail call void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %22, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 dereferenceable(256) %9, i1 noundef zeroext %12, i8 noundef range(i8 0, 3) %14)
+  tail call void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %22, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 dereferenceable(256) %9, i1 noundef zeroext %12, i8 noundef range(i8 0, 3) %14)
   br label %_ZN6base646engine15general_purpose6decode13decode_helper17hd7378cfdb209d740E.exit
 
 139:                                              ; preds = %190, %.lr.ph1147.preheader.i
@@ -1248,13 +1248,13 @@ define noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6base646engine15general_purpose12encode_table17hb7f7d1fc469c4239E(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 1 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #3 {
+define void @_ZN6base646engine15general_purpose12encode_table17hb7f7d1fc469c4239E(ptr noalias noundef writeonly sret([64 x i8]) align 1 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(64) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E(ptr noalias nocapture noundef writeonly sret([256 x i8]) align 1 dereferenceable(256) initializes((0, 256)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #4 {
+define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E(ptr noalias noundef writeonly sret([256 x i8]) align 1 captures(none) dereferenceable(256) initializes((0, 256)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(64) %1) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 -1, i64 256, i1 false)
   br label %4
 
@@ -1310,7 +1310,7 @@ define noundef i24 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeConfig$u20$as$u20$base64..engine..Config$GT$14encode_padding17ha6871d7ae2e30b3fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #5 {
+define noundef zeroext i1 @"_ZN96_$LT$base64..engine..general_purpose..GeneralPurposeConfig$u20$as$u20$base64..engine..Config$GT$14encode_padding17ha6871d7ae2e30b3fE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !range !51, !noundef !9
   %3 = trunc nuw i8 %2 to i1
   ret i1 %3
@@ -1326,10 +1326,10 @@ declare void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, ptr noalias noundef nonnull align 1, i64 noundef, i64 noundef, ptr noalias noundef readonly align 1 dereferenceable(256), i1 noundef zeroext, i8 noundef) unnamed_addr #1
+declare hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, ptr noalias noundef nonnull align 1, i64 noundef, i64 noundef, ptr noalias noundef readonly align 1 dereferenceable(256), i1 noundef zeroext, i8 noundef) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
@@ -1344,13 +1344,13 @@ declare i32 @llvm.bswap.i32(i32) #8
 declare i64 @llvm.usub.sat.i64(i64, i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #11

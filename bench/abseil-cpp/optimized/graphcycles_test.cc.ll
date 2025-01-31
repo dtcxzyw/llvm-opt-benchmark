@@ -561,7 +561,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal31GraphCycles_RandomizedTest_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl24synchronization_internal31GraphCycles_RandomizedTest_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1.i1132 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %ref.tmp1.i = alloca %"class.absl::log_internal::LogMessageFatal", align 8
@@ -4317,7 +4317,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i111 = alloca i64, align 8
   %v.addr.i49 = alloca i32, align 4
@@ -4614,7 +4614,7 @@ if.end82:                                         ; preds = %for.end64
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i53 = alloca i32, align 4
   %v.addr.i48 = alloca i8, align 1
@@ -5045,7 +5045,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr nocapture noundef nonnull readonly %edges, i32 noundef %from, i32 noundef %to, ptr noundef nonnull %seen) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef nonnull readonly captures(none) %edges, i32 noundef %from, i32 noundef %to, ptr noundef nonnull %seen) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %from.addr = alloca i32, align 4
@@ -9760,7 +9760,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr nocapture noundef nonnull readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr noundef nonnull readonly captures(none) %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i12 = alloca i32, align 4
   %v.addr.i8 = alloca i32, align 4
@@ -9858,7 +9858,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad18, %l
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10044,12 +10044,12 @@ declare void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8
 declare void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS1_RKS4_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i12 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10226,7 +10226,7 @@ eh.resume:                                        ; preds = %if.end.i.i.i.i25, %
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10396,7 +10396,7 @@ eh.resume:                                        ; preds = %lpad47, %lpad30, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsIbTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS1_RKS4_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
@@ -10943,7 +10943,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
@@ -12203,7 +12203,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIPvDnEENS_15AssertionResultEPKcS5_RKT_RKT0_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -14599,10 +14599,10 @@ __cxx_global_var_init.69.exit:                    ; preds = %invoke.cont10.i140
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

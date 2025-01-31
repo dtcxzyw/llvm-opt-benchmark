@@ -322,7 +322,7 @@ declare zeroext i1 @qemu_ram_is_shared(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qemu_ram_is_named_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @foreach_not_ignored_block(ptr nocapture noundef readonly %func, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local i32 @foreach_not_ignored_block(ptr noundef readonly captures(none) %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
@@ -413,7 +413,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @ramblock_recv_bitmap_test(ptr nocapture noundef readonly %rb, ptr noundef %host_addr) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @ramblock_recv_bitmap_test(ptr noundef readonly captures(none) %rb, ptr noundef %host_addr) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %rb, i64 24
   %rb.val = load ptr, ptr %0, align 8
@@ -434,7 +434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @ramblock_recv_bitmap_test_byte_offset(ptr nocapture noundef readonly %rb, i64 noundef %byte_offset) local_unnamed_addr #2 {
+define dso_local zeroext i1 @ramblock_recv_bitmap_test_byte_offset(ptr noundef readonly captures(none) %rb, i64 noundef %byte_offset) local_unnamed_addr #2 {
 entry:
   %shr = lshr i64 %byte_offset, 12
   %receivedmap = getelementptr inbounds nuw i8, ptr %rb, i64 392
@@ -450,7 +450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ramblock_recv_bitmap_set(ptr nocapture noundef readonly %rb, ptr noundef %host_addr) local_unnamed_addr #3 {
+define dso_local void @ramblock_recv_bitmap_set(ptr noundef readonly captures(none) %rb, ptr noundef %host_addr) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %rb, i64 24
   %rb.val = load ptr, ptr %0, align 8
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ramblock_recv_bitmap_set_range(ptr nocapture noundef readonly %rb, ptr noundef %host_addr, i64 noundef %nr) local_unnamed_addr #0 {
+define dso_local void @ramblock_recv_bitmap_set_range(ptr noundef readonly captures(none) %rb, ptr noundef %host_addr, i64 noundef %nr) local_unnamed_addr #0 {
 entry:
   %receivedmap = getelementptr inbounds nuw i8, ptr %rb, i64 392
   %0 = load ptr, ptr %receivedmap, align 8
@@ -2320,7 +2320,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ram_postcopy_migrated_memory_release(ptr nocapture noundef readnone %ms) local_unnamed_addr #0 {
+define dso_local void @ram_postcopy_migrated_memory_release(ptr noundef readnone captures(none) %ms) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
@@ -3292,7 +3292,7 @@ declare ptr @qemu_ram_block_from_host(ptr noundef, i1 noundef zeroext, ptr nound
 declare zeroext i1 @error_report_once_cond(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @colo_record_bitmap(ptr nocapture noundef readonly %block, ptr nocapture noundef readonly %normal, i32 noundef %pages) local_unnamed_addr #0 {
+define dso_local void @colo_record_bitmap(ptr noundef readonly captures(none) %block, ptr noundef readonly captures(none) %normal, i32 noundef %pages) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -3360,7 +3360,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare zeroext i1 @buffer_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @colo_init_ram_cache() local_unnamed_addr #0 {
@@ -3743,7 +3743,7 @@ declare void @qemu_mutex_lock_ramlist() local_unnamed_addr #1
 declare void @memory_global_dirty_log_sync(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ramblock_sync_dirty_bitmap(ptr nocapture noundef %rs, ptr nocapture noundef nonnull readonly %rb) unnamed_addr #0 {
+define internal fastcc void @ramblock_sync_dirty_bitmap(ptr noundef captures(none) %rs, ptr noundef nonnull readonly captures(none) %rb) unnamed_addr #0 {
 entry:
   %used_length = getelementptr inbounds nuw i8, ptr %rb, i64 48
   %0 = load i64, ptr %used_length, align 8
@@ -4026,7 +4026,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %w
 declare void @memory_global_dirty_log_stop(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ram_state_cleanup(ptr nocapture noundef %rsp) unnamed_addr #0 {
+define internal fastcc void @ram_state_cleanup(ptr noundef captures(none) %rsp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4435,7 +4435,7 @@ declare i64 @qemu_get_be64(ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ram_block_from_stream(ptr nocapture noundef %mis, ptr noundef %f, i32 noundef range(i32 0, 4096) %flags, i32 noundef %channel) unnamed_addr #0 {
+define internal fastcc ptr @ram_block_from_stream(ptr noundef captures(none) %mis, ptr noundef %f, i32 noundef range(i32 0, 4096) %flags, i32 noundef %channel) unnamed_addr #0 {
 entry:
   %id = alloca [256 x i8], align 16
   %last_recv_block = getelementptr inbounds nuw i8, ptr %mis, i64 8
@@ -4945,7 +4945,7 @@ rcu_read_auto_unlock.exit79:                      ; preds = %if.end.i.i71, %whil
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @ram_dirty_bitmap_reload(ptr noundef %s, ptr noundef %block, ptr noundef %errp) local_unnamed_addr #0 {
@@ -5162,7 +5162,7 @@ declare void @bitmap_from_le(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare void @migration_rp_kick(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_preempt_shutdown_file(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local void @postcopy_preempt_shutdown_file(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %postcopy_qemufile_src = getelementptr inbounds nuw i8, ptr %s, i64 192
   %0 = load ptr, ptr %postcopy_qemufile_src, align 8
@@ -5197,12 +5197,12 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #10
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @ram_discard_manager_replay_populated(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @populate_read_section(ptr nocapture noundef readonly %section, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @populate_read_section(ptr noundef readonly captures(none) %section, ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
@@ -5245,7 +5245,7 @@ populate_read_range.exit:                         ; preds = %for.body.i, %int128
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @uffd_protect_section(ptr nocapture noundef readonly %section, ptr noundef %opaque) #0 {
+define internal i32 @uffd_protect_section(ptr noundef readonly captures(none) %section, ptr noundef %opaque) #0 {
 entry:
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
@@ -5275,7 +5275,7 @@ int128_get64.exit:                                ; preds = %entry
 declare i32 @uffd_change_protection(i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -5284,7 +5284,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare zeroext i1 @migrate_postcopy_preempt() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pss_find_next_dirty(ptr nocapture noundef %pss) unnamed_addr #0 {
+define internal fastcc void @pss_find_next_dirty(ptr noundef captures(none) %pss) unnamed_addr #0 {
 entry:
   %block = getelementptr inbounds nuw i8, ptr %pss, i64 16
   %0 = load ptr, ptr %block, align 8
@@ -5473,7 +5473,7 @@ declare i64 @llvm.ctpop.i64(i64) #13
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @ram_state_init(ptr nocapture noundef initializes((0, 8)) %rsp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ram_state_init(ptr noundef captures(none) initializes((0, 8)) %rsp) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(360) ptr @g_try_malloc0_n(i64 noundef 1, i64 noundef 360) #22
   store ptr %call, ptr %rsp, align 8
@@ -5542,7 +5542,7 @@ declare i64 @qemu_ram_get_used_length(ptr noundef) local_unnamed_addr #1
 declare void @ram_discard_manager_replay_discarded(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dirty_bitmap_clear_section(ptr nocapture noundef readonly %section, ptr nocapture noundef %opaque) #0 {
+define internal void @dirty_bitmap_clear_section(ptr noundef readonly captures(none) %section, ptr noundef captures(none) %opaque) #0 {
 entry:
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
@@ -5645,7 +5645,7 @@ bitmap_count_one_with_offset.exit:                ; preds = %bitmap_count_one.ex
 declare zeroext i1 @migrate_background_snapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ram_save_setup(ptr noundef %f, ptr nocapture noundef %opaque) #0 {
+define internal i32 @ram_save_setup(ptr noundef %f, ptr noundef captures(none) %opaque) #0 {
 entry:
   %cleared_bits.i.i.i.i = alloca i64, align 8
   %section.i.i.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -6307,7 +6307,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ram_save_cleanup(ptr nocapture noundef %opaque) #0 {
+define internal void @ram_save_cleanup(ptr noundef captures(none) %opaque) #0 {
 entry:
   %call = tail call zeroext i1 @migrate_background_snapshot() #18
   br i1 %call, label %while.end, label %if.then
@@ -6409,7 +6409,7 @@ xbzrle_cleanup.exit:                              ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ram_save_complete(ptr noundef %f, ptr nocapture noundef readonly %opaque) #0 {
+define internal i32 @ram_save_complete(ptr noundef %f, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %pnd.i1.i = alloca %struct.PrecopyNotifyData, align 8
   %pnd.i.i = alloca %struct.PrecopyNotifyData, align 8
@@ -6588,7 +6588,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @ram_has_postcopy(ptr nocapture readnone %opaque) #0 {
+define internal zeroext i1 @ram_has_postcopy(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !98
@@ -6641,7 +6641,7 @@ return:                                           ; preds = %for.end, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 2) i32 @ram_save_iterate(ptr noundef %f, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -2147483648, 2) i32 @ram_save_iterate(ptr noundef %f, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -6874,7 +6874,7 @@ return:                                           ; preds = %if.end74, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ram_state_pending_estimate(ptr nocapture noundef readonly %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef %can_postcopy) #0 {
+define internal void @ram_state_pending_estimate(ptr noundef readonly captures(none) %opaque, ptr noundef captures(none) %must_precopy, ptr noundef captures(none) %can_postcopy) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %migration_dirty_pages = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -6889,7 +6889,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ram_state_pending_exact(ptr nocapture noundef readonly %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef %can_postcopy) #0 {
+define internal void @ram_state_pending_exact(ptr noundef readonly captures(none) %opaque, ptr noundef captures(none) %must_precopy, ptr noundef captures(none) %can_postcopy) #0 {
 entry:
   %pnd.i1.i = alloca %struct.PrecopyNotifyData, align 8
   %pnd.i.i = alloca %struct.PrecopyNotifyData, align 8
@@ -7009,7 +7009,7 @@ if.end:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ram_load(ptr noundef %f, ptr nocapture readnone %opaque, i32 noundef %version_id) #0 {
+define internal i32 @ram_load(ptr noundef %f, ptr readnone captures(none) %opaque, i32 noundef %version_id) #0 {
 entry:
   %loaded_data.i.i = alloca ptr, align 8
   %local_err.i.i.i = alloca ptr, align 8
@@ -7637,7 +7637,7 @@ return:                                           ; preds = %entry, %trace_ram_l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ram_load_setup(ptr nocapture readnone %f, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @ram_load_setup(ptr readnone captures(none) %f, ptr readnone captures(none) %opaque) #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #20
   store ptr %call.i, ptr getelementptr inbounds nuw (i8, ptr @XBZRLE, i64 80), align 8
@@ -7707,7 +7707,7 @@ ramblock_recv_map_init.exit:                      ; preds = %while.end12.i, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ram_load_cleanup(ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @ram_load_cleanup(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !108
@@ -7791,7 +7791,7 @@ for.end30:                                        ; preds = %while.end26, %for.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @ram_resume_prepare(ptr noundef %s, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -1, 1) i32 @ram_resume_prepare(ptr noundef %s, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i36.i = alloca %struct.timeval, align 8
@@ -8127,7 +8127,7 @@ declare void @qemu_file_set_error(ptr noundef, i32 noundef) local_unnamed_addr #
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 2) i32 @ram_save_target_page_legacy(ptr nocapture noundef readonly %rs, ptr nocapture noundef %pss) #0 {
+define internal range(i32 -1, 2) i32 @ram_save_target_page_legacy(ptr noundef readonly captures(none) %rs, ptr noundef captures(none) %pss) #0 {
 entry:
   %_now.i.i22.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
@@ -8367,7 +8367,7 @@ if.end7.i.i:                                      ; preds = %if.then.i
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @XBZRLE, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %45, ptr noundef nonnull align 1 dereferenceable(4096) %add.ptr.i20, i64 4096, i1 false)
   %46 = load ptr, ptr @XBZRLE, align 8
-  %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef %45, i32 noundef 4096, ptr noundef %46, i32 noundef 4096) #18
+  %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef nonnull %45, i32 noundef 4096, ptr noundef %46, i32 noundef 4096) #18
   %last_stage11.i.i = getelementptr inbounds nuw i8, ptr %rs, i64 201
   %47 = load i8, ptr %last_stage11.i.i, align 1
   %tobool12.i.i = trunc i8 %47 to i1
@@ -9220,7 +9220,7 @@ declare void @qemu_savevm_send_recv_bitmap(ptr noundef, ptr noundef) local_unnam
 declare i32 @migration_rp_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ram_mig_ram_block_resized(ptr nocapture readnone %n, ptr noundef %host, i64 noundef %old_size, i64 noundef %new_size) #0 {
+define internal void @ram_mig_ram_block_resized(ptr readnone captures(none) %n, ptr noundef %host, i64 noundef %old_size, i64 noundef %new_size) #0 {
 entry:
   %offset = alloca i64, align 8
   %err = alloca ptr, align 8
@@ -9314,10 +9314,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #14
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [40 x i8] c"iovec too long %d > %d, change l2tpv3.h\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @net_init_l2tpv3(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_l2tpv3(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %result = alloca ptr, align 8
@@ -455,7 +455,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -478,10 +478,10 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @build_l2tpv3_vector(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @build_l2tpv3_vector(ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc_n(i64 noundef 64, i64 noundef 64) #14
   %header_size = getelementptr inbounds nuw i8, ptr %s, i64 448

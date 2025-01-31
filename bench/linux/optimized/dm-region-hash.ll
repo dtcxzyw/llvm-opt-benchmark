@@ -59,7 +59,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_rh_start_
 @llvm.compiler.used = appending global [25 x ptr] [ptr @__UNIQUE_ID___addressable_dm_region_hash_create408, ptr @__UNIQUE_ID___addressable_dm_region_hash_destroy411, ptr @__UNIQUE_ID___addressable_dm_rh_bio_to_region404, ptr @__UNIQUE_ID___addressable_dm_rh_dec420, ptr @__UNIQUE_ID___addressable_dm_rh_delay426, ptr @__UNIQUE_ID___addressable_dm_rh_dirty_log412, ptr @__UNIQUE_ID___addressable_dm_rh_flush425, ptr @__UNIQUE_ID___addressable_dm_rh_get_region_key406, ptr @__UNIQUE_ID___addressable_dm_rh_get_region_size407, ptr @__UNIQUE_ID___addressable_dm_rh_get_state413, ptr @__UNIQUE_ID___addressable_dm_rh_inc_pending419, ptr @__UNIQUE_ID___addressable_dm_rh_mark_nosync417, ptr @__UNIQUE_ID___addressable_dm_rh_recovery_end423, ptr @__UNIQUE_ID___addressable_dm_rh_recovery_in_flight424, ptr @__UNIQUE_ID___addressable_dm_rh_recovery_prepare421, ptr @__UNIQUE_ID___addressable_dm_rh_recovery_start422, ptr @__UNIQUE_ID___addressable_dm_rh_region_context405, ptr @__UNIQUE_ID___addressable_dm_rh_region_to_sector403, ptr @__UNIQUE_ID___addressable_dm_rh_start_recovery428, ptr @__UNIQUE_ID___addressable_dm_rh_stop_recovery427, ptr @__UNIQUE_ID___addressable_dm_rh_update_states418, ptr @__UNIQUE_ID_author430, ptr @__UNIQUE_ID_description429, ptr @__UNIQUE_ID_file431, ptr @__UNIQUE_ID_license432], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @dm_rh_region_to_sector(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @dm_rh_region_to_sector(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext nneg i32 %4 to i64
@@ -68,7 +68,7 @@ define dso_local i64 @dm_rh_region_to_sector(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @dm_rh_bio_to_region(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i64 @dm_rh_bio_to_region(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -82,7 +82,7 @@ define dso_local i64 @dm_rh_bio_to_region(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @dm_rh_region_context(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local ptr @dm_rh_region_context(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -90,14 +90,14 @@ define dso_local ptr @dm_rh_region_context(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @dm_rh_get_region_key(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @dm_rh_get_region_key(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i64 0, 4294967296) i64 @dm_rh_get_region_size(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @dm_rh_get_region_size(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   ret i64 %3
@@ -240,7 +240,7 @@ define dso_local noundef ptr @dm_region_hash_create(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
@@ -255,7 +255,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_region_hash_destroy(ptr noundef %0) #2 align 16 {
@@ -353,7 +353,7 @@ declare dso_local void @dm_dirty_log_destroy(ptr noundef) local_unnamed_addr #6
 declare dso_local void @mempool_exit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @dm_rh_dirty_log(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @dm_rh_dirty_log(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -431,7 +431,7 @@ declare dso_local void @_raw_read_lock(ptr noundef) local_unnamed_addr #6 sectio
 declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #6 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_rh_mark_nosync(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local void @dm_rh_mark_nosync(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1005,7 +1005,7 @@ define dso_local void @dm_rh_update_states(ptr noundef %0, i32 noundef %1) #2 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_write_lock_irq(ptr noundef) local_unnamed_addr #6 section ".spinlock.text"
@@ -1014,7 +1014,7 @@ declare dso_local void @_raw_write_lock_irq(ptr noundef) local_unnamed_addr #6 s
 declare dso_local void @_raw_write_unlock_irq(ptr noundef) local_unnamed_addr #6 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_rh_inc_pending(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local void @dm_rh_inc_pending(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -1363,7 +1363,7 @@ define dso_local i32 @dm_rh_recovery_in_flight(ptr noundef %0) #8 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dm_rh_flush(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local i32 @dm_rh_flush(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

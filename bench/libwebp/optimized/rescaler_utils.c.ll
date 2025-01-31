@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 68), (72, 84), (88, 104)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden noundef i32 @WebPRescalerInit(ptr noundef writeonly captures(none) initializes((0, 12), (16, 20), (24, 68), (72, 84), (88, 104)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = icmp slt i32 %1, %4
   %11 = zext i1 %10 to i32
   store i32 %11, ptr %0, align 8
@@ -101,12 +101,12 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @WebPRescalerDspInit() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @WebPRescalerGetScaledDimensions(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @WebPRescalerGetScaledDimensions(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr %3, align 4
   %7 = icmp eq i32 %5, 0
@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @WebPRescalerGetScaledDimensions(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @WebPRescaleNeededLines(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @WebPRescaleNeededLines(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -69,10 +69,10 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @drm_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_crtc_enable_color_mgmt(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) #0 align 16 {
@@ -124,7 +124,7 @@ define dso_local void @drm_crtc_enable_color_mgmt(ptr noundef %0, i32 noundef %1
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr nocapture noundef writeonly initializes((416, 420), (424, 432)) %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr noundef writeonly captures(none) initializes((416, 420), (424, 432)) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_modeset_acquire_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -498,7 +498,7 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -522,7 +522,7 @@ declare dso_local void @drm_modeset_acquire_fini(ptr noundef) local_unnamed_addr
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -95, 1) i32 @drm_mode_gamma_get_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -95, 1) i32 @drm_mode_gamma_get_ioctl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176

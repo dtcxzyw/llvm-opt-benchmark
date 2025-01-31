@@ -62,7 +62,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18AudioRoutingFilter5closeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define void @_ZN18AudioRoutingFilter5closeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -73,7 +73,7 @@ define void @_ZN18AudioRoutingFilter5closeEv(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK18AudioRoutingFilter4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK18AudioRoutingFilter4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -89,7 +89,7 @@ define noundef i64 @_ZNK18AudioRoutingFilter4sizeEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK18AudioRoutingFilter3posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK18AudioRoutingFilter3posEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -105,7 +105,7 @@ define noundef i64 @_ZNK18AudioRoutingFilter3posEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18AudioRoutingFilter4seekEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN18AudioRoutingFilter4seekEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -121,7 +121,7 @@ define noundef zeroext i1 @_ZN18AudioRoutingFilter4seekEx(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -209,7 +209,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
 declare noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN18AudioRoutingFilter9writeDataEPKcx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define noundef i64 @_ZN18AudioRoutingFilter9writeDataEPKcx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %1, i64 noundef %2)

@@ -10,7 +10,7 @@ $_ZN21CompressedWriteStream16write_signed_intEi = comdat any
 @_ZN21CompressedWriteStreamC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN21CompressedWriteStreamC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN20CompressedReadStream15read_signed_intEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN20CompressedReadStream15read_signed_intEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -69,7 +69,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef float @_ZN20CompressedReadStream10read_floatEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN20CompressedReadStream10read_floatEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -126,7 +126,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %1, %.preheader.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZN20CompressedReadStream11read_doubleEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZN20CompressedReadStream11read_doubleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -235,7 +235,7 @@ _ZN20CompressedReadStream8read_intEv.exit14:      ; preds = %_ZN20CompressedRead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN20CompressedReadStream9read_longEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN20CompressedReadStream9read_longEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -349,7 +349,7 @@ _ZN20CompressedReadStream15read_signed_intEv.exit12: ; preds = %_ZN20CompressedR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CompressedWriteStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN21CompressedWriteStreamC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -365,7 +365,7 @@ define hidden void @_ZN21CompressedWriteStreamC2Ei(ptr nocapture noundef nonnull
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CompressedWriteStream4growEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = shl nsw i32 %3, 1
@@ -383,10 +383,10 @@ define hidden void @_ZN21CompressedWriteStream4growEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CompressedWriteStream11write_floatEf(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21CompressedWriteStream11write_floatEf(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = bitcast float %1 to i32
   %4 = tail call noundef i32 @llvm.bitreverse.i32(i32 %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -485,7 +485,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CompressedWriteStream12write_doubleEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21CompressedWriteStream12write_doubleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = bitcast double %1 to i64
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32

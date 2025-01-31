@@ -271,7 +271,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rtsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -648,7 +648,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   br i1 %.not.i.i, label %212, label %200
 
 200:                                              ; preds = %196
-  %201 = call i32 @g_ascii_strncasecmp(ptr noundef %198, ptr noundef %168, i64 noundef %199) #10
+  %201 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %198, ptr noundef %168, i64 noundef %199) #10
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %212
 
@@ -686,7 +686,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %221 = load i32, ptr @hf_rtsp_method, align 4
   %222 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %198) #11
   %223 = trunc i64 %222 to i32
-  %224 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %221, ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %223, ptr noundef %198) #10
+  %224 = call ptr @proto_tree_add_string(ptr noundef %220, i32 noundef %221, ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %223, ptr noundef nonnull %198) #10
   %225 = icmp ult ptr %168, %170
   br i1 %225, label %.lr.ph.i.i, label %.critedge.i.i
 
@@ -1017,7 +1017,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   %379 = ptrtoint ptr %strchr122.i.i to i64
   %380 = ptrtoint ptr %378 to i64
   %381 = sub i64 %379, %380
-  %382 = call noalias ptr @g_strndup(ptr noundef %378, i64 noundef %381) #10
+  %382 = call noalias ptr @g_strndup(ptr noundef nonnull %378, i64 noundef %381) #10
   %383 = call i32 @str_to_ip(ptr noundef %382, ptr noundef nonnull %19) #10
   %.not123.i.i = icmp eq i32 %383, 0
   br i1 %.not123.i.i, label %384, label %386
@@ -1046,7 +1046,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   %392 = ptrtoint ptr %strchr.i.i to i64
   %393 = ptrtoint ptr %391 to i64
   %394 = sub i64 %392, %393
-  %395 = call noalias ptr @g_strndup(ptr noundef %391, i64 noundef %394) #10
+  %395 = call noalias ptr @g_strndup(ptr noundef nonnull %391, i64 noundef %394) #10
   %396 = call i32 @str_to_ip(ptr noundef %395, ptr noundef nonnull %19) #10
   %.not121.i.i = icmp eq i32 %396, 0
   br i1 %.not121.i.i, label %397, label %399
@@ -1100,7 +1100,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   %418 = ptrtoint ptr %strchr126.i.i to i64
   %419 = ptrtoint ptr %417 to i64
   %420 = sub i64 %418, %419
-  %421 = call noalias ptr @g_strndup(ptr noundef %417, i64 noundef %420) #10
+  %421 = call noalias ptr @g_strndup(ptr noundef nonnull %417, i64 noundef %420) #10
   %422 = call i32 @str_to_ip(ptr noundef %421, ptr noundef nonnull %19) #10
   %.not127.i.i = icmp eq i32 %422, 0
   br i1 %.not127.i.i, label %423, label %425
@@ -1639,7 +1639,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtsp_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @rtsp_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.142, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
@@ -1774,7 +1774,7 @@ declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [4 x i8], align 1
@@ -1822,7 +1822,7 @@ define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef
   br i1 %.not, label %48, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @g_ascii_strncasecmp(ptr noundef %28, ptr noundef %0, i64 noundef %29) #10
+  %31 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %28, ptr noundef %0, i64 noundef %29) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %48
 
@@ -1845,7 +1845,7 @@ define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef
   store i32 0, ptr %2, align 4
   %43 = tail call ptr @wmem_packet_scope() #10
   %44 = add i64 %.lcssa, 1
-  %45 = tail call noalias ptr @wmem_strndup(ptr noundef %43, ptr noundef %28, i64 noundef %44) #10
+  %45 = tail call noalias ptr @wmem_strndup(ptr noundef %43, ptr noundef nonnull %28, i64 noundef %44) #10
   %46 = load ptr, ptr @rtsp_stat_info, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
@@ -1922,10 +1922,10 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare i32 @get_token_len(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1933,10 +1933,10 @@ declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1961,7 +1961,7 @@ declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1981,16 +1981,16 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #7
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

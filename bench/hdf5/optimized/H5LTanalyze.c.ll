@@ -986,10 +986,10 @@ define nonnull ptr @H5LTyy_create_buffer(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unnamed_addr #3 {
@@ -1491,7 +1491,7 @@ define void @H5LTyy_delete_buffer(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @H5LTyyfree(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @H5LTyyfree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   tail call void @free(ptr noundef %0) #28
   ret void
 }
@@ -1766,15 +1766,15 @@ define noundef ptr @H5LTyy_scan_buffer(ptr noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @H5LTyy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define nonnull ptr @H5LTyy_scan_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %3 = trunc i64 %2 to i32
-  %4 = tail call ptr @H5LTyy_scan_bytes(ptr noundef %0, i32 noundef %3)
+  %4 = tail call ptr @H5LTyy_scan_bytes(ptr noundef nonnull %0, i32 noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @H5LTyy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @H5LTyy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #24
@@ -1847,7 +1847,7 @@ define nonnull ptr @H5LTyy_scan_bytes(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @H5LTyyget_lineno() local_unnamed_addr #12 {
@@ -1963,16 +1963,16 @@ H5LTyypop_buffer_state.exit:                      ; preds = %.thread.i, %5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @H5LTyyrealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define noalias noundef ptr @H5LTyyrealloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #26
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @H5LTyyerror(ptr noundef %0) local_unnamed_addr #17 {
@@ -1982,10 +1982,10 @@ define noundef i32 @H5LTyyerror(ptr noundef %0) local_unnamed_addr #17 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #19
@@ -1994,19 +1994,19 @@ declare ptr @__errno_location() local_unnamed_addr #19
 declare i32 @isatty(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #23
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #23
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

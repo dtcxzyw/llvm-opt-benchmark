@@ -86,7 +86,7 @@ define internal void @destroy_cb(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -147,7 +147,7 @@ define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @add_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal ptr @add_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -234,7 +234,7 @@ alloc_new_node.exit:                              ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @remove_cb(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @remove_cb(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -384,7 +384,7 @@ define internal void @drop_all_cb(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -423,7 +423,7 @@ define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -524,12 +524,12 @@ define internal noundef zeroext i1 @init_size_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
@@ -540,12 +540,12 @@ declare i32 @lv_cache_entry_get_size(i32 noundef) local_unnamed_addr #2
 declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cnt_get_data_size_cb(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @cnt_get_data_size_cb(ptr readnone captures(none) %0) #3 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @size_get_data_size_cb(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @size_get_data_size_cb(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !30
   %3 = trunc i64 %2 to i32
   ret i32 %3

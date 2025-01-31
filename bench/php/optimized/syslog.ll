@@ -49,10 +49,10 @@ define hidden noundef i32 @zm_deactivate_syslog(i32 noundef %0, i32 noundef %1) 
 declare void @php_closelog() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_openlog(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -164,7 +164,7 @@ declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @php_openlog(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_closelog(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_closelog(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -197,7 +197,7 @@ define hidden void @zif_closelog(ptr nocapture noundef readonly %0, ptr nocaptur
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_syslog(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44

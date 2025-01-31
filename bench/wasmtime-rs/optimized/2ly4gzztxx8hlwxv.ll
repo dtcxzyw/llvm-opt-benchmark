@@ -244,7 +244,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i8 0, 5) i8 @_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #1 {
+define hidden noundef range(i8 0, 5) i8 @_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8, !range !4, !noundef !5
   switch i16 %3, label %13 [
@@ -299,7 +299,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN14target_lexicon6triple6Triple26defa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10alloc_node17h3ee4f3bbfe32a077E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10alloc_node17h3ee4f3bbfe32a077E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i32, align 4
@@ -386,12 +386,12 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
   store ptr %3, ptr %43, align 8, !alias.scope !25, !noalias !28
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %44, align 8, !alias.scope !25, !noalias !28
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10alloc_node17h926ef3b5d9973e49E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10alloc_node17h926ef3b5d9973e49E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(64) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i32, align 4
@@ -478,12 +478,12 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
   store ptr %3, ptr %43, align 8, !alias.scope !46, !noalias !49
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %44, align 8, !alias.scope !46, !noalias !49
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h6c2497cca72f7833E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h6c2497cca72f7833E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca [8 x i32], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %4 = zext i32 %1 to i64
@@ -569,7 +569,7 @@ define hidden void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3dea36e60cf3132eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3dea36e60cf3132eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !63, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -582,7 +582,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h44b9b04eead55a53E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h44b9b04eead55a53E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -595,7 +595,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5cd364475542db6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha5cd364475542db6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
@@ -641,7 +641,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8758082c9ead0e5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8758082c9ead0e5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !80, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !24, !noundef !5
@@ -653,7 +653,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbdbfe3f439931e7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbdbfe3f439931e7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !80, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !81, !noundef !5
@@ -668,14 +668,14 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h010200a8db1dbe83E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h010200a8db1dbe83E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   %4 = tail call noundef zeroext i1 @"_ZN79_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..fmt..Display$GT$3fmt17h03de5d336755f984E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2167902fcf5e8085E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2167902fcf5e8085E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i32, align 4
@@ -707,7 +707,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   store ptr %6, ptr %17, align 8, !alias.scope !88, !noalias !91
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %18, align 8, !alias.scope !88, !noalias !91
-  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7), !noalias !82
+  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7), !noalias !82
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !87
@@ -731,7 +731,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   store ptr %3, ptr %25, align 8, !alias.scope !94, !noalias !97
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %26, align 8, !alias.scope !94, !noalias !97
-  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !82
+  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !82
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !87
@@ -743,7 +743,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4b79208cf4114216E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4b79208cf4114216E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !63, !noundef !5
   %4 = tail call noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..fmt..Display$GT$3fmt17h7db15f205d149a49E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %4
@@ -754,7 +754,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
+  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
   %6 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %0, i64 %1
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb5a77b8422d5f0f5E.exit, label %.lr.ph.i
@@ -782,7 +782,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h98dacc3e884c27aaE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define hidden noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h98dacc3e884c27aaE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -803,7 +803,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.1715581770924364745(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.1715581770924364745(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
@@ -822,7 +822,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.17155
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.15.llvm.1715581770924364745) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.15.llvm.1715581770924364745) #32
   unreachable
 
 15:                                               ; preds = %5
@@ -839,7 +839,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.17155
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.1715581770924364745(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.1715581770924364745(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = icmp ugt i64 %2, 1
   br i1 %5, label %11, label %6
@@ -867,42 +867,42 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.17
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %14, align 8, !alias.scope !110, !noalias !113
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !110, !noalias !113
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.16.llvm.1715581770924364745) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.16.llvm.1715581770924364745) #32
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17hdd09c38df8e450eeE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17hdd09c38df8e450eeE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hde081de0cb4e132aE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hde081de0cb4e132aE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromIntError$GT$17hf8b7c9d089eca43fE"(ptr noalias nocapture nonnull readnone align 1 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromIntError$GT$17hf8b7c9d089eca43fE"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr55drop_in_place$LT$cranelift_codegen..ir..types..Type$GT$17h96ded37ebbdc3746E"(ptr noalias nocapture readnone align 2 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr55drop_in_place$LT$cranelift_codegen..ir..types..Type$GT$17h96ded37ebbdc3746E"(ptr noalias readnone align 2 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr68drop_in_place$LT$$RF$cranelift_codegen..isa..call_conv..CallConv$GT$17h34caf2d6dae66ad3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr68drop_in_place$LT$$RF$cranelift_codegen..isa..call_conv..CallConv$GT$17h34caf2d6dae66ad3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr68drop_in_place$LT$cranelift_codegen..ir..extfunc..ArgumentPurpose$GT$17hb19e38baaf90aa71E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr68drop_in_place$LT$cranelift_codegen..ir..extfunc..ArgumentPurpose$GT$17hb19e38baaf90aa71E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr74drop_in_place$LT$$RF$cranelift_codegen..ir..extfunc..ArgumentExtension$GT$17hdd6f97955520ad44E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #3 {
+define internal void @"_ZN4core3ptr74drop_in_place$LT$$RF$cranelift_codegen..ir..extfunc..ArgumentExtension$GT$17hdd6f97955520ad44E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
@@ -953,7 +953,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.1715581770924364745"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #6 {
+define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.llvm.1715581770924364745"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #6 {
   %.not.i = icmp eq i64 %1, %3
   br i1 %.not.i, label %5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
 
@@ -968,7 +968,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0790920d56383082E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0790920d56383082E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !125, !noalias !128, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -976,7 +976,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0790920d5638308
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h23be198a0d5f0152E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h23be198a0d5f0152E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !133, !noalias !136, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -984,7 +984,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h23be198a0d5f015
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3cf1a08671483336E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3cf1a08671483336E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
@@ -1099,7 +1099,7 @@ _ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i: ; preds = %"_ZN77_$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h47f1851a80bc9d26E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h47f1851a80bc9d26E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !165, !noalias !168, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1107,7 +1107,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h47f1851a80bc9d2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4d97158fd85e2ceeE(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4d97158fd85e2ceeE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !173, !noalias !178, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1121,7 +1121,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4d97158fd85e2ce
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h54e6828be8b29eacE(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h54e6828be8b29eacE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !189, !noalias !192, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1129,7 +1129,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h54e6828be8b29ea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5c43cad571a755e8E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5c43cad571a755e8E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !197, !noalias !200, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1137,7 +1137,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5c43cad571a755e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h734dbcaa4c403540E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h734dbcaa4c403540E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !205, !noalias !208, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1145,7 +1145,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h734dbcaa4c40354
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7997733d1b4d6c4fE(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7997733d1b4d6c4fE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
@@ -1165,7 +1165,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7997733d1b4d6c4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7d24c08389961a85E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7d24c08389961a85E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !alias.scope !237, !noalias !240, !noundef !5
   %4 = zext i8 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1173,7 +1173,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h7d24c08389961a8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h823bf092b74c015aE(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h823bf092b74c015aE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !245, !noalias !248, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1181,7 +1181,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h823bf092b74c015
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h915f6aba41ac417aE(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h915f6aba41ac417aE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !253, !noalias !256, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = mul i64 %4, 5871781006564002453
@@ -1220,7 +1220,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h915f6aba41ac417
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc02c582b0ebe10b2E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc02c582b0ebe10b2E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !range !7, !alias.scope !262, !noalias !265, !noundef !5
   %4 = zext nneg i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 5871781006564002453
@@ -1254,7 +1254,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc02c582b0ebe10b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h14908a1899a1fa01E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h14908a1899a1fa01E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !63, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -1273,7 +1273,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h3428fb61fb330981E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h3428fb61fb330981E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
@@ -1288,7 +1288,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h3906ff1e201d0ca3E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h3906ff1e201d0ca3E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
@@ -1313,7 +1313,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h71aa5ba83d209e7aE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h71aa5ba83d209e7aE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !80, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
@@ -1328,7 +1328,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h740071eb4908d7bcE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h740071eb4908d7bcE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
@@ -1343,7 +1343,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h7e997876342cef6bE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h7e997876342cef6bE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -1358,7 +1358,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #9 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !63, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
@@ -1476,7 +1476,7 @@ _ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i: ; preds = %"_ZN77_$LT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9a0d5747b056a067E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9a0d5747b056a067E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
@@ -1491,7 +1491,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9be250b23df92096E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9be250b23df92096E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
@@ -1532,7 +1532,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hcd346ffbc7a36cbfE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hcd346ffbc7a36cbfE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
@@ -1547,7 +1547,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hea59b843171d290eE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hea59b843171d290eE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
@@ -1562,7 +1562,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hea9aa9ca5dd9b1c9E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hea9aa9ca5dd9b1c9E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
@@ -1577,7 +1577,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hf522efb721a9d380E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hf522efb721a9d380E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !68, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
@@ -1623,7 +1623,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h1b36b4805d90328bE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h1b36b4805d90328bE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
   %3 = load i16, ptr %0, align 8, !alias.scope !423, !noalias !426, !noundef !5
@@ -1639,7 +1639,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h2f67af82330e26e1E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #10 {
+define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h2f67af82330e26e1E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #10 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %3 = load i32, ptr %0, align 4, !alias.scope !431, !noalias !434, !noundef !5
@@ -1661,7 +1661,7 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4core4hash6Hasher11write_isize17hd6ac4027d04466e5E.llvm.1715581770924364745(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #11 {
+define hidden void @_ZN4core4hash6Hasher11write_isize17hd6ac4027d04466e5E.llvm.1715581770924364745(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8, !alias.scope !447, !noundef !5
   %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 5)
   %5 = xor i64 %4, %1
@@ -1671,7 +1671,7 @@ define hidden void @_ZN4core4hash6Hasher11write_isize17hd6ac4027d04466e5E.llvm.1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4core4hash6Hasher9write_i3217hce53b23871634746E.llvm.1715581770924364745(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #11 {
+define hidden void @_ZN4core4hash6Hasher9write_i3217hce53b23871634746E.llvm.1715581770924364745(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8, !alias.scope !450, !noundef !5
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
@@ -1687,7 +1687,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN51_$LT$T$u20$
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hb9e6bbb992aa27c5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
+define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hb9e6bbb992aa27c5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !458)
@@ -1827,7 +1827,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6.i: ; preds = %59, %57
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN52_$LT$regalloc2..VReg$u20$as$u20$core..hash..Hash$GT$4hash17hdd34abbbb708a431E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN52_$LT$regalloc2..VReg$u20$as$u20$core..hash..Hash$GT$4hash17hdd34abbbb708a431E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !510, !noundef !5
@@ -1839,7 +1839,7 @@ define hidden void @"_ZN52_$LT$regalloc2..VReg$u20$as$u20$core..hash..Hash$GT$4h
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN59_$LT$regalloc2..index..Inst$u20$as$u20$core..hash..Hash$GT$4hash17ha7c5748c073452acE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN59_$LT$regalloc2..index..Inst$u20$as$u20$core..hash..Hash$GT$4hash17ha7c5748c073452acE.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !513, !noundef !5
@@ -1851,7 +1851,7 @@ define hidden void @"_ZN59_$LT$regalloc2..index..Inst$u20$as$u20$core..hash..Has
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN5ahash82_$LT$impl$u20$core..default..Default$u20$for$u20$ahash..fallback_hash..AHasher$GT$7default17h531c810409c19226E.llvm.1715581770924364745"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #13 {
+define hidden void @"_ZN5ahash82_$LT$impl$u20$core..default..Default$u20$for$u20$ahash..fallback_hash..AHasher$GT$7default17h531c810409c19226E.llvm.1715581770924364745"(ptr noalias noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2611923443488327891, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1861,7 +1861,7 @@ define hidden void @"_ZN5ahash82_$LT$impl$u20$core..default..Default$u20$for$u20
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1927,7 +1927,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i: ; preds = %26, %24
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN60_$LT$regalloc2..index..Block$u20$as$u20$core..hash..Hash$GT$4hash17hb7ba7e2681c639f2E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN60_$LT$regalloc2..index..Block$u20$as$u20$core..hash..Hash$GT$4hash17hb7ba7e2681c639f2E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !533, !noundef !5
@@ -1954,7 +1954,7 @@ define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdcb3538e60343533E.llvm.1715581770924364745"(ptr noalias nocapture noundef nonnull readonly align 4 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3) unnamed_addr #15 {
+define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdcb3538e60343533E.llvm.1715581770924364745"(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) %2, i64 noundef %3) unnamed_addr #15 {
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.preheader.split, label %.thread
 
@@ -2010,7 +2010,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit: ; preds = %18, %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN78_$LT$target_lexicon..triple..CallingConvention$u20$as$u20$core..fmt..Debug$GT$3fmt17h32f009a4bc25d0aaE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN78_$LT$target_lexicon..triple..CallingConvention$u20$as$u20$core..fmt..Debug$GT$3fmt17h32f009a4bc25d0aaE.llvm.1715581770924364745"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !548, !noundef !5
   %3 = zext nneg i8 %2 to i64
@@ -2024,17 +2024,17 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h2c8e0a96a22bd3b5E.llvm.1715581770924364745"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #12 {
+define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h2c8e0a96a22bd3b5E.llvm.1715581770924364745"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #12 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h6e5c39686e7d8d03E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #12 {
+define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h6e5c39686e7d8d03E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #12 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17ha1c24febdea9db72E"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #16 {
+define hidden void @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17ha1c24febdea9db72E"(ptr noalias noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2611923443488327891, ptr %3, align 8, !alias.scope !549
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2044,7 +2044,7 @@ define hidden void @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17hc204be5c316b68c5E.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17hc204be5c316b68c5E.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -2101,7 +2101,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he27f846f80f8dcceE.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he27f846f80f8dcceE.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -2163,7 +2163,7 @@ define noundef i32 @"_ZN17cranelift_codegen8machinst3reg110_$LT$impl$u20$core..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN17cranelift_codegen8machinst3reg114_$LT$impl$u20$core..convert..From$LT$$RF$cranelift_codegen..machinst..reg..Reg$GT$$u20$for$u20$regalloc2..VReg$GT$4from17h2b38a2d49c1cb791E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #1 {
+define noundef i32 @"_ZN17cranelift_codegen8machinst3reg114_$LT$impl$u20$core..convert..From$LT$$RF$cranelift_codegen..machinst..reg..Reg$GT$$u20$for$u20$regalloc2..VReg$GT$4from17h2b38a2d49c1cb791E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   ret i32 %2
 }
@@ -2197,7 +2197,7 @@ define noundef i8 @"_ZN17cranelift_codegen8machinst3reg114_$LT$impl$u20$core..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc9Signature3new17h282ed9158f3b0297E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(56) initializes((0, 49)) %0, i8 noundef %1) unnamed_addr #16 {
+define void @_ZN17cranelift_codegen2ir7extfunc9Signature3new17h282ed9158f3b0297E(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(56) initializes((0, 49)) %0, i8 noundef %1) unnamed_addr #16 {
   store i64 0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.3.0..sroa_idx, align 8
@@ -2213,7 +2213,7 @@ define void @_ZN17cranelift_codegen2ir7extfunc9Signature3new17h282ed9158f3b0297E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc9Signature5clear17h1db9c23bbbc462adE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(56) initializes((16, 24), (40, 49)) %0, i8 noundef %1) unnamed_addr #16 {
+define void @_ZN17cranelift_codegen2ir7extfunc9Signature5clear17h1db9c23bbbc462adE(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(56) initializes((16, 24), (40, 49)) %0, i8 noundef %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2224,7 +2224,7 @@ define void @_ZN17cranelift_codegen2ir7extfunc9Signature5clear17h1db9c23bbbc462a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index17ha996f34775103d75E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #18 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index17ha996f34775103d75E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2284,7 +2284,7 @@ define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index17ha712d7bab5247d83E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #18 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index17ha712d7bab5247d83E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2344,7 +2344,7 @@ define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature20special_return
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature18uses_special_param17he1b2bd4dc5e588a4E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature18uses_special_param17he1b2bd4dc5e588a4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !570, !nonnull !5, !noundef !5
@@ -2402,7 +2402,7 @@ _ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index17ha996f34775103
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature19uses_special_return17h799ddfa47cbbe3ccE(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature19uses_special_return17h799ddfa47cbbe3ccE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1, i32 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !577)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !alias.scope !577, !nonnull !5, !noundef !5
@@ -2460,7 +2460,7 @@ _ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index17ha712d7bab524
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature18num_special_params17hd7adb135090b1f14E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
+define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature18num_special_params17hd7adb135090b1f14E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2486,7 +2486,7 @@ define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature18num_special_par
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature19num_special_returns17he91cf9872e1f297fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
+define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature19num_special_returns17he91cf9872e1f297fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2512,7 +2512,7 @@ define noundef i64 @_ZN17cranelift_codegen2ir7extfunc9Signature19num_special_ret
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature24uses_struct_return_param17h41665160cb9e1a32E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature24uses_struct_return_param17h41665160cb9e1a32E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2550,7 +2550,7 @@ _ZN17cranelift_codegen2ir7extfunc9Signature18uses_special_param17he1b2bd4dc5e588
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature15is_multi_return17h96284a160988621bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature15is_multi_return17h96284a160988621bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2608,7 +2608,7 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..extfunc..Signature$
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 0, ptr %23, align 8
-  %24 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19)
+  %24 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
   br i1 %24, label %93, label %25
 
@@ -2637,7 +2637,7 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..extfunc..Signature$
   store ptr %12, ptr %34, align 8, !alias.scope !608, !noalias !611
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 1, ptr %35, align 8, !alias.scope !608, !noalias !611
-  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !604
   br i1 %36, label %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit, label %37
@@ -2670,7 +2670,7 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..extfunc..Signature$
   store ptr null, ptr %42, align 8, !alias.scope !614, !noalias !617
   store ptr %9, ptr %43, align 8, !alias.scope !614, !noalias !617
   store i64 1, ptr %44, align 8, !alias.scope !614, !noalias !617
-  %46 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %46 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !604
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !604
@@ -2700,7 +2700,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %52, align 8
-  %53 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  %53 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   br i1 %53, label %93, label %54
 
@@ -2721,7 +2721,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 0, ptr %62, align 8
-  %63 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17)
+  %63 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   br i1 %63, label %93, label %72
 
@@ -2741,7 +2741,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   store ptr %15, ptr %69, align 8, !alias.scope !620, !noalias !623
   %70 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 1, ptr %70, align 8, !alias.scope !620, !noalias !623
-  %71 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
+  %71 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %93
@@ -2765,7 +2765,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   store ptr %6, ptr %78, align 8, !alias.scope !630, !noalias !633
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %79, align 8, !alias.scope !630, !noalias !633
-  %80 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %80 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !626
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !626
   br i1 %80, label %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit46, label %81
@@ -2798,7 +2798,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   store ptr null, ptr %86, align 8, !alias.scope !636, !noalias !639
   store ptr %3, ptr %87, align 8, !alias.scope !636, !noalias !639
   store i64 1, ptr %88, align 8, !alias.scope !636, !noalias !639
-  %90 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %90 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !626
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !626
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !626
@@ -2823,7 +2823,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit46: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 dereferenceable(12) initializes((0, 4), (8, 11)) %0, i16 noundef %1) unnamed_addr #16 {
+define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) initializes((0, 4), (8, 11)) %0, i16 noundef %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %1, ptr %3, align 4
   store i32 0, ptr %0, align 4
@@ -2833,7 +2833,7 @@ define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam3new17h841398fc81d42101E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam7special17h8af5bfc2fa9c217fE(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 dereferenceable(12) initializes((0, 11)) %0, i16 noundef %1, i32 noundef %2, i32 %3) unnamed_addr #16 {
+define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam7special17h8af5bfc2fa9c217fE(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) initializes((0, 11)) %0, i16 noundef %1, i32 noundef %2, i32 %3) unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %1, ptr %5, align 4
   store i32 %2, ptr %0, align 4
@@ -2845,7 +2845,7 @@ define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam7special17h8af5bfc2fa9c21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4uext17h871a7532022f938dE(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 dereferenceable(12) initializes((0, 11)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4uext17h871a7532022f938dE(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) initializes((0, 11)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i16, ptr %3, align 4, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2862,7 +2862,7 @@ define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4uext17h871a7532022f938dE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4sext17h1a610fe652584dfcE(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 dereferenceable(12) initializes((0, 11)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4sext17h1a610fe652584dfcE(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i16, i8, [1 x i8] }) align 4 captures(none) dereferenceable(12) initializes((0, 11)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i16, ptr %3, align 4, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2901,7 +2901,7 @@ define noundef zeroext i1 @"_ZN79_$LT$cranelift_codegen..ir..extfunc..AbiParam$u
   store ptr %7, ptr %13, align 8, !alias.scope !642, !noalias !645
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %14, align 8, !alias.scope !642, !noalias !645
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br i1 %15, label %33, label %16
@@ -2934,7 +2934,7 @@ default.unreachable26:                            ; preds = %16
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %25, align 8
-  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br i1 %26, label %33, label %19
 
@@ -2949,7 +2949,7 @@ default.unreachable26:                            ; preds = %16
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %31, align 8
-  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br i1 %32, label %33, label %19
 
@@ -2972,7 +2972,7 @@ default.unreachable26:                            ; preds = %16
   store ptr %3, ptr %38, align 8, !alias.scope !648, !noalias !651
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %39, align 8, !alias.scope !648, !noalias !651
-  %40 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %40 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %33
@@ -3013,7 +3013,7 @@ default.unreachable2:                             ; preds = %2
   store ptr %3, ptr %12, align 8, !alias.scope !654, !noalias !657
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %13, align 8, !alias.scope !654, !noalias !657
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3123,7 +3123,7 @@ define { ptr, ptr } @_ZN17cranelift_codegen2ir7extfunc11ExtFuncData7display17h30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN93_$LT$cranelift_codegen..ir..extfunc..DisplayableExtFuncData$u20$as$u20$core..fmt..Display$GT$3fmt17hed918f4b87903cb5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN93_$LT$cranelift_codegen..ir..extfunc..DisplayableExtFuncData$u20$as$u20$core..fmt..Display$GT$3fmt17hed918f4b87903cb5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3160,7 +3160,7 @@ define noundef zeroext i1 @"_ZN93_$LT$cranelift_codegen..ir..extfunc..Displayabl
   store ptr %4, ptr %21, align 8, !alias.scope !684, !noalias !687
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %22, align 8, !alias.scope !684, !noalias !687
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -3177,7 +3177,7 @@ define noundef zeroext i1 @"_ZN93_$LT$cranelift_codegen..ir..extfunc..Displayabl
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %28, align 8
-  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br i1 %29, label %30, label %11
 
@@ -3233,7 +3233,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags16set_alias_region17hcc345848c86beacaE(ptr noalias nocapture noundef align 2 dereferenceable(2) %0, i8 noundef %1) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags16set_alias_region17hcc345848c86beacaE(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0, i8 noundef %1) unnamed_addr #20 {
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !noundef !5
   %switch.cast = zext i8 %1 to i64
@@ -3247,7 +3247,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_by_name17h81f358c241691e47E(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef align 2 dereferenceable(2) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_by_name17h81f358c241691e47E(ptr noalias noundef writeonly sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 9)) %0, ptr noalias noundef align 2 captures(none) dereferenceable(2) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 {
   switch i64 %3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit82.thread" [
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
     i64 7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit49"
@@ -3457,7 +3457,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags10endianne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags14set_endianness17hafd95805209886d1E(ptr noalias nocapture noundef align 2 dereferenceable(2) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags14set_endianness17hafd95805209886d1E(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = load i16, ptr %0, align 2, !noundef !5
   %.0.v.i = select i1 %1, i16 8, i16 4
   %.0.i = or i16 %3, %.0.v.i
@@ -3510,7 +3510,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags10set_notrap17h051d779e65a0150aE(ptr noalias nocapture noundef align 2 dereferenceable(2) %0) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags10set_notrap17h051d779e65a0150aE(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0) unnamed_addr #20 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   %3 = or i16 %2, 1920
   store i16 %3, ptr %0, align 2
@@ -3531,7 +3531,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags7aligned17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_aligned17hebf0b75169347fe0E(ptr noalias nocapture noundef align 2 dereferenceable(2) %0) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_aligned17hebf0b75169347fe0E(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0) unnamed_addr #20 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   %3 = or i16 %2, 1
   store i16 %3, ptr %0, align 2
@@ -3552,7 +3552,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags8readonly1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags12set_readonly17h4578b36a66070ad2E(ptr noalias nocapture noundef align 2 dereferenceable(2) %0) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags12set_readonly17h4578b36a66070ad2E(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0) unnamed_addr #20 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   %3 = or i16 %2, 2
   store i16 %3, ptr %0, align 2
@@ -3573,7 +3573,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags7checked17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_checked17h95a5ce66bcdfd94eE(ptr noalias nocapture noundef align 2 dereferenceable(2) %0) unnamed_addr #20 {
+define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_checked17h95a5ce66bcdfd94eE(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0) unnamed_addr #20 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   %3 = or i16 %2, 16
   store i16 %3, ptr %0, align 2
@@ -3682,7 +3682,7 @@ define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code1
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %24, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.102) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.102) #32
   unreachable
 
 25:                                               ; preds = %3
@@ -3693,7 +3693,7 @@ define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..memflags..MemFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h29a4b2d04d063c1fE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..memflags..MemFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h29a4b2d04d063c1fE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3750,7 +3750,7 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..memflags..MemFlags$
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %26, align 8
-  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   br i1 %27, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
 
@@ -3777,7 +3777,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
   store ptr %11, ptr %33, align 8, !alias.scope !726, !noalias !729
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %34, align 8, !alias.scope !726, !noalias !729
-  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -3799,7 +3799,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %42, align 8
-  %43 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %43 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br i1 %43, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %36
 
@@ -3819,7 +3819,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %50, align 8
-  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br i1 %51, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %44
 
@@ -3839,7 +3839,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %58, align 8
-  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   br i1 %59, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %52
 
@@ -3859,7 +3859,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %66, align 8
-  %67 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %67 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br i1 %67, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %60
 
@@ -3887,7 +3887,7 @@ default.unreachable:                              ; preds = %68
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %75, align 8
-  %76 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %76 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br i1 %76, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %68
 
@@ -3902,7 +3902,7 @@ default.unreachable:                              ; preds = %68
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %81, align 8
-  %82 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %82 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br i1 %82, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
@@ -3917,7 +3917,7 @@ default.unreachable:                              ; preds = %68
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %87, align 8
-  %88 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %88 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br i1 %88, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
@@ -3932,7 +3932,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.ex
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.13.llvm.1715581770924364745, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %92, align 8
-  %93 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  %93 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   br i1 %93, label %94, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
@@ -3972,7 +3972,7 @@ define noundef i32 @_ZN17cranelift_codegen2ir9progpoint12ProgramPoint11unwrap_in
   store ptr %3, ptr %11, align 8, !alias.scope !732, !noalias !735
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !732, !noalias !735
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.124) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.124) #32
   unreachable
 }
 
@@ -3989,7 +3989,7 @@ define { i32, i32 } @"_ZN132_$LT$cranelift_codegen..ir..progpoint..ProgramPoint$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN85_$LT$cranelift_codegen..ir..progpoint..ProgramPoint$u20$as$u20$core..fmt..Display$GT$3fmt17h4b9ab03526599b6cE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN85_$LT$cranelift_codegen..ir..progpoint..ProgramPoint$u20$as$u20$core..fmt..Display$GT$3fmt17h4b9ab03526599b6cE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i32, align 4
@@ -4019,7 +4019,7 @@ define noundef zeroext i1 @"_ZN85_$LT$cranelift_codegen..ir..progpoint..ProgramP
   store ptr %6, ptr %16, align 8, !alias.scope !738, !noalias !741
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %17, align 8, !alias.scope !738, !noalias !741
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -4043,7 +4043,7 @@ define noundef zeroext i1 @"_ZN85_$LT$cranelift_codegen..ir..progpoint..ProgramP
   store ptr %3, ptr %24, align 8, !alias.scope !744, !noalias !747
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %25, align 8, !alias.scope !744, !noalias !747
-  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -4074,7 +4074,7 @@ define noundef zeroext i1 @"_ZN83_$LT$cranelift_codegen..ir..progpoint..ProgramP
   store ptr %3, ptr %9, align 8, !alias.scope !750, !noalias !753
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %10, align 8, !alias.scope !750, !noalias !753
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %11
@@ -4127,7 +4127,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 3, 6) i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv14triple_default17h1e692bddd2f3ce0fE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #2 {
+define noundef range(i8 3, 6) i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv14triple_default17h1e692bddd2f3ce0fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i8, align 1
@@ -4178,7 +4178,7 @@ _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833b
   store ptr %2, ptr %18, align 8, !alias.scope !759, !noalias !762
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %19, align 8, !alias.scope !759, !noalias !762
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.134.llvm.1715581770924364745) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.134.llvm.1715581770924364745) #32
   unreachable
 
 20:                                               ; preds = %1, %11, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
@@ -4187,7 +4187,7 @@ _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h60f7286af664fc54E(ptr noalias nocapture noundef readonly align 1 dereferenceable(9) %0, i8 noundef %1) unnamed_addr #2 {
+define noundef i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h60f7286af664fc54E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0, i8 noundef %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !765)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -4206,7 +4206,7 @@ define noundef i8 @_ZN17cranelift_codegen3isa9call_conv8CallConv11for_libcall17h
   store ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.12.llvm.17911367524062806024, ptr %9, align 8, !noalias !765
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %10, align 8, !noalias !765
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.1351.llvm.17911367524062806024) #32, !noalias !765
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.1351.llvm.17911367524062806024) #32, !noalias !765
   unreachable
 
 _ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit: ; preds = %2
@@ -4238,7 +4238,7 @@ default.unreachable:                              ; preds = %_ZN17cranelift_code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen3isa9call_conv8CallConv19supports_tail_calls17h6d94986884455820E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define noundef zeroext i1 @_ZN17cranelift_codegen3isa9call_conv8CallConv19supports_tail_calls17h6d94986884455820E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !81, !noundef !5
   %3 = icmp eq i8 %2, 2
   ret i1 %3
@@ -4257,7 +4257,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen3isa9call_conv8CallConv21extend
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN82_$LT$cranelift_codegen..isa..call_conv..CallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hb8b0502b9d92d5e2E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN82_$LT$cranelift_codegen..isa..call_conv..CallConv$u20$as$u20$core..fmt..Display$GT$3fmt17hb8b0502b9d92d5e2E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !81, !noundef !5
   %3 = zext nneg i8 %2 to i64
@@ -4271,7 +4271,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i8 0, 10) i8 @"_ZN90_$LT$cranelift_codegen..isa..call_conv..CallConv$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1f18e75467ac0dbfE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #21 {
+define noundef range(i8 0, 10) i8 @"_ZN90_$LT$cranelift_codegen..isa..call_conv..CallConv$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1f18e75467ac0dbfE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #21 {
   switch i64 %1, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
     i64 8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46"
@@ -4340,7 +4340,7 @@ define noundef range(i8 0, 10) i8 @"_ZN90_$LT$cranelift_codegen..isa..call_conv.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN17cranelift_codegen8settings6detail8Template5enums17h142fd15db080f210E(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, i8 noundef %1, i16 noundef %2) unnamed_addr #2 {
+define { ptr, i64 } @_ZN17cranelift_codegen8settings6detail8Template5enums17h142fd15db080f210E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, i8 noundef %1, i16 noundef %2) unnamed_addr #2 {
   %4 = zext i16 %2 to i64
   %5 = zext i8 %1 to i64
   %6 = add nuw nsw i64 %5, 1
@@ -4364,7 +4364,7 @@ define { ptr, i64 } @_ZN17cranelift_codegen8settings6detail8Template5enums17h142
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17format_toml_value17habde71dbdf6af2e7E(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, i32 %1, i8 noundef %2, ptr noalias noundef align 8 dereferenceable(64) %3) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17format_toml_value17habde71dbdf6af2e7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, i32 %1, i8 noundef %2, ptr noalias noundef align 8 dereferenceable(64) %3) unnamed_addr #2 {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
@@ -4411,7 +4411,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17form
   store ptr %12, ptr %23, align 8, !alias.scope !807, !noalias !810
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 1, ptr %24, align 8, !alias.scope !807, !noalias !810
-  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -4432,7 +4432,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17form
   store ptr %9, ptr %30, align 8, !alias.scope !813, !noalias !816
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %31, align 8, !alias.scope !813, !noalias !816
-  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %34
@@ -4460,7 +4460,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail8Template17form
   store ptr %5, ptr %39, align 8, !alias.scope !819, !noalias !822
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %40, align 8, !alias.scope !819, !noalias !822
-  %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %34
@@ -4504,7 +4504,7 @@ _ZN17cranelift_codegen8settings6detail8Template5enums17h142fd15db080f210E.exit: 
   store ptr %7, ptr %59, align 8, !alias.scope !831, !noalias !834
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %60, align 8, !alias.scope !831, !noalias !834
-  %61 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %61 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %34
@@ -4515,14 +4515,14 @@ _ZN17cranelift_codegen8settings6detail8Template5enums17h142fd15db080f210E.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN120_$LT$cranelift_codegen..settings..detail..Template$u20$as$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$GT$3len17h339260ef48f34a82E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #1 {
+define noundef i64 @"_ZN120_$LT$cranelift_codegen..settings..detail..Template$u20$as$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$GT$3len17h339260ef48f34a82E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN120_$LT$cranelift_codegen..settings..detail..Template$u20$as$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$GT$3key17hcc82b6926027e013E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
+define { ptr, i64 } @"_ZN120_$LT$cranelift_codegen..settings..detail..Template$u20$as$u20$cranelift_codegen..constant_hash..Table$LT$$RF$str$GT$$GT$3key17hcc82b6926027e013E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = icmp ult i64 %1, %4
@@ -4568,7 +4568,7 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings6detail6Detail9is_pres
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @_ZN17cranelift_codegen13constant_hash5probe17hd5e293be40df1a7fE(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 {
+define hidden { i64, i64 } @_ZN17cranelift_codegen13constant_hash5probe17hd5e293be40df1a7fE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 {
   %6 = add i64 %1, -1
   %.not = icmp eq i64 %1, 0
   %7 = and i64 %4, %6
@@ -4621,7 +4621,7 @@ define hidden { i64, i64 } @_ZN17cranelift_codegen13constant_hash5probe17hd5e293
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i64 } @_ZN17cranelift_codegen13constant_hash5probe17hf1b928a1606d5f0cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
+define hidden { i64, i64 } @_ZN17cranelift_codegen13constant_hash5probe17hf1b928a1606d5f0cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !857, !noundef !5
   %7 = add i64 %6, -1
@@ -4687,7 +4687,7 @@ define hidden noundef i64 @"_ZN74_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817hf12865f0e5dd6714E.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i8 noundef %1) unnamed_addr #11 {
+define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817hf12865f0e5dd6714E.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i8 noundef %1) unnamed_addr #11 {
   %3 = zext i8 %1 to i64
   %4 = load i64, ptr %0, align 8, !noundef !5
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
@@ -4698,7 +4698,7 @@ define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hf9b0864a744495ceE.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i16 noundef %1) unnamed_addr #11 {
+define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hf9b0864a744495ceE.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i16 noundef %1) unnamed_addr #11 {
   %3 = zext i16 %1 to i64
   %4 = load i64, ptr %0, align 8, !noundef !5
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
@@ -4709,7 +4709,7 @@ define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h4e35c7a7d907b257E.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #11 {
+define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h4e35c7a7d907b257E.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8, !noundef !5
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
@@ -4720,7 +4720,7 @@ define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h9198b0d45a62fcc4E.llvm.1715581770924364745"(ptr noalias nocapture noundef align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #11 {
+define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h9198b0d45a62fcc4E.llvm.1715581770924364745"(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 5)
   %5 = xor i64 %4, %1
@@ -4730,7 +4730,7 @@ define hidden void @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$6finish17h8163774c7a5114d9E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define hidden noundef i64 @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20$core..hash..Hasher$GT$6finish17h8163774c7a5114d9E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !noundef !5
   ret i64 %2
 }
@@ -4764,7 +4764,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exi
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN90_$LT$cranelift_codegen..machinst..blockorder..LoweredBlock$u20$as$u20$core..hash..Hash$GT$4hash17h5c9c31b364e00a2eE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN90_$LT$cranelift_codegen..machinst..blockorder..LoweredBlock$u20$as$u20$core..hash..Hash$GT$4hash17h5c9c31b364e00a2eE.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !range !7, !noundef !5
   %4 = zext nneg i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !887, !noundef !5
@@ -4802,7 +4802,7 @@ define hidden void @"_ZN90_$LT$cranelift_codegen..machinst..blockorder..LoweredB
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN78_$LT$cranelift_codegen..machinst..reg..RealReg$u20$as$u20$core..hash..Hash$GT$4hash17h3d8f1c6d7d67354eE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN78_$LT$cranelift_codegen..machinst..reg..RealReg$u20$as$u20$core..hash..Hash$GT$4hash17h3d8f1c6d7d67354eE.llvm.1715581770924364745"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i8, ptr %0, align 1, !noundef !5
   %4 = zext i8 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !892, !noundef !5
@@ -4814,7 +4814,7 @@ define hidden void @"_ZN78_$LT$cranelift_codegen..machinst..reg..RealReg$u20$as$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$core..hash..Hash$GT$4hash17h87cb4961e98de5bfE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$core..hash..Hash$GT$4hash17h87cb4961e98de5bfE.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !895, !noundef !5
@@ -4826,7 +4826,7 @@ define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Value$u20$as$u20$core..hash..Hash$GT$4hash17hae0ca2b1526b6cd3E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Value$u20$as$u20$core..hash..Hash$GT$4hash17hae0ca2b1526b6cd3E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !898, !noundef !5
@@ -4838,7 +4838,7 @@ define hidden void @"_ZN75_$LT$cranelift_codegen..ir..entities..Value$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN74_$LT$cranelift_codegen..ir..entities..Inst$u20$as$u20$core..hash..Hash$GT$4hash17h19b07ad472997738E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN74_$LT$cranelift_codegen..ir..entities..Inst$u20$as$u20$core..hash..Hash$GT$4hash17h19b07ad472997738E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !901, !noundef !5
@@ -4850,7 +4850,7 @@ define hidden void @"_ZN74_$LT$cranelift_codegen..ir..entities..Inst$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN82_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84b9ae690cc53cf3E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #14 {
+define hidden noundef zeroext i1 @"_ZN82_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84b9ae690cc53cf3E.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #14 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4988,7 +4988,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6: ; preds = %59, %57
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #22 {
+define hidden void @"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5147,7 +5147,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN89_$LT$cranelift_codegen..ir..instructions..InstructionData$u20$as$u20$core..hash..Hash$GT$4hash17hd800c8573b0952acE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define hidden void @"_ZN89_$LT$cranelift_codegen..ir..instructions..InstructionData$u20$as$u20$core..hash..Hash$GT$4hash17hd800c8573b0952acE.llvm.1715581770924364745"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr, {} }, align 8
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
@@ -6267,7 +6267,7 @@ default.unreachable64:                            ; preds = %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN71_$LT$cranelift_codegen..ir..types..Type$u20$as$u20$core..hash..Hash$GT$4hash17h05258d83f7f3269dE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN71_$LT$cranelift_codegen..ir..types..Type$u20$as$u20$core..hash..Hash$GT$4hash17h05258d83f7f3269dE.llvm.1715581770924364745"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i16, ptr %0, align 2, !noundef !5
   %4 = zext i16 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !1441, !noundef !5
@@ -6279,7 +6279,7 @@ define hidden void @"_ZN71_$LT$cranelift_codegen..ir..types..Type$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$cranelift_codegen..ir..ValueLabel$u20$as$u20$core..hash..Hash$GT$4hash17he2d90e6a1bfaa4aaE.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN70_$LT$cranelift_codegen..ir..ValueLabel$u20$as$u20$core..hash..Hash$GT$4hash17he2d90e6a1bfaa4aaE.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !1444, !noundef !5
@@ -6291,7 +6291,7 @@ define hidden void @"_ZN70_$LT$cranelift_codegen..ir..ValueLabel$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN81_$LT$cranelift_codegen..alias_analysis..MemoryLoc$u20$as$u20$core..hash..Hash$GT$4hash17hec3f98f537603362E.llvm.1715581770924364745"(ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN81_$LT$cranelift_codegen..alias_analysis..MemoryLoc$u20$as$u20$core..hash..Hash$GT$4hash17hec3f98f537603362E.llvm.1715581770924364745"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = zext i32 %3 to i64
   %5 = load i64, ptr %1, align 8, !alias.scope !1447, !noundef !5
@@ -10947,7 +10947,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3262:                                             ; preds = %3268, %1651
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1641)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1641, ptr noalias noundef nonnull align 8 dereferenceable(40) %1642, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1641, ptr noalias noundef nonnull align 8 dereferenceable(40) %1642, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3265 unwind label %3263
 
 .thread16499:                                     ; preds = %.thread19809.loopexit, %.thread19809.loopexit.split-lp, %.thread19794.loopexit, %.thread19794.loopexit.split-lp, %.thread19779.loopexit, %.thread19779.loopexit.split-lp, %.loopexit21425, %.loopexit.split-lp21426, %.loopexit21433, %.loopexit.split-lp21434, %.loopexit21438, %.loopexit.split-lp21439, %.loopexit21443, %.loopexit.split-lp21444, %.loopexit21448, %.loopexit.split-lp21449, %.loopexit21453, %.loopexit.split-lp21454, %.loopexit21458, %.loopexit.split-lp21459, %.loopexit21463, %.loopexit.split-lp21464, %.thread19678.loopexit, %.thread19678.loopexit.split-lp, %.thread19668.loopexit, %.thread19668.loopexit.split-lp, %.loopexit21474, %.loopexit.split-lp21475, %.loopexit21479, %.loopexit.split-lp21480, %.loopexit21484, %.loopexit.split-lp21485, %.loopexit21489, %.loopexit.split-lp21490, %.loopexit21498, %.loopexit.split-lp21499, %.loopexit21503, %.loopexit.split-lp21504, %.loopexit21508, %.loopexit.split-lp21509, %.loopexit21513, %.loopexit.split-lp21514, %.loopexit21518, %.loopexit.split-lp21519, %.loopexit21523, %.loopexit.split-lp21524, %.loopexit21529, %.loopexit.split-lp21530, %.loopexit21538, %.loopexit.split-lp21539, %.loopexit21621, %.loopexit.split-lp21622, %.thread18955.loopexit, %.thread18955.loopexit.split-lp, %.thread18937.loopexit, %.thread18937.loopexit.split-lp, %.loopexit21553, %.loopexit.split-lp21554, %.loopexit21562, %.loopexit.split-lp21563, %.loopexit21571, %.loopexit.split-lp21572, %.loopexit21580, %.loopexit.split-lp21581, %.loopexit21589, %.loopexit.split-lp21590, %.loopexit21598, %.loopexit.split-lp21599, %.loopexit21607, %.loopexit.split-lp21608, %.loopexit21616, %.loopexit.split-lp21617, %.loopexit21626, %.loopexit.split-lp21627, %.loopexit21634, %.loopexit.split-lp21635, %.loopexit21642, %.loopexit.split-lp21643, %.loopexit21650, %.loopexit.split-lp21651, %.loopexit21658, %.loopexit.split-lp21659, %.loopexit21666, %.loopexit.split-lp21667, %.loopexit21678, %.loopexit.split-lp21679, %.loopexit21687, %.loopexit.split-lp21688, %.loopexit21699, %.loopexit.split-lp21700, %.loopexit21704, %.loopexit.split-lp21705, %.loopexit21709, %.loopexit.split-lp21710, %.loopexit21714, %.loopexit.split-lp21715, %.loopexit21719, %.loopexit.split-lp21720, %.loopexit21730, %.loopexit.split-lp21731, %.loopexit21742, %.loopexit.split-lp21743, %.loopexit21750, %.loopexit.split-lp21751, %.loopexit21755, %.loopexit.split-lp21756, %.loopexit21760, %.loopexit.split-lp21761, %.loopexit21765, %.loopexit.split-lp21766, %.loopexit21770, %.loopexit.split-lp21771, %16039, %16009, %16002, %15966, %15962, %15926, %15922, %15870, %15857, %.thread19749, %15739, %15691, %15672, %15651, %15638, %15617, %15604, %15583, %15570, %15549, %15536, %15266, %15247, %15226, %15219, %15199, %15195, %15161, %15151, %15129, %15116, %14997, %14987, %14953, %14943, %.thread19589, %14712, %14653, %14640, %.thread19565, %14532, %14446, %14433, %.thread19541, %14375, %14172, %14162, %14081, %14071, %.thread18998, %12250, %.thread18970, %12021, %11956, %11940, %11875, %11871, %.loopexit.split-lp21330, %11757, %.loopexit.split-lp21325, %11643, %.thread18850, %11426, %.thread18792, %11209, %.thread18716, %10905, %.thread18644, %10601, %.thread18479, %10108, %.thread18334, %9642, %.thread18318, %9592, %.thread18185, %9022, %.thread18086, %8570, %.thread17995, %8231, %.thread17949, %7947, %.thread17899, %7663, %.thread17774, %7186, %.thread17116, %5717, %.thread16979, %5117, %.thread16959, %5001, %.thread16933, %4887, %.thread16911, %4832, %.thread16895, %4777, %.thread16780, %4356, %.thread16684, %3955, %.thread16571, %3501, %.thread16555, %3446, %.thread16539, %3391, %.thread16523, %3336, %.thread16507, %3263
@@ -11113,7 +11113,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3291:                                             ; preds = %3301, %3287
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1638)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1638, ptr noalias noundef nonnull align 8 dereferenceable(40) %1639, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1638, ptr noalias noundef nonnull align 8 dereferenceable(40) %1639, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3294 unwind label %3292
 
 .thread16507:                                     ; preds = %.loopexit20962, %.loopexit.split-lp20963, %3335, %3311, %3292
@@ -11205,7 +11205,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3310:                                             ; preds = %3320, %3309
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1635)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1635, ptr noalias noundef nonnull align 8 dereferenceable(40) %1636, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1635, ptr noalias noundef nonnull align 8 dereferenceable(40) %1636, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3313 unwind label %3311
 
 3311:                                             ; preds = %3321, %3325, %3323, %3310
@@ -11370,7 +11370,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3348:                                             ; preds = %3358, %3344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1632)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1632, ptr noalias noundef nonnull align 8 dereferenceable(40) %1633, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1632, ptr noalias noundef nonnull align 8 dereferenceable(40) %1633, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3351 unwind label %3349
 
 .thread16523:                                     ; preds = %.loopexit20967, %.loopexit.split-lp20968, %3390, %3368, %3349
@@ -11462,7 +11462,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3367:                                             ; preds = %3377, %3366
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1629)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1629, ptr noalias noundef nonnull align 8 dereferenceable(40) %1630, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1629, ptr noalias noundef nonnull align 8 dereferenceable(40) %1630, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3370 unwind label %3368
 
 3368:                                             ; preds = %3378, %3382, %3380, %3367
@@ -11621,7 +11621,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3403:                                             ; preds = %3413, %3399
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1626)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1626, ptr noalias noundef nonnull align 8 dereferenceable(40) %1627, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1626, ptr noalias noundef nonnull align 8 dereferenceable(40) %1627, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3406 unwind label %3404
 
 .thread16539:                                     ; preds = %.loopexit20972, %.loopexit.split-lp20973, %3445, %3423, %3404
@@ -11713,7 +11713,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3422:                                             ; preds = %3432, %3421
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1623)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1623, ptr noalias noundef nonnull align 8 dereferenceable(40) %1624, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1623, ptr noalias noundef nonnull align 8 dereferenceable(40) %1624, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3425 unwind label %3423
 
 3423:                                             ; preds = %3433, %3437, %3435, %3422
@@ -11872,7 +11872,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3458:                                             ; preds = %3468, %3454
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1620)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1620, ptr noalias noundef nonnull align 8 dereferenceable(40) %1621, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1620, ptr noalias noundef nonnull align 8 dereferenceable(40) %1621, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3461 unwind label %3459
 
 .thread16555:                                     ; preds = %.loopexit20977, %.loopexit.split-lp20978, %3500, %3478, %3459
@@ -11964,7 +11964,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3477:                                             ; preds = %3487, %3476
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1617)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1617, ptr noalias noundef nonnull align 8 dereferenceable(40) %1618, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1617, ptr noalias noundef nonnull align 8 dereferenceable(40) %1618, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3480 unwind label %3478
 
 3478:                                             ; preds = %3488, %3492, %3490, %3477
@@ -12139,7 +12139,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3521:                                             ; preds = %3527, %3509
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1614)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1614, ptr noalias noundef nonnull align 8 dereferenceable(40) %1615, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1614, ptr noalias noundef nonnull align 8 dereferenceable(40) %1615, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3524 unwind label %3522
 
 .thread16571:                                     ; preds = %.thread16663.loopexit, %.thread16663.loopexit.split-lp, %.thread16653.loopexit, %.thread16653.loopexit.split-lp, %.thread16613.loopexit, %.thread16613.loopexit.split-lp, %.thread16603.loopexit, %.thread16603.loopexit.split-lp, %.thread16575.loopexit, %.thread16575.loopexit.split-lp, %3954, %.thread16666, %3862, %3853, %3807, %.thread16616, %3641, %3619, %3611, %.thread16578, %3522
@@ -12216,7 +12216,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3536:                                             ; preds = %3543, %3535
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1611)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1611, ptr noalias noundef nonnull align 8 dereferenceable(40) %1612, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1611, ptr noalias noundef nonnull align 8 dereferenceable(40) %1612, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3539 unwind label %3537
 
 .thread16578:                                     ; preds = %.thread16585.loopexit, %.thread16585.loopexit.split-lp, %3610, %.thread16588, %3537
@@ -12337,7 +12337,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3566:                                             ; preds = %3576, %3565
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1608)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1608, ptr noalias noundef nonnull align 8 dereferenceable(40) %1609, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1608, ptr noalias noundef nonnull align 8 dereferenceable(40) %1609, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3569 unwind label %3567
 
 .thread16588:                                     ; preds = %.loopexit20373, %.loopexit.split-lp20374, %3609, %3586, %3567
@@ -12432,7 +12432,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3585:                                             ; preds = %3594, %3584
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1605)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1605, ptr noalias noundef nonnull align 8 dereferenceable(40) %1606, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1605, ptr noalias noundef nonnull align 8 dereferenceable(40) %1606, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3588 unwind label %3586
 
 3586:                                             ; preds = %3599, %3597, %3595, %3601, %3585
@@ -12596,7 +12596,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3618:                                             ; preds = %3628, %3617
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1602)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1602, ptr noalias noundef nonnull align 8 dereferenceable(40) %1603, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1602, ptr noalias noundef nonnull align 8 dereferenceable(40) %1603, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3621 unwind label %3619
 
 3619:                                             ; preds = %3629, %3633, %3631, %3618
@@ -12744,7 +12744,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3662:                                             ; preds = %3666, %3660
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1599)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1599, ptr noalias noundef nonnull align 8 dereferenceable(40) %1600, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1599, ptr noalias noundef nonnull align 8 dereferenceable(40) %1600, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3663 unwind label %.loopexit20612
 
 .thread16616:                                     ; preds = %.thread16633.loopexit, %.thread16633.loopexit.split-lp, %.thread16623.loopexit, %.thread16623.loopexit.split-lp, %.loopexit20612, %.loopexit.split-lp20613, %3771, %.thread16636, %3700, %3678
@@ -12828,7 +12828,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3677:                                             ; preds = %3687, %3676
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1596)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1596, ptr noalias noundef nonnull align 8 dereferenceable(40) %1597, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1596, ptr noalias noundef nonnull align 8 dereferenceable(40) %1597, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3680 unwind label %3678
 
 3678:                                             ; preds = %3690, %3688, %3692, %3677
@@ -12940,7 +12940,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3703:                                             ; preds = %3710, %3702
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1593)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1593, ptr noalias noundef nonnull align 8 dereferenceable(40) %1594, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1593, ptr noalias noundef nonnull align 8 dereferenceable(40) %1594, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3704 unwind label %.loopexit20383
 
 .thread16636:                                     ; preds = %.thread16643.loopexit, %.thread16643.loopexit.split-lp, %.loopexit20383, %.loopexit.split-lp20384, %3770, %3738
@@ -13073,7 +13073,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i: ; preds 
 
 3737:                                             ; preds = %3746, %3736
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1590)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1590, ptr noalias noundef nonnull align 8 dereferenceable(40) %1591, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1590, ptr noalias noundef nonnull align 8 dereferenceable(40) %1591, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3739 unwind label %.loopexit20378
 
 .loopexit20378:                                   ; preds = %3737, %3753, %3762, %3760
@@ -13321,7 +13321,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7086: ; pr
 
 3806:                                             ; preds = %3815, %3796
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1587)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1587, ptr noalias noundef nonnull align 8 dereferenceable(40) %1588, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1587, ptr noalias noundef nonnull align 8 dereferenceable(40) %1588, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3808 unwind label %.loopexit20607
 
 .loopexit20607:                                   ; preds = %3806, %3822, %3839, %3833, %3838
@@ -13430,7 +13430,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7118: ; pr
   store ptr null, ptr %3186, align 8, !alias.scope !1767, !noalias !1770
   store ptr %526, ptr %3187, align 8, !alias.scope !1767, !noalias !1770
   store i64 1, ptr %3188, align 8, !alias.scope !1767, !noalias !1770
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %527, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %527, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7124 unwind label %.loopexit20607
 
 .noexc7124:                                       ; preds = %3838
@@ -13528,7 +13528,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7118: ; pr
 
 3865:                                             ; preds = %3872, %3864
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1584)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1584, ptr noalias noundef nonnull align 8 dereferenceable(40) %1585, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1584, ptr noalias noundef nonnull align 8 dereferenceable(40) %1585, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3868 unwind label %3866
 
 .thread16666:                                     ; preds = %.thread16673.loopexit, %.thread16673.loopexit.split-lp, %3924, %3884, %3866
@@ -13607,7 +13607,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7118: ; pr
 
 3883:                                             ; preds = %3893, %3882
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1581)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1581, ptr noalias noundef nonnull align 8 dereferenceable(40) %1582, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1581, ptr noalias noundef nonnull align 8 dereferenceable(40) %1582, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3886 unwind label %3884
 
 3884:                                             ; preds = %3909, %3904, %3898, %3896, %3894, %3910, %3883
@@ -13699,7 +13699,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7118: ; pr
   store ptr null, ptr %3227, align 8, !alias.scope !1805, !noalias !1808
   store ptr %520, ptr %3228, align 8, !alias.scope !1805, !noalias !1808
   store i64 1, ptr %3229, align 8, !alias.scope !1805, !noalias !1808
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %521, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %521, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7164 unwind label %3884
 
 .noexc7164:                                       ; preds = %3909
@@ -13925,7 +13925,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3977:                                             ; preds = %3983, %3963
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1578)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1578, ptr noalias noundef nonnull align 8 dereferenceable(40) %1579, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1578, ptr noalias noundef nonnull align 8 dereferenceable(40) %1579, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3980 unwind label %3978
 
 .thread16684:                                     ; preds = %.thread16751.loopexit, %.thread16751.loopexit.split-lp, %.thread16741.loopexit, %.thread16741.loopexit.split-lp, %.thread16701.loopexit, %.thread16701.loopexit.split-lp, %.thread16691.loopexit, %.thread16691.loopexit.split-lp, %4355, %.thread16754, %4236, %4227, %4181, %.thread16704, %4016, %3994, %3978
@@ -14000,7 +14000,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 3993:                                             ; preds = %4003, %3992
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1575)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1575, ptr noalias noundef nonnull align 8 dereferenceable(40) %1576, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1575, ptr noalias noundef nonnull align 8 dereferenceable(40) %1576, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %3996 unwind label %3994
 
 3994:                                             ; preds = %4004, %4008, %4006, %3993
@@ -14151,7 +14151,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4036:                                             ; preds = %4042, %4035
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1572)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1572, ptr noalias noundef nonnull align 8 dereferenceable(40) %1573, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1572, ptr noalias noundef nonnull align 8 dereferenceable(40) %1573, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4037 unwind label %.loopexit20632
 
 .thread16704:                                     ; preds = %.thread16721.loopexit, %.thread16721.loopexit.split-lp, %.thread16711.loopexit, %.thread16711.loopexit.split-lp, %.loopexit20632, %.loopexit.split-lp20633, %4154, %.thread16724, %4083, %4050
@@ -14224,7 +14224,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4049:                                             ; preds = %4058, %4048
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1569)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1569, ptr noalias noundef nonnull align 8 dereferenceable(40) %1570, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1569, ptr noalias noundef nonnull align 8 dereferenceable(40) %1570, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4051 unwind label %.loopexit20388
 
 .loopexit20388:                                   ; preds = %4049, %4065, %4074, %4072
@@ -14380,7 +14380,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7238: ; pr
 
 4086:                                             ; preds = %4093, %4085
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1566)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1566, ptr noalias noundef nonnull align 8 dereferenceable(40) %1567, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1566, ptr noalias noundef nonnull align 8 dereferenceable(40) %1567, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4087 unwind label %.loopexit20398
 
 .thread16724:                                     ; preds = %.thread16731.loopexit, %.thread16731.loopexit.split-lp, %.loopexit20398, %.loopexit.split-lp20399, %4153, %4121
@@ -14513,7 +14513,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7259: ; pr
 
 4120:                                             ; preds = %4129, %4119
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1563)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1563, ptr noalias noundef nonnull align 8 dereferenceable(40) %1564, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1563, ptr noalias noundef nonnull align 8 dereferenceable(40) %1564, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4122 unwind label %.loopexit20393
 
 .loopexit20393:                                   ; preds = %4120, %4136, %4145, %4143
@@ -14736,7 +14736,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7278: ; pr
 
 4180:                                             ; preds = %4189, %4170
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1560)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1560, ptr noalias noundef nonnull align 8 dereferenceable(40) %1561, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1560, ptr noalias noundef nonnull align 8 dereferenceable(40) %1561, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4182 unwind label %.loopexit20627
 
 .loopexit20627:                                   ; preds = %4180, %4196, %4213, %4207, %4212
@@ -14845,7 +14845,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7309: ; pr
   store ptr null, ptr %3134, align 8, !alias.scope !1935, !noalias !1938
   store ptr %509, ptr %3135, align 8, !alias.scope !1935, !noalias !1938
   store i64 1, ptr %3136, align 8, !alias.scope !1935, !noalias !1938
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %510, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %510, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7316 unwind label %.loopexit20627
 
 .noexc7316:                                       ; preds = %4212
@@ -14944,7 +14944,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7309: ; pr
 
 4239:                                             ; preds = %4247, %4238
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1557)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1557, ptr noalias noundef nonnull align 8 dereferenceable(40) %1558, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1557, ptr noalias noundef nonnull align 8 dereferenceable(40) %1558, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4240 unwind label %.loopexit21000
 
 .thread16754:                                     ; preds = %.thread16761.loopexit, %.thread16761.loopexit.split-lp, %.loopexit21000, %.loopexit.split-lp21001, %4354, %4311
@@ -15020,7 +15020,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7309: ; pr
   store ptr null, ptr %3153, align 8, !alias.scope !1961, !noalias !1964
   store ptr %506, ptr %3154, align 8, !alias.scope !1961, !noalias !1964
   store i64 1, ptr %3155, align 8, !alias.scope !1961, !noalias !1964
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %507, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %507, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7332 unwind label %.loopexit21000
 
 .noexc7332:                                       ; preds = %4260
@@ -15155,7 +15155,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7309: ; pr
 
 4310:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit", %4309
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1554)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1554, ptr noalias noundef nonnull align 8 dereferenceable(40) %1555, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1554, ptr noalias noundef nonnull align 8 dereferenceable(40) %1555, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4313 unwind label %4311
 
 4311:                                             ; preds = %4344, %4340, %4346, %4342, %4310
@@ -15395,7 +15395,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4374:                                             ; preds = %4380, %4364
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1551)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1551, ptr noalias noundef nonnull align 8 dereferenceable(40) %1552, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1551, ptr noalias noundef nonnull align 8 dereferenceable(40) %1552, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4377 unwind label %4375
 
 .thread16780:                                     ; preds = %.thread16857.loopexit, %.thread16857.loopexit.split-lp, %.thread16835.loopexit, %.thread16835.loopexit.split-lp, %.thread16825.loopexit, %.thread16825.loopexit.split-lp, %.thread16815.loopexit, %.thread16815.loopexit.split-lp, %.thread16787.loopexit, %.thread16787.loopexit.split-lp, %4776, %.thread16860, %4648, %.thread16838, %4534, %4498, %4494, %4472, %4464, %.thread16790, %4375
@@ -15472,7 +15472,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4389:                                             ; preds = %4396, %4388
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1548)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1548, ptr noalias noundef nonnull align 8 dereferenceable(40) %1549, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1548, ptr noalias noundef nonnull align 8 dereferenceable(40) %1549, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4392 unwind label %4390
 
 .thread16790:                                     ; preds = %.thread16797.loopexit, %.thread16797.loopexit.split-lp, %4463, %.thread16800, %4390
@@ -15593,7 +15593,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4419:                                             ; preds = %4429, %4418
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1545)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1545, ptr noalias noundef nonnull align 8 dereferenceable(40) %1546, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1545, ptr noalias noundef nonnull align 8 dereferenceable(40) %1546, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4422 unwind label %4420
 
 .thread16800:                                     ; preds = %.loopexit20403, %.loopexit.split-lp20404, %4462, %4439, %4420
@@ -15688,7 +15688,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4438:                                             ; preds = %4447, %4437
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1542)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1542, ptr noalias noundef nonnull align 8 dereferenceable(40) %1543, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1542, ptr noalias noundef nonnull align 8 dereferenceable(40) %1543, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4441 unwind label %4439
 
 4439:                                             ; preds = %4452, %4450, %4448, %4454, %4438
@@ -15852,7 +15852,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4471:                                             ; preds = %4481, %4470
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1539)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1539, ptr noalias noundef nonnull align 8 dereferenceable(40) %1540, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1539, ptr noalias noundef nonnull align 8 dereferenceable(40) %1540, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4474 unwind label %4472
 
 4472:                                             ; preds = %4482, %4486, %4484, %4471
@@ -15964,7 +15964,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4497:                                             ; preds = %4507, %4496
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1536)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1536, ptr noalias noundef nonnull align 8 dereferenceable(40) %1537, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1536, ptr noalias noundef nonnull align 8 dereferenceable(40) %1537, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4500 unwind label %4498
 
 4498:                                             ; preds = %4519, %4514, %4508, %4520, %4497
@@ -16036,7 +16036,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %3064, align 8, !alias.scope !2095, !noalias !2098
   store ptr %491, ptr %3065, align 8, !alias.scope !2095, !noalias !2098
   store i64 1, ptr %3066, align 8, !alias.scope !2095, !noalias !2098
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %492, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %492, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7482 unwind label %4498
 
 .noexc7482:                                       ; preds = %4519
@@ -16178,7 +16178,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4570:                                             ; preds = %.thread16846, %4568
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1533)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1533, ptr noalias noundef nonnull align 8 dereferenceable(40) %1534, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1533, ptr noalias noundef nonnull align 8 dereferenceable(40) %1534, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4571 unwind label %.loopexit20650
 
 .thread16838:                                     ; preds = %.loopexit20656, %.loopexit.split-lp20657, %.loopexit20650, %.loopexit.split-lp20651, %4611, %4589
@@ -16283,7 +16283,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4588:                                             ; preds = %4598, %4587
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1530)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1530, ptr noalias noundef nonnull align 8 dereferenceable(40) %1531, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1530, ptr noalias noundef nonnull align 8 dereferenceable(40) %1531, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4591 unwind label %4589
 
 4589:                                             ; preds = %4601, %4599, %4603, %4588
@@ -16514,7 +16514,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7534: ; pred
 
 4651:                                             ; preds = %4657, %4650
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1527)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1527, ptr noalias noundef nonnull align 8 dereferenceable(40) %1528, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1527, ptr noalias noundef nonnull align 8 dereferenceable(40) %1528, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4654 unwind label %4652
 
 .thread16860:                                     ; preds = %.thread16877.loopexit, %.thread16877.loopexit.split-lp, %.thread16867.loopexit, %.thread16867.loopexit.split-lp, %4775, %4738, %4706, %4666, %4652
@@ -16581,7 +16581,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7534: ; pred
 
 4665:                                             ; preds = %4675, %4664
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1524)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1524, ptr noalias noundef nonnull align 8 dereferenceable(40) %1525, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1524, ptr noalias noundef nonnull align 8 dereferenceable(40) %1525, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4668 unwind label %4666
 
 4666:                                             ; preds = %4691, %4686, %4680, %4678, %4676, %4692, %4665
@@ -16673,7 +16673,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7534: ; pred
   store ptr null, ptr %3105, align 8, !alias.scope !2195, !noalias !2198
   store ptr %480, ptr %3106, align 8, !alias.scope !2195, !noalias !2198
   store i64 1, ptr %3107, align 8, !alias.scope !2195, !noalias !2198
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %481, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %481, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7579 unwind label %4666
 
 .noexc7579:                                       ; preds = %4691
@@ -16821,7 +16821,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7534: ; pred
 
 4737:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit7622.thread", %4736
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1521)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1521, ptr noalias noundef nonnull align 8 dereferenceable(40) %1522, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1521, ptr noalias noundef nonnull align 8 dereferenceable(40) %1522, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4740 unwind label %4738
 
 4738:                                             ; preds = %4767, %4765, %4737
@@ -17029,7 +17029,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4789:                                             ; preds = %4799, %4785
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1518)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1518, ptr noalias noundef nonnull align 8 dereferenceable(40) %1519, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1518, ptr noalias noundef nonnull align 8 dereferenceable(40) %1519, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4792 unwind label %4790
 
 .thread16895:                                     ; preds = %.loopexit21034, %.loopexit.split-lp21035, %4831, %4809, %4790
@@ -17121,7 +17121,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4808:                                             ; preds = %4818, %4807
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1515)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1515, ptr noalias noundef nonnull align 8 dereferenceable(40) %1516, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1515, ptr noalias noundef nonnull align 8 dereferenceable(40) %1516, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4811 unwind label %4809
 
 4809:                                             ; preds = %4819, %4823, %4821, %4808
@@ -17280,7 +17280,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4844:                                             ; preds = %4854, %4840
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1512)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1512, ptr noalias noundef nonnull align 8 dereferenceable(40) %1513, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1512, ptr noalias noundef nonnull align 8 dereferenceable(40) %1513, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4847 unwind label %4845
 
 .thread16911:                                     ; preds = %.loopexit21039, %.loopexit.split-lp21040, %4886, %4864, %4845
@@ -17372,7 +17372,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4863:                                             ; preds = %4873, %4862
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1509)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1509, ptr noalias noundef nonnull align 8 dereferenceable(40) %1510, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1509, ptr noalias noundef nonnull align 8 dereferenceable(40) %1510, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4866 unwind label %4864
 
 4864:                                             ; preds = %4874, %4878, %4876, %4863
@@ -17544,7 +17544,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 4907:                                             ; preds = %.thread16930, %4895
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1506)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1506, ptr noalias noundef nonnull align 8 dereferenceable(40) %1507, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1506, ptr noalias noundef nonnull align 8 dereferenceable(40) %1507, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4910 unwind label %4908
 
 .thread16933:                                     ; preds = %.loopexit21045, %.loopexit.split-lp21046, %5000, %.loopexit20661, %4908
@@ -17631,7 +17631,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7732: ; pred
   store ptr null, ptr %3014, align 8, !alias.scope !2321, !noalias !2324
   store ptr %468, ptr %3015, align 8, !alias.scope !2321, !noalias !2324
   store i64 1, ptr %3016, align 8, !alias.scope !2321, !noalias !2324
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %469, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %469, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7737 unwind label %4908
 
 .noexc7737:                                       ; preds = %4932
@@ -17718,7 +17718,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21946.us:                                   ; preds = %4953, %.thread16941.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1503)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1503, ptr noalias noundef nonnull align 8 dereferenceable(40) %1504, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1503, ptr noalias noundef nonnull align 8 dereferenceable(40) %1504, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4955 unwind label %.loopexit20661.split.us
 
 4955:                                             ; preds = %.split21946.us
@@ -17737,7 +17737,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21946:                                      ; preds = %4953, %.thread16941
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1503)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1503, ptr noalias noundef nonnull align 8 dereferenceable(40) %1504, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1503, ptr noalias noundef nonnull align 8 dereferenceable(40) %1504, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %4957 unwind label %.loopexit20661.split
 
 .loopexit20661.split:                             ; preds = %.split21946, %4969, %4986, %4980, %4985
@@ -17844,7 +17844,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7756: ; pr
   store ptr null, ptr %3023, align 8, !alias.scope !2349, !noalias !2352
   store ptr %464, ptr %3024, align 8, !alias.scope !2349, !noalias !2352
   store i64 1, ptr %3025, align 8, !alias.scope !2349, !noalias !2352
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %465, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %465, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7763 unwind label %.loopexit20661.split
 
 .noexc7763:                                       ; preds = %4985
@@ -17977,7 +17977,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5021:                                             ; preds = %.thread16956, %5009
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1500)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1500, ptr noalias noundef nonnull align 8 dereferenceable(40) %1501, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1500, ptr noalias noundef nonnull align 8 dereferenceable(40) %1501, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5024 unwind label %5022
 
 .thread16959:                                     ; preds = %.loopexit21051, %.loopexit.split-lp21052, %5116, %.loopexit20666, %5022
@@ -18064,7 +18064,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7788: ; pred
   store ptr null, ptr %2998, align 8, !alias.scope !2377, !noalias !2380
   store ptr %460, ptr %2999, align 8, !alias.scope !2377, !noalias !2380
   store i64 1, ptr %3000, align 8, !alias.scope !2377, !noalias !2380
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %461, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %461, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7793 unwind label %5022
 
 .noexc7793:                                       ; preds = %5046
@@ -18152,7 +18152,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21941.us:                                   ; preds = %5067, %.thread16968.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1497)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1497, ptr noalias noundef nonnull align 8 dereferenceable(40) %1498, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1497, ptr noalias noundef nonnull align 8 dereferenceable(40) %1498, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5070 unwind label %.loopexit20666.split.us
 
 5070:                                             ; preds = %.split21941.us
@@ -18171,7 +18171,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21941:                                      ; preds = %5067, %.thread16968
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1497)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1497, ptr noalias noundef nonnull align 8 dereferenceable(40) %1498, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1497, ptr noalias noundef nonnull align 8 dereferenceable(40) %1498, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5072 unwind label %.loopexit20666.split
 
 .loopexit20666.split:                             ; preds = %.split21941, %5085, %5102, %5096, %5101
@@ -18281,7 +18281,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7812: ; pr
   store ptr null, ptr %3007, align 8, !alias.scope !2405, !noalias !2408
   store ptr %456, ptr %3008, align 8, !alias.scope !2405, !noalias !2408
   store i64 1, ptr %3009, align 8, !alias.scope !2405, !noalias !2408
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %457, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %457, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc7819 unwind label %.loopexit20666.split
 
 .noexc7819:                                       ; preds = %5101
@@ -18421,7 +18421,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5137:                                             ; preds = %5143, %5125
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1494)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1494, ptr noalias noundef nonnull align 8 dereferenceable(40) %1495, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1494, ptr noalias noundef nonnull align 8 dereferenceable(40) %1495, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5140 unwind label %5138
 
 .thread16979:                                     ; preds = %.thread17078.loopexit, %.thread17078.loopexit.split-lp, %.thread17044.loopexit, %.thread17044.loopexit.split-lp, %.thread17034.loopexit, %.thread17034.loopexit.split-lp, %.thread17024.loopexit, %.thread17024.loopexit.split-lp, %.thread17014.loopexit, %.thread17014.loopexit.split-lp, %.thread16986.loopexit, %.thread16986.loopexit.split-lp, %5716, %.thread17081, %5557, %.thread17047, %5361, %5318, %5298, %5276, %5270, %5241, %5229, %.thread16989, %5138
@@ -18505,7 +18505,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5154:                                             ; preds = %5161, %5153
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1491)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1491, ptr noalias noundef nonnull align 8 dereferenceable(40) %1492, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1491, ptr noalias noundef nonnull align 8 dereferenceable(40) %1492, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5157 unwind label %5155
 
 .thread16989:                                     ; preds = %.thread16996.loopexit, %.thread16996.loopexit.split-lp, %5228, %.thread16999, %5155
@@ -18626,7 +18626,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5184:                                             ; preds = %5194, %5183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1488)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1488, ptr noalias noundef nonnull align 8 dereferenceable(40) %1489, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1488, ptr noalias noundef nonnull align 8 dereferenceable(40) %1489, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5187 unwind label %5185
 
 .thread16999:                                     ; preds = %.loopexit20408, %.loopexit.split-lp20409, %5227, %5204, %5185
@@ -18721,7 +18721,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5203:                                             ; preds = %5212, %5202
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1485)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1485, ptr noalias noundef nonnull align 8 dereferenceable(40) %1486, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1485, ptr noalias noundef nonnull align 8 dereferenceable(40) %1486, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5206 unwind label %5204
 
 5204:                                             ; preds = %5217, %5215, %5213, %5219, %5203
@@ -18889,7 +18889,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5240:                                             ; preds = %5249, %5237
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1482)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1482, ptr noalias noundef nonnull align 8 dereferenceable(40) %1483, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1482, ptr noalias noundef nonnull align 8 dereferenceable(40) %1483, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5243 unwind label %5241
 
 5241:                                             ; preds = %5262, %switch.lookup23016, %5240
@@ -19015,7 +19015,7 @@ switch.lookup23016:                               ; preds = %5256
 
 5275:                                             ; preds = %5285, %5274
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1479)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1479, ptr noalias noundef nonnull align 8 dereferenceable(40) %1480, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1479, ptr noalias noundef nonnull align 8 dereferenceable(40) %1480, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5278 unwind label %5276
 
 5276:                                             ; preds = %5286, %5290, %5288, %5275
@@ -19156,7 +19156,7 @@ switch.lookup23016:                               ; preds = %5256
 
 5317:                                             ; preds = %5325, %5315
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1476)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1476, ptr noalias noundef nonnull align 8 dereferenceable(40) %1477, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1476, ptr noalias noundef nonnull align 8 dereferenceable(40) %1477, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5319 unwind label %.loopexit20675
 
 .loopexit20675:                                   ; preds = %5317, %5351, %5353, %5349
@@ -19312,7 +19312,7 @@ switch.lookup23016:                               ; preds = %5256
 
 5366:                                             ; preds = %.thread17067, %5363
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1473)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1473, ptr noalias noundef nonnull align 8 dereferenceable(40) %1474, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1473, ptr noalias noundef nonnull align 8 dereferenceable(40) %1474, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5367 unwind label %.loopexit20680
 
 .thread17047:                                     ; preds = %.thread17064.loopexit, %.thread17064.loopexit.split-lp, %.thread17054.loopexit, %.thread17054.loopexit.split-lp, %.loopexit20680, %.loopexit.split-lp20681.loopexit.split-lp, %.loopexit.split-lp20681.loopexit, %5439, %5422, %5404, %5382
@@ -19407,7 +19407,7 @@ switch.lookup23016:                               ; preds = %5256
 
 5381:                                             ; preds = %5391, %5380
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1470)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1470, ptr noalias noundef nonnull align 8 dereferenceable(40) %1471, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1470, ptr noalias noundef nonnull align 8 dereferenceable(40) %1471, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5384 unwind label %5382
 
 5382:                                             ; preds = %5394, %5392, %5396, %5381
@@ -19546,7 +19546,7 @@ switch.lookup23016:                               ; preds = %5256
 
 5421:                                             ; preds = %5430, %5420
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1467)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1467, ptr noalias noundef nonnull align 8 dereferenceable(40) %1468, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1467, ptr noalias noundef nonnull align 8 dereferenceable(40) %1468, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5424 unwind label %5422
 
 5422:                                             ; preds = %5431, %5421
@@ -19895,7 +19895,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8033: ; pred
 
 5560:                                             ; preds = %5566, %5559
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1464)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1464, ptr noalias noundef nonnull align 8 dereferenceable(40) %1465, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1464, ptr noalias noundef nonnull align 8 dereferenceable(40) %1465, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5561 unwind label %.loopexit21056
 
 .thread17081:                                     ; preds = %.thread17098.loopexit, %.thread17098.loopexit.split-lp, %.thread17088.loopexit, %.thread17088.loopexit.split-lp, %.loopexit21056, %.loopexit.split-lp21057, %5715, %5664, %5620, %5580
@@ -19982,7 +19982,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8033: ; pred
 
 5579:                                             ; preds = %5589, %5578
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1461)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1461, ptr noalias noundef nonnull align 8 dereferenceable(40) %1462, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1461, ptr noalias noundef nonnull align 8 dereferenceable(40) %1462, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5582 unwind label %5580
 
 5580:                                             ; preds = %5605, %5600, %5594, %5592, %5590, %5606, %5579
@@ -20074,7 +20074,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8033: ; pred
   store ptr null, ptr %2985, align 8, !alias.scope !2639, !noalias !2642
   store ptr %438, ptr %2986, align 8, !alias.scope !2639, !noalias !2642
   store i64 1, ptr %2987, align 8, !alias.scope !2639, !noalias !2642
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %439, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %439, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc8074 unwind label %5580
 
 .noexc8074:                                       ; preds = %5605
@@ -20232,7 +20232,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8033: ; pred
 
 5663:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit8114.thread", %5662
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1458)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1458, ptr noalias noundef nonnull align 8 dereferenceable(40) %1459, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1458, ptr noalias noundef nonnull align 8 dereferenceable(40) %1459, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5666 unwind label %5664
 
 5664:                                             ; preds = %5700, %5695, %5701, %5663
@@ -20336,7 +20336,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8109:
   store ptr null, ptr %2991, align 8, !alias.scope !2689, !noalias !2692
   store ptr %434, ptr %2992, align 8, !alias.scope !2689, !noalias !2692
   store i64 1, ptr %2993, align 8, !alias.scope !2689, !noalias !2692
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %435, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %435, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc8119 unwind label %5664
 
 .noexc8119:                                       ; preds = %5700
@@ -20506,7 +20506,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5743:                                             ; preds = %5749, %5725
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1455)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1455, ptr noalias noundef nonnull align 8 dereferenceable(40) %1456, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1455, ptr noalias noundef nonnull align 8 dereferenceable(40) %1456, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5746 unwind label %5744
 
 .thread17116:                                     ; preds = %.thread17763.loopexit, %.thread17763.loopexit.split-lp, %.thread17753.loopexit, %.thread17753.loopexit.split-lp, %.thread17723.loopexit, %.thread17723.loopexit.split-lp, %.thread17713.loopexit, %.thread17713.loopexit.split-lp, %.thread17703.loopexit, %.thread17703.loopexit.split-lp, %.thread17693.loopexit, %.thread17693.loopexit.split-lp, %.thread17683.loopexit, %.thread17683.loopexit.split-lp, %.thread17653.loopexit, %.thread17653.loopexit.split-lp, %.thread17623.loopexit, %.thread17623.loopexit.split-lp, %.thread17173.loopexit, %.thread17173.loopexit.split-lp, %.thread17123.loopexit, %.thread17123.loopexit.split-lp, %7185, %7129, %7125, %7116, %7070, %.thread17726, %6960, %6917, %6912, %6891, %6870, %6848, %6842, %6813, %6801, %.thread17656, %6724, %.thread17626, %6647, %.thread17176, %5943, %.thread17126, %5744
@@ -20591,7 +20591,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5759:                                             ; preds = %5766, %5757
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1452)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1452, ptr noalias noundef nonnull align 8 dereferenceable(40) %1453, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1452, ptr noalias noundef nonnull align 8 dereferenceable(40) %1453, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5762 unwind label %5760
 
 .thread17126:                                     ; preds = %.thread17133.loopexit, %.thread17133.loopexit.split-lp, %5930, %.thread17136, %5760
@@ -20672,7 +20672,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5781:                                             ; preds = %5791, %5780
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1449)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1449, ptr noalias noundef nonnull align 8 dereferenceable(40) %1450, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1449, ptr noalias noundef nonnull align 8 dereferenceable(40) %1450, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5784 unwind label %5782
 
 .thread17136:                                     ; preds = %.thread17143.loopexit, %.thread17143.loopexit.split-lp, %5929, %.thread17146, %5782
@@ -20793,7 +20793,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5818:                                             ; preds = %5828, %5817
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1446)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1446, ptr noalias noundef nonnull align 8 dereferenceable(40) %1447, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1446, ptr noalias noundef nonnull align 8 dereferenceable(40) %1447, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5821 unwind label %5819
 
 .thread17146:                                     ; preds = %.thread17153.loopexit, %.thread17153.loopexit.split-lp, %5928, %.thread17156, %5819
@@ -20914,7 +20914,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5855:                                             ; preds = %5865, %5854
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1443)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1443, ptr noalias noundef nonnull align 8 dereferenceable(40) %1444, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1443, ptr noalias noundef nonnull align 8 dereferenceable(40) %1444, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5858 unwind label %5856
 
 .thread17156:                                     ; preds = %.thread17163.loopexit, %.thread17163.loopexit.split-lp, %5927, %5893, %5856
@@ -21035,7 +21035,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5892:                                             ; preds = %5903, %5891
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1440)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1440, ptr noalias noundef nonnull align 8 dereferenceable(40) %1441, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1440, ptr noalias noundef nonnull align 8 dereferenceable(40) %1441, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5895 unwind label %5893
 
 5893:                                             ; preds = %5917, %5906, %5919, %5910, %5892
@@ -21278,7 +21278,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5949:                                             ; preds = %5958, %5945
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1437)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1437, ptr noalias noundef nonnull align 8 dereferenceable(40) %1438, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1437, ptr noalias noundef nonnull align 8 dereferenceable(40) %1438, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5952 unwind label %5950
 
 .thread17176:                                     ; preds = %.thread17183.loopexit, %.thread17183.loopexit.split-lp, %6646, %.thread17186, %5950
@@ -21347,7 +21347,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5964:                                             ; preds = %5971, %5960
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1434)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1434, ptr noalias noundef nonnull align 8 dereferenceable(40) %1435, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1434, ptr noalias noundef nonnull align 8 dereferenceable(40) %1435, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5967 unwind label %5965
 
 .thread17186:                                     ; preds = %.thread17613.loopexit, %.thread17613.loopexit.split-lp, %.thread17503.loopexit, %.thread17503.loopexit.split-lp, %.thread17193.loopexit, %.thread17193.loopexit.split-lp, %6645, %6622, %6618, %.thread17506, %6444, %.thread17196, %5965
@@ -21429,7 +21429,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5982:                                             ; preds = %5992, %5981
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1431)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1431, ptr noalias noundef nonnull align 8 dereferenceable(40) %1432, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1431, ptr noalias noundef nonnull align 8 dereferenceable(40) %1432, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5985 unwind label %5983
 
 .thread17196:                                     ; preds = %.thread17203.loopexit, %.thread17203.loopexit.split-lp, %6443, %.thread17206, %5983
@@ -21491,7 +21491,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 5995:                                             ; preds = %6005, %5994
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1428)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1428, ptr noalias noundef nonnull align 8 dereferenceable(40) %1429, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1428, ptr noalias noundef nonnull align 8 dereferenceable(40) %1429, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %5998 unwind label %5996
 
 .thread17206:                                     ; preds = %.thread17213.loopexit, %.thread17213.loopexit.split-lp, %6442, %.thread17216, %5996
@@ -21553,7 +21553,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6008:                                             ; preds = %6018, %6007
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1425)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1425, ptr noalias noundef nonnull align 8 dereferenceable(40) %1426, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1425, ptr noalias noundef nonnull align 8 dereferenceable(40) %1426, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6011 unwind label %6009
 
 .thread17216:                                     ; preds = %.thread17223.loopexit, %.thread17223.loopexit.split-lp, %6441, %.thread17226, %6009
@@ -21615,7 +21615,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6021:                                             ; preds = %6031, %6020
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1422)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1422, ptr noalias noundef nonnull align 8 dereferenceable(40) %1423, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1422, ptr noalias noundef nonnull align 8 dereferenceable(40) %1423, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6024 unwind label %6022
 
 .thread17226:                                     ; preds = %.thread17233.loopexit, %.thread17233.loopexit.split-lp, %6440, %.thread17236, %6022
@@ -21677,7 +21677,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6034:                                             ; preds = %6045, %6033
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1419)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1419, ptr noalias noundef nonnull align 8 dereferenceable(40) %1420, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1419, ptr noalias noundef nonnull align 8 dereferenceable(40) %1420, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6037 unwind label %6035
 
 .thread17236:                                     ; preds = %.thread17243.loopexit, %.thread17243.loopexit.split-lp, %6439, %.thread17246, %6035
@@ -21740,7 +21740,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6048:                                             ; preds = %6058, %6047
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1416)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1416, ptr noalias noundef nonnull align 8 dereferenceable(40) %1417, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1416, ptr noalias noundef nonnull align 8 dereferenceable(40) %1417, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6051 unwind label %6049
 
 .thread17246:                                     ; preds = %.thread17253.loopexit, %.thread17253.loopexit.split-lp, %6438, %.thread17256, %6049
@@ -21802,7 +21802,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6061:                                             ; preds = %6071, %6060
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1413)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1413, ptr noalias noundef nonnull align 8 dereferenceable(40) %1414, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1413, ptr noalias noundef nonnull align 8 dereferenceable(40) %1414, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6064 unwind label %6062
 
 .thread17256:                                     ; preds = %.thread17263.loopexit, %.thread17263.loopexit.split-lp, %6437, %.thread17266, %6062
@@ -21864,7 +21864,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6074:                                             ; preds = %6084, %6073
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1410)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1410, ptr noalias noundef nonnull align 8 dereferenceable(40) %1411, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1410, ptr noalias noundef nonnull align 8 dereferenceable(40) %1411, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6077 unwind label %6075
 
 .thread17266:                                     ; preds = %.thread17273.loopexit, %.thread17273.loopexit.split-lp, %6436, %.thread17276, %6075
@@ -21926,7 +21926,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6087:                                             ; preds = %6098, %6086
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1407)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1407, ptr noalias noundef nonnull align 8 dereferenceable(40) %1408, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1407, ptr noalias noundef nonnull align 8 dereferenceable(40) %1408, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6090 unwind label %6088
 
 .thread17276:                                     ; preds = %.thread17283.loopexit, %.thread17283.loopexit.split-lp, %6435, %.thread17286, %6088
@@ -21989,7 +21989,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6101:                                             ; preds = %6111, %6100
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1404)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1404, ptr noalias noundef nonnull align 8 dereferenceable(40) %1405, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1404, ptr noalias noundef nonnull align 8 dereferenceable(40) %1405, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6104 unwind label %6102
 
 .thread17286:                                     ; preds = %.thread17293.loopexit, %.thread17293.loopexit.split-lp, %6434, %.thread17296, %6102
@@ -22051,7 +22051,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6114:                                             ; preds = %6124, %6113
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1401)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1401, ptr noalias noundef nonnull align 8 dereferenceable(40) %1402, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1401, ptr noalias noundef nonnull align 8 dereferenceable(40) %1402, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6117 unwind label %6115
 
 .thread17296:                                     ; preds = %.thread17303.loopexit, %.thread17303.loopexit.split-lp, %6433, %.thread17306, %6115
@@ -22113,7 +22113,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6127:                                             ; preds = %6138, %6126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1398)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1398, ptr noalias noundef nonnull align 8 dereferenceable(40) %1399, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1398, ptr noalias noundef nonnull align 8 dereferenceable(40) %1399, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6130 unwind label %6128
 
 .thread17306:                                     ; preds = %.thread17313.loopexit, %.thread17313.loopexit.split-lp, %6432, %.thread17316, %6128
@@ -22177,7 +22177,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6141:                                             ; preds = %6152, %6140
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1395)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1395, ptr noalias noundef nonnull align 8 dereferenceable(40) %1396, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1395, ptr noalias noundef nonnull align 8 dereferenceable(40) %1396, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6144 unwind label %6142
 
 .thread17316:                                     ; preds = %.thread17323.loopexit, %.thread17323.loopexit.split-lp, %6431, %.thread17326, %6142
@@ -22240,7 +22240,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6155:                                             ; preds = %6166, %6154
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1392)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1392, ptr noalias noundef nonnull align 8 dereferenceable(40) %1393, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1392, ptr noalias noundef nonnull align 8 dereferenceable(40) %1393, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6158 unwind label %6156
 
 .thread17326:                                     ; preds = %.thread17333.loopexit, %.thread17333.loopexit.split-lp, %6430, %.thread17336, %6156
@@ -22304,7 +22304,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6169:                                             ; preds = %6180, %6168
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1389)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1389, ptr noalias noundef nonnull align 8 dereferenceable(40) %1390, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1389, ptr noalias noundef nonnull align 8 dereferenceable(40) %1390, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6172 unwind label %6170
 
 .thread17336:                                     ; preds = %.thread17343.loopexit, %.thread17343.loopexit.split-lp, %6429, %.thread17346, %6170
@@ -22367,7 +22367,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6183:                                             ; preds = %6194, %6182
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1386)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1386, ptr noalias noundef nonnull align 8 dereferenceable(40) %1387, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1386, ptr noalias noundef nonnull align 8 dereferenceable(40) %1387, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6186 unwind label %6184
 
 .thread17346:                                     ; preds = %.thread17353.loopexit, %.thread17353.loopexit.split-lp, %6428, %.thread17356, %6184
@@ -22430,7 +22430,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6197:                                             ; preds = %6208, %6196
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1383)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1383, ptr noalias noundef nonnull align 8 dereferenceable(40) %1384, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1383, ptr noalias noundef nonnull align 8 dereferenceable(40) %1384, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6200 unwind label %6198
 
 .thread17356:                                     ; preds = %.thread17363.loopexit, %.thread17363.loopexit.split-lp, %6427, %.thread17366, %6198
@@ -22494,7 +22494,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6211:                                             ; preds = %6222, %6210
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1380)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1380, ptr noalias noundef nonnull align 8 dereferenceable(40) %1381, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1380, ptr noalias noundef nonnull align 8 dereferenceable(40) %1381, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6214 unwind label %6212
 
 .thread17366:                                     ; preds = %.thread17373.loopexit, %.thread17373.loopexit.split-lp, %6426, %.thread17376, %6212
@@ -22557,7 +22557,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6225:                                             ; preds = %6236, %6224
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1377)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1377, ptr noalias noundef nonnull align 8 dereferenceable(40) %1378, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1377, ptr noalias noundef nonnull align 8 dereferenceable(40) %1378, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6228 unwind label %6226
 
 .thread17376:                                     ; preds = %.thread17383.loopexit, %.thread17383.loopexit.split-lp, %6425, %.thread17386, %6226
@@ -22621,7 +22621,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6239:                                             ; preds = %6250, %6238
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1374)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1374, ptr noalias noundef nonnull align 8 dereferenceable(40) %1375, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1374, ptr noalias noundef nonnull align 8 dereferenceable(40) %1375, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6242 unwind label %6240
 
 .thread17386:                                     ; preds = %.thread17393.loopexit, %.thread17393.loopexit.split-lp, %6424, %.thread17396, %6240
@@ -22684,7 +22684,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6253:                                             ; preds = %6264, %6252
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1371)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1371, ptr noalias noundef nonnull align 8 dereferenceable(40) %1372, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1371, ptr noalias noundef nonnull align 8 dereferenceable(40) %1372, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6256 unwind label %6254
 
 .thread17396:                                     ; preds = %.thread17403.loopexit, %.thread17403.loopexit.split-lp, %6423, %.thread17406, %6254
@@ -22747,7 +22747,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6267:                                             ; preds = %6278, %6266
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1368)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1368, ptr noalias noundef nonnull align 8 dereferenceable(40) %1369, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1368, ptr noalias noundef nonnull align 8 dereferenceable(40) %1369, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6270 unwind label %6268
 
 .thread17406:                                     ; preds = %.thread17413.loopexit, %.thread17413.loopexit.split-lp, %6422, %.thread17416, %6268
@@ -22811,7 +22811,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6281:                                             ; preds = %6292, %6280
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1365)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1365, ptr noalias noundef nonnull align 8 dereferenceable(40) %1366, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1365, ptr noalias noundef nonnull align 8 dereferenceable(40) %1366, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6284 unwind label %6282
 
 .thread17416:                                     ; preds = %.thread17423.loopexit, %.thread17423.loopexit.split-lp, %6421, %.thread17426, %6282
@@ -22874,7 +22874,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6295:                                             ; preds = %6306, %6294
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1362)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1362, ptr noalias noundef nonnull align 8 dereferenceable(40) %1363, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1362, ptr noalias noundef nonnull align 8 dereferenceable(40) %1363, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6298 unwind label %6296
 
 .thread17426:                                     ; preds = %.thread17433.loopexit, %.thread17433.loopexit.split-lp, %6420, %.thread17436, %6296
@@ -22938,7 +22938,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6309:                                             ; preds = %6320, %6308
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1359)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1359, ptr noalias noundef nonnull align 8 dereferenceable(40) %1360, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1359, ptr noalias noundef nonnull align 8 dereferenceable(40) %1360, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6312 unwind label %6310
 
 .thread17436:                                     ; preds = %.thread17443.loopexit, %.thread17443.loopexit.split-lp, %6419, %.thread17446, %6310
@@ -23001,7 +23001,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6323:                                             ; preds = %6334, %6322
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1356)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1356, ptr noalias noundef nonnull align 8 dereferenceable(40) %1357, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1356, ptr noalias noundef nonnull align 8 dereferenceable(40) %1357, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6326 unwind label %6324
 
 .thread17446:                                     ; preds = %.thread17453.loopexit, %.thread17453.loopexit.split-lp, %6418, %.thread17456, %6324
@@ -23064,7 +23064,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6337:                                             ; preds = %6347, %6336
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1353)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1353, ptr noalias noundef nonnull align 8 dereferenceable(40) %1354, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1353, ptr noalias noundef nonnull align 8 dereferenceable(40) %1354, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6340 unwind label %6338
 
 .thread17456:                                     ; preds = %.thread17463.loopexit, %.thread17463.loopexit.split-lp, %6417, %.thread17466, %6338
@@ -23126,7 +23126,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6350:                                             ; preds = %6361, %6349
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1350)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1350, ptr noalias noundef nonnull align 8 dereferenceable(40) %1351, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1350, ptr noalias noundef nonnull align 8 dereferenceable(40) %1351, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6353 unwind label %6351
 
 .thread17466:                                     ; preds = %.thread17473.loopexit, %.thread17473.loopexit.split-lp, %6416, %.thread17476, %6351
@@ -23190,7 +23190,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6364:                                             ; preds = %6375, %6363
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1347)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1347, ptr noalias noundef nonnull align 8 dereferenceable(40) %1348, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1347, ptr noalias noundef nonnull align 8 dereferenceable(40) %1348, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6367 unwind label %6365
 
 .thread17476:                                     ; preds = %.thread17483.loopexit, %.thread17483.loopexit.split-lp, %6415, %.thread17486, %6365
@@ -23253,7 +23253,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6378:                                             ; preds = %6389, %6377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1344)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1344, ptr noalias noundef nonnull align 8 dereferenceable(40) %1345, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1344, ptr noalias noundef nonnull align 8 dereferenceable(40) %1345, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6381 unwind label %6379
 
 .thread17486:                                     ; preds = %.thread17493.loopexit, %.thread17493.loopexit.split-lp, %6414, %6393, %6379
@@ -23316,7 +23316,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6392:                                             ; preds = %6403, %6391
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1341)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1341, ptr noalias noundef nonnull align 8 dereferenceable(40) %1342, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1341, ptr noalias noundef nonnull align 8 dereferenceable(40) %1342, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6395 unwind label %6393
 
 6393:                                             ; preds = %6406, %6404, %6392
@@ -23957,7 +23957,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6447:                                             ; preds = %6458, %6446
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1338)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1338, ptr noalias noundef nonnull align 8 dereferenceable(40) %1339, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1338, ptr noalias noundef nonnull align 8 dereferenceable(40) %1339, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6450 unwind label %6448
 
 .thread17506:                                     ; preds = %.thread17513.loopexit, %.thread17513.loopexit.split-lp, %6617, %.thread17516, %6448
@@ -24021,7 +24021,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6461:                                             ; preds = %6471, %6460
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1335)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1335, ptr noalias noundef nonnull align 8 dereferenceable(40) %1336, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1335, ptr noalias noundef nonnull align 8 dereferenceable(40) %1336, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6464 unwind label %6462
 
 .thread17516:                                     ; preds = %.thread17523.loopexit, %.thread17523.loopexit.split-lp, %6616, %.thread17526, %6462
@@ -24083,7 +24083,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6474:                                             ; preds = %6485, %6473
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1332)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1332, ptr noalias noundef nonnull align 8 dereferenceable(40) %1333, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1332, ptr noalias noundef nonnull align 8 dereferenceable(40) %1333, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6477 unwind label %6475
 
 .thread17526:                                     ; preds = %.thread17533.loopexit, %.thread17533.loopexit.split-lp, %6615, %.thread17536, %6475
@@ -24146,7 +24146,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6488:                                             ; preds = %6499, %6487
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1329)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1329, ptr noalias noundef nonnull align 8 dereferenceable(40) %1330, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1329, ptr noalias noundef nonnull align 8 dereferenceable(40) %1330, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6491 unwind label %6489
 
 .thread17536:                                     ; preds = %.thread17543.loopexit, %.thread17543.loopexit.split-lp, %6614, %.thread17546, %6489
@@ -24210,7 +24210,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6502:                                             ; preds = %6513, %6501
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1326)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1326, ptr noalias noundef nonnull align 8 dereferenceable(40) %1327, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1326, ptr noalias noundef nonnull align 8 dereferenceable(40) %1327, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6505 unwind label %6503
 
 .thread17546:                                     ; preds = %.thread17553.loopexit, %.thread17553.loopexit.split-lp, %6613, %.thread17556, %6503
@@ -24273,7 +24273,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6516:                                             ; preds = %6527, %6515
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1323)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1323, ptr noalias noundef nonnull align 8 dereferenceable(40) %1324, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1323, ptr noalias noundef nonnull align 8 dereferenceable(40) %1324, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6519 unwind label %6517
 
 .thread17556:                                     ; preds = %.thread17563.loopexit, %.thread17563.loopexit.split-lp, %6612, %.thread17566, %6517
@@ -24336,7 +24336,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6530:                                             ; preds = %6540, %6529
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1320)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1320, ptr noalias noundef nonnull align 8 dereferenceable(40) %1321, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1320, ptr noalias noundef nonnull align 8 dereferenceable(40) %1321, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6533 unwind label %6531
 
 .thread17566:                                     ; preds = %.thread17573.loopexit, %.thread17573.loopexit.split-lp, %6611, %.thread17576, %6531
@@ -24398,7 +24398,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6543:                                             ; preds = %6554, %6542
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1317)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1317, ptr noalias noundef nonnull align 8 dereferenceable(40) %1318, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1317, ptr noalias noundef nonnull align 8 dereferenceable(40) %1318, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6546 unwind label %6544
 
 .thread17576:                                     ; preds = %.thread17583.loopexit, %.thread17583.loopexit.split-lp, %6610, %.thread17586, %6544
@@ -24462,7 +24462,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6557:                                             ; preds = %6568, %6556
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1314)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1314, ptr noalias noundef nonnull align 8 dereferenceable(40) %1315, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1314, ptr noalias noundef nonnull align 8 dereferenceable(40) %1315, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6560 unwind label %6558
 
 .thread17586:                                     ; preds = %.thread17593.loopexit, %.thread17593.loopexit.split-lp, %6609, %.thread17596, %6558
@@ -24525,7 +24525,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6571:                                             ; preds = %6582, %6570
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1311)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1311, ptr noalias noundef nonnull align 8 dereferenceable(40) %1312, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1311, ptr noalias noundef nonnull align 8 dereferenceable(40) %1312, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6574 unwind label %6572
 
 .thread17596:                                     ; preds = %.thread17603.loopexit, %.thread17603.loopexit.split-lp, %6608, %6586, %6572
@@ -24588,7 +24588,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6585:                                             ; preds = %6596, %6584
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1308)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1308, ptr noalias noundef nonnull align 8 dereferenceable(40) %1309, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1308, ptr noalias noundef nonnull align 8 dereferenceable(40) %1309, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6588 unwind label %6586
 
 6586:                                             ; preds = %6599, %6597, %6585
@@ -24874,7 +24874,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6621:                                             ; preds = %6630, %6620
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1305)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1305, ptr noalias noundef nonnull align 8 dereferenceable(40) %1306, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1305, ptr noalias noundef nonnull align 8 dereferenceable(40) %1306, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6624 unwind label %6622
 
 6622:                                             ; preds = %6635, %6633, %6631, %6637, %6621
@@ -25034,7 +25034,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6652:                                             ; preds = %6663, %6651
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1302)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1302, ptr noalias noundef nonnull align 8 dereferenceable(40) %1303, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1302, ptr noalias noundef nonnull align 8 dereferenceable(40) %1303, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6655 unwind label %6653
 
 .thread17626:                                     ; preds = %.thread17633.loopexit, %.thread17633.loopexit.split-lp, %6723, %.thread17636, %6653
@@ -25098,7 +25098,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21930.us:                                   ; preds = %6665, %6673
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1299)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1299, ptr noalias noundef nonnull align 8 dereferenceable(40) %1300, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1299, ptr noalias noundef nonnull align 8 dereferenceable(40) %1300, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6666 unwind label %.split21932.us
 
 6666:                                             ; preds = %.split21930.us
@@ -25137,7 +25137,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6674:                                             ; preds = %6690, %.split21921.us.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1296)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1296, ptr noalias noundef nonnull align 8 dereferenceable(40) %1297, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1296, ptr noalias noundef nonnull align 8 dereferenceable(40) %1297, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6675 unwind label %.split21923.us.split.us
 
 6675:                                             ; preds = %6674
@@ -25207,7 +25207,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 .split21930:                                      ; preds = %6665, %6699
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1299)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1299, ptr noalias noundef nonnull align 8 dereferenceable(40) %1300, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1299, ptr noalias noundef nonnull align 8 dereferenceable(40) %1300, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6694 unwind label %.split21932
 
 .thread17636:                                     ; preds = %.thread17643.loopexit.split-lp, %.thread17643.loopexit.split.us, %.thread17643.loopexit.split, %.split21932, %.split21932.us, %6722, %6703
@@ -25265,7 +25265,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 6701:                                             ; preds = %6709, %.split21921
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1296)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1296, ptr noalias noundef nonnull align 8 dereferenceable(40) %1297, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1296, ptr noalias noundef nonnull align 8 dereferenceable(40) %1297, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6704 unwind label %.split21923
 
 .split21923:                                      ; preds = %6713, %6715, %6701
@@ -25425,7 +25425,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 6729:                                             ; preds = %6740, %6728
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1293)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1293, ptr noalias noundef nonnull align 8 dereferenceable(40) %1294, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1293, ptr noalias noundef nonnull align 8 dereferenceable(40) %1294, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6732 unwind label %6730
 
 .thread17656:                                     ; preds = %.thread17663.loopexit, %.thread17663.loopexit.split-lp, %6800, %.thread17666, %6730
@@ -25492,7 +25492,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 .split21910.us:                                   ; preds = %6742, %6749
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1290)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1290, ptr noalias noundef nonnull align 8 dereferenceable(40) %1291, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1290, ptr noalias noundef nonnull align 8 dereferenceable(40) %1291, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6743 unwind label %.split21912.us
 
 6743:                                             ; preds = %.split21910.us
@@ -25530,7 +25530,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 6750:                                             ; preds = %6767, %.split.us.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1287)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1287, ptr noalias noundef nonnull align 8 dereferenceable(40) %1288, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1287, ptr noalias noundef nonnull align 8 dereferenceable(40) %1288, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6751 unwind label %.split21905.us.split.us
 
 6751:                                             ; preds = %6750
@@ -25601,7 +25601,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 .split21910:                                      ; preds = %6742, %6776
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1290)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1290, ptr noalias noundef nonnull align 8 dereferenceable(40) %1291, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1290, ptr noalias noundef nonnull align 8 dereferenceable(40) %1291, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6771 unwind label %.split21912
 
 .thread17666:                                     ; preds = %.thread17673.loopexit.split-lp, %.thread17673.loopexit.split.us, %.thread17673.loopexit.split, %.split21912, %.split21912.us, %6799, %6780
@@ -25659,7 +25659,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
 
 6778:                                             ; preds = %6786, %.split
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1287)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1287, ptr noalias noundef nonnull align 8 dereferenceable(40) %1288, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1287, ptr noalias noundef nonnull align 8 dereferenceable(40) %1288, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6781 unwind label %.split21905
 
 .split21905:                                      ; preds = %6790, %6792, %6778
@@ -25830,7 +25830,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i872
 
 6812:                                             ; preds = %6821, %6809
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1284)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1284, ptr noalias noundef nonnull align 8 dereferenceable(40) %1285, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1284, ptr noalias noundef nonnull align 8 dereferenceable(40) %1285, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6815 unwind label %6813
 
 6813:                                             ; preds = %6834, %switch.lookup23046, %6812
@@ -25956,7 +25956,7 @@ switch.lookup23046:                               ; preds = %6828
 
 6847:                                             ; preds = %6857, %6846
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1281)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1281, ptr noalias noundef nonnull align 8 dereferenceable(40) %1282, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1281, ptr noalias noundef nonnull align 8 dereferenceable(40) %1282, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6850 unwind label %6848
 
 6848:                                             ; preds = %6858, %6862, %6860, %6847
@@ -26099,7 +26099,7 @@ switch.lookup23046:                               ; preds = %6828
 
 6890:                                             ; preds = %6901, %6889
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1278)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1278, ptr noalias noundef nonnull align 8 dereferenceable(40) %1279, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1278, ptr noalias noundef nonnull align 8 dereferenceable(40) %1279, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6893 unwind label %6891
 
 6891:                                             ; preds = %6902, %6904, %6890
@@ -26205,7 +26205,7 @@ switch.lookup23046:                               ; preds = %6828
 
 6916:                                             ; preds = %6924, %6914
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1275)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1275, ptr noalias noundef nonnull align 8 dereferenceable(40) %1276, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1275, ptr noalias noundef nonnull align 8 dereferenceable(40) %1276, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6918 unwind label %.loopexit20714
 
 .loopexit20714:                                   ; preds = %6916, %6950, %6952, %6948
@@ -26372,7 +26372,7 @@ switch.lookup23046:                               ; preds = %6828
 
 6971:                                             ; preds = %6977, %6970
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1272)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1272, ptr noalias noundef nonnull align 8 dereferenceable(40) %1273, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1272, ptr noalias noundef nonnull align 8 dereferenceable(40) %1273, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6972 unwind label %.loopexit20724
 
 .thread17726:                                     ; preds = %.thread17743.loopexit, %.thread17743.loopexit.split-lp, %.thread17733.loopexit, %.thread17733.loopexit.split-lp, %.loopexit20724, %.loopexit.split-lp20725, %7043, %7021, %7017, %6985
@@ -26446,7 +26446,7 @@ switch.lookup23046:                               ; preds = %6828
 
 6984:                                             ; preds = %6992, %6983
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1269)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1269, ptr noalias noundef nonnull align 8 dereferenceable(40) %1270, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1269, ptr noalias noundef nonnull align 8 dereferenceable(40) %1270, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %6986 unwind label %.loopexit20428
 
 .loopexit20428:                                   ; preds = %6984, %7008, %7006
@@ -26595,7 +26595,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8838: ; pred
 
 7020:                                             ; preds = %7030, %7019
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1266)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1266, ptr noalias noundef nonnull align 8 dereferenceable(40) %1267, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1266, ptr noalias noundef nonnull align 8 dereferenceable(40) %1267, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7023 unwind label %7021
 
 7021:                                             ; preds = %7033, %7031, %7035, %7020
@@ -26761,7 +26761,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8838: ; pred
 
 7069:                                             ; preds = %7078, %7059
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1263)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1263, ptr noalias noundef nonnull align 8 dereferenceable(40) %1264, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1263, ptr noalias noundef nonnull align 8 dereferenceable(40) %1264, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7071 unwind label %.loopexit20719
 
 .loopexit20719:                                   ; preds = %7069, %7085, %7102, %7096, %7101
@@ -26870,7 +26870,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i8888: ; pr
   store ptr null, ptr %2824, align 8, !alias.scope !3134, !noalias !3137
   store ptr %410, ptr %2825, align 8, !alias.scope !3134, !noalias !3137
   store i64 1, ptr %2826, align 8, !alias.scope !3134, !noalias !3137
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %411, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %411, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc8895 unwind label %.loopexit20719
 
 .noexc8895:                                       ; preds = %7101
@@ -26967,7 +26967,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i8888: ; pr
 
 7128:                                             ; preds = %7135, %7127
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1260)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1260, ptr noalias noundef nonnull align 8 dereferenceable(40) %1261, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1260, ptr noalias noundef nonnull align 8 dereferenceable(40) %1261, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7130 unwind label %.loopexit21085
 
 .loopexit21085:                                   ; preds = %7128, %7143, %7145, %7147, %7159, %7161, %7168, %7157
@@ -27208,7 +27208,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7200:                                             ; preds = %7206, %7194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1257)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1257, ptr noalias noundef nonnull align 8 dereferenceable(40) %1258, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1257, ptr noalias noundef nonnull align 8 dereferenceable(40) %1258, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7203 unwind label %7201
 
 .thread17774:                                     ; preds = %.thread17857.loopexit, %.thread17857.loopexit.split-lp, %.thread17847.loopexit, %.thread17847.loopexit.split-lp, %.thread17829.loopexit, %.thread17829.loopexit.split-lp, %.thread17819.loopexit, %.thread17819.loopexit.split-lp, %.thread17809.loopexit, %.thread17809.loopexit.split-lp, %.thread17781.loopexit, %.thread17781.loopexit.split-lp, %7662, %.thread17860, %7515, %7506, %7460, %.thread17832, %7381, %7338, %7318, %7296, %7290, %.thread17784, %7201
@@ -27286,7 +27286,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7215:                                             ; preds = %7222, %7214
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1254)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1254, ptr noalias noundef nonnull align 8 dereferenceable(40) %1255, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1254, ptr noalias noundef nonnull align 8 dereferenceable(40) %1255, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7218 unwind label %7216
 
 .thread17784:                                     ; preds = %.thread17791.loopexit, %.thread17791.loopexit.split-lp, %7289, %.thread17794, %7216
@@ -27407,7 +27407,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7245:                                             ; preds = %7255, %7244
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1251)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1251, ptr noalias noundef nonnull align 8 dereferenceable(40) %1252, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1251, ptr noalias noundef nonnull align 8 dereferenceable(40) %1252, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7248 unwind label %7246
 
 .thread17794:                                     ; preds = %.loopexit20433, %.loopexit.split-lp20434, %7288, %7265, %7246
@@ -27502,7 +27502,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7264:                                             ; preds = %7273, %7263
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1248)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1248, ptr noalias noundef nonnull align 8 dereferenceable(40) %1249, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1248, ptr noalias noundef nonnull align 8 dereferenceable(40) %1249, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7267 unwind label %7265
 
 7265:                                             ; preds = %7278, %7276, %7274, %7280, %7264
@@ -27663,7 +27663,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7295:                                             ; preds = %7305, %7294
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1245)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1245, ptr noalias noundef nonnull align 8 dereferenceable(40) %1246, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1245, ptr noalias noundef nonnull align 8 dereferenceable(40) %1246, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7298 unwind label %7296
 
 7296:                                             ; preds = %7306, %7310, %7308, %7295
@@ -27804,7 +27804,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7337:                                             ; preds = %7345, %7335
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1242)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1242, ptr noalias noundef nonnull align 8 dereferenceable(40) %1243, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1242, ptr noalias noundef nonnull align 8 dereferenceable(40) %1243, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7339 unwind label %.loopexit20739
 
 .loopexit20739:                                   ; preds = %7337, %7371, %7373, %7369
@@ -27990,7 +27990,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7403:                                             ; preds = %7413, %7402
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1239)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1239, ptr noalias noundef nonnull align 8 dereferenceable(40) %1240, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1239, ptr noalias noundef nonnull align 8 dereferenceable(40) %1240, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7406 unwind label %7404
 
 .thread17832:                                     ; preds = %.loopexit20749, %.loopexit.split-lp20750, %7445, %7423, %7404
@@ -28084,7 +28084,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7422:                                             ; preds = %7432, %7421
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1236)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1236, ptr noalias noundef nonnull align 8 dereferenceable(40) %1237, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1236, ptr noalias noundef nonnull align 8 dereferenceable(40) %1237, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7425 unwind label %7423
 
 7423:                                             ; preds = %7435, %7433, %7437, %7422
@@ -28222,7 +28222,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7459:                                             ; preds = %7468, %7449
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1233)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1233, ptr noalias noundef nonnull align 8 dereferenceable(40) %1234, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1233, ptr noalias noundef nonnull align 8 dereferenceable(40) %1234, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7461 unwind label %.loopexit20744
 
 .loopexit20744:                                   ; preds = %7459, %7475, %7492, %7486, %7491
@@ -28331,7 +28331,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
   store ptr null, ptr %2760, align 8, !alias.scope !3335, !noalias !3338
   store ptr %393, ptr %2761, align 8, !alias.scope !3335, !noalias !3338
   store i64 1, ptr %2762, align 8, !alias.scope !3335, !noalias !3338
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %394, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %394, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9109 unwind label %.loopexit20744
 
 .noexc9109:                                       ; preds = %7491
@@ -28429,7 +28429,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
 
 7518:                                             ; preds = %7524, %7517
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1230)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1230, ptr noalias noundef nonnull align 8 dereferenceable(40) %1231, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1230, ptr noalias noundef nonnull align 8 dereferenceable(40) %1231, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7519 unwind label %.loopexit21122
 
 .thread17860:                                     ; preds = %.thread17877.loopexit, %.thread17877.loopexit.split-lp, %.thread17867.loopexit, %.thread17867.loopexit.split-lp, %.loopexit21122, %.loopexit.split-lp21123, %7661, %7624, %7578, %7538
@@ -28517,7 +28517,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
 
 7537:                                             ; preds = %7547, %7536
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1227)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1227, ptr noalias noundef nonnull align 8 dereferenceable(40) %1228, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1227, ptr noalias noundef nonnull align 8 dereferenceable(40) %1228, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7540 unwind label %7538
 
 7538:                                             ; preds = %7563, %7558, %7552, %7550, %7548, %7564, %7537
@@ -28609,7 +28609,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
   store ptr null, ptr %2802, align 8, !alias.scope !3373, !noalias !3376
   store ptr %387, ptr %2803, align 8, !alias.scope !3373, !noalias !3376
   store i64 1, ptr %2804, align 8, !alias.scope !3373, !noalias !3376
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %388, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %388, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9148 unwind label %7538
 
 .noexc9148:                                       ; preds = %7563
@@ -28771,7 +28771,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
 
 7623:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit9191.thread", %7622
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1224)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1224, ptr noalias noundef nonnull align 8 dereferenceable(40) %1225, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1224, ptr noalias noundef nonnull align 8 dereferenceable(40) %1225, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7626 unwind label %7624
 
 7624:                                             ; preds = %7653, %7651, %7623
@@ -28984,7 +28984,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7677:                                             ; preds = %.thread17895, %7671
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1221)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1221, ptr noalias noundef nonnull align 8 dereferenceable(40) %1222, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1221, ptr noalias noundef nonnull align 8 dereferenceable(40) %1222, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7678 unwind label %.loopexit21154
 
 .thread17899:                                     ; preds = %.thread17914.loopexit, %.thread17914.loopexit.split-lp, %.loopexit21160, %.loopexit.split-lp21161, %.loopexit21154, %.loopexit.split-lp21155, %7946, %.thread17917, %7821, %7758
@@ -29240,7 +29240,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7757:                                             ; preds = %7764, %7756
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1218)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1218, ptr noalias noundef nonnull align 8 dereferenceable(40) %1219, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1218, ptr noalias noundef nonnull align 8 dereferenceable(40) %1219, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7759 unwind label %.loopexit20754
 
 .loopexit20754:                                   ; preds = %7757, %7769, %7773, %7781, %7785, %7771, %7783
@@ -29468,7 +29468,7 @@ switch.lookup23069:                               ; preds = %7795
 
 7824:                                             ; preds = %7831, %7823
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1215)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1215, ptr noalias noundef nonnull align 8 dereferenceable(40) %1216, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1215, ptr noalias noundef nonnull align 8 dereferenceable(40) %1216, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7827 unwind label %7825
 
 .thread17917:                                     ; preds = %.thread17934.loopexit, %.thread17934.loopexit.split-lp, %.thread17924.loopexit, %.thread17924.loopexit.split-lp, %7934, %7913, %7881, %7860, %7825
@@ -29592,7 +29592,7 @@ switch.lookup23069:                               ; preds = %7795
 
 7859:                                             ; preds = %7868, %7858
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1212)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1212, ptr noalias noundef nonnull align 8 dereferenceable(40) %1213, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1212, ptr noalias noundef nonnull align 8 dereferenceable(40) %1213, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7862 unwind label %7860
 
 7860:                                             ; preds = %7871, %7873, %7869, %7859
@@ -29758,7 +29758,7 @@ switch.lookup23069:                               ; preds = %7795
 
 7912:                                             ; preds = %7921, %7911
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1209)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1209, ptr noalias noundef nonnull align 8 dereferenceable(40) %1210, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1209, ptr noalias noundef nonnull align 8 dereferenceable(40) %1210, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7915 unwind label %7913
 
 7913:                                             ; preds = %7924, %7926, %7922, %7912
@@ -29967,7 +29967,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 7961:                                             ; preds = %.thread17945, %7955
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1206)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1206, ptr noalias noundef nonnull align 8 dereferenceable(40) %1207, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1206, ptr noalias noundef nonnull align 8 dereferenceable(40) %1207, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %7962 unwind label %.loopexit21173
 
 .thread17949:                                     ; preds = %.thread17964.loopexit, %.thread17964.loopexit.split-lp, %.loopexit21179, %.loopexit.split-lp21180, %.loopexit21173, %.loopexit.split-lp21174, %8230, %.thread17967, %8105, %8042
@@ -30223,7 +30223,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8041:                                             ; preds = %8048, %8040
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1203)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1203, ptr noalias noundef nonnull align 8 dereferenceable(40) %1204, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1203, ptr noalias noundef nonnull align 8 dereferenceable(40) %1204, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8043 unwind label %.loopexit20759
 
 .loopexit20759:                                   ; preds = %8041, %8053, %8057, %8065, %8069, %8055, %8067
@@ -30451,7 +30451,7 @@ switch.lookup23077:                               ; preds = %8079
 
 8108:                                             ; preds = %8115, %8107
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1200)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1200, ptr noalias noundef nonnull align 8 dereferenceable(40) %1201, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1200, ptr noalias noundef nonnull align 8 dereferenceable(40) %1201, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8111 unwind label %8109
 
 .thread17967:                                     ; preds = %.thread17984.loopexit, %.thread17984.loopexit.split-lp, %.thread17974.loopexit, %.thread17974.loopexit.split-lp, %8218, %8197, %8176, %8155, %8109
@@ -30595,7 +30595,7 @@ switch.lookup23077:                               ; preds = %8079
 
 8154:                                             ; preds = %8163, %8153
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1197)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1197, ptr noalias noundef nonnull align 8 dereferenceable(40) %1198, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1197, ptr noalias noundef nonnull align 8 dereferenceable(40) %1198, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8157 unwind label %8155
 
 8155:                                             ; preds = %8166, %8168, %8164, %8154
@@ -30741,7 +30741,7 @@ switch.lookup23077:                               ; preds = %8079
 
 8196:                                             ; preds = %8205, %8195
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1194)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1194, ptr noalias noundef nonnull align 8 dereferenceable(40) %1195, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1194, ptr noalias noundef nonnull align 8 dereferenceable(40) %1195, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8199 unwind label %8197
 
 8197:                                             ; preds = %8208, %8210, %8206, %8196
@@ -30980,7 +30980,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8260:                                             ; preds = %8266, %8239
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1191)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1191, ptr noalias noundef nonnull align 8 dereferenceable(40) %1192, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1191, ptr noalias noundef nonnull align 8 dereferenceable(40) %1192, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8263 unwind label %8261
 
 .thread17995:                                     ; preds = %.thread18075.loopexit, %.thread18075.loopexit.split-lp, %.loopexit21186, %.loopexit.split-lp21187, %8569, %8547, %8543, %.thread18003, %8261
@@ -31191,7 +31191,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8322:                                             ; preds = %.thread18033, %8321
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1188)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1188, ptr noalias noundef nonnull align 8 dereferenceable(40) %1189, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1188, ptr noalias noundef nonnull align 8 dereferenceable(40) %1189, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8323 unwind label %.loopexit20764
 
 .thread18003:                                     ; preds = %.thread18059.loopexit, %.thread18059.loopexit.split-lp, %.thread18043.loopexit, %.thread18043.loopexit.split-lp, %.thread18010.loopexit, %.thread18010.loopexit.split-lp, %.loopexit20764, %.loopexit.split-lp20765, %8482, %8459, %8455, %8432, %8428, %.thread18020
@@ -31305,7 +31305,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9583: ; pred
 
 8343:                                             ; preds = %8351, %8342
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1185)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1185, ptr noalias noundef nonnull align 8 dereferenceable(40) %1186, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1185, ptr noalias noundef nonnull align 8 dereferenceable(40) %1186, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8346 unwind label %8344
 
 .thread18020:                                     ; preds = %.thread18027.loopexit, %.thread18027.loopexit.split-lp, %8427, %8406, %8344
@@ -31442,7 +31442,7 @@ switch.lookup23098:                               ; preds = %8362
   store ptr null, ptr %2657, align 8, !alias.scope !3857, !noalias !3860
   store ptr %348, ptr %2658, align 8, !alias.scope !3857, !noalias !3860
   store i64 1, ptr %2659, align 8, !alias.scope !3857, !noalias !3860
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %349, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %349, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9616 unwind label %8344
 
 .noexc9616:                                       ; preds = %8387
@@ -31505,7 +31505,7 @@ switch.lookup23098:                               ; preds = %8362
 
 8405:                                             ; preds = %8414, %8404
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1182)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1182, ptr noalias noundef nonnull align 8 dereferenceable(40) %1183, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1182, ptr noalias noundef nonnull align 8 dereferenceable(40) %1183, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8408 unwind label %8406
 
 8406:                                             ; preds = %8417, %8415, %8419, %8405
@@ -31630,7 +31630,7 @@ switch.lookup23098:                               ; preds = %8362
 
 8431:                                             ; preds = %8440, %8430
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1179)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1179, ptr noalias noundef nonnull align 8 dereferenceable(40) %1180, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1179, ptr noalias noundef nonnull align 8 dereferenceable(40) %1180, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8434 unwind label %8432
 
 8432:                                             ; preds = %8445, %8441, %8447, %8443, %8431
@@ -31746,7 +31746,7 @@ switch.lookup23098:                               ; preds = %8362
 
 8458:                                             ; preds = %8467, %8457
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1176)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1176, ptr noalias noundef nonnull align 8 dereferenceable(40) %1177, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1176, ptr noalias noundef nonnull align 8 dereferenceable(40) %1177, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8461 unwind label %8459
 
 8459:                                             ; preds = %8472, %8468, %8474, %8470, %8458
@@ -31896,7 +31896,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682: ; pred
   store ptr null, ptr %2639, align 8, !alias.scope !3915, !noalias !3918
   store ptr %341, ptr %2640, align 8, !alias.scope !3915, !noalias !3918
   store i64 1, ptr %2641, align 8, !alias.scope !3915, !noalias !3918
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %342, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %342, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9687 unwind label %.loopexit20764
 
 .noexc9687:                                       ; preds = %8500
@@ -32033,7 +32033,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682: ; pred
 
 8546:                                             ; preds = %8556, %8545
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1173)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1173, ptr noalias noundef nonnull align 8 dereferenceable(40) %1174, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1173, ptr noalias noundef nonnull align 8 dereferenceable(40) %1174, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8549 unwind label %8547
 
 8547:                                             ; preds = %8557, %8561, %8559, %8546
@@ -32246,7 +32246,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8608:                                             ; preds = %8614, %8578
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1170)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1170, ptr noalias noundef nonnull align 8 dereferenceable(40) %1171, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1170, ptr noalias noundef nonnull align 8 dereferenceable(40) %1171, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8611 unwind label %8609
 
 .thread18086:                                     ; preds = %.thread18174.loopexit, %.thread18174.loopexit.split-lp, %.loopexit21196, %.loopexit.split-lp21197, %9021, %8999, %8995, %.thread18098, %8609
@@ -32459,7 +32459,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8672:                                             ; preds = %.thread18164, %8669
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1167)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1167, ptr noalias noundef nonnull align 8 dereferenceable(40) %1168, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1167, ptr noalias noundef nonnull align 8 dereferenceable(40) %1168, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8673 unwind label %.loopexit20782
 
 .thread18098:                                     ; preds = %.thread18141.loopexit, %.thread18141.loopexit.split-lp, %.loopexit20794, %.loopexit.split-lp20795, %.thread18105.loopexit, %.thread18105.loopexit.split-lp, %.loopexit20782, %.loopexit.split-lp20783.loopexit.split-lp, %.loopexit.split-lp20783.loopexit, %8921, %.thread18151, %8833, %8773, %8761, %.thread18108
@@ -32556,7 +32556,7 @@ switch.lookup23109:                               ; preds = %8679
 
 8689:                                             ; preds = %8696, %8685
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1164)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1164, ptr noalias noundef nonnull align 8 dereferenceable(40) %1165, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1164, ptr noalias noundef nonnull align 8 dereferenceable(40) %1165, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8690 unwind label %.loopexit20438
 
 .thread18108:                                     ; preds = %.thread18115.loopexit, %.thread18115.loopexit.split-lp, %.loopexit20438, %.loopexit.split-lp20439, %8760, %8724
@@ -32669,7 +32669,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i978
 
 8723:                                             ; preds = %8731, %8722
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1161)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1161, ptr noalias noundef nonnull align 8 dereferenceable(40) %1162, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1161, ptr noalias noundef nonnull align 8 dereferenceable(40) %1162, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8725 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %8723, %8750, %8752, %8748
@@ -32864,7 +32864,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 8772:                                             ; preds = %8780, %8769
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1158)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1158, ptr noalias noundef nonnull align 8 dereferenceable(40) %1159, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1158, ptr noalias noundef nonnull align 8 dereferenceable(40) %1159, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8774 unwind label %.loopexit20446
 
 .loopexit20446:                                   ; preds = %8772, %.thread22329, %8802, %8822, %8824, %8826, %8800
@@ -33140,7 +33140,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858: ; pred
 
 8836:                                             ; preds = %8844, %8835
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1155)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1155, ptr noalias noundef nonnull align 8 dereferenceable(40) %1156, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1155, ptr noalias noundef nonnull align 8 dereferenceable(40) %1156, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8839 unwind label %8837
 
 .thread18151:                                     ; preds = %.thread18158.loopexit, %.thread18158.loopexit.split-lp, %8920, %8899, %8837
@@ -33277,7 +33277,7 @@ switch.lookup23138:                               ; preds = %8855
   store ptr null, ptr %2592, align 8, !alias.scope !4099, !noalias !4102
   store ptr %326, ptr %2593, align 8, !alias.scope !4099, !noalias !4102
   store i64 1, ptr %2594, align 8, !alias.scope !4099, !noalias !4102
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %327, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %327, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9895 unwind label %8837
 
 .noexc9895:                                       ; preds = %8880
@@ -33340,7 +33340,7 @@ switch.lookup23138:                               ; preds = %8855
 
 8898:                                             ; preds = %8907, %8897
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1152)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1152, ptr noalias noundef nonnull align 8 dereferenceable(40) %1153, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1152, ptr noalias noundef nonnull align 8 dereferenceable(40) %1153, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %8901 unwind label %8899
 
 8899:                                             ; preds = %8910, %8908, %8912, %8898
@@ -33533,7 +33533,7 @@ switch.lookup23150:                               ; preds = %8930
   store ptr null, ptr %2584, align 8, !alias.scope !4131, !noalias !4134
   store ptr %321, ptr %2585, align 8, !alias.scope !4131, !noalias !4134
   store i64 1, ptr %2586, align 8, !alias.scope !4131, !noalias !4134
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %322, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %322, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc9943 unwind label %.loopexit20782
 
 .noexc9943:                                       ; preds = %8952
@@ -33670,7 +33670,7 @@ switch.lookup23150:                               ; preds = %8930
 
 8998:                                             ; preds = %9008, %8997
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1149)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1149, ptr noalias noundef nonnull align 8 dereferenceable(40) %1150, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1149, ptr noalias noundef nonnull align 8 dereferenceable(40) %1150, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9001 unwind label %8999
 
 8999:                                             ; preds = %9009, %9013, %9011, %8998
@@ -33869,7 +33869,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9055:                                             ; preds = %9061, %9030
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1146)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1146, ptr noalias noundef nonnull align 8 dereferenceable(40) %1147, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1146, ptr noalias noundef nonnull align 8 dereferenceable(40) %1147, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9058 unwind label %9056
 
 .thread18185:                                     ; preds = %.thread18307.loopexit, %.thread18307.loopexit.split-lp, %.loopexit21206, %.loopexit.split-lp21207, %9591, %9569, %9565, %.thread18193, %9056
@@ -34083,7 +34083,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9120:                                             ; preds = %.thread18284, %9116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1143)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1143, ptr noalias noundef nonnull align 8 dereferenceable(40) %1144, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1143, ptr noalias noundef nonnull align 8 dereferenceable(40) %1144, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9121 unwind label %.loopexit20802
 
 .thread18193:                                     ; preds = %.thread18263.loopexit, %.thread18263.loopexit.split-lp, %.thread18240.loopexit, %.thread18240.loopexit.split-lp, %.thread18220.loopexit, %.thread18220.loopexit.split-lp, %.thread18200.loopexit, %.thread18200.loopexit.split-lp, %.loopexit20802, %.loopexit.split-lp20803.loopexit.split-lp, %.loopexit.split-lp20803.loopexit, %9477, %.thread18266, %9418, %.thread18244, %9273, %.thread18223, %9218, %.thread18203
@@ -34184,7 +34184,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9144:                                             ; preds = %9151, %9138
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1140)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1140, ptr noalias noundef nonnull align 8 dereferenceable(40) %1141, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1140, ptr noalias noundef nonnull align 8 dereferenceable(40) %1141, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9145 unwind label %.loopexit20451
 
 .thread18203:                                     ; preds = %.thread18210.loopexit, %.thread18210.loopexit.split-lp, %.loopexit20451, %.loopexit.split-lp20452, %9217, %9181
@@ -34304,7 +34304,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i100
 
 9180:                                             ; preds = %9188, %9179
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1137)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1137, ptr noalias noundef nonnull align 8 dereferenceable(40) %1138, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1137, ptr noalias noundef nonnull align 8 dereferenceable(40) %1138, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9182 unwind label %.loopexit20309
 
 .loopexit20309:                                   ; preds = %9180, %9207, %9209, %9205
@@ -34475,7 +34475,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i100
 
 9226:                                             ; preds = %9234, %9225
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1134)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1134, ptr noalias noundef nonnull align 8 dereferenceable(40) %1135, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1134, ptr noalias noundef nonnull align 8 dereferenceable(40) %1135, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9229 unwind label %9227
 
 .thread18223:                                     ; preds = %.thread18230.loopexit, %.thread18230.loopexit.split-lp, %9272, %9252, %9227
@@ -34565,7 +34565,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i100
 
 9251:                                             ; preds = %9261, %9250
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1131)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1131, ptr noalias noundef nonnull align 8 dereferenceable(40) %1132, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1131, ptr noalias noundef nonnull align 8 dereferenceable(40) %1132, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9254 unwind label %9252
 
 9252:                                             ; preds = %9264, %9262, %9251
@@ -34684,7 +34684,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i100
 
 9276:                                             ; preds = %.thread18243, %9275
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1128)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1128, ptr noalias noundef nonnull align 8 dereferenceable(40) %1129, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1128, ptr noalias noundef nonnull align 8 dereferenceable(40) %1129, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9279 unwind label %9277
 
 .thread18244:                                     ; preds = %.loopexit20459, %.loopexit.split-lp20460, %9417, %9296, %9277
@@ -34778,7 +34778,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9295:                                             ; preds = %9303, %9294
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1125)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1125, ptr noalias noundef nonnull align 8 dereferenceable(40) %1126, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1125, ptr noalias noundef nonnull align 8 dereferenceable(40) %1126, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9297 unwind label %.loopexit20314
 
 .loopexit20314:                                   ; preds = %9295, %9344, %9346, %9355, %9392
@@ -35136,7 +35136,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
 
 9421:                                             ; preds = %9429, %9420
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1122)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1122, ptr noalias noundef nonnull align 8 dereferenceable(40) %1123, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1122, ptr noalias noundef nonnull align 8 dereferenceable(40) %1123, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9424 unwind label %9422
 
 .thread18266:                                     ; preds = %.thread18273.loopexit, %.thread18273.loopexit.split-lp, %9476, %9446, %9422
@@ -35229,7 +35229,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
 
 9445:                                             ; preds = %.thread18279, %9444
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1119)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1119, ptr noalias noundef nonnull align 8 dereferenceable(40) %1120, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1119, ptr noalias noundef nonnull align 8 dereferenceable(40) %1120, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9448 unwind label %9446
 
 9446:                                             ; preds = %9466, %9468, %9464, %9445
@@ -35510,7 +35510,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10200: ; p
   store ptr null, ptr %2529, align 8, !alias.scope !4381, !noalias !4384
   store ptr %305, ptr %2530, align 8, !alias.scope !4381, !noalias !4384
   store i64 1, ptr %2531, align 8, !alias.scope !4381, !noalias !4384
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %306, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %306, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc10206 unwind label %.loopexit20802
 
 .noexc10206:                                      ; preds = %9523
@@ -35646,7 +35646,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10200: ; p
 
 9568:                                             ; preds = %9578, %9567
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1116)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1116, ptr noalias noundef nonnull align 8 dereferenceable(40) %1117, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1116, ptr noalias noundef nonnull align 8 dereferenceable(40) %1117, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9571 unwind label %9569
 
 9569:                                             ; preds = %9579, %9583, %9581, %9568
@@ -35801,7 +35801,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9601:                                             ; preds = %9611, %9600
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1113)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1113, ptr noalias noundef nonnull align 8 dereferenceable(40) %1114, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1113, ptr noalias noundef nonnull align 8 dereferenceable(40) %1114, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9604 unwind label %9602
 
 .thread18318:                                     ; preds = %.loopexit21212, %.loopexit.split-lp21213, %9641, %9621, %9602
@@ -35893,7 +35893,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9620:                                             ; preds = %9630, %9619
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1110)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1110, ptr noalias noundef nonnull align 8 dereferenceable(40) %1111, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1110, ptr noalias noundef nonnull align 8 dereferenceable(40) %1111, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9623 unwind label %9621
 
 9621:                                             ; preds = %9631, %9633, %9620
@@ -36122,7 +36122,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9678:                                             ; preds = %9682, %9677
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1107)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1107, ptr noalias noundef nonnull align 8 dereferenceable(40) %1108, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1107, ptr noalias noundef nonnull align 8 dereferenceable(40) %1108, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9679 unwind label %.loopexit21234
 
 .thread18334:                                     ; preds = %.thread18448.loopexit, %.thread18448.loopexit.split-lp, %.thread18434.loopexit, %.thread18434.loopexit.split-lp, %.thread18341.loopexit, %.thread18341.loopexit.split-lp, %.loopexit21234, %.loopexit.split-lp21235, %10107, %.thread18451, %10029, %9979, %9974, %.thread18349
@@ -36192,7 +36192,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9690:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10328", %9689
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1104)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1104, ptr noalias noundef nonnull align 8 dereferenceable(40) %1105, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1104, ptr noalias noundef nonnull align 8 dereferenceable(40) %1105, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9693 unwind label %9691
 
 .thread18349:                                     ; preds = %.thread18408.loopexit, %.thread18408.loopexit.split-lp, %.thread18382.loopexit, %.thread18382.loopexit.split-lp, %.thread18356.loopexit, %.thread18356.loopexit.split-lp, %9973, %.thread18411, %9887, %.thread18385, %9802, %.thread18359, %9691
@@ -36297,7 +36297,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323
 
 9719:                                             ; preds = %9728, %9718
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1101)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1101, ptr noalias noundef nonnull align 8 dereferenceable(40) %1102, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1101, ptr noalias noundef nonnull align 8 dereferenceable(40) %1102, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9722 unwind label %9720
 
 .thread18359:                                     ; preds = %.loopexit20465, %.loopexit.split-lp20466, %.loopexit20470, %.loopexit.split-lp20471, %9801, %9775, %9765, %9739, %9720
@@ -36397,7 +36397,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9738:                                             ; preds = %9750, %9737
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1098)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1098, ptr noalias noundef nonnull align 8 dereferenceable(40) %1099, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1098, ptr noalias noundef nonnull align 8 dereferenceable(40) %1099, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9741 unwind label %9739
 
 9739:                                             ; preds = %9754, %9756, %9738
@@ -36546,7 +36546,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9774:                                             ; preds = %9786, %9773
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1095)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1095, ptr noalias noundef nonnull align 8 dereferenceable(40) %1096, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1095, ptr noalias noundef nonnull align 8 dereferenceable(40) %1096, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9777 unwind label %9775
 
 9775:                                             ; preds = %9790, %9792, %9774
@@ -36678,7 +36678,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9805:                                             ; preds = %9814, %9804
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1092)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1092, ptr noalias noundef nonnull align 8 dereferenceable(40) %1093, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1092, ptr noalias noundef nonnull align 8 dereferenceable(40) %1093, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9808 unwind label %9806
 
 .thread18385:                                     ; preds = %.loopexit20475, %.loopexit.split-lp20476, %.loopexit20480, %.loopexit.split-lp20481, %9886, %9861, %9851, %9825, %9806
@@ -36778,7 +36778,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9824:                                             ; preds = %9836, %9823
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1089)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1089, ptr noalias noundef nonnull align 8 dereferenceable(40) %1090, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1089, ptr noalias noundef nonnull align 8 dereferenceable(40) %1090, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9827 unwind label %9825
 
 9825:                                             ; preds = %9840, %9842, %9824
@@ -36927,7 +36927,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9860:                                             ; preds = %9872, %9859
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1086)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1086, ptr noalias noundef nonnull align 8 dereferenceable(40) %1087, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1086, ptr noalias noundef nonnull align 8 dereferenceable(40) %1087, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9863 unwind label %9861
 
 9861:                                             ; preds = %9876, %9878, %9860
@@ -37054,7 +37054,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9890:                                             ; preds = %9899, %9889
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1083)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1083, ptr noalias noundef nonnull align 8 dereferenceable(40) %1084, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1083, ptr noalias noundef nonnull align 8 dereferenceable(40) %1084, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9893 unwind label %9891
 
 .thread18411:                                     ; preds = %.loopexit20485, %.loopexit.split-lp20486, %.loopexit20490, %.loopexit.split-lp20491, %9972, %9946, %9936, %9910, %9891
@@ -37154,7 +37154,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9909:                                             ; preds = %9921, %9908
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1080)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1080, ptr noalias noundef nonnull align 8 dereferenceable(40) %1081, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1080, ptr noalias noundef nonnull align 8 dereferenceable(40) %1081, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9912 unwind label %9910
 
 9910:                                             ; preds = %9925, %9927, %9909
@@ -37303,7 +37303,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9945:                                             ; preds = %9957, %9944
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1077)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1077, ptr noalias noundef nonnull align 8 dereferenceable(40) %1078, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1077, ptr noalias noundef nonnull align 8 dereferenceable(40) %1078, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9948 unwind label %9946
 
 9946:                                             ; preds = %9961, %9963, %9945
@@ -37451,7 +37451,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 9978:                                             ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10517.thread", %9976
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1074)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1074, ptr noalias noundef nonnull align 8 dereferenceable(40) %1075, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1074, ptr noalias noundef nonnull align 8 dereferenceable(40) %1075, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %9980 unwind label %.loopexit20848
 
 .loopexit20848:                                   ; preds = %9978, %10010, %10021, %10019
@@ -37663,7 +37663,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
 
 10045:                                            ; preds = %10055, %10044
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1071)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1071, ptr noalias noundef nonnull align 8 dereferenceable(40) %1072, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1071, ptr noalias noundef nonnull align 8 dereferenceable(40) %1072, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10048 unwind label %10046
 
 .thread18451:                                     ; preds = %.thread18458.loopexit, %.thread18458.loopexit.split-lp, %10105, %.thread18461, %10046
@@ -37725,7 +37725,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
 
 10058:                                            ; preds = %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10549", %10057
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1068)
-  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %1068, ptr noalias noundef nonnull align 8 dereferenceable(56) %1069, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %1068, ptr noalias noundef nonnull align 8 dereferenceable(56) %1069, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10061 unwind label %10059
 
 .thread18461:                                     ; preds = %.thread18468.loopexit, %.thread18468.loopexit.split-lp, %10104, %10068, %10059
@@ -37772,7 +37772,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
 
 10067:                                            ; preds = %10077, %10066
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1065)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1065, ptr noalias noundef nonnull align 8 dereferenceable(40) %1066, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1065, ptr noalias noundef nonnull align 8 dereferenceable(40) %1066, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10070 unwind label %10068
 
 10068:                                            ; preds = %10089, %10084, %switch.lookup23206, %10090, %10067
@@ -37847,7 +37847,7 @@ switch.lookup23206:                               ; preds = %10072
   store ptr null, ptr %2492, align 8, !alias.scope !4657, !noalias !4660
   store ptr %282, ptr %2493, align 8, !alias.scope !4657, !noalias !4660
   store i64 1, ptr %2494, align 8, !alias.scope !4657, !noalias !4660
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %283, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %283, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc10559 unwind label %10068
 
 .noexc10559:                                      ; preds = %10089
@@ -38003,7 +38003,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10117:                                            ; preds = %10123, %10116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1062)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1062, ptr noalias noundef nonnull align 8 dereferenceable(40) %1063, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1062, ptr noalias noundef nonnull align 8 dereferenceable(40) %1063, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10120 unwind label %10118
 
 .thread18479:                                     ; preds = %.thread18593.loopexit, %.thread18593.loopexit.split-lp, %.thread18579.loopexit, %.thread18579.loopexit.split-lp, %.thread18486.loopexit, %.thread18486.loopexit.split-lp, %10600, %.thread18596, %10471, %10420, %10415, %.thread18494, %10118
@@ -38068,7 +38068,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10131:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10607", %10130
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1059)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1059, ptr noalias noundef nonnull align 8 dereferenceable(40) %1060, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1059, ptr noalias noundef nonnull align 8 dereferenceable(40) %1060, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10134 unwind label %10132
 
 .thread18494:                                     ; preds = %.thread18553.loopexit, %.thread18553.loopexit.split-lp, %.thread18527.loopexit, %.thread18527.loopexit.split-lp, %.thread18501.loopexit, %.thread18501.loopexit.split-lp, %10414, %.thread18556, %10328, %.thread18530, %10243, %.thread18504, %10132
@@ -38173,7 +38173,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10602
 
 10160:                                            ; preds = %10169, %10159
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1056)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1056, ptr noalias noundef nonnull align 8 dereferenceable(40) %1057, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1056, ptr noalias noundef nonnull align 8 dereferenceable(40) %1057, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10163 unwind label %10161
 
 .thread18504:                                     ; preds = %.loopexit20495, %.loopexit.split-lp20496, %.loopexit20500, %.loopexit.split-lp20501, %10242, %10216, %10206, %10180, %10161
@@ -38273,7 +38273,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10179:                                            ; preds = %10191, %10178
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1053)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1053, ptr noalias noundef nonnull align 8 dereferenceable(40) %1054, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1053, ptr noalias noundef nonnull align 8 dereferenceable(40) %1054, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10182 unwind label %10180
 
 10180:                                            ; preds = %10195, %10197, %10179
@@ -38422,7 +38422,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10215:                                            ; preds = %10227, %10214
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1050)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1050, ptr noalias noundef nonnull align 8 dereferenceable(40) %1051, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1050, ptr noalias noundef nonnull align 8 dereferenceable(40) %1051, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10218 unwind label %10216
 
 10216:                                            ; preds = %10231, %10233, %10215
@@ -38554,7 +38554,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10246:                                            ; preds = %10255, %10245
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1047)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1047, ptr noalias noundef nonnull align 8 dereferenceable(40) %1048, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1047, ptr noalias noundef nonnull align 8 dereferenceable(40) %1048, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10249 unwind label %10247
 
 .thread18530:                                     ; preds = %.loopexit20505, %.loopexit.split-lp20506, %.loopexit20510, %.loopexit.split-lp20511, %10327, %10302, %10292, %10266, %10247
@@ -38654,7 +38654,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10265:                                            ; preds = %10277, %10264
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1044)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1044, ptr noalias noundef nonnull align 8 dereferenceable(40) %1045, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1044, ptr noalias noundef nonnull align 8 dereferenceable(40) %1045, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10268 unwind label %10266
 
 10266:                                            ; preds = %10281, %10283, %10265
@@ -38803,7 +38803,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10301:                                            ; preds = %10313, %10300
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1041)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1041, ptr noalias noundef nonnull align 8 dereferenceable(40) %1042, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1041, ptr noalias noundef nonnull align 8 dereferenceable(40) %1042, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10304 unwind label %10302
 
 10302:                                            ; preds = %10317, %10319, %10301
@@ -38930,7 +38930,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10331:                                            ; preds = %10340, %10330
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1038)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1038, ptr noalias noundef nonnull align 8 dereferenceable(40) %1039, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1038, ptr noalias noundef nonnull align 8 dereferenceable(40) %1039, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10334 unwind label %10332
 
 .thread18556:                                     ; preds = %.loopexit20515, %.loopexit.split-lp20516, %.loopexit20520, %.loopexit.split-lp20521, %10413, %10387, %10377, %10351, %10332
@@ -39030,7 +39030,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10350:                                            ; preds = %10362, %10349
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1035)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1035, ptr noalias noundef nonnull align 8 dereferenceable(40) %1036, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1035, ptr noalias noundef nonnull align 8 dereferenceable(40) %1036, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10353 unwind label %10351
 
 10351:                                            ; preds = %10366, %10368, %10350
@@ -39179,7 +39179,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10386:                                            ; preds = %10398, %10385
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1032)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1032, ptr noalias noundef nonnull align 8 dereferenceable(40) %1033, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1032, ptr noalias noundef nonnull align 8 dereferenceable(40) %1033, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10389 unwind label %10387
 
 10387:                                            ; preds = %10402, %10404, %10386
@@ -39327,7 +39327,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10419:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10797.thread", %10417
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1029)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1029, ptr noalias noundef nonnull align 8 dereferenceable(40) %1030, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1029, ptr noalias noundef nonnull align 8 dereferenceable(40) %1030, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10421 unwind label %.loopexit20871
 
 .loopexit20871:                                   ; preds = %10419, %10451, %10462, %10460
@@ -39512,7 +39512,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10792
 
 10474:                                            ; preds = %10483, %10473
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1026)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1026, ptr noalias noundef nonnull align 8 dereferenceable(40) %1027, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1026, ptr noalias noundef nonnull align 8 dereferenceable(40) %1027, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10475 unwind label %.loopexit21245
 
 .thread18596:                                     ; preds = %.thread18603.loopexit, %.thread18603.loopexit.split-lp, %.loopexit21245, %.loopexit.split-lp21246, %10587, %.thread18612
@@ -39748,7 +39748,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824: ; p
 
 10538:                                            ; preds = %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10842", %10537
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1021)
-  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %1021, ptr noalias noundef nonnull align 8 dereferenceable(56) %1022, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %1021, ptr noalias noundef nonnull align 8 dereferenceable(56) %1022, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10541 unwind label %10539
 
 .thread18622:                                     ; preds = %.thread18629.loopexit, %.thread18629.loopexit.split-lp, %10583, %10548, %10539
@@ -39795,7 +39795,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824: ; p
 
 10547:                                            ; preds = %10557, %10546
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1018)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1018, ptr noalias noundef nonnull align 8 dereferenceable(40) %1019, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1018, ptr noalias noundef nonnull align 8 dereferenceable(40) %1019, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10550 unwind label %10548
 
 10548:                                            ; preds = %10567, %10562, %10568, %10547
@@ -39855,7 +39855,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824: ; p
   store ptr null, ptr %2439, align 8, !alias.scope !4885, !noalias !4888
   store ptr %264, ptr %2440, align 8, !alias.scope !4885, !noalias !4888
   store i64 1, ptr %2441, align 8, !alias.scope !4885, !noalias !4888
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %265, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %265, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc10845 unwind label %10548
 
 .noexc10845:                                      ; preds = %10567
@@ -40075,7 +40075,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10619:                                            ; preds = %10625, %10609
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %976)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %976, ptr noalias noundef nonnull align 8 dereferenceable(40) %977, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %976, ptr noalias noundef nonnull align 8 dereferenceable(40) %977, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10620 unwind label %.loopexit21271
 
 .thread18644:                                     ; preds = %.thread18659.loopexit, %.thread18659.loopexit.split-lp, %.loopexit21277, %.loopexit.split-lp21278, %.loopexit21271, %.loopexit.split-lp21272, %10904, %.thread18670, %10747, %10697
@@ -40312,7 +40312,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10696:                                            ; preds = %10705, %10695
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %973)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %973, ptr noalias noundef nonnull align 8 dereferenceable(40) %974, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %973, ptr noalias noundef nonnull align 8 dereferenceable(40) %974, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10698 unwind label %.loopexit20881
 
 .loopexit20881:                                   ; preds = %10696, %10720, %10732, %10726, %10731
@@ -40412,7 +40412,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %2370, align 8, !alias.scope !4957, !noalias !4960
   store ptr %258, ptr %2371, align 8, !alias.scope !4957, !noalias !4960
   store i64 1, ptr %2372, align 8, !alias.scope !4957, !noalias !4960
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %259, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %259, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc10928 unwind label %.loopexit20881
 
 .noexc10928:                                      ; preds = %10731
@@ -40489,7 +40489,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10750:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10954", %10749
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %970)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %970, ptr noalias noundef nonnull align 8 dereferenceable(40) %971, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %970, ptr noalias noundef nonnull align 8 dereferenceable(40) %971, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10751 unwind label %.loopexit21262
 
 .thread18670:                                     ; preds = %.thread18677.loopexit, %.thread18677.loopexit.split-lp, %.loopexit21262, %.loopexit.split-lp21263, %10880, %.thread18680
@@ -40597,7 +40597,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10949
 
 10778:                                            ; preds = %10788, %10777
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %967)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %967, ptr noalias noundef nonnull align 8 dereferenceable(40) %968, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %967, ptr noalias noundef nonnull align 8 dereferenceable(40) %968, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10781 unwind label %10779
 
 .thread18680:                                     ; preds = %.loopexit20876, %.loopexit.split-lp20877, %10879, %.thread18688, %10779
@@ -40688,7 +40688,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10797:                                            ; preds = %10806, %10796
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %964)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %964, ptr noalias noundef nonnull align 8 dereferenceable(40) %965, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %964, ptr noalias noundef nonnull align 8 dereferenceable(40) %965, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10800 unwind label %10798
 
 .thread18688:                                     ; preds = %.loopexit20525, %.loopexit.split-lp20526, %.loopexit20530, %.loopexit.split-lp20531, %10878, %10853, %10843, %10817, %10798
@@ -40788,7 +40788,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10816:                                            ; preds = %10828, %10815
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %961)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %961, ptr noalias noundef nonnull align 8 dereferenceable(40) %962, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %961, ptr noalias noundef nonnull align 8 dereferenceable(40) %962, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10819 unwind label %10817
 
 10817:                                            ; preds = %10832, %10834, %10816
@@ -40937,7 +40937,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10852:                                            ; preds = %10864, %10851
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %958)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %958, ptr noalias noundef nonnull align 8 dereferenceable(40) %959, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %958, ptr noalias noundef nonnull align 8 dereferenceable(40) %959, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10855 unwind label %10853
 
 10853:                                            ; preds = %10868, %10870, %10852
@@ -41225,7 +41225,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 10923:                                            ; preds = %10929, %10913
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %997)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %997, ptr noalias noundef nonnull align 8 dereferenceable(40) %998, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %997, ptr noalias noundef nonnull align 8 dereferenceable(40) %998, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10924 unwind label %.loopexit21291
 
 .thread18716:                                     ; preds = %.thread18731.loopexit, %.thread18731.loopexit.split-lp, %.loopexit21297, %.loopexit.split-lp21298, %.loopexit21291, %.loopexit.split-lp21292, %11208, %.thread18742, %11051, %11001
@@ -41462,7 +41462,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11000:                                            ; preds = %11009, %10999
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %994)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %994, ptr noalias noundef nonnull align 8 dereferenceable(40) %995, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %994, ptr noalias noundef nonnull align 8 dereferenceable(40) %995, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11002 unwind label %.loopexit20891
 
 .loopexit20891:                                   ; preds = %11000, %11024, %11036, %11030, %11035
@@ -41562,7 +41562,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %2341, align 8, !alias.scope !5101, !noalias !5104
   store ptr %246, ptr %2342, align 8, !alias.scope !5101, !noalias !5104
   store i64 1, ptr %2343, align 8, !alias.scope !5101, !noalias !5104
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %247, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %247, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11106 unwind label %.loopexit20891
 
 .noexc11106:                                      ; preds = %11035
@@ -41639,7 +41639,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11054:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11132", %11053
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %991)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %991, ptr noalias noundef nonnull align 8 dereferenceable(40) %992, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %991, ptr noalias noundef nonnull align 8 dereferenceable(40) %992, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11055 unwind label %.loopexit21282
 
 .thread18742:                                     ; preds = %.thread18749.loopexit, %.thread18749.loopexit.split-lp, %.loopexit21282, %.loopexit.split-lp21283, %11184, %.thread18752
@@ -41747,7 +41747,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11127
 
 11082:                                            ; preds = %11092, %11081
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %988)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %988, ptr noalias noundef nonnull align 8 dereferenceable(40) %989, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %988, ptr noalias noundef nonnull align 8 dereferenceable(40) %989, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11085 unwind label %11083
 
 .thread18752:                                     ; preds = %.loopexit20886, %.loopexit.split-lp20887, %11183, %.thread18760, %11083
@@ -41838,7 +41838,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11101:                                            ; preds = %11110, %11100
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %985)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %985, ptr noalias noundef nonnull align 8 dereferenceable(40) %986, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %985, ptr noalias noundef nonnull align 8 dereferenceable(40) %986, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11104 unwind label %11102
 
 .thread18760:                                     ; preds = %.loopexit20535, %.loopexit.split-lp20536, %.loopexit20540, %.loopexit.split-lp20541, %11182, %11157, %11147, %11121, %11102
@@ -41938,7 +41938,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11120:                                            ; preds = %11132, %11119
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %982)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %982, ptr noalias noundef nonnull align 8 dereferenceable(40) %983, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %982, ptr noalias noundef nonnull align 8 dereferenceable(40) %983, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11123 unwind label %11121
 
 11121:                                            ; preds = %11136, %11138, %11120
@@ -42087,7 +42087,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11156:                                            ; preds = %11168, %11155
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %979)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %979, ptr noalias noundef nonnull align 8 dereferenceable(40) %980, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %979, ptr noalias noundef nonnull align 8 dereferenceable(40) %980, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11159 unwind label %11157
 
 11157:                                            ; preds = %11172, %11174, %11156
@@ -42356,7 +42356,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11218:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11245", %11217
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1015)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1015, ptr noalias noundef nonnull align 8 dereferenceable(40) %1016, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1015, ptr noalias noundef nonnull align 8 dereferenceable(40) %1016, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11219 unwind label %.loopexit21302
 
 .thread18792:                                     ; preds = %.thread18831.loopexit, %.thread18831.loopexit.split-lp, %.loopexit21307, %.loopexit.split-lp21308, %.loopexit21302, %.loopexit.split-lp21303, %11411, %11373, %11367, %.thread18800
@@ -42529,7 +42529,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11265:                                            ; preds = %11275, %11264
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1012)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1012, ptr noalias noundef nonnull align 8 dereferenceable(40) %1013, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1012, ptr noalias noundef nonnull align 8 dereferenceable(40) %1013, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11268 unwind label %11266
 
 .thread18800:                                     ; preds = %.loopexit20896, %.loopexit.split-lp20897, %11366, %.thread18808, %11266
@@ -42620,7 +42620,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11284:                                            ; preds = %11293, %11283
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1009)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1009, ptr noalias noundef nonnull align 8 dereferenceable(40) %1010, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1009, ptr noalias noundef nonnull align 8 dereferenceable(40) %1010, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11287 unwind label %11285
 
 .thread18808:                                     ; preds = %.loopexit20545, %.loopexit.split-lp20546, %.loopexit20550, %.loopexit.split-lp20551, %11365, %11340, %11330, %11304, %11285
@@ -42720,7 +42720,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11303:                                            ; preds = %11315, %11302
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1006)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1006, ptr noalias noundef nonnull align 8 dereferenceable(40) %1007, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1006, ptr noalias noundef nonnull align 8 dereferenceable(40) %1007, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11306 unwind label %11304
 
 11304:                                            ; preds = %11319, %11321, %11303
@@ -42869,7 +42869,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11339:                                            ; preds = %11351, %11338
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1003)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1003, ptr noalias noundef nonnull align 8 dereferenceable(40) %1004, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1003, ptr noalias noundef nonnull align 8 dereferenceable(40) %1004, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11342 unwind label %11340
 
 11340:                                            ; preds = %11355, %11357, %11339
@@ -43025,7 +43025,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11372:                                            ; preds = %11381, %11371
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1000)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %1000, ptr noalias noundef nonnull align 8 dereferenceable(40) %1001, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1000, ptr noalias noundef nonnull align 8 dereferenceable(40) %1001, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11375 unwind label %11373
 
 11373:                                            ; preds = %11388, %11386, %11382, %11403, %11401, %11399, %11390, %11372
@@ -43235,7 +43235,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11435:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11386", %11434
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %955)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %955, ptr noalias noundef nonnull align 8 dereferenceable(40) %956, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %955, ptr noalias noundef nonnull align 8 dereferenceable(40) %956, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11436 unwind label %.loopexit21313
 
 .thread18850:                                     ; preds = %.thread18889.loopexit, %.thread18889.loopexit.split-lp, %.loopexit21318, %.loopexit.split-lp21319, %.loopexit21313, %.loopexit.split-lp21314, %11628, %11590, %11584, %.thread18858
@@ -43408,7 +43408,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11482:                                            ; preds = %11492, %11481
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %952)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %952, ptr noalias noundef nonnull align 8 dereferenceable(40) %953, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %952, ptr noalias noundef nonnull align 8 dereferenceable(40) %953, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11485 unwind label %11483
 
 .thread18858:                                     ; preds = %.loopexit20901, %.loopexit.split-lp20902, %11583, %.thread18866, %11483
@@ -43499,7 +43499,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11501:                                            ; preds = %11510, %11500
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %949)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %949, ptr noalias noundef nonnull align 8 dereferenceable(40) %950, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %949, ptr noalias noundef nonnull align 8 dereferenceable(40) %950, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11504 unwind label %11502
 
 .thread18866:                                     ; preds = %.loopexit20555, %.loopexit.split-lp20556, %.loopexit20560, %.loopexit.split-lp20561, %11582, %11557, %11547, %11521, %11502
@@ -43599,7 +43599,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11520:                                            ; preds = %11532, %11519
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %946)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %946, ptr noalias noundef nonnull align 8 dereferenceable(40) %947, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %946, ptr noalias noundef nonnull align 8 dereferenceable(40) %947, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11523 unwind label %11521
 
 11521:                                            ; preds = %11536, %11538, %11520
@@ -43748,7 +43748,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11556:                                            ; preds = %11568, %11555
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %943)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %943, ptr noalias noundef nonnull align 8 dereferenceable(40) %944, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %943, ptr noalias noundef nonnull align 8 dereferenceable(40) %944, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11559 unwind label %11557
 
 11557:                                            ; preds = %11572, %11574, %11556
@@ -43904,7 +43904,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11589:                                            ; preds = %11598, %11588
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %940)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %940, ptr noalias noundef nonnull align 8 dereferenceable(40) %941, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %940, ptr noalias noundef nonnull align 8 dereferenceable(40) %941, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11592 unwind label %11590
 
 11590:                                            ; preds = %11605, %11603, %11599, %11620, %11618, %11616, %11607, %11589
@@ -44137,7 +44137,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11663:                                            ; preds = %.thread18907, %11651
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %931)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %931, ptr noalias noundef nonnull align 8 dereferenceable(40) %932, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %931, ptr noalias noundef nonnull align 8 dereferenceable(40) %932, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11664 unwind label %.loopexit21324
 
 .loopexit21324:                                   ; preds = %11663, %11677, %11679, %11691, %11707, %11736, %11685, %11690, %11705, %11734
@@ -44253,7 +44253,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526: ; pre
   store ptr null, ptr %2280, align 8, !alias.scope !5446, !noalias !5449
   store ptr %218, ptr %2281, align 8, !alias.scope !5446, !noalias !5449
   store i64 1, ptr %2282, align 8, !alias.scope !5446, !noalias !5449
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %219, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %219, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11534 unwind label %.loopexit21324
 
 .noexc11534:                                      ; preds = %11690
@@ -44503,7 +44503,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 11777:                                            ; preds = %.thread18924, %11765
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %934)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %934, ptr noalias noundef nonnull align 8 dereferenceable(40) %935, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %934, ptr noalias noundef nonnull align 8 dereferenceable(40) %935, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11778 unwind label %.loopexit21329
 
 .loopexit21329:                                   ; preds = %11777, %11791, %11793, %11805, %11821, %11850, %11799, %11804, %11819, %11848
@@ -44619,7 +44619,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591: ; pre
   store ptr null, ptr %2267, align 8, !alias.scope !5501, !noalias !5504
   store ptr %212, ptr %2268, align 8, !alias.scope !5501, !noalias !5504
   store i64 1, ptr %2269, align 8, !alias.scope !5501, !noalias !5504
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %213, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %213, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11599 unwind label %.loopexit21329
 
 .noexc11599:                                      ; preds = %11804
@@ -44820,7 +44820,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613: ; p
 
 11874:                                            ; preds = %11882, %11873
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %937)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %937, ptr noalias noundef nonnull align 8 dereferenceable(40) %938, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %937, ptr noalias noundef nonnull align 8 dereferenceable(40) %938, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11876 unwind label %.loopexit21334
 
 .loopexit21334:                                   ; preds = %11874, %11901, %11915, %11927, %11885, %11921, %11926
@@ -44968,7 +44968,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; p
   store ptr null, ptr %2257, align 8, !alias.scope !5557, !noalias !5560
   store ptr %206, ptr %2258, align 8, !alias.scope !5557, !noalias !5560
   store i64 1, ptr %2259, align 8, !alias.scope !5557, !noalias !5560
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %207, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %207, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11662 unwind label %.loopexit21334
 
 .noexc11662:                                      ; preds = %11926
@@ -45065,7 +45065,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; p
 
 11955:                                            ; preds = %11963, %11954
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %928)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %928, ptr noalias noundef nonnull align 8 dereferenceable(40) %929, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %928, ptr noalias noundef nonnull align 8 dereferenceable(40) %929, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %11957 unwind label %.loopexit21339
 
 .loopexit21339:                                   ; preds = %11955, %11982, %11996, %12008, %11966, %12002, %12007
@@ -45213,7 +45213,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686: ; p
   store ptr null, ptr %2248, align 8, !alias.scope !5593, !noalias !5596
   store ptr %202, ptr %2249, align 8, !alias.scope !5593, !noalias !5596
   store i64 1, ptr %2250, align 8, !alias.scope !5593, !noalias !5596
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %203, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %203, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11697 unwind label %.loopexit21339
 
 .noexc11697:                                      ; preds = %12007
@@ -45343,7 +45343,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12043:                                            ; preds = %12050, %12040
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %925)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %925, ptr noalias noundef nonnull align 8 dereferenceable(40) %926, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %925, ptr noalias noundef nonnull align 8 dereferenceable(40) %926, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12046 unwind label %12044
 
 .thread18970:                                     ; preds = %.loopexit21221, %.loopexit.split-lp21222, %.loopexit21226, %.loopexit.split-lp21227, %12249, %.loopexit.split-lp20832, %12116, %12065, %12044
@@ -45442,7 +45442,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12064:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11741.thread", %12062
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %922)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %922, ptr noalias noundef nonnull align 8 dereferenceable(40) %923, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %922, ptr noalias noundef nonnull align 8 dereferenceable(40) %923, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12066 unwind label %.loopexit20826
 
 .loopexit20826:                                   ; preds = %12064, %12096, %12107, %12105
@@ -45686,7 +45686,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12146:                                            ; preds = %12154, %12124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %919)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %919, ptr noalias noundef nonnull align 8 dereferenceable(40) %920, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %919, ptr noalias noundef nonnull align 8 dereferenceable(40) %920, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12147 unwind label %.loopexit20831
 
 .loopexit20831:                                   ; preds = %12146, %12214, %12227, %12221, %12226
@@ -45958,7 +45958,7 @@ default.unreachable.i11775:                       ; preds = %_ZN17cranelift_code
   store ptr null, ptr %2504, align 8, !alias.scope !5675, !noalias !5678
   store ptr %195, ptr %2505, align 8, !alias.scope !5675, !noalias !5678
   store i64 1, ptr %2506, align 8, !alias.scope !5675, !noalias !5678
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %196, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %196, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc11784 unwind label %.loopexit20831
 
 .noexc11784:                                      ; preds = %12226
@@ -46116,7 +46116,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12262:                                            ; preds = %.thread19499, %12260
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %916)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %916, ptr noalias noundef nonnull align 8 dereferenceable(40) %917, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %916, ptr noalias noundef nonnull align 8 dereferenceable(40) %917, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12263 unwind label %.loopexit21344
 
 .thread18998:                                     ; preds = %.thread19507.loopexit, %.thread19507.loopexit.split-lp, %.loopexit21350, %.loopexit.split-lp21351, %.loopexit21377, %.loopexit.split-lp21378, %.thread19388.loopexit, %.thread19388.loopexit.split-lp, %.thread19353.loopexit, %.thread19353.loopexit.split-lp, %.thread19293.loopexit, %.thread19293.loopexit.split-lp, %.thread19258.loopexit, %.thread19258.loopexit.split-lp, %.thread19005.loopexit, %.thread19005.loopexit.split-lp, %.loopexit21344, %.loopexit.split-lp21345, %14070, %14049, %14001, %13975, %13965, %.thread19449, %13770, %.thread19391, %13476, %.thread19363, %13300, %.thread19296, %13006, %.thread19268, %12854, %.thread19008
@@ -46209,7 +46209,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12277:                                            ; preds = %12287, %12276
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %913)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %913, ptr noalias noundef nonnull align 8 dereferenceable(40) %914, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %913, ptr noalias noundef nonnull align 8 dereferenceable(40) %914, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12280 unwind label %12278
 
 .thread19008:                                     ; preds = %.thread19015.loopexit, %.thread19015.loopexit.split-lp, %12853, %.thread19025, %12278
@@ -46272,7 +46272,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12290:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11841.thread", %12289
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %910)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %910, ptr noalias noundef nonnull align 8 dereferenceable(40) %911, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %910, ptr noalias noundef nonnull align 8 dereferenceable(40) %911, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12293 unwind label %12291
 
 .thread19025:                                     ; preds = %.thread19032.loopexit, %.thread19032.loopexit.split-lp, %12852, %.thread19035, %12291
@@ -46376,7 +46376,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
 
 12320:                                            ; preds = %12329, %12319
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %907)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %907, ptr noalias noundef nonnull align 8 dereferenceable(40) %908, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %907, ptr noalias noundef nonnull align 8 dereferenceable(40) %908, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12323 unwind label %12321
 
 .thread19035:                                     ; preds = %.thread19231.loopexit, %.thread19231.loopexit.split-lp, %.thread19204.loopexit, %.thread19204.loopexit.split-lp, %.thread19177.loopexit, %.thread19177.loopexit.split-lp, %.thread19150.loopexit, %.thread19150.loopexit.split-lp, %.thread19123.loopexit, %.thread19123.loopexit.split-lp, %.thread19096.loopexit, %.thread19096.loopexit.split-lp, %.thread19069.loopexit, %.thread19069.loopexit.split-lp, %.thread19042.loopexit, %.thread19042.loopexit.split-lp, %12851, %.thread19234, %12788, %.thread19207, %12725, %.thread19180, %12662, %.thread19153, %12599, %.thread19126, %12536, %.thread19099, %12473, %.thread19072, %12410, %.thread19045, %12321
@@ -46487,7 +46487,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
 
 12352:                                            ; preds = %12365, %12351
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %888)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %888, ptr noalias noundef nonnull align 8 dereferenceable(40) %889, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %888, ptr noalias noundef nonnull align 8 dereferenceable(40) %889, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12355 unwind label %12353
 
 .thread19045:                                     ; preds = %.thread19052.loopexit, %.thread19052.loopexit.split-lp, %12409, %12369, %12353
@@ -46508,7 +46508,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
 12357:                                            ; preds = %12355
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %887, ptr noundef nonnull align 8 dereferenceable(24) %888, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %886)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %886, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %887)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %886, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %887)
           to label %12359 unwind label %12353
 
 12358:                                            ; preds = %12355
@@ -46555,7 +46555,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
 
 12368:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11872.thread", %12367
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %883)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %883, ptr noalias noundef nonnull align 8 dereferenceable(40) %884, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %883, ptr noalias noundef nonnull align 8 dereferenceable(40) %884, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12371 unwind label %12369
 
 12369:                                            ; preds = %12400, %12398, %12396, %12368
@@ -46726,7 +46726,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867
 
 12416:                                            ; preds = %12429, %12415
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %896)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %896, ptr noalias noundef nonnull align 8 dereferenceable(40) %897, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %896, ptr noalias noundef nonnull align 8 dereferenceable(40) %897, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12419 unwind label %12417
 
 .thread19072:                                     ; preds = %.thread19079.loopexit, %.thread19079.loopexit.split-lp, %12472, %12433, %12417
@@ -46747,7 +46747,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867
 12421:                                            ; preds = %12419
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %895, ptr noundef nonnull align 8 dereferenceable(24) %896, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %894)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %894, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %895)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %894, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %895)
           to label %12423 unwind label %12417
 
 12422:                                            ; preds = %12419
@@ -46794,7 +46794,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867
 
 12432:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11909.thread", %12431
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %891)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %891, ptr noalias noundef nonnull align 8 dereferenceable(40) %892, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %891, ptr noalias noundef nonnull align 8 dereferenceable(40) %892, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12435 unwind label %12433
 
 12433:                                            ; preds = %12464, %12462, %12460, %12432
@@ -46960,7 +46960,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904
 
 12479:                                            ; preds = %12492, %12478
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %904)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %904, ptr noalias noundef nonnull align 8 dereferenceable(40) %905, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %904, ptr noalias noundef nonnull align 8 dereferenceable(40) %905, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12482 unwind label %12480
 
 .thread19099:                                     ; preds = %.thread19106.loopexit, %.thread19106.loopexit.split-lp, %12535, %12496, %12480
@@ -46981,7 +46981,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904
 12484:                                            ; preds = %12482
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %903, ptr noundef nonnull align 8 dereferenceable(24) %904, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %902)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %902, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %903)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %902, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %903)
           to label %12486 unwind label %12480
 
 12485:                                            ; preds = %12482
@@ -47028,7 +47028,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904
 
 12495:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11944.thread", %12494
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %899)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %899, ptr noalias noundef nonnull align 8 dereferenceable(40) %900, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %899, ptr noalias noundef nonnull align 8 dereferenceable(40) %900, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12498 unwind label %12496
 
 12496:                                            ; preds = %12527, %12525, %12523, %12495
@@ -47194,7 +47194,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939
 
 12542:                                            ; preds = %12555, %12541
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %880)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %880, ptr noalias noundef nonnull align 8 dereferenceable(40) %881, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %880, ptr noalias noundef nonnull align 8 dereferenceable(40) %881, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12545 unwind label %12543
 
 .thread19126:                                     ; preds = %.thread19133.loopexit, %.thread19133.loopexit.split-lp, %12598, %12559, %12543
@@ -47215,7 +47215,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939
 12547:                                            ; preds = %12545
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %879, ptr noundef nonnull align 8 dereferenceable(24) %880, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %878)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %878, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %879)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %878, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %879)
           to label %12549 unwind label %12543
 
 12548:                                            ; preds = %12545
@@ -47262,7 +47262,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939
 
 12558:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11979.thread", %12557
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %875)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %875, ptr noalias noundef nonnull align 8 dereferenceable(40) %876, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %875, ptr noalias noundef nonnull align 8 dereferenceable(40) %876, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12561 unwind label %12559
 
 12559:                                            ; preds = %12590, %12588, %12586, %12558
@@ -47428,7 +47428,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974
 
 12605:                                            ; preds = %12618, %12604
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %856)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %856, ptr noalias noundef nonnull align 8 dereferenceable(40) %857, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %856, ptr noalias noundef nonnull align 8 dereferenceable(40) %857, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12608 unwind label %12606
 
 .thread19153:                                     ; preds = %.thread19160.loopexit, %.thread19160.loopexit.split-lp, %12661, %12622, %12606
@@ -47449,7 +47449,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974
 12610:                                            ; preds = %12608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %855, ptr noundef nonnull align 8 dereferenceable(24) %856, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %854)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %854, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %855)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %854, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %855)
           to label %12612 unwind label %12606
 
 12611:                                            ; preds = %12608
@@ -47496,7 +47496,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974
 
 12621:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12014.thread", %12620
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %851)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %851, ptr noalias noundef nonnull align 8 dereferenceable(40) %852, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %851, ptr noalias noundef nonnull align 8 dereferenceable(40) %852, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12624 unwind label %12622
 
 12622:                                            ; preds = %12653, %12651, %12649, %12621
@@ -47662,7 +47662,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009
 
 12668:                                            ; preds = %12681, %12667
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %864)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %864, ptr noalias noundef nonnull align 8 dereferenceable(40) %865, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %864, ptr noalias noundef nonnull align 8 dereferenceable(40) %865, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12671 unwind label %12669
 
 .thread19180:                                     ; preds = %.thread19187.loopexit, %.thread19187.loopexit.split-lp, %12724, %12685, %12669
@@ -47683,7 +47683,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009
 12673:                                            ; preds = %12671
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %863, ptr noundef nonnull align 8 dereferenceable(24) %864, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %862)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %862, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %863)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %862, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %863)
           to label %12675 unwind label %12669
 
 12674:                                            ; preds = %12671
@@ -47730,7 +47730,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009
 
 12684:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12049.thread", %12683
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %859)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %859, ptr noalias noundef nonnull align 8 dereferenceable(40) %860, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %859, ptr noalias noundef nonnull align 8 dereferenceable(40) %860, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12687 unwind label %12685
 
 12685:                                            ; preds = %12716, %12714, %12712, %12684
@@ -47896,7 +47896,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044
 
 12731:                                            ; preds = %12744, %12730
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %872)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %872, ptr noalias noundef nonnull align 8 dereferenceable(40) %873, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %872, ptr noalias noundef nonnull align 8 dereferenceable(40) %873, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12734 unwind label %12732
 
 .thread19207:                                     ; preds = %.thread19214.loopexit, %.thread19214.loopexit.split-lp, %12787, %12748, %12732
@@ -47917,7 +47917,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044
 12736:                                            ; preds = %12734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %871, ptr noundef nonnull align 8 dereferenceable(24) %872, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %870)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %870, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %871)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %870, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %871)
           to label %12738 unwind label %12732
 
 12737:                                            ; preds = %12734
@@ -47964,7 +47964,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044
 
 12747:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12084.thread", %12746
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %867)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %867, ptr noalias noundef nonnull align 8 dereferenceable(40) %868, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %867, ptr noalias noundef nonnull align 8 dereferenceable(40) %868, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12750 unwind label %12748
 
 12748:                                            ; preds = %12779, %12777, %12775, %12747
@@ -48130,7 +48130,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079
 
 12794:                                            ; preds = %12807, %12793
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %848)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %848, ptr noalias noundef nonnull align 8 dereferenceable(40) %849, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %848, ptr noalias noundef nonnull align 8 dereferenceable(40) %849, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12797 unwind label %12795
 
 .thread19234:                                     ; preds = %.thread19241.loopexit, %.thread19241.loopexit.split-lp, %12850, %12811, %12795
@@ -48151,7 +48151,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079
 12799:                                            ; preds = %12797
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %847, ptr noundef nonnull align 8 dereferenceable(24) %848, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %846)
-  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %846, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %847)
+  invoke void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %846, ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %847)
           to label %12801 unwind label %12795
 
 12800:                                            ; preds = %12797
@@ -48198,7 +48198,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079
 
 12810:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12119.thread", %12809
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %843)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %843, ptr noalias noundef nonnull align 8 dereferenceable(40) %844, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %843, ptr noalias noundef nonnull align 8 dereferenceable(40) %844, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12813 unwind label %12811
 
 12811:                                            ; preds = %12842, %12840, %12838, %12810
@@ -48414,7 +48414,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12114
 
 12857:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12158.thread", %12856
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %825)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %825, ptr noalias noundef nonnull align 8 dereferenceable(40) %826, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %825, ptr noalias noundef nonnull align 8 dereferenceable(40) %826, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12858 unwind label %.loopexit20924
 
 .thread19268:                                     ; preds = %.thread19275.loopexit, %.thread19275.loopexit.split-lp, %.loopexit20924, %.loopexit.split-lp20925, %12979, %.thread19278
@@ -48520,7 +48520,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12153
 
 12884:                                            ; preds = %12893, %12883
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %822)
-  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %822, ptr noalias noundef nonnull align 8 dereferenceable(56) %823, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %822, ptr noalias noundef nonnull align 8 dereferenceable(56) %823, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12887 unwind label %12885
 
 .thread19278:                                     ; preds = %.loopexit20573, %.loopexit.split-lp20574, %12978, %12904, %12885
@@ -48605,7 +48605,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 12903:                                            ; preds = %12911, %12902
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %819)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %819, ptr noalias noundef nonnull align 8 dereferenceable(40) %820, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %819, ptr noalias noundef nonnull align 8 dereferenceable(40) %820, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %12905 unwind label %.loopexit20343
 
 .loopexit20343:                                   ; preds = %12903, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12202, %12920, %.noexc12176, %.noexc12177, %12940, %12952, %.noexc12193, %.noexc12194, %12970
@@ -49050,7 +49050,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13033:                                            ; preds = %13039, %13032
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %840)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %840, ptr noalias noundef nonnull align 8 dereferenceable(40) %841, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %840, ptr noalias noundef nonnull align 8 dereferenceable(40) %841, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13034 unwind label %.loopexit20932
 
 .thread19296:                                     ; preds = %.thread19328.loopexit, %.thread19328.loopexit.split-lp, %.thread19303.loopexit, %.thread19303.loopexit.split-lp, %.loopexit20932, %.loopexit.split-lp20933, %13274, %.thread19338, %13159, %.thread19313
@@ -49121,7 +49121,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13046:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12264.thread", %13045
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %837)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %837, ptr noalias noundef nonnull align 8 dereferenceable(40) %838, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %837, ptr noalias noundef nonnull align 8 dereferenceable(40) %838, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13049 unwind label %13047
 
 .thread19313:                                     ; preds = %.loopexit20578, %.loopexit.split-lp20579, %13158, %13083, %13047
@@ -49254,7 +49254,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13082:                                            ; preds = %13090, %13081
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %834)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %834, ptr noalias noundef nonnull align 8 dereferenceable(40) %835, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %834, ptr noalias noundef nonnull align 8 dereferenceable(40) %835, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13084 unwind label %.loopexit20348
 
 .loopexit20348:                                   ; preds = %13082, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12296, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12317, %13099, %.noexc12287, %.noexc12288, %13119, %13131, %.noexc12308, %.noexc12309, %13149
@@ -49557,7 +49557,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13162:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12343.thread", %13161
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %831)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %831, ptr noalias noundef nonnull align 8 dereferenceable(40) %832, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %831, ptr noalias noundef nonnull align 8 dereferenceable(40) %832, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13165 unwind label %13163
 
 .thread19338:                                     ; preds = %.loopexit20583, %.loopexit.split-lp20584, %13273, %13199, %13163
@@ -49690,7 +49690,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13198:                                            ; preds = %13206, %13197
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %828)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %828, ptr noalias noundef nonnull align 8 dereferenceable(40) %829, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %828, ptr noalias noundef nonnull align 8 dereferenceable(40) %829, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13200 unwind label %.loopexit20353
 
 .loopexit20353:                                   ; preds = %13198, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12375, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12396, %13215, %.noexc12366, %.noexc12367, %13235, %13247, %.noexc12387, %.noexc12388, %13265
@@ -50133,7 +50133,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13327:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12455.thread", %13326
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %801)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %801, ptr noalias noundef nonnull align 8 dereferenceable(40) %802, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %801, ptr noalias noundef nonnull align 8 dereferenceable(40) %802, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13328 unwind label %.loopexit20943
 
 .thread19363:                                     ; preds = %.thread19370.loopexit, %.thread19370.loopexit.split-lp, %.loopexit20943, %.loopexit.split-lp20944, %13449, %.thread19373
@@ -50239,7 +50239,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12450
 
 13354:                                            ; preds = %13363, %13353
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %798)
-  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %798, ptr noalias noundef nonnull align 8 dereferenceable(56) %799, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %798, ptr noalias noundef nonnull align 8 dereferenceable(56) %799, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13357 unwind label %13355
 
 .thread19373:                                     ; preds = %.loopexit20588, %.loopexit.split-lp20589, %13448, %13374, %13355
@@ -50324,7 +50324,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13373:                                            ; preds = %13381, %13372
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %795)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %795, ptr noalias noundef nonnull align 8 dereferenceable(40) %796, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %795, ptr noalias noundef nonnull align 8 dereferenceable(40) %796, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13375 unwind label %.loopexit20358
 
 .loopexit20358:                                   ; preds = %13373, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12489, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12510, %13390, %.noexc12481, %.noexc12482, %13410, %13422, %.noexc12501, %.noexc12502, %13440
@@ -50769,7 +50769,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13503:                                            ; preds = %13509, %13502
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %816)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %816, ptr noalias noundef nonnull align 8 dereferenceable(40) %817, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %816, ptr noalias noundef nonnull align 8 dereferenceable(40) %817, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13504 unwind label %.loopexit20951
 
 .thread19391:                                     ; preds = %.thread19423.loopexit, %.thread19423.loopexit.split-lp, %.thread19398.loopexit, %.thread19398.loopexit.split-lp, %.loopexit20951, %.loopexit.split-lp20952, %13744, %.thread19433, %13629, %.thread19408
@@ -50840,7 +50840,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13516:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12572.thread", %13515
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %813)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %813, ptr noalias noundef nonnull align 8 dereferenceable(40) %814, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %813, ptr noalias noundef nonnull align 8 dereferenceable(40) %814, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13519 unwind label %13517
 
 .thread19408:                                     ; preds = %.loopexit20593, %.loopexit.split-lp20594, %13628, %13553, %13517
@@ -50973,7 +50973,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13552:                                            ; preds = %13560, %13551
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %810)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %810, ptr noalias noundef nonnull align 8 dereferenceable(40) %811, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %810, ptr noalias noundef nonnull align 8 dereferenceable(40) %811, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13554 unwind label %.loopexit20363
 
 .loopexit20363:                                   ; preds = %13552, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12604, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12625, %13569, %.noexc12595, %.noexc12596, %13589, %13601, %.noexc12616, %.noexc12617, %13619
@@ -51276,7 +51276,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
 
 13632:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12651.thread", %13631
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %807)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %807, ptr noalias noundef nonnull align 8 dereferenceable(40) %808, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %807, ptr noalias noundef nonnull align 8 dereferenceable(40) %808, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13635 unwind label %13633
 
 .thread19433:                                     ; preds = %.loopexit20598, %.loopexit.split-lp20599, %13743, %13669, %13633
@@ -51409,7 +51409,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13668:                                            ; preds = %13676, %13667
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %804)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %804, ptr noalias noundef nonnull align 8 dereferenceable(40) %805, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %804, ptr noalias noundef nonnull align 8 dereferenceable(40) %805, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13670 unwind label %.loopexit20368
 
 .loopexit20368:                                   ; preds = %13668, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12683, %_ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7050bc8b16E.exit12704, %13685, %.noexc12674, %.noexc12675, %13705, %13717, %.noexc12695, %.noexc12696, %13735
@@ -51882,7 +51882,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13804:                                            ; preds = %13812, %13802
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %792)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %792, ptr noalias noundef nonnull align 8 dereferenceable(40) %793, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %792, ptr noalias noundef nonnull align 8 dereferenceable(40) %793, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13807 unwind label %13805
 
 .thread19449:                                     ; preds = %.thread19472.loopexit, %.thread19472.loopexit.split-lp, %.loopexit20911, %.loopexit.split-lp20912, %.loopexit20916, %.loopexit.split-lp20917, %13964, %.thread19479, %13888, %13855, %13845, %13823, %13805
@@ -51970,7 +51970,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13822:                                            ; preds = %13832, %13821
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %789)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %789, ptr noalias noundef nonnull align 8 dereferenceable(40) %790, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %789, ptr noalias noundef nonnull align 8 dereferenceable(40) %790, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13825 unwind label %13823
 
 13823:                                            ; preds = %13834, %switch.lookup23368, %13836, %13822
@@ -52113,7 +52113,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13854:                                            ; preds = %13863, %13853
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %786)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %786, ptr noalias noundef nonnull align 8 dereferenceable(40) %787, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %786, ptr noalias noundef nonnull align 8 dereferenceable(40) %787, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13856 unwind label %.loopexit20565
 
 .loopexit20565:                                   ; preds = %13854, %_ZN17cranelift_codegen4opts14generated_code25constructor_uextend_maybe17hb2d402a95b3dca02E.exit, %13878
@@ -52256,7 +52256,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_uextend_maybe17hb2d402a
 
 13891:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12825.thread", %13890
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %783)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %783, ptr noalias noundef nonnull align 8 dereferenceable(40) %784, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %783, ptr noalias noundef nonnull align 8 dereferenceable(40) %784, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13894 unwind label %13892
 
 .thread19479:                                     ; preds = %.loopexit20906, %.loopexit.split-lp20907, %13963, %13927, %13892
@@ -52387,7 +52387,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13926:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12853.thread", %13925
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %780)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %780, ptr noalias noundef nonnull align 8 dereferenceable(40) %781, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %780, ptr noalias noundef nonnull align 8 dereferenceable(40) %781, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13929 unwind label %13927
 
 13927:                                            ; preds = %13955, %13953, %13926
@@ -52593,7 +52593,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 13974:                                            ; preds = %13983, %13973
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %777)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %777, ptr noalias noundef nonnull align 8 dereferenceable(40) %778, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %777, ptr noalias noundef nonnull align 8 dereferenceable(40) %778, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13977 unwind label %13975
 
 13975:                                            ; preds = %13984, %13993, %13986, %13974
@@ -52725,7 +52725,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %2000, align 8, !alias.scope !6574, !noalias !6577
   store ptr %111, ptr %2001, align 8, !alias.scope !6574, !noalias !6577
   store i64 1, ptr %2002, align 8, !alias.scope !6574, !noalias !6577
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %112, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc12894 unwind label %.loopexit21344
 
 .noexc12894:                                      ; preds = %14022
@@ -52938,7 +52938,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14080:                                            ; preds = %.thread19522, %14079
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %772)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %772, ptr noalias noundef nonnull align 8 dereferenceable(40) %773, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %772, ptr noalias noundef nonnull align 8 dereferenceable(40) %773, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14082 unwind label %.loopexit21382
 
 .loopexit21382:                                   ; preds = %14080, %14101, %14125, %14095, %14100, %14119, %14124
@@ -53009,7 +53009,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1988, align 8, !alias.scope !6627, !noalias !6630
   store ptr %106, ptr %1989, align 8, !alias.scope !6627, !noalias !6630
   store i64 1, ptr %1990, align 8, !alias.scope !6627, !noalias !6630
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %107, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %107, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc12929 unwind label %.loopexit21382
 
 .noexc12929:                                      ; preds = %14100
@@ -53069,7 +53069,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1983, align 8, !alias.scope !6643, !noalias !6646
   store ptr %103, ptr %1984, align 8, !alias.scope !6643, !noalias !6646
   store i64 1, ptr %1985, align 8, !alias.scope !6643, !noalias !6646
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %104, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %104, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc12934 unwind label %.loopexit21382
 
 .noexc12934:                                      ; preds = %14124
@@ -53129,7 +53129,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1993, align 8, !alias.scope !6659, !noalias !6662
   store ptr %100, ptr %1994, align 8, !alias.scope !6659, !noalias !6662
   store i64 1, ptr %1995, align 8, !alias.scope !6659, !noalias !6662
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %101, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %101, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc12941 unwind label %.loopexit.split-lp21383
 
 .noexc12941:                                      ; preds = %14147
@@ -53293,7 +53293,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14171:                                            ; preds = %14180, %14170
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %769)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %769, ptr noalias noundef nonnull align 8 dereferenceable(40) %770, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %769, ptr noalias noundef nonnull align 8 dereferenceable(40) %770, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14174 unwind label %14172
 
 14172:                                            ; preds = %14366, %14357, %14342, %14333, %14318, %14309, %14294, %14285, %14270, %14261, %14246, %14237, %14222, %14213, %14197, %14188, %14368, %14359, %14344, %14335, %14320, %14311, %14296, %14287, %14272, %14263, %14248, %14239, %14224, %14215, %14199, %14190, %14171
@@ -53858,7 +53858,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14392:                                            ; preds = %14402, %14391
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %766)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %766, ptr noalias noundef nonnull align 8 dereferenceable(40) %767, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %766, ptr noalias noundef nonnull align 8 dereferenceable(40) %767, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14395 unwind label %14393
 
 .thread19541:                                     ; preds = %.loopexit21387, %.loopexit.split-lp21388, %14432, %14412, %14393
@@ -53948,7 +53948,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14411:                                            ; preds = %14421, %14410
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %763)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %763, ptr noalias noundef nonnull align 8 dereferenceable(40) %764, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %763, ptr noalias noundef nonnull align 8 dereferenceable(40) %764, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14414 unwind label %14412
 
 14412:                                            ; preds = %14422, %14424, %14411
@@ -54104,7 +54104,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14445:                                            ; preds = %14452, %14444
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %760)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %760, ptr noalias noundef nonnull align 8 dereferenceable(40) %761, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %760, ptr noalias noundef nonnull align 8 dereferenceable(40) %761, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14448 unwind label %14446
 
 14446:                                            ; preds = %14509, %14497, %14485, %14459, %14525, %14523, %14521, %14514, %_ZN17cranelift_codegen4opts14generated_code19constructor_splat3217hfdf03bc3ec8fc52cE.exit13154, %14502, %_ZN17cranelift_codegen4opts14generated_code19constructor_splat1617hb757dfcca9def77dE.exit, %14490, %_ZN17cranelift_codegen4opts14generated_code18constructor_splat817h0a40fc1949c7423aE.exit, %14477, %14475, %14473, %14465, %_ZN17cranelift_codegen4opts14generated_code19constructor_splat3217hfdf03bc3ec8fc52cE.exit, %14445
@@ -54397,7 +54397,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14546:                                            ; preds = %14553, %14540
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %757)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %757, ptr noalias noundef nonnull align 8 dereferenceable(40) %758, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %757, ptr noalias noundef nonnull align 8 dereferenceable(40) %758, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14549 unwind label %14547
 
 .thread19565:                                     ; preds = %.loopexit21393, %.loopexit.split-lp21394, %14601, %14578, %14547
@@ -54535,7 +54535,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14577:                                            ; preds = %14586, %14576
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %754)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %754, ptr noalias noundef nonnull align 8 dereferenceable(40) %755, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %754, ptr noalias noundef nonnull align 8 dereferenceable(40) %755, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14580 unwind label %14578
 
 14578:                                            ; preds = %14591, %14593, %14577
@@ -54692,7 +54692,7 @@ switch.lookup23379:                               ; preds = %14587
   store ptr null, ptr %1912, align 8, !alias.scope !6993, !noalias !6996
   store ptr %72, ptr %1913, align 8, !alias.scope !6993, !noalias !6996
   store i64 1, ptr %1914, align 8, !alias.scope !6993, !noalias !6996
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %73, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13210 unwind label %14547
 
 .noexc13210:                                      ; preds = %14626
@@ -54792,7 +54792,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14652:                                            ; preds = %14661, %14648
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %751)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %751, ptr noalias noundef nonnull align 8 dereferenceable(40) %752, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %751, ptr noalias noundef nonnull align 8 dereferenceable(40) %752, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14655 unwind label %14653
 
 14653:                                            ; preds = %14698, %14693, %14699, %14682, %14680, %14672, %14670, %14668, %14652
@@ -54924,7 +54924,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1899, align 8, !alias.scope !7035, !noalias !7038
   store ptr %68, ptr %1900, align 8, !alias.scope !7035, !noalias !7038
   store i64 1, ptr %1901, align 8, !alias.scope !7035, !noalias !7038
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %69, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %69, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13233 unwind label %14653
 
 .noexc13233:                                      ; preds = %14698
@@ -55042,7 +55042,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14734:                                            ; preds = %.thread19626, %14720
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %748)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %748, ptr noalias noundef nonnull align 8 dereferenceable(40) %749, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %748, ptr noalias noundef nonnull align 8 dereferenceable(40) %749, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14735 unwind label %.loopexit21398
 
 .thread19589:                                     ; preds = %.thread19613.loopexit, %.thread19613.loopexit.split-lp, %.thread19596.loopexit, %.thread19596.loopexit.split-lp, %.loopexit21398, %.loopexit.split-lp21399.loopexit.split-lp, %.loopexit.split-lp21399.loopexit, %14831, %14794, %14790, %14753
@@ -55145,7 +55145,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14752:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13265.thread", %14751
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %745)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %745, ptr noalias noundef nonnull align 8 dereferenceable(40) %746, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %745, ptr noalias noundef nonnull align 8 dereferenceable(40) %746, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14755 unwind label %14753
 
 14753:                                            ; preds = %14782, %14780, %14752
@@ -55288,7 +55288,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13260
 
 14793:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13291.thread", %14792
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %742)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %742, ptr noalias noundef nonnull align 8 dereferenceable(40) %743, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %742, ptr noalias noundef nonnull align 8 dereferenceable(40) %743, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14796 unwind label %14794
 
 14794:                                            ; preds = %14823, %14821, %14793
@@ -55565,7 +55565,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13286
   store ptr null, ptr %1870, align 8, !alias.scope !7110, !noalias !7113
   store ptr %62, ptr %1871, align 8, !alias.scope !7110, !noalias !7113
   store i64 1, ptr %1872, align 8, !alias.scope !7110, !noalias !7113
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %63, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13321 unwind label %.loopexit21398
 
 .noexc13321:                                      ; preds = %14882
@@ -55671,7 +55671,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332: ; p
   store ptr null, ptr %1865, align 8, !alias.scope !7126, !noalias !7129
   store ptr %59, ptr %1866, align 8, !alias.scope !7126, !noalias !7129
   store i64 1, ptr %1867, align 8, !alias.scope !7126, !noalias !7129
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %60, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %60, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13340 unwind label %.loopexit21398
 
 .noexc13340:                                      ; preds = %14921
@@ -55787,7 +55787,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14952:                                            ; preds = %14962, %14951
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %739)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %739, ptr noalias noundef nonnull align 8 dereferenceable(40) %740, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %739, ptr noalias noundef nonnull align 8 dereferenceable(40) %740, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14955 unwind label %14953
 
 14953:                                            ; preds = %14972, %14967, %14973, %14952
@@ -55848,7 +55848,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1856, align 8, !alias.scope !7161, !noalias !7164
   store ptr %55, ptr %1857, align 8, !alias.scope !7161, !noalias !7164
   store i64 1, ptr %1858, align 8, !alias.scope !7161, !noalias !7164
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %56, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %56, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13363 unwind label %14953
 
 .noexc13363:                                      ; preds = %14972
@@ -55949,7 +55949,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 14996:                                            ; preds = %15003, %14995
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %736)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %736, ptr noalias noundef nonnull align 8 dereferenceable(40) %737, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %736, ptr noalias noundef nonnull align 8 dereferenceable(40) %737, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %14999 unwind label %14997
 
 14997:                                            ; preds = %15102, %15097, %15076, %15071, %15048, %15043, %15018, %15013, %15103, %15090, %15077, %15062, %15049, %15034, %15019, %14996
@@ -56019,7 +56019,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1849, align 8, !alias.scope !7189, !noalias !7192
   store ptr %51, ptr %1850, align 8, !alias.scope !7189, !noalias !7192
   store i64 1, ptr %1851, align 8, !alias.scope !7189, !noalias !7192
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %52, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13383 unwind label %14997
 
 .noexc13383:                                      ; preds = %15018
@@ -56099,7 +56099,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1844, align 8, !alias.scope !7205, !noalias !7208
   store ptr %48, ptr %1845, align 8, !alias.scope !7205, !noalias !7208
   store i64 1, ptr %1846, align 8, !alias.scope !7205, !noalias !7208
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %49, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13390 unwind label %14997
 
 .noexc13390:                                      ; preds = %15048
@@ -56167,7 +56167,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1837, align 8, !alias.scope !7221, !noalias !7224
   store ptr %45, ptr %1838, align 8, !alias.scope !7221, !noalias !7224
   store i64 1, ptr %1839, align 8, !alias.scope !7221, !noalias !7224
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %46, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13395 unwind label %14997
 
 .noexc13395:                                      ; preds = %15076
@@ -56233,7 +56233,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1830, align 8, !alias.scope !7237, !noalias !7240
   store ptr %42, ptr %1831, align 8, !alias.scope !7237, !noalias !7240
   store i64 1, ptr %1832, align 8, !alias.scope !7237, !noalias !7240
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %43, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13400 unwind label %14997
 
 .noexc13400:                                      ; preds = %15102
@@ -56333,7 +56333,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15128:                                            ; preds = %15138, %15124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %733)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %733, ptr noalias noundef nonnull align 8 dereferenceable(40) %734, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %733, ptr noalias noundef nonnull align 8 dereferenceable(40) %734, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15131 unwind label %15129
 
 15129:                                            ; preds = %15143, %15141, %15139, %15128
@@ -56469,7 +56469,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15160:                                            ; preds = %15170, %15159
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %730)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %730, ptr noalias noundef nonnull align 8 dereferenceable(40) %731, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %730, ptr noalias noundef nonnull align 8 dereferenceable(40) %731, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15163 unwind label %15161
 
 15161:                                            ; preds = %15180, %15175, %15181, %15160
@@ -56530,7 +56530,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   store ptr null, ptr %1815, align 8, !alias.scope !7284, !noalias !7287
   store ptr %37, ptr %1816, align 8, !alias.scope !7284, !noalias !7287
   store i64 1, ptr %1817, align 8, !alias.scope !7284, !noalias !7287
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %38, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13435 unwind label %15161
 
 .noexc13435:                                      ; preds = %15180
@@ -56602,7 +56602,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15198:                                            ; preds = %15208, %15197
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %727)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %727, ptr noalias noundef nonnull align 8 dereferenceable(40) %728, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %727, ptr noalias noundef nonnull align 8 dereferenceable(40) %728, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15201 unwind label %15199
 
 15199:                                            ; preds = %15211, %15209, %15198
@@ -56843,7 +56843,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15265:                                            ; preds = %.thread19693, %15255
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %722)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %722, ptr noalias noundef nonnull align 8 dereferenceable(40) %723, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %722, ptr noalias noundef nonnull align 8 dereferenceable(40) %723, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15267 unwind label %.loopexit21410
 
 .loopexit21410:                                   ; preds = %15265, %15276, %15278, %15282, %15289, %15291, %15295, %15302, %15304, %15308, %15315, %15317, %15321, %15328, %15330, %15334, %15341, %15343, %15347, %15355, %15357, %15359, %15361, %15363, %15370, %15372, %15379, %15401, %15403, %15412, %15414, %15430, %15432, %15452, %15454, %15463, %15465, %15481, %15483, %15506, %15523, %15440, %15387, %15280, %15293, %15306, %15319, %15332, %15345, %15517, %15522
@@ -57554,7 +57554,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543: ; p
   store ptr null, ptr %1749, align 8, !alias.scope !7476, !noalias !7479
   store ptr %27, ptr %1750, align 8, !alias.scope !7476, !noalias !7479
   store i64 1, ptr %1751, align 8, !alias.scope !7476, !noalias !7479
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %28, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13551 unwind label %.loopexit21410
 
 .noexc13551:                                      ; preds = %15522
@@ -57654,7 +57654,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15548:                                            ; preds = %15557, %15544
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %719)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %719, ptr noalias noundef nonnull align 8 dereferenceable(40) %720, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %719, ptr noalias noundef nonnull align 8 dereferenceable(40) %720, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15551 unwind label %15549
 
 15549:                                            ; preds = %15562, %15560, %15558, %15548
@@ -57791,7 +57791,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15582:                                            ; preds = %15591, %15578
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %716)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %716, ptr noalias noundef nonnull align 8 dereferenceable(40) %717, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %716, ptr noalias noundef nonnull align 8 dereferenceable(40) %717, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15585 unwind label %15583
 
 15583:                                            ; preds = %15596, %15594, %15592, %15582
@@ -57928,7 +57928,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15616:                                            ; preds = %15625, %15612
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %713)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %713, ptr noalias noundef nonnull align 8 dereferenceable(40) %714, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %713, ptr noalias noundef nonnull align 8 dereferenceable(40) %714, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15619 unwind label %15617
 
 15617:                                            ; preds = %15630, %15628, %15626, %15616
@@ -58065,7 +58065,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15650:                                            ; preds = %15659, %15646
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %710)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %710, ptr noalias noundef nonnull align 8 dereferenceable(40) %711, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %710, ptr noalias noundef nonnull align 8 dereferenceable(40) %711, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15653 unwind label %15651
 
 15651:                                            ; preds = %15664, %15662, %15660, %15650
@@ -58212,7 +58212,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15690:                                            ; preds = %.thread19737, %15680
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %707)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %707, ptr noalias noundef nonnull align 8 dereferenceable(40) %708, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %707, ptr noalias noundef nonnull align 8 dereferenceable(40) %708, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15693 unwind label %15691
 
 15691:                                            ; preds = %15725, %15720, %15726, %15714, %15703, %15701, %15690
@@ -58323,7 +58323,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642: ; pre
   store ptr null, ptr %1714, align 8, !alias.scope !7587, !noalias !7590
   store ptr %19, ptr %1715, align 8, !alias.scope !7587, !noalias !7590
   store i64 1, ptr %1716, align 8, !alias.scope !7587, !noalias !7590
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %20, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13647 unwind label %15691
 
 .noexc13647:                                      ; preds = %15725
@@ -58419,7 +58419,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15748:                                            ; preds = %15759, %15747
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %704)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %704, ptr noalias noundef nonnull align 8 dereferenceable(40) %705, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %704, ptr noalias noundef nonnull align 8 dereferenceable(40) %705, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15751 unwind label %15749
 
 .thread19749:                                     ; preds = %.thread19756.loopexit, %.thread19756.loopexit.split-lp, %15856, %15805, %15749
@@ -58587,7 +58587,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15804:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13687", %15803
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %701)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %701, ptr noalias noundef nonnull align 8 dereferenceable(40) %702, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %701, ptr noalias noundef nonnull align 8 dereferenceable(40) %702, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15807 unwind label %15805
 
 15805:                                            ; preds = %15841, %15836, %15842, %15830, %15804
@@ -58689,7 +58689,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13682
   store ptr null, ptr %1707, align 8, !alias.scope !7646, !noalias !7649
   store ptr %15, ptr %1708, align 8, !alias.scope !7646, !noalias !7649
   store i64 1, ptr %1709, align 8, !alias.scope !7646, !noalias !7649
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13692 unwind label %15805
 
 .noexc13692:                                      ; preds = %15841
@@ -58810,7 +58810,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15869:                                            ; preds = %15876, %15865
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %698)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %698, ptr noalias noundef nonnull align 8 dereferenceable(40) %699, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %698, ptr noalias noundef nonnull align 8 dereferenceable(40) %699, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15872 unwind label %15870
 
 15870:                                            ; preds = %15915, %15912, %15905, %15902, %15893, %15886, %15884, %15882, %15880, %15869
@@ -58996,7 +58996,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 15925:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13741", %15924
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %695)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %695, ptr noalias noundef nonnull align 8 dereferenceable(40) %696, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %695, ptr noalias noundef nonnull align 8 dereferenceable(40) %696, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15928 unwind label %15926
 
 15926:                                            ; preds = %15954, %15951, %15925
@@ -59133,7 +59133,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13736
 
 15965:                                            ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13766", %15964
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %692)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %692, ptr noalias noundef nonnull align 8 dereferenceable(40) %693, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %692, ptr noalias noundef nonnull align 8 dereferenceable(40) %693, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %15968 unwind label %15966
 
 15966:                                            ; preds = %15994, %15991, %15965
@@ -59274,7 +59274,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13761
 
 16008:                                            ; preds = %16017, %16004
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %689)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %689, ptr noalias noundef nonnull align 8 dereferenceable(40) %690, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %689, ptr noalias noundef nonnull align 8 dereferenceable(40) %690, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %16011 unwind label %16009
 
 16009:                                            ; preds = %16032, %16024, %16022, %16020, %16018, %16008
@@ -59409,7 +59409,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13761
   store ptr null, ptr %1666, align 8, !alias.scope !7739, !noalias !7742
   store ptr %11, ptr %1667, align 8, !alias.scope !7739, !noalias !7742
   store i64 1, ptr %1668, align 8, !alias.scope !7739, !noalias !7742
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13787 unwind label %3263
 
 .noexc13787:                                      ; preds = %16050
@@ -59466,7 +59466,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13761
   store ptr null, ptr %1661, align 8, !alias.scope !7755, !noalias !7758
   store ptr %8, ptr %1662, align 8, !alias.scope !7755, !noalias !7758
   store i64 1, ptr %1663, align 8, !alias.scope !7755, !noalias !7758
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13792 unwind label %3263
 
 .noexc13792:                                      ; preds = %16074
@@ -59523,7 +59523,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13761
   store ptr null, ptr %1655, align 8, !alias.scope !7771, !noalias !7774
   store ptr %5, ptr %1656, align 8, !alias.scope !7771, !noalias !7774
   store i64 1, ptr %1657, align 8, !alias.scope !7771, !noalias !7774
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.390.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %.noexc13797 unwind label %3263
 
 .noexc13797:                                      ; preds = %16098
@@ -59668,7 +59668,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
   store ptr %4, ptr %45, align 8, !alias.scope !7784, !noalias !7787
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %46, align 8, !alias.scope !7784, !noalias !7787
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.195) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.195) #32
   unreachable
 
 common.ret:                                       ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$15i64_sextend_u6417h94b63948bd47495dE.exit"
@@ -59768,7 +59768,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i: ; preds 
   store ptr %4, ptr %38, align 8, !alias.scope !7793, !noalias !7796
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %39, align 8, !alias.scope !7793, !noalias !7796
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.198) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.198) #32
   unreachable
 
 40:                                               ; preds = %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7ty_umax17hfa6fbeafca8c704fE.exit"
@@ -59915,7 +59915,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 37:                                               ; preds = %43, %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %40 unwind label %38
 
 .thread169:                                       ; preds = %.loopexit200, %.loopexit.split-lp201, %.loopexit205, %.loopexit.split-lp206, %130, %.thread185, %85, %68, %38
@@ -60053,7 +60053,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 67:                                               ; preds = %77, %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %70 unwind label %68
 
 68:                                               ; preds = %78, %67
@@ -60176,7 +60176,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 94:                                               ; preds = %104, %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %97 unwind label %95
 
 .thread185:                                       ; preds = %.loopexit, %.loopexit.split-lp, %129, %114, %95
@@ -60265,7 +60265,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 113:                                              ; preds = %123, %112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %116 unwind label %114
 
 114:                                              ; preds = %124, %113
@@ -60490,7 +60490,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code2
   store ptr %7, ptr %28, align 8, !alias.scope !7863, !noalias !7866
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %29, align 8, !alias.scope !7863, !noalias !7866
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.201) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.201) #32
   unreachable
 
 30:                                               ; preds = %6
@@ -60519,7 +60519,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code2
   store ptr %21, ptr %39, align 8, !alias.scope !7872, !noalias !7875
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 1, ptr %40, align 8, !alias.scope !7872, !noalias !7875
-  call void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !7869
+  call void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !7869
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !7869
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !7869
   %.pre.i = load i32, ptr %23, align 4, !noalias !7869
@@ -60628,7 +60628,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code2
   store ptr %16, ptr %74, align 8, !alias.scope !7887, !noalias !7890
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 1, ptr %75, align 8, !alias.scope !7887, !noalias !7890
-  call void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !7884
+  call void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.a0b7298307f3a1649f818ae4a5b23c61.393.llvm.5781664634918412060, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !7884
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !7884
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !7884
   %.pre.i5 = load i32, ptr %18, align 4, !noalias !7884
@@ -60927,7 +60927,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i14:
   store ptr %4, ptr %78, align 8, !alias.scope !7938, !noalias !7941
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %79, align 8, !alias.scope !7938, !noalias !7941
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.204) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.204) #32
   unreachable
 
 80:                                               ; preds = %66
@@ -61117,7 +61117,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i14:
   store ptr %4, ptr %78, align 8, !alias.scope !7968, !noalias !7971
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %79, align 8, !alias.scope !7968, !noalias !7971
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.207) #32
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.207) #32
   unreachable
 
 80:                                               ; preds = %66
@@ -61575,19 +61575,19 @@ declare void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #24
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #24
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN62_$LT$cranelift_bforest..Node$u20$as$u20$core..fmt..Display$GT$3fmt17hbb4c72be22f2c4feE"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #23
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #23
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #23
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
+declare void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
@@ -61614,7 +61614,7 @@ declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef n
 declare void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #23
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #2
+declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..types..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h4ed8824a67fbdf57E"(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
@@ -61677,7 +61677,7 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h89ef31ec1bf22efdE"(ptr noalias noundef align 8 dereferenceable(40), i32 noundef, i32) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias nocapture noundef sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
+declare void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$14make_inst_ctor17hce8b5af89b3aa23bE"(ptr noalias noundef align 8 dereferenceable(8), i16 noundef, ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
@@ -61689,7 +61689,7 @@ declare hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..it
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #27
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias nocapture noundef sret({ i32, [2 x i32] }) align 4 dereferenceable(12), ptr noalias noundef align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
+declare void @"_ZN116_$LT$cranelift_codegen..opts..MaybeUnaryEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2d164cecf7c0b499E"(ptr noalias noundef sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12), ptr noalias noundef align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #23
@@ -61701,10 +61701,10 @@ declare i64 @llvm.ctpop.i64(i64) #26
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef align 8 dereferenceable(16), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
@@ -61743,7 +61743,7 @@ declare void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranel
 declare void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$21inst_data_tupled_etor17h3b2913250aa8596bE"(ptr noalias noundef align 8 dereferenceable(8), i32 noundef, ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(8), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #2
+declare void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$5remat17h459a8472d9dc37a1E"(ptr noalias noundef align 8 dereferenceable(8), i32 noundef) unnamed_addr #2
@@ -61755,7 +61755,7 @@ declare hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$
 declare noundef zeroext i1 @"_ZN77_$LT$cranelift_codegen..ir..entities..Value$u20$as$u20$core..fmt..Display$GT$3fmt17h670071ff07ad179fE"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias nocapture noundef align 8 dereferenceable(48), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(56), ptr noalias noundef readonly align 8, i64) unnamed_addr #2
+declare void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef align 8 captures(none) dereferenceable(48), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(56), ptr noalias noundef readonly align 8, i64) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7subsume17ha509d3cf4e34ffd2E"(ptr noalias noundef align 8 dereferenceable(8), i32 noundef) unnamed_addr #2
@@ -61776,13 +61776,13 @@ declare i32 @llvm.bswap.i32(i32) #26
 declare i64 @llvm.bswap.i64(i64) #26
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #31
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

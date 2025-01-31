@@ -77,13 +77,13 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_hugetlb_optimize_vmemmap_key434, ptr @__UNIQUE_ID___addressable_hugetlb_vmemmap_init438, ptr @__param_hugetlb_free_vmemmap], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hugetlb_vmemmap_restore_folio(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @hugetlb_vmemmap_restore_folio(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr noundef %0, ptr noundef %1, i64 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.vmemmap_remap_walk, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -181,7 +181,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.thread3, label %.preheader
@@ -250,16 +250,16 @@ define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @flush_tlb_all() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_vmemmap_optimize_folio(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_vmemmap_optimize_folio(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   store ptr %3, ptr %3, align 8
@@ -302,10 +302,10 @@ define dso_local void @hugetlb_vmemmap_optimize_folio(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.vmemmap_remap_walk, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load volatile i64, ptr %6, align 8
@@ -408,7 +408,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_vmemmap_optimize_folios(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.vmemmap_remap_walk, align 8
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
@@ -591,7 +591,7 @@ define internal noundef i32 @hugetlb_vmemmap_init() #4 section ".init.text" alig
 declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load i64, ptr @__default_kernel_pte_mask, align 8
@@ -737,7 +737,7 @@ define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, 
 declare dso_local void @copy_page(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -761,7 +761,7 @@ declare dso_local void @__mmap_lock_do_trace_start_locking(ptr noundef, i1 nound
 declare dso_local void @__mmap_lock_do_trace_acquire_returned(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -947,7 +947,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vmemmap_pte_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal noundef i32 @vmemmap_pte_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -1042,7 +1042,7 @@ declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef ze
 declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load i64, ptr @__default_kernel_pte_mask, align 8

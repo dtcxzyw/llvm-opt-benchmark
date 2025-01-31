@@ -16,7 +16,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__17GfGetDisplayGammaE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3fEd(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, double noundef %1) local_unnamed_addr #1 {
+define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3fEd(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, double noundef %1) local_unnamed_addr #1 {
   %3 = load float, ptr %0, align 4
   %4 = fpext float %3 to double
   %5 = tail call noundef double @pow(double noundef %4, double noundef %1) #8
@@ -39,7 +39,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #1 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -60,7 +60,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0, double noundef %1) local_unnamed_addr #3 {
+define i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %0, double noundef %1) local_unnamed_addr #3 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
   %5 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
@@ -197,7 +197,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit11: ; preds = %70, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4fEd(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #1 {
+define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4fEd(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #1 {
   %3 = load float, ptr %0, align 4
   %4 = fpext float %3 to double
   %5 = tail call noundef double @pow(double noundef %4, double noundef %1) #8
@@ -224,7 +224,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfAp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #1 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -246,7 +246,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %0, double noundef %1) local_unnamed_addr #3 {
+define i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(8) %0, double noundef %1) local_unnamed_addr #3 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
   %5 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
@@ -388,7 +388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit12: ; preds = %70, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKfd(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, double noundef %1) local_unnamed_addr #1 {
+define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKfd(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, double noundef %1) local_unnamed_addr #1 {
   %3 = load float, ptr %0, align 4
   %4 = fpext float %3 to double
   %5 = tail call noundef double @pow(double noundef %4, double noundef %1) #8
@@ -397,7 +397,7 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKfd(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKhd(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, double noundef %1) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKhd(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, double noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1
   %4 = uitofp i8 %3 to double
   %5 = fdiv double %4, 2.550000e+02
@@ -408,7 +408,7 @@ define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaER
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3fE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #4 {
+define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3fE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #4 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8
@@ -431,7 +431,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3dE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %3 = load double, ptr %1, align 8, !noalias !10
@@ -451,13 +451,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define i48 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3hE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0) local_unnamed_addr #3 {
+define i48 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3hE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %0) local_unnamed_addr #3 {
   %2 = tail call i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(ptr noundef nonnull readonly align 2 dereferenceable(6) %0, double noundef 0x3FDD1745D1745D17)
   ret i48 %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4fE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #4 {
+define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4fE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8
@@ -484,7 +484,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4dE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load double, ptr %1, align 8, !noalias !17
@@ -508,13 +508,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4hE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %0) local_unnamed_addr #3 {
+define i64 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4hE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = tail call i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(ptr noundef nonnull readonly align 2 dereferenceable(8) %0, double noundef 0x3FDD1745D1745D17)
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #1 {
+define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 {
   %.val = load float, ptr %0, align 4
   %2 = fpext float %.val to double
   %3 = tail call noundef double @pow(double noundef %2, double noundef 0x3FDD1745D1745D17) #8
@@ -523,7 +523,7 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKh(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKh(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 {
   %.val = load i8, ptr %0, align 1
   %2 = uitofp i8 %.val to double
   %3 = fdiv double %2, 2.550000e+02
@@ -534,7 +534,7 @@ define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3fE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #4 {
+define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3fE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #4 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 2.200000e+00) #8
@@ -557,7 +557,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertD
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3dE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %3 = load double, ptr %1, align 8, !noalias !24
@@ -577,13 +577,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define i48 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3hE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0) local_unnamed_addr #3 {
+define i48 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3hE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %0) local_unnamed_addr #3 {
   %2 = tail call i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(ptr noundef nonnull readonly align 2 dereferenceable(6) %0, double noundef 2.200000e+00)
   ret i48 %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4fE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #4 {
+define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4fE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 2.200000e+00) #8
@@ -610,7 +610,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4dE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %3 = load double, ptr %1, align 8, !noalias !31
@@ -634,13 +634,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4hE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %0) local_unnamed_addr #3 {
+define i64 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4hE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = tail call i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(ptr noundef nonnull readonly align 2 dereferenceable(8) %0, double noundef 2.200000e+00)
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #1 {
+define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 {
   %.val = load float, ptr %0, align 4
   %2 = fpext float %.val to double
   %3 = tail call noundef double @pow(double noundef %2, double noundef 2.200000e+00) #8
@@ -649,7 +649,7 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKh(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKh(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 {
   %.val = load i8, ptr %0, align 1
   %2 = uitofp i8 %.val to double
   %3 = fdiv double %2, 2.550000e+02

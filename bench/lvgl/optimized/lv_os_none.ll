@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_init(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, i64 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_init(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12,7 +12,7 @@ define noundef i32 @lv_thread_init(ptr nocapture noundef readnone %0, i32 nounde
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_delete(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_delete(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -20,32 +20,32 @@ define noundef i32 @lv_thread_delete(ptr nocapture noundef readnone %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @lv_mutex_init(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @lv_mutex_init(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @lv_mutex_lock(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @lv_mutex_lock(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @lv_mutex_lock_isr(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @lv_mutex_lock_isr(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @lv_mutex_unlock(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @lv_mutex_unlock(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @lv_mutex_delete(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @lv_mutex_delete(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_sync_init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_sync_init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -53,7 +53,7 @@ define noundef i32 @lv_thread_sync_init(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_sync_wait(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_sync_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -61,7 +61,7 @@ define noundef i32 @lv_thread_sync_wait(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_sync_signal(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_sync_signal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -69,7 +69,7 @@ define noundef i32 @lv_thread_sync_signal(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_sync_signal_isr(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_sync_signal_isr(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -77,7 +77,7 @@ define noundef i32 @lv_thread_sync_signal_isr(ptr nocapture noundef readnone %0)
 }
 
 ; Function Attrs: nofree norecurse noreturn nosync nounwind memory(none) uwtable
-define noundef i32 @lv_thread_sync_delete(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @lv_thread_sync_delete(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1

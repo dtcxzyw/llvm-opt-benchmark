@@ -189,7 +189,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   br i1 %.not49.i, label %59, label %62
 
 59:                                               ; preds = %57
-  %60 = tail call i64 @strcspn(ptr noundef %48, ptr noundef nonnull @.str.6) #23
+  %60 = tail call i64 @strcspn(ptr noundef nonnull %48, ptr noundef nonnull @.str.6) #23
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #23
   %.not50.i = icmp eq i64 %60, %61
   br i1 %.not50.i, label %67, label %62
@@ -201,7 +201,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.25, ptr noundef %48, i32 noundef 45) #25
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.25, ptr noundef nonnull %48, i32 noundef 45) #25
   br label %hwloc_disc_component_register.exit
 
 67:                                               ; preds = %59
@@ -261,7 +261,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr @stderr, align 8
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.27, ptr noundef %85, i32 noundef %90, i32 noundef %91) #25
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.27, ptr noundef nonnull %85, i32 noundef %90, i32 noundef %91) #25
   %.pre.i = load ptr, ptr %.05.i, align 8
   br label %98
 
@@ -277,7 +277,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8
-  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.28, ptr noundef %86, i32 noundef %91, i32 noundef %90) #25
+  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.28, ptr noundef nonnull %86, i32 noundef %91, i32 noundef %90) #25
   br label %hwloc_disc_component_register.exit
 
 106:                                              ; preds = %98, %83
@@ -365,10 +365,10 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -376,12 +376,12 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @hwloc_hide_errors() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @hwloc_xml_callbacks_register(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_topology_components_init(ptr nocapture noundef writeonly initializes((816, 824), (832, 840), (904, 908), (912, 920)) %0) local_unnamed_addr #7 {
+define hidden void @hwloc_topology_components_init(ptr noundef writeonly captures(none) initializes((816, 824), (832, 840), (904, 908), (912, 920)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
@@ -396,7 +396,7 @@ define hidden void @hwloc_topology_components_init(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hwloc_topology_set_components(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8
@@ -469,7 +469,7 @@ sub_1:                                            ; preds = %sub_0
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly %0) unnamed_addr #10 {
@@ -524,7 +524,7 @@ define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly %0) un
   br label %24
 
 21:                                               ; preds = %2
-  %22 = tail call i64 @strtoul(ptr nocapture noundef nonnull %0, ptr noundef null, i32 noundef 0) #22
+  %22 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 0) #22
   %23 = trunc i64 %22 to i32
   br label %24
 
@@ -534,7 +534,7 @@ define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_disc_component_blacklist_one(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_disc_component_blacklist_one(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.8) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -551,7 +551,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_disc_component_blacklist_one(
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.40, ptr noundef %1) #25
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #25
   br label %11
 
 11:                                               ; preds = %8, %6
@@ -598,7 +598,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_disc_component_blacklist_one(
 .lr.ph.i42:                                       ; preds = %.sink.split.i, %27
   %.01726.i43 = phi ptr [ %.017.i45, %27 ], [ %.01724.i40, %.sink.split.i ]
   %25 = load ptr, ptr %.01726.i43, align 8
-  %26 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %25, i64 noundef %.016.ph.i) #23
+  %26 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %25, i64 noundef %.016.ph.i) #23
   %.not23.i44 = icmp eq i32 %26, 0
   br i1 %.not23.i44, label %hwloc_disc_component_find.exit, label %27
 
@@ -728,7 +728,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_disc_component_force_enable(ptr nounde
 .lr.ph.i:                                         ; preds = %20, %23
   %.01726.i = phi ptr [ %.017.i, %23 ], [ %.01724.i, %20 ]
   %21 = load ptr, ptr %.01726.i, align 8
-  %22 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %21, i64 noundef %.016.i) #23
+  %22 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %21, i64 noundef %.016.i) #23
   %.not23.i = icmp eq i32 %22, 0
   br i1 %.not23.i, label %hwloc_disc_component_find.exit, label %23
 
@@ -825,7 +825,7 @@ hwloc_backends_disable_all.exit:                  ; preds = %hwloc_backend_disab
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_backends_disable_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @hwloc_backends_disable_all(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %.not9 = icmp eq ptr %3, null
@@ -1352,13 +1352,13 @@ hwloc_disc_component_try_enable.exit:             ; preds = %125, %121, %111, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
@@ -1426,7 +1426,7 @@ define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden void @hwloc_components_fini() local_unnamed_addr #0 {
@@ -1530,7 +1530,7 @@ define noalias noundef ptr @hwloc_backend_alloc(ptr noundef %0, ptr noundef %1, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local_unnamed_addr #15 {
+define hidden void @hwloc_backends_is_thissystem(ptr noundef captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %.01526 = load ptr, ptr %2, align 8
   %.not27 = icmp eq ptr %.01526, null
@@ -1611,7 +1611,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @hwloc_backends_find_callbacks(ptr nocapture noundef initializes((824, 832)) %0) local_unnamed_addr #16 {
+define hidden void @hwloc_backends_find_callbacks(ptr noundef captures(none) initializes((824, 832)) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -1641,7 +1641,7 @@ define hidden void @hwloc_backends_find_callbacks(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @hwloc_topology_components_fini(ptr nocapture noundef readonly %0) local_unnamed_addr #17 {
+define hidden void @hwloc_topology_components_fini(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #22
@@ -1652,25 +1652,25 @@ define hidden void @hwloc_topology_components_fini(ptr nocapture noundef readonl
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

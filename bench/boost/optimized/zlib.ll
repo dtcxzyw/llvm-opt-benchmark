@@ -160,12 +160,12 @@ define void @_ZN5boost9iostreams10zlib_errorC2Ei(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZNSt8ios_base7failureB5cxx11C2EPKcRKSt10error_code(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost9iostreams10zlib_error5checkEi(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -261,7 +261,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_9iostreams10zlib_
 declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 9), (12, 28)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_baseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 9), (12, 28)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
   store ptr %2, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -275,7 +275,7 @@ define void @_ZN5boost9iostreams6detail9zlib_baseC2Ev(ptr nocapture noundef nonn
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9iostreams6detail9zlib_baseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_baseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0) unnamed_addr #6 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -292,7 +292,7 @@ define void @_ZN5boost9iostreams6detail9zlib_baseD2Ev(ptr nocapture noundef nonn
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base6beforeERPKcS4_RPcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #8 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_base6beforeERPKcS4_RPcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #8 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !23
   %7 = load ptr, ptr %1, align 8, !tbaa !7
   store ptr %7, ptr %6, align 8, !tbaa !27
@@ -315,7 +315,7 @@ define void @_ZN5boost9iostreams6detail9zlib_base6beforeERPKcS4_RPcS6_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base5afterERPKcRPcb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((20, 28)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_base5afterERPKcRPcb(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((20, 28)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -366,7 +366,7 @@ define void @_ZN5boost9iostreams6detail9zlib_base5afterERPKcRPcb(ptr nocapture n
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xdeflateEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xdeflateEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = tail call i32 @deflate(ptr noundef %3, i32 noundef %1)
   ret i32 %4
@@ -375,7 +375,7 @@ define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xdeflateEi(ptr nocaptur
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xinflateEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xinflateEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = tail call i32 @inflate(ptr noundef %3, i32 noundef %1)
   ret i32 %4
@@ -384,7 +384,7 @@ define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xinflateEi(ptr nocaptur
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base5resetEbb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 20)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_base5resetEbb(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 20)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !23
   br i1 %2, label %5, label %10
 
@@ -425,7 +425,7 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #2
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base7do_initERKNS0_11zlib_paramsEbPFPvS6_jjEPFvS6_S6_ES6_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 9)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams6detail9zlib_base7do_initERKNS0_11zlib_paramsEbPFPvS6_jjEPFvS6_S6_ES6_(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((8, 9)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(22) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::bad_alloc", align 8
   %8 = alloca %"class.boost::iostreams::zlib_error", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 21
@@ -527,7 +527,7 @@ declare noundef ptr @_ZNKSt8ios_base7failureB5cxx114whatEv(ptr noundef nonnull a
 declare noundef ptr @_ZNKSt9bad_alloc4whatEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt17iostream_categoryv() local_unnamed_addr #11
@@ -1446,7 +1446,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9iostreams10zlib_error
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

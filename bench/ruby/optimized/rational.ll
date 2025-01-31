@@ -3644,7 +3644,7 @@ define internal i64 @nurat_floor(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @f_round_common(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i64 @f_round_common(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %5, label %rb_check_arity.exit
 
@@ -5826,7 +5826,7 @@ f_eqeq_p.exit:                                    ; preds = %39, %rb_integer_typ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nurat_rationalize_internal(i64 noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @nurat_rationalize_internal(i64 noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %f_sub.exit47, %4
@@ -6291,7 +6291,7 @@ declare i64 @rb_int_positive_pow(i64 noundef, i64 noundef) local_unnamed_addr #1
 define hidden i64 @rb_cstr_to_rat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %4 = getelementptr i8, ptr %0, i64 %3
-  %5 = tail call fastcc i64 @parse_rat(ptr noundef %0, ptr noundef %4, i32 noundef %1, i32 noundef 1)
+  %5 = tail call fastcc i64 @parse_rat(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %1, i32 noundef 1)
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 2
   br i1 %7, label %17, label %8
@@ -6683,7 +6683,7 @@ negate_num.exit:                                  ; preds = %148, %146, %143
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
@@ -7781,19 +7781,19 @@ INT_NEGATIVE_P.exit:                              ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nurat_floor_n(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @nurat_floor_n(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @f_round_common(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @nurat_floor)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nurat_ceil_n(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @nurat_ceil_n(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @f_round_common(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @nurat_ceil)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nurat_truncate_n(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @nurat_truncate_n(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @f_round_common(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @nurat_truncate)
   ret i64 %4
 }
@@ -7843,7 +7843,7 @@ define internal noundef i64 @nurat_to_r(i64 noundef returned %0) #9 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nurat_rationalize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @nurat_rationalize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = inttoptr i64 %2 to ptr
@@ -8587,7 +8587,7 @@ nurat_s_canonicalize_internal.exit:               ; preds = %RATIONAL_SET_NUM.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nilclass_rationalize(i32 noundef %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal i64 @nilclass_rationalize(i32 noundef %0, ptr readnone captures(none) %1, i64 %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -8651,7 +8651,7 @@ nurat_s_canonicalize_internal.exit:               ; preds = %RATIONAL_SET_NUM.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @integer_rationalize(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal i64 @integer_rationalize(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -8665,7 +8665,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @float_rationalize(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @float_rationalize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = and i64 %2, 3
   %5 = icmp eq i64 %4, 2
   br i1 %5, label %6, label %13
@@ -9221,7 +9221,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nurat_reduce(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @nurat_reduce(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 3
   br i1 %4, label %74, label %5
@@ -9380,7 +9380,7 @@ declare i64 @rb_float_ceil(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @rb_int_negative_p(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
@@ -9388,7 +9388,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
 declare i64 @rb_dbl2big(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_num(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i64 1, ptr %3, align 8
@@ -9758,10 +9758,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

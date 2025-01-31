@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [9 x i8] c"walk %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @walker_say(ptr nocapture noundef readonly %walker, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @walker_say(ptr noundef readonly captures(none) %walker, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %get_verbosely = getelementptr inbounds nuw i8, ptr %walker, i64 40
@@ -57,10 +57,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @walker_targets_stdin(ptr nocapture noundef initializes((0, 8)) %target, ptr nocapture noundef initializes((0, 8)) %write_ref) local_unnamed_addr #2 {
+define dso_local i32 @walker_targets_stdin(ptr noundef captures(none) initializes((0, 8)) %target, ptr noundef captures(none) initializes((0, 8)) %write_ref) local_unnamed_addr #2 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.walker_fetch.err, i64 24, i1 false)
@@ -118,7 +118,7 @@ st_mult.exit22:                                   ; preds = %if.then6
 
 if.end13:                                         ; preds = %st_mult.exit22, %if.end4
   %targets_alloc.1 = phi i32 [ %cond, %st_mult.exit22 ], [ %targets_alloc.026, %if.end4 ]
-  %call14 = call ptr @xstrdup(ptr noundef %1) #14
+  %call14 = call ptr @xstrdup(ptr noundef nonnull %1) #14
   %5 = load ptr, ptr %target, align 8
   %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %call14, ptr %arrayidx, align 8
@@ -151,7 +151,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -165,7 +165,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @walker_targets_free(i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref) local_unnamed_addr #2 {
+define dso_local void @walker_targets_free(i32 noundef %targets, ptr noundef readonly captures(none) %target, ptr noundef readonly %write_ref) local_unnamed_addr #2 {
 entry:
   %tobool.not5 = icmp eq i32 %targets, 0
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
@@ -202,10 +202,10 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %walker, i32 noundef %targets, ptr nocapture noundef readonly %target, ptr noundef readonly %write_ref, ptr noundef %write_ref_log_details) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %walker, i32 noundef %targets, ptr noundef readonly captures(none) %target, ptr noundef readonly %write_ref, ptr noundef %write_ref_log_details) local_unnamed_addr #2 {
 entry:
   %desc.i.i.i = alloca %struct.tree_desc, align 8
   %entry1.i.i.i = alloca %struct.name_entry, align 8
@@ -922,7 +922,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mark_complete(ptr nocapture readnone %path, ptr noundef %oid, i32 %flag, ptr nocapture readnone %cb_data) #2 {
+define internal noundef i32 @mark_complete(ptr readnone captures(none) %path, ptr noundef %oid, i32 %flag, ptr readnone captures(none) %cb_data) #2 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit_reference_gently(ptr noundef %0, ptr noundef %oid, i32 noundef 1) #14
@@ -993,7 +993,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @type_name(i32 noundef) local_unnamed_addr #4
 
@@ -1028,13 +1028,13 @@ declare void @llvm.va_start.p0(ptr) #9
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

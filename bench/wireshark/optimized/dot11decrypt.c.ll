@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Dot11DecryptFtDerivePtk = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [256 x i8], align 16
@@ -393,12 +393,12 @@ Dot11DecryptCopyKey.exit:                         ; preds = %92, %98, %.sink.spl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 noundef zeroext range(i16 0, 33) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 noundef zeroext range(i16 0, 33) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = icmp eq ptr %0, null
   %9 = zext i16 %3 to i32
@@ -451,7 +451,7 @@ define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dot11DecryptCopyKey(ptr nocapture noundef nonnull readonly %0, ptr noundef writeonly %1) unnamed_addr #3 {
+define internal fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %3
 
@@ -769,7 +769,7 @@ Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.loopexit, label %6
@@ -941,12 +941,12 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [32 x i8], align 16
@@ -971,9 +971,9 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   %26 = load ptr, ptr %8, align 8
   %. = select i1 %25, ptr %19, ptr %22
   %.97 = select i1 %25, ptr %22, ptr %19
-  call void @gcry_md_write(ptr noundef %26, ptr noundef %., i64 noundef 32) #14
+  call void @gcry_md_write(ptr noundef %26, ptr noundef nonnull %., i64 noundef 32) #14
   %27 = load ptr, ptr %8, align 8
-  call void @gcry_md_write(ptr noundef %27, ptr noundef %.97, i64 noundef 32) #14
+  call void @gcry_md_write(ptr noundef %27, ptr noundef nonnull %.97, i64 noundef 32) #14
   %28 = load ptr, ptr %8, align 8
   %29 = call ptr @gcry_md_read(ptr noundef %28, i32 noundef 0) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %29, i64 32, i1 false)
@@ -1052,9 +1052,9 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   %75 = load ptr, ptr %9, align 8
   %.98 = select i1 %74, ptr %36, ptr %39
   %.99 = select i1 %74, ptr %39, ptr %36
-  call void @gcry_md_write(ptr noundef %75, ptr noundef %.98, i64 noundef 6) #14
+  call void @gcry_md_write(ptr noundef %75, ptr noundef nonnull %.98, i64 noundef 6) #14
   %76 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %76, ptr noundef %.99, i64 noundef 6) #14
+  call void @gcry_md_write(ptr noundef %76, ptr noundef nonnull %.99, i64 noundef 6) #14
   %77 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %77, ptr noundef %33, i64 noundef 6) #14
   %78 = load ptr, ptr %9, align 8
@@ -1120,9 +1120,9 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   br label %186
 
 113:                                              ; preds = %108
-  %114 = call i32 @gcry_mac_write(ptr noundef %111, ptr noundef %36, i64 noundef 6) #14
+  %114 = call i32 @gcry_mac_write(ptr noundef %111, ptr noundef nonnull %36, i64 noundef 6) #14
   %115 = load ptr, ptr %14, align 8
-  %116 = call i32 @gcry_mac_write(ptr noundef %115, ptr noundef %39, i64 noundef 6) #14
+  %116 = call i32 @gcry_mac_write(ptr noundef %115, ptr noundef nonnull %39, i64 noundef 6) #14
   %117 = load ptr, ptr %14, align 8
   %118 = call i32 @gcry_mac_write(ptr noundef %117, ptr noundef nonnull %12, i64 noundef 1) #14
   %119 = load ptr, ptr %14, align 8
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   %163 = zext i8 %158 to i64
   %164 = load ptr, ptr %14, align 8
   %165 = add nsw i64 %163, -18
-  %166 = call i32 @gcry_mac_write(ptr noundef %164, ptr noundef %19, i64 noundef %165) #14
+  %166 = call i32 @gcry_mac_write(ptr noundef %164, ptr noundef nonnull %19, i64 noundef %165) #14
   %167 = load ptr, ptr %14, align 8
   %168 = call i32 @gcry_mac_read(ptr noundef %167, ptr noundef nonnull %11, ptr noundef nonnull %15) #14
   %.not85 = icmp eq i32 %168, 0
@@ -1228,7 +1228,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %171
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @Dot11DecryptAddSa(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @Dot11DecryptAddSa(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %.val = load ptr, ptr %0, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %.val, ptr noundef nonnull %1) #14
@@ -1256,7 +1256,7 @@ define internal fastcc nonnull ptr @Dot11DecryptAddSa(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [48 x i8], align 16
   %8 = alloca [76 x i8], align 16
   %9 = alloca %struct._DOT11DECRYPT_KEY_ITEM, align 8
@@ -2042,7 +2042,7 @@ Dot11DecryptGetNbrOfTkKeys.exit.thread:           ; preds = %.thread, %79, %Dot1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef writeonly %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef writeonly %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %8 = alloca [35 x i8], align 16
   %9 = load i32, ptr %3, align 4
@@ -2233,7 +2233,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %59, %58, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dot11DecryptRsnaMng(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @Dot11DecryptRsnaMng(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %Dot11DecryptCopyKey.exit, label %8
@@ -2593,7 +2593,7 @@ Dot11DecryptCopyKey.exit:                         ; preds = %.sink.split.i, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %8 = alloca [4 x i32], align 16
   %9 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #17
@@ -2925,7 +2925,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca [36 x i8], align 16
   %5 = alloca [40 x i8], align 16
@@ -3094,7 +3094,7 @@ define internal i32 @Dot11DecryptSaHash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @Dot11DecryptIsSaIdEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @Dot11DecryptIsSaIdEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) %1, i64 12)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -3144,7 +3144,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %7, %4, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca [16 x i8], align 16
   %8 = alloca ptr, align 8
@@ -3614,7 +3614,7 @@ Dot11DecryptIsFtAkm.exit:                         ; preds = %18, %217, %Dot11Dec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef nonnull %10, ptr nocapture noundef nonnull %11) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef range(i64 0, 256) %6, ptr noundef %7, i32 noundef range(i32 0, 256) %8, i32 noundef range(i32 0, 256) %9, ptr noundef nonnull %10, ptr noundef nonnull captures(none) %11) unnamed_addr #0 {
   %13 = alloca [48 x i8], align 16
   %14 = alloca [48 x i8], align 16
   %15 = alloca [16 x i8], align 16
@@ -3721,7 +3721,7 @@ Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %40, %43, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef range(i64 0, 65536) %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, 65536) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %6 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %7 = icmp eq ptr %1, null
@@ -4243,7 +4243,7 @@ define void @free_key_string(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4383,7 +4383,7 @@ declare i32 @Dot11DecryptCcmpDecrypt(ptr noundef, i32 noundef, i32 noundef, ptr 
 declare i32 @Dot11DecryptWepDecrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 declare zeroext i1 @dot11decrypt_prf(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4404,7 +4404,7 @@ declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @gcry_mac_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4427,13 +4427,13 @@ declare i32 @gcry_md_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @gcry_mac_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

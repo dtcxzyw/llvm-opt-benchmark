@@ -386,7 +386,7 @@ default.unreachable61:                            ; preds = %44
 
 .lr.ph.i:                                         ; preds = %47, %56
   %.0173.i = phi i32 [ %57, %56 ], [ 0, %47 ]
-  %53 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.0173.i)
+  %53 = tail call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0173.i)
   %.not18.i = icmp eq i32 %53, 0
   br i1 %.not18.i, label %54, label %56
 
@@ -395,7 +395,7 @@ default.unreachable61:                            ; preds = %44
   br label %dissect_http3_client_bidi_stream.exit
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull readonly %.0)
+  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef nonnull readonly %.0)
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57) #11
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i, !llvm.loop !4
@@ -468,7 +468,7 @@ default.unreachable61:                            ; preds = %44
 
 .lr.ph.i57:                                       ; preds = %.preheader.i, %92
   %.162.i = phi i32 [ %93, %92 ], [ %.053.i, %.preheader.i ]
-  %89 = call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.162.i)
+  %89 = call fastcc i32 @http3_check_frame_size(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.162.i)
   %.not55.i = icmp eq i32 %89, 0
   br i1 %.not55.i, label %90, label %92
 
@@ -477,7 +477,7 @@ default.unreachable61:                            ; preds = %44
   br label %dissect_http3_uni_stream.exit
 
 92:                                               ; preds = %.lr.ph.i57
-  %93 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.162.i, ptr noundef nonnull %.0)
+  %93 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %65, i32 noundef %.162.i, ptr noundef nonnull %.0)
   %94 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %93) #11
   %.not54.i = icmp eq i32 %94, 0
   br i1 %.not54.i, label %dissect_http3_uni_stream.exit, label %.lr.ph.i57, !llvm.loop !6
@@ -672,7 +672,7 @@ define hidden void @proto_reg_handoff_http3() local_unnamed_addr #0 {
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @http3_check_frame_size(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @http3_check_frame_size(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #11
@@ -779,7 +779,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -1047,12 +1047,12 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @wmem_array_get_raw(ptr noundef) local_unnamed_addr #1
 
@@ -1719,7 +1719,7 @@ define internal i32 @http3_conn_info_hash(ptr noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @http3_conn_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @http3_conn_info_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i8, ptr %0, align 8
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %3, %4
@@ -1742,7 +1742,7 @@ define internal range(i32 0, 2) i32 @http3_conn_info_equal(ptr nocapture noundef
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @http3_file_local_ctx_del_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #6 {
+define internal noundef zeroext i1 @http3_file_local_ctx_del_cb(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #6 {
   store ptr null, ptr @g_http3_file_local_ctx, align 8
   ret i1 false
 }
@@ -1770,13 +1770,13 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

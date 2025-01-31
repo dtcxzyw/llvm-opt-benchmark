@@ -43,7 +43,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare ptr @g_once_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @qio_dns_resolve_init_instance(ptr nocapture readnone %unused) #0 {
+define internal noalias noundef ptr @qio_dns_resolve_init_instance(ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #7
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_DNS_RESOLVER) #7
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @qio_dns_resolver_lookup_sync(ptr nocapture readnone %resolver, ptr noundef %addr, ptr nocapture noundef %naddrs, ptr nocapture noundef %addrs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_dns_resolver_lookup_sync(ptr readnone captures(none) %resolver, ptr noundef %addr, ptr noundef captures(none) %naddrs, ptr noundef captures(none) %addrs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ai.i = alloca %struct.addrinfo, align 8
   %res.i = alloca ptr, align 8
@@ -376,7 +376,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qio_dns_resolver_lookup_result(ptr nocapture noundef readnone %resolver, ptr noundef %task, ptr nocapture noundef writeonly initializes((0, 8)) %naddrs, ptr nocapture noundef initializes((0, 8)) %addrs) local_unnamed_addr #0 {
+define dso_local void @qio_dns_resolver_lookup_result(ptr noundef readnone captures(none) %resolver, ptr noundef %task, ptr noundef writeonly captures(none) initializes((0, 8)) %naddrs, ptr noundef captures(none) initializes((0, 8)) %addrs) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qio_task_get_result_pointer(ptr noundef %task) #7
   store i64 0, ptr %naddrs, align 8
@@ -439,7 +439,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @inet_ai_family_from_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -476,10 +476,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

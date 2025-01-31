@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sha1_padding = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @sha1_compression_states(ptr nocapture noundef %ihv, ptr nocapture noundef readonly %m, ptr noundef %W, ptr nocapture noundef writeonly initializes((1160, 1180), (1300, 1320)) %states) local_unnamed_addr #0 {
+define dso_local void @sha1_compression_states(ptr noundef captures(none) %ihv, ptr noundef readonly captures(none) %m, ptr noundef %W, ptr noundef writeonly captures(none) initializes((1160, 1180), (1300, 1320)) %states) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ihv, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %ihv, i64 4
@@ -1253,7 +1253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCInit(ptr nocapture noundef writeonly initializes((0, 28), (92, 120)) %ctx) local_unnamed_addr #1 {
+define dso_local void @SHA1DCInit(ptr noundef writeonly captures(none) initializes((0, 28), (92, 120)) %ctx) local_unnamed_addr #1 {
 entry:
   store i64 0, ptr %ctx, align 8
   %ihv = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -1282,7 +1282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCSetSafeHash(ptr nocapture noundef writeonly initializes((96, 100)) %ctx, i32 noundef %safehash) local_unnamed_addr #1 {
+define dso_local void @SHA1DCSetSafeHash(ptr noundef writeonly captures(none) initializes((96, 100)) %ctx, i32 noundef %safehash) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp ne i32 %safehash, 0
   %spec.select = zext i1 %tobool.not to i32
@@ -1292,7 +1292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCSetUseUBC(ptr nocapture noundef writeonly initializes((104, 108)) %ctx, i32 noundef %ubc_check) local_unnamed_addr #1 {
+define dso_local void @SHA1DCSetUseUBC(ptr noundef writeonly captures(none) initializes((104, 108)) %ctx, i32 noundef %ubc_check) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp ne i32 %ubc_check, 0
   %spec.select = zext i1 %tobool.not to i32
@@ -1302,7 +1302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCSetUseDetectColl(ptr nocapture noundef writeonly initializes((100, 104)) %ctx, i32 noundef %detect_coll) local_unnamed_addr #1 {
+define dso_local void @SHA1DCSetUseDetectColl(ptr noundef writeonly captures(none) initializes((100, 104)) %ctx, i32 noundef %detect_coll) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp ne i32 %detect_coll, 0
   %spec.select = zext i1 %tobool.not to i32
@@ -1312,7 +1312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCSetDetectReducedRoundCollision(ptr nocapture noundef writeonly initializes((108, 112)) %ctx, i32 noundef %reduced_round_coll) local_unnamed_addr #1 {
+define dso_local void @SHA1DCSetDetectReducedRoundCollision(ptr noundef writeonly captures(none) initializes((108, 112)) %ctx, i32 noundef %reduced_round_coll) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp ne i32 %reduced_round_coll, 0
   %spec.select = zext i1 %tobool.not to i32
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1DCSetCallback(ptr nocapture noundef writeonly initializes((112, 120)) %ctx, ptr noundef %callback) local_unnamed_addr #1 {
+define dso_local void @SHA1DCSetCallback(ptr noundef writeonly captures(none) initializes((112, 120)) %ctx, ptr noundef %callback) local_unnamed_addr #1 {
 entry:
   %callback1 = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   store ptr %callback, ptr %callback1, align 8
@@ -1330,7 +1330,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SHA1DCUpdate(ptr noundef %ctx, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local void @SHA1DCUpdate(ptr noundef %ctx, ptr noundef readonly captures(none) %buf, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %if.end30, label %if.end
@@ -1402,10 +1402,10 @@ if.end30:                                         ; preds = %entry, %if.then23, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %ctx, ptr nocapture noundef readonly %block) unnamed_addr #2 {
+define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %ctx, ptr noundef readonly captures(none) %block) unnamed_addr #2 {
 entry:
   %ubc_dv_mask = alloca [1 x i32], align 4
   store i32 -1, ptr %ubc_dv_mask, align 4
@@ -3274,7 +3274,7 @@ if.end135:                                        ; preds = %for.inc131, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SHA1DCFinal(ptr nocapture noundef writeonly %output, ptr noundef %ctx) local_unnamed_addr #2 {
+define dso_local i32 @SHA1DCFinal(ptr noundef writeonly captures(none) %output, ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %1 = trunc i64 %0 to i32
@@ -3488,7 +3488,7 @@ SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.th
 declare void @ubc_check(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sha1_compression_W(ptr nocapture noundef %ihv, ptr noundef readonly %W) unnamed_addr #5 {
+define internal fastcc void @sha1_compression_W(ptr noundef captures(none) %ihv, ptr noundef readonly %W) unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %ihv, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %ihv, i64 4

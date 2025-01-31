@@ -218,10 +218,10 @@ GLXGC_DestroyOGLContext.exit:                     ; preds = %8, %24
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @GLXGC_FindBestVisual(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @GLXGC_FindBestVisual(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.1, i32 noundef %1) #8
   %3 = tail call zeroext i8 @GLXGC_IsGLXAvailable()
   %.not = icmp eq i8 %3, 0
@@ -412,7 +412,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef range
 declare i32 @XFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_java2d_opengl_GLXGraphicsConfig_getGLXConfigInfo(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_java2d_opengl_GLXGraphicsConfig_getGLXConfigInfo(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x i32], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -625,7 +625,7 @@ declare zeroext i8 @OGLContext_IsVersionSupported(ptr noundef) local_unnamed_add
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_opengl_GLXGraphicsConfig_initConfig(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_opengl_GLXGraphicsConfig_initConfig(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %7, label %8
@@ -655,7 +655,7 @@ define void @Java_sun_java2d_opengl_GLXGraphicsConfig_initConfig(ptr noundef %0,
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_java2d_opengl_GLXGraphicsConfig_getOGLCapabilities(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 {
+define i32 @Java_sun_java2d_opengl_GLXGraphicsConfig_getOGLCapabilities(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %13, label %5
 
@@ -689,13 +689,13 @@ declare void @OGLFuncs_CloseLibrary(...) local_unnamed_addr #1
 declare void @OGLContext_DestroyContextResources(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7

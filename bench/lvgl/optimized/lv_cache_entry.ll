@@ -65,7 +65,7 @@ define i32 @lv_cache_entry_get_ref(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_cache_entry_get_node_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_cache_entry_get_node_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !10
   ret i32 %3
@@ -154,7 +154,7 @@ lv_cache_entry_get_data.exit:                     ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_cache_entry_release_data(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @lv_cache_entry_release_data(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_cache_entry_get_ref.exit
 

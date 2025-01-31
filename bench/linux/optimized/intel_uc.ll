@@ -235,7 +235,7 @@ declare dso_local void @intel_guc_init_late(ptr noundef) local_unnamed_addr #1
 declare dso_local void @intel_gsc_uc_load_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @intel_uc_driver_late_release(ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_uc_driver_late_release(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 16 {
   ret void
 }
 
@@ -339,7 +339,7 @@ define dso_local void @intel_uc_reset_prepare(ptr noundef initializes((2952, 295
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_guc_submission_reset_prepare(ptr noundef) local_unnamed_addr #1
@@ -432,7 +432,7 @@ define internal i32 @__uc_sanitize(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_uc_reset(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
@@ -895,7 +895,7 @@ define internal void @__uc_fini(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -5, 1) i32 @__uc_check_hw(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -5, 1) i32 @__uc_check_hw(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2953
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0

@@ -113,7 +113,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #16
   ret ptr %2
 }
@@ -122,17 +122,17 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 450
 }
 
@@ -157,7 +157,7 @@ define hidden noundef ptr @_new_tree_text_column(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @gtk_cell_renderer_text_new() local_unnamed_addr #4
 
@@ -185,7 +185,7 @@ declare i64 @gtk_label_get_type() local_unnamed_addr #5
 declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
@@ -756,7 +756,7 @@ declare void @gtk_grid_set_column_spacing(ptr noundef, i32 noundef) local_unname
 declare ptr @gtk_size_group_new(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc noundef ptr @_gui_init_datetime(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = tail call ptr @gtk_flow_box_new() #16
   %9 = tail call i64 @gtk_flow_box_get_type() #17
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #16
@@ -986,7 +986,7 @@ declare void @gtk_widget_set_halign(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_toggle_lock_button_callback(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_toggle_lock_button_callback(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #16
@@ -1026,7 +1026,7 @@ define internal void @_toggle_lock_button_callback(ptr noundef %0, ptr nocapture
 declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_apply_offset_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_apply_offset_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -1043,7 +1043,7 @@ define internal void @_apply_offset_callback(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_apply_datetime_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_apply_datetime_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca [24 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
@@ -1106,7 +1106,7 @@ declare void @gtk_list_store_append(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @gtk_list_store_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1125,7 +1125,7 @@ declare void @gtk_entry_completion_set_popup_set_width(ptr noundef, i32 noundef)
 declare void @gtk_entry_completion_set_match_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @gtk_entry_completion_get_entry(ptr noundef %0) #16
   %7 = tail call i64 @gtk_editable_get_type() #17
@@ -1205,7 +1205,7 @@ declare void @gtk_entry_completion_set_minimum_key_length(ptr noundef, i32 nound
 declare void @gtk_entry_set_completion(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_timezone_key_pressed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_timezone_key_pressed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !62
   switch i32 %5, label %15 [
@@ -1246,7 +1246,7 @@ define internal noundef range(i32 0, 2) i32 @_timezone_key_pressed(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_timezone_focus_out(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_timezone_focus_out(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   tail call fastcc void @_timezone_save(ptr %5)
@@ -1254,7 +1254,7 @@ define internal noundef i32 @_timezone_focus_out(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_choose_gpx_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_choose_gpx_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [24 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1771,7 +1771,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #5
 declare ptr @g_date_time_ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_display_datetime(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_display_datetime(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [8 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
@@ -1918,7 +1918,7 @@ define internal fastcc void @_display_datetime(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture readonly %2) unnamed_addr #1 {
+define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i32 0, 2) %1, ptr readonly captures(none) %2) unnamed_addr #1 {
   %4 = alloca [4 x i8], align 1
   %5 = icmp ne i32 %1, 0
   br i1 %5, label %8, label %6
@@ -2063,7 +2063,7 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_datetime_entry_changed(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_datetime_entry_changed(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
@@ -2076,43 +2076,43 @@ define internal void @_datetime_entry_changed(ptr nocapture readnone %0, ptr nou
   %10 = tail call i64 @gtk_entry_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #16
   %12 = tail call ptr @gtk_entry_get_text(ptr noundef %11) #16
-  %13 = tail call i64 @strtol(ptr nocapture noundef nonnull %12, ptr noundef null, i32 noundef 10) #16
+  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #16
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %10) #16
   %18 = tail call ptr @gtk_entry_get_text(ptr noundef %17) #16
-  %19 = tail call i64 @strtol(ptr nocapture noundef nonnull %18, ptr noundef null, i32 noundef 10) #16
+  %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #16
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %10) #16
   %24 = tail call ptr @gtk_entry_get_text(ptr noundef %23) #16
-  %25 = tail call i64 @strtol(ptr nocapture noundef nonnull %24, ptr noundef null, i32 noundef 10) #16
+  %25 = tail call i64 @strtol(ptr noundef nonnull captures(none) %24, ptr noundef null, i32 noundef 10) #16
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %10) #16
   %30 = tail call ptr @gtk_entry_get_text(ptr noundef %29) #16
-  %31 = tail call i64 @strtol(ptr nocapture noundef nonnull %30, ptr noundef null, i32 noundef 10) #16
+  %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %30, ptr noundef null, i32 noundef 10) #16
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %10) #16
   %36 = tail call ptr @gtk_entry_get_text(ptr noundef %35) #16
-  %37 = tail call i64 @strtol(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #16
+  %37 = tail call i64 @strtol(ptr noundef nonnull captures(none) %36, ptr noundef null, i32 noundef 10) #16
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !13
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef %10) #16
   %42 = tail call ptr @gtk_entry_get_text(ptr noundef %41) #16
-  %43 = tail call i64 @strtol(ptr nocapture noundef nonnull %42, ptr noundef null, i32 noundef 10) #16
+  %43 = tail call i64 @strtol(ptr noundef nonnull captures(none) %42, ptr noundef null, i32 noundef 10) #16
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !13
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %10) #16
   %48 = tail call ptr @gtk_entry_get_text(ptr noundef %47) #16
-  %49 = tail call i64 @strtol(ptr nocapture noundef nonnull %48, ptr noundef null, i32 noundef 10) #16
+  %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #16
   %50 = trunc i64 %49 to i32
   %51 = sitofp i32 %44 to double
   %52 = sitofp i32 %50 to double
@@ -2154,7 +2154,7 @@ define internal void @_datetime_entry_changed(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_datetime_key_pressed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef i32 @_datetime_key_pressed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -2418,13 +2418,13 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_selection_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_selection_changed_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   tail call fastcc void @_refresh_image_datetime(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_mouse_over_image_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 220
@@ -2441,7 +2441,7 @@ define internal void @_mouse_over_image_callback(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_info_changed(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef %2) #1 {
+define internal void @_image_info_changed(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -2475,7 +2475,7 @@ define internal void @_image_info_changed(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_pref_change_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_dt_pref_change_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call fastcc void @_show_milliseconds(ptr noundef %4)
@@ -2483,7 +2483,7 @@ define internal void @_dt_pref_change_callback(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_show_milliseconds(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc void @_show_milliseconds(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.78) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -2621,7 +2621,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_tz_tuple(ptr nocapture noundef %0) #1 {
+define internal void @free_tz_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   tail call void @g_free(ptr noundef %3) #16
@@ -2636,7 +2636,7 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #4
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
@@ -2647,22 +2647,22 @@ declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @g_getenv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @dt_loc_get_datadir(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @g_strsplit_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
@@ -2670,12 +2670,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_timezones(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @_sort_timezones(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2751,7 +2751,7 @@ declare noalias ptr @g_utf8_casefold(ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_timezone_save(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_timezone_save(ptr captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = tail call i64 @gtk_entry_get_type() #17
@@ -2856,7 +2856,7 @@ declare i64 @gtk_file_filter_get_type() local_unnamed_addr #5
 declare void @gtk_file_filter_add_custom(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_lib_geotagging_filter_gpx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 0, 2) i32 @_lib_geotagging_filter_gpx(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !86
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.57) #16
@@ -2916,7 +2916,7 @@ declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #4
 
@@ -2931,7 +2931,7 @@ declare i32 @dt_datetime_img_to_exif(ptr noundef, i64 noundef, ptr noundef) loca
 declare void @dt_image_cache_read_release(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
 
@@ -2979,7 +2979,7 @@ declare void @dt_image_get_datetime(i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @g_signal_handlers_block_matched(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i32 @g_date_time_get_year(ptr noundef) local_unnamed_addr #4
 
@@ -3003,7 +3003,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #5
 declare ptr @g_date_time_new(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
 declare i64 @g_date_time_difference(ptr noundef, ptr noundef) local_unnamed_addr #4
 

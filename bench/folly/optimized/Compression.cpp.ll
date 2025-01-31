@@ -360,26 +360,26 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK5folly2io5Codec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZNK5folly2io5Codec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5folly2io5Codec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5folly2io5Codec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK5folly2io5Codec23doMaxUncompressedLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define noundef i64 @_ZNK5folly2io5Codec23doMaxUncompressedLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5folly2io5Codec25doNeedsUncompressedLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5folly2io5Codec25doNeedsUncompressedLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i1 false
 }
@@ -461,7 +461,7 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io5Codec18doUncompressStringB5cxx11ENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io5Codec18doUncompressStringB5cxx11ENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inputBuffer = alloca %"class.folly::IOBuf", align 8
   %outputBuffer = alloca %"class.std::unique_ptr", align 8
@@ -678,7 +678,7 @@ ehcleanup29:                                      ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly2io5Codec23doGetUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture noundef %uncompressedLength) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly2io5Codec23doGetUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional") align 8 captures(none) initializes((0, 1), (8, 9)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0, ptr noundef captures(none) %uncompressedLength) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !tbaa !21
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1205,13 +1205,13 @@ ehcleanup60:                                      ; preds = %lpad56, %lpad38, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5folly2io11StreamCodec17doNeedsDataLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5folly2io11StreamCodec17doNeedsDataLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly2io5CodecC2ENS0_9CodecTypeENS_8OptionalIiEENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %type, ptr nocapture noundef readnone %0, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) unnamed_addr #1 align 2 {
+define void @_ZN5folly2io5CodecC2ENS0_9CodecTypeENS_8OptionalIiEENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, i32 noundef %type, ptr noundef readnone captures(none) %0, ptr readnone captures(none) %.coerce0, ptr readnone captures(none) %.coerce1) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly2io5CodecE, i64 16), ptr %this, align 8, !tbaa !7
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1291,7 +1291,7 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #5
 
@@ -1311,7 +1311,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly2io5Codec8compressB5cxx11ENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1350,10 +1350,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io5Codec10uncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io5Codec10uncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 8
   %cmp = icmp eq ptr %data, null
@@ -1571,7 +1571,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io5Codec10uncompressB5cxx11ENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io5Codec10uncompressB5cxx11ENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp25 = alloca %"class.folly::Optional", align 8
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %uncompressedLength, i64 8
@@ -1689,15 +1689,15 @@ eh.resume:                                        ; preds = %lpad18, %lpad8, %lp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly2io5Codec13canUncompressENS_5RangeIPKcEENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly2io5Codec13canUncompressENS_5RangeIPKcEENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"class.folly::IOBuf", align 8
   %agg.tmp = alloca %"class.folly::Optional", align 8
@@ -2093,7 +2093,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly2io5Codec21getUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %data, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly2io5Codec21getUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %data, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 8
   %call = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data)
@@ -2157,7 +2157,7 @@ cleanup:                                          ; preds = %_ZN5folly8OptionalI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly2io5Codec21getUncompressedLengthENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly2io5Codec21getUncompressedLengthENS_5RangeIPKcEENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %data.coerce0, ptr %data.coerce1, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"class.folly::IOBuf", align 8
   %agg.tmp = alloca %"class.folly::Optional", align 8
@@ -2756,7 +2756,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io11StreamCodec11resetStreamENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(49) initializes((12, 16), (48, 49)) %this, ptr nocapture noundef readonly %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io11StreamCodec11resetStreamENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(49) initializes((12, 16), (48, 49)) %this, ptr noundef readonly captures(none) %uncompressedLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %state_, align 4, !tbaa !38
@@ -3368,7 +3368,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i.i = alloca i32, align 4
   %ref.tmp22.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3447,7 +3447,7 @@ _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_118NoCompressionCodecESt14default_delet
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_18LZ4Codec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_18LZ4Codec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34, !noalias !103
   %call.i4.i = invoke fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_115lz4ConvertLevelEi(i32 noundef %level)
@@ -3476,7 +3476,7 @@ _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_18LZ4CodecESt14default_deleteIS3_EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_111SnappyCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_111SnappyCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i.i = alloca i32, align 4
   %ref.tmp22.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3599,14 +3599,14 @@ _ZN5folly2io12_GLOBAL__N_114getZlibOptionsENS0_9CodecTypeE.exit: ; preds = %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec11createCodecEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec11createCodecEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecESt14default_deleteIS3_EED2Ev.exit:
   tail call fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i32 %level, i32 %type)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec12createStreamEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.23") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec12createStreamEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.23") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecESt14default_deleteIS3_EED2Ev.exit:
   tail call fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i32 %level, i32 %type)
   ret void
@@ -3683,7 +3683,7 @@ lpad15:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 initializes((0, 8)) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodec6createEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) initializes((0, 8)) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_113LZ4FrameCodecESt14default_deleteIS3_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34, !noalias !111
   %cond.i.i = icmp eq i32 %level, -3
@@ -3704,14 +3704,14 @@ _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_113LZ4FrameCodecESt14default_deleteIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec11createCodecEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec11createCodecEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit:
   tail call void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.23") align 8 %agg.result, i32 noundef %level, i32 noundef %type)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.23") align 8 %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.23") align 8 captures(none) %agg.result, i32 noundef %level, i32 noundef %type) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i.i = alloca i32, align 4
   %ref.tmp25.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3952,14 +3952,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec10doCompressEPKNS_5IOBufE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %data) unnamed_addr #3 align 2 {
+define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec10doCompressEPKNS_5IOBufE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %data) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %data)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_118NoCompressionCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %uncompressedLength, i64 8
@@ -4042,7 +4042,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_118NoCompressionCodec21doMaxCompressedLengthEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %uncompressedLength) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_118NoCompressionCodec21doMaxCompressedLengthEm(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %uncompressedLength) unnamed_addr #2 align 2 {
 entry:
   ret i64 %uncompressedLength
 }
@@ -4266,13 +4266,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec23doMaxUncompressedLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec23doMaxUncompressedLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i64 2113929216
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec25doNeedsUncompressedLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #20 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec25doNeedsUncompressedLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #20 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %this.val = load i32, ptr %0, align 8, !tbaa !68
@@ -4568,7 +4568,7 @@ ehcleanup92:                                      ; preds = %ehcleanup91, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_18LZ4Codec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_18LZ4Codec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clone = alloca %"class.folly::IOBuf", align 8
   %ref.tmp = alloca %"class.folly::IOBuf", align 8
@@ -5161,7 +5161,7 @@ unreachable:                                      ; preds = %invoke.cont113
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 -2147483648, 2147483658) i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec21doMaxCompressedLengthEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
+define internal noundef range(i64 -2147483648, 2147483658) i64 @_ZNK5folly2io12_GLOBAL__N_18LZ4Codec21doMaxCompressedLengthEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
 entry:
   %conv = trunc i64 %uncompressedLength to i32
   %call = tail call i32 @LZ4_compressBound(i32 noundef %conv)
@@ -5849,7 +5849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec23doMaxUncompressedLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec23doMaxUncompressedLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i64 4294967295
 }
@@ -6028,7 +6028,7 @@ ehcleanup35:                                      ; preds = %ehcleanup31, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_111SnappyCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_111SnappyCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actualUncompressedLength = alloca i32, align 4
   %source = alloca %"class.folly::io::(anonymous namespace)::IOBufSnappySource", align 8
@@ -6227,14 +6227,14 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec21doMaxCompressedLengthEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec21doMaxCompressedLengthEm(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN6snappy19MaxCompressedLengthEm(i64 noundef %uncompressedLength)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec23doGetUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly2io12_GLOBAL__N_111SnappyCodec23doGetUncompressedLengthEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Optional") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actualUncompressedLength = alloca i32, align 4
   %source = alloca %"class.folly::io::(anonymous namespace)::IOBufSnappySource", align 8
@@ -6429,7 +6429,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_117IOBufSnappySource9AvailableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #20 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_117IOBufSnappySource9AvailableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #20 align 2 {
 entry:
   %available_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %available_, align 8, !tbaa !148
@@ -6453,7 +6453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN5folly2io12_GLOBAL__N_117IOBufSnappySource4PeekEPm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly %len) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5folly2io12_GLOBAL__N_117IOBufSnappySource4PeekEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef writeonly captures(none) %len) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cursor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %crtEnd_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6829,7 +6829,7 @@ declare { i64, i64 } @_ZN5folly2io4zlib18defaultZlibOptionsEv() local_unnamed_ad
 declare void @_ZN5folly2io4zlib14getStreamCodecENS1_7OptionsEi(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.23") align 8, i64, i64, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i32 %__args.0.val, i32 %__args1.0.val) unnamed_addr #22 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, i32 %__args.0.val, i32 %__args1.0.val) unnamed_addr #22 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i = alloca i32, align 4
   %ref.tmp28.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7053,7 +7053,7 @@ _ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodecD2Ev.exit: ; preds = %if.then6.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7169,7 +7169,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this, ptr noundef %data, ptr nocapture readnone %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this, ptr noundef %data, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i64, align 8
   %cursor.i = alloca %"class.folly::io::Cursor", align 8
@@ -7236,13 +7236,13 @@ return:                                           ; preds = %_ZN5folly2io11compr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec23doMaxUncompressedLengthEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec23doMaxUncompressedLengthEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i64 -9223372036854775808
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec21doMaxCompressedLengthEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this, i64 noundef %uncompressedLength) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec21doMaxCompressedLengthEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this, i64 noundef %uncompressedLength) unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @lzma_stream_buffer_bound(i64 noundef %uncompressedLength) #31
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7254,7 +7254,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec17doNeedsDataLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #20 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116LZMA2StreamCodec17doNeedsDataLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this) unnamed_addr #20 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %this.val = load i32, ptr %0, align 8, !tbaa !68
@@ -7263,7 +7263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec13doResetStreamEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((388, 389)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec13doResetStreamEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((388, 389)) %this) unnamed_addr #1 align 2 {
 entry:
   %needReset_ = getelementptr inbounds nuw i8, ptr %this, i64 388
   store i8 1, ptr %needReset_, align 4, !tbaa !161
@@ -8329,7 +8329,7 @@ unreachable:                                      ; preds = %invoke.cont3
 declare i32 @lzma_code(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !190, !range !28, !noundef !29
   %tobool.not = icmp eq i8 %0, 0
@@ -8560,7 +8560,7 @@ _ZN5folly8toAppendIJA26_c8lzma_retPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116LZMA2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !190, !range !28, !noundef !29
   %tobool.not = icmp eq i8 %0, 0
@@ -9094,7 +9094,7 @@ declare void @_ZN5folly2io4zstd7Options14freeCCtxParamsEP18ZSTD_CCtx_params_s(pt
 declare void @_ZN5folly2io4zstd14getStreamCodecENS1_7OptionsE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.23") align 8, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodecD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodecD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %dctx_, align 8, !tbaa !116
@@ -9141,7 +9141,7 @@ _ZN5folly2io12_GLOBAL__N_113LZ4FrameCodecD2Ev.exit: ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #31
@@ -9244,7 +9244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, ptr nocapture readnone %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %cursor.i = alloca %"class.folly::io::Cursor", align 8
@@ -9408,7 +9408,7 @@ ehcleanup23:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_113LZ4FrameCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 8
   %clone = alloca %"class.folly::IOBuf", align 8
@@ -9844,7 +9844,7 @@ unreachable:                                      ; preds = %invoke.cont54
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec21doMaxCompressedLengthEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_113LZ4FrameCodec21doMaxCompressedLengthEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %uncompressedLength) unnamed_addr #3 align 2 {
 entry:
   %prefs = alloca %struct.LZ4F_preferences_t, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %prefs) #31
@@ -10191,7 +10191,7 @@ _ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodecD2Ev.exit: ; preds = %if.then8.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #31
@@ -10294,7 +10294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, ptr nocapture readnone %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca i32, align 4
   %cursor.i = alloca %"class.folly::io::Cursor", align 8
@@ -10351,7 +10351,7 @@ _ZN5folly2io11compression6detail16dataStartsWithLEIjEENSt9enable_ifIXsr3std11is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec21doMaxCompressedLengthEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef %uncompressedLength) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_116Bzip2StreamCodec21doMaxCompressedLengthEm(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %uncompressedLength) unnamed_addr #2 align 2 {
 entry:
   %div = udiv i64 %uncompressedLength, 100
   %add = add i64 %uncompressedLength, 600
@@ -10360,7 +10360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec13doResetStreamEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((236, 237)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec13doResetStreamEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(240) initializes((236, 237)) %this) unnamed_addr #1 align 2 {
 entry:
   %needReset_ = getelementptr inbounds nuw i8, ptr %this, i64 236
   store i8 1, ptr %needReset_, align 4, !tbaa !123
@@ -10928,7 +10928,7 @@ unreachable:                                      ; preds = %invoke.cont2
 declare i32 @BZ2_bzCompress(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !190, !range !28, !noundef !29
   %tobool.not = icmp eq i8 %0, 0
@@ -11127,7 +11127,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9en
 declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec18doUncompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !190, !range !28, !noundef !29
   %tobool.not = icmp eq i8 %0, 0
@@ -11570,7 +11570,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io25getAutoUncompressionCodecESt6vectorISt10unique_ptrINS0_5CodecESt14default_deleteIS3_EESaIS6_EES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.15") align 8 %agg.result, ptr nocapture noundef %customCodecs, ptr nocapture noundef %terminalCodec) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io25getAutoUncompressionCodecESt6vectorISt10unique_ptrINS0_5CodecESt14default_deleteIS3_EESaIS6_EES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.15") align 8 captures(none) %agg.result, ptr noundef captures(none) %customCodecs, ptr noundef captures(none) %terminalCodec) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::unique_ptr.15", align 8
   %agg.tmp.i.i = alloca %"class.std::vector.130", align 8
@@ -12274,7 +12274,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5folly2io5CodecESt14default_deleteIS3_EESaIS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodecD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %terminalCodec_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %terminalCodec_, align 8, !tbaa !10
@@ -12395,7 +12395,7 @@ _ZN5folly2io12_GLOBAL__N_114AutomaticCodecD2Ev.exit: ; preds = %if.then.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec13validPrefixesB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %prefixes = alloca %"class.std::unordered_set", align 8
@@ -12638,7 +12638,7 @@ ehcleanup37:                                      ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i113.i.i.i.i.i = alloca %"class.folly::Optional", align 8
   %agg.tmp.i.i102.i.i.i.i.i = alloca %"class.folly::Optional", align 8
@@ -12882,7 +12882,7 @@ invoke.cont2.i.i.i118.i.i.i.i.i:                  ; preds = %sw.bb37.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec23doMaxUncompressedLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #20 align 2 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec23doMaxUncompressedLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #20 align 2 {
 entry:
   %maxUncompressedLength_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %maxUncompressedLength_, align 8, !tbaa !318
@@ -12890,7 +12890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec25doNeedsUncompressedLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #20 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec25doNeedsUncompressedLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #20 align 2 {
 entry:
   %needsUncompressedLength_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %needsUncompressedLength_, align 8, !tbaa !307, !range !28, !noundef !29
@@ -12899,7 +12899,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodec10doCompressEPKNS_5IOBufE(ptr dead_on_unwind noalias nocapture readnone sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodec10doCompressEPKNS_5IOBufE(ptr dead_on_unwind noalias readnone sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #31
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.101)
@@ -12917,7 +12917,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %data, ptr nocapture noundef readonly %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly2io12_GLOBAL__N_114AutomaticCodec12doUncompressEPKNS_5IOBufENS_8OptionalImEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %data, ptr noundef readonly captures(none) %uncompressedLength) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional", align 8
   %agg.tmp9 = alloca %"class.folly::Optional", align 8
@@ -13085,7 +13085,7 @@ unreachable:                                      ; preds = %if.then17
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec21doMaxCompressedLengthEm(ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZNK5folly2io12_GLOBAL__N_114AutomaticCodec21doMaxCompressedLengthEm(ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #31
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.103)
@@ -13846,7 +13846,7 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #29

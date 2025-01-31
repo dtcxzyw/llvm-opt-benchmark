@@ -177,10 +177,10 @@ define dso_local void @get_kthread_comm(ptr noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @to_kthread(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc ptr @to_kthread(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
@@ -206,10 +206,10 @@ declare dso_local ptr @__get_task_comm(ptr noundef, i64 noundef, ptr noundef) lo
 declare dso_local i64 @strscpy_pad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @set_kthread_struct(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @set_kthread_struct(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @set_kthread_struct(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_kthread_struct(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @free_kthread_struct(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
@@ -435,7 +435,7 @@ define dso_local zeroext i1 @kthread_freezable_should_stop(ptr noundef writeonly
 declare dso_local zeroext i1 @__refrigerator(i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @kthread_func(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local ptr @kthread_func(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -459,7 +459,7 @@ define dso_local ptr @kthread_func(ptr nocapture noundef readonly %0) #5 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @kthread_data(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @kthread_data(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
@@ -481,7 +481,7 @@ define dso_local ptr @kthread_data(ptr nocapture noundef readonly %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @kthread_probe_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @kthread_probe_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %4 = load ptr, ptr %3, align 8
@@ -648,7 +648,7 @@ define dso_local ptr @kthread_create_on_node(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @__kthread_create_on_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
@@ -848,7 +848,7 @@ define dso_local ptr @kthread_create_on_cpu(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @kthread_set_per_cpu(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @kthread_set_per_cpu(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2097152
@@ -898,7 +898,7 @@ define dso_local void @kthread_set_per_cpu(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local zeroext i1 @kthread_is_per_cpu(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local zeroext i1 @kthread_is_per_cpu(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1230,7 +1230,7 @@ define dso_local i32 @kthread_stop_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define dso_local noundef i32 @kthreadd(ptr nocapture noundef readnone %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef i32 @kthreadd(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !17
   %4 = inttoptr i64 %3 to ptr
@@ -1362,7 +1362,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #3
 declare dso_local void @schedule() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @__kthread_init_worker(ptr noundef initializes((0, 56)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local void @__kthread_init_worker(ptr noundef initializes((0, 56)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store volatile ptr %4, ptr %4, align 8

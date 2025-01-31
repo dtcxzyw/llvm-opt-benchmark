@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [56 x i8] c"Performing optimization with %d external care clauses.\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly initializes((0, 68)) %0) local_unnamed_addr #0 {
+define void @Abc_NtkMfsParsDefault(ptr noundef writeonly captures(none) initializes((0, 68)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %2, i8 0, i64 12, i1 false)
   store i32 2, ptr %0, align 4
@@ -41,7 +41,7 @@ define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_WinNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -149,7 +149,7 @@ declare ptr @Cnf_DeriveSimple(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @Abc_MfsCreateSolverResub(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkMfsPowerResub(ptr noundef %0, ptr nocapture readnone %1) local_unnamed_addr #2 {
+define void @Abc_NtkMfsPowerResub(ptr noundef %0, ptr readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %4) #11
@@ -1659,11 +1659,11 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %208
   br label %209
 
 209:                                              ; preds = %94, %.critedge2, %Vec_VecFree.exit
-  call void @Abc_NtkStopReverseLevels(ptr noundef %0) #11
+  call void @Abc_NtkStopReverseLevels(ptr noundef nonnull %0) #11
   %.val186 = load i32, ptr %13, align 4
   %210 = getelementptr inbounds nuw i8, ptr %29, i64 820
   store i32 %.val186, ptr %210, align 4
-  %211 = call i32 @Abc_NtkGetTotalFanins(ptr noundef %0) #11
+  %211 = call i32 @Abc_NtkGetTotalFanins(ptr noundef nonnull %0) #11
   %212 = getelementptr inbounds nuw i8, ptr %29, i64 828
   store i32 %211, ptr %212, align 4
   %213 = load ptr, ptr %58, align 8
@@ -1738,7 +1738,7 @@ Abc_Clock.exit205:                                ; preds = %228, %231
 declare i32 @Abc_NtkGetTotalFanins(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @Abc_NtkToAig(ptr noundef) local_unnamed_addr #3
 
@@ -1778,19 +1778,19 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

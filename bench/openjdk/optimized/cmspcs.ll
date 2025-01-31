@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._cmsICCcolorSpace = private unnamed_addr constant [30 x i32] [i32 1196573017, i32 1380401696, i32 1196573017, i32 1380401696, i32 1129142560, i32 1129142603, i32 1497588338, i32 1282766368, i32 1482250784, i32 1281450528, i32 1282766411, i32 1213421088, i32 1212961568, i32 1501067552, i32 1296255025, i32 1296255026, i32 1296255027, i32 1296255028, i32 1296255029, i32 1296255030, i32 1296255031, i32 1296255032, i32 1296255033, i32 1296255041, i32 1296255042, i32 1296255043, i32 1296255044, i32 1296255045, i32 1296255046, i32 1281450528], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsXYZ2xyY(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsXYZ2xyY(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -38,7 +38,7 @@ define hidden void @cmsXYZ2xyY(ptr nocapture noundef writeonly initializes((0, 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsxyY2XYZ(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsxyY2XYZ(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -62,7 +62,7 @@ define hidden void @cmsxyY2XYZ(ptr nocapture noundef writeonly initializes((0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsXYZ2Lab(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @cmsXYZ2Lab(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -143,7 +143,7 @@ declare ptr @cmsD50_XYZ() local_unnamed_addr #2
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -197,7 +197,7 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsLabEncoded2FloatV2(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsLabEncoded2FloatV2(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 2
   %4 = uitofp i16 %3 to double
   %5 = fdiv double %4, 6.528000e+02
@@ -220,7 +220,7 @@ define hidden void @cmsLabEncoded2FloatV2(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsLabEncoded2Float(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsLabEncoded2Float(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 2
   %4 = uitofp i16 %3 to double
   %5 = fdiv double %4, 6.553500e+02
@@ -243,7 +243,7 @@ define hidden void @cmsLabEncoded2Float(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsFloat2LabEncodedV2(ptr nocapture noundef writeonly initializes((0, 6)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsFloat2LabEncodedV2(ptr noundef writeonly captures(none) initializes((0, 6)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
   %4 = fcmp olt double %3, 0.000000e+00
   %.0.i = select i1 %4, double 0.000000e+00, double %3
@@ -329,7 +329,7 @@ ab2Fix2.exit12:                                   ; preds = %ab2Fix2.exit, %42, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsFloat2LabEncoded(ptr nocapture noundef writeonly initializes((0, 6)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsFloat2LabEncoded(ptr noundef writeonly captures(none) initializes((0, 6)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
   %4 = fcmp olt double %3, 0.000000e+00
   %.0.i = select i1 %4, double 0.000000e+00, double %3
@@ -415,7 +415,7 @@ ab2Fix4.exit12:                                   ; preds = %ab2Fix4.exit, %42, 
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @cmsLab2LCh(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @cmsLab2LCh(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -469,7 +469,7 @@ atan2deg.exit:                                    ; preds = %.lr.ph13.i, %2, %.p
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @cmsLCh2Lab(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @cmsLCh2Lab(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 0x400921FB54442D18
@@ -497,7 +497,7 @@ declare double @cos(double noundef) local_unnamed_addr #5
 declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsFloat2XYZEncoded(ptr nocapture noundef writeonly initializes((0, 6)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsFloat2XYZEncoded(ptr noundef writeonly captures(none) initializes((0, 6)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -583,7 +583,7 @@ XYZ2Fix.exit16:                                   ; preds = %XYZ2Fix.exit14, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsXYZEncoded2Float(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @cmsXYZEncoded2Float(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i32
   %5 = shl nuw nsw i32 %4, 1
@@ -607,7 +607,7 @@ define hidden void @cmsXYZEncoded2Float(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden double @cmsDeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden double @cmsDeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -634,7 +634,7 @@ define hidden double @cmsDeltaE(ptr nocapture noundef readonly %0, ptr nocapture
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCIE94DeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden double @cmsCIE94DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -727,7 +727,7 @@ cmsLab2LCh.exit27:                                ; preds = %32, %cmsLab2LCh.exi
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsBFDdeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden double @cmsBFDdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %.val = load double, ptr %0, align 8
   %3 = fcmp ogt double %.val, 0x401FFCE5710880D8
   br i1 %3, label %4, label %9
@@ -966,7 +966,7 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCMCdeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3) local_unnamed_addr #4 {
+define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #4 {
   %5 = load double, ptr %0, align 8
   %6 = fcmp oeq double %5, 0.000000e+00
   br i1 %6, label %7, label %10
@@ -1119,7 +1119,7 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCIE2000DeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
+define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
   %6 = load double, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8

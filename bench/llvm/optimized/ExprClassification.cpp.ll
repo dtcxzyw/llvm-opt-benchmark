@@ -993,7 +993,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5clang16PackIndexingExpr15getSelectedExprEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 comdat align 2 {
@@ -1127,7 +1127,7 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread: ; preds = %_ZNK5clang18A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE(ptr nocapture readonly %.2112.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE(ptr readonly captures(none) %.2112.val, ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 124
@@ -1216,7 +1216,7 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_14MSPropertyDeclEJNS1_20FunctionTemplateD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL18ClassifyMemberExprRN5clang10ASTContextEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL18ClassifyMemberExprRN5clang10ASTContextEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18896
@@ -1364,7 +1364,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %54, %60
 declare noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.0.val, ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   switch i32 %1, label %19 [
     i32 0, label %3
     i32 1, label %20
@@ -1408,7 +1408,7 @@ define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL16ClassifyBinaryOpRN5clang10ASTContextEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL16ClassifyBinaryOpRN5clang10ASTContextEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 18
   %5 = and i32 %4, 63
@@ -1769,10 +1769,10 @@ declare noundef zeroext i1 @_ZNK5clang10RecordType14hasConstFieldsEv(ptr noundef
 declare noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

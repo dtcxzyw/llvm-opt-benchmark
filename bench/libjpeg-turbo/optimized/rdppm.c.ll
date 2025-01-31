@@ -43,7 +43,7 @@ define dso_local noundef ptr @j12init_read_ppm(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_ppm(ptr noundef %0, ptr nocapture noundef initializes((40, 48), (56, 60), (88, 100)) %1) #0 {
+define internal void @start_input_ppm(ptr noundef %0, ptr noundef captures(none) initializes((40, 48), (56, 60), (88, 100)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @getc(ptr noundef %4)
@@ -551,15 +551,15 @@ define internal void @start_input_ppm(ptr noundef %0, ptr nocapture noundef init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @finish_input_ppm(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @finish_input_ppm(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_pbm_integer(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %3
@@ -656,7 +656,7 @@ pbm_getc.exit36:                                  ; preds = %.preheader.i35, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -692,7 +692,7 @@ define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -848,7 +848,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -943,7 +943,7 @@ define internal noundef i32 @get_text_gray_cmyk_row(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1123,7 +1123,7 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1290,7 +1290,7 @@ define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_word_gray_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_word_gray_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1367,7 +1367,7 @@ define internal noundef i32 @get_word_gray_row(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1511,7 +1511,7 @@ define internal noundef i32 @get_word_gray_rgb_row(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_word_gray_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_word_gray_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1610,7 +1610,7 @@ define internal noundef i32 @get_word_gray_cmyk_row(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_scaled_gray_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_scaled_gray_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1666,7 +1666,7 @@ define internal noundef i32 @get_scaled_gray_row(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1850,7 +1850,7 @@ define internal noundef i32 @get_gray_rgb_row(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1968,7 +1968,7 @@ define internal noundef i32 @get_gray_cmyk_row(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2126,7 +2126,7 @@ define internal noundef i32 @get_word_rgb_row(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_word_rgb_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_word_rgb_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2303,7 +2303,7 @@ define internal noundef i32 @get_word_rgb_cmyk_row(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2519,7 +2519,7 @@ define internal noundef i32 @get_rgb_row(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_rgb_cmyk_row(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @get_rgb_cmyk_row(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2711,13 +2711,13 @@ define internal noundef i32 @get_rgb_cmyk_row(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

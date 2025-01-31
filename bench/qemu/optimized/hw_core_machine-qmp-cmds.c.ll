@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.VMGENID = private unnamed_addr constant [8 x i8] c"VMGENID\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_cpus_fast(ptr nocapture readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_cpus_fast(ptr readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %head = alloca ptr, align 8
   %tmp12 = alloca %struct.CpuInstanceProperties, align 8
@@ -167,10 +167,10 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 declare ptr @object_get_canonical_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_query_machines(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qmp_query_machines(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @object_class_get_list(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #7
   %tobool.not34 = icmp eq ptr %call, null
@@ -288,7 +288,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_current_machine(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_current_machine(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(1) ptr @g_malloc0(i64 noundef 1) #8
   %call1 = tail call zeroext i1 @qemu_wakeup_suspend_enabled() #7
@@ -300,7 +300,7 @@ entry:
 declare zeroext i1 @qemu_wakeup_suspend_enabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_target(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_target(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc0(i64 noundef 4) #8
   %call1 = tail call ptr @target_name() #7
@@ -363,7 +363,7 @@ declare zeroext i1 @phase_check(i32 noundef) local_unnamed_addr #1
 declare void @set_numa_options(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_memdev(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_memdev(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %list = alloca ptr, align 8
   %call = tail call ptr @object_get_objects_root() #7
@@ -378,7 +378,7 @@ declare ptr @object_get_objects_root() local_unnamed_addr #1
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @query_memdev(ptr noundef %obj, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @query_memdev(ptr noundef %obj, ptr noundef captures(none) %opaque) #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -473,7 +473,7 @@ if.end24:                                         ; preds = %qobject_unref_impl.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_x_query_numa(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_x_query_numa(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.5) #7
   %call1 = tail call ptr @qdev_get_machine() #7
@@ -608,7 +608,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @human_readable_text_from_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_kvm(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_kvm(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc0(i64 noundef 2) #8
   %0 = load i8, ptr @kvm_allowed, align 1
@@ -625,7 +625,7 @@ entry:
 declare ptr @accel_find(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_uuid(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_uuid(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #8
   %call1 = tail call ptr @qemu_uuid_unparse_strdup(ptr noundef nonnull @qemu_uuid) #7
@@ -636,7 +636,7 @@ entry:
 declare ptr @qemu_uuid_unparse_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_system_reset(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_system_reset(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   tail call void @qemu_system_reset_request(i32 noundef 3) #7
   ret void
@@ -645,7 +645,7 @@ entry:
 declare void @qemu_system_reset_request(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_system_powerdown(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_system_powerdown(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   tail call void @qemu_system_powerdown_request() #7
   ret void
@@ -674,7 +674,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @qemu_system_wakeup_request(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_memory_devices(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_memory_devices(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qmp_memory_device_list() #7
   ret ptr %call
@@ -683,7 +683,7 @@ entry:
 declare ptr @qmp_memory_device_list() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_memory_size_summary(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_memory_size_summary(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   %call1 = tail call ptr @qdev_get_machine() #7
@@ -704,7 +704,7 @@ entry:
 declare i64 @get_plugged_memory_size() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_x_query_rdma(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_x_query_rdma(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.5) #7
   %call1 = tail call ptr @object_get_root() #7
@@ -755,7 +755,7 @@ if.end7:                                          ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_x_query_ramblock(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_x_query_ramblock(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ram_block_format() #7
   %call1 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #7
@@ -773,7 +773,7 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %entry, %if.then.i.i
 declare ptr @ram_block_format() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_x_query_irq(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_x_query_irq(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.5) #7
   %call1 = tail call ptr @object_get_root() #7

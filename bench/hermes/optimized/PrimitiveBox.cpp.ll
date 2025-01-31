@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E = external global %"class.hermes::vm::PinnedHermesValue", align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 9223372032559808513) i64 @_ZN6hermes2vm8JSString23_getOwnIndexedRangeImplEPNS0_8JSObjectERNS0_7RuntimeE(ptr nocapture noundef readonly %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
+define hidden range(i64 0, 9223372032559808513) i64 @_ZN6hermes2vm8JSString23_getOwnIndexedRangeImplEPNS0_8JSObjectERNS0_7RuntimeE(ptr noundef readonly captures(none) %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %selfObj, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm8JSString19_haveOwnIndexedImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm8JSString19_haveOwnIndexedImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 65539) i32 @_ZN6hermes2vm8JSString31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr nocapture noundef readonly %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
+define hidden range(i32 0, 65539) i32 @_ZN6hermes2vm8JSString31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %self, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm8JSString18_getOwnIndexedImplENS0_12PseudoHandleINS0_8JSObjectEEERNS0_7RuntimeEj(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #1 align 2 {
+define hidden i64 @_ZN6hermes2vm8JSString18_getOwnIndexedImplENS0_12PseudoHandleINS0_8JSObjectEEERNS0_7RuntimeEj(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #1 align 2 {
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %self.coerce, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
@@ -246,7 +246,7 @@ return:                                           ; preds = %entry, %_ZN6hermes2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm8JSString21_deleteOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEj(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm8JSString21_deleteOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEj(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
@@ -296,7 +296,7 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm8JSString6createERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEENS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %value.coerce, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #1 align 2 {
+define hidden ptr @_ZN6hermes2vm8JSString6createERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEENS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %value.coerce, ptr readonly captures(none) %parentHandle.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9520
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
@@ -438,7 +438,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %i
 declare noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i16, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm8JSString18setPrimitiveStringENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %string.coerce) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8JSString18setPrimitiveStringENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %string.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   store i32 0, ptr %desc, align 8
@@ -633,7 +633,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm16JSStringIterator6createERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %string.coerce) local_unnamed_addr #1 align 2 {
+define hidden ptr @_ZN6hermes2vm16JSStringIterator6createERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %string.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %stringIteratorPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 616
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9528
@@ -718,7 +718,7 @@ _ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_16JSStringIteratorEEENS0_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm16JSStringIterator11nextElementENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #1 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm16JSStringIterator11nextElementENS0_6HandleIS1_EERNS0_7RuntimeE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #1 align 2 {
 entry:
   %charArr = alloca [2 x i16], align 2
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
@@ -1104,7 +1104,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm8JSBigInt6createERNS0_7RuntimeENS0_6HandleINS0_15BigIntPrimitiveEEENS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %value.coerce, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #1 align 2 {
+define hidden ptr @_ZN6hermes2vm8JSBigInt6createERNS0_7RuntimeENS0_6HandleINS0_15BigIntPrimitiveEEENS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %value.coerce, ptr readonly captures(none) %parentHandle.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9520
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
@@ -1230,7 +1230,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm8JSNumber6createERNS0_7RuntimeEdNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %value, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm8JSNumber6createERNS0_7RuntimeEdNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %value, ptr readonly captures(none) %parentHandle.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9536
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
@@ -1312,7 +1312,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm9JSBoolean6createERNS0_7RuntimeEbNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext %value, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm9JSBoolean6createERNS0_7RuntimeEbNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext %value, ptr readonly captures(none) %parentHandle.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %value to i8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9520
@@ -1399,7 +1399,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKNS0_10GCSymbolIDE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm8JSSymbol6createERNS0_7RuntimeENS0_8SymbolIDENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %value.coerce, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm8JSSymbol6createERNS0_7RuntimeENS0_8SymbolIDENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %value.coerce, ptr readonly captures(none) %parentHandle.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9520
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656

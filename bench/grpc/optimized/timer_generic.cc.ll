@@ -84,7 +84,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z21grpc_timer_init_unsetP10grpc_timer(ptr nocapture noundef writeonly initializes((12, 13)) %timer) local_unnamed_addr #3 {
+define void @_Z21grpc_timer_init_unsetP10grpc_timer(ptr noundef writeonly captures(none) initializes((12, 13)) %timer) local_unnamed_addr #3 {
 entry:
   %pending = getelementptr inbounds nuw i8, ptr %timer, i64 12
   store i8 0, ptr %pending, align 4
@@ -1121,7 +1121,7 @@ declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4ab
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1244,7 +1244,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr nocapture noundef nonnull readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL23run_some_expired_timersN9grpc_core9TimestampEPS0_N4absl12lts_202308026StatusE(i64 %now.coerce, ptr noundef %next, ptr noundef nonnull readonly captures(none) %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp2.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1612,7 +1612,7 @@ call8.i.i.noexc:                                  ; preds = %cond.false.i.i
 
 _ZL20compute_min_deadlineP11timer_shard.exit.i:   ; preds = %cond.true.i.i, %call8.i.i.noexc
   %retval.sroa.0.0.i.i = phi i64 [ %38, %call8.i.i.noexc ], [ %spec.select175, %cond.true.i.i ]
-  invoke void @gpr_mu_unlock(ptr noundef %11)
+  invoke void @gpr_mu_unlock(ptr noundef nonnull %11)
           to label %.noexc28 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc28:                                         ; preds = %_ZL20compute_min_deadlineP11timer_shard.exit.i
@@ -1853,10 +1853,10 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14

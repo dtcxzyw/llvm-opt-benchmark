@@ -75,7 +75,7 @@ define dso_local void @virusaction(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not85, label %22, label %18
 
 18:                                               ; preds = %12
-  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.3, ptr noundef %0) #21
+  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %0) #21
   %20 = select i1 %.not84, i64 2, i64 1
   %21 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %14
   store ptr %17, ptr %21, align 8
@@ -90,7 +90,7 @@ define dso_local void @virusaction(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not86, label %30, label %26
 
 26:                                               ; preds = %22
-  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.4, ptr noundef %1) #21
+  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #21
   %28 = add nuw nsw i64 %.069, 1
   %29 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %.069
   store ptr %25, ptr %29, align 8
@@ -284,28 +284,28 @@ xfree.exit95:                                     ; preds = %xfree.exit95.sink.s
 declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
@@ -330,7 +330,7 @@ declare ptr @__errno_location() local_unnamed_addr #12
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @writen(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #13 {
+define dso_local noundef i32 @writen(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   br label %4
 
 4:                                                ; preds = %17, %3
@@ -366,7 +366,7 @@ define dso_local noundef i32 @writen(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @poll_fd(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -461,10 +461,10 @@ fds_free.exit:                                    ; preds = %35, %34, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @fds_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fds_add(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %8, label %.preheader
 
@@ -648,7 +648,7 @@ buf_init.exit.thread:                             ; preds = %35, %40, %buf_init.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fds_poll_recv(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define dso_local i32 @fds_poll_recv(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.msghdr, align 8
   %6 = alloca %union.anon, align 8
   %7 = alloca [1 x %struct.iovec], align 16
@@ -1160,7 +1160,7 @@ read_fd_data.exit..thread134_crit_edge:           ; preds = %read_fd_data.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fds_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @fds_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %.val20 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val20, null
   br i1 %.not.i, label %fds_lock.exit, label %2
@@ -1236,7 +1236,7 @@ fds_unlock.exit:                                  ; preds = %26, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fds_cleanup(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @fds_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not51 = icmp eq i64 %3, 0
@@ -1339,16 +1339,16 @@ define dso_local void @fds_cleanup(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fds_remove(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @fds_remove(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.val10 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val10, null
   br i1 %.not.i, label %fds_lock.exit, label %3
@@ -1415,10 +1415,10 @@ declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

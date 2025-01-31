@@ -147,49 +147,49 @@ define ptr @get_follow_tap_string(ptr noundef readonly %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_conv_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_conv_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_index_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_index_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_address_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_address_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_port_to_display(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_port_to_display(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_tap_handler(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_tap_handler(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_stream_count_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_stream_count_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_sub_stream_id_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_sub_stream_id_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -231,7 +231,7 @@ define void @follow_iterate_followers(ptr noundef %0, ptr noundef %1) local_unna
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @follow_get_stat_tap_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @follow_get_stat_tap_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.9) #9
   %3 = load i32, ptr %0, align 8
   %4 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %3) #9
@@ -249,7 +249,7 @@ declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @follow_reset_stream(ptr nocapture noundef initializes((24, 32), (56, 64), (72, 80), (96, 104)) %0) local_unnamed_addr #0 {
+define void @follow_reset_stream(ptr noundef captures(none) initializes((24, 32), (56, 64), (72, 80), (96, 104)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 28
   store i32 0, ptr %3, align 4
@@ -409,7 +409,7 @@ define void @follow_info_free(ptr noundef initializes((24, 32), (56, 64), (72, 8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @follow_tvb_tap_listener(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @follow_tvb_tap_listener(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %7 = tail call i32 @tvb_captured_length(ptr noundef %3) #9
   %8 = tail call ptr @g_byte_array_sized_new(i32 noundef %7) #9
@@ -556,7 +556,7 @@ declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -565,10 +565,10 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

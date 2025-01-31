@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN13logos_codegen5graph5impls5debug72_$LT$impl$u20$logos_codegen..graph..Disambiguate$u20$for$u20$$RF$str$GT$3cmp17he3bc2cdb8d3a9ac8E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define i8 @"_ZN13logos_codegen5graph5impls5debug72_$LT$impl$u20$logos_codegen..graph..Disambiguate$u20$for$u20$$RF$str$GT$3cmp17he3bc2cdb8d3a9ac8E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

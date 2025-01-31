@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [16 x i8] c"outbuf.refcount\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z17grpc_msg_compress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z17grpc_msg_compress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr noundef readonly captures(none) %input, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   switch i32 %algorithm, label %sw.epilog.i [
     i32 0, label %if.then
@@ -76,7 +76,7 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z19grpc_msg_decompress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr nocapture noundef readonly %input, ptr noundef %output) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z19grpc_msg_decompress26grpc_compression_algorithmP17grpc_slice_bufferS1_(i32 noundef %algorithm, ptr noundef readonly captures(none) %input, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   switch i32 %algorithm, label %sw.epilog [
     i32 0, label %sw.bb
@@ -131,7 +131,7 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr noundef readonly captures(none) %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds nuw i8, ptr %output, i64 16
@@ -205,7 +205,7 @@ if.end8:                                          ; preds = %for.end, %do.end
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr noundef readonly captures(none) %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds nuw i8, ptr %output, i64 16
@@ -285,10 +285,10 @@ if.end12:                                         ; preds = %land.rhs, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL10zalloc_gprPvjj(ptr nocapture readnone %0, i32 noundef %items, i32 noundef %size) #0 {
+define internal noundef ptr @_ZL10zalloc_gprPvjj(ptr readnone captures(none) %0, i32 noundef %items, i32 noundef %size) #0 {
 entry:
   %mul = mul i32 %size, %items
   %conv = zext i32 %mul to i64
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL9zfree_gprPvS_(ptr nocapture readnone %0, ptr noundef %address) #0 {
+define internal void @_ZL9zfree_gprPvS_(ptr readnone captures(none) %0, ptr noundef %address) #0 {
 entry:
   tail call void @gpr_free(ptr noundef %address)
   ret void
@@ -309,7 +309,7 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr nocapture noundef readonly %input, ptr noundef %output, ptr nocapture noundef readonly %flate) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef readonly captures(none) %input, ptr noundef %output, ptr noundef readonly captures(none) %flate) unnamed_addr #0 {
 entry:
   %outbuf = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %struct.grpc_slice, align 8
@@ -520,7 +520,7 @@ declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 nounde
 declare i64 @grpc_slice_buffer_add_indexed(ptr noundef, ptr noundef byval(%struct.grpc_slice) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @grpc_slice_buffer_add(ptr noundef, ptr noundef byval(%struct.grpc_slice) align 8) local_unnamed_addr #1
 

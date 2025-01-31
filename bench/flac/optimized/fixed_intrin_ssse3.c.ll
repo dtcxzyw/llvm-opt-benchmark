@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_ssse3(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_ssse3(ptr noundef readonly captures(none) %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %prev_err0_scalar = alloca [4 x i32], align 16
   %prev_err1_scalar = alloca [4 x i32], align 16

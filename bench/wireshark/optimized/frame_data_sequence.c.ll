@@ -19,7 +19,7 @@ define noalias noundef ptr @new_frame_data_sequence() local_unnamed_addr #0 {
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -263,7 +263,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @frame_data_sequence_find(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -462,7 +462,7 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i32
   %6 = icmp ne i32 %5, 0

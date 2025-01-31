@@ -202,7 +202,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.158 = private unnamed_addr constant [51 x i8] c"failed to use any single object in index range %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @usage(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @usage(ptr readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str, i64 104, i64 1, ptr %1)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 81, i64 1, ptr %1)
   %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 21, i64 1, ptr %1)
@@ -233,10 +233,10 @@ define hidden void @usage(ptr nocapture readnone %0, ptr nocapture noundef %1) l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -259,7 +259,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.80, ptr noundef %.0168, i32 noundef 196608, i32 noundef %16) #27
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0168, i32 noundef 196608, i32 noundef %16) #27
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -323,7 +323,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %.not244, label %41, label %sub_1
 
 41:                                               ; preds = %39
-  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %.0168, ptr noundef nonnull @.str.34)
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0168, ptr noundef nonnull @.str.34)
   tail call void @exit(i32 noundef 0) #29
   unreachable
 
@@ -346,7 +346,7 @@ sub_1:                                            ; preds = %39
 
 49:                                               ; preds = %.tail.thread, %.tail
   %50 = load ptr, ptr @stdout, align 8
-  tail call void @usage(ptr poison, ptr noundef %50)
+  tail call void @usage(ptr nonnull poison, ptr noundef %50)
   tail call void @exit(i32 noundef 0) #29
   unreachable
 
@@ -354,7 +354,7 @@ sub_1:                                            ; preds = %39
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.37, ptr noundef nonnull %31) #27
   %54 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %54)
+  tail call void @usage(ptr nonnull poison, ptr noundef %54)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -375,7 +375,7 @@ sub_1:                                            ; preds = %39
 
 .critedge.thread:                                 ; preds = %55, %23, %.critedge
   %57 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %57)
+  tail call void @usage(ptr nonnull poison, ptr noundef %57)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -467,7 +467,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 .tail268.thread:                                  ; preds = %sub_1270, %sub_0269, %.tail268, %.critedge2
   %92 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %92)
+  tail call void @usage(ptr nonnull poison, ptr noundef %92)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -493,7 +493,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %104)
+  tail call void @usage(ptr nonnull poison, ptr noundef %104)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -515,7 +515,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 112:                                              ; preds = %110, %108
   %113 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %113)
+  tail call void @usage(ptr nonnull poison, ptr noundef %113)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -546,7 +546,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %127)
+  tail call void @usage(ptr nonnull poison, ptr noundef %127)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -567,7 +567,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %136)
+  tail call void @usage(ptr nonnull poison, ptr noundef %136)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -671,7 +671,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %179)
+  tail call void @usage(ptr nonnull poison, ptr noundef %179)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -692,7 +692,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %188)
+  tail call void @usage(ptr nonnull poison, ptr noundef %188)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -722,7 +722,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 202:                                              ; preds = %200
   %203 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %203)
+  tail call void @usage(ptr nonnull poison, ptr noundef %203)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -769,7 +769,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 221:                                              ; preds = %219
   %222 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %222)
+  tail call void @usage(ptr nonnull poison, ptr noundef %222)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -790,7 +790,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 230:                                              ; preds = %228
   %231 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %231)
+  tail call void @usage(ptr nonnull poison, ptr noundef %231)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -805,9 +805,9 @@ sub_1270:                                         ; preds = %sub_0269
 
 237:                                              ; preds = %226
   %238 = load ptr, ptr @stderr, align 8
-  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.58, ptr noundef %208) #27
+  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.58, ptr noundef nonnull %208) #27
   %240 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %240)
+  tail call void @usage(ptr nonnull poison, ptr noundef %240)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -822,7 +822,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 245:                                              ; preds = %243
   %246 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %246)
+  tail call void @usage(ptr nonnull poison, ptr noundef %246)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -844,7 +844,7 @@ sub_1270:                                         ; preds = %sub_0269
   store ptr %250, ptr @mavname, align 8
   %256 = getelementptr inbounds nuw i8, ptr %.1167, i64 24
   %257 = load ptr, ptr %256, align 8
-  %258 = tail call i64 @strtoull(ptr nocapture noundef %257, ptr noundef null, i32 noundef 0) #26
+  %258 = tail call i64 @strtoull(ptr noundef captures(none) %257, ptr noundef null, i32 noundef 0) #26
   store i64 %258, ptr @mavvalue, align 8
   %259 = getelementptr inbounds nuw i8, ptr %.1167, i64 16
   %260 = load ptr, ptr %259, align 8
@@ -894,7 +894,7 @@ sub_0274:                                         ; preds = %255
 
 278:                                              ; preds = %276
   %279 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %279)
+  tail call void @usage(ptr nonnull poison, ptr noundef %279)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -960,9 +960,9 @@ sub_0274:                                         ; preds = %255
 
 313:                                              ; preds = %311
   %314 = load ptr, ptr @stderr, align 8
-  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.66, ptr noundef %106) #27
+  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.66, ptr noundef nonnull %106) #27
   %316 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %316)
+  tail call void @usage(ptr nonnull poison, ptr noundef %316)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -977,7 +977,7 @@ sub_0274:                                         ; preds = %255
   %321 = load ptr, ptr @stderr, align 8
   %322 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 25, i64 1, ptr %321) #30
   %323 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr poison, ptr noundef %323)
+  tail call void @usage(ptr nonnull poison, ptr noundef %323)
   tail call void @exit(i32 noundef 1) #28
   unreachable
 
@@ -1340,7 +1340,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %399
   br label %apply_infos.exit
 
 502:                                              ; preds = %497
-  %503 = call i64 @strcspn(ptr noundef %436, ptr noundef nonnull @.str.127) #25
+  %503 = call i64 @strcspn(ptr noundef nonnull %436, ptr noundef nonnull @.str.127) #25
   %504 = getelementptr inbounds i8, ptr %436, i64 %503
   %505 = load i8, ptr %504, align 1
   %.not.i254 = icmp eq i8 %505, 91
@@ -1423,35 +1423,35 @@ apply_infos.exit:                                 ; preds = %506, %490, %488, %4
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @putenv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #9
 
 declare i32 @hwloc_bitmap_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #9
 
@@ -1464,7 +1464,7 @@ declare i32 @hwloc_topology_set_xml(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @hwloc_topology_set_userdata_import_callback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @hwloc_utils_userdata_import_cb(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) #0 {
+define internal void @hwloc_utils_userdata_import_cb(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   br label %7
 
@@ -1587,7 +1587,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 30:                                               ; preds = %25, %19
   %.1 = phi ptr [ null, %19 ], [ %.2, %25 ]
-  %31 = call i64 @strtoul(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 0) #26
+  %31 = call i64 @strtoul(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 0) #26
   %32 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 64, ptr noundef nonnull %9)
   %.not113 = icmp eq ptr %32, null
   br i1 %.not113, label %33, label %36
@@ -1598,7 +1598,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %141
 
 36:                                               ; preds = %30
-  %37 = call i64 @strtoul(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 0) #26
+  %37 = call i64 @strtoul(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 0) #26
   %38 = trunc i64 %37 to i32
   %39 = icmp ult i32 %38, 2
   br i1 %39, label %40, label %43
@@ -1765,7 +1765,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br i1 %exitcond154.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 120:                                              ; preds = %80
-  %121 = call i64 @strtoull(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #26
+  %121 = call i64 @strtoull(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #26
   store i64 %121, ptr %50, align 8
   %122 = icmp ugt i32 %47, 1
   br i1 %122, label %.lr.ph, label %.loopexit
@@ -1783,7 +1783,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %141
 
 128:                                              ; preds = %.lr.ph
-  %129 = call i64 @strtoull(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #26
+  %129 = call i64 @strtoull(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #26
   %130 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv140
   store i64 %129, ptr %130, align 8
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
@@ -2264,7 +2264,7 @@ declare i32 @hwloc_cpukinds_register(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare i32 @hwloc_memattr_get_flags(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_unique_obj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
+define internal fastcc ptr @get_unique_obj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #10 {
   %5 = alloca %struct.hwloc_calc_location_context_s, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i64 @strcspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.127) #25
@@ -2609,7 +2609,7 @@ apply_infos.exit:                                 ; preds = %28, %26, %24, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #10 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3013,7 +3013,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %165
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hwloc_calc_process_location_annotate_cb(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 {
+define internal void @hwloc_calc_process_location_annotate_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #10 {
   %4 = load ptr, ptr %0, align 8
   tail call fastcc void @apply(ptr noundef %4, ptr noundef %2)
   ret void
@@ -3022,7 +3022,7 @@ define internal void @hwloc_calc_process_location_annotate_cb(ptr nocapture noun
 declare i32 @hwloc_topology_export_xml(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_utils_userdata_free_recursive(ptr nocapture noundef %0) unnamed_addr #10 {
+define internal fastcc void @hwloc_utils_userdata_free_recursive(ptr noundef captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not8.i = icmp eq ptr %3, null
@@ -3109,10 +3109,10 @@ declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #9
 declare i32 @hwloc_get_api_version() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 2, 4) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 2, 4) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #26
   %7 = load ptr, ptr %5, align 8
@@ -3275,28 +3275,28 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @toupper(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #14 {
+define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #14 {
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.89, ptr noundef %0) #27
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -3324,18 +3324,18 @@ define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 declare i32 @hwloc_export_obj_userdata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @hwloc_distances_add_create(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
@@ -3344,10 +3344,10 @@ declare i32 @hwloc_distances_add_values(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @hwloc_distances_add_commit(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @hwloc_distances_get_by_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
@@ -3362,7 +3362,7 @@ declare i32 @hwloc_distances_release_remove(ptr noundef, ptr noundef) local_unna
 declare i32 @hwloc_memattr_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @hwloc_calc_get_unique_obj_cb(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #18 {
+define internal void @hwloc_calc_get_unique_obj_cb(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #18 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -3391,7 +3391,7 @@ declare ptr @hwloc_topology_insert_misc_object(ptr noundef, ptr noundef, ptr nou
 declare i32 @hwloc_memattr_set_value(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull initializes((0, 4), (56, 57), (88, 104)) %4) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull initializes((0, 4), (56, 57), (88, 104)) %4) unnamed_addr #10 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [21 x i8], align 16
@@ -3596,7 +3596,7 @@ hwloc_calc_parse_level_filter.exit:               ; preds = %.tail.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_append_object_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_append_object_range(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #10 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.hwloc_calc_level, align 8
   %10 = alloca i32, align 4
@@ -4069,15 +4069,15 @@ declare ptr @hwloc_topology_get_complete_cpuset(ptr noundef) local_unnamed_addr 
 declare ptr @hwloc_topology_get_complete_nodeset(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @hwloc_get_type_depth_with_attr(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [65 x i8], align 16
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -4107,11 +4107,11 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.145, ptr noundef %0) #27
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.145, ptr noundef nonnull %0) #27
   br label %88
 
 25:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %0, i64 %.041, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %0, i64 %.041, i1 false)
   %26 = getelementptr inbounds nuw [65 x i8], ptr %8, i64 0, i64 %.041
   store i8 0, ptr %26, align 1
   %27 = tail call ptr @__ctype_b_loc() #31
@@ -4264,7 +4264,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
 declare i32 @hwloc_get_nbobjs_by_depth(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @hwloc_calc_check_object_filtered(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @hwloc_calc_check_object_filtered(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -4411,7 +4411,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %22, %17, %64, %55, 
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare i32 @hwloc_get_type_depth(ptr noundef, i32 noundef) local_unnamed_addr #9
 
@@ -4424,25 +4424,25 @@ declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #8
 declare i32 @hwloc_bitmap_intersects(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

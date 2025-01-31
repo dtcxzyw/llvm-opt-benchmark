@@ -183,7 +183,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @_ZN6duckdb12MemoryStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb12MemoryStreamD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer15OnPropertyBeginEtPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i16 noundef zeroext %field_id, ptr nocapture readnone %tag) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer15OnPropertyBeginEtPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i16 noundef zeroext %field_id, ptr readnone captures(none) %tag) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %element.addr.i)
@@ -198,13 +198,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer13OnPropertyEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer13OnPropertyEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer23OnOptionalPropertyBeginEtPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i16 noundef zeroext %field_id, ptr nocapture readnone %tag, i1 noundef zeroext %present) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer23OnOptionalPropertyBeginEtPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i16 noundef zeroext %field_id, ptr readnone captures(none) %tag, i1 noundef zeroext %present) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i.i = alloca i16, align 2
   br i1 %present, label %if.then, label %if.end
@@ -225,19 +225,19 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer21OnOptionalPropertyEndEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %present) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer21OnOptionalPropertyEndEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %present) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer13OnObjectBeginEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer13OnObjectBeginEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer11OnObjectEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer11OnObjectEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %element.addr.i)
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer11OnListBeginEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %count) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer11OnListBeginEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %count) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -283,13 +283,13 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeImEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer9OnListEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer9OnListEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer15OnNullableBeginEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i1 noundef zeroext %present) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer15OnNullableBeginEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %present) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i.i = alloca i8, align 1
   %frombool.i = zext i1 %present to i8
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca i8, align 1
   %frombool = zext i1 %value to i8
@@ -321,19 +321,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer13OnNullableEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer13OnNullableEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb16BinarySerializer9WriteNullEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb16BinarySerializer9WriteNullEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i8 noundef zeroext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i8 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -360,7 +360,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIhEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %element.addr.i)
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i8 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -417,7 +417,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIaEEvT_.exit: ; preds = %cleanup.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i16 noundef zeroext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i16 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -448,7 +448,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeItEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i16 noundef signext %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEs(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i16 noundef signext %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -493,7 +493,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIsEEvT_.exit: ; preds = %cleanup.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -524,7 +524,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIjEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -569,7 +569,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIiEEvT_.exit: ; preds = %cleanup.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -600,7 +600,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeImEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -645,7 +645,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIlEEvT_.exit: ; preds = %cleanup.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueENS_9hugeint_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %value.coerce0, i64 %value.coerce1) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueENS_9hugeint_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 %value.coerce0, i64 %value.coerce1) unnamed_addr #0 align 2 {
 entry:
   %buffer.i2 = alloca [16 x i8], align 16
   %buffer.i = alloca [16 x i8], align 16
@@ -714,7 +714,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeImEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, float noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, float noundef %value) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %element.addr.i)
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value) unnamed_addr #0 align 2 {
 entry:
   %element.addr.i = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.addr.i)
@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %value, i64 8
@@ -784,13 +784,13 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIjEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueENS_8string_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueENS_8string_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   %value = alloca %"struct.duckdb::string_t", align 8
@@ -834,7 +834,7 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIjEEvT_.exit: ; preds = %do.body.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer10WriteValueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %value) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer10WriteValueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %value) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #32
@@ -867,15 +867,15 @@ _ZN6duckdb16BinarySerializer12VarIntEncodeIjEEvT_.exit: ; preds = %do.body.i.i.i
   %3 = load ptr, ptr %stream.i.i, align 8, !tbaa !7
   %vtable.i.i6 = load ptr, ptr %3, align 8, !tbaa !17
   %4 = load ptr, ptr %vtable.i.i6, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %value, i64 noundef %conv2)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %value, i64 noundef %conv2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BinarySerializer12WriteDataPtrEPKhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %ptr, i64 noundef %count) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb16BinarySerializer12WriteDataPtrEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef %ptr, i64 noundef %count) unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i) #31
@@ -918,7 +918,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BinaryDeserializer15OnPropertyBeginEtPKc(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this, i16 noundef zeroext %field_id, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BinaryDeserializer15OnPropertyBeginEtPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this, i16 noundef zeroext %field_id, ptr readnone captures(none) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i.i = alloca i16, align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1141,13 +1141,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb18BinaryDeserializer13OnPropertyEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18BinaryDeserializer13OnPropertyEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer23OnOptionalPropertyBeginEtPKc(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this, i16 noundef zeroext %field_id, ptr nocapture readnone %s) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer23OnOptionalPropertyBeginEtPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this, i16 noundef zeroext %field_id, ptr readnone captures(none) %s) unnamed_addr #0 align 2 {
 entry:
   %value.i.i = alloca i16, align 2
   %has_buffered_field.i = getelementptr inbounds nuw i8, ptr %this, i64 432
@@ -1188,13 +1188,13 @@ if.end:                                           ; preds = %if.else.i, %_ZN6duc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb18BinaryDeserializer21OnOptionalPropertyEndEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %present) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18BinaryDeserializer21OnOptionalPropertyEndEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %present) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb18BinaryDeserializer13OnObjectBeginEv(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #8 align 2 {
+define void @_ZN6duckdb18BinaryDeserializer13OnObjectBeginEv(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this) unnamed_addr #8 align 2 {
 entry:
   %nesting_level = getelementptr inbounds nuw i8, ptr %this, i64 424
   %0 = load i64, ptr %nesting_level, align 8, !tbaa !79
@@ -1204,7 +1204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BinaryDeserializer11OnObjectEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BinaryDeserializer11OnObjectEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i.i = alloca i16, align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1611,13 +1611,13 @@ _ZN6duckdb12EncodingUtil12DecodeLEB128ImEENSt9enable_ifIXsr3std11is_unsignedIT_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb18BinaryDeserializer9OnListEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18BinaryDeserializer9OnListEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer15OnNullableBeginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer15OnNullableBeginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 {
 entry:
   %value.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.i.i) #31
@@ -1633,7 +1633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer8ReadBoolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18BinaryDeserializer8ReadBoolEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 {
 entry:
   %value.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.i) #31
@@ -1649,13 +1649,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6duckdb18BinaryDeserializer13OnNullableEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18BinaryDeserializer13OnNullableEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6duckdb18BinaryDeserializer8ReadCharEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 {
+define noundef signext i8 @_ZN6duckdb18BinaryDeserializer8ReadCharEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 {
 entry:
   %value.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.i) #31
@@ -3057,7 +3057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN6duckdb18BinaryDeserializer9ReadFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 {
+define noundef float @_ZN6duckdb18BinaryDeserializer9ReadFloatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 {
 entry:
   %value.i = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i) #31
@@ -3072,7 +3072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6duckdb18BinaryDeserializer10ReadDoubleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this) unnamed_addr #0 align 2 {
+define noundef double @_ZN6duckdb18BinaryDeserializer10ReadDoubleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this) unnamed_addr #0 align 2 {
 entry:
   %value.i = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i) #31
@@ -3188,7 +3188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BinaryDeserializer11ReadDataPtrERPhm(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ptr_p, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BinaryDeserializer11ReadDataPtrERPhm(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ptr_p, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -3772,12 +3772,12 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN6duckdb22SerializationExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6duckdb18BufferedFileReader8FinishedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18BufferedFileReader8FinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
 entry:
   %total_read = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %total_read, align 8, !tbaa !103
@@ -3877,7 +3877,7 @@ _ZN6duckdb10unique_ptrINS_10FileHandleESt14default_deleteIS1_ELb1EE13AssertNotNu
 declare void @_ZN6duckdb10FileHandle4SeekEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb18BufferedFileReader13CurrentOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN6duckdb18BufferedFileReader13CurrentOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
 entry:
   %total_read = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %total_read, align 8, !tbaa !103
@@ -3888,7 +3888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BufferedFileWriterC2ERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %path_p, i8 noundef zeroext %open_flags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BufferedFileWriterC2ERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %path_p, i8 noundef zeroext %open_flags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.38", align 8
@@ -4055,7 +4055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb18BufferedFileWriter15GetTotalWrittenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN6duckdb18BufferedFileWriter15GetTotalWrittenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #10 align 2 {
 entry:
   %total_written = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %total_written, align 8, !tbaa !133
@@ -4226,7 +4226,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN6duckdb10FileHandle8TruncateEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @_ZN6duckdb12MemoryStreamC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, i64 noundef %capacity) unnamed_addr #11 align 2 {
+define void @_ZN6duckdb12MemoryStreamC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 33), (40, 48)) %this, i64 noundef %capacity) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
@@ -4247,7 +4247,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStreamC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr noundef %buffer, i64 noundef %capacity) unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStreamC2EPhm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr noundef %buffer, i64 noundef %capacity) unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
@@ -4264,7 +4264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN6duckdb12MemoryStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #14 align 2 {
+define void @_ZN6duckdb12MemoryStreamD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4285,7 +4285,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define void @_ZThn8_N6duckdb12MemoryStreamD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
@@ -4316,7 +4316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MemoryStream9WriteDataEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %source, i64 noundef %write_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MemoryStream9WriteDataEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %source, i64 noundef %write_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.0", align 1
@@ -4426,10 +4426,10 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MemoryStream8ReadDataEPhm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %destination, i64 noundef %read_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MemoryStream8ReadDataEPhm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %destination, i64 noundef %read_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -4511,7 +4511,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N6duckdb12MemoryStream8ReadDataEPhm(ptr nocapture noundef %this, ptr nocapture noundef writeonly %destination, i64 noundef %read_size) unnamed_addr #20 align 2 {
+define void @_ZThn8_N6duckdb12MemoryStream8ReadDataEPhm(ptr noundef captures(none) %this, ptr noundef writeonly captures(none) %destination, i64 noundef %read_size) unnamed_addr #20 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6duckdb12MemoryStream8ReadDataEPhm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %destination, i64 noundef %read_size)
@@ -4519,7 +4519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStream6RewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 24)) %this) local_unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStream6RewindEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((16, 24)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %position = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %position, align 8, !tbaa !135
@@ -4527,7 +4527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStream7ReleaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 33)) %this) local_unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStream7ReleaseEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((32, 33)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %owns_data = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 0, ptr %owns_data, align 8, !tbaa !138
@@ -4535,7 +4535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6duckdb12MemoryStream7GetDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6duckdb12MemoryStream7GetDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %data, align 8, !tbaa !139
@@ -4543,7 +4543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb12MemoryStream11GetPositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK6duckdb12MemoryStream11GetPositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
 entry:
   %position = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %position, align 8, !tbaa !135
@@ -4551,7 +4551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb12MemoryStream11GetCapacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK6duckdb12MemoryStream11GetCapacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #10 align 2 {
 entry:
   %capacity = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity, align 8, !tbaa !137
@@ -4559,7 +4559,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10Serializer10WriteValueIbEEvRKNS_6vectorIT_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %vec) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10Serializer10WriteValueIbEEvRKNS_6vectorIT_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %vec) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %vec, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !141
@@ -4615,7 +4615,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10Serializer4List12WriteElementEPhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb10Serializer4List12WriteElementEPhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !145
   %vtable = load ptr, ptr %0, align 8, !tbaa !17
@@ -4887,7 +4887,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb16BinarySerializer10DebugStateEEEvT_S6_(ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {

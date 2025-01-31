@@ -157,12 +157,12 @@ define void @_ZN5boost9iostreams11bzip2_errorC2Ei(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZNSt8ios_base7failureB5cxx11C2EPKcRKSt10error_code(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost9iostreams11bzip2_error5checkEi(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -261,7 +261,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_9iostreams11bzip2
 declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_baseC2ERKNS0_12bzip2_paramsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_baseC2ERKNS0_12bzip2_paramsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 4
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -273,13 +273,13 @@ define void @_ZN5boost9iostreams6detail10bzip2_baseC2ERKNS0_12bzip2_paramsE(ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_baseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #7 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_baseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = icmp eq ptr %3, null
@@ -297,7 +297,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_baseD2Ev(ptr nocapture noundef no
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_base6beforeERPKcS4_RPcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_base6beforeERPKcS4_RPcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #9 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = load ptr, ptr %1, align 8, !tbaa !7
@@ -321,7 +321,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_base6beforeERPKcS4_RPcS6_(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #10 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !28
@@ -333,7 +333,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -7, 1) i32 @_ZN5boost9iostreams6detail10bzip2_base9check_endEPKcS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -7, 1) i32 @_ZN5boost9iostreams6detail10bzip2_base9check_endEPKcS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !28
@@ -361,7 +361,7 @@ define noundef range(i32 -7, 1) i32 @_ZN5boost9iostreams6detail10bzip2_base9chec
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base3endEbSt9nothrow_t(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base3endEbSt9nothrow_t(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !27, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
@@ -391,7 +391,7 @@ declare i32 @BZ2_bzCompressEnd(ptr noundef) local_unnamed_addr #2
 declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_base3endEb(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams6detail10bzip2_base3endEb(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::bad_alloc", align 8
   %4 = alloca %"class.boost::iostreams::bzip2_error", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -465,7 +465,7 @@ _ZN5boost9iostreams11bzip2_error5checkEi.exit:    ; preds = %2, %_ZN5boost9iostr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base8compressEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base8compressEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = tail call i32 @BZ2_bzCompress(ptr noundef %4, i32 noundef %1)
@@ -475,7 +475,7 @@ define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base8compressEi(ptr nocapt
 declare i32 @BZ2_bzCompress(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base10decompressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base10decompressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = tail call i32 @BZ2_bzDecompress(ptr noundef %3)
@@ -485,7 +485,7 @@ define noundef i32 @_ZN5boost9iostreams6detail10bzip2_base10decompressEv(ptr noc
 declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_base7do_initEbPFPvS3_iiEPFvS3_S3_ES3_(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i1 noundef zeroext %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams6detail10bzip2_base7do_initEbPFPvS3_iiEPFvS3_S3_ES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::bad_alloc", align 8
   %7 = alloca %"class.boost::iostreams::bzip2_error", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1496,7 +1496,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_9iostreams11bzip2_erro
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -457,7 +457,7 @@ eh.resume:                                        ; preds = %lpad36, %lpad25, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle22HandleShutdownInternalEN4absl12lts_202308026StatusEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %why, i1 noundef zeroext %releasing_fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle22HandleShutdownInternalEN4absl12lts_202308026StatusEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %why, i1 noundef zeroext %releasing_fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %phony_event = alloca %struct.epoll_event, align 1
@@ -1197,7 +1197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN17grpc_event_engine12experimental12Epoll1Poller12CreateHandleEiSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(1281) %this, i32 noundef %fd, i64 %.coerce0, ptr nocapture readnone %.coerce1, i1 noundef zeroext %track_err) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN17grpc_event_engine12experimental12Epoll1Poller12CreateHandleEiSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(1281) %this, i32 noundef %fd, i64 %.coerce0, ptr readnone captures(none) %.coerce1, i1 noundef zeroext %track_err) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ev = alloca %struct.epoll_event, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1488,7 +1488,7 @@ ehcleanup27:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN17grpc_event_engine12experimental12Epoll1Poller18ProcessEpollEventsEiRN4absl12lts_2023080213InlinedVectorIPNS0_17Epoll1EventHandleELm5ESaIS6_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(1281) %this, i32 noundef %max_epoll_events_to_handle, ptr noundef nonnull align 8 dereferenceable(48) %pending_events) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN17grpc_event_engine12experimental12Epoll1Poller18ProcessEpollEventsEiRN4absl12lts_2023080213InlinedVectorIPNS0_17Epoll1EventHandleELm5ESaIS6_EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1281) %this, i32 noundef %max_epoll_events_to_handle, ptr noundef nonnull align 8 dereferenceable(48) %pending_events) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %handle = alloca ptr, align 8
@@ -1704,7 +1704,7 @@ declare void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_1
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle14ShutdownHandleEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %why) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle14ShutdownHandleEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readonly captures(none) %why) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1775,7 +1775,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit7:       ; preds = %lpad2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN17grpc_event_engine12experimental17Epoll1EventHandle16IsHandleShutdownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN17grpc_event_engine12experimental17Epoll1EventHandle16IsHandleShutdownEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %read_closure_, align 8
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle12NotifyOnReadEPNS0_18PosixEngineClosureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %on_read) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle12NotifyOnReadEPNS0_18PosixEngineClosureE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %on_read) unnamed_addr #4 align 2 {
 entry:
   %read_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %read_closure_, align 8
@@ -1797,7 +1797,7 @@ entry:
 declare void @_ZN17grpc_event_engine12experimental13LockfreeEvent8NotifyOnEPNS0_18PosixEngineClosureE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle13NotifyOnWriteEPNS0_18PosixEngineClosureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %on_write) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle13NotifyOnWriteEPNS0_18PosixEngineClosureE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %on_write) unnamed_addr #4 align 2 {
 entry:
   %write_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %write_closure_, align 8
@@ -1806,7 +1806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle13NotifyOnErrorEPNS0_18PosixEngineClosureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %on_error) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle13NotifyOnErrorEPNS0_18PosixEngineClosureE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %on_error) unnamed_addr #4 align 2 {
 entry:
   %error_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %error_closure_, align 8
@@ -1815,7 +1815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetReadableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetReadableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   %read_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %read_closure_, align 8
@@ -1826,7 +1826,7 @@ entry:
 declare void @_ZN17grpc_event_engine12experimental13LockfreeEvent8SetReadyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetWritableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetWritableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   %write_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %write_closure_, align 8
@@ -1835,7 +1835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetHasErrorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle11SetHasErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   %error_closure_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %error_closure_, align 8
@@ -1844,7 +1844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller4WorkENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN4absl12lts_2023080211FunctionRefIFvvEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce, ptr %schedule_poll_again.coerce0, ptr nocapture readonly %schedule_poll_again.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN17grpc_event_engine12experimental12Epoll1Poller4WorkENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN4absl12lts_2023080211FunctionRefIFvvEEE(ptr noundef nonnull align 8 dereferenceable(1281) %this, i64 %timeout.coerce, ptr %schedule_poll_again.coerce0, ptr readonly captures(none) %schedule_poll_again.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pending_events = alloca %"class.absl::lts_20230802::InlinedVector", align 8
   store i64 0, ptr %pending_events, align 8
@@ -2105,7 +2105,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %scheduler) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef %scheduler) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerEE22kEpoll1PollerSupported acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -2245,25 +2245,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN17grpc_event_engine12experimental12Epoll1Poller14PostforkParentEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define void @_ZN17grpc_event_engine12experimental12Epoll1Poller14PostforkParentEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn8_N17grpc_event_engine12experimental12Epoll1Poller14PostforkParentEv(ptr nocapture readnone %this) unnamed_addr #14 align 2 {
+define void @_ZThn8_N17grpc_event_engine12experimental12Epoll1Poller14PostforkParentEv(ptr readnone captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN17grpc_event_engine12experimental12Epoll1Poller13PostforkChildEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define void @_ZN17grpc_event_engine12experimental12Epoll1Poller13PostforkChildEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn8_N17grpc_event_engine12experimental12Epoll1Poller13PostforkChildEv(ptr nocapture readnone %this) unnamed_addr #14 align 2 {
+define void @_ZThn8_N17grpc_event_engine12experimental12Epoll1Poller13PostforkChildEv(ptr readnone captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -2426,7 +2426,7 @@ declare void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 de
 declare void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare i32 @epoll_create1(i32 noundef) local_unnamed_addr #1
@@ -2764,7 +2764,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ev_epoll1_linux.cc() #13 section ".text.startup" {
@@ -2782,10 +2782,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

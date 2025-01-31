@@ -131,7 +131,7 @@ define dso_local void @s2idle_set_ops(ptr noundef %0) local_unnamed_addr #1 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @lock_system_sleep() local_unnamed_addr #3
@@ -140,7 +140,7 @@ declare dso_local i32 @lock_system_sleep() local_unnamed_addr #3
 declare dso_local void @unlock_system_sleep(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @s2idle_wake() #1 align 16 {
@@ -177,7 +177,7 @@ define dso_local void @pm_states_init() local_unnamed_addr #4 section ".init.tex
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @mem_sleep_default_setup(ptr nocapture noundef readonly %0) #5 section ".init.text" align 16 {
+define internal noundef i32 @mem_sleep_default_setup(ptr noundef readonly captures(none) %0) #5 section ".init.text" align 16 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -1593,7 +1593,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #3

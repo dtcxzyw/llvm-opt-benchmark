@@ -228,7 +228,7 @@ for.end:                                          ; preds = %if.else
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr nocapture noundef nonnull %best_score, ptr nocapture noundef nonnull %best_match, ptr noundef %base, i32 noundef %recurse_limit) unnamed_addr #0 {
+define internal fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr noundef nonnull captures(none) %best_score, ptr noundef nonnull captures(none) %best_match, ptr noundef %base, i32 noundef %recurse_limit) unnamed_addr #0 {
 entry:
   %one = alloca %struct.tree_desc, align 8
   %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef %one, ptr noundef %hash1)
@@ -318,7 +318,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @splice_tree(ptr noundef %oid1, ptr noundef %prefix, ptr nocapture noundef readonly %oid2, ptr noundef %result) unnamed_addr #0 {
+define internal fastcc i32 @splice_tree(ptr noundef %oid1, ptr noundef %prefix, ptr noundef readonly captures(none) %oid2, ptr noundef %result) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %desc = alloca %struct.tree_desc, align 8
@@ -365,7 +365,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %while.body
-  %bcmp = call i32 @bcmp(ptr %4, ptr %prefix, i64 %conv9)
+  %bcmp = call i32 @bcmp(ptr nonnull %4, ptr %prefix, i64 %conv9)
   %tobool13.not = icmp eq i32 %bcmp, 0
   br i1 %tobool13.not, label %if.then14, label %if.end26
 
@@ -377,7 +377,7 @@ if.then14:                                        ; preds = %land.lhs.true
 
 if.then18:                                        ; preds = %if.then14
   %call19 = call ptr @oid_to_hex(ptr noundef %oid1) #9
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %4, ptr noundef %call19) #10
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %call19) #10
   unreachable
 
 if.end26:                                         ; preds = %land.lhs.true, %while.body
@@ -531,7 +531,7 @@ if.end4:                                          ; preds = %if.end
 declare void @update_tree_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -542,18 +542,18 @@ declare i32 @base_name_compare(ptr noundef, i64 noundef, i32 noundef, ptr nounde
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @write_object_file_flags(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

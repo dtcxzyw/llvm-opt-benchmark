@@ -459,7 +459,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %45, %_ZN7Decoder19g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN7Decoder14print_state_onEP12outputStream(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Decoder14print_state_onEP12outputStream(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 2 {
   ret void
 }
 

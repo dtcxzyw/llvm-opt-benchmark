@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [28 x i8] c"Fail to update device iotlb\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_kernel_init(ptr nocapture noundef %dev, ptr noundef %opaque, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @vhost_kernel_init(ptr noundef captures(none) %dev, ptr noundef %opaque, ptr readnone captures(none) %errp) #0 {
 entry:
   %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
@@ -47,7 +47,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_cleanup(ptr nocapture noundef readonly %dev) #0 {
+define internal i32 @vhost_kernel_cleanup(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
@@ -80,7 +80,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 1, 2147483647) i32 @vhost_kernel_memslots_limit(ptr nocapture readnone %dev) #0 {
+define internal range(i32 1, 2147483647) i32 @vhost_kernel_memslots_limit(ptr readnone captures(none) %dev) #0 {
 entry:
   %s = alloca ptr, align 8
   %call = call i32 @g_file_get_contents(ptr noundef nonnull @.str.5, ptr noundef nonnull %s, ptr noundef null, ptr noundef null) #9
@@ -115,7 +115,7 @@ return:                                           ; preds = %if.end4, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_net_set_backend(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
+define internal i32 @vhost_kernel_net_set_backend(ptr noundef readonly captures(none) %dev, ptr noundef %file) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -148,7 +148,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_scsi_set_endpoint(ptr nocapture noundef readonly %dev, ptr noundef %target) #0 {
+define internal i32 @vhost_kernel_scsi_set_endpoint(ptr noundef readonly captures(none) %dev, ptr noundef %target) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -181,7 +181,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_scsi_clear_endpoint(ptr nocapture noundef readonly %dev, ptr noundef %target) #0 {
+define internal i32 @vhost_kernel_scsi_clear_endpoint(ptr noundef readonly captures(none) %dev, ptr noundef %target) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -214,7 +214,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_scsi_get_abi_version(ptr nocapture noundef readonly %dev, ptr noundef %version) #0 {
+define internal i32 @vhost_kernel_scsi_get_abi_version(ptr noundef readonly captures(none) %dev, ptr noundef %version) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -247,7 +247,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_log_base(ptr nocapture noundef readonly %dev, i64 noundef %base, ptr nocapture readnone %log) #0 {
+define internal i32 @vhost_kernel_set_log_base(ptr noundef readonly captures(none) %dev, i64 noundef %base, ptr readnone captures(none) %log) #0 {
 entry:
   %base.addr = alloca i64, align 8
   store i64 %base, ptr %base.addr, align 8
@@ -282,7 +282,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_mem_table(ptr nocapture noundef readonly %dev, ptr noundef %mem) #0 {
+define internal i32 @vhost_kernel_set_mem_table(ptr noundef readonly captures(none) %dev, ptr noundef %mem) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -315,7 +315,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_addr(ptr nocapture noundef readonly %dev, ptr noundef %addr) #0 {
+define internal i32 @vhost_kernel_set_vring_addr(ptr noundef readonly captures(none) %dev, ptr noundef %addr) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -348,7 +348,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_endian(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
+define internal i32 @vhost_kernel_set_vring_endian(ptr noundef readonly captures(none) %dev, ptr noundef %ring) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -381,7 +381,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_num(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
+define internal i32 @vhost_kernel_set_vring_num(ptr noundef readonly captures(none) %dev, ptr noundef %ring) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -414,7 +414,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_base(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
+define internal i32 @vhost_kernel_set_vring_base(ptr noundef readonly captures(none) %dev, ptr noundef %ring) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -447,7 +447,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_get_vring_base(ptr nocapture noundef readonly %dev, ptr noundef %ring) #0 {
+define internal i32 @vhost_kernel_get_vring_base(ptr noundef readonly captures(none) %dev, ptr noundef %ring) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -480,7 +480,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_kick(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
+define internal i32 @vhost_kernel_set_vring_kick(ptr noundef readonly captures(none) %dev, ptr noundef %file) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -513,7 +513,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_call(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
+define internal i32 @vhost_kernel_set_vring_call(ptr noundef readonly captures(none) %dev, ptr noundef %file) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -546,7 +546,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_err(ptr nocapture noundef readonly %dev, ptr noundef %file) #0 {
+define internal i32 @vhost_kernel_set_vring_err(ptr noundef readonly captures(none) %dev, ptr noundef %file) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -579,7 +579,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_vring_busyloop_timeout(ptr nocapture noundef readonly %dev, ptr noundef %s) #0 {
+define internal i32 @vhost_kernel_set_vring_busyloop_timeout(ptr noundef readonly captures(none) %dev, ptr noundef %s) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -612,7 +612,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_features(ptr nocapture noundef readonly %dev, i64 noundef %features) #0 {
+define internal i32 @vhost_kernel_set_features(ptr noundef readonly captures(none) %dev, i64 noundef %features) #0 {
 entry:
   %features.addr = alloca i64, align 8
   store i64 %features, ptr %features.addr, align 8
@@ -647,7 +647,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_get_features(ptr nocapture noundef readonly %dev, ptr noundef %features) #0 {
+define internal i32 @vhost_kernel_get_features(ptr noundef readonly captures(none) %dev, ptr noundef %features) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -680,7 +680,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_kernel_set_backend_cap(ptr nocapture noundef %dev) #0 {
+define internal noundef i32 @vhost_kernel_set_backend_cap(ptr noundef captures(none) %dev) #0 {
 entry:
   %features = alloca i64, align 8
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
@@ -756,7 +756,7 @@ return:                                           ; preds = %vhost_kernel_call.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_set_owner(ptr nocapture noundef readonly %dev) #0 {
+define internal i32 @vhost_kernel_set_owner(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
@@ -789,7 +789,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_get_vq_index(ptr nocapture noundef readonly %dev, i32 noundef %idx) #0 {
+define internal i32 @vhost_kernel_get_vq_index(ptr noundef readonly captures(none) %dev, i32 noundef %idx) #0 {
 entry:
   %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
@@ -813,7 +813,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_vsock_set_guest_cid(ptr nocapture noundef readonly %dev, i64 noundef %guest_cid) #0 {
+define internal i32 @vhost_kernel_vsock_set_guest_cid(ptr noundef readonly captures(none) %dev, i64 noundef %guest_cid) #0 {
 entry:
   %guest_cid.addr = alloca i64, align 8
   store i64 %guest_cid, ptr %guest_cid.addr, align 8
@@ -848,7 +848,7 @@ vhost_kernel_call.exit:                           ; preds = %if.end.i, %cond.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_kernel_vsock_set_running(ptr nocapture noundef readonly %dev, i32 noundef %start) #0 {
+define internal i32 @vhost_kernel_vsock_set_running(ptr noundef readonly captures(none) %dev, i32 noundef %start) #0 {
 entry:
   %start.addr = alloca i32, align 4
   store i32 %start, ptr %start.addr, align 4
@@ -905,7 +905,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -14, 1) i32 @vhost_kernel_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
+define internal range(i32 -14, 1) i32 @vhost_kernel_send_device_iotlb_msg(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %imsg) #0 {
 entry:
   %msg = alloca %struct.vhost_msg_v2, align 8
   %msg3 = alloca %struct.vhost_msg, align 8
@@ -1019,7 +1019,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_backend_handle_iotlb_msg(ptr noundef %dev, ptr nocapture noundef readonly %imsg) local_unnamed_addr #0 {
+define dso_local i32 @vhost_backend_handle_iotlb_msg(ptr noundef %dev, ptr noundef readonly captures(none) %imsg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1242,16 +1242,16 @@ if.end32:                                         ; preds = %vhost_backend_handl
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

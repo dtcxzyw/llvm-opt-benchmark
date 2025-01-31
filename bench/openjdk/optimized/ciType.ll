@@ -84,7 +84,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN15ciReturnAddressC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN15ciReturnAddressC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 12), (16, 25)) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6ciTypeC2E9BasicType(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 12), (16, 25)) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -96,7 +96,7 @@ define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6ciTypeC2EP5Klass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 12), (16, 25)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN6ciTypeC2EP5Klass(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 12), (16, 25)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @_ZN6ciType13is_subtype_ofEPS_(ptr noundef nonn
 declare noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6ciType4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN6ciType4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
@@ -181,7 +181,7 @@ define hidden void @_ZN6ciType10print_implEP12outputStream(ptr noundef nonnull a
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6ciType13print_name_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN6ciType13print_name_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -238,7 +238,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6ciType11java_mirrorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN6ciType11java_mirrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -342,7 +342,7 @@ define hidden noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ciReturnAddressC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 25), (28, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ciReturnAddressC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 12), (16, 25), (28, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -356,7 +356,7 @@ define hidden void @_ZN15ciReturnAddressC2Ei(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ciReturnAddress10print_implEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN15ciReturnAddress10print_implEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i32 noundef %4) #7

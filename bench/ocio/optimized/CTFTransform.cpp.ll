@@ -716,7 +716,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 dereferenceable(12) %rhs) local_unnamed_addr #7 align 2 {
@@ -1221,7 +1221,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEESaIS4_EED2Ev.
 declare void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransformC2ERKNS_10OpRcPtrVecERKNS_18FormatMetadataImplE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(120) %metadata) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderTransformC2ERKNS_10OpRcPtrVecERKNS_18FormatMetadataImplE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(120) %metadata) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -2060,7 +2060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform5isCLFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(356) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18CTFReaderTransform5isCLFEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(356) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_versionCLF = getelementptr inbounds nuw i8, ptr %this, i64 340
   %0 = load i32, ptr %m_versionCLF, align 4
@@ -2083,7 +2083,7 @@ _ZNK19OpenColorIO_v2_4dev10CTFVersioneqERKS0_.exit: ; preds = %entry, %land.rhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17GetElementsValuesERKSt6vectorINS_18FormatMetadataImplESaIS1_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS0_ISB_SaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %elements, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %values) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17GetElementsValuesERKSt6vectorINS_18FormatMetadataImplESaIS1_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS0_ISB_SaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %elements, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %values) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -2354,7 +2354,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_4dev18FormatMetadataImpl22getNumChildr
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15TransformWriterC2ERNS_12XmlFormatterESt10shared_ptrIKNS_18CTFReaderTransformEEb(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr nocapture noundef readonly %transform, i1 noundef zeroext %isCLF) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15TransformWriterC2ERNS_12XmlFormatterESt10shared_ptrIKNS_18CTFReaderTransformEEb(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef readonly captures(none) %transform, i1 noundef zeroext %isCLF) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15TransformWriterE, i64 16), ptr %this, align 8
@@ -2565,7 +2565,7 @@ _ZN19OpenColorIO_v2_4dev15TransformWriterD2Ev.exit: ; preds = %entry, %_ZN9__gnu
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter5writeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter5writeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i112 = alloca %"class.std::allocator", align 1
   %ref.tmp.i90 = alloca %"class.std::allocator", align 1
@@ -4294,7 +4294,7 @@ for.end:                                          ; preds = %invoke.cont7, %entr
 declare void @_ZN19OpenColorIO_v2_4dev12XmlFormatter15writeContentTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter24writeProcessListMetadataERKNS_18FormatMetadataImplE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(120) %m) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter24writeProcessListMetadataERKNS_18FormatMetadataImplE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(120) %m) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %infoValue = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -4619,7 +4619,7 @@ eh.resume:                                        ; preds = %ehcleanup92, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter8writeOpsERKNS_10CTFVersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %version) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15TransformWriter8writeOpsERKNS_10CTFVersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %version) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.28", align 8
   %agg.tmp11 = alloca %"class.std::shared_ptr.28", align 8
@@ -10798,7 +10798,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr nocapture noundef nonnull readonly %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetInputFileBDESt10shared_ptrIKNS_6OpDataEE(ptr noundef nonnull readonly captures(none) %op) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %mat = alloca %"class.std::shared_ptr.86", align 8
   %range = alloca %"class.std::shared_ptr.93", align 8
@@ -13683,7 +13683,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -13774,7 +13774,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriterD2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_cdl = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cdl, align 8
@@ -13807,7 +13807,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_9CDLOpDataEvEERKS_IT_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19CDLWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZN19OpenColorIO_v2_4devL7TAG_CDLE
 }
@@ -15736,7 +15736,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriterD2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111GammaWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_gamma, align 8
@@ -16412,7 +16412,7 @@ declare noundef ptr @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleToString
 declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11GammaOpData21isNonChannelDependentEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_114AddGammaParamsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EERKS2_IdSaIdEENS_11GammaOpData5StyleEb(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, i32 noundef %style, i1 noundef zeroext %useGamma) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_114AddGammaParamsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EERKS2_IdSaIdEENS_11GammaOpData5StyleEb(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %params, i32 noundef %style, i1 noundef zeroext %useGamma) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i11 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -16737,7 +16737,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriterD2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ec = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_ec, align 8
@@ -16770,7 +16770,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_22ExposureContrastOpDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @.str.17
 }
@@ -16869,7 +16869,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122ExposureContrastWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i199 = alloca %"class.std::allocator", align 1
   %ref.tmp.i161 = alloca %"class.std::allocator", align 1
@@ -18398,7 +18398,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriterD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ff = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_ff, align 8
@@ -18431,7 +18431,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_19FixedFunctionOpDataE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @.str.18
 }
@@ -18734,7 +18734,7 @@ eh.resume:                                        ; preds = %ehcleanup38, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter12writeContentEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119FixedFunctionWriter12writeContentEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret void
 }
@@ -18748,7 +18748,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -18834,7 +18834,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriterD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_primary = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_primary, align 8
@@ -18867,7 +18867,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_20GradingPrimaryOpData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @.str.20
 }
@@ -18923,7 +18923,7 @@ lpad:                                             ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %defaultVals = alloca %"struct.OpenColorIO_v2_4dev::GradingPrimary", align 8
   %attributes = alloca %"class.std::vector", align 8
@@ -19646,7 +19646,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter9writeRGBMEPKcRKNS_11GradingRGBMES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %tag, ptr noundef nonnull align 8 dereferenceable(32) %defaultVal, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter9writeRGBMEPKcRKNS_11GradingRGBMES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %tag, ptr noundef nonnull align 8 dereferenceable(32) %defaultVal, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i15 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -19920,7 +19920,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %defaultVal, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %defaultVal, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %attributes = alloca %"class.std::vector", align 8
@@ -20306,7 +20306,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriterD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_curves = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_curves, align 8
@@ -20339,7 +20339,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_21GradingRGBCurveOpDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @.str.21
 }
@@ -20442,7 +20442,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -21703,7 +21703,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveELN9__gnu_cxx12_Lock
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8), float noundef) local_unnamed_addr #0
 
@@ -21791,7 +21791,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriterD2Ev.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tone = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_tone, align 8
@@ -21824,7 +21824,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_17GradingToneOpDataEvE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @.str.22
 }
@@ -21880,7 +21880,7 @@ lpad:                                             ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %attributes.i = alloca %"class.std::vector", align 8
@@ -22328,7 +22328,7 @@ if.end:                                           ; preds = %if.then.i.i.i12, %i
 declare noundef i32 @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %tag, ptr noundef nonnull align 8 dereferenceable(48) %defaultVal, ptr noundef nonnull align 8 dereferenceable(48) %val, i1 noundef zeroext %center, i1 noundef zeroext %pivot) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %tag, ptr noundef nonnull align 8 dereferenceable(48) %defaultVal, ptr noundef nonnull align 8 dereferenceable(48) %val, i1 noundef zeroext %center, i1 noundef zeroext %pivot) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i55 = alloca %"class.std::allocator", align 1
   %ref.tmp.i40 = alloca %"class.std::allocator", align 1
@@ -22919,7 +22919,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriterD2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_log = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_log, align 8
@@ -22952,7 +22952,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_9LogOpDataEvEERKS_IT_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZN19OpenColorIO_v2_4devL7TAG_LOGE
 }
@@ -23087,7 +23087,7 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad2.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_19LogWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %attributes = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23535,7 +23535,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData8isCameraEv(ptr n
 declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv(ptr noundef nonnull align 8 dereferenceable(252)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_112AddLogParamsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EERKS2_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, double noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_112AddLogParamsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EERKS2_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %params, double noundef %base) unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_111AddLogParamERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL9ATTR_BASEE, double noundef %base)
   %0 = load ptr, ptr %params, align 8
@@ -23760,7 +23760,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriterD2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -23793,7 +23793,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_11Lut1DOpDataEvEERKS_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter10getTagNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #16 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter10getTagNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #16 align 2 {
 entry:
   %m_lut = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -24006,7 +24006,7 @@ eh.resume:                                        ; preds = %lpad26, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i30 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25035,7 +25035,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriterD2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -25068,7 +25068,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_11Lut3DOpDataEvEERKS_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter10getTagNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #16 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter10getTagNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #16 align 2 {
 entry:
   %m_lut = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -25141,7 +25141,7 @@ if.end:                                           ; preds = %invoke.cont, %land.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut3DWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %dimension = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -25482,7 +25482,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriterD2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_matrix = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_matrix, align 8
@@ -25515,7 +25515,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_12MatrixOpDataEvEERKS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_112MatrixWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZN19OpenColorIO_v2_4devL10TAG_MATRIXE
 }
@@ -26621,7 +26621,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriterD2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.28") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter5getOpEv(ptr noalias writeonly sret(%"class.std::shared_ptr.28") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_range = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_range, align 8
@@ -26654,13 +26654,13 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEEC2IKNS0_11RangeOpDataEvEERKS_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter10getTagNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define internal noundef nonnull ptr @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter10getTagNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZN19OpenColorIO_v2_4devL9TAG_RANGEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter12writeContentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111RangeWriter12writeContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %range = alloca %"class.std::shared_ptr.93", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.96", align 8
@@ -27722,7 +27722,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @_ZN19OpenColorIO_v2_4dev11GammaOpDataC1ERKNS0_5StyleERKSt6vectorIdSaIdEES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 {
@@ -27834,10 +27834,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

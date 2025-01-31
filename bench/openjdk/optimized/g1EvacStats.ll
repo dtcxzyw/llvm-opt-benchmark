@@ -39,7 +39,7 @@ $_ZTV11G1EvacStats = comdat any
 @_ZN11G1EvacStatsC1EPKcmj = hidden unnamed_addr alias void (ptr, ptr, i64, i32), ptr @_ZN11G1EvacStatsC2EPKcmj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1EvacStats19log_plab_allocationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1EvacStats19log_plab_allocationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_115ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %3
@@ -108,7 +108,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_115ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1EvacStats10log_sizingEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1EvacStats10log_sizingEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_115ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -126,7 +126,7 @@ define hidden void @_ZN11G1EvacStats10log_sizingEmm(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK11G1EvacStats25compute_desired_plab_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK11G1EvacStats25compute_desired_plab_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -150,7 +150,7 @@ define hidden noundef i64 @_ZNK11G1EvacStats25compute_desired_plab_sizeEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 77), (80, 84), (88, 100), (104, 144)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 77), (80, 84), (88, 100), (104, 144)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -183,7 +183,7 @@ define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK11G1EvacStats17desired_plab_sizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK11G1EvacStats17desired_plab_sizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @ResizePLAB, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %8, label %5
@@ -346,7 +346,7 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

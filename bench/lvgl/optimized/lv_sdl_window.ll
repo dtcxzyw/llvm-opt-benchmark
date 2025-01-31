@@ -109,7 +109,7 @@ declare void @SDL_StartTextInput() local_unnamed_addr #1
 declare ptr @lv_timer_create(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sdl_event_handler(ptr nocapture readnone %0) #0 {
+define internal void @sdl_event_handler(ptr readnone captures(none) %0) #0 {
   %2 = alloca %union.SDL_Event, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #6
   %3 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #6
@@ -243,7 +243,7 @@ declare void @lv_tick_set_cb(ptr noundef) local_unnamed_addr #1
 declare i32 @SDL_GetTicks() #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
@@ -332,7 +332,7 @@ declare void @lv_display_set_driver_data(ptr noundef, ptr noundef) local_unnamed
 declare void @lv_display_set_flush_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @flush_cb(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @flush_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @lv_display_get_driver_data(ptr noundef %0) #6
   %5 = tail call i32 @lv_display_get_color_format(ptr noundef %0) #6
   %6 = tail call zeroext i1 @lv_display_flush_is_last(ptr noundef %0) #6
@@ -372,7 +372,7 @@ declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed
 declare i32 @lv_display_get_color_format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @res_chg_event_cb(ptr noundef %0) #0 {
@@ -618,7 +618,7 @@ declare i32 @SDL_SetTextureBlendMode(ptr noundef, i32 noundef) local_unnamed_add
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 

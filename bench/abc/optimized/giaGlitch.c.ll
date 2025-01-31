@@ -88,7 +88,7 @@ define noundef ptr @Gli_ManAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gli_ManStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Gli_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -168,10 +168,10 @@ Vec_IntFree.exit17:                               ; preds = %Vec_IntFree.exit15,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gli_ManPrintObjects(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @Gli_ManPrintObjects(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
@@ -265,10 +265,10 @@ define void @Gli_ManPrintObjects(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gli_ManFinalize(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Gli_ManFinalize(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
@@ -304,7 +304,7 @@ define void @Gli_ManFinalize(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Gli_ObjAddFanin(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define void @Gli_ObjAddFanin(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -334,7 +334,7 @@ define void @Gli_ObjAddFanin(ptr nocapture noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @Gli_ObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define noundef ptr @Gli_ObjAlloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr i8, ptr %0, i64 64
@@ -366,7 +366,7 @@ define noundef ptr @Gli_ObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define i32 @Gli_ManCreateCi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Gli_ManCreateCi(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr i8, ptr %0, i64 64
@@ -465,7 +465,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define i32 @Gli_ManCreateCo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Gli_ManCreateCo(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr i8, ptr %0, i64 64
@@ -599,7 +599,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Gli_ManCreateNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define i32 @Gli_ManCreateNode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val17 = load i32, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -731,7 +731,7 @@ Gli_NodeComputeValue.exit:                        ; preds = %61, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Gli_ObjNumSwitches(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define i32 @Gli_ObjNumSwitches(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -742,7 +742,7 @@ define i32 @Gli_ObjNumSwitches(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Gli_ObjNumGlitches(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define i32 @Gli_ObjNumGlitches(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -753,7 +753,7 @@ define i32 @Gli_ObjNumGlitches(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManSetPiRandom(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #10 {
+define void @Gli_ManSetPiRandom(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -888,7 +888,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ManRandom(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManSetPiFromSaved(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Gli_ManSetPiFromSaved(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1027,7 +1027,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gli_ManSwitching(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Gli_ManSwitching(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
@@ -1121,7 +1121,7 @@ Gli_NodeComputeValue.exit:                        ; preds = %16, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManGlitching(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define void @Gli_ManGlitching(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1545,13 +1545,13 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Gli_ManVerify(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define void @Gli_ManVerify(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
 .critedge:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gli_ManSimulateSeqNode(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
+define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = alloca [6 x i32], align 16
   %.val = load i32, ptr %1, align 8
   %4 = lshr i32 %.val, 4
@@ -1636,7 +1636,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr nocapture noundef readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManSimulateSeqPref(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = alloca [6 x i32], align 16
   %4 = getelementptr i8, ptr %0, i64 64
   %5 = getelementptr i8, ptr %0, i64 44
@@ -2035,7 +2035,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gli_ManSetDataSaved(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Gli_ManSetDataSaved(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -2168,7 +2168,7 @@ Gli_NodeComputeValue.exit:                        ; preds = %43, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManSetPiRandomSeq(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #10 {
+define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2493,7 +2493,7 @@ Vec_IntPush.exit72:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gli_ManSwitchesAndGlitches(ptr nocapture noundef %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @Gli_ManSwitchesAndGlitches(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -2661,12 +2661,12 @@ Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.
 
 .lr.ph.us:                                        ; preds = %83, %._crit_edge.us
   %.157.us = phi i32 [ %140, %._crit_edge.us ], [ 0, %83 ]
-  call void @Gli_ManSetDataSaved(ptr noundef %0, i32 noundef %.157.us)
+  call void @Gli_ManSetDataSaved(ptr noundef nonnull %0, i32 noundef %.157.us)
   br label %90
 
 90:                                               ; preds = %.lr.ph.us, %Gli_ManSwitching.exit49.us
   %.02656.us = phi i32 [ 0, %.lr.ph.us ], [ %139, %Gli_ManSwitching.exit49.us ]
-  call void @Gli_ManSetPiRandomSeq(ptr noundef %0, float noundef %2)
+  call void @Gli_ManSetPiRandomSeq(ptr noundef nonnull %0, float noundef %2)
   %91 = load i32, ptr %15, align 8
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph.i31.us, label %Gli_ManSwitching.exit49.us
@@ -2754,7 +2754,7 @@ Gli_NodeComputeValue.exit.i46.us:                 ; preds = %103, %98
   br i1 %138, label %.lr.ph.i31.us, label %Gli_ManSwitching.exit49.us, !llvm.loop !13
 
 Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131, %90
-  call void @Gli_ManGlitching(ptr noundef %0)
+  call void @Gli_ManGlitching(ptr noundef nonnull %0)
   %139 = add nuw nsw i32 %.02656.us, 1
   %exitcond63.not = icmp eq i32 %139, %88
   br i1 %exitcond63.not, label %._crit_edge.us, label %90, !llvm.loop !37
@@ -2766,7 +2766,7 @@ Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131
 
 .split:                                           ; preds = %83, %.split
   %.157 = phi i32 [ %141, %.split ], [ 0, %83 ]
-  call void @Gli_ManSetDataSaved(ptr noundef %0, i32 noundef %.157)
+  call void @Gli_ManSetDataSaved(ptr noundef nonnull %0, i32 noundef %.157)
   %141 = add nuw nsw i32 %.157, 1
   %exitcond.not = icmp eq i32 %141, 32
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !38
@@ -2831,7 +2831,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #23
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
   call void @free(ptr noundef %9) #23
   br label %16
 
@@ -2848,7 +2848,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
@@ -2860,10 +2860,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #18
@@ -2875,10 +2875,10 @@ declare void @llvm.va_end.p0(ptr) #18
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

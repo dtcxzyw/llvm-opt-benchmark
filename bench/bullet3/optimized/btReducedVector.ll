@@ -43,7 +43,7 @@ $__clang_call_terminate = comdat any
 @str.5 = private unnamed_addr constant [17 x i8] c"All tests passed\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btReducedVector4projERKS_(ptr noalias sret(%class.btReducedVector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK15btReducedVector4projERKS_(ptr noalias sret(%class.btReducedVector) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %class.btReducedVector, align 8
   %ref.tmp = alloca %class.btReducedVector, align 8
@@ -1115,7 +1115,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i.i:
   %id1 = alloca %class.btAlignedObjectArray, align 8
   %v1 = alloca %class.btAlignedObjectArray.0, align 8
@@ -4390,7 +4390,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK15btReducedVector9testMinusEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK15btReducedVector9testMinusEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i.i:
   %id1 = alloca %class.btAlignedObjectArray, align 8
   %v1 = alloca %class.btAlignedObjectArray.0, align 8
@@ -7288,7 +7288,7 @@ nrvo.skipdtor:                                    ; preds = %while.end84
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testDotEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK15btReducedVector7testDotEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i.i:
   %id1 = alloca %class.btAlignedObjectArray, align 8
   %v1 = alloca %class.btAlignedObjectArray.0, align 8
@@ -8522,7 +8522,7 @@ ehcleanup67:                                      ; preds = %ehcleanup66, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK15btReducedVector12testMultiplyEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK15btReducedVector12testMultiplyEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i.i:
   %id1 = alloca %class.btAlignedObjectArray, align 8
   %v1 = alloca %class.btAlignedObjectArray.0, align 8
@@ -9510,7 +9510,7 @@ ehcleanup53:                                      ; preds = %ehcleanup52, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btReducedVector4testEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(68) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK15btReducedVector4testEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(68) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nonnull align 8 poison)
   br i1 %call, label %land.lhs.true, label %if.else
@@ -9541,7 +9541,7 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btReducedVector8simplifyEv(ptr noundef nonnull align 8 dereferenceable(68) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10245,7 +10245,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

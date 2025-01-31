@@ -124,14 +124,14 @@ declare void @slurm_pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr 
 declare void @slurm_pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #1
 
@@ -188,7 +188,7 @@ define noundef i32 @temp_kvs_add(ptr noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @temp_kvs_merge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @temp_kvs_merge(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -354,7 +354,7 @@ define noundef i32 @kvs_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
@@ -415,7 +415,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %28 = shl nuw nsw i64 %indvars.iv, 1
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %30) #5
+  %31 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef %30) #5
   %.not13 = icmp eq i32 %31, 0
   br i1 %.not13, label %32, label %23
 
@@ -506,7 +506,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %27 = shl nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %29) #5
+  %30 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef %29) #5
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %22
 
@@ -545,7 +545,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
 
 51:                                               ; preds = %46, %.loopexit
   %.pre-phi = phi i32 [ %.pre39, %46 ], [ %43, %.loopexit ]
-  %52 = tail call ptr @slurm_xstrdup(ptr noundef %0) #5
+  %52 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %0) #5
   %53 = load ptr, ptr %21, align 8
   %54 = sext i32 %.pre-phi to i64
   %55 = getelementptr inbounds ptr, ptr %53, i64 %54
@@ -565,7 +565,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
 
 .sink.split:                                      ; preds = %51, %31
   %.sink = phi i32 [ 5, %31 ], [ 7, %51 ]
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.sink, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.kvs_put, ptr noundef %0, ptr noundef %1) #5
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.sink, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.kvs_put, ptr noundef nonnull %0, ptr noundef %1) #5
   br label %65
 
 65:                                               ; preds = %.sink.split, %51, %31

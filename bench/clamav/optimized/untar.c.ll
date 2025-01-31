@@ -298,7 +298,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
 94:                                               ; preds = %.loopexit217
   %95 = zext nneg i32 %.0.i155 to i64
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i64 noundef %95) #11
-  %96 = call i32 @cli_checklimits(ptr noundef nonnull @.str.3, ptr noundef %2, i64 noundef %95, i64 noundef 0, i64 noundef 0) #11
+  %96 = call i32 @cli_checklimits(ptr noundef nonnull @.str.3, ptr noundef nonnull %2, i64 noundef %95, i64 noundef 0, i64 noundef 0) #11
   switch i32 %96, label %98 [
     i32 25, label %.thread176
     i32 24, label %97
@@ -350,7 +350,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
 110:                                              ; preds = %98
   %111 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %spec.select, i64 noundef 100) #11
   store i8 0, ptr %19, align 4
-  %112 = call i32 @cli_matchmeta(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %95, i64 noundef %95, i32 noundef 0, i32 noundef %.1110.ph, i32 noundef 0) #11
+  %112 = call i32 @cli_matchmeta(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %95, i64 noundef %95, i32 noundef 0, i32 noundef %.1110.ph, i32 noundef 0) #11
   %113 = icmp eq i32 %112, 1
   br i1 %113, label %.loopexit, label %114
 
@@ -467,7 +467,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -483,15 +483,15 @@ declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 declare i32 @cli_checklimits(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @cli_matchmeta(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
 
 declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -503,19 +503,19 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

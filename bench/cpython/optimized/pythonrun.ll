@@ -1120,7 +1120,7 @@ do.end:                                           ; preds = %do.cond, %if.then21
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_PyRun_SimpleFileObject(ptr noundef %fp, ptr noundef %filename, i32 noundef %closeit, ptr noundef %flags) local_unnamed_addr #0 {
@@ -2244,7 +2244,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_Py_HandleSystemExit(ptr nocapture noundef writeonly %exitcode_p) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_Py_HandleSystemExit(ptr noundef writeonly captures(none) %exitcode_p) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #8
   %inspect1 = getelementptr inbounds nuw i8, ptr %call, i64 188
@@ -2361,7 +2361,7 @@ return:                                           ; preds = %if.end, %entry, %do
 declare ptr @_Py_GetConfig() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
@@ -2625,7 +2625,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_Display(ptr noundef %file, ptr nocapture readnone %unused, ptr noundef %value, ptr noundef %tb) local_unnamed_addr #0 {
+define hidden void @_PyErr_Display(ptr noundef %file, ptr readnone captures(none) %unused, ptr noundef %value, ptr noundef %tb) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.exception_print_context, align 8
   %0 = getelementptr i8, ptr %value, i64 8
@@ -2831,7 +2831,7 @@ declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @print_exception_recursive(ptr nocapture noundef nonnull readonly %ctx, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_exception_recursive(ptr noundef nonnull readonly captures(none) %ctx, ptr noundef %value) unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -3501,7 +3501,7 @@ declare void @_PyObject_Dump(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyFile_Flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyErr_Display(ptr nocapture readnone %unused, ptr noundef %value, ptr noundef %tb) local_unnamed_addr #0 {
+define dso_local void @PyErr_Display(ptr readnone captures(none) %unused, ptr noundef %value, ptr noundef %tb) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3712,7 +3712,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_SourceAsString(ptr noundef %cmd, ptr noundef %funcname, ptr noundef %what, ptr nocapture noundef %cf, ptr nocapture noundef initializes((0, 8)) %cmd_copy) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_SourceAsString(ptr noundef %cmd, ptr noundef %funcname, ptr noundef %what, ptr noundef captures(none) %cf, ptr noundef captures(none) initializes((0, 8)) %cmd_copy) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %view = alloca %struct.Py_buffer, align 8
@@ -3849,7 +3849,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4683,13 +4683,13 @@ declare i64 @PyUnicode_Tailmatch(ptr noundef, ptr noundef, i64 noundef, i64 noun
 declare i64 @PyImport_GetMagicNumber() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #2
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @_PyImport_GetImportlibExternalLoader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4713,7 +4713,7 @@ declare i32 @PySet_Add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyException_GetCause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_exception_seen_lookup(ptr nocapture noundef nonnull readonly %ctx, ptr noundef nonnull %value) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @print_exception_seen_lookup(ptr noundef nonnull readonly captures(none) %ctx, ptr noundef nonnull %value) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull %value) #8
   %cmp = icmp eq ptr %call, null
@@ -4761,7 +4761,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @print_chained(ptr nocapture noundef nonnull readonly %ctx, ptr noundef nonnull %value, ptr noundef %message) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_chained(ptr noundef nonnull readonly captures(none) %ctx, ptr noundef nonnull %value, ptr noundef %message) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -4837,13 +4837,13 @@ declare ptr @PyMarshal_ReadLastObjectFromFile(ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

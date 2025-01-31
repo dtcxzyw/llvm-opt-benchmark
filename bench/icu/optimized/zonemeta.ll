@@ -966,7 +966,7 @@ declare noundef ptr @_ZN6icu_758TimeZone9getRegionERKNS_13UnicodeStringE(ptr nou
 declare i32 @u_strcmp_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef ptr @_ZN6icu_758TimeZone27createTimeZoneIDEnumerationE19USystemTimeZoneTypePKcPKiR10UErrorCode(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
@@ -1527,7 +1527,7 @@ declare ptr @ures_getStringByIndex_75(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @ures_getSize_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN6icu_75L9parseDateEPKDsR10UErrorCode(ptr noundef %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 {
+define internal fastcc noundef double @_ZN6icu_75L9parseDateEPKDsR10UErrorCode(ptr noundef %text, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1992,7 +1992,7 @@ lpad34:                                           ; preds = %if.end39
   br label %ehcleanup
 
 if.end39:                                         ; preds = %invoke.cont33
-  invoke void @u_charsToUChars_75(ptr noundef %call28, ptr noundef nonnull %call32, i32 noundef %conv)
+  invoke void @u_charsToUChars_75(ptr noundef nonnull %call28, ptr noundef nonnull %call32, i32 noundef %conv)
           to label %invoke.cont42 unwind label %lpad34
 
 invoke.cont42:                                    ; preds = %if.end39
@@ -2579,17 +2579,17 @@ declare noundef ptr @_ZN6icu_757UVector10setDeleterEPFvPvE(ptr noundef nonnull a
 declare ptr @ures_getKey_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

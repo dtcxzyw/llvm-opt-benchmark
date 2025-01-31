@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [10 x i8] c"lenN <= 8\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @asn1_ctx_init(ptr nocapture noundef writeonly initializes((0, 208)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @asn1_ctx_init(ptr noundef writeonly captures(none) initializes((0, 208)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 200, i1 false)
@@ -30,7 +30,7 @@ define void @asn1_ctx_init(ptr nocapture noundef writeonly initializes((0, 208))
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly %0) local_unnamed_addr #2 {
@@ -48,7 +48,7 @@ define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly initializes((56, 120)) %0) local_unnamed_addr #0 {
+define hidden void @asn1_ctx_clean_external(ptr noundef writeonly captures(none) initializes((56, 120)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i32 -1, ptr %2, align 8
@@ -58,7 +58,7 @@ define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_epdv(ptr nocapture noundef writeonly initializes((144, 200)) %0) local_unnamed_addr #0 {
+define hidden void @asn1_ctx_clean_epdv(ptr noundef writeonly captures(none) initializes((144, 200)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i32 -1, ptr %2, align 8
@@ -68,7 +68,7 @@ define hidden void @asn1_ctx_clean_epdv(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @asn1_stack_frame_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
@@ -86,7 +86,7 @@ define hidden void @asn1_stack_frame_push(ptr nocapture noundef %0, ptr noundef 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_pop(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden void @asn1_stack_frame_pop(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -117,10 +117,10 @@ define hidden void @asn1_stack_frame_pop(ptr nocapture noundef %0, ptr nocapture
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -197,7 +197,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @asn1_param_push_boolean(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -235,7 +235,7 @@ push_new_par.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @asn1_param_push_integer(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -272,7 +272,7 @@ push_new_par.exit:                                ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -313,7 +313,7 @@ get_par_by_name.exit:                             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -353,7 +353,7 @@ get_par_by_name.exit:                             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_init(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
+define void @rose_ctx_init(ptr noundef writeonly captures(none) initializes((0, 120)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   store i32 1380930373, ptr %0, align 8
   ret void
@@ -375,7 +375,7 @@ define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_clean_data(ptr nocapture noundef writeonly initializes((80, 112)) %0) local_unnamed_addr #0 {
+define void @rose_ctx_clean_data(ptr noundef writeonly captures(none) initializes((80, 112)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84

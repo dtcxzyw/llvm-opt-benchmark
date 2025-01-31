@@ -170,7 +170,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %5
 declare void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui5Popup26refresh_relative_placementEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN7nanogui5Popup26refresh_relative_placementEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -228,7 +228,7 @@ _ZNK7nanogui6Widget17visible_recursiveEv.exit:    ; preds = %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui5Popup4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1) unnamed_addr #4 align 2 {

@@ -310,7 +310,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBaseC2ERKN5folly13SocketAddressES4_PNS_21HTTPSessionControllerERKN6wangle13TransportInfoEPNS0_12InfoCallbackESt10unique_ptrINS_9HTTPCodecESt14default_deleteISE_EERKNS_18WheelTimerInstanceEm(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %localAddr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %peerAddr, ptr noundef %controller, ptr noundef nonnull align 8 dereferenceable(744) %tinfo, ptr noundef %infoCallback, ptr nocapture noundef %codec, ptr noundef nonnull align 8 dereferenceable(16) %wheelTimer, i64 noundef %rootNodeId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBaseC2ERKN5folly13SocketAddressES4_PNS_21HTTPSessionControllerERKN6wangle13TransportInfoEPNS0_12InfoCallbackESt10unique_ptrINS_9HTTPCodecESt14default_deleteISE_EERKNS_18WheelTimerInstanceEm(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %localAddr, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %peerAddr, ptr noundef %controller, ptr noundef nonnull align 8 dereferenceable(744) %tinfo, ptr noundef %infoCallback, ptr noundef captures(none) %codec, ptr noundef nonnull align 8 dereferenceable(16) %wheelTimer, i64 noundef %rootNodeId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.proxygen::WheelTimerInstance", align 8
@@ -1344,7 +1344,7 @@ declare void @_ZN8proxygen18WheelTimerInstanceC1ERKS0_(ptr noundef nonnull align
 declare void @_ZN8proxygen18WheelTimerInstanceC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef zeroext i1 @_ZN5folly13SocketAddress16tryConvertToIPv4Ev(ptr noundef nonnull align 8 dereferenceable(27)) local_unnamed_addr #0
 
@@ -3081,7 +3081,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN8proxygen15HTTPSessionBaseD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15HTTPSessionBaseD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #25
   unreachable
@@ -3091,14 +3091,14 @@ entry:
 declare void @llvm.trap() #8
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn64_N8proxygen15HTTPSessionBaseD0Ev(ptr nocapture readnone %this) unnamed_addr #9 align 2 {
+define void @_ZThn64_N8proxygen15HTTPSessionBaseD0Ev(ptr readnone captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.trap() #25
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPSessionBase15setSessionStatsEPNS_16HTTPSessionStatsE(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %stats) unnamed_addr #5 align 2 {
+define void @_ZN8proxygen15HTTPSessionBase15setSessionStatsEPNS_16HTTPSessionStatsE(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this, ptr noundef %stats) unnamed_addr #5 align 2 {
 entry:
   %sessionStats_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %sessionStats_, align 8
@@ -3153,7 +3153,7 @@ if.end21:                                         ; preds = %if.then11, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBase18setRateLimitParamsENS_15RateLimitFilter4TypeEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1582) %this, i8 noundef zeroext %type, i32 noundef %maxEventsPerInterval, i64 %intervalDuration.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBase18setRateLimitParamsENS_15RateLimitFilter4TypeEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1582) %this, i8 noundef zeroext %type, i32 noundef %maxEventsPerInterval, i64 %intervalDuration.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i32, align 4
@@ -3324,7 +3324,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN8proxygen15RateLimitFilter9setParamsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase19runDestroyCallbacksEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
@@ -3415,7 +3415,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase10onBodyImplESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmtPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr nocapture noundef %chain, i64 noundef %length, i16 noundef zeroext %padding, ptr noundef %txn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase10onBodyImplESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmtPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef captures(none) %chain, i64 noundef %length, i16 noundef zeroext %padding, ptr noundef %txn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %dg = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
@@ -3903,7 +3903,7 @@ lpad18:                                           ; preds = %invoke.cont36, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase24notifyEgressBodyBufferedElb(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, i64 noundef %bytes, i1 noundef zeroext %update) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase24notifyEgressBodyBufferedElb(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this, i64 noundef %bytes, i1 noundef zeroext %update) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %pendingWriteSizeDelta_ = getelementptr inbounds nuw i8, ptr %this, i64 1568
@@ -3986,7 +3986,7 @@ return:                                           ; preds = %cleanup.done, %_ZN8
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, i64 noundef %delta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this, i64 noundef %delta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pendingWriteSizeDelta_ = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
@@ -4015,7 +4015,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPSessionBase19updatePendingWritesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBase19updatePendingWritesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pendingWriteSizeDelta_ = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
@@ -4178,7 +4178,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPSessionBase23enableExHeadersSettingsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBase23enableExHeadersSettingsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1582) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
@@ -5973,7 +5973,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -6040,10 +6040,10 @@ entry:
 declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

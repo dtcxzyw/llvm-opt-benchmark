@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rtap_namespace_sizes = internal constant [29 x %struct.radiotap_align_size] [%struct.radiotap_align_size { i8 -120, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 66, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 0, [3 x i8] undef }, %struct.radiotap_align_size { i8 49, [3 x i8] undef }, %struct.radiotap_align_size { i8 -124, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 -56, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 0, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 66, [3 x i8] undef }, %struct.radiotap_align_size { i8 -92, [3 x i8] undef }], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 8
   br i1 %5, label %.loopexit, label %6
 
@@ -111,7 +111,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @diff_merges_config(ptr nocapture noundef readonly %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_merges_config(ptr noundef readonly captures(none) %value) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @func_by_opt(ptr noundef %value)
   %tobool.not = icmp eq ptr %call, null
@@ -40,7 +40,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @func_by_opt(ptr nocapture noundef readonly %optarg) unnamed_addr #1 {
+define internal fastcc ptr @func_by_opt(ptr noundef readonly captures(none) %optarg) unnamed_addr #1 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %optarg, ptr noundef nonnull dereferenceable(4) @.str.9) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -321,10 +321,10 @@ return:                                           ; preds = %if.else43, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_combined(ptr nocapture noundef %revs) #5 {
+define internal void @set_combined(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
@@ -335,7 +335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_dense_combined(ptr nocapture noundef %revs) #5 {
+define internal void @set_dense_combined(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_first_parent(ptr nocapture noundef %revs) #5 {
+define internal void @set_first_parent(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i.i = load i64, ptr %separate_merges.i.i.i, align 8
@@ -357,7 +357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_remerge_diff(ptr nocapture noundef %revs) #5 {
+define internal void @set_remerge_diff(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_none(ptr nocapture noundef %revs) #5 {
+define internal void @set_none(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i = load i64, ptr %separate_merges.i, align 8
@@ -380,7 +380,7 @@ entry:
 declare i32 @parse_long_opt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @diff_merges_suppress(ptr nocapture noundef %revs) local_unnamed_addr #5 {
+define dso_local void @diff_merges_suppress(ptr noundef captures(none) %revs) local_unnamed_addr #5 {
 entry:
   %separate_merges.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8
@@ -390,7 +390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @diff_merges_default_to_first_parent(ptr nocapture noundef %revs) local_unnamed_addr #5 {
+define dso_local void @diff_merges_default_to_first_parent(ptr noundef captures(none) %revs) local_unnamed_addr #5 {
 entry:
   %explicit_diff_merges = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %explicit_diff_merges, align 8
@@ -414,7 +414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @diff_merges_default_to_dense_combined(ptr nocapture noundef %revs) local_unnamed_addr #5 {
+define dso_local void @diff_merges_default_to_dense_combined(ptr noundef captures(none) %revs) local_unnamed_addr #5 {
 entry:
   %explicit_diff_merges = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %explicit_diff_merges, align 8
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @diff_merges_set_dense_combined_if_unset(ptr nocapture noundef %revs) local_unnamed_addr #5 {
+define dso_local void @diff_merges_set_dense_combined_if_unset(ptr noundef captures(none) %revs) local_unnamed_addr #5 {
 entry:
   %combine_merges = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %combine_merges, align 8
@@ -452,7 +452,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @diff_merges_setup_revs(ptr nocapture noundef %revs) local_unnamed_addr #3 {
+define dso_local void @diff_merges_setup_revs(ptr noundef captures(none) %revs) local_unnamed_addr #3 {
 entry:
   %combine_merges = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %combine_merges, align 8
@@ -514,7 +514,7 @@ if.end52:                                         ; preds = %if.end34, %if.then4
 declare void @die(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_separate(ptr nocapture noundef %revs) #5 {
+define internal void @set_separate(ptr noundef captures(none) %revs) #5 {
 entry:
   %separate_merges.i.i = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load.i.i = load i64, ptr %separate_merges.i.i, align 8

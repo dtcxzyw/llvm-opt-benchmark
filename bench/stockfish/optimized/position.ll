@@ -107,7 +107,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoRKNS_8PositionE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %1) local_unnamed_addr #3 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9StockfishlsERSoRKNS_8PositionE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %1) local_unnamed_addr #3 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.Stockfish::StateInfo", align 64
@@ -279,7 +279,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -1152,7 +1152,7 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit: ; preds = %.loopexit
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
@@ -1179,7 +1179,7 @@ declare i32 @islower(i32 noundef) local_unnamed_addr #6
 declare i32 @toupper(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6SquareE(ptr nocapture noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6SquareE(ptr noundef nonnull align 8 captures(none) dereferenceable(865) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %5
@@ -1252,7 +1252,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   store i64 0, ptr %3, align 64
@@ -1491,7 +1491,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr nocapture noundef
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK9Stockfish8Position14set_check_infoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -1708,7 +1708,7 @@ _ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE.exit10: ; preds = %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK9Stockfish8Position22update_slider_blockersENS_5ColorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %4
@@ -1916,7 +1916,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -1990,7 +1990,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %4 = load i32, ptr %3, align 4
   %5 = lshr i16 %1, 6
@@ -2783,10 +2783,10 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
   %3 = lshr i16 %1, 6
   %4 = and i16 %3, 63
   %5 = and i16 %1, 63
@@ -4167,7 +4167,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish8Position12do_null_moveERNS_9StateInfoERNS_18TranspositionTableE(ptr nocapture noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 64 dereferenceable(11264) initializes((0, 192)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish8Position12do_null_moveERNS_9StateInfoERNS_18TranspositionTableE(ptr noundef nonnull align 8 captures(none) dereferenceable(865) %0, ptr noundef nonnull align 64 dereferenceable(11264) initializes((0, 192)) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %1, ptr noundef nonnull align 64 dereferenceable(192) %5, i64 192, i1 false)
@@ -4283,7 +4283,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %40, %56
 declare void @_ZN9Stockfish8prefetchEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9Stockfish8Position14undo_null_moveEv(ptr nocapture noundef nonnull align 8 dereferenceable(865) %0) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN9Stockfish8Position14undo_null_moveEv(ptr noundef nonnull align 8 captures(none) dereferenceable(865) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -4297,7 +4297,7 @@ define dso_local void @_ZN9Stockfish8Position14undo_null_moveEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i16 %1) local_unnamed_addr #9 align 2 {
   %3 = lshr i16 %1, 6
   %4 = and i16 %3, 63
   %5 = and i16 %1, 63
@@ -4363,7 +4363,7 @@ _ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit: ; preds = %44, %40, %18, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i16 %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i16 %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %.not = icmp ult i16 %1, 16384
   br i1 %.not, label %6, label %4
 
@@ -4709,7 +4709,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position7is_drawEi(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -4741,7 +4741,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -4972,7 +4972,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position9pos_is_okEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(865) %0) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position9pos_is_okEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(865) %0) local_unnamed_addr #12 align 2 {
   ret i1 true
 }
 
@@ -5080,10 +5080,10 @@ declare i64 @llvm.ctpop.i64(i64) #16
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

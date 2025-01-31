@@ -535,7 +535,7 @@ ehcleanup13:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
@@ -544,12 +544,12 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN5folly12exceptionStrERKNSt15__exception_ptr13exception_ptrE(ptr dead_on_unwind writable sret(%"class.folly::basic_fbstring") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
@@ -557,12 +557,12 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
@@ -577,7 +577,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly6fibers12FiberManager13FrozenOptions6createERKNS1_7OptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %options) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5folly6fibers12FiberManager13FrozenOptions6createERKNS1_7OptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %options) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stackSizeMultiplier.i.i = getelementptr inbounds nuw i8, ptr %options, i64 8
   %recordStackEvery.i.i = getelementptr inbounds nuw i8, ptr %options, i64 16
@@ -823,10 +823,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIPNS2_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS2_6detail11DefaultMakeIS7_EES8_E7WrapperES8_vEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIPNS2_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS2_6detail11DefaultMakeIS7_EES8_E7WrapperES8_vEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nonnull readnone align 8 captures(none) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #33
   %0 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -836,7 +836,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIPNS2_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS2_6detail11DefaultMakeIS7_EES8_E7WrapperES8_vEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalIPNS2_6fibers12FiberManagerEZNS6_22getCurrentFiberManagerEvE3TagNS2_6detail11DefaultMakeIS7_EES8_E7WrapperES8_vEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -1106,7 +1106,7 @@ _ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly18threadlocal_detail10StaticMetaIZNS_6fibers12FiberManager22getCurrentFiberManagerEvE3TagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm(ptr noundef %ent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %id, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %threadEntry, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %capacity) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly18threadlocal_detail10StaticMetaIZNS_6fibers12FiberManager22getCurrentFiberManagerEvE3TagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm(ptr noundef %ent, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %id, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %threadEntry, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %capacity) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIZNS_6fibers12FiberManager22getCurrentFiberManagerEvE3TagvEEvEERT_vE3arg acquire, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %0 to ptr
@@ -1657,7 +1657,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !17
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #12, !noalias !105
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -2367,7 +2367,7 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 declare void @_ZN5folly6detail25SingletonThreadLocalState13LocalLifetime7destroyERNS1_7WrapperE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers12FiberManagerC2ESt10unique_ptrINS0_14LoopControllerESt14default_deleteIS3_EENS1_7OptionsE(ptr noundef nonnull align 16 dereferenceable(577) %this, ptr nocapture noundef %loopController, ptr nocapture noundef readonly byval(%"struct.folly::fibers::FiberManager::Options") align 8 %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers12FiberManagerC2ESt10unique_ptrINS0_14LoopControllerESt14default_deleteIS3_EENS1_7OptionsE(ptr noundef nonnull align 16 dereferenceable(577) %this, ptr noundef captures(none) %loopController, ptr noundef readonly byval(%"struct.folly::fibers::FiberManager::Options") align 8 captures(none) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.std::unique_ptr", align 8
   %0 = load i64, ptr %loopController, align 8, !tbaa !12
@@ -3029,7 +3029,7 @@ declare void @_ZN5folly6fibers5FiberD1Ev(ptr noundef nonnull align 64 dereferenc
 declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6fibers12FiberManager14loopControllerEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6fibers12FiberManager14loopControllerEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
 entry:
   %loopController_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %loopController_, align 8, !tbaa !12
@@ -3037,7 +3037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5folly6fibers12FiberManager14loopControllerEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5folly6fibers12FiberManager14loopControllerEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
 entry:
   %loopController_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %loopController_, align 8, !tbaa !12
@@ -3045,7 +3045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5folly6fibers12FiberManager8hasTasksEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
+define noundef zeroext i1 @_ZNK5folly6fibers12FiberManager8hasTasksEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
 entry:
   %fibersActive_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load atomic i64, ptr %fibersActive_ monotonic, align 16
@@ -3076,7 +3076,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly6fibers12FiberManager17isRemoteScheduledEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK5folly6fibers12FiberManager17isRemoteScheduledEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #10 align 2 {
 entry:
   %remoteCount_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %0 = load i64, ptr %remoteCount_, align 16, !tbaa !219
@@ -3181,7 +3181,7 @@ declare noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 nound
 declare void @_ZN5folly6fibers5FiberC1ERNS0_12FiberManagerE(ptr noundef nonnull align 64 dereferenceable(936), ptr noundef nonnull align 16 dereferenceable(577)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK5folly6fibers12FiberManager15fibersAllocatedEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
+define noundef i64 @_ZNK5folly6fibers12FiberManager15fibersAllocatedEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
 entry:
   %fibersAllocated_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i64, ptr %fibersAllocated_ monotonic, align 16
@@ -3236,7 +3236,7 @@ _ZN5folly8FunctionIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEEaSEO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK5folly6fibers12FiberManager14fibersPoolSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
+define noundef i64 @_ZNK5folly6fibers12FiberManager14fibersPoolSizeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
 entry:
   %fibersPoolSize_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load atomic i64, ptr %fibersPoolSize_ monotonic, align 8
@@ -3244,7 +3244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK5folly6fibers12FiberManager18stackHighWatermarkEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
+define noundef i64 @_ZNK5folly6fibers12FiberManager18stackHighWatermarkEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #24 align 2 {
 entry:
   %stackHighWatermark_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load atomic i64, ptr %stackHighWatermark_ monotonic, align 16
@@ -3252,7 +3252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers12FiberManager17remoteReadyInsertEPNS0_5FiberE(ptr nocapture noundef nonnull align 16 dereferenceable(577) %this, ptr noundef %fiber) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly6fibers12FiberManager17remoteReadyInsertEPNS0_5FiberE(ptr noundef nonnull align 16 captures(none) dereferenceable(577) %this, ptr noundef %fiber) local_unnamed_addr #1 align 2 {
 entry:
   %remoteReadyQueue_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %0 = load atomic i64, ptr %remoteReadyQueue_ monotonic, align 16
@@ -3311,7 +3311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly6fibers12FiberManager14removeObserverEPNS_17ExecutionObserverE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef %observer) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers12FiberManager14removeObserverEPNS_17ExecutionObserverE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(577) %this, ptr noundef captures(none) %observer) local_unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5eraseENS0_13list_iteratorISA_Lb1EEE.exit:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %observer, i64 8
   %0 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !115, !noalias !224
@@ -3332,7 +3332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6fibers12FiberManager16setPreemptRunnerEPNS0_20InlineFunctionRunnerE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(577) initializes((352, 360)) %this, ptr noundef %preemptRunner) local_unnamed_addr #16 align 2 {
+define void @_ZN5folly6fibers12FiberManager16setPreemptRunnerEPNS0_20InlineFunctionRunnerE(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(577) initializes((352, 360)) %this, ptr noundef %preemptRunner) local_unnamed_addr #16 align 2 {
 entry:
   %preemptRunner_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   store ptr %preemptRunner, ptr %preemptRunner_, align 16, !tbaa !227
@@ -3340,7 +3340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly6fibers12FiberManager20doFibersPoolResizingEv(ptr nocapture noundef nonnull align 16 dereferenceable(577) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers12FiberManager20doFibersPoolResizingEv(ptr noundef nonnull align 16 captures(none) dereferenceable(577) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fibersAllocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %fibersPoolSize_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -3610,31 +3610,31 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager32registerStartSwitchStackWithAsanEPPvPKvm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %stackBottom, i64 noundef %stackSize) local_unnamed_addr #26 align 2 {
+define void @_ZN5folly6fibers12FiberManager32registerStartSwitchStackWithAsanEPPvPKvm(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(577) %this, ptr noundef readnone captures(none) %saveFakeStack, ptr noundef readnone captures(none) %stackBottom, i64 noundef %stackSize) local_unnamed_addr #26 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager33registerFinishSwitchStackWithAsanEPvPPKvPm(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %saveFakeStack, ptr nocapture noundef readnone %saveStackBottom, ptr nocapture noundef readnone %saveStackSize) local_unnamed_addr #26 align 2 {
+define void @_ZN5folly6fibers12FiberManager33registerFinishSwitchStackWithAsanEPvPPKvPm(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(577) %this, ptr noundef readnone captures(none) %saveFakeStack, ptr noundef readnone captures(none) %saveStackBottom, ptr noundef readnone captures(none) %saveStackSize) local_unnamed_addr #26 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager13freeFakeStackEPv(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readnone %fakeStack) local_unnamed_addr #26 align 2 {
+define void @_ZN5folly6fibers12FiberManager13freeFakeStackEPv(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(577) %this, ptr noundef readnone captures(none) %fakeStack) local_unnamed_addr #26 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6fibers12FiberManager18unpoisonFiberStackEPKNS0_5FiberE(ptr nocapture noundef nonnull readnone align 16 dereferenceable(577) %this, ptr nocapture noundef readonly %fiber) local_unnamed_addr #26 align 2 {
+define void @_ZN5folly6fibers12FiberManager18unpoisonFiberStackEPKNS0_5FiberE(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(577) %this, ptr noundef readonly captures(none) %fiber) local_unnamed_addr #26 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers12FiberManager33maybeRegisterAlternateSignalStackEv(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(577) initializes((576, 577)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly6fibers12FiberManager33maybeRegisterAlternateSignalStackEv(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(577) initializes((576, 577)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS_6detail10DefaultTagENS4_11DefaultMakeIS3_EEvE3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !27
@@ -3797,7 +3797,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalINS2_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS2_6detail10DefaultTagENS8_11DefaultMakeIS7_EEvE7WrapperEvvEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalINS2_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS2_6detail10DefaultTagENS8_11DefaultMakeIS7_EEvE7WrapperEvvEC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr nonnull readnone align 8 captures(none) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i22.i.i.i.i.i.i.i = alloca %struct.stack_t, align 8
   %ss.i.i.i.i.i.i.i.i = alloca %struct.stack_t, align 8
@@ -3845,7 +3845,7 @@ _ZSt10__invoke_rIPvRZN5folly11ThreadLocalINS1_20SingletonThreadLocalINS1_6fibers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalINS2_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS2_6detail10DefaultTagENS8_11DefaultMakeIS7_EEvE7WrapperEvvEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalINS2_20SingletonThreadLocalINS2_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS2_6detail10DefaultTagENS8_11DefaultMakeIS7_EEvE7WrapperEvvEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -4693,7 +4693,7 @@ cleanup:                                          ; preds = %_ZSt11make_uniqueIN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6fibers12FiberManager10RemoteTaskC2INS_8FunctionIFvvEEEEEOT_RKNS0_5Fiber9LocalDataE(ptr noundef nonnull align 16 dereferenceable(96) %this, ptr noundef nonnull align 16 dereferenceable(64) %f, ptr noundef nonnull align 64 dereferenceable(176) %localData_) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {

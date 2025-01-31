@@ -143,7 +143,7 @@ return:                                           ; preds = %entry, %for.end, %i
 declare void @ehooks_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -7) %alignment) unnamed_addr #1 {
+define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr noundef readonly captures(none) %ehooks, ptr noundef captures(none) %pind_last, ptr noundef captures(none) %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -7) %alignment) unnamed_addr #1 {
 entry:
   %zero.i = alloca i8, align 1
   %commit.i = alloca i8, align 1
@@ -485,7 +485,7 @@ return:                                           ; preds = %base_map.exit.threa
 declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_unmap(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
+define internal fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
 entry:
   %ptr.i.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i.i acquire, align 8
@@ -940,7 +940,7 @@ if.end26:                                         ; preds = %if.then15, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @base_delete(ptr noundef %tsdn, ptr nocapture noundef readonly %base) local_unnamed_addr #1 {
+define hidden void @base_delete(ptr noundef %tsdn, ptr noundef readonly captures(none) %base) local_unnamed_addr #1 {
 entry:
   %ehooks_base.i = getelementptr inbounds nuw i8, ptr %base, i64 16
   %blocks = getelementptr inbounds nuw i8, ptr %base, i64 160
@@ -1233,7 +1233,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef writeonly initializes((0, 8)) %allocated, ptr nocapture noundef writeonly initializes((0, 8)) %resident, ptr nocapture noundef writeonly initializes((0, 8)) %mapped, ptr nocapture noundef writeonly initializes((0, 8)) %n_thp) local_unnamed_addr #1 {
+define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr noundef writeonly captures(none) initializes((0, 8)) %allocated, ptr noundef writeonly captures(none) initializes((0, 8)) %resident, ptr noundef writeonly captures(none) initializes((0, 8)) %mapped, ptr noundef writeonly captures(none) initializes((0, 8)) %n_thp) local_unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds nuw i8, ptr %base, i64 96
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9
@@ -1381,10 +1381,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #7
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

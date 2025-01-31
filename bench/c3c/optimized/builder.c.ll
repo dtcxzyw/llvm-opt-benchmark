@@ -51,7 +51,7 @@ switch.lookup:                                    ; preds = %1
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @update_build_target_with_opt_level(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @update_build_target_with_opt_level(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, -1
   %spec.store.select = select i1 %3, i32 0, i32 %1
   switch i32 %spec.store.select, label %11 [
@@ -172,12 +172,12 @@ define dso_local void @init_default_build_target(ptr noundef initializes((0, 416
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
-  tail call fastcc void @update_build_target_from_options(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @update_build_target_from_options(ptr noundef nonnull %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @update_build_target_from_options(ptr noundef initializes((157, 158), (228, 232)) %0, ptr noundef readonly %1) unnamed_addr #1 {
@@ -1601,7 +1601,7 @@ define dso_local void @init_build_target(ptr noundef initializes((0, 416)) %0, p
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @project_select_target(ptr noundef %3, ptr noundef %5) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(416) %6, i64 416, i1 false)
-  tail call fastcc void @update_build_target_from_options(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @update_build_target_from_options(ptr noundef nonnull %0, ptr noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -1635,7 +1635,7 @@ define dso_local void @init_build_target(ptr noundef initializes((0, 416)) %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @file_find_top_dir(...) local_unnamed_addr #5
 

@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end12.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_template_new(ptr noundef %pval, ptr noundef readonly captures(none) %tt) local_unnamed_addr #0 {
 entry:
   %item = getelementptr inbounds nuw i8, ptr %tt, i64 32
   %0 = load ptr, ptr %item, align 8
@@ -350,7 +350,7 @@ return:                                           ; preds = %if.then11, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asn1_template_clear(ptr noundef %pval, ptr nocapture noundef readonly %tt) unnamed_addr #0 {
+define internal fastcc void @asn1_template_clear(ptr noundef %pval, ptr noundef readonly captures(none) %tt) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -580,7 +580,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @asn1_set_choice_selector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

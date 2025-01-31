@@ -87,14 +87,14 @@ define void @_ZN7mitsuba11DummyStreamC2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN7mitsuba6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba11DummyStream5closeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((32, 33)) %0) unnamed_addr #2 align 2 {
+define void @_ZN7mitsuba11DummyStream5closeEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((32, 33)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7mitsuba11DummyStream9is_closedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7mitsuba11DummyStream9is_closedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -102,7 +102,7 @@ define noundef zeroext i1 @_ZNK7mitsuba11DummyStream9is_closedEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN7mitsuba11DummyStream4readEPvm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba11DummyStream4readEPvm(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = load ptr, ptr @_ZN7mitsuba11DummyStream7m_classE, align 8
   call void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %4, ptr noundef nonnull @.str.1)
@@ -215,7 +215,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba11DummyStream5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr nocapture readnone %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba11DummyStream5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr readnone captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = load ptr, ptr %0, align 8
@@ -368,14 +368,14 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba11DummyStream4seekEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((24, 32)) %0, i64 noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN7mitsuba11DummyStream4seekEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((24, 32)) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7mitsuba11DummyStream8truncateEm(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN7mitsuba11DummyStream8truncateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(33) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -386,21 +386,21 @@ define void @_ZN7mitsuba11DummyStream8truncateEm(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7mitsuba11DummyStream4tellEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK7mitsuba11DummyStream4tellEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7mitsuba11DummyStream4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK7mitsuba11DummyStream4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7mitsuba11DummyStream5flushEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define void @_ZN7mitsuba11DummyStream5flushEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZNK7mitsuba11DummyStream9can_writeEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7mitsuba11DummyStream8can_readEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK7mitsuba11DummyStream8can_readEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 false
 }
 
@@ -428,7 +428,7 @@ declare void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEE
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7mitsuba11DummyStream6class_Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK7mitsuba11DummyStream6class_Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   %2 = load ptr, ptr @_ZN7mitsuba11DummyStream7m_classE, align 8
   ret ptr %2
 }
@@ -510,7 +510,7 @@ declare void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereference
 declare void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10tinyformat6detail10formatImplERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKcPKNS0_9FormatArgEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -2165,10 +2165,10 @@ __cxx_global_var_init.exit:                       ; preds = %19, %.sink.split.i.
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

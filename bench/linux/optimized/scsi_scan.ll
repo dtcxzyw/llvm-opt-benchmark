@@ -106,7 +106,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_scan_ho
 @llvm.compiler.used = appending global [16 x ptr] [ptr @__UNIQUE_ID___addressable___scsi_add_device454, ptr @__UNIQUE_ID___addressable_scsi_add_device455, ptr @__UNIQUE_ID___addressable_scsi_is_target_device437, ptr @__UNIQUE_ID___addressable_scsi_rescan_device456, ptr @__UNIQUE_ID___addressable_scsi_sanitize_inquiry_string439, ptr @__UNIQUE_ID___addressable_scsi_scan_host458, ptr @__UNIQUE_ID___addressable_scsi_scan_target457, ptr @__UNIQUE_ID_inq_timeout433, ptr @__UNIQUE_ID_inq_timeouttype432, ptr @__UNIQUE_ID_max_luns429, ptr @__UNIQUE_ID_max_lunstype428, ptr @__UNIQUE_ID_scan431, ptr @__UNIQUE_ID_scantype430, ptr @__param_inq_timeout, ptr @__param_max_luns, ptr @__param_scan], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @scsi_enable_async_suspend(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @scsi_enable_async_suspend(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @scsi_scan_type, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %11
@@ -128,7 +128,7 @@ define dso_local void @scsi_enable_async_suspend(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 align 16 {
@@ -197,7 +197,7 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #4
@@ -209,7 +209,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #4
@@ -218,7 +218,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @scsi_is_target_device(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @scsi_is_target_device(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @scsi_target_type
@@ -275,7 +275,7 @@ define dso_local void @scsi_target_reap(ptr noundef %0) local_unnamed_addr #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @scsi_sanitize_inquiry_string(ptr nocapture noundef %0, i32 noundef %1) #7 align 16 {
+define dso_local void @scsi_sanitize_inquiry_string(ptr noundef captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader, label %.loopexit
 
@@ -3003,7 +3003,7 @@ declare dso_local i32 @scsi_device_get(ptr noundef) local_unnamed_addr #4
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @scsi_evt_thread(ptr noundef) #4
@@ -3107,7 +3107,7 @@ declare dso_local i32 @scsi_change_queue_depth(ptr noundef, i32 noundef) local_u
 declare dso_local void @scsi_sysfs_device_initialize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scsi_device_max_queue_depth(ptr noundef) local_unnamed_addr #4
@@ -3188,7 +3188,7 @@ declare dso_local ptr @__scsi_iterate_devices(ptr noundef, ptr noundef) local_un
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #14

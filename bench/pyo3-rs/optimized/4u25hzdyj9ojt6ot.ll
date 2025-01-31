@@ -24,14 +24,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3e7959b224c09f7393f0ebd8e51eb812.23 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"None" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hec99de3199a48680E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hec99de3199a48680E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   tail call void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h38e37daa8ac1cc41E"(ptr sret([32 x i8]) align 8 %0, ptr align 8 %5, i64 %2, ptr align 8 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5edc127636d67245E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5edc127636d67245E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -144,13 +144,13 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h92fb3879d7d3faeeE"(ptr nocapture readnone align 1 %0, ptr readnone align 8 %1) unnamed_addr #1 {
+define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h92fb3879d7d3faeeE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 %1) unnamed_addr #1 {
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc59733baa8921ae9E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc59733baa8921ae9E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr align 8 %2) unnamed_addr #0 {
   tail call void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$u7b$$u7b$closure$u7d$$u7d$17h7f7013c49c9d27b0E"(ptr sret([32 x i8]) align 8 %0, ptr align 1 poison, ptr align 8 %2)
   ret void
 }
@@ -165,7 +165,7 @@ define range(i64 0, 576460752303423488) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$u7b$$u7b$closure$u7d$$u7d$17h7f7013c49c9d27b0E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$u7b$$u7b$closure$u7d$$u7d$17h7f7013c49c9d27b0E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr align 8 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -277,7 +277,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h38e37daa8ac1cc41E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h38e37daa8ac1cc41E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr align 8 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -545,7 +545,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17hfb9363579c705c24E"(ptr sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17hfb9363579c705c24E"(ptr sret([32 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
   %5 = alloca [8 x i8], align 8
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -556,7 +556,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h2a0f88a32b878082E"(ptr sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h2a0f88a32b878082E"(ptr sret([32 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -567,7 +567,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params22impl_regular_arg_param28_$u7b$$u7b$closure$u7d$$u7d$17h7ffdb5543e0ce10cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend6params22impl_regular_arg_param28_$u7b$$u7b$closure$u7d$$u7d$17h7ffdb5543e0ce10cE"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   invoke void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd00b867117966f66E"(ptr align 8 %1, ptr nonnull align 8 %3)
@@ -594,7 +594,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params22impl_regular_arg_param28_$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6params22impl_regular_arg_param28_$u7b$$u7b$closure$u7d$$u7d$17h63ec7f9c4e3d6538E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend6params22impl_regular_arg_param28_$u7b$$u7b$closure$u7d$$u7d$17h63ec7f9c4e3d6538E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %2)
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %2)
@@ -676,7 +676,7 @@ declare void @_ZN5quote9__private18push_group_spanned17h735089bb4c7ea129E(ptr al
 declare void @_ZN5quote9__private17push_semi_spanned17he62eccdb0dffdda9E(ptr align 8, i32) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8) unnamed_addr #0
@@ -757,10 +757,10 @@ declare void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$G
 declare hidden void @_ZN19pyo3_macros_backend6quotes9some_wrap17hf65b7eeac8f3300cE(ptr sret([32 x i8]) align 8, ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

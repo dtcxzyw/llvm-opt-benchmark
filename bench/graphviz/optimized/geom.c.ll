@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/common/geom.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %3, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %3, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %4) local_unnamed_addr #0 {
   %6 = load double, ptr %4, align 8
   %7 = fcmp ugt double %6, %0
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -174,7 +174,7 @@ declare double @llvm.maxnum.f64(double, double) #1
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rect2poly(ptr nocapture noundef initializes((32, 64)) %0) local_unnamed_addr #2 {
+define void @rect2poly(ptr noundef captures(none) initializes((32, 64)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -229,7 +229,7 @@ define { double, double } @cwrotatepf(double %0, double %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
@@ -269,7 +269,7 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, double %2, double %3) local_unnamed_addr #2 {
+define void @flip_rec_boxf(ptr dead_on_unwind noalias writable writeonly sret(%struct.boxf) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1, double %2, double %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
@@ -310,7 +310,7 @@ define double @ptToLine2(double %0, double %1, double %2, double %3, double %4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #7 {
   %10 = fsub double %2, %0
   %11 = fsub double %3, %1
   %12 = fsub double %6, %4

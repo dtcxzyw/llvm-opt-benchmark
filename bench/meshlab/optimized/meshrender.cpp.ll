@@ -318,7 +318,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -649,7 +649,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1353,20 +1353,20 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
+define void @_ZNK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 9)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 9), !noalias !14
   store ptr %3, ptr %0, align 8, !alias.scope !14
@@ -1374,7 +1374,7 @@ define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1429,7 +1429,7 @@ _ZN5QListIP7QActionEC2ERKS2_.exit:                ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !noalias !17
@@ -10066,7 +10066,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_15UniformVariableESt10_Select1stIS4_ESt4lessI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOiEESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11988,7 +11988,7 @@ declare noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 derefere
 declare noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPlugin4initEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 1 %3, ptr noundef %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPlugin4initEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 1 captures(none) %3, ptr noundef %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QPoint, align 4
   %7 = alloca %"class.std::tuple.120", align 8
   %8 = alloca %"class.std::tuple.64", align 1
@@ -14181,7 +14181,7 @@ declare void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QStrin
 declare noundef ptr @_Z12textFileReadPc(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN11QTextStreamC1EP9QIODevice(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
@@ -14307,7 +14307,7 @@ declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48)
 declare i32 @glGetError() local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22MeshShaderRenderPlugin4initEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %2, ptr nocapture noundef nonnull readnone align 1 %3, ptr noundef %4) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22MeshShaderRenderPlugin4initEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %2, ptr noundef nonnull readnone align 1 captures(none) %3, ptr noundef %4) unnamed_addr #14 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22MeshShaderRenderPlugin4initEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef %1, ptr nonnull align 8 poison, ptr nonnull align 1 poison, ptr noundef %4)
   ret void
@@ -14425,7 +14425,7 @@ declare void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18Transformat
 declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPlugin6renderEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nocapture nonnull readnone align 1 %3, ptr noundef %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPlugin6renderEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull readnone align 1 captures(none) %3, ptr noundef %4) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.120", align 8
   %7 = alloca %"class.std::tuple.64", align 1
   %8 = alloca %"class.std::tuple.120", align 8
@@ -15671,7 +15671,7 @@ declare void @_ZNK26MLSceneGLSharedDataContext4drawEiP10QGLContext(ptr noundef n
 declare noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22MeshShaderRenderPlugin6renderEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nocapture noundef nonnull readnone align 1 %3, ptr noundef %4) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22MeshShaderRenderPlugin6renderEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull readnone align 1 captures(none) %3, ptr noundef %4) unnamed_addr #14 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22MeshShaderRenderPlugin6renderEP7QActionR12MeshDocumentR4QMapIi15MLRenderingDataEP6GLArea(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull align 1 poison, ptr noundef %4)
   ret void
@@ -16105,7 +16105,7 @@ declare void @_ZN12QMapDataBase8freeTreeEP12QMapNodeBasei(ptr noundef nonnull al
 declare void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22MeshShaderRenderPlugin8finalizeEP7QActionP12MeshDocumentP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #4 align 2 {
+define void @_ZN22MeshShaderRenderPlugin8finalizeEP7QActionP12MeshDocumentP6GLArea(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -16124,7 +16124,7 @@ define void @_ZN22MeshShaderRenderPlugin8finalizeEP7QActionP12MeshDocumentP6GLAr
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22MeshShaderRenderPlugin8finalizeEP7QActionP12MeshDocumentP6GLArea(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22MeshShaderRenderPlugin8finalizeEP7QActionP12MeshDocumentP6GLArea(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -17700,10 +17700,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

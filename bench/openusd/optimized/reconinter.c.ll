@@ -65,7 +65,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ss_size_lookup = internal unnamed_addr constant [22 x [2 x [2 x i8]]] [[2 x [2 x i8]] zeroinitializer, [2 x [2 x i8]] [[2 x i8] c"\01\00", [2 x i8] c"\FF\00"], [2 x [2 x i8]] [[2 x i8] c"\02\FF", [2 x i8] zeroinitializer], [2 x [2 x i8]] [[2 x i8] c"\03\02", [2 x i8] c"\01\00"], [2 x [2 x i8]] [[2 x i8] c"\04\03", [2 x i8] c"\FF\01"], [2 x [2 x i8]] [[2 x i8] c"\05\FF", [2 x i8] c"\03\02"], [2 x [2 x i8]] [[2 x i8] c"\06\05", [2 x i8] c"\04\03"], [2 x [2 x i8]] [[2 x i8] c"\07\06", [2 x i8] c"\FF\04"], [2 x [2 x i8]] [[2 x i8] c"\08\FF", [2 x i8] c"\06\05"], [2 x [2 x i8]] [[2 x i8] c"\09\08", [2 x i8] c"\07\06"], [2 x [2 x i8]] [[2 x i8] c"\0A\09", [2 x i8] c"\FF\07"], [2 x [2 x i8]] [[2 x i8] c"\0B\FF", [2 x i8] c"\09\08"], [2 x [2 x i8]] [[2 x i8] c"\0C\0B", [2 x i8] c"\0A\09"], [2 x [2 x i8]] [[2 x i8] c"\0D\0C", [2 x i8] c"\FF\0A"], [2 x [2 x i8]] [[2 x i8] c"\0E\FF", [2 x i8] c"\0C\0B"], [2 x [2 x i8]] [[2 x i8] c"\0F\0E", [2 x i8] c"\0D\0C"], [2 x [2 x i8]] [[2 x i8] c"\10\01", [2 x i8] c"\FF\01"], [2 x [2 x i8]] [[2 x i8] c"\11\FF", [2 x i8] c"\02\02"], [2 x [2 x i8]] [[2 x i8] c"\12\04", [2 x i8] c"\FF\10"], [2 x [2 x i8]] [[2 x i8] c"\13\FF", [2 x i8] c"\05\11"], [2 x [2 x i8]] [[2 x i8] c"\14\07", [2 x i8] c"\FF\12"], [2 x [2 x i8]] [[2 x i8] c"\15\FF", [2 x i8] c"\08\13"]], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @av1_allow_warp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @av1_allow_warp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %4, align 8
   %.not.i.i = icmp eq i32 %7, -1
   br i1 %.not.i.i, label %av1_is_scaled.exit.thread, label %av1_is_valid_scale.exit.i
@@ -135,10 +135,10 @@ av1_is_scaled.exit.thread22:                      ; preds = %av1_is_scaled.exit.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_init_inter_params(ptr nocapture noundef writeonly initializes((0, 8), (104, 192), (212, 216)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, i32 %12) local_unnamed_addr #2 {
+define hidden void @av1_init_inter_params(ptr noundef writeonly captures(none) initializes((0, 8), (104, 192), (212, 216)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef readonly captures(none) %11, i32 %12) local_unnamed_addr #2 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -199,14 +199,14 @@ define hidden void @av1_init_inter_params(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_init_comp_mode(ptr nocapture noundef writeonly initializes((4, 8)) %0) local_unnamed_addr #3 {
+define hidden void @av1_init_comp_mode(ptr noundef writeonly captures(none) initializes((4, 8)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_init_warp_params(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @av1_init_warp_params(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 8
@@ -291,7 +291,7 @@ av1_allow_warp.exit.thread:                       ; preds = %41, %31, %39, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #4 {
+define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 {
   %7 = load i32, ptr %4, align 8
   switch i32 %7, label %highbd_inter_predictor.exit [
     i32 0, label %8
@@ -395,7 +395,7 @@ highbd_inter_predictor.exit:                      ; preds = %36, %35, %26, %25, 
 declare void @av1_warp_plane(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @av1_get_compound_type_mask(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #6 {
+define hidden ptr @av1_get_compound_type_mask(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %4 = load i8, ptr %3, align 1
   %cond = icmp eq i8 %4, 2
@@ -421,7 +421,7 @@ define hidden ptr @av1_get_compound_type_mask(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9) local_unnamed_addr #7 {
+define hidden void @av1_build_compound_diffwtd_mask_d16_c(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9) local_unnamed_addr #7 {
   switch i8 %1, label %diffwtd_mask_d16.exit [
     i8 0, label %11
     i8 1, label %41
@@ -558,7 +558,7 @@ diffwtd_mask_d16.exit:                            ; preds = %._crit_edge.split.u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_build_compound_diffwtd_mask_c(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #7 {
+define hidden void @av1_build_compound_diffwtd_mask_c(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #7 {
   switch i8 %1, label %diffwtd_mask.exit [
     i8 0, label %9
     i8 1, label %28
@@ -663,7 +663,7 @@ diffwtd_mask.exit:                                ; preds = %._crit_edge.split.u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_build_compound_diffwtd_mask_highbd_c(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #8 {
+define hidden void @av1_build_compound_diffwtd_mask_highbd_c(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #8 {
   switch i8 %1, label %.loopexit [
     i8 0, label %10
     i8 1, label %67
@@ -1303,7 +1303,7 @@ init_smooth_interintra_masks.exit:                ; preds = %.split.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #4 {
+define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #4 {
   %11 = alloca [32768 x i8], align 32
   %12 = alloca %struct.SubpelParams, align 4
   %13 = alloca ptr, align 8
@@ -1425,7 +1425,7 @@ make_masked_inter_predictor.exit:                 ; preds = %77, %80
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_dist_wtd_comp_weight_assign(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #8 {
+define hidden void @av1_dist_wtd_comp_weight_assign(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #8 {
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %8
 
@@ -1611,7 +1611,7 @@ get_relative_dist.exit77:                         ; preds = %55, %58
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_build_inter_predictors(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr nocapture noundef readonly %10) local_unnamed_addr #4 {
+define hidden void @av1_build_inter_predictors(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef readonly captures(none) %10) local_unnamed_addr #4 {
   %12 = alloca [2 x i32], align 8
   %13 = alloca %struct.mv, align 4
   %14 = alloca %struct.InterPredParams, align 8
@@ -2259,7 +2259,7 @@ build_inter_predictors_8x8_and_bigger.exit:       ; preds = %350
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_setup_dst_planes(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #7 {
+define hidden void @av1_setup_dst_planes(ptr noundef captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #7 {
   %8 = tail call i32 @llvm.smin.i32(i32 %6, i32 3)
   %9 = icmp slt i32 %5, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -2487,7 +2487,7 @@ setup_pred_plane.exit.us26:                       ; preds = %setup_pred_plane.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_setup_pre_planes(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define hidden void @av1_setup_pre_planes(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2851,7 +2851,7 @@ define hidden noundef ptr @av1_get_obmc_mask(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_count_overlappable_neighbors(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define hidden void @av1_count_overlappable_neighbors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3053,7 +3053,7 @@ foreach_overlappable_nb_left.exit:                ; preds = %119, %74, %foreach_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @av1_skip_u4x4_pred_in_obmc(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @av1_skip_u4x4_pred_in_obmc(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3071,7 +3071,7 @@ define hidden range(i32 0, 2) i32 @av1_skip_u4x4_pred_in_obmc(i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr nocapture noundef writeonly initializes((17, 18), (91, 92)) %0) local_unnamed_addr #3 {
+define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr noundef writeonly captures(none) initializes((17, 18), (91, 92)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 -1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 91
@@ -3080,7 +3080,7 @@ define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_build_obmc_inter_prediction(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #4 {
+define hidden void @av1_build_obmc_inter_prediction(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -3504,7 +3504,7 @@ foreach_overlappable_nb_left.exit:                ; preds = %build_obmc_inter_pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_setup_obmc_dst_bufs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) local_unnamed_addr #13 {
+define hidden void @av1_setup_obmc_dst_bufs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef writeonly captures(none) initializes((0, 24)) %2) local_unnamed_addr #13 {
   %4 = getelementptr i8, ptr %0, i64 7960
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 192
@@ -3581,7 +3581,7 @@ define hidden void @av1_setup_obmc_dst_bufs(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_setup_build_prediction_by_above_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef initializes((17, 18), (91, 92)) %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
+define hidden void @av1_setup_build_prediction_by_above_pred(ptr noundef captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef captures(none) initializes((17, 18), (91, 92)) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = load i8, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
@@ -3785,7 +3785,7 @@ av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_facto
 declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_setup_build_prediction_by_left_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef initializes((17, 18), (91, 92)) %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
+define hidden void @av1_setup_build_prediction_by_left_pred(ptr noundef captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef captures(none) initializes((17, 18), (91, 92)) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = load i8, ptr %3, align 8
   %8 = load i32, ptr %0, align 16
   %9 = add nsw i32 %8, %1
@@ -3991,7 +3991,7 @@ av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_facto
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_build_intra_predictors_for_interintra(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define hidden void @av1_build_intra_predictors_for_interintra(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %8, i64 0, i64 %9
@@ -4033,7 +4033,7 @@ define hidden void @av1_build_intra_predictors_for_interintra(ptr noundef %0, pt
 declare void @av1_predict_intra_block(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_combine_interintra(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define hidden void @av1_combine_interintra(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca [16384 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = sext i32 %2 to i64
@@ -4280,7 +4280,7 @@ combine_interintra.exit:                          ; preds = %146, %125, %121, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_build_interintra_predictor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #4 {
+define hidden void @av1_build_interintra_predictor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #4 {
   %8 = alloca [16384 x i16], align 16
   %9 = alloca [16384 x i8], align 16
   %10 = getelementptr i8, ptr %1, i64 7960
@@ -4337,7 +4337,7 @@ declare void @av1_highbd_convolve_2d_facade(ptr noundef, i32 noundef, ptr nounde
 declare void @av1_convolve_2d_facade(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @aom_convolve_copy_c(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -4373,10 +4373,10 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

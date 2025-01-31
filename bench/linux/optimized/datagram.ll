@@ -77,7 +77,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_datagram_pol
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable___sk_queue_drop_skb923, ptr @__UNIQUE_ID___addressable___skb_free_datagram_locked922, ptr @__UNIQUE_ID___addressable___skb_recv_datagram919, ptr @__UNIQUE_ID___addressable___skb_try_recv_datagram918, ptr @__UNIQUE_ID___addressable___skb_wait_for_more_packets916, ptr @__UNIQUE_ID___addressable___zerocopy_sg_from_iter938, ptr @__UNIQUE_ID___addressable_datagram_poll948, ptr @__UNIQUE_ID___addressable_skb_copy_and_csum_datagram_msg944, ptr @__UNIQUE_ID___addressable_skb_copy_and_hash_datagram_iter929, ptr @__UNIQUE_ID___addressable_skb_copy_datagram_from_iter935, ptr @__UNIQUE_ID___addressable_skb_copy_datagram_iter930, ptr @__UNIQUE_ID___addressable_skb_free_datagram921, ptr @__UNIQUE_ID___addressable_skb_kill_datagram924, ptr @__UNIQUE_ID___addressable_skb_recv_datagram920, ptr @__UNIQUE_ID___addressable_zerocopy_sg_from_iter941, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_skb_copy_datagram_iovec.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace755, ptr @trace_skb_copy_datagram_iovec.__UNIQUE_ID___addressable___SCK__tp_func_skb_copy_datagram_iovec754], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__skb_wait_for_more_packets(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr noundef readnone %4) #0 align 16 {
+define dso_local i32 @__skb_wait_for_more_packets(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone %4) #0 align 16 {
   %6 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -178,10 +178,10 @@ define dso_local i32 @__skb_wait_for_more_packets(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @receiver_wake_function(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
@@ -211,10 +211,10 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #3
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__skb_try_recv_from_queue(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 align 16 {
   %7 = and i32 %2, 2
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread.thread, label %9
@@ -387,7 +387,7 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__skb_try_recv_datagram(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) #0 align 16 {
+define dso_local ptr @__skb_try_recv_datagram(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5) #0 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -484,7 +484,7 @@ define dso_local ptr @__skb_try_recv_datagram(ptr noundef %0, ptr noundef %1, i3
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__skb_recv_datagram(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #0 align 16 {
+define dso_local ptr @__skb_recv_datagram(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
@@ -530,7 +530,7 @@ define dso_local ptr @__skb_recv_datagram(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @skb_recv_datagram(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local ptr @skb_recv_datagram(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -581,7 +581,7 @@ define dso_local ptr @skb_recv_datagram(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_free_datagram(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @skb_free_datagram(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @consume_skb(ptr noundef %1) #9
   ret void
 }
@@ -782,13 +782,13 @@ define dso_local noundef range(i32 -2, 1) i32 @skb_kill_datagram(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @skb_copy_and_hash_datagram_iter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @skb_copy_and_hash_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = tail call fastcc i32 @__skb_datagram_iter(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull @hash_and_copy_to_iter, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1178,7 +1178,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_iter(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @simple_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i64 @simple_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = icmp ugt i64 %1, 2147483647
   br i1 %5, label %6, label %7, !prof !14
 
@@ -1198,7 +1198,7 @@ define internal i64 @simple_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2137,7 +2137,7 @@ declare void @llvm.write_register.i64(metadata, i64) #7
 declare dso_local i64 @_copy_from_iter(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @csum_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @csum_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %7 = load i8, ptr %6, align 1, !range !56, !noundef !57

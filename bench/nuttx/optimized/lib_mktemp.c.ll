@@ -135,7 +135,7 @@ base62_to_char.exit.i:                            ; preds = %39, %37, %33
   br i1 %43, label %.lr.ph.i, label %copy_base62.exit, !llvm.loop !10
 
 copy_base62.exit:                                 ; preds = %base62_to_char.exit.i
-  %44 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3)
+  %44 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %50
 
@@ -163,17 +163,17 @@ copy_base62.exit:                                 ; preds = %base62_to_char.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @__errno() local_unnamed_addr #3
 
 declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #3
 

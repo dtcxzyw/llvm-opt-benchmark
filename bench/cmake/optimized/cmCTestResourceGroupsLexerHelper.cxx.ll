@@ -84,7 +84,7 @@ declare void @_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv(ptr
 declare noundef i32 @_Z35cmCTestResourceGroups_yylex_destroyPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetProcessCountEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetProcessCountEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -100,7 +100,7 @@ define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetResourceTypeERK
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper14SetNeededSlotsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper14SetNeededSlotsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -637,7 +637,7 @@ define internal void @_GLOBAL__sub_I_cmCTestResourceGroupsLexerHelper.cxx() #11 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

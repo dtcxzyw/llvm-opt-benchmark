@@ -578,7 +578,7 @@ declare i64 @qdict_get_try_int(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare ptr @qmp_query_rocker_of_dpa_flows(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #3

@@ -307,7 +307,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 9), (12, 20), (24, 136)) %this, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height) unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 9), (12, 20), (24, 136)) %this, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 16), ptr %this, align 8
   %_packedAcCount = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -344,7 +344,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 16), ptr %this, align 8
   %_dctData = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2091,7 +2091,7 @@ declare void @_ZN7Iex_3_29NoImplExcD1Ev(ptr noundef nonnull align 8 dereferencea
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBase7unRleAcERPtS2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %currAcComp, ptr noundef readnone %packedAcEnd, ptr nocapture noundef writeonly %halfZigBlock) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBase7unRleAcERPtS2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %currAcComp, ptr noundef readnone %packedAcEnd, ptr noundef writeonly captures(none) %halfZigBlock) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_packedAcCount = getelementptr inbounds nuw i8, ptr %this, i64 12
   %.pre = load ptr, ptr %currAcComp, align 8
@@ -2188,10 +2188,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #12
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
 
@@ -2199,7 +2199,7 @@ declare void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN7Iex_3_28InputExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((0, 20), (24, 128)) %this, float noundef %quantBaseError, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #14 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((0, 20), (24, 128)) %this, float noundef %quantBaseError, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 16), ptr %this, align 8
   %_quantBaseError = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2243,7 +2243,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 16), ptr %this, align 8
   %_dctData = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -3572,7 +3572,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i343, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i16 @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8quantizeEN9Imath_3_24halfEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, i16 %src.coerce, float noundef %errorTolerance) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i16 @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8quantizeEN9Imath_3_24halfEf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, i16 %src.coerce, float noundef %errorTolerance) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i = zext i16 %src.coerce to i64
@@ -3624,7 +3624,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8toZigZagEPN9Imath_3_24halfES4_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #16 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase8toZigZagEPN9Imath_3_24halfES4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #16 align 2 {
 entry:
   br label %for.body
 
@@ -3646,7 +3646,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase5rleAcEPN9Imath_3_24halfERPt(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull align 8 dereferenceable(8) %acPtr) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase5rleAcEPN9Imath_3_24halfERPt(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, ptr noundef readonly captures(none) %block, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %acPtr) local_unnamed_addr #17 align 2 {
 entry:
   %_numAcComp = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %while.body
@@ -3733,7 +3733,7 @@ while.end41:                                      ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 131071) i32 @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase12countSetBitsEt(ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, i16 noundef zeroext %src) local_unnamed_addr #18 align 2 {
+define hidden noundef range(i32 0, 131071) i32 @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBase12countSetBitsEt(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(640) %this, i16 noundef zeroext %src) local_unnamed_addr #18 align 2 {
 entry:
   %conv = zext i16 %src to i32
   %and = and i32 %conv, 255
@@ -4166,7 +4166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7Imf_3_213DwaCompressor12numScanLinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) unnamed_addr #19 align 2 {
+define hidden noundef i32 @_ZNK7Imf_3_213DwaCompressor12numScanLinesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) unnamed_addr #19 align 2 {
 entry:
   %_numScanLines = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_numScanLines, align 8
@@ -4174,7 +4174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZNK7Imf_3_213DwaCompressor6formatEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #20 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK7Imf_3_213DwaCompressor6formatEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #20 align 2 {
 entry:
   %.b = load i1, ptr @_ZN7Imf_3_2L27GLOBAL_SYSTEM_LITTLE_ENDIANE, align 1
   %0 = xor i1 %.b, true
@@ -4183,7 +4183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_min = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -4208,7 +4208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %outBufferSize = alloca i64, align 8
   %channelRules = alloca %"class.std::vector.57", align 8
@@ -5613,7 +5613,7 @@ _ZNSt6vectorIN7Imf_3_213DwaCompressor10ClassifierESaIS2_EED2Ev.exit337: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %0 = load i32, ptr %range, align 4
@@ -9279,7 +9279,7 @@ eh.resume:                                        ; preds = %ehcleanup189, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor17initializeBuffersERm(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outBufferSize) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor17initializeBuffersERm(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outBufferSize) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Alloc_node", align 8
   %agg.tmp = alloca %"class.Imf_3_2::ChannelList", align 8
@@ -9760,7 +9760,7 @@ eh.resume:                                        ; preds = %lpad188, %lpad94, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7Imf_3_213DwaCompressor20relevantChannelRulesERSt6vectorINS0_10ClassifierESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(24) %rules) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7Imf_3_213DwaCompressor20relevantChannelRulesERSt6vectorINS0_10ClassifierESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(24) %rules) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suffixes = alloca %"class.std::vector.74", align 8
   %suffix = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9989,10 +9989,10 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor16setupChannelDataEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this, i32 noundef %minX, i32 noundef %minY, i32 noundef %maxX, i32 noundef %maxY) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor16setupChannelDataEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, i32 noundef %minX, i32 noundef %minY, i32 noundef %maxX, i32 noundef %maxY) local_unnamed_addr #7 align 2 {
 entry:
   %planarUncBuffer = alloca [3 x ptr], align 16
   %_planarUncBuffer = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -10556,7 +10556,7 @@ declare noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull align 8
 declare noundef i32 @_ZN7Imf_3_211rleCompressEiPKcPa(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_min = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -10581,7 +10581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %counterBuf = alloca %"struct.std::array", align 8
   %dataPtr = alloca ptr, align 8
@@ -12487,7 +12487,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i368, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213DwaCompressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %0 = load i32, ptr %range, align 4
@@ -13262,7 +13262,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_127convertFloatToHalf64_scalarEPtPf(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_127convertFloatToHalf64_scalarEPtPf(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) #16 personality ptr @__gxx_personality_v0 {
 entry:
   br label %for.body
 
@@ -13830,7 +13830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi0EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi0EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -13983,7 +13983,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi1EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi1EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14136,7 +14136,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi2EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi2EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14289,7 +14289,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi3EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi3EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14442,7 +14442,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi4EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi4EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14595,7 +14595,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi5EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi5EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14748,7 +14748,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi6EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi6EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   br label %for.body
 
@@ -14899,7 +14899,7 @@ for.end315:                                       ; preds = %for.body132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi7EEEvPf(ptr nocapture noundef %data) #16 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_120dctInverse8x8_scalarILi7EEEvPf(ptr noundef captures(none) %data) #16 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load float, ptr %arrayidx, align 4
@@ -15116,7 +15116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi0EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -15497,7 +15497,7 @@ for.end803:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi1EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -15845,7 +15845,7 @@ for.end721:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi2EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -16160,7 +16160,7 @@ for.end639:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi3EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -16442,7 +16442,7 @@ for.end557:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi4EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -16691,7 +16691,7 @@ for.end475:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi5EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -16907,7 +16907,7 @@ for.end393:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi6EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -17090,7 +17090,7 @@ for.end311:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf(ptr nocapture noundef %data) #23 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_118dctInverse8x8_sse2ILi7EEEvPf(ptr noundef captures(none) %data) #23 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -17240,7 +17240,7 @@ for.end229:                                       ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor16classifyChannelsENS_11ChannelListERSt6vectorINS0_11ChannelDataESaIS3_EERS2_INS0_13CscChannelSetESaIS7_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this, ptr noundef nonnull %channels, ptr noundef nonnull align 8 dereferenceable(24) %chanData, ptr noundef nonnull align 8 dereferenceable(24) %cscData) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor16classifyChannelsENS_11ChannelListERSt6vectorINS0_11ChannelDataESaIS3_EERS2_INS0_13CscChannelSetESaIS7_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef nonnull %channels, ptr noundef nonnull align 8 dereferenceable(24) %chanData, ptr noundef nonnull align 8 dereferenceable(24) %cscData) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.104", align 1
@@ -18313,7 +18313,7 @@ entry:
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18788,7 +18788,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #27
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #27
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -18831,7 +18831,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #28
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #29
@@ -20020,10 +20020,10 @@ entry:
 declare void @llvm.assume(i1 noundef) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33
@@ -20038,7 +20038,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #34
 declare i32 @llvm.umin.i32(i32, i32) #33
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #33

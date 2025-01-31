@@ -339,7 +339,7 @@ define internal noundef i64 @inetsock_cleanup(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @rsock_revlookup_flag(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @rsock_revlookup_flag(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   switch i64 %0, label %4 [
     i64 20, label %.sink.split
     i64 0, label %3
@@ -529,7 +529,7 @@ RSTRING_PTR.exit:                                 ; preds = %28, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ip_addr(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @ip_addr(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %union.union_sockaddr, align 8
   %5 = alloca i32, align 4
   store i32 2048, ptr %5, align 4
@@ -619,7 +619,7 @@ rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ip_peeraddr(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @ip_peeraddr(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %union.union_sockaddr, align 8
   %5 = alloca i32, align 4
   store i32 2048, ptr %5, align 4
@@ -744,7 +744,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare { i64, i64 } @rb_time_interval(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @rsock_addrinfo(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

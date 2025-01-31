@@ -65,13 +65,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN13MethodMatcherD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13MethodMatcherD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MethodMatcherC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13MethodMatcherD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -107,7 +107,7 @@ define hidden void @_ZN13MethodMatcherD2Ev(ptr nocapture noundef nonnull readonl
 declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -121,7 +121,7 @@ define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
@@ -130,138 +130,128 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = load i8, ptr %5, align 1
   %.not51 = icmp eq i8 %6, 0
-  br i1 %.not51, label %9, label %7
+  br i1 %.not51, label %.preheader81, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str) #15
   %.not52 = icmp eq ptr %8, null
-  br i1 %.not52, label %9, label %.loopexit.sink.split
+  br i1 %.not52, label %.preheader81, label %.loopexit.sink.split
 
-9:                                                ; preds = %7, %4
-  %.not53 = icmp eq ptr %0, null
-  br i1 %.not53, label %.loopexit68.thread, label %.preheader69
+.preheader81:                                     ; preds = %4, %7
+  br label %9
 
-.preheader69:                                     ; preds = %9, %.preheader69
-  %.pn55 = phi ptr [ %.040, %.preheader69 ], [ %0, %9 ]
-  %.040 = getelementptr inbounds nuw i8, ptr %.pn55, i64 1
+9:                                                ; preds = %.preheader81, %9
+  %.pn54 = phi ptr [ %.040, %9 ], [ %0, %.preheader81 ]
+  %.040 = getelementptr inbounds nuw i8, ptr %.pn54, i64 1
   %10 = load i8, ptr %.040, align 1
-  switch i8 %10, label %.preheader69 [
-    i8 0, label %.loopexit68
-    i8 40, label %.loopexit68
+  switch i8 %10, label %9 [
+    i8 0, label %.loopexit67
+    i8 40, label %.loopexit67
     i8 47, label %.loopexit.sink.split
   ], !llvm.loop !6
 
 11:                                               ; preds = %2
   %12 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #15
   %.not49 = icmp eq ptr %12, null
-  br i1 %.not49, label %.loopexit68.thread77, label %.preheader
+  br i1 %.not49, label %.loopexit67.thread, label %.preheader
 
-.preheader:                                       ; preds = %11, %.thread60
-  %.038 = phi i1 [ %.15964, %.thread60 ], [ false, %11 ]
-  %.pn = phi ptr [ %.037, %.thread60 ], [ %12, %11 ]
+.preheader:                                       ; preds = %11, %.thread59
+  %.038 = phi i1 [ %.15863, %.thread59 ], [ false, %11 ]
+  %.pn = phi ptr [ %.037, %.thread59 ], [ %12, %11 ]
   %.037 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %13 = load i8, ptr %.037, align 1
   switch i8 %13, label %14 [
-    i8 0, label %.loopexit68
-    i8 40, label %.thread60
-    i8 44, label %.loopexit68
+    i8 0, label %.loopexit67
+    i8 40, label %.thread59
+    i8 44, label %.loopexit67
   ]
 
 14:                                               ; preds = %.preheader
   %15 = icmp ne i8 %13, 47
   %or.cond.not = or i1 %.038, %15
-  br i1 %or.cond.not, label %.thread60, label %.loopexit.sink.split
+  br i1 %or.cond.not, label %.thread59, label %.loopexit.sink.split
 
-.thread60:                                        ; preds = %.preheader, %14
-  %.15964 = phi i1 [ %.038, %14 ], [ true, %.preheader ]
+.thread59:                                        ; preds = %.preheader, %14
+  %.15863 = phi i1 [ %.038, %14 ], [ true, %.preheader ]
   %16 = icmp eq i8 %13, 46
   br i1 %16, label %.loopexit.sink.split, label %.preheader, !llvm.loop !8
 
-.loopexit68:                                      ; preds = %.preheader69, %.preheader69, %.preheader, %.preheader
+.loopexit67:                                      ; preds = %9, %9, %.preheader, %.preheader
   %17 = load i8, ptr %0, align 1
-  %.not5671 = icmp eq i8 %17, 0
-  br i1 %.not5671, label %.loopexit, label %.lr.ph
+  %.not5569 = icmp eq i8 %17, 0
+  br i1 %.not5569, label %.loopexit, label %.lr.ph
 
-.loopexit68.thread77:                             ; preds = %11
+.loopexit67.thread:                               ; preds = %11
   %18 = load i8, ptr %0, align 1
-  %.not567178 = icmp eq i8 %18, 0
-  br i1 %.not567178, label %.loopexit, label %.lr.ph.split.us.preheader
+  %.not556974 = icmp eq i8 %18, 0
+  br i1 %.not556974, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.loopexit68.thread:                               ; preds = %9
-  %19 = load i8, ptr %0, align 1
-  %.not567176 = icmp eq i8 %19, 0
-  br i1 %.not567176, label %.loopexit, label %.lr.ph.split.preheader
+.lr.ph:                                           ; preds = %.loopexit67
+  br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
-.lr.ph:                                           ; preds = %.loopexit68
-  br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.loopexit68.thread, %.lr.ph
-  %.pr.ph = phi i8 [ %19, %.loopexit68.thread ], [ %17, %.lr.ph ]
-  br label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.loopexit68.thread77, %.lr.ph
-  %.ph = phi i8 [ %18, %.loopexit68.thread77 ], [ %17, %.lr.ph ]
+.lr.ph.split.us.preheader:                        ; preds = %.loopexit67.thread, %.lr.ph
+  %.ph = phi i8 [ %18, %.loopexit67.thread ], [ %17, %.lr.ph ]
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread66.us
-  %20 = phi i8 [ %23, %.thread66.us ], [ %.ph, %.lr.ph.split.us.preheader ]
-  %.072.us = phi ptr [ %22, %.thread66.us ], [ %0, %.lr.ph.split.us.preheader ]
-  switch i8 %20, label %.thread66.us [
-    i8 44, label %21
-    i8 46, label %21
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread65.us
+  %19 = phi i8 [ %22, %.thread65.us ], [ %.ph, %.lr.ph.split.us.preheader ]
+  %.070.us = phi ptr [ %21, %.thread65.us ], [ %0, %.lr.ph.split.us.preheader ]
+  switch i8 %19, label %.thread65.us [
+    i8 44, label %20
+    i8 46, label %20
   ]
 
-21:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
-  store i8 32, ptr %.072.us, align 1
-  br label %.thread66.us
+20:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
+  store i8 32, ptr %.070.us, align 1
+  br label %.thread65.us
 
-.thread66.us:                                     ; preds = %21, %.lr.ph.split.us
-  %22 = getelementptr inbounds nuw i8, ptr %.072.us, i64 1
-  %23 = load i8, ptr %22, align 1
-  %.not56.us = icmp eq i8 %23, 0
-  br i1 %.not56.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+.thread65.us:                                     ; preds = %20, %.lr.ph.split.us
+  %21 = getelementptr inbounds nuw i8, ptr %.070.us, i64 1
+  %22 = load i8, ptr %21, align 1
+  %.not55.us = icmp eq i8 %22, 0
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread66
-  %.pr = phi i8 [ %26, %.thread66 ], [ %.pr.ph, %.lr.ph.split.preheader ]
-  %.072 = phi ptr [ %25, %.thread66 ], [ %0, %.lr.ph.split.preheader ]
-  switch i8 %.pr, label %.thread66 [
-    i8 46, label %.thread66.sink.split
-    i8 58, label %24
-    i8 44, label %24
+.lr.ph.split:                                     ; preds = %.lr.ph, %.thread65
+  %.pr = phi i8 [ %25, %.thread65 ], [ %17, %.lr.ph ]
+  %.070 = phi ptr [ %24, %.thread65 ], [ %0, %.lr.ph ]
+  switch i8 %.pr, label %.thread65 [
+    i8 46, label %.thread65.sink.split
+    i8 58, label %23
+    i8 44, label %23
   ]
 
-24:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  br label %.thread66.sink.split
+23:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  br label %.thread65.sink.split
 
-.thread66.sink.split:                             ; preds = %.lr.ph.split, %24
-  %.sink = phi i8 [ 32, %24 ], [ 47, %.lr.ph.split ]
-  store i8 %.sink, ptr %.072, align 1
-  br label %.thread66
+.thread65.sink.split:                             ; preds = %.lr.ph.split, %23
+  %.sink = phi i8 [ 32, %23 ], [ 47, %.lr.ph.split ]
+  store i8 %.sink, ptr %.070, align 1
+  br label %.thread65
 
-.thread66:                                        ; preds = %.thread66.sink.split, %.lr.ph.split
-  %25 = getelementptr inbounds nuw i8, ptr %.072, i64 1
-  %26 = load i8, ptr %25, align 1
-  %.not56 = icmp eq i8 %26, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+.thread65:                                        ; preds = %.thread65.sink.split, %.lr.ph.split
+  %24 = getelementptr inbounds nuw i8, ptr %.070, i64 1
+  %25 = load i8, ptr %24, align 1
+  %.not55 = icmp eq i8 %25, 0
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
-.loopexit.sink.split:                             ; preds = %.preheader69, %.thread60, %14, %7
-  %.str.7.sink = phi ptr [ @.str.4, %7 ], [ @.str.6, %14 ], [ @.str.7, %.thread60 ], [ @.str.5, %.preheader69 ]
+.loopexit.sink.split:                             ; preds = %9, %.thread59, %14, %7
+  %.str.7.sink = phi ptr [ @.str.4, %7 ], [ @.str.6, %14 ], [ @.str.7, %.thread59 ], [ @.str.5, %9 ]
   store ptr %.str.7.sink, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread66, %.thread66.us, %.loopexit.sink.split, %.loopexit68.thread77, %.loopexit68.thread, %.loopexit68
-  %.039 = phi i1 [ true, %.loopexit68 ], [ true, %.loopexit68.thread ], [ true, %.loopexit68.thread77 ], [ false, %.loopexit.sink.split ], [ true, %.thread66.us ], [ true, %.thread66 ]
+.loopexit:                                        ; preds = %.thread65, %.thread65.us, %.loopexit.sink.split, %.loopexit67.thread, %.loopexit67
+  %.039 = phi i1 [ true, %.loopexit67 ], [ true, %.loopexit67.thread ], [ false, %.loopexit.sink.split ], [ true, %.thread65.us ], [ true, %.thread65 ]
   ret i1 %.039
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   switch i32 %3, label %7 [
     i32 4, label %_ZN12ResourceMarkD2Ev.exit
     i32 0, label %5
@@ -294,7 +284,7 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE
 
 22:                                               ; preds = %7
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %21)
-  %strncmp = tail call i32 @strncmp(ptr %20, ptr %21, i64 %strlen)
+  %strncmp = tail call i32 @strncmp(ptr %20, ptr nonnull %21, i64 %strlen)
   %cmp = icmp eq i32 %strncmp, 0
   br label %35
 
@@ -347,13 +337,13 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %4, %5
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
@@ -659,10 +649,10 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull %1) unnamed_addr #6 {
+define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #6 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -686,7 +676,7 @@ define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare noundef i32 @_ZN14CompilerOracle17parse_option_typeEPKc(ptr noundef) local_unnamed_addr #2
 
@@ -705,7 +695,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Symbol6equalsEPKc(ptr nounde
 _ZNK6Symbol16contains_utf8_atEiPKci.exit.i:       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %9 = and i64 %3, 4294967295
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %8, ptr %1, i64 %9)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %8, ptr nonnull %1, i64 %9)
   %10 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZNK6Symbol6equalsEPKci.exit
 
@@ -720,7 +710,7 @@ declare void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -803,7 +793,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -899,7 +889,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
@@ -997,7 +987,7 @@ _ZN12BasicMatcherD2Ev.exit15:                     ; preds = %34, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12BasicMatcher5matchERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN12BasicMatcher5matchERK12methodHandle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
@@ -1058,7 +1048,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread: ; preds = %34, %38, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13InlineMatcher5printEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13InlineMatcher5printEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
@@ -1069,7 +1059,7 @@ define hidden void @_ZN13InlineMatcher5printEP12outputStream(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
@@ -1120,7 +1110,7 @@ _ZN13InlineMatcherD2Ev.exit:                      ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   br label %4
 
 4:                                                ; preds = %3, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
@@ -1187,7 +1177,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %39, %29, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %5 [
     i8 45, label %6
@@ -1219,7 +1209,7 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %3, align 8
@@ -1369,7 +1359,7 @@ declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 derefer
 declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1380,16 +1370,16 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @strncmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

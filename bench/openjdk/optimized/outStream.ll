@@ -93,14 +93,14 @@ commonInit.exit:                                  ; preds = %2, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @outStream_id(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden i32 @outStream_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @outStream_command(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden signext i8 @outStream_command(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
@@ -130,7 +130,7 @@ define hidden signext i8 @outStream_command(ptr nocapture noundef readonly %0) l
 declare void @jdiAssertionFailed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeBoolean(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeBoolean(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %.not = icmp ne i8 %1, 0
   %4 = zext i1 %.not to i8
@@ -140,7 +140,7 @@ define hidden zeroext i16 @outStream_writeBoolean(ptr nocapture noundef %0, i8 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i16 @writeBytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -230,7 +230,7 @@ define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeByte(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeByte(ptr noundef captures(none) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %4 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1)
@@ -238,7 +238,7 @@ define hidden zeroext i16 @outStream_writeByte(ptr nocapture noundef %0, i8 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeChar(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeChar(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev, ptr %3, align 2
@@ -247,7 +247,7 @@ define hidden zeroext i16 @outStream_writeChar(ptr nocapture noundef %0, i16 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeShort(ptr nocapture noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeShort(ptr noundef captures(none) %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev, ptr %3, align 2
@@ -256,7 +256,7 @@ define hidden zeroext i16 @outStream_writeShort(ptr nocapture noundef %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeInt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeInt(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @llvm.bswap.i32(i32 %1)
   store i32 %4, ptr %3, align 4
@@ -265,7 +265,7 @@ define hidden zeroext i16 @outStream_writeInt(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeLong(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeLong(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call i64 @llvm.bswap.i64(i64 %1)
   store i64 %4, ptr %3, align 8
@@ -274,7 +274,7 @@ define hidden zeroext i16 @outStream_writeLong(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeFloat(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeFloat(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = alloca float, align 4
   %4 = tail call float @stream_encodeFloat(float noundef %1) #7
   store float %4, ptr %3, align 4
@@ -285,7 +285,7 @@ define hidden zeroext i16 @outStream_writeFloat(ptr nocapture noundef %0, float 
 declare float @stream_encodeFloat(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeDouble(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeDouble(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = tail call double @stream_encodeDouble(double noundef %1) #7
   store double %4, ptr %3, align 8
@@ -296,7 +296,7 @@ define hidden zeroext i16 @outStream_writeDouble(ptr nocapture noundef %0, doubl
 declare double @stream_encodeDouble(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeObjectTag(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeObjectTag(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = tail call signext i8 @specificTypeKey(ptr noundef %0, ptr noundef %2) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -309,7 +309,7 @@ define hidden zeroext i16 @outStream_writeObjectTag(ptr noundef %0, ptr nocaptur
 declare signext i8 @specificTypeKey(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -364,7 +364,7 @@ outStream_writeObjectRef.exit:                    ; preds = %7, %14, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeObjectRef(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeObjectRef(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
@@ -423,7 +423,7 @@ declare ptr @bagAdd(ptr noundef) local_unnamed_addr #2
 declare void @commonRef_release(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeFrameID(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeFrameID(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call i64 @llvm.bswap.i64(i64 %1)
@@ -434,7 +434,7 @@ define hidden zeroext i16 @outStream_writeFrameID(ptr nocapture noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeMethodID(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeMethodID(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -446,7 +446,7 @@ define hidden zeroext i16 @outStream_writeMethodID(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeFieldID(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeFieldID(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -458,7 +458,7 @@ define hidden zeroext i16 @outStream_writeFieldID(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeLocation(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeLocation(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call i64 @llvm.bswap.i64(i64 %1)
@@ -469,7 +469,7 @@ define hidden zeroext i16 @outStream_writeLocation(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeByteArray(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeByteArray(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = tail call i32 @llvm.bswap.i32(i32 %1)
@@ -481,7 +481,7 @@ define hidden zeroext i16 @outStream_writeByteArray(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeString(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeString(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -543,7 +543,7 @@ define hidden zeroext i16 @outStream_writeString(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @utf8mToUtf8sLength(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -554,7 +554,7 @@ declare void @utf8mToUtf8s(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr nocapture noundef %1, i8 noundef signext %2, i64 %3) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr noundef captures(none) %1, i8 noundef signext %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
   %7 = alloca i64, align 8
@@ -769,7 +769,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #2
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @outStream_skipBytes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @outStream_skipBytes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -792,7 +792,7 @@ define hidden zeroext i16 @outStream_skipBytes(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i16 @outStream_error(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden zeroext i16 @outStream_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = trunc i32 %3 to i16
@@ -800,7 +800,7 @@ define hidden zeroext i16 @outStream_error(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @outStream_setError(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden void @outStream_setError(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1005,7 +1005,7 @@ outStream_send.exit.thread:                       ; preds = %21, %outStream_send
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @outStream_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @outStream_destroy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1050,7 +1050,7 @@ define hidden void @outStream_destroy(ptr nocapture noundef readonly %0) local_u
 declare zeroext i8 @bagEnumerateOver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @releaseID(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef zeroext i8 @releaseID(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @getEnv() #7
   %4 = load i64, ptr %0, align 8
   tail call void @commonRef_release(ptr noundef %3, i64 noundef %4) #7
@@ -1062,7 +1062,7 @@ declare void @bagDestroyBag(ptr noundef) local_unnamed_addr #2
 declare ptr @bagCreateBag(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @transport_sendPacket(ptr noundef) local_unnamed_addr #2
 
@@ -1081,10 +1081,10 @@ declare i64 @llvm.bswap.i64(i64) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

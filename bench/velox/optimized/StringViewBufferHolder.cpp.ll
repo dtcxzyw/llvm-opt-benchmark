@@ -49,7 +49,7 @@ $_ZTIN8facebook5velox13AlignedBufferE = comdat any
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringViewEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringViewEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.facebook::velox::StringView", align 8
   %ref.tmp = alloca %"class.boost::intrusive_ptr", align 8
@@ -327,10 +327,10 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringViewENS0_10StringViewE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 %stringView.coerce0, ptr %stringView.coerce1) local_unnamed_addr #0 align 2 {
+define { i64, ptr } @_ZN8facebook5velox22StringViewBufferHolder18getOwnedStringViewENS0_10StringViewE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i64 %stringView.coerce0, ptr %stringView.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %stringView.sroa.0.0.extract.trunc = trunc i64 %stringView.coerce0 to i32
   %cmp.i.i = icmp ult i32 %stringView.sroa.0.0.extract.trunc, 13
@@ -354,7 +354,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {

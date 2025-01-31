@@ -255,7 +255,7 @@ declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 declare i32 @EVP_CIPHER_iv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -418,7 +418,7 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PKCS5_v2_PBE_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr nocapture noundef readnone %unused, ptr nocapture noundef readnone %unused2, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden i32 @PKCS5_v2_PBE_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr noundef readnone captures(none) %unused, ptr noundef readnone captures(none) %unused2, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %cmp = icmp eq ptr %param, null
@@ -513,7 +513,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_get_cipherbynid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PKCS5_v2_PBKDF2_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr nocapture noundef readonly %iv, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc i32 @PKCS5_v2_PBKDF2_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr noundef readonly captures(none) %iv, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %key = alloca [64 x i8], align 16

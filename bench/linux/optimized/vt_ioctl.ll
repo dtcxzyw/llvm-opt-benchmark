@@ -106,10 +106,10 @@ define dso_local void @vt_event_post(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -221,7 +221,7 @@ __vt_event_wait.exit:                             ; preds = %21, %.thread1.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
@@ -1182,7 +1182,7 @@ define internal fastcc i32 @vt_setactivate(ptr noundef %0) unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vt_reldisp(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @vt_reldisp(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 1
@@ -1387,7 +1387,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @vt_disallocate(i32 noundef
 declare dso_local i32 @vc_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vt_resizex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @vt_resizex(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.vt_consize, align 2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !9
@@ -1648,7 +1648,7 @@ declare dso_local void @vt_reset_unicode(i32 noundef) local_unnamed_addr #2
 declare dso_local void @reset_palette(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vc_SAK(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @vc_SAK(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   tail call void @console_lock() #7
   %3 = load ptr, ptr %2, align 8
@@ -2113,7 +2113,7 @@ declare dso_local i64 @ksys_ioperm(i64 noundef, i64 noundef, i32 noundef) local_
 declare dso_local i32 @kbd_rate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @vt_kdsetmode(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vt_kdsetmode(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 align 16 {
   switch i64 %1, label %21 [
     i64 1, label %4
     i64 2, label %3

@@ -268,7 +268,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_crldp(ptr nocapture readnone %method, ptr noundef %pcrldp, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_crldp(ptr readnone captures(none) %method, ptr noundef %pcrldp, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %call131 = tail call i32 @OPENSSL_sk_num(ptr noundef %pcrldp) #4
   %cmp32 = icmp sgt i32 %call131, 0
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_idp(ptr nocapture readnone %method, ptr noundef %ctx, ptr noundef %nval) #1 {
+define internal ptr @v2i_idp(ptr readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) #1 {
 entry:
   %call1.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @ISSUING_DIST_POINT_it.local_it) #4
   %cmp = icmp eq ptr %call1.i, null
@@ -655,7 +655,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_idp(ptr nocapture readnone %method, ptr nocapture noundef readonly %pidp, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_idp(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %pidp, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %0 = load ptr, ptr %pidp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -902,7 +902,7 @@ declare void @GENERAL_NAMES_free(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr nocapture noundef nonnull %pdp, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr noundef nonnull captures(none) %pdp, ptr noundef %ctx, ptr noundef readonly captures(none) %cnf) unnamed_addr #1 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %cnf, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -1018,10 +1018,10 @@ return:                                           ; preds = %if.then42, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr nocapture noundef nonnull %preas, ptr noundef %value) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr noundef nonnull captures(none) %preas, ptr noundef %value) unnamed_addr #1 {
 entry:
   %call = tail call ptr @X509V3_parse_list(ptr noundef %value) #4
   %cmp = icmp eq ptr %call, null
@@ -1140,7 +1140,7 @@ return:                                           ; preds = %if.then9, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @X509_NAME_new() local_unnamed_addr #2
 
@@ -1163,7 +1163,7 @@ declare ptr @GENERAL_NAME_it() #2
 declare ptr @X509_NAME_ENTRY_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dpn_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @dpn_cb(i32 noundef %operation, ptr noundef readonly captures(none) %pval, ptr readnone captures(none) %it, ptr readnone captures(none) %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %sw.epilog [
@@ -1195,7 +1195,7 @@ declare i32 @X509V3_get_value_bool(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_distpoint(ptr noundef %out, ptr nocapture noundef nonnull readonly %dpn, i32 noundef %indent) unnamed_addr #1 {
+define internal fastcc void @print_distpoint(ptr noundef %out, ptr noundef nonnull readonly captures(none) %dpn, i32 noundef %indent) unnamed_addr #1 {
 entry:
   %ntmp = alloca %struct.X509_name_st, align 8
   %0 = load i32, ptr %dpn, align 8

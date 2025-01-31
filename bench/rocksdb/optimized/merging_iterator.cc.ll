@@ -5289,7 +5289,7 @@ eh.resume:                                        ; preds = %ehcleanup222, %dele
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15MergingIterator11InitMaxHeapEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15MergingIterator11InitMaxHeapEv(ptr noundef nonnull align 8 captures(none) dereferenceable(344) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maxHeap_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %maxHeap_, align 8
@@ -8124,7 +8124,7 @@ _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EED2Ev.exit20: ; preds = 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20MergeIteratorBuilderC2EPKNS_21InternalKeyComparatorEPNS_5ArenaEbPKNS_5SliceE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 17), (24, 56)) %this, ptr noundef %comparator, ptr noundef %a, i1 noundef zeroext %prefix_seek_mode, ptr noundef %iterate_upper_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20MergeIteratorBuilderC2EPKNS_21InternalKeyComparatorEPNS_5ArenaEbPKNS_5SliceE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((8, 17), (24, 56)) %this, ptr noundef %comparator, ptr noundef %a, i1 noundef zeroext %prefix_seek_mode, ptr noundef %iterate_upper_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first_iter = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %first_iter, align 8
@@ -8204,7 +8204,7 @@ _ZNSt6vectorISt4pairImPPPN7rocksdb25TruncatedRangeDelIteratorEESaIS6_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb20MergeIteratorBuilderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20MergeIteratorBuilderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first_iter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %first_iter, align 8
@@ -8243,7 +8243,7 @@ _ZNSt6vectorISt4pairImPPPN7rocksdb25TruncatedRangeDelIteratorEESaIS6_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20MergeIteratorBuilder11AddIteratorEPNS_20InternalIteratorBaseINS_5SliceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %iter) local_unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb20MergeIteratorBuilder11AddIteratorEPNS_20InternalIteratorBaseINS_5SliceEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %iter) local_unnamed_addr #3 align 2 {
 entry:
   %use_merging_iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %use_merging_iter, align 8
@@ -8288,7 +8288,7 @@ if.end12:                                         ; preds = %if.else, %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20MergeIteratorBuilder28AddPointAndTombstoneIteratorEPNS_20InternalIteratorBaseINS_5SliceEEEPNS_25TruncatedRangeDelIteratorEPPS6_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %point_iter, ptr noundef %tombstone_iter, ptr noundef %tombstone_iter_ptr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20MergeIteratorBuilder28AddPointAndTombstoneIteratorEPNS_20InternalIteratorBaseINS_5SliceEEEPNS_25TruncatedRangeDelIteratorEPPS6_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %point_iter, ptr noundef %tombstone_iter, ptr noundef %tombstone_iter_ptr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %tombstone_iter, null
   br i1 %tobool.not, label %lor.lhs.false, label %lor.end
@@ -8617,7 +8617,7 @@ if.end40:                                         ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb20MergeIteratorBuilder6FinishEPNS_18ArenaWrappedDBIterE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef writeonly %db_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb20MergeIteratorBuilder6FinishEPNS_18ArenaWrappedDBIterE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly %db_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %use_merging_iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %use_merging_iter, align 8
@@ -8751,7 +8751,7 @@ if.end20:                                         ; preds = %_ZN7rocksdb15Mergin
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %__val) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -8929,7 +8929,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -13281,7 +13281,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb10autovectorIPNS_15MergingIterator8HeapItemELm8EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %item) local_unnamed_addr #3 comdat align 2 {
@@ -13716,10 +13716,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

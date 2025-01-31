@@ -2380,7 +2380,7 @@ define internal void @__cxx_global_var_init.56() #4 section ".text.startup" comd
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt8optionalIN4Luau16FunctionArgumentEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2433,7 +2433,7 @@ _ZNSt12_Vector_baseISt8optionalIN4Luau16FunctionArgumentEESaIS3_EED2Ev.exit: ; p
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TypePackStringifier", align 8
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %3, align 8
@@ -2694,7 +2694,7 @@ _ZNSt6vectorISt8optionalIN4Luau16FunctionArgumentEESaIS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarERKSt6vectorISt8optionalINS_16FunctionArgumentEESaIS7_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarERKSt6vectorISt8optionalINS_16FunctionArgumentEESaIS7_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::TypePackStringifier", align 8
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %4, align 8
@@ -7564,10 +7564,10 @@ _ZN4LuauL11dumpOptionsEv.exit:                    ; preds = %2, %6, %8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt8optionalIPKNS_4TypeEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt8optionalIPKNS_4TypeEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -7683,7 +7683,7 @@ _ZN4LuauL11dumpOptionsEv.exit:                    ; preds = %2, %6, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt8optionalIPKNS_11TypePackVarEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt8optionalIPKNS_11TypePackVarEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -7734,7 +7734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt10shared_ptrINS_5ScopeEEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4dumpB5cxx11ERKSt10shared_ptrINS_5ScopeEEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::optional.158", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8098,7 +8098,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %46, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14toStringVectorB5cxx11ERKSt6vectorIPKNS_4TypeESaIS3_EERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14toStringVectorB5cxx11ERKSt6vectorIPKNS_4TypeESaIS3_EERNS_15ToStringOptionsE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
@@ -8442,7 +8442,7 @@ define dso_local void @_ZN4Luau4dumpB5cxx11ERKNS_10ConstraintE(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau23getFunctionNameAsStringB5cxx11ERKNS_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.64") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau23getFunctionNameAsStringB5cxx11ERKNS_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.64") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8650,7 +8650,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -8668,7 +8668,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8PositionE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8PositionE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8901,7 +8901,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %48, %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8LocationEib(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8LocationEib(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9116,7 +9116,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_8LocationEib(ptr dead_on_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) local_unnamed_addr #6 {
+define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEERNS_15ToStringOptionsE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) local_unnamed_addr #6 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = load i32, ptr %1, align 8
@@ -9149,7 +9149,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_7VariantIJPKNS_4TypeEPKNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4dumpB5cxx11ERKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4dumpB5cxx11ERKNS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::ToStringResult", align 8
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringOptions", align 8
@@ -9255,7 +9255,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt8optionalIN4Luau16FunctionArgumentEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
@@ -9350,7 +9350,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_9Unifiable5BoundIS4_EEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_9Unifiable5BoundIS4_EEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   tail call void @_ZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %4)
@@ -9358,7 +9358,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_9Unifiable5ErrorEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_9Unifiable5ErrorEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9393,7 +9393,7 @@ _ZZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarEENKUlOT_E_clIRKNS_9U
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_12FreeTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_12FreeTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9402,7 +9402,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_15GenericTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_15GenericTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9411,7 +9411,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_8TypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_8TypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9420,7 +9420,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_16VariadicTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_16VariadicTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9429,7 +9429,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_15BlockedTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_15BlockedTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9438,7 +9438,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_26TypeFamilyInstanceTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_19TypePackStringifier9stringifyEPKNS_11TypePackVarEEUlOT_E_KNS_26TypeFamilyInstanceTypePackEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -10543,7 +10543,7 @@ _ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -12631,7 +12631,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9Unifiable5BoundIS4_EEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9Unifiable5BoundIS4_EEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
@@ -12639,7 +12639,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9Unifiable5ErrorEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9Unifiable5ErrorEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12674,7 +12674,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_9Unifiable5Err
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_8FreeTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_8FreeTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12683,7 +12683,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11GenericTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11GenericTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12692,7 +12692,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13PrimitiveTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13PrimitiveTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12701,7 +12701,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13SingletonTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13SingletonTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12710,7 +12710,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11BlockedTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11BlockedTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12719,7 +12719,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_20PendingExpansionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_20PendingExpansionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12728,7 +12728,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_12FunctionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_12FunctionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12737,7 +12737,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9TableTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9TableTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12746,7 +12746,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13MetatableTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_13MetatableTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12755,7 +12755,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9ClassTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9ClassTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -12785,7 +12785,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_9ClassTypeEEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_7AnyTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_7AnyTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -12815,7 +12815,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_7AnyTypeEEEDaS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9UnionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9UnionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12824,7 +12824,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_16IntersectionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_16IntersectionTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12833,7 +12833,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_8LazyTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_8LazyTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load atomic i64, ptr %4 seq_cst, align 8
@@ -12879,7 +12879,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_8LazyTypeEEEDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11UnknownTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_11UnknownTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -12909,7 +12909,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_11UnknownTypeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9NeverTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_9NeverTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -12939,7 +12939,7 @@ _ZZN4Luau15TypeStringifier9stringifyEPKNS_4TypeEENKUlOT_E_clIRKNS_9NeverTypeEEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_12NegationTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_12NegationTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -12948,7 +12948,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_22TypeFamilyInstanceTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @_ZN4LuauL8fnVisitVIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_KNS_22TypeFamilyInstanceTypeEEEvRS5_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -19625,7 +19625,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit17:       ; preds = %87, %95
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %1, align 8
   tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef %.val3)
@@ -19633,7 +19633,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19668,7 +19668,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19677,7 +19677,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19686,7 +19686,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19695,7 +19695,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19704,7 +19704,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19713,7 +19713,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19722,7 +19722,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19731,7 +19731,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19740,7 +19740,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19749,7 +19749,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -19779,7 +19779,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -19809,7 +19809,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19818,7 +19818,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19827,7 +19827,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load atomic i64, ptr %4 seq_cst, align 8
@@ -19873,7 +19873,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -19903,7 +19903,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -19933,7 +19933,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19942,7 +19942,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -19951,7 +19951,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val3 = load ptr, ptr %1, align 8
   tail call void @_ZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(36) %.val, ptr noundef %.val3)
@@ -19959,7 +19959,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19994,7 +19994,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20003,7 +20003,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20012,7 +20012,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20021,7 +20021,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20030,7 +20030,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20039,7 +20039,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -20088,7 +20088,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIPKN4Luau4TypeES3_St9_Identity
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIPKNS_4TypeEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIPKNS_4TypeEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef %.sroa.0.0.copyload)
@@ -20096,7 +20096,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20131,7 +20131,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::FreeType", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -20144,7 +20144,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::GenericType", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(57) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -20173,7 +20173,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::PrimitiveType", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -20186,7 +20186,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::SingletonType", align 8
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -20242,7 +20242,7 @@ _ZN4Luau13SingletonTypeD2Ev.exit4:                ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::BlockedType", align 8
   %.sroa.0.0.copyload = load i32, ptr %1, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20260,7 +20260,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::PendingExpansionType", align 8
   call void @_ZN4Luau20PendingExpansionTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1)
   %.val = load ptr, ptr %0, align 8
@@ -20310,7 +20310,7 @@ _ZN4Luau20PendingExpansionTypeD2Ev.exit:          ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::FunctionType", align 8
   call void @_ZN4Luau12FunctionTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(307) %3, ptr noundef nonnull align 8 dereferenceable(307) %1)
   %.val = load ptr, ptr %0, align 8
@@ -20331,7 +20331,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TableType", align 8
   call void @_ZN4Luau9TableTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %3, ptr noundef nonnull align 8 dereferenceable(336) %1)
   %.val = load ptr, ptr %0, align 8
@@ -20352,7 +20352,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::MetatableType", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -20408,7 +20408,7 @@ _ZN4Luau13MetatableTypeD2Ev.exit4:                ; preds = %15, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::ClassType", align 8
   call void @_ZN4Luau9ClassTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %1)
   %.val = load ptr, ptr %0, align 8
@@ -20447,7 +20447,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -20477,7 +20477,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::UnionType", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -20563,7 +20563,7 @@ _ZN4Luau9UnionTypeD2Ev.exit5:                     ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::IntersectionType", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -20649,7 +20649,7 @@ _ZN4Luau16IntersectionTypeD2Ev.exit5:             ; preds = %30, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::LazyType", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -20777,7 +20777,7 @@ _ZN4Luau8LazyTypeD2Ev.exit:                       ; preds = %"_ZZN4Luau16toStrin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -20807,7 +20807,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %3 = load ptr, ptr %.val.val, align 8
@@ -20837,7 +20837,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::NegationType", align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.val = load ptr, ptr %0, align 8
@@ -20851,7 +20851,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TypeFamilyInstanceType", align 8
   call void @_ZN4Luau22TypeFamilyInstanceTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.val = load ptr, ptr %0, align 8
@@ -21085,7 +21085,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau12FunctionTypeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(307) %0, ptr noundef nonnull align 8 dereferenceable(307) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22976,7 +22976,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(36) %.val, ptr noundef %.sroa.0.0.copyload)
@@ -22984,7 +22984,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1) #6 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -23019,7 +23019,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::FreeTypePack", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -23032,7 +23032,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::GenericTypePack", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(57) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -23061,7 +23061,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TypePack", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -23150,7 +23150,7 @@ _ZN4Luau8TypePackD2Ev.exit5:                      ; preds = %32, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::VariadicTypePack", align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23168,7 +23168,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) #6 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = alloca %"struct.Luau::BlockedTypePack", align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23186,7 +23186,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TypeFamilyInstanceTypePack", align 8
   call void @_ZN4Luau26TypeFamilyInstanceTypePackC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.val = load ptr, ptr %0, align 8
@@ -23413,7 +23413,7 @@ define internal fastcc void @"_ZZN4LuauL11dumpOptionsEvENK3$_0clEv"() unnamed_ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_17SubtypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_17SubtypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23497,7 +23497,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_21PackSubtypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_21PackSubtypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23581,7 +23581,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_24GeneralizationConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_24GeneralizationConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23665,7 +23665,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18IterableConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18IterableConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23744,7 +23744,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_14NameConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_14NameConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23813,7 +23813,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_28TypeAliasExpansionConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_28TypeAliasExpansionConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23843,7 +23843,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_22FunctionCallConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_22FunctionCallConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"struct.Luau::ToStringResult", align 8
@@ -24074,7 +24074,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_23FunctionCheckConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_23FunctionCheckConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24186,7 +24186,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_23PrimitiveTypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_23PrimitiveTypeConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"struct.Luau::ToStringResult", align 8
@@ -24489,7 +24489,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_17HasPropConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_17HasPropConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24685,7 +24685,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20HasIndexerConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20HasIndexerConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"struct.Luau::ToStringResult", align 8
@@ -24859,7 +24859,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20AssignPropConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20AssignPropConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25010,7 +25010,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_21AssignIndexConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_21AssignIndexConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"struct.Luau::ToStringResult", align 8
@@ -25203,7 +25203,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_16UnpackConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_16UnpackConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25290,7 +25290,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_16ReduceConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_16ReduceConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25321,7 +25321,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20ReducePackConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_20ReducePackConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25352,7 +25352,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10Constrain
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18EqualityConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_8toStringB5cxx11ERKNS_10ConstraintERNS_15ToStringOptionsEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18EqualityConstraintEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::ToStringResult", align 8
   %5 = alloca %"struct.Luau::ToStringResult", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25601,7 +25601,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -26604,7 +26604,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18GenericTypeVisitorIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_8FreeTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #6 align 2 {
+define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_8FreeTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2) unnamed_addr #6 align 2 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26684,7 +26684,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18GenericTypeVisitorIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %2) unnamed_addr #6 align 2 {
+define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %2) unnamed_addr #6 align 2 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26763,7 +26763,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18GenericTypeVisitorIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_9ClassTypeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #20 align 2 {
+define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_9ClassTypeE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #20 align 2 {
   ret i1 false
 }
 
@@ -26822,7 +26822,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau18GenericTypeVisitorIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_20PendingExpansionTypeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #20 align 2 {
+define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindCyclicTypes5visitEPKNS_4TypeERKNS_20PendingExpansionTypeE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #20 align 2 {
   ret i1 false
 }
 
@@ -30633,7 +30633,7 @@ define internal void @_GLOBAL__sub_I_ToString.cpp() #21 section ".text.startup" 
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #23
@@ -30645,13 +30645,13 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

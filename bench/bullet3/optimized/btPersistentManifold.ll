@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN20btPersistentManifoldC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN20btPersistentManifoldC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN20btPersistentManifoldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN20btPersistentManifoldC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(880) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1025, ptr %this, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -49,7 +49,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr nocapture noundef nonnull readnone align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull align 8 dereferenceable(204) %pt) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(880) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(204) %pt) local_unnamed_addr #1 align 2 {
 entry:
   %m_userPersistentData = getelementptr inbounds nuw i8, ptr %pt, i64 120
   %0 = load ptr, ptr %m_userPersistentData, align 8
@@ -71,7 +71,7 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 -1, 4) i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %pt) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 -1, 4) i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(204) %pt) local_unnamed_addr #2 align 2 {
 entry:
   %m_distance1.i = getelementptr inbounds nuw i8, ptr %pt, i64 80
   %0 = load float, ptr %m_distance1.i, align 8
@@ -711,7 +711,7 @@ if.end146:                                        ; preds = %if.then119, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(204) %newPoint) local_unnamed_addr #3 align 2 {
 entry:
   %m_cachedPoints.i = getelementptr inbounds nuw i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8
@@ -761,7 +761,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_contactBreakingThreshold = getelementptr inbounds nuw i8, ptr %this, i64 860
   %0 = load float, ptr %m_contactBreakingThreshold, align 4
@@ -769,7 +769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, -2147483648) i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint, i1 noundef zeroext %isPredictive) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, -2147483648) i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr noundef nonnull align 8 captures(none) dereferenceable(880) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(204) %newPoint, i1 noundef zeroext %isPredictive) local_unnamed_addr #1 align 2 {
 entry:
   %m_cachedPoints.i = getelementptr inbounds nuw i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8
@@ -812,10 +812,10 @@ if.end4:                                          ; preds = %if.then5.i, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trB) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trB) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp.i86 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -1130,13 +1130,13 @@ for.end47:                                        ; preds = %for.inc45, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK20btPersistentManifold28calculateSerializeBufferSizeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(880) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK20btPersistentManifold28calculateSerializeBufferSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(880) %this) local_unnamed_addr #7 align 2 {
 entry:
   ret i32 848
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifold, ptr noundef writeonly initializes((0, 848)) %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(880) %this, ptr noundef readonly captures(none) %manifold, ptr noundef writeonly initializes((0, 848)) %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %dataBuffer, i8 0, i64 848, i1 false)
   %m_body0.i = getelementptr inbounds nuw i8, ptr %manifold, i64 840
@@ -1423,10 +1423,10 @@ for.end:                                          ; preds = %_ZNK9btVector39seri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr nocapture noundef nonnull align 8 dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr noundef nonnull align 8 captures(none) dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactBreakingThreshold = getelementptr inbounds nuw i8, ptr %manifoldDataPtr, i64 1528
   %0 = load double, ptr %m_contactBreakingThreshold, align 8
@@ -1715,7 +1715,7 @@ for.end:                                          ; preds = %_ZN9btVector317deSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr nocapture noundef nonnull align 8 dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr noundef nonnull align 8 captures(none) dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactBreakingThreshold = getelementptr inbounds nuw i8, ptr %manifoldDataPtr, i64 820
   %0 = load float, ptr %m_contactBreakingThreshold, align 4
@@ -1988,10 +1988,10 @@ declare float @llvm.fabs.f32(float) #10
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [28 x i8] c"time_limit must be positive\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define double @compute_rho_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @compute_rho_estimate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -185,7 +185,7 @@ define i64 @adapt_rho(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @osqp_update_rho(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @set_rho_vec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @set_rho_vec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -227,7 +227,7 @@ declare void @OSQPVectorf_set_scalar_conditional(ptr noundef, ptr noundef, doubl
 declare void @OSQPVectorf_ew_reciprocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @update_rho_vec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @update_rho_vec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -280,7 +280,7 @@ define i64 @update_rho_vec(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @swap_vectors(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define void @swap_vectors(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %1, align 8
@@ -289,7 +289,7 @@ define void @swap_vectors(ptr nocapture noundef %0, ptr nocapture noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @update_xz_tilde(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @update_xz_tilde(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.val = load ptr, ptr %0, align 8
@@ -345,7 +345,7 @@ compute_rhs.exit:                                 ; preds = %18, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define void @update_x(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @update_x(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -372,7 +372,7 @@ declare void @OSQPVectorf_add_scaled(ptr noundef, double noundef, ptr noundef, d
 declare void @OSQPVectorf_minus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @update_z(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @update_z(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -434,7 +434,7 @@ declare void @OSQPVectorf_add_scaled3(ptr noundef, double noundef, ptr noundef, 
 declare void @OSQPVectorf_ew_bound_vec(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @update_y(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @update_y(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -481,7 +481,7 @@ declare void @OSQPVectorf_mult_scalar(ptr noundef, double noundef) local_unnamed
 declare void @OSQPVectorf_plus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define double @compute_obj_val(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define double @compute_obj_val(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -517,7 +517,7 @@ declare double @OSQPVectorf_dot_prod(ptr noundef, ptr noundef) local_unnamed_add
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @is_primal_infeasible(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @is_primal_infeasible(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -620,7 +620,7 @@ declare double @OSQPVectorf_dot_prod_signed(ptr noundef, ptr noundef, i64 nounde
 declare void @OSQPMatrix_Atxpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @is_dual_infeasible(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define i64 @is_dual_infeasible(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -754,7 +754,7 @@ declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noun
 declare i64 @OSQPVectorf_in_reccone(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 2) i64 @has_solution(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i64 0, 2) i64 @has_solution(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -7
@@ -919,7 +919,7 @@ declare void @OSQPVectorf_set_scalar(ptr noundef, double noundef) local_unnamed_
 declare void @osqp_cold_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @update_info(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @update_info(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1142,7 +1142,7 @@ define void @update_status(ptr noundef initializes((32, 40)) %0, i64 noundef %1)
 declare void @c_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @check_termination(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @check_termination(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1426,7 +1426,7 @@ compute_dual_tol.exit:                            ; preds = %82, %111
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
+define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -1585,7 +1585,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2) i64 @validate_linsys_solver(i64 noundef %0) local_unnamed_addr #0 {
@@ -1994,7 +1994,7 @@ declare void @OSQPVectorf_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

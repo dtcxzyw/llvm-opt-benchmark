@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7516CollationWeightsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7516CollationWeightsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeightsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 24), (156, 164)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516CollationWeightsC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 24), (156, 164)) %this) unnamed_addr #0 align 2 {
 entry:
   %rangeIndex = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %rangeIndex, align 4
@@ -31,7 +31,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this, i8 noundef signext %compressible) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this, i8 noundef signext %compressible) local_unnamed_addr #1 align 2 {
 entry:
   store i32 1, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7516CollationWeights9incWeightEji(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK6icu_7516CollationWeights9incWeightEji(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = shl i32 %length, 3
@@ -165,7 +165,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7516CollationWeights17incWeightByOffsetEjii(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length, i32 noundef %offset) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK6icu_7516CollationWeights17incWeightByOffsetEjii(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length, i32 noundef %offset) local_unnamed_addr #2 align 2 {
 entry:
   %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = shl i32 %length, 3
@@ -236,7 +236,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7516CollationWeights13lengthenRangeERNS0_11WeightRangeE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, ptr nocapture noundef nonnull align 4 dereferenceable(16) %range) local_unnamed_addr #3 align 2 {
+define void @_ZNK6icu_7516CollationWeights13lengthenRangeERNS0_11WeightRangeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(164) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %range) local_unnamed_addr #3 align 2 {
 entry:
   %length2 = getelementptr inbounds nuw i8, ptr %range, i64 8
   %0 = load i32, ptr %length2, align 4
@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %this, i32 noundef %lowerLimit, i32 noundef %upperLimit) local_unnamed_addr #4 align 2 {
 entry:
   %lower = alloca [5 x %"struct.icu_75::CollationWeights::WeightRange"], align 16
   %upper = alloca [5 x %"struct.icu_75::CollationWeights::WeightRange"], align 16
@@ -691,10 +691,10 @@ return:                                           ; preds = %if.then4, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #7 align 2 {
@@ -761,7 +761,7 @@ return:                                           ; preds = %if.end25, %land.rhs
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L13compareRangesEPKvS1_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #2 {
+define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L13compareRangesEPKvS1_S1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #2 {
 entry:
   %1 = load i32, ptr %left, align 4
   %2 = load i32, ptr %right, align 4
@@ -770,7 +770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #4 align 2 {
 entry:
   %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
   %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1214,7 +1214,7 @@ return:                                           ; preds = %if.end5, %entry, %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7516CollationWeights10nextWeightEv(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN6icu_7516CollationWeights10nextWeightEv(ptr noundef nonnull align 4 captures(none) dereferenceable(164) %this) local_unnamed_addr #4 align 2 {
 entry:
   %rangeIndex = getelementptr inbounds nuw i8, ptr %this, i64 156
   %0 = load i32, ptr %rangeIndex, align 4
@@ -1317,10 +1317,10 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

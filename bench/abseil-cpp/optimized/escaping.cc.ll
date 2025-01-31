@@ -37,7 +37,7 @@ if.end13:                                         ; preds = %if.else6, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEPKhmPcmPKcb(ptr noundef %src, i64 noundef %szsrc, ptr noundef %dest, i64 noundef %szdest, ptr nocapture noundef readonly %base64, i1 noundef zeroext %do_padding) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEPKhmPcmPKcb(ptr noundef %src, i64 noundef %szsrc, ptr noundef %dest, i64 noundef %szdest, ptr noundef readonly captures(none) %base64, i1 noundef zeroext %do_padding) local_unnamed_addr #1 {
 entry:
   %mul = shl i64 %szsrc, 2
   %mul1 = mul i64 %szdest, 3

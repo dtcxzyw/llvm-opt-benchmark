@@ -101,7 +101,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOutC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOutC2ERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelOutE, i64 16), ptr %this, align 8
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printNodeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printNodeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -187,7 +187,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut17printNodeInternalERSoNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef readonly %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut17printNodeInternalERSoNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef readonly captures(none) %n) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %s = alloca %"class.std::__cxx11::basic_string", align 8
@@ -275,7 +275,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printTypeNodeENS0_8TypeNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %tn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printTypeNodeENS0_8TypeNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %tn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -350,7 +350,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal8T
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut21printTypeNodeInternalERSoNS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef readonly %tn) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut21printTypeNodeInternalERSoNS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef readonly captures(none) %tn) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope.i = alloca %"class.cvc5::internal::options::ioutils::Scope", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -462,7 +462,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printHoleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printHoleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %res, i32 noundef %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %res, i32 noundef %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -557,7 +557,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoNS_9ProofRuleE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printOpenRuleEPKNS0_9ProofNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %pn) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printOpenRuleEPKNS0_9ProofNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %pn) unnamed_addr #4 align 2 {
 entry:
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
@@ -758,7 +758,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut17printOpenLfscRuleENS1_8LfscRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %lr) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut17printOpenLfscRuleENS1_8LfscRuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %lr) unnamed_addr #4 align 2 {
 entry:
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
@@ -771,7 +771,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal5prooflsERSoNS1_8LfscRuleE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut14printCloseRuleEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %nparen) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut14printCloseRuleEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %nparen) unnamed_addr #4 align 2 {
 entry:
   %cmp2.not = icmp eq i64 %nparen, 0
   br i1 %cmp2.not, label %for.end, label %for.body.lr.ph
@@ -793,7 +793,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut7printIdEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %prefix) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut7printIdEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %prefix) unnamed_addr #4 align 2 {
 entry:
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
@@ -813,7 +813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut12printEndLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut12printEndLineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
@@ -925,7 +925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre9printNodeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre9printNodeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %d_lbind = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1001,7 +1001,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal10LetBinding7processENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %res, i32 %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(none) %res, i32 %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %d_lbind = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1359,7 +1359,7 @@ declare void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull
 declare void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #12
@@ -1682,10 +1682,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

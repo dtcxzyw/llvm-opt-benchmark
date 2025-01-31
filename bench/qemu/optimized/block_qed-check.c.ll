@@ -144,7 +144,7 @@ return:                                           ; preds = %entry, %if.end25
 declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_check_l1_table(ptr noundef %check, ptr nocapture noundef %table) #0 {
+define internal i32 @qed_check_l1_table(ptr noundef %check, ptr noundef captures(none) %table) #0 {
 entry:
   %0 = load ptr, ptr %check, align 8
   %table_size = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -537,7 +537,7 @@ if.end61:                                         ; preds = %for.end.thread, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qed_check_mark_clean(ptr noundef %s, ptr nocapture noundef readonly %result) #0 {
+define internal void @qed_check_mark_clean(ptr noundef %s, ptr noundef readonly captures(none) %result) #0 {
 entry:
   %0 = load i32, ptr %result, align 8
   %cmp = icmp sgt i32 %0, 0

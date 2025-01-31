@@ -476,7 +476,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare noundef nonnull align 4 dereferenceable(1096) ptr @_ZN5ImGui8GetStyleEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ImGui18StyleColorsClassicEP10ImGuiStyle(ptr noundef %dst) local_unnamed_addr #0 {
@@ -1265,7 +1265,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN20ImDrawListSharedDataC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((0, 528)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((0, 528)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ArcFastVtx.ptr = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %this, i8 0, i64 528, i1 false)
@@ -1300,7 +1300,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @cosf(float noundef) local_unnamed_addr #5
@@ -1309,7 +1309,7 @@ declare float @cosf(float noundef) local_unnamed_addr #5
 declare float @sinf(float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr nocapture noundef nonnull align 8 dereferenceable(528) %this, float noundef %max_error) local_unnamed_addr #3 align 2 {
+define void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %this, float noundef %max_error) local_unnamed_addr #3 align 2 {
 entry:
   %CircleSegmentMaxError = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load float, ptr %CircleSegmentMaxError, align 8
@@ -1372,7 +1372,7 @@ declare float @acosf(float noundef) local_unnamed_addr #5
 declare float @llvm.ceil.f32(float) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList17_ResetForNewFrameEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList17_ResetForNewFrameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_Splitter = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_Count = getelementptr inbounds nuw i8, ptr %this, i64 172
@@ -1633,7 +1633,7 @@ _ZN8ImVectorI9ImDrawCmdE9push_backERKS0_.exit:    ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %draw_list) local_unnamed_addr #7 align 2 {
+define void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %draw_list) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i111 = alloca %struct.ImVec4, align 8
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
@@ -2203,7 +2203,7 @@ return:                                           ; preds = %entry, %if.end160
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList16_ClearFreeMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((48, 56), (72, 88)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList16_ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) initializes((48, 56), (72, 88)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Data.i, align 8
@@ -2306,7 +2306,7 @@ _ZN8ImVectorI6ImVec2E5clearEv.exit:               ; preds = %_ZN8ImVectorIPvE5cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN18ImDrawListSplitter15ClearFreeMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_Channels = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %_Channels, align 8
@@ -2393,7 +2393,7 @@ _ZN8ImVectorI13ImDrawChannelE5clearEv.exit:       ; preds = %for.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK10ImDrawList11CloneOutputEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK10ImDrawList11CloneOutputEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i:
   %call = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 200)
   %_Data = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2595,7 +2595,7 @@ _ZN8ImVectorI10ImDrawVertEaSERKS1_.exit:          ; preds = %_ZN8ImVectorI10ImDr
 declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList10AddDrawCmdEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList10AddDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0 = alloca %struct.ImVec4, align 8
   %_CmdHeader = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2674,7 +2674,7 @@ _ZN8ImVectorI9ImDrawCmdE9push_backERKS0_.exit:    ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN10ImDrawList17_PopUnusedDrawCmdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #8 align 2 {
 entry:
   %.pr = load i32, ptr %this, align 8
   %cmp2 = icmp sgt i32 %.pr, 0
@@ -2711,7 +2711,7 @@ while.end:                                        ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11AddCallbackEPFvPKS_PK9ImDrawCmdEPv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %callback, ptr noundef %callback_data) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList11AddCallbackEPFvPKS_PK9ImDrawCmdEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef %callback, ptr noundef %callback_data) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i3 = alloca %struct.ImVec4, align 8
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
@@ -2880,7 +2880,7 @@ _ZN10ImDrawList10AddDrawCmdEv.exit39:             ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList17_TryMergeDrawCmdsEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN10ImDrawList17_TryMergeDrawCmdsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #9 align 2 {
 entry:
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Data, align 8
@@ -2931,7 +2931,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList18_OnChangedClipRectEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList18_OnChangedClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3063,7 +3063,7 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3197,7 +3197,7 @@ return:                                           ; preds = %if.end22, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList19_OnChangedVtxOffsetEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((52, 56)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList19_OnChangedVtxOffsetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) initializes((52, 56)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
   %_VtxCurrentIdx = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -3294,7 +3294,7 @@ return:                                           ; preds = %if.end, %_ZN10ImDra
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(196) %this, float noundef %radius) local_unnamed_addr #10 align 2 {
+define noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(196) %this, float noundef %radius) local_unnamed_addr #10 align 2 {
 entry:
   %add = fadd float %radius, 0x3FEFFFFDE0000000
   %conv = fptosi float %add to i32
@@ -3335,7 +3335,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %cr_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %cr_max, i1 noundef zeroext %intersect_with_current_clip_rect) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %cr_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %cr_max, i1 noundef zeroext %intersect_with_current_clip_rect) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load float, ptr %cr_min, align 4
   %y = getelementptr inbounds nuw i8, ptr %cr_min, i64 4
@@ -3451,7 +3451,7 @@ _ZN8ImVectorI6ImVec4E9push_backERKS0_.exit:       ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList22PushClipRectFullScreenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %struct.ImVec2, align 4
   %ref.tmp4 = alloca %struct.ImVec2, align 4
@@ -3476,7 +3476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11PopClipRectEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((136, 152)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList11PopClipRectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) initializes((136, 152)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_ClipRectStack = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %_ClipRectStack, align 8
@@ -3499,7 +3499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList13PushTextureIDEPv(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((152, 160)) %this, ptr noundef %texture_id) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList13PushTextureIDEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) initializes((152, 160)) %this, ptr noundef %texture_id) local_unnamed_addr #7 align 2 {
 entry:
   %_TextureIdStack = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %_TextureIdStack, align 8
@@ -3566,7 +3566,7 @@ _ZN8ImVectorIPvE9push_backERKS0_.exit:            ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList12PopTextureIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((152, 160)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList12PopTextureIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(196) initializes((152, 160)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_TextureIdStack = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %_TextureIdStack, align 8
@@ -3593,7 +3593,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11PrimReserveEii(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, i32 noundef %idx_count, i32 noundef %vtx_count) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, i32 noundef %idx_count, i32 noundef %vtx_count) local_unnamed_addr #7 align 2 {
 entry:
   %_VtxCurrentIdx = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %_VtxCurrentIdx, align 4
@@ -3738,7 +3738,7 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %_ZN8ImVectorI10ImDr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList13PrimUnreserveEii(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, i32 noundef %idx_count, i32 noundef %vtx_count) local_unnamed_addr #11 align 2 {
+define void @_ZN10ImDrawList13PrimUnreserveEii(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, i32 noundef %idx_count, i32 noundef %vtx_count) local_unnamed_addr #11 align 2 {
 entry:
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Data, align 8
@@ -3761,7 +3761,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList8PrimRectERK6ImVec2S2_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, i32 noundef %col) local_unnamed_addr #11 align 2 {
+define void @_ZN10ImDrawList8PrimRectERK6ImVec2S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c, i32 noundef %col) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %y = getelementptr inbounds nuw i8, ptr %a, i64 4
@@ -3851,7 +3851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList10PrimRectUVERK6ImVec2S2_S2_S2_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_c, i32 noundef %col) local_unnamed_addr #12 align 2 {
+define void @_ZN10ImDrawList10PrimRectUVERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_c, i32 noundef %col) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %y = getelementptr inbounds nuw i8, ptr %a, i64 4
@@ -3950,7 +3950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawList10PrimQuadUVERK6ImVec2S2_S2_S2_S2_S2_S2_S2_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %d, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_d, i32 noundef %col) local_unnamed_addr #12 align 2 {
+define void @_ZN10ImDrawList10PrimQuadUVERK6ImVec2S2_S2_S2_S2_S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %d, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_d, i32 noundef %col) local_unnamed_addr #12 align 2 {
 entry:
   %_VtxCurrentIdx = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %_VtxCurrentIdx, align 4
@@ -4033,7 +4033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 noundef %col, i32 noundef %flags, float noundef %thickness) local_unnamed_addr #13 align 2 {
+define void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef readonly captures(none) %points, i32 noundef %points_count, i32 noundef %col, i32 noundef %flags, float noundef %thickness) local_unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp slt i32 %points_count, 2
   %cmp2 = icmp ult i32 %col, 16777216
@@ -5002,7 +5002,7 @@ if.end889:                                        ; preds = %if.end775, %entry, 
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 noundef %col) local_unnamed_addr #13 align 2 {
+define void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef readonly captures(none) %points, i32 noundef %points_count, i32 noundef %col) local_unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp slt i32 %points_count, 3
   %cmp2 = icmp ult i32 %col, 16777216
@@ -5333,7 +5333,7 @@ if.end219:                                        ; preds = %entry, %for.end214,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %a_min_sample, i32 noundef %a_max_sample, i32 noundef %a_step) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList16_PathArcToFastExERK6ImVec2fiii(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %a_min_sample, i32 noundef %a_max_sample, i32 noundef %a_step) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = fcmp olt float %radius, 5.000000e-01
   br i1 %cmp, label %if.then, label %if.end
@@ -5632,7 +5632,7 @@ if.end93:                                         ; preds = %if.then75, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList11_PathArcToNERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = fcmp olt float %radius, 5.000000e-01
   %_Path = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -5815,7 +5815,7 @@ for.end:                                          ; preds = %_ZN8ImVectorI6ImVec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %a_min_of_12, i32 noundef %a_max_of_12) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %a_min_of_12, i32 noundef %a_max_of_12) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = fcmp olt float %radius, 5.000000e-01
   br i1 %cmp, label %if.then, label %if.end
@@ -5892,7 +5892,7 @@ return:                                           ; preds = %if.end, %_ZN8ImVect
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = fcmp olt float %radius, 5.000000e-01
   br i1 %cmp, label %if.then, label %if.end
@@ -6267,7 +6267,7 @@ if.end84:                                         ; preds = %if.end62, %_ZN8ImVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2fffffi(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, float noundef %rot, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2fffffi(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, float noundef %rot, float noundef %a_min, float noundef %a_max, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp slt i32 %num_segments, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -6433,7 +6433,7 @@ for.end:                                          ; preds = %_ZN8ImVectorI6ImVec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, float noundef %t) local_unnamed_addr #14 {
+define <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, float noundef %t) local_unnamed_addr #14 {
 entry:
   %sub = fsub float 1.000000e+00, %t
   %mul = fmul float %sub, %sub
@@ -6471,7 +6471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_Z21ImBezierQuadraticCalcRK6ImVec2S1_S1_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, float noundef %t) local_unnamed_addr #14 {
+define <2 x float> @_Z21ImBezierQuadraticCalcRK6ImVec2S1_S1_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, float noundef %t) local_unnamed_addr #14 {
 entry:
   %sub = fsub float 1.000000e+00, %t
   %mul = fmul float %sub, %sub
@@ -6499,7 +6499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList22PathBezierCubicCurveToERK6ImVec2S2_S2_i(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, i32 noundef %num_segments) local_unnamed_addr #0 align 2 {
+define void @_ZN10ImDrawList22PathBezierCubicCurveToERK6ImVec2S2_S2_i(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, i32 noundef %num_segments) local_unnamed_addr #0 align 2 {
 entry:
   %_Path = getelementptr inbounds nuw i8, ptr %this, i64 120
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -6636,7 +6636,7 @@ if.end:                                           ; preds = %_ZN8ImVectorI6ImVec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL31PathBezierCubicCurveToCasteljauP8ImVectorI6ImVec2Efffffffffi(ptr nocapture noundef nonnull %path, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %x4, float noundef %y4, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #7 {
+define internal fastcc void @_ZL31PathBezierCubicCurveToCasteljauP8ImVectorI6ImVec2Efffffffffi(ptr noundef nonnull captures(none) %path, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %x4, float noundef %y4, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #7 {
 entry:
   br label %tailrecurse
 
@@ -6772,7 +6772,7 @@ if.end48:                                         ; preds = %if.else, %_ZN8ImVec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, i32 noundef %num_segments) local_unnamed_addr #0 align 2 {
+define void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, i32 noundef %num_segments) local_unnamed_addr #0 align 2 {
 entry:
   %_Path = getelementptr inbounds nuw i8, ptr %this, i64 120
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -6896,7 +6896,7 @@ if.end:                                           ; preds = %_ZN8ImVectorI6ImVec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL35PathBezierQuadraticCurveToCasteljauP8ImVectorI6ImVec2Efffffffi(ptr nocapture noundef nonnull %path, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #7 {
+define internal fastcc void @_ZL35PathBezierQuadraticCurveToCasteljauP8ImVectorI6ImVec2Efffffffi(ptr noundef nonnull captures(none) %path, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %tess_tol, i32 noundef range(i32 0, 11) %level) unnamed_addr #7 {
 entry:
   %sub34 = fsub float %x3, %x1
   %sub135 = fsub float %y3, %y1
@@ -7018,7 +7018,7 @@ if.end24:                                         ; preds = %if.else, %_ZN8ImVec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp46 = alloca %struct.ImVec2, align 8
   %ref.tmp50 = alloca %struct.ImVec2, align 8
@@ -7631,7 +7631,7 @@ if.end65:                                         ; preds = %if.end.i232, %_ZN8I
 declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, i32 noundef %col, float noundef %thickness) local_unnamed_addr #0 align 2 {
+define void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, i32 noundef %col, float noundef %thickness) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -7773,7 +7773,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags, float noundef %thickness) local_unnamed_addr #0 align 2 {
+define void @_ZN10ImDrawList7AddRectERK6ImVec2S2_jfif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags, float noundef %thickness) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %struct.ImVec2, align 8
   %ref.tmp5 = alloca %struct.ImVec2, align 8
@@ -7835,7 +7835,7 @@ return:                                           ; preds = %entry, %if.end14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %if.end6, label %if.end
@@ -7950,7 +7950,7 @@ if.end6:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_max, i32 noundef %col_upr_left, i32 noundef %col_upr_right, i32 noundef %col_bot_right, i32 noundef %col_bot_left) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList23AddRectFilledMultiColorERK6ImVec2S2_jjjj(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_max, i32 noundef %col_upr_left, i32 noundef %col_upr_right, i32 noundef %col_bot_right, i32 noundef %col_bot_left) local_unnamed_addr #7 align 2 {
 entry:
   %or = or i32 %col_upr_right, %col_upr_left
   %or2 = or i32 %or, %col_bot_right
@@ -8079,7 +8079,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddQuadERK6ImVec2S2_S2_S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, i32 noundef %col, float noundef %thickness) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList7AddQuadERK6ImVec2S2_S2_S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, i32 noundef %col, float noundef %thickness) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -8319,7 +8319,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, i32 noundef %col) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList13AddQuadFilledERK6ImVec2S2_S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, i32 noundef %col) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -8559,7 +8559,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList11AddTriangleERK6ImVec2S2_S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, i32 noundef %col, float noundef %thickness) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList11AddTriangleERK6ImVec2S2_S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, i32 noundef %col, float noundef %thickness) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -8744,7 +8744,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, i32 noundef %col) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList17AddTriangleFilledERK6ImVec2S2_S2_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, i32 noundef %col) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -8929,7 +8929,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   %cmp2 = fcmp olt float %radius, 5.000000e-01
@@ -8977,7 +8977,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   %cmp2 = fcmp olt float %radius, 5.000000e-01
@@ -9023,7 +9023,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   %cmp2 = icmp slt i32 %num_segments, 3
@@ -9051,7 +9051,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius, i32 noundef %col, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   %cmp2 = icmp slt i32 %num_segments, 3
@@ -9078,7 +9078,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList10AddEllipseERK6ImVec2ffjfif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, i32 noundef %col, float noundef %rot, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList10AddEllipseERK6ImVec2ffjfif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, i32 noundef %col, float noundef %rot, i32 noundef %num_segments, float noundef %thickness) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -9144,7 +9144,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2ffjfi(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, i32 noundef %col, float noundef %rot, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2ffjfi(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %radius_x, float noundef %radius_y, i32 noundef %col, float noundef %rot, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -9210,7 +9210,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, i32 noundef %col, float noundef %thickness, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList14AddBezierCubicERK6ImVec2S2_S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, i32 noundef %col, float noundef %thickness, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -9287,7 +9287,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList18AddBezierQuadraticERK6ImVec2S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, i32 noundef %col, float noundef %thickness, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList18AddBezierQuadraticERK6ImVec2S2_S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, i32 noundef %col, float noundef %thickness, i32 noundef %num_segments) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %return, label %if.end
@@ -9364,7 +9364,7 @@ return:                                           ; preds = %entry, %_ZN10ImDraw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr noundef readonly %font, float noundef %font_size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, ptr noundef readonly %cpu_fine_clip_rect) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef readonly %font, float noundef %font_size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, ptr noundef readonly %cpu_fine_clip_rect) local_unnamed_addr #7 align 2 {
 entry:
   %clip_rect = alloca %struct.ImVec4, align 4
   %cmp = icmp ult i32 %col, 16777216
@@ -9452,10 +9452,10 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, ptr nocapture noundef %draw_list, float noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %clip_rect, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, i1 noundef zeroext %cpu_fine_clip) local_unnamed_addr #7 align 2 {
+define void @_ZNK6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, ptr noundef captures(none) %draw_list, float noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %clip_rect, ptr noundef %text_begin, ptr noundef %text_end, float noundef %wrap_width, i1 noundef zeroext %cpu_fine_clip) local_unnamed_addr #7 align 2 {
 entry:
   %c = alloca i32, align 4
   %tobool.not = icmp eq ptr %text_end, null
@@ -10080,7 +10080,7 @@ return:                                           ; preds = %if.end59, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList7AddTextERK6ImVec2jPKcS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, ptr noundef %text_begin, ptr noundef %text_end) local_unnamed_addr #7 align 2 {
 entry:
   %clip_rect.i = alloca %struct.ImVec4, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %clip_rect.i)
@@ -10119,7 +10119,7 @@ _ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %user_texture_id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_max, i32 noundef %col) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList8AddImageEPvRK6ImVec2S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef %user_texture_id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_max, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_max, i32 noundef %col) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %if.end7, label %if.end
@@ -10408,7 +10408,7 @@ if.end7:                                          ; preds = %if.end7.critedge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList12AddImageQuadEPvRK6ImVec2S3_S3_S3_S3_S3_S3_S3_j(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %user_texture_id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv4, i32 noundef %col) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawList12AddImageQuadEPvRK6ImVec2S3_S3_S3_S3_S3_S3_S3_j(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %this, ptr noundef %user_texture_id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv4, i32 noundef %col) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %if.end7, label %if.end
@@ -10665,7 +10665,7 @@ if.end7:                                          ; preds = %if.end7.critedge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawList15AddImageRoundedEPvRK6ImVec2S3_S3_S3_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %user_texture_id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p_max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_min, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #0 align 2 {
+define void @_ZN10ImDrawList15AddImageRoundedEPvRK6ImVec2S3_S3_S3_jfi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %user_texture_id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p_max, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_min, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_max, i32 noundef %col, float noundef %rounding, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i32 %col, 16777216
   br i1 %cmp, label %if.end14, label %if.end
@@ -10946,7 +10946,7 @@ if.end14:                                         ; preds = %for.body.i58, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b(ptr nocapture noundef readonly %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %uv_b, i1 noundef zeroext %clamp) local_unnamed_addr #16 {
+define void @_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b(ptr noundef readonly captures(none) %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %uv_b, i1 noundef zeroext %clamp) local_unnamed_addr #16 {
 entry:
   %b.val = load float, ptr %b, align 4
   %0 = getelementptr inbounds nuw i8, ptr %b, i64 4
@@ -11053,7 +11053,7 @@ if.end:                                           ; preds = %for.body33, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((4, 8)) %this, ptr nocapture noundef readnone %draw_list, i32 noundef %channels_count) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((4, 8)) %this, ptr noundef readnone captures(none) %draw_list, i32 noundef %channels_count) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_Channels = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %_Channels, align 8
@@ -11189,7 +11189,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %draw_list, i32 noundef %idx) local_unnamed_addr #7 align 2 {
+define void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %draw_list, i32 noundef %idx) local_unnamed_addr #7 align 2 {
 entry:
   %draw_cmd.sroa.0.i21 = alloca %struct.ImVec4, align 8
   %draw_cmd.sroa.0.i = alloca %struct.ImVec4, align 8
@@ -11389,7 +11389,7 @@ if.end43:                                         ; preds = %if.then36, %_ZN10Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawData5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 1), (4, 16), (32, 64)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawData5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 1), (4, 16), (32, 64)) %this) local_unnamed_addr #7 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %TotalVtxCount = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -11433,7 +11433,7 @@ _ZN8ImVectorIP10ImDrawListE6resizeEi.exit:        ; preds = %entry, %if.end7.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr nocapture noundef %draw_data, ptr nocapture noundef %out_list, ptr noundef %draw_list) local_unnamed_addr #7 {
+define void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef captures(none) %draw_data, ptr noundef captures(none) %out_list, ptr noundef %draw_list) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %draw_list, align 8
   switch i32 %0, label %if.end11 [
@@ -11536,7 +11536,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawData11AddDrawListEP10ImDrawList(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %draw_list) local_unnamed_addr #7 align 2 {
+define void @_ZN10ImDrawData11AddDrawListEP10ImDrawList(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef %draw_list) local_unnamed_addr #7 align 2 {
 entry:
   %.pr.i = load i32, ptr %draw_list, align 8
   %cmp2.i = icmp sgt i32 %.pr.i, 0
@@ -11575,7 +11575,7 @@ _ZN10ImDrawList17_PopUnusedDrawCmdEv.exit:        ; preds = %while.body.i, %lor.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10ImDrawData17DeIndexAllBuffersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_vtx_buffer = alloca %struct.ImVector.2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_vtx_buffer, i8 0, i64 16, i1 false)
@@ -11783,7 +11783,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fb_scale) local_unnamed_addr #18 align 2 {
+define void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fb_scale) local_unnamed_addr #18 align 2 {
 entry:
   %CmdLists = getelementptr inbounds nuw i8, ptr %this, i64 16
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -11842,7 +11842,7 @@ for.end21:                                        ; preds = %for.inc19, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui38ShadeVertsLinearColorGradientKeepAlphaEP10ImDrawListii6ImVec2S2_jj(ptr nocapture noundef readonly %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, <2 x float> %gradient_p0.coerce, <2 x float> %gradient_p1.coerce, i32 noundef %col0, i32 noundef %col1) local_unnamed_addr #16 {
+define void @_ZN5ImGui38ShadeVertsLinearColorGradientKeepAlphaEP10ImDrawListii6ImVec2S2_jj(ptr noundef readonly captures(none) %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, <2 x float> %gradient_p0.coerce, <2 x float> %gradient_p1.coerce, i32 noundef %col0, i32 noundef %col1) local_unnamed_addr #16 {
 entry:
   %gradient_p0.sroa.0.0.vec.extract34 = extractelement <2 x float> %gradient_p0.coerce, i64 0
   %gradient_p0.sroa.0.4.vec.extract36 = extractelement <2 x float> %gradient_p0.coerce, i64 1
@@ -11922,7 +11922,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr nocapture noundef readonly %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pivot_in, float noundef %cos_a, float noundef %sin_a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pivot_out) local_unnamed_addr #16 {
+define void @_ZN5ImGui22ShadeVertsTransformPosEP10ImDrawListiiRK6ImVec2ffS4_(ptr noundef readonly captures(none) %draw_list, i32 noundef %vert_start_idx, i32 noundef %vert_end_idx, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pivot_in, float noundef %cos_a, float noundef %sin_a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pivot_out) local_unnamed_addr #16 {
 entry:
   %Data = getelementptr inbounds nuw i8, ptr %draw_list, i64 40
   %0 = load ptr, ptr %Data, align 8
@@ -11968,7 +11968,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12ImFontConfigC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 144)) %this) unnamed_addr #19 align 2 {
+define void @_ZN12ImFontConfigC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 144)) %this) unnamed_addr #19 align 2 {
 entry:
   %FontDataOwnedByAtlas = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %this, i8 0, i64 144, i1 false)
@@ -11989,7 +11989,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11ImFontAtlasC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1180) initializes((0, 1184)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImFontAtlasC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1180) initializes((0, 1184)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %TexGlyphPadding = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1184) %this, i8 0, i64 1184, i1 false)
@@ -12002,7 +12002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11ImFontAtlasD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImFontAtlasD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 dereferenceable(1180) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -12070,7 +12070,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 dereferenceable(1180) %this)
   %TexPixelsAlpha8.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -12160,7 +12160,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas14ClearInputDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ConfigData = getelementptr inbounds nuw i8, ptr %this, i64 120
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -12269,7 +12269,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE5clearEv.exit: ; preds = %_ZN8ImVectorI12Im
 declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas12ClearTexDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(1180) initializes((41, 42)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas12ClearTexDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) initializes((41, 42)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %TexPixelsAlpha8 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %TexPixelsAlpha8, align 8
@@ -12298,7 +12298,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas10ClearFontsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas10ClearFontsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #7 align 2 {
 entry:
   %Fonts = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %Fonts, align 8
@@ -12352,7 +12352,7 @@ _ZN8ImVectorIP6ImFontE12clear_deleteEv.exit:      ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr nocapture noundef writeonly initializes((0, 8)) %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i.i = alloca %struct.ImFontConfig, align 8
   %TexPixelsAlpha8 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -12546,7 +12546,7 @@ if.end5:                                          ; preds = %if.end.if.end5_crit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr nocapture noundef writeonly %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
+define void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef writeonly captures(none) %out_pixels, ptr noundef writeonly %out_width, ptr noundef writeonly %out_height, ptr noundef writeonly %out_bytes_per_pixel) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i.i.i = alloca %struct.ImFontConfig, align 8
   %TexPixelsRGBA32 = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -12703,7 +12703,7 @@ if.end27:                                         ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr nocapture noundef readonly %font_cfg) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN11ImFontAtlas7AddFontEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(none) %font_cfg) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %MergeMode = getelementptr inbounds nuw i8, ptr %font_cfg, i64 72
   %0 = load i8, ptr %MergeMode, align 8
@@ -12954,7 +12954,7 @@ _ZN11ImFontAtlas12ClearTexDataEv.exit:            ; preds = %if.end.i48, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr nocapture noundef readonly %atlas) local_unnamed_addr #18 {
+define void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr noundef readonly captures(none) %atlas) local_unnamed_addr #18 {
 entry:
   %ConfigData = getelementptr inbounds nuw i8, ptr %atlas, i64 120
   %Data.i = getelementptr inbounds nuw i8, ptr %atlas, i64 128
@@ -12998,7 +12998,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef readonly %font_cfg_template) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas14AddFontDefaultEPK12ImFontConfig(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly %font_cfg_template) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg = alloca %struct.ImFontConfig, align 8
   %tobool.not = icmp eq ptr %font_cfg_template, null
@@ -13061,13 +13061,13 @@ if.end11:                                         ; preds = %if.then7, %if.end5
 declare noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas21GetGlyphRangesDefaultEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas21GetGlyphRangesDefaultEvE6ranges
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr nocapture noundef readonly %compressed_ttf_data_base85, float noundef %size_pixels, ptr noundef %font_cfg, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(none) %compressed_ttf_data_base85, float noundef %size_pixels, ptr noundef %font_cfg, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compressed_ttf_data_base85) #41
   %conv = trunc i64 %call to i32
@@ -13147,7 +13147,7 @@ _ZL8Decode85PKhPh.exit:                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef %filename, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %filename, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i = alloca %struct.ImFontConfig, align 8
   %data_size = alloca i64, align 8
@@ -13232,7 +13232,7 @@ return:                                           ; preds = %entry, %_ZN11ImFont
 declare noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef %font_data, i32 noundef %font_data_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %font_data, i32 noundef %font_data_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg = alloca %struct.ImFontConfig, align 8
   %tobool.not = icmp eq ptr %font_cfg_template, null
@@ -13269,7 +13269,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef %compressed_ttf_data, i32 %compressed_ttf_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN11ImFontAtlas30AddFontFromMemoryCompressedTTFEPKvifPK12ImFontConfigPKt(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %compressed_ttf_data, i32 %compressed_ttf_size, float noundef %size_pixels, ptr noundef readonly %font_cfg_template, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %font_cfg.i = alloca %struct.ImFontConfig, align 8
   %font_cfg = alloca %struct.ImFontConfig, align 8
@@ -13785,7 +13785,7 @@ _ZN11ImFontAtlas20AddFontFromMemoryTTFEPvifPK12ImFontConfigPKt.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas20AddCustomRectRegularEii(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas20AddCustomRectRegularEii(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #7 align 2 {
 entry:
   %CustomRects = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %CustomRects, align 8
@@ -13858,7 +13858,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit: ; preds = %entry.if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas22AddCustomRectFontGlyphEP6ImFonttiifRK6ImVec2(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr noundef %font, i16 noundef zeroext %id, i32 noundef %width, i32 noundef %height, float noundef %advance_x, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %offset) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN11ImFontAtlas22AddCustomRectFontGlyphEP6ImFonttiifRK6ImVec2(ptr noundef nonnull align 8 captures(none) dereferenceable(1180) %this, ptr noundef %font, i16 noundef zeroext %id, i32 noundef %width, i32 noundef %height, float noundef %advance_x, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %offset) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i64, ptr %offset, align 4
   %CustomRects = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -13939,7 +13939,7 @@ _ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit: ; preds = %entry.if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11ImFontAtlas16CalcCustomRectUVEPK21ImFontAtlasCustomRectP6ImVec2S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1180) %this, ptr nocapture noundef readonly %rect, ptr nocapture noundef writeonly initializes((0, 8)) %out_uv_min, ptr nocapture noundef writeonly initializes((0, 8)) %out_uv_max) local_unnamed_addr #23 align 2 {
+define void @_ZNK11ImFontAtlas16CalcCustomRectUVEPK21ImFontAtlasCustomRectP6ImVec2S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %this, ptr noundef readonly captures(none) %rect, ptr noundef writeonly captures(none) initializes((0, 8)) %out_uv_min, ptr noundef writeonly captures(none) initializes((0, 8)) %out_uv_max) local_unnamed_addr #23 align 2 {
 entry:
   %X = getelementptr inbounds nuw i8, ptr %rect, i64 4
   %0 = load i16, ptr %X, align 4
@@ -13980,7 +13980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN11ImFontAtlas21GetMouseCursorTexDataEiP6ImVec2S1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1180) %this, i32 noundef %cursor_type, ptr nocapture noundef writeonly %out_offset, ptr nocapture noundef writeonly %out_size, ptr nocapture noundef writeonly %out_uv_border, ptr nocapture noundef writeonly %out_uv_fill) local_unnamed_addr #24 align 2 {
+define noundef zeroext i1 @_ZN11ImFontAtlas21GetMouseCursorTexDataEiP6ImVec2S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1180) %this, i32 noundef %cursor_type, ptr noundef writeonly captures(none) %out_offset, ptr noundef writeonly captures(none) %out_size, ptr noundef writeonly captures(none) %out_uv_border, ptr noundef writeonly captures(none) %out_uv_fill) local_unnamed_addr #24 align 2 {
 entry:
   %or.cond = icmp ugt i32 %cursor_type, 8
   br i1 %or.cond, label %return, label %if.end
@@ -14071,7 +14071,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf(ptr nocapture noundef writeonly %out_table, float noundef %in_brighten_factor) local_unnamed_addr #26 {
+define void @_Z39ImFontAtlasBuildMultiplyCalcLookupTablePhf(ptr noundef writeonly captures(none) %out_table, float noundef %in_brighten_factor) local_unnamed_addr #26 {
 entry:
   br label %for.body
 
@@ -14094,7 +14094,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr nocapture noundef readonly %table, ptr nocapture noundef %pixels, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %stride) local_unnamed_addr #27 {
+define void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr noundef readonly captures(none) %table, ptr noundef captures(none) %pixels, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %stride) local_unnamed_addr #27 {
 entry:
   %cmp11 = icmp sgt i32 %h, 0
   br i1 %cmp11, label %for.cond3.preheader.lr.ph, label %for.end10
@@ -21102,7 +21102,7 @@ ehcleanup532:                                     ; preds = %lpad2.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25ImFontAtlasBuildSetupFontP11ImFontAtlasP6ImFontP12ImFontConfigff(ptr noundef %atlas, ptr nocapture noundef %font, ptr nocapture noundef readonly %font_config, float noundef %ascent, float noundef %descent) local_unnamed_addr #7 {
+define void @_Z25ImFontAtlasBuildSetupFontP11ImFontAtlasP6ImFontP12ImFontConfigff(ptr noundef %atlas, ptr noundef captures(none) %font, ptr noundef readonly captures(none) %font_config, float noundef %ascent, float noundef %descent) local_unnamed_addr #7 {
 entry:
   %MergeMode = getelementptr inbounds nuw i8, ptr %font_config, i64 72
   %0 = load i8, ptr %MergeMode, align 8
@@ -21182,7 +21182,7 @@ if.end:                                           ; preds = %_ZN6ImFont15ClearOu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont15ClearOutputDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(118) initializes((16, 24), (56, 72), (96, 97), (104, 116)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN6ImFont15ClearOutputDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24), (56, 72), (96, 97), (104, 116)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %FontSize = getelementptr inbounds nuw i8, ptr %this, i64 20
   store float 0.000000e+00, ptr %FontSize, align 4
@@ -21246,7 +21246,7 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr nocapture noundef %atlas, ptr noundef %stbrp_context_opaque) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_Z31ImFontAtlasBuildPackCustomRectsP11ImFontAtlasPv(ptr noundef captures(none) %atlas, ptr noundef %stbrp_context_opaque) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %pack_rects = alloca %struct.ImVector.12, align 8
   %CustomRects = getelementptr inbounds nuw i8, ptr %atlas, i64 104
@@ -21891,7 +21891,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i8 noundef zeroext %in_marker_pixel_value) local_unnamed_addr #29 {
+define void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr noundef readonly captures(none) %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %in_str, i8 noundef signext %in_marker_char, i8 noundef zeroext %in_marker_pixel_value) local_unnamed_addr #29 {
 entry:
   %TexWidth = getelementptr inbounds nuw i8, ptr %atlas, i64 64
   %cmp12 = icmp sgt i32 %h, 0
@@ -21946,7 +21946,7 @@ for.end19:                                        ; preds = %for.cond3.for.inc12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i32 noundef %in_marker_pixel_value) local_unnamed_addr #29 {
+define void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr noundef readonly captures(none) %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %in_str, i8 noundef signext %in_marker_char, i32 noundef %in_marker_pixel_value) local_unnamed_addr #29 {
 entry:
   %TexWidth = getelementptr inbounds nuw i8, ptr %atlas, i64 64
   %cmp12 = icmp sgt i32 %h, 0
@@ -22001,7 +22001,7 @@ for.end17:                                        ; preds = %for.cond3.for.inc10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20ImFontAtlasBuildInitP11ImFontAtlas(ptr nocapture noundef %atlas) local_unnamed_addr #7 {
+define void @_Z20ImFontAtlasBuildInitP11ImFontAtlas(ptr noundef captures(none) %atlas) local_unnamed_addr #7 {
 entry:
   %ConfigData = getelementptr inbounds nuw i8, ptr %atlas, i64 120
   %Data.i = getelementptr inbounds nuw i8, ptr %atlas, i64 128
@@ -22236,7 +22236,7 @@ if.end20:                                         ; preds = %if.then12, %_ZN11Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22ImFontAtlasBuildFinishP11ImFontAtlas(ptr nocapture noundef %atlas) local_unnamed_addr #0 {
+define void @_Z22ImFontAtlasBuildFinishP11ImFontAtlas(ptr noundef captures(none) %atlas) local_unnamed_addr #0 {
 entry:
   %PackIdMouseCursors.i = getelementptr inbounds nuw i8, ptr %atlas, i64 1172
   %0 = load i32, ptr %PackIdMouseCursors.i, align 4
@@ -22756,7 +22756,7 @@ for.end28:                                        ; preds = %for.inc27, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr nocapture noundef nonnull align 8 dereferenceable(118) initializes((96, 97)) %this, ptr noundef readonly %cfg, i16 noundef zeroext %codepoint, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %u0, float noundef %v0, float noundef %u1, float noundef %v1, float noundef %advance_x) local_unnamed_addr #7 align 2 {
+define void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((96, 97)) %this, ptr noundef readonly %cfg, i16 noundef zeroext %codepoint, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %u0, float noundef %v0, float noundef %u1, float noundef %v1, float noundef %advance_x) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq ptr %cfg, null
   br i1 %cmp.not, label %if.end15, label %if.then
@@ -23516,25 +23516,25 @@ if.end125:                                        ; preds = %if.end125.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas19GetGlyphRangesGreekEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas19GetGlyphRangesGreekEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas19GetGlyphRangesGreekEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas20GetGlyphRangesKoreanEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas20GetGlyphRangesKoreanEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas20GetGlyphRangesKoreanEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas25GetGlyphRangesChineseFullEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas25GetGlyphRangesChineseFullEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas25GetGlyphRangesChineseFullEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #30 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #30 align 2 {
 entry:
   %0 = load i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, align 16
   %tobool.not = icmp eq i16 %0, 0
@@ -23568,7 +23568,7 @@ if.end:                                           ; preds = %_ZL35UnpackAccumula
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #30 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #30 align 2 {
 entry:
   %0 = load i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, align 16
   %tobool.not = icmp eq i16 %0, 0
@@ -23602,25 +23602,25 @@ if.end:                                           ; preds = %_ZL35UnpackAccumula
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesCyrillicEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesCyrillicEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas22GetGlyphRangesCyrillicEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas18GetGlyphRangesThaiEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas18GetGlyphRangesThaiEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas18GetGlyphRangesThaiEvE6ranges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas24GetGlyphRangesVietnameseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
+define noundef nonnull ptr @_ZN11ImFontAtlas24GetGlyphRangesVietnameseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1180) %this) local_unnamed_addr #22 align 2 {
 entry:
   ret ptr @_ZZN11ImFontAtlas24GetGlyphRangesVietnameseEvE6ranges
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %text, ptr noundef %text_end) local_unnamed_addr #7 align 2 {
+define void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %text, ptr noundef %text_end) local_unnamed_addr #7 align 2 {
 entry:
   %c = alloca i32, align 4
   %tobool.not = icmp eq ptr %text_end, null
@@ -23692,7 +23692,7 @@ while.end:                                        ; preds = %if.end, %while.body
 declare noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN24ImFontGlyphRangesBuilder9AddRangesEPKt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %ranges) local_unnamed_addr #18 align 2 {
+define void @_ZN24ImFontGlyphRangesBuilder9AddRangesEPKt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %ranges) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load i16, ptr %ranges, align 2
   %tobool.not10 = icmp eq i16 %0, 0
@@ -23744,7 +23744,7 @@ for.end10:                                        ; preds = %for.inc9, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24ImFontGlyphRangesBuilder11BuildRangesEP8ImVectorItE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %out_ranges) local_unnamed_addr #7 align 2 {
+define void @_ZN24ImFontGlyphRangesBuilder11BuildRangesEP8ImVectorItE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %out_ranges) local_unnamed_addr #7 align 2 {
 entry:
   %Data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %Capacity.i = getelementptr inbounds nuw i8, ptr %out_ranges, i64 4
@@ -23959,7 +23959,7 @@ _ZN8ImVectorItE9push_backERKt.exit74:             ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6ImFontC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(118) initializes((0, 97), (100, 118)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6ImFontC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(118) initializes((0, 97), (100, 118)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %FallbackChar = getelementptr inbounds nuw i8, ptr %this, i64 82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
@@ -23978,7 +23978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6ImFontD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(118) initializes((16, 24)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6ImFontD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(118) initializes((16, 24)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %FontSize.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   store float 0.000000e+00, ptr %FontSize.i, align 4
@@ -24106,7 +24106,7 @@ terminate.lpad:                                   ; preds = %if.then.i7.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont9GrowIndexEi(ptr nocapture noundef nonnull align 8 dereferenceable(118) %this, i32 noundef %new_size) local_unnamed_addr #7 align 2 {
+define void @_ZN6ImFont9GrowIndexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %this, i32 noundef %new_size) local_unnamed_addr #7 align 2 {
 entry:
   %IndexLookup = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %IndexLookup, align 8
@@ -24243,7 +24243,7 @@ return:                                           ; preds = %entry, %_ZN8ImVecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #31 align 2 {
+define noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #31 align 2 {
 entry:
   %conv = zext i16 %c to i64
   %IndexLookup = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24283,7 +24283,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6ImFont15SetGlyphVisibleEtb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c, i1 noundef zeroext %visible) local_unnamed_addr #11 align 2 {
+define void @_ZN6ImFont15SetGlyphVisibleEtb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, i16 noundef zeroext %c, i1 noundef zeroext %visible) local_unnamed_addr #11 align 2 {
 entry:
   %conv.i = zext i16 %c to i64
   %IndexLookup.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24335,7 +24335,7 @@ if.end:                                           ; preds = %if.then, %_ZNK6ImFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #31 align 2 {
+define noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #31 align 2 {
 entry:
   %conv = zext i16 %c to i64
   %IndexLookup = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24365,7 +24365,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i32 noundef %c_begin, i32 noundef %c_last) local_unnamed_addr #32 align 2 {
+define noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, i32 noundef %c_begin, i32 noundef %c_last) local_unnamed_addr #32 align 2 {
 entry:
   %div5 = lshr i32 %c_begin, 12
   %div26 = lshr i32 %c_last, 12
@@ -24404,7 +24404,7 @@ return:                                           ; preds = %if.then, %for.inc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6ImFont12AddRemapCharEttb(ptr nocapture noundef nonnull align 8 dereferenceable(118) %this, i16 noundef zeroext %dst, i16 noundef zeroext %src, i1 noundef zeroext %overwrite_dst) local_unnamed_addr #7 align 2 {
+define void @_ZN6ImFont12AddRemapCharEttb(ptr noundef nonnull align 8 captures(none) dereferenceable(118) %this, i16 noundef zeroext %dst, i16 noundef zeroext %src, i1 noundef zeroext %overwrite_dst) local_unnamed_addr #7 align 2 {
 entry:
   %IndexLookup = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %IndexLookup, align 8
@@ -24476,7 +24476,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, float noundef %scale, ptr noundef %text, ptr noundef %text_end, float noundef %wrap_width) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, float noundef %scale, ptr noundef %text, ptr noundef %text_end, float noundef %wrap_width) local_unnamed_addr #7 align 2 {
 entry:
   %c = alloca i32, align 4
   %div = fdiv float %wrap_width, %scale
@@ -24622,7 +24622,7 @@ while.end:                                        ; preds = %while.cond.outer.ou
 }
 
 ; Function Attrs: mustprogress uwtable
-define <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, float noundef %size, float noundef %max_width, float noundef %wrap_width, ptr noundef %text_begin, ptr noundef %text_end, ptr noundef writeonly %remaining) local_unnamed_addr #0 align 2 {
+define <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, float noundef %size, float noundef %max_width, float noundef %wrap_width, ptr noundef %text_begin, ptr noundef %text_end, ptr noundef writeonly %remaining) local_unnamed_addr #0 align 2 {
 entry:
   %c = alloca i32, align 4
   %tobool.not = icmp eq ptr %text_end, null
@@ -24868,7 +24868,7 @@ if.end59:                                         ; preds = %if.then58, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6ImFont10RenderCharEP10ImDrawListfRK6ImVec2jt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, ptr nocapture noundef %draw_list, float noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, i32 noundef %col, i16 noundef zeroext %c) local_unnamed_addr #7 align 2 {
+define void @_ZNK6ImFont10RenderCharEP10ImDrawListfRK6ImVec2jt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(118) %this, ptr noundef captures(none) %draw_list, float noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos, i32 noundef %col, i16 noundef zeroext %c) local_unnamed_addr #7 align 2 {
 entry:
   %conv.i = zext i16 %c to i64
   %IndexLookup.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25046,7 +25046,7 @@ return:                                           ; preds = %_ZNK6ImFont9FindGly
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr nocapture noundef %draw_list, <2 x float> %pos.coerce, i32 noundef %col, i32 noundef %dir, float noundef %scale) local_unnamed_addr #0 {
+define void @_ZN5ImGui11RenderArrowEP10ImDrawList6ImVec2jif(ptr noundef captures(none) %draw_list, <2 x float> %pos.coerce, i32 noundef %col, i32 noundef %dir, float noundef %scale) local_unnamed_addr #0 {
 entry:
   %ref.tmp30 = alloca %struct.ImVec2, align 8
   %ref.tmp32 = alloca %struct.ImVec2, align 8
@@ -25137,7 +25137,7 @@ sw.epilog:                                        ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr nocapture noundef %draw_list, <2 x float> %pos.coerce, i32 noundef %col) local_unnamed_addr #0 {
+define void @_ZN5ImGui12RenderBulletEP10ImDrawList6ImVec2j(ptr noundef captures(none) %draw_list, <2 x float> %pos.coerce, i32 noundef %col) local_unnamed_addr #0 {
 entry:
   %pos = alloca %struct.ImVec2, align 8
   store <2 x float> %pos.coerce, ptr %pos, align 8
@@ -25366,7 +25366,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit80:     ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr nocapture noundef %draw_list, <2 x float> %pos.coerce, <2 x float> %half_sz.coerce, i32 noundef %direction, i32 noundef %col) local_unnamed_addr #0 {
+define void @_ZN5ImGui21RenderArrowPointingAtEP10ImDrawList6ImVec2S2_ij(ptr noundef captures(none) %draw_list, <2 x float> %pos.coerce, <2 x float> %half_sz.coerce, i32 noundef %direction, i32 noundef %col) local_unnamed_addr #0 {
 entry:
   %pos = alloca %struct.ImVec2, align 8
   %ref.tmp = alloca %struct.ImVec2, align 4
@@ -25453,7 +25453,7 @@ sw.epilog:                                        ; preds = %sw.bb40, %sw.bb25, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui22RenderRectFilledRangeHEP10ImDrawListRK6ImRectjfff(ptr noundef %draw_list, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rect, i32 noundef %col, float noundef %x_start_norm, float noundef %x_end_norm, float noundef %rounding) local_unnamed_addr #7 {
+define void @_ZN5ImGui22RenderRectFilledRangeHEP10ImDrawListRK6ImRectjfff(ptr noundef %draw_list, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rect, i32 noundef %col, float noundef %x_start_norm, float noundef %x_end_norm, float noundef %rounding) local_unnamed_addr #7 {
 entry:
   %p0 = alloca %struct.ImVec2, align 4
   %p1 = alloca %struct.ImVec2, align 4
@@ -26164,7 +26164,7 @@ return:                                           ; preds = %entry, %if.end125, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRectS4_jf(ptr noundef %draw_list, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %outer, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %inner, i32 noundef %col, float noundef %rounding) local_unnamed_addr #7 {
+define void @_ZN5ImGui24RenderRectFilledWithHoleEP10ImDrawListRK6ImRectS4_jf(ptr noundef %draw_list, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %outer, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %inner, i32 noundef %col, float noundef %rounding) local_unnamed_addr #7 {
 entry:
   %ref.tmp = alloca %struct.ImVec2, align 4
   %ref.tmp23 = alloca %struct.ImVec2, align 4
@@ -26965,7 +26965,7 @@ return:                                           ; preds = %if.end250, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr nocapture noundef nonnull readonly %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %ix0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) unnamed_addr #18 {
+define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef nonnull readonly captures(none) %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %ix0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) unnamed_addr #18 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
   %size.i = getelementptr inbounds nuw i8, ptr %font, i64 76
@@ -27281,7 +27281,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr nocapture noundef nonnull %b) unnamed_addr #8 {
+define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr noundef nonnull captures(none) %b) unnamed_addr #8 {
 entry:
   %cursor = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -27554,7 +27554,7 @@ _ZL16stbtt__buf_rangePK10stbtt__bufii.exit:       ; preds = %_ZL14stbtt__buf_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr nocapture noundef nonnull initializes((8, 12)) %b, i32 noundef range(i32 17, 294) %key, i32 noundef range(i32 1, 3) %outcount, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
+define internal fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr noundef nonnull captures(none) initializes((8, 12)) %b, i32 noundef range(i32 17, 294) %key, i32 noundef range(i32 1, 3) %outcount, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #8 {
 entry:
   %size.i.i = getelementptr inbounds nuw i8, ptr %b, i64 12
   %0 = load i32, ptr %size.i.i, align 4
@@ -28045,7 +28045,7 @@ return:                                           ; preds = %_ZL16stbtt__buf_ran
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr nocapture noundef nonnull readonly %info, i32 noundef %glyph_index, ptr nocapture noundef nonnull %c) unnamed_addr #18 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbtt__run_charstringPK14stbtt_fontinfoiP12stbtt__csctx(ptr noundef nonnull readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef nonnull captures(none) %c) unnamed_addr #18 {
 entry:
   %s = alloca [48 x float], align 16
   %subr_stack = alloca [10 x %struct.stbtt__buf], align 16
@@ -29159,7 +29159,7 @@ return:                                           ; preds = %sw.bb8, %sw.bb15, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL21stbtt__csctx_rmove_toP12stbtt__csctxff(ptr nocapture noundef nonnull %ctx, float noundef %dx, float noundef %dy) unnamed_addr #12 {
+define internal fastcc void @_ZL21stbtt__csctx_rmove_toP12stbtt__csctxff(ptr noundef nonnull captures(none) %ctx, float noundef %dx, float noundef %dy) unnamed_addr #12 {
 entry:
   tail call fastcc void @_ZL24stbtt__csctx_close_shapeP12stbtt__csctx(ptr noundef %ctx)
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
@@ -29288,7 +29288,7 @@ _ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit:   ; preds = %_ZL19stbtt__track_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr nocapture noundef nonnull %ctx, float noundef %dx, float noundef %dy) unnamed_addr #12 {
+define internal fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef nonnull captures(none) %ctx, float noundef %dx, float noundef %dy) unnamed_addr #12 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
@@ -29412,7 +29412,7 @@ _ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit:   ; preds = %_ZL19stbtt__track_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr nocapture noundef nonnull %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) unnamed_addr #12 {
+define internal fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef nonnull captures(none) %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) unnamed_addr #12 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
@@ -29621,7 +29621,7 @@ _ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit:   ; preds = %_ZL19stbtt__track_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL24stbtt__csctx_close_shapeP12stbtt__csctx(ptr nocapture noundef nonnull %ctx) unnamed_addr #12 {
+define internal fastcc void @_ZL24stbtt__csctx_close_shapeP12stbtt__csctx(ptr noundef nonnull captures(none) %ctx) unnamed_addr #12 {
 entry:
   %first_x = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load float, ptr %first_x, align 8
@@ -29756,7 +29756,7 @@ if.end:                                           ; preds = %_ZL14stbtt__csctx_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr nocapture noundef nonnull readonly %info, i32 noundef %glyph_index, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pvertices) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZL19stbtt_GetGlyphShapePK14stbtt_fontinfoiPP12stbtt_vertex(ptr noundef nonnull readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %pvertices) unnamed_addr #7 {
 entry:
   %count_ctx.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i = alloca %struct.stbtt__csctx, align 8
@@ -30744,7 +30744,7 @@ return:                                           ; preds = %_ZL22stbtt__GetGlyp
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -30817,7 +30817,7 @@ return:                                           ; preds = %if.then10, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %points, ptr noundef nonnull captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #34 {
 entry:
   %smax = tail call i32 @llvm.smax.i32(i32 %n, i32 17)
   %exitcond62 = icmp sgt i32 %n, 16
@@ -31022,7 +31022,7 @@ while.end:                                        ; preds = %if.end79, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #32 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #32 {
 entry:
   %h = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %h, align 4
@@ -31049,7 +31049,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #32 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #32 {
 entry:
   %was_packed = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %was_packed, align 4
@@ -31060,10 +31060,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #35
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #36
@@ -31072,7 +31072,7 @@ declare void @llvm.assume(i1 noundef) #36
 declare i32 @llvm.smin.i32(i32, i32) #37
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #38
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #37
@@ -31084,10 +31084,10 @@ declare i32 @llvm.smax.i32(i32, i32) #37
 declare i32 @llvm.umin.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #39
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #39
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37

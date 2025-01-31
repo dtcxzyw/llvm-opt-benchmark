@@ -32,13 +32,13 @@ define noalias nonnull ptr @JLI_MemAlloc(i64 noundef %0) local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias nonnull ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden noalias nonnull ptr @JLI_MemRealloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -53,10 +53,10 @@ define hidden noalias nonnull ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias nonnull ptr @JLI_StringDup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @JLI_StringDup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -71,19 +71,19 @@ define noalias nonnull ptr @JLI_StringDup(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @JLI_MemFree(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define void @JLI_MemFree(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -108,10 +108,10 @@ define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, 
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @JLI_TraceLauncher(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define hidden void @JLI_TraceLauncher(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %.b = load i1, ptr @_launcher_debug, align 1
   br i1 %.b, label %3, label %7
@@ -132,13 +132,13 @@ define hidden void @JLI_TraceLauncher(ptr nocapture noundef readonly %0, ...) lo
 declare void @llvm.va_start.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define void @JLI_SetTraceLauncher() local_unnamed_addr #0 {
@@ -156,7 +156,7 @@ define void @JLI_SetTraceLauncher() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext range(i8 0, 2) i8 @JLI_IsTraceLauncher() local_unnamed_addr #14 {
@@ -166,17 +166,17 @@ define hidden zeroext range(i8 0, 2) i8 @JLI_IsTraceLauncher() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @JLI_StrCCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
+define hidden i32 @JLI_StrCCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #22
+  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3) #22
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias nonnull ptr @JLI_List_new(i64 noundef %0) local_unnamed_addr #0 {
@@ -254,7 +254,7 @@ define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_ensureCapacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden void @JLI_List_ensureCapacity(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1
@@ -288,7 +288,7 @@ JLI_MemRealloc.exit:                              ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @JLI_List_add(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @JLI_List_add(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
@@ -337,7 +337,7 @@ JLI_List_ensureCapacity.exit:                     ; preds = %.JLI_List_ensureCap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_addSubstring(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define hidden void @JLI_List_addSubstring(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i64 %2, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #17
   %6 = icmp eq ptr %5, null
@@ -400,10 +400,10 @@ JLI_List_ensureCapacity.exit:                     ; preds = %JLI_MemAlloc.exit.J
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias nonnull ptr @JLI_List_combine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @JLI_List_combine(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -449,7 +449,7 @@ JLI_MemAlloc.exit:                                ; preds = %.lr.ph27, %JLI_MemA
   %17 = getelementptr inbounds ptr, ptr %15, i64 %.126
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02025, ptr align 1 %18, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02025, ptr nonnull align 1 %18, i64 %19, i1 false)
   %20 = getelementptr inbounds i8, ptr %.02025, i64 %19
   %21 = add nuw i64 %.126, 1
   %exitcond31.not = icmp eq i64 %21, %3
@@ -463,7 +463,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias nonnull ptr @JLI_List_join(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @JLI_List_join(ptr noundef readonly captures(none) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not32 = icmp eq i64 %4, 0

@@ -102,11 +102,11 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %38, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %34, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 1 %34, i64 %38, i1 false)
   %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %38
   store i8 0, ptr %46, align 1
-  tail call void @explicit_bzero(ptr noundef %34, i64 noundef 123) #8
-  tail call void @_efree(ptr noundef %34) #8
+  tail call void @explicit_bzero(ptr noundef nonnull %34, i64 noundef 123) #8
+  tail call void @_efree(ptr noundef nonnull %34) #8
   br label %.thread374
 
 47:                                               ; preds = %10
@@ -139,11 +139,11 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 %56, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr align 1 %52, i64 %56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 1 %52, i64 %56, i1 false)
   %64 = getelementptr inbounds [1 x i8], ptr %63, i64 0, i64 %56
   store i8 0, ptr %64, align 1
-  tail call void @explicit_bzero(ptr noundef %52, i64 noundef 123) #8
-  tail call void @_efree(ptr noundef %52) #8
+  tail call void @explicit_bzero(ptr noundef nonnull %52, i64 noundef 123) #8
+  tail call void @_efree(ptr noundef nonnull %52) #8
   br label %.thread374
 
 65:                                               ; preds = %10
@@ -251,7 +251,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
 declare ptr @php_md5_crypt_r(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @_emalloc_128() local_unnamed_addr #1
 
@@ -265,7 +265,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare ptr @php_sha256_crypt_r(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @php_crypt_blowfish_rn(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -274,7 +274,7 @@ declare void @_crypt_extended_init_r() local_unnamed_addr #1
 declare ptr @_crypt_extended_r(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_crypt(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [124 x i8], align 16
@@ -408,7 +408,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 

@@ -262,7 +262,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.239 = private unnamed_addr constant [23 x i8] c"recent.capture_filter.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recent_free_column_width_info(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @recent_free_column_width_info(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   tail call void @g_list_free_full(ptr noundef %3, ptr noundef nonnull @free_col_width_data) #13
@@ -292,7 +292,7 @@ define hidden void @window_geom_free(ptr noundef %0) #0 {
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @window_geom_save(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @window_geom_save(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @window_geom_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -322,14 +322,14 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 declare i32 @g_hash_table_replace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @window_geom_load(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @window_geom_load(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @window_geom_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -417,7 +417,7 @@ define hidden ptr @recent_get_cfilter_list(ptr noundef %0) local_unnamed_addr #0
 define hidden void @recent_add_cfilter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %36, label %5
+  br i1 %4, label %35, label %5
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %0, null
@@ -462,39 +462,37 @@ define hidden void @recent_add_cfilter(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call ptr @g_list_remove(ptr noundef %.020, ptr noundef %19) #13
-  %27 = icmp eq ptr %19, null
-  br i1 %27, label %.thread, label %29
+  %26 = tail call ptr @g_list_remove(ptr noundef %.020, ptr noundef nonnull %19) #13
+  br label %28
 
-.thread:                                          ; preds = %22, %17, %25
-  %.12128 = phi ptr [ %26, %25 ], [ %.020, %17 ], [ %.020, %22 ]
-  %28 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
-  br label %29
+.thread:                                          ; preds = %22, %17
+  %27 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
+  br label %28
 
-29:                                               ; preds = %.thread, %25
-  %.12127 = phi ptr [ %.12128, %.thread ], [ %26, %25 ]
-  %.1 = phi ptr [ %28, %.thread ], [ %19, %25 ]
-  %30 = tail call ptr @g_list_prepend(ptr noundef %.12127, ptr noundef %.1) #13
-  br i1 %6, label %31, label %32
+28:                                               ; preds = %25, %.thread
+  %.12127 = phi ptr [ %.020, %.thread ], [ %26, %25 ]
+  %.1 = phi ptr [ %27, %.thread ], [ %19, %25 ]
+  %29 = tail call ptr @g_list_prepend(ptr noundef %.12127, ptr noundef %.1) #13
+  br i1 %6, label %30, label %31
 
-31:                                               ; preds = %29
-  store ptr %30, ptr @recent_cfilter_list, align 8
-  br label %36
+30:                                               ; preds = %28
+  store ptr %29, ptr @recent_cfilter_list, align 8
+  br label %35
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @per_interface_cfilter_lists_hash, align 8
-  %34 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #13
-  %35 = tail call i32 @g_hash_table_insert(ptr noundef %33, ptr noundef %34, ptr noundef %30) #13
-  br label %36
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @per_interface_cfilter_lists_hash, align 8
+  %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #13
+  %34 = tail call i32 @g_hash_table_insert(ptr noundef %32, ptr noundef %33, ptr noundef %29) #13
+  br label %35
 
-36:                                               ; preds = %2, %32, %31
+35:                                               ; preds = %2, %31, %30
   ret void
 }
 
 declare ptr @g_list_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -696,24 +694,24 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @get_configuration_namespace() local_unnamed_addr #1
 
 declare void @menu_recent_file_write_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @dfilter_recent_combo_write_all(ptr noundef) local_unnamed_addr #1
 
 declare ptr @get_profile_name() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_recent_enum(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @write_recent_enum(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, ptr noundef %1) #13
   %7 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %0)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -755,7 +753,7 @@ define internal fastcc void @write_recent_enum(ptr nocapture noundef nonnull %0,
 declare ptr @join_string_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 {
@@ -860,15 +858,15 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @ts_type_values, i32 noundef %87)
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #13
   %89 = call i64 @fwrite(ptr nonnull @.str.67, i64 10, i64 1, ptr nonnull %16)
-  %90 = call i64 @fwrite(ptr nonnull @.str.167, i64 4, i64 1, ptr %16)
+  %90 = call i64 @fwrite(ptr nonnull @.str.167, i64 4, i64 1, ptr nonnull %16)
   br label %91
 
 91:                                               ; preds = %23, %91
   %92 = phi ptr [ @.str.168, %23 ], [ %96, %91 ]
   %.098115117 = phi ptr [ @ts_precision_values, %23 ], [ %93, %91 ]
   %93 = getelementptr i8, ptr %.098115117, i64 16
-  %94 = call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %16)
-  %fputs = call i32 @fputs(ptr nonnull %92, ptr %16)
+  %94 = call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr nonnull %16)
+  %fputs = call i32 @fputs(ptr nonnull %92, ptr nonnull %16)
   %95 = getelementptr i8, ptr %.098115117, i64 40
   %96 = load ptr, ptr %95, align 8
   %.not113 = icmp eq ptr %96, null
@@ -1019,16 +1017,16 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.112, ptr noundef %179) #13
   call void @g_free(ptr noundef %179) #13
   %181 = call i64 @fwrite(ptr nonnull @.str.113, i64 30, i64 1, ptr nonnull %16)
-  %182 = call i64 @fwrite(ptr nonnull @.str.114, i64 46, i64 1, ptr %16)
+  %182 = call i64 @fwrite(ptr nonnull @.str.114, i64 46, i64 1, ptr nonnull %16)
   %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 200), align 8
   %184 = call ptr @join_string_list(ptr noundef %183) #13
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.115, ptr noundef %184) #13
+  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.115, ptr noundef %184) #13
   call void @g_free(ptr noundef %184) #13
-  %186 = call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr %16)
-  %187 = call i64 @fwrite(ptr nonnull @.str.117, i64 36, i64 1, ptr %16)
+  %186 = call i64 @fwrite(ptr nonnull @.str.116, i64 33, i64 1, ptr nonnull %16)
+  %187 = call i64 @fwrite(ptr nonnull @.str.117, i64 36, i64 1, ptr nonnull %16)
   %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 208), align 8
   %189 = call ptr @join_string_list(ptr noundef %188) #13
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.118, ptr noundef %189) #13
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.118, ptr noundef %189) #13
   call void @g_free(ptr noundef %189) #13
   %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 224), align 8
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.119) #13
@@ -1041,25 +1039,25 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   br i1 %.not112, label %202, label %198
 
 198:                                              ; preds = %window_splitter_recent_write_all.exit
-  %199 = call i64 @fwrite(ptr nonnull @.str.121, i64 52, i64 1, ptr %16)
+  %199 = call i64 @fwrite(ptr nonnull @.str.121, i64 52, i64 1, ptr nonnull %16)
   %200 = call ptr @get_last_open_dir() #13
-  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.122, ptr noundef %200) #13
+  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.122, ptr noundef %200) #13
   br label %202
 
 202:                                              ; preds = %198, %window_splitter_recent_write_all.exit
-  %203 = call i64 @fwrite(ptr nonnull @.str.123, i64 29, i64 1, ptr %16)
-  %204 = call i64 @fwrite(ptr nonnull @.str.124, i64 39, i64 1, ptr %16)
+  %203 = call i64 @fwrite(ptr nonnull @.str.123, i64 29, i64 1, ptr nonnull %16)
+  %204 = call i64 @fwrite(ptr nonnull @.str.124, i64 39, i64 1, ptr nonnull %16)
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 240), align 8
   %206 = call ptr @join_string_list(ptr noundef %205) #13
-  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.125, ptr noundef %206) #13
+  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.125, ptr noundef %206) #13
   call void @g_free(ptr noundef %206) #13
-  %208 = call i64 @fwrite(ptr nonnull @.str.126, i64 28, i64 1, ptr %16)
-  %209 = call i64 @fwrite(ptr nonnull @.str.127, i64 38, i64 1, ptr %16)
+  %208 = call i64 @fwrite(ptr nonnull @.str.126, i64 28, i64 1, ptr nonnull %16)
+  %209 = call i64 @fwrite(ptr nonnull @.str.127, i64 38, i64 1, ptr nonnull %16)
   %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 248), align 8
   %211 = call ptr @join_string_list(ptr noundef %210) #13
-  %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.128, ptr noundef %211) #13
+  %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.128, ptr noundef %211) #13
   call void @g_free(ptr noundef %211) #13
-  %213 = call i32 @fclose(ptr noundef %16)
+  %213 = call i32 @fclose(ptr noundef nonnull %16)
   br label %214
 
 214:                                              ; preds = %202, %18, %7
@@ -1100,7 +1098,7 @@ define hidden range(i32 0, 3) i32 @recent_set_arg(ptr noundef %0) local_unnamed_
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef nonnull %.012, ptr poison, i32 poison)
+  %15 = tail call i32 @read_set_recent_pair_static(ptr noundef nonnull %0, ptr noundef nonnull %.012, ptr poison, i32 poison)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %14
@@ -1117,7 +1115,7 @@ define hidden range(i32 0, 3) i32 @recent_set_arg(ptr noundef %0) local_unnamed_
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.44) #15
@@ -1477,7 +1475,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 186:                                              ; preds = %183
   store i8 0, ptr %185, align 1
   %187 = getelementptr i8, ptr %185, i64 1
-  tail call fastcc void @window_geom_recent_read_pair(ptr noundef %184, ptr noundef %187, ptr noundef %1)
+  tail call fastcc void @window_geom_recent_read_pair(ptr noundef nonnull %184, ptr noundef %187, ptr noundef %1)
   br label %268
 
 188:                                              ; preds = %180
@@ -1653,7 +1651,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_static(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   store i32 20, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 112), align 8
   store i32 20, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 116), align 4
   store i32 750, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 120), align 8
@@ -1699,7 +1697,7 @@ define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writ
 declare i32 @read_prefs_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.14) #15
   %7 = icmp eq i32 %6, 0
@@ -1835,11 +1833,11 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
   br i1 %.not62, label %135, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call zeroext i1 @profile_exists(ptr noundef %1, i1 noundef zeroext false) #13
+  %75 = tail call zeroext i1 @profile_exists(ptr noundef nonnull %1, i1 noundef zeroext false) #13
   br i1 %75, label %76, label %135
 
 76:                                               ; preds = %74
-  tail call void @set_profile_name(ptr noundef %1) #13
+  tail call void @set_profile_name(ptr noundef nonnull %1) #13
   br label %135
 
 77:                                               ; preds = %69
@@ -1856,7 +1854,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 83:                                               ; preds = %80
   store i8 0, ptr %82, align 1
   %84 = getelementptr i8, ptr %82, i64 1
-  tail call fastcc void @window_geom_recent_read_pair(ptr noundef %81, ptr noundef %84, ptr noundef %1)
+  tail call fastcc void @window_geom_recent_read_pair(ptr noundef nonnull %81, ptr noundef %84, ptr noundef %1)
   br label %135
 
 85:                                               ; preds = %77
@@ -1965,7 +1963,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   store i32 1, ptr @recent, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 4), align 4
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 8), align 8
@@ -2099,7 +2097,7 @@ define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noun
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_dynamic(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_dynamic(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2173,7 +2171,7 @@ cfilter_recent_reverse_all.exit:                  ; preds = %.lr.ph.i, %12, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3) #0 {
   %5 = tail call i32 @g_utf8_validate(ptr noundef %1, i64 noundef -1, ptr noundef null) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %recent_add_cfilter.exit, label %6
@@ -2199,7 +2197,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0
 15:                                               ; preds = %10
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.238) #15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %36
+  br i1 %17, label %18, label %35
 
 18:                                               ; preds = %15
   %19 = load i8, ptr %1, align 1
@@ -2226,35 +2224,33 @@ define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !4
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = tail call ptr @g_list_remove(ptr noundef %22, ptr noundef %24) #13
-  %32 = icmp eq ptr %24, null
-  br i1 %32, label %.thread.i, label %34
+  %31 = tail call ptr @g_list_remove(ptr noundef %22, ptr noundef nonnull %24) #13
+  br label %33
 
-.thread.i:                                        ; preds = %27, %30, %21
-  %.12128.i = phi ptr [ %31, %30 ], [ %22, %21 ], [ %22, %27 ]
-  %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
-  br label %34
+.thread.i:                                        ; preds = %27, %21
+  %32 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
+  br label %33
 
-34:                                               ; preds = %.thread.i, %30
-  %.12127.i = phi ptr [ %.12128.i, %.thread.i ], [ %31, %30 ]
-  %.1.i = phi ptr [ %33, %.thread.i ], [ %24, %30 ]
-  %35 = tail call ptr @g_list_prepend(ptr noundef %.12127.i, ptr noundef %.1.i) #13
-  store ptr %35, ptr @recent_cfilter_list, align 8
+33:                                               ; preds = %.thread.i, %30
+  %.12127.i = phi ptr [ %22, %.thread.i ], [ %31, %30 ]
+  %.1.i = phi ptr [ %32, %.thread.i ], [ %24, %30 ]
+  %34 = tail call ptr @g_list_prepend(ptr noundef %.12127.i, ptr noundef %.1.i) #13
+  store ptr %34, ptr @recent_cfilter_list, align 8
   br label %recent_add_cfilter.exit
 
-36:                                               ; preds = %15
-  %37 = tail call i32 @g_str_has_prefix(ptr noundef %0, ptr noundef nonnull @.str.239) #13
-  %.not10 = icmp eq i32 %37, 0
-  br i1 %.not10, label %recent_add_cfilter.exit, label %38
+35:                                               ; preds = %15
+  %36 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %0, ptr noundef nonnull @.str.239) #13
+  %.not10 = icmp eq i32 %36, 0
+  br i1 %.not10, label %recent_add_cfilter.exit, label %37
 
-38:                                               ; preds = %36
-  %39 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #15
-  %40 = getelementptr i8, ptr %39, i64 1
-  tail call void @recent_add_cfilter(ptr noundef %40, ptr noundef %1)
+37:                                               ; preds = %35
+  %38 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #15
+  %39 = getelementptr i8, ptr %38, i64 1
+  tail call void @recent_add_cfilter(ptr noundef %39, ptr noundef %1)
   br label %recent_add_cfilter.exit
 
-recent_add_cfilter.exit:                          ; preds = %34, %18, %9, %38, %36, %13, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %13 ], [ 0, %36 ], [ 0, %38 ], [ 0, %9 ], [ 0, %18 ], [ 0, %34 ]
+recent_add_cfilter.exit:                          ; preds = %33, %18, %9, %37, %35, %13, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %13 ], [ 0, %35 ], [ 0, %37 ], [ 0, %9 ], [ 0, %18 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -2375,7 +2371,7 @@ define hidden void @recent_init() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_cleanup() local_unnamed_addr #0 {
@@ -2412,7 +2408,7 @@ declare void @prefs_clear_string_list(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfilter_recent_write_all_hash_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @cfilter_recent_write_all_hash_callback(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = tail call ptr @g_list_first(ptr noundef %1) #13
   %.not16.i = icmp eq ptr %4, null
   br i1 %.not16.i, label %cfilter_recent_write_all_list.exit, label %.lr.ph.i
@@ -2480,7 +2476,7 @@ cfilter_recent_write_all_list.exit:               ; preds = %.lr.ph.split.i, %21
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @write_recent_geom(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #9 {
+define internal void @write_recent_geom(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #9 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.146, ptr noundef %4) #13
   %6 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 20, i64 1, ptr %2)
@@ -2526,13 +2522,13 @@ declare zeroext i1 @is_packet_configuration_namespace() local_unnamed_addr #1
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @window_geom_recent_read_pair(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @window_geom_recent_read_pair(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.221) #15
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
@@ -2614,7 +2610,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br i1 %24, label %25, label %.tail54.thread
 
 25:                                               ; preds = %.tail
-  %26 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %26 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #13
   %27 = trunc i64 %26 to i32
   br label %56
 
@@ -2625,7 +2621,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br i1 %30, label %31, label %.tail54.thread
 
 31:                                               ; preds = %.tail54
-  %32 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %32 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #13
   %33 = trunc i64 %32 to i32
   br label %56
 
@@ -2635,7 +2631,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.tail54.thread
-  %37 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %37 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #13
   %38 = trunc i64 %37 to i32
   br label %56
 
@@ -2645,7 +2641,7 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
-  %43 = tail call i64 @strtol(ptr nocapture noundef %2, ptr noundef null, i32 noundef 10) #13
+  %43 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #13
   %44 = trunc i64 %43 to i32
   br label %56
 
@@ -2746,16 +2742,16 @@ declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_iter_replace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

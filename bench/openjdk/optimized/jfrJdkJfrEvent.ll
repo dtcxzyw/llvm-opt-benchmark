@@ -494,7 +494,7 @@ declare void @_ZN14JfrJavaSupport12call_virtualEP16JfrJavaArgumentsP10JavaThread
 declare noundef ptr @_ZN14JfrJavaSupport16local_jni_handleEP7oopDescP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11JdkJfrEvent2isEPK5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11JdkJfrEvent2isEPK5Klass(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 32
@@ -511,7 +511,7 @@ define hidden noundef zeroext i1 @_ZN11JdkJfrEvent2isEP7_jclass(ptr noundef %0) 
 declare noundef zeroext i1 @_ZN10JfrTraceId16is_jdk_jfr_eventEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JdkJfrEvent6tag_asEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JdkJfrEvent6tag_asEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i8, ptr %2, align 1
   %4 = or i8 %3, 32
@@ -521,7 +521,7 @@ define hidden void @_ZN11JdkJfrEvent6tag_asEPK5Klass(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11JdkJfrEvent11is_subklassEPK5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11JdkJfrEvent11is_subklassEPK5Klass(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 16
@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @_ZN11JdkJfrEvent11is_subklassEP7_jclass(ptr no
 declare noundef zeroext i1 @_ZN10JfrTraceId20is_jdk_jfr_event_subEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JdkJfrEvent15tag_as_subklassEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JdkJfrEvent15tag_as_subklassEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 16
@@ -565,7 +565,7 @@ define hidden void @_ZN11JdkJfrEvent15tag_as_subklassEP7_jclass(ptr noundef %0) 
 declare void @_ZN10JfrTraceId24tag_as_jdk_jfr_event_subEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN11JdkJfrEvent4is_aEPK5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11JdkJfrEvent4is_aEPK5Klass(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 32
@@ -607,7 +607,7 @@ define hidden void @_ZN11JdkJfrEvent6removeEPK5Klass(ptr noundef %0) local_unnam
 declare void @_ZN10JfrTraceId23untag_jdk_jfr_event_subEPK5Klass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11JdkJfrEvent7is_hostEPK5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11JdkJfrEvent7is_hostEPK5Klass(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 64
@@ -624,7 +624,7 @@ define hidden noundef zeroext i1 @_ZN11JdkJfrEvent7is_hostEP7_jclass(ptr noundef
 declare noundef zeroext i1 @_ZN10JfrTraceId13is_event_hostEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JdkJfrEvent11tag_as_hostEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JdkJfrEvent11tag_as_hostEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i8, ptr %2, align 1
   %4 = or i8 %3, 64
@@ -642,7 +642,7 @@ define hidden void @_ZN11JdkJfrEvent11tag_as_hostEP7_jclass(ptr noundef %0) loca
 declare void @_ZN10JfrTraceId17tag_as_event_hostEP7_jclass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11JdkJfrEvent10is_visibleEPK5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11JdkJfrEvent10is_visibleEPK5Klass(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 16
@@ -1263,13 +1263,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

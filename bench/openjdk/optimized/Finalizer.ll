@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_ref_Finalizer_reportComplete(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_java_lang_ref_Finalizer_reportComplete(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_ReportFinalizationComplete(ptr noundef %0, ptr noundef %2) #2
   ret void
 }
@@ -12,7 +12,7 @@ define void @Java_java_lang_ref_Finalizer_reportComplete(ptr noundef %0, ptr noc
 declare void @JVM_ReportFinalizationComplete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_java_lang_ref_Finalizer_isFinalizationEnabled(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_java_lang_ref_Finalizer_isFinalizationEnabled(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @JVM_IsFinalizationEnabled(ptr noundef %0) #2
   ret i8 %3
 }

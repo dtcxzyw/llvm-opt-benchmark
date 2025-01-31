@@ -15,20 +15,20 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @string_list_init_nodup(ptr nocapture noundef writeonly initializes((0, 40)) %list) local_unnamed_addr #0 {
+define dso_local void @string_list_init_nodup(ptr noundef writeonly captures(none) initializes((0, 40)) %list) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @string_list_init_dup(ptr nocapture noundef writeonly initializes((0, 40)) %list) local_unnamed_addr #0 {
+define dso_local void @string_list_init_dup(ptr noundef writeonly captures(none) initializes((0, 40)) %list) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list, i8 0, i64 24, i1 false)
   %blank.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %list, i64 24
@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @string_list_insert(ptr nocapture noundef %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local ptr @string_list_insert(ptr noundef captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %nr.i.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i.i, align 8
@@ -172,7 +172,7 @@ add_entry.exit:                                   ; preds = %if.then.i, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_remove(ptr nocapture noundef %list, ptr noundef %string, i32 noundef %free_util) local_unnamed_addr #3 {
+define dso_local void @string_list_remove(ptr noundef captures(none) %list, ptr noundef %string, i32 noundef %free_util) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8
@@ -263,10 +263,10 @@ if.end16:                                         ; preds = %if.end13.i, %entry,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr noundef readonly captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8
@@ -309,7 +309,7 @@ get_entry_index.exit:                             ; preds = %if.else.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @string_list_find_insert_index(ptr nocapture noundef readonly %list, ptr noundef %string, i32 noundef %negative_existing_index) local_unnamed_addr #3 {
+define dso_local i32 @string_list_find_insert_index(ptr noundef readonly captures(none) %list, ptr noundef %string, i32 noundef %negative_existing_index) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8
@@ -358,7 +358,7 @@ get_entry_index.exit:                             ; preds = %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @string_list_lookup(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8
@@ -406,7 +406,7 @@ return:                                           ; preds = %if.end13.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_remove_duplicates(ptr nocapture noundef %list, i32 noundef %free_util) local_unnamed_addr #3 {
+define dso_local void @string_list_remove_duplicates(ptr noundef captures(none) %list, i32 noundef %free_util) local_unnamed_addr #3 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -524,10 +524,10 @@ if.end35:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @for_each_string_list(ptr nocapture noundef readonly %list, ptr nocapture noundef readonly %fn, ptr noundef %cb_data) local_unnamed_addr #3 {
+define dso_local i32 @for_each_string_list(ptr noundef readonly captures(none) %list, ptr noundef readonly captures(none) %fn, ptr noundef %cb_data) local_unnamed_addr #3 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -554,7 +554,7 @@ for.end:                                          ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @filter_string_list(ptr nocapture noundef %list, i32 noundef %free_util, ptr nocapture noundef readonly %want, ptr noundef %cb_data) local_unnamed_addr #3 {
+define dso_local void @filter_string_list(ptr noundef captures(none) %list, i32 noundef %free_util, ptr noundef readonly captures(none) %want, ptr noundef %cb_data) local_unnamed_addr #3 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -657,7 +657,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_remove_empty_items(ptr nocapture noundef %list, i32 noundef %free_util) local_unnamed_addr #3 {
+define dso_local void @string_list_remove_empty_items(ptr noundef captures(none) %list, i32 noundef %free_util) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8
@@ -753,7 +753,7 @@ filter_string_list.exit:                          ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_clear(ptr nocapture noundef %list, i32 noundef %free_util) local_unnamed_addr #3 {
+define dso_local void @string_list_clear(ptr noundef captures(none) %list, i32 noundef %free_util) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -815,7 +815,7 @@ if.end21:                                         ; preds = %if.end19, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_clear_func(ptr nocapture noundef %list, ptr noundef readonly %clearfunc) local_unnamed_addr #3 {
+define dso_local void @string_list_clear_func(ptr noundef captures(none) %list, ptr noundef readonly %clearfunc) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -879,7 +879,7 @@ if.end25:                                         ; preds = %if.end23, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_setlen(ptr nocapture noundef %list, i64 noundef %nr) local_unnamed_addr #3 {
+define dso_local void @string_list_setlen(ptr noundef captures(none) %list, i64 noundef %nr) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds nuw i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -910,7 +910,7 @@ if.end3:                                          ; preds = %if.end
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @string_list_append_nodup(ptr nocapture noundef %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local noundef ptr @string_list_append_nodup(ptr noundef captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -961,7 +961,7 @@ do.end:                                           ; preds = %entry.do.end_crit_e
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @string_list_append(ptr nocapture noundef %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local noundef ptr @string_list_append(ptr noundef captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds nuw i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -1024,7 +1024,7 @@ string_list_append_nodup.exit:                    ; preds = %entry.do.end_crit_e
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @string_list_sort(ptr nocapture noundef readonly %list) local_unnamed_addr #3 {
+define dso_local void @string_list_sort(ptr noundef readonly captures(none) %list) local_unnamed_addr #3 {
 entry:
   %sort_ctx = alloca %struct.string_list_sort_ctx, align 8
   %cmp1 = getelementptr inbounds nuw i8, ptr %list, i64 32
@@ -1050,7 +1050,7 @@ do.end:                                           ; preds = %entry
 declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmp_items(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %ctx) #3 {
+define internal i32 @cmp_items(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readonly captures(none) %ctx) #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = load ptr, ptr %a, align 8
@@ -1060,7 +1060,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @unsorted_string_list_lookup(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local ptr @unsorted_string_list_lookup(ptr noundef readonly captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %cmp1 = getelementptr inbounds nuw i8, ptr %list, i64 32
   %0 = load ptr, ptr %cmp1, align 8
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @unsorted_string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @unsorted_string_list_has_string(ptr noundef readonly captures(none) %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %cmp1.i = getelementptr inbounds nuw i8, ptr %list, i64 32
   %0 = load ptr, ptr %cmp1.i, align 8
@@ -1136,7 +1136,7 @@ unsorted_string_list_lookup.exit:                 ; preds = %for.body.i, %land.r
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @unsorted_string_list_delete_item(ptr nocapture noundef %list, i32 noundef %i, i32 noundef %free_util) local_unnamed_addr #8 {
+define dso_local void @unsorted_string_list_delete_item(ptr noundef captures(none) %list, i32 noundef %i, i32 noundef %free_util) local_unnamed_addr #8 {
 entry:
   %strdup_strings = getelementptr inbounds nuw i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -1184,7 +1184,7 @@ if.end6:                                          ; preds = %if.end.if.end6_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr nocapture noundef %list, ptr noundef %string, i32 noundef %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split(ptr noundef captures(none) %list, ptr noundef %string, i32 noundef %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds nuw i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -1218,7 +1218,7 @@ if.then6.us:                                      ; preds = %if.end3.lr.ph.split
   %sub.ptr.lhs.cast.us = ptrtoint ptr %call4.us62 to i64
   %sub.ptr.rhs.cast.us = ptrtoint ptr %p.053.us61 to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast.us
-  %call7.us = tail call ptr @xmemdupz(ptr noundef %p.053.us61, i64 noundef %sub.ptr.sub.us) #10
+  %call7.us = tail call ptr @xmemdupz(ptr noundef nonnull %p.053.us61, i64 noundef %sub.ptr.sub.us) #10
   %1 = load i64, ptr %nr.i, align 8
   %add.i.us = add i64 %1, 1
   %2 = load i64, ptr %alloc.i, align 8
@@ -1335,7 +1335,7 @@ if.then6:                                         ; preds = %if.end3
   %sub.ptr.lhs.cast = ptrtoint ptr %call4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.053 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call7 = tail call ptr @xmemdupz(ptr noundef %p.053, i64 noundef %sub.ptr.sub) #10
+  %call7 = tail call ptr @xmemdupz(ptr noundef nonnull %p.053, i64 noundef %sub.ptr.sub) #10
   %14 = load i64, ptr %nr.i, align 8
   %add.i = add i64 %14, 1
   %15 = load i64, ptr %alloc.i, align 8
@@ -1392,7 +1392,7 @@ if.else:                                          ; preds = %if.end3, %string_li
   br i1 %tobool.not.i20, label %cond.end.i23, label %cond.true.i21
 
 cond.true.i21:                                    ; preds = %if.else
-  %call.i22 = tail call ptr @xstrdup(ptr noundef %.us-phi) #10
+  %call.i22 = tail call ptr @xstrdup(ptr noundef nonnull %.us-phi) #10
   br label %cond.end.i23
 
 cond.end.i23:                                     ; preds = %cond.true.i21, %if.else
@@ -1455,7 +1455,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_place(ptr nocapture noundef %list, ptr noundef %string, ptr nocapture noundef readonly %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @string_list_split_in_place(ptr noundef captures(none) %list, ptr noundef %string, ptr noundef readonly captures(none) %delim, i32 noundef %maxsplit) local_unnamed_addr #3 {
 entry:
   %strdup_strings = getelementptr inbounds nuw i8, ptr %list, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
@@ -1732,10 +1732,10 @@ return:                                           ; preds = %string_list_append.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sm_weight_arrays = internal unnamed_addr constant [128 x i8] c"\00\00\FF\80\FF\95U@\FF\C5\92iI2% \FF\E1\C4\AA\91{fTD6+!\1A\14\11\10\FF\F0\E1\D2\C4\B6\A9\9D\91\85zoe\\SJB;4-'\22\1D\19\15\11\0E\0C\0A\09\08\08\FF\F8\F0\E9\E1\DA\D2\CB\C4\BD\B6\B0\A9\A3\9C\96\90\8A\85\7Fytoje`[VRMIEA=962/,)&# \1D\1B\19\16\14\12\10\0F\0D\0C\0A\09\08\07\06\06\05\05\04\04\04", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -53,7 +53,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -100,7 +100,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -147,7 +147,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -194,7 +194,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -241,7 +241,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -288,7 +288,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -335,7 +335,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -382,7 +382,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -429,7 +429,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -476,7 +476,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -523,7 +523,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -570,7 +570,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -617,7 +617,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -664,7 +664,7 @@ dc_predictor_rect.exit:                           ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -710,7 +710,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -756,7 +756,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -802,7 +802,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -848,7 +848,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -894,7 +894,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -940,7 +940,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -986,7 +986,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1032,7 +1032,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1078,7 +1078,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1124,7 +1124,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1170,7 +1170,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1216,7 +1216,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1262,7 +1262,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1308,7 +1308,7 @@ highbd_dc_predictor_rect.exit:                    ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1326,7 +1326,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1344,7 +1344,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1361,7 +1361,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1378,7 +1378,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1395,7 +1395,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1413,7 +1413,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1430,7 +1430,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1447,7 +1447,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1464,7 +1464,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1481,7 +1481,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1499,7 +1499,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1517,7 +1517,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1535,7 +1535,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1552,7 +1552,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1569,7 +1569,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1586,7 +1586,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1603,7 +1603,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1620,7 +1620,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1638,7 +1638,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1655,7 +1655,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1673,7 +1673,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1690,7 +1690,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1707,7 +1707,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_v_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_v_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1724,7 +1724,7 @@ v_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1742,7 +1742,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1759,7 +1759,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1776,7 +1776,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1793,7 +1793,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1810,7 +1810,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1827,7 +1827,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1844,7 +1844,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1861,7 +1861,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1879,7 +1879,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1896,7 +1896,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1913,7 +1913,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1930,7 +1930,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1947,7 +1947,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_v_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_v_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -1964,7 +1964,7 @@ highbd_v_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -1983,7 +1983,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2002,7 +2002,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2021,7 +2021,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2040,7 +2040,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2059,7 +2059,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2079,7 +2079,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2099,7 +2099,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2119,7 +2119,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2139,7 +2139,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2159,7 +2159,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2178,7 +2178,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2197,7 +2197,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2216,7 +2216,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2235,7 +2235,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2254,7 +2254,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2273,7 +2273,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2292,7 +2292,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2311,7 +2311,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2330,7 +2330,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2349,7 +2349,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2368,7 +2368,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2387,7 +2387,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2406,7 +2406,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_h_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_h_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -2425,7 +2425,7 @@ h_predictor.exit:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2445,7 +2445,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2465,7 +2465,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2485,7 +2485,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2505,7 +2505,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2525,7 +2525,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2545,7 +2545,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2565,7 +2565,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2585,7 +2585,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2605,7 +2605,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2625,7 +2625,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2645,7 +2645,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2665,7 +2665,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2685,7 +2685,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_h_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_h_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -2705,7 +2705,7 @@ highbd_h_predictor.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2787,7 +2787,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2869,7 +2869,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -2951,7 +2951,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3033,7 +3033,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3115,7 +3115,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3197,7 +3197,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3279,7 +3279,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3361,7 +3361,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3443,7 +3443,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3525,7 +3525,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3607,7 +3607,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3689,7 +3689,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3771,7 +3771,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3853,7 +3853,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3935,7 +3935,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4017,7 +4017,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4099,7 +4099,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4181,7 +4181,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4263,7 +4263,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4345,7 +4345,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4427,7 +4427,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4509,7 +4509,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4591,7 +4591,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4673,7 +4673,7 @@ smooth_predictor.exit:                            ; preds = %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -4755,7 +4755,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -4837,7 +4837,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -4919,7 +4919,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5001,7 +5001,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5083,7 +5083,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5165,7 +5165,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5247,7 +5247,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5329,7 +5329,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5411,7 +5411,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5493,7 +5493,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5575,7 +5575,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5657,7 +5657,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5739,7 +5739,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i16], align 2
   %7 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5821,7 +5821,7 @@ highbd_smooth_predictor.exit:                     ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -5872,7 +5872,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -5923,7 +5923,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -5974,7 +5974,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6025,7 +6025,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6076,7 +6076,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -6127,7 +6127,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -6178,7 +6178,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -6229,7 +6229,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -6280,7 +6280,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -6331,7 +6331,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6382,7 +6382,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6433,7 +6433,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6484,7 +6484,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6535,7 +6535,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6586,7 +6586,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6637,7 +6637,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6688,7 +6688,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6739,7 +6739,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6790,7 +6790,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6841,7 +6841,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6892,7 +6892,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6943,7 +6943,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -6994,7 +6994,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_v_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_v_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -7045,7 +7045,7 @@ smooth_v_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7096,7 +7096,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7147,7 +7147,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7198,7 +7198,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7249,7 +7249,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7300,7 +7300,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7351,7 +7351,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7402,7 +7402,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7453,7 +7453,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7504,7 +7504,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7555,7 +7555,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7606,7 +7606,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7657,7 +7657,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7708,7 +7708,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -7759,7 +7759,7 @@ highbd_smooth_v_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -7810,7 +7810,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -7861,7 +7861,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -7912,7 +7912,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -7963,7 +7963,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8014,7 +8014,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -8065,7 +8065,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -8116,7 +8116,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -8167,7 +8167,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -8218,7 +8218,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -8269,7 +8269,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8320,7 +8320,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8371,7 +8371,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8422,7 +8422,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8473,7 +8473,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8524,7 +8524,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8575,7 +8575,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8626,7 +8626,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8677,7 +8677,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8728,7 +8728,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8779,7 +8779,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 7
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8830,7 +8830,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 31
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8881,7 +8881,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 15
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8932,7 +8932,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_smooth_h_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_smooth_h_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 63
   %6 = load i8, ptr %5, align 1
   br label %.preheader.i
@@ -8983,7 +8983,7 @@ smooth_h_predictor.exit:                          ; preds = %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9034,7 +9034,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9085,7 +9085,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9136,7 +9136,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9187,7 +9187,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9238,7 +9238,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9289,7 +9289,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9340,7 +9340,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9391,7 +9391,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 6
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9442,7 +9442,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9493,7 +9493,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 14
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9544,7 +9544,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 62
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9595,7 +9595,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 30
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9646,7 +9646,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 126
   %7 = load i16, ptr %6, align 2
   br label %.preheader.i
@@ -9697,7 +9697,7 @@ highbd_smooth_h_predictor.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -9746,7 +9746,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -9795,7 +9795,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -9844,7 +9844,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -9893,7 +9893,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -9942,7 +9942,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -9991,7 +9991,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10040,7 +10040,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10089,7 +10089,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10138,7 +10138,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10187,7 +10187,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10236,7 +10236,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10285,7 +10285,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10334,7 +10334,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10383,7 +10383,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10432,7 +10432,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10481,7 +10481,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10530,7 +10530,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10579,7 +10579,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10628,7 +10628,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10677,7 +10677,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10726,7 +10726,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10775,7 +10775,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10824,7 +10824,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_paeth_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_paeth_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -10873,7 +10873,7 @@ paeth_predictor.exit:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10922,7 +10922,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -10971,7 +10971,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11020,7 +11020,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11069,7 +11069,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11118,7 +11118,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11167,7 +11167,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11216,7 +11216,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11265,7 +11265,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11314,7 +11314,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11363,7 +11363,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11412,7 +11412,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11461,7 +11461,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11510,7 +11510,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_paeth_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_highbd_paeth_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 -2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
@@ -11559,7 +11559,7 @@ highbd_paeth_predictor.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11576,7 +11576,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11593,7 +11593,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11610,7 +11610,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11627,7 +11627,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11644,7 +11644,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11663,7 +11663,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11682,7 +11682,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11701,7 +11701,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11720,7 +11720,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11739,7 +11739,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11756,7 +11756,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11773,7 +11773,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11790,7 +11790,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11807,7 +11807,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11824,7 +11824,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11841,7 +11841,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11858,7 +11858,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11875,7 +11875,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11892,7 +11892,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11909,7 +11909,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11926,7 +11926,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11943,7 +11943,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11960,7 +11960,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @aom_dc_128_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define hidden void @aom_dc_128_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -11977,7 +11977,7 @@ dc_128_predictor.exit:                            ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -11996,7 +11996,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12015,7 +12015,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12034,7 +12034,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12053,7 +12053,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12072,7 +12072,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12091,7 +12091,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12110,7 +12110,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12129,7 +12129,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12148,7 +12148,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12167,7 +12167,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12186,7 +12186,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12205,7 +12205,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12224,7 +12224,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_128_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_128_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = add nsw i32 %4, -8
   %7 = shl i32 128, %6
   br label %8
@@ -12243,7 +12243,7 @@ highbd_dc_128_predictor.exit:                     ; preds = %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12277,7 +12277,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12311,7 +12311,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12345,7 +12345,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12379,7 +12379,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12413,7 +12413,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12446,7 +12446,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12479,7 +12479,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12512,7 +12512,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12545,7 +12545,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -12578,7 +12578,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12612,7 +12612,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12646,7 +12646,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12680,7 +12680,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12714,7 +12714,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12748,7 +12748,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12782,7 +12782,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12816,7 +12816,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12850,7 +12850,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12884,7 +12884,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12918,7 +12918,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12952,7 +12952,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -12986,7 +12986,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13020,7 +13020,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_left_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_left_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13054,7 +13054,7 @@ dc_left_predictor.exit:                           ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13087,7 +13087,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13120,7 +13120,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13153,7 +13153,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13186,7 +13186,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13219,7 +13219,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13252,7 +13252,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13285,7 +13285,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13318,7 +13318,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13351,7 +13351,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13384,7 +13384,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13417,7 +13417,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13450,7 +13450,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13483,7 +13483,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_left_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_left_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -13516,342 +13516,7 @@ highbd_dc_left_predictor.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  br label %5
-
-5:                                                ; preds = %5, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nuw nsw i32 %.02.i, %8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
-
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %9, 2
-  %12 = lshr i32 %11, 2
-  %13 = trunc i32 %12 to i8
-  br label %14
-
-14:                                               ; preds = %14, %10
-  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
-  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.0164.i, i8 %13, i64 4, i1 false)
-  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
-  %16 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %16, 4
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
-
-dc_top_predictor.exit:                            ; preds = %14
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  br label %5
-
-5:                                                ; preds = %5, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nuw nsw i32 %.02.i, %8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
-
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %9, 4
-  %12 = lshr i32 %11, 3
-  %13 = trunc i32 %12 to i8
-  br label %14
-
-14:                                               ; preds = %14, %10
-  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
-  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.0164.i, i8 %13, i64 8, i1 false)
-  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
-  %16 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %16, 8
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
-
-dc_top_predictor.exit:                            ; preds = %14
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  br label %5
-
-5:                                                ; preds = %5, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nuw nsw i32 %.02.i, %8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
-
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %9, 8
-  %12 = lshr i32 %11, 4
-  %13 = trunc i32 %12 to i8
-  br label %14
-
-14:                                               ; preds = %14, %10
-  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
-  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.0164.i, i8 %13, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
-  %16 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %16, 16
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
-
-dc_top_predictor.exit:                            ; preds = %14
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  br label %5
-
-5:                                                ; preds = %5, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nuw nsw i32 %.02.i, %8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
-
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %9, 16
-  %12 = lshr i32 %11, 5
-  %13 = trunc i32 %12 to i8
-  br label %14
-
-14:                                               ; preds = %14, %10
-  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
-  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.0164.i, i8 %13, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
-  %16 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %16, 32
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
-
-dc_top_predictor.exit:                            ; preds = %14
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  br label %5
-
-5:                                                ; preds = %5, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nuw nsw i32 %.02.i, %8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
-
-10:                                               ; preds = %5
-  %11 = add nuw nsw i32 %9, 32
-  %12 = lshr i32 %11, 6
-  %13 = trunc i32 %12 to i8
-  br label %14
-
-14:                                               ; preds = %14, %10
-  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
-  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0164.i, i8 %13, i64 64, i1 false)
-  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
-  %16 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %16, 64
-  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
-
-dc_top_predictor.exit:                            ; preds = %14
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
-  br label %6
-
-6:                                                ; preds = %6, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %.02.i, %9
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
-
-11:                                               ; preds = %6
-  %12 = add nuw nsw i32 %10, 2
-  %13 = lshr i32 %12, 2
-  br label %14
-
-14:                                               ; preds = %14, %11
-  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
-  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
-  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 4) #8
-  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
-  %17 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
-
-highbd_dc_top_predictor.exit:                     ; preds = %14
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
-  br label %6
-
-6:                                                ; preds = %6, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %.02.i, %9
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
-
-11:                                               ; preds = %6
-  %12 = add nuw nsw i32 %10, 4
-  %13 = lshr i32 %12, 3
-  br label %14
-
-14:                                               ; preds = %14, %11
-  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
-  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
-  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 8) #8
-  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
-  %17 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %17, 8
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
-
-highbd_dc_top_predictor.exit:                     ; preds = %14
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
-  br label %6
-
-6:                                                ; preds = %6, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %.02.i, %9
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
-
-11:                                               ; preds = %6
-  %12 = add nuw nsw i32 %10, 8
-  %13 = lshr i32 %12, 4
-  br label %14
-
-14:                                               ; preds = %14, %11
-  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
-  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
-  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 16) #8
-  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
-  %17 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %17, 16
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
-
-highbd_dc_top_predictor.exit:                     ; preds = %14
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
-  br label %6
-
-6:                                                ; preds = %6, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %.02.i, %9
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
-
-11:                                               ; preds = %6
-  %12 = add nuw nsw i32 %10, 16
-  %13 = lshr i32 %12, 5
-  br label %14
-
-14:                                               ; preds = %14, %11
-  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
-  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
-  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 32) #8
-  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
-  %17 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %17, 32
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
-
-highbd_dc_top_predictor.exit:                     ; preds = %14
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
-  br label %6
-
-6:                                                ; preds = %6, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
-  %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
-  %10 = add nuw nsw i32 %.02.i, %9
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
-
-11:                                               ; preds = %6
-  %12 = add nuw nsw i32 %10, 32
-  %13 = lshr i32 %12, 6
-  br label %14
-
-14:                                               ; preds = %14, %11
-  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
-  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
-  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 64) #8
-  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
-  %17 = add nuw nsw i32 %.0173.i, 1
-  %exitcond6.not.i = icmp eq i32 %17, 64
-  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
-
-highbd_dc_top_predictor.exit:                     ; preds = %14
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_4x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13877,6 +13542,40 @@ define hidden void @aom_dc_top_predictor_4x8_c(ptr nocapture noundef writeonly %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.0164.i, i8 %13, i64 4, i1 false)
   %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
   %16 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %16, 4
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+
+dc_top_predictor.exit:                            ; preds = %14
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @aom_dc_top_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  br label %5
+
+5:                                                ; preds = %5, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
+  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nuw nsw i32 %.02.i, %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+
+10:                                               ; preds = %5
+  %11 = add nuw nsw i32 %9, 4
+  %12 = lshr i32 %11, 3
+  %13 = trunc i32 %12 to i8
+  br label %14
+
+14:                                               ; preds = %14, %10
+  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
+  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.0164.i, i8 %13, i64 8, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
+  %16 = add nuw nsw i32 %.0173.i, 1
   %exitcond6.not.i = icmp eq i32 %16, 8
   br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
 
@@ -13885,7 +13584,308 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_8x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  br label %5
+
+5:                                                ; preds = %5, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
+  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nuw nsw i32 %.02.i, %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+
+10:                                               ; preds = %5
+  %11 = add nuw nsw i32 %9, 8
+  %12 = lshr i32 %11, 4
+  %13 = trunc i32 %12 to i8
+  br label %14
+
+14:                                               ; preds = %14, %10
+  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
+  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.0164.i, i8 %13, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
+  %16 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %16, 16
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+
+dc_top_predictor.exit:                            ; preds = %14
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @aom_dc_top_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  br label %5
+
+5:                                                ; preds = %5, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
+  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nuw nsw i32 %.02.i, %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+
+10:                                               ; preds = %5
+  %11 = add nuw nsw i32 %9, 16
+  %12 = lshr i32 %11, 5
+  %13 = trunc i32 %12 to i8
+  br label %14
+
+14:                                               ; preds = %14, %10
+  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
+  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.0164.i, i8 %13, i64 32, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
+  %16 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %16, 32
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+
+dc_top_predictor.exit:                            ; preds = %14
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @aom_dc_top_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  br label %5
+
+5:                                                ; preds = %5, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
+  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nuw nsw i32 %.02.i, %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+
+10:                                               ; preds = %5
+  %11 = add nuw nsw i32 %9, 32
+  %12 = lshr i32 %11, 6
+  %13 = trunc i32 %12 to i8
+  br label %14
+
+14:                                               ; preds = %14, %10
+  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
+  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.0164.i, i8 %13, i64 64, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
+  %16 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %16, 64
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+
+dc_top_predictor.exit:                            ; preds = %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @aom_highbd_dc_top_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  br label %6
+
+6:                                                ; preds = %6, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
+  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = add nuw nsw i32 %.02.i, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %10, 2
+  %13 = lshr i32 %12, 2
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
+  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
+  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 4) #8
+  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
+  %17 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %17, 4
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+
+highbd_dc_top_predictor.exit:                     ; preds = %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @aom_highbd_dc_top_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  br label %6
+
+6:                                                ; preds = %6, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
+  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = add nuw nsw i32 %.02.i, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %10, 4
+  %13 = lshr i32 %12, 3
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
+  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
+  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 8) #8
+  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
+  %17 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %17, 8
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+
+highbd_dc_top_predictor.exit:                     ; preds = %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @aom_highbd_dc_top_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  br label %6
+
+6:                                                ; preds = %6, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
+  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = add nuw nsw i32 %.02.i, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %10, 8
+  %13 = lshr i32 %12, 4
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
+  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
+  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 16) #8
+  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
+  %17 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %17, 16
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+
+highbd_dc_top_predictor.exit:                     ; preds = %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @aom_highbd_dc_top_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  br label %6
+
+6:                                                ; preds = %6, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
+  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = add nuw nsw i32 %.02.i, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %10, 16
+  %13 = lshr i32 %12, 5
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
+  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
+  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 32) #8
+  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
+  %17 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %17, 32
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+
+highbd_dc_top_predictor.exit:                     ; preds = %14
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @aom_highbd_dc_top_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
+  br label %6
+
+6:                                                ; preds = %6, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
+  %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i32
+  %10 = add nuw nsw i32 %.02.i, %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
+  br i1 %exitcond.not.i, label %11, label %6, !llvm.loop !45
+
+11:                                               ; preds = %6
+  %12 = add nuw nsw i32 %10, 32
+  %13 = lshr i32 %12, 6
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0164.i = phi ptr [ %0, %11 ], [ %16, %14 ]
+  %.0173.i = phi i32 [ 0, %11 ], [ %17, %14 ]
+  %15 = tail call ptr @aom_memset16(ptr noundef %.0164.i, i32 noundef %13, i64 noundef 64) #8
+  %16 = getelementptr inbounds i16, ptr %.0164.i, i64 %1
+  %17 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %17, 64
+  br i1 %exitcond6.not.i, label %highbd_dc_top_predictor.exit, label %14, !llvm.loop !46
+
+highbd_dc_top_predictor.exit:                     ; preds = %14
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @aom_dc_top_predictor_4x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+  br label %5
+
+5:                                                ; preds = %5, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
+  %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = add nuw nsw i32 %.02.i, %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !43
+
+10:                                               ; preds = %5
+  %11 = add nuw nsw i32 %9, 2
+  %12 = lshr i32 %11, 2
+  %13 = trunc i32 %12 to i8
+  br label %14
+
+14:                                               ; preds = %14, %10
+  %.0164.i = phi ptr [ %0, %10 ], [ %15, %14 ]
+  %.0173.i = phi i32 [ 0, %10 ], [ %16, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.0164.i, i8 %13, i64 4, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.0164.i, i64 %1
+  %16 = add nuw nsw i32 %.0173.i, 1
+  %exitcond6.not.i = icmp eq i32 %16, 8
+  br i1 %exitcond6.not.i, label %dc_top_predictor.exit, label %14, !llvm.loop !44
+
+dc_top_predictor.exit:                            ; preds = %14
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @aom_dc_top_predictor_8x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13919,7 +13919,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_8x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_8x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13953,7 +13953,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_16x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_16x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -13987,7 +13987,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_16x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_16x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14021,7 +14021,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_32x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_32x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14055,7 +14055,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_32x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_32x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14089,7 +14089,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_64x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_64x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14123,7 +14123,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_4x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_4x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14157,7 +14157,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_16x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_16x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14191,7 +14191,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_8x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_8x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14225,7 +14225,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_32x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_32x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14259,7 +14259,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_16x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_16x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14293,7 +14293,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_top_predictor_64x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_top_predictor_64x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14327,7 +14327,7 @@ dc_top_predictor.exit:                            ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_4x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14360,7 +14360,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_8x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14393,7 +14393,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_8x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14426,7 +14426,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_16x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14459,7 +14459,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_16x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14492,7 +14492,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_32x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14525,7 +14525,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_32x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14558,7 +14558,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_64x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14591,7 +14591,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_4x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14624,7 +14624,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_16x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14657,7 +14657,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_8x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14690,7 +14690,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_32x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14723,7 +14723,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_16x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14756,7 +14756,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_top_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_top_predictor_64x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -14789,7 +14789,7 @@ highbd_dc_top_predictor.exit:                     ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_4x4_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_4x4_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14834,7 +14834,7 @@ dc_predictor.exit:                                ; preds = %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_8x8_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_8x8_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14879,7 +14879,7 @@ dc_predictor.exit:                                ; preds = %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_16x16_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_16x16_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14924,7 +14924,7 @@ dc_predictor.exit:                                ; preds = %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_32x32_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_32x32_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -14969,7 +14969,7 @@ dc_predictor.exit:                                ; preds = %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_dc_predictor_64x64_c(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @aom_dc_predictor_64x64_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -15014,7 +15014,7 @@ dc_predictor.exit:                                ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -15058,7 +15058,7 @@ highbd_dc_predictor.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -15102,7 +15102,7 @@ highbd_dc_predictor.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -15146,7 +15146,7 @@ highbd_dc_predictor.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -15190,7 +15190,7 @@ highbd_dc_predictor.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %6, %5
@@ -15234,18 +15234,18 @@ highbd_dc_predictor.exit:                         ; preds = %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @aom_memset16(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7

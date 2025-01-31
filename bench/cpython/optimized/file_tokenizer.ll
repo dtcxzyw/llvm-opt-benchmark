@@ -1625,7 +1625,7 @@ if.then46:                                        ; preds = %if.then42
 if.else48:                                        ; preds = %if.then42
   %43 = load ptr, ptr %cur20, align 8
   %call51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #12
-  %call52 = call i32 @_PyTokenizer_check_coding_spec(ptr noundef %43, i64 noundef %call51, ptr noundef nonnull %tok, ptr noundef nonnull @fp_setreadl) #11
+  %call52 = call i32 @_PyTokenizer_check_coding_spec(ptr noundef nonnull %43, i64 noundef %call51, ptr noundef nonnull %tok, ptr noundef nonnull @fp_setreadl) #11
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %if.end57
 
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %tok_readline_raw.ex
 declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_FindEncodingFilename(i32 noundef %fd, ptr noundef %filename) local_unnamed_addr #0 {
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %entry, %fdopen_borr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
@@ -1801,7 +1801,7 @@ declare i32 @_PyTokenizer_Get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_PyToken_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @PyOS_Readline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1816,7 +1816,7 @@ declare void @_PyLexer_remember_fstring_buffers(ptr noundef) local_unnamed_addr 
 declare i32 @_PyLexer_tok_reserve_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_PyLexer_restore_fstring_buffers(ptr noundef) local_unnamed_addr #1
 
@@ -1831,7 +1831,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @_PyTokenizer_check_bom(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @fp_getc(ptr nocapture noundef readonly %tok) #6 {
+define internal noundef i32 @fp_getc(ptr noundef readonly captures(none) %tok) #6 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
@@ -1840,7 +1840,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @fp_ungetc(i32 noundef %c, ptr nocapture noundef readonly %tok) #6 {
+define internal void @fp_ungetc(i32 noundef %c, ptr noundef readonly captures(none) %tok) #6 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
@@ -1849,7 +1849,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fp_setreadl(ptr nocapture noundef %tok, ptr noundef %enc) #0 {
+define internal range(i32 0, 2) i32 @fp_setreadl(ptr noundef captures(none) %tok, ptr noundef %enc) #0 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
@@ -2006,16 +2006,16 @@ declare i32 @_PyTokenizer_check_coding_spec(ptr noundef, i64 noundef, ptr nounde
 declare i32 @_PyTokenizer_ensure_utf8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
@@ -2044,16 +2044,16 @@ declare ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef, i32 noundef, ptr nou
 declare i32 @_Py_dup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

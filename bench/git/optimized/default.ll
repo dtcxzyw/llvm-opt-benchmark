@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @default_negotiator_init(ptr nocapture noundef writeonly initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
+define dso_local void @default_negotiator_init(ptr noundef writeonly captures(none) initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
   %add_tip = getelementptr inbounds nuw i8, ptr %negotiator, i64 8
@@ -37,7 +37,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @known_common(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
+define internal void @known_common(ptr noundef readonly captures(none) %n, ptr noundef %c) #0 {
 entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = and i32 %bf.load, 256
@@ -83,7 +83,7 @@ if.end:                                           ; preds = %rev_list_push.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_tip(ptr nocapture noundef initializes((0, 8)) %n, ptr noundef %c) #0 {
+define internal void @add_tip(ptr noundef captures(none) initializes((0, 8)) %n, ptr noundef %c) #0 {
 entry:
   store ptr null, ptr %n, align 8
   %data = getelementptr inbounds nuw i8, ptr %n, i64 40
@@ -120,7 +120,7 @@ rev_list_push.exit:                               ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @next(ptr nocapture noundef initializes((0, 16)) %n) #0 {
+define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %n) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n, i8 0, i64 16, i1 false)
@@ -194,7 +194,7 @@ if.then.i.us.i:                                   ; preds = %while.body30.us.i
   br i1 %tobool5.not.i.us.i, label %if.end.i.us.i, label %if.end38.us.i
 
 if.end.i.us.i:                                    ; preds = %if.then.i.us.i
-  tail call void @prio_queue_put(ptr noundef %0, ptr noundef nonnull %10) #4
+  tail call void @prio_queue_put(ptr noundef nonnull %0, ptr noundef nonnull %10) #4
   %bf.load8.i.us.i = load i32, ptr %10, align 8
   %13 = and i32 %bf.load8.i.us.i, 64
   %tobool11.not.i.us.i = icmp eq i32 %13, 0
@@ -229,7 +229,7 @@ if.then.i.i:                                      ; preds = %while.body30.i
   br i1 %tobool5.not.i.i, label %if.end.i.i, label %if.end38.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  tail call void @prio_queue_put(ptr noundef %0, ptr noundef nonnull %16) #4
+  tail call void @prio_queue_put(ptr noundef nonnull %0, ptr noundef nonnull %16) #4
   %bf.load8.i.i = load i32, ptr %16, align 8
   %19 = and i32 %bf.load8.i.i, 64
   %tobool11.not.i.i = icmp eq i32 %19, 0
@@ -243,7 +243,7 @@ if.then12.i.i:                                    ; preds = %if.end.i.i
 
 if.end38.i:                                       ; preds = %if.then12.i.i, %if.end.i.i, %if.then.i.i, %while.body30.i
   %21 = load ptr, ptr %parents.020.i, align 8
-  tail call fastcc void @mark_common(ptr noundef %0, ptr noundef %21, i32 noundef 1, i32 noundef 0)
+  tail call fastcc void @mark_common(ptr noundef nonnull %0, ptr noundef %21, i32 noundef 1, i32 noundef 0)
   %next.i = getelementptr inbounds nuw i8, ptr %parents.020.i, i64 8
   %22 = load ptr, ptr %next.i, align 8
   %tobool29.not.i = icmp eq ptr %22, null
@@ -259,7 +259,7 @@ get_rev.exit:                                     ; preds = %while.body.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ack(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
+define internal range(i32 0, 2) i32 @ack(ptr noundef readonly captures(none) %n, ptr noundef %c) #0 {
 entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = lshr i32 %bf.load, 6
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @release(ptr nocapture noundef %n) #0 {
+define internal void @release(ptr noundef captures(none) %n) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -289,7 +289,7 @@ declare i32 @compare_commits_by_commit_date(ptr noundef, ptr noundef, ptr nounde
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @clear_marks(ptr noundef %refname, ptr noundef %oid, i32 %flag, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @clear_marks(ptr noundef %refname, ptr noundef %oid, i32 %flag, ptr readnone captures(none) %cb_data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @parse_object(ptr noundef %0, ptr noundef %oid) #4
@@ -450,14 +450,14 @@ declare void @prio_queue_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @prio_queue_get(ptr noundef) local_unnamed_addr #1
 
 declare void @clear_prio_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @deref_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

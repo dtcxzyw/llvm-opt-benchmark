@@ -307,14 +307,14 @@ SanitizeEncoderOptions.exit:                      ; preds = %57, %55, %49, %26, 
 declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #2
 
 declare i32 @WebPPictureCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @WebPUtilClearPic(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @WebPUtilClearPic(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %32, label %3
 
@@ -476,7 +476,7 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #1 {
   %9 = alloca %struct.FrameRectangle, align 4
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
@@ -570,7 +570,7 @@ define hidden range(i32 0, 2) i32 @WebPAnimEncoderRefineRect(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MinimizeChangeRectangle(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3, float noundef %4) unnamed_addr #1 {
+define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, float noundef %4) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   %6 = select i1 %.not, ptr @ComparePixelsLossy, ptr @ComparePixelsLossless
   %7 = fpext float %4 to double
@@ -1217,7 +1217,7 @@ CacheFrame.exit.thread:                           ; preds = %186, %167
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca [72 x i8], align 16
@@ -1330,7 +1330,7 @@ WebPDataCopy.exit:                                ; preds = %40, %26, %47, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   %2 = alloca %struct.EncodedFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %4 = load i64, ptr %3, align 8
@@ -1477,7 +1477,7 @@ FrameRelease.exit44:                              ; preds = %57, %65
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @WebPPictureYUVAToARGB(ptr noundef) local_unnamed_addr #2
 
@@ -1894,12 +1894,12 @@ declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @WebPNewInternal(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @WebPFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @ComparePixelsLossless(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #8 {
+define internal range(i32 0, 2) i32 @ComparePixelsLossless(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) unnamed_addr #8 {
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1930,7 +1930,7 @@ define internal range(i32 0, 2) i32 @ComparePixelsLossless(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @ComparePixelsLossy(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 {
+define internal range(i32 0, 2) i32 @ComparePixelsLossy(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 {
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph, label %PixelsAreSimilar.exit.thread
 
@@ -2004,7 +2004,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #2
 
@@ -2015,7 +2015,7 @@ declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32
 declare void @WebPCopyPixels(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SetFrame(ptr noundef nonnull initializes((68, 300)) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #1 {
+define internal fastcc i32 @SetFrame(ptr noundef nonnull initializes((68, 300)) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #1 {
   %6 = alloca [4 x %struct.Candidate], align 16
   %7 = alloca %struct.SubFrameParams, align 8
   %8 = alloca %struct.SubFrameParams, align 8
@@ -2423,7 +2423,7 @@ SubFrameParamsInit.exit.thread:                   ; preds = %33, %23, %SubFrameP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetSubRects(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, float noundef %4, ptr noundef nonnull initializes((8, 24)) %5) unnamed_addr #1 {
+define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, float noundef %4, ptr noundef nonnull initializes((8, 24)) %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -2535,7 +2535,7 @@ GetSubRect.exit30:                                ; preds = %46, %IsEmptyRect.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GenerateCandidates(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #1 {
+define internal fastcc i32 @GenerateCandidates(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #1 {
   %9 = alloca %struct.WebPConfig, align 4
   %10 = alloca %struct.WebPConfig, align 4
   %11 = icmp eq i32 %2, 0
@@ -3287,7 +3287,7 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #11
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -3296,10 +3296,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

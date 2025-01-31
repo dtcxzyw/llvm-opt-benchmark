@@ -167,7 +167,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util23ConvertDescriptorToTypeESt17basic_string_viewIcSt11char_traitsIcEERKNS0_10DescriptorE(ptr noalias nonnull sret(%"class.google::protobuf::Type") align 8 %agg.result, i64 %url_prefix.coerce0, ptr %url_prefix.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util23ConvertDescriptorToTypeESt17basic_string_viewIcSt11char_traitsIcEERKNS0_10DescriptorE(ptr noalias nonnull sret(%"class.google::protobuf::Type") align 8 %agg.result, i64 %url_prefix.coerce0, ptr %url_prefix.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf4TypeC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(128) %agg.result, ptr noundef null)
   invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_117ConvertDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS0_10DescriptorEPNS0_4TypeE(i64 %url_prefix.coerce0, ptr %url_prefix.coerce1, ptr noundef nonnull align 8 dereferenceable(152) %descriptor, ptr noundef nonnull %agg.result)
@@ -184,7 +184,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_117ConvertDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS0_10DescriptorEPNS0_4TypeE(i64 %url_prefix.coerce0, ptr %url_prefix.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %descriptor, ptr noundef nonnull %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_117ConvertDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS0_10DescriptorEPNS0_4TypeE(i64 %url_prefix.coerce0, ptr %url_prefix.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %descriptor, ptr noundef nonnull %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i.i = alloca %struct._Guard, align 8
   %ref.tmp.i111.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -1098,7 +1098,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit38: ; preds = %if.then.i.i34, %
 declare void @_ZN6google8protobuf4TypeD1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util23ConvertDescriptorToTypeERKNS0_14EnumDescriptorE(ptr noalias nonnull sret(%"class.google::protobuf::Enum") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util23ConvertDescriptorToTypeERKNS0_14EnumDescriptorE(ptr noalias nonnull sret(%"class.google::protobuf::Enum") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf4EnumC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(104) %agg.result, ptr noundef null)
   invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_121ConvertEnumDescriptorERKNS0_14EnumDescriptorEPNS0_4EnumE(ptr noundef nonnull align 8 dereferenceable(88) %descriptor, ptr noundef nonnull %agg.result)
@@ -1115,7 +1115,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_121ConvertEnumDescriptorERKNS0_14EnumDescriptorEPNS0_4EnumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %descriptor, ptr noundef nonnull %enum_type) unnamed_addr #3 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_121ConvertEnumDescriptorERKNS0_14EnumDescriptorEPNS0_4EnumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %descriptor, ptr noundef nonnull %enum_type) unnamed_addr #3 {
 entry:
   tail call void @_ZN6google8protobuf4Enum5ClearEv(ptr noundef nonnull align 8 dereferenceable(104) %enum_type)
   %file_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 16
@@ -2979,16 +2979,16 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

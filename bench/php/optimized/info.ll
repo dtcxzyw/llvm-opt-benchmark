@@ -205,7 +205,7 @@ define void @php_info_print_module(ptr noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
-  %13 = tail call ptr @php_url_encode(ptr noundef %11, i64 noundef %12) #14
+  %13 = tail call ptr @php_url_encode(ptr noundef nonnull %11, i64 noundef %12) #14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8
@@ -288,7 +288,7 @@ php_info_print_table_end.exit26:                  ; preds = %php_info_print_tabl
 declare ptr @php_url_encode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -466,7 +466,7 @@ declare void @php_info_print_css() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @php_info_html_esc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %3 = tail call ptr @php_escape_html_entities(ptr noundef %0, i64 noundef %2, i32 noundef 0, i32 noundef 3, ptr noundef null) #14
+  %3 = tail call ptr @php_escape_html_entities(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 0, i32 noundef 3, ptr noundef null) #14
   ret ptr %3
 }
 
@@ -534,7 +534,7 @@ define noalias noundef ptr @php_get_uname(i8 noundef signext %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -832,11 +832,11 @@ php_info_print_box_start.exit223:                 ; preds = %102, %104
   br i1 %.not185, label %120, label %118
 
 118:                                              ; preds = %110
-  %119 = call i64 @php_output_write(ptr noundef %22, i64 noundef %117) #14
+  %119 = call i64 @php_output_write(ptr noundef nonnull %22, i64 noundef %117) #14
   br label %121
 
 120:                                              ; preds = %110
-  call void @zend_html_puts(ptr noundef %22, i64 noundef %117) #14
+  call void @zend_html_puts(ptr noundef nonnull %22, i64 noundef %117) #14
   br label %121
 
 121:                                              ; preds = %120, %118
@@ -1142,11 +1142,11 @@ php_info_print_table_start.exit250:               ; preds = %224, %php_info_prin
 232:                                              ; preds = %.lr.ph306
   store i8 0, ptr %231, align 1
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 1
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef %230, ptr noundef nonnull %233)
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull %230, ptr noundef nonnull %233)
   br label %.lr.ph296
 
 .lr.ph296:                                        ; preds = %.lr.ph306, %232
-  call void @_efree(ptr noundef %230) #14
+  call void @_efree(ptr noundef nonnull %230) #14
   %234 = getelementptr inbounds nuw i8, ptr %.0295305, i64 8
   %235 = load ptr, ptr %234, align 8
   %.not201 = icmp eq ptr %235, null
@@ -1631,7 +1631,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @module_name_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @module_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1753,7 +1753,7 @@ define internal fastcc void @php_print_gpcse_array(ptr noundef %0, i32 noundef r
 52:                                               ; preds = %49, %47
   %53 = tail call i64 @php_output_write(ptr noundef nonnull @.str.137, i64 noundef 1) #14
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %55 = tail call i64 @php_output_write(ptr noundef %0, i64 noundef %54) #14
+  %55 = tail call i64 @php_output_write(ptr noundef nonnull %0, i64 noundef %54) #14
   %56 = tail call i64 @php_output_write(ptr noundef nonnull @.str.138, i64 noundef 2) #14
   %.not186 = icmp eq ptr %.1173, null
   br i1 %.not186, label %78, label %57
@@ -2015,7 +2015,7 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
   %7 = trunc i64 %6 to i32
   %8 = sub i32 74, %7
   %9 = sdiv i32 %8, 2
-  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.120, i32 noundef %9, ptr noundef nonnull @.str.121, ptr noundef %1, i32 noundef %9, ptr noundef nonnull @.str.121)
+  tail call void (ptr, ...) @php_info_printf(ptr noundef nonnull @.str.120, i32 noundef %9, ptr noundef nonnull @.str.121, ptr noundef nonnull %1, i32 noundef %9, ptr noundef nonnull @.str.121)
   br label %10
 
 10:                                               ; preds = %5, %4
@@ -2023,7 +2023,7 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -2182,7 +2182,7 @@ define void @php_info_print_table_row_ex(i32 noundef %0, ptr noundef %1, ...) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_phpinfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_phpinfo(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 4294967295, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2245,7 +2245,7 @@ declare i32 @php_output_start_default() local_unnamed_addr #1
 declare i32 @php_output_end() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_phpversion(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_phpversion(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2355,7 +2355,7 @@ define hidden void @zif_phpversion(ptr noundef %0, ptr nocapture noundef writeon
 declare ptr @zend_get_module_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_phpcredits(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_phpcredits(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 4294967295, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2412,7 +2412,7 @@ define hidden void @zif_phpcredits(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_php_sapi_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_php_sapi_name(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2460,7 +2460,7 @@ define hidden void @zif_php_sapi_name(ptr nocapture noundef readonly %0, ptr noc
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_php_uname(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_php_uname(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2521,7 +2521,7 @@ define hidden void @zif_php_uname(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_php_ini_scanned_files(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_php_ini_scanned_files(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2567,7 +2567,7 @@ define hidden void @zif_php_ini_scanned_files(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_php_ini_loaded_file(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_php_ini_loaded_file(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2617,7 +2617,7 @@ declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
@@ -2625,14 +2625,14 @@ declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @zend_hash_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare void @zend_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare zeroext i1 @zend_is_auto_global(ptr noundef) local_unnamed_addr #1
 
@@ -2655,10 +2655,10 @@ declare void @llvm.va_start.p0(ptr) #11
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

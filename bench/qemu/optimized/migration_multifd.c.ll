@@ -169,7 +169,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 2) i32 @multifd_queue_page(ptr nocapture noundef readnone %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @multifd_queue_page(ptr noundef readnone captures(none) %f, ptr noundef %block, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -615,7 +615,7 @@ declare ptr @migrate_get_current() local_unnamed_addr #2
 declare void @error_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @multifd_send_sync_main(ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @multifd_send_sync_main(ptr noundef readnone captures(none) %f) local_unnamed_addr #0 {
 entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %err.i = alloca ptr, align 8
@@ -2140,19 +2140,19 @@ trace_multifd_recv_thread_end.exit:               ; preds = %while.end41, %land.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @nocomp_send_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @nocomp_send_setup(ptr readnone captures(none) %p, ptr readnone captures(none) %errp) #5 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @nocomp_send_cleanup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
+define internal void @nocomp_send_cleanup(ptr readnone captures(none) %p, ptr readnone captures(none) %errp) #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @nocomp_send_prepare(ptr nocapture noundef %p, ptr nocapture readnone %errp) #6 {
+define internal noundef i32 @nocomp_send_prepare(ptr noundef captures(none) %p, ptr readnone captures(none) %errp) #6 {
 entry:
   %normal_num = getelementptr inbounds nuw i8, ptr %p, i64 416
   %0 = load i32, ptr %normal_num, align 8
@@ -2211,19 +2211,19 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @nocomp_recv_setup(ptr nocapture readnone %p, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @nocomp_recv_setup(ptr readnone captures(none) %p, ptr readnone captures(none) %errp) #5 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @nocomp_recv_cleanup(ptr nocapture readnone %p) #5 {
+define internal void @nocomp_recv_cleanup(ptr readnone captures(none) %p) #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nocomp_recv_pages(ptr nocapture noundef readonly %p, ptr noundef %errp) #0 {
+define internal i32 @nocomp_recv_pages(ptr noundef readonly captures(none) %p, ptr noundef %errp) #0 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %p, i64 212
   %0 = load i32, ptr %flags1, align 4
@@ -2296,7 +2296,7 @@ declare void @migrate_set_state(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -3153,13 +3153,13 @@ declare void @rcu_unregister_thread() local_unnamed_addr #2
 declare void @migration_threads_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #8
@@ -3173,13 +3173,13 @@ declare i32 @qio_channel_read_all_eof(ptr noundef, ptr noundef, i64 noundef, ptr
 declare ptr @qemu_ram_block_by_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

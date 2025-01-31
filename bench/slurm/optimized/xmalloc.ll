@@ -22,7 +22,7 @@ slurm_xfree.exit:                                 ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @xsize(ptr nocapture noundef readonly %0) #1 {
+define i64 @xsize(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -104,7 +104,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #2 {
+define ptr @slurm_xrecalloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = icmp ne i64 %2, 0
   %10 = icmp ne i64 %1, 0
   %or.cond = and i1 %10, %9
@@ -189,13 +189,13 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @slurm_xfree(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @slurm_xfree(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -212,10 +212,10 @@ define void @slurm_xfree(ptr nocapture noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_xfree_array(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @slurm_xfree_array(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3

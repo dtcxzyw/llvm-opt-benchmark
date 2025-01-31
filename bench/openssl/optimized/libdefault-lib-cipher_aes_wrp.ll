@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.aes_wrap_set_ctx_params = private unnamed_addr constant [24 x i8] c"aes_wrap_set_ctx_params\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_256wrap_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_256wrap_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -199,7 +199,7 @@ return:                                           ; preds = %if.end5, %aes_wrap_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_wrap_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_final(ptr readnone captures(none) %vctx, ptr readnone captures(none) %out, ptr noundef writeonly captures(none) %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -274,7 +274,7 @@ declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_wrap_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_wrap_set_ctx_params(ptr noundef readonly captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %keylen = alloca i64, align 8
   store i64 0, ptr %keylen, align 8
@@ -316,7 +316,7 @@ declare ptr @ossl_cipher_generic_gettable_ctx_params(ptr noundef, ptr noundef) #
 declare ptr @ossl_cipher_generic_settable_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_192wrap_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_192wrap_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -353,7 +353,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_128wrap_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_128wrap_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -390,7 +390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_256wrappad_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_256wrappad_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -427,7 +427,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_192wrappad_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_192wrappad_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -464,7 +464,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_128wrappad_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_128wrappad_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -501,7 +501,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_256wrapinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_256wrapinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_192wrapinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_192wrapinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -575,7 +575,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_128wrapinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_128wrapinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_256wrappadinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_256wrappadinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_192wrappadinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_192wrappadinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_128wrappadinv_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_128wrappadinv_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -882,10 +882,10 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

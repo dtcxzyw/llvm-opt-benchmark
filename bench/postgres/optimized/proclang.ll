@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.get_language_oid = private unnamed_addr constant [17 x i8] c"get_language_oid\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 8
   %3 = alloca [1 x i32], align 4
   %4 = alloca [9 x i64], align 16
@@ -247,7 +247,7 @@ declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 

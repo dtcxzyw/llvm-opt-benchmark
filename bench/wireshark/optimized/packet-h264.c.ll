@@ -912,7 +912,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ProfileIOP_fields = internal constant [4 x ptr] [ptr @hf_h264_par_constraint_set0_flag, ptr @hf_h264_par_constraint_set1_flag, ptr @hf_h264_par_constraint_set2_flag, ptr null], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_h264_profile(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @dissect_h264_profile(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @hf_h264_profile, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %6 = load i32, ptr @ett_h264_profile, align 4
@@ -1494,7 +1494,7 @@ dissect_h264_rbsp_trailing_bits.exit:             ; preds = %dissect_h264_sei_me
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h264_seq_parameter_set_rbsp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h264_seq_parameter_set_rbsp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2165,7 +2165,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2373,7 +2373,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 120:                                              ; preds = %117, %.lr.ph
   %121 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %121, i32 noundef 25, ptr noundef nonnull @.str.604) #6
-  %122 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.1.i127, i32 noundef 2) #6
+  %122 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef nonnull %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.1.i127, i32 noundef 2) #6
   %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %114) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %122, ptr noundef nonnull @.str.605, i32 noundef %115, i32 noundef %123) #6
   %124 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %114) #6
@@ -2382,7 +2382,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 125:                                              ; preds = %117
   %126 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %114) #6
   %127 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %114, i32 noundef %126, i32 noundef %115) #6
-  %128 = tail call i32 @dissect_h264(ptr noundef %127, ptr noundef %1, ptr noundef %53, ptr poison)
+  %128 = tail call i32 @dissect_h264(ptr noundef %127, ptr noundef nonnull %1, ptr noundef %53, ptr poison)
   br label %129
 
 129:                                              ; preds = %125, %120
@@ -2431,7 +2431,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 155:                                              ; preds = %152, %139
   %156 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %156, i32 noundef 25, ptr noundef nonnull @.str.604) #6
-  %157 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.0.i113128, i32 noundef 2) #6
+  %157 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef nonnull %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.0.i113128, i32 noundef 2) #6
   %158 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %157, ptr noundef nonnull @.str.605, i32 noundef %150, i32 noundef %158) #6
   %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149) #6
@@ -2440,7 +2440,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 160:                                              ; preds = %152
   %161 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %149) #6
   %162 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %149, i32 noundef %161, i32 noundef %150) #6
-  %163 = tail call i32 @dissect_h264(ptr noundef %162, ptr noundef %1, ptr noundef %53, ptr poison)
+  %163 = tail call i32 @dissect_h264(ptr noundef %162, ptr noundef nonnull %1, ptr noundef %53, ptr poison)
   br label %164
 
 164:                                              ; preds = %160, %155
@@ -2527,14 +2527,14 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %217, label %.thread, label %220
 
 .thread:                                          ; preds = %.lr.ph131, %215
-  %218 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2) #6
+  %218 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef nonnull %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %0, i32 noundef %.2.i118130, i32 noundef 2) #6
   %219 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #6
   br label %._crit_edge
 
 220:                                              ; preds = %215
   %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %212) #6
   %222 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %212, i32 noundef %221, i32 noundef %213) #6
-  %223 = tail call i32 @dissect_h264(ptr noundef %222, ptr noundef %1, ptr noundef %53, ptr poison)
+  %223 = tail call i32 @dissect_h264(ptr noundef %222, ptr noundef nonnull %1, ptr noundef %53, ptr poison)
   %224 = add i32 %212, %213
   %225 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %224) #6
   %226 = icmp sgt i32 %225, 0
@@ -2611,7 +2611,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 268:                                              ; preds = %265, %262
   %269 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.604) #6
-  %270 = tail call ptr @proto_tree_add_expert(ptr noundef %250, ptr noundef %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2) #6
+  %270 = tail call ptr @proto_tree_add_expert(ptr noundef %250, ptr noundef nonnull %1, ptr noundef nonnull @ei_h264_bad_nal_length, ptr noundef %51, i32 noundef %.0.i120133, i32 noundef 2) #6
   %271 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %270, ptr noundef nonnull @.str.605, i32 noundef %263, i32 noundef %271) #6
   %272 = tail call i32 @tvb_reported_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
@@ -2620,7 +2620,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 273:                                              ; preds = %265
   %274 = tail call i32 @tvb_captured_length_remaining(ptr noundef %51, i32 noundef %.1.i122) #6
   %275 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %51, i32 noundef %.1.i122, i32 noundef %274, i32 noundef %263) #6
-  %276 = tail call i32 @dissect_h264(ptr noundef %275, ptr noundef %1, ptr noundef %250, ptr poison)
+  %276 = tail call i32 @dissect_h264(ptr noundef %275, ptr noundef nonnull %1, ptr noundef %250, ptr poison)
   br label %277
 
 277:                                              ; preds = %273, %268
@@ -2631,7 +2631,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %279, label %246, label %dissect_h264_prefix.exit, !llvm.loop !17
 
 dissect_h264_prefix.exit:                         ; preds = %129, %164, %277, %108, %132, %.preheader, %.split110, %229, %227, %._crit_edge, %92, %90, %94, %89, %87, %86, %76, %70, %64, %54
-  tail call void @decrement_dissection_depth(ptr noundef %1) #6
+  tail call void @decrement_dissection_depth(ptr noundef nonnull %1) #6
   %280 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %281
 
@@ -2643,7 +2643,7 @@ dissect_h264_prefix.exit:                         ; preds = %129, %164, %277, %1
 declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h264_bytestream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_h264_bytestream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %.loopexit50, label %.lr.ph
@@ -2784,7 +2784,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h264_name(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @dissect_h264_name(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %27, label %6
 
@@ -2833,7 +2833,7 @@ find_cap.exit:                                    ; preds = %.lr.ph.i
 find_cap.exit.thread:                             ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.617, ptr noundef %11) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.617, ptr noundef nonnull %11) #6
   br label %25
 
 25:                                               ; preds = %find_cap.exit, %find_cap.exit.thread, %9
@@ -2850,7 +2850,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4
   %8 = ashr i32 %7, 3
   %9 = icmp sgt i32 %2, 0
@@ -3366,7 +3366,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_h264_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_h264_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = load i32, ptr @hf_h264_cpb_cnt_minus1, align 4
@@ -3537,10 +3537,10 @@ declare ptr @proto_item_get_parent(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_h264_par_profile(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_h264_par_profile(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_h264_par_profile, align 4
   %6 = load i32, ptr @ett_h264_par_profile, align 4
   %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @profile_fields, i32 noundef 0) #6
@@ -3548,7 +3548,7 @@ define internal noundef i32 @dissect_h264_par_profile(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @dissect_h264_par_level(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 3) i32 @dissect_h264_par_level(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %16, label %6
 
@@ -3580,7 +3580,7 @@ define internal range(i32 0, 3) i32 @dissect_h264_par_level(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_h264_par_AdditionalModesSupported(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_h264_par_AdditionalModesSupported(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_h264_par_AdditionalModesSupported, align 4
   %6 = load i32, ptr @ett_h264_par_AdditionalModesSupported, align 4
   %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @AdditionalModesSupported_fields, i32 noundef 0) #6
@@ -3612,7 +3612,7 @@ define internal i32 @dissect_h264_par_DecoderConfigurationInformation(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_h264_ProfileIOP(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_h264_ProfileIOP(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_h264_par_ProfileIOP, align 4
   %6 = load i32, ptr @ett_h264_par_ProfileIOP, align 4
   %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @ProfileIOP_fields, i32 noundef 0) #6
@@ -3624,13 +3624,13 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

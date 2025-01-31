@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.CLOCK = private unnamed_addr constant [6 x i8] c"CLOCK\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_finalize_clocklist(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local void @qdev_finalize_clocklist(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %clocks = getelementptr inbounds nuw i8, ptr %dev, i64 104
   %0 = load ptr, ptr %clocks, align 8
@@ -202,7 +202,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 declare void @clock_set_callback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_init_clocks(ptr noundef %dev, ptr nocapture noundef readonly %clocks) local_unnamed_addr #0 {
+define dso_local void @qdev_init_clocks(ptr noundef %dev, ptr noundef readonly captures(none) %clocks) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %clocks, align 8
   %cmp.not18 = icmp eq ptr %0, null
@@ -370,7 +370,7 @@ if.end8:                                          ; preds = %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdev_alias_clock(ptr nocapture noundef readonly %dev, ptr noundef readonly %name, ptr noundef %alias_dev, ptr noundef %alias_name) local_unnamed_addr #0 {
+define dso_local ptr @qdev_alias_clock(ptr noundef readonly captures(none) %dev, ptr noundef readonly %name, ptr noundef %alias_dev, ptr noundef %alias_name) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %name, null
   %tobool1 = icmp ne ptr %alias_name, null
@@ -441,10 +441,10 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

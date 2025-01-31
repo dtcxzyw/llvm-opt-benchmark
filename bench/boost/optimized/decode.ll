@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN5boost4urls6detail10decode_oneEPKc = private unnamed_addr constant [55 x i8] c"\00\01\02\03\04\05\06\07\08\09\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %2, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit [
     i8 48, label %3
@@ -277,7 +277,7 @@ _ZN5boost4urls6detail18decode_unsafe_implILb1EEEmPcPKcNS_4core17basic_string_vie
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

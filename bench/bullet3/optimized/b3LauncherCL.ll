@@ -57,7 +57,7 @@ $_ZTI13b3OpenCLArrayIhE = comdat any
 @_ZN12b3LauncherCLD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12b3LauncherCLD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN12b3LauncherCLC2EP17_cl_command_queueP10_cl_kernelPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 28), (36, 44), (48, 57), (64, 69), (72, 80), (84, 92), (96, 105)) %this, ptr noundef %queue, ptr noundef %kernel, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3LauncherCLC2EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((0, 28), (36, 44), (48, 57), (64, 69), (72, 80), (84, 92), (96, 105)) %this, ptr noundef %queue, ptr noundef %kernel, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12b3LauncherCL, i64 16), ptr %this, align 8
   %m_commandQueue = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -106,10 +106,10 @@ if.end:                                           ; preds = %if.then, %invoke.co
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12b3LauncherCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3LauncherCLD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12b3LauncherCL, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -622,10 +622,10 @@ for.end:                                          ; preds = %_ZN20b3AlignedObjec
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12b3LauncherCL18serializeArgumentsEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef initializes((0, 4)) %destBuffer, i32 noundef %destBufferCapacity) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN12b3LauncherCL18serializeArgumentsEPhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef initializes((0, 4)) %destBuffer, i32 noundef %destBufferCapacity) local_unnamed_addr #6 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %destBufferCapacity, 0
   br i1 %cmp19, label %for.body.preheader, label %for.end
@@ -692,7 +692,7 @@ for.end29:                                        ; preds = %for.inc27, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3LauncherCL15serializeToFileEPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %fileName, i32 noundef %numWorkItems) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN12b3LauncherCL15serializeToFileEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef readonly captures(none) %fileName, i32 noundef %numWorkItems) local_unnamed_addr #6 align 2 {
 entry:
   %m_serializationSizeInBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i32, ptr %m_serializationSizeInBytes.i, align 8
@@ -722,13 +722,13 @@ for.end:                                          ; preds = %for.body.preheader,
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
@@ -1054,7 +1054,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

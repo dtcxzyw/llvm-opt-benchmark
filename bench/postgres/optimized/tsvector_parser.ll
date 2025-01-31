@@ -48,7 +48,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @pg_database_encoding_max_length() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reset_tsvector_parser(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @reset_tsvector_parser(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -65,7 +65,7 @@ define dso_local void @close_tsvector_parser(ptr noundef %0) local_unnamed_addr 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
@@ -1057,7 +1057,7 @@ prssyntaxerror.exit:                              ; preds = %14, %427, %423, %40
 declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prssyntaxerror(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @prssyntaxerror(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
@@ -1082,7 +1082,7 @@ define internal fastcc void @prssyntaxerror(ptr nocapture noundef readonly %0) u
 declare i32 @t_isspace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1097,7 +1097,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @t_isdigit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5

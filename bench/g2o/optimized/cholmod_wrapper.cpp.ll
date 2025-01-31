@@ -18,7 +18,7 @@ $_ZN3g2o7cholmod7Cholmod4ImplD2Ev = comdat any
 @_ZN3g2o7cholmod7CholmodD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o7cholmod7CholmodD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(2768) ptr @_Znwm(i64 noundef 2768) #13, !noalias !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2664
@@ -61,7 +61,7 @@ _ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__si
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o7cholmod7CholmodD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o7cholmod7CholmodD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEclEPS3_.exit.i
@@ -77,7 +77,7 @@ _ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o7cholmod7Cholmod10freeFactorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN3g2o7cholmod7Cholmod10freeFactorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   %4 = load ptr, ptr %3, align 8
@@ -94,7 +94,7 @@ _ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit:  ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3g2o7cholmod7Cholmod9hasFactorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3g2o7cholmod7Cholmod9hasFactorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   %4 = load ptr, ptr %3, align 8
@@ -103,7 +103,7 @@ define noundef zeroext i1 @_ZNK3g2o7cholmod7Cholmod9hasFactorEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod3amdERNS1_10SparseViewEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod3amdERNS1_10SparseViewEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %struct.cholmod_sparse_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -151,7 +151,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod3amdERNS1_10SparseViewEPi(ptr 
 declare i32 @cholmod_amd(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 captures(none) initializes((0, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2664
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -177,7 +177,7 @@ define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::FactorView") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.g2o::cholmod::Cholmod::FactorView") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2760
   %5 = load ptr, ptr %4, align 8
@@ -198,7 +198,7 @@ define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o7cholmod7Cholmod5solveEPdS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK3g2o7cholmod7Cholmod5solveEPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %struct.cholmod_dense_struct, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %0, align 8
@@ -232,12 +232,12 @@ define void @_ZNK3g2o7cholmod7Cholmod5solveEPdS2_(ptr nocapture noundef nonnull 
 declare ptr @cholmod_solve(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @cholmod_free_dense(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod7analyzeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod7analyzeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 1, ptr %3, align 8
@@ -256,7 +256,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod7analyzeEv(ptr nocapture nound
 declare ptr @cholmod_analyze(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9analyze_pEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9analyze_pEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i32 1, ptr %4, align 8
@@ -275,7 +275,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9analyze_pEPi(ptr nocapture no
 declare ptr @cholmod_analyze_p(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %4 = load double, ptr %3, align 8
@@ -284,7 +284,7 @@ define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9factorizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9factorizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2664
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2760
@@ -300,7 +300,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9factorizeEv(ptr nocapture nou
 declare i32 @cholmod_factorize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod14simplifyFactorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod14simplifyFactorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   %4 = load ptr, ptr %3, align 8
@@ -442,7 +442,7 @@ _ZN3g2o7cholmod10CholmodExtD2Ev.exit:             ; preds = %17, %21
 declare i32 @cholmod_finish(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

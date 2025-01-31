@@ -340,7 +340,7 @@ define dso_local void @shutdown_state_save() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @slurmctld_state_save(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @slurmctld_state_save(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %4 = icmp slt i32 %3, 0

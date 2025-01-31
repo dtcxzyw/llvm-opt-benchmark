@@ -377,7 +377,7 @@ declare i32 @EC_GROUP_get_basis_type(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr nocapture noundef nonnull readonly %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_bin(ptr noundef %fp, ptr noundef %name, ptr noundef nonnull readonly captures(none) %buf, i64 noundef %len, i32 noundef %off) unnamed_addr #0 {
 entry:
   %str = alloca [133 x i8], align 16
   %cmp1 = icmp sgt i32 %off, 0
@@ -450,7 +450,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

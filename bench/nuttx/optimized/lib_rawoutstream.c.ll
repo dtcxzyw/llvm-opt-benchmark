@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lib_rawoutstream(ptr nocapture noundef writeonly initializes((0, 4), (8, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lib_rawoutstream(ptr noundef writeonly captures(none) initializes((0, 4), (8, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @rawoutstream_putc, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18,7 +18,7 @@ define void @lib_rawoutstream(ptr nocapture noundef writeonly initializes((0, 4)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rawoutstream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @rawoutstream_putc(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -49,7 +49,7 @@ rawoutstream_puts.exit:                           ; preds = %14, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @rawoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define internal range(i32 -2147483647, -2147483648) i32 @rawoutstream_puts(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
   br label %6
@@ -85,7 +85,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @rawoutstream_puts(ptr n
 declare i32 @lib_noflush(ptr noundef) #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @__errno() local_unnamed_addr #2
 

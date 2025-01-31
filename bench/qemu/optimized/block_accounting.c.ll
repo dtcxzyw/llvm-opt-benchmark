@@ -45,7 +45,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #2 {
+define dso_local void @block_acct_setup(ptr noundef captures(none) %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #2 {
 entry:
   %account_invalid1 = getelementptr inbounds nuw i8, ptr %stats, i64 352
   %0 = load i8, ptr %account_invalid1, align 8
@@ -162,7 +162,7 @@ declare void @timed_average_init(ptr noundef, i32 noundef, i64 noundef) local_un
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @block_acct_interval_next(ptr nocapture noundef readonly %stats, ptr noundef readonly %s) local_unnamed_addr #4 {
+define dso_local ptr @block_acct_interval_next(ptr noundef readonly captures(none) %stats, ptr noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_acct_start(ptr nocapture noundef readnone %stats, ptr nocapture noundef writeonly %cookie, i64 noundef %bytes, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local void @block_acct_start(ptr noundef readnone captures(none) %stats, ptr noundef writeonly captures(none) %cookie, i64 noundef %bytes, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %type, 6
   br i1 %cmp, label %if.end, label %if.else
@@ -200,7 +200,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr nocapture noundef %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr noundef captures(none) %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
 entry:
   %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
   %idxprom = zext i32 %type to i64
@@ -266,7 +266,7 @@ return:                                           ; preds = %for.body, %for.end1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_latency_histograms_clear(ptr nocapture noundef %stats) local_unnamed_addr #0 {
+define dso_local void @block_latency_histograms_clear(ptr noundef captures(none) %stats) local_unnamed_addr #0 {
 entry:
   %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
   br label %for.body
@@ -290,17 +290,17 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_acct_done(ptr noundef %stats, ptr nocapture noundef %cookie) local_unnamed_addr #0 {
+define dso_local void @block_acct_done(ptr noundef %stats, ptr noundef captures(none) %cookie) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @block_account_one_io(ptr noundef %stats, ptr noundef %cookie, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @block_account_one_io(ptr noundef %stats, ptr nocapture noundef %cookie, i1 noundef zeroext %failed) unnamed_addr #0 {
+define internal fastcc void @block_account_one_io(ptr noundef %stats, ptr noundef captures(none) %cookie, i1 noundef zeroext %failed) unnamed_addr #0 {
 entry:
   %latency_ns.addr.i = alloca i64, align 8
   %.b = load i1, ptr @clock_type, align 4
@@ -462,7 +462,7 @@ return:                                           ; preds = %if.end3, %qemu_lock
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_acct_failed(ptr noundef %stats, ptr nocapture noundef %cookie) local_unnamed_addr #0 {
+define dso_local void @block_acct_failed(ptr noundef %stats, ptr noundef captures(none) %cookie) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @block_account_one_io(ptr noundef %stats, ptr noundef %cookie, i1 noundef zeroext true)
   ret void
@@ -532,7 +532,7 @@ while.end:                                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @block_acct_idle_time_ns(ptr nocapture noundef readonly %stats) local_unnamed_addr #0 {
+define dso_local i64 @block_acct_idle_time_ns(ptr noundef readonly captures(none) %stats) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
@@ -582,7 +582,7 @@ declare void @timed_average_account(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @block_latency_histogram_compare_func(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %it) #8 {
+define internal range(i32 -1, 2) i32 @block_latency_histogram_compare_func(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %it) #8 {
 entry:
   %0 = load i64, ptr %key, align 8
   %1 = load i64, ptr %it, align 8
@@ -596,10 +596,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

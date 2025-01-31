@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [48 x i8] c"ecpg_free_params on line %d: parameter %d = %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @PQntuples(ptr noundef %0) #14
   %6 = tail call i32 @PQftype(ptr noundef %0, i32 noundef %1) #14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1157,7 +1157,7 @@ declare void @ecpg_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PQfformat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1168,7 +1168,7 @@ declare ptr @ecpg_auto_alloc(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @ecpg_get_data(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   store ptr @.str.5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
@@ -2106,7 +2106,7 @@ quote_postgres.exit:                              ; preds = %381
 
 472:                                              ; preds = %462
   tail call void @ecpg_free(ptr noundef nonnull %.1561) #14
-  tail call void @ecpg_free(ptr noundef %465) #14
+  tail call void @ecpg_free(ptr noundef nonnull %465) #14
   br label %.thread
 
 473:                                              ; preds = %462
@@ -2114,7 +2114,7 @@ quote_postgres.exit:                              ; preds = %381
   %475 = getelementptr i8, ptr %471, i64 %474
   %sext475 = add i64 %sext473, 4294967296
   %476 = ashr exact i64 %sext475, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %475, ptr align 1 %465, i64 %476, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %475, ptr nonnull align 1 %465, i64 %476, i1 false)
   %477 = load i64, ptr %41, align 8
   %478 = icmp sgt i64 %477, 1
   br i1 %478, label %479, label %482
@@ -2126,7 +2126,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %482
 
 482:                                              ; preds = %479, %473
-  tail call void @ecpg_free(ptr noundef %465) #14
+  tail call void @ecpg_free(ptr noundef nonnull %465) #14
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
   br i1 %exitcond616.not, label %._crit_edge563, label %447, !llvm.loop !22
@@ -2183,7 +2183,7 @@ quote_postgres.exit:                              ; preds = %381
 504:                                              ; preds = %499
   %505 = or disjoint i64 %501, 1
   %506 = getelementptr i8, ptr %503, i64 1
-  %507 = tail call i64 @PQescapeString(ptr noundef %506, ptr noundef %498, i64 noundef %505) #14
+  %507 = tail call i64 @PQescapeString(ptr noundef %506, ptr noundef nonnull %498, i64 noundef %505) #14
   %508 = icmp eq i64 %500, %507
   br i1 %508, label %509, label %513
 
@@ -2209,7 +2209,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %quote_postgres.exit501.thread517
 
 quote_postgres.exit501.thread517:                 ; preds = %509, %513
-  tail call void @ecpg_free(ptr noundef %498) #14
+  tail call void @ecpg_free(ptr noundef nonnull %498) #14
   br label %518
 
 quote_postgres.exit501:                           ; preds = %495
@@ -2312,7 +2312,7 @@ quote_postgres.exit501.thread:                    ; preds = %499, %quote_postgre
 558:                                              ; preds = %553
   %559 = or disjoint i64 %555, 1
   %560 = getelementptr i8, ptr %557, i64 1
-  %561 = tail call i64 @PQescapeString(ptr noundef %560, ptr noundef %552, i64 noundef %559) #14
+  %561 = tail call i64 @PQescapeString(ptr noundef %560, ptr noundef nonnull %552, i64 noundef %559) #14
   %562 = icmp eq i64 %554, %561
   br i1 %562, label %563, label %567
 
@@ -2338,7 +2338,7 @@ quote_postgres.exit501.thread:                    ; preds = %499, %quote_postgre
   br label %quote_postgres.exit504.thread523
 
 quote_postgres.exit504.thread523:                 ; preds = %563, %567
-  tail call void @ecpg_free(ptr noundef %552) #14
+  tail call void @ecpg_free(ptr noundef nonnull %552) #14
   br label %572
 
 quote_postgres.exit504:                           ; preds = %548
@@ -2441,7 +2441,7 @@ quote_postgres.exit504.thread:                    ; preds = %553, %quote_postgre
 612:                                              ; preds = %607
   %613 = or disjoint i64 %609, 1
   %614 = getelementptr i8, ptr %611, i64 1
-  %615 = tail call i64 @PQescapeString(ptr noundef %614, ptr noundef %606, i64 noundef %613) #14
+  %615 = tail call i64 @PQescapeString(ptr noundef %614, ptr noundef nonnull %606, i64 noundef %613) #14
   %616 = icmp eq i64 %608, %615
   br i1 %616, label %617, label %621
 
@@ -2467,7 +2467,7 @@ quote_postgres.exit504.thread:                    ; preds = %553, %quote_postgre
   br label %quote_postgres.exit507.thread529
 
 quote_postgres.exit507.thread529:                 ; preds = %617, %621
-  tail call void @ecpg_free(ptr noundef %606) #14
+  tail call void @ecpg_free(ptr noundef nonnull %606) #14
   br label %626
 
 quote_postgres.exit507:                           ; preds = %602
@@ -2549,7 +2549,7 @@ declare zeroext i1 @ECPGis_noind_null(i32 noundef, ptr noundef) local_unnamed_ad
 declare ptr @ecpg_alloc(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2623,7 +2623,7 @@ define internal fastcc void @sprintf_double_value(ptr noundef %0, double noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @quote_postgres(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
@@ -2640,7 +2640,7 @@ define internal fastcc ptr @quote_postgres(ptr noundef %0, i1 noundef zeroext %1
 9:                                                ; preds = %4
   %10 = or disjoint i64 %6, 1
   %11 = getelementptr i8, ptr %8, i64 1
-  %12 = tail call i64 @PQescapeString(ptr noundef %11, ptr noundef %0, i64 noundef %10) #14
+  %12 = tail call i64 @PQescapeString(ptr noundef %11, ptr noundef nonnull %0, i64 noundef %10) #14
   %13 = icmp eq i64 %5, %12
   br i1 %13, label %14, label %18
 
@@ -2666,7 +2666,7 @@ define internal fastcc ptr @quote_postgres(ptr noundef %0, i1 noundef zeroext %1
   br label %23
 
 23:                                               ; preds = %18, %14
-  tail call void @ecpg_free(ptr noundef %0) #14
+  tail call void @ecpg_free(ptr noundef nonnull %0) #14
   br label %24
 
 24:                                               ; preds = %4, %3, %23
@@ -2677,7 +2677,7 @@ define internal fastcc ptr @quote_postgres(ptr noundef %0, i1 noundef zeroext %1
 declare void @ecpg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @ecpg_strdup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2702,7 +2702,7 @@ declare ptr @PGTYPEStimestamp_to_asc(i64 noundef) local_unnamed_addr #1
 declare ptr @ecpg_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ecpg_free_params(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @ecpg_free_params(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3317,7 +3317,7 @@ ecpg_free_params.exit221:                         ; preds = %print_param_value.e
   br i1 %.not214, label %250, label %262
 
 250:                                              ; preds = %245
-  call void @ecpg_free(ptr noundef %.pre318) #14
+  call void @ecpg_free(ptr noundef nonnull %.pre318) #14
   %251 = load i32, ptr %58, align 8
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %print_param_value.exit.i223, label %ecpg_free_params.exit226
@@ -3346,8 +3346,8 @@ ecpg_free_params.exit226:                         ; preds = %print_param_value.e
   br label %.loopexit253
 
 262:                                              ; preds = %245
-  %263 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %249, ptr noundef nonnull @.str.31, ptr noundef %.pre318) #14
-  call void @ecpg_free(ptr noundef %.pre318) #14
+  %263 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %249, ptr noundef nonnull @.str.31, ptr noundef nonnull %.pre318) #14
+  call void @ecpg_free(ptr noundef nonnull %.pre318) #14
   br label %264
 
 264:                                              ; preds = %243, %262
@@ -3654,7 +3654,7 @@ declare ptr @PQparameterStatus(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ecpg_find_desc(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @next_insert(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 {
+define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
@@ -3952,7 +3952,7 @@ define internal fastcc i32 @next_insert(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
@@ -3983,14 +3983,14 @@ define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef range
   br label %27
 
 27:                                               ; preds = %4, %13
-  tail call void @ecpg_free(ptr noundef %3) #14
+  tail call void @ecpg_free(ptr noundef nonnull %3) #14
   ret i1 %.not
 }
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_autostart_transaction(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_autostart_transaction(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4623,7 +4623,7 @@ declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @ecpg_build_compat_sqlda(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4638,12 +4638,12 @@ declare ptr @PQcmdStatus(ptr noundef) local_unnamed_addr #1
 declare i32 @PQoidValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @PQcmdTuples(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4662,7 +4662,7 @@ declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #1
 declare ptr @PQnotifies(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = zext i1 %4 to i8
   store ptr null, ptr %8, align 8
@@ -5295,7 +5295,7 @@ declare ptr @ecpg_prepared(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ecpg_clear_auto_mem() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_do(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_do(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = call zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %9)
   %.pre = load ptr, ptr %9, align 8
@@ -5374,7 +5374,7 @@ declare i32 @ecpg_dynamic_type(i32 noundef) local_unnamed_addr #1
 declare i64 @PQescapeString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @ecpg_hex_enc_len(i32 noundef) local_unnamed_addr #1
 
@@ -5384,7 +5384,7 @@ declare i32 @ecpg_hex_encode(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -5399,13 +5399,13 @@ declare float @llvm.fabs.f32(float) #11
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

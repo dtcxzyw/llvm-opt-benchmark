@@ -700,7 +700,7 @@ SmoothenBlock.exit251:                            ; preds = %._crit_edge.us, %._
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {

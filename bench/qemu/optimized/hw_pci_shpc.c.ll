@@ -173,7 +173,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @shpc_interrupt_update(ptr noundef %d) unnamed_addr #0 {
@@ -337,7 +337,7 @@ return:                                           ; preds = %shpc_device_get_slo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @shpc_device_unplug_cb(ptr nocapture noundef readnone %hotplug_dev, ptr noundef %dev, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @shpc_device_unplug_cb(ptr noundef readnone captures(none) %hotplug_dev, ptr noundef %dev, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   tail call void @qdev_unrealize(ptr noundef %dev) #10
   ret void
@@ -583,7 +583,7 @@ for.end:                                          ; preds = %for.body
   %mul60 = shl i32 %25, 2
   %add61 = add i32 %mul60, 36
   %conv62 = sext i32 %add61 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %d, ptr noundef nonnull @shpc_mmio_ops, ptr noundef %d, ptr noundef nonnull @.str.2, i64 noundef %conv62) #10
+  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef nonnull %d, ptr noundef nonnull @shpc_mmio_ops, ptr noundef nonnull %d, ptr noundef nonnull @.str.2, i64 noundef %conv62) #10
   %d.val = load ptr, ptr %config1.i, align 8
   %d.val39 = load ptr, ptr %shpc1, align 8
   %d.val4.val.i = load i32, ptr %d.val39, align 16
@@ -647,13 +647,13 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 declare void @qbus_set_hotplug_handler(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @shpc_bar_size(ptr nocapture noundef readnone %d) local_unnamed_addr #4 {
+define dso_local noundef i32 @shpc_bar_size(ptr noundef readnone captures(none) %d) local_unnamed_addr #4 {
 entry:
   ret i32 256
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @shpc_cleanup(ptr nocapture noundef %d, ptr noundef %bar) local_unnamed_addr #0 {
+define dso_local void @shpc_cleanup(ptr noundef captures(none) %d, ptr noundef %bar) local_unnamed_addr #0 {
 entry:
   %shpc1 = getelementptr inbounds nuw i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
@@ -669,7 +669,7 @@ entry:
 declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @shpc_free(ptr nocapture noundef %d) local_unnamed_addr #0 {
+define dso_local void @shpc_free(ptr noundef captures(none) %d) local_unnamed_addr #0 {
 entry:
   %shpc1 = getelementptr inbounds nuw i8, ptr %d, i64 2248
   %0 = load ptr, ptr %shpc1, align 8
@@ -1226,7 +1226,7 @@ return:                                           ; preds = %entry, %if.end42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @shpc_load(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @shpc_load(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
   %config = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1259,7 +1259,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @shpc_save(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @shpc_save(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
   %config = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1274,7 +1274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare zeroext i1 @msi_enabled(ptr noundef) local_unnamed_addr #2
 
@@ -1294,7 +1294,7 @@ declare void @hotplug_handler_unplug(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @shpc_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #7 {
+define internal i64 @shpc_mmio_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #7 {
 entry:
   %val.i = alloca i64, align 8
   %conv = trunc i64 %addr to i32
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @shpc_slot_command(ptr nocapture readonly %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext range(i8 0, 4) %state, i8 noundef zeroext range(i8 0, 13) %power, i8 noundef zeroext range(i8 0, 49) %attn) unnamed_addr #0 {
+define internal fastcc void @shpc_slot_command(ptr readonly captures(none) %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext range(i8 0, 4) %state, i8 noundef zeroext range(i8 0, 13) %power, i8 noundef zeroext range(i8 0, 49) %attn) unnamed_addr #0 {
 entry:
   %conv = zext i8 %target to i32
   %sub = add nsw i32 %conv, -1
@@ -1498,10 +1498,10 @@ declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

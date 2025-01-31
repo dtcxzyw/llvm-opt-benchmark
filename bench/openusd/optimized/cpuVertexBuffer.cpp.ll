@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC2Eii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
@@ -27,7 +27,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC2Eii(ptr nocapture noun
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -45,7 +45,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD2Ev(ptr nocapture nound
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer6CreateEiiPv(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer6CreateEiiPv(i32 noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #7
   invoke void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC1Eii(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %0, i32 noundef %1)
           to label %5 unwind label %6
@@ -69,7 +69,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer10UpdateDataEPKfiiPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer10UpdateDataEPKfiiPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %0, align 8
@@ -84,23 +84,23 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer10UpdateDataEPKfiiPv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer14GetNumElementsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer14GetNumElementsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer14GetNumVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer14GetNumVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer13BindCpuBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBuffer13BindCpuBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3

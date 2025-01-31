@@ -104,12 +104,12 @@ cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %.
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store double %30, ptr %33, align 8
-  %34 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.023) #16
+  %34 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.023) #16
   %.not21 = icmp eq ptr %34, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  tail call void @spline_edges0(ptr noundef %0, i1 noundef zeroext true) #16
+  tail call void @spline_edges0(ptr noundef nonnull %0, i1 noundef zeroext true) #16
   br label %42
 
 35:                                               ; preds = %cluster_init_graph.exit
@@ -563,7 +563,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
 
 138:                                              ; preds = %113, %135
   %.2 = phi i32 [ %.1247303, %113 ], [ %136, %135 ]
-  %139 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0249302) #16
+  %139 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0249302) #16
   %.not260 = icmp eq ptr %139, null
   br i1 %.not260, label %.loopexit, label %113
 
@@ -767,7 +767,7 @@ indent.exit268:                                   ; preds = %.lr.ph.i266, %193
 
 indent.exit271:                                   ; preds = %.lr.ph.i269, %239
   %244 = load ptr, ptr @stderr, align 8
-  %245 = call ptr @agnameof(ptr noundef %0) #16
+  %245 = call ptr @agnameof(ptr noundef nonnull %0) #16
   %246 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.9, ptr noundef %245, double noundef %227, double noundef %232, double noundef %228, double noundef %236) #17
   br label %247
 
@@ -896,7 +896,7 @@ indent.exit283:                                   ; preds = %.lr.ph.i281, %278
 
 indent.exit290:                                   ; preds = %.lr.ph.i288, %300
   %305 = load ptr, ptr @stderr, align 8
-  %306 = call ptr @agnameof(ptr noundef %0) #16
+  %306 = call ptr @agnameof(ptr noundef nonnull %0) #16
   %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.9, ptr noundef %306, double noundef %294, double noundef %295, double noundef %292, double noundef %293) #17
   br label %308
 
@@ -1197,7 +1197,7 @@ declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cleanup_graphs(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @cleanup_graphs(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 236
@@ -1243,7 +1243,7 @@ declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local
 declare i32 @common_init_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #1
 
@@ -1254,7 +1254,7 @@ declare void @do_graph_label(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtsubg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -1266,16 +1266,16 @@ define internal fastcc void @graphviz_exit() unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 
@@ -1323,7 +1323,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i32 @late_int(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1338,7 +1338,7 @@ declare void @free_label(ptr noundef) local_unnamed_addr #1
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15

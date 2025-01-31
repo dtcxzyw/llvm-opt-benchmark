@@ -140,7 +140,7 @@ declare void @pqueue_free(ptr noundef) local_unnamed_addr #0
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define void @dtls1_clear_received_buffer(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define void @dtls1_clear_received_buffer(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds nuw i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -174,7 +174,7 @@ declare void @dtls1_hm_fragment_free(ptr noundef) local_unnamed_addr #0
 declare void @pitem_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define void @dtls1_clear_sent_buffer(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define void @dtls1_clear_sent_buffer(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds nuw i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -273,7 +273,7 @@ return:                                           ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dtls1_clear_queues(ptr nocapture noundef nonnull readonly %s) unnamed_addr #1 {
+define internal fastcc void @dtls1_clear_queues(ptr noundef nonnull readonly captures(none) %s) unnamed_addr #1 {
 entry:
   %d1.i = getelementptr inbounds nuw i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1.i, align 8
@@ -466,7 +466,7 @@ return:                                           ; preds = %entry, %cond.false,
 declare void @DTLS_RECORD_LAYER_clear(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i64 @SSL_get_options(ptr noundef) local_unnamed_addr #0
 
@@ -561,7 +561,7 @@ return:                                           ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls1_get_timeout(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %timeleft) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_get_timeout(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) %timeleft) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds nuw i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -587,7 +587,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @dtls1_handle_timeout(ptr noundef %s) local_unnamed_addr #1 {
@@ -767,7 +767,7 @@ declare i64 @ossl_time_now() local_unnamed_addr #0
 declare ptr @SSL_get_rbio(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls1_is_timer_expired(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_is_timer_expired(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %d1.i = getelementptr inbounds nuw i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1.i, align 8
@@ -792,7 +792,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dtls1_stop_timer(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define void @dtls1_stop_timer(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   %d1 = getelementptr inbounds nuw i8, ptr %s, i64 1136
@@ -1836,10 +1836,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #7
 declare i64 @llvm.uadd.sat.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_H5FS_node_t_reg_free_list = external global %struct.H5FL_reg_head_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, ptr noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define ptr @H5FS_create(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
@@ -231,7 +231,7 @@ H5FS__hdr_dest.exit:                              ; preds = %._crit_edge.i, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5FS_t_reg_free_list) #5
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -1054,7 +1054,7 @@ declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @H5FL_seq_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare zeroext i8 @H5F_sizeof_size(ptr noundef) local_unnamed_addr #1
 
@@ -1065,7 +1065,7 @@ declare ptr @H5FL_seq_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FS_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define noundef i32 @H5FS_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1479,7 +1479,7 @@ H5FS__dirty.exit.thread:                          ; preds = %53, %56, %3
 declare i32 @H5SL_destroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FS__sinfo_free_node_cb(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal noundef i32 @H5FS__sinfo_free_node_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5SL_destroy(ptr noundef %5, ptr noundef nonnull @H5FS__sinfo_free_sect_cb, ptr noundef %2) #5
@@ -1490,7 +1490,7 @@ define internal noundef i32 @H5FS__sinfo_free_node_cb(ptr noundef %0, ptr nocapt
 declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FS_get_sect_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define noundef i32 @H5FS_get_sect_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -1498,7 +1498,7 @@ define noundef i32 @H5FS_get_sect_count(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FS__sinfo_free_sect_cb(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @H5FS__sinfo_free_sect_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 408
@@ -1513,7 +1513,7 @@ define internal noundef i32 @H5FS__sinfo_free_sect_cb(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

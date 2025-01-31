@@ -101,12 +101,12 @@ declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DH_generate_parameters_ex(ptr nocapture noundef %dh, i32 noundef %prime_bits, i32 noundef %generator, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DH_generate_parameters_ex(ptr noundef captures(none) %dh, i32 noundef %prime_bits, i32 noundef %generator, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #4
   %cmp = icmp eq ptr %call, null
@@ -502,7 +502,7 @@ declare i32 @DH_check_pub_key(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DH_size(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
+define hidden i32 @DH_size(ptr noundef readonly captures(none) %dh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dh, align 8
   %call = tail call i32 @BN_num_bytes(ptr noundef %0) #4
@@ -512,7 +512,7 @@ entry:
 declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DH_num_bits(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
+define hidden i32 @DH_num_bits(ptr noundef readonly captures(none) %dh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dh, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #4
@@ -530,7 +530,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DHparams_dup(ptr nocapture noundef readonly %dh) local_unnamed_addr #0 {
+define hidden noundef ptr @DHparams_dup(ptr noundef readonly captures(none) %dh) local_unnamed_addr #0 {
 entry:
   %calloc.i = tail call dereferenceable_or_null(160) ptr @calloc(i64 1, i64 160)
   %cmp.i = icmp eq ptr %calloc.i, null
@@ -649,7 +649,7 @@ return:                                           ; preds = %if.end33.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DH_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr nocapture noundef readnone %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden i32 @DH_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr noundef readnone captures(none) %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %index = alloca i32, align 4
   %call = call i32 @CRYPTO_get_ex_new_index(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) #4

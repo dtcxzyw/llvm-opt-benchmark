@@ -174,14 +174,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8triggers9trigger_t11tdata2_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK8triggers9trigger_t11tdata2_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8triggers9trigger_t12tdata2_writeEP11processor_tm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((8, 16)) %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN8triggers9trigger_t12tdata2_writeEP11processor_tm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(44) initializes((8, 16)) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret void
@@ -219,7 +219,7 @@ define noundef range(i32 0, 5) i32 @_ZN8triggers9trigger_t15legalize_actionEmmm(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK8triggers9trigger_t17legalize_mhselectEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK8triggers9trigger_t17legalize_mhselectEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -255,7 +255,7 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers9trigger_t11tdata3_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -357,7 +357,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((24, 44)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(44) initializes((24, 44)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 32
@@ -420,7 +420,7 @@ define void @_ZN8triggers9trigger_t12tdata3_writeEP11processor_tm(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.in.v = select i1 %2, i64 952, i64 944
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
   %4 = load i64, ptr %.in, align 8
@@ -463,7 +463,7 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit:      ; preds = %3, %6, %7
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK8triggers9trigger_t10mode_matchEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK8triggers9trigger_t10mode_matchEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #9 align 2 {
   switch i64 %1, label %6 [
     i64 3, label %7
     i64 1, label %4
@@ -491,7 +491,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t10mode_matchEmb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8triggers9trigger_t12textra_matchEP11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -691,7 +691,7 @@ _ZNK8triggers9trigger_t18interpret_mhselectEb.exit: ; preds = %51
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -766,7 +766,7 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12allow_actionEPK7state_t(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(45) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -4
@@ -796,7 +796,7 @@ define noundef i64 @_ZNK8triggers18disabled_trigger_t11tdata1_readEPK11processor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8triggers18disabled_trigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) initializes((44, 45)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers18disabled_trigger_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(45) initializes((44, 45)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
@@ -810,7 +810,7 @@ define void @_ZN8triggers18disabled_trigger_t12tdata1_writeEP11processor_tmb(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(63) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -4
@@ -917,7 +917,7 @@ define noundef i64 @_ZNK8triggers10mcontrol_t11tdata1_readEPK11processor_t(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers10mcontrol_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(63) initializes((18, 21), (44, 45), (48, 63)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers10mcontrol_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(63) initializes((18, 21), (44, 45), (48, 63)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
@@ -1078,7 +1078,7 @@ define noundef i32 @_ZN8triggers17mcontrol_common_t14legalize_matchEm(i64 nounde
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t12simple_matchEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK8triggers17mcontrol_common_t12simple_matchEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(63) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %49 [
@@ -1170,7 +1170,7 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchEP11processor_tNS_11operation_tEmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(63) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 %4, i8 %5) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchEP11processor_tNS_11operation_tEmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(63) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i64 %4, i8 %5) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %19 [
     i32 0, label %7
     i32 1, label %11
@@ -1432,7 +1432,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(63) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(63) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1554,7 +1554,7 @@ define noundef i64 @_ZNK8triggers11mcontrol6_t11tdata1_readEPK11processor_t(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers11mcontrol6_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(63) initializes((16, 21), (44, 45), (48, 63)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers11mcontrol6_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(63) initializes((16, 21), (44, 45), (48, 63)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
@@ -1679,7 +1679,7 @@ _ZN8triggers17mcontrol_common_t15legalize_timingEmmmmm.exit: ; preds = %4, %31, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers8icount_t18detect_icount_fireEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers8icount_t18detect_icount_fireEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %3 = load i64, ptr %.in.i, align 8
   %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 962
@@ -1816,7 +1816,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers8icount_t23detect_icount_decrementEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers8icount_t23detect_icount_decrementEP11processor_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 944
   %3 = load i64, ptr %.in.i, align 8
   %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 962
@@ -1951,7 +1951,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2042,7 +2042,7 @@ define noundef i64 @_ZNK8triggers8icount_t11tdata1_readEPK11processor_t(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 21), (44, 46), (48, 58), (60, 64)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers8icount_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((16, 21), (44, 46), (48, 58), (60, 64)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2248
@@ -2136,7 +2136,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %63, %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8triggers8icount_t17stash_read_valuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((52, 56), (57, 58)) %0) unnamed_addr #12 align 2 {
+define void @_ZN8triggers8icount_t17stash_read_valuesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((52, 56), (57, 58)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2150,7 +2150,7 @@ define void @_ZN8triggers8icount_t17stash_read_valuesEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2243,7 +2243,7 @@ define noundef i64 @_ZNK8triggers10itrigger_t11tdata1_readEPK11processor_t(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers10itrigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) initializes((16, 21), (44, 46), (48, 53)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers10itrigger_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(53) initializes((16, 21), (44, 46), (48, 53)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
@@ -2326,7 +2326,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %55, %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers13trap_common_t17detect_trap_matchEP11processor_tRK6trap_t(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers13trap_common_t17detect_trap_matchEP11processor_tRK6trap_t(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 952
   %4 = load i64, ptr %.in.i, align 8
   %.in10.in.i = getelementptr inbounds nuw i8, ptr %1, i64 963
@@ -2480,7 +2480,7 @@ _ZNK8triggers9trigger_t12common_matchEP11processor_tb.exit.thread: ; preds = %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
   br i1 %1, label %4, label %16
 
 4:                                                ; preds = %3
@@ -2507,7 +2507,7 @@ define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2594,7 +2594,7 @@ define noundef i64 @_ZNK8triggers10etrigger_t11tdata1_readEPK11processor_t(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers10etrigger_t12tdata1_writeEP11processor_tmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((16, 21), (44, 46), (48, 52)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers10etrigger_t12tdata1_writeEP11processor_tmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((16, 21), (44, 46), (48, 52)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 zeroext %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3796
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -5
@@ -2672,7 +2672,7 @@ _ZN8triggers9trigger_t15legalize_actionEmmm.exit: ; preds = %4, %51, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8triggers10etrigger_t12simple_matchEbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8triggers10etrigger_t12simple_matchEbm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = shl nuw i64 1, %2
@@ -2684,7 +2684,7 @@ define noundef zeroext i1 @_ZNK8triggers10etrigger_t12simple_matchEbm(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8triggers8module_tC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 32)) %0, i32 noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers8module_tC2Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((8, 32)) %0, i32 noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
@@ -2756,10 +2756,10 @@ _ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %21, %18
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8triggers8module_tD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8triggers8module_tD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2803,7 +2803,7 @@ _ZNSt6vectorIPN8triggers9trigger_tESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK8triggers8module_t11tdata1_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK8triggers8module_t11tdata1_readEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3125,7 +3125,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %122, %170
 declare void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(659880), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8triggers8module_t11tdata2_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef i64 @_ZNK8triggers8module_t11tdata2_readEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3182,7 +3182,7 @@ define noundef zeroext i1 @_ZN8triggers8module_t12tdata2_writeEjm(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK8triggers8module_t11tdata3_readEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK8triggers8module_t11tdata3_readEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3295,7 +3295,7 @@ _ZN8triggers9trigger_t12tdata3_writeEP11processor_tm.exit: ; preds = %18, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11operation_tEmSt8optionalImE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2, i64 %3, i8 %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11operation_tEmSt8optionalImE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i64 noundef %2, i64 %3, i8 %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2248
   %8 = load i8, ptr %7, align 8
@@ -3402,7 +3402,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3541,7 +3541,7 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -3609,7 +3609,7 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK8triggers8module_t10tinfo_readEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK8triggers8module_t10tinfo_readEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   ret i64 32892
 }
 

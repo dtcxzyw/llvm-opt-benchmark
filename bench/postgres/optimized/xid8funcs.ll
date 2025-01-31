@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TransamVariables = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_xact_id(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_xact_id(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void @PreventCommandDuringRecovery(ptr noundef nonnull @.str) #11
   %2 = tail call i64 @GetTopFullTransactionId() #11
   ret i64 %2
@@ -38,7 +38,7 @@ declare void @PreventCommandDuringRecovery(ptr noundef) local_unnamed_addr #1
 declare i64 @GetTopFullTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_xact_id_if_assigned(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_xact_id_if_assigned(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @GetTopFullTransactionIdIfAny() #11
   %3 = and i64 %2, 4294967295
   %.not = icmp eq i64 %3, 0
@@ -57,7 +57,7 @@ define dso_local i64 @pg_current_xact_id_if_assigned(ptr nocapture noundef write
 declare i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_snapshot(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @ReadNextFullTransactionId() #11
   %3 = tail call ptr @GetActiveSnapshot() #11
   %4 = icmp eq ptr %3, null
@@ -242,10 +242,10 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_snapshot_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FullTransactionId, align 8
   %3 = alloca %struct.pg_snapshot, align 8
   %4 = alloca ptr, align 8
@@ -364,7 +364,7 @@ parse_snapshot.exit:                              ; preds = %._crit_edge.i, %.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_snapshot_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_snapshot_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -420,7 +420,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -518,7 +518,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_snapshot_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -601,7 +601,7 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FullTransactionId, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -663,7 +663,7 @@ is_visible_fxid.exit:                             ; preds = %25, %.lr.ph.i, %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_snapshot_xmin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_snapshot_xmin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -674,7 +674,7 @@ define dso_local i64 @pg_snapshot_xmin(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_snapshot_xmax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_snapshot_xmax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -759,7 +759,7 @@ declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_xact_status(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_xact_status(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr @MainLWLockArray, align 8
@@ -844,7 +844,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp_fxid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @cmp_fxid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.sroa.02.0.copyload = load i64, ptr %0, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %.sroa.02.0.copyload, i64 %.sroa.0.0.copyload)
@@ -852,7 +852,7 @@ define internal range(i32 -1, 2) i32 @cmp_fxid(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -881,10 +881,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

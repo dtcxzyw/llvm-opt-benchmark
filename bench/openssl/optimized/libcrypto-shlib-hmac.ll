@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"HMAC\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_Init_ex(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Init_ex(ptr noundef captures(none) %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %pad = alloca [144 x i8], align 16
   %keytmp_length = alloca i32, align 4
@@ -189,17 +189,17 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_Init(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Init(ptr noundef captures(none) %ctx, ptr noundef %key, i32 noundef %len, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %md, null
@@ -216,7 +216,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_CTX_reset(ptr nocapture noundef initializes((0, 8)) %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_reset(ptr noundef captures(none) initializes((0, 8)) %ctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
@@ -276,7 +276,7 @@ return:                                           ; preds = %if.end14.i, %hmac_c
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @HMAC_Update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
+define i32 @HMAC_Update(ptr noundef readonly captures(none) %ctx, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -294,7 +294,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_Final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_Final(ptr noundef readonly captures(none) %ctx, ptr noundef %md, ptr noundef %len) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %buf = alloca [64 x i8], align 16
@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end15, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2147483648) i64 @HMAC_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i64 0, 2147483648) i64 @HMAC_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %0) #6
@@ -422,7 +422,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_CTX_copy(ptr nocapture noundef initializes((0, 8)) %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef captures(none) initializes((0, 8)) %dctx, ptr noundef readonly captures(none) %sctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds nuw i8, ptr %dctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
@@ -540,7 +540,7 @@ declare ptr @EVP_Q_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @HMAC_CTX_set_flags(ptr nocapture noundef readonly %ctx, i64 noundef %flags) local_unnamed_addr #0 {
+define void @HMAC_CTX_set_flags(ptr noundef readonly captures(none) %ctx, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx, align 8
@@ -558,7 +558,7 @@ entry:
 declare void @EVP_MD_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @HMAC_CTX_get_md(ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
+define ptr @HMAC_CTX_get_md(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0

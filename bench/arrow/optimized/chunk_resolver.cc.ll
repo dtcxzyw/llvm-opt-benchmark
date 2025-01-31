@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5arrow8internal13ChunkResolverC1ERKSt6vectorISt10shared_ptrINS_11RecordBatchEESaIS5_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_11RecordBatchEESaIS5_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS5_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %chunks, i64 8
@@ -85,7 +85,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorIPKNS_5ArrayESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorIPKNS_5ArrayESaIS5_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %chunks, i64 8
@@ -159,7 +159,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_11RecordBatchEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %batches) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_11RecordBatchEESaIS5_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %batches) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %batches, i64 8
@@ -240,7 +240,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #4

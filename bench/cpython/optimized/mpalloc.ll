@@ -13,13 +13,13 @@ target triple = "x86_64-unknown-linux-gnu"
 declare noalias noundef ptr @malloc(i64 noundef) #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #1
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #3
+declare void @free(ptr allocptr noundef captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mpd_callocfunc_em(i64 noundef %nmemb, i64 noundef %size) local_unnamed_addr #4 {
@@ -45,7 +45,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mpd_alloc(i64 noundef %nmemb, i64 noundef %size) local_unnamed_addr #4 {
@@ -83,7 +83,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mpd_realloc(ptr noundef %ptr, i64 noundef %nmemb, i64 noundef %size, ptr nocapture noundef writeonly %err) local_unnamed_addr #4 {
+define hidden ptr @mpd_realloc(ptr noundef %ptr, i64 noundef %nmemb, i64 noundef %size, ptr noundef writeonly captures(none) %err) local_unnamed_addr #4 {
 entry:
   %umul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size, i64 %nmemb)
   %0 = extractvalue { i64, i1 } %umul, 1
@@ -271,7 +271,7 @@ if.end:                                           ; preds = %mpd_qnew.exit, %if.
 declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn(ptr noundef %result, i64 noundef %nwords, ptr noundef captures(none) %status) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -316,12 +316,12 @@ declare hidden void @mpd_set_qnan(ptr noundef) local_unnamed_addr #6
 declare hidden void @mpd_set_positive(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare hidden void @mpd_set_dynamic_data(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn_zero(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn_zero(ptr noundef %result, i64 noundef %nwords, ptr noundef captures(none) %status) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -358,7 +358,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mpd_realloc_dyn(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_realloc_dyn(ptr noundef %result, i64 noundef %nwords, ptr noundef captures(none) %status) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -431,7 +431,7 @@ return:                                           ; preds = %entry, %mpd_alloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mpd_realloc_dyn_cxx(ptr nocapture noundef %result, i64 noundef %nwords) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_realloc_dyn_cxx(ptr noundef captures(none) %result, i64 noundef %nwords) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = icmp ugt i64 %nwords, 2305843009213693951

@@ -188,7 +188,7 @@ define range(i32 -1, 1) i32 @H5EA__dblock_dest(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5EA__dblock_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i64 @H5EA__dblock_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @H5EA__dblock_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
@@ -368,7 +368,7 @@ declare i32 @H5AC_remove_entry(ptr noundef) local_unnamed_addr #1
 declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 258
   %4 = load i8, ptr %3, align 2
   %5 = zext i8 %4 to i64

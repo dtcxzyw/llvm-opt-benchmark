@@ -2778,7 +2778,7 @@ declare void @oid_add_from_string(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -2798,7 +2798,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -2840,7 +2840,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @dissect_inap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 256) i32 @dissect_inap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2973,7 +2973,7 @@ define internal i32 @dissect_inap_Code(i1 zeroext %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_inap_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_inap_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @opcode, align 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -4705,7 +4705,7 @@ define internal i32 @dissect_inap_ExtensionField(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_inap_T_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_inap_T_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @ett_inap_extension_data, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1442) #4
   %9 = load ptr, ptr @obj_id, align 8
@@ -5602,7 +5602,7 @@ define internal i32 @dissect_inap_T_triggerId(i1 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_triggerPar(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal noundef i32 @dissect_inap_T_triggerPar(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
@@ -6356,22 +6356,22 @@ define internal i32 @dissect_inap_T_controlDigits(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptResult(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal noundef i32 @dissect_inap_T_uIScriptResult(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_01(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_01(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_02(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #2 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_02(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
@@ -6404,7 +6404,7 @@ define internal i32 @dissect_inap_T_result(i1 noundef zeroext %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_inap_ResultArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_inap_ResultArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = alloca %struct._asn1_ctx_t, align 8
@@ -6551,7 +6551,7 @@ define internal i32 @dissect_inap_INTEGER_1_b3__maxRecordedMessageUnits(i1 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_inap_T_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_inap_T_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = alloca %struct._asn1_ctx_t, align 8
@@ -6679,10 +6679,10 @@ define internal i32 @dissect_inap_ReturnErrorProblem(i1 noundef zeroext %0, ptr 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

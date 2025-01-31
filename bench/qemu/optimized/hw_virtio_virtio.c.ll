@@ -423,7 +423,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 68719476721) i64 @virtio_queue_get_desc_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 0, 68719476721) i64 @virtio_queue_get_desc_size(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 4, 34359738367) i64 @virtio_queue_get_used_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 4, 34359738367) i64 @virtio_queue_get_used_size(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val3 = load i64, ptr %0, align 8
@@ -493,7 +493,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 4, 8589934597) i64 @virtio_queue_get_avail_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 4, 8589934597) i64 @virtio_queue_get_avail_size(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val3 = load i64, ptr %0, align 8
@@ -593,7 +593,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @virtio_queue_get_notification(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
+define dso_local zeroext i1 @virtio_queue_get_notification(ptr noundef readonly captures(none) %vq) local_unnamed_addr #4 {
 entry:
   %notification = getelementptr inbounds nuw i8, ptr %vq, i64 71
   %0 = load i8, ptr %notification, align 1
@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_queue_set_notification(ptr nocapture noundef initializes((71, 72)) %vq, i32 noundef %enable) local_unnamed_addr #0 {
+define dso_local void @virtio_queue_set_notification(ptr noundef captures(none) initializes((71, 72)) %vq, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %enable, 0
   %notification = getelementptr inbounds nuw i8, ptr %vq, i64 71
@@ -1070,7 +1070,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @virtio_queue_ready(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @virtio_queue_ready(ptr noundef readonly captures(none) %vq) local_unnamed_addr #4 {
 entry:
   %avail = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %0 = load i64, ptr %avail, align 8
@@ -1080,7 +1080,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @virtio_queue_empty(ptr nocapture noundef %vq) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @virtio_queue_empty(ptr noundef captures(none) %vq) local_unnamed_addr #0 {
 entry:
   %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
@@ -1327,7 +1327,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtqueue_detach_element(ptr nocapture noundef %vq, ptr nocapture noundef readonly %elem, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @virtqueue_detach_element(ptr noundef captures(none) %vq, ptr noundef readonly captures(none) %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %ndescs = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %0 = load i32, ptr %ndescs, align 8
@@ -1397,7 +1397,7 @@ virtqueue_unmap_sg.exit:                          ; preds = %for.body16.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtqueue_unpop(ptr nocapture noundef %vq, ptr nocapture noundef readonly %elem, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @virtqueue_unpop(ptr noundef captures(none) %vq, ptr noundef readonly captures(none) %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
@@ -1491,7 +1491,7 @@ virtqueue_detach_element.exit:                    ; preds = %for.body16.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @virtqueue_rewind(ptr nocapture noundef %vq, i32 noundef %num) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @virtqueue_rewind(ptr noundef captures(none) %vq, i32 noundef %num) local_unnamed_addr #5 {
 entry:
   %inuse = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %0 = load i32, ptr %inuse, align 4
@@ -2083,7 +2083,7 @@ glib_autoptr_clear_RCUReadAuto.exit:              ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtqueue_get_avail_bytes(ptr nocapture noundef %vq, ptr noundef writeonly %in_bytes, ptr noundef writeonly %out_bytes, i32 noundef %max_in_bytes, i32 noundef %max_out_bytes) local_unnamed_addr #0 {
+define dso_local void @virtqueue_get_avail_bytes(ptr noundef captures(none) %vq, ptr noundef writeonly %in_bytes, ptr noundef writeonly %out_bytes, i32 noundef %max_in_bytes, i32 noundef %max_out_bytes) local_unnamed_addr #0 {
 entry:
   %indirect_desc_cache.i23 = alloca %struct.MemoryRegionCache, align 16
   %desc3.i = alloca %struct.VRingDesc, align 8
@@ -2784,7 +2784,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i50, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @virtqueue_avail_bytes(ptr nocapture noundef %vq, i32 noundef %in_bytes, i32 noundef %out_bytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @virtqueue_avail_bytes(ptr noundef captures(none) %vq, i32 noundef %in_bytes, i32 noundef %out_bytes) local_unnamed_addr #0 {
 entry:
   %in_total = alloca i32, align 4
   %out_total = alloca i32, align 4
@@ -2799,7 +2799,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtqueue_map(ptr nocapture noundef readonly %vdev, ptr nocapture noundef readonly %elem) local_unnamed_addr #0 {
+define dso_local void @virtqueue_map(ptr noundef readonly captures(none) %vdev, ptr noundef readonly captures(none) %elem) local_unnamed_addr #0 {
 entry:
   %xlen.i.i7 = alloca i64, align 8
   %xlen.i.i = alloca i64, align 8
@@ -4228,7 +4228,7 @@ return:                                           ; preds = %entry, %virtio_devi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qemu_get_virtqueue_element(ptr nocapture noundef readonly %vdev, ptr noundef %f, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_get_virtqueue_element(ptr noundef readonly captures(none) %vdev, ptr noundef %f, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.VirtQueueElementOld, align 8
   %call = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #23
@@ -4468,7 +4468,7 @@ trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_put_virtqueue_element(ptr nocapture noundef readonly %vdev, ptr noundef %f, ptr nocapture noundef readonly %elem) local_unnamed_addr #0 {
+define dso_local void @qemu_put_virtqueue_element(ptr noundef readonly captures(none) %vdev, ptr noundef %f, ptr noundef readonly captures(none) %elem) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.VirtQueueElementOld, align 8
   %0 = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -4585,7 +4585,7 @@ if.end:                                           ; preds = %if.then, %for.end46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -4775,7 +4775,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @__virtio_queue_reset(ptr nocapture noundef readonly %vdev, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @__virtio_queue_reset(ptr noundef readonly captures(none) %vdev, i32 noundef %i) unnamed_addr #0 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -5003,7 +5003,7 @@ for.body.preheader:                               ; preds = %if.end17, %virtio_d
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.029 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  tail call fastcc void @__virtio_queue_reset(ptr noundef %opaque, i32 noundef %i.029)
+  tail call fastcc void @__virtio_queue_reset(ptr noundef nonnull %opaque, i32 noundef %i.029)
   %inc = add nuw nsw i32 %i.029, 1
   %exitcond.not = icmp eq i32 %inc, 1024
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
@@ -5072,7 +5072,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i64 @virtio_queue_get_addr(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -5110,7 +5110,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_set_num(ptr nocapture noundef readonly %vdev, i32 noundef %n, i32 noundef %num) local_unnamed_addr #9 {
+define dso_local void @virtio_queue_set_num(ptr noundef readonly captures(none) %vdev, i32 noundef %n, i32 noundef %num) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne i32 %num, 0
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
@@ -5133,7 +5133,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @virtio_vector_first_queue(ptr nocapture noundef readonly %vdev, i16 noundef zeroext %vector) local_unnamed_addr #2 {
+define dso_local ptr @virtio_vector_first_queue(ptr noundef readonly captures(none) %vdev, i16 noundef zeroext %vector) local_unnamed_addr #2 {
 entry:
   %vector_queues = getelementptr inbounds nuw i8, ptr %vdev, i64 480
   %0 = load ptr, ptr %vector_queues, align 8
@@ -5144,7 +5144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @virtio_vector_next_queue(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
+define dso_local ptr @virtio_vector_next_queue(ptr noundef readonly captures(none) %vq) local_unnamed_addr #4 {
 entry:
   %node = getelementptr inbounds nuw i8, ptr %vq, i64 136
   %0 = load ptr, ptr %node, align 8
@@ -5152,7 +5152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @virtio_queue_get_num(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i32 @virtio_queue_get_num(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -5163,7 +5163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @virtio_queue_get_max_num(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i32 @virtio_queue_get_max_num(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -5174,7 +5174,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @virtio_get_num_queues(ptr nocapture noundef readonly %vdev) local_unnamed_addr #10 {
+define dso_local i32 @virtio_get_num_queues(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #10 {
 entry:
   %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq.i, align 8
@@ -5378,7 +5378,7 @@ if.end22:                                         ; preds = %if.then2.i, %if.the
 declare i32 @event_notifier_set(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i16 @virtio_queue_vector(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local zeroext i16 @virtio_queue_vector(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i32 %n, 1024
   br i1 %cmp, label %cond.true, label %cond.end
@@ -5397,7 +5397,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_set_vector(ptr nocapture noundef readonly %vdev, i32 noundef %n, i16 noundef zeroext %vector) local_unnamed_addr #9 {
+define dso_local void @virtio_queue_set_vector(ptr noundef readonly captures(none) %vdev, i32 noundef %n, i16 noundef zeroext %vector) local_unnamed_addr #9 {
 entry:
   %vq1 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq1, align 8
@@ -5481,7 +5481,7 @@ if.end67:                                         ; preds = %if.end25, %if.end54
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @virtio_add_queue(ptr nocapture noundef readonly %vdev, i32 noundef %queue_size, ptr noundef %handle_output) local_unnamed_addr #0 {
+define dso_local ptr @virtio_add_queue(ptr noundef readonly captures(none) %vdev, i32 noundef %queue_size, ptr noundef %handle_output) local_unnamed_addr #0 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -5536,7 +5536,7 @@ if.end5:                                          ; preds = %for.end
 declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_delete_queue(ptr nocapture noundef initializes((0, 8), (88, 96)) %vq) local_unnamed_addr #0 {
+define dso_local void @virtio_delete_queue(ptr noundef captures(none) initializes((0, 8), (88, 96)) %vq) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %vq, align 8
   %num_default = getelementptr inbounds nuw i8, ptr %vq, i64 4
@@ -5563,7 +5563,7 @@ virtio_virtqueue_reset_region_cache.exit:         ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_del_queue(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @virtio_del_queue(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %or.cond = icmp ugt i32 %n, 1023
   br i1 %or.cond, label %if.then, label %if.end
@@ -5740,7 +5740,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @virtio_should_notify(ptr nocapture noundef readonly %vdev, ptr nocapture noundef %vq) unnamed_addr #0 {
+define internal fastcc zeroext i1 @virtio_should_notify(ptr noundef readonly captures(none) %vdev, ptr noundef captures(none) %vq) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -6411,7 +6411,7 @@ declare void @qemu_put_be64(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_device_get(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal i32 @virtio_device_get(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
   %call.i2 = tail call ptr @object_get_class(ptr noundef %call.i) #23
@@ -6426,7 +6426,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_device_put(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal i32 @virtio_device_put(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
   %call1 = tail call i32 @virtio_save(ptr noundef %call.i, ptr noundef %f)
@@ -6546,7 +6546,7 @@ return:                                           ; preds = %if.then.i17, %if.en
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @virtio_get_config_size(ptr nocapture noundef readonly %params, i64 noundef %host_features) local_unnamed_addr #0 {
+define dso_local i64 @virtio_get_config_size(ptr noundef readonly captures(none) %params, i64 noundef %host_features) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %params, align 8
   %feature_sizes1 = getelementptr inbounds nuw i8, ptr %params, i64 16
@@ -7204,7 +7204,7 @@ declare i64 @qemu_get_be64(ptr noundef) local_unnamed_addr #3
 declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_64bit_features_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_64bit_features_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %host_features = getelementptr inbounds nuw i8, ptr %opaque, i64 176
   %0 = load i64, ptr %host_features, align 8
@@ -7264,7 +7264,7 @@ return:                                           ; preds = %virtio_set_features
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_cleanup(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local void @virtio_cleanup(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %vmstate = getelementptr inbounds nuw i8, ptr %vdev, i64 448
   %0 = load ptr, ptr %vmstate, align 8
@@ -7490,7 +7490,7 @@ if.end19:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @virtio_legacy_allowed(ptr nocapture noundef readonly %vdev) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @virtio_legacy_allowed(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #4 {
 entry:
   %device_id = getelementptr inbounds nuw i8, ptr %vdev, i64 432
   %0 = load i16, ptr %device_id, align 8
@@ -7503,7 +7503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @virtio_legacy_check_disabled(ptr nocapture noundef readonly %vdev) local_unnamed_addr #4 {
+define dso_local zeroext i1 @virtio_legacy_check_disabled(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #4 {
 entry:
   %disable_legacy_check = getelementptr inbounds nuw i8, ptr %vdev, i64 441
   %0 = load i8, ptr %disable_legacy_check, align 1
@@ -7512,7 +7512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_desc_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i64 @virtio_queue_get_desc_addr(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7523,7 +7523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @virtio_queue_enabled_legacy(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local zeroext i1 @virtio_queue_enabled_legacy(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq.i, align 8
@@ -7567,7 +7567,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_avail_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i64 @virtio_queue_get_avail_addr(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7578,7 +7578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_used_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i64 @virtio_queue_get_used_addr(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7589,7 +7589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @virtio_queue_get_last_avail_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local i32 @virtio_queue_get_last_avail_idx(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -7635,7 +7635,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_set_last_avail_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n, i32 noundef %idx) local_unnamed_addr #13 {
+define dso_local void @virtio_queue_set_last_avail_idx(ptr noundef readonly captures(none) %vdev, i32 noundef %n, i32 noundef %idx) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -7689,7 +7689,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_queue_restore_last_avail_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @virtio_queue_restore_last_avail_idx(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -7806,7 +7806,7 @@ if.end:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_queue_update_used_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @virtio_queue_update_used_idx(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -7917,7 +7917,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_invalidate_signalled_used(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #13 {
+define dso_local void @virtio_queue_invalidate_signalled_used(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #13 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7928,7 +7928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @virtio_get_queue(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #4 {
+define dso_local ptr @virtio_get_queue(ptr noundef readonly captures(none) %vdev, i32 noundef %n) local_unnamed_addr #4 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7938,7 +7938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @virtio_get_queue_index(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
+define dso_local zeroext i16 @virtio_get_queue_index(ptr noundef readonly captures(none) %vq) local_unnamed_addr #4 {
 entry:
   %queue_index = getelementptr inbounds nuw i8, ptr %vq, i64 72
   %0 = load i16, ptr %queue_index, align 8
@@ -8096,7 +8096,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @virtio_queue_host_notifier_aio_poll(ptr nocapture noundef %opaque) #0 {
+define internal zeroext i1 @virtio_queue_host_notifier_aio_poll(ptr noundef captures(none) %opaque) #0 {
 entry:
   %desc = getelementptr i8, ptr %opaque, i64 -100
   %0 = load i64, ptr %desc, align 8
@@ -8125,7 +8125,7 @@ entry:
 declare void @aio_set_event_notifier_poll(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_queue_host_notifier_aio_poll_begin(ptr nocapture noundef initializes((-45, -44)) %n) #0 {
+define internal void @virtio_queue_host_notifier_aio_poll_begin(ptr noundef captures(none) initializes((-45, -44)) %n) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -116
   tail call void @virtio_queue_set_notification(ptr noundef %add.ptr, i32 noundef 0)
@@ -8133,7 +8133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_queue_host_notifier_aio_poll_end(ptr nocapture noundef initializes((-45, -44)) %n) #0 {
+define internal void @virtio_queue_host_notifier_aio_poll_end(ptr noundef captures(none) initializes((-45, -44)) %n) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -116
   tail call void @virtio_queue_set_notification(ptr noundef %add.ptr, i32 noundef 1)
@@ -8261,7 +8261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly initializes((128, 129)) %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
+define dso_local void @virtio_queue_set_host_notifier_enabled(ptr noundef writeonly captures(none) initializes((128, 129)) %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
 entry:
   %frombool = zext i1 %enabled to i8
   %host_notifier_enabled = getelementptr inbounds nuw i8, ptr %vq, i64 128
@@ -8293,7 +8293,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_device_set_child_bus_name(ptr nocapture noundef %vdev, ptr noundef %bus_name) local_unnamed_addr #0 {
+define dso_local void @virtio_device_set_child_bus_name(ptr noundef captures(none) %vdev, ptr noundef %bus_name) local_unnamed_addr #0 {
 entry:
   %bus_name1 = getelementptr inbounds nuw i8, ptr %vdev, i64 456
   %0 = load ptr, ptr %bus_name1, align 8
@@ -9102,7 +9102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef, i64 noundef, i32, ptr noundef) local_unnamed_addr #3
 
@@ -9113,14 +9113,14 @@ declare void @address_space_stw_le_cached_slow(ptr noundef, i64 noundef, i16 nou
 declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 declare i32 @address_space_write_cached_slow(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtqueue_packed_fill_desc(ptr nocapture noundef readonly %vq, i32 %elem.0.val, i32 %elem.4.val, i32 noundef %idx, i1 noundef zeroext %strict_order) unnamed_addr #0 {
+define internal fastcc void @virtqueue_packed_fill_desc(ptr noundef readonly captures(none) %vq, i32 %elem.0.val, i32 %elem.4.val, i32 noundef %idx, i1 noundef zeroext %strict_order) unnamed_addr #0 {
 entry:
   %desc = alloca %struct.VRingPackedDesc, align 8
   store i64 0, ptr %desc, align 8
@@ -9408,7 +9408,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #18
 declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %vdev, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %addr, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i1 noundef zeroext %is_write, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %vdev, ptr noundef nonnull captures(none) %p_num_sg, ptr noundef writeonly captures(none) %addr, ptr noundef writeonly captures(none) %iov, i32 noundef %max_num_sg, i1 noundef zeroext %is_write, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %0 = load i32, ptr %p_num_sg, align 4
@@ -9519,7 +9519,7 @@ _nocheck__trace_virtqueue_pop.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtqueue_undo_map_desc(i32 noundef %out_num, i32 noundef %in_num, ptr nocapture noundef nonnull readonly %iov) unnamed_addr #0 {
+define internal fastcc void @virtqueue_undo_map_desc(i32 noundef %out_num, i32 noundef %in_num, ptr noundef nonnull readonly captures(none) %iov) unnamed_addr #0 {
 entry:
   %add = add i32 %in_num, %out_num
   %cmp6.not = icmp eq i32 %add, 0
@@ -9564,7 +9564,7 @@ declare void @qemu_put_byte(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @qemu_put_be16(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @virtio_device_endian_needed(ptr nocapture noundef readonly %opaque) #0 {
+define internal zeroext i1 @virtio_device_endian_needed(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %device_endian = getelementptr inbounds nuw i8, ptr %opaque, i64 464
   %0 = load i8, ptr %device_endian, align 8
@@ -9599,7 +9599,7 @@ return:                                           ; preds = %if.end8, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_virtqueue_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_virtqueue_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 176
   %opaque.val = load i64, ptr %0, align 8
@@ -9609,7 +9609,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @virtio_ringsize_needed(ptr nocapture noundef readonly %opaque) #10 {
+define internal zeroext i1 @virtio_ringsize_needed(ptr noundef readonly captures(none) %opaque) #10 {
 entry:
   %vq = getelementptr inbounds nuw i8, ptr %opaque, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -9632,7 +9632,7 @@ return:                                           ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_broken_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_broken_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %broken = getelementptr inbounds nuw i8, ptr %opaque, i64 435
   %0 = load i8, ptr %broken, align 1
@@ -9664,7 +9664,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal i32 @get_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
@@ -9687,7 +9687,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
@@ -9702,7 +9702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_started_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_started_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %started = getelementptr inbounds nuw i8, ptr %opaque, i64 439
   %0 = load i8, ptr %started, align 1
@@ -9711,7 +9711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_packed_virtqueue_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_packed_virtqueue_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 176
   %opaque.val = load i64, ptr %0, align 8
@@ -9721,7 +9721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_disabled_needed(ptr nocapture noundef readonly %opaque) #4 {
+define internal zeroext i1 @virtio_disabled_needed(ptr noundef readonly captures(none) %opaque) #4 {
 entry:
   %disabled = getelementptr inbounds nuw i8, ptr %opaque, i64 437
   %0 = load i8, ptr %disabled, align 1
@@ -9740,7 +9740,7 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 declare ptr @qemu_get_current_aio_context() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_set_features_nocheck_bh(ptr nocapture noundef initializes((24, 28)) %opaque) #0 {
+define internal void @virtio_set_features_nocheck_bh(ptr noundef captures(none) initializes((24, 28)) %opaque) #0 {
 entry:
   %vdev = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %vdev, align 8
@@ -9834,7 +9834,7 @@ virtio_device_free_virtqueues.exit:               ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #23
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
@@ -10185,10 +10185,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

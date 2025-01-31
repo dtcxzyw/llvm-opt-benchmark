@@ -256,7 +256,7 @@ cleanup:                                          ; preds = %_ZSt4endlIcSt11char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5sound17RAIIALSoundBuffer8generateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.sound::RAIIALSoundBuffer") align 4 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17RAIIALSoundBuffer8generateEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.sound::RAIIALSoundBuffer") align 4 captures(none) %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf) #14
@@ -278,12 +278,12 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 declare void @alGenBuffers(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 declare i32 @alGetError() local_unnamed_addr #0
 
@@ -292,7 +292,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 

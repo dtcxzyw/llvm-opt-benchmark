@@ -319,7 +319,7 @@ cluster_all_databases.exit:                       ; preds = %.lr.ph.split.i, %.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @pg_logging_init(ptr noundef) local_unnamed_addr #2
 
@@ -371,7 +371,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 declare void @setup_cancel_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @get_user_name_or_exit(ptr noundef) local_unnamed_addr #2
 
@@ -457,7 +457,7 @@ declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @PQclear(ptr noundef) local_unnamed_addr #2
 

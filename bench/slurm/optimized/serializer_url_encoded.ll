@@ -20,12 +20,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [38 x i8] c"%s: %s: %s: URL decoded: 0x%c%c -> %c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @serialize_p_data_to_string(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @serialize_p_data_to_string(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   ret i32 2036
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @data_new() #3

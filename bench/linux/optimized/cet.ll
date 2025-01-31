@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_ibt_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @ibt_setup(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @ibt_setup(ptr noundef readonly captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str) #6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -86,13 +86,13 @@ declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #2 section 
 declare dso_local void @irqentry_exit(ptr noundef, i8) local_unnamed_addr #2 section ".noinstr.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @setup_clear_cpu_cap(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_unexpected_cp(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @do_unexpected_cp(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #4 align 16 {
   %3 = load i1, ptr @do_unexpected_cp.__already_done, align 1
   br i1 %3, label %15, label %4, !prof !8
 

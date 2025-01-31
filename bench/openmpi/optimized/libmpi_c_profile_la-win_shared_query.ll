@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Win_shared_query = weak alias i32 (ptr, i32, ptr, ptr, ptr), ptr @PMPI_Win_shared_query
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Win_shared_query(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) #0 {
+define i32 @PMPI_Win_shared_query(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = load i8, ptr @ompi_mpi_param_check, align 1
   %8 = trunc i8 %7 to i1

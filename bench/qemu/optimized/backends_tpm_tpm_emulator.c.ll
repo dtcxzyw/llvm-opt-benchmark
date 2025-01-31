@@ -366,7 +366,7 @@ tpm_emulator_shutdown.exit:                       ; preds = %entry, %qemu_lockab
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tpm_emulator_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @tpm_emulator_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.68, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_CLASS) #12
   %type = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -575,7 +575,7 @@ return:                                           ; preds = %trace_tpm_emulator_
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -593,7 +593,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1027,7 +1027,7 @@ return:                                           ; preds = %tpm_emulator_ctrlcm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef range(i32 1, 4) %type, ptr nocapture noundef readonly %tsb, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_state_blob(ptr noundef %tpm_emu, i32 noundef range(i32 1, 4) %type, ptr noundef readonly captures(none) %tsb, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16
@@ -1168,7 +1168,7 @@ return:                                           ; preds = %entry, %trace_tpm_e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_set_buffer_size(ptr noundef %tb, i64 noundef %wanted_size, ptr noundef writeonly %actual_size) unnamed_addr #0 {
@@ -1309,7 +1309,7 @@ return:                                           ; preds = %entry, %trace_tpm_e
 declare void @tpm_backend_finish_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext range(i8 1, 4) %type, ptr noundef %tsb, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_get_state_blob(ptr noundef %tpm_emu, i8 noundef zeroext range(i8 1, 4) %type, ptr noundef %tsb, ptr noundef captures(none) %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = alloca [16 x i8], align 16
@@ -2132,7 +2132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tpm_emulator_handle_request(ptr noundef %tb, ptr nocapture noundef %cmd, ptr noundef %errp) #0 {
+define internal void @tpm_emulator_handle_request(ptr noundef %tb, ptr noundef captures(none) %cmd, ptr noundef %errp) #0 {
 entry:
   %0 = alloca [8 x i8], align 16
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2473,7 +2473,7 @@ _nocheck__trace_tpm_emulator_handle_device_opts_unspec.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_check_caps(ptr nocapture noundef readonly %tpm_emu) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_check_caps(ptr noundef readonly captures(none) %tpm_emu) unnamed_addr #0 {
 entry:
   %tpm_version = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 160
   %0 = load i32, ptr %tpm_version, align 8
@@ -2570,10 +2570,10 @@ declare i32 @qio_channel_write_all(ptr noundef, ptr noundef, i64 noundef, ptr no
 declare i32 @qio_channel_read_all(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
 declare ptr @llvm.stacksave.p0() #11

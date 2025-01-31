@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dq_queue_s = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @nxsched_merge_prioritized(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dq_queue_s, align 8
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %4, align 8
@@ -135,7 +135,7 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
 declare ptr @dq_remfirst(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

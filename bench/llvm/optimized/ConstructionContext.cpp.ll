@@ -96,7 +96,7 @@ $_ZTVN5clang47SimpleConstructorInitializerConstructionContextE = comdat any
 @_ZTVN5clang47SimpleConstructorInitializerConstructionContextE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZNK5clang41ConstructorInitializerConstructionContext16getArrayInitLoopEv, ptr @_ZN5clang47SimpleConstructorInitializerConstructionContextD2Ev, ptr @_ZN5clang47SimpleConstructorInitializerConstructionContextD0Ev] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang24ConstructionContextLayer6createERNS_17BumpVectorContextERKNS_23ConstructionContextItemEPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %0, align 8
   %4 = and i64 %.0.copyload.i.i.i.i, -8
   %5 = inttoptr i64 %4 to ptr
@@ -196,7 +196,7 @@ _ZNK5clang23ConstructionContextItemeqERKS0_.exit.thread: ; preds = %4, %.lr.ph, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterializedTemporaryFromLayersERNS_17BumpVectorContextEPKNS_24MaterializeTemporaryExprEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang19ConstructionContext37createMaterializedTemporaryFromLayersERNS_17BumpVectorContextEPKNS_24MaterializeTemporaryExprEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %.critedge
 
@@ -419,7 +419,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds 
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19ConstructionContext16createFromLayersERNS_17BumpVectorContextEPKNS_24ConstructionContextLayerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang19ConstructionContext16createFromLayersERNS_17BumpVectorContextEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -746,7 +746,7 @@ _ZN5clang19ConstructionContext6createINS_27ArgumentConstructionContextEJPKNS_4Ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19ConstructionContext30createBoundTemporaryFromLayersERNS_17BumpVectorContextEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang19ConstructionContext30createBoundTemporaryFromLayersERNS_17BumpVectorContextEPKNS_20CXXBindTemporaryExprEPKNS_24ConstructionContextLayerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %30
 

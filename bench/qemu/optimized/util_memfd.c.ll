@@ -104,7 +104,7 @@ declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_memfd_alloc(ptr noundef %name, i64 noundef %size, i32 noundef %seals, ptr nocapture noundef writeonly %fd, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @qemu_memfd_alloc(ptr noundef %name, i64 noundef %size, i32 noundef %seals, ptr noundef writeonly captures(none) %fd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @qemu_memfd_create(ptr noundef %name, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0, i32 noundef %seals, ptr noundef null)
   %cmp = icmp eq i32 %call, -1
@@ -163,7 +163,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @mkstemp64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 

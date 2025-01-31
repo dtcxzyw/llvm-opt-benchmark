@@ -359,7 +359,7 @@ define internal i64 @ossl_x509store_alloc(i64 noundef %0) #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509store_initialize(i32 noundef %0, ptr nocapture readnone %1, i64 noundef returned %2) #0 {
+define internal noundef i64 @ossl_x509store_initialize(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef returned %2) #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_x509store_type) #4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7

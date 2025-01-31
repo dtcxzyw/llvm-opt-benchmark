@@ -44,7 +44,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 6) i32 @qio_channel_buffer_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #3 {
+define internal range(i32 0, 6) i32 @qio_channel_buffer_source_prepare(ptr noundef readonly captures(none) %source, ptr noundef writeonly captures(none) initializes((0, 4)) %timeout) #3 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %condition = getelementptr inbounds nuw i8, ptr %source, i64 104
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 6) i32 @qio_channel_buffer_source_check(ptr nocapture noundef readonly %source) #4 {
+define internal range(i32 0, 6) i32 @qio_channel_buffer_source_check(ptr noundef readonly captures(none) %source) #4 {
 entry:
   %condition = getelementptr inbounds nuw i8, ptr %source, i64 104
   %0 = load i32, ptr %condition, align 8
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_buffer_source_dispatch(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %callback, ptr noundef %user_data) #0 {
+define internal i32 @qio_channel_buffer_source_dispatch(ptr noundef readonly captures(none) %source, ptr noundef readonly captures(none) %callback, ptr noundef %user_data) #0 {
 entry:
   %bioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %bioc, align 8
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_buffer_source_finalize(ptr nocapture noundef readonly %source) #0 {
+define internal void @qio_channel_buffer_source_finalize(ptr noundef readonly captures(none) %source) #0 {
 entry:
   %bioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %bioc, align 8
@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_buffer_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @qio_channel_buffer_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #8
   %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -140,7 +140,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_buffer_writev(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr nocapture readnone %errp) #0 {
+define internal i64 @qio_channel_buffer_writev(ptr noundef %ioc, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr readnone captures(none) %fds, i64 %nfds, i32 %flags, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
   %cmp37.not = icmp eq i64 %niov, 0
@@ -230,7 +230,7 @@ for.end39:                                        ; preds = %for.body20, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_buffer_readv(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr nocapture readnone %errp) #0 {
+define internal i64 @qio_channel_buffer_readv(ptr noundef %ioc, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr readnone captures(none) %fds, ptr readnone captures(none) %nfds, i32 %flags, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
   %offset = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -277,13 +277,13 @@ for.end:                                          ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qio_channel_buffer_set_blocking(ptr nocapture readnone %ioc, i1 zeroext %enabled, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @qio_channel_buffer_set_blocking(ptr readnone captures(none) %ioc, i1 zeroext %enabled, ptr readnone captures(none) %errp) #5 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @qio_channel_buffer_seek(ptr noundef %ioc, i64 noundef returned %offset, i32 %whence, ptr nocapture readnone %errp) #0 {
+define internal noundef i64 @qio_channel_buffer_seek(ptr noundef %ioc, i64 noundef returned %offset, i32 %whence, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
   %offset1 = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_buffer_close(ptr noundef %ioc, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @qio_channel_buffer_close(ptr noundef %ioc, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
   %data = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -321,10 +321,10 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @g_source_new(ptr noundef, i32 noundef) local_unnamed_addr #1
 

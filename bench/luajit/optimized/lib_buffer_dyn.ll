@@ -502,7 +502,7 @@ if.then39:                                        ; preds = %land.lhs.true35
   store ptr %incdec.ptr42, ptr %top.i, align 8
   %23 = load i64, ptr %o.063, align 8
   store i64 %23, ptr %22, align 8
-  tail call void @lua_call(ptr noundef %L, i32 noundef 1, i32 noundef 1) #5
+  tail call void @lua_call(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 1) #5
   %24 = load ptr, ptr %base.i, align 8
   %arrayidx44 = getelementptr inbounds nuw %union.TValue, ptr %24, i64 %arg.067
   %25 = load ptr, ptr %top.i, align 8
@@ -1601,7 +1601,7 @@ declare hidden ptr @lj_udata_new(ptr noundef, i32 noundef, ptr noundef) local_un
 declare hidden ptr @lj_buf_need2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare hidden ptr @lj_serialize_encode(ptr noundef, ptr noundef) local_unnamed_addr #1
 

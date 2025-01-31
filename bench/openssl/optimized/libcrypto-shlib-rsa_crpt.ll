@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_setup_blinding = private unnamed_addr constant [19 x i8] c"RSA_setup_blinding\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_bits(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define i32 @RSA_bits(ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load ptr, ptr %n, align 8
@@ -18,7 +18,7 @@ entry:
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -268435455, 268435456) i32 @RSA_size(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define range(i32 -268435455, 268435456) i32 @RSA_size(ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load ptr, ptr %n, align 8
@@ -91,7 +91,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define void @RSA_blinding_off(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
+define void @RSA_blinding_off(ptr noundef captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %blinding = getelementptr inbounds nuw i8, ptr %rsa, i64 192
   %0 = load ptr, ptr %blinding, align 8
@@ -108,7 +108,7 @@ entry:
 declare void @BN_BLINDING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_blinding_on(ptr nocapture noundef %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_blinding_on(ptr noundef captures(none) %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %blinding = getelementptr inbounds nuw i8, ptr %rsa, i64 192
   %0 = load ptr, ptr %blinding, align 8
@@ -145,7 +145,7 @@ err:                                              ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RSA_setup_blinding(ptr nocapture noundef readonly %rsa, ptr noundef %in_ctx) local_unnamed_addr #0 {
+define ptr @RSA_setup_blinding(ptr noundef readonly captures(none) %rsa, ptr noundef %in_ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in_ctx, null
   br i1 %cmp, label %if.then, label %if.end3

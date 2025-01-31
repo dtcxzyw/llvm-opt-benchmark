@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @rpc_tls_probe_ops = internal constant %struct.rpc_call_ops { ptr @rpc_tls_probe_call_prepare, ptr @rpc_tls_probe_call_done, ptr null, ptr null }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @tls_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef ptr @tls_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36)) #8, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6
@@ -49,12 +49,12 @@ define internal noundef ptr @tls_create(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @tls_destroy(ptr nocapture readnone %0) #1 align 16 {
+define internal void @tls_destroy(ptr readnone captures(none) %0) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @tls_lookup_cred(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 align 16 {
+define internal ptr @tls_lookup_cred(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 align 16 {
   %4 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @tls_cred, i64 80), align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader
@@ -136,29 +136,29 @@ define internal i32 @tls_probe(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @tls_destroy_cred(ptr nocapture readnone %0) #1 align 16 {
+define internal void @tls_destroy_cred(ptr readnone captures(none) %0) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @tls_match(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #1 align 16 {
+define internal noundef i32 @tls_match(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #1 align 16 {
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -90, 1) i32 @tls_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @tls_marshal(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -179,7 +179,7 @@ define internal noundef range(i32 -90, 1) i32 @tls_marshal(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tls_refresh(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @tls_refresh(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -190,7 +190,7 @@ define internal noundef i32 @tls_refresh(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -93, 1) i32 @tls_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -93, 1) i32 @tls_validate(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread5, label %5
@@ -246,7 +246,7 @@ declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #3
@@ -255,17 +255,17 @@ declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #3
 declare dso_local void @rpc_put_task(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @tls_encode_probe(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
+define internal void @tls_encode_probe(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @tls_decode_probe(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef i32 @tls_decode_probe(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rpc_tls_probe_call_prepare(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @rpc_tls_probe_call_prepare(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -16385
@@ -275,7 +275,7 @@ define internal void @rpc_tls_probe_call_prepare(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @rpc_tls_probe_call_done(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @rpc_tls_probe_call_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   ret void
 }
 
@@ -283,7 +283,7 @@ define internal void @rpc_tls_probe_call_done(ptr nocapture readnone %0, ptr noc
 declare dso_local void @rpc_call_start(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

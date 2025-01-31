@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpufreq_gene
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_cpufreq_freq_attr_scaling_available_freqs337, ptr @__UNIQUE_ID___addressable_cpufreq_freq_attr_scaling_boost_freqs338, ptr @__UNIQUE_ID___addressable_cpufreq_frequency_table_get_index336, ptr @__UNIQUE_ID___addressable_cpufreq_frequency_table_verify329, ptr @__UNIQUE_ID___addressable_cpufreq_generic_attr339, ptr @__UNIQUE_ID___addressable_cpufreq_generic_frequency_table_verify330, ptr @__UNIQUE_ID___addressable_cpufreq_table_index_unsorted335, ptr @__UNIQUE_ID___addressable_policy_has_boost_freq328, ptr @__UNIQUE_ID_author340, ptr @__UNIQUE_ID_description341], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @policy_has_boost_freq(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef zeroext i1 @policy_has_boost_freq(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @policy_has_boost_freq(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   br label %3
 
 3:                                                ; preds = %19, %2
@@ -131,7 +131,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr noca
 declare dso_local i32 @cpufreq_boost_enabled() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -192,7 +192,7 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_verify(ptr nocapture noundef %0) #4 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_verify(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -260,7 +260,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   switch i32 %2, label %9 [
@@ -511,7 +511,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @cpufreq_frequency_table_get_index(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @cpufreq_frequency_table_get_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -542,7 +542,7 @@ define dso_local i32 @cpufreq_frequency_table_get_index(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i64 @scaling_available_frequencies_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal i64 @scaling_available_frequencies_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -588,7 +588,7 @@ define internal i64 @scaling_available_frequencies_show(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal i64 @scaling_boost_frequencies_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -634,7 +634,7 @@ define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -770,7 +770,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
 declare dso_local zeroext i1 @has_target_index() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7

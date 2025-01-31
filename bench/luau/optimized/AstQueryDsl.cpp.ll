@@ -1277,7 +1277,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau18FindNthOccurenceOfC2ENS_3NthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, i64 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau18FindNthOccurenceOfC2ENS_3NthE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 20), (24, 32)) %0, i64 %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN4Luau18FindNthOccurenceOfE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -1289,7 +1289,7 @@ define dso_local void @_ZN4Luau18FindNthOccurenceOfC2ENS_3NthE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf7checkItEPNS_7AstNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf7checkItEPNS_7AstNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1326,7 +1326,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf7checkItEPNS_7A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_7AstNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_7AstNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1363,7 +1363,7 @@ _ZN4Luau18FindNthOccurenceOf7checkItEPNS_7AstNodeE.exit: ; preds = %2, %5, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_7AstTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_7AstTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1400,7 +1400,7 @@ _ZN4Luau18FindNthOccurenceOf7checkItEPNS_7AstNodeE.exit: ; preds = %2, %5, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_11AstTypePackE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau18FindNthOccurenceOf5visitEPNS_11AstTypePackE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

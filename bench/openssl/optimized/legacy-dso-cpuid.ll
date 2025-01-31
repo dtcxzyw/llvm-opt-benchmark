@@ -228,7 +228,7 @@ return:                                           ; preds = %entry, %if.end50
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i64 @OPENSSL_ia32_cpuid(ptr noundef) local_unnamed_addr #2
 

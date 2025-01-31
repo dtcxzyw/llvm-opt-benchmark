@@ -254,7 +254,7 @@ $_ZTV17DeadlyImportError = comdat any
 @switch.table._ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 2, i32 2, i32 4, i32 4, i32 4, i32 8], align 4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 9) i32 @_ZN6Assimp3PLY8Property13ParseDataTypeERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 1 %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 9) i32 @_ZN6Assimp3PLY8Property13ParseDataTypeERSt6vectorIcSaIcEE(ptr noundef nonnull align 1 captures(none) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -295,7 +295,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
@@ -343,7 +343,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i28:   ; preds = %land.lhs.true.i.i26
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i35: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i28
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i36 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i36, %7
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i33, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i37, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i33, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i37, i1 false)
   %.pre.i.i.i38 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i39 = ptrtoint ptr %.pre.i.i.i38 to i64
   br label %if.end.i.i.i40
@@ -391,7 +391,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57:   ; preds = %land.lhs.true.i.i55
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i64: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i65 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i66 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i65, %11
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i66, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i66, i1 false)
   %.pre.i.i.i67 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i68 = ptrtoint ptr %.pre.i.i.i67 to i64
   br label %if.end.i.i.i69
@@ -439,7 +439,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86:   ; preds = %land.lhs.true.i.i84
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i93: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i94 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i94, %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i91, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i91, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i95, i1 false)
   %.pre.i.i.i96 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i97 = ptrtoint ptr %.pre.i.i.i96 to i64
   br label %if.end.i.i.i98
@@ -487,7 +487,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i115:  ; preds = %land.lhs.true.i.i11
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i122: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i115
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i123 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i124 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i123, %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i120, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i124, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i120, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i124, i1 false)
   %.pre.i.i.i125 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i126 = ptrtoint ptr %.pre.i.i.i125 to i64
   br label %if.end.i.i.i127
@@ -535,7 +535,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i144:  ; preds = %land.lhs.true.i.i14
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i151: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i144
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i152 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i153 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i152, %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i149, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i153, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i149, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i153, i1 false)
   %.pre.i.i.i154 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i155 = ptrtoint ptr %.pre.i.i.i154 to i64
   br label %if.end.i.i.i156
@@ -607,7 +607,7 @@ if.end47:                                         ; preds = %if.else31, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM10TokenMatchERSt6vectorIcSaIcEEPKcj(ptr nocapture noundef nonnull align 1 %buffer, ptr nocapture noundef readonly %token, i32 noundef %len) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM10TokenMatchERSt6vectorIcSaIcEEPKcj(ptr noundef nonnull align 1 captures(none) %buffer, ptr noundef readonly captures(none) %token, i32 noundef %len) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -655,7 +655,7 @@ if.then.i.i:                                      ; preds = %_ZN6Assimp10TokenMa
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i = load ptr, ptr %_M_finish.i.i, align 8
   %.pre9.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %if.end.i.i
@@ -682,7 +682,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #2
 declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 31) i32 @_ZN6Assimp3PLY8Property13ParseSemanticERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 1 %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 31) i32 @_ZN6Assimp3PLY8Property13ParseSemanticERSt6vectorIcSaIcEE(ptr noundef nonnull align 1 captures(none) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -793,7 +793,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i50:   ; preds = %land.lhs.true.i.i48
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i57: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i50
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i58 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i58, %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i55, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i59, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i55, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i59, i1 false)
   %.pre.i.i.i60 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i61 = ptrtoint ptr %.pre.i.i.i60 to i64
   br label %if.end.i.i.i62
@@ -841,7 +841,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i79:   ; preds = %land.lhs.true.i.i77
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i86: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i79
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i87 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i88 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i87, %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i84, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i88, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i84, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i88, i1 false)
   %.pre.i.i.i89 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i90 = ptrtoint ptr %.pre.i.i.i89 to i64
   br label %if.end.i.i.i91
@@ -889,7 +889,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i108:  ; preds = %land.lhs.true.i.i10
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i115: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i108
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i116 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i117 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i116, %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i113, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i117, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i113, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i117, i1 false)
   %.pre.i.i.i118 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i119 = ptrtoint ptr %.pre.i.i.i118 to i64
   br label %if.end.i.i.i120
@@ -937,7 +937,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i137:  ; preds = %land.lhs.true.i.i13
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i144: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i137
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i145 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i146 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i145, %31
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i142, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i146, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i142, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i146, i1 false)
   %.pre.i.i.i147 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i148 = ptrtoint ptr %.pre.i.i.i147 to i64
   br label %if.end.i.i.i149
@@ -985,7 +985,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i166:  ; preds = %land.lhs.true.i.i16
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i173: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i166
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i174 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i175 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i174, %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i171, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i175, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i171, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i175, i1 false)
   %.pre.i.i.i176 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i177 = ptrtoint ptr %.pre.i.i.i176 to i64
   br label %if.end.i.i.i178
@@ -1146,7 +1146,7 @@ if.end139:                                        ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM8SkipLineERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 1 %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM8SkipLineERSt6vectorIcSaIcEE(ptr noundef nonnull align 1 captures(none) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -1224,7 +1224,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY8Property13ParsePropertyERSt6vectorIcSaIcEEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef writeonly %pOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY8Property13ParsePropertyERSt6vectorIcSaIcEEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %buffer, ptr noundef writeonly captures(none) %pOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1332,7 +1332,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i32: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i33 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i33, %11
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i34, i1 false)
   %.pre.i.i.i35 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i36 = ptrtoint ptr %.pre.i.i.i35 to i64
   br label %if.end.i.i.i37
@@ -1454,7 +1454,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i82:   ; preds = %land.lhs.true.i.i80
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i91: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i82
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i92 = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i92, %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %add.ptr.i6.i87, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i93, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %add.ptr.i6.i87, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i93, i1 false)
   %.pre.i.i.i94 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i95 = ptrtoint ptr %.pre.i.i.i94 to i64
   br label %if.end.i.i.i96
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %if.end27, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM10SkipSpacesERSt6vectorIcSaIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
@@ -1895,7 +1895,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM20SkipSpacesAndLineEndERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM20SkipSpacesAndLineEndERSt6vectorIcSaIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -1958,7 +1958,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 7) i32 @_ZN6Assimp3PLY7Element13ParseSemanticERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buffer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 7) i32 @_ZN6Assimp3PLY7Element13ParseSemanticERSt6vectorIcSaIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %buffer) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -1999,7 +1999,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
@@ -2043,7 +2043,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i16:   ; preds = %land.lhs.true.i.i14
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i23: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i16
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i24 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i24, %7
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i21, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i21, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i25, i1 false)
   %.pre.i.i.i26 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i27 = ptrtoint ptr %.pre.i.i.i26 to i64
   br label %if.end.i.i.i28
@@ -2087,7 +2087,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i45:   ; preds = %land.lhs.true.i.i43
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i52: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i45
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i53 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i53, %11
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i50, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i50, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i54, i1 false)
   %.pre.i.i.i55 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i56 = ptrtoint ptr %.pre.i.i.i55 to i64
   br label %if.end.i.i.i57
@@ -2131,7 +2131,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i74:   ; preds = %land.lhs.true.i.i72
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i81: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i74
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i82 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i82, %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i79, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i83, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i79, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i83, i1 false)
   %.pre.i.i.i84 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i85 = ptrtoint ptr %.pre.i.i.i84 to i64
   br label %if.end.i.i.i86
@@ -2175,7 +2175,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i103:  ; preds = %land.lhs.true.i.i10
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i110: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i103
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i111 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i112 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i111, %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i108, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i112, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i108, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i112, i1 false)
   %.pre.i.i.i113 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i114 = ptrtoint ptr %.pre.i.i.i113 to i64
   br label %if.end.i.i.i115
@@ -2219,7 +2219,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i132:  ; preds = %land.lhs.true.i.i13
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i139: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i132
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i140 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i141 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i140, %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %add.ptr.i6.i137, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i141, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %add.ptr.i6.i137, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i141, i1 false)
   %.pre.i.i.i142 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i143 = ptrtoint ptr %.pre.i.i.i142 to i64
   br label %if.end.i.i.i144
@@ -2356,7 +2356,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i36: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i37 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i37, %11
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i38, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i38, i1 false)
   %.pre.i.i.i39 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i40 = ptrtoint ptr %.pre.i.i.i39 to i64
   br label %if.end.i.i.i41
@@ -2401,7 +2401,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57:   ; preds = %land.lhs.true.i.i55
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i66: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i57
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i67 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i68 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i67, %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %add.ptr.i6.i62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i68, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 1 %add.ptr.i6.i62, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i68, i1 false)
   %.pre.i.i.i69 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre9.i.i.i70 = ptrtoint ptr %.pre.i.i.i69 to i64
   br label %if.end.i.i.i71
@@ -3239,7 +3239,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i11: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i12 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i13 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i12, %13
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i13, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i13, i1 false)
   %.pre.i.i.i14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %.pre9.i.i.i15 = ptrtoint ptr %.pre.i.i.i14 to i64
   br label %if.end.i.i.i16
@@ -3434,7 +3434,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86:   ; preds = %land.lhs.true.i.i84
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i95: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i86
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i96 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i97 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i96, %36
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %add.ptr.i6.i91, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i97, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %add.ptr.i6.i91, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i97, i1 false)
   %.pre.i.i.i98 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %.pre9.i.i.i99 = ptrtoint ptr %.pre.i.i.i98 to i64
   br label %if.end.i.i.i100
@@ -3495,7 +3495,7 @@ if.then.i.i.i124:                                 ; preds = %_ZN6Assimp8SkipLine
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i126: ; preds = %if.then.i.i.i124
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i127 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i128 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i127, %41
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %add.ptr.i.i122, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i128, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %add.ptr.i.i122, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i128, i1 false)
   %.pre.i.i.i129 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %.pre9.i.i.i130 = ptrtoint ptr %.pre.i.i.i129 to i64
   br label %if.end.i.i.i131
@@ -3869,7 +3869,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i:     ; preds = %land.lhs.true.i.i, 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %14
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %add.ptr.i6.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load ptr, ptr %_M_finish.i.i, align 8
   %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
@@ -4511,7 +4511,7 @@ eh.resume:                                        ; preds = %lpad15.split.us, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM31ParseElementInstanceListsBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM31ParseElementInstanceListsBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.74)
@@ -4636,7 +4636,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList23ParseInstanceListBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_PNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr noundef %pcElement, ptr noundef readonly %p_pcOut, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList23ParseInstanceListBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_PNS_11PLYImporterEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef %pcElement, ptr noundef readonly %p_pcOut, ptr noundef %loader, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elt = alloca %"class.Assimp::PLY::ElementInstance", align 8
   %NumOccur = getelementptr inbounds nuw i8, ptr %pcElement, i64 64
@@ -5297,7 +5297,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY15ElementInstance13ParseInstanceERPKcPKNS0_7ElementEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef readonly %pcElement, ptr noundef %p_pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY15ElementInstance13ParseInstanceERPKcPKNS0_7ElementEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef readonly captures(none) %pcElement, ptr noundef %p_pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.sroa.0.i = alloca double, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %pcElement, i64 8
@@ -5511,7 +5511,7 @@ _ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EED2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY15ElementInstance19ParseInstanceBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_b(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr nocapture noundef readonly %pcElement, ptr noundef %p_pcOut, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY15ElementInstance19ParseInstanceBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_7ElementEPS1_b(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef readonly captures(none) %pcElement, ptr noundef %p_pcOut, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %pcElement, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -5589,7 +5589,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance13ParseInstanceERPKcPKNS0_8PropertyEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef readonly %prop, ptr noundef %p_pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance13ParseInstanceERPKcPKNS0_8PropertyEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef readonly captures(none) %prop, ptr noundef %p_pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"union.Assimp::PLY::PropertyInstance::ValueUnion", align 8
   %v12 = alloca %"union.Assimp::PLY::PropertyInstance::ValueUnion", align 8
@@ -5853,7 +5853,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance19ParseInstanceBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_8PropertyEPS1_b(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr nocapture noundef readonly %prop, ptr noundef %p_pcOut, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance19ParseInstanceBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_8PropertyEPS1_b(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef readonly captures(none) %prop, ptr noundef %p_pcOut, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"union.Assimp::PLY::PropertyInstance::ValueUnion", align 8
   %v9 = alloca %"union.Assimp::PLY::PropertyInstance::ValueUnion", align 8
@@ -6010,7 +6010,7 @@ if.end:                                           ; preds = %for.body, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, i32 noundef %eType, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance10ParseValueERPKcNS0_9EDataTypeEPNS1_10ValueUnionE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, i32 noundef %eType, ptr noundef writeonly captures(none) %out) local_unnamed_addr #0 align 2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   %f = alloca float, align 4
@@ -6142,10 +6142,10 @@ sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pCur, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, i32 noundef %eType, ptr nocapture noundef writeonly %out, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance16ParseValueBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjNS0_9EDataTypeEPNS1_10ValueUnionEb(ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(24) %buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pCur, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, i32 noundef %eType, ptr noundef writeonly captures(none) %out, i1 noundef zeroext %p_bBE) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i = alloca %"class.std::vector", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -7472,7 +7472,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
@@ -7487,7 +7487,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7651,7 +7651,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp3PLY7ElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(68) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8694,7 +8694,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
@@ -9320,10 +9320,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #19

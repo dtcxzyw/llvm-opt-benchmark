@@ -94,7 +94,7 @@ _ZN11rpolynomial7manager3impC2ERS0_R11mpz_managerILb0EEP22small_object_allocator
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11rpolynomial7managerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11rpolynomial7managerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -154,7 +154,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef readnone %p) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone %p) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %p, null
   ret i1 %cmp

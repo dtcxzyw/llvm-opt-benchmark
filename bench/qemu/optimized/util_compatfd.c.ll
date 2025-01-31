@@ -35,7 +35,7 @@ if.end.i:                                         ; preds = %if.end
   %0 = load i32, ptr %arrayidx.i, align 4
   %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i32 %0, ptr %fd.i, align 8
-  call void @qemu_thread_create(ptr noundef nonnull %thread.i, ptr noundef nonnull @.str, ptr noundef nonnull @sigwait_compat, ptr noundef %call.i, i32 noundef 1) #8
+  call void @qemu_thread_create(ptr noundef nonnull %thread.i, ptr noundef nonnull @.str, ptr noundef nonnull @sigwait_compat, ptr noundef nonnull %call.i, i32 noundef 1) #8
   %1 = load i32, ptr %fds.i, align 4
   br label %qemu_signalfd_compat.exit
 
@@ -61,7 +61,7 @@ declare i32 @g_unix_open_pipe(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -106,15 +106,15 @@ declare i32 @sigwait(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i64 @qemu_write_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

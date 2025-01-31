@@ -63,7 +63,7 @@ define internal i32 @snapshot_device_init() #2 section ".init.text" align 16 {
 declare dso_local i32 @misc_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snapshot_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @snapshot_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %6 = load i64, ptr %3, align 8
@@ -113,7 +113,7 @@ define internal i64 @snapshot_read(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snapshot_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @snapshot_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %6 = load i64, ptr %3, align 8
@@ -166,7 +166,7 @@ define internal i64 @snapshot_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = load i1, ptr @need_wait, align 1
   br i1 %4, label %5, label %6
 
@@ -457,7 +457,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snapshot_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snapshot_compat_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   switch i32 %1, label %6 [
     i32 -2146946290, label %4
     i32 -2146946285, label %4
@@ -560,7 +560,7 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snapshot_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @snapshot_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = tail call i32 @lock_system_sleep() #7
   tail call void @swsusp_free() #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -603,7 +603,7 @@ define internal noundef i32 @snapshot_release(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @lock_system_sleep() local_unnamed_addr #1
@@ -618,7 +618,7 @@ declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr nou
 declare dso_local void @unlock_system_sleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @wait_for_device_probe() local_unnamed_addr #1
@@ -678,7 +678,7 @@ declare dso_local i32 @hibernation_restore(i32 noundef) local_unnamed_addr #1
 declare dso_local void @swsusp_free() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @thaw_kernel_threads() local_unnamed_addr #1
@@ -702,7 +702,7 @@ declare dso_local i32 @suspend_devices_and_enter(i32 noundef) local_unnamed_addr
 declare dso_local i32 @hibernation_platform_enter() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_resume_swap_area, align 8
   %4 = alloca %struct.resume_swap_area, align 8
   %5 = tail call i32 @swsusp_swap_in_use() #7

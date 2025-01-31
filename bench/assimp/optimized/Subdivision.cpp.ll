@@ -115,7 +115,7 @@ return:                                           ; preds = %entry, %sw.bb
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN22CatmullClarkSubdivider9SubdivideEP6aiMeshRS1_jb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %mesh, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %num, i1 noundef zeroext %discard_input) unnamed_addr #1 align 2 {
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22CatmullClarkSubdivider9SubdivideEPP6aiMeshmS2_jb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef %smesh, i64 noundef %nmesh, ptr noundef %out, i32 noundef %num, i1 noundef zeroext %discard_input) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22CatmullClarkSubdivider9SubdivideEPP6aiMeshmS2_jb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %smesh, i64 noundef %nmesh, ptr noundef %out, i32 noundef %num, i1 noundef zeroext %discard_input) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq i32 %num, 0
   br i1 %tobool.not, label %if.then, label %if.end14
@@ -600,7 +600,7 @@ declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 de
 declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22CatmullClarkSubdivider15InternSubdivideEPKPK6aiMeshmPPS0_j(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef %smesh, i64 noundef %nmesh, ptr noundef %out, i32 noundef %num) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22CatmullClarkSubdivider15InternSubdivideEPKPK6aiMeshmPPS0_j(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this, ptr noundef %smesh, i64 noundef %nmesh, ptr noundef %out, i32 noundef %num) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i944 = alloca %"struct.Assimp::Vertex", align 8
   %ref.tmp.i874 = alloca %"struct.Assimp::Vertex", align 8
@@ -2578,10 +2578,10 @@ lpad302:                                          ; preds = %_ZNSt12_Vector_base
 lpad310.loopexit:                                 ; preds = %if.then707, %invoke.cont708, %if.end.i.i898, %if.end.i.i928
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802392, ptr %ref.tmp696, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922396, ptr %normal9.i1593, align 4
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052400, ptr %tangent15.i1606, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182404, ptr %bitangent21.i1619, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802391, ptr %ref.tmp696, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922395, ptr %normal9.i1593, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052399, ptr %tangent15.i1606, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182403, ptr %bitangent21.i1619, align 4
   store float %add5.i.i.i15782174, ptr %ref.tmp.sroa.2.0.position3.sroa_idx.i1581, align 8
   store float %add5.i.i25.i15902180, ptr %ref.tmp4.sroa.2.0.normal9.sroa_idx.i1594, align 4
   store float %add5.i.i36.i16032186, ptr %ref.tmp10.sroa.2.0.tangent15.sroa_idx.i1607, align 8
@@ -3442,10 +3442,10 @@ if.else:                                          ; preds = %if.then569
   br label %for.body587
 
 for.body587:                                      ; preds = %if.else, %for.inc712
-  %retval.sroa.0.4.vec.insert.i.i49.i16182404 = phi <2 x float> [ %bitangent21.i1619.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i49.i16182403, %for.inc712 ]
-  %retval.sroa.0.4.vec.insert.i.i38.i16052400 = phi <2 x float> [ %tangent15.i1606.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i38.i16052399, %for.inc712 ]
-  %retval.sroa.0.4.vec.insert.i.i27.i15922396 = phi <2 x float> [ %normal9.i1593.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i27.i15922395, %for.inc712 ]
-  %retval.sroa.0.4.vec.insert.i.i.i15802392 = phi <2 x float> [ %ref.tmp696.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i.i15802391, %for.inc712 ]
+  %retval.sroa.0.4.vec.insert.i.i49.i16182403 = phi <2 x float> [ %bitangent21.i1619.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i49.i16182402, %for.inc712 ]
+  %retval.sroa.0.4.vec.insert.i.i38.i16052399 = phi <2 x float> [ %tangent15.i1606.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i38.i16052398, %for.inc712 ]
+  %retval.sroa.0.4.vec.insert.i.i27.i15922395 = phi <2 x float> [ %normal9.i1593.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i27.i15922394, %for.inc712 ]
+  %retval.sroa.0.4.vec.insert.i.i.i15802391 = phi <2 x float> [ %ref.tmp696.promoted, %if.else ], [ %retval.sroa.0.4.vec.insert.i.i.i15802390, %for.inc712 ]
   %indvars.iv2288 = phi i64 [ 0, %if.else ], [ %indvars.iv.next2289, %for.inc712 ]
   %add5.i.i47.i16162192 = phi float [ %ref.tmp16.sroa.2.0.bitangent21.sroa_idx.i1620.promoted, %if.else ], [ %add5.i.i47.i16162191, %for.inc712 ]
   %add5.i.i36.i16032186 = phi float [ %ref.tmp10.sroa.2.0.tangent15.sroa_idx.i1607.promoted, %if.else ], [ %add5.i.i36.i16032185, %for.inc712 ]
@@ -3734,10 +3734,10 @@ call5.i.i.i.i.i.i.noexc907.invoke.cont667_crit_edge: ; preds = %call5.i.i.i.i.i.
 _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i902: ; preds = %call5.i.i.i.i.i.i.noexc907
   %517 = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802392, ptr %ref.tmp696, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922396, ptr %normal9.i1593, align 4
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052400, ptr %tangent15.i1606, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182404, ptr %bitangent21.i1619, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802391, ptr %ref.tmp696, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922395, ptr %normal9.i1593, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052399, ptr %tangent15.i1606, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182403, ptr %bitangent21.i1619, align 4
   store float %add5.i.i.i15782174, ptr %ref.tmp.sroa.2.0.position3.sroa_idx.i1581, align 8
   store float %add5.i.i25.i15902180, ptr %ref.tmp4.sroa.2.0.normal9.sroa_idx.i1594, align 4
   store float %add5.i.i36.i16032186, ptr %ref.tmp10.sroa.2.0.tangent15.sroa_idx.i1607, align 8
@@ -3816,10 +3816,10 @@ call5.i.i.i.i.i.i.noexc937:                       ; preds = %if.end.i.i928
 _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i932: ; preds = %call5.i.i.i.i.i.i.noexc937
   %532 = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802392, ptr %ref.tmp696, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922396, ptr %normal9.i1593, align 4
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052400, ptr %tangent15.i1606, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182404, ptr %bitangent21.i1619, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802391, ptr %ref.tmp696, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922395, ptr %normal9.i1593, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052399, ptr %tangent15.i1606, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182403, ptr %bitangent21.i1619, align 4
   store float %add5.i.i.i15782174, ptr %ref.tmp.sroa.2.0.position3.sroa_idx.i1581, align 8
   store float %add5.i.i25.i15902180, ptr %ref.tmp4.sroa.2.0.normal9.sroa_idx.i1594, align 4
   store float %add5.i.i36.i16032186, ptr %ref.tmp10.sroa.2.0.tangent15.sroa_idx.i1607, align 8
@@ -4095,10 +4095,10 @@ invoke.cont708:                                   ; preds = %if.then707
           to label %for.inc712 unwind label %lpad310.loopexit
 
 for.inc712:                                       ; preds = %for.end705, %invoke.cont708
-  %retval.sroa.0.4.vec.insert.i.i49.i16182403 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i49.i1618, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i49.i16182404, %invoke.cont708 ]
-  %retval.sroa.0.4.vec.insert.i.i38.i16052399 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i38.i1605, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i38.i16052400, %invoke.cont708 ]
-  %retval.sroa.0.4.vec.insert.i.i27.i15922395 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i27.i1592, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i27.i15922396, %invoke.cont708 ]
-  %retval.sroa.0.4.vec.insert.i.i.i15802391 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i1580, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i.i15802392, %invoke.cont708 ]
+  %retval.sroa.0.4.vec.insert.i.i49.i16182402 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i49.i1618, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i49.i16182403, %invoke.cont708 ]
+  %retval.sroa.0.4.vec.insert.i.i38.i16052398 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i38.i1605, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i38.i16052399, %invoke.cont708 ]
+  %retval.sroa.0.4.vec.insert.i.i27.i15922394 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i27.i1592, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i27.i15922395, %invoke.cont708 ]
+  %retval.sroa.0.4.vec.insert.i.i.i15802390 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i1580, %for.end705 ], [ %retval.sroa.0.4.vec.insert.i.i.i15802391, %invoke.cont708 ]
   %add5.i.i47.i16162191 = phi float [ %add5.i.i47.i1616, %for.end705 ], [ %add5.i.i47.i16162192, %invoke.cont708 ]
   %add5.i.i36.i16032185 = phi float [ %add5.i.i36.i1603, %for.end705 ], [ %add5.i.i36.i16032186, %invoke.cont708 ]
   %add5.i.i25.i15902179 = phi float [ %add5.i.i25.i1590, %for.end705 ], [ %add5.i.i25.i15902180, %invoke.cont708 ]
@@ -4108,10 +4108,10 @@ for.inc712:                                       ; preds = %for.end705, %invoke
   br i1 %exitcond2292.not, label %for.end714, label %for.body587, !llvm.loop !79
 
 for.end714:                                       ; preds = %for.inc712
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802391, ptr %ref.tmp696, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922395, ptr %normal9.i1593, align 4
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052399, ptr %tangent15.i1606, align 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182403, ptr %bitangent21.i1619, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i15802390, ptr %ref.tmp696, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i27.i15922394, ptr %normal9.i1593, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i38.i16052398, ptr %tangent15.i1606, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i49.i16182402, ptr %bitangent21.i1619, align 4
   store float %add5.i.i.i15782173, ptr %ref.tmp.sroa.2.0.position3.sroa_idx.i1581, align 8
   store float %add5.i.i25.i15902179, ptr %ref.tmp4.sroa.2.0.normal9.sroa_idx.i1594, align 4
   store float %add5.i.i36.i16032185, ptr %ref.tmp10.sroa.2.0.tangent15.sroa_idx.i1607, align 8
@@ -4866,7 +4866,7 @@ invoke.cont760:                                   ; preds = %if.end.i.i.i.i.i.i.
           to label %for.cond767.preheader unwind label %lpad764
 
 for.cond767.preheader:                            ; preds = %invoke.cont760
-  br i1 %cmp.not.i.i.i.i, label %for.end775, label %for.body769
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit1257, label %for.body769
 
 for.body769:                                      ; preds = %for.cond767.preheader, %delete.end
   %i766.02212 = phi i64 [ %inc774, %delete.end ], [ 0, %for.cond767.preheader ]
@@ -4886,7 +4886,7 @@ delete.end:                                       ; preds = %delete.notnull, %fo
   store ptr %718, ptr %arrayidx770, align 8
   %inc774 = add nuw i64 %i766.02212, 1
   %exitcond2300.not = icmp eq i64 %inc774, %nmesh
-  br i1 %exitcond2300.not, label %if.then.i.i.i1256, label %for.body769, !llvm.loop !111
+  br i1 %exitcond2300.not, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit1257, label %for.body769, !llvm.loop !111
 
 if.then.i.i.i1233:                                ; preds = %lpad302, %lpad310.body, %if.then.i.i.i
   %.pn = phi { ptr, i32 } [ %313, %lpad302 ], [ %eh.lpad-body683, %lpad310.body ], [ %eh.lpad-body683, %if.then.i.i.i ]
@@ -4954,15 +4954,11 @@ if.then.i.i.i1254:                                ; preds = %lpad764
   call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.0) #19
   br label %ehcleanup778
 
-for.end775:                                       ; preds = %for.cond767.preheader
-  %tobool.not.i.i.i1255 = icmp eq ptr %tmp.sroa.0.0, null
-  br i1 %tobool.not.i.i.i1255, label %if.end777, label %if.then.i.i.i1256
-
-if.then.i.i.i1256:                                ; preds = %delete.end, %for.end775
+_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit1257:       ; preds = %delete.end, %for.cond767.preheader
   call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.0) #19
   br label %if.end777
 
-if.end777:                                        ; preds = %if.then.i.i.i1256, %for.end775, %_ZNSt13unordered_mapImN22CatmullClarkSubdivider4EdgeESt4hashImESt8equal_toImESaISt4pairIKmS1_EEED2Ev.exit
+if.end777:                                        ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit1257, %_ZNSt13unordered_mapImN22CatmullClarkSubdivider4EdgeESt4hashImESt8equal_toImESaISt4pairIKmS1_EEED2Ev.exit
   %tobool.not.i.i.i1258 = icmp eq ptr %centroids.sroa.0.0, null
   br i1 %tobool.not.i.i.i1258, label %_ZNSt6vectorIN6Assimp6VertexESaIS1_EED2Ev.exit, label %if.then.i.i.i1259
 
@@ -5006,13 +5002,13 @@ ehcleanup779:                                     ; preds = %lpad4.loopexit.spli
   br i1 %tobool.not.i.i.i1268, label %ehcleanup780, label %if.then.i.i.i1269
 
 if.then.i.i.i1269:                                ; preds = %ehcleanup779.thread, %ehcleanup779
-  %.pn2372360 = phi { ptr, i32 } [ %lpad.loopexit2087, %ehcleanup779.thread ], [ %.pn237, %ehcleanup779 ]
-  %moffsets.sroa.0.023392359 = phi ptr [ %call5.i.i.i.i2.i.i241, %ehcleanup779.thread ], [ %moffsets.sroa.0.02340, %ehcleanup779 ]
-  call void @_ZdlPv(ptr noundef nonnull %moffsets.sroa.0.023392359) #19
+  %.pn2372359 = phi { ptr, i32 } [ %lpad.loopexit2087, %ehcleanup779.thread ], [ %.pn237, %ehcleanup779 ]
+  %moffsets.sroa.0.023392358 = phi ptr [ %call5.i.i.i.i2.i.i241, %ehcleanup779.thread ], [ %moffsets.sroa.0.02340, %ehcleanup779 ]
+  call void @_ZdlPv(ptr noundef nonnull %moffsets.sroa.0.023392358) #19
   br label %ehcleanup780
 
 ehcleanup780:                                     ; preds = %if.then.i.i.i1269, %ehcleanup779, %lpad2
-  %.pn237.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %.pn237, %ehcleanup779 ], [ %.pn2372360, %if.then.i.i.i1269 ]
+  %.pn237.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %.pn237, %ehcleanup779 ], [ %.pn2372359, %if.then.i.i.i1269 ]
   call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %spatial) #20
   br label %ehcleanup781
 
@@ -5368,7 +5364,7 @@ declare noundef i32 @_ZNK6Assimp11SpatialSort20GenerateMappingTableERSt6vectorIj
 declare noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger12verboseDebugIJRA31_KcRjRA44_S2_jRA10_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(31) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 1 dereferenceable(44) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(10) %args7) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5845,7 +5841,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6267,10 +6263,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

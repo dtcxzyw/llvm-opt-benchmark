@@ -492,7 +492,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %name, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr nonnull align 1 %name, i64 %add, i1 false)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end15, %if.end
@@ -567,32 +567,26 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
 land.rhs.i:                                       ; preds = %land.lhs.true1.i
   %name3.i = getelementptr inbounds nuw i8, ptr %object.0, i64 24
   %5 = load ptr, ptr %name3.i, align 8
-  %tobool.i.i = icmp ne ptr %5, null
-  %tobool1.i.i = icmp ne ptr %name, null
-  %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
-  br i1 %or.cond.i.i, label %if.end.i.i, label %PyCapsule_IsValid.exit
+  %tobool.i.i.not = icmp eq ptr %5, null
+  br i1 %tobool.i.i.not, label %if.then.i.sink.split, label %PyCapsule_IsValid.exit
 
-if.end.i.i:                                       ; preds = %land.rhs.i
+PyCapsule_IsValid.exit:                           ; preds = %land.rhs.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i, label %if.then.i.sink.split
 
-PyCapsule_IsValid.exit:                           ; preds = %land.rhs.i
-  %cmp.i4.i = icmp eq ptr %5, %name
-  br i1 %cmp.i4.i, label %if.then.i, label %if.then.i.sink.split
-
 EXIT:                                             ; preds = %while.end
   %6 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef nonnull %name) #7
   br label %Py_XDECREF.exit
 
-if.then.i.sink.split:                             ; preds = %land.lhs.true.i, %land.lhs.true1.i, %PyCapsule_IsValid.exit, %if.end.i.i
+if.then.i.sink.split:                             ; preds = %land.lhs.true.i, %land.lhs.true1.i, %PyCapsule_IsValid.exit, %land.rhs.i
   %7 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call2347 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  %call2347 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef nonnull %name) #7
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then.i.sink.split, %PyCapsule_IsValid.exit, %if.end.i.i
-  %return_value.041 = phi ptr [ %4, %if.end.i.i ], [ %4, %PyCapsule_IsValid.exit ], [ null, %if.then.i.sink.split ]
+if.then.i:                                        ; preds = %if.then.i.sink.split, %PyCapsule_IsValid.exit
+  %return_value.041 = phi ptr [ %4, %PyCapsule_IsValid.exit ], [ null, %if.then.i.sink.split ]
   %8 = load i64, ptr %object.0, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i = icmp eq i64 %9, 0
@@ -619,14 +613,14 @@ return:                                           ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -688,7 +682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
@@ -702,7 +696,7 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

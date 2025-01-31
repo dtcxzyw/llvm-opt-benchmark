@@ -219,7 +219,7 @@ $__clang_call_terminate = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_flags.cc, ptr null }]
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #0
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -227,7 +227,7 @@ declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed
 declare void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
@@ -298,7 +298,7 @@ define linkonce_odr hidden void @_ZN3fLS20StringFlagDestructorD2Ev(ptr noundef n
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @_ZN6google14FlagRegistererC1IjEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
@@ -369,7 +369,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -575,7 +575,7 @@ __cxx_global_var_init.41.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i16, label %__cxx_global_var_init.47.exit, label %62
 
 62:                                               ; preds = %__cxx_global_var_init.41.exit
-  %63 = tail call i64 @strtol(ptr nocapture noundef nonnull %61, ptr noundef null, i32 noundef 10) #12
+  %63 = tail call i64 @strtol(ptr noundef nonnull captures(none) %61, ptr noundef null, i32 noundef 10) #12
   %64 = trunc i64 %63 to i32
   br label %__cxx_global_var_init.47.exit
 
@@ -652,7 +652,7 @@ __cxx_global_var_init.73.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i21, label %__cxx_global_var_init.79.exit, label %95
 
 95:                                               ; preds = %__cxx_global_var_init.73.exit
-  %96 = tail call i64 @strtol(ptr nocapture noundef nonnull %94, ptr noundef null, i32 noundef 10) #12
+  %96 = tail call i64 @strtol(ptr noundef nonnull captures(none) %94, ptr noundef null, i32 noundef 10) #12
   %97 = trunc i64 %96 to i32
   br label %__cxx_global_var_init.79.exit
 
@@ -666,7 +666,7 @@ __cxx_global_var_init.79.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i22, label %__cxx_global_var_init.85.exit, label %100
 
 100:                                              ; preds = %__cxx_global_var_init.79.exit
-  %101 = tail call i64 @strtol(ptr nocapture noundef nonnull %99, ptr noundef null, i32 noundef 10) #12
+  %101 = tail call i64 @strtol(ptr noundef nonnull captures(none) %99, ptr noundef null, i32 noundef 10) #12
   %102 = trunc i64 %101 to i32
   br label %__cxx_global_var_init.85.exit
 
@@ -680,7 +680,7 @@ __cxx_global_var_init.85.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i23, label %__cxx_global_var_init.91.exit, label %105
 
 105:                                              ; preds = %__cxx_global_var_init.85.exit
-  %106 = tail call i64 @strtol(ptr nocapture noundef nonnull %104, ptr noundef null, i32 noundef 10) #12
+  %106 = tail call i64 @strtol(ptr noundef nonnull captures(none) %104, ptr noundef null, i32 noundef 10) #12
   %107 = trunc i64 %106 to i32
   br label %__cxx_global_var_init.91.exit
 
@@ -694,7 +694,7 @@ __cxx_global_var_init.91.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i24, label %__cxx_global_var_init.97.exit, label %110
 
 110:                                              ; preds = %__cxx_global_var_init.91.exit
-  %111 = tail call i64 @strtol(ptr nocapture noundef nonnull %109, ptr noundef null, i32 noundef 10) #12
+  %111 = tail call i64 @strtol(ptr noundef nonnull captures(none) %109, ptr noundef null, i32 noundef 10) #12
   %112 = trunc i64 %111 to i32
   br label %__cxx_global_var_init.97.exit
 
@@ -708,7 +708,7 @@ __cxx_global_var_init.97.exit:                    ; preds = %__cxx_global_var_in
   br i1 %.not.i25, label %__cxx_global_var_init.103.exit, label %115
 
 115:                                              ; preds = %__cxx_global_var_init.97.exit
-  %116 = tail call i64 @strtol(ptr nocapture noundef nonnull %114, ptr noundef null, i32 noundef 10) #12
+  %116 = tail call i64 @strtol(ptr noundef nonnull captures(none) %114, ptr noundef null, i32 noundef 10) #12
   %117 = trunc i64 %116 to i32
   br label %__cxx_global_var_init.103.exit
 
@@ -734,7 +734,7 @@ __cxx_global_var_init.103.exit:                   ; preds = %__cxx_global_var_in
   br i1 %.not.i28, label %__cxx_global_var_init.116.exit, label %124
 
 124:                                              ; preds = %__cxx_global_var_init.103.exit
-  %125 = tail call i64 @strtol(ptr nocapture noundef nonnull %123, ptr noundef null, i32 noundef 10) #12
+  %125 = tail call i64 @strtol(ptr noundef nonnull captures(none) %123, ptr noundef null, i32 noundef 10) #12
   %126 = trunc i64 %125 to i32
   br label %__cxx_global_var_init.116.exit
 
@@ -793,7 +793,7 @@ __cxx_global_var_init.122.exit:                   ; preds = %131, %133, %__cxx_g
   br i1 %.not.i33, label %__cxx_global_var_init.136.exit, label %143
 
 143:                                              ; preds = %__cxx_global_var_init.122.exit
-  %144 = tail call i64 @strtoul(ptr nocapture noundef nonnull %142, ptr noundef null, i32 noundef 10) #12
+  %144 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %142, ptr noundef null, i32 noundef 10) #12
   %145 = trunc i64 %144 to i32
   br label %__cxx_global_var_init.136.exit
 
@@ -853,7 +853,7 @@ __cxx_global_var_init.155.exit:                   ; preds = %__cxx_global_var_in
   br i1 %.not.i38, label %__cxx_global_var_init.161.exit, label %168
 
 168:                                              ; preds = %__cxx_global_var_init.155.exit
-  %169 = tail call i64 @strtol(ptr nocapture noundef nonnull %167, ptr noundef null, i32 noundef 10) #12
+  %169 = tail call i64 @strtol(ptr noundef nonnull captures(none) %167, ptr noundef null, i32 noundef 10) #12
   %170 = trunc i64 %169 to i32
   br label %__cxx_global_var_init.161.exit
 

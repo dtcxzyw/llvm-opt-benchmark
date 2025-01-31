@@ -1002,7 +1002,7 @@ hwloc_get_proc_membind_by_nodeset.exit20:         ; preds = %19
   br i1 %.not.i.i, label %26, label %28
 
 26:                                               ; preds = %25
-  %27 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %24, i32 noundef 0) #13
+  %27 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %24, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 28:                                               ; preds = %25
@@ -1217,7 +1217,7 @@ hwloc_get_area_membind_by_nodeset.exit23:         ; preds = %23
   br i1 %.not.i.i, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %28, i32 noundef 0) #13
+  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %28, i32 noundef 0) #13
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 32:                                               ; preds = %29
@@ -1387,7 +1387,7 @@ hwloc_get_area_memlocation_by_nodeset.exit:       ; preds = %16, %14, %10, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @hwloc_alloc_heap(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @hwloc_alloc_heap(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call i64 @sysconf(i32 noundef 30) #14
@@ -1407,7 +1407,7 @@ declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @hwloc_alloc_mmap(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @hwloc_alloc_mmap(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
   %4 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   %5 = select i1 %4, ptr null, ptr %3
@@ -1418,16 +1418,16 @@ define hidden ptr @hwloc_alloc_mmap(ptr nocapture noundef readnone %0, i64 nound
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @hwloc_free_heap(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden noundef i32 @hwloc_free_heap(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   tail call void @free(ptr noundef %1) #14
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @hwloc_free_mmap(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @hwloc_free_mmap(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -2072,7 +2072,7 @@ declare i32 @hwloc_bitmap_isset(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @hwloc_bitmap_or(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_thisproc_cpubind(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #8 {
+define internal noundef i32 @dontset_thisproc_cpubind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #8 {
   ret i32 0
 }
 
@@ -2084,7 +2084,7 @@ define internal noundef i32 @dontget_thisproc_cpubind(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_thisthread_cpubind(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #8 {
+define internal noundef i32 @dontset_thisthread_cpubind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #8 {
   ret i32 0
 }
 
@@ -2096,7 +2096,7 @@ define internal noundef i32 @dontget_thisthread_cpubind(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_proc_cpubind(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3) #8 {
+define internal noundef i32 @dontset_proc_cpubind(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3) #8 {
   ret i32 0
 }
 
@@ -2108,7 +2108,7 @@ define internal noundef i32 @dontget_proc_cpubind(ptr noundef %0, i32 %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_thread_cpubind(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i32 %3) #8 {
+define internal noundef i32 @dontset_thread_cpubind(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i32 %3) #8 {
   ret i32 0
 }
 
@@ -2120,12 +2120,12 @@ define internal noundef i32 @dontget_thread_cpubind(ptr noundef %0, i64 %1, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_thisproc_membind(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #8 {
+define internal noundef i32 @dontset_thisproc_membind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #8 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %6 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %5) #14
   store i32 -1, ptr %2, align 4
@@ -2133,12 +2133,12 @@ define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_thisthread_membind(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #8 {
+define internal noundef i32 @dontset_thisthread_membind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #8 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %6 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %5) #14
   store i32 -1, ptr %2, align 4
@@ -2146,12 +2146,12 @@ define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_proc_membind(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3, i32 %4) #8 {
+define internal noundef i32 @dontset_proc_membind(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, i32 %4) #8 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_proc_membind(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i32 %4) #0 {
+define internal noundef i32 @dontget_proc_membind(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i32 %4) #0 {
   %6 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %7 = tail call i32 @hwloc_bitmap_copy(ptr noundef %2, ptr noundef %6) #14
   store i32 -1, ptr %3, align 4
@@ -2159,12 +2159,12 @@ define internal noundef i32 @dontget_proc_membind(ptr noundef %0, i32 %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dontset_area_membind(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, i32 %4, i32 %5) #8 {
+define internal noundef i32 @dontset_area_membind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i32 %4, i32 %5) #8 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_area_membind(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 %5) #0 {
+define internal noundef i32 @dontget_area_membind(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, i32 %5) #0 {
   %7 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %8 = tail call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %7) #14
   store i32 -1, ptr %4, align 4
@@ -2172,20 +2172,20 @@ define internal noundef i32 @dontget_area_membind(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_area_memlocation(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, i32 %4) #0 {
+define internal noundef i32 @dontget_area_memlocation(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %7 = tail call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %6) #14
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @dontalloc_membind(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2, i32 %3, i32 %4) #9 {
+define internal noalias noundef ptr @dontalloc_membind(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i32 %3, i32 %4) #9 {
   %6 = tail call noalias ptr @malloc(i64 noundef %1) #15
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @dontfree_membind(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2) #5 {
+define internal noundef i32 @dontfree_membind(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2) #5 {
   tail call void @free(ptr noundef %1) #14
   ret i32 0
 }
@@ -2194,10 +2194,10 @@ define internal noundef i32 @dontfree_membind(ptr nocapture readnone %0, ptr noc
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

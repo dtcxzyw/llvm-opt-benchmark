@@ -72,7 +72,7 @@ $_ZNK8QuantLib10DayCounter12yearFractionERKNS_4DateES3_S3_S3_ = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -89,7 +89,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
@@ -213,10 +213,10 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2ENS_4DateENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2ENS_4DateENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -720,7 +720,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZN8QuantLib10DayCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2ERKNS_4DateES1_NS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2ERKNS_4DateES1_NS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp3 = alloca %"class.QuantLib::DayCounter", align 8
@@ -1075,7 +1075,7 @@ unreachable:                                      ; preds = %invoke.cont33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN8QuantLib13TermStructureC2ERKNS_4DateENS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) unnamed_addr #4
 
@@ -1125,7 +1125,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2EjRKNS_8CalendarENS_4DateENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2EjRKNS_8CalendarENS_4DateENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEEd(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality, double noundef %baseRate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp3 = alloca %"class.QuantLib::DayCounter", align 8
@@ -1495,7 +1495,7 @@ unreachable:                                      ; preds = %invoke.cont33
 declare void @_ZN8QuantLib13TermStructureC2EjNS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2EdRKNS_6PeriodENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, double noundef %baseRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2EdRKNS_6PeriodENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, double noundef %baseRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1812,7 +1812,7 @@ unreachable:                                      ; preds = %invoke.cont33
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2ERKNS_4DateEdRKNS_6PeriodENS_9FrequencyERKNS_8CalendarERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %baseRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2ERKNS_4DateEdRKNS_6PeriodENS_9FrequencyERKNS_8CalendarERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %baseRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp3 = alloca %"class.QuantLib::DayCounter", align 8
@@ -2182,7 +2182,7 @@ unreachable:                                      ; preds = %invoke.cont34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructureC2EjRKNS_8CalendarEdRKNS_6PeriodENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, double noundef %baseRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructureC2EjRKNS_8CalendarEdRKNS_6PeriodENS_9FrequencyERKNS_10DayCounterEN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, double noundef %baseRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef captures(none) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp3 = alloca %"class.QuantLib::DayCounter", align 8
@@ -2826,7 +2826,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructure14setSeasonalityERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) initializes((64, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructure14setSeasonalityERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) initializes((64, 72)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4003,7 +4003,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2ENS_4DateENS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2ENS_4DateENS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4089,7 +4089,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_4DateES1_NS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_4DateES1_NS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4175,7 +4175,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2EjRKNS_8CalendarENS_4DateENS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, i64 %baseDate.coerce, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2EjRKNS_8CalendarENS_4DateENS_9FrequencyERKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, i64 %baseDate.coerce, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4261,7 +4261,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4347,7 +4347,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_4DateERKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2ERKNS_4DateERKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4433,7 +4433,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ZeroInflationTermStructureC2EjRKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ZeroInflationTermStructureC2EjRKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseZeroRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4737,7 +4737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2ENS_4DateEdNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2ENS_4DateEdNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4826,7 +4826,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_4DateES1_dNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_4DateES1_dNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -4915,7 +4915,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2EjRKNS_8CalendarENS_4DateEdNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2EjRKNS_8CalendarENS_4DateEdNS_9FrequencyEbRKNS_10DayCounterERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, i64 %baseDate.coerce, double noundef %baseYoYRate, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -5004,7 +5004,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -5093,7 +5093,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_4DateERKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2ERKNS_4DateERKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -5182,7 +5182,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25YoYInflationTermStructureC2EjRKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25YoYInflationTermStructureC2EjRKNS_8CalendarERKNS_10DayCounterEdRKNS_6PeriodENS_9FrequencyEbRKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter, double noundef %baseYoYRate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %seasonality) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.17", align 8
   %0 = load ptr, ptr %seasonality, align 8, !tbaa !20
@@ -5773,7 +5773,7 @@ declare noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef) local_unname
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 

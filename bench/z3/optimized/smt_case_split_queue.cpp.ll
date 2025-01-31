@@ -805,7 +805,7 @@ invoke.cont3:                                     ; preds = %while.end.i.i.i, %i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue21activity_increased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue21activity_increased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1052,7 +1052,7 @@ if.end6:                                          ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue21activity_decreased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue21activity_decreased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1760,7 +1760,7 @@ if.end:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue10del_var_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue10del_var_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1958,19 +1958,19 @@ if.end:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue11relevant_ehEP4expr(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %n) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue11relevant_ehEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %n) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue14init_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue14init_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue13end_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue13end_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -2122,19 +2122,19 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue10push_scopeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue10push_scopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue9pop_scopeEj(ptr nocapture nonnull readnone align 8 %this, i32 %num_scopes) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue9pop_scopeEj(ptr nonnull readnone align 8 captures(none) %this, i32 %num_scopes) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue15next_case_splitERjR5lbool(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_120act_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %next, ptr noundef nonnull align 4 dereferenceable(4) %phase)
   %0 = load i32, ptr %next, align 4
@@ -2324,7 +2324,7 @@ return:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_queue.val = load ptr, ptr %0, align 8
@@ -2401,7 +2401,7 @@ if.end17:                                         ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121dact_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121dact_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i64 16), ptr %this, align 8
   %m_value2indices.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2495,7 +2495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue21activity_increased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2581,7 +2581,7 @@ if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue21activity_decreased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2874,7 +2874,7 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE6insertEi.exit: ; preds = %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2908,19 +2908,19 @@ if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue11relevant_ehEP4expr(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %n) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue11relevant_ehEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %n) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue14init_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue14init_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue13end_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue13end_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -2999,19 +2999,19 @@ _ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5resetEv.exit: ; preds = %_ZNK4heapIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue10push_scopeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue10push_scopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue9pop_scopeEj(ptr nocapture nonnull readnone align 8 %this, i32 %num_scopes) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue9pop_scopeEj(ptr nonnull readnone align 8 captures(none) %this, i32 %num_scopes) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queue15next_case_splitERjR5lbool(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #4 align 2 {
 entry:
   store i32 0, ptr %phase, align 4
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3230,7 +3230,7 @@ return:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i64 16), ptr %this, align 8
   %m_value2indices.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -3515,7 +3515,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3573,7 +3573,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %val) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEE5eraseEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %val) unnamed_addr #4 align 2 {
 entry:
   %m_value2indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_value2indices, align 8
@@ -3797,13 +3797,13 @@ if.end23:                                         ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4032,7 +4032,7 @@ _ZN12_GLOBAL__N_120act_case_split_queue10del_var_ehEj.exit: ; preds = %_ZNK6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_121cact_case_split_queue14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_121cact_case_split_queue14init_search_ehEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this) unnamed_addr #3 align 2 {
 entry:
   %m_cache = getelementptr inbounds nuw i8, ptr %this, i64 48
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -4172,7 +4172,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_121cact_case_split_queue13end_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121cact_case_split_queue13end_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -4188,7 +4188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121cact_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121cact_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i64 16), ptr %this, align 8
   %m_cache_domain = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -4677,31 +4677,31 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue21activity_increased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue21activity_increased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue21activity_decreased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue21activity_decreased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue9mk_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue9mk_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue10del_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue10del_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15unassign_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15unassign_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -4898,7 +4898,7 @@ if.end40:                                         ; preds = %if.end40.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((44, 48)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue14init_search_ehEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((44, 48)) %this) unnamed_addr #16 align 2 {
 entry:
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_context, align 8
@@ -4920,7 +4920,7 @@ _ZNK3smt7context17get_num_bool_varsEv.exit:       ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue13end_search_ehEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue13end_search_ehEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
 entry:
   %m_bs_num_bool_vars = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %m_bs_num_bool_vars, align 4
@@ -4928,7 +4928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((40, 44), (56, 60)) %this) unnamed_addr #18 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((40, 44), (56, 60)) %this) unnamed_addr #18 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_queue, align 8
@@ -4971,7 +4971,7 @@ _ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE5resetEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue10push_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue10push_scopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i = alloca %"class.std::allocator.294", align 1
@@ -5127,7 +5127,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit11:           ; preds = %_ZNK6vectorIP4exprL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue9pop_scopeEj(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((40, 44), (56, 60)) %this, i32 noundef %num_scopes) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue9pop_scopeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((40, 44), (56, 60)) %this, i32 noundef %num_scopes) unnamed_addr #19 align 2 {
 entry:
   %m_scopes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
@@ -5191,7 +5191,7 @@ _ZN6vectorIN12_GLOBAL__N_120rel_case_split_queue5scopeELb0EjE6shrinkEj.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15next_case_splitERjR5lbool(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_head = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -5268,7 +5268,7 @@ if.end18:                                         ; preds = %if.then6, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queue7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_queue, align 8
@@ -5309,7 +5309,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120rel_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120rel_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i64 16), ptr %this, align 8
   %m_scopes = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -5434,7 +5434,7 @@ _ZN12_GLOBAL__N_120rel_case_split_queueD2Ev.exit: ; preds = %_ZN10ptr_vectorI4ex
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue20next_case_split_coreER10ptr_vectorI4exprERjS5_R5lbool(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, ptr nocapture noundef nonnull align 4 dereferenceable(4) %head, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue20next_case_split_coreER10ptr_vectorI4exprERjS5_R5lbool(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %queue, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %head, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
 entry:
   %undef_child = alloca ptr, align 8
   store i32 0, ptr %phase, align 4
@@ -5604,7 +5604,7 @@ return:                                           ; preds = %for.end, %if.then43
 declare noundef zeroext i1 @_ZN3smt7context12is_ext_diseqEPNS_5enodeES2_j(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121has_child_assigned_toERN3smt7contextEP3app5lboolRP4exprj(ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr nocapture noundef readonly %parent, i32 noundef %val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %undef_child, i32 noundef %order) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121has_child_assigned_toERN3smt7contextEP3app5lboolRP4exprj(ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef readonly captures(none) %parent, i32 noundef %val, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %undef_child, i32 noundef %order) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %undef_children = alloca %class.ptr_vector, align 8
   store ptr null, ptr %undef_children, align 8
@@ -5788,7 +5788,7 @@ declare i32 @_ZNK3smt7context11get_literalEP4expr(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %queue, i32 noundef %head, i32 noundef range(i32 1, 3) %idx) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120rel_case_split_queue12display_coreERSoR10ptr_vectorI4exprEjj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %queue, i32 noundef %head, i32 noundef range(i32 1, 3) %idx) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -5837,13 +5837,13 @@ return:                                           ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue21activity_increased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue21activity_increased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue21activity_decreased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue21activity_decreased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -6027,7 +6027,7 @@ if.end:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue10del_var_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue10del_var_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_bs_num_bool_vars = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_bs_num_bool_vars, align 4
@@ -6373,7 +6373,7 @@ if.end40:                                         ; preds = %if.end40.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((44, 48)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue14init_search_ehEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((44, 48)) %this) unnamed_addr #16 align 2 {
 entry:
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_context, align 8
@@ -6395,7 +6395,7 @@ _ZNK3smt7context17get_num_bool_varsEv.exit:       ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue13end_search_ehEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue13end_search_ehEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
 entry:
   %m_bs_num_bool_vars = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %m_bs_num_bool_vars, align 4
@@ -6500,7 +6500,7 @@ _ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE5resetEv.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue10push_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue10push_scopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i = alloca %"class.std::allocator.294", align 1
@@ -6641,7 +6641,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue9pop_scopeEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %this, i32 noundef %num_scopes) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue9pop_scopeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((40, 44)) %this, i32 noundef %num_scopes) unnamed_addr #19 align 2 {
 entry:
   %m_scopes = getelementptr inbounds nuw i8, ptr %this, i64 72
   %m_scopes.val = load ptr, ptr %m_scopes, align 8
@@ -6693,7 +6693,7 @@ _ZN6vectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeELb0EjE6shrinkEj.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue15next_case_splitERjR5lbool(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %phase) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %phase) unnamed_addr #3 align 2 {
 entry:
   %undef_child.i = alloca ptr, align 8
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7048,7 +7048,7 @@ return:                                           ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queue7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_queue, align 8
@@ -7110,7 +7110,7 @@ return:                                           ; preds = %entry, %for.end.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124rel_act_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i64 16), ptr %this, align 8
   %m_scopes = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -7241,31 +7241,31 @@ _ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue11queue_entryELb0EjED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue21activity_increased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue21activity_increased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue21activity_decreased_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue21activity_decreased_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue9mk_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue9mk_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue10del_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue10del_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue13assign_lit_ehEN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i32 %l.coerce) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue13assign_lit_ehEN3sat7literalE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i32 %l.coerce) unnamed_addr #3 align 2 {
 entry:
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_context, align 8
@@ -7406,7 +7406,7 @@ if.end31:                                         ; preds = %land.rhs.i.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue15unassign_var_ehEj(ptr nocapture nonnull readnone align 8 %this, i32 %v) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue15unassign_var_ehEj(ptr nonnull readnone align 8 captures(none) %this, i32 %v) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -7587,7 +7587,7 @@ if.end44:                                         ; preds = %_ZNK11ast_manager6i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((44, 48), (64, 68)) %this) unnamed_addr #19 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue14init_search_ehEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((44, 48), (64, 68)) %this) unnamed_addr #19 align 2 {
 entry:
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_context, align 8
@@ -7613,7 +7613,7 @@ _ZNK3smt7context17get_num_bool_varsEv.exit:       ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue13end_search_ehEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue13end_search_ehEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((44, 48)) %this) unnamed_addr #17 align 2 {
 entry:
   %m_bs_num_bool_vars = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %m_bs_num_bool_vars, align 4
@@ -7621,7 +7621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue23internalize_instance_ehEP4exprj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %e, i32 %gen) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue23internalize_instance_ehEP4exprj(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %e, i32 %gen) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -7741,7 +7741,7 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE5resetEv.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue10push_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue10push_scopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i = alloca %"class.std::allocator.294", align 1
@@ -8382,7 +8382,7 @@ _ZN6vectorIN12_GLOBAL__N_125rel_goal_case_split_queue5scopeELb0EjE6shrinkEj.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue15next_case_splitERjR5lbool(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %phase) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %phase, align 4
   store i32 2147483647, ptr %next, align 4
@@ -8711,7 +8711,7 @@ while.end:                                        ; preds = %for.body, %_ZNK4hea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_queue, align 8
@@ -8775,7 +8775,7 @@ return:                                           ; preds = %entry, %for.end.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125rel_goal_case_split_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i64 16), ptr %this, align 8
   %m_value2indices.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -9589,7 +9589,7 @@ declare void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN3smt5enode14set_generationERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(11616), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_125rel_goal_case_split_queue14get_generationEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_125rel_goal_case_split_queue14get_generationEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.294", align 1
@@ -10115,7 +10115,7 @@ _ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEE6insertEi.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue20next_case_split_coreEP4exprRjR5lbool(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %curr, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %phase) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125rel_goal_case_split_queue20next_case_split_coreEP4exprRjR5lbool(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly captures(none) %curr, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %phase) unnamed_addr #3 align 2 {
 entry:
   %undef_child = alloca ptr, align 8
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10278,7 +10278,7 @@ _ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EE8int_hash10def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value2indices = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_value2indices, align 8
@@ -10343,7 +10343,7 @@ _ZN9table2mapI17default_map_entryIjdE8int_hash10default_eqIjEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue21activity_increased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue21activity_increased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10431,7 +10431,7 @@ if.end:                                           ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue21activity_decreased_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue21activity_decreased_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10535,7 +10535,7 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE7reserveEi.exit: ; preds = %_ZNK6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue10del_var_ehEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue10del_var_ehEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i32 noundef %v) unnamed_addr #4 align 2 {
 entry:
   %m_queue = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -10808,19 +10808,19 @@ if.end:                                           ; preds = %if.then, %_ZNK4heap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue11relevant_ehEP4expr(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %n) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue11relevant_ehEP4expr(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %n) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue14init_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue14init_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue13end_search_ehEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue13end_search_ehEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -10899,19 +10899,19 @@ _ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE5resetEv.exit: ; preds = %_ZNK4he
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue10push_scopeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue10push_scopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue9pop_scopeEj(ptr nocapture nonnull readnone align 8 %this, i32 %num_scopes) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue9pop_scopeEj(ptr nonnull readnone align 8 captures(none) %this, i32 %num_scopes) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue15next_case_splitERjR5lbool(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %next, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %phase) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue15next_case_splitERjR5lbool(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %next, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %phase) unnamed_addr #4 align 2 {
 entry:
   %m_params = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_params, align 8
@@ -11274,7 +11274,7 @@ if.end26:                                         ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queue7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %m_queue.val = load ptr, ptr %0, align 8
@@ -11351,7 +11351,7 @@ if.end18:                                         ; preds = %_ZN4heapIN12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_128theory_aware_branching_queueD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i64 16), ptr %this, align 8
   %m_theory_var_phase = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -11572,7 +11572,7 @@ if.end5:                                          ; preds = %_ZNK6vectorIiLb0EjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr nocapture readonly %this.0.val, ptr readonly %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9less_thanEii(ptr readonly captures(none) %this.0.val, ptr readonly %this.8.val.0.val, i32 %this.8.val.8.val, i32 noundef %v1, i32 noundef %v2) unnamed_addr #20 align 2 {
 entry:
   %sub.i.i.i.i = add i32 %this.8.val.8.val, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %v1
@@ -11727,7 +11727,7 @@ _ZNK12_GLOBAL__N_119theory_aware_act_ltclEjj.exit: ; preds = %for.body.i.i.i9.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9increasedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %val) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEE9increasedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %val) unnamed_addr #4 align 2 {
 entry:
   %m_value2indices = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_value2indices, align 8
@@ -12739,10 +12739,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #23

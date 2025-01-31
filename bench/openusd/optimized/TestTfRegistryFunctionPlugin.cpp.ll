@@ -16,13 +16,13 @@ $__clang_call_terminate = comdat any
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_ZL17_Tf_RegistryAdd19P29Tf_TestRegistryFunctionPlugin], section "llvm.metadata"
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17_Tf_RegistryAdd19P29Tf_TestRegistryFunctionPlugin(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZL17_Tf_RegistryAdd19P29Tf_TestRegistryFunctionPlugin(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZL22_Tf_RegistryFunction19P29Tf_TestRegistryFunctionPluginPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL22_Tf_RegistryFunction19P29Tf_TestRegistryFunctionPluginPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @_ZL22_Tf_RegistryFunction19P29Tf_TestRegistryFunctionPluginPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   ret void
 }
@@ -35,7 +35,7 @@ define internal void @__cxx_global_var_init.2() #2 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str)
           to label %2 unwind label %3
 
@@ -79,7 +79,7 @@ define internal void @_GLOBAL__sub_I_TestTfRegistryFunctionPlugin.cpp() #8 secti
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

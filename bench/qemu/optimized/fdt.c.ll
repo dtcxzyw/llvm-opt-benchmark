@@ -153,7 +153,7 @@ return:                                           ; preds = %if.else6, %if.else3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 28, 41) i64 @fdt_header_size(ptr nocapture noundef readonly %fdt) local_unnamed_addr #0 {
+define dso_local range(i64 28, 41) i64 @fdt_header_size(ptr noundef readonly captures(none) %fdt) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
@@ -574,7 +574,7 @@ return:                                           ; preds = %if.then17, %lor.lhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr nocapture noundef writeonly initializes((0, 4)) %nextoffset) local_unnamed_addr #2 {
+define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr noundef writeonly captures(none) initializes((0, 4)) %nextoffset) local_unnamed_addr #2 {
 entry:
   store i32 -8, ptr %nextoffset, align 4
   %call = tail call ptr @fdt_offset_ptr(ptr noundef %fdt, i32 noundef %startoffset, i32 noundef 4)
@@ -1147,7 +1147,7 @@ return:                                           ; preds = %fdt_check_node_offs
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local ptr @fdt_find_string_(ptr noundef readonly %strtab, i32 noundef %tabsize, ptr nocapture noundef readonly %s) local_unnamed_addr #3 {
+define dso_local ptr @fdt_find_string_(ptr noundef readonly %strtab, i32 noundef %tabsize, ptr noundef readonly captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #10
   %idx.ext = sext i32 %tabsize to i64
@@ -1162,7 +1162,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %p.08 = phi ptr [ %incdec.ptr, %for.inc ], [ %strtab, %entry ]
-  %bcmp = tail call i32 @bcmp(ptr %p.08, ptr %s, i64 %idx.ext1)
+  %bcmp = tail call i32 @bcmp(ptr %p.08, ptr nonnull %s, i64 %idx.ext1)
   %cmp6 = icmp eq i32 %bcmp, 0
   br i1 %cmp6, label %return, label %for.inc
 
@@ -1177,10 +1177,10 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -19, 1) i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
+define dso_local range(i32 -19, 1) i32 @fdt_move(ptr noundef readonly %fdt, ptr noundef writeonly captures(none) %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i32 %bufsize, 0
   br i1 %cmp, label %return, label %if.end
@@ -1223,19 +1223,19 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

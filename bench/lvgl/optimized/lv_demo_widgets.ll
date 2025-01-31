@@ -1330,7 +1330,7 @@ declare i32 @lv_display_get_horizontal_resolution(ptr noundef) local_unnamed_add
 declare ptr @lv_display_get_default() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_theme_default_init(ptr noundef, i24, i24, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -1402,7 +1402,7 @@ declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @lv_label_set_text_static(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_demo_widgets_start_slideshow() local_unnamed_addr #0 {
@@ -1461,7 +1461,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @slideshow_anim_completed_cb(ptr nocapture readnone %0) #0 {
+define internal void @slideshow_anim_completed_cb(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._lv_anim_t, align 8
   %3 = load ptr, ptr @tv, align 8, !tbaa !7
   %4 = tail call ptr @lv_tabview_get_content(ptr noundef %3) #5
@@ -2151,7 +2151,7 @@ declare void @lv_obj_set_style_arc_rounded(ptr noundef, i1 noundef zeroext, i32 
 declare ptr @lv_timer_create(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @scale2_timer_cb(ptr nocapture readnone %0) #0 {
+define internal void @scale2_timer_cb(ptr readnone captures(none) %0) #0 {
   %.b15 = load i1, ptr @scale2_timer_cb.down1, align 1
   %2 = load i32, ptr @session_desktop, align 4, !tbaa !3
   br i1 %.b15, label %3, label %6
@@ -2333,7 +2333,7 @@ define internal void @scale3_anim_cb(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @scale3_size_changed_event_cb(ptr nocapture readnone %0) #0 {
+define internal void @scale3_size_changed_event_cb(ptr readnone captures(none) %0) #0 {
   %2 = load ptr, ptr @scale3, align 8, !tbaa !7
   %3 = tail call i32 @lv_obj_get_width(ptr noundef %2) #5
   %4 = load ptr, ptr @scale3, align 8, !tbaa !7
@@ -2879,7 +2879,7 @@ declare void @lv_scale_set_image_needle_value(ptr noundef, ptr noundef, i32 noun
 declare void @lv_obj_set_style_text_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @shop_chart_event_cb(ptr nocapture readnone %0) #3 {
+define internal void @shop_chart_event_cb(ptr readnone captures(none) %0) #3 {
   ret void
 }
 

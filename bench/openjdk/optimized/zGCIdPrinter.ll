@@ -38,7 +38,7 @@ define hidden void @_ZN12ZGCIdPrinter10initializeEv() local_unnamed_addr #0 alig
 declare void @_ZN4GCId11set_printerEP11GCIdPrinter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %1, %6
@@ -73,7 +73,7 @@ define hidden noundef i32 @_ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm(ptr noc
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN12ZGCIdPrinter11print_gc_idEjPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN12ZGCIdPrinter11print_gc_idEjPcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %1, %6
@@ -107,7 +107,7 @@ _ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm.exit: ; preds = %8, %14, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -119,28 +119,28 @@ define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter15set_minor_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter15set_minor_gc_idEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter15set_major_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter15set_major_gc_idEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter13set_major_tagEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter13set_major_tagEc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ZGCIdMinorC2Ej(ptr nocapture nonnull readnone align 1 %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN10ZGCIdMinorC2Ej(ptr nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN12ZGCIdPrinter9_instanceE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
@@ -148,7 +148,7 @@ define hidden void @_ZN10ZGCIdMinorC2Ej(ptr nocapture nonnull readnone align 1 %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ZGCIdMinorD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN10ZGCIdMinorD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN12ZGCIdPrinter9_instanceE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %3, align 8
@@ -156,7 +156,7 @@ define hidden void @_ZN10ZGCIdMinorD2Ev(ptr nocapture nonnull readnone align 1 %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ZGCIdMajorC2Ejc(ptr nocapture nonnull readnone align 1 %0, i32 noundef %1, i8 noundef signext %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN10ZGCIdMajorC2Ejc(ptr nonnull readnone align 1 captures(none) %0, i32 noundef %1, i8 noundef signext %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr @_ZN12ZGCIdPrinter9_instanceE, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %1, ptr %5, align 4
@@ -166,7 +166,7 @@ define hidden void @_ZN10ZGCIdMajorC2Ejc(ptr nocapture nonnull readnone align 1 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ZGCIdMajorD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN10ZGCIdMajorD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN12ZGCIdPrinter9_instanceE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1, ptr %3, align 4

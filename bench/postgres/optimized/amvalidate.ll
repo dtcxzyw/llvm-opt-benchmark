@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.check_amop_signature = private unnamed_addr constant [21 x i8] c"check_amop_signature\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @identify_opfamily_groups(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -747,7 +747,7 @@ declare void @llvm.va_end.p0(ptr) #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

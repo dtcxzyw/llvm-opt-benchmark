@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ASN1_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_check_infinite_end(ptr noundef captures(none) %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -41,7 +41,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ASN1_const_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_const_check_infinite_end(ptr noundef captures(none) %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -73,7 +73,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 192) i32 @ASN1_get_object(ptr nocapture noundef %pp, ptr nocapture noundef writeonly %plength, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass, i64 noundef %omax) local_unnamed_addr #1 {
+define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %pp, ptr noundef writeonly captures(none) %plength, ptr noundef writeonly captures(none) %ptag, ptr noundef writeonly captures(none) %pclass, i64 noundef %omax) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %cmp = icmp slt i64 %omax, 1
@@ -267,7 +267,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ASN1_put_object(ptr nocapture noundef %pp, i32 noundef %constructed, i32 noundef %length, i32 noundef %tag, i32 noundef %xclass) local_unnamed_addr #3 {
+define void @ASN1_put_object(ptr noundef captures(none) %pp, i32 noundef %constructed, i32 noundef %length, i32 noundef %tag, i32 noundef %xclass) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %tobool.not = icmp eq i32 %constructed, 0
@@ -387,7 +387,7 @@ if.end27:                                         ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASN1_put_eoc(ptr nocapture noundef %pp) local_unnamed_addr #4 {
+define noundef i32 @ASN1_put_eoc(ptr noundef captures(none) %pp) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.end17, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_asn1_string_set_bits_left(ptr nocapture noundef %str, i32 noundef %num) local_unnamed_addr #6 {
+define void @ossl_asn1_string_set_bits_left(ptr noundef captures(none) %str, i32 noundef %num) local_unnamed_addr #6 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %str, i64 16
   %0 = load i64, ptr %flags, align 8
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr nocapture noundef %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %return, label %if.end
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_set(ptr nocapture noundef %str, ptr noundef readonly %_data, i32 noundef %len_in) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %str, ptr noundef readonly %_data, i32 noundef %len_in) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len_in, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -682,15 +682,15 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define void @ASN1_STRING_set0(ptr nocapture noundef initializes((0, 4)) %str, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define void @ASN1_STRING_set0(ptr noundef captures(none) initializes((0, 4)) %str, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %str, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -804,7 +804,7 @@ return:                                           ; preds = %if.then4.i.i, %if.e
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ASN1_STRING_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #9 {
+define i32 @ASN1_STRING_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -840,24 +840,24 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ASN1_STRING_length(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
+define i32 @ASN1_STRING_length(ptr noundef readonly captures(none) %x) local_unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %x, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_STRING_length_set(ptr nocapture noundef writeonly initializes((0, 4)) %x, i32 noundef %len) local_unnamed_addr #11 {
+define void @ASN1_STRING_length_set(ptr noundef writeonly captures(none) initializes((0, 4)) %x, i32 noundef %len) local_unnamed_addr #11 {
 entry:
   store i32 %len, ptr %x, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ASN1_STRING_type(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
+define i32 @ASN1_STRING_type(ptr noundef readonly captures(none) %x) local_unnamed_addr #10 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %x, i64 4
   %0 = load i32, ptr %type, align 4
@@ -865,7 +865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ASN1_STRING_get0_data(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
+define ptr @ASN1_STRING_get0_data(ptr noundef readonly captures(none) %x) local_unnamed_addr #10 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %x, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -873,7 +873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ASN1_STRING_data(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
+define ptr @ASN1_STRING_data(ptr noundef readonly captures(none) %x) local_unnamed_addr #10 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %x, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -1003,7 +1003,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

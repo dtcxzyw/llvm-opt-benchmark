@@ -128,13 +128,13 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @BrotliDecoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @brotli_g_malloc_wrapper(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal noalias ptr @brotli_g_malloc_wrapper(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call noalias ptr @g_malloc(i64 noundef %1) #5
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @brotli_g_free_wrapper(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @brotli_g_free_wrapper(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @g_free(ptr noundef %1) #4
   ret void
 }
@@ -149,7 +149,7 @@ declare i32 @BrotliDecoderDecompressStream(ptr noundef, ptr noundef, ptr noundef
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 

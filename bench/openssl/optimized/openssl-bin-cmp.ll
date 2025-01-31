@@ -884,7 +884,7 @@ if.else85:                                        ; preds = %cond.end79
   br i1 %cmp87, label %if.then89, label %if.else101
 
 if.then89:                                        ; preds = %if.else85
-  %call90 = tail call ptr @NCONF_get_section(ptr noundef nonnull %call81, ptr noundef %18) #13
+  %call90 = tail call ptr @NCONF_get_section(ptr noundef nonnull %call81, ptr noundef nonnull %18) #13
   %tobool91 = icmp ne ptr %call90, null
   %19 = load i32, ptr @opt_verbosity, align 4
   %cmp93 = icmp slt i32 %19, 6
@@ -1160,7 +1160,7 @@ sw.bb89.i:                                        ; preds = %if.end56.i, %if.end
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %sw.bb89.i
   %end.0.i.i = phi ptr [ %add.ptr.i.i, %sw.bb89.i ], [ %call1.i.i, %while.body.i.i ]
-  %call1.i.i = call fastcc ptr @prev_item(ptr noundef %54, ptr noundef %end.0.i.i)
+  %call1.i.i = call fastcc ptr @prev_item(ptr noundef nonnull %54, ptr noundef %end.0.i.i)
   %cmp.not.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.not.i.i, label %if.then94.i, label %while.body.i.i
 
@@ -1206,7 +1206,7 @@ if.else.i:                                        ; preds = %if.then108.i
 
 while.cond.i61.i:                                 ; preds = %while.body.i65.i, %if.else.i
   %end.0.i62.i = phi ptr [ %add.ptr.i60.i, %if.else.i ], [ %call1.i63.i, %while.body.i65.i ]
-  %call1.i63.i = call fastcc ptr @prev_item(ptr noundef %59, ptr noundef %end.0.i62.i)
+  %call1.i63.i = call fastcc ptr @prev_item(ptr noundef nonnull %59, ptr noundef %end.0.i62.i)
   %cmp.not.i64.i = icmp eq ptr %call1.i63.i, null
   br i1 %cmp.not.i64.i, label %if.end125.thread.i, label %while.body.i65.i
 
@@ -2603,24 +2603,24 @@ declare ptr @opt_appname(ptr noundef) local_unnamed_addr #1
 declare void @opt_help(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #1
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @app_load_config_internal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @prev_item(ptr noundef readnone %opt, ptr noundef %end) unnamed_addr #0 {
@@ -4845,7 +4845,7 @@ declare void @OSSL_CMP_log_close() local_unnamed_addr #1
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -4865,7 +4865,7 @@ declare i32 @opt_next() local_unnamed_addr #1
 declare i32 @opt_verify(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare ptr @app_conf_try_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4929,7 +4929,7 @@ declare i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef, ptr noundef, i32 noundef
 declare void @clear_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_cert(ptr noundef %ctx, ptr noundef %file, ptr noundef %pass, ptr noundef %desc, ptr nocapture noundef readonly %set1_fn) unnamed_addr #0 {
+define internal fastcc i32 @setup_cert(ptr noundef %ctx, ptr noundef %file, ptr noundef %pass, ptr noundef %desc, ptr noundef readonly captures(none) %set1_fn) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -5130,7 +5130,7 @@ declare i32 @OSSL_CMP_CTX_set1_senderNonce(ptr noundef, ptr noundef) local_unnam
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @OSSL_HTTP_parse_url(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5147,7 +5147,7 @@ declare ptr @OSSL_HTTP_adapt_proxy(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @OSSL_CMP_CTX_set1_serverPath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #1
 
@@ -7504,7 +7504,7 @@ declare ptr @OSSL_CMP_CTX_snprint_PKIStatus(ptr noundef, ptr noundef, i64 nounde
 declare i32 @X509_add_cert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -7523,10 +7523,10 @@ declare i32 @i2d_X509_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -173,7 +173,7 @@ declare i32 @monitor_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @monitor_qmp_dispatcher_co(ptr nocapture readnone %data) #0 {
+define dso_local void @monitor_qmp_dispatcher_co(ptr readnone captures(none) %data) #0 {
 entry:
   %_now.i.i43 = alloca %struct.timeval, align 8
   %_now.i.i29 = alloca %struct.timeval, align 8
@@ -671,7 +671,7 @@ declare void @json_message_parser_destroy(ptr noundef) local_unnamed_addr #1
 declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr nocapture noundef readonly %mon) unnamed_addr #0 {
+define internal fastcc void @monitor_qmp_cleanup_req_queue_locked(ptr noundef readonly captures(none) %mon) unnamed_addr #0 {
 entry:
   %qmp_requests = getelementptr inbounds nuw i8, ptr %mon, i64 328
   %0 = load ptr, ptr %qmp_requests, align 8
@@ -1241,7 +1241,7 @@ sw.epilog:                                        ; preds = %monitor_qmp_cleanup
 declare void @monitor_list_append(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1294,10 +1294,10 @@ declare void @qlist_append_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_from_jsonf_nofail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

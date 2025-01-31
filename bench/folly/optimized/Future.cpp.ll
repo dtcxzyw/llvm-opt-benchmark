@@ -919,7 +919,7 @@ ehcleanup18:                                      ; preds = %lpad16, %ehcleanup,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6detail22getTimekeeperSingletonEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #1 {
@@ -987,7 +987,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly14makeSemiFutureINS_4UnitENS_18FutureNoTimekeeperEEENSt9enable_ifIXsr3std10is_base_ofISt9exceptionT0_EE5valueENS_10SemiFutureIT_EEE4typeERKS5_(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %e) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
@@ -1125,7 +1125,7 @@ _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
@@ -1271,7 +1271,7 @@ _ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit: ; preds = %sw.bb16.i, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE(ptr noundef nonnull align 16 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 16 dereferenceable(48) %3) #1 comdat align 2 {
@@ -1328,7 +1328,7 @@ declare void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136)) local_unnamed_addr #11
@@ -2054,7 +2054,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZN5folly7futures6detail13UniqueDeleterclEPNS1_16DeferredExecutorE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7futures4waitESt10unique_ptrINS_6fibers5BatonESt14default_deleteIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7futures4waitESt10unique_ptrINS_6fibers5BatonESt14default_deleteIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr noundef captures(none) %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %promise = alloca %"class.folly::Promise", align 8
   %agg.tmp = alloca %"class.folly::Promise", align 8
@@ -2341,7 +2341,7 @@ _ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEEE, i64 16), ptr %this, align 8, !tbaa !17
   %baton_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2875,7 +2875,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7futures4waitESt10shared_ptrINS_6fibers5BatonEE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7futures4waitESt10shared_ptrINS_6fibers5BatonEE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr noundef captures(none) %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %promise = alloca %"class.folly::Promise", align 8
   %agg.tmp = alloca %"class.folly::Promise", align 8
@@ -3071,7 +3071,7 @@ _ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEEE, i64 16), ptr %this, align 8, !tbaa !17
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3452,7 +3452,7 @@ _ZNSt14_Function_baseD2Ev.exit56:                 ; preds = %if.then.i53, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN5folly10TimekeeperEvENS0_6detail12_GLOBAL__N_13$_0EE9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN5folly10TimekeeperEvENS0_6detail12_GLOBAL__N_13$_0EE9_M_invokeERKSt9_Any_data"(ptr nonnull readnone align 8 captures(none) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @_ZN3fLB47FLAGS_folly_futures_use_thread_wheel_timekeeperE, align 1, !tbaa !100, !range !101, !noundef !102
   %tobool.not.i.i.i = icmp eq i8 %0, 0
@@ -3490,7 +3490,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad3.i.i.i, %lpad.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly10TimekeeperEvENS0_6detail12_GLOBAL__N_13$_0EE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly10TimekeeperEvENS0_6detail12_GLOBAL__N_13$_0EE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -7125,7 +7125,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !23
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #28, !noalias !345
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -11051,7 +11051,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
@@ -11984,7 +11984,7 @@ _ZNSt12__shared_ptrISt10shared_ptrIN5folly10TimekeeperEELN9__gnu_cxx12_Lock_poli
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #2
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #24
@@ -13650,7 +13650,7 @@ terminate.lpad:                                   ; preds = %if.else.i.i53, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5folly8FunctionIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 16 dereferenceable(64) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 536870912) i64 @aom_rb_bytes_read(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i64 0, 536870912) i64 @aom_rb_bytes_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 7
@@ -14,7 +14,7 @@ define hidden range(i64 0, 536870912) i64 @aom_rb_bytes_read(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @aom_rb_read_bit(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @aom_rb_read_bit(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 3
@@ -55,7 +55,7 @@ define hidden range(i32 0, 2) i32 @aom_rb_read_bit(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_rb_read_literal(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden i32 @aom_rb_read_literal(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -113,7 +113,7 @@ aom_rb_read_bit.exit:                             ; preds = %16, %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_rb_read_unsigned_literal(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden i32 @aom_rb_read_unsigned_literal(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -171,7 +171,7 @@ aom_rb_read_bit.exit:                             ; preds = %16, %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_rb_read_inv_signed_literal(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden i32 @aom_rb_read_inv_signed_literal(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %.lr.ph.i, label %aom_rb_read_literal.exit
 
@@ -233,7 +233,7 @@ aom_rb_read_literal.exit:                         ; preds = %aom_rb_read_bit.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_rb_read_uvlc(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden i32 @aom_rb_read_uvlc(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -336,7 +336,7 @@ aom_rb_read_literal.exit:                         ; preds = %aom_rb_read_bit.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i16 @aom_rb_read_signed_primitive_refsubexpfin(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef signext %3) local_unnamed_addr #1 {
+define hidden signext i16 @aom_rb_read_signed_primitive_refsubexpfin(ptr noundef captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef signext %3) local_unnamed_addr #1 {
   %5 = add i16 %1, -1
   %6 = add i16 %5, %3
   %7 = shl i16 %1, 1

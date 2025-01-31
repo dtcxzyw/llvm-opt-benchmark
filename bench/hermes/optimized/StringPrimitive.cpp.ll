@@ -1695,7 +1695,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef i32 @_ZN6hermes2vm23BufferedStringPrimitiveIDsE11getCellKindEv() local_unnamed_addr #0 comdat align 2 {
@@ -2623,7 +2623,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm36DynamicASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm36DynamicASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE2vtE, ptr %vtp_.i, align 8
@@ -2631,7 +2631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm36DynamicUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm36DynamicUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE2vtE, ptr %vtp_.i, align 8
@@ -2639,7 +2639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm43DynamicUniquedASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm43DynamicUniquedASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm22DynamicStringPrimitiveIcLb1EE2vtE, ptr %vtp_.i, align 8
@@ -2647,7 +2647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm43DynamicUniquedUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm43DynamicUniquedUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb1EE2vtE, ptr %vtp_.i, align 8
@@ -2655,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm37ExternalASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm37ExternalASCIIStringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm23ExternalStringPrimitiveIcE2vtE, ptr %vtp_.i, align 8
@@ -2663,7 +2663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm37ExternalUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
+define hidden void @_ZN6hermes2vm37ExternalUTF16StringPrimitiveBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #4 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm23ExternalStringPrimitiveIDsE2vtE, ptr %vtp_.i, align 8
@@ -5057,7 +5057,7 @@ return:                                           ; preds = %if.end55, %if.then4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %str.coerce, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %str.coerce, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 align 2 {
 if.end.i:
   %builder = alloca %"class.hermes::vm::CallResult.190", align 8
   %conv = trunc i64 %length to i32
@@ -5539,7 +5539,7 @@ _ZSt4copyIPKDsPDsET0_T_S4_S3_.exit:               ; preds = %_ZN6hermes2vm15Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(9832) %runtime, ptr %self.coerce) local_unnamed_addr #5 align 2 {
+define hidden { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(9832) %runtime, ptr %self.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 281474976710655
@@ -5761,7 +5761,7 @@ if.end:                                           ; preds = %_ZN4llvh15SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringEPDs(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringEPDs(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef writeonly captures(none) %ptr) local_unnamed_addr #0 align 2 {
 entry:
   %bf.load.i.i.i = load i32, ptr %this, align 4
   %0 = and i32 %bf.load.i.i.i, 16777216
@@ -6137,7 +6137,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE10_M_disposeEv.exit: ; p
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
@@ -7248,13 +7248,13 @@ declare void @llvm.assume(i1 noundef) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
@@ -7266,7 +7266,7 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

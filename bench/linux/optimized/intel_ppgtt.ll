@@ -137,7 +137,7 @@ define dso_local noundef ptr @alloc_pd(ptr noundef %0) local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_px(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @free_px(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %8, label %5
 
@@ -176,7 +176,7 @@ define dso_local void @free_px(ptr nocapture noundef readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__set_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local void @__set_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #8, !srcloc !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -199,7 +199,7 @@ define dso_local void @__set_pd_entry(ptr noundef %0, i16 noundef zeroext %1, pt
 declare dso_local i64 @__px_dma(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clear_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @clear_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   %6 = load i64, ptr %5, align 8
@@ -218,7 +218,7 @@ define dso_local void @clear_pd_entry(ptr noundef %0, i16 noundef zeroext %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @release_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @release_pd_entry(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load volatile i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
@@ -405,7 +405,7 @@ define dso_local void @ppgtt_bind_vma(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ppgtt_unbind_vma(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @ppgtt_unbind_vma(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 1
@@ -433,7 +433,7 @@ define dso_local void @ppgtt_unbind_vma(ptr noundef %0, ptr nocapture noundef re
 declare dso_local void @vma_invalidate_tlb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_vm_alloc_pt_stash(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @i915_vm_alloc_pt_stash(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 538
   %5 = load i8, ptr %4, align 2
   %6 = icmp eq i8 %5, 0
@@ -592,7 +592,7 @@ alloc_pd.exit:                                    ; preds = %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_vm_free_pt_stash(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   br label %3
 
 3:                                                ; preds = %.loopexit, %2
@@ -683,7 +683,7 @@ define dso_local void @i915_vm_free_pt_stash(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   br label %3
 
 3:                                                ; preds = %.loopexit3, %2

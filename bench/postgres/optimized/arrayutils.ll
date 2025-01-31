@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [36 x i8] c"typmod array must not contain nulls\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %.01314 = add i32 %0, -1
   %5 = icmp sgt i32 %.01314, -1
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -47,13 +47,13 @@ define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItems(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItems(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr noundef %1, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %25, label %.preheader.preheader
 
@@ -121,7 +121,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.preheader.i
 
@@ -161,7 +161,7 @@ ArrayCheckBoundsSafe.exit:                        ; preds = %5, %3, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %0, 1
   br i1 %5, label %.loopexit, label %.lr.ph.preheader
 
@@ -202,7 +202,7 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @mda_get_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
+define dso_local void @mda_get_range(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -229,7 +229,7 @@ define dso_local void @mda_get_range(i32 noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @mda_get_prod(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define dso_local void @mda_get_prod(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = add i32 %0, -1
   %5 = sext i32 %4 to i64
   %6 = getelementptr i32, ptr %2, i64 %5
@@ -263,7 +263,7 @@ define dso_local void @mda_get_prod(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @mda_get_offset_values(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
+define dso_local void @mda_get_offset_values(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = add i32 %0, -1
   %6 = sext i32 %5 to i64
   %7 = getelementptr i32, ptr %1, i64 %6
@@ -320,7 +320,7 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %.critedge, label %5
 

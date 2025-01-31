@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.loader_from_algorithm = private unnamed_addr constant [22 x i8] c"loader_from_algorithm\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @OSSL_STORE_LOADER_up_ref(ptr nocapture noundef %loader) local_unnamed_addr #0 {
+define noundef i32 @OSSL_STORE_LOADER_up_ref(ptr noundef captures(none) %loader) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %loader, i64 96
   %0 = load ptr, ptr %prov, align 8
@@ -331,7 +331,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_STORE_LOADER_get0_description(ptr nocapture noundef readonly %loader) local_unnamed_addr #3 {
+define ptr @OSSL_STORE_LOADER_get0_description(ptr noundef readonly captures(none) %loader) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %loader, i64 120
   %0 = load ptr, ptr %description, align 8
@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_STORE_LOADER_is_a(ptr nocapture noundef readonly %loader, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_STORE_LOADER_is_a(ptr noundef readonly captures(none) %loader, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %loader, i64 96
   %0 = load ptr, ptr %prov, align 8
@@ -403,7 +403,7 @@ dealloc_tmp_loader_store.exit:                    ; preds = %if.end, %if.then.i
 declare void @ossl_method_store_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @do_one(i32 %id, ptr noundef %method, ptr nocapture noundef readonly %arg) #1 {
+define internal void @do_one(i32 %id, ptr noundef %method, ptr noundef readonly captures(none) %arg) #1 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %user_arg = getelementptr inbounds nuw i8, ptr %arg, i64 8
@@ -442,7 +442,7 @@ declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @ossl_method_store_cache_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_tmp_loader_store(ptr nocapture noundef %data) #1 {
+define internal ptr @get_tmp_loader_store(ptr noundef captures(none) %data) #1 {
 entry:
   %tmp_store = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %tmp_store, align 8
@@ -461,7 +461,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reserve_loader_store(ptr noundef %store, ptr nocapture noundef readonly %data) #1 {
+define internal i32 @reserve_loader_store(ptr noundef %store, ptr noundef readonly captures(none) %data) #1 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -483,7 +483,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @unreserve_loader_store(ptr noundef %store, ptr nocapture noundef readonly %data) #1 {
+define internal i32 @unreserve_loader_store(ptr noundef %store, ptr noundef readonly captures(none) %data) #1 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -505,7 +505,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_loader_from_store(ptr noundef %store, ptr noundef %prov, ptr nocapture noundef readonly %data) #1 {
+define internal ptr @get_loader_from_store(ptr noundef %store, ptr noundef %prov, ptr noundef readonly captures(none) %data) #1 {
 entry:
   %method = alloca ptr, align 8
   store ptr null, ptr %method, align 8
@@ -549,7 +549,7 @@ return:                                           ; preds = %if.end7, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @put_loader_in_store(ptr noundef %store, ptr noundef %method, ptr noundef %prov, ptr noundef %scheme, ptr noundef %propdef, ptr nocapture noundef readonly %data) #1 {
+define internal i32 @put_loader_in_store(ptr noundef %store, ptr noundef %method, ptr noundef %prov, ptr noundef %scheme, ptr noundef %propdef, ptr noundef readonly captures(none) %data) #1 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %call = tail call ptr @ossl_namemap_stored(ptr noundef %0) #5
@@ -582,7 +582,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @construct_loader(ptr nocapture noundef readonly %algodef, ptr noundef %prov, ptr nocapture noundef %data) #1 {
+define internal ptr @construct_loader(ptr noundef readonly captures(none) %algodef, ptr noundef %prov, ptr noundef captures(none) %data) #1 {
 entry:
   %call = tail call ptr @ossl_provider_libctx(ptr noundef %prov) #5
   %call1 = tail call ptr @ossl_namemap_stored(ptr noundef %call) #5
@@ -832,7 +832,7 @@ if.end6:                                          ; preds = %lor.lhs.false72.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destruct_loader(ptr noundef %method, ptr nocapture readnone %data) #1 {
+define internal void @destruct_loader(ptr noundef %method, ptr readnone captures(none) %data) #1 {
 entry:
   %cmp.not.i = icmp eq ptr %method, null
   br i1 %cmp.not.i, label %if.end6.i, label %land.lhs.true.i
@@ -872,14 +872,14 @@ OSSL_STORE_LOADER_free.exit:                      ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @ossl_method_construct(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ossl_method_store_cache_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @up_ref_loader(ptr nocapture noundef %method) #0 {
+define internal noundef i32 @up_ref_loader(ptr noundef captures(none) %method) #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %method, i64 96
   %0 = load ptr, ptr %prov.i, align 8

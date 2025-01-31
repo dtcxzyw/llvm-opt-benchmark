@@ -78,14 +78,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_Z9toku_freePv(ptr nocapture noundef %p) local_unnamed_addr #0 {
+define void @_Z9toku_freePv(ptr noundef captures(none) %p) local_unnamed_addr #0 {
 entry:
   tail call void @free(ptr noundef %p) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @_Z12toku_xmallocm(i64 noundef %size) local_unnamed_addr #2 {
@@ -98,17 +98,17 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_Z13toku_xreallocPvm(ptr nocapture noundef %v, i64 noundef %size) local_unnamed_addr #0 {
+define noalias noundef ptr @_Z13toku_xreallocPvm(ptr noundef captures(none) %v, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @realloc(ptr noundef %v, i64 noundef %size) #16
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @_Z12toku_xmemdupPKvm(ptr nocapture noundef readonly %v, i64 noundef %len) local_unnamed_addr #5 {
+define noalias noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef readonly captures(none) %v, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %len) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %v, i64 %len, i1 false)
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @_Z12toku_xcallocmm(i64 noundef %nmemb, i64 noundef %size) local_unnamed_addr #2 {
@@ -129,7 +129,7 @@ entry:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_Z21toku_memory_footprintPvm(ptr nocapture noundef readnone %0, i64 noundef returned %touched) local_unnamed_addr #8 {
+define noundef i64 @_Z21toku_memory_footprintPvm(ptr noundef readnone captures(none) %0, i64 noundef returned %touched) local_unnamed_addr #8 {
 entry:
   ret i64 %touched
 }
@@ -340,13 +340,13 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12LTM_STATUS_S7destroyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1217) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN12LTM_STATUS_S7destroyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1217) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr nocapture noundef readonly %key1, i64 noundef %key1len, ptr nocapture noundef readonly %key2, i64 noundef %key2len) local_unnamed_addr #10 {
+define noundef i32 @_Z15toku_keycomparePKvmS0_m(ptr noundef readonly captures(none) %key1, i64 noundef %key1len, ptr noundef readonly captures(none) %key2, i64 noundef %key2len) local_unnamed_addr #10 {
 entry:
   %cond = tail call i64 @llvm.umin.i64(i64 %key1len, i64 %key2len)
   %call = tail call i32 @memcmp(ptr noundef %key1, ptr noundef %key2, i64 noundef %cond) #18
@@ -368,10 +368,10 @@ return:                                           ; preds = %if.else4, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #12 {
+define noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %size = getelementptr inbounds nuw i8, ptr %a, i64 8

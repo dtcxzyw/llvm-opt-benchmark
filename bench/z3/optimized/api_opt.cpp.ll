@@ -4104,7 +4104,7 @@ terminate.lpad:                                   ; preds = %lpad29
 declare void @_Z30log_Z3_optimize_get_statisticsP11_Z3_contextP12_Z3_optimize(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_optimize_from_string(ptr noundef %c, ptr nocapture noundef readonly %d, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_optimize_from_string(ptr noundef %c, ptr noundef readonly captures(none) %d, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %is = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4258,7 +4258,7 @@ declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKN
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23Z3_optimize_from_streamP11_Z3_contextP12_Z3_optimizeRSiPKc(ptr noundef %c, ptr nocapture noundef readonly %opt, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef %ext) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23Z3_optimize_from_streamP11_Z3_contextP12_Z3_optimizeRSiPKc(ptr noundef %c, ptr noundef readonly captures(none) %opt, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef %ext) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -4701,7 +4701,7 @@ terminate.lpad:                                   ; preds = %ehcleanup134
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_optimize_from_file(ptr noundef %c, ptr nocapture noundef readonly %d, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_optimize_from_file(ptr noundef %c, ptr noundef readonly captures(none) %d, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %is = alloca %"class.std::basic_ifstream", align 8
   %strm = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -5343,7 +5343,7 @@ declare void @_Z30log_Z3_optimize_get_objectivesP11_Z3_contextP12_Z3_optimize(pt
 declare void @_ZN3opt7context13get_objectiveEj(ptr sret(%class.obj_ref.125) align 8, ptr noundef nonnull align 8 dereferenceable(792), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_optimize_register_model_eh(ptr noundef %c, ptr nocapture noundef readonly %o, ptr noundef %m, ptr noundef %user_context, ptr noundef %model_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_optimize_register_model_eh(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef %m, ptr noundef %user_context, ptr noundef %model_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
@@ -5397,7 +5397,7 @@ try.cont:                                         ; preds = %_ZNSt8functionIFvRN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17optimize_on_modelRN3opt10on_model_tER3refI5modelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %m) #3 {
+define internal void @_ZL17optimize_on_modelRN3opt10on_model_tER3refI5modelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %m) #3 {
 entry:
   %on_model = getelementptr inbounds nuw i8, ptr %o, i64 24
   %0 = load ptr, ptr %on_model, align 8
@@ -5663,10 +5663,10 @@ _ZN17Z3_ast_vector_refD2Ev.exit:                  ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12Z3_model_refD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6059,7 +6059,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -6362,10 +6362,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

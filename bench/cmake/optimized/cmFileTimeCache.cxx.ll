@@ -113,7 +113,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache6RemoveERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_Pi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_Pi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.cmFileTime, align 8
   %6 = alloca %class.cmFileTime, align 8
   store i64 0, ptr %5, align 8
@@ -245,7 +245,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
@@ -863,7 +863,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #12

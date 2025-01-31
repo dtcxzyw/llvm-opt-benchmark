@@ -54,7 +54,7 @@ if.end20:                                         ; preds = %if.else, %if.end, %
 declare i32 @ossl_provider_doall_activated(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %provider, ptr nocapture noundef readonly %cbdata) #0 {
+define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %provider, ptr noundef readonly captures(none) %cbdata) #0 {
 entry:
   %ret.i = alloca i32, align 4
   %no_store = alloca i32, align 4
@@ -176,7 +176,7 @@ declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ossl_algorithm_get1_first_name(ptr nocapture noundef readonly %algo) local_unnamed_addr #0 {
+define noalias ptr @ossl_algorithm_get1_first_name(ptr noundef readonly captures(none) %algo) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %algo, align 8
   %cmp = icmp eq ptr %0, null
@@ -211,7 +211,7 @@ return:                                           ; preds = %entry, %if.end7
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -220,10 +220,10 @@ declare ptr @ossl_provider_query_operation(ptr noundef, i32 noundef, ptr noundef
 declare void @ossl_provider_unquery_operation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4

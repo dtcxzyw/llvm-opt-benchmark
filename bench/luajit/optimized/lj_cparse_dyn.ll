@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [6 x i8] c"align\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden i32 @lj_cparse_case(ptr nocapture noundef readonly %str, ptr nocapture noundef readonly %match) local_unnamed_addr #0 {
+define hidden i32 @lj_cparse_case(ptr noundef readonly captures(none) %str, ptr noundef readonly captures(none) %match) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 24
   %0 = load i8, ptr %match, align 1
@@ -132,12 +132,12 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cpcparser(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr noundef initializes((0, 4), (40, 72), (104, 112), (120, 121), (127, 128)) %ud) #1 {
+define internal noalias noundef ptr @cpcparser(ptr noundef readonly captures(none) %L, ptr readnone captures(none) %dummy, ptr noundef initializes((0, 4), (40, 72), (104, 112), (120, 121), (127, 128)) %ud) #1 {
 entry:
   %decl.i13 = alloca %struct.CPDecl, align 8
   %k.i.i = alloca %struct.CPValue, align 4
@@ -543,8 +543,8 @@ if.end64.i:                                       ; preds = %do.body.i.i, %land.
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end116.i, %if.end64.i
-  call fastcc void @cp_declarator(ptr noundef %ud, ptr noundef %decl.i)
-  %call65.i = call fastcc i32 @cp_decl_intern(ptr noundef %ud, ptr noundef %decl.i)
+  call fastcc void @cp_declarator(ptr noundef nonnull %ud, ptr noundef %decl.i)
+  %call65.i = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %ud, ptr noundef %decl.i)
   %54 = load ptr, ptr %name.i, align 8
   %tobool66.i = icmp eq ptr %54, null
   %55 = load i32, ptr %nameid.i, align 8
@@ -605,7 +605,7 @@ lor.lhs.false.i.i:                                ; preds = %while.end.i.i
   br i1 %or.cond.i.i, label %if.then.i80.i, label %if.end.i.i
 
 if.then.i80.i:                                    ; preds = %lor.lhs.false.i.i, %while.end.i.i
-  call fastcc void @cp_err(ptr noundef %ud, i32 noundef 2996) #14
+  call fastcc void @cp_err(ptr noundef nonnull %ud, i32 noundef 2996) #14
   unreachable
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
@@ -2758,7 +2758,7 @@ cp_next_.exit:                                    ; preds = %if.end.i, %cp_get.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cp_get_bs(ptr nocapture noundef %cp) unnamed_addr #5 {
+define internal fastcc void @cp_get_bs(ptr noundef captures(none) %cp) unnamed_addr #5 {
 entry:
   %p.i16 = getelementptr inbounds nuw i8, ptr %cp, i64 32
   %p.i16.promoted = load ptr, ptr %p.i16, align 8
@@ -2940,7 +2940,7 @@ if.end28:                                         ; preds = %if.then25, %if.end2
 declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cp_tok2str(ptr nocapture noundef readonly %cp, i32 noundef range(i32 1, 0) %tok) unnamed_addr #1 {
+define internal fastcc ptr @cp_tok2str(ptr noundef readonly captures(none) %cp, i32 noundef range(i32 1, 0) %tok) unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %tok, 255
   br i1 %cmp, label %if.then, label %if.else
@@ -3207,7 +3207,7 @@ ctype_raw.exit.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i115, label %cp_expr_kint.exit, label %if.then.i116
 
 if.then.i116:                                     ; preds = %ctype_raw.exit.i
-  call fastcc void @cp_err(ptr noundef %cp, i32 noundef 537) #14
+  call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 537) #14
   unreachable
 
 cp_expr_kint.exit:                                ; preds = %ctype_raw.exit.i
@@ -3532,7 +3532,7 @@ if.end144:                                        ; preds = %cp_push.exit, %cp_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_declarator(ptr noundef %cp, ptr nocapture noundef nonnull %decl) unnamed_addr #1 {
+define internal fastcc void @cp_declarator(ptr noundef %cp, ptr noundef nonnull captures(none) %decl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %depth = getelementptr inbounds nuw i8, ptr %cp, i64 108
@@ -3846,7 +3846,7 @@ ctype_raw.exit.i.i:                               ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i110, label %cp_expr_kint.exit.i, label %if.then.i.i111
 
 if.then.i.i111:                                   ; preds = %ctype_raw.exit.i.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 537) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 537) #14
   unreachable
 
 cp_expr_kint.exit.i:                              ; preds = %ctype_raw.exit.i.i
@@ -3855,7 +3855,7 @@ cp_expr_kint.exit.i:                              ; preds = %ctype_raw.exit.i.i
   br i1 %cmp.i112, label %if.then.i114, label %cp_expr_ksize.exit
 
 if.then.i114:                                     ; preds = %cp_expr_kint.exit.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 3011) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 3011) #14
   unreachable
 
 cp_expr_ksize.exit:                               ; preds = %cp_expr_kint.exit.i
@@ -3930,7 +3930,7 @@ cp_push_attributes.exit:                          ; preds = %if.end72, %if.else.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr nocapture noundef nonnull readonly %decl) unnamed_addr #1 {
+define internal fastcc i32 @cp_decl_intern(ptr noundef %cp, ptr noundef nonnull readonly captures(none) %decl) unnamed_addr #1 {
 entry:
   %fct = alloca ptr, align 8
   %stack = getelementptr inbounds nuw i8, ptr %decl, i64 64
@@ -4272,7 +4272,7 @@ declare hidden void @lj_ctype_addname(ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_decl_attributes(ptr noundef %cp, ptr nocapture noundef nonnull %decl) unnamed_addr #1 {
+define internal fastcc void @cp_decl_attributes(ptr noundef %cp, ptr noundef nonnull captures(none) %decl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %k.i.i = alloca %struct.CPValue, align 4
@@ -4608,7 +4608,7 @@ ctype_raw.exit.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i144, label %cp_expr_kint.exit, label %if.then.i145
 
 if.then.i145:                                     ; preds = %ctype_raw.exit.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 537) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 537) #14
   unreachable
 
 cp_expr_kint.exit:                                ; preds = %ctype_raw.exit.i
@@ -4617,7 +4617,7 @@ cp_expr_kint.exit:                                ; preds = %ctype_raw.exit.i
   br i1 %cmp.i.i, label %if.then.i6.i, label %cp_expr_ksize.exit.i
 
 if.then.i6.i:                                     ; preds = %cp_expr_kint.exit
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 3011) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 3011) #14
   unreachable
 
 cp_expr_ksize.exit.i:                             ; preds = %cp_expr_kint.exit
@@ -4848,7 +4848,7 @@ ctype_raw.exit.i.i:                               ; preds = %while.cond.i.i.i
   br i1 %cmp.i.i166, label %cp_expr_kint.exit.i, label %if.then.i.i167
 
 if.then.i.i167:                                   ; preds = %ctype_raw.exit.i.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 537) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 537) #14
   unreachable
 
 cp_expr_kint.exit.i:                              ; preds = %ctype_raw.exit.i.i
@@ -4857,7 +4857,7 @@ cp_expr_kint.exit.i:                              ; preds = %ctype_raw.exit.i.i
   br i1 %cmp.i168, label %if.then.i170, label %cp_expr_ksize.exit
 
 if.then.i170:                                     ; preds = %cp_expr_kint.exit.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 3011) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 3011) #14
   unreachable
 
 cp_expr_ksize.exit:                               ; preds = %cp_expr_kint.exit.i
@@ -4938,7 +4938,7 @@ sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb1, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_decl_struct(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 276824065) %sinfo) unnamed_addr #1 {
+define internal fastcc i32 @cp_decl_struct(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr noundef nonnull captures(none) %sdecl, i32 noundef range(i32 268435456, 276824065) %sinfo) unnamed_addr #1 {
 entry:
   %sz.i = alloca i32, align 4
   %k.i = alloca %struct.CPValue, align 4
@@ -5172,7 +5172,7 @@ lor.lhs.false.i:                                  ; preds = %while.end.i
   br i1 %or.cond.i, label %if.then.i59, label %cp_decl_constinit.exit
 
 if.then.i59:                                      ; preds = %lor.lhs.false.i, %while.end.i
-  call fastcc void @cp_err(ptr noundef %cp, i32 noundef 2996) #14
+  call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 2996) #14
   unreachable
 
 cp_decl_constinit.exit:                           ; preds = %lor.lhs.false.i
@@ -5242,11 +5242,11 @@ cp_expr_sub.exit:                                 ; preds = %cp_check.exit102
   br i1 %cmp.i65, label %if.end102, label %for.end
 
 if.then42:                                        ; preds = %if.then29.us
-  call fastcc void @cp_err_token(ptr noundef %cp, i32 noundef 256) #14
+  call fastcc void @cp_err_token(ptr noundef nonnull %cp, i32 noundef 256) #14
   unreachable
 
 if.then81:                                        ; preds = %if.else53.us, %lor.lhs.false59.us, %lor.lhs.false65.us, %lor.lhs.false69.us
-  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef %cp, i32 noundef 58, i32 noundef 537) #14
+  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef nonnull %cp, i32 noundef 58, i32 noundef 537) #14
   unreachable
 
 if.end102:                                        ; preds = %cp_expr_sub.exit
@@ -5862,7 +5862,7 @@ ctype_raw.exit.i:                                 ; preds = %while.cond.i.i
   br i1 %cmp.i, label %cp_expr_kint.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ctype_raw.exit.i
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 537) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 537) #14
   unreachable
 
 cp_expr_kint.exit:                                ; preds = %ctype_raw.exit.i
@@ -5871,7 +5871,7 @@ cp_expr_kint.exit:                                ; preds = %ctype_raw.exit.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cp_expr_kint.exit
-  tail call fastcc void @cp_err(ptr noundef %cp, i32 noundef 3011) #14
+  tail call fastcc void @cp_err(ptr noundef nonnull %cp, i32 noundef 3011) #14
   unreachable
 
 if.end:                                           ; preds = %cp_expr_kint.exit
@@ -5879,7 +5879,7 @@ if.end:                                           ; preds = %cp_expr_kint.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_infix(ptr noundef %cp, ptr nocapture noundef nonnull %k, i32 noundef range(i32 0, 11) %pri) unnamed_addr #1 {
+define internal fastcc void @cp_expr_infix(ptr noundef %cp, ptr noundef nonnull captures(none) %k, i32 noundef range(i32 0, 11) %pri) unnamed_addr #1 {
 entry:
   %k2 = alloca %struct.CPValue, align 4
   %k3 = alloca %struct.CPValue, align 4
@@ -6784,7 +6784,7 @@ sw.default:                                       ; preds = %sw.bb, %sw.bb11, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_prefix(ptr noundef %cp, ptr nocapture noundef nonnull %k) unnamed_addr #1 {
+define internal fastcc void @cp_expr_prefix(ptr noundef %cp, ptr noundef nonnull captures(none) %k) unnamed_addr #1 {
 entry:
   %tok = getelementptr inbounds nuw i8, ptr %cp, i64 4
   %0 = load i32, ptr %tok, align 4
@@ -7157,7 +7157,7 @@ err_expr:                                         ; preds = %entry, %if.then61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_postfix(ptr noundef %cp, ptr nocapture noundef nonnull %k) unnamed_addr #1 {
+define internal fastcc void @cp_expr_postfix(ptr noundef %cp, ptr noundef nonnull captures(none) %k) unnamed_addr #1 {
 entry:
   %k2 = alloca %struct.CPValue, align 4
   %ofs = alloca i32, align 4
@@ -7382,7 +7382,7 @@ entry:
 declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_expr_sizeof(ptr noundef %cp, ptr nocapture noundef nonnull %k, i32 noundef range(i32 0, 2) %wantsz) unnamed_addr #1 {
+define internal fastcc void @cp_expr_sizeof(ptr noundef %cp, ptr noundef nonnull captures(none) %k, i32 noundef range(i32 0, 2) %wantsz) unnamed_addr #1 {
 entry:
   %decl.i = alloca %struct.CPDecl, align 8
   %sz = alloca i32, align 4
@@ -7535,7 +7535,7 @@ declare hidden i32 @lj_ctype_info_raw(ptr noundef, i32 noundef, ptr noundef) loc
 declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_struct_name(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 1342177282) %info) unnamed_addr #1 {
+define internal fastcc i32 @cp_struct_name(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr noundef nonnull captures(none) %sdecl, i32 noundef range(i32 268435456, 1342177282) %info) unnamed_addr #1 {
 entry:
   %ct = alloca ptr, align 8
   %tmask = getelementptr inbounds nuw i8, ptr %cp, i64 112
@@ -7669,7 +7669,7 @@ if.end42:                                         ; preds = %if.end40, %if.end29
 declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cp_decl_func(ptr noundef %cp, ptr nocapture noundef nonnull %fdecl) unnamed_addr #1 {
+define internal fastcc void @cp_decl_func(ptr noundef %cp, ptr noundef nonnull captures(none) %fdecl) unnamed_addr #1 {
 entry:
   %decl = alloca %struct.CPDecl, align 8
   %ct = alloca ptr, align 8
@@ -7938,7 +7938,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
@@ -7947,13 +7947,13 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nofree nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

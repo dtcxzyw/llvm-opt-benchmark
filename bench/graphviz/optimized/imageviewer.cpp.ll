@@ -1198,7 +1198,7 @@ declare void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unna
 declare void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QImage, align 8
   %4 = alloca %class.QPixmap, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1322,7 +1322,7 @@ declare void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) u
 declare void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer13updateActionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer13updateActionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1353,18 +1353,18 @@ declare void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN11ImageViewer5printEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN11ImageViewer5printEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer6zoomInEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer6zoomInEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN11ImageViewer10scaleImageEd(ptr noundef nonnull align 8 dereferenceable(160) %0, double noundef 1.250000e+00)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, double noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImageViewer10scaleImageEd(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, double noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QSize, align 8
   %4 = alloca %class.QPixmap, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1445,13 +1445,13 @@ define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer7zoomOutEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer7zoomOutEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN11ImageViewer10scaleImageEd(ptr noundef nonnull align 8 dereferenceable(160) %0, double noundef 8.000000e-01)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer10normalSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 80)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer10normalSizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((72, 80)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -1461,7 +1461,7 @@ define void @_ZN11ImageViewer10normalSizeEv(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer11fitToWindowEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer11fitToWindowEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -1622,7 +1622,7 @@ declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenc
 declare i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer15adjustScrollBarEP10QScrollBard(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0, ptr noundef nonnull %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN11ImageViewer15adjustScrollBarEP10QScrollBard(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0, ptr noundef nonnull %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = sitofp i32 %4 to double
   %6 = fadd double %2, -1.000000e+00
@@ -1650,7 +1650,7 @@ declare noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef nonnull align 
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImageViewer10closeEventEP11QCloseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly initializes((12, 13)) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImageViewer10closeEventEP11QCloseEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -1687,10 +1687,10 @@ declare double @llvm.copysign.f64(double, double) #6
 declare void @_ZNK6QLabel6pixmapEv(ptr dead_on_unwind writable sret(%class.QPixmap) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

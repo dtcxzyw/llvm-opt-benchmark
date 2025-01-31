@@ -94,7 +94,7 @@ _ZN4cvc58internal5proof8toStringENS1_8LfscRuleE.exit: ; preds = %entry, %switch.
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof11getLfscRuleENS0_12NodeTemplateILb1EEERNS1_8LfscRuleE(ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %lr) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof11getLfscRuleENS0_12NodeTemplateILb1EEERNS1_8LfscRuleE(ptr noundef readonly captures(none) %n, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %lr) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca i32, align 4
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -117,7 +117,7 @@ declare noundef zeroext i1 @_ZN4cvc58internal16ProofRuleChecker9getUInt32ENS0_12
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal5proof11getLfscRuleENS0_12NodeTemplateILb1EEE(ptr nocapture noundef readonly %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal5proof11getLfscRuleENS0_12NodeTemplateILb1EEE(ptr noundef readonly captures(none) %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %id.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -370,7 +370,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof31LfscProofLetifyTraverseCallback14shouldTraverseEPKNS0_9ProofNodeE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %pn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof31LfscProofLetifyTraverseCallback14shouldTraverseEPKNS0_9ProofNodeE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %pn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
@@ -512,10 +512,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

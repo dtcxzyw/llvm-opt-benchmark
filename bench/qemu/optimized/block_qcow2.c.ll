@@ -477,7 +477,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [131 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_read_snapshot_table, ptr @.str.346, ptr @.str.348, i32 990, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @is_zero_cow, ptr @.str.346, ptr @.str.349, i32 2496, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_copy_range_from, ptr @.str.346, ptr @.str.349, i32 4132, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unref_child, ptr @.str.346, ptr @.str.350, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_mark_consistent, ptr @.str.346, ptr @.str.349, i32 575, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_create, ptr @.str.346, ptr @.str.349, i32 3484, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_invalidate_cache, ptr @.str.346, ptr @.str.349, i32 2830, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_part, ptr @.str.346, ptr @.str.349, i32 4743, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv_part, ptr @.str.346, ptr @.str.351, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_zeroes, ptr @.str.346, ptr @.str.352, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_refcount_init, ptr @.str.346, ptr @.str.348, i32 852, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_change_backing_file, ptr @.str.346, ptr @.str.352, i32 214, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_task, ptr @.str.346, ptr @.str.349, i32 2316, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_unlock, ptr @.str.346, ptr @.str.353, i32 237, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.346, ptr @.str.351, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_zeroes, ptr @.str.354, ptr @.str.352, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_zeroes, ptr @.str.355, ptr @.str.352, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_crypto_hdr_init_func, ptr @.str.346, ptr @.str.349, i32 123, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decompress, ptr @.str.346, ptr @.str.348, i32 1065, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_encrypt, ptr @.str.346, ptr @.str.348, i32 1068, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @handle_alloc_space, ptr @.str.346, ptr @.str.349, i32 2515, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_load_dirty_bitmaps, ptr @.str.346, ptr @.str.348, i32 1032, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_lock, ptr @.str.346, ptr @.str.353, i32 230, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.346, ptr @.str.351, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_start_task, ptr @.str.346, ptr @.str.356, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unref, ptr @.str.346, ptr @.str.350, i32 239, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_part, ptr @.str.346, ptr @.str.349, i32 2663, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_set_up_encryption, ptr @.str.346, ptr @.str.349, i32 3194, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.354, ptr @.str.352, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.355, ptr @.str.352, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_can_store_new_dirty_bitmap, ptr @.str.346, ptr @.str.348, i32 1050, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_new_with_bs, ptr @.str.354, ptr @.str.357, i32 28, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_open, ptr @.str.346, ptr @.str.357, i32 40, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @is_zero, ptr @.str.346, ptr @.str.349, i32 4017, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_truncate_bitmaps_check, ptr @.str.346, ptr @.str.348, i32 1043, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decrypt, ptr @.str.346, ptr @.str.348, i32 1071, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_do_open, ptr @.str.346, ptr @.str.349, i32 1319, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrlock, ptr @.str.354, ptr @.str.353, i32 120, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_load_vmstate, ptr @.str.346, ptr @.str.349, i32 5382, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @preallocate_co, ptr @.str.346, ptr @.str.349, i32 3244, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_sync, ptr @.str.346, ptr @.str.352, i32 64, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_read_extensions, ptr @.str.346, ptr @.str.349, i32 205, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_read_snapshots, ptr @.str.346, ptr @.str.348, i32 986, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_compressed_cluster_offset, ptr @.str.346, ptr @.str.348, i32 941, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdlock, ptr @.str.346, ptr @.str.353, i32 165, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open, ptr @.str.346, ptr @.str.350, i32 118, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdunlock, ptr @.str.346, ptr @.str.353, i32 174, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_unref, ptr @.str.346, ptr @.str.357, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_host_offset, ptr @.str.346, ptr @.str.348, i32 936, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.354, ptr @.str.358, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.355, ptr @.str.358, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_restart_all, ptr @.str.346, ptr @.str.359, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status_above, ptr @.str.354, ptr @.str.352, i32 143, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status_above, ptr @.str.355, ptr @.str.352, i32 143, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pdiscard, ptr @.str.346, ptr @.str.349, i32 4103, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_task, ptr @.str.346, ptr @.str.349, i32 2579, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_compress, ptr @.str.346, ptr @.str.348, i32 1062, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_flush_to_os, ptr @.str.346, ptr @.str.349, i32 5043, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_is_zero_fast, ptr @.str.346, ptr @.str.352, i32 164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_block_status, ptr @.str.346, ptr @.str.349, i32 2130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_handle_l2meta, ptr @.str.346, ptr @.str.349, i32 2183, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_has_zero_init, ptr @.str.355, ptr @.str.349, i32 5315, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open_child, ptr @.str.346, ptr @.str.350, i32 90, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_update_options, ptr @.str.346, ptr @.str.349, i32 1265, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_do_close, ptr @.str.355, ptr @.str.349, i32 2781, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_copy_range_to, ptr @.str.346, ptr @.str.349, i32 4215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.346, ptr @.str.351, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.346, ptr @.str.352, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_check, ptr @.str.346, ptr @.str.349, i32 647, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_add_task, ptr @.str.346, ptr @.str.349, i32 2275, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite, ptr @.str.346, ptr @.str.358, i32 162, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_change_backing_file, ptr @.str.346, ptr @.str.349, i32 3164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.354, ptr @.str.352, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.355, ptr @.str.352, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.346, ptr @.str.360, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.346, ptr @.str.351, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_amend, ptr @.str.346, ptr @.str.349, i32 5920, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_crypto_hdr_write_func, ptr @.str.355, ptr @.str.349, i32 161, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_check_locked, ptr @.str.346, ptr @.str.349, i32 608, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_subcluster_zeroize, ptr @.str.346, ptr @.str.348, i32 958, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_get_info, ptr @.str.346, ptr @.str.349, i32 5224, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_save_vmstate, ptr @.str.346, ptr @.str.349, i32 5370, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_wrunlock, ptr @.str.354, ptr @.str.353, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_wait_all, ptr @.str.346, ptr @.str.356, i32 50, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_from, ptr @.str.346, ptr @.str.351, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_compressed, ptr @.str.346, ptr @.str.349, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_refcounts, ptr @.str.346, ptr @.str.348, i32 890, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open_blockdev_ref, ptr @.str.346, ptr @.str.350, i32 102, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_task_entry, ptr @.str.346, ptr @.str.349, i32 2361, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_remove_persistent_dirty_bitmap, ptr @.str.346, ptr @.str.348, i32 1054, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.354, ptr @.str.352, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.355, ptr @.str.352, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_truncate, ptr @.str.346, ptr @.str.349, i32 4283, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_detect_metadata_preallocation, ptr @.str.346, ptr @.str.348, i32 917, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.346, ptr @.str.352, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev_part, ptr @.str.346, ptr @.str.351, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_task_entry, ptr @.str.346, ptr @.str.349, i32 2651, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_task, ptr @.str.346, ptr @.str.349, i32 4659, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_with_bs, ptr @.str.346, ptr @.str.357, i32 32, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.354, ptr @.str.352, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.355, ptr @.str.352, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_to, ptr @.str.346, ptr @.str.351, i32 122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_get_last_cluster, ptr @.str.346, ptr @.str.348, i32 914, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_delete_file_noerr, ptr @.str.346, ptr @.str.352, i32 100, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_has_zero_init, ptr @.str.355, ptr @.str.350, i32 197, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_task_pool_new, ptr @.str.346, ptr @.str.356, i32 37, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.354, ptr @.str.361, i32 470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_cluster_abort, ptr @.str.346, ptr @.str.348, i32 951, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.354, ptr @.str.352, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.355, ptr @.str.352, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwritev_compressed_task_entry, ptr @.str.346, ptr @.str.349, i32 4728, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.346, ptr @.str.360, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.346, ptr @.str.350, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.354, ptr @.str.352, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.355, ptr @.str.352, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_encrypted, ptr @.str.346, ptr @.str.349, i32 2215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_open_entry, ptr @.str.346, ptr @.str.349, i32 1915, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_pwrite_zeroes, ptr @.str.346, ptr @.str.349, i32 4047, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_cluster_link_l2, ptr @.str.346, ptr @.str.348, i32 948, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_shrink_l1_table, ptr @.str.346, ptr @.str.348, i32 924, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_truncate, ptr @.str.346, ptr @.str.352, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_clusters_at, ptr @.str.346, ptr @.str.348, i32 873, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_fix_snapshot_table, ptr @.str.346, ptr @.str.348, i32 994, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_create_opts, ptr @.str.346, ptr @.str.349, i32 3881, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_block_status_above, ptr @.str.346, ptr @.str.352, i32 139, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_shrink_reftable, ptr @.str.346, ptr @.str.348, i32 911, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.354, ptr @.str.352, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.355, ptr @.str.352, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.354, ptr @.str.357, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_truncate, ptr @.str.346, ptr @.str.358, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_preadv_part, ptr @.str.346, ptr @.str.349, i32 2373, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_mark_dirty(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_mark_dirty(ptr noundef readonly captures(none) %bs) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -991,7 +991,7 @@ fail:                                             ; preds = %for.body, %header_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -27, 1) i32 @qcow2_validate_table(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -27, 1) i32 @qcow2_validate_table(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %entries, i64 noundef %entry_len, i64 noundef %max_size_bytes, ptr noundef %table_name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1032,7 +1032,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -95, 1) i32 @validate_compression_type(ptr nocapture noundef readonly %s, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @validate_compression_type(ptr noundef readonly captures(none) %s, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %compression_type = getelementptr inbounds nuw i8, ptr %s, i64 492
   %0 = load i32, ptr %compression_type, align 4
@@ -1071,16 +1071,16 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
 
@@ -1217,7 +1217,7 @@ declare zeroext i1 @bdrv_is_writable(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare ptr @bdrv_get_node_name(ptr noundef) local_unnamed_addr #2
 
@@ -1228,7 +1228,7 @@ declare ptr @bdrv_get_device_name(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_reopen_prepare(ptr nocapture noundef %state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_reopen_prepare(ptr noundef captures(none) %state, ptr readnone captures(none) %queue, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1357,7 +1357,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end26, %if.end34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_reopen_commit(ptr nocapture noundef readonly %state) #0 {
+define internal void @qcow2_reopen_commit(ptr noundef readonly captures(none) %state) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1387,7 +1387,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_reopen_commit_post(ptr nocapture noundef readonly %state) #0 {
+define internal void @qcow2_reopen_commit_post(ptr noundef readonly captures(none) %state) #0 {
 entry:
   %local_err = alloca ptr, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #23
@@ -1417,7 +1417,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_reopen_abort(ptr nocapture noundef readonly %state) #0 {
+define internal void @qcow2_reopen_abort(ptr noundef readonly captures(none) %state) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1632,7 +1632,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_co_create(ptr nocapture noundef %create_options, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_create(ptr noundef captures(none) %create_options, ptr noundef %errp) #0 {
 entry:
   %0 = load i32, ptr %create_options, align 8
   %cmp = icmp eq i32 %0, 29
@@ -2197,7 +2197,7 @@ return:                                           ; preds = %if.end, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -2523,7 +2523,7 @@ if.then49:                                        ; preds = %if.else45
   br label %if.end119
 
 if.else51:                                        ; preds = %if.else45
-  %call53 = tail call i32 @g_str_has_prefix(ptr noundef %10, ptr noundef nonnull @.str.91) #23
+  %call53 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %10, ptr noundef nonnull @.str.91) #23
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.else61, label %if.then55
 
@@ -2740,7 +2740,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp6.i, label %if.then10.i, label %for.cond.i
 
 if.then10.i:                                      ; preds = %for.body.i
-  %call.i = tail call i32 @qcow2_write_snapshots(ptr noundef %bs) #23
+  %call.i = tail call i32 @qcow2_write_snapshots(ptr noundef nonnull %bs) #23
   %cmp11.i = icmp slt i32 %call.i, 0
   br i1 %cmp11.i, label %if.then13.i, label %qcow2_amend_helper_cb.exit56.i
 
@@ -2750,9 +2750,9 @@ if.then13.i:                                      ; preds = %if.then10.i
   br label %return
 
 qcow2_amend_helper_cb.exit56.i:                   ; preds = %for.cond.i, %qcow2_amend_helper_cb.exit.i, %if.then10.i
-  tail call void %status_cb(ptr noundef %bs, i64 noundef 1, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #23
+  tail call void %status_cb(ptr noundef nonnull %bs, i64 noundef 1, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #23
   store i32 3, ptr %qcow_version.i, align 4
-  %call17.i = tail call i32 @qcow2_update_header(ptr noundef %bs)
+  %call17.i = tail call i32 @qcow2_update_header(ptr noundef nonnull %bs)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %qcow2_upgrade.exit
 
@@ -2764,7 +2764,7 @@ if.then20.i:                                      ; preds = %qcow2_amend_helper_
 
 qcow2_upgrade.exit:                               ; preds = %qcow2_amend_helper_cb.exit56.i
   store i64 2, ptr %.compoundliteral.sroa.811.0.helper_cb_info.sroa_idx, align 8
-  tail call void %status_cb(ptr noundef %bs, i64 noundef 2, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #23
+  tail call void %status_cb(ptr noundef nonnull %bs, i64 noundef 2, i64 noundef %add27.i.i, ptr noundef %cb_opaque) #23
   br label %if.end140
 
 if.end140:                                        ; preds = %qcow2_upgrade.exit, %while.end
@@ -3442,7 +3442,7 @@ return:                                           ; preds = %land.lhs.true2, %la
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_refresh_limits(ptr nocapture noundef initializes((16480, 16484), (16496, 16500)) %bs, ptr nocapture readnone %errp) #0 {
+define internal void @qcow2_refresh_limits(ptr noundef captures(none) initializes((16480, 16484), (16496, 16500)) %bs, ptr readnone captures(none) %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -3473,7 +3473,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @qcow2_has_zero_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -3530,7 +3530,7 @@ return:                                           ; preds = %if.else, %if.end5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_detach_aio_context(ptr nocapture noundef readonly %bs) #0 {
+define internal void @qcow2_detach_aio_context(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -3581,7 +3581,7 @@ cache_clean_timer_init.exit:                      ; preds = %entry, %if.then.i
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @qcow2_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #9 {
+define internal range(i32 0, 101) i32 @qcow2_probe(ptr noundef readonly captures(none) %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #9 {
 entry:
   %cmp = icmp ugt i32 %buf_size, 111
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -3607,7 +3607,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_amend(ptr noundef %bs, ptr nocapture noundef readonly %opts, i1 noundef zeroext %force, ptr noundef %errp) #0 {
+define internal i32 @qcow2_co_amend(ptr noundef %bs, ptr noundef readonly captures(none) %opts, i1 noundef zeroext %force, ptr noundef %errp) #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %opts, i64 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3954,7 +3954,7 @@ if.end33:                                         ; preds = %if.then31, %land.lh
   %19 = load i64, ptr %host_offset, align 8
   %conv34 = zext i32 %18 to i64
   %20 = load ptr, ptr %l2meta, align 8
-  %call35 = call i32 @qcow2_add_task(ptr noundef %bs, ptr noundef %aio.1, ptr noundef nonnull @qcow2_co_pwritev_task_entry, i32 noundef 0, i64 noundef %19, i64 noundef %offset.addr.084, i64 noundef %conv34, ptr noundef %qiov, i64 noundef %qiov_offset.addr.082, ptr noundef %20)
+  %call35 = call i32 @qcow2_add_task(ptr noundef nonnull %bs, ptr noundef %aio.1, ptr noundef nonnull @qcow2_co_pwritev_task_entry, i32 noundef 0, i64 noundef %19, i64 noundef %offset.addr.084, i64 noundef %conv34, ptr noundef %qiov, i64 noundef %qiov_offset.addr.082, ptr noundef %20)
   store ptr null, ptr %l2meta, align 8
   %cmp36 = icmp slt i32 %call35, 0
   br i1 %cmp36, label %fail_nometa, label %if.end39
@@ -4415,7 +4415,7 @@ return:                                           ; preds = %if.end9, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_co_copy_range_from(ptr noundef %bs, ptr nocapture readnone %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_copy_range_from(ptr noundef %bs, ptr readnone captures(none) %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
 entry:
   %cur_bytes = alloca i32, align 4
   %copy_offset = alloca i64, align 8
@@ -4529,7 +4529,7 @@ out:                                              ; preds = %while.body, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_copy_range_to(ptr noundef %bs, ptr noundef %src, i64 noundef %src_offset, ptr nocapture readnone %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
+define internal i32 @qcow2_co_copy_range_to(ptr noundef %bs, ptr noundef %src, i64 noundef %src_offset, ptr readnone captures(none) %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cur_bytes = alloca i32, align 4
@@ -4720,7 +4720,7 @@ trace_qcow2_writev_done_req.exit:                 ; preds = %qcow2_handle_l2meta
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 256) i32 @qcow2_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 256) i32 @qcow2_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr noundef writeonly captures(none) %pnum, ptr noundef writeonly captures(none) %map, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %host_offset = alloca i64, align 8
   %bytes = alloca i32, align 4
@@ -5299,7 +5299,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %lnot251271, ptr %.compoundliteral.sroa.11.0.allocation.sroa_idx, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.1215.0.allocation.sroa_idx, i8 0, i64 24, i1 false)
   call void @qemu_co_queue_init(ptr noundef nonnull %dependent_requests247) #23
-  %call248 = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr noundef nonnull %allocation) #23
+  %call248 = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef nonnull %bs, ptr noundef nonnull %allocation) #23
   %cmp249 = icmp slt i32 %call248, 0
   br i1 %cmp249, label %if.then251, label %if.end256
 
@@ -5309,7 +5309,7 @@ if.then251:                                       ; preds = %while.body
   %36 = load i32, ptr %cluster_size155, align 4
   %conv254 = sext i32 %36 to i64
   %mul255 = mul i64 %nb_new_data_clusters.0259, %conv254
-  call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %host_offset.0261, i64 noundef %mul255, i32 noundef 4) #23
+  call void @qcow2_free_clusters(ptr noundef nonnull %bs, i64 noundef %host_offset.0261, i64 noundef %mul255, i32 noundef 4) #23
   br label %fail
 
 if.end256:                                        ; preds = %while.body
@@ -5348,7 +5348,7 @@ if.then271:                                       ; preds = %sw.epilog
 
 if.then283:                                       ; preds = %if.then271
   %sub284 = sub nuw i64 %offset, %mul280
-  %call285 = call i32 @qcow2_subcluster_zeroize(ptr noundef %bs, i64 noundef %mul280, i64 noundef %sub284, i32 noundef 0) #23
+  %call285 = call i32 @qcow2_subcluster_zeroize(ptr noundef nonnull %bs, i64 noundef %mul280, i64 noundef %sub284, i32 noundef 0) #23
   %cmp286 = icmp slt i32 %call285, 0
   br i1 %cmp286, label %if.then288, label %if.end291
 
@@ -5364,7 +5364,7 @@ if.end291:                                        ; preds = %if.then283, %if.the
 if.then294:                                       ; preds = %if.end291
   %cond301 = call i64 @llvm.umin.i64(i64 %mul280, i64 %offset)
   %sub302 = sub i64 %cond301, %mul
-  %call303 = call ptr @qemu_blockalign0(ptr noundef %bs, i64 noundef %sub302) #23
+  %call303 = call ptr @qemu_blockalign0(ptr noundef nonnull %bs, i64 noundef %sub302) #23
   %40 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov.i, ptr %qiov, align 8
@@ -5375,7 +5375,7 @@ if.then294:                                       ; preds = %if.end291
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %sub302, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #23
-  %call305 = call i32 @qcow2_co_pwritev_part(ptr noundef %bs, i64 noundef %mul, i64 noundef %sub302, ptr noundef nonnull %qiov, i64 noundef 0, i32 poison)
+  %call305 = call i32 @qcow2_co_pwritev_part(ptr noundef nonnull %bs, i64 noundef %mul, i64 noundef %sub302, ptr noundef nonnull %qiov, i64 noundef 0, i32 poison)
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #23
   call void @qemu_vfree(ptr noundef %call303) #23
   %cmp307 = icmp slt i32 %call305, 0
@@ -5391,7 +5391,7 @@ if.end313:                                        ; preds = %if.end291, %if.then
   br i1 %cmp314.not, label %if.end323, label %if.then316
 
 if.then316:                                       ; preds = %if.end313
-  %call317 = call i32 @qcow2_write_caches(ptr noundef %bs) #23
+  %call317 = call i32 @qcow2_write_caches(ptr noundef nonnull %bs) #23
   %cmp318 = icmp slt i32 %call317, 0
   br i1 %cmp318, label %if.then320, label %if.end323
 
@@ -5835,7 +5835,7 @@ return:                                           ; preds = %while.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @qcow2_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 17)) %bdi) #10 {
+define internal noundef i32 @qcow2_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) initializes((0, 17)) %bdi) #10 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6155,7 +6155,7 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_check(ptr noundef %bs, ptr nocapture noundef initializes((0, 64)) %result, i32 noundef %fix) #0 {
+define internal i32 @qcow2_co_check(ptr noundef %bs, ptr noundef captures(none) initializes((0, 64)) %result, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6200,7 +6200,7 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #2
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_update_options_prepare(ptr noundef %bs, ptr nocapture noundef %r, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @qcow2_update_options_prepare(ptr noundef %bs, ptr noundef captures(none) %r, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %l2_cache_size = alloca i64, align 8
   %refcount_cache_size = alloca i64, align 8
@@ -6724,7 +6724,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare ptr @qemu_opt_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -6775,7 +6775,7 @@ declare i32 @qcow2_cache_destroy(ptr noundef) local_unnamed_addr #2
 declare void @qapi_free_QCryptoBlockOpenOptions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qcow2_update_options_commit(ptr noundef %bs, ptr nocapture noundef readonly %r) unnamed_addr #0 {
+define internal fastcc void @qcow2_update_options_commit(ptr noundef %bs, ptr noundef readonly captures(none) %r) unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6901,7 +6901,7 @@ declare ptr @bdrv_get_aio_context(ptr noundef) local_unnamed_addr #2
 declare void @timer_del(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cache_clean_timer_cb(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @cache_clean_timer_cb(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %opaque1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -6957,7 +6957,7 @@ declare void @aio_co_enter(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_open_entry(ptr nocapture noundef initializes((32, 36)) %opaque) #0 {
+define internal void @qcow2_open_entry(ptr noundef captures(none) initializes((32, 36)) %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7515,20 +7515,20 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp321, label %for.body, label %if.end328, !llvm.loop !24
 
 if.end328:                                        ; preds = %for.body, %for.cond.preheader, %if.end293
-  %call329 = call i32 @qcow2_update_options(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %spec.select)
+  %call329 = call i32 @qcow2_update_options(ptr noundef nonnull %bs, ptr noundef %options, i32 noundef %flags, ptr noundef nonnull %spec.select)
   %cmp330 = icmp slt i32 %call329, 0
   br i1 %cmp330, label %fail, label %if.end333
 
 if.end333:                                        ; preds = %if.end328
   %flags334 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %flags, ptr %flags334, align 8
-  %call335 = call i32 @qcow2_refcount_init(ptr noundef %bs) #23
+  %call335 = call i32 @qcow2_refcount_init(ptr noundef nonnull %bs) #23
   %cmp336.not = icmp eq i32 %call335, 0
   br i1 %cmp336.not, label %do.body341, label %if.then338
 
 if.then338:                                       ; preds = %if.end333
   %sub339 = sub i32 0, %call335
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1625, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub339, ptr noundef nonnull @.str.167) #23
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1625, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub339, ptr noundef nonnull @.str.167) #23
   br label %fail
 
 do.body341:                                       ; preds = %if.end333
@@ -7540,7 +7540,7 @@ do.body341:                                       ; preds = %if.end333
   store ptr %discards, ptr %tql_prev, align 8
   %90 = load i32, ptr %header_length79315318, align 1
   %conv350 = zext i32 %90 to i64
-  %call351 = call i32 @qcow2_read_extensions(ptr noundef %bs, i64 noundef %conv350, i64 noundef %ext_end.0, ptr noundef null, i32 noundef %flags, ptr noundef nonnull %update_header, ptr noundef %spec.select)
+  %call351 = call i32 @qcow2_read_extensions(ptr noundef nonnull %bs, i64 noundef %conv350, i64 noundef %ext_end.0, ptr noundef null, i32 noundef %flags, ptr noundef nonnull %update_header, ptr noundef nonnull %spec.select)
   %tobool352.not = icmp eq i32 %call351, 0
   br i1 %tobool352.not, label %if.end354, label %fail
 
@@ -7549,7 +7549,7 @@ if.end354:                                        ; preds = %do.body341
 
 if.then356:                                       ; preds = %if.end354
   call void @bdrv_graph_co_rdunlock() #23
-  %call357 = call ptr @bdrv_co_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.168, ptr noundef %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext true, ptr noundef %spec.select) #23
+  %call357 = call ptr @bdrv_co_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.168, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %spec.select) #23
   %data_file = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %call357, ptr %data_file, align 8
   call void @bdrv_graph_co_rdlock() #23
@@ -7577,7 +7577,7 @@ land.lhs.true367:                                 ; preds = %if.then364
 if.then369:                                       ; preds = %land.lhs.true367
   call void @bdrv_graph_co_rdunlock() #23
   %95 = load ptr, ptr %image_data_file, align 8
-  %call371 = call ptr @bdrv_co_open_child(ptr noundef %95, ptr noundef %options, ptr noundef nonnull @.str.168, ptr noundef %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %spec.select) #23
+  %call371 = call ptr @bdrv_co_open_child(ptr noundef %95, ptr noundef %options, ptr noundef nonnull @.str.168, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %spec.select) #23
   store ptr %call371, ptr %data_file, align 8
   call void @bdrv_graph_co_rdlock() #23
   %96 = load ptr, ptr %data_file, align 8
@@ -7595,7 +7595,7 @@ if.end381:                                        ; preds = %if.then364, %if.the
   %and383 = and i32 %98, -2
   store i32 %and383, ptr %role, align 8
   %99 = load ptr, ptr %file, align 8
-  %call385 = call i32 @bdrv_child_refresh_perms(ptr noundef %bs, ptr noundef %99, ptr noundef nonnull @error_abort) #23
+  %call385 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %99, ptr noundef nonnull @error_abort) #23
   br label %if.end397
 
 if.else386:                                       ; preds = %if.end360
@@ -7639,7 +7639,7 @@ if.then406:                                       ; preds = %if.then402
   %and407.lobit = and i32 %and407, 1
   %crypto_opts = getelementptr inbounds nuw i8, ptr %0, i64 224
   %104 = load ptr, ptr %crypto_opts, align 8
-  %call411 = call ptr @qcrypto_block_open(ptr noundef %104, ptr noundef nonnull @.str.91, ptr noundef null, ptr noundef null, i32 noundef %and407.lobit, i64 noundef 4, ptr noundef %spec.select) #23
+  %call411 = call ptr @qcrypto_block_open(ptr noundef %104, ptr noundef nonnull @.str.91, ptr noundef null, ptr noundef null, i32 noundef %and407.lobit, i64 noundef 4, ptr noundef nonnull %spec.select) #23
   store ptr %call411, ptr %crypto, align 8
   %tobool414.not = icmp eq ptr %call411, null
   br i1 %tobool414.not, label %fail, label %if.end424
@@ -7650,7 +7650,7 @@ if.else417:                                       ; preds = %if.then402
   br i1 %tobool419.not, label %if.then420, label %if.end424
 
 if.then420:                                       ; preds = %if.else417
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1712, ptr noundef nonnull @__func__.qcow2_do_open, ptr noundef nonnull @.str.172, i32 noundef %102) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1712, ptr noundef nonnull @__func__.qcow2_do_open, ptr noundef nonnull @.str.172, i32 noundef %102) #23
   br label %fail
 
 if.end424:                                        ; preds = %if.then406, %if.else417, %land.lhs.true400, %if.end397
@@ -7669,7 +7669,7 @@ if.then428:                                       ; preds = %if.end424
   br i1 %cmp438, label %if.then444, label %if.end445
 
 if.then444:                                       ; preds = %if.then428
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1723, ptr noundef nonnull @__func__.qcow2_do_open, ptr noundef nonnull @.str.173) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1723, ptr noundef nonnull @__func__.qcow2_do_open, ptr noundef nonnull @.str.173) #23
   br label %fail
 
 if.end445:                                        ; preds = %if.then428
@@ -7686,7 +7686,7 @@ if.end445:                                        ; preds = %if.then428
 
 if.then456:                                       ; preds = %if.end445
   %sub457 = sub i32 0, %call453
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1732, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub457, ptr noundef nonnull @.str.174) #23
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1732, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub457, ptr noundef nonnull @.str.174) #23
   br label %fail
 
 if.end458:                                        ; preds = %if.end445
@@ -7718,7 +7718,7 @@ if.then475:                                       ; preds = %if.end472
   %115 = load i32, ptr %nb_snapshots, align 4
   %nb_snapshots479 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %115, ptr %nb_snapshots479, align 4
-  %call480 = call i32 @qcow2_read_snapshots(ptr noundef %bs, ptr noundef %spec.select) #23
+  %call480 = call i32 @qcow2_read_snapshots(ptr noundef nonnull %bs, ptr noundef nonnull %spec.select) #23
   %cmp481 = icmp slt i32 %call480, 0
   br i1 %cmp481, label %fail, label %if.end485
 
@@ -7736,7 +7736,7 @@ if.end485:                                        ; preds = %if.then475, %if.end
   br i1 %tobool491, label %land.rhs, label %if.end502.critedge
 
 land.rhs:                                         ; preds = %if.end485
-  %call495 = call zeroext i1 @bdrv_is_writable(ptr noundef %bs) #23
+  %call495 = call zeroext i1 @bdrv_is_writable(ptr noundef nonnull %bs) #23
   %frombool497 = zext i1 %call495 to i8
   store i8 %frombool497, ptr %update_header, align 1
   br i1 %call495, label %if.then499, label %if.end502
@@ -7752,7 +7752,7 @@ if.end502.critedge:                               ; preds = %if.end485
   br label %if.end502
 
 if.end502:                                        ; preds = %if.end502.critedge, %if.then499, %land.rhs
-  %call503 = call i32 @bdrv_get_flags(ptr noundef %bs) #23
+  %call503 = call i32 @bdrv_get_flags(ptr noundef nonnull %bs) #23
   %and504 = and i32 %call503, 2048
   %tobool505.not = icmp eq i32 %and504, 0
   br i1 %tobool505.not, label %if.then506, label %if.end502.if.end516_crit_edge
@@ -7762,7 +7762,7 @@ if.end502.if.end516_crit_edge:                    ; preds = %if.end502
   br label %if.end516
 
 if.then506:                                       ; preds = %if.end502
-  %call507 = call zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef %bs, ptr noundef nonnull %header_updated, ptr noundef %spec.select) #23
+  %call507 = call zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef nonnull %bs, ptr noundef nonnull %header_updated, ptr noundef nonnull %spec.select) #23
   br i1 %call507, label %if.end509, label %fail
 
 if.end509:                                        ; preds = %if.then506
@@ -7781,13 +7781,13 @@ if.end516:                                        ; preds = %if.end502.if.end516
   br i1 %tobool517, label %if.then518, label %if.end525
 
 if.then518:                                       ; preds = %if.end516
-  %call519 = call i32 @qcow2_update_header(ptr noundef %bs)
+  %call519 = call i32 @qcow2_update_header(ptr noundef nonnull %bs)
   %cmp520 = icmp slt i32 %call519, 0
   br i1 %cmp520, label %if.then522, label %if.end525
 
 if.then522:                                       ; preds = %if.then518
   %sub523 = sub i32 0, %call519
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1844, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub523, ptr noundef nonnull @.str.175) #23
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1844, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub523, ptr noundef nonnull @.str.175) #23
   br label %fail
 
 if.end525:                                        ; preds = %if.then518, %if.end516
@@ -7824,7 +7824,7 @@ if.then545:                                       ; preds = %if.then539
   %cmp546 = icmp sgt i32 %call540, -1
   %spec.store.select = select i1 %cmp546, i32 -5, i32 %call540
   %sub550 = sub i32 0, %spec.store.select
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1864, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub550, ptr noundef nonnull @.str.176) #23
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1864, ptr noundef nonnull @__func__.qcow2_do_open, i32 noundef %sub550, ptr noundef nonnull @.str.176) #23
   br label %fail
 
 if.end552:                                        ; preds = %if.then539, %land.lhs.true535, %land.lhs.true532, %if.end525
@@ -7972,7 +7972,7 @@ declare void @aio_wait_kick() local_unnamed_addr #2
 declare void @bdrv_graph_co_rdlock() #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #23
   ret void
@@ -8597,7 +8597,7 @@ declare i32 @bdrv_get_flags(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_check_locked(ptr noundef %bs, ptr nocapture noundef initializes((0, 64)) %result, i32 noundef %fix) #0 {
+define internal i32 @qcow2_co_check_locked(ptr noundef %bs, ptr noundef captures(none) initializes((0, 64)) %result, i32 noundef %fix) #0 {
 entry:
   %snapshot_res = alloca %struct.BdrvCheckResult, align 8
   %refcount_res = alloca %struct.BdrvCheckResult, align 8
@@ -8788,7 +8788,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_read_func(ptr readnone captures(none) %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -9098,7 +9098,7 @@ declare void @bdrv_co_unref(ptr noundef) #2
 declare ptr @qcrypto_block_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_init_func(ptr readnone captures(none) %block, i64 noundef %headerlen, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -9153,7 +9153,7 @@ return:                                           ; preds = %if.end9, %if.then14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcow2_crypto_hdr_write_func(ptr readnone captures(none) %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %opaque1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %opaque1, align 8
@@ -9214,7 +9214,7 @@ declare ptr @qemu_opt_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_amend_helper_cb(ptr noundef %bs, i64 noundef %operation_offset, i64 noundef %operation_work_size, ptr nocapture noundef %opaque) #0 {
+define internal void @qcow2_amend_helper_cb(ptr noundef %bs, i64 noundef %operation_offset, i64 noundef %operation_work_size, ptr noundef captures(none) %opaque) #0 {
 entry:
   %current_operation = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i32, ptr %current_operation, align 8
@@ -9793,7 +9793,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_preadv_task_entry(ptr nocapture noundef readonly %task) #0 {
+define internal i32 @qcow2_co_preadv_task_entry(ptr noundef readonly captures(none) %task) #0 {
 entry:
   %l2meta = getelementptr inbounds nuw i8, ptr %task, i64 80
   %0 = load ptr, ptr %l2meta, align 8
@@ -9833,7 +9833,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #2
 declare void @aio_task_pool_start_task(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -10114,7 +10114,7 @@ declare i32 @qcow2_co_decrypt(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 declare i32 @qcow2_alloc_host_offset(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_pwritev_task_entry(ptr nocapture noundef readonly %task) #0 {
+define internal i32 @qcow2_co_pwritev_task_entry(ptr noundef readonly captures(none) %task) #0 {
 entry:
   %subcluster_type = getelementptr inbounds nuw i8, ptr %task, i64 32
   %0 = load i32, ptr %subcluster_type, align 8
@@ -10145,7 +10145,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_handle_l2meta(ptr noundef %bs, ptr nocapture noundef %pl2meta, i1 noundef zeroext %link_l2) #0 {
+define internal i32 @qcow2_handle_l2meta(ptr noundef %bs, ptr noundef captures(none) %pl2meta, i1 noundef zeroext %link_l2) #0 {
 entry:
   %0 = load ptr, ptr %pl2meta, align 8
   %cmp.not17 = icmp eq ptr %0, null
@@ -10447,7 +10447,7 @@ if.end39:                                         ; preds = %merge_cow.exit, %tr
 
 while.body.us.i:                                  ; preds = %if.end39, %if.end11.us.i
   %l2meta.018.us.i = phi ptr [ %25, %if.end11.us.i ], [ %l2meta, %if.end39 ]
-  %call.us.i = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr noundef nonnull %l2meta.018.us.i) #23
+  %call.us.i = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef nonnull %bs, ptr noundef nonnull %l2meta.018.us.i) #23
   %tobool1.not.us.i = icmp eq i32 %call.us.i, 0
   br i1 %tobool1.not.us.i, label %do.body.us.i, label %while.body.lr.ph.i34
 
@@ -10692,7 +10692,7 @@ return:                                           ; preds = %is_zero_cow.exit, %
 declare i32 @bdrv_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @is_zero_cow(ptr noundef %bs, ptr nocapture noundef readonly %m) #0 {
+define internal i32 @is_zero_cow(ptr noundef %bs, ptr noundef readonly captures(none) %m) #0 {
 entry:
   %0 = load i64, ptr %m, align 8
   %cow_start = getelementptr inbounds nuw i8, ptr %m, i64 40
@@ -11078,7 +11078,7 @@ declare i64 @qemu_opt_get_number_del(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @qapi_free_QCryptoBlockCreateOptions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_co_pwritev_compressed_task_entry(ptr nocapture noundef readonly %task) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_co_pwritev_compressed_task_entry(ptr noundef readonly captures(none) %task) #0 {
 entry:
   %subcluster_type = getelementptr inbounds nuw i8, ptr %task, i64 32
   %0 = load i32, ptr %subcluster_type, align 8
@@ -11298,10 +11298,10 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 declare i64 @llvm.ctpop.i64(i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -124,7 +124,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
@@ -213,7 +213,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @EOH_flatten_into(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -350,7 +350,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
 
 39:                                               ; preds = %34
   %40 = add i64 %37, 1
-  %bcmp = tail call i32 @bcmp(ptr %35, ptr %36, i64 %40)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %35, ptr nonnull %36, i64 %40)
   %41 = icmp eq i32 %bcmp, 0
   br label %45
 
@@ -421,7 +421,7 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #10
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, 1
-  %29 = tail call i32 @hash_bytes(ptr noundef %25, i32 noundef %28) #9
+  %29 = tail call i32 @hash_bytes(ptr noundef nonnull %25, i32 noundef %28) #9
   br label %33
 
 30:                                               ; preds = %12
@@ -439,7 +439,7 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @btequalimage(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @btequalimage(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 1
 }
 
@@ -483,7 +483,7 @@ define dso_local i64 @datumEstimateSpace(i64 noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %brmerge = or i1 %1, %2
   %.mux = select i1 %1, i32 -2, i32 -1
   br i1 %brmerge, label %24, label %6
@@ -566,7 +566,7 @@ define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @datumRestore(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local i64 @datumRestore(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.0.copyload2 = load i32, ptr %3, align 1
   %4 = getelementptr i8, ptr %3, i64 4
@@ -610,7 +610,7 @@ define dso_local i64 @datumRestore(ptr nocapture noundef %0, ptr nocapture nound
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

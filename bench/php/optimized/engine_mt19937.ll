@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [9 x i8] c"__states\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @php_random_mt19937_seed32(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @php_random_mt19937_seed32(ptr noundef captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4
   br label %3
 
@@ -62,7 +62,7 @@ define void @php_random_mt19937_seed32(ptr nocapture noundef initializes((0, 4))
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @mt19937_reload(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2500
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
@@ -196,7 +196,7 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal { i64, i64 } @generate(ptr nocapture noundef %0) #0 {
+define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 623
@@ -355,7 +355,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_random_mt19937_seed_default(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #1 {
+define void @php_random_mt19937_seed_default(ptr noundef captures(none) initializes((0, 4)) %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = call i32 @php_random_bytes(ptr noundef nonnull %2, i64 noundef 4, i1 noundef zeroext false) #6
@@ -413,7 +413,7 @@ declare i32 @getpid() local_unnamed_addr #2
 declare double @php_combined_lcg() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -583,7 +583,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zim_Random_Engine_Mt19937_generate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -658,7 +658,7 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @zim_Random_Engine_Mt19937___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -720,7 +720,7 @@ declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #3
 declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -865,7 +865,7 @@ declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8

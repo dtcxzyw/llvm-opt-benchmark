@@ -88,16 +88,16 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @check_pipe(i32 noundef) local_unnamed_addr #1
 
@@ -108,7 +108,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fprintf_or_die(ptr nocapture noundef %f, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @fprintf_or_die(ptr noundef captures(none) %f, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -129,7 +129,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fsync_or_die(i32 noundef %fd, ptr noundef %msg) local_unnamed_addr #0 {
@@ -280,7 +280,7 @@ if.end:                                           ; preds = %entry
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fwrite_or_die(ptr nocapture noundef %f, ptr nocapture noundef %buf, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local void @fwrite_or_die(ptr noundef captures(none) %f, ptr noundef captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %buf, i64 noundef 1, i64 noundef %count, ptr noundef %f)
   %cmp.not = icmp eq i64 %call, %count
@@ -295,10 +295,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fflush_or_die(ptr nocapture noundef %f) local_unnamed_addr #0 {
+define dso_local void @fflush_or_die(ptr noundef captures(none) %f) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fflush(ptr noundef %f)
   %tobool.not = icmp eq i32 %call, 0

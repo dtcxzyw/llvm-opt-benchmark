@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.normalize_exec_path = private unnamed_addr constant [20 x i8] c"normalize_exec_path\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @validate_exec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @validate_exec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #13
   %4 = icmp slt i32 %3, 0
@@ -65,26 +65,26 @@ define dso_local range(i32 -2, 1) i32 @validate_exec(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @find_my_exec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1024) #13
-  %6 = tail call ptr @first_dir_separator(ptr noundef %1) #13
+  %6 = tail call ptr @first_dir_separator(ptr noundef nonnull %1) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %31, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %8 = call i32 @stat(ptr noundef readonly %1, ptr noundef nonnull %4) #13
+  %8 = call i32 @stat(ptr noundef nonnull readonly %1, ptr noundef nonnull %4) #13
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %validate_exec.exit.thread, label %10
 
@@ -103,8 +103,8 @@ define dso_local range(i32 -1, 1) i32 @find_my_exec(ptr noundef %0, ptr noundef 
   br label %validate_exec.exit.thread
 
 19:                                               ; preds = %10
-  %20 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 4) #13
-  %21 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 1) #13
+  %20 = tail call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 4) #13
+  %21 = tail call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %validate_exec.exit, label %validate_exec.exit.thread
 
@@ -118,7 +118,7 @@ validate_exec.exit:                               ; preds = %19
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %validate_exec.exit
-  %25 = tail call fastcc i32 @normalize_exec_path(ptr noundef %1)
+  %25 = tail call fastcc i32 @normalize_exec_path(ptr noundef nonnull %1)
   br label %76
 
 26:                                               ; preds = %validate_exec.exit.thread, %validate_exec.exit
@@ -127,7 +127,7 @@ validate_exec.exit:                               ; preds = %19
 
 28:                                               ; preds = %26
   %29 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %1) #13
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %1) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @__func__.find_my_exec) #13
   br label %76
 
@@ -146,11 +146,10 @@ validate_exec.exit:                               ; preds = %19
   br label %36
 
 36:                                               ; preds = %.preheader, %70
-  %.029 = phi ptr [ %.130, %70 ], [ null, %.preheader ]
+  %.029 = phi i1 [ false, %70 ], [ true, %.preheader ]
   %.0 = phi ptr [ %.1, %70 ], [ null, %.preheader ]
-  %.not36 = icmp eq ptr %.029, null
   %37 = getelementptr i8, ptr %.0, i64 1
-  %.130 = select i1 %.not36, ptr %32, ptr %37
+  %.130 = select i1 %.029, ptr %32, ptr %37
   %38 = tail call ptr @first_path_var_separator(ptr noundef %.130) #13
   %.not37 = icmp eq ptr %38, null
   br i1 %.not37, label %39, label %42
@@ -167,11 +166,11 @@ validate_exec.exit:                               ; preds = %19
   %reass.sub = sub i64 %43, %44
   %45 = add i64 %reass.sub, 1
   %46 = tail call i64 @llvm.smin.i64(i64 %45, i64 1024)
-  %47 = tail call i64 @strlcpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) %.130, i64 noundef %46) #13
-  tail call void @join_path_components(ptr noundef %1, ptr noundef %1, ptr noundef %0) #13
-  tail call void @canonicalize_path(ptr noundef %1) #13
+  %47 = tail call i64 @strlcpy(ptr noundef nonnull %1, ptr noundef nonnull dereferenceable(1) %.130, i64 noundef %46) #13
+  tail call void @join_path_components(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %0) #13
+  tail call void @canonicalize_path(ptr noundef nonnull %1) #13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %48 = call i32 @stat(ptr noundef readonly %1, ptr noundef nonnull %3) #13
+  %48 = call i32 @stat(ptr noundef nonnull readonly %1, ptr noundef nonnull %3) #13
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %validate_exec.exit40.thread, label %50
 
@@ -189,8 +188,8 @@ validate_exec.exit:                               ; preds = %19
   br label %validate_exec.exit40.thread
 
 58:                                               ; preds = %50
-  %59 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 4) #13
-  %60 = tail call i32 @access(ptr noundef readonly %1, i32 noundef 1) #13
+  %59 = tail call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 4) #13
+  %60 = tail call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %validate_exec.exit40, label %validate_exec.exit40.thread
 
@@ -204,7 +203,7 @@ validate_exec.exit40:                             ; preds = %58
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %validate_exec.exit40
-  %64 = tail call fastcc i32 @normalize_exec_path(ptr noundef %1)
+  %64 = tail call fastcc i32 @normalize_exec_path(ptr noundef nonnull %1)
   br label %76
 
 65:                                               ; preds = %validate_exec.exit40
@@ -213,7 +212,7 @@ validate_exec.exit40:                             ; preds = %58
 
 67:                                               ; preds = %65
   %68 = tail call i32 @errcode(i32 noundef 151027844) #13
-  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %1) #13
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.find_my_exec) #13
   br label %70
 
@@ -228,7 +227,7 @@ validate_exec.exit40:                             ; preds = %58
 
 73:                                               ; preds = %.loopexit
   %74 = tail call i32 @errcode(i32 noundef 16908805) #13
-  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef %0) #13
+  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 225, ptr noundef nonnull @__func__.find_my_exec) #13
   br label %76
 
@@ -298,19 +297,19 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #5
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @first_path_var_separator(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @join_path_components(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare void @canonicalize_path(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca [1024 x i8], align 16
   %7 = tail call i32 @find_my_exec(ptr noundef %0, ptr noundef %3)
@@ -326,7 +325,7 @@ define dso_local range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr nound
   %13 = sub i64 1024, %11
   %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef nonnull @.str.6) #13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  %15 = call i32 @stat(ptr noundef readonly %3, ptr noundef nonnull %5) #13
+  %15 = call i32 @stat(ptr noundef nonnull readonly %3, ptr noundef nonnull %5) #13
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %validate_exec.exit.thread, label %17
 
@@ -345,8 +344,8 @@ define dso_local range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr nound
   br label %validate_exec.exit.thread
 
 26:                                               ; preds = %17
-  %27 = tail call i32 @access(ptr noundef readonly %3, i32 noundef 4) #13
-  %28 = tail call i32 @access(ptr noundef readonly %3, i32 noundef 1) #13
+  %27 = tail call i32 @access(ptr noundef nonnull readonly %3, i32 noundef 4) #13
+  %28 = tail call i32 @access(ptr noundef nonnull readonly %3, i32 noundef 1) #13
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %validate_exec.exit, label %validate_exec.exit.thread
 
@@ -360,7 +359,7 @@ validate_exec.exit:                               ; preds = %26
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %validate_exec.exit
-  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %3) #13
+  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #13
   %33 = call ptr @pipe_read_line(ptr noundef nonnull %6)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %37, label %35
@@ -424,28 +423,28 @@ define dso_local ptr @pipe_read_line(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @pfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @pg_get_line(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pclose_check(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @pclose_check(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pclose(ptr noundef %0)
   switch i32 %2, label %8 [
     i32 0, label %15
@@ -482,12 +481,12 @@ define dso_local noundef i32 @pclose_check(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @wait_result_to_str(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_pglocale_pgservice(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local void @set_pglocale_pgservice(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.15) #15
@@ -526,10 +525,10 @@ declare void @get_etc_path(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
@@ -538,10 +537,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

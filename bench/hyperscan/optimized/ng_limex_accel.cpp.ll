@@ -171,7 +171,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216findAccelFriendsERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SB_EEEjPNS_8flat_setIS9_SD_SaIS9_EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull readonly align 8 dereferenceable(48) %br_cyclic, i32 noundef %offset, ptr noundef %friends) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216findAccelFriendsERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SB_EEEjPNS_8flat_setIS9_SD_SaIS9_EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull readonly align 8 dereferenceable(48) %br_cyclic, i32 noundef %offset, ptr noundef %friends) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %tmp.i = alloca %"struct.std::pair.98", align 8
@@ -1286,10 +1286,10 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue219findBestAccelSchemeESt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EERKS1_b(ptr noalias nonnull sret(%"struct.ue2::AccelScheme") align 8 %agg.result, ptr nocapture noundef %paths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %terminating, i1 noundef zeroext %look_for_double_byte) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue219findBestAccelSchemeESt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EERKS1_b(ptr noalias nonnull sret(%"struct.ue2::AccelScheme") align 8 %agg.result, ptr noundef captures(none) %paths, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %terminating, i1 noundef zeroext %look_for_double_byte) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.i43 = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
   %num_calls.i = alloca i64, align 8
@@ -1963,7 +1963,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EED2Ev.exit: ; preds
 declare noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212nfaFindAccelERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKS3_INS_9CharReachESaISF_EERKSt3mapISA_NS_20BoundedRepeatSummaryESt4lessISA_ESaISt4pairIKSA_SL_EEEbb(ptr noalias sret(%"struct.ue2::AccelScheme") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %verts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %refined_cr, ptr noundef nonnull readonly align 8 dereferenceable(48) %br_cyclic, i1 noundef zeroext %allow_wide, i1 noundef zeroext %look_for_double_byte) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212nfaFindAccelERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EERKS3_INS_9CharReachESaISF_EERKSt3mapISA_NS_20BoundedRepeatSummaryESt4lessISA_ESaISt4pairIKSA_SL_EEEbb(ptr noalias sret(%"struct.ue2::AccelScheme") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %verts, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %refined_cr, ptr noundef nonnull readonly align 8 dereferenceable(48) %br_cyclic, i1 noundef zeroext %allow_wide, i1 noundef zeroext %look_for_double_byte) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca [4 x i64], align 8
   %tmp.i.i = alloca %"struct.std::pair.98", align 8
@@ -2476,10 +2476,10 @@ return:                                           ; preds = %if.then.i.i.i55, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L9findPathsERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EEPSA_ISD_SaISD_EERKNS_8flat_setIS9_St4lessIS9_ESaIS9_EEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %v.coerce0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %refined_cr, ptr noundef nonnull %paths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %forbidden, i32 noundef %depth) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L9findPathsERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EEPSA_ISD_SaISD_EERKNS_8flat_setIS9_St4lessIS9_ESaIS9_EEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %v.coerce0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %refined_cr, ptr noundef nonnull %paths, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %forbidden, i32 noundef %depth) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.71", align 8
   %ref.tmp4 = alloca %"class.std::vector.71", align 8
@@ -3323,7 +3323,7 @@ return:                                           ; preds = %for.body21.i.i.i33,
 declare { ptr, i64 } @_ZN3ue217getSoleDestVertexERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue213nfaCheckAccelERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SH_EEEPNS_11AccelSchemeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr %v.coerce0, i64 %v.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %refined_cr, ptr noundef nonnull align 8 dereferenceable(48) %br_cyclic, ptr noundef %as, i1 noundef zeroext %allow_wide) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue213nfaCheckAccelERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt6vectorINS_9CharReachESaISB_EERKSt3mapIS9_NS_20BoundedRepeatSummaryESt4lessIS9_ESaISt4pairIKS9_SH_EEEPNS_11AccelSchemeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr %v.coerce0, i64 %v.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %refined_cr, ptr noundef nonnull align 8 dereferenceable(48) %br_cyclic, ptr noundef %as, i1 noundef zeroext %allow_wide) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i165 = alloca %"struct.std::less.123", align 1
   %ref.tmp2.i166 = alloca %"class.std::allocator.59", align 1
@@ -4900,7 +4900,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
@@ -5105,7 +5105,7 @@ return:                                           ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue2L21unifyPathsLastSegmentERSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %paths) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L21unifyPathsLastSegmentERSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %paths) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %paths, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %paths, i64 8
@@ -7107,7 +7107,7 @@ unreachable:                                      ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost9container3dtl19scoped_destructor_nINS0_22small_vector_allocatorIN3ue212_GLOBAL__N_112DAccelSchemeENS0_13new_allocatorIvEEvEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost9container3dtl19scoped_destructor_nINS0_22small_vector_allocatorIN3ue212_GLOBAL__N_112DAccelSchemeENS0_13new_allocatorIvEEvEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -7407,7 +7407,7 @@ return:                                           ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__introsort_loopIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef %__depth_limit) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value.i.i.i = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
   %agg.tmp3.i.i.i = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
@@ -9093,7 +9093,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr nocapture noundef nonnull %__last) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef nonnull captures(none) %__last) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val = alloca %"struct.ue2::(anonymous namespace)::DAccelScheme", align 8
   %__last.val4 = load ptr, ptr %__last, align 8
@@ -10793,7 +10793,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit13: ; preds = %if.then.i.i.i.i.i9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr %pb.coerce, ptr %pe.coerce, ptr nocapture noundef nonnull %num_calls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %curr, ptr nocapture noundef nonnull %best) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16findBestInternalEN9__gnu_cxx17__normal_iteratorIPKSt6vectorINS_9CharReachESaIS3_EES2_IS5_SaIS5_EEEESA_PmRKNS_12_GLOBAL__N_112SAccelSchemeEPSD_(ptr %pb.coerce, ptr %pe.coerce, ptr noundef nonnull captures(none) %num_calls, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %curr, ptr noundef nonnull captures(none) %best) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i.i.i.i.i = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
   %agg.tmp.i.i = alloca %"class.boost::container::vec_iterator.166", align 8
@@ -11503,7 +11503,7 @@ cleanup.cont:                                     ; preds = %if.end.i.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #16 {
+define internal fastcc void @_ZSt16__introsort_loopIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef %__depth_limit) unnamed_addr #16 {
 entry:
   %__tmp.i.i.i11.i = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
   %__tmp.i.i155.i.i = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
@@ -11558,7 +11558,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i, %
   %sub.ptr.lhs.cast.i.i.i5.i = ptrtoint ptr %incdec.ptr.i.i4.i to i64
   %sub.ptr.sub.i.i.i6.i = sub i64 %sub.ptr.lhs.cast.i.i.i5.i, %sub.ptr.rhs.cast.i67.lcssa
   %sub.ptr.div.i.i.i7.i = sdiv exact i64 %sub.ptr.sub.i.i.i6.i, 40
-  tail call fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %__first.val865.lcssa, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i7.i, ptr noundef nonnull byval(%"struct.ue2::(anonymous namespace)::SAccelScheme") align 8 %agg.tmp4.i.i3.i)
+  tail call fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %__first.val865.lcssa, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i7.i, ptr noundef nonnull byval(%"struct.ue2::(anonymous namespace)::SAccelScheme") align 8 %agg.tmp4.i.i3.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp4.i.i3.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i6.i, 40
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !615
@@ -12021,7 +12021,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nocapture %__first.0.val, i64 noundef %__holeIndex, i64 noundef range(i64 -230584300921369395, 230584300921369396) %__len, ptr nocapture noundef readonly byval(%"struct.ue2::(anonymous namespace)::SAccelScheme") align 8 %__value) unnamed_addr #17 {
+define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112SAccelSchemeELb0EEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr captures(none) %__first.0.val, i64 noundef %__holeIndex, i64 noundef range(i64 -230584300921369395, 230584300921369396) %__len, ptr noundef readonly byval(%"struct.ue2::(anonymous namespace)::SAccelScheme") align 8 captures(none) %__value) unnamed_addr #17 {
 entry:
   %agg.tmp2228 = alloca %"struct.ue2::(anonymous namespace)::SAccelScheme", align 8
   %sub = add nsw i64 %__len, -1
@@ -13301,16 +13301,16 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23

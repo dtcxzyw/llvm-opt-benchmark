@@ -480,14 +480,14 @@ define hidden void @proto_register_gmr1_bcch() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @seg1a_syncinfo_sa_freq_offset_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @seg1a_syncinfo_sa_freq_offset_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = mul i32 %1, 5
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.211, i32 noundef %3, i32 noundef %1) #5
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @segx_half_db_value_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @segx_half_db_value_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fpext float %4 to double
@@ -496,7 +496,7 @@ define internal void @segx_half_db_value_fmt(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @seg3a_latitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @seg3a_latitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp slt i32 %1, 0
   %.06 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %.0 = select i1 %3, i32 83, i32 78
@@ -508,7 +508,7 @@ define internal void @seg3a_latitude_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @seg3a_longitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @seg3a_longitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %1, 1800
   %4 = sub i32 3600, %1
   %.06 = select i1 %3, i32 %1, i32 %4
@@ -521,7 +521,7 @@ define internal void @seg3a_longitude_fmt(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @seg3a_satpos_radius_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @seg3a_satpos_radius_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = mul i32 %1, 5
   %4 = add i32 %3, 42162000
   %5 = sitofp i32 %4 to double
@@ -531,7 +531,7 @@ define internal void @seg3a_satpos_radius_fmt(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @seg3a_miscinfo_sb_reselection_timer_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @seg3a_miscinfo_sb_reselection_timer_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = shl i32 %1, 2
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.224, i32 noundef %3, i32 noundef %1) #5
   ret void
@@ -550,7 +550,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.csnStream_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -604,7 +604,7 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -625,7 +625,7 @@ declare signext i16 @csnStreamDissector(ptr noundef, ptr noundef, ptr noundef, p
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = alloca [5 x i8], align 1
   %7 = load i32, ptr %1, align 8
   %8 = icmp slt i32 %7, 40

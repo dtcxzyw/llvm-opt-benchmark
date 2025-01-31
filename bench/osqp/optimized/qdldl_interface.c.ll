@@ -16,12 +16,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [110 x i8] c"Error in KKT matrix LDL factorization when computing the nonzero elements. The problem seems to be non-convex\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @update_settings_linsys_solver_qdldl(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define void @update_settings_linsys_solver_qdldl(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @warm_start_linsys_solver_qdldl(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define void @warm_start_linsys_solver_qdldl(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret void
 }
 
@@ -245,12 +245,12 @@ define void @free_linsys_solver_qdldl(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @csc_spfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %9 = load double, ptr %8, align 8
@@ -564,12 +564,12 @@ LDL_factor.exit:                                  ; preds = %174
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @name_qdldl(ptr nocapture readnone %0) #0 {
+define noundef nonnull ptr @name_qdldl(ptr readnone captures(none) %0) #0 {
   ret ptr @.str.3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @solve_linsys_qdldl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define noundef i64 @solve_linsys_qdldl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -769,7 +769,7 @@ LDLSolve.exit:                                    ; preds = %.lr.ph26.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @adjoint_derivative_qdldl(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) #1 {
+define i64 @adjoint_derivative_qdldl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) #1 {
   %8 = tail call i64 @OSQPMatrix_get_m(ptr noundef %1) #10
   %9 = tail call i64 @OSQPMatrix_get_m(ptr noundef %2) #10
   %10 = tail call i64 @OSQPMatrix_get_m(ptr noundef %3) #10
@@ -1823,7 +1823,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @update_linsys_solver_matrices_qdldl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i64 noundef %6) #1 {
+define range(i64 0, 2) i64 @update_linsys_solver_matrices_qdldl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i64 noundef %6) #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -1878,7 +1878,7 @@ define range(i64 0, 2) i64 @update_linsys_solver_matrices_qdldl(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @update_linsys_solver_rho_vec_qdldl(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, double noundef %2) #1 {
+define range(i64 0, 2) i64 @update_linsys_solver_rho_vec_qdldl(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1966,7 +1966,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @form_KKT(ptr noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @permute_KKT(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #12
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2074,7 +2074,7 @@ define internal fastcc void @permute_KKT(ptr nocapture noundef nonnull %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #7

@@ -110,7 +110,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @cpu_get_start_powered_off(ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #3 {
+define internal zeroext i1 @cpu_get_start_powered_off(ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %errp) #3 {
 entry:
   %start_powered_off = getelementptr inbounds nuw i8, ptr %obj, i64 204
   %0 = load i8, ptr %start_powered_off, align 4
@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @cpu_set_start_powered_off(ptr nocapture noundef writeonly initializes((204, 205)) %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #4 {
+define internal void @cpu_set_start_powered_off(ptr noundef writeonly captures(none) initializes((204, 205)) %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #4 {
 entry:
   %frombool = zext i1 %value to i8
   %start_powered_off = getelementptr inbounds nuw i8, ptr %obj, i64 204
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cpu_exec_initfn(ptr nocapture noundef writeonly initializes((520, 524), (528, 536)) %cpu) local_unnamed_addr #4 {
+define dso_local void @cpu_exec_initfn(ptr noundef writeonly captures(none) initializes((520, 524), (528, 536)) %cpu) local_unnamed_addr #4 {
 entry:
   %as = getelementptr inbounds nuw i8, ptr %cpu, i64 528
   store ptr null, ptr %as, align 16
@@ -212,7 +212,7 @@ declare void @tb_invalidate_phys_page(i64 noundef) local_unnamed_addr #1
 declare void @mmap_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_single_step(ptr nocapture noundef %cpu, i32 noundef %enabled) local_unnamed_addr #0 {
+define dso_local void @cpu_single_step(ptr noundef captures(none) %cpu, i32 noundef %enabled) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %singlestep_enabled = getelementptr inbounds nuw i8, ptr %cpu, i64 220
@@ -265,7 +265,7 @@ if.end:                                           ; preds = %trace_breakpoint_si
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @cpu_abort(ptr noundef %cpu, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #6 {
+define dso_local void @cpu_abort(ptr noundef %cpu, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #6 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %ap2 = alloca [1 x %struct.__va_list_tag], align 16
@@ -311,7 +311,7 @@ if.end13:                                         ; preds = %if.then, %if.then8,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 declare void @cpu_dump_state(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -333,7 +333,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr nocapture noundef readnone %cpu, i64 noundef %addr, ptr nocapture noundef %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef readnone captures(none) %cpu, i64 noundef %addr, ptr noundef captures(none) %ptr, i64 noundef %len, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
 entry:
   %cmp.not26 = icmp eq i64 %len, 0
   br i1 %cmp.not26, label %return, label %while.body.lr.ph
@@ -403,7 +403,7 @@ declare i32 @page_get_flags(i64 noundef) local_unnamed_addr #1
 declare ptr @lock_user(i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @target_words_bigendian() local_unnamed_addr #11 {
@@ -453,7 +453,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -472,16 +472,16 @@ declare void @llvm.va_copy.p0(ptr, ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

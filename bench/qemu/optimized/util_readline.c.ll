@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @readline_add_completion(ptr nocapture noundef %rs, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local void @readline_add_completion(ptr noundef captures(none) %rs, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %nb_completions = getelementptr inbounds nuw i8, ptr %rs, i64 10792
   %0 = load i32, ptr %nb_completions, align 8
@@ -80,15 +80,15 @@ if.end10:                                         ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @readline_add_completion_of(ptr nocapture noundef %rs, ptr nocapture noundef readonly %pfx, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local void @readline_add_completion_of(ptr noundef captures(none) %rs, ptr noundef readonly captures(none) %pfx, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pfx) #14
-  %call1 = tail call i32 @strncmp(ptr noundef %str, ptr noundef %pfx, i64 noundef %call) #14
+  %call1 = tail call i32 @strncmp(ptr noundef %str, ptr noundef nonnull %pfx, i64 noundef %call) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -136,13 +136,13 @@ if.end:                                           ; preds = %for.body.i, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @readline_set_completion_index(ptr nocapture noundef writeonly initializes((10796, 10800)) %rs, i32 noundef %index) local_unnamed_addr #3 {
+define dso_local void @readline_set_completion_index(ptr noundef writeonly captures(none) initializes((10796, 10800)) %rs, i32 noundef %index) local_unnamed_addr #3 {
 entry:
   %completion_index = getelementptr inbounds nuw i8, ptr %rs, i64 10796
   store i32 %index, ptr %completion_index, align 4
@@ -1065,7 +1065,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @readline_hist_add(ptr nocapture noundef %rs, ptr noundef %cmdline) unnamed_addr #0 {
+define internal fastcc void @readline_hist_add(ptr noundef captures(none) %rs, ptr noundef %cmdline) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %cmdline, align 1
   %cmp = icmp eq i8 %0, 0
@@ -1191,7 +1191,7 @@ return:                                           ; preds = %same_entry, %entry,
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @readline_backword(ptr nocapture noundef %rs) unnamed_addr #4 {
+define internal fastcc void @readline_backword(ptr noundef captures(none) %rs) unnamed_addr #4 {
 entry:
   %cmd_buf_index = getelementptr inbounds nuw i8, ptr %rs, i64 4096
   %0 = load i32, ptr %cmd_buf_index, align 8
@@ -1302,7 +1302,7 @@ entry:
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @readline_restart(ptr nocapture noundef writeonly initializes((4096, 4104)) %rs) local_unnamed_addr #3 {
+define dso_local void @readline_restart(ptr noundef writeonly captures(none) initializes((4096, 4104)) %rs) local_unnamed_addr #3 {
 entry:
   %cmd_buf_index = getelementptr inbounds nuw i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index, align 8
@@ -1312,7 +1312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @readline_get_history(ptr nocapture noundef readonly %rs, i32 noundef %index) local_unnamed_addr #5 {
+define dso_local ptr @readline_get_history(ptr noundef readonly captures(none) %rs, i32 noundef %index) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ugt i32 %index, 63
   br i1 %cmp, label %return, label %if.end
@@ -1379,15 +1379,15 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @completion_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define internal i32 @completion_comp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1399,13 +1399,13 @@ entry:
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

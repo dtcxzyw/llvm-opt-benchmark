@@ -930,7 +930,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_abcmodule_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_abcmodule_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -952,7 +952,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_abcmodule_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @_abcmodule_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -982,7 +982,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_abcmodule_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @_abcmodule_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %0, align 8
@@ -1012,7 +1012,7 @@ _abcmodule_clear.exit:                            ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_abc_get_cache_token(ptr nocapture noundef readonly %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_abc_get_cache_token(ptr noundef readonly captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1023,7 +1023,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_abc__abc_init(ptr nocapture noundef readonly %module, ptr noundef %self) #0 {
+define internal noundef ptr @_abc__abc_init(ptr noundef readonly captures(none) %module, ptr noundef %self) #0 {
 entry:
   %base_abstracts.i = alloca ptr, align 8
   %value79.i = alloca ptr, align 8
@@ -1689,7 +1689,7 @@ return:                                           ; preds = %if.end.i.i23, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_abc__reset_registry(ptr nocapture noundef readonly %module, ptr noundef %self) #0 {
+define internal noundef ptr @_abc__reset_registry(ptr noundef readonly captures(none) %module, ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1764,7 +1764,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_abc__reset_caches(ptr nocapture noundef readonly %module, ptr noundef %self) #0 {
+define internal noundef ptr @_abc__reset_caches(ptr noundef readonly captures(none) %module, ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1862,7 +1862,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_abc__get_dump(ptr nocapture noundef readonly %module, ptr noundef %self) #0 {
+define internal ptr @_abc__get_dump(ptr noundef readonly captures(none) %module, ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1926,7 +1926,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_abc__abc_register(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_abc__abc_register(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2094,7 +2094,7 @@ exit:                                             ; preds = %if.end.i.i34.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_abc__abc_instancecheck(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_abc__abc_instancecheck(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %args.i51.i = alloca [2 x ptr], align 16
   %args.i48.i = alloca [2 x ptr], align 16
@@ -2371,7 +2371,7 @@ exit:                                             ; preds = %if.then1.i.i66.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_abc__abc_subclasscheck(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_abc__abc_subclasscheck(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %result.i = alloca ptr, align 8
@@ -2705,7 +2705,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp57.i, label %if.then58.i, label %for.cond.i
 
 if.then58.i:                                      ; preds = %for.body.i
-  %call60.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef %1)
+  %call60.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef nonnull %1)
   %cmp61.i = icmp slt i32 %call60.i, 0
   br i1 %cmp61.i, label %end.i, label %if.end63.i
 
@@ -2714,7 +2714,7 @@ if.end63.i:                                       ; preds = %if.then58.i
   br label %end.i
 
 for.end.i:                                        ; preds = %for.cond.i, %Py_DECREF.exit122.i
-  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef %call1.i.i, ptr noundef %1, ptr noundef %result.i)
+  %call65.i = call fastcc i32 @subclasscheck_check_registry(ptr noundef %call1.i.i, ptr noundef nonnull %1, ptr noundef %result.i)
   %tobool66.not.i = icmp eq i32 %call65.i, 0
   br i1 %tobool66.not.i, label %if.end68.i, label %end.i
 
@@ -2768,7 +2768,7 @@ if.end.i152.i:                                    ; preds = %for.body81.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i152.i, %for.body81.i
-  %call84.i = call i32 @PyObject_IsSubclass(ptr noundef %1, ptr noundef nonnull %41) #4
+  %call84.i = call i32 @PyObject_IsSubclass(ptr noundef nonnull %1, ptr noundef nonnull %41) #4
   %43 = load i64, ptr %41, align 8
   %44 = and i64 %43, 2147483648
   %cmp.i170.not.i = icmp eq i64 %44, 0
@@ -2789,7 +2789,7 @@ Py_DECREF.exit113.i:                              ; preds = %if.then1.i111.i, %i
   br i1 %cmp85.i, label %if.then86.i, label %if.end92.i
 
 if.then86.i:                                      ; preds = %Py_DECREF.exit113.i
-  %call88.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef %1)
+  %call88.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_cache.i, ptr noundef nonnull %1)
   %cmp89.i = icmp slt i32 %call88.i, 0
   br i1 %cmp89.i, label %end.i, label %if.end91.i
 
@@ -2802,7 +2802,7 @@ if.end92.i:                                       ; preds = %Py_DECREF.exit113.i
   br i1 %cmp93.i, label %end.i, label %for.cond78.i
 
 for.end98.i:                                      ; preds = %for.cond78.i, %for.cond78.preheader.i
-  %call100.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_negative_cache.i, ptr noundef %1)
+  %call100.i = call fastcc i32 @_add_to_weak_set(ptr noundef %_abc_negative_cache.i, ptr noundef nonnull %1)
   %cmp101.i = icmp slt i32 %call100.i, 0
   br i1 %cmp101.i, label %end.i, label %if.end103.i
 
@@ -2875,7 +2875,7 @@ exit:                                             ; preds = %lor.lhs.false, %_ab
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @abc_data_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @abc_data_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -2966,7 +2966,7 @@ declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare i32 @PyObject_IsSubclass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_add_to_weak_set(ptr nocapture noundef nonnull %pset, ptr noundef %obj) unnamed_addr #0 {
+define internal fastcc i32 @_add_to_weak_set(ptr noundef nonnull captures(none) %pset, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pset, align 8
   %cmp = icmp eq ptr %0, null
@@ -3140,7 +3140,7 @@ declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyCMethod_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_destroy(ptr nocapture noundef readonly %setweakref, ptr noundef %objweakref) #0 {
+define internal noundef ptr @_destroy(ptr noundef readonly captures(none) %setweakref, ptr noundef %objweakref) #0 {
 entry:
   %0 = getelementptr i8, ptr %setweakref, i64 16
   %setweakref.val = load ptr, ptr %0, align 8
@@ -3264,7 +3264,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare ptr @_PyType_GetMRO(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @subclasscheck_check_registry(ptr nocapture noundef nonnull %impl, ptr noundef %subclass, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @subclasscheck_check_registry(ptr noundef nonnull captures(none) %impl, ptr noundef %subclass, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %pos = alloca i64, align 8
@@ -3533,7 +3533,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @abc_data_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @abc_data_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val20 = load ptr, ptr %0, align 8
@@ -3587,7 +3587,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @abc_data_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @abc_data_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %_abc_registry = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %_abc_registry, align 8
@@ -3664,13 +3664,13 @@ do.end14:                                         ; preds = %do.body8, %if.then1
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

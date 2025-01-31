@@ -916,7 +916,7 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN2qe8pred_abs3fmcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN2qe8pred_abs3fmcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_fmc = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_fmc, align 8
@@ -2263,7 +2263,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2qe8pred_abs8add_predEP3appS2_(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %p, ptr noundef %lit) local_unnamed_addr #3 align 2 {
@@ -2698,7 +2698,7 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit:                 ; preds = %_ZN15ref_vector_cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs6insertEP3appRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs6insertEP3appRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.ref_vector.50, align 8
   %0 = load i32, ptr %lvl, align 4
@@ -2902,7 +2902,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN2qe8pred_abs12is_predicateEP3appj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %a, i32 noundef %l) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN2qe8pred_abs12is_predicateEP3appj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef readonly captures(none) %a, i32 noundef %l) local_unnamed_addr #8 align 2 {
 entry:
   %m_flevel = getelementptr inbounds nuw i8, ptr %this, i64 192
   %m_decl.i = getelementptr inbounds nuw i8, ptr %a, i64 16
@@ -3785,7 +3785,7 @@ if.end4:                                          ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs14set_expr_levelEP3appRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %v, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2qe8pred_abs14set_expr_levelEP3appRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %v, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.obj_map<expr, qe::max_level>::key_data", align 8
   %m_elevel = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -3800,7 +3800,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs14set_decl_levelEP9func_declRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %f, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2qe8pred_abs14set_decl_levelEP9func_declRKNS_9max_levelE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %f, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %lvl) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.obj_map<func_decl, qe::max_level>::key_data", align 8
   %m_flevel = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -3826,7 +3826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs14abstract_atomsEP4exprRNS_9max_levelER10ref_vectorIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml, ptr nocapture noundef nonnull align 4 dereferenceable(8) %level, ptr noundef nonnull align 8 dereferenceable(16) %defs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs14abstract_atomsEP4exprRNS_9max_levelER10ref_vectorIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %level, ptr noundef nonnull align 8 dereferenceable(16) %defs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i317 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -4967,7 +4967,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN10p
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs10fresh_boolEPKc(ptr noalias sret(%class.obj_ref.76) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs10fresh_boolEPKc(ptr noalias sret(%class.obj_ref.76) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i1 = alloca %"struct.generic_model_converter::entry", align 8
   %ref.tmp.i.i = alloca %class.symbol, align 8
@@ -5130,7 +5130,7 @@ _ZN10bit_vectorD2Ev.exit:                         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs11mk_abstractEP4expr(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs11mk_abstractEP4expr(ptr noalias writeonly sret(%class.obj_ref) align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i273 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i274 = alloca %"class.std::allocator", align 1
@@ -6181,7 +6181,7 @@ ehcleanup84:                                      ; preds = %lpad8.body, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs21mk_assumption_literalEP4exprP5modelRKNS_9max_levelER10ref_vectorIS1_11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %a, ptr noundef %mdl, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %lvl, ptr noundef nonnull align 8 dereferenceable(16) %defs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs21mk_assumption_literalEP4exprP5modelRKNS_9max_levelER10ref_vectorIS1_11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %a, ptr noundef %mdl, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %lvl, ptr noundef nonnull align 8 dereferenceable(16) %defs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6.i = alloca %"struct.obj_map<expr, expr *>::key_data", align 8
   %ref.tmp.i.i = alloca %"struct.obj_map<expr, app *>::key_data", align 8
@@ -6889,7 +6889,7 @@ ehcleanup121:                                     ; preds = %lpad12, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs8pred2asmEP4expr(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs8pred2asmEP4expr(ptr noalias writeonly sret(%class.obj_ref) align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fmls = alloca %class.ref_vector, align 8
   %0 = load ptr, ptr %this, align 8
@@ -7034,7 +7034,7 @@ lpad:                                             ; preds = %_ZNK15ref_vector_co
 declare void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs11mk_concreteER10ref_vectorI4expr11ast_managerERK7obj_mapIS2_PS2_E(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fmls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %map) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe8pred_abs11mk_concreteER10ref_vectorI4expr11ast_managerERK7obj_mapIS2_PS2_E(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %fmls, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %map) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i274 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i275 = alloca %"class.std::allocator", align 1
@@ -8125,7 +8125,7 @@ ehcleanup101:                                     ; preds = %lpad.i, %lpad6.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe8pred_abs8pred2litER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fmls) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2qe8pred_abs8pred2litER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %fmls) local_unnamed_addr #3 align 2 {
 entry:
   %m_pred2lit = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN2qe8pred_abs11mk_concreteER10ref_vectorI4expr11ast_managerERK7obj_mapIS2_PS2_E(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(16) %fmls, ptr noundef nonnull align 8 dereferenceable(24) %m_pred2lit)
@@ -8133,7 +8133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2qe8pred_abs18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK2qe8pred_abs18collect_statisticsER10statistics(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -8144,7 +8144,7 @@ entry:
 declare void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2qe8pred_abs7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2qe8pred_abs7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp9 = alloca %struct.mk_pp, align 8
@@ -8441,7 +8441,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2qe8pred_abs7displayERSoRK10ref_vectorI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %asms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2qe8pred_abs7displayERSoRK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %asms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp13 = alloca %struct.mk_pp, align 8
@@ -9212,7 +9212,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK2qe8pred_abs13validate_defsER5model(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(160) %model) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK2qe8pred_abs13validate_defsER5model(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(160) %model) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val_a = alloca %class.obj_ref, align 8
   %val_b = alloca %class.obj_ref, align 8
@@ -10606,7 +10606,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe4qmaxC2ER11ast_managerRK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 {
+define hidden void @_ZN2qe4qmaxC2ER11ast_managerRK10params_ref(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 600)
   tail call void @_ZN2qe4qsatC2ER11ast_managerRK10params_refNS_9qsat_modeE(ptr noundef nonnull align 8 dereferenceable(600) %call, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i32 noundef 3)
@@ -10615,7 +10615,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2qe4qmaxD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe4qmaxD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -10650,7 +10650,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2qe4qmaxclERK10ref_vectorI4expr11ast_managerEP3appR16inf_eps_rationalI12inf_rationalER3refI5modelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %fmls, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN2qe4qmaxclERK10ref_vectorI4expr11ast_managerEP3appR16inf_eps_rationalI12inf_rationalER3refI5modelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %fmls, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef i32 @_ZN2qe4qsat8maximizeERK10ref_vectorI4expr11ast_managerEP3appR3refI5modelER16inf_eps_rationalI12inf_rationalE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %fmls, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(96) %value)
@@ -10658,7 +10658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2qe4qmax18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK2qe4qmax18collect_statisticsER10statistics(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_st.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -13680,7 +13680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN10params_ref8set_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -21327,7 +21327,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -22640,10 +22640,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

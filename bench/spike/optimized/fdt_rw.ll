@@ -87,7 +87,7 @@ fdt_rw_probe_.exit:                               ; preds = %47, %46
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = sext i32 %48 to i64
   %69 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %67, i64 %68
-  %70 = tail call fastcc i32 @fdt_splice_mem_rsv_(ptr noundef nonnull %0, ptr noundef %69, i32 noundef 0, i32 noundef 1)
+  %70 = tail call fastcc i32 @fdt_splice_mem_rsv_(ptr noundef nonnull %0, ptr noundef nonnull %69, i32 noundef 0, i32 noundef 1)
   %.not14 = icmp eq i32 %70, 0
   br i1 %.not14, label %71, label %fdt_rw_probe_.exit.thread
 
@@ -336,7 +336,7 @@ fdt_rw_probe_.exit.thread:                        ; preds = %46, %26, %2, %fdt_r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_set_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i32 @fdt_set_name(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %6 = icmp slt i32 %5, 0
@@ -420,7 +420,7 @@ fdt_rw_probe_.exit:                               ; preds = %48, %47
   br i1 %.not18, label %63, label %fdt_rw_probe_.exit.thread
 
 63:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %2, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %2, i64 %58, i1 false)
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %27, %7, %3, %52, %63, %50
@@ -431,7 +431,7 @@ fdt_rw_probe_.exit.thread:                        ; preds = %27, %7, %3, %52, %6
 declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -4, 1) i32 @fdt_splice_struct_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
@@ -568,10 +568,10 @@ fdt_splice_.exit.thread:                          ; preds = %55, %49, %4, %76
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
@@ -691,7 +691,7 @@ fdt_rw_probe_.exit.thread:                        ; preds = %30, %10, %5, %67, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @fdt_check_node_offset_(ptr noundef %0, i32 noundef %1) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %fdt_find_add_string_.exit.thread, label %8
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
-  %49 = tail call ptr @fdt_find_string_(ptr noundef %27, i32 noundef %48, ptr noundef %2) #9
+  %49 = tail call ptr @fdt_find_string_(ptr noundef %27, i32 noundef %48, ptr noundef nonnull %2) #9
   %.not.i.not = icmp eq ptr %49, null
   br i1 %.not.i.not, label %55, label %50
 
@@ -842,7 +842,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   %rev.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %137)
   store i32 %rev.i.i.i.i, ptr %31, align 4
   %138 = getelementptr inbounds nuw i8, ptr %27, i64 %86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %2, i64 %94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr nonnull align 1 %2, i64 %94, i1 false)
   br label %fdt_find_add_string_.exit
 
 fdt_find_add_string_.exit:                        ; preds = %50, %118
@@ -925,7 +925,7 @@ fdt_find_add_string_.exit.thread:                 ; preds = %97, %93, %55, %166,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = call i32 @fdt_setprop_placeholder(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %6)
   %.not = icmp ne i32 %7, 0
@@ -944,7 +944,7 @@ define i32 @fdt_setprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
@@ -1205,7 +1205,7 @@ fdt_rw_probe_.exit:                               ; preds = %49, %48
 
 55:                                               ; preds = %55, %53
   %56 = load i32, ptr %5, align 4
-  %57 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %5) #9
+  %57 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %56, ptr noundef nonnull %5) #9
   %58 = add i32 %57, -3
   %59 = icmp ult i32 %58, 2
   br i1 %59, label %55, label %60, !llvm.loop !4
@@ -1234,7 +1234,7 @@ fdt_rw_probe_.exit:                               ; preds = %49, %48
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = and i32 %3, -4
   %83 = add i32 %82, 12
-  %84 = call fastcc i32 @fdt_splice_struct_(ptr noundef %0, ptr noundef %81, i32 noundef 0, i32 noundef %83)
+  %84 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef 0, i32 noundef %83)
   %.not37 = icmp eq i32 %84, 0
   br i1 %.not37, label %85, label %fdt_rw_probe_.exit.thread
 
@@ -1262,13 +1262,13 @@ declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @fdt_add_subnode(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %5 = trunc i64 %4 to i32
-  %6 = tail call i32 @fdt_add_subnode_namelen(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %5)
+  %6 = tail call i32 @fdt_add_subnode_namelen(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %5)
   ret i32 %6
 }
 
@@ -1359,7 +1359,7 @@ fdt_rw_probe_.exit:                               ; preds = %46, %45
   %69 = sext i32 %1 to i64
   %70 = getelementptr inbounds i8, ptr %68, i64 %69
   %71 = sub nsw i32 %47, %1
-  %72 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %0, ptr noundef %70, i32 noundef %71, i32 noundef 0)
+  %72 = tail call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %71, i32 noundef 0)
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %25, %5, %2, %fdt_rw_probe_.exit, %49
@@ -1673,7 +1673,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -1791,7 +1791,7 @@ define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr nocapture
 declare i32 @fdt_move(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @fdt_pack(ptr noundef %0) local_unnamed_addr #0 {
@@ -2022,10 +2022,10 @@ declare i64 @llvm.bswap.i64(i64) #7
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

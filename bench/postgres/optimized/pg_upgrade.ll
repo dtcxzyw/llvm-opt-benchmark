@@ -413,11 +413,11 @@ setup.exit:                                       ; preds = %138, %143
   %147 = call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef nonnull @.str.28) #8
   %148 = load ptr, ptr %146, align 8
   %149 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %148) #11
-  %150 = call ptr @PQescapeLiteral(ptr noundef %147, ptr noundef %148, i64 noundef %149) #8
+  %150 = call ptr @PQescapeLiteral(ptr noundef %147, ptr noundef nonnull %148, i64 noundef %149) #8
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #11
-  %154 = call ptr @PQescapeLiteral(ptr noundef %147, ptr noundef %152, i64 noundef %153) #8
+  %154 = call ptr @PQescapeLiteral(ptr noundef %147, ptr noundef nonnull %152, i64 noundef %153) #8
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %156 = load ptr, ptr %155, align 8
   %.not.i5 = icmp eq ptr %156, null
@@ -595,7 +595,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   br i1 %.not.i8, label %247, label %241
 
 247:                                              ; preds = %242
-  call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef %245) #8
+  call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull %245) #8
   %248 = load i32, ptr %243, align 8
   %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %248) #8
   %250 = load i32, ptr %243, align 8
@@ -628,7 +628,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   br i1 %264, label %276, label %265
 
 265:                                              ; preds = %.lr.ph20.i
-  call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef %262) #8
+  call void (i32, ptr, ...) @pg_log(i32 noundef 1, ptr noundef nonnull @.str.54, ptr noundef nonnull %262) #8
   %266 = load i32, ptr %260, align 8
   %267 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %266) #8
   %268 = load i32, ptr %260, align 8
@@ -886,7 +886,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -895,13 +895,13 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 declare ptr @localtime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -909,7 +909,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @ctime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @check_pghost_envvar() local_unnamed_addr #1
 
@@ -1038,7 +1038,7 @@ declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #1
 
@@ -1094,10 +1094,10 @@ declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

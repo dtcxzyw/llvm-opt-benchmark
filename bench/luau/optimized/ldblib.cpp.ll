@@ -342,7 +342,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
 35:                                               ; preds = %.tail.thread
   %36 = load ptr, ptr %24, align 8
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #6
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %36, i64 noundef %37)
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull %36, i64 noundef %37)
   br label %38
 
 38:                                               ; preds = %35, %.tail.thread
@@ -392,7 +392,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, i64 noundef 10)
   %60 = load ptr, ptr %3, align 8
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #6
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %60, i64 noundef %61)
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull %60, i64 noundef %61)
   br label %62
 
 62:                                               ; preds = %59, %57
@@ -442,7 +442,7 @@ declare noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef, i32 nounde
 declare noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_Z10lua_settopP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -467,7 +467,7 @@ declare void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef, ptr nounde
 declare void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef, i64 noundef) local_unnamed_addr #1
 

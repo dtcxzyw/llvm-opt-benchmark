@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.d2fc072d53151fb9c7f263cf679341ba.48 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"\0A```\0A" }>, align 1
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChromeRemover$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hc0c75cce83a4bcacE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChromeRemover$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hc0c75cce83a4bcacE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit12" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
@@ -73,7 +73,7 @@ define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChrome
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChromeRemover$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h5681ced820d1076eE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(56) %2) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChromeRemover$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h5681ced820d1076eE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(56) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -114,12 +114,12 @@ define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChrome
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hfd3e321eeddfb0fdE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hfd3e321eeddfb0fdE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   ret i1 true
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h9d8a13c9c8ebc062E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h9d8a13c9c8ebc062E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -153,7 +153,7 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !47
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !48, !noalias !49, !noundef !20
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %18), !noalias !42
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %18), !noalias !42
   %19 = load i64, ptr %6, align 8, !noalias !47, !noundef !20
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !47, !noundef !20
@@ -200,7 +200,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !58
   %38 = load i64, ptr %17, align 8, !alias.scope !55, !noalias !60, !noundef !20
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %38), !noalias !60
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %38), !noalias !60
   %39 = load i64, ptr %4, align 8, !noalias !58, !noundef !20
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !58, !noundef !20
@@ -293,7 +293,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf486
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17ha9b8b111c6588a25E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17ha9b8b111c6588a25E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit20"
 
@@ -333,7 +333,7 @@ define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17hf9a09ace7915d8edE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17hf9a09ace7915d8edE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -505,7 +505,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb1a2f82f9f8a5db7E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define void @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb1a2f82f9f8a5db7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -573,7 +573,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf486
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17h5bb433add2294862E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17h5bb433add2294862E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
@@ -598,7 +598,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h698283586f1cad29E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h698283586f1cad29E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -675,7 +675,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb38909521f01753cE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define void @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb38909521f01753cE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -751,7 +751,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
+define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
@@ -761,7 +761,7 @@ define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core..default..Default$GT$7default17ha06059bb710c7aaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
+define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core..default..Default$GT$7default17ha06059bb710c7aaaE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8, !alias.scope !263
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8, !alias.scope !263
@@ -771,7 +771,7 @@ define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hd1f291ecd23e4f6fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hd1f291ecd23e4f6fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   switch i64 %2, label %.thread35 [
     i64 5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
     i64 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit12"
@@ -816,7 +816,7 @@ define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h1f6ae8e6d4889099E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h1f6ae8e6d4889099E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1023,7 +1023,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17h1a16f2240cb2badcE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define void @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17h1a16f2240cb2badcE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1184,7 +1184,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17h0a5e0e8d95e453acE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17h0a5e0e8d95e453acE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4" [
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
     i64 2, label %5
@@ -1206,7 +1206,7 @@ define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHan
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17ha2bb6fef81a9fa8aE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17ha2bb6fef81a9fa8aE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1280,7 +1280,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hcd9629e53ca91ec5E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
+define void @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hcd9629e53ca91ec5E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1354,7 +1354,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hee6ac5be171e6341E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$13should_handle17hee6ac5be171e6341E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4" [
     i64 3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
     i64 4, label %5
@@ -1376,7 +1376,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h60507159117ff83bE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h60507159117ff83bE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -1412,7 +1412,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !480
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !481, !noalias !482, !noundef !20
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !475
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !475
   %18 = load i64, ptr %5, align 8, !noalias !480, !noundef !20
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !480, !noundef !20
@@ -1509,7 +1509,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hdc10102cff75e6daE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hdc10102cff75e6daE"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -1545,7 +1545,7 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !520
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !521, !noalias !522, !noundef !20
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !515
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !515
   %18 = load i64, ptr %5, align 8, !noalias !520, !noundef !20
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !520, !noundef !20
@@ -1642,7 +1642,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$11handle_text17h2445bd7bbaa4bed3E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(56) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$11handle_text17h2445bd7bbaa4bed3E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(56) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca [8 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -1658,7 +1658,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !552
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !553, !noalias !554, !noundef !20
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, i64 noundef %11), !noalias !547
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, i64 noundef %11), !noalias !547
   %12 = load i64, ptr %6, align 8, !noalias !552, !noundef !20
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !552, !noundef !20
@@ -1735,13 +1735,13 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17heab87b6d47eaacf4E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #8
@@ -1750,7 +1750,7 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve
 declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef) unnamed_addr #3
+declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef) unnamed_addr #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E(ptr noalias noundef align 8 dereferenceable(56), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #3
@@ -1759,7 +1759,7 @@ declare void @_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h
 declare noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement9is_inline17he27e04e46236419aE(ptr noundef nonnull align 8) unnamed_addr #3
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

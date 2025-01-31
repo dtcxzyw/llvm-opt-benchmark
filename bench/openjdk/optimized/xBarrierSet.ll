@@ -94,7 +94,7 @@ _Z17is_reference_type9BasicTypeb.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11XBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11XBarrierSet16on_thread_createEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -105,12 +105,12 @@ define hidden void @_ZN11XBarrierSet16on_thread_createEP6Thread(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11XBarrierSet17on_thread_destroyEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN11XBarrierSet17on_thread_destroyEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11XBarrierSet16on_thread_attachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11XBarrierSet16on_thread_attachEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr @XAddressBadMask, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %3, ptr %4, align 8
@@ -135,7 +135,7 @@ declare void @_ZN15XStackWatermarkC1EP10JavaThread(ptr noundef nonnull align 8 d
 declare void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWatermark(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11XBarrierSet16on_thread_detachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11XBarrierSet16on_thread_detachEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   tail call void @_ZN5XHeap19mark_flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(4088) %3, ptr noundef %1) #5
   ret void
@@ -144,7 +144,7 @@ define hidden void @_ZN11XBarrierSet16on_thread_detachEP6Thread(ptr nocapture no
 declare void @_ZN5XHeap19mark_flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(4088), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11XBarrierSet8print_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK11XBarrierSet8print_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #5
   ret void
 }

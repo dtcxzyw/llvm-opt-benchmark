@@ -82,7 +82,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr nocapture noundef nonnull initializes((0, 8)) %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr noundef nonnull captures(none) initializes((0, 8)) %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -233,7 +233,7 @@ define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_shmem_base_select() local_unnamed_addr #0 {

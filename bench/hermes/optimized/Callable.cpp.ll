@@ -166,7 +166,7 @@ entry:
 declare ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_10JSFunctionEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
@@ -732,7 +732,7 @@ _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry
 declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm8Callable14_newObjectImplENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readnone %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %parentHandle.coerce) #0 align 2 {
+define hidden ptr @_ZN6hermes2vm8Callable14_newObjectImplENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readnone captures(none) %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %parentHandle.coerce) #0 align 2 {
 entry:
   %call = tail call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %parentHandle.coerce) #11
   ret ptr %call
@@ -1507,7 +1507,7 @@ declare noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1
 declare void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %thisArgHandle.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %thisArgHandle.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %thisArgHandle.coerce, align 8
@@ -1577,7 +1577,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 declare noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %thisArgHandle.coerce, i64 %param1.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %thisArgHandle.coerce, i64 %param1.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %thisArgHandle.coerce, align 8
@@ -1647,7 +1647,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %thisArgHandle.coerce, align 8
@@ -1719,7 +1719,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall3ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i64 %param3.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall3ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i64 %param3.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %thisArgHandle.coerce, align 8
@@ -1793,7 +1793,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall4ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_S6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i64 %param3.coerce, i64 %param4.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable12executeCall4ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_S6_S6_b(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %thisArgHandle.coerce, i64 %param1.coerce, i64 %param2.coerce, i64 %param3.coerce, i64 %param4.coerce, i1 noundef zeroext %construct) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %thisArgHandle.coerce, align 8
@@ -1869,7 +1869,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable11executeCallENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_NS2_INS0_8JSObjectEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %newTarget.coerce, ptr nocapture readonly %thisArgument.coerce, ptr %arrayLike.coerce) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable11executeCallENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_NS2_INS0_8JSObjectEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %newTarget.coerce, ptr readonly captures(none) %thisArgument.coerce, ptr %arrayLike.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %gcScope.i = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
@@ -2519,7 +2519,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm8Callable17executeConstruct1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %param1.coerce) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm8Callable17executeConstruct1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %param1.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 55, ptr %selfHandle.coerce, i32 0, ptr noundef null) #11
   %0 = extractvalue { i32, i64 } %call.i.i, 0
@@ -2691,7 +2691,7 @@ return:                                           ; preds = %entry, %if.end27, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i32, double } @_ZN6hermes2vm8Callable28extractOwnLengthProperty_RJSENS0_6HandleIS1_EERNS0_7RuntimeE(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
@@ -2847,7 +2847,7 @@ declare noundef zeroext i1 @_ZN6hermes2vm8JSObject21_deleteOwnIndexedImplENS0_6H
 declare noundef zeroext i1 @_ZN6hermes2vm8JSObject23_checkAllOwnIndexedImplEPS1_RNS0_7RuntimeENS0_12ObjectVTable22CheckAllOwnIndexedModeE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm13BoundFunction18_newObjectImpl_RJSENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readnone %.coerce) #0 align 2 {
+define hidden ptr @_ZN6hermes2vm13BoundFunction18_newObjectImpl_RJSENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readnone captures(none) %.coerce) #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
@@ -2944,7 +2944,7 @@ return:                                           ; preds = %_ZN6hermes2vm15Hand
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
@@ -2987,7 +2987,7 @@ _ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction6createERNS0_7RuntimeENS0_6HandleINS0_8CallableEEEjSt16reverse_iteratorIPKNS0_17PinnedHermesValueEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %target.coerce, i32 noundef %argCountWithThis, ptr nocapture noundef readonly %argsWithThis) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction6createERNS0_7RuntimeENS0_6HandleINS0_8CallableEEEjSt16reverse_iteratorIPKNS0_17PinnedHermesValueEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %target.coerce, i32 noundef %argCountWithThis, ptr noundef readonly captures(none) %argsWithThis) local_unnamed_addr #0 align 2 {
 entry:
   %target = alloca %"class.hermes::vm::Handle.201", align 8
   %arrHandle = alloca %"class.hermes::vm::MutableHandle", align 8
@@ -3244,7 +3244,7 @@ declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7Run
 declare noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(9832), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction10_boundCallEPS1_PKNS_4inst4InstERNS0_7RuntimeE(ptr nocapture noundef readonly %self, ptr noundef %ip, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm13BoundFunction10_boundCallEPS1_PKNS_4inst4InstERNS0_7RuntimeE(ptr noundef readonly captures(none) %self, ptr noundef %ip, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %nativeCallFrameDepth_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9504
   %0 = load i32, ptr %nativeCallFrameDepth_.i, align 8
@@ -3430,7 +3430,7 @@ cleanup:                                          ; preds = %bail, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes2vm14NativeFunction14_newObjectImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readnone %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readnone %.coerce2) #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes2vm14NativeFunction14_newObjectImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readnone captures(none) %.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readnone captures(none) %.coerce2) #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %rightKind_.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
@@ -3447,7 +3447,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm14NativeFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm14NativeFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
@@ -3486,7 +3486,7 @@ _ZN6hermes2vm17CallableBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parentHandle.coerce, ptr noundef %context, ptr noundef %functionPtr, i32 %name.coerce, i32 noundef %paramCount, i64 %prototypeObjectHandle.coerce, i32 noundef %additionalSlotCount) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %parentHandle.coerce, ptr noundef %context, ptr noundef %functionPtr, i32 %name.coerce, i32 noundef %paramCount, i64 %prototypeObjectHandle.coerce, i32 noundef %additionalSlotCount) local_unnamed_addr #0 align 2 {
 entry:
   %add = add i32 %additionalSlotCount, 5
   %rootClazzes_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9512
@@ -3657,7 +3657,7 @@ return:                                           ; preds = %_ZN6hermes2vm16Arra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES9_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parentHandle.coerce, ptr nocapture readonly %parentEnvHandle.coerce, ptr noundef %context, ptr noundef %functionPtr, i32 %name.coerce, i32 noundef %paramCount, i64 %prototypeObjectHandle.coerce, i32 noundef %additionalSlotCount) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES9_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %parentHandle.coerce, ptr readonly captures(none) %parentEnvHandle.coerce, ptr noundef %context, ptr noundef %functionPtr, i32 %name.coerce, i32 noundef %paramCount, i64 %prototypeObjectHandle.coerce, i32 noundef %additionalSlotCount) local_unnamed_addr #0 align 2 {
 entry:
   %add = add i32 %additionalSlotCount, 5
   %rootClazzes_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9512
@@ -3889,7 +3889,7 @@ _ZN6hermes2vm23NativeFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm10JSFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm10JSFunction9_callImplENS0_6HandleINS0_8CallableEEERNS0_7RuntimeE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
@@ -4129,7 +4129,7 @@ _ZN6hermes2vm19JSFunctionBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit: ;
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm22GeneratorInnerFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %domain.coerce, ptr nocapture readonly %parentHandle.coerce, ptr nocapture readonly %envHandle.coerce, ptr noundef %codeBlock, ptr nocapture noundef readonly %args) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN6hermes2vm22GeneratorInnerFunction6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_8JSObjectEEENS4_INS0_11EnvironmentEEEPNS0_9CodeBlockENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %domain.coerce, ptr readonly captures(none) %parentHandle.coerce, ptr readonly captures(none) %envHandle.coerce, ptr noundef %codeBlock, ptr noundef readonly captures(none) %args) local_unnamed_addr #0 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9552
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
@@ -4448,7 +4448,7 @@ return:                                           ; preds = %_ZN6hermes2vm16Arra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm22GeneratorInnerFunction17callInnerFunctionENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS1_6ActionE(ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %arg.coerce, i32 noundef %action) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm22GeneratorInnerFunction17callInnerFunctionENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS1_6ActionE(ptr readonly captures(none) %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %arg.coerce, i32 noundef %action) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %arg.coerce, align 8
   %shr.i.i = ashr i64 %retval.sroa.0.0.copyload.i, 47
@@ -4717,7 +4717,7 @@ cleanup:                                          ; preds = %if.end63, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm22GeneratorInnerFunction12restoreStackERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes2vm22GeneratorInnerFunction12restoreStackERNS0_7RuntimeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #5 align 2 {
 entry:
   %argCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %argCount_.i, align 8
@@ -4744,7 +4744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm22GeneratorInnerFunction9saveStackERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm22GeneratorInnerFunction9saveStackERNS0_7RuntimeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %argCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %argCount_.i, align 8
@@ -4999,7 +4999,7 @@ declare ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llv
 declare i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i32, ptr, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #7
@@ -5449,10 +5449,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #8
 declare i32 @llvm.uadd.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

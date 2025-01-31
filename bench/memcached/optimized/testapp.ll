@@ -3649,7 +3649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   store ptr @jenkins_hash, ptr @hash, align 8
   tail call void @stats_prefix_init(i8 noundef signext 58) #20
@@ -3719,16 +3719,16 @@ declare void @stats_prefix_init(i8 noundef signext) local_unnamed_addr #2
 declare void @crc32c_init() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @alarm(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @cache_create(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3742,7 +3742,7 @@ declare ptr @cache_alloc(ptr noundef) local_unnamed_addr #2
 declare void @cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
@@ -3756,7 +3756,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @cache_set_limit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @stats_prefix_clear() local_unnamed_addr #2
 
@@ -3769,18 +3769,18 @@ declare void @stats_prefix_record_delete(ptr noundef, i64 noundef) local_unnamed
 declare void @stats_prefix_record_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @stats_prefix_dump(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare zeroext i1 @safe_strtol(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3791,7 +3791,7 @@ declare zeroext i1 @safe_strtoul(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @safe_strtoull(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @start_server(ptr nocapture noundef writeonly %port_out, i1 noundef zeroext %daemon, i32 noundef range(i32 600, 1001) %timeout) unnamed_addr #0 {
+define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %port_out, i1 noundef zeroext %daemon, i32 noundef range(i32 600, 1001) %timeout) unnamed_addr #0 {
 entry:
   %environment = alloca [80 x i8], align 16
   %pid_file = alloca [80 x i8], align 16
@@ -4055,7 +4055,7 @@ declare i32 @sleep(i32 noundef) local_unnamed_addr #2
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #3
@@ -4070,12 +4070,12 @@ declare i32 @getuid() local_unnamed_addr #4
 declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @usleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -4084,10 +4084,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @dup(i32 noundef) local_unnamed_addr #4
@@ -4102,10 +4102,10 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @vperror(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @connect_server(i16 noundef zeroext %port, i1 noundef zeroext %nonblock) unnamed_addr #0 {
@@ -4285,7 +4285,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @tcp_read(ptr noundef readonly %c, ptr nocapture noundef %buf, i64 noundef %count) #0 {
+define internal noundef i64 @tcp_read(ptr noundef readonly %c, ptr noundef captures(none) %buf, i64 noundef %count) #0 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -4301,7 +4301,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @tcp_write(ptr noundef readonly %c, ptr nocapture noundef readonly %buf, i64 noundef %count) #0 {
+define internal noundef i64 @tcp_write(ptr noundef readonly %c, ptr noundef readonly captures(none) %buf, i64 noundef %count) #0 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -4322,13 +4322,13 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 declare i32 @crc32c_sw(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4478,7 +4478,7 @@ do.end:                                           ; preds = %do.cond.us, %do.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validate_response_header(ptr nocapture noundef nonnull readonly %response, i8 noundef zeroext %cmd, i16 noundef zeroext %status) unnamed_addr #0 {
+define internal fastcc void @validate_response_header(ptr noundef nonnull readonly captures(none) %response, i8 noundef zeroext %cmd, i16 noundef zeroext %status) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %response, align 8
   %cmp = icmp eq i8 %0, -127
@@ -4853,7 +4853,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #10
 declare i32 @htonl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare i32 @rand() local_unnamed_addr #4
@@ -5046,7 +5046,7 @@ if.end15:                                         ; preds = %close_conn.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_set_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 1, 18) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_set_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 1, 18) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.5, align 8
   %receive = alloca %union.anon.5, align 8
@@ -5082,7 +5082,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %cmp3 = icmp eq i8 %cmd, 1
@@ -5274,7 +5274,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_add_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 2, 19) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_add_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 2, 19) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.8, align 8
   %receive = alloca %union.anon.8, align 8
@@ -5310,7 +5310,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %keylen.i14 = getelementptr inbounds nuw i8, ptr %receive, i64 2
@@ -5450,7 +5450,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_replace_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 3, 20) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_replace_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 3, 20) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.9, align 8
   %receive = alloca %union.anon.9, align 8
@@ -5486,7 +5486,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   br label %do.body.us.i
@@ -5572,7 +5572,7 @@ storage_command.exit34:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call6, i1 false)
   %add.ptr18.i33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call6
   store i64 -2401053088876213506, ptr %add.ptr18.i33, align 1
   br label %do.body.us.i35
@@ -5658,7 +5658,7 @@ storage_command.exit84:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   %add.ptr18.i83 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call12
   store i64 -2401053088876213506, ptr %add.ptr18.i83, align 1
   %cmp15 = icmp eq i8 %cmd, 3
@@ -5778,20 +5778,20 @@ if.end24:                                         ; preds = %if.then22, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_delete_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 4, 21) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_delete_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 4, 21) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.10, align 8
   %receive = alloca %union.anon.10, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i = add i64 %call, 24
   %cmp.i.i = icmp ult i64 %add1.i.i, 1024
-  br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
+  br i1 %cmp.i.i, label %raw_command.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i:                                       ; preds = %entry
+raw_command.exit:                                 ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds nuw i8, ptr %send, i64 1
@@ -5806,19 +5806,12 @@ if.end.i.i:                                       ; preds = %entry
   store i32 %call12.i.i, ptr %bodylen.i.i, align 8
   %opaque.i.i = getelementptr inbounds nuw i8, ptr %send, i64 12
   store i32 -559038737, ptr %opaque.i.i, align 4
-  %cmp21.not.i.i = icmp eq ptr %key, null
-  br i1 %cmp21.not.i.i, label %do.body.us.i.preheader, label %if.then23.i.i
-
-if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds nuw i8, ptr %send, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
-  br label %do.body.us.i.preheader
-
-do.body.us.i.preheader:                           ; preds = %if.end.i.i, %if.then23.i.i
   br label %do.body.us.i
 
-do.body.us.i:                                     ; preds = %do.body.us.i.preheader, %do.cond.us.i
-  %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %do.body.us.i.preheader ]
+do.body.us.i:                                     ; preds = %do.cond.us.i, %raw_command.exit
+  %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %raw_command.exit ]
   %sub.us.i = sub i64 %add1.i.i, %offset.0.us.i
   %0 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5897,12 +5890,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %call9.i = call i32 @htonl(i32 noundef %conv8.i) #24
   store i32 %call9.i, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  %body.i = getelementptr inbounds nuw i8, ptr %send, i64 24
-  store i32 0, ptr %body.i, align 8
+  store i32 0, ptr %add.ptr24.i.i, align 8
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr readonly align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr nonnull readonly align 1 %key, i64 %call6, i1 false)
   br label %do.body.us.i17
 
 do.body.us.i17:                                   ; preds = %do.cond.us.i26, %storage_command.exit
@@ -5965,13 +5957,13 @@ safe_recv_packet.exit48:                          ; preds = %safe_send.exit35, %
   %call12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i49 = add i64 %call12, 24
   %cmp.i.i50 = icmp ult i64 %add1.i.i49, 1024
-  br i1 %cmp.i.i50, label %if.end.i.i52, label %if.else.i.i51
+  br i1 %cmp.i.i50, label %raw_command.exit64, label %if.else.i.i51
 
 if.else.i.i51:                                    ; preds = %safe_recv_packet.exit48
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i52:                                     ; preds = %safe_recv_packet.exit48
+raw_command.exit64:                               ; preds = %safe_recv_packet.exit48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -5982,17 +5974,11 @@ if.end.i.i52:                                     ; preds = %safe_recv_packet.ex
   %call12.i.i58 = call i32 @htonl(i32 noundef %conv11.i.i57) #24
   store i32 %call12.i.i58, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  br i1 %cmp21.not.i.i, label %do.body.us.i65.preheader, label %if.then23.i.i62
-
-if.then23.i.i62:                                  ; preds = %if.end.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
-  br label %do.body.us.i65.preheader
-
-do.body.us.i65.preheader:                         ; preds = %if.end.i.i52, %if.then23.i.i62
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i65
 
-do.body.us.i65:                                   ; preds = %do.body.us.i65.preheader, %do.cond.us.i74
-  %offset.0.us.i66 = phi i64 [ %offset.1.us.i75, %do.cond.us.i74 ], [ 0, %do.body.us.i65.preheader ]
+do.body.us.i65:                                   ; preds = %do.cond.us.i74, %raw_command.exit64
+  %offset.0.us.i66 = phi i64 [ %offset.1.us.i75, %do.cond.us.i74 ], [ 0, %raw_command.exit64 ]
   %sub.us.i67 = sub i64 %add1.i.i49, %offset.0.us.i66
   %15 = load ptr, ptr @con, align 8
   %write.us.i68 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -6118,7 +6104,7 @@ safe_recv_packet.exit128:                         ; preds = %safe_send.exit115, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_get_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 0, 36) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_get_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 0, 36) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.11, align 8
   %receive = alloca %union.anon.11, align 8
@@ -6160,7 +6146,7 @@ if.end.i:                                         ; preds = %entry
   store i32 %call12.i, ptr %bodylen.i, align 8
   %opaque.i = getelementptr inbounds nuw i8, ptr %send, i64 12
   store i32 -559038737, ptr %opaque.i, align 4
-  switch i8 %cmd, label %if.end20.i [
+  switch i8 %cmd, label %ext_command.exit [
     i8 35, label %if.then19.i
     i8 29, label %if.then19.i
   ]
@@ -6168,22 +6154,15 @@ if.end.i:                                         ; preds = %entry
 if.then19.i:                                      ; preds = %if.end.i, %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
-  br label %if.end20.i
+  br label %ext_command.exit
 
-if.end20.i:                                       ; preds = %if.end.i, %if.then19.i
-  %cmp21.not.i = icmp eq ptr %key, null
-  br i1 %cmp21.not.i, label %do.body.us.i.preheader, label %if.then23.i
-
-if.then23.i:                                      ; preds = %if.end20.i
+ext_command.exit:                                 ; preds = %if.end.i, %if.then19.i
   %add.ptr24.i = getelementptr inbounds nuw i8, ptr %send, i64 %add.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
-  br label %do.body.us.i.preheader
-
-do.body.us.i.preheader:                           ; preds = %if.end20.i, %if.then23.i
   br label %do.body.us.i
 
-do.body.us.i:                                     ; preds = %do.body.us.i.preheader, %do.cond.us.i
-  %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %do.body.us.i.preheader ]
+do.body.us.i:                                     ; preds = %do.cond.us.i, %ext_command.exit
+  %offset.0.us.i = phi i64 [ %offset.1.us.i, %do.cond.us.i ], [ 0, %ext_command.exit ]
   %sub.us.i = sub i64 %add1.i, %offset.0.us.i
   %0 = load ptr, ptr @con, align 8
   %write.us.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6266,7 +6245,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i38, ptr readonly align 1 %key, i64 %call11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i38, ptr nonnull readonly align 1 %key, i64 %call11, i1 false)
   br label %do.body.us.i39
 
 do.body.us.i39:                                   ; preds = %do.cond.us.i48, %storage_command.exit
@@ -6360,23 +6339,17 @@ if.end.i75:                                       ; preds = %for.body
   %call12.i84 = call i32 @htonl(i32 noundef %conv11.i83) #24
   store i32 %call12.i84, ptr %bodylen.i85, align 8
   store i32 -559038737, ptr %opaque.i86, align 4
-  switch i8 %cmd, label %if.end20.i90 [
+  switch i8 %cmd, label %ext_command.exit94 [
     i8 35, label %if.then19.i88
     i8 29, label %if.then19.i88
   ]
 
 if.then19.i88:                                    ; preds = %if.end.i75, %if.end.i75
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
-  br label %if.end20.i90
-
-if.end20.i90:                                     ; preds = %if.end.i75, %if.then19.i88
-  br i1 %cmp21.not.i, label %ext_command.exit94, label %if.then23.i92
-
-if.then23.i92:                                    ; preds = %if.end20.i90
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i93, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
   br label %ext_command.exit94
 
-ext_command.exit94:                               ; preds = %if.end20.i90, %if.then23.i92
+ext_command.exit94:                               ; preds = %if.end.i75, %if.then19.i88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i93, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %send, i64 %len.0130
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 8 %temp, i64 %add1.i72, i1 false)
   %add = add i64 %add1.i72, %len.0130
@@ -6454,7 +6427,7 @@ for.end37:                                        ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_getq_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 9, 37) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_getq_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 9, 37) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.13, align 8
   %temp = alloca %union.anon.13, align 8
@@ -6498,7 +6471,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   %expiration. = select i1 %or.cond.not, ptr null, ptr %expiration
   %add.i = or disjoint i64 %spec.store.select, 24
   %add1.i19 = or disjoint i64 %spec.store.select, 48
@@ -6554,7 +6527,7 @@ if.end.i32:                                       ; preds = %ext_command.exit
   %call12.i40 = tail call i32 @htonl(i32 noundef %conv11.i39) #24
   store i32 %call12.i40, ptr %bodylen.i25, align 8
   store i32 -559038737, ptr %opaque.i26, align 4
-  switch i8 %cmd, label %if.end20.i [
+  switch i8 %cmd, label %ext_command.exit47 [
     i8 36, label %if.then19.i44
     i8 30, label %if.then19.i44
   ]
@@ -6562,17 +6535,10 @@ if.end.i32:                                       ; preds = %ext_command.exit
 if.then19.i44:                                    ; preds = %if.end.i32, %if.end.i32
   %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %temp, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
-  br label %if.end20.i
-
-if.end20.i:                                       ; preds = %if.end.i32, %if.then19.i44
-  %cmp21.not.i = icmp eq ptr %key, null
-  br i1 %cmp21.not.i, label %ext_command.exit47, label %if.then23.i
-
-if.then23.i:                                      ; preds = %if.end20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   br label %ext_command.exit47
 
-ext_command.exit47:                               ; preds = %if.end20.i, %if.then23.i
+ext_command.exit47:                               ; preds = %if.end.i32, %if.then19.i44
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %send, i64 %add
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr21, ptr nonnull align 8 %temp, i64 %add1.i29, i1 false)
   %add23 = add nuw nsw i64 %add1.i29, %add
@@ -6662,7 +6628,7 @@ safe_recv_packet.exit65:                          ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_incr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 5, 22) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_incr_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 5, 22) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.14, align 8
   %receive = alloca %union.anon.14, align 8
@@ -6703,7 +6669,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 5
   %keylen.i = getelementptr inbounds nuw i8, ptr %receive, i64 2
@@ -6836,7 +6802,7 @@ declare i64 @ntohll(i64 noundef) local_unnamed_addr #2
 declare i64 @htonll(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_decr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 6, 23) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_decr_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 6, 23) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.19, align 8
   %receive = alloca %union.anon.19, align 8
@@ -6877,7 +6843,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 6
   %keylen.i = getelementptr inbounds nuw i8, ptr %receive, i64 2
@@ -7071,7 +7037,7 @@ if.end30:                                         ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_flush_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 8, 25) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_flush_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 8, 25) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.21, align 8
   %receive = alloca %union.anon.21, align 8
@@ -7107,7 +7073,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %storage_command.exit
@@ -7245,13 +7211,13 @@ if.end:                                           ; preds = %safe_recv_packet.ex
   %call12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i = add i64 %call12, 24
   %cmp.i.i = icmp ult i64 %add1.i.i, 1024
-  br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
+  br i1 %cmp.i.i, label %raw_command.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i:                                       ; preds = %if.end
+raw_command.exit:                                 ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i = trunc i64 %call12 to i16
@@ -7261,18 +7227,11 @@ if.end.i.i:                                       ; preds = %if.end
   %call12.i.i = call i32 @htonl(i32 noundef %conv11.i.i) #24
   store i32 %call12.i.i, ptr %bodylen.i, align 8
   store i32 -559038737, ptr %opaque.i, align 4
-  %cmp21.not.i.i = icmp eq ptr %key, null
-  br i1 %cmp21.not.i.i, label %do.body.us.i63.preheader, label %if.then23.i.i
-
-if.then23.i.i:                                    ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
-  br label %do.body.us.i63.preheader
-
-do.body.us.i63.preheader:                         ; preds = %if.end.i.i, %if.then23.i.i
   br label %do.body.us.i63
 
-do.body.us.i63:                                   ; preds = %do.body.us.i63.preheader, %do.cond.us.i72
-  %offset.0.us.i64 = phi i64 [ %offset.1.us.i73, %do.cond.us.i72 ], [ 0, %do.body.us.i63.preheader ]
+do.body.us.i63:                                   ; preds = %do.cond.us.i72, %raw_command.exit
+  %offset.0.us.i64 = phi i64 [ %offset.1.us.i73, %do.cond.us.i72 ], [ 0, %raw_command.exit ]
   %sub.us.i65 = sub i64 %add1.i.i, %offset.0.us.i64
   %15 = load ptr, ptr @con, align 8
   %write.us.i66 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -7420,7 +7379,7 @@ storage_command.exit142:                          ; preds = %for.body
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
   br label %do.body.us.i143
 
 do.body.us.i143:                                  ; preds = %do.cond.us.i152, %storage_command.exit142
@@ -7555,13 +7514,13 @@ if.end40:                                         ; preds = %safe_recv_packet.ex
   %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i214 = add i64 %call42, 24
   %cmp.i.i215 = icmp ult i64 %add1.i.i214, 1024
-  br i1 %cmp.i.i215, label %if.end.i.i217, label %if.else.i.i216
+  br i1 %cmp.i.i215, label %raw_command.exit229, label %if.else.i.i216
 
 if.else.i.i216:                                   ; preds = %if.end40
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i217:                                    ; preds = %if.end40
+raw_command.exit229:                              ; preds = %if.end40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i219 = trunc i64 %call42 to i16
@@ -7571,17 +7530,11 @@ if.end.i.i217:                                    ; preds = %if.end40
   %call12.i.i223 = call i32 @htonl(i32 noundef %conv11.i.i222) #24
   store i32 %call12.i.i223, ptr %bodylen.i, align 8
   store i32 -559038737, ptr %opaque.i, align 4
-  br i1 %cmp21.not.i.i, label %do.body.us.i230.preheader, label %if.then23.i.i227
-
-if.then23.i.i227:                                 ; preds = %if.end.i.i217
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call42, i1 false)
-  br label %do.body.us.i230.preheader
-
-do.body.us.i230.preheader:                        ; preds = %if.end.i.i217, %if.then23.i.i227
   br label %do.body.us.i230
 
-do.body.us.i230:                                  ; preds = %do.body.us.i230.preheader, %do.cond.us.i239
-  %offset.0.us.i231 = phi i64 [ %offset.1.us.i240, %do.cond.us.i239 ], [ 0, %do.body.us.i230.preheader ]
+do.body.us.i230:                                  ; preds = %do.cond.us.i239, %raw_command.exit229
+  %offset.0.us.i231 = phi i64 [ %offset.1.us.i240, %do.cond.us.i239 ], [ 0, %raw_command.exit229 ]
   %sub.us.i232 = sub i64 %add1.i.i214, %offset.0.us.i231
   %44 = load ptr, ptr @con, align 8
   %write.us.i233 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -7640,20 +7593,20 @@ for.end:                                          ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_concat_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 14, 27) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_concat_impl(ptr noundef readonly captures(none) %key, i8 noundef zeroext range(i8 14, 27) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.24, align 8
   %receive = alloca %union.anon.24, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add2.i.i = add i64 %call, 29
   %cmp.i.i = icmp ult i64 %add2.i.i, 1024
-  br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
+  br i1 %cmp.i.i, label %raw_command.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i:                                       ; preds = %entry
+raw_command.exit:                                 ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds nuw i8, ptr %send, i64 1
@@ -7669,15 +7622,8 @@ if.end.i.i:                                       ; preds = %entry
   store i32 %call12.i.i, ptr %bodylen.i.i, align 8
   %opaque.i.i = getelementptr inbounds nuw i8, ptr %send, i64 12
   store i32 -559038737, ptr %opaque.i.i, align 4
-  %cmp21.not.i.i = icmp eq ptr %key, null
-  br i1 %cmp21.not.i.i, label %raw_command.exit, label %if.then23.i.i
-
-if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds nuw i8, ptr %send, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
-  br label %raw_command.exit
-
-raw_command.exit:                                 ; preds = %if.end.i.i, %if.then23.i.i
   %1 = getelementptr i8, ptr %send, i64 %call
   %add.ptr29.i.i = getelementptr i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
@@ -7763,12 +7709,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %call9.i = call i32 @htonl(i32 noundef %conv8.i) #24
   store i32 %call9.i, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  %body.i = getelementptr inbounds nuw i8, ptr %send, i64 24
-  store i32 0, ptr %body.i, align 8
+  store i32 0, ptr %add.ptr24.i.i, align 8
   %expiration.i = getelementptr inbounds nuw i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i44 = getelementptr inbounds nuw i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr readonly align 1 %key, i64 %call7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr nonnull readonly align 1 %key, i64 %call7, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %call7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i45
@@ -7833,13 +7778,13 @@ safe_recv_packet.exit76:                          ; preds = %safe_send.exit63, %
   %call14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add2.i.i78 = add i64 %call14, 29
   %cmp.i.i79 = icmp ult i64 %add2.i.i78, 1024
-  br i1 %cmp.i.i79, label %if.end.i.i81, label %if.else.i.i80
+  br i1 %cmp.i.i79, label %raw_command.exit95, label %if.else.i.i80
 
 if.else.i.i80:                                    ; preds = %safe_recv_packet.exit76
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i81:                                     ; preds = %safe_recv_packet.exit76
+raw_command.exit95:                               ; preds = %safe_recv_packet.exit76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -7851,13 +7796,7 @@ if.end.i.i81:                                     ; preds = %safe_recv_packet.ex
   %call12.i.i88 = call i32 @htonl(i32 noundef %conv11.i.i87) #24
   store i32 %call12.i.i88, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  br i1 %cmp21.not.i.i, label %raw_command.exit95, label %if.then23.i.i92
-
-if.then23.i.i92:                                  ; preds = %if.end.i.i81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call14, i1 false)
-  br label %raw_command.exit95
-
-raw_command.exit95:                               ; preds = %if.end.i.i81, %if.then23.i.i92
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call14, i1 false)
   %18 = getelementptr i8, ptr %send, i64 %call14
   %add.ptr29.i.i94 = getelementptr i8, ptr %18, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
@@ -7977,13 +7916,13 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #23
   %add1.i.i167 = add i64 %call30, 24
   %cmp.i.i169 = icmp ult i64 %add1.i.i167, 1024
-  br i1 %cmp.i.i169, label %if.end.i.i171, label %if.else.i.i170
+  br i1 %cmp.i.i169, label %raw_command.exit184, label %if.else.i.i170
 
 if.else.i.i170:                                   ; preds = %if.end
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #21
   unreachable
 
-if.end.i.i171:                                    ; preds = %if.end
+raw_command.exit184:                              ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 12, ptr %opcode.i.i, align 1
@@ -7994,17 +7933,11 @@ if.end.i.i171:                                    ; preds = %if.end
   %call12.i.i178 = call i32 @htonl(i32 noundef %conv11.i.i177) #24
   store i32 %call12.i.i178, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  br i1 %cmp21.not.i.i, label %do.body.us.i185.preheader, label %if.then23.i.i182
-
-if.then23.i.i182:                                 ; preds = %if.end.i.i171
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call30, i1 false)
-  br label %do.body.us.i185.preheader
-
-do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.then23.i.i182
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call30, i1 false)
   br label %do.body.us.i185
 
-do.body.us.i185:                                  ; preds = %do.body.us.i185.preheader, %do.cond.us.i194
-  %offset.0.us.i186 = phi i64 [ %offset.1.us.i195, %do.cond.us.i194 ], [ 0, %do.body.us.i185.preheader ]
+do.body.us.i185:                                  ; preds = %do.cond.us.i194, %raw_command.exit184
+  %offset.0.us.i186 = phi i64 [ %offset.1.us.i195, %do.cond.us.i194 ], [ 0, %raw_command.exit184 ]
   %sub.us.i187 = sub i64 %add1.i.i167, %offset.0.us.i186
   %30 = load ptr, ptr @con, align 8
   %write.us.i188 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -8085,7 +8018,7 @@ if.else50:                                        ; preds = %if.end41
 
 if.end51:                                         ; preds = %if.end41
   %add.ptr53 = getelementptr inbounds nuw i8, ptr %receive, i64 28
-  %bcmp = call i32 @bcmp(ptr nonnull %add.ptr53, ptr %key, i64 %conv35)
+  %bcmp = call i32 @bcmp(ptr nonnull %add.ptr53, ptr nonnull %key, i64 %conv35)
   %cmp56 = icmp eq i32 %bcmp, 0
   br i1 %cmp56, label %if.end60, label %if.else59
 
@@ -8124,7 +8057,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @binary_hickup_recv_verification_thread(ptr nocapture readnone %arg) #0 {
+define internal noalias noundef ptr @binary_hickup_recv_verification_thread(ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(66560) ptr @malloc(i64 noundef 66560) #26
   %cmp.not = icmp eq ptr %call, null
@@ -8196,16 +8129,16 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

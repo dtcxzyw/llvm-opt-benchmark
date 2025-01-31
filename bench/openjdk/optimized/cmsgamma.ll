@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DefaultCurves = internal unnamed_addr constant { i32, <{ [10 x i32], [10 x i32] }>, <{ [10 x i32], [10 x i32] }>, ptr, ptr } { i32 10, <{ [10 x i32], [10 x i32] }> <{ [10 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 108, i32 109], [10 x i32] zeroinitializer }>, <{ [10 x i32], [10 x i32] }> <{ [10 x i32] [i32 1, i32 3, i32 4, i32 5, i32 7, i32 4, i32 5, i32 5, i32 1, i32 1], [10 x i32] zeroinitializer }>, ptr @DefaultEvalParametricFn, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocCurvesPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsCurvesPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -141,17 +141,17 @@ declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsGetToneCurveEstimatedTableEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @cmsGetToneCurveEstimatedTableEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetToneCurveEstimatedTable(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden ptr @cmsGetToneCurveEstimatedTable(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -706,7 +706,7 @@ define hidden ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cmsCurveSegment, align 8
   %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
   %.02047.i = load ptr, ptr %5, align 8
@@ -792,7 +792,7 @@ IsInSet.exit38.thread.i:                          ; preds = %17
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsBuildGamma(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -901,7 +901,7 @@ declare void @_cmsFreeInterpParams(ptr noundef) local_unnamed_addr #1
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsFreeToneCurveTriple(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @cmsFreeToneCurveTriple(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -960,7 +960,7 @@ define hidden ptr @cmsDupToneCurve(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x %struct.cmsCurveSegment], align 16
   %6 = tail call ptr @cmsReverseToneCurveEx(i32 noundef %3, ptr noundef %2)
   %7 = icmp eq ptr %6, null
@@ -1064,7 +1064,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -1350,7 +1350,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInte
 declare ptr @_cmsCalloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden float @cmsEvalToneCurveFloat(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #0 {
+define hidden float @cmsEvalToneCurveFloat(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca i16, align 2
@@ -1485,7 +1485,7 @@ EvalSegmentedFn.exit:                             ; preds = %75, %29, %71, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 2
@@ -1504,7 +1504,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr nocapture nounde
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsReverseToneCurve(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @cmsReverseToneCurve(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @cmsReverseToneCurveEx(i32 noundef 4096, ptr noundef %0)
   ret ptr %2
 }
@@ -2105,7 +2105,7 @@ cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -2146,7 +2146,7 @@ declare zeroext i16 @_cmsQuantizeVal(double noundef, i32 noundef) local_unnamed_
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 2
@@ -2217,7 +2217,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @cmsIsToneCurveMultisegment(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @cmsIsToneCurveMultisegment(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 1
@@ -2226,7 +2226,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMultisegment(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @cmsGetToneCurveParametricType(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @cmsGetToneCurveParametricType(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
@@ -2245,7 +2245,7 @@ define hidden i32 @cmsGetToneCurveParametricType(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @cmsEvalToneCurve16(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @cmsEvalToneCurve16(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   store i16 %1, ptr %3, align 2
@@ -2258,7 +2258,7 @@ define hidden zeroext i16 @cmsEvalToneCurve16(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @cmsEstimateGamma(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define hidden double @cmsEstimateGamma(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %19
@@ -2326,7 +2326,7 @@ declare double @log(double noundef) local_unnamed_addr #8
 declare double @sqrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetToneCurveSegment(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden ptr @cmsGetToneCurveSegment(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %12, label %4
 
@@ -2973,16 +2973,16 @@ declare double @llvm.log.f64(double) #10
 declare double @llvm.log10.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

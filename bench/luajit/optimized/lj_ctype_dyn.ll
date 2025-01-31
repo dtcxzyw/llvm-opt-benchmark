@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [6 x i8] c"const\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, -1) i32 @lj_ctype_new(ptr noundef %cts, ptr nocapture noundef writeonly %ctp) local_unnamed_addr #0 {
+define hidden range(i32 0, -1) i32 @lj_ctype_new(ptr noundef %cts, ptr noundef writeonly captures(none) %ctp) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %cts, i64 8
   %0 = load i32, ptr %top, align 8
@@ -184,7 +184,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @lj_ctype_addname(ptr nocapture noundef %cts, ptr nocapture noundef initializes((10, 12)) %ct, i32 noundef %id) local_unnamed_addr #3 {
+define hidden void @lj_ctype_addname(ptr noundef captures(none) %cts, ptr noundef captures(none) initializes((10, 12)) %ct, i32 noundef %id) local_unnamed_addr #3 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %ct, i64 16
   %0 = load i64, ptr %name, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr nocapture noundef readonly %cts, ptr nocapture noundef writeonly %ctp, ptr noundef %name, i32 noundef %tmask) local_unnamed_addr #4 {
+define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr noundef readonly captures(none) %cts, ptr noundef writeonly captures(none) %ctp, ptr noundef %name, i32 noundef %tmask) local_unnamed_addr #4 {
 entry:
   %hash = getelementptr inbounds nuw i8, ptr %cts, i64 216
   %0 = ptrtoint ptr %name to i64
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %entry, %re
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_ctype_getfieldq(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr noundef %name, ptr nocapture noundef %ofs, ptr noundef %qual) local_unnamed_addr #5 {
+define hidden ptr @lj_ctype_getfieldq(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, ptr noundef %name, ptr noundef captures(none) %ofs, ptr noundef %qual) local_unnamed_addr #5 {
 entry:
   %sib33 = getelementptr inbounds nuw i8, ptr %ct, i64 8
   %0 = load i16, ptr %sib33, align 8
@@ -375,7 +375,7 @@ return:                                           ; preds = %if.end31, %return.s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @lj_ctype_rawref(ptr nocapture noundef readonly %cts, i32 noundef %id) local_unnamed_addr #6 {
+define hidden noundef ptr @lj_ctype_rawref(ptr noundef readonly captures(none) %cts, i32 noundef %id) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   br label %while.cond
@@ -397,7 +397,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_ctype_size(ptr nocapture noundef readonly %cts, i32 noundef %id) local_unnamed_addr #6 {
+define hidden i32 @lj_ctype_size(ptr noundef readonly captures(none) %cts, i32 noundef %id) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   br label %while.cond.i
@@ -426,7 +426,7 @@ cond.end:                                         ; preds = %ctype_raw.exit, %co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_ctype_vlsize(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, i32 noundef %nelem) local_unnamed_addr #6 {
+define hidden i32 @lj_ctype_vlsize(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, i32 noundef %nelem) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %ct, align 8
   %shr.mask = and i32 %0, -268435456
@@ -499,7 +499,7 @@ ctype_rawchild.exit:                              ; preds = %do.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lj_ctype_info(ptr nocapture noundef readonly %cts, i32 noundef %id, ptr nocapture noundef writeonly %szp) local_unnamed_addr #4 {
+define hidden i32 @lj_ctype_info(ptr noundef readonly captures(none) %cts, i32 noundef %id, ptr noundef writeonly captures(none) %szp) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   br label %for.cond
@@ -567,7 +567,7 @@ if.end28:                                         ; preds = %for.cond, %if.then4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lj_ctype_info_raw(ptr nocapture noundef readonly %cts, i32 noundef %id, ptr nocapture noundef writeonly %szp) local_unnamed_addr #4 {
+define hidden i32 @lj_ctype_info_raw(ptr noundef readonly captures(none) %cts, i32 noundef %id, ptr noundef writeonly captures(none) %szp) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   %idxprom.i = zext i32 %id to i64
@@ -642,7 +642,7 @@ lj_ctype_info.exit:                               ; preds = %for.cond.i, %cond.f
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_ctype_meta(ptr nocapture noundef readonly %cts, i32 noundef %id, i32 noundef %mm) local_unnamed_addr #0 {
+define hidden ptr @lj_ctype_meta(ptr noundef readonly captures(none) %cts, i32 noundef %id, i32 noundef %mm) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cts, align 8
   br label %while.cond
@@ -2276,7 +2276,7 @@ if.end11:                                         ; preds = %if.then9, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_ctype_repr_complex(ptr noundef %L, ptr nocapture noundef readonly %sp, i32 noundef %size) local_unnamed_addr #0 {
+define hidden ptr @lj_ctype_repr_complex(ptr noundef %L, ptr noundef readonly captures(none) %sp, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref.i, align 8
@@ -2385,7 +2385,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body, %for.body
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.050) #15
-  %call12 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %name.050, i64 noundef %call11) #14
+  %call12 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %name.050, i64 noundef %call11) #14
   %marked.i = getelementptr inbounds nuw i8, ptr %call12, i64 8
   %4 = load i8, ptr %marked.i, align 8
   %5 = or i8 %4, 32
@@ -2458,13 +2458,13 @@ for.end:                                          ; preds = %for.inc
 declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_ctype_freestate(ptr nocapture noundef %g) local_unnamed_addr #0 {
+define hidden void @lj_ctype_freestate(ptr noundef captures(none) %g) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds nuw i8, ptr %g, i64 384
   %0 = load i64, ptr %ctype_state, align 8
@@ -2514,7 +2514,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare hidden void @lj_ccallback_mcode_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef %ct, i32 noundef %qual, ptr nocapture noundef readonly %t) unnamed_addr #9 {
+define internal fastcc void @ctype_preptype(ptr noundef nonnull %ctr, ptr noundef %ct, i32 noundef %qual, ptr noundef readonly captures(none) %t) unnamed_addr #9 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %ct, i64 16
   %0 = load i64, ptr %name, align 8
@@ -2789,13 +2789,13 @@ ctype_prepqual.exit:                              ; preds = %if.end.i51, %if.the
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10

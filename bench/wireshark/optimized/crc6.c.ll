@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc6_table = internal unnamed_addr constant [256 x i8] c"\00/1\1E\0D\22<\13\1A5+\04\178&\094\1B\05*9\16\08'.\01\1F0#\0C\12=\07(6\19\0A%;\14\1D2,\03\10?!\0E3\1C\02->\11\0F )\06\187$\0B\15:\0E!?\10\03,2\1D\14;%\0A\196(\07:\15\0B$7\18\06) \0F\11>-\02\1C3\09&8\17\04+5\1A\13<\22\0D\1E1/\00=\12\0C#0\1F\01.'\08\169*\05\1B4\1C3-\02\11> \0F\06)7\18\0B$:\15(\07\196%\0A\14;2\1D\03,?\10\0E!\1B4*\05\169'\08\01.0\1F\0C#=\12/\00\1E1\22\0D\13<5\1A\04+8\17\09&\12=#\0C\1F0.\01\08'9\16\05*4\1B&\09\178+\04\1A5<\13\0D\221\1E\00/\15:$\0B\187)\06\0F >\11\02-3\1C!\0E\10?,\03\1D2;\14\0A%6\19\07(", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext range(i16 0, 64) i16 @crc6_0X6F(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i16 0, 64) i16 @crc6_0X6F(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not7 = icmp eq i32 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 

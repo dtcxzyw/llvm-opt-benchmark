@@ -1526,7 +1526,7 @@ end:                                              ; preds = %sw.bb102, %land.lhs
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #2
 
@@ -1595,7 +1595,7 @@ declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %cert, ptr noundef nonnull %store, ptr noundef %untrusted_certs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %chain) unnamed_addr #0 {
+define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %cert, ptr noundef nonnull %store, ptr noundef %untrusted_certs, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %chain) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #5
   %call1 = tail call ptr @app_get0_propq() #5
@@ -2341,7 +2341,7 @@ declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @PKCS12_SAFEBAG_get0_bag_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_attribute(ptr noundef %out, ptr nocapture noundef readonly %av) local_unnamed_addr #0 {
+define dso_local void @print_attribute(ptr noundef %out, ptr noundef readonly captures(none) %av) local_unnamed_addr #0 {
 entry:
   %objbuf = alloca [80 x i8], align 16
   %0 = load i32, ptr %av, align 8
@@ -2488,7 +2488,7 @@ declare void @ERR_clear_error() local_unnamed_addr #2
 declare ptr @OPENSSL_uni2asc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hex_prin(ptr noundef %out, ptr nocapture noundef readonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @hex_prin(ptr noundef %out, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp3 = icmp sgt i32 %len, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -2562,7 +2562,7 @@ declare ptr @PBEPARAM_it() local_unnamed_addr #2
 declare void @PBEPARAM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #2
 

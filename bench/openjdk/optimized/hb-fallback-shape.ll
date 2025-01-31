@@ -15,27 +15,27 @@ $_ZN9hb_font_t32get_glyph_h_origin_with_fallbackEjPiS0_ = comdat any
 $_ZN9hb_font_t32get_glyph_v_origin_with_fallbackEjPiS0_ = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_hb_fallback_shaper_face_data_create(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_hb_fallback_shaper_face_data_create(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr inttoptr (i64 1 to ptr)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_hb_fallback_shaper_face_data_destroy(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @_hb_fallback_shaper_face_data_destroy(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_hb_fallback_shaper_font_data_create(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_hb_fallback_shaper_font_data_create(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr inttoptr (i64 1 to ptr)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_hb_fallback_shaper_font_data_destroy(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @_hb_fallback_shaper_font_data_destroy(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_hb_fallback_shape(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden noundef i32 @_hb_fallback_shape(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -551,13 +551,13 @@ _ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit: ; preds = %_ZN9hb_font
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

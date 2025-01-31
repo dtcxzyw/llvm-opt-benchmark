@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [37 x i8] c"0123456789abcdefghijklmnopqrstuvwxyz\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wrtmessage(ptr nocapture readnone %cbopaque, ptr noundef %s) local_unnamed_addr #0 {
+define hidden void @wrtmessage(ptr readnone captures(none) %cbopaque, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #13
   br label %do.body.i
@@ -21,7 +21,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %bytes_written.0.i = phi i64 [ 0, %entry ], [ %add.i, %do.body.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 %bytes_written.0.i
   %sub.i = sub i64 %call, %bytes_written.0.i
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef %arrayidx.i, i64 noundef %sub.i) #14
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %arrayidx.i, i64 noundef %sub.i) #14
   %cmp.i = icmp sgt i64 %call.i.i, -1
   %add.i = add i64 %call.i.i, %bytes_written.0.i
   %cmp1.i = icmp ult i64 %add.i, %call
@@ -33,7 +33,7 @@ malloc_write_fd.exit:                             ; preds = %do.body.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @malloc_write(ptr noundef %s) local_unnamed_addr #0 {
@@ -54,7 +54,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.el
   %bytes_written.0.i.i = phi i64 [ 0, %if.else ], [ %add.i.i, %do.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %s, i64 %bytes_written.0.i.i
   %sub.i.i = sub i64 %call.i, %bytes_written.0.i.i
-  %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef %arrayidx.i.i, i64 noundef %sub.i.i) #14
+  %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef 2, ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i) #14
   %cmp.i.i = icmp sgt i64 %call.i.i.i, -1
   %add.i.i = add i64 %call.i.i.i, %bytes_written.0.i.i
   %cmp1.i.i = icmp ult i64 %add.i.i, %call.i
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @malloc_strtoumax(ptr noalias noundef %nptr, ptr noalias noundef writeonly %endptr, i32 noundef %base) local_unnamed_addr #4 {
@@ -276,7 +276,7 @@ if.end107:                                        ; preds = %if.then102, %label_
 }
 
 ; Function Attrs: cold nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @malloc_vsnprintf(ptr nocapture noundef writeonly %str, i64 noundef %size, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #5 {
+define hidden i64 @malloc_vsnprintf(ptr noundef writeonly captures(none) %str, i64 noundef %size, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #5 {
 entry:
   %f = alloca ptr, align 8
   %buf = alloca [66 x i8], align 16
@@ -1861,10 +1861,10 @@ if.end1448:                                       ; preds = %if.else1445, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: cold nofree nounwind uwtable
-define hidden i64 @malloc_snprintf(ptr nocapture noundef writeonly %str, i64 noundef %size, ptr noundef %format, ...) local_unnamed_addr #7 {
+define hidden i64 @malloc_snprintf(ptr noundef writeonly captures(none) %str, i64 noundef %size, ptr noundef %format, ...) local_unnamed_addr #7 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -1939,10 +1939,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

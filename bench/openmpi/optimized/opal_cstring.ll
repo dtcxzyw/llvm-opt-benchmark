@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_cstring_ctor(ptr nocapture noundef writeonly initializes((16, 24), (25, 26)) %0) #0 {
+define internal void @opal_cstring_ctor(ptr noundef writeonly captures(none) initializes((16, 24), (25, 26)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -169,10 +169,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %10, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -5, 1) i32 @opal_cstring_to_int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @opal_cstring_to_int(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %23, label %5
@@ -223,17 +223,17 @@ define range(i32 -5, 1) i32 @opal_cstring_to_int(ptr noundef %0, ptr nocapture n
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %.preheader
 
@@ -312,10 +312,10 @@ define zeroext i1 @opal_str_to_bool(ptr noundef %0) local_unnamed_addr #8 {
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

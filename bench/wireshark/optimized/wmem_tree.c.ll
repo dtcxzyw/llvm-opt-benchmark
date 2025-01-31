@@ -43,7 +43,7 @@ define noalias noundef ptr @wmem_tree_new_autoreset(ptr noundef %0, ptr noundef 
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_tree_destroy_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @wmem_tree_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -53,7 +53,7 @@ define internal noundef zeroext i1 @wmem_tree_destroy_cb(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_tree_reset_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef initializes((16, 24)) %2) #0 {
+define internal noundef zeroext i1 @wmem_tree_reset_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef initializes((16, 24)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
   %5 = icmp eq i32 %1, 1
@@ -203,7 +203,7 @@ declare void @wmem_unregister_callback(ptr noundef, i32 noundef) local_unnamed_a
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @wmem_tree_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @wmem_tree_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -211,7 +211,7 @@ define zeroext i1 @wmem_tree_is_empty(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wmem_tree_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @wmem_tree_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -230,7 +230,7 @@ wmem_tree_foreach.exit:                           ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @wmem_tree_foreach(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @wmem_tree_foreach(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -246,7 +246,7 @@ define noundef zeroext i1 @wmem_tree_foreach(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @count_nodes(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #3 {
+define internal noundef zeroext i1 @count_nodes(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = load i32, ptr %2, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %2, align 4
@@ -254,7 +254,7 @@ define internal noundef zeroext i1 @count_nodes(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @wmem_tree_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @wmem_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -349,7 +349,7 @@ define hidden ptr @wmem_tree_insert(ptr nocapture noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rb_insert_case1(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -646,13 +646,13 @@ rb_insert_case2.exit:                             ; preds = %.preheader, %31, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_tree_insert32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_tree_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @lookup_or_insert32(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -1129,7 +1129,7 @@ wmem_tree_lookup32.exit.thread:                   ; preds = %17, %3, %2, %20, %w
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_tree_insert_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @wmem_tree_insert_string(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %6, ptr noundef %1) #9
@@ -1319,7 +1319,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define ptr @wmem_tree_lookup_string(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1467,7 +1467,7 @@ wmem_tree_lookup_string.exit.thread:              ; preds = %13, %21, %15, %.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_tree_insert32_array(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_tree_insert32_array(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %.not29 = icmp eq i32 %4, 0
   br i1 %.not29, label %._crit_edge33, label %.preheader.lr.ph
@@ -1940,7 +1940,7 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2024,7 +2024,7 @@ wmem_print_subtree.exit:                          ; preds = %3, %4, %9
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @wmem_tree_print_nodes(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -2165,7 +2165,7 @@ wmem_print_subtree.exit:                          ; preds = %wmem_print_indent.e
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

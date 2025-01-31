@@ -245,7 +245,7 @@ define dso_local void @drm_mode_debug_printmodeline(ptr noundef %0) #0 align 16 
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @drm_mode_vrefresh(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local i32 @drm_mode_vrefresh(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -291,20 +291,20 @@ define dso_local i32 @drm_mode_vrefresh(ptr nocapture noundef readonly %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_mode_create(ptr nocapture readnone %0) #0 align 16 {
+define dso_local noalias noundef ptr @drm_mode_create(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 120) #15
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mode_destroy(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_mode_destroy(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %5, label %4
 
@@ -800,7 +800,7 @@ define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_cvt_mode(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
+define dso_local noalias noundef ptr @drm_cvt_mode(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
   %8 = icmp ne i32 %1, 0
   %9 = icmp ne i32 %2, 0
   %10 = and i1 %8, %9
@@ -1038,7 +1038,7 @@ define dso_local noalias noundef ptr @drm_cvt_mode(ptr nocapture readnone %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @drm_mode_set_name(ptr nocapture noundef %0) #4 align 16 {
+define dso_local void @drm_mode_set_name(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
@@ -1056,7 +1056,7 @@ define dso_local void @drm_mode_set_name(ptr nocapture noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_gtf_mode_complex(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #0 align 16 {
+define dso_local noalias noundef ptr @drm_gtf_mode_complex(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #0 align 16 {
   %11 = icmp ne i32 %1, 0
   %12 = icmp ne i32 %2, 0
   %13 = and i1 %11, %12
@@ -1210,16 +1210,16 @@ define dso_local noalias noundef ptr @drm_gtf_mode_complex(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_gtf_mode(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5) #0 align 16 {
+define dso_local noalias noundef ptr @drm_gtf_mode(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5) #0 align 16 {
   %7 = tail call ptr @drm_gtf_mode_complex(ptr poison, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef 600, i32 noundef 80, i32 noundef 128, i32 noundef 40)
   ret ptr %7
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_get_hv_timing(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 align 16 {
+define dso_local void @drm_mode_get_hv_timing(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #6 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1240,10 +1240,10 @@ define dso_local void @drm_mode_get_hv_timing(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_init(ptr nocapture noundef initializes((0, 120)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @drm_mode_init(ptr noundef captures(none) initializes((0, 120)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = alloca %struct.list_head, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -1418,7 +1418,7 @@ define dso_local void @drm_mode_set_crtcinfo(ptr noundef %0, i32 noundef %1) #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_copy(ptr nocapture noundef initializes((0, 64), (80, 120)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @drm_mode_copy(ptr noundef captures(none) initializes((0, 64), (80, 120)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1430,10 +1430,10 @@ define dso_local void @drm_mode_copy(ptr nocapture noundef initializes((0, 64), 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_mode_duplicate(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noalias noundef ptr @drm_mode_duplicate(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 120) #15
@@ -1930,7 +1930,7 @@ define dso_local i32 @drm_mode_validate_driver(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %10
 
@@ -2235,7 +2235,7 @@ drm_mode_debug_printmodeline.exit:                ; preds = %._crit_edge.i, %94,
 
 157:                                              ; preds = %153, %152
   %158 = phi ptr [ %156, %153 ], [ @.str.4, %152 ]
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef %125, ptr noundef %158) #14
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %125, ptr noundef %158) #14
   br label %159
 
 159:                                              ; preds = %157, %88
@@ -2267,7 +2267,7 @@ define dso_local void @drm_mode_sort(ptr noundef %0) #0 align 16 {
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @drm_mode_compare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal i32 @drm_mode_compare(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -64
   %5 = getelementptr i8, ptr %2, i64 -64
   %6 = getelementptr i8, ptr %2, i64 -2
@@ -2656,7 +2656,7 @@ drm_mode_match.exit:                              ; preds = %.lr.ph.split, %39, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 96)) %2) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((0, 96)) %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2764,7 +2764,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
 
 71:                                               ; preds = %66
   %72 = zext i32 %64 to i64
-  %73 = tail call ptr @strnchr(ptr noundef %0, i64 noundef %72, i32 noundef 61) #14
+  %73 = tail call ptr @strnchr(ptr noundef nonnull %0, i64 noundef %72, i32 noundef 61) #14
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %.thread58
 
@@ -2793,7 +2793,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %84 = getelementptr [4 x %struct.drm_named_mode], ptr @drm_named_modes, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 16
   %86 = tail call i64 @strlen(ptr noundef %85) #14
-  %87 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %85, i64 noundef %86) #14
+  %87 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %85, i64 noundef %86) #14
   %88 = icmp eq i32 %87, 0
   %89 = trunc i64 %86 to i32
   %90 = select i1 %88, i32 %89, i32 0
@@ -2838,7 +2838,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
 113:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   store ptr null, ptr %9, align 8, !annotation !26
-  %114 = call i64 @simple_strtol(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 10) #14
+  %114 = call i64 @simple_strtol(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 10) #14
   %115 = trunc i64 %114 to i32
   %116 = load ptr, ptr %9, align 8
   %117 = icmp eq ptr %116, %0
@@ -3526,13 +3526,13 @@ drm_mode_parse_cmdline_options.exit:              ; preds = %436
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strnchr(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -4030,7 +4030,7 @@ declare dso_local void @__drm_err(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4039,7 +4039,7 @@ declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) loca
 declare dso_local i32 @drm_get_tv_mode_from_name(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

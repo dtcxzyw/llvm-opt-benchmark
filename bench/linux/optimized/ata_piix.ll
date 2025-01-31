@@ -168,7 +168,7 @@ define internal i32 @piix_init() #1 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
@@ -871,10 +871,10 @@ define internal i32 @piix_pci_device_resume(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ata_print_version(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -883,7 +883,7 @@ declare dso_local void @ata_print_version(ptr noundef, ptr noundef) local_unname
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pcim_enable_device(ptr noundef) local_unnamed_addr #0
@@ -907,7 +907,7 @@ declare dso_local i32 @ata_pci_sff_activate_host(ptr noundef, ptr noundef, ptr n
 declare dso_local i32 @ata_bmdma_interrupt(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ata_scsi_queuecmd(ptr noundef, ptr noundef) #0
@@ -940,7 +940,7 @@ declare dso_local ptr @dmi_first_match(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @ata_cable_40wire(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @piix_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @piix_set_piomode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = add i8 %4, -8
@@ -949,7 +949,7 @@ define internal void @piix_set_piomode(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @piix_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @piix_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @do_pata_set_dmamode(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
@@ -980,7 +980,7 @@ define internal i32 @piix_pata_prereset(ptr noundef %0, i64 noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @piix_set_timings(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc void @piix_set_timings(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -1126,7 +1126,7 @@ declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 nounde
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_pata_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
+define internal fastcc void @do_pata_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -1236,7 +1236,7 @@ declare dso_local i32 @pci_test_config_bits(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @ata_sff_prereset(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef readonly %0) #7 align 16 {
+define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr noundef readonly captures(none) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1293,7 +1293,7 @@ define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ich_set_dmamode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @ich_set_dmamode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   tail call fastcc void @do_pata_set_dmamode(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
@@ -1437,7 +1437,7 @@ declare dso_local i32 @pcim_iomap_regions(ptr noundef, i32 noundef, ptr noundef)
 declare dso_local ptr @pcim_iomap_table(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %27, label %5
 
@@ -1473,7 +1473,7 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %26, label %5
 

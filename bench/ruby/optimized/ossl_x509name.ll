@@ -565,7 +565,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509name_to_s(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @ossl_x509name_to_s(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -989,7 +989,7 @@ declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #1
 declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509name_init_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @ossl_x509name_init_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = alloca [3 x i64], align 16
   %7 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 0) #12
   %8 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef 1) #12
@@ -1059,7 +1059,7 @@ declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 declare ptr @d2i_X509_NAME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1164,7 +1164,7 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i64 @rb_ary_new() local_unnamed_addr #1
 
@@ -1207,7 +1207,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -280,7 +280,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @switch.table._ZN13CodeHeapState11print_namesEP12outputStreamP8CodeHeap = private unnamed_addr constant [9 x i32] [i32 13, i32 11, i32 poison, i32 12, i32 5, i32 7, i32 9, i32 10, i32 8], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN13CodeHeapState12get_heapNameEP8CodeHeap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13CodeHeapState12get_heapNameEP8CodeHeap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @SegmentedCodeCache, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %7
@@ -362,7 +362,7 @@ define hidden noundef i32 @_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
@@ -675,7 +675,7 @@ define hidden void @_ZN13CodeHeapState17prepare_StatArrayEP12outputStreammmPKc(p
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13CodeHeapState17prepare_FreeArrayEP12outputStreamjPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
@@ -798,7 +798,7 @@ define hidden void @_ZN13CodeHeapState21prepare_SizeDistArrayEP12outputStreamjPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13CodeHeapState20update_SizeDistArrayEP12outputStreamj(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN13CodeHeapState20update_SizeDistArrayEP12outputStreamj(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr @_ZL21SizeDistributionArray, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
@@ -848,7 +848,7 @@ define hidden void @_ZN13CodeHeapState20update_SizeDistArrayEP12outputStreamj(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState17discard_StatArrayEP12outputStream(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState17discard_StatArrayEP12outputStream(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL9StatArray, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -865,7 +865,7 @@ define hidden void @_ZN13CodeHeapState17discard_StatArrayEP12outputStream(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState17discard_FreeArrayEP12outputStream(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState17discard_FreeArrayEP12outputStream(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL9FreeArray, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -881,7 +881,7 @@ define hidden void @_ZN13CodeHeapState17discard_FreeArrayEP12outputStream(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL12TopSizeArray, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %.preheader
@@ -936,7 +936,7 @@ define hidden void @_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream(ptr
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState21discard_SizeDistArrayEP12outputStream(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState21discard_SizeDistArrayEP12outputStream(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL21SizeDistributionArray, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -951,7 +951,7 @@ define hidden void @_ZN13CodeHeapState21discard_SizeDistArrayEP12outputStream(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState7discardEP12outputStreamP8CodeHeap(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState7discardEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load volatile i8, ptr @_ZL23initialization_complete, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i32, ptr @_ZL6nHeaps, align 4
@@ -3392,7 +3392,7 @@ declare noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull
 declare noundef i32 @_ZNK7nmethod10total_sizeEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) local_unnamed_addr #3
 
@@ -4168,7 +4168,7 @@ define hidden void @_ZN13CodeHeapState21print_blobType_legendEP12outputStream(pt
 declare noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState15print_freeSpaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState15print_freeSpaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.bufferedStream, align 8
   %4 = alloca [10 x ptr], align 16
   %5 = alloca [10 x ptr], align 16
@@ -4787,7 +4787,7 @@ _ZN13CodeHeapState23print_aggregate_missingEP12outputStreamPKc.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState11print_countEP12outputStreamP8CodeHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState11print_countEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.bufferedStream, align 8
   %4 = load volatile i8, ptr @_ZL23initialization_complete, align 1
   %5 = trunc i8 %4 to i1
@@ -5617,7 +5617,7 @@ define hidden void @_ZN13CodeHeapState18print_count_singleEP12outputStreamt(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState11print_spaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState11print_spaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.bufferedStream, align 8
   %4 = load volatile i8, ptr @_ZL23initialization_complete, align 1
   %5 = trunc i8 %4 to i1
@@ -6488,7 +6488,7 @@ define hidden void @_ZN13CodeHeapState18print_space_singleEP12outputStreamt(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState9print_ageEP12outputStreamP8CodeHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState9print_ageEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.bufferedStream, align 8
   %4 = load volatile i8, ptr @_ZL23initialization_complete, align 1
   %5 = trunc i8 %4 to i1
@@ -7806,10 +7806,10 @@ declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dere
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeHeapState16print_line_delimEP12outputStreamS1_Pcjj(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13CodeHeapState16print_line_delimEP12outputStreamS1_Pcjj(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = urem i32 %3, %4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %20

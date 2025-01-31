@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [9 x i8] c"nid=0x%x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ASN1_verify(ptr nocapture noundef readonly %i2d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %signature, ptr noundef %data, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ASN1_verify(ptr noundef readonly captures(none) %i2d, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %signature, ptr noundef %data, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @EVP_MD_CTX_new() #2

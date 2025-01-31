@@ -498,7 +498,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -541,7 +541,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -832,7 +832,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10CopyToMeshR9FaceGroupR4Mesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z10CopyToMeshR9FaceGroupR4Mesh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::tri::Allocator<Mesh>::PointerUpdater.238", align 8
   %4 = alloca %"class.vcg::tri::Allocator<Mesh>::PointerUpdater", align 8
   %5 = alloca %"class.std::unordered_map", align 8
@@ -1524,7 +1524,7 @@ define linkonce_odr { ptr, i32 } @_Z21GetFaceIndexAttributeR4Mesh(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK9FaceGroup2FNEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK9FaceGroup2FNEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2885,7 +2885,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #14
@@ -4266,7 +4266,7 @@ _ZNSt12__shared_ptrI9FaceGroupLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9FaceGroup5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((8, 12)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9FaceGroup5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) initializes((8, 12)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4393,7 +4393,7 @@ _ZNSt13unordered_setISt10shared_ptrI9FaceGroupENS1_6HasherESt8equal_toIS2_ESaIS2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9FaceGroup11UpdateCacheEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define void @_ZNK9FaceGroup11UpdateCacheEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4614,7 +4614,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #14
 declare double @llvm.fabs.f64(double) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9FaceGroup13AverageNormalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Point3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(192) %1) local_unnamed_addr #16 align 2 {
+define void @_ZNK9FaceGroup13AverageNormalEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.vcg::Point3") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(192) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -4657,7 +4657,7 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9FaceGroup7AddFaceEP8MeshFace(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN9FaceGroup7AddFaceEP8MeshFace(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -4728,7 +4728,7 @@ _ZNSt6vectorIP8MeshFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %8, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK9FaceGroup14OriginalAreaUVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #10 align 2 {
+define noundef double @_ZNK9FaceGroup14OriginalAreaUVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_Z32HasWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull align 8 dereferenceable(808) %2)
   br i1 %3, label %5, label %4
@@ -5608,7 +5608,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9FaceGroup6AreaUVEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef double @_ZNK9FaceGroup6AreaUVEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5625,7 +5625,7 @@ define noundef double @_ZNK9FaceGroup6AreaUVEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9FaceGroup6Area3DEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef double @_ZNK9FaceGroup6Area3DEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5642,7 +5642,7 @@ define noundef double @_ZNK9FaceGroup6Area3DEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9FaceGroup8BorderUVEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef double @_ZNK9FaceGroup8BorderUVEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5659,7 +5659,7 @@ define noundef double @_ZNK9FaceGroup8BorderUVEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9FaceGroup8Border3DEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef double @_ZNK9FaceGroup8Border3DEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5676,7 +5676,7 @@ define noundef double @_ZNK9FaceGroup8Border3DEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef zeroext i1 @_ZNK9FaceGroup9UVFlippedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5694,7 +5694,7 @@ define noundef zeroext i1 @_ZNK9FaceGroup9UVFlippedEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #19 align 2 {
+define void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box2") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %0, align 8
   store double -1.000000e+00, ptr %3, align 8
@@ -5891,7 +5891,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit7:       ; preds = %73, %87, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define noundef zeroext i1 @_ZN9FaceGroup9UVFlippedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -5909,14 +5909,14 @@ define noundef zeroext i1 @_ZN9FaceGroup9UVFlippedEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9FaceGroup23ParameterizationChangedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((120, 121)) %0) local_unnamed_addr #15 align 2 {
+define void @_ZN9FaceGroup23ParameterizationChangedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) initializes((120, 121)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9FaceGroup2FpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN9FaceGroup2FpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5934,14 +5934,14 @@ define noundef ptr @_ZN9FaceGroup2FpEv(ptr nocapture noundef nonnull readonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK9FaceGroup6NumAdjEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK9FaceGroup6NumAdjEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9FaceGroup12UpdateBorderEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
+define void @_ZNK9FaceGroup12UpdateBorderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -6438,7 +6438,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrI9FaceGroupEESaIS5_ENSt8__detail10_Se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @_ZNK9MeshGraph15DistortionRangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #20 align 2 {
+define <2 x float> @_ZNK9MeshGraph15DistortionRangeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.06.018 = load ptr, ptr %2, align 8
   %.not19 = icmp eq ptr %.sroa.06.018, null
@@ -6474,7 +6474,7 @@ define <2 x float> @_ZNK9MeshGraph15DistortionRangeEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define void @_ZN9MeshGraph8GetChartEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9MeshGraph8GetChartEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   %.not.not.i.i = icmp eq i64 %5, 0
@@ -6570,7 +6570,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit:       ; preds = %46, %43, %_ZNSt13un
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9MeshGraph15GetChart_InsertEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9MeshGraph15GetChart_InsertEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::shared_ptr<FaceGroup>>, std::allocator<std::pair<const int, std::shared_ptr<FaceGroup>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %5 = alloca %"struct.std::pair.299", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -7524,17 +7524,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK9MeshGraph5CountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK9MeshGraph5CountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9MeshGraph10MergeCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #23 align 2 {
+define noundef i32 @_ZNK9MeshGraph10MergeCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #23 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.05.08 = load ptr, ptr %2, align 8
   %.not9 = icmp eq ptr %.sroa.05.08, null
@@ -7558,7 +7558,7 @@ define noundef i32 @_ZNK9MeshGraph10MergeCountEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9MeshGraph6Area3DEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
+define noundef double @_ZNK9MeshGraph6Area3DEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.06.09 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.sroa.06.09, null
@@ -7592,7 +7592,7 @@ _ZNK9FaceGroup6Area3DEv.exit:                     ; preds = %.lr.ph, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9MeshGraph14MappedFractionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
+define noundef double @_ZNK9MeshGraph14MappedFractionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.012.015 = load ptr, ptr %2, align 8
   %.not16 = icmp eq ptr %.sroa.012.015, null
@@ -7668,7 +7668,7 @@ _ZNK9FaceGroup6Area3DEv.exit11:                   ; preds = %19, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9MeshGraph6AreaUVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
+define noundef double @_ZNK9MeshGraph6AreaUVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.06.09 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.sroa.06.09, null
@@ -7702,7 +7702,7 @@ _ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %.lr.ph, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9MeshGraph12SignedAreaUVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
+define noundef double @_ZNK9MeshGraph12SignedAreaUVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.07.010 = load ptr, ptr %2, align 8
   %.not11 = icmp eq ptr %.sroa.07.010, null
@@ -7753,7 +7753,7 @@ _ZNK9FaceGroup6AreaUVEv.exit:                     ; preds = %_ZN9FaceGroup9UVFli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9MeshGraph8BorderUVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
+define noundef double @_ZNK9MeshGraph8BorderUVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.06.09 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.sroa.06.09, null
@@ -7787,7 +7787,7 @@ _ZNK9FaceGroup8BorderUVEv.exit:                   ; preds = %.lr.ph, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12ComputeGraphR4MeshSt10shared_ptrI13TextureObjectE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.311") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z12ComputeGraphR4MeshSt10shared_ptrI13TextureObjectE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.311") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<std::shared_ptr<FaceGroup>, std::shared_ptr<FaceGroup>, std::allocator<std::shared_ptr<FaceGroup>>, std::__detail::_Identity, std::equal_to<std::shared_ptr<FaceGroup>>, FaceGroup::Hasher, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true>>::_Scoped_node", align 8
   %5 = alloca %"class.std::stack", align 8
   %6 = alloca ptr, align 8
@@ -11535,7 +11535,7 @@ _ZNSt10_HashtableISt10shared_ptrI9FaceGroupES2_SaIS2_ENSt8__detail9_IdentityESt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16DisconnectChartsSt10shared_ptrI9MeshGraphE(ptr nocapture noundef readonly %0) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z16DisconnectChartsSt10shared_ptrI9MeshGraphE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::tri::Allocator<Mesh>::PointerUpdater", align 8
   %3 = alloca %"class.std::map.350", align 8
   %4 = alloca %"class.std::set.358", align 8
@@ -14487,10 +14487,10 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

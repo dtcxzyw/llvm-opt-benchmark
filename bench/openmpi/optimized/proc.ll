@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal void @ompi_proc_construct(ptr nocapture noundef writeonly initializes((56, 65), (72, 80)) %0) #0 {
+define internal void @ompi_proc_construct(ptr noundef writeonly captures(none) initializes((56, 65), (72, 80)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -154,7 +154,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_proc_complete_init_single(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef i32 @ompi_proc_complete_init_single(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = load i32, ptr @opal_process_info, align 8
@@ -547,7 +547,7 @@ define noundef i32 @ompi_proc_complete_init() local_unnamed_addr #1 {
 35:                                               ; preds = %.lr.ph, %.thread65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread65 ]
   %36 = phi ptr [ %33, %.lr.ph ], [ %85, %.thread65 ]
-  %37 = call i64 @strtoul(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #13
+  %37 = call i64 @strtoul(ptr noundef nonnull captures(none) %36, ptr noundef null, i32 noundef 10) #13
   %38 = trunc i64 %37 to i32
   store ptr %7, ptr %8, align 8
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
@@ -765,10 +765,10 @@ declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @opal_argv_split(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
@@ -779,7 +779,7 @@ declare void @opal_argv_free(ptr noundef) local_unnamed_addr #3
 declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @ompi_proc_compare_vid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @ompi_proc_compare_vid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -916,7 +916,7 @@ define i32 @ompi_proc_world_size() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ompi_proc_get_allocated(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @ompi_proc_get_allocated(ptr noundef writeonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.opal_process_name_t, align 8
   %3 = load ptr, ptr @ompi_proc_local_proc, align 8
   %4 = icmp eq ptr %3, null
@@ -1001,7 +1001,7 @@ declare i32 @ompi_rte_compare_name_fields(i8 noundef zeroext, ptr noundef, ptr n
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ompi_proc_world(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @ompi_proc_world(ptr noundef writeonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.opal_process_name_t, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @ompi_proc_local_proc, align 8
@@ -1064,7 +1064,7 @@ ompi_proc_for_name.exit:                          ; preds = %.lr.ph, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ompi_proc_all(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @ompi_proc_all(ptr noundef writeonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %3 = shl i64 %2, 3
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
@@ -1122,7 +1122,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %.lr.ph, %opal_threa
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @ompi_proc_self(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
+define noalias noundef ptr @ompi_proc_self(ptr noundef writeonly captures(none) %0) local_unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %15, label %4
@@ -1267,7 +1267,7 @@ ompi_proc_complete_init_single.exit:              ; preds = %27, %23, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_proc_pack(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @ompi_proc_pack(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.pmix_proc, align 4
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
@@ -1369,7 +1369,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 declare i32 @opal_pmix_convert_status(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %.013 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
   %.not14 = icmp eq ptr %.013, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
@@ -1460,7 +1460,7 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_proc_unpack(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define i32 @ompi_proc_unpack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.opal_process_name_t, align 4
   %8 = alloca %struct.pmix_proc, align 4
@@ -1694,10 +1694,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 declare i32 @opal_hash_table_set_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

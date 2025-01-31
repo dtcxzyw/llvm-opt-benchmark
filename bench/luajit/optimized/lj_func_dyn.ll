@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.TValue = type { i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_freeproto(ptr nocapture noundef %g, ptr noundef %pt) local_unnamed_addr #0 {
+define hidden void @lj_func_freeproto(ptr noundef captures(none) %g, ptr noundef %pt) local_unnamed_addr #0 {
 entry:
   %sizept = getelementptr inbounds nuw i8, ptr %pt, i64 56
   %0 = load i32, ptr %sizept, align 8
@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_closeuv(ptr nocapture noundef %L, ptr noundef readnone %level) local_unnamed_addr #0 {
+define hidden void @lj_func_closeuv(ptr noundef captures(none) %L, ptr noundef readnone %level) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -115,7 +115,7 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_freeuv(ptr nocapture noundef %g, ptr noundef %uv) local_unnamed_addr #0 {
+define hidden void @lj_func_freeuv(ptr noundef captures(none) %g, ptr noundef %uv) local_unnamed_addr #0 {
 entry:
   %closed = getelementptr inbounds nuw i8, ptr %uv, i64 10
   %0 = load i8, ptr %closed, align 2
@@ -259,7 +259,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_func_newL_gc(ptr noundef %L, ptr noundef %pt, ptr nocapture noundef readonly %parent) local_unnamed_addr #0 {
+define hidden ptr @lj_func_newL_gc(ptr noundef %L, ptr noundef %pt, ptr noundef readonly captures(none) %parent) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -373,7 +373,7 @@ if.then9.i:                                       ; preds = %if.then.i
   br label %func_finduv.exit
 
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i
-  %call.i23 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef 48) #2
+  %call.i23 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef 48) #2
   %currentwhite16.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %24 = load i8, ptr %currentwhite16.i, align 8
   %25 = and i8 %24, 3
@@ -442,7 +442,7 @@ for.end:                                          ; preds = %if.end23, %if.end
 declare hidden void @lj_gc_step_fixtop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_func_free(ptr nocapture noundef %g, ptr noundef %fn) local_unnamed_addr #0 {
+define hidden void @lj_func_free(ptr noundef captures(none) %g, ptr noundef %fn) local_unnamed_addr #0 {
 entry:
   %ffid = getelementptr inbounds nuw i8, ptr %fn, i64 10
   %0 = load i8, ptr %ffid, align 2

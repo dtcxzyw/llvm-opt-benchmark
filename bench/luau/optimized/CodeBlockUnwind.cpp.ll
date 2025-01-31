@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
@@ -68,7 +68,7 @@ _ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit: ; preds = %21, %.preheader.i,
 declare extern_weak void @__register_frame(ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen22destroyBlockUnwindInfoEPvS1_(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4Luau7CodeGen22destroyBlockUnwindInfoEPvS1_(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr @__deregister_frame, null
   br i1 %.not, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %3
 

@@ -43,7 +43,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBaseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -125,7 +125,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit: ; preds = %_ZN32pxrI
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBaseD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #18
   unreachable
 }
@@ -715,7 +715,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13_PrimPopChildINS_7SdfPathEEEvRKS2_RKNS_7TfTokenEb(ptr noundef nonnull align 8 dereferenceable(557), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase9_SetLayerERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase9_SetLayerERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -758,7 +758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSERKS2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase9_GetLayerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase9_GetLayerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -779,7 +779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase13_GetLayerDataEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.41") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__25SdfLayerStateDelegateBase13_GetLayerDataEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.41") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -896,7 +896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_15SdfAbstractDataEEC2IS1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate3NewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.43") align 8 %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate3NewEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.43") align 8 captures(none) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %2)
           to label %3 unwind label %4
@@ -919,7 +919,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 12), (16, 41)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 12), (16, 41)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -931,7 +931,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegateC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate8_IsDirtyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate8_IsDirtyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -939,110 +939,110 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate24_MarkCurrentStateAsCleanEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate24_MarkCurrentStateAsCleanEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate24_MarkCurrentStateAsDirtyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate24_MarkCurrentStateAsDirtyEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetLayerERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #11 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetLayerERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #11 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_7VtValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_7VtValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_25SdfAbstractDataConstValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnSetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate25_OnSetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_7VtValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate25_OnSetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_7VtValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate25_OnSetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_25SdfAbstractDataConstValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate25_OnSetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate16_OnSetTimeSampleERKNS_7SdfPathEdRKNS_7VtValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, double %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate16_OnSetTimeSampleERKNS_7SdfPathEdRKNS_7VtValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, double %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate16_OnSetTimeSampleERKNS_7SdfPathEdRKNS_25SdfAbstractDataConstValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, double %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate16_OnSetTimeSampleERKNS_7SdfPathEdRKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, double %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate13_OnCreateSpecERKNS_7SdfPathENS_11SdfSpecTypeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, i32 %2, i1 zeroext %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate13_OnCreateSpecERKNS_7SdfPathENS_11SdfSpecTypeEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2, i1 zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate13_OnDeleteSpecERKNS_7SdfPathEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, i1 zeroext %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate13_OnDeleteSpecERKNS_7SdfPathEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, i1 zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnMoveSpecERKNS_7SdfPathES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 4 %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnMoveSpecERKNS_7SdfPathES3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 4 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate12_OnPushChildERKNS_7SdfPathERKNS_7TfTokenES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate12_OnPushChildERKNS_7SdfPathERKNS_7TfTokenES6_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate12_OnPushChildERKNS_7SdfPathERKNS_7TfTokenES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate12_OnPushChildERKNS_7SdfPathERKNS_7TfTokenES3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnPopChildERKNS_7SdfPathERKNS_7TfTokenES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnPopChildERKNS_7SdfPathERKNS_7TfTokenES6_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnPopChildERKNS_7SdfPathERKNS_7TfTokenES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27SdfSimpleLayerStateDelegate11_OnPopChildERKNS_7SdfPathERKNS_7TfTokenES3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((40, 41)) %0, ptr nonnull readnone align 4 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %5, align 8
   ret void
@@ -1199,13 +1199,13 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EP
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

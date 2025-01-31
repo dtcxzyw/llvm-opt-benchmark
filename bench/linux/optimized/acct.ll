@@ -68,7 +68,7 @@ define internal noundef i32 @kernel_acct_sysctls_init() #0 section ".init.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_acct(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i64 @__x64_sys_acct(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = tail call fastcc i64 @__se_sys_acct(i64 noundef %3)
@@ -228,7 +228,7 @@ define internal fastcc i64 @__se_sys_acct(i64 noundef %0) unnamed_addr #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_acct(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i64 @__ia32_sys_acct(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -237,7 +237,7 @@ define dso_local i64 @__ia32_sys_acct(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acct_exit_ns(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @acct_exit_ns(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   tail call void @__rcu_read_lock() #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -439,13 +439,13 @@ define dso_local void @acct_collect(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acct_process() local_unnamed_addr #1 align 16 {
@@ -674,7 +674,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_acct_process(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @do_acct_process(ptr noundef captures(none) %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.kstatfs, align 8
   %3 = alloca %struct.acct, align 4
   %4 = alloca i64, align 8

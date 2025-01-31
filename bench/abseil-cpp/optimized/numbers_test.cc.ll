@@ -1426,7 +1426,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125ToString_PerfectDtoa_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125ToString_PerfectDtoa_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -1439,7 +1439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125ToString_PerfectDtoa_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125ToString_PerfectDtoa_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -1478,7 +1478,7 @@ declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125ToString_PerfectDtoa_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125ToString_PerfectDtoa_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
@@ -2238,7 +2238,7 @@ for.body128:                                      ; preds = %for.cond126.prehead
   %mul = fmul double %88, %conv
   call fastcc void @_ZN12_GLOBAL__N_111PerfectDtoaB5cxx11Ed(ptr noalias align 8 %s, double noundef %mul)
   %call130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
-  %call131 = call double @strtod(ptr nocapture noundef %call130, ptr noundef null) #29
+  %call131 = call double @strtod(ptr noundef captures(none) %call130, ptr noundef null) #29
   invoke void @_ZN7testing8internal24CmpHelperFloatingPointEQIdEENS_15AssertionResultEPKcS4_T_S5_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar129, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, double noundef %mul, double noundef %call131)
           to label %invoke.cont133 unwind label %lpad132
 
@@ -3555,7 +3555,7 @@ _ZN7testing8internal19MatchesRegexMatcherD2Ev.exit: ; preds = %entry, %_ZN9__gnu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal24CmpHelperFloatingPointEQIdEENS_15AssertionResultEPKcS4_T_S5_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, double noundef %lhs_value, double noundef %rhs_value) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -3680,7 +3680,7 @@ return:                                           ; preds = %invoke.cont21, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -4046,7 +4046,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4306,7 +4306,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #3 comdat {
@@ -4413,7 +4413,7 @@ declare void @_ZNK7testing7Message9GetStringB5cxx11Ev(ptr sret(%"class.std::__cx
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -5134,7 +5134,7 @@ declare void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIc
 declare void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Numbers_TestFastPrints_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Numbers_TestFastPrints_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -5147,7 +5147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Numbers_TestFastPrints_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127Numbers_TestFastPrints_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -5180,7 +5180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_127Numbers_TestFastPrints_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_127Numbers_TestFastPrints_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   br label %for.body
 
@@ -8286,7 +8286,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -8441,7 +8441,7 @@ if.end:                                           ; preds = %invoke.cont3, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atoi_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atoi_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -8454,7 +8454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atoi_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atoi_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -8487,7 +8487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_121NumbersTest_Atoi_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121NumbersTest_Atoi_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i2195 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i2196 = alloca %"class.absl::strings_internal::OStringStream", align 8
@@ -9099,7 +9099,7 @@ _ZN7testing15AssertionResultD2Ev.exit53.i:        ; preds = %_ZNKSt14default_del
   %call57.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #29
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57.i) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i54.i)
-  %call.i.i5556.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i, ptr %call57.i, ptr noundef nonnull %val.i.i54.i, i32 noundef 10)
+  %call.i.i5556.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i, ptr nonnull %call57.i, ptr noundef nonnull %val.i.i54.i, i32 noundef 10)
           to label %invoke.cont58.i unwind label %lpad.i
 
 invoke.cont58.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit53.i
@@ -9517,7 +9517,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i24:        ; preds = %_ZNKSt14default_del
   %call26.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i2) #29
   %call.i.i.i25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26.i) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i18.i)
-  %call.i.i1920.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i25, ptr %call26.i, ptr noundef nonnull %val.i.i18.i, i32 noundef 10)
+  %call.i.i1920.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i25, ptr nonnull %call26.i, ptr noundef nonnull %val.i.i18.i, i32 noundef 10)
           to label %invoke.cont27.i26 unwind label %lpad.i7
 
 invoke.cont27.i26:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i24
@@ -9976,7 +9976,7 @@ _ZN7testing15AssertionResultD2Ev.exit52.i:        ; preds = %_ZNKSt14default_del
   %call57.i159 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i57) #29
   %call.i.i.i160 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57.i159) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i53.i)
-  %call.i.i5455.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i160, ptr %call57.i159, ptr noundef nonnull %val.i.i53.i, i32 noundef 10)
+  %call.i.i5455.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i160, ptr nonnull %call57.i159, ptr noundef nonnull %val.i.i53.i, i32 noundef 10)
           to label %invoke.cont58.i161 unwind label %lpad.i74
 
 invoke.cont58.i161:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit52.i
@@ -10388,7 +10388,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i228:       ; preds = %_ZNKSt14default_del
   %call26.i229 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i197) #29
   %call.i.i.i230 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26.i229) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i18.i195)
-  %call.i.i1920.i231 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i230, ptr %call26.i229, ptr noundef nonnull %val.i.i18.i195, i32 noundef 10)
+  %call.i.i1920.i231 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i230, ptr nonnull %call26.i229, ptr noundef nonnull %val.i.i18.i195, i32 noundef 10)
           to label %invoke.cont27.i232 unwind label %lpad.i207
 
 invoke.cont27.i232:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i228
@@ -10847,7 +10847,7 @@ _ZN7testing15AssertionResultD2Ev.exit52.i418:     ; preds = %_ZNKSt14default_del
   %call57.i420 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i297) #29
   %call.i.i.i421 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57.i420) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i53.i294)
-  %call.i.i5455.i422 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i421, ptr %call57.i420, ptr noundef nonnull %val.i.i53.i294, i32 noundef 10)
+  %call.i.i5455.i422 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i421, ptr nonnull %call57.i420, ptr noundef nonnull %val.i.i53.i294, i32 noundef 10)
           to label %invoke.cont58.i423 unwind label %lpad.i314
 
 invoke.cont58.i423:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit52.i418
@@ -11257,7 +11257,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i526:       ; preds = %_ZNKSt14default_del
   %call26.i527 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i495) #29
   %call.i.i.i528 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26.i527) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i18.i493)
-  %call.i.i1920.i529 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i528, ptr %call26.i527, ptr noundef nonnull %val.i.i18.i493, i32 noundef 10)
+  %call.i.i1920.i529 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i528, ptr nonnull %call26.i527, ptr noundef nonnull %val.i.i18.i493, i32 noundef 10)
           to label %invoke.cont27.i530 unwind label %lpad.i505
 
 invoke.cont27.i530:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i526
@@ -11711,7 +11711,7 @@ _ZN7testing15AssertionResultD2Ev.exit52.i716:     ; preds = %_ZNKSt14default_del
   %call57.i718 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i595) #29
   %call.i.i.i719 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57.i718) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i53.i592)
-  %call.i.i5455.i720 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i719, ptr %call57.i718, ptr noundef nonnull %val.i.i53.i592, i32 noundef 10)
+  %call.i.i5455.i720 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i719, ptr nonnull %call57.i718, ptr noundef nonnull %val.i.i53.i592, i32 noundef 10)
           to label %invoke.cont58.i721 unwind label %lpad.i612
 
 invoke.cont58.i721:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit52.i716
@@ -12283,7 +12283,7 @@ _ZN7testing15AssertionResultD2Ev.exit53.i915:     ; preds = %_ZNKSt14default_del
   %call57.i917 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i794) #29
   %call.i.i.i918 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57.i917) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i54.i791)
-  %call.i.i5556.i919 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i918, ptr %call57.i917, ptr noundef nonnull %val.i.i54.i791, i32 noundef 10)
+  %call.i.i5556.i919 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i918, ptr nonnull %call57.i917, ptr noundef nonnull %val.i.i54.i791, i32 noundef 10)
           to label %invoke.cont58.i920 unwind label %lpad.i811
 
 invoke.cont58.i920:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit53.i915
@@ -12887,7 +12887,7 @@ invoke.cont58.i1074:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i, ptr %363, align 8
   %call63.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i993) #29
   %call.i.i.i1075 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63.i) #29
-  %call.i63.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1075, ptr %call63.i, ptr noundef nonnull %x.i995, i32 noundef 10)
+  %call.i63.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1075, ptr nonnull %call63.i, ptr noundef nonnull %x.i995, i32 noundef 10)
           to label %invoke.cont64.i unwind label %lpad.i1000
 
 invoke.cont64.i:                                  ; preds = %invoke.cont58.i1074
@@ -13302,7 +13302,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i1114:      ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i1113, align 8
   %call26.i1115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1083) #29
   %call.i.i.i1116 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26.i1115) #29
-  %call.i18.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1116, ptr %call26.i1115, ptr noundef nonnull %x.i1085, i32 noundef 10)
+  %call.i18.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1116, ptr nonnull %call26.i1115, ptr noundef nonnull %x.i1085, i32 noundef 10)
           to label %invoke.cont27.i1117 unwind label %lpad.i1094
 
 invoke.cont27.i1117:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i1114
@@ -13783,7 +13783,7 @@ invoke.cont58.i1312:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i1322, ptr %437, align 8
   %call63.i1323 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1168) #29
   %call.i.i.i1324 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63.i1323) #29
-  %call.i63.i1325 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1324, ptr %call63.i1323, ptr noundef nonnull %x.i1170, i32 noundef 10)
+  %call.i63.i1325 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1324, ptr nonnull %call63.i1323, ptr noundef nonnull %x.i1170, i32 noundef 10)
           to label %invoke.cont64.i1326 unwind label %lpad.i1185
 
 invoke.cont64.i1326:                              ; preds = %invoke.cont58.i1312
@@ -14389,7 +14389,7 @@ invoke.cont58.i1554:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i1564, ptr %488, align 8
   %call63.i1565 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1410) #29
   %call.i.i.i1566 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63.i1565) #29
-  %call.i63.i1567 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1566, ptr %call63.i1565, ptr noundef nonnull %x.i1412, i32 noundef 10)
+  %call.i63.i1567 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1566, ptr nonnull %call63.i1565, ptr noundef nonnull %x.i1412, i32 noundef 10)
           to label %invoke.cont64.i1568 unwind label %lpad.i1427
 
 invoke.cont64.i1568:                              ; preds = %invoke.cont58.i1554
@@ -14994,7 +14994,7 @@ invoke.cont58.i1768:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i67.i, ptr %539, align 8
   %call63.i1771 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1651) #29
   %call.i.i.i1772 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63.i1771) #29
-  %call.i70.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1772, ptr %call63.i1771, ptr noundef nonnull %x.i1653, i32 noundef 10)
+  %call.i70.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1772, ptr nonnull %call63.i1771, ptr noundef nonnull %x.i1653, i32 noundef 10)
           to label %invoke.cont64.i1773 unwind label %lpad.i1668
 
 invoke.cont64.i1773:                              ; preds = %invoke.cont58.i1768
@@ -15593,7 +15593,7 @@ invoke.cont58.i1938:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.shift.i53.i, ptr %591, align 8
   %call64.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1808) #29
   %call.i.i.i1941 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call64.i) #29
-  %call.i56.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i1941, ptr %call64.i, ptr noundef nonnull %x.i1810, i32 noundef 10)
+  %call.i56.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i1941, ptr nonnull %call64.i, ptr noundef nonnull %x.i1810, i32 noundef 10)
           to label %invoke.cont65.i unwind label %lpad.i1819
 
 invoke.cont65.i:                                  ; preds = %invoke.cont58.i1938
@@ -16189,7 +16189,7 @@ invoke.cont58.i2106:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.shift.i53.i2109, ptr %644, align 8
   %call64.i2110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1969) #29
   %call.i.i.i2111 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call64.i2110) #29
-  %call.i56.i2112 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i2111, ptr %call64.i2110, ptr noundef nonnull %x.i1971, i32 noundef 10)
+  %call.i56.i2112 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i2111, ptr nonnull %call64.i2110, ptr noundef nonnull %x.i1971, i32 noundef 10)
           to label %invoke.cont65.i2113 unwind label %lpad.i1986
 
 invoke.cont65.i2113:                              ; preds = %invoke.cont58.i2106
@@ -16606,7 +16606,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i2227:      ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i2226, align 8
   %call26.i2228 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i2195) #29
   %call.i.i.i2229 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26.i2228) #29
-  %call.i18.i2230 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i2229, ptr %call26.i2228, ptr noundef nonnull %x.i2197, i32 noundef 10)
+  %call.i18.i2230 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i.i2229, ptr nonnull %call26.i2228, ptr noundef nonnull %x.i2197, i32 noundef 10)
           to label %invoke.cont27.i2231 unwind label %lpad.i2206
 
 invoke.cont27.i2231:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i2227
@@ -17077,7 +17077,7 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i54)
-  %call.i.i5556 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i54, i32 noundef 10)
+  %call.i.i5556 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i54, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit53
@@ -17644,7 +17644,7 @@ _ZN7testing15AssertionResultD2Ev.exit52:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i53)
-  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
+  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit52
@@ -18049,7 +18049,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.e
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i18)
-  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
+  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -18344,7 +18344,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.e
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i18)
-  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
+  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -18801,7 +18801,7 @@ _ZN7testing15AssertionResultD2Ev.exit52:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i53)
-  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
+  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit52
@@ -19368,7 +19368,7 @@ _ZN7testing15AssertionResultD2Ev.exit53:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i54)
-  %call.i.i5556 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i54, i32 noundef 10)
+  %call.i.i5556 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i54, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit53
@@ -19935,7 +19935,7 @@ _ZN7testing15AssertionResultD2Ev.exit52:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i53)
-  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
+  %call.i.i5455 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i53, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit52
@@ -20340,7 +20340,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.e
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i18)
-  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
+  %call.i.i1920 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr nonnull %call26, ptr noundef nonnull %val.i.i18, i32 noundef 10)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -20822,7 +20822,7 @@ invoke.cont58:                                    ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i60, ptr %4, align 8
   %call63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call63) #29
-  %call.i63 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr %call63, ptr noundef nonnull %x, i32 noundef 10)
+  %call.i63 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr nonnull %call63, ptr noundef nonnull %x, i32 noundef 10)
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %invoke.cont58
@@ -21230,7 +21230,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont5, %if.e
   store ptr null, ptr %message_.i, align 8
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #29
-  %call.i18 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr %call26, ptr noundef nonnull %x, i32 noundef 10)
+  %call.i18 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr nonnull %call26, ptr noundef nonnull %x, i32 noundef 10)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -21699,7 +21699,7 @@ invoke.cont58:                                    ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.shift.i53, ptr %5, align 8
   %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call64) #29
-  %call.i56 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr %call64, ptr noundef nonnull %x, i32 noundef 10)
+  %call.i56 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr nonnull %call64, ptr noundef nonnull %x, i32 noundef 10)
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont58
@@ -22286,7 +22286,7 @@ invoke.cont58:                                    ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.shift.i53, ptr %5, align 8
   %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call64) #29
-  %call.i56 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr %call64, ptr noundef nonnull %x, i32 noundef 10)
+  %call.i56 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr nonnull %call64, ptr noundef nonnull %x, i32 noundef 10)
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont58
@@ -22873,7 +22873,7 @@ invoke.cont58:                                    ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.shift.i60, ptr %5, align 8
   %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call64) #29
-  %call.i63 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr %call64, ptr noundef nonnull %x, i32 noundef 10)
+  %call.i63 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %call.i.i, ptr nonnull %call64, ptr noundef nonnull %x, i32 noundef 10)
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont58
@@ -23273,7 +23273,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -23693,7 +23693,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atod_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atod_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -23706,7 +23706,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atod_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_121NumbersTest_Atod_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -23739,7 +23739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_121NumbersTest_Atod_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121NumbersTest_Atod_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca double, align 8
   %f = alloca float, align 4
@@ -38498,7 +38498,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125NumbersTest_Prefixes_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125NumbersTest_Prefixes_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -38511,7 +38511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125NumbersTest_Prefixes_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125NumbersTest_Prefixes_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -38544,7 +38544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125NumbersTest_Prefixes_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125NumbersTest_Prefixes_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca double, align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -40173,7 +40173,7 @@ eh.resume:                                        ; preds = %lpad359, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_Atoenum_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_Atoenum_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -40186,7 +40186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_Atoenum_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_Atoenum_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -40219,7 +40219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE3E01S2_EEvT0_T_(i32 noundef 0, i32 noundef 0)
   tail call fastcc void @_ZN12_GLOBAL__N_120VerifySimpleAtoiGoodIZNS_24NumbersTest_Atoenum_Test8TestBodyEvE3E01S2_EEvT0_T_(i32 noundef 1, i32 noundef 1)
@@ -40558,7 +40558,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -41093,7 +41093,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -41628,7 +41628,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -42163,7 +42163,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -42698,7 +42698,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end51, %_ZNKSt14
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call57) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call57, ptr noundef nonnull %val.i.i56, i32 noundef 10)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -43376,7 +43376,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_124NumbersTest_Atoenum_Test8Tes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_HexAtoi_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_HexAtoi_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -43389,7 +43389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_HexAtoi_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124NumbersTest_HexAtoi_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -43422,7 +43422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124NumbersTest_HexAtoi_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124NumbersTest_HexAtoi_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exp_value.i1649 = alloca %"class.absl::uint128", align 16
   %s.i1650 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44026,7 +44026,7 @@ _ZN7testing15AssertionResultD2Ev.exit55.i:        ; preds = %_ZNKSt14default_del
   %call74.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #29
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74.i) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56.i)
-  %call.i.i5758.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i, ptr %call74.i, ptr noundef nonnull %val.i.i56.i, i32 noundef 16)
+  %call.i.i5758.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i, ptr nonnull %call74.i, ptr noundef nonnull %val.i.i56.i, i32 noundef 16)
           to label %invoke.cont75.i unwind label %lpad1.i
 
 invoke.cont75.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit55.i
@@ -44455,7 +44455,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i54:        ; preds = %_ZNKSt14default_del
   %call41.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i30) #29
   %call.i.i.i55 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41.i) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i20.i)
-  %call.i.i2122.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i55, ptr %call41.i, ptr noundef nonnull %val.i.i20.i, i32 noundef 16)
+  %call.i.i2122.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i.i55, ptr nonnull %call41.i, ptr noundef nonnull %val.i.i20.i, i32 noundef 16)
           to label %invoke.cont42.i unwind label %lpad1.i45
 
 invoke.cont42.i:                                  ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i54
@@ -44933,7 +44933,7 @@ _ZN7testing15AssertionResultD2Ev.exit54.i:        ; preds = %_ZNKSt14default_del
   %call74.i190 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i81) #29
   %call.i.i.i191 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74.i190) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i55.i)
-  %call.i.i5657.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i191, ptr %call74.i190, ptr noundef nonnull %val.i.i55.i, i32 noundef 16)
+  %call.i.i5657.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i191, ptr nonnull %call74.i190, ptr noundef nonnull %val.i.i55.i, i32 noundef 16)
           to label %invoke.cont75.i192 unwind label %lpad1.i111
 
 invoke.cont75.i192:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit54.i
@@ -45358,7 +45358,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i263:       ; preds = %_ZNKSt14default_del
   %call41.i264 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i228) #29
   %call.i.i.i265 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41.i264) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i20.i226)
-  %call.i.i2122.i266 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i265, ptr %call41.i264, ptr noundef nonnull %val.i.i20.i226, i32 noundef 16)
+  %call.i.i2122.i266 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i.i265, ptr nonnull %call41.i264, ptr noundef nonnull %val.i.i20.i226, i32 noundef 16)
           to label %invoke.cont42.i267 unwind label %lpad1.i251
 
 invoke.cont42.i267:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i263
@@ -45836,7 +45836,7 @@ _ZN7testing15AssertionResultD2Ev.exit54.i460:     ; preds = %_ZNKSt14default_del
   %call74.i462 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i332) #29
   %call.i.i.i463 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74.i462) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i55.i329)
-  %call.i.i5657.i464 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i463, ptr %call74.i462, ptr noundef nonnull %val.i.i55.i329, i32 noundef 16)
+  %call.i.i5657.i464 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i463, ptr nonnull %call74.i462, ptr noundef nonnull %val.i.i55.i329, i32 noundef 16)
           to label %invoke.cont75.i465 unwind label %lpad1.i362
 
 invoke.cont75.i465:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit54.i460
@@ -46263,7 +46263,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i568:       ; preds = %_ZNKSt14default_del
   %call41.i569 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i537) #29
   %call.i.i.i570 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41.i569) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i20.i535)
-  %call.i.i2122.i571 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i570, ptr %call41.i569, ptr noundef nonnull %val.i.i20.i535, i32 noundef 16)
+  %call.i.i2122.i571 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i570, ptr nonnull %call41.i569, ptr noundef nonnull %val.i.i20.i535, i32 noundef 16)
           to label %invoke.cont42.i572 unwind label %lpad1.i558
 
 invoke.cont42.i572:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i568
@@ -46736,7 +46736,7 @@ _ZN7testing15AssertionResultD2Ev.exit54.i766:     ; preds = %_ZNKSt14default_del
   %call74.i768 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i637) #29
   %call.i.i.i769 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74.i768) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i55.i634)
-  %call.i.i5657.i770 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i769, ptr %call74.i768, ptr noundef nonnull %val.i.i55.i634, i32 noundef 16)
+  %call.i.i5657.i770 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i769, ptr nonnull %call74.i768, ptr noundef nonnull %val.i.i55.i634, i32 noundef 16)
           to label %invoke.cont75.i771 unwind label %lpad1.i668
 
 invoke.cont75.i771:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit54.i766
@@ -47327,7 +47327,7 @@ _ZN7testing15AssertionResultD2Ev.exit55.i971:     ; preds = %_ZNKSt14default_del
   %call74.i973 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i843) #29
   %call.i.i.i974 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74.i973) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i56.i840)
-  %call.i.i5758.i975 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i974, ptr %call74.i973, ptr noundef nonnull %val.i.i56.i840, i32 noundef 16)
+  %call.i.i5758.i975 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i.i974, ptr nonnull %call74.i973, ptr noundef nonnull %val.i.i56.i840, i32 noundef 16)
           to label %invoke.cont75.i976 unwind label %lpad1.i873
 
 invoke.cont75.i976:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit55.i971
@@ -47950,7 +47950,7 @@ invoke.cont75.i1133:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i62.i, ptr %370, align 8
   %call80.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1049) #29
   %call.i.i.i1134 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call80.i) #29
-  %call.i65.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1134, ptr %call80.i, ptr noundef nonnull %x.i1051, i32 noundef 16)
+  %call.i65.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1134, ptr nonnull %call80.i, ptr noundef nonnull %x.i1051, i32 noundef 16)
           to label %invoke.cont81.i unwind label %lpad1.i1068
 
 invoke.cont81.i:                                  ; preds = %invoke.cont75.i1133
@@ -48382,7 +48382,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i1179:      ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i1178, align 8
   %call41.i1180 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1142) #29
   %call.i.i.i1181 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41.i1180) #29
-  %call.i20.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1181, ptr %call41.i1180, ptr noundef nonnull %x.i1144, i32 noundef 16)
+  %call.i20.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1181, ptr nonnull %call41.i1180, ptr noundef nonnull %x.i1144, i32 noundef 16)
           to label %invoke.cont42.i1182 unwind label %lpad1.i1166
 
 invoke.cont42.i1182:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i1179
@@ -48882,7 +48882,7 @@ invoke.cont75.i1359:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i68.i, ptr %445, align 8
   %call80.i1362 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1233) #29
   %call.i.i.i1363 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call80.i1362) #29
-  %call.i71.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1363, ptr %call80.i1362, ptr noundef nonnull %x.i1235, i32 noundef 16)
+  %call.i71.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1363, ptr nonnull %call80.i1362, ptr noundef nonnull %x.i1235, i32 noundef 16)
           to label %invoke.cont81.i1364 unwind label %lpad1.i1264
 
 invoke.cont81.i1364:                              ; preds = %invoke.cont75.i1359
@@ -49507,7 +49507,7 @@ invoke.cont75.i1553:                              ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i62.i1563, ptr %497, align 8
   %call80.i1564 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1402) #29
   %call.i.i.i1565 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call80.i1564) #29
-  %call.i65.i1566 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1565, ptr %call80.i1564, ptr noundef nonnull %x.i1404, i32 noundef 16)
+  %call.i65.i1566 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1565, ptr nonnull %call80.i1564, ptr noundef nonnull %x.i1404, i32 noundef 16)
           to label %invoke.cont81.i1567 unwind label %lpad1.i1432
 
 invoke.cont81.i1567:                              ; preds = %invoke.cont75.i1553
@@ -50131,7 +50131,7 @@ invoke.cont80.i:                                  ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i72.i, ptr %549, align 8
   %call85.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1650) #29
   %call.i.i.i1744 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call85.i) #29
-  %call.i75.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1744, ptr %call85.i, ptr noundef nonnull %x.i1652, i32 noundef 16)
+  %call.i75.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i.i1744, ptr nonnull %call85.i, ptr noundef nonnull %x.i1652, i32 noundef 16)
           to label %invoke.cont86.i unwind label %lpad2.i
 
 invoke.cont86.i:                                  ; preds = %invoke.cont80.i
@@ -51595,7 +51595,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr %call74, ptr noundef nonnull %val.i.i56, i32 noundef 16)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i, ptr nonnull %call74, ptr noundef nonnull %val.i.i56, i32 noundef 16)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -52194,7 +52194,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i55)
-  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
+  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit54
@@ -52625,7 +52625,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont17, %if.
   %call41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i20)
-  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
+  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
           to label %invoke.cont42 unwind label %lpad1
 
 invoke.cont42:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -52945,7 +52945,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont17, %if.
   %call41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i20)
-  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
+  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i, ptr nonnull %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
           to label %invoke.cont42 unwind label %lpad1
 
 invoke.cont42:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -53434,7 +53434,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i55)
-  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
+  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr nonnull %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit54
@@ -54032,7 +54032,7 @@ _ZN7testing15AssertionResultD2Ev.exit55:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i56)
-  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr %call74, ptr noundef nonnull %val.i.i56, i32 noundef 16)
+  %call.i.i5758 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i, ptr nonnull %call74, ptr noundef nonnull %val.i.i56, i32 noundef 16)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit55
@@ -54631,7 +54631,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call74) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i55)
-  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
+  %call.i.i5657 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr nonnull %call74, ptr noundef nonnull %val.i.i55, i32 noundef 16)
           to label %invoke.cont75 unwind label %lpad1
 
 invoke.cont75:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit54
@@ -55062,7 +55062,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont17, %if.
   %call41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i20)
-  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
+  %call.i.i2122 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i, ptr nonnull %call41, ptr noundef nonnull %val.i.i20, i32 noundef 16)
           to label %invoke.cont42 unwind label %lpad1
 
 invoke.cont42:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -55576,7 +55576,7 @@ invoke.cont75:                                    ; preds = %_ZNKSt14default_del
   store i64 %coerce1.sroa.2.0.extract.trunc.i68, ptr %6, align 8
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call80) #29
-  %call.i71 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr %call80, ptr noundef nonnull %x, i32 noundef 16)
+  %call.i71 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr nonnull %call80, ptr noundef nonnull %x, i32 noundef 16)
           to label %invoke.cont81 unwind label %lpad1
 
 invoke.cont81:                                    ; preds = %invoke.cont75
@@ -56010,7 +56010,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont17, %if.
   store ptr null, ptr %message_.i, align 8
   %call41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #29
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call41) #29
-  %call.i20 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr %call41, ptr noundef nonnull %x, i32 noundef 16)
+  %call.i20 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %call.i.i, ptr nonnull %call41, ptr noundef nonnull %x, i32 noundef 16)
           to label %invoke.cont42 unwind label %lpad1
 
 invoke.cont42:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -56149,7 +56149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto32_base_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto32_base_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -56162,7 +56162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto32_base_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto32_base_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -56195,7 +56195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133stringtest_safe_strto32_base_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133stringtest_safe_strto32_base_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i32, align 4
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -60751,7 +60751,7 @@ eh.resume:                                        ; preds = %ehcleanup961, %ehcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto32_range_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto32_range_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -60764,7 +60764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto32_range_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto32_range_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -60797,7 +60797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strto32_range_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strto32_range_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i32, align 4
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -61429,7 +61429,7 @@ eh.resume:                                        ; preds = %lpad112, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto64_range_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto64_range_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -61442,7 +61442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto64_range_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strto64_range_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -61475,7 +61475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strto64_range_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strto64_range_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i64, align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -62107,7 +62107,7 @@ eh.resume:                                        ; preds = %lpad112, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -62120,7 +62120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -62153,7 +62153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146stringtest_safe_strto32_leading_substring_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i32, align 4
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -63200,7 +63200,7 @@ eh.resume:                                        ; preds = %lpad200, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -63213,7 +63213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -63246,7 +63246,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146stringtest_safe_strto64_leading_substring_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i64, align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -64372,7 +64372,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto64_base_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto64_base_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -64385,7 +64385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto64_base_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133stringtest_safe_strto64_base_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -64418,7 +64418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133stringtest_safe_strto64_base_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133stringtest_safe_strto64_base_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i64, align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -68758,7 +68758,7 @@ eh.resume:                                        ; preds = %ehcleanup917, %ehcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto32_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto32_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -68771,7 +68771,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto32_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto32_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -68804,7 +68804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_135stringtest_safe_strto32_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135stringtest_safe_strto32_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd.i = alloca %"class.std::random_device", align 8
   %rng.i = alloca %"class.std::linear_congruential_engine", align 8
@@ -69779,7 +69779,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto64_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto64_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -69792,7 +69792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto64_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135stringtest_safe_strto64_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -69825,7 +69825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_135stringtest_safe_strto64_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135stringtest_safe_strto64_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd.i = alloca %"class.std::random_device", align 8
   %rng.i = alloca %"class.std::linear_congruential_engine", align 8
@@ -70736,7 +70736,7 @@ if.end23:                                         ; preds = %do.body9, %if.else2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou32_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou32_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -70749,7 +70749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou32_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou32_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -70782,7 +70782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strtou32_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strtou32_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd.i = alloca %"class.std::random_device", align 8
   %rng.i = alloca %"class.std::linear_congruential_engine", align 8
@@ -71679,7 +71679,7 @@ if.end26:                                         ; preds = %do.body10, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou64_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou64_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -71692,7 +71692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou64_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strtou64_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -71725,7 +71725,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strtou64_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strtou64_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd.i = alloca %"class.std::random_device", align 8
   %rng.i = alloca %"class.std::linear_congruential_engine", align 8
@@ -72622,7 +72622,7 @@ if.end23:                                         ; preds = %do.body9, %if.else2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137stringtest_safe_strtou128_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137stringtest_safe_strtou128_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -72635,7 +72635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137stringtest_safe_strtou128_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_137stringtest_safe_strtou128_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -72668,7 +72668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_137stringtest_safe_strtou128_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137stringtest_safe_strtou128_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd = alloca %"class.std::random_device", align 8
   %rng = alloca %"class.std::linear_congruential_engine", align 8
@@ -73507,7 +73507,7 @@ _ZNSt13random_deviceD2Ev.exit143:                 ; preds = %ehcleanup166
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strto128_random_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strto128_random_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -73520,7 +73520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strto128_random_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_136stringtest_safe_strto128_random_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -73553,7 +73553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strto128_random_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136stringtest_safe_strto128_random_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rd = alloca %"class.std::random_device", align 8
   %rng = alloca %"class.std::linear_congruential_engine", align 8
@@ -74402,7 +74402,7 @@ _ZNSt13random_deviceD2Ev.exit141:                 ; preds = %ehcleanup165
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou32_base_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou32_base_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -74415,7 +74415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou32_base_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou32_base_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -74448,7 +74448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou32_base_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou32_base_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i32, align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -74845,7 +74845,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -74858,7 +74858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -74891,7 +74891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_delimited_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -75269,7 +75269,7 @@ eh.resume:                                        ; preds = %ehcleanup75, %lpad.
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou64_base_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou64_base_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -75282,7 +75282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou64_base_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_134stringtest_safe_strtou64_base_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -75315,7 +75315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou64_base_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou64_base_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i64, align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -75616,7 +75616,7 @@ eh.resume:                                        ; preds = %lpad35, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -75629,7 +75629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -75662,7 +75662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_delimited_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -76024,7 +76024,7 @@ eh.resume:                                        ; preds = %ehcleanup71, %lpad.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -76037,7 +76037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call)
@@ -76088,7 +76088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca [16 x i8], align 16
   %ref.tmp.i73 = alloca %"class.std::allocator", align 1
@@ -77221,7 +77221,7 @@ declare i32 @fedisableexcept(i32 noundef) local_unnamed_addr #1
 declare i32 @fesetenv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, double noundef %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_147SimpleDtoaTest_ExhaustiveDoubleToSixDigits_Test8TestBodyEvENK3$_0clEd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i = alloca double, align 8
   %sixdigitsbuf = alloca [16 x i8], align 16
@@ -77379,7 +77379,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal1
 declare void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
@@ -77652,7 +77652,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal1
 declare void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE1EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt32_Partial_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt32_Partial_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -77665,7 +77665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt32_Partial_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt32_Partial_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -77698,7 +77698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123StrToInt32_Partial_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123StrToInt32_Partial_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %int32_test_line = alloca [6 x %struct.Int32TestLine], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -78700,7 +78700,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint32_Partial_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint32_Partial_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -78713,7 +78713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint32_Partial_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint32_Partial_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -78746,7 +78746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124StrToUint32_Partial_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124StrToUint32_Partial_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uint32_test_line = alloca [5 x %struct.Uint32TestLine], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -79715,7 +79715,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt64_Partial_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt64_Partial_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -79728,7 +79728,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt64_Partial_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_123StrToInt64_Partial_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -79761,7 +79761,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %int64_test_line = alloca [6 x %struct.Int64TestLine], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -80763,7 +80763,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint64_Partial_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint64_Partial_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -80776,7 +80776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint64_Partial_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_124StrToUint64_Partial_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -80809,7 +80809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uint64_test_line = alloca [5 x %struct.Uint64TestLine], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -81778,7 +81778,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -81791,7 +81791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -81824,7 +81824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130StrToInt32Base_PrefixOnly_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %int32_test_line = alloca [6 x %struct.Int32TestLine.114], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -82025,7 +82025,7 @@ for.body48:                                       ; preds = %for.cond46.preheade
   store i32 2, ptr %value49, align 4
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.0.ptr295) #29
   %call.i.i87 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #29
-  %call54 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i87, ptr %call, ptr noundef nonnull %value49, i32 noundef %6)
+  %call54 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %call.i.i87, ptr nonnull %call, ptr noundef nonnull %value49, i32 noundef %6)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %for.body48
@@ -82914,7 +82914,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -82927,7 +82927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -82960,7 +82960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131StrToUint32Base_PrefixOnly_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uint32_test_line = alloca [3 x %struct.Uint32TestLine.115], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -83083,7 +83083,7 @@ for.body24:                                       ; preds = %for.cond22.preheade
   store i32 2, ptr %value25, align 4
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.0.ptr268) #29
   %call.i.i60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #29
-  %call30 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i60, ptr %call, ptr noundef nonnull %value25, i32 noundef %3)
+  %call30 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %call.i.i60, ptr nonnull %call, ptr noundef nonnull %value25, i32 noundef %3)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %for.body24
@@ -83939,7 +83939,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -83952,7 +83952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -83985,7 +83985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %int64_test_line = alloca [6 x %struct.Int64TestLine.116], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -84186,7 +84186,7 @@ for.body48:                                       ; preds = %for.cond46.preheade
   store i64 2, ptr %value49, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.0.ptr295) #29
   %call.i.i87 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #29
-  %call54 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i87, ptr %call, ptr noundef nonnull %value49, i32 noundef %6)
+  %call54 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %call.i.i87, ptr nonnull %call, ptr noundef nonnull %value49, i32 noundef %6)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %for.body48
@@ -85075,7 +85075,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -85088,7 +85088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -85121,7 +85121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uint64_test_line = alloca [3 x %struct.Uint64TestLine.117], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -85244,7 +85244,7 @@ for.body24:                                       ; preds = %for.cond22.preheade
   store i64 2, ptr %value25, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.0.ptr268) #29
   %call.i.i60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #29
-  %call30 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i60, ptr %call, ptr noundef nonnull %value25, i32 noundef %3)
+  %call30 = invoke noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %call.i.i60, ptr nonnull %call, ptr noundef nonnull %value25, i32 noundef %3)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %for.body24
@@ -86100,7 +86100,7 @@ eh.resume:                                        ; preds = %arraydestroy.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -86113,7 +86113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -86146,7 +86146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %lo.addr.i = alloca i64, align 8
   %hi.addr.i = alloca i64, align 8
@@ -87015,7 +87015,7 @@ return:                                           ; preds = %if.then6, %while.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131FastIntToBuffer_WritesNull_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131FastIntToBuffer_WritesNull_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -87028,7 +87028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131FastIntToBuffer_WritesNull_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_131FastIntToBuffer_WritesNull_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -87061,7 +87061,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131FastIntToBuffer_WritesNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131FastIntToBuffer_WritesNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i1 = alloca [32 x i8], align 16
   %gtest_ar.i2 = alloca %"class.testing::AssertionResult", align 8
@@ -92103,13 +92103,13 @@ declare float @llvm.fabs.f32(float) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

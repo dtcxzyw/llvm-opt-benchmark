@@ -906,7 +906,7 @@ for.end:                                          ; preds = %for.body.epil, %for
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef readonly %in, ptr noundef writeonly %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip, i1 noundef zeroext %bgr) local_unnamed_addr #1 align 2 {
@@ -1033,7 +1033,7 @@ return:                                           ; preds = %for.body.epil, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter31convert16bitToA8R8G8B8andResizeEPKsPiiiii(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i32 noundef %newWidth, i32 noundef %newHeight, i32 noundef %currentWidth, i32 noundef %currentHeight) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter31convert16bitToA8R8G8B8andResizeEPKsPiiiii(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i32 noundef %newWidth, i32 noundef %newHeight, i32 noundef %currentWidth, i32 noundef %currentHeight) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne i32 %newWidth, 0
   %tobool1 = icmp ne i32 %newHeight, 0
@@ -1187,7 +1187,7 @@ for.end:                                          ; preds = %for.body.epil, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toR8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %sN, 0
   br i1 %cmp19, label %for.body.preheader, label %for.cond.cleanup
@@ -1275,7 +1275,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toB8G8R8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toB8G8R8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %sN, 0
   br i1 %cmp19, label %for.body.preheader, label %for.cond.cleanup
@@ -1363,7 +1363,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toR5G5B5A1EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toR5G5B5A1EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp8 = icmp sgt i32 %sN, 0
   br i1 %cmp8, label %for.body.preheader, label %for.cond.cleanup
@@ -1474,7 +1474,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %sN, 0
   br i1 %cmp3, label %for.body.preheader, label %for.cond.cleanup
@@ -1574,7 +1574,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA1R5G5B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 1
   %conv = sext i32 %mul to i64
@@ -1583,7 +1583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toR5G6B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %sN, 0
   br i1 %cmp3, label %for.body.preheader, label %for.cond.cleanup
@@ -1691,7 +1691,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp14 = icmp sgt i32 %sN, 0
   br i1 %cmp14, label %for.body.preheader, label %for.cond.cleanup
@@ -1761,7 +1761,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toB8G8R8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toB8G8R8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp14 = icmp sgt i32 %sN, 0
   br i1 %cmp14, label %for.body.preheader, label %for.cond.cleanup
@@ -1831,7 +1831,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 2
   %conv = sext i32 %mul to i64
@@ -1840,7 +1840,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA1R5G5B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %sN, 0
   br i1 %cmp3, label %for.body.preheader, label %for.cond.cleanup
@@ -1938,7 +1938,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA1B5G5R5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA1B5G5R5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp23 = icmp sgt i32 %sN, 0
   br i1 %cmp23, label %for.body.preheader, label %for.cond.cleanup
@@ -2048,7 +2048,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR5G6B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp17 = icmp sgt i32 %sN, 0
   br i1 %cmp17, label %for.body.preheader, label %for.cond.cleanup
@@ -2223,7 +2223,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR3G3B2EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR3G3B2EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp25 = icmp sgt i32 %sN, 0
   br i1 %cmp25, label %iter.check, label %for.cond.cleanup
@@ -2616,7 +2616,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
 entry:
   %mul = mul nsw i32 %sN, 3
   %conv = sext i32 %mul to i64
@@ -2625,7 +2625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_R8G8B8toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_R8G8B8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp13 = icmp sgt i32 %sN, 0
   br i1 %cmp13, label %for.body.preheader, label %for.cond.cleanup
@@ -2707,7 +2707,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_R8G8B8toA1R5G5B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_R8G8B8toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp18 = icmp sgt i32 %sN, 0
   br i1 %cmp18, label %for.body.preheader, label %for.cond.cleanup
@@ -2805,7 +2805,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_B8G8R8toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_B8G8R8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp13 = icmp sgt i32 %sN, 0
   br i1 %cmp13, label %for.body.preheader, label %for.cond.cleanup
@@ -2872,7 +2872,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toR8G8B8A8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toR8G8B8A8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp5 = icmp sgt i32 %sN, 0
   br i1 %cmp5, label %for.body.preheader, label %for.cond.cleanup
@@ -2983,7 +2983,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8B8G8R8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8B8G8R8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp9 = icmp sgt i32 %sN, 0
   br i1 %cmp9, label %for.body.preheader, label %for.cond.cleanup
@@ -3106,7 +3106,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_B8G8R8A8toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_B8G8R8A8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp18 = icmp sgt i32 %sN, 0
   br i1 %cmp18, label %for.body.preheader, label %for.cond.cleanup
@@ -3188,7 +3188,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toB8G8R8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toB8G8R8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp14 = icmp sgt i32 %sN, 0
   br i1 %cmp14, label %for.body.preheader, label %for.cond.cleanup
@@ -3258,7 +3258,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR5G6B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp17 = icmp sgt i32 %sN, 0
   br i1 %cmp17, label %for.body.preheader, label %for.cond.cleanup
@@ -3357,7 +3357,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR5G6B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 1
   %conv = sext i32 %mul to i64
@@ -3366,7 +3366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %sN, 0
   br i1 %cmp19, label %for.body.preheader, label %for.cond.cleanup
@@ -3454,7 +3454,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toB8G8R8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toB8G8R8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %sN, 0
   br i1 %cmp19, label %for.body.preheader, label %for.cond.cleanup
@@ -3542,7 +3542,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_R5G6B5toA8R8G8B8EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_R5G6B5toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %sN, 0
   br i1 %cmp3, label %for.body.preheader, label %for.cond.cleanup
@@ -3634,7 +3634,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter24convert_R5G6B5toA1R5G5B5EPKviPv(ptr nocapture noundef readonly %sP, i32 noundef %sN, ptr nocapture noundef writeonly %dP) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter24convert_R5G6B5toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #0 align 2 {
 entry:
   %cmp3 = icmp sgt i32 %sN, 0
   br i1 %cmp3, label %for.body.preheader, label %for.cond.cleanup
@@ -3781,7 +3781,7 @@ return:                                           ; preds = %sw.epilog15, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter17convert_viaFormatEPKvNS0_13ECOLOR_FORMATEiPvS4_(ptr nocapture noundef readonly %sP, i32 noundef %sF, i32 noundef %sN, ptr nocapture noundef writeonly %dP, i32 noundef %dF) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CColorConverter17convert_viaFormatEPKvNS0_13ECOLOR_FORMATEiPvS4_(ptr noundef readonly captures(none) %sP, i32 noundef %sF, i32 noundef %sN, ptr noundef writeonly captures(none) %dP, i32 noundef %dF) local_unnamed_addr #0 align 2 {
 entry:
   %sP418 = ptrtoint ptr %sP to i64
   %dP417 = ptrtoint ptr %dP to i64

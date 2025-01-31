@@ -754,7 +754,7 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RelationMapInvalidate(i1 noundef zeroext %0) local_unnamed_addr #1 {
@@ -1012,7 +1012,7 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.RelMapFile, align 4
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr i8, ptr %4, i64 3200
@@ -1293,7 +1293,7 @@ define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 1048)) %1) local_unnamed_addr #7 {
+define dso_local void @SerializeRelationMap(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1048)) %1) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %1, ptr noundef nonnull align 4 dereferenceable(524) @active_shared_updates, i64 524, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %3, ptr noundef nonnull align 4 dereferenceable(524) @active_local_updates, i64 524, i1 false)
@@ -1301,7 +1301,7 @@ define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @RestoreRelationMap(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %3 = icmp ne i32 %2, 0
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
@@ -1330,7 +1330,7 @@ define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @relmap_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.RelMapFile, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -1395,12 +1395,12 @@ declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9

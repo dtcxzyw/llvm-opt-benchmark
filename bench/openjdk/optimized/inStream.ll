@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jdwpCmdPacket = type { i32, i32, i8, i8, i8, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inStream_init(ptr nocapture noundef writeonly initializes((0, 14), (16, 48)) %0, ptr nocapture noundef readonly byval(%struct.jdwpPacket) align 8 %1) local_unnamed_addr #0 {
+define hidden void @inStream_init(ptr noundef writeonly captures(none) initializes((0, 14), (16, 48)) %0, ptr noundef readonly byval(%struct.jdwpPacket) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -35,26 +35,26 @@ define hidden void @inStream_init(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @bagCreateBag(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @inStream_id(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @inStream_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden signext i8 @inStream_command(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden signext i8 @inStream_command(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %3 = load i8, ptr %2, align 2
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i16 @inStream_skipBytes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden zeroext i16 @inStream_skipBytes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i = icmp eq i16 %4, 0
@@ -85,7 +85,7 @@ readBytes.exit:                                   ; preds = %2, %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 2) i8 @inStream_readBoolean(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden zeroext range(i8 0, 2) i8 @inStream_readBoolean(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -118,7 +118,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden signext i8 @inStream_readByte(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden signext i8 @inStream_readByte(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -149,7 +149,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @inStream_readBytes(ptr nocapture noundef %0, i32 noundef %1, ptr noundef returned writeonly %2) local_unnamed_addr #6 {
+define hidden noundef ptr @inStream_readBytes(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i16, ptr %4, align 4
   %.not.i = icmp eq i16 %5, 0
@@ -195,7 +195,7 @@ readBytes.exit:                                   ; preds = %3, %10, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i16 @inStream_readChar(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden zeroext i16 @inStream_readChar(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -227,7 +227,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden signext i16 @inStream_readShort(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden signext i16 @inStream_readShort(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -259,7 +259,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @inStream_readInt(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden i32 @inStream_readInt(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -291,7 +291,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @inStream_readLong(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden i64 @inStream_readLong(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -323,7 +323,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden float @inStream_readFloat(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden float @inStream_readFloat(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -357,7 +357,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 declare float @stream_encodeFloat(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden double @inStream_readDouble(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden double @inStream_readDouble(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i = icmp eq i16 %3, 0
@@ -391,7 +391,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 declare double @stream_encodeDouble(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readModuleRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readModuleRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -454,7 +454,7 @@ thread-pre-split.thread:                          ; preds = %inStream_readLong.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readObjectRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readObjectRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i = icmp eq i16 %4, 0
@@ -517,7 +517,7 @@ declare ptr @bagAdd(ptr noundef) local_unnamed_addr #2
 declare void @commonRef_idToRef_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @inStream_readObjectID(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden i64 @inStream_readObjectID(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -549,7 +549,7 @@ inStream_readLong.exit:                           ; preds = %1, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readClassRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readClassRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -614,7 +614,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isClass(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readThreadRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readThreadRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -679,7 +679,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isThread(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readThreadGroupRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readThreadGroupRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -744,7 +744,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isThreadGroup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readStringRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readStringRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -809,7 +809,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readClassLoaderRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readClassLoaderRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -874,7 +874,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isClassLoader(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readArrayRef(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden ptr @inStream_readArrayRef(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %.not.i.i.i = icmp eq i16 %4, 0
@@ -939,7 +939,7 @@ inStream_readObjectRef.exit.thread:               ; preds = %2, %9, %inStream_re
 declare zeroext i8 @isArray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @inStream_readFrameID(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden i64 @inStream_readFrameID(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -971,7 +971,7 @@ inStream_readLong.exit:                           ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @inStream_readMethodID(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden ptr @inStream_readMethodID(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -1004,7 +1004,7 @@ inStream_readLong.exit:                           ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @inStream_readFieldID(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden ptr @inStream_readFieldID(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -1037,7 +1037,7 @@ inStream_readLong.exit:                           ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @inStream_readLocation(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden i64 @inStream_readLocation(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -1069,7 +1069,7 @@ inStream_readLong.exit:                           ; preds = %1, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @inStream_readString(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @inStream_readString(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -1158,21 +1158,21 @@ declare void @utf8sToUtf8m(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i16 @inStream_error(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden zeroext i16 @inStream_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @inStream_clearError(ptr nocapture noundef writeonly initializes((12, 14)) %0) local_unnamed_addr #7 {
+define hidden void @inStream_clearError(ptr noundef writeonly captures(none) initializes((12, 14)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @inStream_readValue(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i64 @inStream_readValue(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i16, ptr %2, align 4
   %.not.i.i = icmp eq i16 %3, 0
@@ -1491,7 +1491,7 @@ declare zeroext i8 @isObjectTag(i8 noundef signext) local_unnamed_addr #2
 declare ptr @getEnv() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inStream_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @inStream_destroy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1514,7 +1514,7 @@ define hidden void @inStream_destroy(ptr nocapture noundef readonly %0) local_un
 declare zeroext i8 @bagEnumerateOver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @deleteRef(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef zeroext i8 @deleteRef(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void @commonRef_idToRef_delete(ptr noundef %1, ptr noundef %3) #9
   ret i8 1

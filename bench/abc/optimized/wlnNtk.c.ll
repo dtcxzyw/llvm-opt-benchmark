@@ -382,7 +382,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Hash_Int2ManInsert(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65) %1, i32 noundef range(i32 -2147483648, 65) %2) unnamed_addr #0 {
+define internal fastcc void @Hash_Int2ManInsert(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483648, 65) %1, i32 noundef range(i32 -2147483648, 65) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -868,7 +868,7 @@ Hash_Int2ManLookup.exit49:                        ; preds = %89, %Vec_IntPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Wln_NtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 76
   %.val117 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val117, 0
@@ -1166,12 +1166,12 @@ Hash_IntManStop.exit:                             ; preds = %Vec_IntFree.exit.i,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @Abc_NamStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Wln_NtkMemUsage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Wln_NtkMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1260,7 +1260,7 @@ define void @Wln_NtkPrint(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @Wln_ObjPrint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1393,7 +1393,7 @@ Wln_ObjFanin.exit:                                ; preds = %39, %42
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @Wln_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1816,7 +1816,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkCreateRefs(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Wln_NtkCreateRefs(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %3, align 8
@@ -1949,7 +1949,7 @@ Wln_ObjFanin.exit:                                ; preds = %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkTransferNames(ptr nocapture noundef initializes((152, 160)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Wln_NtkTransferNames(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2650,7 +2650,7 @@ Wln_ObjFanin.exit:                                ; preds = %79, %82
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Wln_NtkFaninNum(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @Wln_NtkFaninNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 76
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 1
@@ -2678,7 +2678,7 @@ define i32 @Wln_NtkFaninNum(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkStartFaninMap(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Wln_NtkStartFaninMap(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 76
   %.val15 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val15, 1
@@ -2782,7 +2782,7 @@ Vec_IntFill.exit:                                 ; preds = %27, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkStartFanoutMap(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Wln_NtkStartFanoutMap(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 76
   %.val15 = load i32, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2888,7 +2888,7 @@ Vec_IntFill.exit:                                 ; preds = %31, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkStaticFanoutStart(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Wln_NtkStaticFanoutStart(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @Wln_NtkCreateRefs(ptr noundef %0)
@@ -3146,10 +3146,10 @@ Vec_IntFree.exit:                                 ; preds = %.preheader, %98
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Wln_NtkStaticFanoutStop(ptr nocapture noundef initializes((248, 256), (264, 272)) %0) local_unnamed_addr #8 {
+define void @Wln_NtkStaticFanoutStop(ptr noundef captures(none) initializes((248, 256), (264, 272)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
@@ -3272,28 +3272,28 @@ Wln_NtkStaticFanoutStop.exit:                     ; preds = %Vec_IntErase.exit.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

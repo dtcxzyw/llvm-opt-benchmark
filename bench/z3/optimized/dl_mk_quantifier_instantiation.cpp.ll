@@ -914,7 +914,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog27mk_quantifier_instantiation19extract_quantifiersERNS_4ruleER10ref_vectorI4expr11ast_managerERS3_I10quantifierS5_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(16) %conjs, ptr noundef nonnull align 8 dereferenceable(16) %qs) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog27mk_quantifier_instantiation19extract_quantifiersERNS_4ruleER10ref_vectorI4expr11ast_managerERS3_I10quantifierS5_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(16) %conjs, ptr noundef nonnull align 8 dereferenceable(16) %qs) local_unnamed_addr #3 align 2 {
 entry:
   %q = alloca ptr, align 8
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %conjs, i64 8
@@ -3272,7 +3272,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog27mk_quantifier_instantiation16instantiate_ruleERNS_4ruleER10ref_vectorI4expr11ast_managerERS3_I10quantifierS5_ERNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(16) %conjs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %qs, ptr noundef nonnull align 8 dereferenceable(248) %rules) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog27mk_quantifier_instantiation16instantiate_ruleERNS_4ruleER10ref_vectorI4expr11ast_managerERS3_I10quantifierS5_ERNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(16) %conjs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %qs, ptr noundef nonnull align 8 dereferenceable(248) %rules) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.symbol, align 8
   %fml = alloca %class.obj_ref, align 8
@@ -4680,7 +4680,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN17expr_safe_replaceclEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -5535,7 +5535,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5660,7 +5660,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13586,7 +13586,7 @@ if.then93:                                        ; preds = %invoke.cont91
   %bf.load94 = load i32, ptr %m_i, align 8
   %89 = and i32 %bf.load94, 2
   %tobool.not = icmp eq i32 %89, 0
-  br i1 %tobool.not, label %if.else, label %if.then97
+  br i1 %tobool.not, label %if.end.i182, label %if.then97
 
 if.then97:                                        ; preds = %if.then93
   %90 = load ptr, ptr %m_manager, align 8
@@ -13625,18 +13625,11 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %95, ptr noundef nonnull %94)
           to label %if.end110.sink.split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.else:                                          ; preds = %if.then93
-  %tobool.not.i178 = icmp eq ptr %q, null
-  br i1 %tobool.not.i178, label %if.end.i182, label %_ZN11ast_manager7inc_refEP3ast.exit.i179
-
-_ZN11ast_manager7inc_refEP3ast.exit.i179:         ; preds = %if.else
+if.end.i182:                                      ; preds = %if.then93
   %m_ref_count.i.i.i180 = getelementptr inbounds nuw i8, ptr %q, i64 8
   %97 = load i32, ptr %m_ref_count.i.i.i180, align 4
   %inc.i.i.i181 = add i32 %97, 1
   store i32 %inc.i.i.i181, ptr %m_ref_count.i.i.i180, align 4
-  br label %if.end.i182
-
-if.end.i182:                                      ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i179, %if.else
   %98 = load ptr, ptr %m_r, align 8
   %tobool.not.i3.i183 = icmp eq ptr %98, null
   br i1 %tobool.not.i3.i183, label %if.end110.sink.split, label %if.then.i.i.i184
@@ -14761,10 +14754,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

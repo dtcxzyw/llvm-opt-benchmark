@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb_c_lexer_init(ptr nocapture noundef writeonly initializes((0, 36)) %lexer, ptr noundef %input_stream, ptr noundef %input_stream_end, ptr noundef %string_store, i32 noundef %store_length) local_unnamed_addr #0 {
+define void @stb_c_lexer_init(ptr noundef writeonly captures(none) initializes((0, 36)) %lexer, ptr noundef %input_stream, ptr noundef %input_stream_end, ptr noundef %string_store, i32 noundef %store_length) local_unnamed_addr #0 {
 entry:
   store ptr %input_stream, ptr %lexer, align 8
   %eof = getelementptr inbounds nuw i8, ptr %lexer, i64 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stb_c_lexer_get_location(ptr nocapture noundef readonly %lexer, ptr noundef readnone %where, ptr nocapture noundef writeonly %loc) local_unnamed_addr #1 {
+define void @stb_c_lexer_get_location(ptr noundef readonly captures(none) %lexer, ptr noundef readnone %where, ptr noundef writeonly captures(none) %loc) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %lexer, align 8
   %1 = load i8, ptr %0, align 1
@@ -75,7 +75,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_token(ptr nocapture noundef writeonly initializes((16, 24), (40, 64)) %lexer, i32 noundef %token, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_token(ptr noundef writeonly captures(none) initializes((16, 24), (40, 64)) %lexer, i32 noundef %token, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %token to i64
   %token1 = getelementptr inbounds nuw i8, ptr %lexer, i64 56
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_eof(ptr nocapture noundef writeonly initializes((56, 64)) %lexer) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_eof(ptr noundef writeonly captures(none) initializes((56, 64)) %lexer) local_unnamed_addr #0 {
 entry:
   %token = getelementptr inbounds nuw i8, ptr %lexer, i64 56
   store i64 256, ptr %token, align 8
@@ -144,7 +144,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_parse_suffixes(ptr nocapture noundef writeonly initializes((16, 24), (40, 64)) %lexer, i64 noundef %tokenid, ptr noundef %start, ptr noundef %cur, ptr nocapture noundef readnone %suffixes) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_parse_suffixes(ptr noundef writeonly captures(none) initializes((16, 24), (40, 64)) %lexer, i64 noundef %tokenid, ptr noundef %start, ptr noundef %cur, ptr noundef readnone captures(none) %suffixes) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %cur, i64 -1
   %sext = shl i64 %tokenid, 32
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %p, ptr nocapture noundef writeonly initializes((0, 8)) %q) local_unnamed_addr #4 {
+define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %p, ptr noundef writeonly captures(none) initializes((0, 8)) %q) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp eq i8 %0, 92
@@ -223,7 +223,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stb__clex_parse_string(ptr nocapture noundef %lexer, ptr noundef %p, i32 noundef %type) local_unnamed_addr #5 {
+define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %lexer, ptr noundef %p, i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %q = alloca ptr, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p, i64 1
@@ -1211,16 +1211,16 @@ return:                                           ; preds = %if.end560, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

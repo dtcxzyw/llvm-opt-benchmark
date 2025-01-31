@@ -423,7 +423,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -1940,7 +1940,7 @@ land.lhs.true247.i:                               ; preds = %land.lhs.true244.i
   br i1 %tobool249.not.i, label %if.else279.i, label %if.then250.i
 
 if.then250.i:                                     ; preds = %land.lhs.true247.i
-  call void @writeAssemblyCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512)
+  call void @writeAssemblyCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %tempObjectFile.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %tempObjectFile.i.i, i8 0, i64 512, i1 false)
   %call.i159.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i.i, ptr noundef nonnull dereferenceable(1) %gencFilePath.i) #19
@@ -2126,7 +2126,7 @@ for.body.i191.i:                                  ; preds = %for.cond.preheader.
 
 if.then18.i.i:                                    ; preds = %for.body.i191.i
   %220 = load ptr, ptr %o.sroa.0.0.lcssa255, align 8
-  call void @createCommonDataFile(ptr noundef %o.sroa.36102.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %220, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
+  call void @createCommonDataFile(ptr noundef nonnull %o.sroa.36102.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %220, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
   store i8 0, ptr %call9.i.i, align 1
   br label %if.end99.i.i
 
@@ -2202,7 +2202,7 @@ if.end83.i.i:                                     ; preds = %if.then80.i.i, %for
   %spec.select178 = select i1 %cmp87.not.i.i, ptr %49, ptr %dataName.i.i
   %cmp92.not.i.i = icmp eq i8 %226, 0
   %cond97.i.i = select i1 %cmp92.not.i.i, ptr null, ptr %newName.i.i
-  call void @writeCCode(ptr noundef %221, ptr noundef %o.sroa.36102.0, ptr noundef null, ptr noundef nonnull %spec.select178, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
+  call void @writeCCode(ptr noundef %221, ptr noundef nonnull %o.sroa.36102.0, ptr noundef null, ptr noundef nonnull %spec.select178, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
   br label %if.end99.i.i
 
 if.end99.i.i:                                     ; preds = %if.end83.i.i, %if.then18.i.i
@@ -2328,7 +2328,7 @@ _ZL22pkg_createOptMatchArchPc.exit.i.sink.split:  ; preds = %if.else294.i, %if.e
 _ZL22pkg_createOptMatchArchPc.exit.i:             ; preds = %_ZL22pkg_createOptMatchArchPc.exit.i.sink.split, %if.end.i227.i
   %242 = phi ptr [ %cmp301.i, %if.end.i227.i ], [ %.ph, %_ZL22pkg_createOptMatchArchPc.exit.i.sink.split ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %cmd.i212.i)
-  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef %242, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
+  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %o.sroa.36102.0, ptr noundef %o.sroa.27.0, ptr noundef %242, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
   %call.i235.i = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %optMatchArch.i)
   %tobool.not.i236.i = icmp eq i8 %call.i235.i, 0
   br i1 %tobool.not.i236.i, label %_ZL23pkg_destroyOptMatchArchPc.exit.i, label %land.lhs.true.i.i
@@ -2569,16 +2569,16 @@ return:                                           ; preds = %if.end74, %if.end23
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isalpha(i32 noundef) local_unnamed_addr #11
@@ -2595,23 +2595,23 @@ declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #6
 declare void @pkg_deleteList(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 declare i32 @writePackageDatFile(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #6
 
 declare signext i8 @T_FileStream_file_exists(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare signext i8 @isFileModTimeLater(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #6
 
@@ -2655,7 +2655,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare signext i8 @checkAssemblyHeaderName(ptr noundef) local_unnamed_addr #6
 
@@ -2928,17 +2928,17 @@ declare i32 @T_FileStream_eof(ptr noundef) local_unnamed_addr #6
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 declare i32 @pkg_countCharList(ptr noundef) local_unnamed_addr #6
 
 declare void @createCommonDataFile(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @writeCCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -3036,30 +3036,30 @@ _ZN20LocalPipeFilePointerD2Ev.exit11:             ; preds = %_ZN20LocalPipeFileP
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

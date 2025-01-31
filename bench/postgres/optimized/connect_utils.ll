@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [10 x i8] c"template1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @connectDatabase(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @connectDatabase(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [8 x ptr], align 16
   %7 = alloca [8 x ptr], align 16
   %8 = load ptr, ptr @connectDatabase.password, align 8
@@ -163,7 +163,7 @@ define dso_local ptr @connectDatabase(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -187,7 +187,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #2
 declare ptr @executeQuery(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @connectMaintenanceDatabase(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @connectMaintenanceDatabase(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %.sink.split

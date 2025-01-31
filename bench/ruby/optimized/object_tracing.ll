@@ -537,7 +537,7 @@ declare i64 @rb_yield(i64 noundef) #1
 declare i64 @rb_tracepoint_new(i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @newobj_i(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @newobj_i(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -739,7 +739,7 @@ rb_num2int_inline.exit:                           ; preds = %98, %100
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freeobj_i(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @freeobj_i(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -859,7 +859,7 @@ declare ptr @rb_st_init_numtable() local_unnamed_addr #1
 declare ptr @rb_st_init_strtable() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @allocation_info_tracer_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @allocation_info_tracer_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #11
@@ -886,7 +886,7 @@ define internal void @allocation_info_tracer_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i64 @allocation_info_tracer_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal i64 @allocation_info_tracer_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @rb_st_memsize(ptr noundef %3) #13
@@ -899,7 +899,7 @@ define internal i64 @allocation_info_tracer_memsize(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @allocation_info_tracer_compact(ptr nocapture noundef readonly %0) #0 {
+define internal void @allocation_info_tracer_compact(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -955,7 +955,7 @@ define internal range(i32 0, 5) i32 @hash_foreach_should_replace_key(i64 %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hash_replace_key(ptr nocapture noundef %0, ptr nocapture readnone %1, i64 %2, i32 %3) #0 {
+define internal noundef i32 @hash_replace_key(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i64 %2, i32 %3) #0 {
   %5 = load i64, ptr %0, align 8
   %6 = tail call i64 @rb_gc_location(i64 noundef %5) #11
   store i64 %6, ptr %0, align 8
@@ -1027,7 +1027,7 @@ declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare i32 @rb_st_get_key(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @rb_st_add_direct(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1048,7 +1048,7 @@ declare void @rb_st_clear(ptr noundef) local_unnamed_addr #1
 declare i32 @rb_bug_reporter_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @object_allocations_reporter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @object_allocations_reporter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %0)
   %4 = load ptr, ptr @tmp_trace_arg, align 8
   %.not = icmp eq ptr %4, null
@@ -1067,7 +1067,7 @@ define internal void @object_allocations_reporter(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @object_allocations_reporter_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
@@ -1140,16 +1140,16 @@ declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

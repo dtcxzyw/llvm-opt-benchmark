@@ -63,7 +63,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8compiler10SubprocessC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8compiler10SubprocessC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 -1, ptr %this, align 4
   %child_stdin_ = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf8compiler10SubprocessD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler10SubprocessD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_stdin_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %child_stdin_, align 4
@@ -123,7 +123,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler10Subprocess5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_10SearchModeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %program, i32 noundef %search_mode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler10Subprocess5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_10SearchModeE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(32) %program, i32 noundef %search_mode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stdin_pipe = alloca [2 x i32], align 4
   %stdout_pipe = alloca [2 x i32], align 4
@@ -228,7 +228,7 @@ sw.bb64:                                          ; preds = %if.then49
 sw.epilog:                                        ; preds = %sw.bb64, %sw.bb, %if.then49
   %8 = load ptr, ptr %argv, align 16
   %call70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
-  %call71 = call i64 @write(i32 noundef 2, ptr noundef %8, i64 noundef %call70)
+  %call71 = call i64 @write(i32 noundef 2, ptr noundef nonnull %8, i64 noundef %call70)
   %call73 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.4, i64 noundef 153)
   call void @_exit(i32 noundef 1) #28
   unreachable
@@ -312,19 +312,19 @@ declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
 declare void @_exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8compiler10Subprocess11CommunicateERKNS0_7MessageEPS3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef %output, ptr noundef %error) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf8compiler10Subprocess11CommunicateERKNS0_7MessageEPS3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef %output, ptr noundef %error) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i.i33 = alloca [1 x %"class.std::basic_string_view"], align 16
   %args.i.i = alloca [1 x %"class.std::basic_string_view"], align 16
@@ -840,7 +840,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -862,7 +862,7 @@ declare void @_ZN4absl12lts_202308027CEscapeB5cxx11ESt17basic_string_viewIcSt11c
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #17
 
 declare noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -890,13 +890,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21

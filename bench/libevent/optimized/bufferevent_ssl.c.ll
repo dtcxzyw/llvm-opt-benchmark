@@ -264,7 +264,7 @@ if.end20:                                         ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_unlink(ptr nocapture noundef readonly %bev) #0 {
+define internal void @be_ssl_unlink(ptr noundef readonly captures(none) %bev) #0 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -395,13 +395,13 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @be_ssl_flush(ptr nocapture readnone %bufev, i16 signext %iotype, i32 %mode) #1 {
+define internal noundef i32 @be_ssl_flush(ptr readnone captures(none) %bufev, i16 signext %iotype, i32 %mode) #1 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_ssl_ctrl(ptr noundef %bev, i32 noundef %op, ptr nocapture noundef %data) #0 {
+define internal i32 @be_ssl_ctrl(ptr noundef %bev, i32 noundef %op, ptr noundef captures(none) %data) #0 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -468,7 +468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bufferevent_ssl_put_error(ptr nocapture noundef %bev_ssl, i64 noundef %err) local_unnamed_addr #3 {
+define dso_local void @bufferevent_ssl_put_error(ptr noundef captures(none) %bev_ssl, i64 noundef %err) local_unnamed_addr #3 {
 entry:
   %n_errors = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 588
   %bf.load = load i8, ptr %n_errors, align 4
@@ -1012,7 +1012,7 @@ declare i32 @bufferevent_init_common_(ptr noundef, ptr noundef, ptr noundef, i32
 declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_outbuf_cb(ptr nocapture readnone %buf, ptr nocapture noundef readonly %cbinfo, ptr noundef %arg) #0 {
+define internal void @be_ssl_outbuf_cb(ptr readnone captures(none) %buf, ptr noundef readonly captures(none) %cbinfo, ptr noundef %arg) #0 {
 entry:
   %n_added = getelementptr inbounds nuw i8, ptr %cbinfo, i64 8
   %0 = load i64, ptr %n_added, align 8
@@ -1136,7 +1136,7 @@ declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) local_unnamed_
 declare void @bufferevent_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr nocapture noundef %bev) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @bufferevent_get_ssl_error(ptr noundef captures(none) %bev) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1194,7 +1194,7 @@ do.end27:                                         ; preds = %if.then22, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bufferevent_ssl_get_flags(ptr nocapture noundef readonly %bev) local_unnamed_addr #0 {
+define dso_local i64 @bufferevent_ssl_get_flags(ptr noundef readonly captures(none) %bev) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1235,7 +1235,7 @@ do.end20:                                         ; preds = %if.then15, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bufferevent_ssl_set_flags(ptr nocapture noundef %bev, i64 noundef %flags) local_unnamed_addr #0 {
+define dso_local i64 @bufferevent_ssl_set_flags(ptr noundef captures(none) %bev, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 3
   %tobool.not = icmp eq i64 %and, 0
@@ -1284,7 +1284,7 @@ return:                                           ; preds = %do.body13, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bufferevent_ssl_clear_flags(ptr nocapture noundef %bev, i64 noundef %flags) local_unnamed_addr #0 {
+define dso_local i64 @bufferevent_ssl_clear_flags(ptr noundef captures(none) %bev, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 3
   %tobool.not = icmp eq i64 %and, 0
@@ -1334,7 +1334,7 @@ return:                                           ; preds = %do.body14, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @bufferevent_ssl_get_allow_dirty_shutdown(ptr nocapture noundef readonly %bev) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @bufferevent_ssl_get_allow_dirty_shutdown(ptr noundef readonly captures(none) %bev) local_unnamed_addr #0 {
 entry:
   %lock.i = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
@@ -1379,7 +1379,7 @@ bufferevent_ssl_get_flags.exit:                   ; preds = %do.body9.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bufferevent_ssl_set_allow_dirty_shutdown(ptr nocapture noundef %bev, i32 noundef %allow_dirty_shutdown) local_unnamed_addr #0 {
+define dso_local void @bufferevent_ssl_set_allow_dirty_shutdown(ptr noundef captures(none) %bev, i32 noundef %allow_dirty_shutdown) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1473,14 +1473,14 @@ do.end20:                                         ; preds = %do.body13.i, %do.bo
 declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_handshakecb(ptr nocapture readnone %bev_base, ptr noundef %ctx) #0 {
+define internal void @be_ssl_handshakecb(ptr readnone captures(none) %bev_base, ptr noundef %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @do_handshake(ptr noundef %ctx)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_eventcb(ptr nocapture readnone %bev_base, i16 noundef signext %what, ptr noundef %ctx) #0 {
+define internal void @be_ssl_eventcb(ptr readnone captures(none) %bev_base, i16 noundef signext %what, ptr noundef %ctx) #0 {
 entry:
   %0 = and i16 %what, 16
   %tobool.not = icmp eq i16 %0, 0
@@ -1620,14 +1620,14 @@ return:                                           ; preds = %if.end27, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_readcb(ptr nocapture readnone %bev_base, ptr noundef %ctx) #0 {
+define internal void @be_ssl_readcb(ptr readnone captures(none) %bev_base, ptr noundef %ctx) #0 {
 entry:
   tail call fastcc void @consider_reading(ptr noundef %ctx)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_ssl_writecb(ptr nocapture readnone %bev_base, ptr noundef %ctx) #0 {
+define internal void @be_ssl_writecb(ptr readnone captures(none) %bev_base, ptr noundef %ctx) #0 {
 entry:
   tail call fastcc void @consider_writing(ptr noundef %ctx)
   ret void
@@ -2852,7 +2852,7 @@ declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) local_unnamed_addr #
 declare i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

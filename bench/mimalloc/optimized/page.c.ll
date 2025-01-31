@@ -135,7 +135,7 @@ return:                                           ; preds = %if.else.i5, %if.the
 declare i64 @_mi_os_page_size() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_page_queue_append(ptr noundef %heap, ptr noundef %pq, ptr nocapture noundef readonly %append) local_unnamed_addr #1 {
+define hidden i64 @_mi_page_queue_append(ptr noundef %heap, ptr noundef %pq, ptr noundef readonly captures(none) %append) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %append, align 8
   %cmp = icmp eq ptr %0, null
@@ -233,7 +233,7 @@ return:                                           ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_use_delayed_free(ptr nocapture noundef %page, i32 noundef %delay, i1 noundef zeroext %override_never) local_unnamed_addr #1 {
+define hidden void @_mi_page_use_delayed_free(ptr noundef captures(none) %page, i32 noundef %delay, i1 noundef zeroext %override_never) local_unnamed_addr #1 {
 entry:
   %xthread_free.i = getelementptr inbounds nuw i8, ptr %page, i64 40
   %conv.i.i.i = zext i32 %delay to i64
@@ -407,7 +407,7 @@ for.end:                                          ; preds = %for.body, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_page_try_use_delayed_free(ptr nocapture noundef %page, i32 noundef %delay, i1 noundef zeroext %override_never) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_page_try_use_delayed_free(ptr noundef captures(none) %page, i32 noundef %delay, i1 noundef zeroext %override_never) local_unnamed_addr #1 {
 entry:
   %xthread_free = getelementptr inbounds nuw i8, ptr %page, i64 40
   %conv.i.i = zext i32 %delay to i64
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.then, %lor.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_page_free_collect(ptr nocapture noundef %page, i1 noundef zeroext %force) local_unnamed_addr #1 {
+define hidden void @_mi_page_free_collect(ptr noundef captures(none) %page, i1 noundef zeroext %force) local_unnamed_addr #1 {
 entry:
   br i1 %force, label %if.then, label %lor.lhs.false
 
@@ -666,7 +666,7 @@ mi_page_queue_push.exit:                          ; preds = %if.then.i4, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_delayed_free_all(ptr nocapture noundef %heap) local_unnamed_addr #1 {
+define hidden void @_mi_heap_delayed_free_all(ptr noundef captures(none) %heap) local_unnamed_addr #1 {
 entry:
   %thread_delayed_free.i = getelementptr inbounds nuw i8, ptr %heap, i64 2840
   %0 = load atomic i64, ptr %thread_delayed_free.i monotonic, align 8
@@ -740,7 +740,7 @@ while.end:                                        ; preds = %_mi_heap_delayed_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_heap_delayed_free_partial(ptr nocapture noundef %heap) local_unnamed_addr #1 {
+define hidden zeroext i1 @_mi_heap_delayed_free_partial(ptr noundef captures(none) %heap) local_unnamed_addr #1 {
 entry:
   %thread_delayed_free = getelementptr inbounds nuw i8, ptr %heap, i64 2840
   %0 = load atomic i64, ptr %thread_delayed_free monotonic, align 8
@@ -1416,7 +1416,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_deferred_free(ptr nocapture noundef readonly %heap, i1 noundef zeroext %force) local_unnamed_addr #1 {
+define hidden void @_mi_deferred_free(ptr noundef readonly captures(none) %heap, i1 noundef zeroext %force) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %heap, align 8
   %1 = load i64, ptr %0, align 8
@@ -2360,7 +2360,7 @@ return:                                           ; preds = %if.end, %entry, %mi
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
@@ -2372,10 +2372,10 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

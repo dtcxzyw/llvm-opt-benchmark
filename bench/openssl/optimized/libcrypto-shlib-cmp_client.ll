@@ -88,7 +88,7 @@ err:                                              ; preds = %entry, %if.end
 declare ptr @ossl_cmp_certConf_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %req, ptr nocapture noundef nonnull initializes((0, 8)) %rep, i32 noundef range(i32 -2147483647, -2147483648) %expected_type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %req, ptr noundef nonnull captures(none) initializes((0, 8)) %rep, i32 noundef range(i32 -2147483647, -2147483648) %expected_type) unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %req) #4
@@ -355,7 +355,7 @@ declare ptr @ossl_cmp_error_new(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare void @OSSL_CMP_PKISI_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_certConf_cb(ptr noundef %ctx, ptr noundef %cert, i32 noundef %fail_info, ptr nocapture readnone %text) local_unnamed_addr #0 {
+define noundef i32 @OSSL_CMP_certConf_cb(ptr noundef %ctx, ptr noundef %cert, i32 noundef %fail_info, ptr readnone captures(none) %text) local_unnamed_addr #0 {
 entry:
   %chain = alloca ptr, align 8
   %call = tail call ptr @OSSL_CMP_CTX_get_certConf_cb_arg(ptr noundef %ctx) #4
@@ -608,7 +608,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
 entry:
   %prep = alloca ptr, align 8
   %check_after = alloca i64, align 8
@@ -807,7 +807,7 @@ return:                                           ; preds = %if.else73, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr nocapture noundef nonnull %resp, ptr noundef %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr noundef nonnull captures(none) %resp, ptr noundef %checkAfter) unnamed_addr #0 {
 entry:
   %buf.i = alloca [1024 x i8], align 16
   %txt = alloca ptr, align 8
@@ -1596,10 +1596,10 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

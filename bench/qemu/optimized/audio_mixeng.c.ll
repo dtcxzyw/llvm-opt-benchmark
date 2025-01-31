@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mixeng_clip_float = dso_local local_unnamed_addr global [2 x ptr] [ptr @clip_natural_float_from_mono, ptr @clip_natural_float_from_stereo], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint8_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint8_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -38,7 +38,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint16_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint16_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -65,7 +65,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint32_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint32_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -91,7 +91,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_uint16_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_uint16_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -119,7 +119,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_uint32_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_uint32_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -146,7 +146,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int8_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int8_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -172,7 +172,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int16_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int16_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -198,7 +198,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int32_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int32_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -223,7 +223,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_int16_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_int16_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -250,7 +250,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_int32_t_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_int32_t_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -276,7 +276,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint8_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint8_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not7 = icmp eq i32 %samples, 0
   br i1 %tobool.not7, label %while.end, label %while.body
@@ -308,7 +308,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint16_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint16_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not7 = icmp eq i32 %samples, 0
   br i1 %tobool.not7, label %while.end, label %while.body
@@ -340,7 +340,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_uint32_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_uint32_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not6 = icmp eq i32 %samples, 0
   br i1 %tobool.not6, label %while.end, label %while.body
@@ -370,7 +370,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_uint16_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_uint16_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not7 = icmp eq i32 %samples, 0
   br i1 %tobool.not7, label %while.end, label %while.body
@@ -404,7 +404,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_uint32_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_uint32_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not6 = icmp eq i32 %samples, 0
   br i1 %tobool.not6, label %while.end, label %while.body
@@ -436,7 +436,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int8_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int8_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not6 = icmp eq i32 %samples, 0
   br i1 %tobool.not6, label %while.end, label %while.body
@@ -466,7 +466,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int16_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int16_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not6 = icmp eq i32 %samples, 0
   br i1 %tobool.not6, label %while.end, label %while.body
@@ -496,7 +496,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_int32_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_int32_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -524,7 +524,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_int16_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_int16_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not6 = icmp eq i32 %samples, 0
   br i1 %tobool.not6, label %while.end, label %while.body
@@ -556,7 +556,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_swap_int32_t_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_swap_int32_t_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not5 = icmp eq i32 %samples, 0
   br i1 %tobool.not5, label %while.end, label %while.body
@@ -586,7 +586,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint8_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint8_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -626,7 +626,7 @@ while.end:                                        ; preds = %clip_natural_uint8_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint16_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint16_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -666,7 +666,7 @@ while.end:                                        ; preds = %clip_natural_uint16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint32_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint32_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -705,7 +705,7 @@ while.end:                                        ; preds = %clip_natural_uint32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_uint16_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_uint16_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -746,7 +746,7 @@ while.end:                                        ; preds = %clip_swap_uint16_t.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_uint32_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_uint32_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -786,7 +786,7 @@ while.end:                                        ; preds = %clip_swap_uint32_t.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int8_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int8_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -825,7 +825,7 @@ while.end:                                        ; preds = %clip_natural_int8_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int16_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int16_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -864,7 +864,7 @@ while.end:                                        ; preds = %clip_natural_int16_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int32_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int32_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -893,7 +893,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_int16_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_int16_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -933,7 +933,7 @@ while.end:                                        ; preds = %clip_swap_int16_t.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_int32_t_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_int32_t_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -972,7 +972,7 @@ while.end:                                        ; preds = %clip_swap_int32_t.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint8_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint8_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1028,7 +1028,7 @@ while.end:                                        ; preds = %clip_natural_uint8_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint16_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint16_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1084,7 +1084,7 @@ while.end:                                        ; preds = %clip_natural_uint16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_uint32_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_uint32_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not11 = icmp eq i32 %samples, 0
   br i1 %tobool.not11, label %while.end, label %while.body
@@ -1138,7 +1138,7 @@ while.end:                                        ; preds = %clip_natural_uint32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_uint16_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_uint16_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1196,7 +1196,7 @@ while.end:                                        ; preds = %clip_swap_uint16_t.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_uint32_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_uint32_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not11 = icmp eq i32 %samples, 0
   br i1 %tobool.not11, label %while.end, label %while.body
@@ -1252,7 +1252,7 @@ while.end:                                        ; preds = %clip_swap_uint32_t.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int8_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int8_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1306,7 +1306,7 @@ while.end:                                        ; preds = %clip_natural_int8_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int16_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int16_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1360,7 +1360,7 @@ while.end:                                        ; preds = %clip_natural_int16_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_int32_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_int32_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not8 = icmp eq i32 %samples, 0
   br i1 %tobool.not8, label %while.end, label %while.body
@@ -1394,7 +1394,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_int16_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_int16_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not12 = icmp eq i32 %samples, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1450,7 +1450,7 @@ while.end:                                        ; preds = %clip_swap_int16_t.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_swap_int32_t_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_swap_int32_t_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not11 = icmp eq i32 %samples, 0
   br i1 %tobool.not11, label %while.end, label %while.body
@@ -1504,7 +1504,7 @@ while.end:                                        ; preds = %clip_swap_int32_t.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_float_to_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_float_to_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -1530,7 +1530,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @conv_natural_float_to_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @conv_natural_float_to_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not4 = icmp eq i32 %samples, 0
   br i1 %tobool.not4, label %while.end, label %while.body
@@ -1560,7 +1560,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_float_from_mono(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_float_from_mono(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not3 = icmp eq i32 %samples, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -1587,7 +1587,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @clip_natural_float_from_stereo(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i32 noundef %samples) #0 {
+define internal void @clip_natural_float_from_stereo(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i32 noundef %samples) #0 {
 entry:
   %tobool.not4 = icmp eq i32 %samples, 0
   br i1 %tobool.not4, label %while.end, label %while.body
@@ -1617,7 +1617,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @audio_sample_to_uint64(ptr nocapture noundef readonly %samples, i32 noundef %pos, ptr nocapture noundef writeonly initializes((0, 8)) %left, ptr nocapture noundef writeonly initializes((0, 8)) %right) local_unnamed_addr #1 {
+define dso_local void @audio_sample_to_uint64(ptr noundef readonly captures(none) %samples, i32 noundef %pos, ptr noundef writeonly captures(none) initializes((0, 8)) %left, ptr noundef writeonly captures(none) initializes((0, 8)) %right) local_unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %pos to i64
   %add.ptr = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext
@@ -1630,7 +1630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @audio_sample_from_uint64(ptr nocapture noundef writeonly %samples, i32 noundef %pos, i64 noundef %left, i64 noundef %right) local_unnamed_addr #2 {
+define dso_local void @audio_sample_from_uint64(ptr noundef writeonly captures(none) %samples, i32 noundef %pos, i64 noundef %left, i64 noundef %right) local_unnamed_addr #2 {
 entry:
   %idx.ext = sext i32 %pos to i64
   %add.ptr = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext
@@ -1662,7 +1662,7 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @st_rate_flow_mix(ptr nocapture noundef %opaque, ptr noundef %ibuf, ptr noundef %obuf, ptr nocapture noundef %isamp, ptr nocapture noundef %osamp) local_unnamed_addr #0 {
+define dso_local void @st_rate_flow_mix(ptr noundef captures(none) %opaque, ptr noundef %ibuf, ptr noundef %obuf, ptr noundef captures(none) %isamp, ptr noundef captures(none) %osamp) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %isamp, align 8
   %add.ptr = getelementptr %struct.st_sample, ptr %ibuf, i64 %0
@@ -1827,7 +1827,7 @@ return:                                           ; preds = %the_end, %if.then18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @st_rate_flow(ptr nocapture noundef %opaque, ptr noundef %ibuf, ptr noundef %obuf, ptr nocapture noundef %isamp, ptr nocapture noundef %osamp) local_unnamed_addr #0 {
+define dso_local void @st_rate_flow(ptr noundef captures(none) %opaque, ptr noundef %ibuf, ptr noundef %obuf, ptr noundef captures(none) %isamp, ptr noundef captures(none) %osamp) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %isamp, align 8
   %add.ptr = getelementptr %struct.st_sample, ptr %ibuf, i64 %0
@@ -1993,7 +1993,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @st_rate_frames_out(ptr nocapture noundef readonly %opaque, i32 noundef %frames_in) local_unnamed_addr #6 {
+define dso_local i32 @st_rate_frames_out(ptr noundef readonly captures(none) %opaque, i32 noundef %frames_in) local_unnamed_addr #6 {
 entry:
   %opos_inc = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load i64, ptr %opos_inc, align 8
@@ -2033,7 +2033,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @st_rate_frames_in(ptr nocapture noundef readonly %opaque, i32 noundef %frames_out) local_unnamed_addr #6 {
+define dso_local i32 @st_rate_frames_in(ptr noundef readonly captures(none) %opaque, i32 noundef %frames_out) local_unnamed_addr #6 {
 entry:
   %opos_inc = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load i64, ptr %opos_inc, align 8
@@ -2081,7 +2081,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @mixeng_clear(ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #2 {
+define dso_local void @mixeng_clear(ptr noundef writeonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #2 {
 entry:
   %conv = sext i32 %len to i64
   %mul = shl nsw i64 %conv, 4
@@ -2090,10 +2090,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @mixeng_volume(ptr nocapture noundef %buf, i32 noundef %len, ptr nocapture noundef readonly %vol) local_unnamed_addr #0 {
+define dso_local void @mixeng_volume(ptr noundef captures(none) %buf, i32 noundef %len, ptr noundef readonly captures(none) %vol) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %vol, align 8
   %tobool.not = icmp eq i32 %0, 0

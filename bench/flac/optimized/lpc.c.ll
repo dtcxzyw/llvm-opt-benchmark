@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN = external local_unnamed_addr constant i32, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_window_data(ptr nocapture noundef readonly %in, ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly %out, i32 noundef %data_len) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_window_data(ptr noundef readonly captures(none) %in, ptr noundef readonly captures(none) %window, ptr noundef writeonly captures(none) %out, i32 noundef %data_len) local_unnamed_addr #0 {
 entry:
   %cmp5.not = icmp eq i32 %data_len, 0
   br i1 %cmp5.not, label %for.end, label %for.body.preheader
@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_window_data_wide(ptr nocapture noundef readonly %in, ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly %out, i32 noundef %data_len) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_window_data_wide(ptr noundef readonly captures(none) %in, ptr noundef readonly captures(none) %window, ptr noundef writeonly captures(none) %out, i32 noundef %data_len) local_unnamed_addr #0 {
 entry:
   %cmp5.not = icmp eq i32 %data_len, 0
   br i1 %cmp5.not, label %for.end, label %for.body.preheader
@@ -62,7 +62,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_window_data_partial(ptr nocapture noundef readonly %in, ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly %out, i32 noundef %data_len, i32 noundef %part_size, i32 noundef %data_shift) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_window_data_partial(ptr noundef readonly captures(none) %in, ptr noundef readonly captures(none) %window, ptr noundef writeonly captures(none) %out, i32 noundef %data_len, i32 noundef %part_size, i32 noundef %data_shift) local_unnamed_addr #0 {
 entry:
   %add = add i32 %data_shift, %part_size
   %cmp = icmp ult i32 %add, %data_len
@@ -140,7 +140,7 @@ if.end35:                                         ; preds = %for.end29, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_window_data_partial_wide(ptr nocapture noundef readonly %in, ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly %out, i32 noundef %data_len, i32 noundef %part_size, i32 noundef %data_shift) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_window_data_partial_wide(ptr noundef readonly captures(none) %in, ptr noundef readonly captures(none) %window, ptr noundef writeonly captures(none) %out, i32 noundef %data_len, i32 noundef %part_size, i32 noundef %data_shift) local_unnamed_addr #0 {
 entry:
   %add = add i32 %data_shift, %part_size
   %cmp = icmp ult i32 %add, %data_len
@@ -218,7 +218,7 @@ if.end35:                                         ; preds = %for.end29, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef captures(none) %autoc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %data_len, 32
   %cmp1 = icmp ugt i32 %lag, 16
@@ -528,7 +528,7 @@ if.end229:                                        ; preds = %for.inc224, %for.in
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_lp_coefficients(ptr nocapture noundef readonly %autoc, ptr nocapture noundef %max_order, ptr nocapture noundef writeonly %lp_coeff, ptr nocapture noundef writeonly %error) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captures(none) %autoc, ptr noundef captures(none) %max_order, ptr noundef writeonly captures(none) %lp_coeff, ptr noundef writeonly captures(none) %error) local_unnamed_addr #0 {
 entry:
   %lpc = alloca [32 x double], align 16
   %0 = load double, ptr %autoc, align 8
@@ -653,7 +653,7 @@ for.end56:                                        ; preds = %for.cond, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr nocapture noundef readonly %lp_coeff, i32 noundef %order, i32 noundef %precision, ptr nocapture noundef writeonly %qlp_coeff, ptr nocapture noundef %shift) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef readonly captures(none) %lp_coeff, i32 noundef %order, i32 noundef %precision, ptr noundef writeonly captures(none) %qlp_coeff, ptr noundef captures(none) %shift) local_unnamed_addr #2 {
 entry:
   %log2cmax = alloca i32, align 4
   %dec = add i32 %precision, -1
@@ -776,13 +776,13 @@ return:                                           ; preds = %for.body31, %entry,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i64 @lround(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients(ptr noalias noundef readonly %data, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients(ptr noalias noundef readonly %data, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %order, 13
   br i1 %cmp, label %if.then, label %for.cond644.preheader
@@ -1843,7 +1843,7 @@ if.end867:                                        ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide(ptr noalias noundef readonly %data, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide(ptr noalias noundef readonly %data, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %order, 13
   br i1 %cmp, label %if.then, label %for.cond853.preheader
@@ -3150,7 +3150,7 @@ if.end1144:                                       ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noalias noundef readonly captures(none) %data, i32 noundef %data_len, ptr noalias noundef readonly captures(none) %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %invariant.gep = getelementptr i8, ptr %data, i64 -128
   %invariant.gep133 = getelementptr i8, ptr %data, i64 -124
@@ -3635,7 +3635,7 @@ return:                                           ; preds = %sw.epilog, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noalias noundef readonly captures(none) %data, i32 noundef %data_len, ptr noalias noundef readonly captures(none) %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %invariant.gep = getelementptr i8, ptr %data, i64 -256
   %invariant.gep133 = getelementptr i8, ptr %data, i64 -248
@@ -4087,7 +4087,7 @@ return:                                           ; preds = %sw.epilog, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order) local_unnamed_addr #2 {
+define hidden i32 @FLAC__lpc_max_prediction_before_shift_bps(i32 noundef %subframe_bps, ptr noalias noundef readonly captures(none) %qlp_coeff, i32 noundef %order) local_unnamed_addr #2 {
 entry:
   %cmp5.not = icmp eq i32 %order, 0
   br i1 %cmp5.not, label %for.end, label %for.body.preheader
@@ -4122,7 +4122,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #1
 declare i32 @FLAC__bitmath_silog2(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization) local_unnamed_addr #2 {
+define hidden i32 @FLAC__lpc_max_residual_bps(i32 noundef %subframe_bps, ptr noalias noundef readonly captures(none) %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %cmp5.not.i = icmp eq i32 %order, 0
@@ -4156,7 +4156,7 @@ FLAC__lpc_max_prediction_before_shift_bps.exit:   ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_restore_signal(ptr noalias nocapture noundef readonly %residual, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef %data) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captures(none) %residual, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %order, 13
   br i1 %cmp, label %if.then, label %for.cond644.preheader
@@ -5229,7 +5229,7 @@ if.end867:                                        ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias nocapture noundef readonly %residual, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef %data) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly captures(none) %residual, i32 noundef %data_len, ptr noalias noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %order, 13
   br i1 %cmp, label %if.then, label %for.cond853.preheader
@@ -6548,7 +6548,7 @@ if.end1144:                                       ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_restore_signal_wide_33bit(ptr noalias nocapture noundef readonly %residual, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef %data) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_restore_signal_wide_33bit(ptr noalias noundef readonly captures(none) %residual, i32 noundef %data_len, ptr noalias noundef readonly captures(none) %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %invariant.gep = getelementptr i8, ptr %data, i64 -256
   %invariant.gep131 = getelementptr i8, ptr %data, i64 -248
@@ -7047,7 +7047,7 @@ return:                                           ; preds = %if.else4, %if.then
 declare double @log(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__lpc_compute_best_order(ptr nocapture noundef readonly %lpc_error, i32 noundef %max_order, i32 noundef %total_samples, i32 noundef %overhead_bits_per_order) local_unnamed_addr #8 {
+define hidden i32 @FLAC__lpc_compute_best_order(ptr noundef readonly captures(none) %lpc_error, i32 noundef %max_order, i32 noundef %total_samples, i32 noundef %overhead_bits_per_order) local_unnamed_addr #8 {
 entry:
   %cmp8.not = icmp eq i32 %max_order, 0
   br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
@@ -7117,7 +7117,7 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

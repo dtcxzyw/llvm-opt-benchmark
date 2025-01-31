@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @SHA1Transform(ptr nocapture noundef %state, ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
+define dso_local void @SHA1Transform(ptr noundef captures(none) %state, ptr noundef readonly captures(none) %buffer) local_unnamed_addr #0 {
 entry:
   %block.sroa.0.0.copyload = load i32, ptr %buffer, align 1
   %block.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buffer, i64 4
@@ -1032,13 +1032,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1Init(ptr nocapture noundef writeonly initializes((0, 28)) %context) local_unnamed_addr #3 {
+define dso_local void @SHA1Init(ptr noundef writeonly captures(none) initializes((0, 28)) %context) local_unnamed_addr #3 {
 entry:
   store i32 1732584193, ptr %context, align 4
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %context, i64 4
@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @SHA1Update(ptr nocapture noundef %context, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #4 {
+define dso_local void @SHA1Update(ptr noundef captures(none) %context, ptr noundef readonly captures(none) %data, i32 noundef %len) local_unnamed_addr #4 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %count, align 4
@@ -1095,7 +1095,7 @@ for.body:                                         ; preds = %if.then11, %for.bod
   %i.026 = phi i32 [ %add22, %for.body ], [ %sub, %if.then11 ]
   %idxprom20 = zext i32 %i.026 to i64
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom20
-  tail call void @SHA1Transform(ptr noundef %context, ptr noundef %arrayidx21)
+  tail call void @SHA1Transform(ptr noundef nonnull %context, ptr noundef nonnull %arrayidx21)
   %add22 = add i32 %i.026, 64
   %add15 = add i32 %i.026, 127
   %cmp16 = icmp ult i32 %add15, %len
@@ -1119,7 +1119,7 @@ if.end23:                                         ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @SHA1Final(ptr nocapture noundef writeonly %digest, ptr nocapture noundef %context) local_unnamed_addr #4 {
+define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %digest, ptr noundef captures(none) %context) local_unnamed_addr #4 {
 entry:
   %finalcount = alloca [8 x i8], align 8
   %c = alloca i8, align 1

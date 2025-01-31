@@ -208,7 +208,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2065,7 +2065,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef nonnull %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evp_EncryptDecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr noundef nonnull captures(none) %outl, ptr noundef %in, i32 noundef %inl) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_test_flags(ptr noundef %ctx, i32 noundef 8192) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2344,7 +2344,7 @@ declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_CTX_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef %c, i32 noundef %keylen) local_unnamed_addr #0 {
@@ -2889,7 +2889,7 @@ return:                                           ; preds = %end, %sw.bb196, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_padding(ptr nocapture noundef %ctx, i32 noundef %pad) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_padding(ptr noundef captures(none) %ctx, i32 noundef %pad) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %pd = alloca i32, align 4
@@ -3017,7 +3017,7 @@ if.end25:                                         ; preds = %if.then, %if.then11
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_CTX_get_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -3362,7 +3362,7 @@ return:                                           ; preds = %if.end53, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_CIPHER_up_ref(ptr nocapture noundef %cipher) local_unnamed_addr #6 {
+define noundef i32 @EVP_CIPHER_up_ref(ptr noundef captures(none) %cipher) local_unnamed_addr #6 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load i32, ptr %origin, align 8
@@ -3822,7 +3822,7 @@ return:                                           ; preds = %if.end4.i99, %CRYPT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @evp_cipher_up_ref(ptr nocapture noundef %cipher) #6 {
+define internal noundef i32 @evp_cipher_up_ref(ptr noundef captures(none) %cipher) #6 {
 entry:
   %origin.i = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load i32, ptr %origin.i, align 8
@@ -3923,7 +3923,7 @@ declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #2
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_legacy_nid(ptr noundef %name, ptr nocapture noundef %vlegacy_nid) #0 {
+define internal void @set_legacy_nid(ptr noundef %name, ptr noundef captures(none) %vlegacy_nid) #0 {
 entry:
   %call = tail call ptr @OBJ_NAME_get(ptr noundef %name, i32 noundef 2) #8
   %0 = load i32, ptr %vlegacy_nid, align 4
@@ -3957,10 +3957,10 @@ declare ptr @OBJ_NAME_get(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_get_nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

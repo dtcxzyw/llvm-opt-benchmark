@@ -56,7 +56,7 @@ define void @setTraceLevel(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 16), align 8
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %72, label %7
@@ -199,10 +199,10 @@ define void @_err_msgv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -217,7 +217,7 @@ define internal fastcc void @graphviz_exit(i32 noundef range(i32 1, 254) %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_err_msg(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #2 {
+define void @_err_msg(i32 noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @_err_msgv(ptr noundef null, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
@@ -226,7 +226,7 @@ define void @_err_msg(i32 noundef %0, ptr nocapture noundef readonly %1, ...) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @errorf(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr nocapture noundef readonly %3, ...) local_unnamed_addr #2 {
+define void @errorf(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %1, null
@@ -255,10 +255,10 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stbtt_packedchar = type { i16, i16, i16, i16, float, float, float, float, float }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i8 @stbtt__buf_get8(ptr nocapture noundef %b) local_unnamed_addr #0 {
+define zeroext i8 @stbtt__buf_get8(ptr noundef captures(none) %b) local_unnamed_addr #0 {
 entry:
   %cursor = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @stbtt__buf_peek8(ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define zeroext i8 @stbtt__buf_peek8(ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   %cursor = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -63,7 +63,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt__buf_seek(ptr nocapture noundef initializes((8, 12)) %b, i32 noundef %o) local_unnamed_addr #2 {
+define void @stbtt__buf_seek(ptr noundef captures(none) initializes((8, 12)) %b, i32 noundef %o) local_unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %b, i64 12
   %0 = load i32, ptr %size, align 4
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt__buf_skip(ptr nocapture noundef %b, i32 noundef %o) local_unnamed_addr #2 {
+define void @stbtt__buf_skip(ptr noundef captures(none) %b, i32 noundef %o) local_unnamed_addr #2 {
 entry:
   %cursor = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__buf_get(ptr nocapture noundef %b, i32 noundef %n) local_unnamed_addr #3 {
+define i32 @stbtt__buf_get(ptr noundef captures(none) %b, i32 noundef %n) local_unnamed_addr #3 {
 entry:
   %cmp3 = icmp sgt i32 %n, 0
   br i1 %cmp3, label %for.body.lr.ph, label %for.end
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @stbtt__buf_range(ptr nocapture noundef readonly %b, i32 noundef %o, i32 noundef %s) local_unnamed_addr #5 {
+define { ptr, i64 } @stbtt__buf_range(ptr noundef readonly captures(none) %b, i32 noundef %o, i32 noundef %s) local_unnamed_addr #5 {
 entry:
   %0 = or i32 %s, %o
   %or.cond.not = icmp sgt i32 %0, -1
@@ -176,7 +176,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { ptr, i64 } @stbtt__cff_get_index(ptr nocapture noundef %b) local_unnamed_addr #3 {
+define { ptr, i64 } @stbtt__cff_get_index(ptr noundef captures(none) %b) local_unnamed_addr #3 {
 entry:
   %cursor = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -309,7 +309,7 @@ stbtt__buf_range.exit:                            ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__cff_int(ptr nocapture noundef %b) local_unnamed_addr #3 {
+define i32 @stbtt__cff_int(ptr noundef captures(none) %b) local_unnamed_addr #3 {
 entry:
   %cursor.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor.i, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__cff_skip_operand(ptr nocapture noundef %b) local_unnamed_addr #3 {
+define void @stbtt__cff_skip_operand(ptr noundef captures(none) %b) local_unnamed_addr #3 {
 entry:
   %cursor.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor.i, align 8
@@ -501,7 +501,7 @@ if.end12:                                         ; preds = %while.cond, %stbtt_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { ptr, i64 } @stbtt__dict_get(ptr nocapture noundef initializes((8, 12)) %b, i32 noundef %key) local_unnamed_addr #3 {
+define { ptr, i64 } @stbtt__dict_get(ptr noundef captures(none) initializes((8, 12)) %b, i32 noundef %key) local_unnamed_addr #3 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %b, i64 12
   %0 = load i32, ptr %size.i, align 4
@@ -699,7 +699,7 @@ return:                                           ; preds = %if.end.i42, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__dict_get_ints(ptr nocapture noundef initializes((8, 12)) %b, i32 noundef %key, i32 noundef %outcount, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 {
+define void @stbtt__dict_get_ints(ptr noundef captures(none) initializes((8, 12)) %b, i32 noundef %key, i32 noundef %outcount, ptr noundef writeonly captures(none) %out) local_unnamed_addr #3 {
 entry:
   %call = tail call { ptr, i64 } @stbtt__dict_get(ptr noundef %b, i32 noundef %key)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -856,7 +856,7 @@ for.end:                                          ; preds = %stbtt__cff_int.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__cff_index_count(ptr nocapture noundef initializes((8, 12)) %b) local_unnamed_addr #3 {
+define i32 @stbtt__cff_index_count(ptr noundef captures(none) initializes((8, 12)) %b) local_unnamed_addr #3 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %b, i64 12
   %0 = load i32, ptr %size.i, align 4
@@ -1036,7 +1036,7 @@ stbtt__buf_range.exit:                            ; preds = %stbtt__buf_get.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @ttUSHORT(ptr nocapture noundef readonly %p) local_unnamed_addr #5 {
+define zeroext i16 @ttUSHORT(ptr noundef readonly captures(none) %p) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i16
@@ -1049,7 +1049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @ttSHORT(ptr nocapture noundef readonly %p) local_unnamed_addr #5 {
+define signext i16 @ttSHORT(ptr noundef readonly captures(none) %p) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i16
@@ -1062,7 +1062,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ttULONG(ptr nocapture noundef readonly %p) local_unnamed_addr #5 {
+define i32 @ttULONG(ptr noundef readonly captures(none) %p) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i32
@@ -1085,7 +1085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ttLONG(ptr nocapture noundef readonly %p) local_unnamed_addr #5 {
+define i32 @ttLONG(ptr noundef readonly captures(none) %p) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i32
@@ -1108,7 +1108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__isfont(ptr nocapture noundef readonly %font) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %font) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %font, align 1
   switch i8 %0, label %if.end111 [
@@ -1213,7 +1213,7 @@ return:                                           ; preds = %land.lhs.true104, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stbtt__find_table(ptr nocapture noundef readonly %data, i32 noundef %fontstart, ptr nocapture noundef readonly %tag) local_unnamed_addr #6 {
+define i32 @stbtt__find_table(ptr noundef readonly captures(none) %data, i32 noundef %fontstart, ptr noundef readonly captures(none) %tag) local_unnamed_addr #6 {
 entry:
   %idx.ext = zext i32 %fontstart to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
@@ -1309,7 +1309,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetFontOffsetForIndex_internal(ptr nocapture noundef readonly %font_collection, i32 noundef %index) local_unnamed_addr #5 {
+define i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly captures(none) %font_collection, i32 noundef %index) local_unnamed_addr #5 {
 entry:
   %call = tail call i32 @stbtt__isfont(ptr noundef %font_collection)
   %tobool.not = icmp eq i32 %call, 0
@@ -1419,7 +1419,7 @@ return:                                           ; preds = %if.then21, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetNumberOfFonts_internal(ptr nocapture noundef readonly %font_collection) local_unnamed_addr #5 {
+define i32 @stbtt_GetNumberOfFonts_internal(ptr noundef readonly captures(none) %font_collection) local_unnamed_addr #5 {
 entry:
   %call = tail call i32 @stbtt__isfont(ptr noundef %font_collection)
   %tobool.not = icmp eq i32 %call, 0
@@ -1669,13 +1669,13 @@ return:                                           ; preds = %stbtt__buf_range.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__get_svg(ptr nocapture noundef %info) local_unnamed_addr #3 {
+define i32 @stbtt__get_svg(ptr noundef captures(none) %info) local_unnamed_addr #3 {
 entry:
   %svg = getelementptr inbounds nuw i8, ptr %info, i64 52
   %0 = load i32, ptr %svg, align 4
@@ -1796,7 +1796,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr nocapture noundef initializes((8, 20), (64, 80)) %info, ptr noundef %data, i32 noundef %fontstart) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef captures(none) initializes((8, 20), (64, 80)) %info, ptr noundef %data, i32 noundef %fontstart) local_unnamed_addr #3 {
 entry:
   %b = alloca %struct.stbtt__buf, align 8
   %topdict = alloca %struct.stbtt__buf, align 8
@@ -3334,7 +3334,7 @@ return:                                           ; preds = %for.inc.i456, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint) local_unnamed_addr #7 {
+define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %info, i32 noundef %unicode_codepoint) local_unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -3715,7 +3715,7 @@ return:                                           ; preds = %if.end269, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly initializes((0, 8)) %vertices) local_unnamed_addr #10 {
+define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %info, i32 noundef %unicode_codepoint, ptr noundef writeonly captures(none) initializes((0, 8)) %vertices) local_unnamed_addr #10 {
 entry:
   %count_ctx.i.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i.i = alloca %struct.stbtt__csctx, align 8
@@ -3773,7 +3773,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i, %stbtt__
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly initializes((0, 8)) %pvertices) local_unnamed_addr #10 {
+define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly captures(none) initializes((0, 8)) %pvertices) local_unnamed_addr #10 {
 entry:
   %count_ctx.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i = alloca %struct.stbtt__csctx, align 8
@@ -3830,7 +3830,7 @@ return:                                           ; preds = %stbtt__GetGlyphShap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_setvertex(ptr nocapture noundef writeonly initializes((0, 8), (12, 13)) %v, i8 noundef zeroext %type, i32 noundef %x, i32 noundef %y, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #11 {
+define void @stbtt_setvertex(ptr noundef writeonly captures(none) initializes((0, 8), (12, 13)) %v, i8 noundef zeroext %type, i32 noundef %x, i32 noundef %y, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #11 {
 entry:
   %type1 = getelementptr inbounds nuw i8, ptr %v, i64 12
   store i8 %type, ptr %type1, align 2
@@ -3849,7 +3849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt__GetGlyfOffset(ptr nocapture noundef readonly %info, i32 noundef %glyph_index) local_unnamed_addr #1 {
+define i32 @stbtt__GetGlyfOffset(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index) local_unnamed_addr #1 {
 entry:
   %numGlyphs = getelementptr inbounds nuw i8, ptr %info, i64 20
   %0 = load i32, ptr %numGlyphs, align 4
@@ -3952,7 +3952,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr noundef writeonly %x0, ptr noundef writeonly %y0, ptr noundef writeonly %x1, ptr noundef writeonly %y1) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly %x0, ptr noundef writeonly %y0, ptr noundef writeonly %x1, ptr noundef writeonly %y1) local_unnamed_addr #12 {
 entry:
   %c.i = alloca %struct.stbtt__csctx, align 8
   %size = getelementptr inbounds nuw i8, ptr %info, i64 76
@@ -4198,7 +4198,7 @@ return:                                           ; preds = %if.end44.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__GetGlyphInfoT2(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr noundef writeonly %x0, ptr noundef writeonly %y0, ptr noundef writeonly %x1, ptr noundef writeonly %y1) local_unnamed_addr #12 {
+define i32 @stbtt__GetGlyphInfoT2(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly %x0, ptr noundef writeonly %y0, ptr noundef writeonly %x1, ptr noundef writeonly %y1) local_unnamed_addr #12 {
 entry:
   %c = alloca %struct.stbtt__csctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c, i8 0, i64 56, i1 false)
@@ -4260,7 +4260,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr nocapture noundef readonly %info, i32 noundef %codepoint, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %info, i32 noundef %codepoint, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1) local_unnamed_addr #12 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %call1 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %call, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1)
@@ -4268,7 +4268,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %info, i32 noundef %glyph_index) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index) local_unnamed_addr #12 {
 entry:
   %c.i = alloca %struct.stbtt__csctx, align 8
   %size = getelementptr inbounds nuw i8, ptr %info, i64 76
@@ -4406,7 +4406,7 @@ return:                                           ; preds = %if.end44.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt__close_shape(ptr nocapture noundef writeonly %vertices, i32 noundef %num_vertices, i32 noundef %was_off, i32 noundef %start_off, i32 noundef %sx, i32 noundef %sy, i32 noundef %scx, i32 noundef %scy, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #11 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt__close_shape(ptr noundef writeonly captures(none) %vertices, i32 noundef %num_vertices, i32 noundef %was_off, i32 noundef %start_off, i32 noundef %sx, i32 noundef %sy, i32 noundef %scx, i32 noundef %scy, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #11 {
 entry:
   %tobool.not = icmp eq i32 %start_off, 0
   %tobool8.not = icmp eq i32 %was_off, 0
@@ -4493,7 +4493,7 @@ if.end18:                                         ; preds = %if.then9, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt__GetGlyphShapeTT(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly initializes((0, 8)) %pvertices) local_unnamed_addr #10 {
+define i32 @stbtt__GetGlyphShapeTT(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly captures(none) initializes((0, 8)) %pvertices) local_unnamed_addr #10 {
 entry:
   %count_ctx.i.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i.i = alloca %struct.stbtt__csctx, align 8
@@ -5488,10 +5488,10 @@ declare double @sqrt(double noundef) local_unnamed_addr #14
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt__track_vertex(ptr nocapture noundef %c, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
+define void @stbtt__track_vertex(ptr noundef captures(none) %c, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
 entry:
   %max_x = getelementptr inbounds nuw i8, ptr %c, i64 28
   %0 = load i32, ptr %max_x, align 4
@@ -5563,7 +5563,7 @@ if.end22:                                         ; preds = %if.then20, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_v(ptr nocapture noundef %c, i8 noundef zeroext %type, i32 noundef %x, i32 noundef %y, i32 noundef %cx, i32 noundef %cy, i32 noundef %cx1, i32 noundef %cy1) local_unnamed_addr #17 {
+define void @stbtt__csctx_v(ptr noundef captures(none) %c, i8 noundef zeroext %type, i32 noundef %x, i32 noundef %y, i32 noundef %cx, i32 noundef %cy, i32 noundef %cx1, i32 noundef %cy1) local_unnamed_addr #17 {
 entry:
   %0 = load i32, ptr %c, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -5758,7 +5758,7 @@ if.end15:                                         ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_close_shape(ptr nocapture noundef %ctx) local_unnamed_addr #17 {
+define void @stbtt__csctx_close_shape(ptr noundef captures(none) %ctx) local_unnamed_addr #17 {
 entry:
   %first_x = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load float, ptr %first_x, align 8
@@ -5893,7 +5893,7 @@ if.end:                                           ; preds = %stbtt__csctx_v.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rmove_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) local_unnamed_addr #17 {
+define void @stbtt__csctx_rmove_to(ptr noundef captures(none) %ctx, float noundef %dx, float noundef %dy) local_unnamed_addr #17 {
 entry:
   tail call void @stbtt__csctx_close_shape(ptr noundef %ctx)
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
@@ -6022,7 +6022,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rline_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) local_unnamed_addr #17 {
+define void @stbtt__csctx_rline_to(ptr noundef captures(none) %ctx, float noundef %dx, float noundef %dy) local_unnamed_addr #17 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
@@ -6146,7 +6146,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rccurve_to(ptr nocapture noundef %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) local_unnamed_addr #17 {
+define void @stbtt__csctx_rccurve_to(ptr noundef captures(none) %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) local_unnamed_addr #17 {
 entry:
   %x = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load float, ptr %x, align 8
@@ -6228,7 +6228,7 @@ return:                                           ; preds = %stbtt__cff_index_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define { ptr, i64 } @stbtt__cid_get_glyph_subrs(ptr nocapture noundef readonly %info, i32 noundef %glyph_index) local_unnamed_addr #7 {
+define { ptr, i64 } @stbtt__cid_get_glyph_subrs(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index) local_unnamed_addr #7 {
 entry:
   %fdselect1 = getelementptr inbounds nuw i8, ptr %info, i64 144
   %fdselect.sroa.0.0.copyload = load ptr, ptr %fdselect1, align 8
@@ -6398,7 +6398,7 @@ if.end26:                                         ; preds = %for.cond, %stbtt__b
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt__run_charstring(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef %c) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef captures(none) %c) local_unnamed_addr #12 {
 entry:
   %s = alloca [48 x float], align 16
   %subr_stack = alloca [10 x %struct.stbtt__buf], align 16
@@ -7600,7 +7600,7 @@ return:                                           ; preds = %sw.bb8, %sw.bb16, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @stbtt__GetGlyphShapeT2(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly initializes((0, 8)) %pvertices) local_unnamed_addr #18 {
+define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly captures(none) initializes((0, 8)) %pvertices) local_unnamed_addr #18 {
 entry:
   %count_ctx = alloca %struct.stbtt__csctx, align 8
   %output_ctx = alloca %struct.stbtt__csctx, align 8
@@ -7639,7 +7639,7 @@ return:                                           ; preds = %if.end7, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #0 {
+define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %info, i32 noundef %glyph_index, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -7759,7 +7759,7 @@ if.end55:                                         ; preds = %if.end55.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr nocapture noundef readonly %info) local_unnamed_addr #1 {
+define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly captures(none) %info) local_unnamed_addr #1 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -7811,7 +7811,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %table, i32 noundef %table_length) local_unnamed_addr #3 {
+define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef readonly captures(none) %info, ptr noundef writeonly captures(none) %table, i32 noundef %table_length) local_unnamed_addr #3 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -7910,7 +7910,7 @@ return:                                           ; preds = %for.body, %if.end13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt__GetGlyphKernInfoAdvance(ptr nocapture noundef readonly %info, i32 noundef %glyph1, i32 noundef %glyph2) local_unnamed_addr #7 {
+define range(i32 -32768, 32768) i32 @stbtt__GetGlyphKernInfoAdvance(ptr noundef readonly captures(none) %info, i32 noundef %glyph1, i32 noundef %glyph2) local_unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -8029,7 +8029,7 @@ return:                                           ; preds = %if.end39, %if.end13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1073741824, 131071) i32 @stbtt__GetCoverageIndex(ptr nocapture noundef readonly %coverageTable, i32 noundef %glyph) local_unnamed_addr #6 {
+define range(i32 -1073741824, 131071) i32 @stbtt__GetCoverageIndex(ptr noundef readonly captures(none) %coverageTable, i32 noundef %glyph) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %coverageTable, align 1
   %conv.i = zext i8 %0 to i16
@@ -8176,7 +8176,7 @@ return:                                           ; preds = %if.end57, %if.else,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr nocapture noundef readonly %classDefTable, i32 noundef %glyph) local_unnamed_addr #6 {
+define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captures(none) %classDefTable, i32 noundef %glyph) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %classDefTable, align 1
   %conv.i = zext i8 %0 to i16
@@ -8308,7 +8308,7 @@ return:                                           ; preds = %if.end45, %sw.bb15,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr nocapture noundef readonly %info, i32 noundef %glyph1, i32 noundef %glyph2) local_unnamed_addr #7 {
+define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef readonly captures(none) %info, i32 noundef %glyph1, i32 noundef %glyph2) local_unnamed_addr #7 {
 entry:
   %gpos = getelementptr inbounds nuw i8, ptr %info, i64 48
   %0 = load i32, ptr %gpos, align 8
@@ -8658,7 +8658,7 @@ return:                                           ; preds = %for.inc175, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %g1, i32 noundef %g2) local_unnamed_addr #7 {
+define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %info, i32 noundef %g1, i32 noundef %g2) local_unnamed_addr #7 {
 entry:
   %gpos = getelementptr inbounds nuw i8, ptr %info, i64 48
   %0 = load i32, ptr %gpos, align 8
@@ -8787,7 +8787,7 @@ if.end5:                                          ; preds = %if.end39.i, %if.els
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %ch1, i32 noundef %ch2) local_unnamed_addr #7 {
+define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %info, i32 noundef %ch1, i32 noundef %ch2) local_unnamed_addr #7 {
 entry:
   %kern = getelementptr inbounds nuw i8, ptr %info, i64 44
   %0 = load i32, ptr %kern, align 4
@@ -8812,7 +8812,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly %info, i32 noundef %codepoint, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #3 {
+define void @stbtt_GetCodepointHMetrics(ptr noundef readonly captures(none) %info, i32 noundef %codepoint, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %data.i = getelementptr inbounds nuw i8, ptr %info, i64 8
@@ -8933,7 +8933,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %if.end.i, %if.end36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %info, ptr noundef writeonly %ascent, ptr noundef writeonly %descent, ptr noundef writeonly %lineGap) local_unnamed_addr #0 {
+define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %info, ptr noundef writeonly %ascent, ptr noundef writeonly %descent, ptr noundef writeonly %lineGap) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ascent, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -9008,7 +9008,7 @@ if.end21:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr nocapture noundef readonly %info, ptr noundef writeonly %typoAscent, ptr noundef writeonly %typoDescent, ptr noundef writeonly %typoLineGap) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr noundef readonly captures(none) %info, ptr noundef writeonly %typoAscent, ptr noundef writeonly %typoDescent, ptr noundef writeonly %typoLineGap) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -9153,7 +9153,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly initializes((0, 4)) %x0, ptr nocapture noundef writeonly initializes((0, 4)) %y0, ptr nocapture noundef writeonly initializes((0, 4)) %x1, ptr nocapture noundef writeonly initializes((0, 4)) %y1) local_unnamed_addr #0 {
+define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %info, ptr noundef writeonly captures(none) initializes((0, 4)) %x0, ptr noundef writeonly captures(none) initializes((0, 4)) %y0, ptr noundef writeonly captures(none) initializes((0, 4)) %x1, ptr noundef writeonly captures(none) initializes((0, 4)) %y1) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -9217,7 +9217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForPixelHeight(ptr nocapture noundef readonly %info, float noundef %height) local_unnamed_addr #1 {
+define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %info, float noundef %height) local_unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -9250,7 +9250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForMappingEmToPixels(ptr nocapture noundef readonly %info, float noundef %pixels) local_unnamed_addr #1 {
+define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none) %info, float noundef %pixels) local_unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -9272,14 +9272,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeShape(ptr nocapture noundef readnone %info, ptr nocapture noundef %v) local_unnamed_addr #19 {
+define void @stbtt_FreeShape(ptr noundef readnone captures(none) %info, ptr noundef captures(none) %v) local_unnamed_addr #19 {
 entry:
   tail call void @free(ptr noundef %v) #33
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @stbtt_FindSVGDoc(ptr nocapture noundef %info, i32 noundef %gl) local_unnamed_addr #3 {
+define noundef ptr @stbtt_FindSVGDoc(ptr noundef captures(none) %info, i32 noundef %gl) local_unnamed_addr #3 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -9450,7 +9450,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetGlyphSVG(ptr nocapture noundef %info, i32 noundef %gl, ptr nocapture noundef writeonly %svg) local_unnamed_addr #3 {
+define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %info, i32 noundef %gl, ptr noundef writeonly captures(none) %svg) local_unnamed_addr #3 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -9514,7 +9514,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetCodepointSVG(ptr nocapture noundef %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %svg) local_unnamed_addr #3 {
+define i32 @stbtt_GetCodepointSVG(ptr noundef captures(none) %info, i32 noundef %unicode_codepoint, ptr noundef writeonly captures(none) %svg) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %unicode_codepoint)
   %data1.i = getelementptr inbounds nuw i8, ptr %info, i64 8
@@ -9579,7 +9579,7 @@ stbtt_GetGlyphSVG.exit:                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture noundef readonly %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
+define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
 entry:
   %x0 = alloca i32, align 4
   %y0 = alloca i32, align 4
@@ -9681,7 +9681,7 @@ if.end36:                                         ; preds = %if.end36.sink.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBox(ptr nocapture noundef readonly %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
+define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %font, i32 noundef %glyph, float noundef %scale_x, float noundef %scale_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
 entry:
   %x0.i = alloca i32, align 4
   %y0.i = alloca i32, align 4
@@ -9791,7 +9791,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %if.end8.i, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr nocapture noundef readonly %font, i32 noundef %codepoint, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
+define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %font, i32 noundef %codepoint, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, ptr noundef writeonly %ix0, ptr noundef writeonly %iy0, ptr noundef writeonly %ix1, ptr noundef writeonly %iy1) local_unnamed_addr #12 {
 entry:
   %x0.i = alloca i32, align 4
   %y0.i = alloca i32, align 4
@@ -9902,14 +9902,14 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %if.end8.i, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBox(ptr nocapture noundef readonly %font, i32 noundef %codepoint, float noundef %scale_x, float noundef %scale_y, ptr noundef %ix0, ptr noundef %iy0, ptr noundef %ix1, ptr noundef %iy1) local_unnamed_addr #12 {
+define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %font, i32 noundef %codepoint, float noundef %scale_x, float noundef %scale_y, ptr noundef %ix0, ptr noundef %iy0, ptr noundef %ix1, ptr noundef %iy1) local_unnamed_addr #12 {
 entry:
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %font, i32 noundef %codepoint, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %ix0, ptr noundef %iy0, ptr noundef %ix1, ptr noundef %iy1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @stbtt__hheap_alloc(ptr nocapture noundef %hh, i64 noundef %size, ptr nocapture noundef readnone %userdata) local_unnamed_addr #20 {
+define ptr @stbtt__hheap_alloc(ptr noundef captures(none) %hh, i64 noundef %size, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #20 {
 entry:
   %first_free = getelementptr inbounds nuw i8, ptr %hh, i64 8
   %0 = load ptr, ptr %first_free, align 8
@@ -9966,7 +9966,7 @@ return:                                           ; preds = %if.then3, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt__hheap_free(ptr nocapture noundef %hh, ptr noundef initializes((0, 8)) %p) local_unnamed_addr #2 {
+define void @stbtt__hheap_free(ptr noundef captures(none) %hh, ptr noundef initializes((0, 8)) %p) local_unnamed_addr #2 {
 entry:
   %first_free = getelementptr inbounds nuw i8, ptr %hh, i64 8
   %0 = load ptr, ptr %first_free, align 8
@@ -9976,7 +9976,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__hheap_cleanup(ptr nocapture noundef readonly %hh, ptr nocapture noundef readnone %userdata) local_unnamed_addr #10 {
+define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %hh, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %hh, align 8
   %tobool.not3 = icmp eq ptr %0, null
@@ -9994,7 +9994,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @stbtt__new_active(ptr nocapture noundef %hh, ptr nocapture noundef readonly %e, i32 noundef %off_x, float noundef %start_point, ptr nocapture noundef readnone %userdata) local_unnamed_addr #20 {
+define ptr @stbtt__new_active(ptr noundef captures(none) %hh, ptr noundef readonly captures(none) %e, i32 noundef %off_x, float noundef %start_point, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #20 {
 entry:
   %first_free.i = getelementptr inbounds nuw i8, ptr %hh, i64 8
   %0 = load ptr, ptr %first_free.i, align 8
@@ -10086,7 +10086,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt__handle_clipped_edge(ptr nocapture noundef %scanline, i32 noundef %x, ptr nocapture noundef readonly %e, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1) local_unnamed_addr #2 {
+define void @stbtt__handle_clipped_edge(ptr noundef captures(none) %scanline, i32 noundef %x, ptr noundef readonly captures(none) %e, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1) local_unnamed_addr #2 {
 entry:
   %cmp = fcmp oeq float %y0, %y1
   br i1 %cmp, label %if.end86, label %if.end
@@ -10209,7 +10209,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__fill_active_edges_new(ptr noundef %scanline, ptr nocapture noundef %scanline_fill, i32 noundef %len, ptr noundef readonly %e, float noundef %y_top) local_unnamed_addr #3 {
+define void @stbtt__fill_active_edges_new(ptr noundef %scanline, ptr noundef captures(none) %scanline_fill, i32 noundef %len, ptr noundef readonly %e, float noundef %y_top) local_unnamed_addr #3 {
 entry:
   %add = fadd float %y_top, 1.000000e+00
   %tobool.not1254 = icmp eq ptr %e, null
@@ -11894,7 +11894,7 @@ while.end:                                        ; preds = %if.end201, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__rasterize_sorted_edges(ptr nocapture noundef readonly %result, ptr nocapture noundef %e, i32 noundef %n, i32 %vsubsample, i32 noundef %off_x, i32 noundef %off_y, ptr nocapture readnone %userdata) local_unnamed_addr #10 {
+define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %result, ptr noundef captures(none) %e, i32 noundef %n, i32 %vsubsample, i32 noundef %off_x, i32 noundef %off_y, ptr readnone captures(none) %userdata) local_unnamed_addr #10 {
 entry:
   %active = alloca ptr, align 8
   %scanline_data = alloca [129 x float], align 16
@@ -12204,7 +12204,7 @@ if.end100:                                        ; preds = %if.then99, %stbtt__
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__sort_edges_ins_sort(ptr nocapture noundef %p, i32 noundef %n) local_unnamed_addr #21 {
+define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %p, i32 noundef %n) local_unnamed_addr #21 {
 entry:
   %t.sroa.3 = alloca { float, float, i32 }, align 8
   %cmp18 = icmp sgt i32 %n, 1
@@ -12446,7 +12446,7 @@ stbtt__sort_edges_ins_sort.exit:                  ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__rasterize(ptr nocapture noundef readonly %result, ptr nocapture noundef readonly %pts, ptr nocapture noundef readonly %wcount, i32 noundef %windings, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %off_x, i32 noundef %off_y, i32 noundef %invert, ptr nocapture readnone %userdata) local_unnamed_addr #10 {
+define void @stbtt__rasterize(ptr noundef readonly captures(none) %result, ptr noundef readonly captures(none) %pts, ptr noundef readonly captures(none) %wcount, i32 noundef %windings, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %off_x, i32 noundef %off_y, i32 noundef %invert, ptr readnone captures(none) %userdata) local_unnamed_addr #10 {
 entry:
   %t.sroa.3.i.i = alloca { float, float, i32 }, align 8
   %tobool.not = icmp eq i32 %invert, 0
@@ -12733,7 +12733,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @stbtt__tesselate_curve(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) local_unnamed_addr #22 {
+define noundef i32 @stbtt__tesselate_curve(ptr noundef %points, ptr noundef captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) local_unnamed_addr #22 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -12806,7 +12806,7 @@ return:                                           ; preds = %if.then10, %entry, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__tesselate_cubic(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) local_unnamed_addr #22 {
+define void @stbtt__tesselate_cubic(ptr noundef %points, ptr noundef captures(none) %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) local_unnamed_addr #22 {
 entry:
   %smax = tail call i32 @llvm.smax.i32(i32 %n, i32 17)
   %exitcond62 = icmp sgt i32 %n, 16
@@ -12906,7 +12906,7 @@ if.end52:                                         ; preds = %if.then25, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_FlattenCurves(ptr nocapture noundef readonly %vertices, i32 noundef %num_verts, float noundef %objspace_flatness, ptr nocapture noundef %contour_lengths, ptr nocapture noundef writeonly %num_contours, ptr nocapture readnone %userdata) local_unnamed_addr #10 {
+define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %vertices, i32 noundef %num_verts, float noundef %objspace_flatness, ptr noundef captures(none) %contour_lengths, ptr noundef writeonly captures(none) %num_contours, ptr readnone captures(none) %userdata) local_unnamed_addr #10 {
 entry:
   %num_points = alloca i32, align 4
   %mul = fmul float %objspace_flatness, %objspace_flatness
@@ -13112,7 +13112,7 @@ return:                                           ; preds = %for.cond29.for.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_Rasterize(ptr nocapture noundef readonly %result, float noundef %flatness_in_pixels, ptr nocapture noundef readonly %vertices, i32 noundef %num_verts, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %x_off, i32 noundef %y_off, i32 noundef %invert, ptr nocapture noundef readnone %userdata) local_unnamed_addr #10 {
+define void @stbtt_Rasterize(ptr noundef readonly captures(none) %result, float noundef %flatness_in_pixels, ptr noundef readonly captures(none) %vertices, i32 noundef %num_verts, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %x_off, i32 noundef %y_off, i32 noundef %invert, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #10 {
 entry:
   %winding_count = alloca i32, align 4
   %winding_lengths = alloca ptr, align 8
@@ -13138,14 +13138,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeBitmap(ptr nocapture noundef %bitmap, ptr nocapture noundef readnone %userdata) local_unnamed_addr #19 {
+define void @stbtt_FreeBitmap(ptr noundef captures(none) %bitmap, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #19 {
 entry:
   tail call void @free(ptr noundef %bitmap) #33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #10 {
+define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #10 {
 entry:
   %winding_count.i = alloca i32, align 4
   %winding_lengths.i = alloca ptr, align 8
@@ -13358,14 +13358,14 @@ return:                                           ; preds = %if.end37, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetGlyphBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
+define noundef ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
 entry:
   %call = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph) local_unnamed_addr #10 {
+define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph) local_unnamed_addr #10 {
 entry:
   %winding_count.i = alloca i32, align 4
   %winding_lengths.i = alloca ptr, align 8
@@ -13500,14 +13500,14 @@ if.end:                                           ; preds = %stbtt_Rasterize.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph) local_unnamed_addr #10 {
+define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph) local_unnamed_addr #10 {
 entry:
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %glyph)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
+define noundef ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %call1 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -13515,7 +13515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr nocapture noundef writeonly initializes((0, 4)) %sub_x, ptr nocapture noundef writeonly initializes((0, 4)) %sub_y, i32 noundef %codepoint) local_unnamed_addr #10 {
+define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr noundef writeonly captures(none) initializes((0, 4)) %sub_x, ptr noundef writeonly captures(none) initializes((0, 4)) %sub_y, i32 noundef %codepoint) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %sub.neg.i = add i32 %out_w, 1
@@ -13571,7 +13571,7 @@ stbtt_MakeGlyphBitmapSubpixelPrefilter.exit:      ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr nocapture noundef writeonly initializes((0, 4)) %sub_x, ptr nocapture noundef writeonly initializes((0, 4)) %sub_y, i32 noundef %glyph) local_unnamed_addr #10 {
+define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr noundef writeonly captures(none) initializes((0, 4)) %sub_x, ptr noundef writeonly captures(none) initializes((0, 4)) %sub_y, i32 noundef %glyph) local_unnamed_addr #10 {
 entry:
   %sub.neg = add i32 %out_w, 1
   %sub1 = sub i32 %sub.neg, %prefilter_x
@@ -13626,7 +13626,7 @@ stbtt__oversample_shift.exit23:                   ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint) local_unnamed_addr #10 {
+define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
@@ -13634,7 +13634,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
+define noundef ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
 entry:
   %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
   %call1.i = tail call noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -13642,7 +13642,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #10 {
+define void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #10 {
 entry:
   %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
@@ -13650,7 +13650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap_internal(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr nocapture noundef writeonly %chardata) local_unnamed_addr #10 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap_internal(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr noundef writeonly captures(none) %chardata) local_unnamed_addr #10 {
 entry:
   %x0.i.i = alloca i32, align 4
   %y0.i.i = alloca i32, align 4
@@ -13842,14 +13842,14 @@ return:                                           ; preds = %if.end17, %if.end, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef initializes((8, 20), (64, 80)) %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef captures(none) initializes((8, 20), (64, 80)) %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @stbtt_InitFont_internal(ptr noundef %info, ptr noundef %data, i32 noundef %offset)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly initializes((0, 32)) %q, i32 noundef %opengl_fillrule) local_unnamed_addr #2 {
+define void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr noundef captures(none) %xpos, ptr noundef readonly captures(none) %ypos, ptr noundef writeonly captures(none) initializes((0, 32)) %q, i32 noundef %opengl_fillrule) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %opengl_fillrule, 0
   %cond = select i1 %tobool.not, float -5.000000e-01, float 0.000000e+00
@@ -13932,7 +13932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbrp_init_target(ptr nocapture noundef writeonly initializes((0, 20)) %con, i32 noundef %pw, i32 noundef %ph, ptr nocapture noundef readnone %nodes, i32 noundef %num_nodes) local_unnamed_addr #11 {
+define void @stbrp_init_target(ptr noundef writeonly captures(none) initializes((0, 20)) %con, i32 noundef %pw, i32 noundef %ph, ptr noundef readnone captures(none) %nodes, i32 noundef %num_nodes) local_unnamed_addr #11 {
 entry:
   store i32 %pw, ptr %con, align 4
   %height = getelementptr inbounds nuw i8, ptr %con, i64 4
@@ -13947,7 +13947,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbrp_pack_rects(ptr nocapture noundef %con, ptr nocapture noundef %rects, i32 noundef %num_rects) local_unnamed_addr #21 {
+define void @stbrp_pack_rects(ptr noundef captures(none) %con, ptr noundef captures(none) %rects, i32 noundef %num_rects) local_unnamed_addr #21 {
 entry:
   %cmp35 = icmp sgt i32 %num_rects, 0
   br i1 %cmp35, label %for.body.lr.ph, label %for.end
@@ -14046,7 +14046,7 @@ for.end48:                                        ; preds = %for.inc, %for.body4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %spc, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %stride_in_bytes, i32 noundef %padding, ptr noundef %alloc_context) local_unnamed_addr #23 {
+define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %spc, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %stride_in_bytes, i32 noundef %padding, ptr noundef %alloc_context) local_unnamed_addr #23 {
 entry:
   %call = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #32
   %sub = sub nsw i32 %pw, %padding
@@ -14120,7 +14120,7 @@ return:                                           ; preds = %if.end12, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @stbtt_PackEnd(ptr nocapture noundef readonly %spc) local_unnamed_addr #24 {
+define void @stbtt_PackEnd(ptr noundef readonly captures(none) %spc) local_unnamed_addr #24 {
 entry:
   %nodes = getelementptr inbounds nuw i8, ptr %spc, i64 56
   %0 = load ptr, ptr %nodes, align 8
@@ -14132,7 +14132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetOversampling(ptr nocapture noundef writeonly %spc, i32 noundef %h_oversample, i32 noundef %v_oversample) local_unnamed_addr #11 {
+define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %spc, i32 noundef %h_oversample, i32 noundef %v_oversample) local_unnamed_addr #11 {
 entry:
   %cmp = icmp ult i32 %h_oversample, 9
   br i1 %cmp, label %if.then, label %if.end
@@ -14156,7 +14156,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetSkipMissingCodepoints(ptr nocapture noundef writeonly initializes((32, 36)) %spc, i32 noundef %skip) local_unnamed_addr #11 {
+define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(none) initializes((32, 36)) %spc, i32 noundef %skip) local_unnamed_addr #11 {
 entry:
   %skip_missing = getelementptr inbounds nuw i8, ptr %spc, i64 32
   store i32 %skip, ptr %skip_missing, align 8
@@ -14164,7 +14164,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__h_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) local_unnamed_addr #21 {
+define void @stbtt__h_prefilter(ptr noundef captures(none) %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) local_unnamed_addr #21 {
 entry:
   %buffer = alloca [8 x i8], align 8
   store i64 0, ptr %buffer, align 8
@@ -14366,7 +14366,7 @@ for.end145:                                       ; preds = %for.end142, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__v_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) local_unnamed_addr #21 {
+define void @stbtt__v_prefilter(ptr noundef captures(none) %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) local_unnamed_addr #21 {
 entry:
   %buffer = alloca [8 x i8], align 8
   store i64 0, ptr %buffer, align 8
@@ -14593,7 +14593,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef readonly %spc, ptr nocapture noundef readonly %info, ptr nocapture noundef %ranges, i32 noundef %num_ranges, ptr nocapture noundef writeonly %rects) local_unnamed_addr #12 {
+define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %spc, ptr noundef readonly captures(none) %info, ptr noundef captures(none) %ranges, i32 noundef %num_ranges, ptr noundef writeonly captures(none) %rects) local_unnamed_addr #12 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
   %cmp82 = icmp sgt i32 %num_ranges, 0
@@ -14974,7 +14974,7 @@ for.end67:                                        ; preds = %for.inc65, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %spc, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ranges, i32 noundef %num_ranges, ptr nocapture noundef %rects) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %spc, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %ranges, i32 noundef %num_ranges, ptr noundef captures(none) %rects) local_unnamed_addr #10 {
 entry:
   %c.i.i = alloca %struct.stbtt__csctx, align 8
   %buffer.i163 = alloca [8 x i8], align 8
@@ -15915,7 +15915,7 @@ for.end187:                                       ; preds = %for.inc185, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_PackFontRangesPackRects(ptr nocapture noundef readonly %spc, ptr nocapture noundef %rects, i32 noundef %num_rects) local_unnamed_addr #12 {
+define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %spc, ptr noundef captures(none) %rects, i32 noundef %num_rects) local_unnamed_addr #12 {
 entry:
   %pack_info = getelementptr inbounds nuw i8, ptr %spc, i64 8
   %0 = load ptr, ptr %pack_info, align 8
@@ -16016,7 +16016,7 @@ stbrp_pack_rects.exit:                            ; preds = %for.inc.i, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr nocapture noundef %ranges, i32 noundef %num_ranges) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr noundef captures(none) %ranges, i32 noundef %num_ranges) local_unnamed_addr #10 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %cmp40 = icmp sgt i32 %num_ranges, 0
@@ -16193,14 +16193,14 @@ return:                                           ; preds = %for.end34, %stbtt_P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly %data, i32 noundef %index) local_unnamed_addr #5 {
+define i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %data, i32 noundef %index) local_unnamed_addr #5 {
 entry:
   %call = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %data, i32 noundef %index)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, float noundef %font_size, i32 noundef %first_unicode_codepoint_in_range, i32 noundef %num_chars_in_range, ptr noundef %chardata_for_range) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %spc, ptr noundef %fontdata, i32 noundef %font_index, float noundef %font_size, i32 noundef %first_unicode_codepoint_in_range, i32 noundef %num_chars_in_range, ptr noundef %chardata_for_range) local_unnamed_addr #10 {
 entry:
   %range = alloca %struct.stbtt_pack_range, align 8
   %first_unicode_codepoint_in_range1 = getelementptr inbounds nuw i8, ptr %range, i64 4
@@ -16217,7 +16217,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly initializes((0, 4)) %ascent, ptr nocapture noundef writeonly initializes((0, 4)) %descent, ptr nocapture noundef writeonly initializes((0, 4)) %lineGap) local_unnamed_addr #3 {
+define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr noundef writeonly captures(none) initializes((0, 4)) %ascent, ptr noundef writeonly captures(none) initializes((0, 4)) %descent, ptr noundef writeonly captures(none) initializes((0, 4)) %lineGap) local_unnamed_addr #3 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef %index)
@@ -16323,7 +16323,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly initializes((0, 32)) %q, i32 noundef %align_to_integer) local_unnamed_addr #2 {
+define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr noundef captures(none) %xpos, ptr noundef readonly captures(none) %ypos, ptr noundef writeonly captures(none) initializes((0, 32)) %q, i32 noundef %align_to_integer) local_unnamed_addr #2 {
 entry:
   %idx.ext = sext i32 %char_index to i64
   %add.ptr = getelementptr inbounds %struct.stbtt_packedchar, ptr %chardata, i64 %idx.ext
@@ -16424,7 +16424,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr nocapture noundef readonly %orig, ptr nocapture noundef readonly %ray, ptr nocapture noundef readonly %q0, ptr nocapture noundef readonly %q1, ptr nocapture noundef readonly %q2, ptr nocapture noundef writeonly %hits) local_unnamed_addr #25 {
+define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly captures(none) %orig, ptr noundef readonly captures(none) %ray, ptr noundef readonly captures(none) %q0, ptr noundef readonly captures(none) %q1, ptr noundef readonly captures(none) %q2, ptr noundef writeonly captures(none) %hits) local_unnamed_addr #25 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %q0, i64 4
   %0 = load float, ptr %arrayidx, align 4
@@ -16556,7 +16556,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @equal(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #5 {
 entry:
   %0 = load float, ptr %a, align 4
   %1 = load float, ptr %b, align 4
@@ -16578,7 +16578,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define i32 @stbtt__compute_crossings_x(float noundef %x, float noundef %y, i32 noundef %nverts, ptr nocapture noundef readonly %verts) local_unnamed_addr #26 {
+define i32 @stbtt__compute_crossings_x(float noundef %x, float noundef %y, i32 noundef %nverts, ptr noundef readonly captures(none) %verts) local_unnamed_addr #26 {
 entry:
   %orig = alloca [2 x float], align 4
   %ray = alloca [2 x float], align 8
@@ -16840,7 +16840,7 @@ return:                                           ; preds = %if.else, %if.then
 declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %a, float noundef %b, float noundef %c, ptr nocapture noundef writeonly initializes((0, 4)) %r) local_unnamed_addr #27 {
+define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %a, float noundef %b, float noundef %c, ptr noundef writeonly captures(none) initializes((0, 4)) %r) local_unnamed_addr #27 {
 entry:
   %div = fdiv float %a, -3.000000e+00
   %mul = fmul float %a, %a
@@ -16956,7 +16956,7 @@ declare double @acos(double noundef) local_unnamed_addr #14
 declare double @cos(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stbtt_GetGlyphSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %glyph, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #10 {
+define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %info, float noundef %scale, i32 noundef %glyph, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #10 {
 entry:
   %count_ctx.i.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i.i = alloca %struct.stbtt__csctx, align 8
@@ -17720,7 +17720,7 @@ return:                                           ; preds = %stbtt_GetGlyphBitma
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stbtt_GetCodepointSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %codepoint, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
+define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %info, float noundef %scale, i32 noundef %codepoint, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %call1 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %info, float noundef %scale, i32 noundef %call, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -17728,14 +17728,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeSDF(ptr nocapture noundef %bitmap, ptr nocapture noundef readnone %userdata) local_unnamed_addr #19 {
+define void @stbtt_FreeSDF(ptr noundef captures(none) %bitmap, ptr noundef readnone captures(none) %userdata) local_unnamed_addr #19 {
 entry:
   tail call void @free(ptr noundef %bitmap) #33
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %s1, i32 noundef %len1, ptr noundef readonly captures(none) %s2, i32 noundef %len2) local_unnamed_addr #6 {
 entry:
   %tobool.not51 = icmp eq i32 %len2, 0
   br i1 %tobool.not51, label %return, label %while.body
@@ -17914,7 +17914,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian_internal(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian_internal(ptr noundef readonly captures(none) %s1, i32 noundef %len1, ptr noundef readonly captures(none) %s2, i32 noundef %len2) local_unnamed_addr #6 {
 entry:
   %call = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %s1, i32 noundef %len1, ptr noundef %s2, i32 noundef %len2)
   %cmp = icmp eq i32 %len1, %call
@@ -17923,7 +17923,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @stbtt_GetFontNameString(ptr nocapture noundef readonly %font, ptr nocapture noundef writeonly %length, i32 noundef %platformID, i32 noundef %encodingID, i32 noundef %languageID, i32 noundef %nameID) local_unnamed_addr #3 {
+define ptr @stbtt_GetFontNameString(ptr noundef readonly captures(none) %font, ptr noundef writeonly captures(none) %length, i32 noundef %platformID, i32 noundef %encodingID, i32 noundef %languageID, i32 noundef %nameID) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %font, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -18118,7 +18118,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture noundef readonly %fc, i32 noundef %nm, ptr nocapture noundef readonly %name, i32 noundef %nlen, i32 noundef %target_id, i32 noundef %next_id) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %fc, i32 noundef %nm, ptr noundef readonly captures(none) %name, i32 noundef %nlen, i32 noundef %target_id, i32 noundef %next_id) local_unnamed_addr #6 {
 entry:
   %idx.ext = zext i32 %nm to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %fc, i64 %idx.ext
@@ -18338,7 +18338,7 @@ return:                                           ; preds = %if.then116, %if.the
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__matches(ptr nocapture noundef readonly %fc, i32 noundef %offset, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #28 {
+define range(i32 0, 2) i32 @stbtt__matches(ptr noundef readonly captures(none) %fc, i32 noundef %offset, ptr noundef readonly captures(none) %name, i32 noundef %flags) local_unnamed_addr #28 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #34
   %conv = trunc i64 %call to i32
@@ -18513,32 +18513,32 @@ if.end18:                                         ; preds = %stbtt__find_table.e
   br i1 %tobool2.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %call21 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef -1)
+  %call21 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 16, i32 noundef -1)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20
-  %call25 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef -1)
+  %call25 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 1, i32 noundef -1)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1)
+  %call29 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end45, label %return
 
 if.else:                                          ; preds = %if.end18
-  %call33 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef 17)
+  %call33 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 16, i32 noundef 17)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.else
-  %call37 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef 2)
+  %call37 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 1, i32 noundef 2)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.end36
-  %call41 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1)
+  %call41 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef nonnull %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end45, label %return
 
@@ -18551,10 +18551,10 @@ return:                                           ; preds = %for.inc.i52, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #29
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont_internal(ptr nocapture noundef readonly %font_collection, ptr nocapture noundef readonly %name_utf8, i32 noundef %flags) local_unnamed_addr #28 {
+define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) %font_collection, ptr noundef readonly captures(none) %name_utf8, i32 noundef %flags) local_unnamed_addr #28 {
 entry:
   %call.i6 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %font_collection, i32 noundef 0)
   %cmp7 = icmp slt i32 %call.i6, 0
@@ -18579,14 +18579,14 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr nocapture noundef writeonly %chardata) local_unnamed_addr #10 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr noundef writeonly captures(none) %chardata) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @stbtt_BakeFontBitmap_internal(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr noundef %chardata)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetNumberOfFonts(ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
+define i32 @stbtt_GetNumberOfFonts(ptr noundef readonly captures(none) %data) local_unnamed_addr #5 {
 entry:
   %call.i = tail call i32 @stbtt__isfont(ptr noundef readonly %data)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -18666,7 +18666,7 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %fontdata, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #28 {
+define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %fontdata, ptr noundef readonly captures(none) %name, i32 noundef %flags) local_unnamed_addr #28 {
 entry:
   %call.i6.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %fontdata, i32 noundef 0)
   %cmp7.i = icmp slt i32 %call.i6.i, 0
@@ -18691,7 +18691,7 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %s1, i32 noundef %len1, ptr noundef readonly captures(none) %s2, i32 noundef %len2) local_unnamed_addr #6 {
 entry:
   %call.i = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %s1, i32 noundef %len1, ptr noundef readonly %s2, i32 noundef %len2)
   %cmp.i = icmp eq i32 %len1, %call.i
@@ -18723,10 +18723,10 @@ declare i16 @llvm.smax.i16(i16, i16) #30
 declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #30

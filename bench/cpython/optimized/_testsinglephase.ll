@@ -285,10 +285,10 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @init_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_state(ptr noundef captures(none) %state) unnamed_addr #0 {
 entry:
   %prev.i = alloca i64, align 8
   %t.i = alloca i64, align 8
@@ -348,7 +348,7 @@ return:                                           ; preds = %if.end10, %error16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @init_module(ptr noundef nonnull %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @init_module(ptr noundef nonnull %module, ptr noundef readonly captures(none) %state) unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %state, i64 8
   %0 = load ptr, ptr %error, align 8
@@ -384,7 +384,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_state(ptr nocapture noundef initializes((0, 8)) %state) unnamed_addr #0 {
+define internal fastcc void @clear_state(ptr noundef captures(none) initializes((0, 8)) %state) unnamed_addr #0 {
 entry:
   store i64 0, ptr %state, align 8
   %error = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -528,7 +528,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @common_look_up_self(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @common_look_up_self(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyModule_GetDef(ptr noundef %self) #4
   %cmp = icmp eq ptr %call, null
@@ -551,7 +551,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @common_sum(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @common_sum(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %i = alloca i64, align 8
   %j = alloca i64, align 8
@@ -572,7 +572,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @common_state_initialized(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @common_state_initialized(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetDef(ptr noundef %self) #4
   %m_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -600,7 +600,7 @@ return:                                           ; preds = %entry, %get_module_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @basic_initialized_count(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @basic_initialized_count(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr @global_state, align 8
   %conv = sext i32 %0 to i64
@@ -609,7 +609,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @basic__clear_globals(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @basic__clear_globals(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_state, i64 8))
   store i32 -1, ptr @global_state, align 8
@@ -641,7 +641,7 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @basic__clear_module_state(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @basic__clear_module_state(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetDef(ptr noundef %self) #4
   %m_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -668,10 +668,10 @@ if.end:                                           ; preds = %entry, %if.then, %g
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

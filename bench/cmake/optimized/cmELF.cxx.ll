@@ -578,7 +578,7 @@ _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5cmELF5ValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5cmELF5ValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -595,7 +595,7 @@ define dso_local noundef zeroext i1 @_ZNK5cmELF5ValidEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK5cmELF11GetFileTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK5cmELF11GetFileTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -611,7 +611,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %_ZNK5cmELF5ValidEv.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i16 @_ZNK5cmELF10GetMachineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i16 @_ZNK5cmELF10GetMachineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -633,7 +633,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %1, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK5cmELF19GetNumberOfSectionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK5cmELF19GetNumberOfSectionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -657,7 +657,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %1, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK5cmELF23GetDynamicEntryPositionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK5cmELF23GetDynamicEntryPositionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -681,7 +681,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %2, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5cmELF17GetDynamicEntriesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5cmELF17GetDynamicEntriesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -708,10 +708,10 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %2, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5cmELF20EncodeDynamicEntriesERKSt6vectorISt4pairIlmESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5cmELF20EncodeDynamicEntriesERKSt6vectorISt4pairIlmESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -740,7 +740,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %3, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5cmELF9GetSONameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5cmELF9GetSONameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5cmELF9GetSONameEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit.i
@@ -769,7 +769,7 @@ _ZN5cmELF9GetSONameEv.exit.thread:                ; preds = %_ZNK5cmELF5ValidEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmELF9GetSONameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5cmELF9GetSONameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -795,7 +795,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %_ZNK5cmELF5ValidEv.
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmELF8GetRPathEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5cmELF8GetRPathEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -820,7 +820,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %1, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmELF10GetRunPathEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5cmELF10GetRunPathEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -845,7 +845,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %1, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK5cmELF6IsMIPSEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5cmELF6IsMIPSEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -869,7 +869,7 @@ _ZNK5cmELF5ValidEv.exit.thread:                   ; preds = %1, %_ZNK5cmELF5Vali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5cmELF9PrintInfoERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5cmELF9PrintInfoERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNK5cmELF5ValidEv.exit.thread, label %_ZNK5cmELF5ValidEv.exit
@@ -2142,7 +2142,7 @@ switch.lookup:                                    ; preds = %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2300,7 +2300,7 @@ _ZNSt12_Vector_baseI10Elf32_ShdrSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = 
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN17cmELFInternalImplI12cmELFTypes32E4ReadER10Elf32_Shdr(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
@@ -5069,10 +5069,10 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

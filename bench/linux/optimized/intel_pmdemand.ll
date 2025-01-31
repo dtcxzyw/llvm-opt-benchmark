@@ -103,7 +103,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_pmdemand_init(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_atomic_global_obj_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -115,7 +115,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_pmdemand_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -133,7 +133,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmdemand_update_phys_mask(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmdemand_update_phys_mask(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %6 = load i16, ptr %5, align 8
   %7 = icmp ult i16 %6, 14
@@ -172,7 +172,7 @@ declare dso_local i32 @intel_port_to_phy(ptr noundef, i32 noundef) local_unnamed
 declare dso_local zeroext i1 @intel_phy_is_tc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_pmdemand_update_port_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local void @intel_pmdemand_update_port_clock(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %6 = load i16, ptr %5, align 8
   %7 = icmp ult i16 %6, 14
@@ -677,7 +677,7 @@ declare dso_local i32 @intel_atomic_serialize_global_state(ptr noundef) local_un
 declare dso_local i32 @intel_atomic_lock_global_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmdemand_init_pmdemand_params(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmdemand_init_pmdemand_params(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %4 = load i16, ptr %3, align 8
   %5 = icmp ult i16 %4, 14
@@ -782,7 +782,7 @@ define dso_local void @intel_pmdemand_init_pmdemand_params(ptr noundef %0, ptr n
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
@@ -961,7 +961,7 @@ define dso_local void @intel_pmdemand_pre_plane_update(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   tail call void @mutex_lock(ptr noundef nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -1308,7 +1308,7 @@ define dso_local void @intel_pmdemand_post_plane_update(ptr noundef %0) local_un
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @intel_pmdemand_duplicate_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef ptr @intel_pmdemand_duplicate_state(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call dereferenceable_or_null(56) ptr @kmemdup(ptr noundef %3, i64 noundef 56, i32 noundef 3264) #14
@@ -1316,7 +1316,7 @@ define internal noundef ptr @intel_pmdemand_duplicate_state(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pmdemand_destroy_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @intel_pmdemand_destroy_state(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @kfree(ptr noundef %1) #11
   ret void
 }
@@ -1379,7 +1379,7 @@ declare i8 @llvm.umin.i8(i8, i8) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

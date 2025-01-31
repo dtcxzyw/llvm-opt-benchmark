@@ -222,7 +222,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite5notFPENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite5notFPENS0_12NodeTemplateILb0EEEb(ptr noalias readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory2fp7rewrite5notFPENS0_12NodeTemplateILb0EEEb, ptr noundef nonnull @.str, i32 noundef 68)
@@ -275,7 +275,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %node, align 8
@@ -409,7 +409,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite4typeENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite4typeENS0_12NodeTemplateILb0EEEb(ptr noalias readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory2fp7rewrite4typeENS0_12NodeTemplateILb0EEEb, ptr noundef nonnull @.str, i32 noundef 79)
@@ -449,7 +449,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite20removeDoubleNegationENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite20removeDoubleNegationENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp10 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -692,7 +692,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite10compactAbsENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite10compactAbsENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -1033,7 +1033,7 @@ eh.resume:                                        ; preds = %ehcleanup.i, %lpad2
 declare noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite28convertSubtractionToAdditionENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite28convertSubtractionToAdditionENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -1381,7 +1381,7 @@ ehcleanup16:                                      ; preds = %lpad2, %lpad11, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite10breakChainENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite10breakChainENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -1764,7 +1764,7 @@ declare void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr sr
 declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite10ieeeEqToEqENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite10ieeeEqToEqENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i208 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i209 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -2794,7 +2794,7 @@ ehcleanup102:                                     ; preds = %ehcleanup.i, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite8geqToleqENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite8geqToleqENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -2940,7 +2940,7 @@ ehcleanup7:                                       ; preds = %lpad5, %ehcleanup10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite6gtToltENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite6gtToltENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -3086,7 +3086,7 @@ ehcleanup7:                                       ; preds = %lpad5, %ehcleanup10
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite7removedENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 noundef zeroext %isPreRewrite) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite7removedENS0_12NodeTemplateILb0EEEb(ptr noalias readnone sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 noundef zeroext %isPreRewrite) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory2fp7rewrite7removedENS0_12NodeTemplateILb0EEEb, ptr noundef nonnull @.str, i32 noundef 187)
@@ -3126,7 +3126,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -3445,7 +3445,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite5equalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 noundef zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite5equalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 noundef zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -3999,7 +3999,7 @@ ehcleanup61:                                      ; preds = %lpad42, %ehcleanup1
 declare void @_ZN4cvc58internal11NodeManager7mkConstIbEENS0_12NodeTemplateILb1EEERKT_(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite13compactMinMaxENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite13compactMinMaxENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp11 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -4240,7 +4240,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite17reorderFPEqualityENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 noundef zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite17reorderFPEqualityENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 noundef zeroext %isPreRewrite) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -4587,7 +4587,7 @@ eh.resume:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite22reorderBinaryOperationENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite22reorderBinaryOperationENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %normal = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -4908,7 +4908,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad20, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite10reorderFMAENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite10reorderFMAENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %normal = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp5 = alloca [4 x %"class.cvc5::internal::NodeTemplate.0"], align 8
@@ -5247,7 +5247,7 @@ eh.resume:                                        ; preds = %lpad30, %lpad32, %l
 declare void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), i32 noundef, ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite20removeSignOperationsENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite20removeSignOperationsENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -5567,7 +5567,7 @@ eh.resume:                                        ; preds = %ehcleanup.i, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite16compactRemainderENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite16compactRemainderENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i566 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i567 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -7239,7 +7239,7 @@ ehcleanup130:                                     ; preds = %lpad127, %lpad121, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite5leqIdENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 noundef zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite5leqIdENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 noundef zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i31 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i32 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -7559,7 +7559,7 @@ eh.resume:                                        ; preds = %ehcleanup17, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite4ltIdENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite4ltIdENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp5 = alloca i8, align 1
@@ -7762,7 +7762,7 @@ eh.resume:                                        ; preds = %lpad10, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp7rewrite12toFPSignedBVENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp7rewrite12toFPSignedBVENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -8576,7 +8576,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
 declare void @_ZN4cvc58internal6theory2bv5utils5mkOneEj(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold9fpLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold9fpLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %bv = alloca %"class.cvc5::internal::BitVector", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
@@ -8981,7 +8981,7 @@ declare void @_ZN4cvc58internal13FloatingPointC1EjjRKNS0_9BitVectorE(ptr noundef
 declare void @_ZN4cvc58internal13FloatingPointD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3absENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3absENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9085,7 +9085,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad4
 declare void @_ZNK4cvc58internal13FloatingPoint8absoluteEv(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3negENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3negENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9189,7 +9189,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad4
 declare void @_ZNK4cvc58internal13FloatingPoint6negateEv(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3addENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3addENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9372,7 +9372,7 @@ declare void @_ZN4cvc58internal13FloatingPointC1ERKS1_(ptr noundef nonnull align
 declare void @_ZNK4cvc58internal13FloatingPoint3addERKNS0_12RoundingModeERKS1_(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold4multENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold4multENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9553,7 +9553,7 @@ ehcleanup23:                                      ; preds = %ehcleanup22, %lpad9
 declare void @_ZNK4cvc58internal13FloatingPoint4multERKNS0_12RoundingModeERKS1_(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3fmaENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3fmaENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9775,7 +9775,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %lpad9
 declare void @_ZNK4cvc58internal13FloatingPoint3fmaERKNS0_12RoundingModeERKS1_S6_(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3divENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3divENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -9956,7 +9956,7 @@ ehcleanup23:                                      ; preds = %ehcleanup22, %lpad9
 declare void @_ZNK4cvc58internal13FloatingPoint3divERKNS0_12RoundingModeERKS1_(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold4sqrtENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold4sqrtENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -10096,7 +10096,7 @@ ehcleanup15:                                      ; preds = %ehcleanup, %lpad6
 declare void @_ZNK4cvc58internal13FloatingPoint4sqrtERKNS0_12RoundingModeE(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3rtiENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3rtiENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -10236,7 +10236,7 @@ ehcleanup15:                                      ; preds = %ehcleanup, %lpad6
 declare void @_ZNK4cvc58internal13FloatingPoint3rtiERKNS0_12RoundingModeE(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3remENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3remENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -10400,7 +10400,7 @@ ehcleanup19:                                      ; preds = %ehcleanup18, %lpad5
 declare void @_ZNK4cvc58internal13FloatingPoint3remERKS1_(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3minENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3minENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -10740,7 +10740,7 @@ ehcleanup28:                                      ; preds = %ehcleanup26, %lpad5
 declare void @_ZNK4cvc58internal13FloatingPoint3minERKS1_(ptr sret(%"struct.std::pair") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3maxENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3maxENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -11080,7 +11080,7 @@ ehcleanup28:                                      ; preds = %ehcleanup26, %lpad5
 declare void @_ZNK4cvc58internal13FloatingPoint3maxERKS1_(ptr sret(%"struct.std::pair") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold8minTotalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold8minTotalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -11684,7 +11684,7 @@ declare void @_ZNK4cvc58internal13FloatingPoint8minTotalERKS1_b(ptr sret(%"class
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector8isBitSetEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold8maxTotalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold8maxTotalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -12286,7 +12286,7 @@ ehcleanup59:                                      ; preds = %ehcleanup57, %lpad5
 declare void @_ZNK4cvc58internal13FloatingPoint8maxTotalERKS1_b(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold5equalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold5equalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -12694,7 +12694,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode15isFloatingPointEv(ptr n
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPointeqERKS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold3leqENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold3leqENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -12849,7 +12849,7 @@ ehcleanup19:                                      ; preds = %ehcleanup, %lpad5, 
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPointleERKS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold2ltENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold2ltENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %arg2 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -13004,7 +13004,7 @@ ehcleanup19:                                      ; preds = %ehcleanup, %lpad5, 
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPointltERKS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold8isNormalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold8isNormalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13096,7 +13096,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint8isNormalEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold11isSubnormalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold11isSubnormalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13188,7 +13188,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint11isSubnormalEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold6isZeroENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold6isZeroENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13280,7 +13280,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint6isZeroEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isInfiniteENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isInfiniteENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13372,7 +13372,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold5isNaNENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold5isNaNENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13464,7 +13464,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint5isNaNEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isNegativeENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isNegativeENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13556,7 +13556,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isPositiveENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold10isPositiveENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) initializes((0, 4), (8, 16)) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca i8, align 1
@@ -13648,7 +13648,7 @@ lpad7:                                            ; preds = %if.then13.i.i.i
 declare noundef zeroext i1 @_ZNK4cvc58internal13FloatingPoint10isPositiveEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold31convertFromIEEEBitVectorLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold31convertFromIEEEBitVectorLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %lit = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -13859,7 +13859,7 @@ ehcleanup26:                                      ; preds = %ehcleanup, %lpad20
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold15constantConvertENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold15constantConvertENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %arg1 = alloca %"class.cvc5::internal::FloatingPoint", align 8
@@ -14052,7 +14052,7 @@ ehcleanup23:                                      ; preds = %ehcleanup, %lpad9, 
 declare void @_ZNK4cvc58internal13FloatingPoint7convertERKNS0_17FloatingPointSizeERKNS0_12RoundingModeE(ptr sret(%"class.cvc5::internal::FloatingPoint") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold22convertFromRealLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold22convertFromRealLiteralENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp1 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
@@ -14337,7 +14337,7 @@ ehcleanup28:                                      ; preds = %ehcleanup27, %lpad.
 declare void @_ZN4cvc58internal13FloatingPointC1ERKNS0_17FloatingPointSizeERKNS0_12RoundingModeERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold14convertFromSBVENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold14convertFromSBVENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp1 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
@@ -14719,7 +14719,7 @@ ehcleanup51:                                      ; preds = %ehcleanup49
 declare void @_ZN4cvc58internal13FloatingPointC1ERKNS0_17FloatingPointSizeERKNS0_12RoundingModeERKNS0_9BitVectorEb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold14convertFromUBVENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold14convertFromUBVENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp1 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
@@ -14985,7 +14985,7 @@ ehcleanup28:                                      ; preds = %ehcleanup27
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold12convertToUBVENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold12convertToUBVENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %rm = alloca i32, align 4
@@ -15353,7 +15353,7 @@ declare void @_ZNK4cvc58internal13FloatingPoint11convertToBVENS0_13BitVectorSize
 declare void @_ZN4cvc58internal11NodeManager7mkConstINS0_9BitVectorEEENS0_12NodeTemplateILb1EEERKT_(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold12convertToSBVENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold12convertToSBVENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %rm = alloca i32, align 4
@@ -15717,7 +15717,7 @@ ehcleanup32:                                      ; preds = %ehcleanup30, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold13convertToRealENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold13convertToRealENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %res = alloca %"struct.std::pair.73", align 8
@@ -16035,7 +16035,7 @@ declare void @_ZNK4cvc58internal13FloatingPoint17convertToRationalEv(ptr sret(%"
 declare void @_ZN4cvc58internal11NodeManager11mkConstRealERKNS0_8RationalE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold17convertToUBVTotalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold17convertToUBVTotalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %rm = alloca i32, align 4
@@ -16708,7 +16708,7 @@ ehcleanup66:                                      ; preds = %ehcleanup64, %ehcle
 declare void @_ZNK4cvc58internal13FloatingPoint16convertToBVTotalENS0_13BitVectorSizeERKNS0_12RoundingModeEbNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold17convertToSBVTotalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold17convertToSBVTotalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %rm = alloca i32, align 4
@@ -17379,7 +17379,7 @@ ehcleanup66:                                      ; preds = %ehcleanup64, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold18convertToRealTotalENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold18convertToRealTotalENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %partialValue = alloca %"class.cvc5::internal::Rational", align 8
@@ -18037,7 +18037,7 @@ ehcleanup51:                                      ; preds = %ehcleanup49, %ehcle
 declare void @_ZNK4cvc58internal13FloatingPoint22convertToRationalTotalENS0_8RationalE(ptr sret(%"class.cvc5::internal::Rational") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold13componentFlagENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold13componentFlagENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg0 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %ref.tmp19 = alloca %"class.cvc5::internal::FatalStream", align 1
@@ -18295,7 +18295,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold17componentExponentENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold17componentExponentENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg0 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -18437,7 +18437,7 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad2
 declare void @_ZNK4cvc58internal13FloatingPoint11getExponentEv(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold20componentSignificandENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold20componentSignificandENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %arg0 = alloca %"class.cvc5::internal::FloatingPoint", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -18579,7 +18579,7 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad2
 declare void @_ZNK4cvc58internal13FloatingPoint14getSignificandEv(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp12constantFold20roundingModeBitBlastENS0_12NodeTemplateILb0EEEb(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp12constantFold20roundingModeBitBlastENS0_12NodeTemplateILb0EEEb(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %node, i1 zeroext %isPreRewrite) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.cvc5::internal::BitVector", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicRoundingMode", align 8
@@ -19905,7 +19905,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter10preRewriteENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9328) %this, ptr nocapture noundef readonly %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter10preRewriteENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9328) %this, ptr noundef readonly captures(none) %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %d_preRewriteTable = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19956,7 +19956,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter11postRewriteENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9328) %this, ptr nocapture noundef readonly %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter11postRewriteENS0_12NodeTemplateILb0EEE(ptr noalias writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9328) %this, ptr noundef readonly captures(none) %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %nb.i465 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i466 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -22223,7 +22223,7 @@ return:                                           ; preds = %if.end.i.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter16expandDefinitionENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9328) %this, ptr nocapture noundef readonly %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2fp16TheoryFpRewriter16expandDefinitionENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9328) %this, ptr noundef readonly captures(none) %node) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_fpExpDef = getelementptr inbounds nuw i8, ptr %this, i64 8768
@@ -22687,7 +22687,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %pMem) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -24044,10 +24044,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -305,13 +305,13 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 declare void @_ZN11StringDedup10StorageUse10relinquishEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11StringDedup8RequestsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup8RequestsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup8RequestsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup8RequestsD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(25) initializes((24, 25)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -355,7 +355,7 @@ _ZN11StringDedup8Requests5flushEv.exit:           ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup8Requests5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup8Requests5flushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) initializes((24, 25)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -399,7 +399,7 @@ define hidden void @_ZN11StringDedup8Requests5flushEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11StringDedup8Requests13refill_bufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN11StringDedup8Requests13refill_bufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -515,7 +515,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 declare noundef i64 @_ZN10OopStorage8allocateEPPP7oopDescm(ptr noundef nonnull align 8 dereferenceable(126), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -1160,7 +1160,7 @@ define internal void @_GLOBAL__sub_I_stringDedup.cpp() #3 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

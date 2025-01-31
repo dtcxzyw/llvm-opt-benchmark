@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermes2vm7GCScopeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm7GCScopeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15HandleRootOwner12markGCScopesERNS0_12RootAcceptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm15HandleRootOwner12markGCScopesERNS0_12RootAcceptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
   %gcScope.0.in3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %gcScope.04 = load ptr, ptr %gcScope.0.in3, align 8
@@ -77,7 +77,7 @@ for.end:                                          ; preds = %_ZN6hermes2vm7GCSco
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %chunks_, align 8
@@ -173,7 +173,7 @@ _ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %value.coerce) local_unnamed_addr #0 align 2 {

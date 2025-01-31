@@ -242,7 +242,7 @@ qobject_type.exit.i51:                            ; preds = %if.then.i
 
 if.then9.i:                                       ; preds = %qobject_type.exit.i51.us, %qobject_type.exit.i51
   %.us-phi87 = phi ptr [ %call1.i, %qobject_type.exit.i51 ], [ %call1.i.us, %qobject_type.exit.i51.us ]
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 61, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.24, ptr noundef %.us-phi87) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 61, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.24, ptr noundef nonnull %.us-phi87) #5
   br label %out
 
 if.end.i:                                         ; preds = %qobject_type.exit.i51
@@ -252,7 +252,7 @@ if.end.i:                                         ; preds = %qobject_type.exit.i
 if.then11.i:                                      ; preds = %if.end.i.us, %if.end.i
   %.us-phi88 = phi ptr [ %exec_key.037.i, %if.end.i ], [ %exec_key.037.i.us, %if.end.i.us ]
   %.us-phi89 = phi ptr [ %call1.i, %if.end.i ], [ %call1.i.us, %if.end.i.us ]
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 66, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.25, ptr noundef %.us-phi89, ptr noundef nonnull %.us-phi88) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 66, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.25, ptr noundef nonnull %.us-phi89, ptr noundef nonnull %.us-phi88) #5
   br label %out
 
 if.else.i46:                                      ; preds = %lor.lhs.false.i
@@ -624,7 +624,7 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_qmp_dispatch_bh(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @do_qmp_dispatch_bh(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @monitor_cur() #5
   %cmp = icmp eq ptr %call, null
@@ -701,7 +701,7 @@ declare ptr @qdict_entry_key(ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_entry_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @qdict_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 

@@ -81,7 +81,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZObjectAllocatorC2E8ZPageAge(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 2)) %0, i8 noundef zeroext %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZObjectAllocatorC2E8ZPageAge(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 2)) %0, i8 noundef zeroext %1) unnamed_addr #1 align 2 {
   store i8 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = tail call noundef zeroext i1 @_ZN11ZHeuristics30use_per_cpu_shared_small_pagesEv() #8
@@ -266,7 +266,7 @@ _ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit: ; preds = %.lr.ph.i19, %_ZN13Z
 declare noundef zeroext i1 @_ZN11ZHeuristics30use_per_cpu_shared_small_pagesEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ZObjectAllocator22shared_small_page_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN16ZObjectAllocator22shared_small_page_addrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -308,7 +308,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %6, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK16ZObjectAllocator22shared_small_page_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK16ZObjectAllocator22shared_small_page_addrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -350,7 +350,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %6, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i8 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i8 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %6 = load i8, ptr %0, align 8
   %7 = tail call noundef ptr @_ZN5ZHeap10alloc_pageE9ZPageTypem16ZAllocationFlags8ZPageAge(ptr noundef nonnull align 64 dereferenceable(15937) %5, i8 noundef zeroext %1, i64 noundef %2, i8 %3, i8 noundef zeroext %6) #8
@@ -391,7 +391,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %8, %19
 declare noundef ptr @_ZN5ZHeap10alloc_pageE9ZPageTypem16ZAllocationFlags8ZPageAge(ptr noundef nonnull align 64 dereferenceable(15937), i8 noundef zeroext, i64 noundef, i8, i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ZObjectAllocator25alloc_page_for_relocationE9ZPageTypem16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i8 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN16ZObjectAllocator25alloc_page_for_relocationE9ZPageTypem16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i8 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %6 = load i8, ptr %0, align 8
   %7 = tail call noundef ptr @_ZN5ZHeap10alloc_pageE9ZPageTypem16ZAllocationFlags8ZPageAge(ptr noundef nonnull align 64 dereferenceable(15937) %5, i8 noundef zeroext %1, i64 noundef %2, i8 %3, i8 noundef zeroext %6) #8
@@ -399,7 +399,7 @@ define hidden noundef ptr @_ZN16ZObjectAllocator25alloc_page_for_relocationE9ZPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %4 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %5 = load i32, ptr %4, align 4
@@ -437,7 +437,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %2, %12
 declare void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align 64 dereferenceable(15937), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator27alloc_object_in_shared_pageEPP5ZPage9ZPageTypemm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i8 %5) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator27alloc_object_in_shared_pageEPP5ZPage9ZPageTypemm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i8 %5) local_unnamed_addr #1 align 2 {
   %7 = load volatile ptr, ptr %1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %.not = icmp eq ptr %7, null
@@ -688,7 +688,7 @@ _ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_large_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_large_objectEm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
   %4 = add i64 %1, -1
   %5 = add i64 %1, 2097151
   %6 = and i64 %5, -2097152
@@ -774,7 +774,7 @@ _ZN5ZPage12alloc_objectEm.exit:                   ; preds = %3, %46, %_ZNK5ZPage
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator19alloc_medium_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator19alloc_medium_objectEm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -784,7 +784,7 @@ define hidden noundef i64 @_ZN16ZObjectAllocator19alloc_medium_objectEm16ZAlloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -827,7 +827,7 @@ _ZN16ZObjectAllocator22shared_small_page_addrEv.exit: ; preds = %_ZN14ZPerCPUSto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFlags(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i8 %2) local_unnamed_addr #1 align 2 {
   %4 = icmp ult i64 %1, 262145
   br i1 %4, label %5, label %29
 
@@ -895,19 +895,19 @@ _ZN16ZObjectAllocator18alloc_small_objectEm16ZAllocationFlags.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFlags(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i8 0)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZObjectAllocator27alloc_object_for_relocationEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN16ZObjectAllocator27alloc_object_for_relocationEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef i64 @_ZN16ZObjectAllocator12alloc_objectEm16ZAllocationFlags(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i8 1)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZObjectAllocator32undo_alloc_object_for_relocationE8zaddressm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZObjectAllocator32undo_alloc_object_for_relocationE8zaddressm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %5 = load i64, ptr @ZAddressOffsetMask, align 8
   %6 = and i64 %5, %1
@@ -999,13 +999,13 @@ _ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit: ; preds = %49, %51, %_ZN16Z
 declare void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i8 @_ZNK16ZObjectAllocator3ageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i8 @_ZNK16ZObjectAllocator3ageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr %0, align 8
   ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %_ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5, label %.lr.ph
@@ -1056,7 +1056,7 @@ _ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5: ; preds = %_ZN19ZVa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK16ZObjectAllocator9remainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK16ZObjectAllocator9remainingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -1113,7 +1113,7 @@ _ZNK16ZObjectAllocator22shared_small_page_addrEv.exit: ; preds = %_ZN14ZPerCPUSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not.i = icmp eq i32 %3, 0

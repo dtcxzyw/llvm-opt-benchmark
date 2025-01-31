@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) initializes((0, 1), (68, 92)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3MD5C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(108) initializes((0, 1), (68, 92)) %0) unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %2, align 4
@@ -54,7 +54,7 @@ define dso_local void @_ZN3MD5C2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3MD54initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) initializes((0, 1), (68, 92)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3MD54initEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(108) initializes((0, 1), (68, 92)) %0) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %2, align 4
@@ -122,7 +122,7 @@ define dso_local void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %.026.i.i = phi i32 [ %30, %.lr.ph.i.i ], [ %23, %24 ]
   %31 = zext i32 %.026.i.i to i64
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef readonly %32)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull readonly %32)
   %33 = add i32 %30, 64
   %.not24.i.i = icmp ugt i32 %33, %11
   br i1 %.not24.i.i, label %_ZN3MD56updateEPKcj.exit, label %.lr.ph.i.i, !llvm.loop !5
@@ -146,7 +146,7 @@ _ZN3MD56updateEPKcj.exit:                         ; preds = %.lr.ph.i.i, %24, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3MD56updateEPKcj(ptr nocapture noundef nonnull align 4 dereferenceable(108) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MD56updateEPKcj(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 3
@@ -182,7 +182,7 @@ define dso_local void @_ZN3MD56updateEPKcj(ptr nocapture noundef nonnull align 4
   %.026.i = phi i32 [ %24, %.lr.ph.i ], [ %17, %18 ]
   %25 = zext i32 %.026.i to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef readonly %26)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull readonly %26)
   %27 = add i32 %24, 64
   %.not24.i = icmp ugt i32 %27, %2
   br i1 %.not24.i, label %_ZN3MD56updateEPKhj.exit, label %.lr.ph.i, !llvm.loop !5
@@ -387,7 +387,7 @@ _ZN3MD56encodeEPhPKjj.exit19:                     ; preds = %.lr.ph.i13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3MD56decodeEPjPKhj(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MD56decodeEPjPKhj(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -434,7 +434,7 @@ define dso_local void @_ZN3MD56decodeEPjPKhj(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3MD56encodeEPhPKjj(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MD56encodeEPhPKjj(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -481,7 +481,7 @@ define dso_local void @_ZN3MD56encodeEPhPKjj(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3MD59transformEPKh(ptr nocapture noundef nonnull align 4 dereferenceable(108) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca [16 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4
@@ -1219,10 +1219,10 @@ _ZN3MD56decodeEPjPKhj.exit:                       ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3MD56updateEPKhj(ptr nocapture noundef nonnull align 4 dereferenceable(108) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MD56updateEPKhj(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
@@ -1260,7 +1260,7 @@ define dso_local void @_ZN3MD56updateEPKhj(ptr nocapture noundef nonnull align 4
   %.026 = phi i32 [ %24, %.lr.ph ], [ %17, %18 ]
   %25 = zext i32 %.026 to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef %26)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %26)
   %27 = add i32 %24, 64
   %.not24 = icmp ugt i32 %27, %2
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !5
@@ -1283,10 +1283,10 @@ define dso_local void @_ZN3MD56updateEPKhj(ptr nocapture noundef nonnull align 4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(108) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(108) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca [33 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
@@ -1383,10 +1383,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly byval(%class.MD5) align 8 %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly byval(%class.MD5) align 8 captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(108) %1)
   %4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -1472,7 +1472,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

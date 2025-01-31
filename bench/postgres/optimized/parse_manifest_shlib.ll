@@ -319,7 +319,7 @@ verify_manifest_checksum.exit:                    ; preds = %115
 declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_object_start(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_manifest_object_start(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %10 [
@@ -358,7 +358,7 @@ define internal noundef i32 @json_manifest_object_start(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_object_end(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_manifest_object_end(ptr noundef captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -908,7 +908,7 @@ json_manifest_finalize_wal_range.exit:            ; preds = %246, %248
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_array_start(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_manifest_array_start(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %5 [
@@ -933,7 +933,7 @@ define internal noundef i32 @json_manifest_array_start(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_array_end(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_manifest_array_end(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %5 [
@@ -954,7 +954,7 @@ define internal noundef i32 @json_manifest_array_end(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 {
+define internal noundef i32 @json_manifest_object_field_start(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %72 [
@@ -1105,7 +1105,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_manifest_scalar(ptr nocapture noundef %0, ptr noundef %1, i32 %2) #0 {
+define internal noundef i32 @json_manifest_scalar(ptr noundef captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %40 [
@@ -1222,22 +1222,22 @@ declare i32 @pg_parse_json(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare zeroext i1 @pg_checksum_parse_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #1
 
@@ -1250,16 +1250,16 @@ declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_un
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

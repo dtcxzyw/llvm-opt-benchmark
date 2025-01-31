@@ -104,7 +104,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_curses_panel_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_curses_panel_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %mod, i64 8
   %mod.val = load ptr, ptr %0, align 8
@@ -251,7 +251,7 @@ _curses_panel_clear.exit:                         ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_bottom_panel(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_panel_bottom_panel(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
@@ -398,7 +398,7 @@ exit:                                             ; preds = %_Py_NewRef.exit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_top_panel(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_panel_top_panel(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
@@ -451,7 +451,7 @@ _curses_panel_top_panel_impl.exit:                ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_update_panels(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_curses_panel_update_panels(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyCurses_API, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
@@ -722,7 +722,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_panel_above(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_panel_panel_above(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -769,7 +769,7 @@ _curses_panel_panel_above_impl.exit:              ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_panel_below(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_curses_panel_panel_below(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -816,7 +816,7 @@ _curses_panel_panel_below_impl.exit:              ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_bottom(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_bottom(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -845,7 +845,7 @@ return:                                           ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @_curses_panel_panel_hidden(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal nonnull ptr @_curses_panel_panel_hidden(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -856,7 +856,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_hide(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_hide(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -885,7 +885,7 @@ return:                                           ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_move(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_move(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -952,7 +952,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_replace(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_replace(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -1065,7 +1065,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_set_userptr(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_set_userptr(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -1161,7 +1161,7 @@ exit:                                             ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_show(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_show(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1190,7 +1190,7 @@ return:                                           ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_curses_panel_panel_top(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @_curses_panel_panel_top(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1219,7 +1219,7 @@ return:                                           ; preds = %if.else.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_curses_panel_panel_userptr(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @_curses_panel_panel_userptr(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_curses_panel_panel_window(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef ptr @_curses_panel_panel_window(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 24
   %self.val = load ptr, ptr %0, align 8

@@ -220,7 +220,7 @@ _ZN10open_spiel12chess_common12_GLOBAL__N_128OffsetToDestinationIndexImplISt5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10open_spiel12chess_common24OffsetToDestinationIndexERKNS0_6OffsetERKSt5arrayIS1_Lm2EEi(ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN10open_spiel12chess_common24OffsetToDestinationIndexERKNS0_6OffsetERKSt5arrayIS1_Lm2EEi(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x %"class.absl::debian2::string_view"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -389,7 +389,7 @@ _ZN10open_spiel12chess_common12_GLOBAL__N_128OffsetToDestinationIndexImplISt5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayINS0_6OffsetELm8EEi(i32 noundef %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayINS0_6OffsetELm8EEi(i32 noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -553,7 +553,7 @@ _ZN10open_spiel12chess_common12_GLOBAL__N_128DestinationIndexToOffsetImplISt5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayINS0_6OffsetELm2EEi(i32 noundef %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayINS0_6OffsetELm2EEi(i32 noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1090,7 +1090,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN10open_spiel12chess_common19EncodeNetworkTargetERKNS0_6SquareEiii(ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @_ZN10open_spiel12chess_common19EncodeNetworkTargetERKNS0_6SquareEiii(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = load i8, ptr %0, align 1
   %6 = sext i8 %5 to i32
   %7 = mul nsw i32 %2, %6
@@ -1349,10 +1349,10 @@ define internal void @_GLOBAL__sub_I_chess_common.cc() #7 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

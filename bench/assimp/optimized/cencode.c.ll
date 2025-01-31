@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @base64_init_encodestate(ptr nocapture noundef writeonly initializes((0, 5), (8, 12)) %state_in) local_unnamed_addr #0 {
+define void @base64_init_encodestate(ptr noundef writeonly captures(none) initializes((0, 5), (8, 12)) %state_in) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %state_in, align 4
   %result = getelementptr inbounds nuw i8, ptr %state_in, i64 4
@@ -34,7 +34,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @base64_encode_block(ptr noundef readonly %plaintext_in, i32 noundef %length_in, ptr noundef %code_out, ptr nocapture noundef %state_in) local_unnamed_addr #2 {
+define i32 @base64_encode_block(ptr noundef readonly %plaintext_in, i32 noundef %length_in, ptr noundef %code_out, ptr noundef captures(none) %state_in) local_unnamed_addr #2 {
 entry:
   %idx.ext = sext i32 %length_in to i64
   %add.ptr = getelementptr inbounds i8, ptr %plaintext_in, i64 %idx.ext
@@ -158,7 +158,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @base64_encode_blockend(ptr noundef %code_out, ptr nocapture noundef readonly %state_in) local_unnamed_addr #3 {
+define i32 @base64_encode_blockend(ptr noundef %code_out, ptr noundef readonly captures(none) %state_in) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %state_in, align 4
   switch i32 %0, label %sw.epilog [

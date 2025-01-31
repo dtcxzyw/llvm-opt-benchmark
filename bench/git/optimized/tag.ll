@@ -155,7 +155,7 @@ declare ptr @type_name(i32 noundef) local_unnamed_addr #1
 declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @deref_tag(ptr noundef %r, ptr noundef readonly %o, ptr noundef %warn, i32 noundef %warnlen) local_unnamed_addr #0 {
@@ -220,7 +220,7 @@ declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @is_promisor_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @deref_tag_noverify(ptr noundef %o) local_unnamed_addr #0 {
@@ -289,7 +289,7 @@ declare ptr @alloc_tag_node(ptr noundef) local_unnamed_addr #1
 declare ptr @object_as_type(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @release_tag_memory(ptr nocapture noundef initializes((40, 48), (56, 64)) %t) local_unnamed_addr #4 {
+define dso_local void @release_tag_memory(ptr noundef captures(none) initializes((40, 48), (56, 64)) %t) local_unnamed_addr #4 {
 entry:
   %tag = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load ptr, ptr %tag, align 8
@@ -508,10 +508,10 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @lookup_blob(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -615,7 +615,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @get_tagged_oid(ptr nocapture noundef readonly %tag) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_tagged_oid(ptr noundef readonly captures(none) %tag) local_unnamed_addr #0 {
 entry:
   %tagged = getelementptr inbounds nuw i8, ptr %tag, i64 40
   %0 = load ptr, ptr %tagged, align 8
@@ -635,7 +635,7 @@ if.end:                                           ; preds = %entry
 declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @parse_signature(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -655,13 +655,13 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

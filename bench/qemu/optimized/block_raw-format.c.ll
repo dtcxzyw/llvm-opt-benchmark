@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [38 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_lock_medium, ptr @.str.24, ptr @.str.25, i32 179, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_eject, ptr @.str.24, ptr @.str.25, i32 182, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_report, ptr @.str.24, ptr @.str.25, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_create_opts, ptr @.str.24, ptr @.str.26, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_report, ptr @.str.24, ptr @.str.26, i32 323, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.24, ptr @.str.27, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pwrite_zeroes, ptr @.str.24, ptr @.str.26, i32 298, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_open_child, ptr @.str.28, ptr @.str.27, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_preadv, ptr @.str.24, ptr @.str.26, i32 210, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_zeroes, ptr @.str.24, ptr @.str.25, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_ioctl, ptr @.str.24, ptr @.str.25, i32 108, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_from, ptr @.str.24, ptr @.str.29, i32 117, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pdiscard, ptr @.str.24, ptr @.str.25, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pdiscard, ptr @.str.24, ptr @.str.26, i32 311, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_copy_range_from, ptr @.str.24, ptr @.str.26, i32 579, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.24, ptr @.str.25, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_mgmt, ptr @.str.24, ptr @.str.25, i32 121, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_mgmt, ptr @.str.24, ptr @.str.26, i32 331, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.24, ptr @.str.29, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_truncate, ptr @.str.24, ptr @.str.25, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_get_info, ptr @.str.24, ptr @.str.26, i32 397, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_getlength, ptr @.str.24, ptr @.str.26, i32 345, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_lock_medium, ptr @.str.24, ptr @.str.26, i32 442, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_get_info, ptr @.str.24, ptr @.str.25, i32 196, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_zone_append, ptr @.str.24, ptr @.str.26, i32 338, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_block_status, ptr @.str.24, ptr @.str.26, i32 286, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_ioctl, ptr @.str.24, ptr @.str.26, i32 448, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.24, ptr @.str.25, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_truncate, ptr @.str.24, ptr @.str.26, i32 415, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_copy_range_to, ptr @.str.24, ptr @.str.29, i32 122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_eject, ptr @.str.24, ptr @.str.26, i32 436, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.28, ptr @.str.25, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.30, ptr @.str.25, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_has_zero_init, ptr @.str.30, ptr @.str.27, i32 197, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_copy_range_to, ptr @.str.24, ptr @.str.26, i32 596, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_zone_append, ptr @.str.24, ptr @.str.25, i32 124, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.24, ptr @.str.29, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @raw_co_pwritev, ptr @.str.24, ptr @.str.26, i32 225, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @raw_reopen_prepare(ptr noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @raw_reopen_prepare(ptr noundef %reopen_state, ptr readnone captures(none) %queue, ptr noundef %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call, label %do.end, label %if.else
@@ -125,7 +125,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %raw_read_options.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_reopen_commit(ptr nocapture noundef %state) #0 {
+define internal void @raw_reopen_commit(ptr noundef captures(none) %state) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_reopen_abort(ptr nocapture noundef %state) #0 {
+define internal void @raw_reopen_abort(ptr noundef captures(none) %state) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque, align 8
@@ -273,14 +273,14 @@ return:                                           ; preds = %raw_read_options.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal i32 @raw_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @bdrv_co_create_file(ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #9
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_cancel_in_flight(ptr nocapture noundef readonly %bs) #0 {
+define internal void @raw_cancel_in_flight(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @raw_refresh_limits(ptr nocapture noundef initializes((16548, 16549)) %bs, ptr nocapture readnone %errp) #1 {
+define internal void @raw_refresh_limits(ptr noundef captures(none) initializes((16548, 16549)) %bs, ptr readnone captures(none) %errp) #1 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -315,7 +315,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @raw_has_zero_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @raw_probe_blocksizes(ptr nocapture noundef readonly %bs, ptr noundef %bsz) #0 {
+define internal range(i32 -2147483648, 1) i32 @raw_probe_blocksizes(ptr noundef readonly captures(none) %bs, ptr noundef %bsz) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -354,7 +354,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_probe_geometry(ptr nocapture noundef readonly %bs, ptr noundef %geo) #0 {
+define internal i32 @raw_probe_geometry(ptr noundef readonly captures(none) %bs, ptr noundef %geo) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -393,13 +393,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @raw_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr nocapture readnone %filename) #2 {
+define internal noundef i32 @raw_probe(ptr readnone captures(none) %buf, i32 %buf_size, ptr readnone captures(none) %filename) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @raw_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -447,7 +447,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @raw_co_pwritev(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %probed = getelementptr inbounds nuw i8, ptr %bs, i64 6
@@ -564,7 +564,7 @@ if.end38:                                         ; preds = %if.then37, %fail
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define internal i32 @raw_co_pwrite_zeroes(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -601,7 +601,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @raw_co_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -638,7 +638,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_copy_range_from(ptr nocapture noundef readonly %bs, ptr nocapture readnone %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
+define internal i32 @raw_co_copy_range_from(ptr noundef readonly captures(none) %bs, ptr readnone captures(none) %src, i64 noundef %src_offset, ptr noundef %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -675,7 +675,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_copy_range_to(ptr nocapture noundef readonly %bs, ptr noundef %src, i64 noundef %src_offset, ptr nocapture readnone %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
+define internal i32 @raw_co_copy_range_to(ptr noundef readonly captures(none) %bs, ptr noundef %src, i64 noundef %src_offset, ptr readnone captures(none) %dst, i64 noundef %dst_offset, i64 noundef %bytes, i32 noundef %read_flags, i32 noundef %write_flags) #0 {
 entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
@@ -712,7 +712,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @raw_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly initializes((0, 8)) %map, ptr nocapture noundef writeonly initializes((0, 8)) %file) #1 {
+define internal noundef i32 @raw_co_block_status(ptr noundef readonly captures(none) %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %pnum, ptr noundef writeonly captures(none) initializes((0, 8)) %map, ptr noundef writeonly captures(none) initializes((0, 8)) %file) #1 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -728,7 +728,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal i32 @raw_co_truncate(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -766,7 +766,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @raw_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @raw_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -849,7 +849,7 @@ return:                                           ; preds = %if.end4, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_get_info(ptr nocapture noundef readonly %bs, ptr noundef %bdi) #0 {
+define internal i32 @raw_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef %bdi) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -859,7 +859,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_zone_report(ptr nocapture noundef readonly %bs, i64 noundef %offset, ptr noundef %nr_zones, ptr noundef %zones) #0 {
+define internal i32 @raw_co_zone_report(ptr noundef readonly captures(none) %bs, i64 noundef %offset, ptr noundef %nr_zones, ptr noundef %zones) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -869,7 +869,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_zone_mgmt(ptr nocapture noundef readonly %bs, i32 noundef %op, i64 noundef %offset, i64 noundef %len) #0 {
+define internal i32 @raw_co_zone_mgmt(ptr noundef readonly captures(none) %bs, i32 noundef %op, i64 noundef %offset, i64 noundef %len) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -879,7 +879,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_zone_append(ptr nocapture noundef readonly %bs, ptr noundef %offset, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @raw_co_zone_append(ptr noundef readonly captures(none) %bs, ptr noundef %offset, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -889,7 +889,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_co_eject(ptr nocapture noundef readonly %bs, i1 noundef zeroext %eject_flag) #0 {
+define internal void @raw_co_eject(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %eject_flag) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -899,7 +899,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @raw_co_lock_medium(ptr nocapture noundef readonly %bs, i1 noundef zeroext %locked) #0 {
+define internal void @raw_co_lock_medium(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %locked) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -909,7 +909,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @raw_co_ioctl(ptr nocapture noundef readonly %bs, i64 noundef %req, ptr noundef %buf) #0 {
+define internal i32 @raw_co_ioctl(ptr noundef readonly captures(none) %bs, i64 noundef %req, ptr noundef %buf) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -961,7 +961,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @raw_apply_options(ptr %bs.16840.val.0.val, ptr nocapture noundef %s, i64 noundef %offset, i1 noundef zeroext %has_size, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @raw_apply_options(ptr %bs.16840.val.0.val, ptr noundef captures(none) %s, i64 noundef %offset, i1 noundef zeroext %has_size, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %has_size to i8
   %call = tail call i64 @bdrv_getlength(ptr noundef %bs.16840.val.0.val) #9
@@ -1041,7 +1041,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
@@ -1054,7 +1054,7 @@ declare zeroext i1 @bdrv_is_read_only(ptr noundef) local_unnamed_addr #3
 declare void @bdrv_refresh_filename(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @bdrv_get_aio_context(ptr noundef) local_unnamed_addr #3
 

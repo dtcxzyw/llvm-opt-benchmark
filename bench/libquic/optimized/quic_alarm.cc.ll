@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net9QuicAlarmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9QuicAlarmD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef captures(none) %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -26,7 +26,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -61,7 +61,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3net9QuicAlarmD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net9QuicAlarmD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #8
   unreachable
@@ -103,7 +103,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net9QuicAlarm5IsSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
   %deadline_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_, align 8
@@ -160,7 +160,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm4FireEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net9QuicAlarm4FireEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %deadline_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %deadline_.i, align 8

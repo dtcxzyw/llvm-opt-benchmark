@@ -46,7 +46,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %status.coerce0, ptr nocapture readonly %status.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %status.coerce0, ptr readonly captures(none) %status.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %status.coerce0, label %if.end13 [
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -79,7 +79,7 @@ return:                                           ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK9grpc_core15XdsHealthStatus8ToStringEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZNK9grpc_core15XdsHealthStatus8ToStringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = icmp ult i32 %0, 3
@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9grpc_coreltERKNS_15XdsHealthStatusES2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %hs1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %hs2) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN9grpc_coreltERKNS_15XdsHealthStatusES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %hs1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %hs2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %hs1, align 4
   %1 = load i32, ptr %hs2, align 4
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

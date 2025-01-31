@@ -1615,7 +1615,7 @@ err:                                              ; preds = %if.end324, %if.end1
 declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @rsa_ossl_init(ptr nocapture noundef %rsa) #5 {
+define internal noundef i32 @rsa_ossl_init(ptr noundef captures(none) %rsa) #5 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %rsa, i64 164
   %0 = load i32, ptr %flags, align 4
@@ -1625,7 +1625,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_ossl_finish(ptr nocapture noundef readonly %rsa) #3 {
+define internal noundef i32 @rsa_ossl_finish(ptr noundef readonly captures(none) %rsa) #3 {
 entry:
   %prime_infos = getelementptr inbounds nuw i8, ptr %rsa, i64 136
   %0 = load ptr, ptr %prime_infos, align 8
@@ -1704,14 +1704,14 @@ declare i32 @RSA_padding_check_PKCS1_type_1(ptr noundef, i32 noundef, ptr nounde
 declare i32 @RSA_padding_check_X931(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @RSA_padding_add_PKCS1_type_1(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @RSA_padding_add_X931(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rsa_get_blinding(ptr noundef %rsa, ptr nocapture noundef nonnull writeonly %local, ptr noundef nonnull %ctx) unnamed_addr #3 {
+define internal fastcc ptr @rsa_get_blinding(ptr noundef %rsa, ptr noundef nonnull writeonly captures(none) %local, ptr noundef nonnull %ctx) unnamed_addr #3 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %rsa, i64 208
   %0 = load ptr, ptr %lock, align 8
@@ -1844,10 +1844,10 @@ declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @BN_BLINDING_invert_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef range(i32 1, 268435456) %flen, ptr noundef %from, ptr nocapture noundef readonly %rsa, ptr noundef nonnull %buf, i32 noundef range(i32 -268435455, 268435456) %num, ptr noundef nonnull %kdk) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @derive_kdk(i32 noundef range(i32 1, 268435456) %flen, ptr noundef %from, ptr noundef readonly captures(none) %rsa, ptr noundef nonnull %buf, i32 noundef range(i32 -268435455, 268435456) %num, ptr noundef nonnull %kdk) unnamed_addr #3 {
 entry:
   %md_len = alloca i32, align 4
   %d_hash = alloca [32 x i8], align 16

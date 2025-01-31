@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [4 x i8] c"\EF\81\93\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_menu_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_set_layout(ptr noundef %1, i32 noundef 1) #4
   tail call void @lv_obj_set_flex_flow(ptr noundef %1, i32 noundef 0) #4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 186
@@ -82,14 +82,14 @@ define internal void @lv_menu_constructor(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_menu_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @lv_ll_clear(ptr noundef nonnull %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_page_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_menu_page_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -101,7 +101,7 @@ define internal void @lv_menu_page_constructor(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_page_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_menu_page_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !21, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
@@ -125,7 +125,7 @@ define internal void @lv_menu_page_destructor(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_cont_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_menu_cont_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_set_flex_flow(ptr noundef %1, i32 noundef 0) #4
   tail call void @lv_obj_set_flex_align(ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 2) #4
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 2) #4
@@ -133,7 +133,7 @@ define internal void @lv_menu_cont_constructor(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_menu_section_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_menu_section_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_set_flex_flow(ptr noundef %1, i32 noundef 1) #4
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 2) #4
   ret void
@@ -175,7 +175,7 @@ lv_menu_set_page_title.exit:                      ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_page_title(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_page_title(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !21, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
@@ -413,7 +413,7 @@ declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lv_menu_refr_main_header_mode(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @lv_menu_refr_main_header_mode(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = icmp eq ptr %3, null
@@ -660,7 +660,7 @@ declare void @lv_image_set_src(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lv_menu_refr_sidebar_header_mode(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @lv_menu_refr_sidebar_header_mode(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   %4 = icmp eq ptr %3, null
@@ -727,7 +727,7 @@ default.unreachable15:                            ; preds = %9
 declare void @lv_obj_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_mode_header(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_mode_header(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %4 = load i8, ptr %3, align 2
   %5 = lshr i8 %4, 1
@@ -931,7 +931,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_menu_set_page_title_static(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_menu_set_page_title_static(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8, !tbaa !21, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
@@ -957,49 +957,49 @@ define void @lv_menu_set_page_title_static(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_cur_main_page(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_cur_main_page(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_cur_sidebar_page(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_cur_sidebar_page(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_main_header(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_main_header(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_main_header_back_button(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_main_header_back_button(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_sidebar_header(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_sidebar_header(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_menu_get_sidebar_header_back_button(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_menu_get_sidebar_header_back_button(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_menu_back_button_is_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i1 @lv_menu_back_button_is_root(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %1, %4
@@ -1126,7 +1126,7 @@ declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

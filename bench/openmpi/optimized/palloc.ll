@@ -287,7 +287,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i320
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr @pmix_tool_basename, align 8
-  %85 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef %84, ptr noundef nonnull @.str.9, ptr noundef %77, ptr noundef nonnull @.str.10) #15
+  %85 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef %84, ptr noundef nonnull @.str.9, ptr noundef nonnull %77, ptr noundef nonnull @.str.10) #15
   call void @PMIx_Info_free(ptr noundef %57, i64 noundef 3) #15
   br label %625
 
@@ -576,7 +576,7 @@ pmix_cmd_line_get_param.exit377:                  ; preds = %.lr.ph.i372
   %219 = getelementptr inbounds nuw i8, ptr %.011.i373, i64 152
   %220 = load ptr, ptr %219, align 8
   %221 = load ptr, ptr %220, align 8
-  %222 = call i64 @strtoul(ptr nocapture noundef %221, ptr noundef null, i32 noundef 10) #15
+  %222 = call i64 @strtoul(ptr noundef captures(none) %221, ptr noundef null, i32 noundef 10) #15
   store i64 %222, ptr %10, align 8
   %223 = call i32 @PMIx_Info_list_add(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef nonnull %10, i16 noundef zeroext 15) #15
   %.not281 = icmp eq i32 %223, 0
@@ -765,7 +765,7 @@ pmix_cmd_line_get_param.exit417:                  ; preds = %.lr.ph.i412
   %287 = getelementptr inbounds nuw i8, ptr %.011.i413, i64 152
   %288 = load ptr, ptr %287, align 8
   %289 = load ptr, ptr %288, align 8
-  %290 = call i64 @strtoul(ptr nocapture noundef %289, ptr noundef null, i32 noundef 10) #15
+  %290 = call i64 @strtoul(ptr noundef captures(none) %289, ptr noundef null, i32 noundef 10) #15
   %291 = trunc i64 %290 to i32
   store i32 %291, ptr %9, align 4
   %292 = call i32 @PMIx_Info_list_add(ptr noundef %184, ptr noundef nonnull @.str.49, ptr noundef nonnull %9, i16 noundef zeroext 14) #15
@@ -806,7 +806,7 @@ pmix_cmd_line_get_param.exit425:                  ; preds = %.lr.ph.i420
   %303 = getelementptr inbounds nuw i8, ptr %.011.i421, i64 152
   %304 = load ptr, ptr %303, align 8
   %305 = load ptr, ptr %304, align 8
-  %306 = call i64 @strtoul(ptr nocapture noundef %305, ptr noundef null, i32 noundef 10) #15
+  %306 = call i64 @strtoul(ptr noundef captures(none) %305, ptr noundef null, i32 noundef 10) #15
   %307 = trunc i64 %306 to i32
   store i32 %307, ptr %9, align 4
   %308 = call i32 @PMIx_Info_list_add(ptr noundef %184, ptr noundef nonnull @.str.51, ptr noundef nonnull %9, i16 noundef zeroext 14) #15
@@ -1086,7 +1086,7 @@ pmix_cmd_line_get_param.exit489:                  ; preds = %.lr.ph.i484
   %405 = getelementptr ptr, ptr %402, i64 %404
   %406 = getelementptr i8, ptr %405, i64 -8
   %407 = load ptr, ptr %406, align 8
-  %408 = call i64 @strtoul(ptr nocapture noundef %407, ptr noundef null, i32 noundef 10) #15
+  %408 = call i64 @strtoul(ptr noundef captures(none) %407, ptr noundef null, i32 noundef 10) #15
   %409 = icmp sgt i32 %403, 1
   br i1 %409, label %410, label %pmix_convert_string_to_time.exit
 
@@ -1099,7 +1099,7 @@ pmix_cmd_line_get_param.exit489:                  ; preds = %.lr.ph.i484
   br i1 %.not.i490, label %419, label %415
 
 415:                                              ; preds = %410
-  %416 = call i64 @strtoul(ptr nocapture noundef nonnull %414, ptr noundef null, i32 noundef 10) #15
+  %416 = call i64 @strtoul(ptr noundef nonnull captures(none) %414, ptr noundef null, i32 noundef 10) #15
   %417 = mul i64 %416, 60
   %418 = add i64 %417, %408
   br label %419
@@ -1116,7 +1116,7 @@ pmix_cmd_line_get_param.exit489:                  ; preds = %.lr.ph.i484
   br i1 %.not29.i, label %427, label %423
 
 423:                                              ; preds = %420
-  %424 = call i64 @strtoul(ptr nocapture noundef nonnull %422, ptr noundef null, i32 noundef 10) #15
+  %424 = call i64 @strtoul(ptr noundef nonnull captures(none) %422, ptr noundef null, i32 noundef 10) #15
   %425 = mul i64 %424, 3600
   %426 = add i64 %425, %.0.in.i
   br label %427
@@ -1133,7 +1133,7 @@ pmix_cmd_line_get_param.exit489:                  ; preds = %.lr.ph.i484
   br i1 %.not30.i, label %pmix_convert_string_to_time.exit, label %432
 
 432:                                              ; preds = %429
-  %433 = call i64 @strtoul(ptr nocapture noundef nonnull %431, ptr noundef null, i32 noundef 10) #15
+  %433 = call i64 @strtoul(ptr noundef nonnull captures(none) %431, ptr noundef null, i32 noundef 10) #15
   %434 = mul i64 %433, 86400
   %435 = add i64 %434, %.1.in.i
   br label %pmix_convert_string_to_time.exit
@@ -1579,7 +1579,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #2
 declare i32 @pmix_cmd_line_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 
@@ -1587,19 +1587,19 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @pmix_expose_param(ptr noundef) local_unnamed_addr #2
 
 declare ptr @PMIx_Info_create(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1609,15 +1609,15 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare void @PMIx_Info_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8
@@ -1655,7 +1655,7 @@ declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1671,7 +1671,7 @@ declare i32 @PMIx_Info_list_add(ptr noundef, ptr noundef, ptr noundef, i16 nound
 declare void @PMIx_Info_list_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @PMIx_Info_list_convert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1683,7 +1683,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @defhandler(i64 %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, ptr nocapture readnone %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @defhandler(i64 %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   switch i32 %1, label %27 [
     i32 -25, label %10
     i32 -61, label %10
@@ -1981,16 +1981,16 @@ declare i32 @PMIx_Info_xfer(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

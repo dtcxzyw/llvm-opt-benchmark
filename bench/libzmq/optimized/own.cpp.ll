@@ -1047,7 +1047,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq5own_t9set_ownerEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef %owner_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq5own_t9set_ownerEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(1444) %this, ptr noundef %owner_) local_unnamed_addr #0 align 2 {
 entry:
   %_owner = getelementptr inbounds nuw i8, ptr %this, i64 1384
   %0 = load ptr, ptr %_owner, align 8
@@ -1068,15 +1068,15 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq5own_t10inc_seqnumEv(ptr nocapture noundef nonnull align 8 dereferenceable(1444) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq5own_t10inc_seqnumEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1444) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_sent_seqnum = getelementptr inbounds nuw i8, ptr %this, i64 1368
   %0 = atomicrmw add ptr %_sent_seqnum, i32 1 acq_rel, align 4
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq5own_t18register_term_acksEi(ptr nocapture noundef nonnull align 8 dereferenceable(1444) %this, i32 noundef %count_) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq5own_t18register_term_acksEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1444) %this, i32 noundef %count_) local_unnamed_addr #7 align 2 {
 entry:
   %_term_acks = getelementptr inbounds nuw i8, ptr %this, i64 1440
   %0 = load i32, ptr %_term_acks, align 8
@@ -1394,7 +1394,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @_ZN3zmq8object_t13send_term_reqEPNS_5own_tES2_(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1444) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1444) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_terminating = getelementptr inbounds nuw i8, ptr %this, i64 1360
   %0 = load i8, ptr %_terminating, align 8
@@ -1644,7 +1644,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
@@ -2196,7 +2196,7 @@ unreachable:                                      ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2356,13 +2356,13 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

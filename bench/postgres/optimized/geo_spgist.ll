@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @spg_box_quad_config(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @spg_box_quad_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -30,7 +30,7 @@ define dso_local noundef i64 @spg_box_quad_config(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @spg_box_quad_choose(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @spg_box_quad_choose(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -87,7 +87,7 @@ define dso_local noundef i64 @spg_box_quad_choose(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_box_quad_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -258,7 +258,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compareDoubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compareDoubles(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp oeq double %3, %4
@@ -269,7 +269,7 @@ define internal range(i32 -1, 2) i32 @compareDoubles(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1020,7 +1020,7 @@ overlap4D.exit.thread:                            ; preds = %378, %367, %356, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
@@ -1032,7 +1032,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1256,7 +1256,7 @@ declare i64 @box_overbelow(ptr noundef) #3
 declare ptr @spg_key_orderbys_distances(i64 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @spg_bbox_quad_config(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @spg_bbox_quad_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1273,7 +1273,7 @@ define dso_local noundef i64 @spg_bbox_quad_config(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_poly_quad_compress(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_poly_quad_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

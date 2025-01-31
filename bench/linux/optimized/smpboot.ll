@@ -416,7 +416,7 @@ define dso_local void @smp_store_cpu_info(i32 noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @identify_secondary_cpu(ptr noundef) local_unnamed_addr #5
@@ -977,7 +977,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @match_smt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 16 {
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %4 = and i64 %3, 4194304
   %5 = icmp eq i64 %4, 0
@@ -2774,7 +2774,7 @@ declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @get_option(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal void @start_secondary(ptr nocapture readnone %0) #11 align 16 {
+define internal void @start_secondary(ptr readnone captures(none) %0) #11 align 16 {
   tail call void @cr4_init() #23
   tail call void @cpu_init_exception_handling() #23
   tail call void @load_ucode_ap() #23
@@ -2940,7 +2940,7 @@ declare dso_local void @__SCT__apic_call_icr_write(i32 noundef, i32 noundef) loc
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_cpu_present(ptr noundef) local_unnamed_addr #5

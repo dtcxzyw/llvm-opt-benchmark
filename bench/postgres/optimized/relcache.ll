@@ -276,7 +276,7 @@ define dso_local void @RelationInitIndexAccessInfo(ptr noundef %0) local_unnamed
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %72, ptr noundef nonnull align 8 dereferenceable(216) %70, i64 216, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %72, ptr %73, align 8
-  tail call void @pfree(ptr noundef %70) #12
+  tail call void @pfree(ptr noundef nonnull %70) #12
   %74 = sext i16 %62 to i64
   %75 = shl nsw i64 %74, 2
   %76 = tail call ptr @MemoryContextAllocZero(ptr noundef %64, i64 noundef %75) #12
@@ -712,7 +712,7 @@ declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4, 28) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4, 28) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -817,7 +817,7 @@ fetch_att.exit:                                   ; preds = %46, %40, %37, %34, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -4886,7 +4886,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CommandCounterIncrement() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationAssumeNewRelfilelocator(ptr nocapture noundef initializes((44, 48)) %0) local_unnamed_addr #0 {
+define dso_local void @RelationAssumeNewRelfilelocator(ptr noundef captures(none) initializes((44, 48)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @GetCurrentSubTransactionId() #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %2, ptr %3, align 4
@@ -5023,7 +5023,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %.0207 = phi i32 [ %.1208, %205 ], [ 100, %14 ]
   %.0206 = phi i32 [ %32, %205 ], [ 0, %14 ]
   %.1 = phi ptr [ %.2, %205 ], [ %15, %14 ]
-  %20 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %20 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   switch i64 %20, label %.loopexit [
     i64 8, label %21
     i64 0, label %228
@@ -5056,19 +5056,19 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %34 = getelementptr ptr, ptr %.2, i64 %33
   store ptr %31, ptr %34, align 8
   %35 = load i64, ptr %4, align 8
-  %36 = call i64 @fread(ptr noundef %31, i64 noundef 1, i64 noundef %35, ptr noundef %12)
+  %36 = call i64 @fread(ptr noundef %31, i64 noundef 1, i64 noundef %35, ptr noundef nonnull %12)
   %.not229 = icmp eq i64 %36, %35
   br i1 %.not229, label %37, label %.loopexit
 
 37:                                               ; preds = %29
-  %38 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %38 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not230 = icmp eq i64 %38, 8
   br i1 %.not230, label %39, label %.loopexit
 
 39:                                               ; preds = %37
   %40 = load i64, ptr %4, align 8
   %41 = call ptr @palloc(i64 noundef %40) #12
-  %42 = call i64 @fread(ptr noundef %41, i64 noundef 1, i64 noundef %40, ptr noundef %12)
+  %42 = call i64 @fread(ptr noundef %41, i64 noundef 1, i64 noundef %40, ptr noundef nonnull %12)
   %.not231 = icmp eq i64 %42, %40
   br i1 %.not231, label %43, label %.loopexit
 
@@ -5103,7 +5103,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %59 = load ptr, ptr %49, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %60, i64 0, i64 %indvars.iv
-  %62 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %62 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %63 = icmp ne i64 %62, 8
   %64 = load i64, ptr %4, align 8
   %65 = icmp ne i64 %64, 104
@@ -5111,7 +5111,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   br i1 %or.cond7, label %.loopexit, label %66
 
 66:                                               ; preds = %.lr.ph
-  %67 = call i64 @fread(ptr noundef %61, i64 noundef 1, i64 noundef 104, ptr noundef %12)
+  %67 = call i64 @fread(ptr noundef %61, i64 noundef 1, i64 noundef 104, ptr noundef nonnull %12)
   %.not252 = icmp eq i64 %67, 104
   br i1 %.not252, label %68, label %.loopexit
 
@@ -5130,7 +5130,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 ._crit_edge:                                      ; preds = %68, %43
   %.0217.lcssa = phi i1 [ false, %43 ], [ %74, %68 ]
-  %78 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %78 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not233 = icmp eq i64 %78, 8
   br i1 %.not233, label %79, label %.loopexit
 
@@ -5143,7 +5143,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %82 = call ptr @palloc(i64 noundef %80) #12
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 296
   store ptr %82, ptr %83, align 8
-  %84 = call i64 @fread(ptr noundef %82, i64 noundef 1, i64 noundef %80, ptr noundef %12)
+  %84 = call i64 @fread(ptr noundef %82, i64 noundef 1, i64 noundef %80, ptr noundef nonnull %12)
   %.not235 = icmp eq i64 %84, %80
   br i1 %.not235, label %85, label %.loopexit
 
@@ -5185,7 +5185,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 107:                                              ; preds = %98
   %spec.select253 = add i32 %.0212, %106
-  %108 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %108 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not237 = icmp eq i64 %108, 8
   br i1 %.not237, label %109, label %.loopexit
 
@@ -5194,7 +5194,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %111 = call ptr @palloc(i64 noundef %110) #12
   %112 = getelementptr inbounds nuw i8, ptr %31, i64 328
   store ptr %111, ptr %112, align 8
-  %113 = call i64 @fread(ptr noundef %111, i64 noundef 1, i64 noundef %110, ptr noundef %12)
+  %113 = call i64 @fread(ptr noundef %111, i64 noundef 1, i64 noundef %110, ptr noundef nonnull %12)
   %.not238 = icmp eq i64 %113, %110
   br i1 %.not238, label %114, label %.loopexit
 
@@ -5228,71 +5228,71 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %136, ptr noundef nonnull align 8 dereferenceable(216) %134, i64 216, i1 false)
   %137 = getelementptr inbounds nuw i8, ptr %31, i64 344
   store ptr %136, ptr %137, align 8
-  call void @pfree(ptr noundef %134) #12
-  %138 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  call void @pfree(ptr noundef nonnull %134) #12
+  %138 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not239 = icmp eq i64 %138, 8
   br i1 %.not239, label %139, label %.loopexit
 
 139:                                              ; preds = %114
   %140 = load i64, ptr %4, align 8
   %141 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %140) #12
-  %142 = call i64 @fread(ptr noundef %141, i64 noundef 1, i64 noundef %140, ptr noundef %12)
+  %142 = call i64 @fread(ptr noundef %141, i64 noundef 1, i64 noundef %140, ptr noundef nonnull %12)
   %.not240 = icmp eq i64 %142, %140
   br i1 %.not240, label %143, label %.loopexit
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %31, i64 352
   store ptr %141, ptr %144, align 8
-  %145 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %145 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not241 = icmp eq i64 %145, 8
   br i1 %.not241, label %146, label %.loopexit
 
 146:                                              ; preds = %143
   %147 = load i64, ptr %4, align 8
   %148 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %147) #12
-  %149 = call i64 @fread(ptr noundef %148, i64 noundef 1, i64 noundef %147, ptr noundef %12)
+  %149 = call i64 @fread(ptr noundef %148, i64 noundef 1, i64 noundef %147, ptr noundef nonnull %12)
   %.not242 = icmp eq i64 %149, %147
   br i1 %.not242, label %150, label %.loopexit
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %31, i64 360
   store ptr %148, ptr %151, align 8
-  %152 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %152 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not243 = icmp eq i64 %152, 8
   br i1 %.not243, label %153, label %.loopexit
 
 153:                                              ; preds = %150
   %154 = load i64, ptr %4, align 8
   %155 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %154) #12
-  %156 = call i64 @fread(ptr noundef %155, i64 noundef 1, i64 noundef %154, ptr noundef %12)
+  %156 = call i64 @fread(ptr noundef %155, i64 noundef 1, i64 noundef %154, ptr noundef nonnull %12)
   %.not244 = icmp eq i64 %156, %154
   br i1 %.not244, label %157, label %.loopexit
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %31, i64 368
   store ptr %155, ptr %158, align 8
-  %159 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %159 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not245 = icmp eq i64 %159, 8
   br i1 %.not245, label %160, label %.loopexit
 
 160:                                              ; preds = %157
   %161 = load i64, ptr %4, align 8
   %162 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %161) #12
-  %163 = call i64 @fread(ptr noundef %162, i64 noundef 1, i64 noundef %161, ptr noundef %12)
+  %163 = call i64 @fread(ptr noundef %162, i64 noundef 1, i64 noundef %161, ptr noundef nonnull %12)
   %.not246 = icmp eq i64 %163, %161
   br i1 %.not246, label %164, label %.loopexit
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds nuw i8, ptr %31, i64 432
   store ptr %162, ptr %165, align 8
-  %166 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %166 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not247 = icmp eq i64 %166, 8
   br i1 %.not247, label %167, label %.loopexit
 
 167:                                              ; preds = %164
   %168 = load i64, ptr %4, align 8
   %169 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %168) #12
-  %170 = call i64 @fread(ptr noundef %169, i64 noundef 1, i64 noundef %168, ptr noundef %12)
+  %170 = call i64 @fread(ptr noundef %169, i64 noundef 1, i64 noundef %168, ptr noundef nonnull %12)
   %.not248 = icmp eq i64 %170, %168
   br i1 %.not248, label %171, label %.loopexit
 
@@ -5311,7 +5311,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 .lr.ph276:                                        ; preds = %171, %191
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %191 ], [ 0, %171 ]
-  %180 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
+  %180 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %12)
   %.not249 = icmp eq i64 %180, 8
   br i1 %.not249, label %181, label %.loopexit
 
@@ -5328,7 +5328,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %187 = load ptr, ptr %177, align 8
   %188 = getelementptr ptr, ptr %187, i64 %indvars.iv300
   %189 = load ptr, ptr %188, align 8
-  %190 = call i64 @fread(ptr noundef %189, i64 noundef 1, i64 noundef %182, ptr noundef %12)
+  %190 = call i64 @fread(ptr noundef %189, i64 noundef 1, i64 noundef %182, ptr noundef nonnull %12)
   %.not251 = icmp eq i64 %190, %182
   br i1 %.not251, label %191, label %.loopexit
 
@@ -5509,7 +5509,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 ._crit_edge282:                                   ; preds = %273, %243
   call void @pfree(ptr noundef %.1) #12
-  %274 = call i32 @FreeFile(ptr noundef %12) #12
+  %274 = call i32 @FreeFile(ptr noundef nonnull %12) #12
   br i1 %0, label %275, label %276
 
 275:                                              ; preds = %._crit_edge282
@@ -5528,7 +5528,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 .loopexit:                                        ; preds = %.preheader, %167, %164, %160, %157, %153, %150, %146, %143, %139, %114, %109, %107, %85, %81, %._crit_edge, %39, %37, %29, %21, %66, %.lr.ph, %183, %.lr.ph276, %.loopexit.sink.split, %239, %232, %14
   %.0203 = phi ptr [ %15, %14 ], [ %.1, %232 ], [ %.1, %239 ], [ %.1, %.loopexit.sink.split ], [ %.2, %.lr.ph276 ], [ %.2, %183 ], [ %.2, %.lr.ph ], [ %.2, %66 ], [ %.1, %.preheader ], [ %.2, %167 ], [ %.2, %164 ], [ %.2, %160 ], [ %.2, %157 ], [ %.2, %153 ], [ %.2, %150 ], [ %.2, %146 ], [ %.2, %143 ], [ %.2, %139 ], [ %.2, %114 ], [ %.2, %109 ], [ %.2, %107 ], [ %.2, %85 ], [ %.2, %81 ], [ %.2, %._crit_edge ], [ %.2, %39 ], [ %.2, %37 ], [ %.2, %29 ], [ %.1, %21 ]
   call void @pfree(ptr noundef %.0203) #12
-  %277 = call i32 @FreeFile(ptr noundef %12) #12
+  %277 = call i32 @FreeFile(ptr noundef nonnull %12) #12
   br label %278
 
 278:                                              ; preds = %275, %276, %11, %.loopexit
@@ -5537,7 +5537,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71, 6102) %1, i1 noundef zeroext %2, i32 noundef range(i32 4, 34) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71, 6102) %1, i1 noundef zeroext %2, i32 noundef range(i32 4, 34) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = zext i1 %2 to i8
   %8 = tail call ptr @palloc0(i64 noundef 480) #12
@@ -6050,7 +6050,7 @@ define internal fastcc void @load_critical_index(i32 noundef range(i32 2655, 359
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef initializes((296, 304)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @RelationParseRelOptions(ptr noundef captures(none) initializes((296, 304)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6135,7 +6135,7 @@ GetPgClassDescriptor.exit:                        ; preds = %13, %BuildHardcoded
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef initializes((96, 104)) %0) unnamed_addr #0 {
+define internal fastcc void @RelationBuildRuleLock(ptr noundef captures(none) initializes((96, 104)) %0) unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca i8, align 1
   %4 = load ptr, ptr @CacheMemoryContext, align 8
@@ -6631,7 +6631,7 @@ write_item.exit:                                  ; preds = %63, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetFKeyList(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i8, ptr %3, align 8
@@ -6744,7 +6744,7 @@ declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 declare void @list_free_deep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetIndexList(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -6926,7 +6926,7 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @list_oid_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetStatExtList(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetStatExtList(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
@@ -6988,7 +6988,7 @@ define dso_local ptr @RelationGetStatExtList(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RelationGetPrimaryKeyIndex(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @RelationGetPrimaryKeyIndex(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -7006,7 +7006,7 @@ define dso_local i32 @RelationGetPrimaryKeyIndex(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RelationGetReplicaIndex(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @RelationGetReplicaIndex(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -7024,7 +7024,7 @@ define dso_local i32 @RelationGetReplicaIndex(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetIndexExpressions(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetIndexExpressions(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load ptr, ptr %3, align 8
@@ -7130,7 +7130,7 @@ declare ptr @eval_const_expressions(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fix_opfuncids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetDummyIndexExpressions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetDummyIndexExpressions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
@@ -7242,7 +7242,7 @@ declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetIndexPredicate(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetIndexPredicate(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
@@ -7346,7 +7346,7 @@ declare ptr @canonicalize_qual(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare ptr @make_ands_implicit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetIndexAttrBitmap(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetIndexAttrBitmap(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -7860,7 +7860,7 @@ heap_getattr.exit124:                             ; preds = %203, %202, %196, %1
   %.0108.lcssa = phi ptr [ null, %43 ], [ %.1109.lcssa, %._crit_edge ]
   %.0104.lcssa = phi ptr [ null, %43 ], [ %.1105.lcssa, %._crit_edge ]
   %.0103.lcssa = phi ptr [ null, %43 ], [ %.1.lcssa, %._crit_edge ]
-  %269 = call ptr @RelationGetIndexList(ptr noundef %0)
+  %269 = call ptr @RelationGetIndexList(ptr noundef nonnull %0)
   %270 = call zeroext i1 @equal(ptr noundef nonnull %44, ptr noundef %269) #12
   br i1 %270, label %271, label %297
 
@@ -7933,7 +7933,7 @@ heap_getattr.exit124:                             ; preds = %203, %202, %196, %1
   call void @bms_free(ptr noundef %298) #12
   %299 = load ptr, ptr %4, align 8
   call void @bms_free(ptr noundef %299) #12
-  %300 = call ptr @RelationGetIndexList(ptr noundef %0)
+  %300 = call ptr @RelationGetIndexList(ptr noundef nonnull %0)
   %301 = icmp eq ptr %300, null
   br i1 %301, label %.loopexit, label %43
 
@@ -7978,7 +7978,7 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bms_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @RelationGetIdentityKeyBitmap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @RelationGetIdentityKeyBitmap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -8140,7 +8140,7 @@ RelationClose.exit:                               ; preds = %RelationDecrementRe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.ScanKeyData], align 16
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -8407,7 +8407,7 @@ declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 declare i32 @get_op_opfamily_strategy(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @is_publishable_relation(ptr noundef %0) #12
@@ -8711,7 +8711,7 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocaptur
 declare zeroext i1 @is_publishable_relation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @GetRelationPublications(i32 noundef) local_unnamed_addr #1
 
@@ -8734,7 +8734,7 @@ declare i64 @get_attoptions(i32 noundef, i16 noundef signext) local_unnamed_addr
 declare ptr @index_opclass_options(ptr noundef, i16 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @errtable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @errtable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -8752,7 +8752,7 @@ declare i32 @err_generic_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @errtablecol(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @errtablecol(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i32 %1, 0
@@ -8796,7 +8796,7 @@ define dso_local noundef i32 @errtablecol(ptr nocapture noundef readonly %0, i32
 declare ptr @get_attname(i32 noundef, i16 noundef signext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @errtablecolname(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @errtablecolname(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -8811,7 +8811,7 @@ define dso_local noundef i32 @errtablecolname(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @errtableconstraint(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @errtableconstraint(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -8985,10 +8985,10 @@ declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 declare ptr @ReadDirExtended(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
@@ -9060,7 +9060,7 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @AttrDefaultCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -65535, 65536) i32 @AttrDefaultCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i16, ptr %0, align 8
   %4 = load i16, ptr %1, align 8
   %5 = sext i16 %3 to i32
@@ -9070,7 +9070,7 @@ define internal range(i32 -65535, 65536) i32 @AttrDefaultCmp(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @CheckConstraintCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @CheckConstraintCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #14
@@ -9078,7 +9078,7 @@ define internal i32 @CheckConstraintCmp(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9181,22 +9181,22 @@ declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @FreeFile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_item(ptr nocapture noundef %0, i64 noundef range(i64 -8589803520, 8589541381) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @write_item(ptr noundef captures(none) %0, i64 noundef range(i64 -8589803520, 8589541381) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
   %5 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %2)
@@ -9234,7 +9234,7 @@ define internal fastcc void @write_item(ptr nocapture noundef %0, i64 noundef ra
 declare void @AcceptInvalidationMessages() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9
@@ -9243,10 +9243,10 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

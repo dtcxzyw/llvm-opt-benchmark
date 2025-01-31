@@ -41,7 +41,7 @@ define dso_local noundef ptr @jinit_read_targa(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_tga(ptr noundef %0, ptr nocapture noundef initializes((8, 16), (56, 60), (80, 88), (96, 104), (108, 112)) %1) #0 {
+define internal void @start_input_tga(ptr noundef %0, ptr noundef captures(none) initializes((8, 16), (56, 60), (80, 88), (96, 104), (108, 112)) %1) #0 {
   %3 = alloca [18 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -547,15 +547,15 @@ read_colormap.exit:                               ; preds = %read_byte.exit16.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @finish_input_tga(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @finish_input_tga(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @read_rle_pixel(ptr nocapture noundef %0) #0 {
+define internal void @read_rle_pixel(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -657,7 +657,7 @@ read_byte.exit16:                                 ; preds = %36, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @read_non_rle_pixel(ptr nocapture noundef %0) #0 {
+define internal void @read_non_rle_pixel(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -767,7 +767,7 @@ define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_16bit_row(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @get_16bit_row(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %.not19 = icmp eq i32 %4, 0
@@ -822,7 +822,7 @@ define internal noundef i32 @get_16bit_row(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_24bit_row(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @get_24bit_row(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %.not13 = icmp eq i32 %4, 0
@@ -861,7 +861,7 @@ define internal noundef i32 @get_24bit_row(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_8bit_gray_row(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @get_8bit_gray_row(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %.not9 = icmp eq i32 %4, 0
@@ -982,7 +982,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_memory_row(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1) #0 {
+define internal noundef i32 @get_memory_row(ptr noundef %0, ptr noundef captures(none) initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1005,7 +1005,7 @@ define internal noundef i32 @get_memory_row(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

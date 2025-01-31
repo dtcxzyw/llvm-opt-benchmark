@@ -74,7 +74,7 @@ define hidden noundef i32 @zm_shutdown_assert(i32 noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_assert(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -102,7 +102,7 @@ define hidden void @zm_info_assert(ptr noundef %0) local_unnamed_addr #0 {
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_assert(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_assert(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [4 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
@@ -380,7 +380,7 @@ declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 declare void @zend_throw_exception_internal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @zend_get_executed_lineno() local_unnamed_addr #1
 
@@ -397,7 +397,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare void @zend_throw_unwind_exit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_assert_options(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_assert_options(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -933,7 +933,7 @@ declare i32 @zend_alter_ini_entry_ex(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateActiveBool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal noundef i32 @OnUpdateActiveBool(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = tail call zeroext i1 @zend_ini_parse_bool(ptr noundef %1) #8
@@ -959,7 +959,7 @@ php_must_emit_ini_deprecation.exit:               ; preds = %6, %6, %6, %12, %11
 declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateBailBool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal noundef i32 @OnUpdateBailBool(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = tail call zeroext i1 @zend_ini_parse_bool(ptr noundef %1) #8
@@ -983,7 +983,7 @@ php_must_emit_ini_deprecation.exit:               ; preds = %6, %6, %6, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateWarningBool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal noundef i32 @OnUpdateWarningBool(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = tail call zeroext i1 @zend_ini_parse_bool(ptr noundef %1) #8
@@ -1007,7 +1007,7 @@ php_must_emit_ini_deprecation.exit:               ; preds = %6, %6, %6, %12, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnChangeCallback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal noundef i32 @OnChangeCallback(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %24, label %8
@@ -1114,7 +1114,7 @@ php_must_emit_ini_deprecation.exit29:             ; preds = %31, %31, %31, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateExceptionBool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal noundef i32 @OnUpdateExceptionBool(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = tail call zeroext i1 @zend_ini_parse_bool(ptr noundef %1) #8
@@ -1143,7 +1143,7 @@ declare zeroext i1 @zend_ini_parse_bool(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #1
 

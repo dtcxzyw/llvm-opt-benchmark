@@ -38,7 +38,7 @@ $_ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEES3_SaIS3_ENSt8__detail9_IdentityESt8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade3dfsERKNS_6HandleINS_4NodeEEENS_4util8func_refIFbS4_EEENS6_IFvRKS1_NS6_IFvS4_EEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ade3dfsERKNS_6HandleINS_4NodeEEENS_4util8func_refIFbS4_EEENS6_IFvRKS1_NS6_IFvS4_EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon, align 8
   %7 = alloca %"class.ade::util::func_ref", align 8
   %8 = alloca %"class.ade::util::func_ref.0", align 8
@@ -152,7 +152,7 @@ _ZN3ade12_GLOBAL__N_19dfsHelperIRNS_4util8func_refIFbRKNS_6HandleINS_4NodeEEEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ade7details23TransitiveClosureHelperclERSt13unordered_mapINS_6HandleINS_4NodeEEESt13unordered_setIS5_NS_12HandleHasherIS4_EESt8equal_toIS5_ESaIS5_EES8_SA_SaISt4pairIKS5_SC_EEERSE_NS_4util8func_refIFvRKS4_NSL_IFvSJ_EEEEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %3, ptr %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK3ade7details23TransitiveClosureHelperclERSt13unordered_mapINS_6HandleINS_4NodeEEESt13unordered_setIS5_NS_12HandleHasherIS4_EESt8equal_toIS5_ESaIS5_EES8_SA_SaISt4pairIKS5_SC_EEERSE_NS_4util8func_refIFvRKS4_NSL_IFvSJ_EEEEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %3, ptr %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.ade::util::func_ref.0", align 8
   store i64 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -944,7 +944,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
@@ -1841,10 +1841,10 @@ _ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEES3_SaIS3_ENSt8__detail9_IdentityESt8e
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

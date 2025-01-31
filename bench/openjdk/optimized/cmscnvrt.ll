@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.BlackPreservingKPlaneIntents = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 2, i32 0, i32 1, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocIntentsPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsIntentsPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -96,13 +96,13 @@ DupPluginIntentsList.exit:                        ; preds = %7, %._crit_edge.i
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsDefaultICCintents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden ptr @_cmsDefaultICCintents(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @DefaultICCintents(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @DefaultICCintents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) #0 {
+define internal ptr @DefaultICCintents(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) #0 {
   %8 = alloca %struct.cmsMAT3, align 8
   %9 = alloca %struct.cmsVEC3, align 8
   %10 = icmp eq i32 %1, 0
@@ -655,10 +655,10 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterRenderingIntentPlugin(ptr noundef
 declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @cmsPipelineAlloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -671,7 +671,7 @@ declare i32 @cmsGetPCS(ptr noundef) local_unnamed_addr #1
 declare ptr @_cmsReadDevicelinkLUT(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(i32 0, -1) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.cmsCIEXYZ, align 8
   %9 = alloca %struct.cmsCIExyY, align 8
   %10 = alloca %struct.cmsMAT3, align 8
@@ -1229,14 +1229,14 @@ declare i32 @cmsDetectBlackPoint(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare i32 @cmsDetectDestinationBlackPoint(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_cmsMAT3per(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @_cmsMAT3inverse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @CHAD2Temp(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc double @CHAD2Temp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.cmsVEC3, align 8
   %3 = alloca %struct.cmsVEC3, align 8
   %4 = alloca %struct.cmsCIEXYZ, align 8
@@ -1317,7 +1317,7 @@ declare ptr @_cmsStageAllocXYZ2Lab(ptr noundef) local_unnamed_addr #1
 declare ptr @_cmsStageAllocLab2XYZ(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @BlackPreservingKOnlyIntents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal ptr @BlackPreservingKOnlyIntents(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca %struct.GrayOnlyParams, align 8
   %9 = alloca [256 x i32], align 16
   %10 = add i32 %1, -256
@@ -1493,7 +1493,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @BlackPreservingKPlaneIntents(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal ptr @BlackPreservingKPlaneIntents(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca %struct.PreserveKPlaneParams, align 8
   %9 = alloca [256 x i32], align 16
   %10 = add i32 %1, -256
@@ -1725,7 +1725,7 @@ declare ptr @cmsStageAllocCLut16bit(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @BlackPreservingGrayOnlySampler(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @BlackPreservingGrayOnlySampler(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i16, ptr %0, align 2
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %6, label %23
@@ -1783,7 +1783,7 @@ declare ptr @cmsCreateTransformTHR(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @cmsCloseProfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @BlackPreservingSampler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal noundef i32 @BlackPreservingSampler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -2068,10 +2068,10 @@ declare double @cmsDeltaE(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

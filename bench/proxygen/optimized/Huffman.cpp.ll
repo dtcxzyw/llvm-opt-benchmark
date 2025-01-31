@@ -100,7 +100,7 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 @_ZN8proxygen7huffman8HuffTreeC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen7huffman8HuffTreeC2ERKS1_
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -204,7 +204,7 @@ _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffma
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTree9buildTreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7huffman8HuffTree9buildTreeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(23576) %this) local_unnamed_addr #0 align 2 {
 entry:
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -280,7 +280,7 @@ for.end:                                          ; preds = %_ZN8proxygen7huffma
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -388,7 +388,7 @@ _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen7huffman8HuffTree6decodeEPKhjRN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS4_13fbstring_coreIcEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr nocapture noundef readonly %buf, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %literal) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen7huffman8HuffTree6decodeEPKhjRN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS4_13fbstring_coreIcEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr noundef readonly captures(none) %buf, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %literal) local_unnamed_addr #1 align 2 {
 entry:
   %table_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp30.not = icmp eq i32 %size, 0
@@ -481,7 +481,7 @@ while.end:                                        ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen7huffman8HuffTree6insertEjhh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch) local_unnamed_addr #2 align 2 {
+define void @_ZN8proxygen7huffman8HuffTree6insertEjhh(ptr noundef nonnull align 8 captures(none) dereferenceable(23576) %this, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch) local_unnamed_addr #2 align 2 {
 entry:
   %table_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp15 = icmp ugt i8 %bits, 8
@@ -539,7 +539,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(23576) %this, ptr nocapture noundef nonnull align 1 dereferenceable(512) %snode, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch, i8 noundef zeroext %level) local_unnamed_addr #2 align 2 {
+define void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(23576) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(512) %snode, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch, i8 noundef zeroext %level) local_unnamed_addr #2 align 2 {
 entry:
   br label %tailrecurse
 
@@ -570,7 +570,7 @@ if.end:                                           ; preds = %tailrecurse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK8proxygen7huffman8HuffTree10codesTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK8proxygen7huffman8HuffTree10codesTableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %codes_, align 8
@@ -578,7 +578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK8proxygen7huffman8HuffTree9bitsTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK8proxygen7huffman8HuffTree9bitsTableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %bits_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %bits_, align 8
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8proxygen7huffman8HuffTree6encodeEN5folly5RangeIPKcEERNS2_2io13QueueAppenderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %buf) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK8proxygen7huffman8HuffTree6encodeEN5folly5RangeIPKcEERNS2_2io13QueueAppenderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %buf) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
   %cmp36.not = icmp eq ptr %literal.coerce1, %literal.coerce0
@@ -842,7 +842,7 @@ if.end57:                                         ; preds = %entry, %_ZN5folly2i
 declare i32 @htonl(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 536870913) i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 536870913) i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp7.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
@@ -881,7 +881,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 0, 1099511627776) i64 @_ZNK8proxygen7huffman8HuffTree7getCodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, i8 noundef zeroext %ch) local_unnamed_addr #5 align 2 {
+define range(i64 0, 1099511627776) i64 @_ZNK8proxygen7huffman8HuffTree7getCodeEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23576) %this, i8 noundef zeroext %ch) local_unnamed_addr #5 align 2 {
 entry:
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %codes_, align 8
@@ -943,7 +943,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #6
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %delta, i1 noundef zeroext %expGrowth, i1 noundef zeroext %disableSSO) local_unnamed_addr #1 comdat align 2 {
@@ -1474,7 +1474,7 @@ declare extern_weak i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1850,7 +1850,7 @@ if.end10:                                         ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted10reallocateEPcmmPm(ptr noundef %data, i64 noundef %currentSize, i64 noundef %currentCapacity, ptr noundef %newCapacity) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1984,10 +1984,10 @@ declare { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef non
 declare i32 @llvm.bswap.i32(i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
@@ -1996,7 +1996,7 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

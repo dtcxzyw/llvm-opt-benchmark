@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_init(ptr nocapture noundef writeonly initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @zend_objects_store_init(ptr noundef writeonly captures(none) initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = tail call noalias ptr @_emalloc(i64 noundef %4) #6
@@ -46,7 +46,7 @@ define void @zend_objects_store_init(ptr nocapture noundef writeonly initializes
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @zend_objects_store_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_efree(ptr noundef %2) #7
   store ptr null, ptr %0, align 8
@@ -56,7 +56,7 @@ define void @zend_objects_store_destroy(ptr nocapture noundef %0) local_unnamed_
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @zend_objects_store_call_destructors(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   %3 = or i8 %2, 2
   store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
@@ -141,7 +141,7 @@ declare void @zend_objects_destroy_object(ptr noundef) #2
 declare void @zend_fiber_switch_unblock() local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @zend_objects_store_mark_destructed(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @zend_objects_store_mark_destructed(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -183,7 +183,7 @@ define void @zend_objects_store_mark_destructed(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_free_object_storage(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @zend_objects_store_free_object_storage(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 2

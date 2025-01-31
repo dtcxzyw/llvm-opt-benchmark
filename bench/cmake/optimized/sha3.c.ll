@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @keccak_round_constants = internal unnamed_addr constant [24 x i64] [i64 1, i64 32898, i64 -9223372036854742902, i64 -9223372034707259392, i64 32907, i64 2147483649, i64 -9223372034707259263, i64 -9223372036854743031, i64 138, i64 136, i64 2147516425, i64 2147483658, i64 2147516555, i64 -9223372036854775669, i64 -9223372036854742903, i64 -9223372036854743037, i64 -9223372036854743038, i64 -9223372036854775680, i64 32778, i64 -9223372034707292150, i64 -9223372034707259263, i64 -9223372036854742912, i64 2147483649, i64 -9223372034707259384], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
+define dso_local void @rhash_sha3_224_init(ptr noundef writeonly captures(none) initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 144, ptr %2, align 4
@@ -14,7 +14,7 @@ define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
+define dso_local void @rhash_sha3_256_init(ptr noundef writeonly captures(none) initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 136, ptr %2, align 4
@@ -22,7 +22,7 @@ define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
+define dso_local void @rhash_sha3_384_init(ptr noundef writeonly captures(none) initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 104, ptr %2, align 4
@@ -30,7 +30,7 @@ define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_sha3_512_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
+define dso_local void @rhash_sha3_512_init(ptr noundef writeonly captures(none) initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 72, ptr %2, align 4
@@ -117,10 +117,10 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #3 {
+define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #3 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %0, align 8
   %6 = xor i64 %5, %4
@@ -569,7 +569,7 @@ define dso_local void @rhash_sha3_final(ptr noundef %0, ptr noundef writeonly %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

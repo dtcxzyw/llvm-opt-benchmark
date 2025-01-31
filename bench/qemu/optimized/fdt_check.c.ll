@@ -91,7 +91,7 @@ if.end37:                                         ; preds = %sw.bb33
   br i1 %cmp38, label %if.then40, label %sw.epilog
 
 if.then40:                                        ; preds = %if.end37
-  %call41 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %5, ptr noundef nonnull %len) #2
+  %call41 = call ptr @fdt_get_name(ptr noundef nonnull %fdt, i32 noundef %5, ptr noundef nonnull %len) #2
   %6 = load i8, ptr %call41, align 1
   %tobool43 = icmp ne i8 %6, 0
   %7 = load i32, ptr %len, align 4
@@ -110,7 +110,7 @@ if.end52:                                         ; preds = %sw.bb48
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %if.end27
-  %call58 = call ptr @fdt_getprop_by_offset(ptr noundef %fdt, i32 noundef %5, ptr noundef nonnull %propname, ptr noundef nonnull %err) #2
+  %call58 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %fdt, i32 noundef %5, ptr noundef nonnull %propname, ptr noundef nonnull %err) #2
   %tobool59.not = icmp eq ptr %call58, null
   br i1 %tobool59.not, label %if.then60, label %sw.epilog
 
@@ -122,7 +122,7 @@ sw.epilog:                                        ; preds = %if.end52, %sw.bb57,
   %depth.1 = phi i32 [ %depth.025, %sw.bb57 ], [ 1, %if.then40 ], [ %inc, %if.end37 ], [ %depth.025, %if.end27 ], [ %dec, %if.end52 ]
   %expect_end.1 = phi i1 [ %expect_end.026, %sw.bb57 ], [ %expect_end.026, %if.then40 ], [ %expect_end.026, %if.end37 ], [ %expect_end.026, %if.end27 ], [ %spec.select20, %if.end52 ]
   %9 = load i32, ptr %nextoffset, align 4
-  %call18 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %9, ptr noundef nonnull %nextoffset) #2
+  %call18 = call i32 @fdt_next_tag(ptr noundef nonnull %fdt, i32 noundef %9, ptr noundef nonnull %nextoffset) #2
   %10 = load i32, ptr %nextoffset, align 4
   %cmp19 = icmp slt i32 %10, 0
   br i1 %cmp19, label %return, label %if.end22

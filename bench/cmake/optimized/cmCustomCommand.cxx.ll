@@ -75,7 +75,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK15cmCustom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmCustomCommand10SetOutputsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(316) initializes((16, 24)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCustomCommand10SetOutputsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(316) initializes((16, 24)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -145,7 +145,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK15cmCustom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmCustomCommand13SetByproductsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(316) initializes((40, 48)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCustomCommand13SetByproductsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(316) initializes((40, 48)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -189,7 +189,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK15cmCustom
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15cmCustomCommand10SetDependsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(316) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCustomCommand10SetDependsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(316) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 303
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -240,7 +240,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK15cmCustomCommand17GetMainDependencyB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK15cmCustomCommand17GetMainDependencyB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -287,7 +287,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK15cmCustom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmCustomCommand15SetCommandLinesE20cmCustomCommandLines(ptr nocapture noundef nonnull align 8 dereferenceable(316) initializes((88, 96)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCustomCommand15SetCommandLinesE20cmCustomCommandLines(ptr noundef nonnull align 8 captures(none) dereferenceable(316) initializes((88, 96)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -385,7 +385,7 @@ define dso_local void @_ZN15cmCustomCommand10SetCommentEPKc(ptr noundef nonnull 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15cmCustomCommand14AppendCommandsERK20cmCustomCommandLines(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN15cmCustomCommand14AppendCommandsERK20cmCustomCommandLines(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -402,7 +402,7 @@ define dso_local void @_ZN15cmCustomCommand14AppendCommandsERK20cmCustomCommandL
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15cmCustomCommand13AppendDependsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN15cmCustomCommand13AppendDependsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -419,7 +419,7 @@ define dso_local void @_ZN15cmCustomCommand13AppendDependsERKSt6vectorINSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetEscapeOldStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetEscapeOldStyleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 299
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -427,7 +427,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetEscapeOldStyleEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand17SetEscapeOldStyleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((299, 300)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand17SetEscapeOldStyleEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((299, 300)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 299
   store i8 %3, ptr %4, align 1
@@ -435,7 +435,7 @@ define dso_local void @_ZN15cmCustomCommand17SetEscapeOldStyleEb(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetEscapeAllowMakeVarsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetEscapeAllowMakeVarsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 298
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -443,7 +443,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetEscapeAllowMakeVa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand22SetEscapeAllowMakeVarsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((298, 299)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand22SetEscapeAllowMakeVarsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((298, 299)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 298
   store i8 %3, ptr %4, align 2
@@ -457,7 +457,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK15cmCustom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmCustomCommand12SetBacktraceE19cmListFileBacktrace(ptr nocapture noundef nonnull align 8 dereferenceable(316) initializes((96, 104)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCustomCommand12SetBacktraceE19cmListFileBacktrace(ptr noundef nonnull align 8 captures(none) dereferenceable(316) initializes((96, 104)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -556,7 +556,7 @@ define dso_local void @_ZN15cmCustomCommand18SetImplicitDependsERK21cmImplicitDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15cmCustomCommand21AppendImplicitDependsERK21cmImplicitDependsList(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN15cmCustomCommand21AppendImplicitDependsERK21cmImplicitDependsList(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
@@ -573,7 +573,7 @@ define dso_local void @_ZN15cmCustomCommand21AppendImplicitDependsERK21cmImplici
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand15GetUsesTerminalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand15GetUsesTerminalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -581,7 +581,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand15GetUsesTerminalEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand15SetUsesTerminalEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((300, 301)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand15SetUsesTerminalEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((300, 301)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 %3, ptr %4, align 4
@@ -589,7 +589,7 @@ define dso_local void @_ZN15cmCustomCommand15SetUsesTerminalEb(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand21GetCommandExpandListsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand21GetCommandExpandListsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 301
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -597,7 +597,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand21GetCommandExpandList
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand21SetCommandExpandListsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((301, 302)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand21SetCommandExpandListsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((301, 302)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 %3, ptr %4, align 1
@@ -605,7 +605,7 @@ define dso_local void @_ZN15cmCustomCommand21SetCommandExpandListsEb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetDependsExplicitOnlyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetDependsExplicitOnlyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -613,7 +613,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand22GetDependsExplicitOn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand22SetDependsExplicitOnlyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((304, 305)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand22SetDependsExplicitOnlyEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((304, 305)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %3, ptr %4, align 8
@@ -649,7 +649,7 @@ define dso_local void @_ZN15cmCustomCommand10SetJobPoolERKNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetJobserverAwareEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetJobserverAwareEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -657,7 +657,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmCustomCommand17GetJobserverAwareEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15cmCustomCommand17SetJobserverAwareEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((296, 297)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15cmCustomCommand17SetJobserverAwareEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((296, 297)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %3, ptr %4, align 8
@@ -665,21 +665,21 @@ define dso_local void @_ZN15cmCustomCommand17SetJobserverAwareEb(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK15cmCustomCommand16GetCMP0116StatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK15cmCustomCommand16GetCMP0116StatusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK15cmCustomCommand16GetCMP0147StatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK15cmCustomCommand16GetCMP0147StatusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((308, 316)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((308, 316)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = tail call noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8PolicyIDEb(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 116, i1 noundef zeroext false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %3, ptr %4, align 4
@@ -3156,7 +3156,7 @@ define internal void @_GLOBAL__sub_I_cmCustomCommand.cxx() #13 section ".text.st
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

@@ -410,7 +410,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib13VanillaOptionEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -495,7 +495,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -913,7 +913,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonModelHelperC2ERKNS_6PeriodENS_8CalendarEddRKNS_6HandleINS_5QuoteEEERKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef %calendar, double noundef %s0, double noundef %strikePrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %riskFreeRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonModelHelperC2ERKNS_6PeriodENS_8CalendarEddRKNS_6HandleINS_5QuoteEEERKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef captures(none) %calendar, double noundef %s0, double noundef %strikePrice, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %riskFreeRate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s0.addr = alloca double, align 8
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
@@ -1977,7 +1977,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -2519,7 +2519,7 @@ _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonModelHelperC1ERKNS_6PeriodENS_8CalendarEddRKNS_6HandleINS_5QuoteEEERKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef %calendar, double noundef %s0, double noundef %strikePrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %riskFreeRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonModelHelperC1ERKNS_6PeriodENS_8CalendarEddRKNS_6HandleINS_5QuoteEEERKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef captures(none) %calendar, double noundef %s0, double noundef %strikePrice, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %riskFreeRate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s0.addr = alloca double, align 8
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
@@ -3273,7 +3273,7 @@ ehcleanup40:                                      ; preds = %ehcleanup38, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonModelHelperC2ERKNS_6PeriodENS_8CalendarERKNS_6HandleINS_5QuoteEEEdS9_RKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s0, double noundef %strikePrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %riskFreeRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonModelHelperC2ERKNS_6PeriodENS_8CalendarERKNS_6HandleINS_5QuoteEEEdS9_RKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef captures(none) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s0, double noundef %strikePrice, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %riskFreeRate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -4136,7 +4136,7 @@ eh.resume:                                        ; preds = %ehcleanup45, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonModelHelperC1ERKNS_6PeriodENS_8CalendarERKNS_6HandleINS_5QuoteEEEdS9_RKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s0, double noundef %strikePrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %riskFreeRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonModelHelperC1ERKNS_6PeriodENS_8CalendarERKNS_6HandleINS_5QuoteEEEdS9_RKNS5_INS_18YieldTermStructureEEESD_NS_22BlackCalibrationHelper20CalibrationErrorTypeE(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef captures(none) %calendar, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %s0, double noundef %strikePrice, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %riskFreeRate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dividendYield, i32 noundef %errorType) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -7939,7 +7939,7 @@ _ZN8QuantLib22BlackCalibrationHelperD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -8059,7 +8059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib6HandleINS_5QuoteEE4LinkC2EON5boost10shared_ptrIS1_EEb(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %h, i1 noundef zeroext %registerAsObserver) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9165,7 +9165,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

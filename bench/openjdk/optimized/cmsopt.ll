@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [53 x i8] c"(internal) %d Channels are not supported on PatchLUT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocOptimizationPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsOptimizationPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -224,7 +224,7 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.cmsMAT3, align 8
   %3 = alloca %struct.cmsMAT3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -708,7 +708,7 @@ _MultiplyMatrix.exit:                             ; preds = %.preheader.i70, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -965,7 +965,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr nocapture noundef 
 declare void @_cmsPipelineSetOptimizationParameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @FastIdentity16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal void @FastIdentity16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -994,7 +994,7 @@ declare i32 @cmsStageType(ptr noundef) local_unnamed_addr #1
 declare ptr @cmsStageNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @cmsStageFree(ptr noundef) local_unnamed_addr #1
 
@@ -1069,7 +1069,7 @@ declare ptr @cmsPipelineGetPtrToLastStage(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @XFormSampler16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @XFormSampler16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [16 x float], align 16
   %5 = alloca [16 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1261,7 +1261,7 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @PrelinEval16(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [15 x i16], align 16
   %5 = alloca [16 x i16], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1760,7 +1760,7 @@ declare double @llvm.floor.f64(double) #4
 declare ptr @_cmsMallocZero(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Eval16nop1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture readnone %2) #5 {
+define internal void @Eval16nop1D(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr readnone captures(none) %2) #5 {
   %4 = load i16, ptr %0, align 2
   store i16 %4, ptr %1, align 2
   ret void
@@ -1790,7 +1790,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr nocapture noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 0, 2) i32 @OptimizeByJoiningCurves(ptr noundef captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
   %8 = load ptr, ptr %0, align 8
@@ -2071,7 +2071,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph144, %57, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr nocapture noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2250,7 +2250,7 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = alloca [16 x ptr], align 16
   %7 = alloca [16 x ptr], align 16
   %8 = alloca [16 x float], align 16
@@ -2911,7 +2911,7 @@ declare ptr @cmsStageAllocToneCurves(ptr noundef, i32 noundef, ptr noundef) loca
 declare i32 @_cmsFormatterIs8bit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 256, 65537) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 256, 65537) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit61, label %7
@@ -3051,7 +3051,7 @@ define internal fastcc ptr @CurvesAlloc(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @FastEvaluateCurves8(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal void @FastEvaluateCurves8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3159,7 +3159,7 @@ define internal ptr @CurvesDup(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @FastEvaluateCurves16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal void @FastEvaluateCurves16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3196,10 +3196,10 @@ declare ptr @cmsStageAllocIdentity(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @_cmsMAT3isIdentity(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetMatShaper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3383,7 +3383,7 @@ FillFirstShaper.exit56:                           ; preds = %63
 declare ptr @_cmsMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FillSecondShaper(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @FillSecondShaper(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.split.us, label %.split
 
@@ -3474,7 +3474,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.split, %35, %37
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @MatShaperEval16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr nocapture noundef readonly %2) #5 {
+define internal void @MatShaperEval16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = load i16, ptr %0, align 2
   %5 = and i16 %4, 255
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3701,7 +3701,7 @@ define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @PrelinEval8(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4119,10 +4119,10 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

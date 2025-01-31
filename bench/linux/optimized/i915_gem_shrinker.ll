@@ -416,7 +416,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %227, label %.critedge, label %228
 
 228:                                              ; preds = %223
-  %229 = call i32 %226(ptr noundef %112, i32 noundef %85) #11
+  %229 = call i32 %226(ptr noundef nonnull %112, i32 noundef %85) #11
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %.critedge, label %235
 
@@ -550,10 +550,10 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @intel_vm_no_concurrent_access_wa(ptr noundef) local_unnamed_addr #3
@@ -562,7 +562,7 @@ declare dso_local zeroext i1 @intel_vm_no_concurrent_access_wa(ptr noundef) loca
 declare dso_local i64 @intel_runtime_pm_get_if_in_use(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
@@ -716,7 +716,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
+define internal i64 @i915_gem_shrinker_scan(ptr noundef readonly captures(none) %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -763,7 +763,7 @@ define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8624
@@ -796,7 +796,7 @@ define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr 
 declare dso_local void @shrinker_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_gem_shrinker_oom(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef i32 @i915_gem_shrinker_oom(ptr noundef %0, i64 %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 368
   %5 = tail call i64 @intel_runtime_pm_get(ptr noundef %4) #11
   %6 = icmp eq i64 %5, 0
@@ -885,7 +885,7 @@ define internal noundef i32 @i915_gem_shrinker_oom(ptr noundef %0, i64 %1, ptr n
 declare dso_local i32 @register_oom_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 344
   %5 = tail call i64 @intel_runtime_pm_get(ptr noundef %4) #11
   %6 = icmp eq i64 %5, 0
@@ -1082,7 +1082,7 @@ declare dso_local i32 @unregister_oom_notifier(ptr noundef) local_unnamed_addr #
 declare dso_local void @shrinker_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @i915_gem_shrinker_taints_mutex(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 16 {
+define dso_local void @i915_gem_shrinker_taints_mutex(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 align 16 {
   ret void
 }
 

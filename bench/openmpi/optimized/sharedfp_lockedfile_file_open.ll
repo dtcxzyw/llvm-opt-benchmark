@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [4097 x i8], align 16
@@ -175,7 +175,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
 85:                                               ; preds = %79
   %86 = load i32, ptr %7, align 4
   %87 = load i32, ptr %6, align 4
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %82, i64 noundef %81, ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %86, i32 noundef %87, ptr noundef nonnull @.str.5) #11
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %82, i64 noundef %81, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, i32 noundef %86, i32 noundef %87, ptr noundef nonnull @.str.5) #11
   %89 = call zeroext i1 @opal_path_is_absolute(ptr noundef nonnull %82) #11
   br i1 %89, label %90, label %92
 
@@ -298,16 +298,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare zeroext i1 @opal_path_is_absolute(ptr noundef) local_unnamed_addr #2
 
@@ -316,10 +316,10 @@ declare i32 @opal_getcwd(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef range(i32 0, -1) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %12
@@ -353,7 +353,7 @@ define internal fastcc range(i32 -1, 1) i32 @opal_best_effort_write(i32 noundef 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_lockedfile_file_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @mca_sharedfp_lockedfile_file_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -406,12 +406,12 @@ define noundef i32 @mca_sharedfp_lockedfile_file_close(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9

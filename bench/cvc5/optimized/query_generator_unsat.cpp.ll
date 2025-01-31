@@ -1926,7 +1926,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers19QueryGeneratorUnsat12checkCurrentERKNS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EESB_(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %qy, ptr noundef nonnull align 8 dereferenceable(24) %currModel, ptr noundef nonnull align 8 dereferenceable(24) %queries) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers19QueryGeneratorUnsat12checkCurrentERKNS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EESB_(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %qy, ptr noundef nonnull align 8 dereferenceable(24) %currModel, ptr noundef nonnull align 8 dereferenceable(24) %queries) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %queryChecker = alloca %"class.std::unique_ptr.364", align 8
   %ssi = alloca %"struct.cvc5::internal::theory::SubsolverSetupInfo", align 8
@@ -2327,7 +2327,7 @@ ehcleanup88:                                      ; preds = %ehcleanup87, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers19QueryGeneratorUnsat18getNextRandomIndexERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %processed) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers19QueryGeneratorUnsat18getNextRandomIndexERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %processed) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @_ZGVZN4cvc58internal6Random9getRandomEvE9s_current, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -3091,7 +3091,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -4144,10 +4144,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

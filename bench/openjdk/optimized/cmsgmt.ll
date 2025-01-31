@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [14 x i8] c"Invalid angle\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsChain2Lab(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden ptr @_cmsChain2Lab(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca [256 x ptr], align 16
   %11 = alloca [256 x i32], align 16
   %12 = alloca [256 x double], align 16
@@ -67,7 +67,7 @@ declare ptr @cmsCreateExtendedTransform(ptr noundef, i32 noundef, ptr noundef, p
 declare i32 @cmsCloseProfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr %4, align 8
   %10 = tail call i32 @cmsGetColorSpace(ptr noundef %9) #6
   %.not = icmp eq i32 %10, 1129142603
@@ -128,7 +128,7 @@ declare i32 @cmsGetColorSpace(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsGetDeviceClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ComputeKToLstar(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @ComputeKToLstar(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca [256 x ptr], align 16
   %10 = alloca [256 x i32], align 16
   %11 = alloca [256 x double], align 16
@@ -250,7 +250,7 @@ declare ptr @cmsJoinToneCurve(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 declare i32 @cmsIsToneCurveMonotonic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.GAMUTCHAIN, align 8
   %9 = alloca [256 x ptr], align 16
   %10 = alloca [256 x i32], align 16
@@ -372,7 +372,7 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -395,7 +395,7 @@ declare void @cmsPipelineFree(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @GamutSampler(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @GamutSampler(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = alloca %struct.cmsCIELab, align 8
@@ -526,7 +526,7 @@ declare i32 @cmsFormatterForColorspaceOfProfile(ptr noundef, i32 noundef, i32 no
 declare i32 @cmsSliceSpace16(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 {
+define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca [16 x float], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -802,13 +802,13 @@ declare double @cmsDeltaE(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

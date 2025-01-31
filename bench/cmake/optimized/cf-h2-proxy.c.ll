@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [39 x i8] c"[0] conn alive -> %d, input_pending=%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cf_h2_proxy_destroy(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @cf_h2_proxy_destroy(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -917,7 +917,7 @@ H2_CONNECT.exit.thread:                           ; preds = %196, %.backedge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cf_h2_proxy_close(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @cf_h2_proxy_close(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1066,7 +1066,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @cf_h2_proxy_data_pending(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal zeroext i1 @cf_h2_proxy_data_pending(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1918,7 +1918,7 @@ declare i32 @Curl_cf_def_conn_keep_alive(ptr noundef, ptr noundef) #1
 declare i32 @Curl_cf_def_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1981,14 +1981,14 @@ declare void @Curl_conn_cf_insert_after(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @Curl_conn_cf_connect(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @Curl_bufq_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1997,7 +1997,7 @@ declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #1
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2031,7 +2031,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr n
 declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2293,7 +2293,7 @@ drain_tunnel.exit:                                ; preds = %137, %123, %65, %49
 declare void @nghttp2_session_callbacks_set_on_frame_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @proxy_h2_on_frame_send(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %.not24 = icmp eq ptr %2, null
   br i1 %.not24, label %.thread, label %5
@@ -2350,7 +2350,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr nocapture readnone %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr readnone captures(none) %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -2377,7 +2377,7 @@ define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr nocapture readn
 declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @proxy_h2_on_stream_close(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2426,7 +2426,7 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
+define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2629,7 +2629,7 @@ define internal i64 @proxy_h2_nw_out_writer(ptr noundef %0, ptr noundef %1, i64 
 declare i64 @Curl_conn_cf_send(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @proxy_h2_fr_print(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -2773,7 +2773,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drain_tunnel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @drain_tunnel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 6
@@ -3179,7 +3179,7 @@ declare i32 @Curl_http_proxy_create_CONNECT(ptr noundef, ptr noundef, ptr nounde
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = icmp ne ptr %6, null
   br i1 %9, label %10, label %15
@@ -3283,7 +3283,7 @@ declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3475,7 +3475,7 @@ declare void @Curl_pollset_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef
 declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @proxy_h2_should_close_session(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @proxy_h2_should_close_session(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @nghttp2_session_want_read(ptr noundef %2) #7
   %.not = icmp eq i32 %3, 0
@@ -3498,13 +3498,13 @@ declare i32 @nghttp2_session_want_read(ptr noundef) local_unnamed_addr #1
 declare i32 @nghttp2_session_consume(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"@%u hash=%08x key=%d base=%zu distance=%zu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr nocapture noundef writeonly initializes((0, 16), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr noundef writeonly captures(none) initializes((0, 16), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -53,7 +53,7 @@ define dso_local void @nghttp2_map_free(ptr noundef readonly %0) local_unnamed_a
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_map_each_free(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @nghttp2_map_each_free(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -85,7 +85,7 @@ define dso_local void @nghttp2_map_each_free(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_map_each(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not17 = icmp eq i32 %5, 0
@@ -122,7 +122,7 @@ define dso_local i32 @nghttp2_map_each(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @nghttp2_map_print_distance(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local void @nghttp2_map_print_distance(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -172,10 +172,10 @@ define dso_local void @nghttp2_map_print_distance(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 2
@@ -389,7 +389,7 @@ map_resize.exit:                                  ; preds = %96, %15, %.loopexit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @nghttp2_map_find(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = mul i32 %1, -1640531527
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
@@ -443,7 +443,7 @@ define dso_local ptr @nghttp2_map_find(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = mul i32 %1, -1640531527
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
@@ -557,10 +557,10 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nghttp2_map_clear(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #7 {
+define dso_local void @nghttp2_map_clear(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -573,10 +573,10 @@ define dso_local void @nghttp2_map_clear(ptr nocapture noundef initializes((16, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @nghttp2_map_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local i64 @nghttp2_map_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [221 x i8] c"Read a larger maxbasevals value from the file than I can handle. Fix by increasing MAXMAXBASEVALS to at least %d. Although, this is probably a bug in TRAJNG, since MAXMAXBASEVALS should already be insanely large enough.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ptngc_pack_array_xtc3(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Ptngc_pack_array_xtc3(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
@@ -339,7 +339,7 @@ positive_int.exit563:                             ; preds = %120, %123, %125
   %.0438999 = phi i32 [ %184, %.lr.ph1000 ], [ 0, %.preheader913 ]
   %.1482998 = phi i32 [ %183, %.lr.ph1000 ], [ %.04811008, %.preheader913 ]
   %.1486997 = phi i32 [ %182, %.lr.ph1000 ], [ %.04851007, %.preheader913 ]
-  call fastcc void @buffer_large(ptr noundef %11, ptr noundef %0, i32 noundef %.1486997, i32 noundef %2, i32 noundef 1)
+  call fastcc void @buffer_large(ptr noundef %11, ptr noundef nonnull %0, i32 noundef %.1486997, i32 noundef %2, i32 noundef 1)
   %182 = add nsw i32 %.1486997, 3
   %183 = add nsw i32 %.1482998, -1
   %184 = add nuw nsw i32 %.0438999, 1
@@ -1021,7 +1021,7 @@ swapdecide.exit:                                  ; preds = %462, %464, %insert_
 
 .loopexit925.thread:                              ; preds = %positive_int.exit.i571, %positive_int.exit.i582, %471, %is_quite_large.exit.thread, %positive_int.exit611, %swapdecide.exit
   %.3883898 = phi i32 [ 0, %swapdecide.exit ], [ %.08801005, %positive_int.exit611 ], [ %.08801005, %is_quite_large.exit.thread ], [ 0, %471 ], [ %.08801005, %positive_int.exit.i582 ], [ %.08801005, %positive_int.exit.i571 ]
-  call fastcc void @buffer_large(ptr noundef %11, ptr noundef %0, i32 noundef %.04851007, i32 noundef %2, i32 noundef 1)
+  call fastcc void @buffer_large(ptr noundef %11, ptr noundef nonnull %0, i32 noundef %.04851007, i32 noundef %2, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %188, i64 12, i1 false)
   %.pre = add nsw i32 %.04851007, 3
   %504 = load i32, ptr %7, align 4
@@ -1511,7 +1511,7 @@ positive_int.exit646:                             ; preds = %687, %690, %692
   %.5974 = phi i32 [ %710, %.lr.ph975 ], [ 0, %.preheader919 ]
   %708 = mul nuw nsw i32 %.5974, 3
   %709 = add nsw i32 %708, %.3488
-  call fastcc void @buffer_large(ptr noundef %11, ptr noundef %0, i32 noundef %709, i32 noundef %2, i32 noundef 1)
+  call fastcc void @buffer_large(ptr noundef %11, ptr noundef nonnull %0, i32 noundef %709, i32 noundef %2, i32 noundef 1)
   %710 = add nuw nsw i32 %.5974, 1
   %exitcond1092.not = icmp eq i32 %710, %.0451
   br i1 %exitcond1092.not, label %.preheader918, label %.lr.ph975, !llvm.loop !25
@@ -2867,7 +2867,7 @@ heuristic_bwlzh.exit734:                          ; preds = %.lr.ph.i728, %1343
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @Ptngc_warnmalloc_x(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2876,13 +2876,13 @@ declare i32 @Ptngc_find_magic_index(i32 noundef) local_unnamed_addr #2
 declare i32 @Ptngc_magic(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @buffer_large(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @buffer_large(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = mul nsw i32 %3, 3
   %7 = sdiv i32 %2, %6
   %8 = srem i32 %2, %6
@@ -3691,10 +3691,10 @@ declare void @bwlzh_compress(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare void @bwlzh_compress_no_lz77(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 3)) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @base_compress(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 3)) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [16385 x i32], align 16
   %6 = alloca [16385 x i32], align 16
   %7 = alloca [16385 x i32], align 16
@@ -4011,7 +4011,7 @@ base_bytes.exit121:                               ; preds = %.loopexit.i117
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca ptr, align 8
   %7 = alloca [3 x i32], align 4
@@ -4559,7 +4559,7 @@ define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decompress_base_block(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @decompress_base_block(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca [16385 x i32], align 16
   %5 = alloca [16385 x i32], align 16
   %6 = alloca [16385 x i32], align 16
@@ -4873,7 +4873,7 @@ base_decompress.exit:                             ; preds = %base_decompress.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @unpack_one_large(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9, i32 noundef range(i32 0, 3) %10) unnamed_addr #7 {
+define internal fastcc void @unpack_one_large(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef captures(none) %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8, i32 noundef %9, i32 noundef range(i32 0, 3) %10) unnamed_addr #7 {
   switch i32 %10, label %67 [
     i32 0, label %12
     i32 1, label %32
@@ -5030,7 +5030,7 @@ define internal fastcc void @unpack_one_large(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
@@ -5052,16 +5052,16 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

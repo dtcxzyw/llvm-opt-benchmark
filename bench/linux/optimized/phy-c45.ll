@@ -139,7 +139,7 @@ define dso_local i32 @genphy_c45_pma_baset1_setup_master_slave(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -148,7 +148,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @phy_modify_mmd(ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @genphy_c45_pma_setup_forced(ptr noundef %0) #0 align 16 {
@@ -1525,7 +1525,7 @@ mii_eee_cap1_mod_linkmode_t.exit:                 ; preds = %38, %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_pma_baset1_read_abilities(ptr noundef %0) #0 align 16 {
@@ -2000,7 +2000,7 @@ define dso_local i32 @genphy_c45_config_aneg(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @gen10g_config_aneg(ptr nocapture readnone %0) #5 align 16 {
+define dso_local noundef i32 @gen10g_config_aneg(ptr readnone captures(none) %0) #5 align 16 {
   ret i32 0
 }
 
@@ -2046,7 +2046,7 @@ define dso_local i32 @genphy_c45_fast_retrain(ptr noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_cfg(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51712) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %37, label %5
@@ -2108,7 +2108,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_cfg(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_set_cfg(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %90, label %5
@@ -2250,7 +2250,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_set_cfg(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_status(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_status(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 31, i32 noundef 51715) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %9, label %5
@@ -2501,7 +2501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_ethtool_get_eee(ptr n
 declare dso_local zeroext i1 @ethtool_convert_link_mode_to_legacy_u32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @genphy_c45_ethtool_set_eee(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @genphy_c45_ethtool_set_eee(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2593,7 +2593,7 @@ declare dso_local zeroext i1 @__bitmap_intersects(ptr noundef, ptr noundef, i32 
 declare dso_local i64 @_find_first_bit(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @__bitmap_andnot(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12307) i32 @acpi_ds_result_pop(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12307) i32 @acpi_ds_result_pop(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -99,13 +99,13 @@ define dso_local noundef range(i32 0, 12307) i32 @acpi_ds_result_pop(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 12304) i32 @acpi_ds_result_push(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -268,7 +268,7 @@ define dso_local noundef range(i32 0, 14) i32 @acpi_ds_obj_stack_pop(i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -330,7 +330,7 @@ define dso_local ptr @acpi_ds_get_current_walk_state(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @acpi_ds_push_walk_state(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @acpi_ds_push_walk_state(ptr noundef initializes((0, 8)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -339,7 +339,7 @@ define dso_local void @acpi_ds_push_walk_state(ptr noundef initializes((0, 8)) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @acpi_ds_pop_walk_state(ptr nocapture noundef %0) local_unnamed_addr #5 align 16 {
+define dso_local ptr @acpi_ds_pop_walk_state(ptr noundef captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

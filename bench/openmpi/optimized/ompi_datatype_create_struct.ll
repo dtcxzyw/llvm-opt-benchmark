@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_datatype_null = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph.preheader, label %.critedge
 

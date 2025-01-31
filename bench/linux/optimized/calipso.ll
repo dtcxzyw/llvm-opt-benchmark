@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @calipso_genopt.padding = internal unnamed_addr constant [4 x i8] c"\02\01\00\03", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @calipso_validate(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @calipso_validate(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = tail call zeroext i16 @crc_ccitt(i16 noundef zeroext -1, ptr noundef %1, i64 noundef 8) #14
@@ -104,13 +104,13 @@ define dso_local zeroext i1 @calipso_validate(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i16 @crc_ccitt(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -12, 1) i32 @calipso_init() local_unnamed_addr #3 section ".init.text" align 16 {
@@ -265,7 +265,7 @@ declare i32 @llvm.bswap.i32(i32) #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
@@ -537,7 +537,7 @@ define internal void @calipso_doi_putdef(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @calipso_doi_walk(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal i32 @calipso_doi_walk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #14
   %4 = load volatile ptr, ptr @calipso_doi_list, align 8
   %5 = icmp eq ptr %4, @calipso_doi_list
@@ -728,7 +728,7 @@ define internal i32 @calipso_sock_getattr(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @calipso_sock_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @calipso_sock_setattr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -941,7 +941,7 @@ define internal void @calipso_sock_delattr(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @calipso_req_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @calipso_req_setattr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -1394,7 +1394,7 @@ define internal ptr @calipso_skbuff_optptr(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_setattr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [260 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1769,7 +1769,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i32, ptr @calipso_cache_enabled, align 4
   %4 = icmp eq i32 %3, 0
   %5 = load i32, ptr @calipso_cache_bucketsize, align 4
@@ -2003,7 +2003,7 @@ define internal void @calipso_doi_free_rcu(ptr noundef %0) #0 align 16 {
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @calipso_opt_insert(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @calipso_opt_insert(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
@@ -2263,7 +2263,7 @@ select.unfold:                                    ; preds = %33, %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -2416,7 +2416,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = and i32 %1, 3
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr [4 x i8], ptr @calipso_genopt.padding, i64 0, i64 %7
@@ -2553,7 +2553,7 @@ declare dso_local i32 @netlbl_catmap_walk(ptr noundef, i32 noundef) local_unname
 declare dso_local void @netlbl_bitmap_setbit(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @ipv6_renew_options(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -2562,7 +2562,7 @@ declare dso_local ptr @ipv6_renew_options(ptr noundef, ptr noundef, i32 noundef,
 declare dso_local ptr @ipv6_update_options(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
@@ -2660,7 +2660,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @calipso_map_cache_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #11 align 16 {
+define internal fastcc i32 @calipso_map_cache_hash(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #11 align 16 {
   %3 = add nuw nsw i32 %1, -559038737
   %4 = icmp samesign ugt i32 %1, 12
   br i1 %4, label %.preheader, label %.loopexit
@@ -2890,7 +2890,7 @@ declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
@@ -2902,7 +2902,7 @@ declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4

@@ -160,7 +160,7 @@ define dso_local noundef ptr @make_empty_acl() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @aclcopy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @aclcopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
@@ -221,10 +221,10 @@ define dso_local noundef ptr @aclcopy(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @aclconcat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @aclconcat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr i8, ptr %1, i64 16
@@ -560,7 +560,7 @@ aclcopy.exit33:                                   ; preds = %108, %110
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @aclupdate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @aclupdate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.AclItem, align 8
   tail call fastcc void @check_acl(ptr noundef %0)
   %.not = icmp eq i32 %2, 2
@@ -1091,7 +1091,7 @@ define dso_local void @aclitemsort(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @aclitemComparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ugt i32 %3, %4
@@ -1217,7 +1217,7 @@ define dso_local zeroext i1 @aclequal(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @aclitemin(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1561,7 +1561,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @aclitemout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @aclitemout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1825,7 +1825,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1860,7 +1860,7 @@ define dso_local range(i64 0, 2) i64 @aclitem_eq(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4294967296) i64 @hash_aclitem(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 0, 4294967296) i64 @hash_aclitem(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1877,7 +1877,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_aclitem(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_aclitem_extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hash_aclitem_extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2023,7 +2023,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @acldefault_sql(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @acldefault_sql(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i8
@@ -2098,7 +2098,7 @@ define dso_local noundef i64 @acldefault_sql(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_acl(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_acl(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 1033
@@ -2145,10 +2145,10 @@ define internal fastcc void @check_acl(ptr nocapture noundef readonly %0) unname
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @aclnewowner(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aclnewowner(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @check_acl(ptr noundef %0)
   %4 = getelementptr i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
@@ -2567,7 +2567,7 @@ define dso_local zeroext i1 @has_privs_of_role(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -2700,7 +2700,7 @@ qunique.exit:                                     ; preds = %63, %._crit_edge, %
 declare i32 @oid_cmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @aclinsert(ptr nocapture noundef readnone %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @aclinsert(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #14
@@ -2710,7 +2710,7 @@ define dso_local noundef i64 @aclinsert(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @aclremove(ptr nocapture noundef readnone %0) local_unnamed_addr #8 {
+define dso_local noundef i64 @aclremove(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #14
@@ -2720,7 +2720,7 @@ define dso_local noundef i64 @aclremove(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @aclcontains(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @aclcontains(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2797,7 +2797,7 @@ define dso_local range(i64 0, 2) i64 @aclcontains(ptr nocapture noundef readonly
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @makeaclitem(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @makeaclitem(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2829,7 +2829,7 @@ define dso_local noundef i64 @makeaclitem(ptr nocapture noundef readonly %0) loc
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @text_to_cstring(ptr noundef %0) #14
   br label %4
 
@@ -3187,7 +3187,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3212,7 +3212,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name_name(ptr nocaptur
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3244,7 +3244,7 @@ define dso_local i32 @get_role_oid_or_public(ptr noundef %0) local_unnamed_addr 
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %0) #14
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3256,7 +3256,7 @@ get_role_oid.exit:                                ; preds = %4, %1
 declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3279,7 +3279,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name(ptr nocapture nou
 declare i32 @GetUserId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3305,7 +3305,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr nocapture 
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3335,7 +3335,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare i32 @pg_class_aclcheck_ext(i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3368,7 +3368,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3391,7 +3391,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id_name(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_table_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_table_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3426,7 +3426,7 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_id_id(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3451,7 +3451,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_name(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3486,7 +3486,7 @@ declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3521,7 +3521,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3547,7 +3547,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_id(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3598,7 +3598,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3652,7 +3652,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -3689,7 +3689,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_name(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3745,7 +3745,7 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_id_id(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3770,7 +3770,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_name(ptr noc
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3798,7 +3798,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare i32 @pg_attribute_aclcheck_all(i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3828,7 +3828,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3854,7 +3854,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_id(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -3900,7 +3900,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare i32 @pg_attribute_aclcheck_all_ext(i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3949,7 +3949,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3981,7 +3981,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_name(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4032,7 +4032,7 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_id_id(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4062,7 +4062,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_name(ptr no
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %23)
   %24 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -4169,7 +4169,7 @@ define internal fastcc signext i16 @convert_column_name(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4198,7 +4198,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_attnum(ptr 
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -4254,7 +4254,7 @@ column_privilege_check.exit:                      ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4283,7 +4283,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_name(ptr noca
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %22)
   %23 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -4337,7 +4337,7 @@ column_privilege_check.exit:                      ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4365,7 +4365,7 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_attnum(ptr no
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -4418,7 +4418,7 @@ column_privilege_check.exit:                      ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4486,7 +4486,7 @@ column_privilege_check.exit:                      ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4552,7 +4552,7 @@ column_privilege_check.exit:                      ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4616,7 +4616,7 @@ column_privilege_check.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_id_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4678,7 +4678,7 @@ column_privilege_check.exit:                      ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4744,7 +4744,7 @@ column_privilege_check.exit:                      ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_name_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_name_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4808,7 +4808,7 @@ column_privilege_check.exit:                      ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4870,7 +4870,7 @@ column_privilege_check.exit:                      ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_column_privilege_id_attnum(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_column_privilege_id_attnum(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -4930,7 +4930,7 @@ column_privilege_check.exit:                      ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4955,7 +4955,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name_name(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -4973,7 +4973,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4993,7 +4993,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5019,7 +5019,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name_id(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5049,7 +5049,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 declare i32 @object_aclcheck_ext(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5082,7 +5082,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -5104,7 +5104,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id_name(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_database_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_database_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5139,7 +5139,7 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_id_id(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5164,7 +5164,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_na
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5180,7 +5180,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5200,7 +5200,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5226,7 +5226,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_id
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5254,7 +5254,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5287,7 +5287,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -5309,7 +5309,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_name
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5344,7 +5344,7 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_id_id(p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5369,7 +5369,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_name_name(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5399,7 +5399,7 @@ convert_function_name.exit:                       ; preds = %get_role_oid_or_pub
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5433,7 +5433,7 @@ convert_function_name.exit:                       ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5459,7 +5459,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_name_id(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5487,7 +5487,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5520,7 +5520,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -5556,7 +5556,7 @@ convert_function_name.exit:                       ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_function_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_function_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5591,7 +5591,7 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_id_id(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5616,7 +5616,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name_name(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5632,7 +5632,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5652,7 +5652,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5678,7 +5678,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name_id(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5706,7 +5706,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5739,7 +5739,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -5761,7 +5761,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id_name(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_language_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_language_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5796,7 +5796,7 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_id_id(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5821,7 +5821,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_name(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5837,7 +5837,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5857,7 +5857,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5883,7 +5883,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_id(ptr nocapture
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -5911,7 +5911,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -5944,7 +5944,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -5966,7 +5966,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_name(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6001,7 +6001,7 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_id_id(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6026,7 +6026,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name_name(ptr nocaptu
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6042,7 +6042,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6062,7 +6062,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6088,7 +6088,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name_id(ptr nocapture
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6116,7 +6116,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6149,7 +6149,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6171,7 +6171,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id_name(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_server_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_server_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6206,7 +6206,7 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_id_id(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6231,7 +6231,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_name(ptr noc
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6247,7 +6247,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6267,7 +6267,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6293,7 +6293,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_id(ptr nocap
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6321,7 +6321,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6354,7 +6354,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6376,7 +6376,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_name(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6411,7 +6411,7 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_id_id(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6436,7 +6436,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_name_name(ptr nocapture
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6466,7 +6466,7 @@ convert_type_name.exit:                           ; preds = %get_role_oid_or_pub
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6500,7 +6500,7 @@ convert_type_name.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_name_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_name_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6526,7 +6526,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_name_id(ptr nocapture n
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %5) #14
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6554,7 +6554,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6587,7 +6587,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -6623,7 +6623,7 @@ convert_type_name.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_type_privilege_id_id(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_type_privilege_id_id(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6658,7 +6658,7 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_id_id(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6684,7 +6684,7 @@ define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name_name(ptr noca
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %19)
   %20 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %4) #14
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5355, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
@@ -6698,7 +6698,7 @@ get_role_oid_or_public.exit:                      ; preds = %1, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6717,7 +6717,7 @@ define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @has_parameter_privilege_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @has_parameter_privilege_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6738,7 +6738,7 @@ define dso_local range(i64 0, 2) i64 @has_parameter_privilege_id_name(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_name_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_name_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -6896,7 +6896,7 @@ is_member_of_role.exit.thread:                    ; preds = %32, %30, %24, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -6926,7 +6926,7 @@ get_role_oid.exit:                                ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_name_id(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_name_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -6958,7 +6958,7 @@ get_role_oid.exit:                                ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_id(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6975,7 +6975,7 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_id(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_id_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_id_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -7007,7 +7007,7 @@ get_role_oid.exit:                                ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_has_role_id_id(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_has_role_id_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -7669,7 +7669,7 @@ define dso_local i32 @select_best_admin(i32 noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = shl i64 %1, 32
   %8 = icmp eq i32 %0, %3
   br i1 %8, label %.thread.sink.split, label %9
@@ -7833,10 +7833,10 @@ count_one_bits.exit:                              ; preds = %.preheader
 declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_rolespec_oid(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local i32 @get_rolespec_oid(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %22 [
@@ -7896,7 +7896,7 @@ get_role_oid.exit:                                ; preds = %5, %16, %14
 declare i32 @GetSessionUserId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @get_rolespec_tuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @get_rolespec_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %34 [
@@ -7976,7 +7976,7 @@ define dso_local nonnull ptr @get_rolespec_tuple(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_rolespec_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @get_rolespec_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @get_rolespec_tuple(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -8038,7 +8038,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @__ctype_b_loc() #16
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -8169,7 +8169,7 @@ declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -8221,13 +8221,13 @@ declare void @list_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

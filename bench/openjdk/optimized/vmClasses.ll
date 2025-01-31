@@ -212,7 +212,7 @@ define hidden void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15Class
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32 noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32 noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %1, align 4
   %.not13 = icmp eq i32 %4, %0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -741,7 +741,7 @@ define linkonce_odr hidden void @_ZN16MetaspaceClosure6MSORefI13InstanceKlassED0
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

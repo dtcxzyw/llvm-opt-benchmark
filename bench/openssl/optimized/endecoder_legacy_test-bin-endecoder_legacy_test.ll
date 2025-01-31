@@ -280,7 +280,7 @@ declare i64 @test_get_argument_count() local_unnamed_addr #2
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -741,7 +741,7 @@ declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 135) %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_unprotected_PEM(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr noundef readonly captures(none) %pem_write_bio, ptr noundef readonly %pem_read_bio, ptr noundef readonly captures(none) %evp_pkey_eq, ptr noundef readonly captures(none) %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 135) %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %decoded_provided_pkey = alloca ptr, align 8
   store ptr null, ptr %decoded_provided_pkey, align 8
@@ -863,7 +863,7 @@ declare i32 @EVP_PKEY_parameters_eq(ptr noundef, ptr noundef) #2
 declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr nocapture noundef readonly %i2d, ptr noundef readonly %d2i, ptr nocapture noundef readonly %evp_pkey_eq, ptr nocapture noundef readonly %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 136) %selection, ptr noundef %structure) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_DER(ptr noundef %keytype, i32 noundef %evp_type, ptr noundef %legacy_key, ptr noundef readonly captures(none) %i2d, ptr noundef readonly %d2i, ptr noundef readonly captures(none) %evp_pkey_eq, ptr noundef readonly captures(none) %evp_pkey_print, ptr noundef %provided_pkey, i32 noundef range(i32 132, 136) %selection, ptr noundef %structure) unnamed_addr #1 {
 entry:
   %der_legacy = alloca ptr, align 8
   %pder_legacy = alloca ptr, align 8
@@ -1141,10 +1141,10 @@ declare i32 @OSSL_DECODER_from_data(ptr noundef, ptr noundef, ptr noundef) local
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

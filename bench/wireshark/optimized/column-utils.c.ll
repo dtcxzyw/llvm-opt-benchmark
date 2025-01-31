@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [17 x i8] c"usb.dst.endpoint\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @col_setup(ptr nocapture noundef initializes((8, 12), (16, 40)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @col_setup(ptr noundef captures(none) initializes((8, 12), (16, 40)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @localeconv() #16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @col_decimal_point, align 8
@@ -539,7 +539,7 @@ col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @col_clear_fence(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
@@ -1030,7 +1030,7 @@ define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly %1) local
 declare void @epan_dissect_prime_with_dfilter(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @col_custom_get_filter(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @col_custom_get_filter(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -1308,7 +1308,7 @@ col_snprint_port.exit9:                           ; preds = %17, %._crit_edge.i8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_frame_number(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @col_append_frame_number(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %6, i32 noundef %1, ptr noundef %2, i32 noundef %3)
@@ -1329,7 +1329,7 @@ define void @col_append_frame_number(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %col_get_writable.exit.thread, label %6
@@ -1412,7 +1412,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %8, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %2, null
@@ -1478,7 +1478,7 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br i1 %or.cond, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = call i64 @ws_label_strcat(ptr noundef %42, i64 noundef %., ptr noundef %2, i32 noundef 0) #16
+  %46 = call i64 @ws_label_strcat(ptr noundef nonnull %42, i64 noundef %., ptr noundef %2, i32 noundef 0) #16
   %47 = add i64 %43, %11
   br label %48
 
@@ -1517,7 +1517,7 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ...) local_unnamed_addr #0 {
+define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp eq ptr %0, null
   br i1 %6, label %col_get_writable.exit.thread, label %7
@@ -1602,7 +1602,7 @@ col_get_writable.exit.thread:                     ; preds = %24, %9, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -1765,12 +1765,12 @@ col_get_writable.exit.thread:                     ; preds = %25, %86, %44, %10, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 declare ptr @ws_utf8_truncate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
@@ -1908,7 +1908,7 @@ col_get_writable.exit:                            ; preds = %8, %34
   %81 = call i32 @llvm.smax.i32(i32 %77, i32 0)
   %storemerge = add i32 %81, %80
   store i32 %storemerge, ptr %76, align 8
-  %82 = call i64 @ws_label_strcpy(ptr noundef %78, i64 noundef %., i64 noundef %75, ptr noundef %.037, i32 noundef 0) #16
+  %82 = call i64 @ws_label_strcpy(ptr noundef nonnull %78, i64 noundef %., i64 noundef %75, ptr noundef %.037, i32 noundef 0) #16
   %83 = load ptr, ptr %64, align 8
   store ptr %83, ptr %62, align 8
   %.pre = load ptr, ptr %46, align 8
@@ -2416,7 +2416,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %97, %42, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = icmp eq ptr %0, null
@@ -2854,7 +2854,7 @@ col_do_append_str.exit:                           ; preds = %23, %74, %8, %.preh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @col_has_time_fmt(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @col_has_time_fmt(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -3483,7 +3483,7 @@ declare i32 @timestamp_get_seconds_type() local_unnamed_addr #3
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonly %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_time_hour_min_sec(ptr noundef readonly captures(none) %0, i64 %.0.val, i32 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i64 %.0.val, -1
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.val, i1 false)
   %5 = icmp sgt i32 %.8.val, -1
@@ -3733,7 +3733,7 @@ col_get_writable.exit.thread:                     ; preds = %23, %75, %.preheade
 declare void @display_signed_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @col_based_on_frame_data(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @col_based_on_frame_data(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -3764,7 +3764,7 @@ define range(i32 0, 2) i32 @col_based_on_frame_data(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @col_fill_in_frame_data(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @col_fill_in_frame_data(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
@@ -4887,7 +4887,7 @@ col_set_addr.exit:                                ; preds = %16, %326, %315, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_port(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @col_set_port(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5394,7 +5394,7 @@ define internal void @col_custom_free_cb(ptr noundef %0) #0 {
 declare ptr @try_serv_name_lookup(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i64 @ws_label_strcat(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -5411,7 +5411,7 @@ declare void @format_nstime_as_iso8601(ptr noundef, i64 noundef, ptr noundef, pt
 declare void @display_epoch_time(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -5478,7 +5478,7 @@ set_abs_ymd_time.exit:                            ; preds = %13, %get_frame_time
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_rel_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_set_rel_time(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %6 = load i16, ptr %5, align 2
@@ -5613,7 +5613,7 @@ set_time_seconds.exit29:                          ; preds = %63, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_delta_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_set_delta_time(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %6 = load i16, ptr %5, align 2
@@ -5748,7 +5748,7 @@ set_time_seconds.exit29:                          ; preds = %63, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %6 = load i16, ptr %5, align 2
@@ -5883,7 +5883,7 @@ set_time_seconds.exit29:                          ; preds = %63, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -5971,7 +5971,7 @@ declare void @llvm.va_end.p0(ptr) #13
 declare void @llvm.va_copy.p0(ptr, ptr) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

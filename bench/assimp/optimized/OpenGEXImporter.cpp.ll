@@ -332,7 +332,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #2 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #2 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -351,17 +351,17 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 192)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) initializes((0, 192)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %this, i8 0, i64 192, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_colors = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_colors, align 8
@@ -590,7 +590,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp7OpenGEX15OpenGEXImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEb(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef %pIOHandler, i1 zeroext %0) unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp7OpenGEX15OpenGEXImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef %pIOHandler, i1 zeroext %0) unnamed_addr #7 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6Assimp12BaseImporter24SearchFileHeaderForTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKcmjbb(ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef nonnull @_ZZNK6Assimp7OpenGEX15OpenGEXImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEbE6tokens, i64 noundef 4, i32 noundef 200, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i1 %call
@@ -599,7 +599,7 @@ entry:
 declare noundef zeroext i1 @_ZN6Assimp12BaseImporter24SearchFileHeaderForTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKcmjbb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef captures(none) %pScene, ptr noundef %pIOHandler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -1175,7 +1175,7 @@ declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %node, null
   br i1 %cmp, label %return, label %if.end
@@ -1238,97 +1238,97 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 invoke.cont:                                      ; preds = %for.body
   %call8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call7) #27
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call8) #32
-  %call1.i = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call1.i = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp.i19 = icmp eq i32 %call1.i, 0
   br i1 %cmp.i19, label %sw.bb, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont
-  %call2.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call2.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp3.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.i, label %sw.bb13, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i
-  %call6.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call6.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %sw.bb16, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else5.i
-  %call10.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call10.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp11.i = icmp eq i32 %call10.i, 0
   br i1 %cmp11.i, label %sw.bb19, label %if.else13.i
 
 if.else13.i:                                      ; preds = %if.else9.i
-  %call14.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call14.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %for.inc, label %if.else17.i
 
 if.else17.i:                                      ; preds = %if.else13.i
-  %call18.i = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call18.i = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp19.i = icmp eq i32 %call18.i, 0
   br i1 %cmp19.i, label %sw.bb23, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else17.i
-  %call22.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call22.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp23.i = icmp eq i32 %call22.i, 0
   br i1 %cmp23.i, label %sw.bb26, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.else21.i
-  %call26.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call26.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp27.i = icmp eq i32 %call26.i, 0
   br i1 %cmp27.i, label %sw.bb29, label %if.else29.i
 
 if.else29.i:                                      ; preds = %if.else25.i
-  %call30.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call30.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp31.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.i, label %sw.bb32, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else29.i
-  %call34.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call34.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp35.i = icmp eq i32 %call34.i, 0
   br i1 %cmp35.i, label %sw.bb35, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.else33.i
-  %call38.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call38.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp39.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.i, label %sw.bb38, label %if.else41.i
 
 if.else41.i:                                      ; preds = %if.else37.i
-  %call42.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call42.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp43.i = icmp eq i32 %call42.i, 0
   br i1 %cmp43.i, label %sw.bb41, label %if.else45.i
 
 if.else45.i:                                      ; preds = %if.else41.i
-  %call46.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call46.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp47.i = icmp eq i32 %call46.i, 0
   br i1 %cmp47.i, label %sw.bb44, label %if.else49.i
 
 if.else49.i:                                      ; preds = %if.else45.i
-  %call50.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call50.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp51.i = icmp eq i32 %call50.i, 0
   br i1 %cmp51.i, label %sw.bb47, label %if.else53.i
 
 if.else53.i:                                      ; preds = %if.else49.i
-  %call54.i = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call54.i = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp55.i = icmp eq i32 %call54.i, 0
   br i1 %cmp55.i, label %sw.bb50, label %if.else57.i
 
 if.else57.i:                                      ; preds = %if.else53.i
-  %call58.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call58.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp59.i = icmp eq i32 %call58.i, 0
   br i1 %cmp59.i, label %sw.bb53, label %if.else61.i
 
 if.else61.i:                                      ; preds = %if.else57.i
-  %call62.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call62.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp63.i = icmp eq i32 %call62.i, 0
   br i1 %cmp63.i, label %sw.bb56, label %if.else65.i
 
 if.else65.i:                                      ; preds = %if.else61.i
-  %call66.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call66.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp67.i = icmp eq i32 %call66.i, 0
   br i1 %cmp67.i, label %sw.bb59, label %if.else69.i
 
 if.else69.i:                                      ; preds = %if.else65.i
-  %call70.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef readonly %call8, i64 noundef %call.i) #32
+  %call70.i = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef nonnull readonly %call8, i64 noundef %call.i) #32
   %cmp71.i = icmp eq i32 %call70.i, 0
   br i1 %cmp71.i, label %sw.bb62, label %for.inc
 
@@ -1578,7 +1578,7 @@ return:                                           ; preds = %if.then.i.i.i39, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter10copyMeshesEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr nocapture noundef %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter10copyMeshesEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   %m_meshCache = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_meshCache, align 8
@@ -1622,7 +1622,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter11copyCamerasEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter11copyCamerasEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef writeonly captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   %m_cameraCache = getelementptr inbounds nuw i8, ptr %this, i64 680
   %0 = load ptr, ptr %m_cameraCache, align 8
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter10copyLightsEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter10copyLightsEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef writeonly captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   %m_lightCache = getelementptr inbounds nuw i8, ptr %this, i64 704
   %0 = load ptr, ptr %m_lightCache, align 8
@@ -1698,7 +1698,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter13copyMaterialsEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter13copyMaterialsEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef writeonly captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   %m_materialCache = getelementptr inbounds nuw i8, ptr %this, i64 656
   %0 = load ptr, ptr %m_materialCache, align 8
@@ -2073,7 +2073,7 @@ eh.resume:                                        ; preds = %lpad80, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14createNodeTreeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14createNodeTreeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_root = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_root, align 8
@@ -2147,13 +2147,13 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK6Assimp7OpenGEX15OpenGEXImporter7GetInfoEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define hidden noundef nonnull ptr @_ZNK6Assimp7OpenGEX15OpenGEXImporter7GetInfoEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret ptr @_ZL4desc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %pImp) unnamed_addr #11 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15SetupPropertiesEPKNS_8ImporterE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %pImp) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -2166,7 +2166,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNod
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleMetricNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleMetricNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %valName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
@@ -2438,7 +2438,7 @@ unreachable:                                      ; preds = %invoke.cont53
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
@@ -2541,7 +2541,7 @@ if.then19:                                        ; preds = %invoke.cont12, %inv
   store i32 %spec.store.select.i, ptr %7, align 4
   %data.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %conv2.i = sext i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call21, i64 %conv2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %call21, i64 %conv2.i, i1 false)
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv2.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %if.end34
@@ -2618,7 +2618,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad11.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleObjectRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleObjectRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %objRefNames = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
@@ -2836,7 +2836,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleMaterialRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleMaterialRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matRefNames = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
@@ -3024,7 +3024,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1144) ptr @_Znwm(i64 noundef 1144) #30
   invoke void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %call)
@@ -3060,7 +3060,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleCameraNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleCameraNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1084) ptr @_Znwm(i64 noundef 1084) #30
   store i32 0, ptr %call, align 4
@@ -3199,7 +3199,7 @@ lpad:                                             ; preds = %_ZNSt6vectorIP8aiCa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleLightNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleLightNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1132) ptr @_Znwm(i64 noundef 1132) #30
   store i32 0, ptr %call, align 4
@@ -3330,21 +3330,21 @@ lpad:                                             ; preds = %_ZNSt6vectorIP7aiLi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleGeometryObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleGeometryObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef %pScene)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleCameraObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleCameraObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef %pScene)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleLightObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleLightObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %objName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3623,7 +3623,7 @@ ehcleanup43:                                      ; preds = %lpad17.body, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleTransformNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleTransformNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m.i = alloca [16 x float], align 16
   %m_currentNode = getelementptr inbounds nuw i8, ptr %this, i64 416
@@ -3790,7 +3790,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) initializes((616, 624)) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) initializes((616, 624)) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %propName = alloca %"class.std::__cxx11::basic_string", align 8
   %propKey = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3967,7 +3967,7 @@ if.end48:                                         ; preds = %if.then45, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleVertexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleVertexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %propName = alloca %"class.std::__cxx11::basic_string", align 8
   %propKey = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4388,7 +4388,7 @@ eh.resume:                                        ; preds = %lpad4.body, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleIndexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleIndexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %node, null
   br i1 %cmp, label %if.then, label %if.end
@@ -4728,7 +4728,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleMaterialNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter18handleMaterialNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   invoke void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -4814,7 +4814,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleColorNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleColorNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i55 = alloca %struct._Guard, align 8
   %__guard.i44 = alloca %struct._Guard, align 8
@@ -5227,7 +5227,7 @@ if.end43:                                         ; preds = %_ZN6Assimp7OpenGEXL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleParamNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleParamNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -5325,7 +5325,7 @@ if.end36:                                         ; preds = %if.end36.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleTextureNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleTextureNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -5382,7 +5382,7 @@ if.then11:                                        ; preds = %if.then8
   %spec.store.select.i = call i32 @llvm.smin.i32(i32 %conv.i, i32 1023)
   store i32 %spec.store.select.i, ptr %tex, align 4
   %conv2.i = sext i32 %spec.store.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call12, i64 %conv2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %call12, i64 %conv2.i, i1 false)
   %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv2.i
   store i8 0, ptr %arrayidx.i, align 1
   %3 = load ptr, ptr %m_value, align 8
@@ -5747,7 +5747,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter8pushNodeEP6aiNodeP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter8pushNodeEP6aiNodeP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i36 = alloca %"class.std::tuple.128", align 8
   %ref.tmp10.i37 = alloca %"class.std::tuple.111", align 1
@@ -6074,7 +6074,7 @@ eh.resume:                                        ; preds = %lpad38, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(776) %this) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_nodeStack = getelementptr inbounds nuw i8, ptr %this, i64 728
   %0 = load ptr, ptr %m_nodeStack, align 8
@@ -6110,7 +6110,7 @@ declare noundef ptr @_ZNK10ODDLParser7DDLNode16getDataArrayListEv(ptr noundef no
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr nocapture noundef nonnull readonly %prop, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull readonly captures(none) %prop, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
@@ -6296,12 +6296,12 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare noundef i32 @_ZNK10ODDLParser5Value16getUnsignedInt32Ev(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleAttenNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readnone %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleAttenNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this, ptr noundef %node, ptr noundef readnone captures(none) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -6380,7 +6380,7 @@ if.end18:                                         ; preds = %if.then6, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #8
 
@@ -6413,7 +6413,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %this) local_unnamed_addr #16 align 2 {
+define hidden noundef ptr @_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %this) local_unnamed_addr #16 align 2 {
 entry:
   %m_nodeStack = getelementptr inbounds nuw i8, ptr %this, i64 728
   %0 = load ptr, ptr %m_nodeStack, align 8
@@ -6433,7 +6433,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14clearNodeStackEv(ptr nocapture noundef nonnull align 8 dereferenceable(776) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14clearNodeStackEv(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_nodeStack = getelementptr inbounds nuw i8, ptr %this, i64 728
   %0 = load ptr, ptr %m_nodeStack, align 8
@@ -7050,7 +7050,7 @@ declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -7250,7 +7250,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNK10ODDLParser5Value7getNextEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
@@ -7259,7 +7259,7 @@ declare noundef zeroext i1 @_ZNK10ODDLParser4TexteqERKNSt7__cxx1112basic_stringI
 declare noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
@@ -8195,7 +8195,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9282,10 +9282,10 @@ declare i32 @llvm.smin.i32(i32, i32) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

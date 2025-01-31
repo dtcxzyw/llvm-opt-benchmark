@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @BIT_reloadDStream.zeroFilled = internal constant i64 0, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr nocapture noundef %workSpace, i64 noundef %wkspSize) local_unnamed_addr #0 {
+define range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr noundef captures(none) %dt, ptr noundef readonly captures(none) %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr noundef captures(none) %workSpace, i64 noundef %wkspSize) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @FSE_buildDTable_internal(ptr noundef %dt, ptr noundef %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr noundef %workSpace, i64 noundef %wkspSize)
   ret i64 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocapture noundef %dt, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr nocapture noundef %workSpace, i64 noundef %wkspSize) unnamed_addr #0 {
+define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr noundef captures(none) %dt, ptr noundef readonly captures(none) %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr noundef captures(none) %workSpace, i64 noundef %wkspSize) unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %dt, i64 4
   %idx.ext = zext i32 %maxSymbolValue to i64
@@ -1754,7 +1754,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly initializes((0, 12), (16, 40)) %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull writeonly captures(none) initializes((0, 12), (16, 40)) %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1901,7 +1901,7 @@ return:                                           ; preds = %if.end70, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %DStatePtr, ptr nocapture noundef nonnull %bitD, ptr noundef %dt) unnamed_addr #6 {
+define internal fastcc void @FSE_initDState(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %DStatePtr, ptr noundef nonnull captures(none) %bitD, ptr noundef %dt) unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %dt, align 2
   %conv = zext i16 %0 to i32
@@ -1983,16 +1983,16 @@ BIT_reloadDStream.exit:                           ; preds = %if.end7.i, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

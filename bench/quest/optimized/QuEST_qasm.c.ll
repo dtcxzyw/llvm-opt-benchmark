@@ -128,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_setup(ptr nocapture noundef initializes((128, 136)) %0) local_unnamed_addr #0 {
+define void @qasm_setup(ptr noundef captures(none) initializes((128, 136)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %2, ptr %3, align 8
@@ -182,10 +182,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @raiseQASMBufferOverflow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @qasm_startRecording(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #4 {
+define void @qasm_startRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -194,7 +194,7 @@ define void @qasm_startRecording(ptr nocapture noundef readonly byval(%struct.Qu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @qasm_stopRecording(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #4 {
+define void @qasm_stopRecording(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -203,7 +203,7 @@ define void @qasm_stopRecording(ptr nocapture noundef readonly byval(%struct.Qur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @addStringToQASM(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @addStringToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -250,13 +250,13 @@ define void @addStringToQASM(ptr nocapture noundef readonly byval(%struct.Qureg)
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordComment(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define void @qasm_recordComment(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1020 x i8], align 16
   %5 = alloca [1025 x i8], align 16
@@ -320,13 +320,13 @@ addStringToQASM.exit:                             ; preds = %10, %24
 declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind uwtable
-define void @addGateToQASM(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1025 x i8], align 16
   %9 = icmp sgt i32 %3, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -497,7 +497,7 @@ addStringToQASM.exit:                             ; preds = %83, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @qasm_recordGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -514,7 +514,7 @@ define void @qasm_recordGate(ptr nocapture noundef readonly byval(%struct.Qureg)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordParamGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordParamGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x double], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -533,7 +533,7 @@ define void @qasm_recordParamGate(ptr nocapture noundef readonly byval(%struct.Q
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordCompactUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double %1, double %2, double %3, double %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @qasm_recordCompactUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, double %1, double %2, double %3, double %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -565,7 +565,7 @@ define void @qasm_recordCompactUnitary(ptr nocapture noundef readonly byval(%str
 declare void @getZYZRotAnglesFromComplexPair(double, double, double, double, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @qasm_recordUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Complex, align 8
   %5 = alloca %struct.Complex, align 8
   %6 = alloca double, align 8
@@ -607,7 +607,7 @@ define void @qasm_recordUnitary(ptr nocapture noundef readonly byval(%struct.Qur
 declare void @getComplexPairAndPhaseFromUnitary(ptr noundef byval(%struct.ComplexMatrix2) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordAxisRotation(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, double noundef %1, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Complex, align 8
   %6 = alloca %struct.Complex, align 8
   %7 = alloca double, align 8
@@ -648,7 +648,7 @@ define void @qasm_recordAxisRotation(ptr nocapture noundef readonly byval(%struc
 declare void @getComplexPairFromRotation(double noundef, ptr noundef byval(%struct.Vector) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordControlledGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x i32], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -667,7 +667,7 @@ define void @qasm_recordControlledGate(ptr nocapture noundef readonly byval(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledParamGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordControlledParamGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1 x i32], align 4
   %7 = alloca [1 x double], align 8
   %8 = alloca [1 x double], align 8
@@ -697,7 +697,7 @@ define void @qasm_recordControlledParamGate(ptr nocapture noundef readonly byval
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledCompactUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double %1, double %2, double %3, double %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @qasm_recordControlledCompactUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, double %1, double %2, double %3, double %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
@@ -729,7 +729,7 @@ define void @qasm_recordControlledCompactUnitary(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @qasm_recordControlledUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Complex, align 8
   %6 = alloca %struct.Complex, align 8
   %7 = alloca double, align 8
@@ -776,7 +776,7 @@ define void @qasm_recordControlledUnitary(ptr nocapture noundef readonly byval(%
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordControlledAxisRotation(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, double noundef %1, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordControlledAxisRotation(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, double noundef %1, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Complex, align 8
   %7 = alloca %struct.Complex, align 8
   %8 = alloca double, align 8
@@ -817,7 +817,7 @@ define void @qasm_recordControlledAxisRotation(ptr nocapture noundef readonly by
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiControlledGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordMultiControlledGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -834,7 +834,7 @@ define void @qasm_recordMultiControlledGate(ptr nocapture noundef readonly byval
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiControlledParamGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
+define void @qasm_recordMultiControlledParamGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x double], align 8
   %8 = alloca [1 x double], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -862,7 +862,7 @@ define void @qasm_recordMultiControlledParamGate(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordMultiControlledUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Complex, align 8
   %7 = alloca %struct.Complex, align 8
   %8 = alloca double, align 8
@@ -907,7 +907,7 @@ define void @qasm_recordMultiControlledUnitary(ptr nocapture noundef readonly by
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiStateControlledUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @qasm_recordMultiStateControlledUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.Complex, align 8
   %8 = alloca %struct.Complex, align 8
   %9 = alloca double, align 8
@@ -1029,7 +1029,7 @@ qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiControlledMultiQubitNot(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @qasm_recordMultiControlledMultiQubitNot(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1062,7 +1062,7 @@ define void @qasm_recordMultiControlledMultiQubitNot(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMeasurement(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @qasm_recordMeasurement(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -1126,7 +1126,7 @@ addStringToQASM.exit:                             ; preds = %12, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordInitZero(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #0 {
+define void @qasm_recordInitZero(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1025 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -1190,7 +1190,7 @@ addStringToQASM.exit:                             ; preds = %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordInitPlus(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #0 {
+define void @qasm_recordInitPlus(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1025 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -1257,7 +1257,7 @@ addStringToQASM.exit:                             ; preds = %11, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordInitClassical(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @qasm_recordInitClassical(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -1309,7 +1309,7 @@ qasm_recordGate.exit:                             ; preds = %19, %17, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordPhaseFunc(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca [1025 x i8], align 16
   %12 = alloca [1024 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1586,7 +1586,7 @@ define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @addMultiVarRegsToQASM(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @addMultiVarRegsToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1025 x i8], align 16
   switch i32 %4, label %10 [
@@ -1729,7 +1729,7 @@ addStringToQASM.exit:                             ; preds = %45, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @addMultiVarOverridesToQASM(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @addMultiVarOverridesToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1025 x i8], align 16
   tail call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.53)
   %7 = icmp sgt i32 %4, 0
@@ -1904,7 +1904,7 @@ addStringToQASM.exit:                             ; preds = %62, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define void @addShiftValuesToQASM(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [1025 x i8], align 16
   switch i32 %1, label %.loopexit [
     i32 4, label %8
@@ -1989,7 +1989,7 @@ addStringToQASM.exit:                             ; preds = %16, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordMultiVarPhaseFunc(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @qasm_recordMultiVarPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca [1025 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
@@ -2217,7 +2217,7 @@ addStringToQASM.exit:                             ; preds = %107, %119
 }
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca [1025 x i8], align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
@@ -2718,7 +2718,7 @@ addStringToQASM.exit:                             ; preds = %.thread249, %267
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @qasm_clearRecorded(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #8 {
+define void @qasm_clearRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2729,7 +2729,7 @@ define void @qasm_clearRecorded(ptr nocapture noundef readonly byval(%struct.Qur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @qasm_printRecorded(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #9 {
+define void @qasm_printRecorded(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2738,10 +2738,10 @@ define void @qasm_printRecorded(ptr nocapture noundef readonly byval(%struct.Qur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.99)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -2760,13 +2760,13 @@ define range(i32 0, 2) i32 @qasm_writeRecordedToFile(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @qasm_free(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #10 {
+define void @qasm_free(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2776,19 +2776,19 @@ define void @qasm_free(ptr nocapture noundef readonly byval(%struct.Qureg) align
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias nocapture readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

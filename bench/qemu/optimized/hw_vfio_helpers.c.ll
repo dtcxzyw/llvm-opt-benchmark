@@ -86,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.vfio_set_irq_signaling = private unnamed_addr constant [5 x ptr] [ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_disable_irqindex(ptr nocapture noundef readonly %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
+define dso_local void @vfio_disable_irqindex(ptr noundef readonly captures(none) %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
@@ -108,7 +108,7 @@ entry:
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_unmask_single_irqindex(ptr nocapture noundef readonly %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
+define dso_local void @vfio_unmask_single_irqindex(ptr noundef readonly captures(none) %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_mask_single_irqindex(ptr nocapture noundef readonly %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
+define dso_local void @vfio_mask_single_irqindex(ptr noundef readonly captures(none) %vbasedev, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %irq_set = alloca %struct.vfio_irq_set, align 4
   store i32 20, ptr %irq_set, align 4
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_set_irq_signaling(ptr nocapture noundef readonly %vbasedev, i32 noundef %index, i32 noundef %subindex, i32 noundef %action, i32 noundef %fd, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vfio_set_irq_signaling(ptr noundef readonly captures(none) %vbasedev, i32 noundef %index, i32 noundef %subindex, i32 noundef %action, i32 noundef %fd, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #12
   store i32 24, ptr %call, align 4
@@ -240,7 +240,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_region_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define dso_local void @vfio_region_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon, align 8
@@ -351,7 +351,7 @@ declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @vfio_region_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define dso_local i64 @vfio_region_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon.2, align 8
@@ -462,7 +462,7 @@ return:                                           ; preds = %trace_vfio_region_r
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -12, 1) i32 @vfio_bitmap_alloc(ptr nocapture noundef writeonly initializes((0, 24)) %vbmap, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @vfio_bitmap_alloc(ptr noundef writeonly captures(none) initializes((0, 24)) %vbmap, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @getpagesize() #13
   %conv.i = sext i32 %call.i to i64
@@ -858,7 +858,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_get_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %index, ptr nocapture noundef initializes((0, 8)) %info) local_unnamed_addr #0 {
+define dso_local i32 @vfio_get_region_info(ptr noundef readonly captures(none) %vbasedev, i32 noundef %index, ptr noundef captures(none) initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
   store ptr %call, ptr %info, align 8
@@ -909,7 +909,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_region_mmap(ptr nocapture noundef readonly %region) local_unnamed_addr #0 {
+define dso_local i32 @vfio_region_mmap(ptr noundef readonly captures(none) %region) local_unnamed_addr #0 {
 entry:
   %_now.i.i58 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1103,7 +1103,7 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 declare ptr @memory_region_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_subregion_unmap(ptr nocapture noundef readonly %region, i32 noundef %index) unnamed_addr #0 {
+define internal fastcc void @vfio_subregion_unmap(ptr noundef readonly captures(none) %region, i32 noundef %index) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mmaps = getelementptr inbounds nuw i8, ptr %region, i64 40
@@ -1183,7 +1183,7 @@ declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #4
 declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_region_unmap(ptr nocapture noundef readonly %region) local_unnamed_addr #0 {
+define dso_local void @vfio_region_unmap(ptr noundef readonly captures(none) %region) local_unnamed_addr #0 {
 entry:
   %mem = getelementptr inbounds nuw i8, ptr %region, i64 16
   %0 = load ptr, ptr %mem, align 8
@@ -1226,7 +1226,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_region_exit(ptr nocapture noundef readonly %region) local_unnamed_addr #0 {
+define dso_local void @vfio_region_exit(ptr noundef readonly captures(none) %region) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mem = getelementptr inbounds nuw i8, ptr %region, i64 16
@@ -1317,7 +1317,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_region_finalize(ptr nocapture noundef %region) local_unnamed_addr #0 {
+define dso_local void @vfio_region_finalize(ptr noundef captures(none) %region) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mem = getelementptr inbounds nuw i8, ptr %region, i64 16
@@ -1427,7 +1427,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @object_unparent(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_region_mmaps_set_enabled(ptr nocapture noundef readonly %region, i1 noundef zeroext %enabled) local_unnamed_addr #0 {
+define dso_local void @vfio_region_mmaps_set_enabled(ptr noundef readonly captures(none) %region, i1 noundef zeroext %enabled) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mem = getelementptr inbounds nuw i8, ptr %region, i64 16
@@ -1521,7 +1521,7 @@ declare void @memory_region_set_enabled(ptr noundef, i1 noundef zeroext) local_u
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -19, 1) i32 @vfio_get_dev_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %type, i32 noundef %subtype, ptr nocapture noundef initializes((0, 8)) %info) local_unnamed_addr #0 {
+define dso_local range(i32 -19, 1) i32 @vfio_get_dev_region_info(ptr noundef readonly captures(none) %vbasedev, i32 noundef %type, i32 noundef %subtype, ptr noundef captures(none) initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %num_regions = getelementptr inbounds nuw i8, ptr %vbasedev, i64 116
@@ -1641,7 +1641,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vfio_has_region_cap(ptr nocapture noundef readonly %vbasedev, i32 noundef %region, i16 noundef zeroext %cap_type) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vfio_has_region_cap(ptr noundef readonly captures(none) %vbasedev, i32 noundef %region, i16 noundef zeroext %cap_type) local_unnamed_addr #0 {
 entry:
   %info = alloca ptr, align 8
   %call = call i32 @vfio_get_region_info(ptr noundef %vbasedev, i32 noundef %region, ptr noundef nonnull %info)
@@ -1687,7 +1687,7 @@ if.end4:                                          ; preds = %vfio_get_region_inf
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
 
@@ -1697,13 +1697,13 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #4
 declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

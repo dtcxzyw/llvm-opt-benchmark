@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bochs_display_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @bochs_display_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #9
@@ -132,7 +132,7 @@ entry:
 declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @bochs_display_get_big_endian_fb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @bochs_display_get_big_endian_fb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 60, ptr noundef nonnull @__func__.BOCHS_DISPLAY) #9
   %big_endian_fb = getelementptr inbounds nuw i8, ptr %call.i, i64 4324
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bochs_display_set_big_endian_fb(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @bochs_display_set_big_endian_fb(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 60, ptr noundef nonnull @__func__.BOCHS_DISPLAY) #9
@@ -447,7 +447,7 @@ if.end43:                                         ; preds = %sw.epilog.i, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #1
 
@@ -466,7 +466,7 @@ declare void @dpy_gfx_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 -1, 281474976710656) i64 @bochs_display_vbe_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
+define internal range(i64 -1, 281474976710656) i64 @bochs_display_vbe_read(ptr noundef readonly captures(none) %ptr, i64 noundef %addr, i32 %size) #5 {
 entry:
   %shr = lshr i64 %addr, 1
   %conv = trunc i64 %shr to i32
@@ -499,7 +499,7 @@ return:                                           ; preds = %sw.epilog, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @bochs_display_vbe_write(ptr nocapture noundef writeonly %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #6 {
+define internal void @bochs_display_vbe_write(ptr noundef writeonly captures(none) %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #6 {
 entry:
   %shr = lshr i64 %addr, 1
   %conv1 = and i64 %shr, 4294967295
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3200171711) i64 @bochs_display_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
+define internal range(i64 0, 3200171711) i64 @bochs_display_qext_read(ptr noundef readonly captures(none) %ptr, i64 noundef %addr, i32 %size) #5 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return
@@ -541,7 +541,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @bochs_display_qext_write(ptr nocapture noundef writeonly %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #6 {
+define internal void @bochs_display_qext_write(ptr noundef writeonly captures(none) %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #6 {
 entry:
   %cond = icmp eq i64 %addr, 4
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -570,7 +570,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
 declare void @graphic_console_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #8

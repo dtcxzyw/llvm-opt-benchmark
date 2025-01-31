@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_stat_ena
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_blk_stat_disable_accounting436, ptr @__UNIQUE_ID___addressable_blk_stat_enable_accounting437, ptr @blk_stat_add.__UNIQUE_ID___addressable___SCK__preempt_schedule435], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blk_rq_stat_init(ptr nocapture noundef writeonly initializes((0, 28), (32, 40)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_rq_stat_init(ptr noundef writeonly captures(none) initializes((0, 28), (32, 40)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
   store i64 0, ptr %0, align 8
@@ -41,7 +41,7 @@ define dso_local void @blk_rq_stat_init(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @blk_rq_stat_sum(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @blk_rq_stat_sum(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -83,7 +83,7 @@ define dso_local void @blk_rq_stat_sum(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @blk_rq_stat_add(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @blk_rq_stat_add(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 %1)

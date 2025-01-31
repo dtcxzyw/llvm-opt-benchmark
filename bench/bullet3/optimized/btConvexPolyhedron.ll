@@ -33,7 +33,7 @@ $_ZN9btHashMapI20btInternalVertexPair14btInternalEdgeE10growTablesERKS0_ = comda
 @_ZN18btConvexPolyhedronD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN18btConvexPolyhedronD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18btConvexPolyhedronC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) initializes((0, 8), (12, 20), (24, 33), (44, 52), (56, 65), (76, 84), (88, 97)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedronC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(172) initializes((0, 8), (12, 20), (24, 33), (44, 52), (56, 65), (76, 84), (88, 97)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btConvexPolyhedron, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -66,7 +66,7 @@ invoke.cont3:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18btConvexPolyhedronD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedronD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(172) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btConvexPolyhedron, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -229,7 +229,7 @@ _ZN18btConvexPolyhedrondlEPv.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK18btConvexPolyhedron15testContainmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK18btConvexPolyhedron15testContainmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this) local_unnamed_addr #2 align 2 {
 entry:
   %m_localCenter133 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %m_extents136 = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -348,10 +348,10 @@ return:                                           ; preds = %for.cond159.for.inc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18btConvexPolyhedron10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedron10initializeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(172) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %edges = alloca %class.btHashMap, align 8
   %vp = alloca %struct.btInternalVertexPair, align 2
@@ -972,7 +972,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN18btConvexPolyhedron11initialize2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((104, 120)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN18btConvexPolyhedron11initialize2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(172) initializes((104, 120)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_localCenter = getelementptr inbounds nuw i8, ptr %this, i64 104
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 108
@@ -1615,7 +1615,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20btAlignedObjec
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %minProj, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %maxProj, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMin, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMax) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trans, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dir, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %minProj, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %maxProj, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %witnesPtMin, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %witnesPtMax) local_unnamed_addr #6 align 2 {
 entry:
   %tmp.sroa.0.i = alloca [4 x float], align 4
   store float 0x47EFFFFFE0000000, ptr %minProj, align 4
@@ -2004,13 +2004,13 @@ if.end:                                           ; preds = %for.body20, %for.co
 declare float @llvm.sqrt.f32(float) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

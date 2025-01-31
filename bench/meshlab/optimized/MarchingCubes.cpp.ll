@@ -23,7 +23,7 @@ define noundef range(i32 0, 4) i32 @_ZN6Square20AntipodalCornerIndexEi(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Square17FactorCornerIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN6Square17FactorCornerIndexEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
   %4 = and i32 %0, 1
   store i32 %4, ptr %1, align 4
   %5 = lshr i32 %0, 1
@@ -62,7 +62,7 @@ define noundef range(i32 -1, 4) i32 @_ZN6Square9EdgeIndexEii(i32 noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Square15FactorEdgeIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN6Square15FactorEdgeIndexEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   switch i32 %0, label %7 [
     i32 0, label %4
     i32 2, label %4
@@ -91,7 +91,7 @@ define void @_ZN6Square15FactorEdgeIndexEiRiS0_(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Square11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN6Square11EdgeCornersEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
   switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12
@@ -190,7 +190,7 @@ define noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
   %5 = and i32 %0, 1
   store i32 %5, ptr %1, align 4
   %6 = lshr i32 %0, 1
@@ -212,7 +212,7 @@ define noundef i32 @_ZN4Cube9EdgeIndexEiii(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
   %5 = ashr i32 %0, 2
   store i32 %5, ptr %1, align 4
   %6 = and i32 %0, 1
@@ -262,7 +262,7 @@ define noundef i32 @_ZN4Cube9FaceIndexEii(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
@@ -304,7 +304,7 @@ define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
   %4 = ashr i32 %0, 1
   store i32 %4, ptr %1, align 4
   %5 = and i32 %0, 1
@@ -447,7 +447,7 @@ _ZN4Cube19FacesAdjacentToEdgeEiRiS0_.exit18:      ; preds = %_ZN4Cube9FaceIndexE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube19FacesAdjacentToEdgeEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube19FacesAdjacentToEdgeEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 2
   %6 = shl i32 %0, 1
@@ -490,7 +490,7 @@ _ZN4Cube9FaceIndexEiii.exit16:                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube11EdgeCornersEiRiS0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
@@ -532,7 +532,7 @@ define void @_ZN4Cube11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube11FaceCornersEiRiS0_S0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube11FaceCornersEiRiS0_S0_S0_(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
   %6 = srem i32 %0, 2
   %7 = sdiv i32 %0, 2
   switch i32 %7, label %22 [
@@ -776,7 +776,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKdd(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp olt double %3, %1
   %.0 = zext i1 %4 to i8
@@ -799,7 +799,7 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKdd(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKff(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %3, %1
   %.0 = zext i1 %4 to i8
@@ -822,7 +822,7 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKff(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN15MarchingSquares11IsAmbiguousEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN15MarchingSquares11IsAmbiguousEPKdd(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp olt double %3, %1
   %.0.i = zext i1 %4 to i8
@@ -864,7 +864,7 @@ define noundef zeroext i1 @_ZN15MarchingSquares8HasRootsEh(i8 noundef zeroext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [2 x [2 x double]], align 8
   %4 = load double, ptr %0, align 8
   %5 = fcmp olt double %4, %1
@@ -1045,7 +1045,7 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Squar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #4 align 2 {
   switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit [
     i32 0, label %4
     i32 2, label %4
@@ -1142,10 +1142,10 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %0 to i64
   switch i8 %0, label %.preheader [
     i8 15, label %.loopexit
@@ -1177,7 +1177,7 @@ define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEhPi(i8 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEPKddPi(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN15MarchingSquares14AddEdgeIndicesEPKddPi(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fcmp olt double %4, %1
   %.0.i = zext i1 %5 to i8
@@ -1238,7 +1238,7 @@ define noundef double @_ZN15MarchingSquares11InterpolateEdd(double noundef %0, d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp olt double %3, %1
   %.0 = zext i1 %4 to i8
@@ -1281,7 +1281,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.sroa.0 = alloca double, align 16
   %.sroa.4 = alloca double, align 8
   %.sroa.8 = alloca double, align 16
@@ -1372,7 +1372,7 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKddi(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2)
   %5 = icmp eq i8 %4, 5
   %6 = icmp eq i8 %4, 10
@@ -1381,7 +1381,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKddi(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKddi(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2)
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne i8 %4, 15
@@ -1390,7 +1390,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKddi(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKdd(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp olt double %3, %1
   %.0.i = zext i1 %4 to i8
@@ -1442,7 +1442,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEh(i8 noundef zeroext %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [3 x [3 x double]], align 8
   %4 = load double, ptr %0, align 8
   %5 = fcmp olt double %4, %1
@@ -1639,7 +1639,7 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #4 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
@@ -1731,7 +1731,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fcmp olt double %4, %1
   %.0.i = zext i1 %5 to i8
@@ -1812,7 +1812,7 @@ define noundef double @_ZN13MarchingCubes11InterpolateEdd(double noundef %0, dou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %3, %1
   %.0 = zext i1 %4 to i8
@@ -1855,7 +1855,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
   %.sroa.14 = alloca double, align 16
@@ -2176,7 +2176,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKffi(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2)
   %5 = icmp eq i8 %4, 5
   %6 = icmp eq i8 %4, 10
@@ -2194,7 +2194,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEhi(i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKff(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %3, %1
   %.0.i = zext i1 %4 to i8
@@ -2239,7 +2239,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKff(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKffi(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2)
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne i8 %4, 15
@@ -2307,7 +2307,7 @@ _ZN4Cube11EdgeCornersEiRiS0_.exit:                ; preds = %7, %12, %16, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [3 x [3 x double]], align 8
   %4 = load float, ptr %0, align 4
   %5 = fcmp olt float %4, %1
@@ -2422,7 +2422,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture noundef readonly %1, float noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr noundef readonly captures(none) %1, float noundef %2) local_unnamed_addr #4 align 2 {
   %4 = ashr i32 %0, 2
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
@@ -2517,7 +2517,7 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
   %4 = load float, ptr %0, align 4
   %5 = fcmp olt float %4, %1
   %.0.i = zext i1 %5 to i8
@@ -2592,7 +2592,7 @@ _ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %40, %3, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %0 to i64
   switch i32 %0, label %.preheader [
     i32 255, label %.loopexit

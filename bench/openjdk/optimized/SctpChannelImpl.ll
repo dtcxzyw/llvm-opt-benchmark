@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [31 x i8] c"Socket is shutdown for writing\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -204,7 +204,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @getControlData(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @getControlData(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 15
@@ -266,7 +266,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #1
 declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @setControlData(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden void @setControlData(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 15
@@ -334,13 +334,13 @@ define hidden void @setControlData(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i8 zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i8 zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.iovec], align 16
   %9 = alloca [1 x %struct.msghdr], align 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -484,10 +484,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -497,7 +497,7 @@ declare i32 @sctpHandleSocketError(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i16, ptr %4, align 4
   %6 = icmp ult i16 %5, 5
@@ -539,7 +539,7 @@ define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -611,7 +611,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @handleUninteresting(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define hidden void @handleUninteresting(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret void
 }
 
@@ -810,7 +810,7 @@ getControlData.exit:                              ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %union.SOCKETADDRESS, align 4
   %9 = alloca [1 x %struct.iovec], align 16
   %10 = alloca [1 x %struct.msghdr], align 16
@@ -997,7 +997,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i8 noundef zeroext %9, i32 noundef %10) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i8 noundef zeroext %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca %union.SOCKETADDRESS, align 4
   %13 = alloca i32, align 4
   %14 = alloca [1 x %struct.iovec], align 16

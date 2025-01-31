@@ -26,7 +26,7 @@ define hidden void @ftype_register_guid() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca %struct._e_guid_t, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
@@ -69,16 +69,16 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   br i1 %exitcond.not.i, label %26, label %9, !llvm.loop !4
 
 26:                                               ; preds = %24
-  %27 = tail call i64 @strtoul(ptr nocapture noundef nonnull readonly %1, ptr noundef null, i32 noundef 16) #9
+  %27 = tail call i64 @strtoul(ptr noundef nonnull readonly captures(none) %1, ptr noundef null, i32 noundef 16) #9
   %28 = trunc i64 %27 to i32
   store i32 %28, ptr %6, align 4
   %29 = getelementptr i8, ptr %1, i64 9
-  %30 = tail call i64 @strtoul(ptr nocapture noundef readonly %29, ptr noundef null, i32 noundef 16) #9
+  %30 = tail call i64 @strtoul(ptr noundef readonly captures(none) %29, ptr noundef null, i32 noundef 16) #9
   %31 = trunc i64 %30 to i16
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %31, ptr %32, align 4
   %33 = getelementptr i8, ptr %1, i64 14
-  %34 = tail call i64 @strtoul(ptr nocapture noundef readonly %33, ptr noundef null, i32 noundef 16) #9
+  %34 = tail call i64 @strtoul(ptr noundef readonly captures(none) %33, ptr noundef null, i32 noundef 16) #9
   %35 = trunc i64 %34 to i16
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %35, ptr %36, align 2
@@ -102,7 +102,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   %47 = load i8, ptr %44, align 1
   store i8 %47, ptr %38, align 1
   store i8 0, ptr %39, align 1
-  %48 = call i64 @strtoul(ptr nocapture noundef nonnull %5, ptr noundef null, i32 noundef 16) #9
+  %48 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #9
   %49 = trunc i64 %48 to i8
   %50 = getelementptr [8 x i8], ptr %40, i64 0, i64 %.13139.i
   store i8 %49, ptr %50, align 1
@@ -116,7 +116,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %.loopexit
-  %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %1) #9
+  %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #9
   store ptr %53, ptr %3, align 8
   br label %56
 
@@ -139,7 +139,7 @@ define internal ptr @guid_to_repr(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @guid_fvalue_set_guid(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @guid_fvalue_set_guid(ptr noundef writeonly captures(none) initializes((8, 24)) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
@@ -152,7 +152,7 @@ define internal nonnull ptr @value_get(ptr noundef readnone %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #3 {
+define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %5, i64 noundef 16) #10
@@ -180,26 +180,26 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @guid_hash(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

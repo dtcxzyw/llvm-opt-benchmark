@@ -839,7 +839,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %114, %116
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN12VM_Operation8evaluateEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -882,7 +882,7 @@ define hidden noundef zeroext i1 @_ZN8VMThread27handshake_or_safepoint_alotEv() 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8VMThread18set_next_operationEP12VM_Operation(ptr nocapture noundef nonnull readnone align 8 dereferenceable(917) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8VMThread18set_next_operationEP12VM_Operation(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(917) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8VMThread18_next_vm_operationE, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %26
@@ -1273,7 +1273,7 @@ define linkonce_odr hidden void @_ZN24EventMarkWithLogFunctionIXadL_ZN6Events16l
 declare void @_ZN20SafepointSynchronize3endEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8VMThread18wait_for_operationEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8VMThread18wait_for_operationEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandshakeALotClosure, align 8
   %3 = load ptr, ptr @VMOperation_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -3335,13 +3335,13 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

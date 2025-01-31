@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [23 x i8] c"Heuristics.BoundsCheck\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
+define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
   %10 = zext i32 %4 to i64
   %11 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8

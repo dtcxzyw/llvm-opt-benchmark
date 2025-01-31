@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_internal_misc_Signal_findSignal0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_internal_misc_Signal_findSignal0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -40,7 +40,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare i32 @JVM_FindSignal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_internal_misc_Signal_handle0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_jdk_internal_misc_Signal_handle0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %3 to ptr
   %6 = tail call ptr @JVM_RegisterSignal(i32 noundef %2, ptr noundef %5) #2
   %7 = ptrtoint ptr %6 to i64
@@ -50,7 +50,7 @@ define i64 @Java_jdk_internal_misc_Signal_handle0(ptr nocapture noundef readnone
 declare ptr @JVM_RegisterSignal(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_misc_Signal_raise0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_jdk_internal_misc_Signal_raise0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i8 @JVM_RaiseSignal(i32 noundef %2) #2
   ret void
 }

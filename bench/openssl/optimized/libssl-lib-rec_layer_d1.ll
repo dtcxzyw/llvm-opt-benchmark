@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.dtls_buffer_record = private unnamed_addr constant [19 x i8] c"dtls_buffer_record\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DTLS_RECORD_LAYER_new(ptr nocapture noundef writeonly %rl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DTLS_RECORD_LAYER_new(ptr noundef writeonly captures(none) %rl) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 23) #5
   %cmp = icmp eq ptr %call, null
@@ -48,7 +48,7 @@ declare ptr @pqueue_new() local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @DTLS_RECORD_LAYER_free(ptr nocapture noundef %rl) local_unnamed_addr #0 {
+define void @DTLS_RECORD_LAYER_free(ptr noundef captures(none) %rl) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %rl, i64 144
   %0 = load ptr, ptr %d, align 8
@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DTLS_RECORD_LAYER_clear(ptr nocapture noundef readonly %rl) local_unnamed_addr #0 {
+define void @DTLS_RECORD_LAYER_clear(ptr noundef readonly captures(none) %rl) local_unnamed_addr #0 {
 entry:
   %d1 = getelementptr inbounds nuw i8, ptr %rl, i64 144
   %0 = load ptr, ptr %d1, align 8
@@ -128,10 +128,10 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr nocapture noundef writeonly %buf, i64 noundef %len, i32 noundef %peek, ptr nocapture noundef writeonly %readbytes) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #0 {
 entry:
   %msg_hdr = alloca %struct.hm_header_st, align 8
   %cmp = icmp eq ptr %s, null
@@ -880,7 +880,7 @@ declare i32 @dtls1_read_failed(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ssl_release_record(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -901,7 +901,7 @@ declare void @ossl_statem_set_in_init(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @ossl_statem_app_data_allowed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls1_write_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %written) local_unnamed_addr #0 {
+define i32 @dtls1_write_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %written) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 16385
   br i1 %cmp, label %if.end, label %if.then
@@ -924,7 +924,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @do_dtls1_write(ptr noundef %sc, i8 noundef zeroext %type, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %written) local_unnamed_addr #0 {
+define i32 @do_dtls1_write(ptr noundef %sc, i8 noundef zeroext %type, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %written) local_unnamed_addr #0 {
 entry:
   %tmpl = alloca %struct.ossl_record_template_st, align 8
   %alert_dispatch = getelementptr inbounds nuw i8, ptr %sc, i64 380

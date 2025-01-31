@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.RangeVarCallbackForPolicy = private unnamed_addr constant [26 x i8] c"RangeVarCallbackForPolicy\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @RelationBuildRowSecurity(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca i8, align 1
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -613,7 +613,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -900,7 +900,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -980,7 +980,7 @@ declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #1
 declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @RangeVarCallbackForPolicy(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #6
   %.not = icmp eq ptr %6, null
@@ -1577,7 +1577,7 @@ define dso_local i32 @get_relation_policy_oid(i32 noundef %0, ptr noundef %1, i1
 declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @relation_has_policies(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @relation_has_policies(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 1) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1597,7 +1597,7 @@ declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 

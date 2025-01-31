@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @gsave(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define void @gsave(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %3, align 8
@@ -45,7 +45,7 @@ define void @gsave(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @reset(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr %0, align 8
@@ -106,7 +106,7 @@ define void @reset(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @initSEdges(ptr nocapture noundef initializes((24, 32)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @initSEdges(ptr noundef captures(none) initializes((24, 32)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   %4 = mul nsw i32 %3, 6
   %5 = shl nsw i32 %1, 1
@@ -234,7 +234,7 @@ gv_alloc.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @createSNode(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define ptr @createSNode(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -248,7 +248,7 @@ define ptr @createSNode(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @createSEdge(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, double noundef %3) local_unnamed_addr #2 {
+define noundef ptr @createSEdge(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, double noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, 1
@@ -292,7 +292,7 @@ define noundef ptr @createSEdge(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeSGraph(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @freeSGraph(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -308,10 +308,10 @@ define void @freeSGraph(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @shortPath(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -454,7 +454,7 @@ declare ptr @PQremove() local_unnamed_addr #6
 declare void @PQupdate(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #8 {

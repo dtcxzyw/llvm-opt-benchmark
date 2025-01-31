@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [39 x i8] c"REO: Internal verification has failed!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -144,7 +144,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph99:                                         ; preds = %.preheader, %71
   %.08398 = phi i32 [ %72, %71 ], [ %.084.in.lcssa, %.preheader ]
-  %74 = tail call double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %.08398, i32 noundef 1) #7
+  %74 = tail call double @reoReorderSwapAdjacentVars(ptr noundef nonnull %0, i32 noundef %.08398, i32 noundef 1) #7
   %75 = load i32, ptr %40, align 4
   %76 = icmp sgt i32 %75, 10000
   br i1 %76, label %77, label %71
@@ -266,7 +266,7 @@ declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @Cudd_bddPermute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @reoUnitsRecycleUnitList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -373,16 +373,16 @@ declare ptr @Extra_bddRemapUp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

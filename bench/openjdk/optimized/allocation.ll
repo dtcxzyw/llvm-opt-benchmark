@@ -225,7 +225,7 @@ _Z12AllocateHeapm8MEMFLAGSRK15NativeCallStackN17AllocFailStrategy13AllocFailEnum
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.NativeCallStack, align 8
   %5 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %6 = icmp eq i32 %5, 3

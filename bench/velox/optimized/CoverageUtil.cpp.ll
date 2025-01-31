@@ -293,7 +293,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) local_unnamed_addr #4 {
+define noundef i32 @_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %names) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %names, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %names, i64 8
@@ -417,7 +417,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions13printTableCssEmRKNS1_16TableCellTrackerERSo(i64 noundef %numScalarColumns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cellTracker, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 {
+define void @_ZN8facebook5velox9functions13printTableCssEmRKNS1_16TableCellTrackerERSo(i64 noundef %numScalarColumns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cellTracker, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -478,7 +478,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %scalarNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aggNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %windowNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %veloxNames, ptr noundef nonnull align 8 dereferenceable(56) %veloxAggNames, ptr noundef nonnull align 8 dereferenceable(56) %veloxWindowNames, ptr noundef nonnull align 8 dereferenceable(32) %domain) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %scalarNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %aggNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %windowNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %veloxNames, ptr noundef nonnull align 8 dereferenceable(56) %veloxAggNames, ptr noundef nonnull align 8 dereferenceable(56) %veloxWindowNames, ptr noundef nonnull align 8 dereferenceable(32) %domain) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp.i.i = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -1593,7 +1593,7 @@ eh.resume:                                        ; preds = %ehcleanup80, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture %this.0.val, ptr %this.8.val, i32 noundef %row, i32 noundef range(i32 -2147483648, 9) %column, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKSt13unordered_setIS8_St4hashIS8_ESt8equal_toIS8_ES9_ESK_SK_RKS8_ENK3$_0clB5cxx11EiiSM_SK_"(ptr noalias nonnull align 8 %agg.result, ptr captures(none) %this.0.val, ptr %this.8.val, i32 noundef %row, i32 noundef range(i32 -2147483648, 9) %column, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %veloxNames) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %call.i.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %veloxNames, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -2695,7 +2695,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont4, %.noe
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8facebook5velox4exec15windowFunctionsB5cxx11Ev() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %scalarNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aggNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %windowNames, ptr noundef nonnull align 8 dereferenceable(32) %domain) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions16printCoverageMapERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_RKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %scalarNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %aggNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %windowNames, ptr noundef nonnull align 8 dereferenceable(32) %domain) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   %veloxFunctions = alloca %"class.std::unordered_map.30", align 8
@@ -5127,7 +5127,7 @@ invoke.cont:                                      ; preds = %if.end.i.i, %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec22AggregateFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSS_22SynchronizedMutexLevelE2ELNSS_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5331,7 +5331,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -7004,13 +7004,13 @@ declare void @llvm.assume(i1 noundef) #16
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

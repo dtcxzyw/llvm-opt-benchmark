@@ -46,20 +46,20 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22ZPhysicalMemoryManagerC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN22ZPhysicalMemoryManagerC2Em
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ZPhysicalMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ZPhysicalMemoryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemoryC2ERK22ZPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemoryC2ERK22ZPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN15ZPhysicalMemory11add_segmentERK22ZPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemory11add_segmentERK22ZPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemory11add_segmentERK22ZPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ZPhysicalMemorySegment, align 8
   %4 = alloca %class.ZPhysicalMemorySegment, align 8
   %5 = load i32, ptr %0, align 8
@@ -242,7 +242,7 @@ _ZN15ZPhysicalMemory14remove_segmentEi.exit:      ; preds = %42, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
@@ -268,7 +268,7 @@ _ZN15ZPhysicalMemory12add_segmentsERKS_.exit:     ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -293,7 +293,7 @@ define hidden void @_ZN15ZPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN15ZPhysicalMemoryaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN15ZPhysicalMemoryaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -340,7 +340,7 @@ _ZN15ZPhysicalMemory12add_segmentsERKS_.exit:     ; preds = %12, %_ZN26GrowableA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -506,7 +506,7 @@ _ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15ZPhysicalMemory15replace_segmentEi7zoffsetmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15ZPhysicalMemory15replace_segmentEi7zoffsetmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 {
   %6 = zext i1 %4 to i8
   %7 = add i64 %3, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -522,7 +522,7 @@ define hidden void @_ZN15ZPhysicalMemory15replace_segmentEi7zoffsetmb(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15ZPhysicalMemory14remove_segmentEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN15ZPhysicalMemory14remove_segmentEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.06.i = add nsw i32 %1, 1
   %3 = load i32, ptr %0, align 8
   %4 = icmp slt i32 %.06.i, %3
@@ -556,7 +556,7 @@ _ZN17GrowableArrayViewI22ZPhysicalMemorySegmentE9remove_atEi.exit: ; preds = %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemory15remove_segmentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemory15remove_segmentsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 4)) %0) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
@@ -677,7 +677,7 @@ define hidden noundef zeroext i1 @_ZN15ZPhysicalMemory16uncommit_segmentEim(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind noalias writable sret(%class.ZPhysicalMemory) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind noalias writable sret(%class.ZPhysicalMemory) align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ZPhysicalMemorySegment, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %1, align 8
@@ -829,7 +829,7 @@ _ZNK15ZPhysicalMemory4sizeEv.exit38:              ; preds = %42, %_ZNK15ZPhysica
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZPhysicalMemory15split_committedEv(ptr dead_on_unwind noalias writable sret(%class.ZPhysicalMemory) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZPhysicalMemory15split_committedEv(ptr dead_on_unwind noalias writable sret(%class.ZPhysicalMemory) align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1233,7 +1233,7 @@ define hidden void @_ZN22ZPhysicalMemoryManager5allocER15ZPhysicalMemorym(ptr no
 declare noundef i64 @_ZN14ZMemoryManager25alloc_low_address_at_mostEmPm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ZPhysicalMemoryManager4freeERK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN22ZPhysicalMemoryManager4freeERK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1271,7 +1271,7 @@ declare noundef i64 @_ZNK22ZPhysicalMemoryBacking8uncommitE7zoffsetm(ptr noundef
 declare void @_ZN4ZNMT8uncommitE7zoffsetm(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ZPhysicalMemoryManager8pretouchE7zoffsetm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ZPhysicalMemoryManager8pretouchE7zoffsetm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr @ZAddressHeapBase, align 8
   %5 = or i64 %4, %1
   %6 = load i32, ptr @_ZN11ZLargePages6_stateE, align 4
@@ -1288,7 +1288,7 @@ define hidden void @_ZNK22ZPhysicalMemoryManager8pretouchE7zoffsetm(ptr nocaptur
 declare void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ZPhysicalMemoryManager3mapE7zoffsetRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ZPhysicalMemoryManager3mapE7zoffsetRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr @ZAddressHeapBase, align 8
   %5 = or i64 %4, %1
   %6 = load i32, ptr %2, align 8
@@ -1375,7 +1375,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_58EL
 declare void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8
@@ -1398,13 +1398,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

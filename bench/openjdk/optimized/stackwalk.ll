@@ -318,7 +318,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN15LiveFrameStreamC1EP10JavaThreadP11RegisterMap6HandleS4_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15BaseFrameStreamC2EP10JavaThread6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15BaseFrameStreamC2EP10JavaThread6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV15BaseFrameStream, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -330,10 +330,10 @@ define hidden void @_ZN15BaseFrameStreamC2EP10JavaThread6Handle(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BaseFrameStream20setup_magic_on_entryE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15BaseFrameStream20setup_magic_on_entryE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -355,7 +355,7 @@ define hidden void @_ZN15BaseFrameStream20setup_magic_on_entryE14objArrayHandle(
 declare noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15BaseFrameStream11check_magicE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN15BaseFrameStream11check_magicE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i8, ptr @UseCompressedOops, align 1
   %5 = trunc i8 %4 to i1
@@ -378,7 +378,7 @@ define hidden noundef zeroext i1 @_ZN15BaseFrameStream11check_magicE14objArrayHa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15BaseFrameStream21cleanup_magic_on_exitE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN15BaseFrameStream21cleanup_magic_on_exitE14objArrayHandle(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i8, ptr @UseCompressedOops, align 1
   %5 = trunc i8 %4 to i1
@@ -411,7 +411,7 @@ define hidden noundef zeroext i1 @_ZN15BaseFrameStream21cleanup_magic_on_exitE14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15BaseFrameStream16set_continuationE6Handle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN15BaseFrameStream16set_continuationE6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -463,7 +463,7 @@ declare void @_ZN12vframeStreamC1EP10JavaThread6Handleb(ptr noundef nonnull alig
 declare void @_ZN12vframeStreamC1EP7oopDesc6Handle(ptr noundef nonnull align 8 dereferenceable(5104), ptr noundef, ptr) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.frame, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -742,7 +742,7 @@ declare noundef zeroext i1 @_ZN12Continuation27is_continuation_entry_frameERK5fr
 declare noundef ptr @_ZNK6vframe11java_senderEv(ptr noundef nonnull align 8 dereferenceable(5064)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle(ptr noundef %0, i64 noundef %1, ptr nocapture readonly %2) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle(ptr noundef %0, i64 noundef %1, ptr readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i8, ptr @UseCompressedOops, align 1
   %6 = trunc i8 %5 to i1
@@ -792,7 +792,7 @@ _ZN15BaseFrameStream11is_valid_inEP6Thread14objArrayHandle.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9StackWalk14fill_in_framesEiR15BaseFrameStreamii14objArrayHandleRiP10JavaThread(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN9StackWalk14fill_in_framesEiR15BaseFrameStreamii14objArrayHandleRiP10JavaThread(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5, ptr noundef %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %class.methodHandle, align 8
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE141ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not48 = icmp eq ptr %9, null
@@ -1033,7 +1033,7 @@ declare noundef ptr @_ZNK6Method13external_nameEv(ptr noundef nonnull align 8 de
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LiveFrameStream10fill_frameEi14objArrayHandleRK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15LiveFrameStream10fill_frameEi14objArrayHandleRK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.HandleMark, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %4) #14
   %7 = load ptr, ptr %2, align 8
@@ -1363,7 +1363,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %145, %143, %4, %16
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JavaFrameStream10fill_frameEi14objArrayHandleRK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5137) %0, i32 noundef %1, ptr nocapture readonly %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15JavaFrameStream10fill_frameEi14objArrayHandleRK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5137) %0, i32 noundef %1, ptr readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.HandleMark, align 8
   %7 = alloca %class.HandleMark, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5136
@@ -1745,7 +1745,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %9, %_ZN10Handl
 declare noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15LiveFrameStream24monitors_to_object_arrayEP13GrowableArrayIP11MonitorInfoEP10JavaThread(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN15LiveFrameStream24monitors_to_object_arrayEP13GrowableArrayIP11MonitorInfoEP10JavaThread(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
   %5 = tail call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %4, i32 noundef %3, ptr noundef %1) #14
@@ -2358,7 +2358,7 @@ declare void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dere
 declare void @_ZN9JavaCalls4callEP9JavaValueRK12methodHandleP17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9StackWalk14fetchNextBatchE6Handleiliii14objArrayHandleP10JavaThread(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, ptr noundef %7) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN9StackWalk14fetchNextBatchE6Handleiliii14objArrayHandleP10JavaThread(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, ptr noundef %7) local_unnamed_addr #2 align 2 {
   %9 = alloca i32, align 4
   %10 = alloca %class.KeepStackGCProcessedMark, align 8
   %11 = inttoptr i64 %6 to ptr
@@ -2491,7 +2491,7 @@ _ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StackWalk15setContinuationE6Handlel14objArrayHandleS0_P10JavaThread(ptr nocapture readnone %0, i64 noundef %1, ptr readonly %2, ptr readonly %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN9StackWalk15setContinuationE6Handlel14objArrayHandleS0_P10JavaThread(ptr readnone captures(none) %0, i64 noundef %1, ptr readonly %2, ptr readonly %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %9
 
@@ -5883,13 +5883,13 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -9,14 +9,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @WHIRLPOOL.m = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @WHIRLPOOL_Init(ptr nocapture noundef writeonly initializes((0, 168)) %c) local_unnamed_addr #0 {
+define noundef i32 @WHIRLPOOL_Init(ptr noundef writeonly captures(none) initializes((0, 168)) %c) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %c, i8 0, i64 168, i1 false)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @WHIRLPOOL_Update(ptr noundef %c, ptr noundef %_inp, i64 noundef %bytes) local_unnamed_addr #2 {
@@ -319,7 +319,7 @@ if.end179:                                        ; preds = %if.end52, %if.end17
 declare void @whirlpool_block(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
@@ -423,7 +423,7 @@ for.end41:                                        ; preds = %for.inc39
 
 if.then45:                                        ; preds = %for.end41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %md, ptr noundef nonnull align 8 dereferenceable(64) %c, i64 64, i1 false)
-  tail call void @OPENSSL_cleanse(ptr noundef %c, i64 noundef 168) #6
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %c, i64 noundef 168) #6
   br label %return
 
 return:                                           ; preds = %for.end41, %if.then45

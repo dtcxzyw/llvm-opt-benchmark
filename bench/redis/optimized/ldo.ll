@@ -66,12 +66,12 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @luaD_throw(ptr noundef %L, i32 noundef %errcode) local_unnamed_addr #3 {
@@ -204,7 +204,7 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaD_rawrunprotected(ptr noundef %L, ptr nocapture noundef readonly %f, ptr noundef %ud) local_unnamed_addr #0 {
+define hidden i32 @luaD_rawrunprotected(ptr noundef %L, ptr noundef readonly captures(none) %f, ptr noundef %ud) local_unnamed_addr #0 {
 entry:
   %lj = alloca %struct.lua_longjmp, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %lj) #8
@@ -1921,7 +1921,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaD_pcall(ptr noundef %L, ptr nocapture noundef readonly %func, ptr noundef %u, i64 noundef %old_top, i64 noundef %ef) local_unnamed_addr #0 {
+define hidden i32 @luaD_pcall(ptr noundef %L, ptr noundef readonly captures(none) %func, ptr noundef %u, i64 noundef %old_top, i64 noundef %ef) local_unnamed_addr #0 {
 entry:
   %nCcalls = getelementptr inbounds nuw i8, ptr %L, i64 96
   %0 = load i16, ptr %nCcalls, align 8, !tbaa !31
@@ -2099,7 +2099,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %call10 = tail call ptr @luaF_newupval(ptr noundef %L) #8
+  %call10 = tail call ptr @luaF_newupval(ptr noundef nonnull %L) #8
   %arrayidx = getelementptr inbounds nuw [1 x ptr], ptr %upvals, i64 0, i64 %indvars.iv
   store ptr %call10, ptr %arrayidx, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2160,7 +2160,7 @@ declare hidden ptr @luaF_newLclosure(ptr noundef, i32 noundef, ptr noundef) loca
 declare hidden ptr @luaF_newupval(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

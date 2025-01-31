@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3url20kSharedCharTypeTableE = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %address, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %address, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %str = alloca [16 x i8], align 16
   %cur_len_.i = getelementptr inbounds nuw i8, ptr %output, i64 20
@@ -135,7 +135,7 @@ for.end12:                                        ; preds = %for.end, %for.inc10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url17AppendIPv6AddressEPKhPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %address, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local void @_ZN3url17AppendIPv6AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %address, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %str = alloca [5 x i8], align 1
   br label %for.body.i
@@ -393,7 +393,7 @@ for.end22:                                        ; preds = %for.end, %if.end21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %components) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %components) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
@@ -499,7 +499,7 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %components) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %components) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
@@ -605,7 +605,7 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
+define dso_local void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef captures(none) %host_info) local_unnamed_addr #0 {
 entry:
   %address.i = getelementptr inbounds nuw i8, ptr %host_info, i64 16
   %num_ipv4_components.i = getelementptr inbounds nuw i8, ptr %host_info, i64 4
@@ -766,7 +766,7 @@ if.end3:                                          ; preds = %entry, %sw.bb.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url21CanonicalizeIPAddressEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
+define dso_local void @_ZN3url21CanonicalizeIPAddressEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef captures(none) %host_info) local_unnamed_addr #0 {
 entry:
   %address.i = getelementptr inbounds nuw i8, ptr %host_info, i64 16
   %num_ipv4_components.i = getelementptr inbounds nuw i8, ptr %host_info, i64 4
@@ -927,7 +927,7 @@ if.end3:                                          ; preds = %entry, %sw.bb.i, %_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %address, ptr noundef writeonly captures(none) %num_ipv4_components) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [17 x i8], align 16
   %components.i = alloca [4 x %"struct.url::Component"], align 16
@@ -1180,7 +1180,7 @@ sw.default.i.i.i:                                 ; preds = %for.end.i.i
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %sw.default.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %for.end.i.i
   %retval.0.i.i22.i = phi i32 [ 0, %sw.default.i.i.i ], [ 8, %sw.bb2.i.i.i ], [ 10, %sw.bb1.i.i.i ], [ 16, %for.end.i.i ]
-  %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
+  %call.i.i.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
   %cmp48.i.i = icmp ugt i64 %call.i.i.i, 4294967295
   br i1 %cmp48.i.i, label %if.end14.i, label %if.end14.fold.split.i
 
@@ -1275,7 +1275,7 @@ _ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RK
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %address, ptr noundef writeonly captures(none) %num_ipv4_components) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [17 x i8], align 16
   %components.i = alloca [4 x %"struct.url::Component"], align 16
@@ -1530,7 +1530,7 @@ sw.default.i.i.i:                                 ; preds = %for.end.i.i
 
 _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %sw.default.i.i.i, %sw.bb2.i.i.i, %sw.bb1.i.i.i, %for.end.i.i
   %retval.0.i.i22.i = phi i32 [ 0, %sw.default.i.i.i ], [ 8, %sw.bb2.i.i.i ], [ 10, %sw.bb1.i.i.i ], [ 16, %for.end.i.i ]
-  %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
+  %call.i.i.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
   %cmp49.i.i = icmp ugt i64 %call.i.i.i, 4294967295
   br i1 %cmp49.i.i, label %if.end14.i, label %if.end14.fold.split.i
 
@@ -1625,7 +1625,7 @@ _ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RK
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %address) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [5 x i8], align 1
   %ipv6_parsed.i = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
@@ -1897,7 +1897,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
   %idxprom4.i.us.i = sext i32 %arrayidx29.val21.us.i to i64
   %arrayidx5.i29.us.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
   store i8 0, ptr %arrayidx5.i29.us.i, align 1
-  %call.i.i.us.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
+  %call.i.i.us.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %shr5.us.i = lshr i64 %call.i.i.us.i, 8
   %conv32.us.i = trunc i64 %shr5.us.i to i8
@@ -1942,7 +1942,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
   %idxprom4.i.i = sext i32 %arrayidx29.val21.i to i64
   %arrayidx5.i29.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
   store i8 0, ptr %arrayidx5.i29.i, align 1
-  %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
+  %call.i.i.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %shr5.i = lshr i64 %call.i.i.i, 8
   %conv32.i = trunc i64 %shr5.i to i8
@@ -1983,7 +1983,7 @@ _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef writeonly captures(none) %address) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [5 x i8], align 1
   %ipv6_parsed.i = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
@@ -2265,7 +2265,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   %idxprom4.i.us.i = sext i32 %arrayidx29.val21.us.i to i64
   %arrayidx5.i29.us.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
   store i8 0, ptr %arrayidx5.i29.us.i, align 1
-  %call.i.i.us.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
+  %call.i.i.us.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %shr5.us.i = lshr i64 %call.i.i.us.i, 8
   %conv32.us.i = trunc i64 %shr5.us.i to i8
@@ -2320,7 +2320,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
   %idxprom4.i.i = sext i32 %arrayidx29.val21.i to i64
   %arrayidx5.i29.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
   store i8 0, ptr %arrayidx5.i29.i, align 1
-  %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
+  %call.i.i.i = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
   %shr5.i = lshr i64 %call.i.i.i, 8
   %conv32.i = trunc i64 %shr5.i to i8
@@ -2361,24 +2361,24 @@ _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ;
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

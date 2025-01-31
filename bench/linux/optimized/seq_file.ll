@@ -162,16 +162,16 @@ define dso_local noundef range(i32 -12, 1) i32 @seq_open(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @seq_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local i64 @seq_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca %struct.iovec, align 8
   %6 = alloca %struct.kiocb, align 8
   %7 = alloca %struct.iov_iter, align 8
@@ -249,13 +249,13 @@ define dso_local i64 @seq_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iov_iter_init(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @seq_read_iter(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i64 @seq_read_iter(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -745,7 +745,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, -9223372036854775808) i64 @seq_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, -9223372036854775808) i64 @seq_lseek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -807,7 +807,7 @@ define dso_local range(i64 -2147483648, -9223372036854775808) i64 @seq_lseek(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @seq_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef i32 @seq_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -821,7 +821,7 @@ define dso_local noundef i32 @seq_release(ptr nocapture readnone %0, ptr nocaptu
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_escape_mem(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local void @seq_escape_mem(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -880,7 +880,7 @@ define dso_local void @seq_escape_mem(ptr nocapture noundef %0, ptr noundef %1, 
 declare dso_local i32 @string_escape_mem(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @seq_vprintf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #5 align 16 {
+define dso_local void @seq_vprintf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -907,10 +907,10 @@ define dso_local void @seq_vprintf(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare dso_local noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @seq_printf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) #5 align 16 {
+define dso_local void @seq_printf(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) #5 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
@@ -943,7 +943,7 @@ define dso_local void @seq_printf(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_bprintf(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @seq_bprintf(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1032,7 +1032,7 @@ define dso_local ptr @mangle_path(ptr noundef writeonly %0, ptr noundef readonly
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @seq_path(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local i32 @seq_path(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1155,14 +1155,14 @@ define dso_local i32 @seq_path(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 declare dso_local ptr @d_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @seq_file_path(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @seq_file_path(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = tail call i32 @seq_path(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1308,7 +1308,7 @@ define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr nocapture noun
 declare dso_local ptr @__d_path(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @seq_dentry(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local i32 @seq_dentry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1431,7 +1431,7 @@ define dso_local i32 @seq_dentry(ptr nocapture noundef %0, ptr noundef %1, ptr n
 declare dso_local ptr @dentry_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @single_start(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define dso_local ptr @single_start(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %4, ptr inttoptr (i64 1 to ptr), ptr null
@@ -1497,7 +1497,7 @@ define dso_local noundef range(i32 -12, 1) i32 @single_open(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noalias noundef ptr @single_next(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #10 align 16 {
+define internal noalias noundef ptr @single_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #10 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -1505,7 +1505,7 @@ define internal noalias noundef ptr @single_next(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @single_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #11 align 16 {
+define internal void @single_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #11 align 16 {
   ret void
 }
 
@@ -1546,7 +1546,7 @@ define dso_local noundef range(i32 -12, 1) i32 @single_open_size(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @single_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef i32 @single_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -1560,7 +1560,7 @@ define dso_local noundef i32 @single_release(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @seq_release_private(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef i32 @seq_release_private(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1678,7 +1678,7 @@ __seq_open_private.exit:                          ; preds = %3, %16, %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @seq_putc(ptr nocapture noundef %0, i8 noundef zeroext %1) #12 align 16 {
+define dso_local void @seq_putc(ptr noundef captures(none) %0, i8 noundef zeroext %1) #12 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1699,7 +1699,7 @@ define dso_local void @seq_putc(ptr nocapture noundef %0, i8 noundef zeroext %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @seq_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #13 align 16 {
+define dso_local void @seq_puts(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #13 align 16 {
   %3 = tail call i64 @strlen(ptr noundef %1) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -1726,13 +1726,13 @@ define dso_local void @seq_puts(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ull_width(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @seq_put_decimal_ull_width(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 2
@@ -1828,13 +1828,13 @@ define dso_local void @seq_put_decimal_ull_width(ptr nocapture noundef %0, ptr n
 declare dso_local i32 @num_to_str(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ull(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @seq_put_decimal_ull(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @seq_put_hex_ll(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 16 {
+define dso_local void @seq_put_hex_ll(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %40, label %6
 
@@ -1947,7 +1947,7 @@ define dso_local void @seq_put_hex_ll(ptr nocapture noundef %0, ptr noundef read
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ll(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local void @seq_put_decimal_ll(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 3
@@ -2073,7 +2073,7 @@ define dso_local void @seq_put_decimal_ll(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -1, 1) i32 @seq_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #17 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @seq_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #17 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
@@ -2098,7 +2098,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_write(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @seq_pad(ptr nocapture noundef %0, i8 noundef zeroext %1) #12 align 16 {
+define dso_local void @seq_pad(ptr noundef captures(none) %0, i8 noundef zeroext %1) #12 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2153,7 +2153,7 @@ define dso_local void @seq_pad(ptr nocapture noundef %0, i8 noundef zeroext %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_hex_dump(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) #0 align 16 {
+define dso_local void @seq_hex_dump(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) #0 align 16 {
   %9 = icmp eq i32 %3, 32
   %10 = select i1 %9, i32 32, i32 16
   %11 = icmp eq i64 %6, 0
@@ -2322,7 +2322,7 @@ define dso_local ptr @seq_list_start_head(ptr noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @seq_list_next(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef %2) #10 align 16 {
+define dso_local ptr @seq_list_next(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #10 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -2383,7 +2383,7 @@ define dso_local ptr @seq_list_start_head_rcu(ptr noundef %0, i64 noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @seq_list_next_rcu(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef %2) #10 align 16 {
+define dso_local ptr @seq_list_next_rcu(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #10 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -2394,7 +2394,7 @@ define dso_local ptr @seq_list_next_rcu(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @seq_hlist_start(ptr nocapture noundef readonly %0, i64 noundef %1) #18 align 16 {
+define dso_local ptr @seq_hlist_start(ptr noundef readonly captures(none) %0, i64 noundef %1) #18 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -2417,7 +2417,7 @@ define dso_local ptr @seq_hlist_start(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @seq_hlist_start_head(ptr nocapture noundef readonly %0, i64 noundef %1) #18 align 16 {
+define dso_local ptr @seq_hlist_start_head(ptr noundef readonly captures(none) %0, i64 noundef %1) #18 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -2444,7 +2444,7 @@ define dso_local ptr @seq_hlist_start_head(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @seq_hlist_next(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #20 align 16 {
+define dso_local ptr @seq_hlist_next(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #20 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -2505,7 +2505,7 @@ define dso_local ptr @seq_hlist_start_head_rcu(ptr noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local ptr @seq_hlist_next_rcu(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #21 align 16 {
+define dso_local ptr @seq_hlist_next_rcu(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #21 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -2516,7 +2516,7 @@ define dso_local ptr @seq_hlist_next_rcu(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i64 noundef %2) #22 align 16 {
+define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, i64 noundef %2) #22 align 16 {
   %4 = ptrtoint ptr %0 to i64
   store i32 0, ptr %1, align 4
   br label %5
@@ -2577,7 +2577,7 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @seq_hlist_next_percpu(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local ptr @seq_hlist_next_percpu(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = add i64 %5, 1
   store i64 %6, ptr %3, align 8

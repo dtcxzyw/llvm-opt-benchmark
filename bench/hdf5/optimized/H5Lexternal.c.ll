@@ -83,7 +83,7 @@ declare i32 @H5L_register(ptr noundef) local_unnamed_addr #1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, i64 %3, i64 noundef %4, i64 %5) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2, i64 %3, i64 noundef %4, i64 %5) #0 {
   %7 = alloca %struct.H5G_loc_t, align 8
   %8 = alloca %struct.H5G_loc_t, align 8
   %9 = alloca i32, align 4
@@ -442,7 +442,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @H5L__extern_query(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #0 {
+define internal noundef i64 @H5L__extern_query(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #0 {
   %6 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %6, 16
   br i1 %.not, label %11, label %7
@@ -478,7 +478,7 @@ define internal noundef i64 @H5L__extern_query(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @H5P_object_verify(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -516,7 +516,7 @@ declare i32 @H5F_efc_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

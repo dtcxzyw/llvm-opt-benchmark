@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.json_typeof = private unnamed_addr constant [11 x ptr] [ptr @.str.32, ptr @.str.33, ptr @.str.30, ptr poison, ptr @.str.31, ptr poison, ptr poison, ptr poison, ptr @.str.34, ptr @.str.34, ptr @.str.19], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_in(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -114,7 +114,7 @@ declare ptr @makeJsonLexContext(ptr noundef, ptr noundef, i1 noundef zeroext) lo
 declare zeroext i1 @pg_parse_json_or_errsave(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -126,7 +126,7 @@ define dso_local i64 @json_out(ptr nocapture noundef readonly %0) local_unnamed_
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -185,7 +185,7 @@ declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.JsonLexContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -402,7 +402,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_to_json(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_to_json(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @makeStringInfo() #9
@@ -470,7 +470,7 @@ define internal fastcc void @array_to_json_internal(i64 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_to_json_pretty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_to_json_pretty(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -487,7 +487,7 @@ define dso_local i64 @array_to_json_pretty(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @row_to_json(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @row_to_json(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @makeStringInfo() #9
@@ -715,7 +715,7 @@ heap_getattr.exit:                                ; preds = %39, %63, %66, %69, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @row_to_json_pretty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @row_to_json_pretty(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -766,7 +766,7 @@ declare void @json_categorize_type(i32 noundef, i1 noundef zeroext, ptr noundef,
 declare signext i8 @func_volatile(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_json(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_json(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1174,7 +1174,7 @@ define dso_local i64 @json_agg_strict_transfn(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_agg_finalfn(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_agg_finalfn(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1426,7 +1426,7 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %110)
   %111 = call i32 @errcode(i32 noundef 786562) #9
-  %112 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %100) #9
+  %112 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %100) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1110, ptr noundef nonnull @__func__.json_object_agg_transfn_worker) #9
   unreachable
 
@@ -1480,7 +1480,7 @@ define dso_local i64 @json_object_agg_unique_strict_transfn(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @json_object_agg_finalfn(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @json_object_agg_finalfn(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1522,7 +1522,7 @@ define dso_local noundef i64 @json_object_agg_finalfn(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.JsonUniqueHashEntry, align 8
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -1690,7 +1690,7 @@ add_json.exit:                                    ; preds = %62
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %84)
   %85 = call i32 @errcode(i32 noundef 786562) #9
-  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %77) #9
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %77) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1274, ptr noundef nonnull @__func__.json_build_object_worker) #9
   unreachable
 
@@ -1798,14 +1798,14 @@ define dso_local i64 @json_build_object(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @extract_variadic_args(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_build_object_noargs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @json_build_object_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.14, i32 noundef 2) #9
   %3 = ptrtoint ptr %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call ptr @makeStringInfo() #9
   tail call void @appendStringInfoChar(ptr noundef %6, i8 noundef signext 91) #9
   %7 = icmp sgt i32 %0, 0
@@ -1924,14 +1924,14 @@ json_build_array_worker.exit:                     ; preds = %.lr.ph.split.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_build_array_noargs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @json_build_array_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull @.str.15, i32 noundef 2) #9
   %3 = ptrtoint ptr %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_object(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2089,7 +2089,7 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @escape_json(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @escape_json(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -2234,7 +2234,7 @@ define dso_local void @escape_json(ptr noundef %0, ptr nocapture noundef readonl
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_object_two_arg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2471,10 +2471,10 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_unique_object_start(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_unique_object_start(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -2499,7 +2499,7 @@ define internal noundef i32 @json_unique_object_start(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_unique_object_field_start(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2) #0 {
+define internal noundef i32 @json_unique_object_field_start(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2) #0 {
   %4 = alloca %struct.JsonUniqueHashEntry, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2550,7 +2550,7 @@ define internal noundef i32 @json_unique_object_field_start(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_unique_object_end(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @json_unique_object_end(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -2575,7 +2575,7 @@ declare void @json_errsave_error(i32 noundef, ptr noundef, ptr noundef) local_un
 declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_typeof(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2629,7 +2629,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = select i1 %9, ptr @.str.36, ptr @.str.37
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 91) #9
   %12 = sext i32 %1 to i64
@@ -2709,15 +2709,15 @@ declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_u
 declare i32 @AggCheckCallContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @json_unique_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i32 @json_unique_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @hash_bytes_uint32(i32 noundef %4) #9
@@ -2730,7 +2730,7 @@ define internal i32 @json_unique_hash(ptr nocapture noundef readonly %0, i64 %1)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @json_unique_hash_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #6 {
+define internal i32 @json_unique_hash_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2775,16 +2775,16 @@ declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #1
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

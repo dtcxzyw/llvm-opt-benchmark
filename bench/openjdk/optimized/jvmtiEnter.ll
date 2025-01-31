@@ -114,7 +114,7 @@ $_ZN12ResourceMarkD2Ev = comdat any
 @switch.table._ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities = private unnamed_addr constant [31 x i64] [i64 131072, i64 131072, i64 65536, i64 262144, i64 524288, i64 4, i64 2, i64 16777216, i64 33554432, i64 1073741824, i64 134217728, i64 134217728, i64 poison, i64 poison, i64 poison, i64 268435456, i64 268435456, i64 268435456, i64 268435456, i64 poison, i64 poison, i64 poison, i64 poison, i64 2147483648, i64 2147483648, i64 4294967296, i64 536870912, i64 poison, i64 8796093022208, i64 17592186044416, i64 17592186044416], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -58
   %3 = icmp ult i32 %switch.tableidx, 31
   br i1 %3, label %switch.hole_check, label %8
@@ -19393,7 +19393,7 @@ declare noundef i32 @_ZN8JvmtiEnv23SetHeapSamplingIntervalEi(ptr noundef nonnull
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

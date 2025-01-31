@@ -56,7 +56,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #18
   ret ptr %2
 }
@@ -65,7 +65,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @view(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @view(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
@@ -147,7 +147,7 @@ define internal i32 @_capture_view_get_selected_imgid(ptr noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @free(ptr noundef %3) #18
@@ -155,10 +155,10 @@ define void @cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @configure(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @configure(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   ret void
 }
 
@@ -868,15 +868,15 @@ declare void @cairo_save(ptr noundef) local_unnamed_addr #7
 declare void @cairo_restore(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 declare i32 @dt_lib_is_visible_in_view(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @try_enter(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !45
   %3 = tail call i32 @dt_camctl_can_enter_tether_mode(ptr noundef %2, ptr noundef null) #18
   %4 = icmp eq i32 %3, 0
@@ -1019,7 +1019,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #7
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @_capture_mipmaps_updated_signal_callback(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_capture_mipmaps_updated_signal_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   store i32 %1, ptr %5, align 8, !tbaa !44
@@ -1035,7 +1035,7 @@ define internal void @_capture_mipmaps_updated_signal_callback(ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_view_capture_filmstrip_activate_callback(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_view_capture_filmstrip_activate_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   store i32 %1, ptr %5, align 8, !tbaa !44
@@ -1064,7 +1064,7 @@ define internal void @_view_capture_filmstrip_activate_callback(ptr nocapture re
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal void @_camera_capture_image_downloaded(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4) #1 {
+define internal void @_camera_capture_image_downloaded(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !125
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !42
@@ -1075,7 +1075,7 @@ define internal void @_camera_capture_image_downloaded(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_camera_request_image_path(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal ptr @_camera_request_image_path(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = tail call ptr @dt_import_session_path(ptr noundef %5, i32 noundef 0) #18
@@ -1083,7 +1083,7 @@ define internal ptr @_camera_request_image_path(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_camera_request_image_filename(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) #1 {
+define internal noalias ptr @_camera_request_image_filename(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void @dt_import_session_set_filename(ptr noundef %6, ptr noundef %1) #18
@@ -1165,12 +1165,12 @@ declare void @dt_import_session_destroy(ptr noundef) local_unnamed_addr #7
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @mouse_moved(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [20 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %8 = load ptr, ptr %7, align 8, !tbaa !6
@@ -1272,14 +1272,14 @@ define void @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, d
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @dt_camctl_camera_set_property_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !46
@@ -1345,7 +1345,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonl
 declare void @dt_control_change_cursor(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_released(ptr noundef readnone captures(none) %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %3, 1
   br i1 %6, label %7, label %12
 
@@ -1412,7 +1412,7 @@ declare i32 @dt_view_image_get_surface(i32 noundef, i32 noundef, i32 noundef, pt
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_expose_again(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @_expose_again(ptr readnone captures(none) %0) #1 {
   tail call void (...) @dt_control_queue_redraw_center() #18
   ret i32 0
 }
@@ -1426,12 +1426,12 @@ declare i32 @cairo_image_surface_get_height(ptr noundef) local_unnamed_addr #7
 declare void @dt_control_log_busy_leave(...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_tethering_bpp(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @_tethering_bpp(ptr readnone captures(none) %0) #0 {
   ret i32 32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @_tethering_write_image(ptr nocapture noundef initializes((152, 160)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr nocapture readnone %10, i32 %11) #13 {
+define internal noundef i32 @_tethering_write_image(ptr noundef captures(none) initializes((152, 160)) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr readnone captures(none) %10, i32 %11) #13 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !109
   %15 = sext i32 %14 to i64
@@ -1448,12 +1448,12 @@ define internal noundef i32 @_tethering_write_image(ptr nocapture noundef initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_tethering_levels(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @_tethering_levels(ptr readnone captures(none) %0) #0 {
   ret i32 260
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_tethering_mime(ptr nocapture readnone %0) #0 {
+define internal noundef nonnull ptr @_tethering_mime(ptr readnone captures(none) %0) #0 {
   ret ptr @.str.19
 }
 
@@ -1484,7 +1484,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare void @dt_thumbtable_full_redraw(ptr noundef, i32 noundef) local_unnamed_addr #7
 

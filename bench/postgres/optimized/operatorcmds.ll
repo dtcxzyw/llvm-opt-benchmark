@@ -404,7 +404,7 @@ declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @defGetTypeName(ptr noundef) local_unnamed_addr #1
 
@@ -623,7 +623,7 @@ declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [15 x i64], align 16
   %3 = alloca [15 x i8], align 1
   %4 = alloca [15 x i8], align 1
@@ -1128,7 +1128,7 @@ declare ptr @op_signature_string(ptr noundef, i32 noundef, i32 noundef) local_un
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

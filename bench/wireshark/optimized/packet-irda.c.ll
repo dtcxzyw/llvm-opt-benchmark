@@ -558,7 +558,7 @@ define hidden zeroext range(i8 0, 112) i8 @check_iap_lsap_result(ptr noundef %0,
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @add_lmp_conversation(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden void @add_lmp_conversation(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca %struct._address, align 8
@@ -713,7 +713,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_irda(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_irda(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca [300 x i8], align 16
   %7 = alloca i8, align 1
@@ -785,7 +785,7 @@ define internal i32 @dissect_irda(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %48 = load ptr, ptr %21, align 8
   %49 = load ptr, ptr %30, align 8
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
-  %51 = tail call ptr @format_text(ptr noundef %49, ptr noundef %32, i64 noundef %50) #6
+  %51 = tail call ptr @format_text(ptr noundef %49, ptr noundef nonnull %32, i64 noundef %50) #6
   tail call void @col_add_str(ptr noundef %48, i32 noundef 25, ptr noundef %51) #6
   br label %52
 
@@ -1167,10 +1167,10 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   %243 = load ptr, ptr %64, align 8
   %244 = load ptr, ptr %236, align 8
   %245 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %238) #7
-  %246 = call ptr @format_text(ptr noundef %244, ptr noundef %238, i64 noundef %245) #6
+  %246 = call ptr @format_text(ptr noundef %244, ptr noundef nonnull %238, i64 noundef %245) #6
   %247 = load ptr, ptr %236, align 8
   %248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %242) #7
-  %249 = call ptr @format_text(ptr noundef %247, ptr noundef %242, i64 noundef %248) #6
+  %249 = call ptr @format_text(ptr noundef %247, ptr noundef nonnull %242, i64 noundef %248) #6
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %243, i32 noundef 25, ptr noundef nonnull @.str.242, ptr noundef %246, ptr noundef %249) #6
   br i1 %.not116123.i.i.i, label %.loopexit.i.i.i, label %.preheader135.i.preheader.i.i
 
@@ -1269,7 +1269,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
 .thread132.i.i.i:                                 ; preds = %293, %283, %268, %.thread124.i.i.i
   %.0.i.i.i = phi i32 [ %292, %283 ], [ 1, %268 ], [ %294, %293 ], [ 1, %.thread124.i.i.i ]
   %295 = call ptr @tvb_new_subset_remaining(ptr noundef %.0.i.i, i32 noundef %.0.i.i.i) #6
-  %296 = call i32 @call_data_dissector(ptr noundef %295, ptr noundef %1, ptr noundef %2) #6
+  %296 = call i32 @call_data_dissector(ptr noundef %295, ptr noundef nonnull %1, ptr noundef %2) #6
   br label %dissect_iap_request.exit.i.i
 
 dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %174
@@ -1534,7 +1534,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %423 = load ptr, ptr %422, align 8
   %424 = load i8, ptr %5, align 1
   %425 = trunc nuw nsw i64 %indvars.iv.i148.i.i to i32
-  %426 = call i32 %423(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef %1, ptr noundef %412, i32 noundef %425, i8 noundef zeroext 1, i8 noundef zeroext %424) #6
+  %426 = call i32 %423(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef nonnull %1, ptr noundef %412, i32 noundef %425, i8 noundef zeroext 1, i8 noundef zeroext %424) #6
   %.not247.i.i.i = icmp eq i32 %426, 0
   br i1 %.not247.i.i.i, label %427, label %461
 
@@ -1558,7 +1558,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %437 = load ptr, ptr %436, align 8
   %438 = load i8, ptr %5, align 1
   %439 = trunc nuw nsw i64 %indvars.iv.i148.i.i to i32
-  %440 = call i32 %437(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef %1, ptr noundef %412, i32 noundef %439, i8 noundef zeroext 2, i8 noundef zeroext %438) #6
+  %440 = call i32 %437(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef nonnull %1, ptr noundef %412, i32 noundef %439, i8 noundef zeroext 2, i8 noundef zeroext %438) #6
   %.not244.i.i.i = icmp eq i32 %440, 0
   br i1 %.not244.i.i.i, label %441, label %461
 
@@ -1584,7 +1584,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %453 = load ptr, ptr %452, align 8
   %454 = load i8, ptr %5, align 1
   %455 = trunc nuw nsw i64 %indvars.iv.i148.i.i to i32
-  %456 = call i32 %453(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef %1, ptr noundef %412, i32 noundef %455, i8 noundef zeroext 3, i8 noundef zeroext %454) #6
+  %456 = call i32 %453(ptr noundef %.0.i.i, i32 noundef %417, ptr noundef nonnull %1, ptr noundef %412, i32 noundef %455, i8 noundef zeroext 3, i8 noundef zeroext %454) #6
   %.not241.i.i.i = icmp eq i32 %456, 0
   br i1 %.not241.i.i.i, label %457, label %461
 
@@ -1658,7 +1658,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %487 = getelementptr inbounds nuw i8, ptr %.sink285.i.i.i, i64 8
   %488 = load ptr, ptr %487, align 8
   %489 = load i8, ptr %5, align 1
-  %490 = call i32 %488(ptr noundef %.0.i.i, i32 noundef %471, ptr noundef %1, ptr noundef null, i32 noundef %.3269.i.i.i, i8 noundef zeroext %470, i8 noundef zeroext %489) #6
+  %490 = call i32 %488(ptr noundef %.0.i.i, i32 noundef %471, ptr noundef nonnull %1, ptr noundef null, i32 noundef %.3269.i.i.i, i8 noundef zeroext %470, i8 noundef zeroext %489) #6
   br label %491
 
 491:                                              ; preds = %.sink.split.i.i.i, %485, %480, %478, %475, %473, %472, %468
@@ -1672,7 +1672,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
 .thread253.i.i.i:                                 ; preds = %461, %491, %.preheader.i150.i.i, %380, %363, %.thread.i146.i.i
   %.1.i147.i.i = phi i32 [ 2, %363 ], [ 2, %.thread.i146.i.i ], [ 4, %.preheader.i150.i.i ], [ 4, %380 ], [ %493, %491 ], [ %462, %461 ]
   %496 = call ptr @tvb_new_subset_remaining(ptr noundef %.0.i.i, i32 noundef %.1.i147.i.i) #6
-  %497 = call i32 @call_data_dissector(ptr noundef %496, ptr noundef %1, ptr noundef %2) #6
+  %497 = call i32 @call_data_dissector(ptr noundef %496, ptr noundef nonnull %1, ptr noundef %2) #6
   br label %dissect_iap_result.exit.i.i
 
 dissect_iap_result.exit.i.i:                      ; preds = %.thread253.i.i.i, %299
@@ -1886,7 +1886,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @irda_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal i32 @irda_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -1899,12 +1899,12 @@ define internal i32 @irda_addr_to_str(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @irda_addr_str_len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @irda_addr_str_len(ptr readnone captures(none) %0) #2 {
   ret i32 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @irda_col_filter_str(ptr nocapture readnone %0, i32 %1) #2 {
+define internal noundef nonnull ptr @irda_col_filter_str(ptr readnone captures(none) %0, i32 %1) #2 {
   ret ptr @.str.4
 }
 
@@ -1935,14 +1935,14 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @dissect_xdlc_control(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2526,7 +2526,7 @@ define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noun
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_xid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %7
@@ -2802,7 +2802,7 @@ switch.lookup:                                    ; preds = %131
   %137 = load ptr, ptr %16, align 8
   %138 = load ptr, ptr %134, align 8
   %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #7
-  %140 = call ptr @format_text(ptr noundef %138, ptr noundef %136, i64 noundef %139) #6
+  %140 = call ptr @format_text(ptr noundef %138, ptr noundef nonnull %136, i64 noundef %139) #6
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %140) #6
   br i1 %.not150, label %144, label %.sink.split
 
@@ -2981,7 +2981,7 @@ dissect_ttp.exit:                                 ; preds = %44, %47, %55
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2992,10 +2992,10 @@ declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare void @guint32_to_str_buf(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

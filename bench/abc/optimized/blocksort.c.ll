@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @incs = internal unnamed_addr constant [14 x i32] [i32 1, i32 4, i32 13, i32 40, i32 121, i32 364, i32 1093, i32 3280, i32 9841, i32 29524, i32 88573, i32 265720, i32 797161, i32 2391484], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @BZ2_blockSort(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [100 x i32], align 16
   %3 = alloca [100 x i32], align 16
   %4 = alloca [100 x i32], align 16
@@ -1286,7 +1286,7 @@ mainSort.exit:                                    ; preds = %mainQSort3.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [100 x i32], align 16
   %7 = alloca [100 x i32], align 16
   %8 = alloca [257 x i32], align 16
@@ -2114,12 +2114,12 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 10000, -2147483648) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
+define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 10000, -2147483648) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
   %7 = zext i32 %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = load i8, ptr %8, align 1
@@ -2569,7 +2569,7 @@ declare i32 @llvm.smax.i32(i32, i32) #4
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #4
@@ -2578,16 +2578,16 @@ declare i16 @llvm.fshl.i16(i16, i16, i16) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4

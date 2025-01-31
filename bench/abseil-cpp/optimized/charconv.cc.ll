@@ -22,7 +22,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RdNS_12chars_formatE(ptr noundef %first, ptr noundef %last, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %value, i32 noundef %fmt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RdNS_12chars_formatE(ptr noundef %first, ptr noundef %last, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %value, i32 noundef %fmt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %n_char_sequence.i148.i = alloca [128 x i8], align 16
   %n_char_sequence.i50.i = alloca [128 x i8], align 16
@@ -792,7 +792,7 @@ _ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RfNS_12chars_formatE(ptr noundef %first, ptr noundef %last, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %value, i32 noundef %fmt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RfNS_12chars_formatE(ptr noundef %first, ptr noundef %last, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %value, i32 noundef %fmt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %n_char_sequence.i149.i = alloca [128 x i8], align 16
   %n_char_sequence.i51.i = alloca [128 x i8], align 16
@@ -1569,7 +1569,7 @@ declare void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPK
 declare void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare double @nan(ptr nocapture noundef) local_unnamed_addr #4
+declare double @nan(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1696,7 +1696,7 @@ declare noundef i32 @_ZNK4absl16strings_internal11BigUnsignedILi84EE4sizeEv(ptr 
 declare noundef i32 @_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi(ptr noundef nonnull align 4 dereferenceable(340), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare float @nanf(ptr nocapture noundef) local_unnamed_addr #4
+declare float @nanf(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_charconv.cc() #6 section ".text.startup" {
@@ -1710,16 +1710,16 @@ entry:
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

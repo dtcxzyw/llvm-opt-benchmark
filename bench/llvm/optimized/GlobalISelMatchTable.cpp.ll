@@ -1091,7 +1091,7 @@ _ZNSt10unique_ptrIN4llvm2gi12GroupMatcherESt14default_deleteIS2_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm2gi12GroupMatcher10addMatcherERNS0_7MatcherE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm2gi12GroupMatcher10addMatcherERNS0_7MatcherE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2425,7 +2425,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit80:               ; preds = %347, %349
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm2gi23emitEncodingMacrosUndefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 {
@@ -2655,7 +2655,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %113, %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi23getNameForFeatureBitsetB5cxx11ERKSt6vectorIPNS_6RecordESaIS3_EEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2gi23getNameForFeatureBitsetB5cxx11ERKSt6vectorIPNS_6RecordESaIS3_EEi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.27", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -2852,7 +2852,7 @@ define linkonce_odr hidden void @_ZNSt3setIN4llvm2gi10LLTCodeGenESt4lessIS2_ESaI
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi16MatchTableRecord4emitERNS_11raw_ostreamEbRKNS0_10MatchTableE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi16MatchTableRecord4emitERNS_11raw_ostreamEbRKNS0_10MatchTableE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(66) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -4150,7 +4150,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable10JumpTargetEj(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi10MatchTable7emitUseERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi10MatchTable7emitUseERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(66) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4181,7 +4181,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi10MatchTable15emitDeclarationERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi10MatchTable15emitDeclarationERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(66) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.27", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4565,7 +4565,7 @@ _ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEC2ERKS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi10LLTCodeGen15getCxxEnumValueB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi10LLTCodeGen15getCxxEnumValueB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4586,7 +4586,7 @@ define dso_local void @_ZNK4llvm2gi10LLTCodeGen15getCxxEnumValueB5cxx11Ev(ptr de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi10LLTCodeGen16emitCxxEnumValueERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi10LLTCodeGen16emitCxxEnumValueERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %4, 1
@@ -5062,7 +5062,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %17, %14, %10, %_ZNK
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi10LLTCodeGen22emitCxxConstructorCallERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi10LLTCodeGen22emitCxxConstructorCallERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %4, 1
@@ -5745,17 +5745,17 @@ _ZNK4llvm3MVT9isIntegerEv.exit.thread:            ; preds = %23, %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm2gi7Matcher8optimizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm2gi7Matcher8optimizeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm2gi7MatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm2gi7MatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm2gi7MatcherD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm2gi7MatcherD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #31
   unreachable
 }
@@ -5764,7 +5764,7 @@ define dso_local void @_ZN4llvm2gi7MatcherD0Ev(ptr nocapture nonnull readnone al
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi12GroupMatcher25candidateConditionMatchesERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi12GroupMatcher25candidateConditionMatchesERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6355,7 +6355,7 @@ _ZNSt6vectorIPN4llvm2gi7MatcherESaIS3_EED2Ev.exit8: ; preds = %_ZNSt6vectorIPN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @_ZN4llvm2gi11RuleMatcher27getFirstConditionAsRootTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #8 align 2 {
+define dso_local i64 @_ZN4llvm2gi11RuleMatcher27getFirstConditionAsRootTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -6398,7 +6398,7 @@ define dso_local i64 @_ZN4llvm2gi11RuleMatcher27getFirstConditionAsRootTypeEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm2gi13SwitchMatcher24isSupportedPredicateTypeERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm2gi13SwitchMatcher24isSupportedPredicateTypeERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -6503,7 +6503,7 @@ _ZNKSt3setIN4llvm2gi16MatchTableRecordESt4lessIS2_ESaIS2_EE5countERKS2_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi13SwitchMatcher8finalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi13SwitchMatcher8finalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::unique_ptr.16", align 8
   %3 = alloca %"class.std::unique_ptr.16", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6619,7 +6619,7 @@ _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi13SwitchMatcher28emitPredicateSpecificOpcodesERKNS0_16PredicateMatcherERNS0_10MatchTableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi13SwitchMatcher28emitPredicateSpecificOpcodesERKNS0_16PredicateMatcherERNS0_10MatchTableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator.27", align 1
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -7587,7 +7587,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %372, %._crit_edge10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #10 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -7654,7 +7654,7 @@ _ZN4llvm2gi18InstructionMatcher9getOpcodeEv.exit: ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm2gi11RuleMatcher8optimizeEv(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #0 align 2 {
@@ -8961,7 +8961,7 @@ _ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_delete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi11RuleMatcher17hasFirstConditionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi11RuleMatcher17hasFirstConditionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9042,7 +9042,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm2gi11RuleMatcher17getFirstConditionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm2gi11RuleMatcher17getFirstConditionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -9121,7 +9121,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher17popFirstConditionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.16") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher17popFirstConditionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.16") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -9264,7 +9264,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i16 @_ZN4llvm2gi11RuleMatcher15updateGISelFlagEtPKNS_6RecordENS_9StringRefEt(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %0, i16 noundef zeroext %1, ptr noundef nonnull %2, ptr nocapture readnone %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i16 @_ZN4llvm2gi11RuleMatcher15updateGISelFlagEtPKNS_6RecordENS_9StringRefEt(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(448) %0, i16 noundef zeroext %1, ptr noundef nonnull %2, ptr readnone captures(none) %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i8, align 1
   store i8 0, ptr %7, align 1
   %8 = call noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.67, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %7) #30
@@ -9281,7 +9281,7 @@ define dso_local noundef zeroext i16 @_ZN4llvm2gi11RuleMatcher15updateGISelFlagE
 declare noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SaveAndRestore") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::SaveAndRestore") align 8 captures(none) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -9402,7 +9402,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher23defineComplexSubOperandENS_9StringRefEPNS_6RecordEjjS2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr %2, i64 %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher23defineComplexSubOperandENS_9StringRefEPNS_6RecordEjjS2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr %2, i64 %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.27", align 1
@@ -9799,7 +9799,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm2gi11R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher18addRequiredFeatureEPNS_6RecordE(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher18addRequiredFeatureEPNS_6RecordE(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
@@ -10395,7 +10395,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_6RecordEPNS_2gi14OperandMatcherENS_12De
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(208) ptr @_ZNK4llvm2gi11RuleMatcher21getInstructionMatcherENS_9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(208) ptr @_ZNK4llvm2gi11RuleMatcher21getInstructionMatcherENS_9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -10433,7 +10433,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread13:       ; preds = %8, %_ZN4llvmeqENS_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZNK4llvm2gi11RuleMatcher24getPhysRegOperandMatcherEPNS_6RecordE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZNK4llvm2gi11RuleMatcher24getPhysRegOperandMatcherEPNS_6RecordE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -11412,7 +11412,7 @@ _ZNSt8functionIFbRKN4llvm2gi16PredicateMatcherEEED2Ev.exit13: ; preds = %._crit_
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi11RuleMatcher20isHigherPriorityThanERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi11RuleMatcher20isHigherPriorityThanERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -11470,7 +11470,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm2gi11RuleMatcher20isHigherPriority
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm2gi18InstructionMatcher20isHigherPriorityThanERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm2gi18InstructionMatcher20isHigherPriorityThanERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -11620,7 +11620,7 @@ _ZN4llvm6detail10zip_commonINS0_12zip_shortestIJSt15_Deque_iteratorISt10unique_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm2gi11RuleMatcher16countRendererFnsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm2gi11RuleMatcher16countRendererFnsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11750,29 +11750,29 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm2gi16PredicateMatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm2gi16PredicateMatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm2gi16PredicateMatcherD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm2gi16PredicateMatcherD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #31
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm2gi23OperandPredicateMatcherD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm2gi23OperandPredicateMatcherD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm2gi23OperandPredicateMatcherD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm2gi23OperandPredicateMatcherD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #31
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi23OperandPredicateMatcher20isHigherPriorityThanERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi23OperandPredicateMatcher20isHigherPriorityThanERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 18
@@ -12456,7 +12456,7 @@ _ZNKSt3mapIN4llvm2gi10LLTCodeGenEjSt4lessIS2_ESaISt4pairIKS2_jEEE5countERS6_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi17LLTOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi17LLTOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -12637,7 +12637,7 @@ define dso_local void @_ZNK4llvm2gi17LLTOperandMatcher20emitPredicateOpcodesERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi26PointerToAnyOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi26PointerToAnyOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -12779,7 +12779,7 @@ define dso_local void @_ZNK4llvm2gi26PointerToAnyOperandMatcher20emitPredicateOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi25RecordNamedOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi25RecordNamedOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"class.std::allocator.27", align 1
@@ -12970,7 +12970,7 @@ define dso_local void @_ZNK4llvm2gi25RecordNamedOperandMatcher20emitPredicateOpc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi18RecordRegisterType20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi18RecordRegisterType20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13111,7 +13111,7 @@ define dso_local void @_ZNK4llvm2gi18RecordRegisterType20emitPredicateOpcodesERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi28ComplexPatternOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi28ComplexPatternOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13305,7 +13305,7 @@ define dso_local void @_ZNK4llvm2gi28ComplexPatternOperandMatcher20emitPredicate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm2gi28ComplexPatternOperandMatcher29getAllocatedTemporariesBaseIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4llvm2gi28ComplexPatternOperandMatcher29getAllocatedTemporariesBaseIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -13314,7 +13314,7 @@ define dso_local noundef i32 @_ZNK4llvm2gi28ComplexPatternOperandMatcher29getAll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi26RegisterBankOperandMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi26RegisterBankOperandMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13386,7 +13386,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm2gi16PredicateMatcher11i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi26RegisterBankOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi26RegisterBankOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13596,7 +13596,7 @@ define dso_local void @_ZNK4llvm2gi26RegisterBankOperandMatcher20emitPredicateOp
 declare void @_ZNK4llvm20CodeGenRegisterClass18getQualifiedIdNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(684)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi17MBBOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi17MBBOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13702,7 +13702,7 @@ define dso_local void @_ZNK4llvm2gi17MBBOperandMatcher20emitPredicateOpcodesERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi17ImmOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi17ImmOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13808,7 +13808,7 @@ define dso_local void @_ZNK4llvm2gi17ImmOperandMatcher20emitPredicateOpcodesERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi25ConstantIntOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi25ConstantIntOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13927,7 +13927,7 @@ define dso_local void @_ZNK4llvm2gi25ConstantIntOperandMatcher20emitPredicateOpc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi24LiteralIntOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi24LiteralIntOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -14040,7 +14040,7 @@ define dso_local void @_ZNK4llvm2gi24LiteralIntOperandMatcher20emitPredicateOpco
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi26CmpPredicateOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi26CmpPredicateOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -14182,7 +14182,7 @@ define dso_local void @_ZNK4llvm2gi26CmpPredicateOperandMatcher20emitPredicateOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi25IntrinsicIDOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi25IntrinsicIDOperandMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"class.std::allocator.27", align 1
@@ -14347,7 +14347,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %61, %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi26OperandImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi26OperandImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -14591,7 +14591,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi14OperandMatcher14getOperandExprB5cxx11Ej(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi14OperandMatcher14getOperandExprB5cxx11Ej(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14675,7 +14675,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm2gi14OperandMatcher12getInsnVarIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4llvm2gi14OperandMatcher12getInsnVarIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -14684,7 +14684,7 @@ define dso_local noundef i32 @_ZNK4llvm2gi14OperandMatcher12getInsnVarIDEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm2gi14OperandMatcher14getTempTypeIdxERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr nocapture noundef nonnull align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN4llvm2gi14OperandMatcher14getTempTypeIdxERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, -1
@@ -15093,7 +15093,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm2gi14OperandMatcher20isHigherPriorityThanERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm2gi14OperandMatcher20isHigherPriorityThanERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -15231,7 +15231,7 @@ _ZN4llvm6detail10zip_commonINS0_12zip_shortestIJSt15_Deque_iteratorISt10unique_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm2gi14OperandMatcher16countRendererFnsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(153) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm2gi14OperandMatcher16countRendererFnsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !noalias !951
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -15280,7 +15280,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi14OperandMatcher21addTypeCheckPredicateERKNS_15TypeSetByHwModeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(153) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi14OperandMatcher21addTypeCheckPredicateERKNS_15TypeSetByHwModeEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(153) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::optional.98", align 8
@@ -16010,7 +16010,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_18CodeGenInstructionEjNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher12getInstValueEPKNS_18CodeGenInstructionE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher12getInstValueEPKNS_18CodeGenInstructionE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN4llvm2gi24InstructionOpcodeMatcher12OpcodeValuesE, align 8
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm2gi24InstructionOpcodeMatcher12OpcodeValuesE, i64 16), align 8
   %6 = icmp eq i32 %5, 0
@@ -16292,7 +16292,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18CodeGenInstructionEjNS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher8getValueEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher8getValueEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -16370,7 +16370,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_18CodeGenInstructionEjNS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi24InstructionOpcodeMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -16538,7 +16538,7 @@ _ZNK4llvm2gi24InstructionOpcodeMatcher12getInstValueEPKNS_18CodeGenInstructionE.
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher20isHigherPriorityThanERKNS0_27InstructionPredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher20isHigherPriorityThanERKNS0_27InstructionPredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16633,7 +16633,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %10, %5, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher9getOpcodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #8 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher9getOpcodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -16649,7 +16649,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher9getOpcodeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher21isVariadicNumOperandsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher21isVariadicNumOperandsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -16660,7 +16660,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm2gi24InstructionOpcodeMatcher21isV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher14getOperandTypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher14getOperandTypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -16676,7 +16676,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm2gi24InstructionOpcodeMatcher14getOperan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi29InstructionNumOperandsMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi29InstructionNumOperandsMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -16799,7 +16799,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi30InstructionImmPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi30InstructionImmPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16837,7 +16837,7 @@ _ZNK4llvm2gi16PredicateMatcher11isIdenticalERKS1_.exit.thread: ; preds = %2, %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi30InstructionImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi30InstructionImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -17005,7 +17005,7 @@ _ZN4llvm2gi12_GLOBAL__N_129getMatchOpcodeForImmPredicateB5cxx11ERKNS_15TreePredi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi33AtomicOrderingMMOPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi33AtomicOrderingMMOPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17064,7 +17064,7 @@ _ZNK4llvm2gi16PredicateMatcher11isIdenticalERKS1_.exit.thread: ; preds = %19, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi33AtomicOrderingMMOPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi33AtomicOrderingMMOPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -17226,7 +17226,7 @@ define dso_local void @_ZNK4llvm2gi33AtomicOrderingMMOPredicateMatcher20emitPred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi26MemorySizePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi26MemorySizePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -17426,7 +17426,7 @@ _ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit:       ; preds = %2, %8, %33, %30, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi34MemoryAddressSpacePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi34MemoryAddressSpacePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -17618,7 +17618,7 @@ define dso_local void @_ZNK4llvm2gi34MemoryAddressSpacePredicateMatcher20emitPre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi31MemoryAlignmentPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi31MemoryAlignmentPredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17664,7 +17664,7 @@ _ZNK4llvm2gi16PredicateMatcher11isIdenticalERKS1_.exit.thread: ; preds = %2, %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi31MemoryAlignmentPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi31MemoryAlignmentPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -17806,7 +17806,7 @@ define dso_local void @_ZNK4llvm2gi31MemoryAlignmentPredicateMatcher20emitPredic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi31MemoryVsLLTSizePredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi31MemoryVsLLTSizePredicateMatcher11isIdenticalERKNS0_16PredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17860,7 +17860,7 @@ _ZNK4llvm2gi16PredicateMatcher11isIdenticalERKS1_.exit.thread: ; preds = %2, %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi31MemoryVsLLTSizePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi31MemoryVsLLTSizePredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -18009,7 +18009,7 @@ define dso_local void @_ZNK4llvm2gi31MemoryVsLLTSizePredicateMatcher20emitPredic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi30VectorSplatImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi30VectorSplatImmPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -18188,7 +18188,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi34GenericInstructionPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi34GenericInstructionPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -18403,7 +18403,7 @@ _ZNK4llvm2gi16PredicateMatcher11isIdenticalERKS1_.exit.thread: ; preds = %_ZN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi34MIFlagsInstructionPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi34MIFlagsInstructionPredicateMatcher20emitPredicateOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -18655,7 +18655,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm2gi14OperandMatcherESt14default_deleteIS3_EESa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZN4llvm2gi18InstructionMatcher10getOperandEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(153) ptr @_ZN4llvm2gi18InstructionMatcher10getOperandEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -19168,7 +19168,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm2gi18InstructionMatcher16countRendererFnsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm2gi18InstructionMatcher16countRendererFnsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !noalias !1227
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -19311,7 +19311,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi25InstructionOperandMatcher18emitCaptureOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi25InstructionOperandMatcher18emitCaptureOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -19519,7 +19519,7 @@ define dso_local void @_ZNK4llvm2gi25InstructionOperandMatcher18emitCaptureOpcod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi25InstructionOperandMatcher20isHigherPriorityThanERKNS0_23OperandPredicateMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi25InstructionOperandMatcher20isHigherPriorityThanERKNS0_23OperandPredicateMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm2gi23OperandPredicateMatcher20isHigherPriorityThanERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1)
   br i1 %3, label %16, label %4
 
@@ -19550,18 +19550,18 @@ define dso_local noundef zeroext i1 @_ZNK4llvm2gi25InstructionOperandMatcher20is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm2gi15OperandRendererD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm2gi15OperandRendererD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm2gi15OperandRendererD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm2gi15OperandRendererD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #31
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi12CopyRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherEjjjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi12CopyRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherEjjjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %9 = alloca %"class.std::allocator.27", align 1
   %10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -19770,7 +19770,7 @@ define dso_local void @_ZN4llvm2gi12CopyRenderer17emitRenderOpcodesERNS0_10Match
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi12CopyRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi12CopyRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -19875,7 +19875,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19CopyPhysRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull readonly align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -19936,7 +19936,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi24CopyOrAddZeroRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi24CopyOrAddZeroRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -20702,7 +20702,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi18CopySubRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi18CopySubRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -21002,7 +21002,7 @@ _ZNK4llvm2gi11RuleMatcher12getInsnVarIDERNS0_18InstructionMatcherE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19AddRegisterRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19AddRegisterRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -21221,7 +21221,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread35:       ; preds = %_ZN4llvmneENS_9Stri
 declare { ptr, i64 } @_ZNK4llvm13CodeGenTarget15getRegNamespaceEv(ptr noundef nonnull align 8 dereferenceable(724)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi15TempRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi15TempRegRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -21514,7 +21514,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %124, %108, %125
 declare void @_ZNK4llvm18CodeGenSubRegIndex16getQualifiedNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11ImmRenderer10emitAddImmERNS0_10MatchTableERNS0_11RuleMatcherEjlNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, i64 noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11ImmRenderer10emitAddImmERNS0_10MatchTableERNS0_11RuleMatcherEjlNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i64 noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::allocator.27", align 1
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -21620,7 +21620,7 @@ define dso_local void @_ZN4llvm2gi11ImmRenderer10emitAddImmERNS0_10MatchTableERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi11ImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi11ImmRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -21883,7 +21883,7 @@ _ZNK4llvm2gi20LLTCodeGenOrTempType14getTempTypeIdxEv.exit: ; preds = %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19SubRegIndexRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19SubRegIndexRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21896,7 +21896,7 @@ define dso_local void @_ZNK4llvm2gi19SubRegIndexRenderer17emitRenderOpcodesERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi27RenderComplexPatternOperand17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi27RenderComplexPatternOperand17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -22132,7 +22132,7 @@ define dso_local void @_ZNK4llvm2gi27RenderComplexPatternOperand17emitRenderOpco
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19IntrinsicIDRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19IntrinsicIDRenderer17emitRenderOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"class.std::allocator.27", align 1
@@ -22887,7 +22887,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %124, %125
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm2gi13BuildMIAction9canMutateERNS0_11RuleMatcherEPKNS0_18InstructionMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm2gi13BuildMIAction9canMutateERNS0_11RuleMatcherEPKNS0_18InstructionMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -23021,7 +23021,7 @@ _ZN4llvm2gi11RuleMatcher17getOperandMatcherENS_9StringRefE.exit: ; preds = %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi13BuildMIAction18chooseInsnToMutateERNS0_11RuleMatcherE(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi13BuildMIAction18chooseInsnToMutateERNS0_11RuleMatcherE(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8, !noalias !1514
@@ -24404,7 +24404,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %568, %._crit_edge31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm2gi13BuildMIAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherEENK3$_0clEv"(ptr nocapture readonly %.0.val, ptr %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm2gi13BuildMIAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherEENK3$_0clEv"(ptr readonly captures(none) %.0.val, ptr %.8.val) unnamed_addr #0 align 2 {
   %1 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %2 = alloca %"class.std::allocator.27", align 1
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -24750,7 +24750,7 @@ define internal fastcc void @"_ZZNK4llvm2gi13BuildMIAction17emitActionOpcodesERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi19BuildConstantAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi19BuildConstantAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -24855,7 +24855,7 @@ define dso_local void @_ZNK4llvm2gi19BuildConstantAction17emitActionOpcodesERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi15EraseInstAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi15EraseInstAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(448) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -25092,7 +25092,7 @@ _ZN4llvm2gi11RuleMatcher14tryEraseInsnIDEj.exit.thread: ; preds = %29, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi16ReplaceRegAction24emitAdditionalPredicatesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi16ReplaceRegAction24emitAdditionalPredicatesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -25279,7 +25279,7 @@ define dso_local void @_ZNK4llvm2gi16ReplaceRegAction24emitAdditionalPredicatesE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi16ReplaceRegAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi16ReplaceRegAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -25605,7 +25605,7 @@ define dso_local void @_ZNK4llvm2gi16ReplaceRegAction17emitActionOpcodesERNS0_10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi32ConstrainOperandToRegClassAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi32ConstrainOperandToRegClassAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -25746,7 +25746,7 @@ define dso_local void @_ZNK4llvm2gi32ConstrainOperandToRegClassAction17emitActio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm2gi22MakeTempRegisterAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm2gi22MakeTempRegisterAction17emitActionOpcodesERNS0_10MatchTableERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -28251,7 +28251,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
@@ -28474,7 +28474,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -28557,7 +28557,7 @@ declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
@@ -29079,7 +29079,7 @@ declare void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef non
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm2gi10LLTCodeGenESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -31139,7 +31139,7 @@ tailrecurse:                                      ; preds = %_ZSt7advanceIN9__gn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_12GroupMatcher8optimizeEvE3$_0EEET_SG_SG_RKT0_T1_"(ptr %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc ptr @"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNS3_12GroupMatcher8optimizeEvE3$_0EEET_SG_SG_RKT0_T1_"(ptr %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %5 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %6 = ptrtoint ptr %1 to i64
@@ -31253,7 +31253,7 @@ _ZN4llvm2gi11RuleMatcher27getFirstConditionAsRootTypeEv.exit.i.i: ; preds = %31,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEET_SG_SG_RKT0_T1_"(ptr %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc ptr @"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNS3_12GroupMatcher8optimizeEvE3$_0EEET_SG_SG_RKT0_T1_"(ptr %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %5 = alloca %"class.llvm::gi::LLTCodeGen", align 8
   %6 = ptrtoint ptr %1 to i64
@@ -37433,7 +37433,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -39609,7 +39609,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) #9 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %3, align 8
   %4 = icmp ne i32 %.val, 12
@@ -39617,7 +39617,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16Pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm2gi18InstructionMatcher20emitPredicateOpcodesERNS2_10MatchTableERNS2_11RuleMatcherEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm2gi18InstructionMatcher20emitPredicateOpcodesERNS2_10MatchTableERNS2_11RuleMatcherEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
@@ -39636,7 +39636,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16Pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) #9 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val, 12
@@ -39644,7 +39644,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16Pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm2gi16PredicateMatcherEEZNS1_18InstructionMatcher20emitPredicateOpcodesERNS1_10MatchTableERNS1_11RuleMatcherEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm2gi18InstructionMatcher20emitPredicateOpcodesERNS2_10MatchTableERNS2_11RuleMatcherEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm2gi18InstructionMatcher20emitPredicateOpcodesERNS2_10MatchTableERNS2_11RuleMatcherEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
@@ -40524,13 +40524,13 @@ declare void @llvm.assume(i1 noundef) #24
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #25

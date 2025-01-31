@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [59 x i8] c" Unknown condition: %s\0A Use keyword 'set' to modify value\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca ptr, align 8
@@ -97,7 +97,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0,
   %36 = trunc i64 %35 to i32
   %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 5)
   %38 = zext nneg i32 %37 to i64
-  %39 = tail call i32 @xstrncasecmp(ptr noundef %34, ptr noundef nonnull @.str.2, i64 noundef %38) #9
+  %39 = tail call i32 @xstrncasecmp(ptr noundef nonnull %34, ptr noundef nonnull @.str.2, i64 noundef %38) #9
   %.not130.us = icmp eq i32 %39, 0
   br i1 %.not130.us, label %45, label %40
 
@@ -131,7 +131,7 @@ _set_cond.exit.us:                                ; preds = %45, %40
   %55 = trunc i64 %54 to i32
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 5)
   %57 = zext nneg i32 %56 to i64
-  %58 = tail call i32 @xstrncasecmp(ptr noundef %53, ptr noundef nonnull @.str.2, i64 noundef %57) #9
+  %58 = tail call i32 @xstrncasecmp(ptr noundef nonnull %53, ptr noundef nonnull @.str.2, i64 noundef %57) #9
   %.not130 = icmp eq i32 %58, 0
   br i1 %.not130, label %64, label %59
 
@@ -668,7 +668,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @slurmdb_destroy_reservation_cond(ptr noundef) local_unnamed_addr #1
 
@@ -679,7 +679,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @xfree_ptr(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -710,7 +710,7 @@ declare void @print_fields_header(ptr noundef) local_unnamed_addr #1
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @reservation_flags_string(ptr noundef) local_unnamed_addr #1
 
@@ -732,7 +732,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare ptr @strip_quotes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7

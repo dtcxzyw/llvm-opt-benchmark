@@ -177,7 +177,7 @@ define internal i32 @pkcs1pad_create(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_check_attr_type(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -189,13 +189,13 @@ declare dso_local i32 @crypto_grab_akcipher(ptr noundef, ptr noundef, ptr nounde
 declare dso_local ptr @crypto_attr_alg_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pkcs1pad_init_tfm(ptr nocapture noundef %0) #0 align 16 {
+define internal i32 @pkcs1pad_init_tfm(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -222,7 +222,7 @@ define internal i32 @pkcs1pad_init_tfm(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pkcs1pad_exit_tfm(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @pkcs1pad_exit_tfm(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -821,7 +821,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pkcs1pad_set_pub_key(ptr nocapture noundef initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @pkcs1pad_set_pub_key(ptr noundef captures(none) initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
@@ -854,7 +854,7 @@ define internal i32 @pkcs1pad_set_pub_key(ptr nocapture noundef initializes((48,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pkcs1pad_set_priv_key(ptr nocapture noundef initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @pkcs1pad_set_priv_key(ptr noundef captures(none) initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
@@ -887,7 +887,7 @@ define internal i32 @pkcs1pad_set_priv_key(ptr nocapture noundef initializes((48
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @pkcs1pad_get_max_size(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal i32 @pkcs1pad_get_max_size(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -905,7 +905,7 @@ define internal void @pkcs1pad_free(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @akcipher_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
@@ -920,7 +920,7 @@ declare dso_local ptr @crypto_spawn_tfm2(ptr noundef) local_unnamed_addr #2
 declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pkcs1pad_encrypt_sign_complete_cb(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @pkcs1pad_encrypt_sign_complete_cb(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, -115
   br i1 %3, label %6, label %4
 
@@ -939,7 +939,7 @@ define internal void @pkcs1pad_encrypt_sign_complete_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pkcs1pad_encrypt_sign_complete(ptr nocapture noundef initializes((68, 72)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @pkcs1pad_encrypt_sign_complete(ptr noundef captures(none) initializes((68, 72)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -1012,7 +1012,7 @@ declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pkcs1pad_decrypt_complete_cb(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @pkcs1pad_decrypt_complete_cb(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, -115
   br i1 %3, label %6, label %4
 
@@ -1031,7 +1031,7 @@ define internal void @pkcs1pad_decrypt_complete_cb(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pkcs1pad_decrypt_complete(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @pkcs1pad_decrypt_complete(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %.thread
 
@@ -1124,13 +1124,13 @@ define internal fastcc noundef i32 @pkcs1pad_decrypt_complete(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pkcs1pad_verify_complete_cb(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @pkcs1pad_verify_complete_cb(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp eq i32 %1, -115
   br i1 %3, label %6, label %4
 
@@ -1149,7 +1149,7 @@ define internal void @pkcs1pad_verify_complete_cb(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pkcs1pad_verify_complete(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pkcs1pad_verify_complete(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
@@ -1307,7 +1307,7 @@ declare dso_local i64 @__crypto_memneq(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local void @crypto_drop_spawn(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

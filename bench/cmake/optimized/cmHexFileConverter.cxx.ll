@@ -113,10 +113,10 @@ _ZL11ChompStrlenPKc.exit:                         ; preds = %21, %26
 declare noundef ptr @_ZN5cmsys11SystemTools5FopenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isxdigit(i32 noundef) local_unnamed_addr #5
@@ -159,7 +159,7 @@ define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7_
   br i1 %.not.us60, label %.split.us, label %.lr.ph
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70: ; preds = %43, %43, %43, %43, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us
-  %25 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef %13)
+  %25 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %13)
   %.not.us = icmp eq ptr %25, null
   br i1 %.not.us, label %.split.us, label %.lr.ph, !llvm.loop !7
 
@@ -285,7 +285,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us: ; preds = %61, %47
   br i1 %.not.us60, label %.split.us, label %.lr.ph63
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread78: ; preds = %87, %87, %87, %87, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56
-  %67 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef %13)
+  %67 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %13)
   %.not.us55 = icmp eq ptr %67, null
   br i1 %.not.us55, label %.split.us, label %.lr.ph63, !llvm.loop !7
 
@@ -415,7 +415,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56: ; preds = %100, %89
 
 .split.us:                                        ; preds = %87, %_ZL11ChompStrlenPKc.exit.i29.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread78, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56, %43, %_ZL11ChompStrlenPKc.exit.i.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread81, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread73, %.preheader.split.us53, %.preheader.split.us
   %.us-phi = phi i1 [ false, %.preheader.split.us ], [ false, %.preheader.split.us53 ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread73 ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread81 ], [ false, %43 ], [ false, %_ZL11ChompStrlenPKc.exit.i.us ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70 ], [ false, %87 ], [ false, %_ZL11ChompStrlenPKc.exit.i29.us ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread78 ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56 ]
-  %112 = call i32 @fclose(ptr noundef %13)
+  %112 = call i32 @fclose(ptr noundef nonnull %13)
   %113 = call i32 @fclose(ptr noundef %14)
   br label %114
 
@@ -425,13 +425,13 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56: ; preds = %100, %89
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cmHexFileConverter.cxx() #7 section ".text.startup" {
@@ -441,10 +441,10 @@ define internal void @_GLOBAL__sub_I_cmHexFileConverter.cxx() #7 section ".text.
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -262,14 +262,14 @@ $_ZTV11PhaseSender = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8GCTracer26should_send_cpu_time_eventEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK8GCTracer26should_send_cpu_time_eventEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1553), align 1
   %3 = icmp ne i8 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EventGarbageCollection, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %3, align 8
@@ -432,7 +432,7 @@ _ZN8JfrEventI22EventGarbageCollectionE11write_eventEv.exit: ; preds = %_ZN8JfrEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer19send_cpu_time_eventEddd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer19send_cpu_time_eventEddd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %class.EventGCCPUTime, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %6, i8 0, i64 11, i1 false)
@@ -553,7 +553,7 @@ _ZN8JfrEventI14EventGCCPUTimeE11write_eventEv.exit: ; preds = %9, %38, %36, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.EventGCReferenceStatistics, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
@@ -668,7 +668,7 @@ _ZN8JfrEventI26EventGCReferenceStatisticsE11write_eventEv.exit: ; preds = %9, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer38send_metaspace_chunk_free_list_summaryEN6GCWhen4TypeEN9Metaspace12MetadataTypeERK29MetaspaceChunkFreeListSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer38send_metaspace_chunk_free_list_summaryEN6GCWhen4TypeEN9Metaspace12MetadataTypeERK29MetaspaceChunkFreeListSummary(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %class.EventMetaspaceChunkFreeListSummary, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %6, i8 0, i64 11, i1 false)
@@ -814,7 +814,7 @@ _ZN8JfrEventI34EventMetaspaceChunkFreeListSummaryE11write_eventEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK17ParallelOldTracer23send_parallel_old_eventEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK17ParallelOldTracer23send_parallel_old_eventEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EventParallelOldGarbageCollection, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %3, align 8
@@ -952,7 +952,7 @@ _ZN8JfrEventI33EventParallelOldGarbageCollectionE11write_eventEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13YoungGCTracer19send_young_gc_eventEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK13YoungGCTracer19send_young_gc_eventEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EventYoungGarbageCollection, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %3, align 8
@@ -1089,21 +1089,21 @@ _ZN8JfrEventI27EventYoungGarbageCollectionE11write_eventEv.exit: ; preds = %_ZN8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13YoungGCTracer39should_send_promotion_in_new_plab_eventEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13YoungGCTracer39should_send_promotion_in_new_plab_eventEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1433), align 1
   %3 = icmp ne i8 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13YoungGCTracer40should_send_promotion_outside_plab_eventEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13YoungGCTracer40should_send_promotion_outside_plab_eventEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1457), align 1
   %3 = icmp ne i8 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13YoungGCTracer32send_promotion_in_new_plab_eventEP5Klassmjbm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK13YoungGCTracer32send_promotion_in_new_plab_eventEP5Klassmjbm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.EventPromoteObjectInNewPLAB, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %8, i8 0, i64 11, i1 false)
@@ -1224,7 +1224,7 @@ _ZN8JfrEventI27EventPromoteObjectInNewPLABE11write_eventEv.exit: ; preds = %9, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13YoungGCTracer33send_promotion_outside_plab_eventEP5Klassmjb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK13YoungGCTracer33send_promotion_outside_plab_eventEP5Klassmjb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %class.EventPromoteObjectOutsidePLAB, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7, i8 0, i64 11, i1 false)
@@ -1343,7 +1343,7 @@ _ZN8JfrEventI29EventPromoteObjectOutsidePLABE11write_eventEv.exit: ; preds = %9,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11OldGCTracer17send_old_gc_eventEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK11OldGCTracer17send_old_gc_eventEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EventOldGarbageCollection, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %3, align 8
@@ -1476,7 +1476,7 @@ _ZN8JfrEventI25EventOldGarbageCollectionE11write_eventEv.exit: ; preds = %_ZN8Jf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13YoungGCTracer27send_promotion_failed_eventERK19PromotionFailedInfo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(84) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK13YoungGCTracer27send_promotion_failed_eventERK19PromotionFailedInfo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.EventPromotionFailed, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4, i8 0, i64 11, i1 false)
@@ -1609,7 +1609,7 @@ _ZN8JfrEventI20EventPromotionFailedE11write_eventEv.exit: ; preds = %9, %38, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11OldGCTracer34send_concurrent_mode_failure_eventEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11OldGCTracer34send_concurrent_mode_failure_eventEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EventConcurrentModeFailure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3, i8 0, i64 11, i1 false)
@@ -1718,7 +1718,7 @@ _ZN8JfrEventI26EventConcurrentModeFailureE11write_eventEv.exit: ; preds = %9, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer26send_gc_heap_summary_eventEN6GCWhen4TypeERK13GCHeapSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer26send_gc_heap_summary_eventEN6GCWhen4TypeERK13GCHeapSummary(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.GCHeapSummaryEventSender, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24GCHeapSummaryEventSender, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1730,7 +1730,7 @@ define hidden void @_ZNK8GCTracer26send_gc_heap_summary_eventEN6GCWhen4TypeERK13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer29send_meta_space_summary_eventEN6GCWhen4TypeERK16MetaspaceSummary(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer29send_meta_space_summary_eventEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.EventMetaspaceSummary, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
@@ -1882,7 +1882,7 @@ _ZN8JfrEventI21EventMetaspaceSummaryE11write_eventEv.exit: ; preds = %9, %38, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.PhaseSender, align 8
   %4 = alloca %class.TimePartitionPhasesIterator, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11PhaseSender, i64 16), ptr %3, align 8
@@ -2020,7 +2020,7 @@ _ZN8JfrEventI13EventGCLockerE13should_commitEv.exit: ; preds = %27, %_ZN8JfrEven
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_var_init.5() #5 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
@@ -5048,7 +5048,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
@@ -9313,13 +9313,13 @@ declare noundef i64 @_ZN23JfrStackTraceRepository6recordEP6Threadil(ptr noundef,
 declare { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

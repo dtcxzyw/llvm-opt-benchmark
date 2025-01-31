@@ -322,7 +322,7 @@ define void @prte_schizo_base_expose(ptr noundef %0, ptr noundef %1) local_unnam
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #20
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %6 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %0) #16
+  %6 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef nonnull %0) #16
   %7 = load ptr, ptr %3, align 8
   %8 = call i32 @setenv(ptr noundef %7, ptr noundef nonnull %5, i32 noundef 1) #16
   %9 = load ptr, ptr %3, align 8
@@ -340,7 +340,7 @@ declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @prte_schizo_base_check_qualifiers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -385,7 +385,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %4, %2
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 45) #16
-  %8 = tail call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 45) #16
+  %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %1, i32 noundef 45) #16
   %9 = tail call i32 @PMIx_Argv_count(ptr noundef %7) #16
   %10 = tail call i32 @PMIx_Argv_count(ptr noundef %8) #16
   %11 = icmp sgt i32 %9, %10
@@ -446,7 +446,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 %32)
-  %34 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef %1, i64 noundef %33) #20
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %33) #20
   %35 = icmp eq i32 %34, 0
   br label %36
 
@@ -606,7 +606,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, ptr noundef %75) #16
   %77 = load ptr, ptr %5, align 8
-  %78 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %77) #16
+  %78 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %77) #16
   %79 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %79) #16
   call void @PMIx_Argv_free(ptr noundef nonnull %38) #16
@@ -628,7 +628,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 87:                                               ; preds = %.lr.ph105, %83
   %88 = phi ptr [ @.str.6, %.lr.ph105 ], [ %86, %83 ]
   %.1103 = phi i64 [ 0, %.lr.ph105 ], [ %84, %83 ]
-  %89 = tail call i32 @strncasecmp(ptr noundef %81, ptr noundef nonnull %88, i64 noundef %82) #20
+  %89 = tail call i32 @strncasecmp(ptr noundef nonnull %81, ptr noundef nonnull %88, i64 noundef %82) #20
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %97, label %83
 
@@ -638,7 +638,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   %93 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef %92, ptr noundef %91) #16
   call void @free(ptr noundef %91) #16
   %94 = load ptr, ptr %6, align 8
-  %95 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %94) #16
+  %95 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %94) #16
   %96 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %96) #16
   call void @PMIx_Argv_free(ptr noundef nonnull %38) #16
@@ -683,7 +683,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 .loopexit94:                                      ; preds = %.lr.ph109, %106
   %112 = tail call ptr @PMIx_Argv_join(ptr noundef nonnull %2, i32 noundef 44) #16
-  %113 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %104, ptr noundef %112) #16
+  %113 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %104, ptr noundef %112) #16
   tail call void @free(ptr noundef %112) #16
   tail call void @PMIx_Argv_free(ptr noundef nonnull %102) #16
   tail call void @PMIx_Argv_free(ptr noundef nonnull %38) #16
@@ -717,28 +717,28 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_schizo_base_sanity(ptr noundef %0) local_unnamed_addr #0 {
@@ -1228,10 +1228,10 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph, %110, %.lr.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @pmix_cmd_line_get_param(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
+define internal fastcc ptr @pmix_cmd_line_get_param(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.09 = load ptr, ptr %4, align 8
@@ -1303,12 +1303,12 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare i32 @prte_schizo_base_add_directive(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @check_ndirs(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @check_ndirs(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %4
@@ -1349,7 +1349,7 @@ define internal fastcc range(i32 -43, 1) i32 @check_ndirs(ptr nocapture noundef 
 declare ptr @strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_schizo_base_parse_display(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_schizo_base_parse_display(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1488,7 +1488,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr nocapture noundef readonl
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
-  %62 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.101, ptr noundef %54) #16
+  %62 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.101, ptr noundef nonnull %54) #16
   br label %.loopexit131.sink.split
 
 63:                                               ; preds = %57, %55
@@ -1521,7 +1521,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr nocapture noundef readonl
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.101, ptr noundef %70) #16
+  %77 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.101, ptr noundef nonnull %70) #16
   br label %.loopexit131.sink.split
 
 78:                                               ; preds = %72, %69
@@ -1570,7 +1570,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = alloca [4097 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2049,7 +2049,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #13

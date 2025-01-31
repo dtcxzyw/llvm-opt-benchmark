@@ -203,7 +203,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @index_insert_cleanup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @index_insert_cleanup(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #5
@@ -528,7 +528,7 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @index_parallelscan_estimate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @index_parallelscan_estimate(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #5
@@ -572,7 +572,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @index_parallelscan_initialize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @index_parallelscan_initialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #5
@@ -1046,7 +1046,7 @@ define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @index_getprocid(ptr nocapture noundef readonly %0, i16 noundef signext %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define dso_local i32 @index_getprocid(ptr noundef readonly captures(none) %0, i16 noundef signext %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -1139,7 +1139,7 @@ declare ptr @RelationGetIndexAttOptions(ptr noundef, i1 noundef zeroext) local_u
 declare void @set_fn_opclass_options(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @index_store_float8_orderby_distances(ptr nocapture noundef initializes((136, 137)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @index_store_float8_orderby_distances(ptr noundef captures(none) initializes((136, 137)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 %5, ptr %6, align 8

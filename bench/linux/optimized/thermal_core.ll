@@ -261,7 +261,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_thermal_temperature(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_thermal_temperature(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_thermal_temperature(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -282,21 +282,21 @@ define dso_local noundef i32 @__traceiter_thermal_temperature(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_thermal_temperature(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_thermal_temperature(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_cdev_update(ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_cdev_update(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_cdev_update(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_cdev_update, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -317,7 +317,7 @@ define dso_local noundef i32 @__traceiter_cdev_update(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_cdev_update(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_cdev_update(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #2 align 16 {
   ret void
 }
 
@@ -325,7 +325,7 @@ define dso_local void @__probestub_cdev_update(ptr nocapture readnone %0, ptr no
 declare dso_local i32 @__SCT__tp_func_thermal_zone_trip(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_thermal_zone_trip(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_thermal_zone_trip(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -346,12 +346,12 @@ define dso_local noundef i32 @__traceiter_thermal_zone_trip(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_thermal_zone_trip(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_thermal_zone_trip(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_thermal_temperature(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @trace_event_raw_event_thermal_temperature(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -408,7 +408,7 @@ define internal void @trace_event_raw_event_thermal_temperature(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_thermal_temperature(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @perf_trace_thermal_temperature(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
@@ -489,7 +489,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_cdev_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define internal void @trace_event_raw_event_cdev_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -543,7 +543,7 @@ define internal void @trace_event_raw_event_cdev_update(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_cdev_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define internal void @perf_trace_cdev_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -615,7 +615,7 @@ define internal void @perf_trace_cdev_update(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_thermal_zone_trip(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_thermal_zone_trip(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -668,7 +668,7 @@ define internal void @trace_event_raw_event_thermal_zone_trip(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_thermal_zone_trip(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
@@ -881,7 +881,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_register_governor(ptr no
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc ptr @__find_governor(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc ptr @__find_governor(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %.preheader
@@ -908,10 +908,10 @@ define internal fastcc ptr @__find_governor(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @thermal_set_governor(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 align 16 {
@@ -1556,7 +1556,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @thermal_zone_device_is_enabled(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i32 0, 2) i32 @thermal_zone_device_is_enabled(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -1660,7 +1660,7 @@ define dso_local void @thermal_zone_device_update(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @for_each_thermal_governor(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @for_each_thermal_governor(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @thermal_governor_lock) #20
   br label %3
 
@@ -1683,7 +1683,7 @@ define dso_local i32 @for_each_thermal_governor(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @for_each_thermal_cooling_device(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @for_each_thermal_cooling_device(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @thermal_list_lock) #20
   br label %3
 
@@ -1706,7 +1706,7 @@ define dso_local i32 @for_each_thermal_cooling_device(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @for_each_thermal_zone(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @for_each_thermal_zone(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @thermal_list_lock) #20
   br label %3
 
@@ -1979,13 +1979,13 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @trip_point_show(ptr noundef, ptr noundef, ptr noundef) #0
@@ -2359,7 +2359,7 @@ define dso_local ptr @devm_thermal_of_cooling_device_register(ptr noundef %0, pt
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @thermal_cooling_device_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @thermal_cooling_device_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %thermal_cooling_device_unregister.exit, label %5
@@ -2945,7 +2945,7 @@ define dso_local ptr @thermal_zone_device_register_with_trips(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
@@ -3069,7 +3069,7 @@ define dso_local ptr @thermal_tripless_zone_device_register(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @thermal_zone_device_priv(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local ptr @thermal_zone_device_priv(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3082,7 +3082,7 @@ define dso_local nonnull ptr @thermal_zone_device_type(ptr noundef readnone %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @thermal_zone_device_id(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i32 @thermal_zone_device_id(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -3317,13 +3317,13 @@ define internal i32 @thermal_init() #12 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #14
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -3661,7 +3661,7 @@ declare dso_local i32 @register_pm_notifier(ptr noundef) local_unnamed_addr #0
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_pm_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef i32 @thermal_pm_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #1 align 16 {
   switch i64 %1, label %27 [
     i64 1, label %4
     i64 5, label %4

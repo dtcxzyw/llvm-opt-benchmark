@@ -205,13 +205,13 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fcfzs_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @fcfzs_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fcfzs_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @fcfzs_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -482,15 +482,15 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %147 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.030.i) #4
   %148 = zext i8 %147 to i32
   %149 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %149, ptr noundef %0, i32 noundef %.030.i, i32 noundef 1, i32 noundef 0) #4
+  %150 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %149, ptr noundef %0, i32 noundef %.030.i, i32 noundef 1, i32 noundef 0) #4
   %151 = load i32, ptr @hf_fcfzs_zonesetname, align 4
   %152 = add i32 %.030.i, 1
-  %153 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef %148, i32 noundef 0) #4
+  %153 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef %148, i32 noundef 0) #4
   %154 = and i32 %148, 3
   %155 = add i32 %152, %148
   %156 = add i32 %155, %154
   %157 = load i32, ptr @hf_fcfzs_numzones, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %157, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef 0) #4
+  %158 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %157, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef 0) #4
   %159 = add i32 %156, 4
   %160 = add nuw nsw i32 %.02729.i, 1
   %exitcond.not.i = icmp eq i32 %160, %143

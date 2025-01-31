@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [36 x i8] c"(frag_off_units & ~IP_OFFMASK) == 0\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_init(ptr nocapture noundef writeonly initializes((0, 8)) %pkt, i32 noundef %max_frags) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_init(ptr noundef writeonly captures(none) initializes((0, 8)) %pkt, i32 noundef %max_frags) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(65632) ptr @g_malloc0(i64 noundef 65632) #15
   %add = add i32 %max_frags, 3
@@ -239,7 +239,7 @@ declare zeroext i16 @net_checksum_finish(i32 noundef) local_unnamed_addr #3
 declare i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef, i16 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_update_sctp_checksum(ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_update_sctp_checksum(ptr noundef readonly captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %csum = alloca i32, align 4
   store i32 0, ptr %csum, align 4
@@ -828,7 +828,7 @@ return:                                           ; preds = %if.end, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @net_tx_pkt_has_fragments(ptr nocapture noundef readonly %pkt) local_unnamed_addr #6 {
+define dso_local zeroext i1 @net_tx_pkt_has_fragments(ptr noundef readonly captures(none) %pkt) local_unnamed_addr #6 {
 entry:
   %raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %0 = load i32, ptr %raw_frags, align 8
@@ -874,13 +874,13 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @net_tx_pkt_dump(ptr nocapture noundef readnone %pkt) local_unnamed_addr #7 {
+define dso_local void @net_tx_pkt_dump(ptr noundef readnone captures(none) %pkt) local_unnamed_addr #7 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_reset(ptr noundef %pkt, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_reset(ptr noundef %pkt, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -958,7 +958,7 @@ return:                                           ; preds = %entry, %if.end22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_tx_pkt_unmap_frag_pci(ptr noundef %context, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
@@ -1036,7 +1036,7 @@ entry:
 declare zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %offload, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %offload, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %fragment.i = alloca [64 x %struct.iovec], align 16
   %virt_hdr3.i = alloca %struct.virtio_net_hdr, align 2
@@ -1214,7 +1214,7 @@ sw.bb17.i:                                        ; preds = %if.end39
   %29 = load i32, ptr %payload_frags.i, align 8
   %sub.i = add i32 %29, 2
   %conv20.i = trunc i32 %2 to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef nonnull %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
   %gso_size.i31.i = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   %30 = load i16, ptr %gso_size.i31.i, align 4
   %31 = and i16 %30, -8
@@ -1487,7 +1487,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @net_tx_pkt_do_sw_csum(ptr nocapture noundef nonnull readonly %pkt, ptr noundef %iov, i32 noundef %iov_len, i16 noundef zeroext %csl) unnamed_addr #0 {
+define internal fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly captures(none) %pkt, ptr noundef %iov, i32 noundef %iov_len, i16 noundef zeroext %csl) unnamed_addr #0 {
 entry:
   %csum = alloca i16, align 2
   %cso = alloca i32, align 4
@@ -1586,7 +1586,7 @@ iov_from_buf.exit30:                              ; preds = %if.then.i28, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_fix_ip6_payload_len(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_fix_ip6_payload_len(ptr noundef captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
@@ -1630,7 +1630,7 @@ declare i16 @llvm.bswap.i16(i16) #10
 declare i32 @net_checksum_add_cont(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i64 @iov_from_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1667,10 +1667,10 @@ declare i32 @llvm.bswap.i32(i32) #10
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

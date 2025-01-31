@@ -22,7 +22,7 @@ $_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb1ELj8EEEjjjjRKNS0_12RowT
 @_ZZN5arrow7compute17EncoderBinaryPair17DecodeHelper_avx2EbjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES6_E17DecodeImp_avx2_fn = internal unnamed_addr constant [8 x ptr] [ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb0ELj1EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb0ELj2EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb0ELj4EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb0ELj8EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb1ELj1EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb1ELj2EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb1ELj4EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_, ptr @_ZN5arrow7compute17EncoderBinaryPair14DecodeImp_avx2ILb1ELj8EEEjjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayES7_], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute13EncoderBinary17DecodeHelper_avx2EbjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i1 noundef zeroext %is_row_fixed_length, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %col) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute13EncoderBinary17DecodeHelper_avx2EbjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i1 noundef zeroext %is_row_fixed_length, i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %offset_within_row, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef readonly captures(none) %col) local_unnamed_addr #0 align 2 {
 entry:
   %fixed_length.i.i = getelementptr inbounds nuw i8, ptr %col, i64 52
   %0 = load i32, ptr %fixed_length.i.i, align 4
@@ -674,7 +674,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute16EncoderVarBinary17DecodeHelper_avx2EjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %varbinary_col_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef readonly %col) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute16EncoderVarBinary17DecodeHelper_avx2EjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayE(i32 noundef %start_row, i32 noundef %num_rows, i32 noundef %varbinary_col_id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef readonly captures(none) %col) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %varbinary_col_id, 0
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 160

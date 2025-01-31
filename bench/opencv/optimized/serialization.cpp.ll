@@ -2886,7 +2886,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -2916,7 +2916,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 {
   %3 = load float, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2946,7 +2946,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_7Point3_IfEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_7Point3_IfEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #3 {
   %3 = load float, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2987,7 +2987,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -3017,7 +3017,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -3069,7 +3069,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
   %3 = load double, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -3121,7 +3121,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4RMatE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4RMatE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3131,7 +3131,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4RMatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4RMatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::logic_error", align 8
   call void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
   invoke void @_ZN2cv4util11throw_errorISt11logic_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
@@ -3171,7 +3171,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 declare void @_ZNK2cv10MediaFrame9serializeERNS_4gapi4s11n8IOStreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10MediaFrameE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10MediaFrameE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::logic_error", align 8
   call void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.1)
   invoke void @_ZN2cv4util11throw_errorISt11logic_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
@@ -3188,7 +3188,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_3MatE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_3MatE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4303,7 +4303,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw5FTextE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw5FTextE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -4335,7 +4335,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nl
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS0_3wip4draw5FTextE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS0_3wip4draw5FTextE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -4367,7 +4367,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw6CircleE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw6CircleE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -4485,7 +4485,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4RectE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4RectE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4614,7 +4614,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw5ImageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw5ImageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -4652,7 +4652,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw6MosaicE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw6MosaicE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr %0, align 8
@@ -4726,7 +4726,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4PolyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4PolyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4898,7 +4898,7 @@ _ZN2cv4gapi4s11nrsINS_6Point_IiEEEERNS1_8IIStreamES6_RSt6vectorIT_SaIS8_EE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4LineE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS0_3wip4draw4LineE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5252,42 +5252,42 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4util9monostateE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4util9monostateE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GScalarDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_11GOpaqueDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GArrayDescE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4UMatE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4UMatE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -5319,7 +5319,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nl
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4UMatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4UMatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -5351,7 +5351,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nr
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -5383,7 +5383,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERSt10shared_ptrINS0_3wip13IStreamSourceEE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -6718,7 +6718,7 @@ _ZN2cv4gapi4s11n12_GLOBAL__N_113getFromStreamINS_6detail9VectorRefESt5tupleIJidf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail10OpaqueKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail10OpaqueKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -6733,7 +6733,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6detail9OpaqueRefE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_6detail9OpaqueRefE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::logic_error", align 8
@@ -8218,7 +8218,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6GShapeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6GShapeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8242,7 +8242,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail7ArgKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail7ArgKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8266,7 +8266,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4Data7StorageE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4Data7StorageE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8281,7 +8281,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_any_cast", align 8
   %4 = alloca %"class.cv::util::bad_any_cast", align 8
   %5 = alloca %"class.cv::util::bad_any_cast", align 8
@@ -8943,7 +8943,7 @@ _ZNK2cv4GArg3getINS_3MatEEERKT_v.exit:            ; preds = %_ZN2cv4util8any_cas
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl6RcDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl6RcDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -8959,7 +8959,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -9919,7 +9919,7 @@ _ZN2cv4gapi4s11nrsINS_6GShapeEEERNS1_8IIStreamES5_RSt6vectorIT_SaIS7_EE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_8GMatDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_8GMatDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -10085,7 +10085,7 @@ _ZN2cv4gapi4s11nrsIiEERNS1_8IIStreamES4_RSt6vectorIT_SaIS6_EE.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GFrameDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_10GFrameDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -11295,7 +11295,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl17DataObjectCounterE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl17DataObjectCounterE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -11457,7 +11457,7 @@ _ZNSt13unordered_mapIN2cv6GShapeEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl8ProtocolE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8IOStreamERKNS_5gimpl8ProtocolE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -11541,7 +11541,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"struct.ade::details::InitIdsArray", align 1
   %6 = alloca %"class.ade::ConstTypedGraph", align 8
@@ -11632,7 +11632,7 @@ _ZNK3ade13TypedMetadataILb1EJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKN3ade5GraphERKNS_5gimpl8ProtocolERKSt6vectorINS4_6HandleINS4_4NodeEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKN3ade5GraphERKNS_5gimpl8ProtocolERKSt6vectorINS4_6HandleINS4_4NodeEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ade::details::MetadataId", align 8
   %6 = alloca %"class.ade::Handle.241", align 8
   %7 = alloca %"class.ade::Handle.241", align 8
@@ -13152,7 +13152,7 @@ _ZN2cv4gapi4s11nlsImNS_5gimpl10ConstValueEEERNS1_8IOStreamES6_RKSt3mapIT_T0_St4l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_17putDataERNS1_11GSerializedERKN3ade15ConstTypedGraphIJNS_5gimpl8NodeTypeENS7_5InputENS7_6OutputENS7_2OpENS7_4DataENS7_10ConstValueENS7_6IslandENS7_8ProtocolENS7_17OriginalInputMetaENS7_10OutputMetaENS7_7JournalENS5_6passes19TopologicalSortDataENS7_17DataObjectCounterENS7_11IslandModelENS7_14ActiveBackendsENS7_18CustomMetaFunctionENS7_9StreamingENS7_12DeserializedENS7_13HasIntrinsicsENS7_10DesyncPathENS7_10DesyncEdgeENS7_14DesynchronizedENS7_11CompileArgsEEEERKNS5_6HandleINS5_4NodeEEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi4s11n12_GLOBAL__N_17putDataERNS1_11GSerializedERKN3ade15ConstTypedGraphIJNS_5gimpl8NodeTypeENS7_5InputENS7_6OutputENS7_2OpENS7_4DataENS7_10ConstValueENS7_6IslandENS7_8ProtocolENS7_17OriginalInputMetaENS7_10OutputMetaENS7_7JournalENS5_6passes19TopologicalSortDataENS7_17DataObjectCounterENS7_11IslandModelENS7_14ActiveBackendsENS7_18CustomMetaFunctionENS7_9StreamingENS7_12DeserializedENS7_13HasIntrinsicsENS7_10DesyncPathENS7_10DesyncEdgeENS7_14DesynchronizedENS7_11CompileArgsEEEERKNS5_6HandleINS5_4NodeEEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.ade::details::MetadataId", align 8
@@ -21316,7 +21316,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMem
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #10
@@ -21335,7 +21335,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMem
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n19ByteMemoryOutStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
@@ -21441,7 +21441,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr 
 declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 align 2 {
+define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN2cv4gapi4s11n18ByteMemoryInStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -21451,7 +21451,7 @@ define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21491,7 +21491,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21508,7 +21508,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsESt14_Bit_reference(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture %1, i64 %2) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsESt14_Bit_reference(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr captures(none) %1, i64 %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21539,7 +21539,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21554,7 +21554,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #14 align 2 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21584,7 +21584,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21599,7 +21599,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21623,7 +21623,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21647,7 +21647,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21687,7 +21687,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21731,7 +21731,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21879,7 +21879,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n6detail11getInStreamERKSt6vectorIcSaIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.151") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n6detail11getInStreamERKSt6vectorIcSaIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.151") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   invoke void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC1ERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNSt10unique_ptrIN2cv4gapi4s11n18ByteMemoryInStreamESt14default_deleteIS3_EED2Ev.exit unwind label %4
@@ -21902,7 +21902,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_11GCompileArgESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_11GCompileArgESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -21932,7 +21932,7 @@ _ZN2cv4gapi4s11nlsINS_11GCompileArgEEERNS1_8IOStreamES5_RKSt6vectorIT_SaIS7_EE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_4util7variantIJNS5_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_4util7variantIJNS5_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -21977,7 +21977,7 @@ _ZN2cv4gapi4s11nlsINS_4util7variantIJNS3_9monostateENS_8GMatDescENS_11GScalarDes
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_7GRunArgESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_7GRunArgESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -22014,7 +22014,7 @@ _ZN2cv4gapi4s11nlsINS_7GRunArgEEERNS1_8IOStreamES5_RKSt6vectorIT_SaIS7_EE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 {
+define void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -23829,7 +23829,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -30321,7 +30321,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -31216,7 +31216,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -58771,13 +58771,13 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetIiEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58796,13 +58796,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetIdEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58821,13 +58821,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetIfEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58846,13 +58846,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetImEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58871,13 +58871,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetIbEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58896,13 +58896,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSK_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSV_5FTextENSV_4RectENSV_6CircleENSV_4LineENSV_6MosaicENSV_5ImageENSV_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSJ_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSU_5FTextENSU_4RectENSU_6CircleENSU_4LineENSU_6MosaicENSU_5ImageENSU_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58921,13 +58921,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSE_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSP_5FTextENSP_4RectENSP_6CircleENSP_4LineENSP_6MosaicENSP_5ImageENSP_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSE_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSP_5FTextENSP_4RectENSP_6CircleENSP_4LineENSP_6MosaicENSP_5ImageENSP_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_5Size_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSE_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSP_5FTextENSP_4RectENSP_6CircleENSP_4LineENSP_6MosaicENSP_5ImageENSP_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS16_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_7Scalar_IdEENS0_6Point_IiEENSE_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSP_5FTextENSP_4RectENSP_6CircleENSP_4LineENSP_6MosaicENSP_5ImageENSP_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS16_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSD_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSO_5FTextENSO_4RectENSO_6CircleENSO_4LineENSO_6MosaicENSO_5ImageENSO_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS16_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_5Size_IiEENS1_7Scalar_IdEENS1_6Point_IiEENSD_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSO_5FTextENSO_4RectENSO_6CircleENSO_4LineENSO_6MosaicENSO_5ImageENSO_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS16_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58946,13 +58946,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Scalar_IdEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSN_5FTextENSN_4RectENSN_6CircleENSN_4LineENSN_6MosaicENSN_5ImageENSN_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Scalar_IdEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSN_5FTextENSN_4RectENSN_6CircleENSN_4LineENSN_6MosaicENSN_5ImageENSN_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_7Scalar_IdEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Scalar_IdEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSN_5FTextENSN_4RectENSN_6CircleENSN_4LineENSN_6MosaicENSN_5ImageENSN_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Scalar_IdEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSN_5FTextENSN_4RectENSN_6CircleENSN_4LineENSN_6MosaicENSN_5ImageENSN_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_7Scalar_IdEENS1_6Point_IiEENSB_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_7Scalar_IdEENS1_6Point_IiEENSB_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58971,13 +58971,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_6Point_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_6Point_IiEENS9_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_6Point_IiEENS9_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -58996,13 +58996,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_6Point_IfEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_6Point_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_6Point_IfEENS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59021,13 +59021,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_7Point3_IfEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_7Point3_IfEENS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59046,13 +59046,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_3MatEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_3MatENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_3MatENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59071,13 +59071,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_5Rect_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSE_5FTextENSE_4RectENSE_6CircleENSE_4LineENSE_6MosaicENSE_5ImageENSE_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSE_5FTextENSE_4RectENSE_6CircleENSE_4LineENSE_6MosaicENSE_5ImageENSE_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59096,13 +59096,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9VectorRef5resetINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9VectorRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_4util7variantIJNS2_3wip4draw4TextENSC_5FTextENSC_4RectENSC_6CircleENSC_4LineENSC_6MosaicENSC_5ImageENSC_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9VectorRefESt5tupleIJNS1_4util7variantIJNS2_3wip4draw4TextENSC_5FTextENSC_4RectENSC_6CircleENSC_4LineENSC_6MosaicENSC_5ImageENSC_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59267,13 +59267,13 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetIiEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJidfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59292,13 +59292,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetIdEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJdfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59317,13 +59317,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetIfEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJfmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59342,13 +59342,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetImEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJmbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59367,13 +59367,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetIbEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59392,13 +59392,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Size_IiEENS0_6Point_IiEENSI_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSS_5FTextENSS_4RectENSS_6CircleENSS_4LineENSS_6MosaicENSS_5ImageENSS_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5Size_IiEENS1_6Point_IiEENSH_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSR_5FTextENSR_4RectENSR_6CircleENSR_4LineENSR_6MosaicENSR_5ImageENSR_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59417,13 +59417,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_5Size_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Size_IiEENS0_6Point_IiEENSC_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSM_5FTextENSM_4RectENSM_6CircleENSM_4LineENSM_6MosaicENSM_5ImageENSM_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_5Size_IiEENS1_6Point_IiEENSB_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_5Size_IiEENS1_6Point_IiEENSB_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSL_5FTextENSL_4RectENSL_6CircleENSL_4LineENSL_6MosaicENSL_5ImageENSL_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS13_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59442,13 +59442,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_6Point_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IiEENSA_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSK_5FTextENSK_4RectENSK_6CircleENSK_4LineENSK_6MosaicENSK_5ImageENSK_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_6Point_IiEENS9_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_6Point_IiEENS9_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS11_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59467,13 +59467,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_6Point_IfEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_6Point_IfEENS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSJ_5FTextENSJ_4RectENSJ_6CircleENSJ_4LineENSJ_6MosaicENSJ_5ImageENSJ_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_6Point_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_6Point_IfEENS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSI_5FTextENSI_4RectENSI_6CircleENSI_4LineENSI_6MosaicENSI_5ImageENSI_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59492,13 +59492,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_7Point3_IfEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_7Point3_IfEENS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSH_5FTextENSH_4RectENSH_6CircleENSH_4LineENSH_6MosaicENSH_5ImageENSH_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_7Point3_IfEENS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSG_5FTextENSG_4RectENSG_6CircleENSG_4LineENSG_6MosaicENSG_5ImageENSG_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59517,13 +59517,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_5Rect_IiEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_5Rect_IiEENS0_4util7variantIJNS5_3wip4draw4TextENSF_5FTextENSF_4RectENSF_6CircleENSF_4LineENSF_6MosaicENSF_5ImageENSF_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSE_5FTextENSE_4RectENSE_6CircleENSE_4LineENSE_6MosaicENSE_5ImageENSE_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_5Rect_IiEENS1_4util7variantIJNS2_3wip4draw4TextENSE_5FTextENSE_4RectENSE_6CircleENSE_4LineENSE_6MosaicENSE_5ImageENSE_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -59542,13 +59542,13 @@ _ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #3 align 2 {
   tail call void @_ZN2cv6detail9OpaqueRef5resetINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEEvv(ptr noundef nonnull align 8 dereferenceable(20) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN2cv6detail9OpaqueRefEEZNS0_4gapi4s11n12_GLOBAL__N_18initCtorIS2_St5tupleIJNS0_4util7variantIJNS5_3wip4draw4TextENSD_5FTextENSD_4RectENSD_6CircleENSD_4LineENSD_6MosaicENSD_5ImageENSD_4PolyEEEEEEJEE4initERNS0_5gimpl4DataEEUlS3_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_4util7variantIJNS2_3wip4draw4TextENSC_5FTextENSC_4RectENSC_6CircleENSC_4LineENSC_6MosaicENSC_5ImageENSC_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN2cv4gapi4s11n12_GLOBAL__N_18initCtorINS1_6detail9OpaqueRefESt5tupleIJNS1_4util7variantIJNS2_3wip4draw4TextENSC_5FTextENSC_4RectENSC_6CircleENSC_4LineENSC_6MosaicENSC_5ImageENSC_4PolyEEEEEEJEE4initERNS1_5gimpl4DataEEUlRS7_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -63041,13 +63041,13 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

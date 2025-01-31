@@ -189,7 +189,7 @@ declare dso_local i32 @drmm_mode_config_init(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_mode_config_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_modeset_fini(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_modeset_fini(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 61840
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -367,7 +367,7 @@ declare dso_local ptr @drm_atomic_helper_crtc_duplicate_state(ptr noundef) #1
 declare dso_local void @drm_atomic_helper_crtc_destroy_state(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_crtc_mode_set_nofb(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @virtio_gpu_crtc_mode_set_nofb(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -385,12 +385,12 @@ define internal void @virtio_gpu_crtc_mode_set_nofb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @virtio_gpu_crtc_atomic_check(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef i32 @virtio_gpu_crtc_atomic_check(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @virtio_gpu_crtc_atomic_flush(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal void @virtio_gpu_crtc_atomic_flush(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -414,12 +414,12 @@ define internal void @virtio_gpu_crtc_atomic_flush(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @virtio_gpu_crtc_atomic_enable(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 align 16 {
+define internal void @virtio_gpu_crtc_atomic_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtio_gpu_crtc_atomic_disable(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @virtio_gpu_crtc_atomic_disable(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -440,7 +440,7 @@ declare dso_local void @virtio_gpu_notify(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_atomic_helper_connector_reset(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 1, 3) i32 @virtio_gpu_conn_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #5 align 16 {
+define internal range(i32 1, 3) i32 @virtio_gpu_conn_detect(ptr noundef readonly captures(none) %0, i1 zeroext %1) #5 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2120
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -519,7 +519,7 @@ define internal i32 @virtio_gpu_conn_get_modes(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @virtio_gpu_conn_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @virtio_gpu_conn_mode_valid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 2116
@@ -588,17 +588,17 @@ declare dso_local ptr @drm_cvt_mode(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare dso_local void @drm_mode_probed_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @virtio_gpu_enc_mode_set(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 align 16 {
+define internal void @virtio_gpu_enc_mode_set(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @virtio_gpu_enc_disable(ptr nocapture readnone %0) #3 align 16 {
+define internal void @virtio_gpu_enc_disable(ptr readnone captures(none) %0) #3 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @virtio_gpu_enc_enable(ptr nocapture readnone %0) #3 align 16 {
+define internal void @virtio_gpu_enc_enable(ptr readnone captures(none) %0) #3 align 16 {
   ret void
 }
 

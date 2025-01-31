@@ -339,7 +339,7 @@ return:                                           ; preds = %if.then2.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @uv__ipv6_link_local_scope_id() unnamed_addr #0 {
@@ -646,7 +646,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_nodelay(ptr nocapture noundef %handle, i32 noundef %on) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_nodelay(ptr noundef captures(none) %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr.i = alloca i32, align 4
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
@@ -689,7 +689,7 @@ return:                                           ; preds = %if.end4, %uv__tcp_n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr nocapture noundef %handle, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr noundef captures(none) %handle, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
@@ -717,7 +717,7 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @uv_tcp_simultaneous_accepts(ptr nocapture noundef readnone %handle, i32 noundef %enable) local_unnamed_addr #5 {
+define dso_local noundef i32 @uv_tcp_simultaneous_accepts(ptr noundef readnone captures(none) %handle, i32 noundef %enable) local_unnamed_addr #5 {
 entry:
   ret i32 0
 }
@@ -732,7 +732,7 @@ entry:
 declare void @uv__stream_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_socketpair(i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly %fds, i32 noundef %flags0, i32 noundef %flags1) local_unnamed_addr #0 {
+define dso_local i32 @uv_socketpair(i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly captures(none) %fds, i32 noundef %flags0, i32 noundef %flags1) local_unnamed_addr #0 {
 entry:
   %temp = alloca [2 x i32], align 4
   %and = and i32 %flags0, 64
@@ -821,10 +821,10 @@ declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #2
 declare void @freeifaddrs(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

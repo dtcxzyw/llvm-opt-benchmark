@@ -622,7 +622,7 @@ define i32 @kinLsSetup(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -859,7 +859,7 @@ define noundef i32 @kinLsFree(ptr noundef %0) #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @kinLsDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -906,7 +906,7 @@ define i32 @kinLsDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @kinLsDQJtimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define i32 @kinLsDQJtimes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %8
 
@@ -1010,7 +1010,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %31, %65, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @kinLsInitializeCounters(ptr nocapture noundef writeonly initializes((56, 112)) %0) local_unnamed_addr #4 {
+define noundef i32 @kinLsInitializeCounters(ptr noundef writeonly captures(none) initializes((56, 112)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret i32 0
@@ -1058,7 +1058,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %kinLs_Acce
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @SUNLinSolSetPreconditioner(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1121,7 +1121,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %15, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @kinLs_AccessLMem(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1408,7 +1408,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %14, %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetJac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetJac(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1438,7 +1438,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetJacNumIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetJacNumIters(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1468,7 +1468,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetLinWorkSpace(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetLinWorkSpace(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1550,7 +1550,7 @@ declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumJacEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1580,7 +1580,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumPrecEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1610,7 +1610,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumPrecSolves(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1640,7 +1640,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinIters(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1670,7 +1670,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumLinConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinConvFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1700,7 +1700,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumJtimesEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1730,7 +1730,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetNumLinFuncEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetNumLinFuncEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1760,7 +1760,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %kinLs_Acces
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINGetLastLinFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINGetLastLinFlag(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1854,7 +1854,7 @@ declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @SUNMatGetID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 584
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @SUNDenseMatrix_Columns(ptr noundef %2) #12
@@ -1917,7 +1917,7 @@ define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 584
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @SUNBandMatrix_Columns(ptr noundef %2) #12
@@ -2094,7 +2094,7 @@ declare i32 @SUNLinSolNumIters(ptr noundef) local_unnamed_addr #1
 declare void @KINPrintInfo(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10

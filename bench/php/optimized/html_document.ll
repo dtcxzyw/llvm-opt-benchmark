@@ -172,7 +172,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.5 = private unnamed_addr constant [36 x ptr] [ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.58, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_HTMLDocument_createEmpty(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_HTMLDocument_createEmpty(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr @.str, ptr %3, align 8
@@ -258,7 +258,7 @@ declare ptr @php_dom_instantiate_object_helper(ptr noundef, ptr noundef, ptr nou
 declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_HTMLDocument_createFromString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_HTMLDocument_createFromString(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -529,7 +529,7 @@ declare void @lexbor_libxml2_bridge_parse_context_init(ptr noundef) local_unname
 declare void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -646,7 +646,7 @@ dom_lexbor_tokenizer_error_code_to_string.exit:   ; preds = %dom_find_line_and_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dom_lexbor_libxml2_bridge_tree_error_reporter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+define internal void @dom_lexbor_libxml2_bridge_tree_error_reporter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %7, label %14
 
@@ -705,7 +705,7 @@ dom_lexbor_tree_error_code_to_string.exit21:      ; preds = %23, %switch.lookup2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull initializes((88, 144), (152, 160)) %2, ptr nocapture noundef nonnull writeonly initializes((8, 24)) %3) unnamed_addr #0 {
+define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull initializes((88, 144), (152, 160)) %2, ptr noundef nonnull writeonly captures(none) initializes((8, 24)) %3) unnamed_addr #0 {
   %5 = alloca %struct.lxb_html_encoding_t, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %1, align 8
@@ -842,7 +842,7 @@ declare ptr @lxb_html_document_create() local_unnamed_addr #1
 declare i32 @lxb_html_document_parse_chunk_begin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -1091,7 +1091,7 @@ declare void @php_libxml_ctx_error(ptr noundef, ptr noundef, ...) local_unnamed_
 declare ptr @lxb_html_document_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct._xmlDOMWrapCtxt, align 8
   %5 = and i64 %1, 8192
   %.not = icmp eq i64 %5, 0
@@ -1348,7 +1348,7 @@ dom_place_remove_element_and_hoist_children.exit67: ; preds = %82, %.preheader, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1790,7 +1790,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %152, %161, %162
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1807,12 +1807,12 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @xmlPathToURI(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_HTMLDocument_saveHTMLFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._dom_output_ctx, align 8
@@ -1926,7 +1926,7 @@ define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull
   br i1 %11, label %lxb_encoding_encode_init.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef %.112.val, i64 noundef %10) #11
+  %13 = tail call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %.112.val, i64 noundef %10) #11
   %14 = icmp eq ptr %13, null
   br i1 %14, label %lxb_encoding_encode_init.exit, label %lxb_encoding_data_by_name.exit
 
@@ -2088,7 +2088,7 @@ lxb_encoding_encode_finish.exit:                  ; preds = %74, %78
 declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca %struct._dom_output_ctx, align 8
@@ -2290,10 +2290,10 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
 declare i32 @dom_get_strict_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -2329,12 +2329,12 @@ define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @zim_DOM_HTMLDocument___construct(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define hidden void @zim_DOM_HTMLDocument___construct(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_html_document_encoding_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_html_document_encoding_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -2536,7 +2536,7 @@ declare i32 @lxb_html_document_parse_chunk(ptr noundef, ptr noundef, i64 noundef
 declare void @lexbor_libxml2_bridge_report_errors(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef) local_unnamed_addr #1
 
@@ -2545,7 +2545,7 @@ declare void @php_libxml_set_old_ns(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @xmlDOMWrapReconcileNamespaces(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #1
 
@@ -2558,10 +2558,10 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
@@ -2625,7 +2625,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
@@ -2647,7 +2647,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr nocapture no
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = call i32 %17(ptr noundef %18, ptr noundef nonnull %3, ptr noundef %6) #11
+  %19 = call i32 %17(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %6) #11
   %20 = load ptr, ptr %9, align 8
   store ptr %20, ptr %4, align 8
   %21 = load ptr, ptr %8, align 8
@@ -2707,10 +2707,10 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

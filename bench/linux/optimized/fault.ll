@@ -193,7 +193,7 @@ module asm ".popsection\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_page_fault_user(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_page_fault_user(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_page_fault_user(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_page_fault_user, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -214,7 +214,7 @@ define dso_local noundef i32 @__traceiter_page_fault_user(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_page_fault_user(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_page_fault_user(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -225,16 +225,16 @@ declare dso_local i32 @trace_pagefault_reg() #0
 declare dso_local void @trace_pagefault_unreg() #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_page_fault_kernel(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_page_fault_kernel(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_page_fault_kernel(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_page_fault_kernel, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -255,12 +255,12 @@ define dso_local noundef i32 @__traceiter_page_fault_kernel(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_page_fault_kernel(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_page_fault_kernel(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i64 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_x86_exceptions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_x86_exceptions(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -302,7 +302,7 @@ define internal void @trace_event_raw_event_x86_exceptions(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_x86_exceptions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) #1 align 16 {
+define internal void @perf_trace_x86_exceptions(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
@@ -1073,7 +1073,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %247, label %248, label %bad_area_access_error.exit
 
 248:                                              ; preds = %245
-  %249 = call ptr @lock_mm_and_find_vma(ptr noundef %8, i64 noundef %2, ptr noundef %0) #14
+  %249 = call ptr @lock_mm_and_find_vma(ptr noundef nonnull %8, i64 noundef %2, ptr noundef %0) #14
   %250 = icmp eq ptr %249, null
   br i1 %250, label %.loopexit, label %.split.split.us, !prof !41
 
@@ -1131,7 +1131,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %283, label %284, label %bad_area_access_error.exit
 
 284:                                              ; preds = %281
-  %285 = call ptr @lock_mm_and_find_vma(ptr noundef %8, i64 noundef %2, ptr noundef %0) #14
+  %285 = call ptr @lock_mm_and_find_vma(ptr noundef nonnull %8, i64 noundef %2, ptr noundef %0) #14
   %286 = icmp eq ptr %285, null
   br i1 %286, label %.loopexit, label %.split.split.split.us, !prof !41
 
@@ -1249,7 +1249,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
           to label %338 [label %337], !srcloc !35
 
 337:                                              ; preds = %.thread12
-  call void @__mmap_lock_do_trace_released(ptr noundef %8, i1 noundef zeroext false) #14
+  call void @__mmap_lock_do_trace_released(ptr noundef nonnull %8, i1 noundef zeroext false) #14
   br label %338
 
 338:                                              ; preds = %337, %.thread12
@@ -1393,7 +1393,7 @@ define dso_local void @exc_page_fault(ptr noundef %0, i64 noundef %1) local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #0 section ".noinstr.text"
@@ -1459,7 +1459,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #7
 declare ptr @llvm.frameaddress.p0(i32 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = and i64 %0, 2
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %13, label %5
@@ -2397,7 +2397,7 @@ declare dso_local void @print_vma_addr(ptr noundef, i64 noundef) local_unnamed_a
 declare dso_local void @show_opcodes(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @is_errata93(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @is_errata93(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %4 = icmp ne i8 %3, 2
   %5 = load i8, ptr @boot_cpu_data, align 8

@@ -354,14 +354,14 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @QualifiedNameGetCreationNamespace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 4294967296) i64 @get_ts_parser_func(ptr noundef %0, i32 noundef range(i32 4, 9) %1) unnamed_addr #0 {
@@ -784,7 +784,7 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterTSDictionary(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca [6 x i64], align 16
   %4 = alloca [6 x i8], align 1
@@ -1926,7 +1926,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 declare void @CatalogCloseIndexes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr nocapture readonly %.16.val, i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly captures(none) %.16.val, i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ScanKeyData, align 8
@@ -2879,7 +2879,7 @@ declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @makeInteger(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @makeFloat(ptr noundef) local_unnamed_addr #1
 
@@ -2894,10 +2894,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

@@ -590,7 +590,7 @@ list_length.exit:                                 ; preds = %73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -630,7 +630,7 @@ declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @CopyGetAttnums(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -659,10 +659,10 @@ declare void @pg_re_throw() local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @pgstat_progress_start_command(i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -734,7 +734,7 @@ declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #3
 declare void @PopActiveSnapshot() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @DoCopyTo(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @DoCopyTo(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1182,7 +1182,7 @@ declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @pg_server_to_any(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopyAttributeOutCSV(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @CopyAttributeOutCSV(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -1226,7 +1226,7 @@ list_length.exit:                                 ; preds = %3, %15
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8
-  %34 = tail call ptr @pg_server_to_any(ptr noundef %1, i32 noundef %31, i32 noundef %33) #18
+  %34 = tail call ptr @pg_server_to_any(ptr noundef nonnull %1, i32 noundef %31, i32 noundef %33) #18
   br label %35
 
 35:                                               ; preds = %25, %29
@@ -1471,7 +1471,7 @@ CopySendChar.exit86:                              ; preds = %136, %135, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopyAttributeOutText(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @CopyAttributeOutText(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -1485,7 +1485,7 @@ define internal fastcc void @CopyAttributeOutText(ptr nocapture noundef readonly
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = tail call ptr @pg_server_to_any(ptr noundef %1, i32 noundef %11, i32 noundef %13) #18
+  %14 = tail call ptr @pg_server_to_any(ptr noundef nonnull %1, i32 noundef %11, i32 noundef %13) #18
   br label %15
 
 15:                                               ; preds = %2, %9
@@ -1896,7 +1896,7 @@ CopySendChar.exit100:                             ; preds = %190, %191
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopySendEndOfRow(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @CopySendEndOfRow(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2064,7 +2064,7 @@ declare ptr @table_slot_create(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @ProcessInterrupts() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CopyOneRowTo(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @CopyOneRowTo(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
@@ -2207,7 +2207,7 @@ CopySendChar.exit:                                ; preds = %.lr.ph61, %71, %70
   %.val51 = load ptr, ptr %41, align 8
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #22
   %88 = trunc i64 %87 to i32
-  call void @appendBinaryStringInfo(ptr noundef %.val51, ptr noundef %86, i32 noundef %88) #18
+  call void @appendBinaryStringInfo(ptr noundef %.val51, ptr noundef nonnull %86, i32 noundef %88) #18
   br label %112
 
 89:                                               ; preds = %84
@@ -2298,7 +2298,7 @@ define dso_local noundef ptr @CreateCopyDestReceiver() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @copy_dest_receive(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i1 @copy_dest_receive(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @CopyOneRowTo(ptr noundef %4, ptr noundef %0)
@@ -2311,12 +2311,12 @@ define internal noundef zeroext i1 @copy_dest_receive(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @copy_dest_startup(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #10 {
+define internal void @copy_dest_startup(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @copy_dest_shutdown(ptr nocapture readnone %0) #10 {
+define internal void @copy_dest_shutdown(ptr readnone captures(none) %0) #10 {
   ret void
 }
 
@@ -2327,7 +2327,7 @@ define internal void @copy_dest_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ClosePipeToProgram(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ClosePipeToProgram(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @ClosePipeStream(ptr noundef %3) #18
@@ -2389,10 +2389,10 @@ declare i32 @llvm.bswap.i32(i32) #11
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @resetStringInfo(ptr noundef) local_unnamed_addr #3
 
@@ -2409,12 +2409,12 @@ declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @SendFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -2423,10 +2423,10 @@ declare void @llvm.assume(i1 noundef) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

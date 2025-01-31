@@ -194,7 +194,7 @@ init_libpq_conn.exit:                             ; preds = %33
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpq_traverse_files(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @libpq_traverse_files(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef nonnull @.str.19) #9
@@ -277,7 +277,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpq_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
+define internal ptr @libpq_fetch_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca [1 x ptr], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -510,7 +510,7 @@ define internal void @libpq_finish_fetch(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @libpq_get_current_wal_insert_lsn(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @libpq_get_current_wal_insert_lsn(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -607,7 +607,7 @@ define internal fastcc ptr @run_simple_query(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
@@ -624,10 +624,10 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @open_target_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1017,7 +1017,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   br i1 %.not113, label %175, label %174
 
 174:                                              ; preds = %171
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %158, ptr noundef %172) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %158, ptr noundef nonnull %172) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
@@ -1028,7 +1028,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   br i1 %.not114, label %179, label %178
 
 178:                                              ; preds = %175
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37, i64 noundef %153, ptr noundef %172, i64 noundef %177) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37, i64 noundef %153, ptr noundef nonnull %172, i64 noundef %177) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
@@ -1040,7 +1040,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   br i1 %183, label %184, label %185
 
 184:                                              ; preds = %179
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %172) #9
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %172) #9
   call void @exit(i32 noundef 1) #10
   unreachable
 
@@ -1103,7 +1103,7 @@ declare i32 @PQfformat(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PQgetlength(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #7

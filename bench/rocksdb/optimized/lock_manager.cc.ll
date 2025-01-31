@@ -25,7 +25,7 @@ $_ZTVSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policy
 @_ZTVSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb16PointLockManagerELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14NewLockManagerEPNS_24PessimisticTransactionDBERKNS_20TransactionDBOptionsE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14NewLockManagerEPNS_24PessimisticTransactionDBERKNS_20TransactionDBOptionsE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %lock_mgr_handle = getelementptr inbounds nuw i8, ptr %opt, i64 64
   %0 = load ptr, ptr %lock_mgr_handle, align 8

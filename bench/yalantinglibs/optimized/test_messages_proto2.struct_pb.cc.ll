@@ -256,7 +256,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %0 = load ptr, ptr %unknown_fields, align 8
@@ -332,7 +332,7 @@ if.end15:                                         ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 dereferenceable(2912) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 dereferenceable(2912) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp183 = alloca %"struct.struct_pb::UnknownFields", align 8
@@ -4222,12 +4222,12 @@ if.end2129:                                       ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef %data, i64 %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef %data, i64 %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp10 = alloca %"struct.struct_pb::UnknownFields", align 8
@@ -4344,7 +4344,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef %data, i64 %size, ptr noundef nonnull readonly align 8 dereferenceable(2912) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef %data, i64 %size, ptr noundef nonnull readonly align 8 dereferenceable(2912) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3903 = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp.i3486 = alloca %"struct.struct_pb::UnknownFields", align 8
@@ -12626,7 +12626,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields.i = alloca %"struct.struct_pb::UnknownFields", align 8
   %pos = alloca i64, align 8
@@ -13898,7 +13898,7 @@ return:                                           ; preds = %while.body.i67, %wh
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEbRT_PKcm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEbRT_PKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -13933,7 +13933,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -14008,7 +14008,7 @@ if.end14:                                         ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -14136,7 +14136,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 4 dereferenceable(16) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
   %invariant.gep = getelementptr i8, ptr %data, i64 1
@@ -14638,7 +14638,7 @@ return:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm(ptr nocapture noundef nonnull align 4 dereferenceable(16) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto24DataEEEbRT_PKcm(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -14673,7 +14673,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -14697,7 +14697,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -14724,7 +14724,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture nonnull readnone align 1 %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nonnull readnone align 1 captures(none) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %pos = alloca i64, align 8
   %cmp.not = icmp eq i64 %size, 0
@@ -14864,7 +14864,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEbRT_PKcm(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto217MessageSetCorrectEEEbRT_PKcm(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -14899,7 +14899,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension1EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension1EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -14949,7 +14949,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension1EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension1EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
@@ -15050,7 +15050,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension1EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -15818,7 +15818,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -15867,7 +15867,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -15938,7 +15938,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
   %invariant.gep = getelementptr i8, ptr %data, i64 1
@@ -16273,7 +16273,7 @@ return:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEbRT_PKcm(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto218TestAllTypesProto227MessageSetCorrectExtension2EEEbRT_PKcm(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -16308,7 +16308,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto220ForeignMessageProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto220ForeignMessageProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -16357,7 +16357,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -63572,7 +63572,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcm(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -64954,7 +64954,7 @@ _ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto218Test
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220ForeignMessageProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
   %invariant.gep = getelementptr i8, ptr %data, i64 1
@@ -65289,7 +65289,7 @@ return:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -65338,7 +65338,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -65409,7 +65409,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
   %invariant.gep = getelementptr i8, ptr %data, i64 1
@@ -65744,7 +65744,7 @@ return:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypes13OptionalGroupEEEbRT_PKcm(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -65779,7 +65779,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto221UnknownToTestAllTypesEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto221UnknownToTestAllTypesEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -65990,7 +65990,7 @@ if.end67:                                         ; preds = %for.end, %if.end43
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypesEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto221UnknownToTestAllTypesEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -68427,7 +68427,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto220NullHypothesisProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto220NullHypothesisProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -68451,7 +68451,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -68478,7 +68478,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture nonnull readnone align 1 %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nonnull readnone align 1 captures(none) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %pos = alloca i64, align 8
   %cmp.not = icmp eq i64 %size, 0
@@ -68618,7 +68618,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEbRT_PKcm(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto220NullHypothesisProto2EEEbRT_PKcm(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -68653,7 +68653,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto214EnumOnlyProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto214EnumOnlyProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -68677,7 +68677,7 @@ _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -68704,7 +68704,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture nonnull readnone align 1 %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEbRT_PKcmRNS_13UnknownFieldsE(ptr nonnull readnone align 1 captures(none) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %pos = alloca i64, align 8
   %cmp.not = icmp eq i64 %size, 0
@@ -68844,7 +68844,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEbRT_PKcm(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto214EnumOnlyProto2EEEbRT_PKcm(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -68879,7 +68879,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto215OneStringProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto215OneStringProto2EEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -68929,7 +68929,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto215OneStringProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto215OneStringProto2EEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
@@ -69538,7 +69538,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3:           ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -69587,7 +69587,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr nocapture noundef writeonly %data, i64 noundef %size, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
+define dso_local void @_ZN9struct_pb8internal12serialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef writeonly captures(none) %data, i64 noundef %size, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %unknown_fields) local_unnamed_addr #2 {
 entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i8, ptr %_M_engaged.i.i, align 4
@@ -69658,7 +69658,7 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEbRT_PKcmRNS_13UnknownFieldsE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
   %invariant.gep = getelementptr i8, ptr %data, i64 1
@@ -69993,7 +69993,7 @@ return:                                           ; preds = %_ZN9struct_pb8inter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEbRT_PKcm(ptr nocapture noundef nonnull align 4 dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN22protobuf_test_messages6proto217ProtoWithKeywordsEEEbRT_PKcm(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %t, ptr noundef %data, i64 noundef %size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %unknown_fields = alloca %"struct.struct_pb::UnknownFields", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields, i8 0, i64 24, i1 false)
@@ -71782,7 +71782,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
@@ -75057,7 +75057,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -77470,10 +77470,10 @@ declare void @llvm.assume(i1 noundef) #17
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

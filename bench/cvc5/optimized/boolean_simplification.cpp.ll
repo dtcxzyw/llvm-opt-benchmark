@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing21BooleanSimplification39push_back_associative_commute_recursiveENS0_12NodeTemplateILb1EEERSt6vectorIS4_SaIS4_EENS0_4kind6Kind_tESA_b(ptr nocapture noundef readonly %n, ptr noundef nonnull align 8 dereferenceable(24) %buffer, i32 noundef %k, i32 noundef %notK, i1 noundef zeroext %negateNode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing21BooleanSimplification39push_back_associative_commute_recursiveENS0_12NodeTemplateILb1EEERSt6vectorIS4_SaIS4_EENS0_4kind6Kind_tESA_b(ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 dereferenceable(24) %buffer, i32 noundef %k, i32 noundef %notK, i1 noundef zeroext %negateNode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -1558,10 +1558,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

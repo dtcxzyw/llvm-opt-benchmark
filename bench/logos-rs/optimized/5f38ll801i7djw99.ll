@@ -344,7 +344,7 @@ _ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..Clone$GT$5clone17h67a0f3bcd9a93336E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 33)) %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..Clone$GT$5clone17h67a0f3bcd9a93336E"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 33)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8
@@ -619,7 +619,7 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN120_$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17he388dc2f496af635E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN120_$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17he388dc2f496af635E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
   store ptr %1, ptr %5, align 8
@@ -653,7 +653,7 @@ define void @"_ZN120_$LT$regex_syntax..hir..Literal$u20$as$u20$logos_codegen..pa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN123_$LT$regex_syntax..hir..ClassBytes$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h20a21a19f1718c85E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN123_$LT$regex_syntax..hir..ClassBytes$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h20a21a19f1718c85E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.2 = alloca [32 x i8], align 8
   invoke void @_ZN12regex_syntax3hir10ClassBytes16case_fold_simple17h99ebcabd6784a470E(ptr align 8 %1)
           to label %5 unwind label %3
@@ -682,7 +682,7 @@ define void @"_ZN123_$LT$regex_syntax..hir..ClassBytes$u20$as$u20$logos_codegen.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h34e6003e25395e6bE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h34e6003e25395e6bE"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %.sroa.212 = alloca [32 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -877,7 +877,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN118_$LT$regex_syntax..hir..Class$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h05f4bd04d4291d20E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN118_$LT$regex_syntax..hir..Class$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h05f4bd04d4291d20E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = load i64, ptr %1, align 8
@@ -924,7 +924,7 @@ define void @"_ZN118_$LT$regex_syntax..hir..Class$u20$as$u20$logos_codegen..pars
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare { i32, i32 } @_ZN12regex_syntax3hir17ClassUnicodeRange3new17h88a94ff24d8e2e00E(i32, i32) unnamed_addr #1
@@ -1047,10 +1047,10 @@ declare void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..h
 declare void @llvm.experimental.noalias.scope.decl(metadata) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

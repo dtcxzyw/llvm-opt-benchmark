@@ -633,7 +633,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZN7simdutf3BOM9check_bomEPKcm(ptr nocapture noundef readonly %byte, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 17) i32 @_ZN7simdutf3BOM9check_bomEPKcm(ptr noundef readonly captures(none) %byte, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ugt i64 %length, 1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end63.i
@@ -769,7 +769,7 @@ entry:
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8internal29available_implementation_list4sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8internal29available_implementation_list4sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -801,7 +801,7 @@ _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list5beginEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list5beginEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -832,7 +832,7 @@ _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list3endEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list3endEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -866,7 +866,7 @@ _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list21detect_best_supportedEv(ptr nocapture nonnull readnone align 1 %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list21detect_best_supportedEv(ptr nonnull readnone align 1 captures(none) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #49, !srcloc !5
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2
@@ -980,7 +980,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -1047,7 +1047,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN7simdutf29get_available_implementationsEv() local_unnamed_addr #4 {
@@ -2512,7 +2512,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN7simdutf17trim_partial_utf8EPKcm(ptr nocapture noundef readonly %input, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN7simdutf17trim_partial_utf8EPKcm(ptr noundef readonly captures(none) %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ult i64 %length, 3
   br i1 %cmp.i, label %if.then.i, label %if.end20.i
@@ -2573,7 +2573,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817trim_partial_utf8EPKcm.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN7simdutf20trim_partial_utf16beEPKDsm(ptr nocapture noundef readonly %input, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN7simdutf20trim_partial_utf16beEPKDsm(ptr noundef readonly captures(none) %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ult i64 %length, 2
   br i1 %cmp.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
@@ -2594,7 +2594,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE1EEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN7simdutf20trim_partial_utf16leEPKDsm(ptr nocapture noundef readonly %input, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN7simdutf20trim_partial_utf16leEPKDsm(ptr noundef readonly captures(none) %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp ult i64 %length, 2
   br i1 %cmp.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
@@ -2615,7 +2615,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1618trim_partial_utf16ILNS_10endiannessE0EEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN7simdutf18trim_partial_utf16EPKDsm(ptr nocapture noundef readonly %input, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN7simdutf18trim_partial_utf16EPKDsm(ptr noundef readonly captures(none) %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp.i.i = icmp ult i64 %length, 2
   br i1 %cmp.i.i, label %_ZN7simdutf20trim_partial_utf16leEPKDsm.exit, label %cond.end.i.i
@@ -2717,7 +2717,7 @@ return:                                           ; preds = %sw.default, %sw.bb9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZN7simdutf3BOM9check_bomEPKhm(ptr nocapture noundef readonly %byte, i64 noundef %length) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 17) i32 @_ZN7simdutf3BOM9check_bomEPKhm(ptr noundef readonly captures(none) %byte, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %length, 1
   br i1 %cmp, label %land.lhs.true, label %if.end63
@@ -2839,7 +2839,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf8fallback14implementation16detect_encodingsEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf8fallback14implementation16detect_encodingsEPKcm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp.i.i = icmp ugt i64 %length, 1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end
@@ -3006,7 +3006,7 @@ return:                                           ; preds = %for.body.i.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation13validate_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp68.not.i = icmp eq i64 %len, 0
   br i1 %cmp68.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit, label %while.body.i
@@ -3153,7 +3153,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit: ; preds = %if.then17.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation16validate_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp14.i = icmp eq i64 %len, 0
   br i1 %cmp14.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE0EEEbPKDsm.exit, label %cond.end.i
@@ -3196,7 +3196,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE0EEEbPKDsm.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation14validate_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp6.i = icmp eq i64 %len, 0
   br i1 %cmp6.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf328validateEPKDim.exit, label %for.body.i
@@ -3220,14 +3220,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf328validateEPKDim.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation25validate_utf8_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef %buf, i64 noundef %len) #49
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 {
 entry:
   %cmp86.not = icmp eq i64 %len, 0
   br i1 %cmp86.not, label %return, label %while.body
@@ -3388,7 +3388,7 @@ return:                                           ; preds = %if.then17, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation14validate_asciiEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   br label %for.cond.i
 
@@ -3428,7 +3428,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15ascii8validateEPKcm.exit: ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation26validate_ascii_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp.not23.i = icmp ult i64 %len, 16
   br i1 %cmp.not23.i, label %for.cond13.preheader.i, label %for.body.i
@@ -3491,7 +3491,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15ascii20validate_with_errorsEPKcm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8fallback14implementation16validate_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp14.i = icmp eq i64 %len, 0
   br i1 %cmp14.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE1EEEbPKDsm.exit, label %cond.end.i
@@ -3535,7 +3535,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE1EEEbPKDsm.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation28validate_utf16le_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp18.not.i = icmp eq i64 %len, 0
   br i1 %cmp18.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsm.exit, label %cond.end.i
@@ -3581,7 +3581,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation28validate_utf16be_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp18.not.i = icmp eq i64 %len, 0
   br i1 %cmp18.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsm.exit, label %cond.end.i
@@ -3628,7 +3628,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1620validate_with_errorsILNS_10endiannessE1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation26validate_utf32_with_errorsEPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp8.not.i = icmp eq i64 %len, 0
   br i1 %cmp8.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit, label %for.body.i
@@ -3659,7 +3659,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_latin1_to_utf8EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp27.not.i = icmp eq i64 %len, 0
   br i1 %cmp27.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114latin1_to_utf87convertEPKcmPc.exit, label %while.body.i
@@ -3741,7 +3741,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114latin1_to_utf87convertEPKcmPc.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %len, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit, label %cond.end.i
@@ -3768,7 +3768,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %len, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit, label %cond.end.i
@@ -3796,7 +3796,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp5.not.i = icmp eq i64 %len, 0
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit, label %for.body.i
@@ -3823,7 +3823,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp35.not.i = icmp eq i64 %len, 0
   br i1 %cmp35.not.i, label %while.end48.i, label %while.body.i
@@ -3923,7 +3923,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp51.not.i = icmp eq i64 %len, 0
   br i1 %cmp51.not.i, label %while.end65.i, label %while.body.i
@@ -4049,7 +4049,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp33.not.i = icmp eq i64 %len, 0
   br i1 %cmp33.not.i, label %while.end44.i, label %while.body.i
@@ -4145,14 +4145,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp91.not = icmp eq i64 %len, 0
   br i1 %cmp91.not, label %while.end192, label %while.body
@@ -4375,14 +4375,14 @@ return:                                           ; preds = %if.else118, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp91.not = icmp eq i64 %len, 0
   br i1 %cmp91.not, label %while.end192, label %while.body
@@ -4611,14 +4611,14 @@ return:                                           ; preds = %if.else118, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp111.not = icmp eq i64 %len, 0
   br i1 %cmp111.not, label %while.end199, label %while.body
@@ -4853,14 +4853,14 @@ return:                                           ; preds = %if.end172, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp111.not = icmp eq i64 %len, 0
   br i1 %cmp111.not, label %while.end199, label %while.body
@@ -5101,14 +5101,14 @@ return:                                           ; preds = %if.end172, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp66.not = icmp eq i64 %len, 0
   br i1 %cmp66.not, label %while.end126, label %while.body
@@ -5278,14 +5278,14 @@ return:                                           ; preds = %if.else78, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp66.not = icmp eq i64 %len, 0
   br i1 %cmp66.not, label %while.end126, label %while.body
@@ -5461,14 +5461,14 @@ return:                                           ; preds = %if.else78, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp76.not = icmp eq i64 %len, 0
   br i1 %cmp76.not, label %while.end157, label %while.body
@@ -5670,14 +5670,14 @@ return:                                           ; preds = %if.else94, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp96.not = icmp eq i64 %len, 0
   br i1 %cmp96.not, label %while.end164, label %while.body
@@ -5888,14 +5888,14 @@ return:                                           ; preds = %if.end148, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef %input, i64 noundef %size, ptr noundef %utf32_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp51.not = icmp eq i64 %len, 0
   br i1 %cmp51.not, label %while.end93, label %while.body
@@ -6044,14 +6044,14 @@ return:                                           ; preds = %if.else57, %while.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #0 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE0EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE0EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin_output) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE0EEEmPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin_output) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %temp_output = alloca %"class.std::vector", align 8
@@ -6150,14 +6150,14 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #0 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE1EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE1EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin_output) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin17convertILNS_10endiannessE1EEEmPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin_output) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %temp_output = alloca %"class.std::vector", align 8
@@ -6257,7 +6257,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp42.not.i = icmp eq i64 %len, 0
   br i1 %cmp42.not.i, label %while.end60.i, label %while.body.i
@@ -6340,7 +6340,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp42.not.i = icmp eq i64 %len, 0
   br i1 %cmp42.not.i, label %while.end60.i, label %while.body.i
@@ -6429,7 +6429,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannessE0EEEmPKDsmPc.exit, label %cond.end.i
@@ -6455,7 +6455,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannessE1EEEmPKDsmPc.exit, label %cond.end.i
@@ -6482,14 +6482,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE0EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE0EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE0EEEmPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp60.not = icmp eq i64 %len, 0
   br i1 %cmp60.not, label %while.end122, label %while.body
@@ -6649,14 +6649,14 @@ return:                                           ; preds = %cond.end86, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE1EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE1EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE1EEEmPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp60.not = icmp eq i64 %len, 0
   br i1 %cmp60.not, label %while.end122, label %while.body
@@ -6820,14 +6820,14 @@ return:                                           ; preds = %cond.end86, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp64.not = icmp eq i64 %len, 0
   br i1 %cmp64.not, label %while.end122, label %while.body
@@ -6990,14 +6990,14 @@ return:                                           ; preds = %cond.end86, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp64.not = icmp eq i64 %len, 0
   br i1 %cmp64.not, label %while.end122, label %while.body
@@ -7164,7 +7164,7 @@ return:                                           ; preds = %cond.end86, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp58.not.i = icmp eq i64 %len, 0
   br i1 %cmp58.not.i, label %while.end114.i, label %while.body.i
@@ -7316,7 +7316,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf813convert_validILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp58.not.i = icmp eq i64 %len, 0
   br i1 %cmp58.not.i, label %while.end114.i, label %while.body.i
@@ -7472,7 +7472,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf813convert_validILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin17convertEPKDimPc.exit, label %while.body.i
@@ -7506,7 +7506,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin17convertEPKDimPc.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
   br i1 %cmp20.not.i, label %while.end.i, label %while.body.i
@@ -7575,7 +7575,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp16.not.i = icmp eq i64 %len, 0
   br i1 %cmp16.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin113convert_validEPKDimPc.exit, label %while.body.i
@@ -7628,14 +7628,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin113convert_validEPKDimPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf87convertEPKDimPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf87convertEPKDimPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf87convertEPKDimPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp44.not = icmp eq i64 %len, 0
   br i1 %cmp44.not, label %while.end, label %while.body
@@ -7779,14 +7779,14 @@ return:                                           ; preds = %if.else48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp47.not = icmp eq i64 %len, 0
   br i1 %cmp47.not, label %while.end, label %while.body
@@ -7933,7 +7933,7 @@ return:                                           ; preds = %if.else48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp40.not.i = icmp eq i64 %len, 0
   br i1 %cmp40.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf813convert_validEPKDimPc.exit, label %while.body.i
@@ -8062,7 +8062,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf813convert_validEPKDimPc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
   br i1 %cmp20.not.i, label %while.end.i, label %while.body.i
@@ -8124,7 +8124,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
   br i1 %cmp20.not.i, label %while.end.i, label %while.body.i
@@ -8189,7 +8189,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp23.not.i = icmp eq i64 %len, 0
   br i1 %cmp23.not.i, label %while.end.i, label %while.body.i
@@ -8254,7 +8254,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp23.not.i = icmp eq i64 %len, 0
   br i1 %cmp23.not.i, label %while.end.i, label %while.body.i
@@ -8322,7 +8322,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp17.not.i = icmp eq i64 %len, 0
   br i1 %cmp17.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endiannessE0EEEmPKDimPDs.exit, label %while.body.i
@@ -8371,7 +8371,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp17.not.i = icmp eq i64 %len, 0
   br i1 %cmp17.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endiannessE1EEEmPKDimPDs.exit, label %while.body.i
@@ -8423,7 +8423,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp21.not.i = icmp eq i64 %len, 0
   br i1 %cmp21.not.i, label %while.end.i, label %cond.end.i
@@ -8486,7 +8486,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf327convertILNS_10endiannessE0EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp21.not.i = icmp eq i64 %len, 0
   br i1 %cmp21.not.i, label %while.end.i, label %cond.end.i
@@ -8551,7 +8551,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf327convertILNS_10endiannessE1EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp25.not.i = icmp eq i64 %len, 0
   br i1 %cmp25.not.i, label %while.end.i, label %cond.end.i
@@ -8617,7 +8617,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3219convert_with_errorsILNS_10endi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp25.not.i = icmp eq i64 %len, 0
   br i1 %cmp25.not.i, label %while.end.i, label %cond.end.i
@@ -8685,7 +8685,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3219convert_with_errorsILNS_10endi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp19.not.i = icmp eq i64 %len, 0
   br i1 %cmp19.not.i, label %while.end.i, label %cond.end.i
@@ -8740,7 +8740,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3213convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp19.not.i = icmp eq i64 %len, 0
   br i1 %cmp19.not.i, label %while.end.i, label %cond.end.i
@@ -8797,7 +8797,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3213convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7simdutf8fallback14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK7simdutf8fallback14implementation23change_endianness_utf16EPKDsmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length, ptr noundef writeonly captures(none) %output) unnamed_addr #8 align 2 {
 entry:
   %cmp.i5.not = icmp eq i64 %length, 0
   br i1 %cmp.i5.not, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit, label %for.body.i
@@ -8819,7 +8819,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation13count_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %length, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
@@ -8843,7 +8843,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation13count_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %length, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
@@ -8867,7 +8867,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation10count_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp4.not.i = icmp eq i64 %length, 0
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -8890,7 +8890,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23latin1_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
   %cmp5.not.i = icmp eq i64 %len, 0
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf823latin1_length_from_utf8EPKcm.exit, label %for.body.i
@@ -8914,19 +8914,19 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf823latin1_length_from_utf8EPKcm.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24latin1_length_from_utf16Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24latin1_length_from_utf32Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23utf8_length_from_latin1EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %length, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit, label %for.body.i
@@ -8950,7 +8950,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf8_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp11.not.i = icmp eq i64 %length, 0
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
@@ -8980,7 +8980,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf8_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp11.not.i = icmp eq i64 %length, 0
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
@@ -9011,7 +9011,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25utf32_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %length, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %cond.end.i
@@ -9035,7 +9035,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation25utf32_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %length, 0
   br i1 %cmp6.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %cond.end.i
@@ -9059,13 +9059,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf16_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf16_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %length, 0
   br i1 %cmp7.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
@@ -9091,7 +9091,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf8_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp11.not.i = icmp eq i64 %length, 0
   br i1 %cmp11.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit, label %for.body.i
@@ -9121,7 +9121,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23utf16_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp5.not.i = icmp eq i64 %length, 0
   br i1 %cmp5.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit, label %for.body.i
@@ -9145,13 +9145,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation24utf32_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #6 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22utf32_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #1 align 2 {
 entry:
   %cmp4.not.i = icmp eq i64 %length, 0
   br i1 %cmp4.not.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -9174,7 +9174,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf7icelake14implementation16detect_encodingsEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf7icelake14implementation16detect_encodingsEPKcm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
 entry:
   %cmp.i.i = icmp ugt i64 %length, 1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end
@@ -9722,7 +9722,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -9801,7 +9801,7 @@ return:                                           ; preds = %if.then, %if.then32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %len, 15
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
@@ -9869,7 +9869,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not808 = icmp slt i64 %len, 64
@@ -10006,7 +10006,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation25validate_utf8_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not833 = icmp slt i64 %len, 64
@@ -10167,7 +10167,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly captures(none) %start, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %start, align 1
   %cmp = icmp slt i8 %0, -64
@@ -10209,7 +10209,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_asciiEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not77.i = icmp slt i64 %len, 64
@@ -10263,7 +10263,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_114validate_asciiEPKcm.exit: ; preds = %for.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_ascii_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   br label %for.cond
@@ -10318,7 +10318,7 @@ return:                                           ; preds = %for.end, %if.then13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10402,7 +10402,7 @@ return:                                           ; preds = %if.then, %if.then39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16le_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10514,7 +10514,7 @@ return:                                           ; preds = %for.end, %if.then43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16be_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10631,7 +10631,7 @@ return:                                           ; preds = %for.end, %if.then50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_utf32_with_errorsEPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %len, 15
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %len
@@ -10735,7 +10735,7 @@ return:                                           ; preds = %while.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_latin1_to_utf8EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not40.i = icmp ult i64 %len, 128
   br i1 %cmp.not40.i, label %for.end.i, label %for.body.i
@@ -10934,7 +10934,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_127latin1_to_utf8_avx512_startEPKcmPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef returned %len, ptr noundef writeonly captures(none) %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -32
   %cmp14.not.i = icmp eq i64 %and.i, 0
@@ -10973,7 +10973,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef returned %len, ptr noundef writeonly captures(none) %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -32
   %cmp17.not.i = icmp eq i64 %and.i, 0
@@ -11017,7 +11017,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp8.not.i = icmp eq i64 %and.i, 0
@@ -11082,7 +11082,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not336.i = icmp ult i64 %len, 64
   br i1 %cmp.not336.i, label %while.end.i, label %while.body.i
@@ -11233,7 +11233,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not336.i = icmp ult i64 %len, 64
   br i1 %cmp.not336.i, label %while.end.i, label %while.body.i
@@ -11515,7 +11515,7 @@ return:                                           ; preds = %_ZN7simdutf7icelake
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not300.i = icmp ult i64 %len, 64
   br i1 %cmp.not300.i, label %while.end.i, label %while.body.i
@@ -11623,7 +11623,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_127valid_utf8_to_latin1_avx512EPKcmPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -12189,7 +12189,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_133fast_avx512_convert_utf8_to_utf16ILNS_10endia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -12783,7 +12783,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_133fast_avx512_convert_utf8_to_utf16ILNS_10endia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -13366,7 +13366,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_145fast_avx512_convert_utf8_to_utf16_with_errors
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -13977,7 +13977,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_145fast_avx512_convert_utf8_to_utf16_with_errors
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not2189.i = icmp slt i64 %len, 128
@@ -14722,7 +14722,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not2223.i = icmp slt i64 %len, 128
@@ -15529,7 +15529,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr123932411.i = getelementptr inbounds nuw i8, ptr %buf, i64 64
@@ -16116,7 +16116,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32) unnamed_addr #12 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32) unnamed_addr #12 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr124062424.i = getelementptr inbounds nuw i8, ptr %buf, i64 64
@@ -16741,7 +16741,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %prior_bytes, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %spec.select = tail call i64 @llvm.umin.i64(i64 %prior_bytes, i64 3)
   br label %for.body
@@ -16783,7 +16783,7 @@ return:                                           ; preds = %if.end8, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not1292.i = icmp slt i64 %len, 128
@@ -17207,7 +17207,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17272,7 +17272,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17340,7 +17340,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17461,10 +17461,10 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsIL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17593,7 +17593,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsIL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -17661,7 +17661,7 @@ _ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -17726,7 +17726,7 @@ _ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18003,7 +18003,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE0EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18289,7 +18289,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE1EEEmP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18582,7 +18582,7 @@ return:                                           ; preds = %_ZN7simdutf7icelake
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18884,7 +18884,7 @@ return:                                           ; preds = %_ZN7simdutf7icelake
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i.i
 
@@ -19161,7 +19161,7 @@ _ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i.i
 
@@ -19447,7 +19447,7 @@ _ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19513,7 +19513,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19635,7 +19635,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf32_to_latin1_with_errorsEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef writeonly captures(none) %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19701,7 +19701,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #14 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #14 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20065,7 +20065,7 @@ return:                                           ; preds = %if.else271.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #14 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #14 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20457,14 +20457,14 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20661,7 +20661,7 @@ return:                                           ; preds = %if.else44.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20873,7 +20873,7 @@ return:                                           ; preds = %if.else50.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -21095,7 +21095,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -21332,7 +21332,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -21529,7 +21529,7 @@ _ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -21741,7 +21741,7 @@ _ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -21922,7 +21922,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22106,7 +22106,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22367,7 +22367,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22633,7 +22633,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22814,7 +22814,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22998,7 +22998,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7simdutf7icelake14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK7simdutf7icelake14implementation23change_endianness_utf16EPKDsmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length, ptr noundef writeonly captures(none) %output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not16 = icmp ult i64 %length, 32
   br i1 %cmp.not16, label %while.end, label %while.body
@@ -23040,7 +23040,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23094,7 +23094,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23150,7 +23150,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation10count_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %div112 = and i64 %length, -64
   %cmp.not132 = icmp ult i64 %length, 64
@@ -23288,7 +23288,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23latin1_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %div112.i = and i64 %len, -64
   %cmp.not132.i = icmp ult i64 %len, 64
@@ -23426,19 +23426,19 @@ _ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24latin1_length_from_utf16Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24latin1_length_from_utf32Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23521,7 +23521,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23607,7 +23607,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 31
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23661,7 +23661,7 @@ _ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm.exit: ; preds = %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 31
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23717,19 +23717,19 @@ _ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm.exit: ; preds = %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf16_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf32_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #17 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf8_length_from_latin1EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.not374 = icmp ult i64 %length, 64
   br i1 %cmp.not374, label %while.end, label %while.body
@@ -23842,7 +23842,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf16_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.not136 = icmp ult i64 %length, 64
   br i1 %cmp.not136, label %for.end, label %for.body
@@ -23896,7 +23896,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf8_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 15
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
@@ -23974,7 +23974,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf16_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 15
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
@@ -24028,7 +24028,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf32_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %div112.i = and i64 %length, -64
   %cmp.not132.i = icmp ult i64 %length, 64
@@ -24166,7 +24166,7 @@ _ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf7haswell14implementation16detect_encodingsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #18 align 2 {
+define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf7haswell14implementation16detect_encodingsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #18 align 2 {
 entry:
   %block.i.i.i = alloca [64 x i8], align 16
   %block.i = alloca [64 x i8], align 16
@@ -24911,7 +24911,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #18 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #18 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25112,7 +25112,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation21generic_validate_utf8EPKcm.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation25validate_utf8_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #18 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25336,7 +25336,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation33generic_validate_utf8_with_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #18 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_asciiEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #18 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25390,7 +25390,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_ascii_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #18 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25565,7 +25565,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25675,7 +25675,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25790,7 +25790,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16le_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25910,7 +25910,7 @@ return:                                           ; preds = %_ZN7simdutf7haswell
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16be_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -26035,7 +26035,7 @@ return:                                           ; preds = %_ZN7simdutf7haswell
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -26108,7 +26108,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_utf32_with_errorsEPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
   br label %while.cond.i
@@ -26188,7 +26188,7 @@ return:                                           ; preds = %_ZN7simdutf7haswell
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #20 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_latin1_to_utf8EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not94.i = icmp slt i64 %len, 28
@@ -26354,7 +26354,7 @@ if.end:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp15.not.i = icmp eq i64 %and.i, 0
@@ -26424,7 +26424,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -26499,7 +26499,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %xor.i = and i64 %len, -8
   %cmp9.not.i = icmp eq i64 %xor.i, 0
@@ -26564,7 +26564,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i431.not = icmp eq i64 %len, 0
@@ -26858,7 +26858,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin121validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i442.not = icmp eq i64 %len, 0
@@ -27096,7 +27096,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin121validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %input, i64 -1
   %cmp.i89.not = icmp eq i64 %size, 0
@@ -27343,7 +27343,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -27734,7 +27734,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -28154,7 +28154,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -28576,7 +28576,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -29027,7 +29027,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %surrogate_buffer.i.i = alloca [4 x i32], align 16
@@ -29311,7 +29311,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i.i = alloca [4 x i32], align 16
@@ -29624,7 +29624,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i728.not = icmp eq i64 %len, 0
@@ -29997,7 +29997,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convertE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i751.not = icmp eq i64 %len, 0
@@ -30401,7 +30401,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3221validating_transcoder19convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %cmp.not104.i = icmp ult i64 %size, 80
   br i1 %cmp.not104.i, label %_ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit, label %while.body.i
@@ -30667,7 +30667,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30738,7 +30738,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30811,7 +30811,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30985,7 +30985,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -31164,7 +31164,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -31237,7 +31237,7 @@ _ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -31308,7 +31308,7 @@ _ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -31634,7 +31634,7 @@ return:                                           ; preds = %if.else243.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -31963,7 +31963,7 @@ return:                                           ; preds = %if.else248.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -32305,7 +32305,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -32650,21 +32650,21 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #24 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #24 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #24 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #24 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #22 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -33028,7 +33028,7 @@ return:                                           ; preds = %if.else271.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
 entry:
   %and.i = and i64 %len, -32
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -33118,7 +33118,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
   br i1 %cmp20.not.i, label %while.end.i, label %while.body.i
@@ -33187,7 +33187,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #18 align 2 {
 entry:
   %and.i.i = and i64 %len, -32
   %cmp18.not.i.i = icmp eq i64 %and.i.i, 0
@@ -33277,7 +33277,7 @@ _ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #22 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -33669,7 +33669,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -33849,7 +33849,7 @@ return:                                           ; preds = %if.else33.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34034,7 +34034,7 @@ return:                                           ; preds = %if.else38.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34227,7 +34227,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34425,14 +34425,14 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #25 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #25 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34629,7 +34629,7 @@ return:                                           ; preds = %if.else44.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34841,7 +34841,7 @@ return:                                           ; preds = %if.else50.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -35063,7 +35063,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -35300,7 +35300,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -35497,7 +35497,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -35709,7 +35709,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -35889,7 +35889,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #18 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -36074,7 +36074,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7simdutf7haswell14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #18 align 2 {
+define dso_local void @_ZNK7simdutf7haswell14implementation23change_endianness_utf16EPKDsmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length, ptr noundef writeonly captures(none) %output) unnamed_addr #18 align 2 {
 entry:
   %div.i17 = and i64 %length, -32
   %cmp.i18.not = icmp eq i64 %div.i17, 0
@@ -36122,7 +36122,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
@@ -36177,7 +36177,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
@@ -36235,7 +36235,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation10count_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %cmp.i.not46 = icmp ult i64 %length, 64
   br i1 %cmp.i.not46, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -36284,7 +36284,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23latin1_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %cmp.i.not46.i = icmp ult i64 %len, 64
   br i1 %cmp.i.not46.i, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i
@@ -36333,19 +36333,19 @@ _ZNK7simdutf7haswell14implementation10count_utf8EPKcm.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf16Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf32Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
@@ -36433,7 +36433,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
@@ -36527,7 +36527,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
@@ -36582,7 +36582,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
@@ -36640,13 +36640,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf16_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf16_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %cmp.i.not91 = icmp ult i64 %length, 64
   br i1 %cmp.i.not91, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
@@ -36704,13 +36704,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf32_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #26 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf8_length_from_latin1EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %cmp.not47 = icmp ult i64 %len, 32
   br i1 %cmp.not47, label %while.end, label %while.body
@@ -36815,7 +36815,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf8_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %cmp.not41 = icmp ult i64 %length, 8
   br i1 %cmp.not41, label %for.end, label %for.body
@@ -36894,7 +36894,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf16_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %cmp.not16 = icmp ult i64 %length, 8
   br i1 %cmp.not16, label %for.end, label %for.body
@@ -36948,7 +36948,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf32_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %cmp.i.not46 = icmp ult i64 %length, 64
   br i1 %cmp.i.not46, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -36997,7 +36997,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf8westmere14implementation16detect_encodingsEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #27 align 2 {
+define dso_local noundef range(i32 0, 17) i32 @_ZNK7simdutf8westmere14implementation16detect_encodingsEPKcm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #27 align 2 {
 entry:
   %block.i = alloca [64 x i8], align 16
   %cmp.i.i = icmp ugt i64 %length, 1
@@ -37672,7 +37672,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #27 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #27 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -37996,7 +37996,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation21generic_validate_utf8EPKcm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation25validate_utf8_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #27 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38343,7 +38343,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation33generic_validate_utf8_with_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #27 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_asciiEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #27 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38417,7 +38417,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_ascii_with_errorsEPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #27 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38604,7 +38604,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38704,7 +38704,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38809,7 +38809,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16le_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38919,7 +38919,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16be_with_errorsEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -39034,7 +39034,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -39107,7 +39107,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_utf32_with_errorsEPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
   br label %while.cond.i
@@ -39187,7 +39187,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_latin1_to_utf8EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not73.i = icmp slt i64 %len, 24
@@ -39421,7 +39421,7 @@ if.end:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0
@@ -39490,7 +39490,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #27 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0
@@ -39560,7 +39560,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not13.i = icmp slt i64 %len, 16
@@ -39649,7 +39649,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i306.not = icmp eq i64 %len, 0
@@ -39994,7 +39994,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin121validating_transcoder7conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i316.not = icmp eq i64 %len, 0
@@ -40283,7 +40283,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin121validating_transcoder19conve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i83.not = icmp eq i64 %len, 0
@@ -40553,7 +40553,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -41033,7 +41033,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -41552,7 +41552,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -42063,7 +42063,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -42613,7 +42613,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %surrogate_buffer.i.i = alloca [4 x i32], align 16
@@ -42937,7 +42937,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i.i = alloca [4 x i32], align 16
@@ -43300,7 +43300,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i606.not = icmp eq i64 %len, 0
@@ -43787,7 +43787,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i632.not = icmp eq i64 %len, 0
@@ -44305,7 +44305,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3221validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %cmp.not114.i = icmp ult i64 %size, 80
   br i1 %cmp.not114.i, label %_ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit, label %while.body.i
@@ -44636,7 +44636,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -44699,7 +44699,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -44764,7 +44764,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -44930,7 +44930,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -45101,7 +45101,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -45166,7 +45166,7 @@ _ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -45229,7 +45229,7 @@ _ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -45541,7 +45541,7 @@ return:                                           ; preds = %if.else148.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -45859,7 +45859,7 @@ return:                                           ; preds = %if.else154.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -46189,7 +46189,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -46525,21 +46525,21 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -46641,7 +46641,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #29 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp39.not.i = icmp eq i64 %and.i, 0
@@ -46814,7 +46814,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
 entry:
   %and.i.i = and i64 %len, -16
   %cmp18.not.i.i = icmp eq i64 %and.i.i, 0
@@ -46916,7 +46916,7 @@ _ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47279,7 +47279,7 @@ return:                                           ; preds = %if.else199.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47680,7 +47680,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47859,7 +47859,7 @@ return:                                           ; preds = %if.else28.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48044,7 +48044,7 @@ return:                                           ; preds = %if.else31.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48236,7 +48236,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48434,14 +48434,14 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #32 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #49
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48641,7 +48641,7 @@ return:                                           ; preds = %if.else34.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48856,7 +48856,7 @@ return:                                           ; preds = %if.else40.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -49081,7 +49081,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -49321,7 +49321,7 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -49521,7 +49521,7 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -49736,7 +49736,7 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -49915,7 +49915,7 @@ _ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #27 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -50100,7 +50100,7 @@ _ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7simdutf8westmere14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #27 align 2 {
+define dso_local void @_ZNK7simdutf8westmere14implementation23change_endianness_utf16EPKDsmPDs(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length, ptr noundef writeonly captures(none) %output) unnamed_addr #27 align 2 {
 entry:
   %div.i23 = and i64 %length, -32
   %cmp.i24.not = icmp eq i64 %div.i23, 0
@@ -50158,7 +50158,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i47 = and i64 %length, -32
   %cmp.i58.not = icmp eq i64 %div.i47, 0
@@ -50236,7 +50236,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i47 = and i64 %length, -32
   %cmp.i58.not = icmp eq i64 %div.i47, 0
@@ -50321,7 +50321,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation10count_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %cmp.i.not30 = icmp ult i64 %length, 64
   br i1 %cmp.i.not30, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -50385,7 +50385,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23latin1_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %cmp.i.not30.i = icmp ult i64 %len, 64
   br i1 %cmp.i.not30.i, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i
@@ -50449,19 +50449,19 @@ _ZNK7simdutf8westmere14implementation10count_utf8EPKcm.exit: ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf16Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf32Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i86 = and i64 %length, -32
   %cmp.i100.not = icmp eq i64 %div.i86, 0
@@ -50606,7 +50606,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i86 = and i64 %length, -32
   %cmp.i100.not = icmp eq i64 %div.i86, 0
@@ -50761,19 +50761,19 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf16_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf32_length_from_latin1Em(ptr nonnull readnone align 8 captures(none) %this, i64 noundef returned %length) unnamed_addr #33 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf8_length_from_latin1EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %cmp.not45 = icmp ult i64 %len, 16
   br i1 %cmp.not45, label %while.end, label %while.body
@@ -50874,7 +50874,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16leEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i.i47 = and i64 %length, -32
   %cmp.i.i57.not = icmp eq i64 %div.i.i47, 0
@@ -50952,7 +50952,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16beEPKDsm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %div.i.i47 = and i64 %length, -32
   %cmp.i.i57.not = icmp eq i64 %div.i.i47, 0
@@ -51037,7 +51037,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf16_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %cmp.i.not57 = icmp ult i64 %length, 64
   br i1 %cmp.i.not57, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
@@ -51121,7 +51121,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf8_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %cmp.not29 = icmp ult i64 %length, 4
   br i1 %cmp.not29, label %for.end, label %for.body
@@ -51200,7 +51200,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf16_length_from_utf32EPKDim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %cmp.not12 = icmp ult i64 %length, 4
   br i1 %cmp.not12, label %for.end, label %for.body
@@ -51254,7 +51254,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf32_length_from_utf8EPKcm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %cmp.i.not30 = icmp ult i64 %length, 64
   br i1 %cmp.i.not30, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -52958,13 +52958,13 @@ declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x
 declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr nocapture, i32 immarg, <64 x i1>, <64 x i8>) #37
+declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr captures(none), i32 immarg, <64 x i1>, <64 x i8>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <32 x i16> @llvm.masked.load.v32i16.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i16>) #37
+declare <32 x i16> @llvm.masked.load.v32i16.p0(ptr captures(none), i32 immarg, <32 x i1>, <32 x i16>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #36
@@ -52973,7 +52973,7 @@ declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #36
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #35
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x i32> @llvm.masked.load.v16i32.p0(ptr nocapture, i32 immarg, <16 x i1>, <16 x i32>) #37
+declare <16 x i32> @llvm.masked.load.v16i32.p0(ptr captures(none), i32 immarg, <16 x i1>, <16 x i32>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <32 x i16> @llvm.fshl.v32i16(<32 x i16>, <32 x i16>, <32 x i16>) #35
@@ -52988,13 +52988,13 @@ declare <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8>, <64 x i8>) #36
 declare <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8>, <64 x i8>, <64 x i1>) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v64i8.p0(<64 x i8>, ptr nocapture, i32 immarg, <64 x i1>) #38
+declare void @llvm.masked.store.v64i8.p0(<64 x i8>, ptr captures(none), i32 immarg, <64 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i64 @llvm.x86.bmi.bzhi.64(i64, i64) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr nocapture, i32 immarg, <16 x i1>) #38
+declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr captures(none), i32 immarg, <16 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #35
@@ -53018,7 +53018,7 @@ declare <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8>, <32 x i8>) #36
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v32i16.p0(<32 x i16>, ptr nocapture, i32 immarg, <32 x i1>) #38
+declare void @llvm.masked.store.v32i16.p0(<32 x i16>, ptr captures(none), i32 immarg, <32 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #35
@@ -53030,7 +53030,7 @@ declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #35
 declare <8 x i64> @llvm.x86.avx512.psad.bw.512(<64 x i8>, <64 x i8>) #36
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #39
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #35
@@ -53039,7 +53039,7 @@ declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #35
 declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #36
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin130rewind_and_convert_with_errorsEmPKcmPc(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin130rewind_and_convert_with_errorsEmPKcmPc(i64 noundef %prior_bytes, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 {
 entry:
   br label %for.body
 
@@ -53250,7 +53250,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #42
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #42
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
@@ -53281,7 +53281,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #43
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <32 x i8> @llvm.masked.load.v32i8.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i8>) #37
+declare <32 x i8> @llvm.masked.load.v32i8.p0(ptr captures(none), i32 immarg, <32 x i1>, <32 x i8>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @llvm.x86.avx512.ktestc.q(<64 x i1>, <64 x i1>) #36
@@ -53299,7 +53299,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #35
 declare i32 @llvm.ctpop.i32(i32) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE0EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE0EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   br label %for.body
 
@@ -53340,7 +53340,7 @@ return:                                           ; preds = %if.end5, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE1EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE1EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr noundef readonly captures(none) %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   br label %for.body
 
@@ -53387,7 +53387,7 @@ declare <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32>, <16 x i32>, <
 declare <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16>, <32 x i16>, <32 x i1>) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i16.p0(<16 x i16>, ptr nocapture, i32 immarg, <16 x i1>) #38
+declare void @llvm.masked.store.v16i16.p0(<16 x i16>, ptr captures(none), i32 immarg, <16 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8>, <64 x i8>) #36
@@ -53405,10 +53405,10 @@ declare <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32>, <16 x i32>) #36
 declare <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32>, <16 x i32>, <16 x i1>) #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr nocapture, i32 immarg, <16 x i1>) #38
+declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr captures(none), i32 immarg, <16 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr nocapture, i32 immarg, <32 x i1>) #38
+declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr captures(none), i32 immarg, <32 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @llvm.x86.avx512.ktestz.d(<32 x i1>, <32 x i1>) #36
@@ -53460,13 +53460,13 @@ declare i64 @llvm.umin.i64(i64, i64) #46
 declare i64 @llvm.usub.sat.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #47
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #47
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #47
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #48
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #48
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -332,7 +332,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.pci_vga_init = private unnamed_addr constant [9 x ptr] [ptr @.str.37, ptr @.str.35, ptr @.str.38, ptr poison, ptr @.str.36, ptr poison, ptr poison, ptr poison, ptr @.str.39], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 16, 13) i32 @pci_bar(ptr nocapture noundef readonly %d, i32 noundef %reg) local_unnamed_addr #0 {
+define dso_local range(i32 16, 13) i32 @pci_bar(ptr noundef readonly captures(none) %d, i32 noundef %reg) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %d, i64 2232
   %d.val = load ptr, ptr %0, align 8
@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end2, %if.then1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @pci_bus_get_irq_level(ptr nocapture noundef readonly %bus, i32 noundef %irq_num) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pci_bus_get_irq_level(ptr noundef readonly captures(none) %bus, i32 noundef %irq_num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %irq_num, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -977,7 +977,7 @@ pci_bus_uninit.exit:                              ; preds = %entry, %if.then.i.i
 declare void @qbus_unrealize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_irqs(ptr nocapture noundef initializes((152, 160), (176, 184), (2280, 2284)) %bus, ptr noundef %set_irq, ptr noundef %irq_opaque, i32 noundef %nirq) local_unnamed_addr #0 {
+define dso_local void @pci_bus_irqs(ptr noundef captures(none) initializes((152, 160), (176, 184), (2280, 2284)) %bus, ptr noundef %set_irq, ptr noundef %irq_opaque, i32 noundef %nirq) local_unnamed_addr #0 {
 entry:
   %set_irq1 = getelementptr inbounds nuw i8, ptr %bus, i64 152
   store ptr %set_irq, ptr %set_irq1, align 8
@@ -1001,7 +1001,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_bus_map_irqs(ptr nocapture noundef writeonly initializes((160, 168)) %bus, ptr noundef %map_irq) local_unnamed_addr #4 {
+define dso_local void @pci_bus_map_irqs(ptr noundef writeonly captures(none) initializes((160, 168)) %bus, ptr noundef %map_irq) local_unnamed_addr #4 {
 entry:
   %map_irq1 = getelementptr inbounds nuw i8, ptr %bus, i64 160
   store ptr %map_irq, ptr %map_irq1, align 8
@@ -1009,7 +1009,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_irqs_cleanup(ptr nocapture noundef initializes((152, 168), (176, 184), (2280, 2284)) %bus) local_unnamed_addr #0 {
+define dso_local void @pci_bus_irqs_cleanup(ptr noundef captures(none) initializes((152, 168), (176, 184), (2280, 2284)) %bus) local_unnamed_addr #0 {
 entry:
   %set_irq = getelementptr inbounds nuw i8, ptr %bus, i64 152
   %irq_opaque = getelementptr inbounds nuw i8, ptr %bus, i64 176
@@ -1137,7 +1137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_range(ptr noundef %bus, ptr nocapture noundef initializes((0, 4)) %min_bus, ptr nocapture noundef initializes((0, 4)) %max_bus) local_unnamed_addr #0 {
+define dso_local void @pci_bus_range(ptr noundef %bus, ptr noundef captures(none) initializes((0, 4)) %min_bus, ptr noundef captures(none) initializes((0, 4)) %max_bus) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #25
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
@@ -1201,7 +1201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @migrate_is_not_pcie(ptr nocapture noundef readonly %opaque, i32 %version_id) #5 {
+define internal zeroext i1 @migrate_is_not_pcie(ptr noundef readonly captures(none) %opaque, i32 %version_id) #5 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 1260
   %opaque.val = load i32, ptr %0, align 4
@@ -1211,7 +1211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @migrate_is_pcie(ptr nocapture noundef readonly %opaque, i32 %version_id) #5 {
+define internal zeroext i1 @migrate_is_pcie(ptr noundef readonly captures(none) %opaque, i32 %version_id) #5 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 1260
   %opaque.val = load i32, ptr %0, align 4
@@ -1268,7 +1268,7 @@ entry:
 declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @pci_requester_id(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext i16 @pci_requester_id(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %requester_id_cache = getelementptr inbounds nuw i8, ptr %dev, i64 216
   %type.i = getelementptr inbounds nuw i8, ptr %dev, i64 224
@@ -1320,7 +1320,7 @@ pci_req_id_cache_extract.exit:                    ; preds = %sw.bb.i, %sw.bb1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @pci_bus_get_slot_reserved_mask(ptr nocapture noundef readonly %bus) local_unnamed_addr #5 {
+define dso_local i32 @pci_bus_get_slot_reserved_mask(ptr noundef readonly captures(none) %bus) local_unnamed_addr #5 {
 entry:
   %slot_reserved_mask = getelementptr inbounds nuw i8, ptr %bus, i64 148
   %0 = load i32, ptr %slot_reserved_mask, align 4
@@ -1328,7 +1328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @pci_bus_set_slot_reserved_mask(ptr nocapture noundef %bus, i32 noundef %mask) local_unnamed_addr #6 {
+define dso_local void @pci_bus_set_slot_reserved_mask(ptr noundef captures(none) %bus, i32 noundef %mask) local_unnamed_addr #6 {
 entry:
   %slot_reserved_mask = getelementptr inbounds nuw i8, ptr %bus, i64 148
   %0 = load i32, ptr %slot_reserved_mask, align 4
@@ -1338,7 +1338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @pci_bus_clear_slot_reserved_mask(ptr nocapture noundef %bus, i32 noundef %mask) local_unnamed_addr #6 {
+define dso_local void @pci_bus_clear_slot_reserved_mask(ptr noundef captures(none) %bus, i32 noundef %mask) local_unnamed_addr #6 {
 entry:
   %not = xor i32 %mask, -1
   %slot_reserved_mask = getelementptr inbounds nuw i8, ptr %bus, i64 148
@@ -1611,7 +1611,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @pci_get_bar_addr(ptr nocapture noundef readonly %pci_dev, i32 noundef %region_num) local_unnamed_addr #5 {
+define dso_local i64 @pci_get_bar_addr(ptr noundef readonly captures(none) %pci_dev, i32 noundef %region_num) local_unnamed_addr #5 {
 entry:
   %io_regions = getelementptr inbounds nuw i8, ptr %pci_dev, i64 296
   %idxprom = sext i32 %region_num to i64
@@ -1621,7 +1621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @pci_bar_address(ptr nocapture noundef readonly %d, i32 noundef %reg, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @pci_bar_address(ptr noundef readonly captures(none) %d, i32 noundef %reg, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1947,7 +1947,7 @@ if.end9:                                          ; preds = %if.end, %lor.lhs.fa
 declare void @pcie_sync_bridge_lnk(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_default_write_config(ptr noundef %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #0 {
@@ -2413,7 +2413,7 @@ pci_irq_handler.exit:                             ; preds = %if.end6.i, %if.end8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_set_route_irq_fn(ptr nocapture noundef %bus, ptr noundef %route_intx_to_irq) local_unnamed_addr #0 {
+define dso_local void @pci_bus_set_route_irq_fn(ptr noundef captures(none) %bus, ptr noundef %route_intx_to_irq) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 120
   %bus.val = load i32, ptr %0, align 8
@@ -2533,7 +2533,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @pci_intx_route_changed(ptr nocapture noundef readonly %old, ptr nocapture noundef readonly %new) local_unnamed_addr #5 {
+define dso_local zeroext i1 @pci_intx_route_changed(ptr noundef readonly captures(none) %old, ptr noundef readonly captures(none) %new) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %old, align 4
   %1 = load i32, ptr %new, align 4
@@ -2554,7 +2554,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_fire_intx_routing_notifier(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
+define dso_local void @pci_bus_fire_intx_routing_notifier(ptr noundef readonly captures(none) %bus) local_unnamed_addr #0 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -2600,7 +2600,7 @@ for.end8:                                         ; preds = %for.body6, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_device_set_intx_routing_notifier(ptr nocapture noundef writeonly initializes((2552, 2560)) %dev, ptr noundef %notifier) local_unnamed_addr #4 {
+define dso_local void @pci_device_set_intx_routing_notifier(ptr noundef writeonly captures(none) initializes((2552, 2560)) %dev, ptr noundef %notifier) local_unnamed_addr #4 {
 entry:
   %intx_routing_notifier = getelementptr inbounds nuw i8, ptr %dev, i64 2552
   store ptr %notifier, ptr %intx_routing_notifier, align 8
@@ -2608,7 +2608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -3, 4) i32 @pci_swizzle_map_irq_fn(ptr nocapture noundef readonly %pci_dev, i32 noundef %pin) local_unnamed_addr #5 {
+define dso_local range(i32 -3, 4) i32 @pci_swizzle_map_irq_fn(ptr noundef readonly captures(none) %pci_dev, i32 noundef %pin) local_unnamed_addr #5 {
 entry:
   %devfn = getelementptr inbounds nuw i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
@@ -2620,7 +2620,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_for_each_device_under_bus_reverse(ptr noundef %bus, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pci_for_each_device_under_bus_reverse(ptr noundef %bus, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -2647,7 +2647,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_for_each_device_reverse(ptr noundef %bus, i32 noundef %bus_num, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pci_for_each_device_reverse(ptr noundef %bus, i32 noundef %bus_num, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num)
   %tobool.not = icmp eq ptr %call, null
@@ -2839,7 +2839,7 @@ return:                                           ; preds = %for.inc25, %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_for_each_device_under_bus(ptr noundef %bus, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pci_for_each_device_under_bus(ptr noundef %bus, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -2865,7 +2865,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_for_each_device(ptr noundef %bus, i32 noundef %bus_num, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pci_for_each_device(ptr noundef %bus, i32 noundef %bus_num, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num)
   %tobool.not = icmp eq ptr %call, null
@@ -3084,7 +3084,7 @@ if.end41:                                         ; preds = %if.end36
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
@@ -3427,10 +3427,10 @@ return:                                           ; preds = %if.end19, %if.then1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pci_del_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %size) local_unnamed_addr #12 {
+define dso_local void @pci_del_capability(ptr noundef readonly captures(none) %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %size) local_unnamed_addr #12 {
 entry:
   %0 = getelementptr i8, ptr %pdev, i64 168
   %pdev.val = load ptr, ptr %0, align 8
@@ -3518,7 +3518,7 @@ if.end28:                                         ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id) local_unnamed_addr #13 {
+define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(none) %pdev, i8 noundef zeroext %cap_id) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %pdev, i64 168
   %pdev.val = load ptr, ptr %0, align 8
@@ -3556,7 +3556,7 @@ pci_find_capability_list.exit:                    ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @pci_qdev_find_device(ptr noundef %id, ptr nocapture noundef writeonly %pdev) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @pci_qdev_find_device(ptr noundef %id, ptr noundef writeonly captures(none) %pdev) local_unnamed_addr #0 {
 entry:
   %host_bridge.010 = load ptr, ptr @pci_host_bridges, align 8
   %tobool.not11 = icmp eq ptr %host_bridge.010, null
@@ -3733,7 +3733,7 @@ return:                                           ; preds = %pci_bus_bypass_iomm
 declare zeroext i8 @pcie_cap_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_setup_iommu(ptr nocapture noundef writeonly %bus, ptr noundef %ops, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pci_setup_iommu(ptr noundef writeonly captures(none) %bus, ptr noundef %ops, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ops, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -3760,7 +3760,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_get_w64_range(ptr nocapture noundef readonly %bus, ptr nocapture noundef initializes((0, 16)) %range) local_unnamed_addr #0 {
+define dso_local void @pci_bus_get_w64_range(ptr noundef readonly captures(none) %bus, ptr noundef captures(none) initializes((0, 16)) %range) local_unnamed_addr #0 {
 entry:
   %pref_range.i = alloca %struct.Range, align 8
   %region_range.i = alloca %struct.Range, align 8
@@ -4046,7 +4046,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_pci_config_device(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr readnone captures(none) %field) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %pv, i64 -168
   %0 = getelementptr i8, ptr %pv, i64 1092
@@ -4138,7 +4138,7 @@ return:                                           ; preds = %if.end50, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_pci_config_device(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 noundef %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_pci_config_device(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 noundef %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %0 = getelementptr i8, ptr %pv, i64 1092
   %add.ptr.val = load i32, ptr %0, align 4
@@ -4168,7 +4168,7 @@ declare void @pci_bridge_update_mappings(ptr noundef) local_unnamed_addr #2
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_pci_irq_state(ptr noundef %f, ptr nocapture noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_pci_irq_state(ptr noundef %f, ptr noundef captures(none) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %irq_state = alloca [4 x i32], align 16
   br label %for.body
@@ -4222,7 +4222,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_pci_irq_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_pci_irq_state(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   br label %for.body
 
@@ -4244,12 +4244,12 @@ for.end:                                          ; preds = %for.body
 declare i32 @qemu_get_be32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare void @qemu_put_be32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -4381,7 +4381,7 @@ pci_bus_change_irq_level.exit:                    ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 declare ptr @qdev_new(ptr noundef) local_unnamed_addr #2
 
@@ -4396,7 +4396,7 @@ declare i64 @pci_bridge_get_base(ptr noundef, i8 noundef zeroext) local_unnamed_
 declare i64 @pci_bridge_get_limit(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_extend(ptr nocapture noundef %range, ptr nocapture noundef nonnull readonly %extend_by) unnamed_addr #0 {
+define internal fastcc void @range_extend(ptr noundef captures(none) %range, ptr noundef nonnull readonly captures(none) %extend_by) unnamed_addr #0 {
 entry:
   %extend_by.val = load i64, ptr %extend_by, align 8
   %0 = getelementptr i8, ptr %extend_by, i64 8
@@ -4478,7 +4478,7 @@ declare ptr @pci_bridge_get_device(ptr noundef) local_unnamed_addr #2
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #25
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_CLASS) #25
@@ -4541,7 +4541,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i8 0, ptr %arrayidx, align 1
   %sext = shl i64 %call1, 32
   %conv6 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5, ptr align 1 %call, i64 %conv6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5, ptr nonnull align 1 %call, i64 %conv6, i1 false)
   br i1 %tobool.not23, label %for.end22, label %for.body10
 
 for.body10:                                       ; preds = %for.end, %if.end
@@ -4576,7 +4576,7 @@ for.end22:                                        ; preds = %if.end, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @pcibus_get_fw_dev_path(ptr nocapture noundef readonly %dev) #0 {
+define internal noalias ptr @pcibus_get_fw_dev_path(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %name = alloca [33 x i8], align 16
   %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 208
@@ -4640,7 +4640,7 @@ pci_dev_fw_name.exit:                             ; preds = %if.then13.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_bus_realize(ptr noundef %qbus, ptr nocapture readnone %errp) #0 {
+define internal void @pci_bus_realize(ptr noundef %qbus, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %machine_done = getelementptr inbounds nuw i8, ptr %call.i, i64 2296
@@ -4661,7 +4661,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcibus_reset(ptr nocapture noundef readonly %qbus) #0 {
+define internal void @pcibus_reset(ptr noundef readonly captures(none) %qbus) #0 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %qbus, i64 184
   br label %for.body
@@ -4715,7 +4715,7 @@ for.end18:                                        ; preds = %for.cond6, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 256) i32 @pcibus_num(ptr nocapture noundef readonly %bus) #17 {
+define internal range(i32 0, 256) i32 @pcibus_num(ptr noundef readonly captures(none) %bus) #17 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 120
   %bus.val = load i32, ptr %0, align 8
@@ -4739,23 +4739,23 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i16 @pcibus_numa_node(ptr nocapture readnone %bus) #18 {
+define internal noundef zeroext i16 @pcibus_numa_node(ptr readnone captures(none) %bus) #18 {
 entry:
   ret i16 128
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcibus_machine_done(ptr nocapture noundef readonly %notifier, ptr nocapture readnone %data) #0 {
+define internal void @pcibus_machine_done(ptr noundef readonly captures(none) %notifier, ptr readnone captures(none) %data) #0 {
 entry:
   %devices = getelementptr i8, ptr %notifier, i64 -2112
   br label %for.body
@@ -4801,7 +4801,7 @@ declare void @qemu_remove_machine_init_done_notifier(ptr noundef) local_unnamed_
 declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pcie_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #25
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -4810,7 +4810,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_bus_realize(ptr noundef %qbus, ptr nocapture readnone %errp) #0 {
+define internal void @pcie_bus_realize(ptr noundef %qbus, ptr readnone captures(none) %errp) #0 {
 if.end:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
@@ -4853,7 +4853,7 @@ if.end9:                                          ; preds = %if.end9.sink.split,
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #25
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -4867,7 +4867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_device_class_base_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_device_class_base_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call zeroext i1 @object_class_is_abstract(ptr noundef %klass) #25
   br i1 %call, label %if.end8, label %if.then
@@ -5980,7 +5980,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @g_sequence_lookup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #18 {
+define internal noundef i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr readnone captures(none) %user_data) #18 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %a to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %b to i64
@@ -6104,7 +6104,7 @@ declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #2
 declare i64 @load_image_size(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pci_patch_ids(ptr nocapture noundef nonnull readonly %pdev, ptr nocapture noundef %ptr, i32 noundef range(i32 0, -2147483647) %size) unnamed_addr #19 {
+define internal fastcc void @pci_patch_ids(ptr noundef nonnull readonly captures(none) %pdev, ptr noundef captures(none) %ptr, i32 noundef range(i32 0, -2147483647) %size) unnamed_addr #19 {
 entry:
   %ptr.val = load i16, ptr %ptr, align 1
   %cmp.not = icmp eq i16 %ptr.val, -21931
@@ -6201,13 +6201,13 @@ declare i64 @llvm.ctpop.i64(i64) #21
 declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #21

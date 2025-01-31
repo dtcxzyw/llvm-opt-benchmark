@@ -95,7 +95,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @avifGetPixelFormatInfo(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #1 {
+define hidden void @avifGetPixelFormatInfo(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, i8 0, i64 12, i1 false)
   switch i32 %0, label %6 [
     i32 4, label %3
@@ -123,7 +123,7 @@ define hidden void @avifGetPixelFormatInfo(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @avifResultToString(i32 noundef %0) local_unnamed_addr #0 {
@@ -158,7 +158,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @avifImageSetDefaults(ptr nocapture noundef writeonly initializes((0, 200)) %0) local_unnamed_addr #1 {
+define hidden void @avifImageSetDefaults(ptr noundef writeonly captures(none) initializes((0, 200)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %2, align 8
@@ -234,7 +234,7 @@ avifImageCreate.exit:                             ; preds = %0, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @avifImageCopyNoAlloc(ptr nocapture noundef writeonly initializes((0, 24), (80, 84), (104, 114), (116, 162)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @avifImageCopyNoAlloc(ptr noundef writeonly captures(none) initializes((0, 24), (80, 84), (104, 114), (116, 162)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -300,10 +300,10 @@ define hidden void @avifImageCopyNoAlloc(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @avifImageCopySamples(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @avifImageCopySamples(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 8
@@ -433,7 +433,7 @@ avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @avifImageUsesU16(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @avifImageUsesU16(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 8
@@ -442,7 +442,7 @@ define hidden range(i32 0, 2) i32 @avifImageUsesU16(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @avifImagePlaneWidth(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden i32 @avifImagePlaneWidth(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -493,7 +493,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %7, %13, %15, %18, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @avifImagePlaneHeight(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden i32 @avifImagePlaneHeight(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %7
 
@@ -546,7 +546,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %8, %15, %17, %20, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @avifImagePlane(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden ptr @avifImagePlane(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %or.cond3 = icmp ult i32 %1, 3
   br i1 %or.cond3, label %3, label %8
 
@@ -572,7 +572,7 @@ define hidden ptr @avifImagePlane(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @avifImagePlaneRowBytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden i32 @avifImagePlaneRowBytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %or.cond3 = icmp ult i32 %1, 3
   br i1 %or.cond3, label %3, label %8
 
@@ -598,7 +598,7 @@ define hidden i32 @avifImagePlaneRowBytes(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifImageCopy(ptr noundef initializes((0, 12), (16, 24), (72, 76), (80, 84), (104, 114), (116, 162)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden i32 @avifImageCopy(ptr noundef initializes((0, 12), (16, 24), (72, 76), (80, 84), (104, 114), (116, 162)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not18.i = icmp eq i32 %5, 0
@@ -907,7 +907,7 @@ avifImageCopySamples.exit:                        ; preds = %.loopexit.i, %109, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifImageFreePlanes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @avifImageFreePlanes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = and i32 %1, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
@@ -984,7 +984,7 @@ define hidden i32 @avifImageSetMetadataXMP(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @avifImageAllocatePlanes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 27) i32 @avifImageAllocatePlanes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.sroa.3 = alloca i32, align 4
   %.sroa.6 = alloca i32, align 4
   %3 = load i32, ptr %0, align 8
@@ -1138,7 +1138,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 25) i32 @avifImageSetViewRect(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 25) i32 @avifImageSetViewRect(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %.sroa.3 = alloca i32, align 4
   %.sroa.7 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1467,7 +1467,7 @@ declare void @avifRWDataFree(ptr noundef) local_unnamed_addr #4
 declare void @avifFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifImageStealPlanes(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @avifImageStealPlanes(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = and i32 %2, 1
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %20, label %5
@@ -1589,7 +1589,7 @@ avifImageFreePlanes.exit:                         ; preds = %20, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1761,7 +1761,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 2, 9) i32 @avifRGBImagePixelSize(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden range(i32 2, 9) i32 @avifRGBImagePixelSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %avifRGBFormatChannelCount.exit [
@@ -1788,7 +1788,7 @@ avifRGBFormatChannelCount.exit:                   ; preds = %1, %avifRGBFormatHa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @avifRGBImageSetDefaults(ptr nocapture noundef writeonly initializes((0, 44), (48, 60)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @avifRGBImageSetDefaults(ptr noundef writeonly captures(none) initializes((0, 44), (48, 60)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1813,7 +1813,7 @@ define hidden void @avifRGBImageSetDefaults(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @avifRGBImageAllocatePixels(ptr nocapture noundef initializes((56, 60)) %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 27) i32 @avifRGBImageAllocatePixels(ptr noundef captures(none) initializes((56, 60)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1871,7 +1871,7 @@ avifRGBImagePixelSize.exit:                       ; preds = %avifRGBImageFreePix
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifRGBImageFreePixels(ptr nocapture noundef initializes((56, 60)) %0) local_unnamed_addr #3 {
+define hidden void @avifRGBImageFreePixels(ptr noundef captures(none) initializes((56, 60)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1889,7 +1889,7 @@ define hidden void @avifRGBImageFreePixels(ptr nocapture noundef initializes((56
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifCropRectConvertCleanApertureBox(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @avifCropRectConvertCleanApertureBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.avifFraction, align 8
   %8 = alloca %struct.avifFraction, align 8
   %9 = alloca %struct.avifFraction, align 4
@@ -2088,7 +2088,7 @@ declare i32 @avifFractionAdd(i64, i64, ptr noundef) local_unnamed_addr #4
 declare i32 @avifFractionSub(i64, i64, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -2151,7 +2151,7 @@ define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifCleanApertureBoxConvertCropRect(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @avifCleanApertureBoxConvertCropRect(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.avifFraction, align 4
   %8 = alloca %struct.avifFraction, align 4
   tail call void @avifDiagnosticsClearError(ptr noundef %5) #14
@@ -2394,7 +2394,7 @@ define hidden ptr @avifCodecSpecificOptionsCreate() local_unnamed_addr #3 {
 declare i32 @avifArrayCreate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifCodecSpecificOptionsClear(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @avifCodecSpecificOptionsClear(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -2452,7 +2452,7 @@ avifCodecSpecificOptionsClear.exit:               ; preds = %.lr.ph.i, %1
 declare void @avifArrayDestroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @avifCodecSpecificOptionsSet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 27) i32 @avifCodecSpecificOptionsSet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not53 = icmp eq i32 %5, 0
@@ -2496,7 +2496,7 @@ avifStrdup.exit:                                  ; preds = %13
   br label %49
 
 19:                                               ; preds = %11
-  tail call void @avifFree(ptr noundef %9) #14
+  tail call void @avifFree(ptr noundef nonnull %9) #14
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @avifFree(ptr noundef %21) #14
@@ -2547,7 +2547,7 @@ avifStrdup.exit44.thread:                         ; preds = %39
   br label %49
 
 43:                                               ; preds = %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr readonly align 1 %1, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %1, i64 %41, i1 false)
   store ptr %42, ptr %38, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %45 = add i64 %44, 1
@@ -2572,10 +2572,10 @@ avifStrdup.exit46:                                ; preds = %43
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @avifArrayPush(ptr noundef) local_unnamed_addr #4
 
@@ -2598,7 +2598,7 @@ findAvailableCodec.exit:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @avifCodecChoiceFromName(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @avifCodecChoiceFromName(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
 .critedge:
   %1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.64, ptr noundef nonnull dereferenceable(1) %0) #15
   %.not = icmp eq i32 %1, 0
@@ -2607,7 +2607,7 @@ define hidden i32 @avifCodecChoiceFromName(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @avifCodecCreate(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 27) i32 @avifCodecCreate(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store ptr null, ptr %2, align 8
   %4 = or i32 %0, %1
   %or.cond = icmp ult i32 %4, 2
@@ -2626,7 +2626,7 @@ findAvailableCodec.exit:                          ; preds = %3, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifCodecVersions(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #3 {
+define hidden void @avifCodecVersions(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #3 {
 .critedge:
   store i8 0, ptr %0, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.64, i64 3, i1 false)
@@ -2640,14 +2640,14 @@ define hidden void @avifCodecVersions(ptr nocapture noundef writeonly initialize
   %4 = tail call ptr @avifCodecVersionAOM() #14
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #15
   %spec.select.i13 = tail call i64 @llvm.umin.i64(i64 %5, i64 245)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr readonly align 1 %4, i64 %spec.select.i13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull readonly align 1 %4, i64 %spec.select.i13, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select.i13
   store i8 0, ptr %6, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @avifCodecVersionAOM() local_unnamed_addr #4
 

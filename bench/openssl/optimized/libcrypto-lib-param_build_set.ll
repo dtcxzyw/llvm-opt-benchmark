@@ -196,7 +196,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_param_build_set_multi_key_bn(ptr noundef %bld, ptr noundef %params, ptr nocapture noundef readonly %names, ptr noundef %stk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_param_build_set_multi_key_bn(ptr noundef %bld, ptr noundef %params, ptr noundef readonly captures(none) %names, ptr noundef %stk) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %stk) #2
   %cmp.not = icmp eq ptr %bld, null

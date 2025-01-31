@@ -74,10 +74,10 @@ define hidden ptr @eventFilterRestricted_alloc(i32 noundef %0) local_unnamed_add
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -481,7 +481,7 @@ eventInstance.exit:                               ; preds = %120, %120, %156
   %.021.idx.i = select i1 %.not.i110, i64 %199, i64 0
   %.021.i = getelementptr inbounds nuw i8, ptr %1, i64 %.021.idx.i
   %200 = sext i32 %193 to i64
-  %201 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef readonly %.021.i, i64 noundef %200) #7
+  %201 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %200) #7
   br label %patternStringMatch.exit
 
 patternStringMatch.exit:                          ; preds = %190, %198
@@ -531,7 +531,7 @@ patternStringMatch.exit:                          ; preds = %190, %198
   %.021.idx.i120 = select i1 %.not.i113, i64 %224, i64 0
   %.021.i121 = getelementptr inbounds nuw i8, ptr %1, i64 %.021.idx.i120
   %225 = sext i32 %218 to i64
-  %226 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i119, ptr noundef readonly %.021.i121, i64 noundef %225) #7
+  %226 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i119, ptr noundef nonnull readonly %.021.i121, i64 noundef %225) #7
   br label %patternStringMatch.exit122
 
 patternStringMatch.exit122:                       ; preds = %215, %223
@@ -623,7 +623,7 @@ patternStringMatch.exit122:                       ; preds = %215, %223
   %.021.idx.i131 = select i1 %.not.i124, i64 %272, i64 0
   %.021.i132 = getelementptr inbounds nuw i8, ptr %251, i64 %.021.idx.i131
   %273 = sext i32 %266 to i64
-  %274 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i130, ptr noundef readonly %.021.i132, i64 noundef %273) #7
+  %274 = call i32 @strncmp(ptr noundef nonnull readonly %.022.i130, ptr noundef nonnull readonly %.021.i132, i64 noundef %273) #7
   br label %patternStringMatch.exit133
 
 patternStringMatch.exit133:                       ; preds = %263, %271
@@ -702,7 +702,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 0, ptr %3, align 1
   %6 = load i32, ptr %5, align 8
@@ -801,7 +801,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilte
   %.021.idx.i = select i1 %.not.i, i64 %51, i64 0
   %.021.i = getelementptr inbounds nuw i8, ptr %1, i64 %.021.idx.i
   %52 = sext i32 %45 to i64
-  %53 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef readonly %.021.i, i64 noundef %52) #7
+  %53 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %52) #7
   br label %patternStringMatch.exit
 
 patternStringMatch.exit:                          ; preds = %42, %50
@@ -851,7 +851,7 @@ patternStringMatch.exit:                          ; preds = %42, %50
   %.021.idx.i28 = select i1 %.not.i21, i64 %76, i64 0
   %.021.i29 = getelementptr inbounds nuw i8, ptr %1, i64 %.021.idx.i28
   %77 = sext i32 %70 to i64
-  %78 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i27, ptr noundef readonly %.021.i29, i64 noundef %77) #7
+  %78 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i27, ptr noundef nonnull readonly %.021.i29, i64 noundef %77) #7
   br label %patternStringMatch.exit30
 
 patternStringMatch.exit30:                        ; preds = %67, %75
@@ -879,7 +879,7 @@ patternStringMatch.exit.thread:                   ; preds = %23, %patternStringM
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -980,7 +980,7 @@ patternStringMatch.exit:                          ; preds = %44
   %.021.idx.i = select i1 %.not.i, i64 %50, i64 0
   %.021.i = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i
   %51 = sext i32 %45 to i64
-  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef readonly %.021.i, i64 noundef %51) #7
+  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %51) #7
   %.fr68 = freeze i32 %52
   %53 = icmp eq i32 %.fr68, 0
   br i1 %53, label %54, label %patternStringMatch.exit42.thread
@@ -1032,7 +1032,7 @@ patternStringMatch.exit42:                        ; preds = %71
   %.021.idx.i40 = select i1 %.not.i33, i64 %77, i64 0
   %.021.i41 = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i40
   %78 = sext i32 %72 to i64
-  %79 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef readonly %.021.i41, i64 noundef %78) #7
+  %79 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef nonnull readonly %.021.i41, i64 noundef %78) #7
   %.fr66 = freeze i32 %79
   %80 = icmp eq i32 %.fr66, 0
   br i1 %80, label %81, label %patternStringMatch.exit42.thread
@@ -1058,7 +1058,7 @@ patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringM
 declare ptr @getEnv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1093,7 +1093,7 @@ define hidden zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %5
@@ -1114,7 +1114,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 513) i32 @eventFilter_setCountFilter(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 513) i32 @eventFilter_setCountFilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
@@ -1338,7 +1338,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setInstanceOnlyFilter(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 203) i32 @eventFilter_setClassMatchFilter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 203) i32 @eventFilter_setClassMatchFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
@@ -1366,7 +1366,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassMatchFilter(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 203) i32 @eventFilter_setClassExcludeFilter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 203) i32 @eventFilter_setClassExcludeFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
@@ -1440,7 +1440,7 @@ declare i32 @stepControl_beginStep(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 203) i32 @eventFilter_setSourceNameMatchFilter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 203) i32 @eventFilter_setSourceNameMatchFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
@@ -1467,7 +1467,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setSourceNameMatchFilter(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 203) i32 @eventFilter_setPlatformThreadsOnlyFilter(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 203) i32 @eventFilter_setPlatformThreadsOnlyFilter(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = sext i32 %1 to i64
@@ -1507,7 +1507,7 @@ define hidden zeroext i8 @isBreakpointSet(ptr noundef %0, ptr noundef %1, i64 no
 declare zeroext i8 @eventHandlerRestricted_iterator(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @matchBreakpoint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal zeroext range(i8 0, 2) i8 @matchBreakpoint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -2101,16 +2101,16 @@ clearFilters.exit:                                ; preds = %._crit_edge.i, %._c
 declare i32 @methodModifiers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @matchThread(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal zeroext i8 @matchThread(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -2147,7 +2147,7 @@ requestThread.exit:                               ; preds = %12, %3, %9
 declare i32 @threadControl_setEventMode(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @matchWatchpoint(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal zeroext range(i8 0, 2) i8 @matchWatchpoint(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -2200,10 +2200,10 @@ define internal zeroext range(i8 0, 2) i8 @matchWatchpoint(ptr noundef %0, ptr n
 declare i32 @stepControl_endStep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

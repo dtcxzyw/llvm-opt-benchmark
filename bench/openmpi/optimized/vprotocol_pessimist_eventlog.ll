@@ -266,14 +266,14 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PMIx_Load_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PMIx_Lookup(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @PMIx_Pdata_destruct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @ompi_dpm_connect_accept(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -292,7 +292,7 @@ define noundef i32 @ompi_vprotocol_pessimist_event_logger_disconnect(ptr noundef
 declare i32 @ompi_dpm_disconnect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @ompi_vprotocol_pessimist_matching_replay(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @ompi_vprotocol_pessimist_matching_replay(ptr noundef writeonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 760), align 8
   %.not15 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 744)
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -408,7 +408,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_vprotocol_pessimist_delivery_replay(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @ompi_vprotocol_pessimist_delivery_replay(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 760), align 8
   %.not54 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @mca_vprotocol_pessimist, i64 744)
   br i1 %.not54, label %opal_free_list_return.exit50, label %.lr.ph

@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.50563a491966c50597445791b425cbcc.15 = private unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c"_x" }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @_ZN13logos_codegen9generator7context7Context13can_backtrack17hf07ba9435975c40aE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden zeroext i1 @_ZN13logos_codegen9generator7context7Context13can_backtrack17hf07ba9435975c40aE(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp ne i32 %3, 0
@@ -28,7 +28,7 @@ define hidden zeroext i1 @_ZN13logos_codegen9generator7context7Context13can_back
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context6switch17hb133902551380779E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 %1, i32 %2) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen9generator7context7Context6switch17hb133902551380779E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 captures(none) %1, i32 %2) unnamed_addr #1 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -47,7 +47,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context6switch17hb13390
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 21)) %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #2 {
+define hidden void @_ZN13logos_codegen9generator7context7Context7advance17h22de088f78c31177E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 21)) %0, ptr readonly align 8 captures(none) %1, i64 %2) unnamed_addr #2 {
   %4 = load i64, ptr %1, align 8
   %5 = add i64 %4, %2
   store i64 %5, ptr %0, align 8
@@ -68,7 +68,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context7advance17h22de0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515dde7b6c15E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515dde7b6c15E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -149,7 +149,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZN13logos_codegen9generator7context7Context9remainder17h20727715c784efcaE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden i64 @_ZN13logos_codegen9generator7context7Context9remainder17h20727715c784efcaE(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -158,7 +158,7 @@ define hidden i64 @_ZN13logos_codegen9generator7context7Context9remainder17h2072
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context19read_byte_unchecked17h2892264665d50cc5E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator7context7Context19read_byte_unchecked17h2892264665d50cc5E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -221,7 +221,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context19read_byte_unch
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context4read17h4d32c5d10ef91b5eE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 initializes((8, 16)) %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator7context7Context4read17h4d32c5d10ef91b5eE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 captures(none) initializes((8, 16)) %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -535,14 +535,14 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4read17h4d32c5d1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context4wipe17he467576542503990E(ptr nocapture writeonly align 8 initializes((8, 16)) %0) unnamed_addr #3 {
+define hidden void @_ZN13logos_codegen9generator7context7Context4wipe17he467576542503990E(ptr writeonly align 8 captures(none) initializes((8, 16)) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator7context7Context4miss17h21341fefc2f0492eE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 initializes((8, 16)) %1, i32 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator7context7Context4miss17h21341fefc2f0492eE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 captures(none) initializes((8, 16)) %1, i32 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
@@ -802,7 +802,7 @@ declare void @_ZN5quote9__private8push_dot17h1dab584927546aa6E(ptr align 8) unna
 declare void @"_ZN52_$LT$usize$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h76e1b4f91e290b86E"(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN5quote9__private10push_group17h1c4ca446806db3d8E(ptr align 8, i8, ptr align 8) unnamed_addr #1
@@ -853,7 +853,7 @@ declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9304bebc18bc
 declare zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94cda9541989b659E"(ptr align 4, ptr align 4) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

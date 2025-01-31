@@ -330,7 +330,7 @@ $_ZTVN4llvm13format_objectIJmmEEE = comdat any
 @_ZN4llvm7remarks21BitstreamParserHelperC1ENS_9StringRefE = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4llvm7remarks21BitstreamParserHelperC2ENS_9StringRefE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7remarks25BitstreamMetaParserHelperC2ERNS_15BitstreamCursorERNS_18BitstreamBlockInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 16), (24, 25), (33, 34), (56, 57), (80, 81), (96, 97)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks25BitstreamMetaParserHelperC2ERNS_15BitstreamCursorERNS_18BitstreamBlockInfoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 16), (24, 25), (33, 34), (56, 57), (80, 81), (96, 97)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -375,7 +375,7 @@ define dso_local void @_ZN4llvm7remarks27BitstreamRemarkParserHelperC2ERNS_15Bit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks25BitstreamMetaParserHelper5parseEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks25BitstreamMetaParserHelper5parseEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -1982,10 +1982,10 @@ define dso_local void @_ZN4llvm7remarks21BitstreamParserHelperC2ENS_9StringRefE(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper10parseMagicEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper10parseMagicEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca %"class.llvm::Expected.46", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2521,13 +2521,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN4llvm15BitstreamCursor18ReadBlockInfoBlockEb(ptr dead_on_unwind writable sret(%"class.llvm::Expected.54") align 8, ptr noundef nonnull align 8 dereferenceable(344), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper11isMetaBlockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper11isMetaBlockEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.68") align 8 captures(none) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
   tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #1 {
   %3 = alloca %"class.llvm::Expected.46", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.93", align 1
@@ -2662,13 +2662,13 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %56, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper13isRemarkBlockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper13isRemarkBlockEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.68") align 8 captures(none) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(368) %1) local_unnamed_addr #1 align 2 {
   tail call fastcc void @_ZL7isBlockRN4llvm15BitstreamCursorEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks29createBitstreamParserFromMetaENS_9StringRefESt8optionalINS0_17ParsedStringTableEES2_IS1_E(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.72") align 8 %0, ptr %1, i64 %2, ptr nocapture noundef %3, ptr nocapture noundef readonly byval(%"class.std::optional.6") align 8 %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm7remarks29createBitstreamParserFromMetaENS_9StringRefESt8optionalINS0_17ParsedStringTableEES2_IS1_E(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.72") align 8 captures(none) %0, ptr %1, i64 %2, ptr noundef captures(none) %3, ptr noundef readonly byval(%"class.std::optional.6") align 8 captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %.sroa.0.i = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"struct.std::array", align 4
@@ -2897,7 +2897,7 @@ _ZN4llvm7remarks21BitstreamParserHelperD2Ev.exit: ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19validateMagicNumberN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #1 {
+define internal fastcc void @_ZL19validateMagicNumberN4llvm9StringRefE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -2976,7 +2976,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser4nextEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.105") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser4nextEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.105") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(493) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::remarks::BitstreamRemarkParserHelper", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
@@ -3148,7 +3148,7 @@ _ZN4llvm7remarks21BitstreamRemarkParser21processStandaloneMetaERNS0_25BitstreamM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser11parseRemarkEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.105") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser11parseRemarkEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.105") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(493) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::remarks::BitstreamRemarkParserHelper", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3309,7 +3309,7 @@ _ZN4llvm8ExpectedISt5arrayIcLm4EEED2Ev.exit:      ; preds = %38, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser17processCommonMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(493) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser17processCommonMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(493) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.93", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3395,7 +3395,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser21processStandaloneMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser21processStandaloneMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
 _ZN4llvm5ErrorD2Ev.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call fastcc void @_ZL13processStrTabRN4llvm7remarks21BitstreamRemarkParserESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef nonnull byval(%"class.std::optional.6") align 8 %3)
@@ -3416,7 +3416,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser30processSeparateRemarksFileMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(493) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser30processSeparateRemarksFileMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(493) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3426,7 +3426,7 @@ define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser30processSeparateR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser30processSeparateRemarksMetaMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser30processSeparateRemarksMetaMetaERNS0_25BitstreamMetaParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %2) local_unnamed_addr #1 align 2 {
 _ZN4llvm5ErrorD2Ev.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call fastcc void @_ZL13processStrTabRN4llvm7remarks21BitstreamRemarkParserESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef nonnull byval(%"class.std::optional.6") align 8 %3)
@@ -3444,7 +3444,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser23processExternalFilePathESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr nocapture noundef readonly byval(%"class.std::optional.6") align 8 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser23processExternalFilePathESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef readonly byval(%"class.std::optional.6") align 8 captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3831,7 +3831,7 @@ define linkonce_odr hidden void @_ZN4llvm17createStringErrorIJmmEEENS_5ErrorESt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13processStrTabRN4llvm7remarks21BitstreamRemarkParserESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr nocapture noundef readonly byval(%"class.std::optional.6") align 8 %2) unnamed_addr #1 {
+define internal fastcc void @_ZL13processStrTabRN4llvm7remarks21BitstreamRemarkParserESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef readonly byval(%"class.std::optional.6") align 8 captures(none) %2) unnamed_addr #1 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.93", align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3891,7 +3891,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %20, %17, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20processRemarkVersionRN4llvm7remarks21BitstreamRemarkParserESt8optionalImE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(493) %1, i64 %2, i8 %3) unnamed_addr #1 {
+define internal fastcc void @_ZL20processRemarkVersionRN4llvm7remarks21BitstreamRemarkParserESt8optionalImE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(493) %1, i64 %2, i8 %3) unnamed_addr #1 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.93", align 1
   %7 = trunc i8 %3 to i1
@@ -3923,7 +3923,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser13processRemarkERNS0_27BitstreamRemarkParserHelperE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.105") align 8 %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7remarks21BitstreamRemarkParser13processRemarkERNS0_27BitstreamRemarkParserHelperE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.105") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(493) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(664) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.93", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4821,7 +4821,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJjjEE7snprintEP
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
@@ -5305,7 +5305,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -6653,7 +6653,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEEaSERKS2_.exit: ; preds = %.lr.ph, %_ZNS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJPKcS2_EE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 {
@@ -6916,7 +6916,7 @@ _ZN4llvm15BitstreamCursor5BlockD2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -8250,16 +8250,16 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE28reserveForParamAnd
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

@@ -50,7 +50,7 @@ define dso_local i64 @_copy_from_user(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @_copy_to_user(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {

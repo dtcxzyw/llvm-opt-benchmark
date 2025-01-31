@@ -504,7 +504,7 @@ declare void @scsi_bus_legacy_handle_cmdline(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @lsi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @lsi_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #12
@@ -532,7 +532,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @lsi_scsi_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @lsi_scsi_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, i32 noundef 312, ptr noundef nonnull @__func__.LSI53C895A) #12
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #12
@@ -2040,7 +2040,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i47, label %if.end65, label %for.body.i, !llvm.loop !5
 
 if.then63:                                        ; preds = %for.body.i
-  tail call fastcc void @lsi_reselect(ptr noundef %s, ptr noundef nonnull %p.06.i)
+  tail call fastcc void @lsi_reselect(ptr noundef nonnull %s, ptr noundef nonnull %p.06.i)
   br label %if.end65
 
 if.end65:                                         ; preds = %for.inc.i, %trace_lsi_update_irq_disconnected.exit, %land.lhs.true54, %if.then63, %land.lhs.true56, %lsi_irq_on_rsl.exit, %lsi_set_irq.exit
@@ -2206,7 +2206,7 @@ if.end43:                                         ; preds = %if.end40, %if.then4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
@@ -2215,7 +2215,7 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_add_msg_byte(ptr nocapture noundef %s, i8 noundef zeroext %data) unnamed_addr #0 {
+define internal fastcc void @lsi_add_msg_byte(ptr noundef captures(none) %s, i8 noundef zeroext %data) unnamed_addr #0 {
 entry:
   %_now.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -7661,13 +7661,13 @@ declare i32 @scsi_req_enqueue(ptr noundef) local_unnamed_addr #1
 declare void @scsi_req_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lsi_ram_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @lsi_ram_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %script_ram = getelementptr inbounds nuw i8, ptr %opaque, i64 3948
   %add.ptr = getelementptr i8, ptr %script_ram, i64 %addr
@@ -7707,7 +7707,7 @@ ldn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @lsi_ram_write(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
+define internal void @lsi_ram_write(ptr noundef writeonly captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
   %script_ram = getelementptr inbounds nuw i8, ptr %opaque, i64 3948
   %add.ptr = getelementptr i8, ptr %script_ram, i64 %addr
@@ -7768,7 +7768,7 @@ entry:
 declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @lsi_transfer_data(ptr nocapture noundef readonly %req, i32 noundef %len) #0 {
+define internal void @lsi_transfer_data(ptr noundef readonly captures(none) %req, i32 noundef %len) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i11.i = alloca %struct.timeval, align 8
@@ -8286,10 +8286,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @address_space_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -22, 1) i32 @lsi_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #9 {
+define internal range(i32 -22, 1) i32 @lsi_post_load(ptr noundef readonly captures(none) %opaque, i32 %version_id) #9 {
 entry:
   %msg_len = getelementptr inbounds nuw i8, ptr %opaque, i64 3540
   %0 = load i32, ptr %msg_len, align 4
@@ -8299,7 +8299,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @lsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @lsi_pre_save(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %current = getelementptr inbounds nuw i8, ptr %opaque, i64 3736
   %0 = load ptr, ptr %current, align 8
@@ -8341,7 +8341,7 @@ if.end12:                                         ; preds = %if.end8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @lsi53c810_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @lsi53c810_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #12
   %device_id = getelementptr inbounds nuw i8, ptr %call.i, i64 210
@@ -8356,10 +8356,10 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #10
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

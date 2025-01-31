@@ -657,10 +657,10 @@ return:                                           ; preds = %if.end, %if.end.i, 
 declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_window(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @fill_window(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %w_size = getelementptr inbounds nuw i8, ptr %s, i64 80
   %0 = load i32, ptr %w_size, align 8
@@ -1045,7 +1045,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @deflateResetKeep(ptr noundef %strm) local_unnamed_addr #0 {
@@ -2931,7 +2931,7 @@ return:                                           ; preds = %lor.lhs.false603, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @slide_hash(ptr nocapture noundef readonly %s) unnamed_addr #6 {
+define internal fastcc void @slide_hash(ptr noundef readonly captures(none) %s) unnamed_addr #6 {
 entry:
   %w_size = getelementptr inbounds nuw i8, ptr %s, i64 80
   %0 = load i32, ptr %w_size, align 8
@@ -3226,7 +3226,7 @@ return:                                           ; preds = %if.end69, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush_pending(ptr nocapture noundef %strm) unnamed_addr #0 {
+define internal fastcc void @flush_pending(ptr noundef captures(none) %strm) unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %strm, i64 56
   %0 = load ptr, ptr %state, align 8
@@ -6105,7 +6105,7 @@ return:                                           ; preds = %if.end253, %flush_p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef range(i32 1, 65536) %cur_match) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr noundef captures(none) %s, i32 noundef range(i32 1, 65536) %cur_match) unnamed_addr #8 {
 entry:
   %max_chain_length = getelementptr inbounds nuw i8, ptr %s, i64 188
   %0 = load i32, ptr %max_chain_length, align 4

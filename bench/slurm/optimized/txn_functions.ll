@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [24 x i8] c" Unknown condition: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.sacctmgr_list_txn) #8
   %5 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #8
@@ -58,7 +58,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr noc
   %20 = trunc i64 %19 to i32
   %21 = call i32 @llvm.smax.i32(i32 %20, i32 5)
   %22 = zext nneg i32 %21 to i64
-  %23 = call i32 @xstrncasecmp(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %22) #8
+  %23 = call i32 @xstrncasecmp(ptr noundef nonnull %18, ptr noundef nonnull @.str.1, i64 noundef %22) #8
   %.not120 = icmp eq i32 %23, 0
   br i1 %.not120, label %29, label %24
 
@@ -622,7 +622,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @xfree_ptr(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -639,7 +639,7 @@ declare ptr @sacctmgr_process_format_list(ptr noundef) local_unnamed_addr #1
 declare ptr @slurmdb_txn_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
@@ -677,10 +677,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

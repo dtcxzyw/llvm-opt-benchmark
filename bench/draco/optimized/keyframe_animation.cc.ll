@@ -64,7 +64,7 @@ define void @_ZN5draco17KeyframeAnimationC2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN5draco10PointCloudC2Ev(ptr noundef nonnull align 8 dereferenceable(164)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5draco17KeyframeAnimation13SetTimestampsERKSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.33", align 8
   %4 = alloca %"class.std::unique_ptr.33", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -239,7 +239,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN5draco14PointAttribute4InitENS_17GeometryAttribute4TypeEaNS_8DataTypeEbm(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, i8 noundef signext, i32 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco17KeyframeAnimationD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #7 comdat align 2 {

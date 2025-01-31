@@ -180,10 +180,10 @@ define dso_local void @arch_scale_freq_tick() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @arch_freq_get_on_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
@@ -364,7 +364,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #6
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @disable_freq_invariance_workfn(ptr nocapture readnone %0) #1 align 16 {
+define internal void @disable_freq_invariance_workfn(ptr readnone captures(none) %0) #1 align 16 {
   tail call void @static_key_disable(ptr noundef nonnull @arch_scale_freq_key) #7
   br label %2
 
@@ -504,7 +504,7 @@ define internal fastcc noundef zeroext i1 @intel_set_max_freq_ratio() unnamed_ad
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @slv_set_max_freq_ratio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @slv_set_max_freq_ratio(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef captures(none) %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1642) #7, !srcloc !30
   %4 = extractvalue { i32, i64, i64 } %3, 0
   %5 = extractvalue { i32, i64, i64 } %3, 1
@@ -573,7 +573,7 @@ define internal fastcc noundef zeroext i1 @slv_set_max_freq_ratio(ptr nocapture 
 declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @skx_set_max_freq_ratio(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @skx_set_max_freq_ratio(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #4 section ".init.text" align 16 {
   %4 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 206) #7, !srcloc !30
   %5 = extractvalue { i32, i64, i64 } %4, 0
   %6 = extractvalue { i32, i64, i64 } %4, 1
@@ -674,7 +674,7 @@ define internal fastcc noundef zeroext i1 @skx_set_max_freq_ratio(ptr nocapture 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @knl_set_max_freq_ratio(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @knl_set_max_freq_ratio(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 206) #7, !srcloc !30
   %4 = extractvalue { i32, i64, i64 } %3, 0
   %5 = extractvalue { i32, i64, i64 } %3, 1
@@ -760,7 +760,7 @@ define internal fastcc noundef zeroext i1 @knl_set_max_freq_ratio(ptr nocapture 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @core_set_max_freq_ratio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef zeroext i1 @core_set_max_freq_ratio(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 206) #7, !srcloc !30
   %4 = extractvalue { i32, i64, i64 } %3, 0
   %5 = extractvalue { i32, i64, i64 } %3, 1

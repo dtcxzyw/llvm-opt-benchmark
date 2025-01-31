@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [18 x i8] c"ISOLatin1Encoding\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 12) i32 @T42_Driver_Init(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 12) i32 @T42_Driver_Init(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @FT_Get_Module(ptr noundef %3, ptr noundef nonnull @.str.9) #13
@@ -83,18 +83,18 @@ define internal range(i32 0, 12) i32 @T42_Driver_Init(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @T42_Driver_Done(ptr nocapture readnone %0) #1 {
+define internal void @T42_Driver_Done(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @T42_Get_Interface(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal ptr @T42_Get_Interface(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @t42_services, ptr noundef %1) #13
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_Face_Init(ptr nocapture readnone %0, ptr noundef initializes((0, 8), (776, 792), (808, 816)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal i32 @T42_Face_Init(ptr readnone captures(none) %0, ptr noundef initializes((0, 8), (776, 792), (808, 816)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.T1_TokenRec_, align 8
   %8 = alloca i32, align 4
@@ -1051,7 +1051,7 @@ define internal void @T42_Face_Done(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_Size_Init(ptr nocapture noundef %0) #0 {
+define internal i32 @T42_Size_Init(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
@@ -1072,7 +1072,7 @@ define internal i32 @T42_Size_Init(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @T42_Size_Done(ptr nocapture noundef %0) #0 {
+define internal void @T42_Size_Done(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %4 = load ptr, ptr %3, align 8
@@ -1094,7 +1094,7 @@ define internal void @T42_Size_Done(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_GlyphSlot_Init(ptr nocapture noundef %0) #0 {
+define internal i32 @T42_GlyphSlot_Init(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1154,7 +1154,7 @@ define internal i32 @T42_GlyphSlot_Init(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @T42_GlyphSlot_Done(ptr nocapture noundef readonly %0) #0 {
+define internal void @T42_GlyphSlot_Done(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -1165,7 +1165,7 @@ define internal void @T42_GlyphSlot_Done(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_GlyphSlot_Load(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal i32 @T42_GlyphSlot_Load(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1178,7 +1178,7 @@ define internal i32 @T42_GlyphSlot_Load(ptr nocapture noundef %0, ptr nocapture 
   %14 = zext i32 %2 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 @strtol(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #13
+  %17 = tail call i64 @strtol(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #13
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load ptr, ptr %19, align 8
@@ -1257,7 +1257,7 @@ define internal i32 @T42_GlyphSlot_Load(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_Size_Request(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal i32 @T42_Size_Request(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -1282,7 +1282,7 @@ define internal i32 @T42_Size_Request(ptr nocapture noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_Size_Select(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal i32 @T42_Size_Select(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -1310,7 +1310,7 @@ define internal i32 @T42_Size_Select(ptr nocapture noundef %0, i64 noundef %1) #
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @t42_get_glyph_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @t42_get_glyph_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
@@ -1322,7 +1322,7 @@ define internal noundef i32 @t42_get_glyph_name(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @t42_get_name_index(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @t42_get_name_index(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -1353,7 +1353,7 @@ define internal i32 @t42_get_name_index(ptr nocapture noundef readonly %0, ptr n
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i64 @strtol(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #13
+  %21 = tail call i64 @strtol(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #13
   %22 = trunc i64 %21 to i32
   br label %.loopexit
 
@@ -1370,27 +1370,27 @@ define internal i32 @t42_get_name_index(ptr nocapture noundef readonly %0, ptr n
 declare hidden i32 @ft_mem_strcpyn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @t42_get_ps_font_name(ptr nocapture noundef readonly %0) #6 {
+define internal ptr @t42_get_ps_font_name(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t42_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) #7 {
+define internal noundef i32 @t42_ps_get_font_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 56)) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t42_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #7 {
+define internal noundef i32 @t42_ps_get_font_extra(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i16, ptr %3, align 8
   store i16 %4, ptr %1, align 2
@@ -1398,12 +1398,12 @@ define internal noundef i32 @t42_ps_get_font_extra(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @t42_ps_has_glyph_names(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @t42_ps_has_glyph_names(ptr readnone captures(none) %0) #1 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare hidden ptr @ft_module_get_service(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
@@ -1420,7 +1420,7 @@ declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1435,7 +1435,7 @@ declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_u
 declare hidden i32 @FT_Stream_Read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @t42_parse_font_matrix(ptr noundef %0, ptr noundef %1) #0 {
@@ -1535,7 +1535,7 @@ define internal void @t42_parse_font_matrix(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t42_parse_encoding(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @t42_parse_encoding(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1880,7 +1880,7 @@ t42_is_space.exit.thread:                         ; preds = %138, %88, %88, %88,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t42_parse_charstrings(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @t42_parse_charstrings(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 480
@@ -2220,7 +2220,7 @@ t42_is_space.exit.thread:                         ; preds = %167, %159, %91, %10
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %180 = load ptr, ptr %179, align 8
   %181 = load i32, ptr %180, align 4
-  %182 = tail call i32 %178(ptr noundef nonnull %5, i32 noundef 0, ptr noundef %174, i32 noundef %181) #13
+  %182 = tail call i32 %178(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %174, i32 noundef %181) #13
   %.not234 = icmp eq i32 %182, 0
   br i1 %.not234, label %183, label %.loopexit
 
@@ -2322,7 +2322,7 @@ t42_is_space.exit.thread:                         ; preds = %167, %159, %91, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t42_parse_sfnts(ptr nocapture noundef initializes((800, 808)) %0, ptr noundef %1) #0 {
+define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((800, 808)) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2698,16 +2698,16 @@ declare hidden void @FT_Done_GlyphSlot(ptr noundef) local_unnamed_addr #2
 declare hidden void @ft_glyphslot_free_bitmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

@@ -166,7 +166,7 @@ $_ZTVN5folly12BadFormatArgE = comdat any
 @_ZN8facebook5velox6crypto10MD5ContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox6crypto10MD5ContextC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1732584193, ptr %this, align 4
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context9MD5UpdateEPKhy(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5Context9MD5UpdateEPKhy(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef readonly captures(none) %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4
@@ -258,10 +258,10 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr nocapture noundef nonnull %buf, ptr nocapture noundef nonnull readonly %in) unnamed_addr #3 {
+define internal fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull captures(none) %buf, ptr noundef nonnull readonly captures(none) %in) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %buf, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %buf, i64 4
@@ -808,7 +808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 16)) %out_digest) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5Context6FinishEPh(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %out_digest) local_unnamed_addr #3 align 2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4
@@ -851,10 +851,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc(ptr nocapture noundef readonly %digest, ptr nocapture noundef writeonly %zbuf) local_unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc(ptr noundef readonly captures(none) %digest, ptr noundef writeonly captures(none) %zbuf) local_unnamed_addr #1 align 2 {
 entry:
   br label %for.body
 
@@ -887,7 +887,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %digest) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %digest) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca [39 x i8], align 16
   br label %for.body
@@ -937,7 +937,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJoEEENSt9enable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef writeonly captures(none) %out_digest) local_unnamed_addr #1 align 2 {
 entry:
   %digest = alloca [16 x i8], align 16
   %bits.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1008,7 +1008,7 @@ _ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc.exit: ; preds = %for
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8facebook5velox6crypto10MD5Context9FinishDecEPcb(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest, i1 noundef zeroext %needPadding) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8facebook5velox6crypto10MD5Context9FinishDecEPcb(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef writeonly captures(none) %out_digest, i1 noundef zeroext %needPadding) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i.i4 = alloca [39 x i8], align 16
   %appender.i.i.i = alloca %class.anon.4, align 8
@@ -1200,7 +1200,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context9FinishHexB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(88) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6crypto10MD5Context9FinishHexB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %digest.i = alloca [16 x i8], align 16
   %digest = alloca [32 x i8], align 16
@@ -3250,7 +3250,7 @@ _ZN5folly12format_value12formatNumberIZNKS_13BaseFormatterINS_9FormatterILb0EJiN
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -4344,10 +4344,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

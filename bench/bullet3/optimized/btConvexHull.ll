@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZN7ConvexHC1Eiii = dso_local unnamed_addr alias void (ptr, i32, i32, i32), ptr @_ZN7ConvexHC2Eiii
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z22ThreePlaneIntersectionRK7btPlaneS1_S1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %p0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %p1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %p2) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z22ThreePlaneIntersectionRK7btPlaneS1_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %p0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %p1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %p2) local_unnamed_addr #0 {
 entry:
   %N1.sroa.0.0.copyload = load float, ptr %p0, align 4
   %N1.sroa.4.0.p0.sroa_idx = getelementptr inbounds nuw i8, ptr %p0, i64 4
@@ -120,10 +120,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z21PlaneLineIntersectionRK7btPlaneRK9btVector3S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %plane, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p1) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z21PlaneLineIntersectionRK7btPlaneRK9btVector3S4_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %plane, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p1) local_unnamed_addr #0 {
 entry:
   %0 = load float, ptr %p1, align 4
   %1 = load float, ptr %p0, align 4
@@ -169,7 +169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z12PlaneProjectRK7btPlaneRK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %plane, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z12PlaneProjectRK7btPlaneRK9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %plane, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %point) local_unnamed_addr #0 {
 entry:
   %0 = load float, ptr %point, align 4
   %1 = load float, ptr %plane, align 4
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z9TriNormalRK9btVector3S1_S1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v2) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z9TriNormalRK9btVector3S1_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v2) local_unnamed_addr #0 {
 entry:
   %0 = load float, ptr %v1, align 4
   %1 = load float, ptr %v0, align 4
@@ -260,7 +260,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_Z20DistanceBetweenLinesRK9btVector3S1_S1_S1_PS_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ustart, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %udir, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vstart, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vdir, ptr noundef writeonly %upoint, ptr noundef writeonly %vpoint) local_unnamed_addr #2 {
+define dso_local noundef float @_Z20DistanceBetweenLinesRK9btVector3S1_S1_S1_PS_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ustart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %udir, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vstart, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vdir, ptr noundef writeonly %upoint, ptr noundef writeonly %vpoint) local_unnamed_addr #2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %udir, i64 4
   %0 = load float, ptr %arrayidx.i.i, align 4
@@ -775,7 +775,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_Z9PlaneTestRK7btPlaneRK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 3) i32 @_Z9PlaneTestRK7btPlaneRK9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #5 {
 entry:
   %0 = load float, ptr %v, align 4
   %1 = load float, ptr %p, align 4
@@ -803,7 +803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_Z9SplitTestR7ConvexHRK7btPlane(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %convex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %plane) local_unnamed_addr #5 {
+define dso_local noundef range(i32 0, 4) i32 @_Z9SplitTestR7ConvexHRK7btPlane(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %convex, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %plane) local_unnamed_addr #5 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %convex, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -853,7 +853,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z4orthRK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z4orthRK9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #0 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
   %0 = load float, ptr %arrayidx.i.i, align 4
@@ -897,7 +897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZeqRK4int3S1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 2) i32 @_ZeqRK4int3S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %b) local_unnamed_addr #6 {
 entry:
   br label %for.body
 
@@ -921,7 +921,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z5aboveP9btVector3RK4int3RKS_f(ptr nocapture noundef readonly %vertices, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, float noundef %epsilon) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z5aboveP9btVector3RK4int3RKS_f(ptr noundef readonly captures(none) %vertices, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %t, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, float noundef %epsilon) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %t, align 4
   %idxprom = sext i32 %0 to i64
@@ -1004,7 +1004,7 @@ _Z9TriNormalRK9btVector3S1_S1_.exit:              ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z7hasedgeRK4int3ii(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t, i32 noundef %a, i32 noundef %b) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 2) i32 @_Z7hasedgeRK4int3ii(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %t, i32 noundef %a, i32 noundef %b) local_unnamed_addr #6 {
 entry:
   br label %for.body
 
@@ -1035,7 +1035,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z7hasvertRK4int3i(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t, i32 noundef %v) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 2) i32 @_Z7hasvertRK4int3i(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %t, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %t, align 4
   %cmp = icmp eq i32 %0, %v
@@ -1052,7 +1052,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z9shareedgeRK4int3S1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 2) i32 @_Z9shareedgeRK4int3S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %b) local_unnamed_addr #6 {
 entry:
   br label %for.body
 
@@ -1161,7 +1161,7 @@ return:                                           ; preds = %for.inc, %if.then13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %t) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %t) local_unnamed_addr #7 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %n14.i = getelementptr inbounds nuw i8, ptr %t, i64 12
@@ -1532,7 +1532,7 @@ for.end:                                          ; preds = %_ZN14btHullTriangle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11HullLibrary9removeb2bEP14btHullTriangleS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %s, ptr noundef %t) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11HullLibrary9removeb2bEP14btHullTriangleS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %s, ptr noundef %t) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN11HullLibrary6b2bfixEP14btHullTriangleS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %s, ptr noundef %t)
   %id.i = getelementptr inbounds nuw i8, ptr %s, i64 24
@@ -1554,7 +1554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11HullLibrary18deAllocateTriangleEP14btHullTriangle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %tri) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11HullLibrary18deAllocateTriangleEP14btHullTriangle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %tri) local_unnamed_addr #3 align 2 {
 entry:
   %id = getelementptr inbounds nuw i8, ptr %tri, i64 24
   %0 = load i32, ptr %id, align 4
@@ -1568,13 +1568,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN11HullLibrary7checkitEP14btHullTriangle(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, ptr nocapture noundef readnone %t) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN11HullLibrary7checkitEP14btHullTriangle(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %this, ptr noundef readnone captures(none) %t) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN11HullLibrary16allocateTriangleEiii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %a, i32 noundef %b, i32 noundef %c) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN11HullLibrary16allocateTriangleEiii(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %a, i32 noundef %b, i32 noundef %c) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 36, i32 noundef 16)
   store i32 %a, ptr %call, align 4
@@ -1683,7 +1683,7 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11HullLibrary7extrudeEP14btHullTrianglei(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %t0, i32 noundef %v) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11HullLibrary7extrudeEP14btHullTrianglei(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef %t0, i32 noundef %v) local_unnamed_addr #3 align 2 {
 entry:
   %t.sroa.0.0.copyload = load i32, ptr %t0, align 4
   %t.sroa.5.0.t0.sroa_idx = getelementptr inbounds nuw i8, ptr %t0, i64 4
@@ -2030,7 +2030,7 @@ if.end83:                                         ; preds = %if.then78, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef ptr @_ZN11HullLibrary10extrudableEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, float noundef %epsilon) local_unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN11HullLibrary10extrudableEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, float noundef %epsilon) local_unnamed_addr #10 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -2079,7 +2079,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZN11HullLibrary11FindSimplexEP9btVector3iR20btAlignedObjectArrayIiE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %verts, i32 noundef %verts_count, ptr noundef nonnull align 8 dereferenceable(25) %allow) local_unnamed_addr #11 align 2 {
+define dso_local { i64, i64 } @_ZN11HullLibrary11FindSimplexEP9btVector3iR20btAlignedObjectArrayIiE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %verts, i32 noundef %verts_count, ptr noundef nonnull align 8 dereferenceable(25) %allow) local_unnamed_addr #11 align 2 {
 entry:
   %basis = alloca [3 x %class.btVector3], align 16
   %ref.tmp6 = alloca %class.btVector3, align 8
@@ -2681,7 +2681,7 @@ return:                                           ; preds = %_Z14maxdirfilteredI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary11calchullgenEP9btVector3ii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %verts, i32 noundef %verts_count, i32 noundef %vlimit) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary11calchullgenEP9btVector3ii(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef %verts, i32 noundef %verts_count, i32 noundef %vlimit) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isextreme = alloca %class.btAlignedObjectArray.12, align 8
   %allow = alloca %class.btAlignedObjectArray.12, align 8
@@ -3737,7 +3737,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary8calchullEP9btVector3iR20btAlignedObjectArrayIjERii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %verts, i32 noundef %verts_count, ptr nocapture noundef nonnull align 8 dereferenceable(25) %tris_out, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %tris_count, i32 noundef %vlimit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary8calchullEP9btVector3iR20btAlignedObjectArrayIjERii(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef %verts, i32 noundef %verts_count, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %tris_out, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %tris_count, i32 noundef %vlimit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts = alloca %class.btAlignedObjectArray.12, align 8
   %call = tail call noundef i32 @_ZN11HullLibrary11calchullgenEP9btVector3ii(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %verts, i32 noundef %verts_count, i32 noundef %vlimit)
@@ -4086,7 +4086,7 @@ return:                                           ; preds = %if.then3.i.i.i110, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11HullLibrary11ComputeHullEjPK9btVector3R11PHullResultj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %vcount, ptr noundef %vertices, ptr nocapture noundef nonnull align 8 dereferenceable(56) %result, i32 noundef %vlimit) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN11HullLibrary11ComputeHullEjPK9btVector3R11PHullResultj(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %vcount, ptr noundef %vertices, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %result, i32 noundef %vlimit) local_unnamed_addr #3 align 2 {
 entry:
   %tris_count = alloca i32, align 4
   %m_Indices = getelementptr inbounds nuw i8, ptr %result, i64 24
@@ -4111,7 +4111,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11ReleaseHullR11PHullResult(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %result) local_unnamed_addr #3 {
+define dso_local void @_Z11ReleaseHullR11PHullResult(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8), (16, 24)) %result) local_unnamed_addr #3 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %result, i64 28
   %0 = load i32, ptr %m_size.i, align 4
@@ -4153,7 +4153,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary16CreateConvexHullERK8HullDescR10HullResult(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %desc, ptr nocapture noundef nonnull align 8 dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary16CreateConvexHullERK8HullDescR10HullResult(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %desc, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %tris_count.i = alloca i32, align 4
   %hr = alloca %class.PHullResult, align 8
@@ -4228,7 +4228,7 @@ invoke.cont5:                                     ; preds = %invoke.cont5.loopex
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  br i1 %call10, label %for.cond.preheader, label %if.end166
+  br i1 %call10, label %for.cond.preheader, label %if.then3.i.i.i356
 
 for.cond.preheader:                               ; preds = %invoke.cont9
   %6 = load i32, ptr %ovcount, align 4
@@ -4281,7 +4281,7 @@ call.i.noexc:                                     ; preds = %for.end
 
 invoke.cont36:                                    ; preds = %call.i.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tris_count.i)
-  br label %if.end166
+  br label %if.then3.i.i.i356
 
 invoke.cont41:                                    ; preds = %call.i.noexc
   %15 = load i32, ptr %tris_count.i, align 4
@@ -4318,7 +4318,7 @@ invoke.cont45:                                    ; preds = %for.body8.lr.ph.i80
   %16 = phi ptr [ %call.i.i.i.i112, %for.body8.lr.ph.i80 ], [ null, %invoke.cont41 ]
   store i32 %6, ptr %m_size.i.i71, align 4
   %17 = load ptr, ptr %m_data.i.i.i, align 8
-  invoke void @_ZN11HullLibrary16BringOutYourDeadEPK9btVector3jPS0_RjPjj(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(4) %ovcount, ptr noundef nonnull %17, i32 noundef %mul.i)
+  invoke void @_ZN11HullLibrary16BringOutYourDeadEPK9btVector3jPS0_RjPjj(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %1, i32 noundef %6, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(4) %ovcount, ptr noundef nonnull %17, i32 noundef %mul.i)
           to label %invoke.cont52 unwind label %lpad43
 
 invoke.cont52:                                    ; preds = %invoke.cont45
@@ -4772,13 +4772,9 @@ if.end157:                                        ; preds = %if.else150, %if.the
 if.end163:                                        ; preds = %for.body83, %if.end157, %if.then72, %invoke.cont119, %if.else
   %67 = load i32, ptr %m_size.i.i.i, align 4
   %tobool.not.i327 = icmp eq i32 %67, 0
-  br i1 %tobool.not.i327, label %invoke.cont164, label %if.then.i
+  br i1 %tobool.not.i327, label %if.then3.i.i.i347, label %if.then.i.i.i330
 
-if.then.i:                                        ; preds = %if.end163
-  %tobool.not.i.i.i329 = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i.i329, label %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i, label %if.then.i.i.i330
-
-if.then.i.i.i330:                                 ; preds = %if.then.i
+if.then.i.i.i330:                                 ; preds = %if.end163
   %68 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i332 = trunc i8 %68 to i1
   br i1 %tobool2.i.i.i332, label %if.then3.i.i.i337, label %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i
@@ -4787,18 +4783,14 @@ if.then3.i.i.i337:                                ; preds = %if.then.i.i.i330
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %17)
           to label %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i unwind label %lpad43
 
-_ZN20btAlignedObjectArrayIjE5clearEv.exit.i:      ; preds = %if.then3.i.i.i337, %if.then.i.i.i330, %if.then.i
+_ZN20btAlignedObjectArrayIjE5clearEv.exit.i:      ; preds = %if.then3.i.i.i337, %if.then.i.i.i330
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
-  br label %invoke.cont164
+  br label %if.then3.i.i.i347
 
-invoke.cont164:                                   ; preds = %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i, %if.end163
-  %tobool.not.i.i.i340 = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i340, label %if.end166, label %if.then3.i.i.i347
-
-if.then3.i.i.i347:                                ; preds = %invoke.cont164
+if.then3.i.i.i347:                                ; preds = %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i, %if.end163
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %16)
-          to label %if.end166 unwind label %terminate.lpad.i
+          to label %if.then3.i.i.i356 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i347
   %69 = landingpad { ptr, i32 }
@@ -4807,12 +4799,8 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i347
   tail call void @__clang_call_terminate(ptr %70) #21
   unreachable
 
-if.end166:                                        ; preds = %if.then3.i.i.i347, %invoke.cont164, %invoke.cont36, %invoke.cont9
-  %ret.0 = phi i32 [ 1, %invoke.cont36 ], [ 1, %invoke.cont9 ], [ 0, %invoke.cont164 ], [ 0, %if.then3.i.i.i347 ]
-  %tobool.not.i.i.i349 = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i349, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit358, label %if.then3.i.i.i356
-
-if.then3.i.i.i356:                                ; preds = %if.end166
+if.then3.i.i.i356:                                ; preds = %if.then3.i.i.i347, %invoke.cont36, %invoke.cont9
+  %ret.0 = phi i32 [ 1, %invoke.cont36 ], [ 1, %invoke.cont9 ], [ 0, %if.then3.i.i.i347 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %1)
           to label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit358 unwind label %terminate.lpad.i357
 
@@ -4823,7 +4811,7 @@ terminate.lpad.i357:                              ; preds = %if.then3.i.i.i356
   tail call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
-_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit358: ; preds = %if.end166, %if.then3.i.i.i356
+_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit358: ; preds = %if.then3.i.i.i356
   %73 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %tobool.not.i.i.i.i, label %_ZN11PHullResultD2Ev.exit, label %if.then.i.i.i.i
@@ -4855,7 +4843,7 @@ ehcleanup:                                        ; preds = %lpad43, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11HullLibrary15CleanupVerticesEjPK9btVector3jRjPS0_fRS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %svcount, ptr nocapture noundef readonly %svertices, i32 noundef %stride, ptr nocapture noundef nonnull align 4 dereferenceable(4) %vcount, ptr nocapture noundef %vertices, float noundef %normalepsilon, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %scale) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN11HullLibrary15CleanupVerticesEjPK9btVector3jRjPS0_fRS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i32 noundef %svcount, ptr noundef readonly captures(none) %svertices, i32 noundef %stride, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %vcount, ptr noundef captures(none) %vertices, float noundef %normalepsilon, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %scale) local_unnamed_addr #3 align 2 {
 entry:
   %bmin = alloca [3 x float], align 4
   %bmax = alloca [3 x float], align 4
@@ -5435,7 +5423,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11HullLibrary16BringOutYourDeadEPK9btVector3jPS0_RjPjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %verts, i32 noundef %vcount, ptr nocapture noundef writeonly %overts, ptr nocapture noundef nonnull align 4 dereferenceable(4) %ocount, ptr nocapture noundef %indices, i32 noundef %indexcount) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11HullLibrary16BringOutYourDeadEPK9btVector3jPS0_RjPjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %verts, i32 noundef %vcount, ptr noundef writeonly captures(none) %overts, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %ocount, ptr noundef captures(none) %indices, i32 noundef %indexcount) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmpIndices = alloca %class.btAlignedObjectArray.12, align 8
   %usedIndices = alloca %class.btAlignedObjectArray.16, align 8
@@ -5713,7 +5701,7 @@ _ZN20btAlignedObjectArrayIjED2Ev.exit:            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN11HullLibrary13ReleaseResultER10HullResult(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(80) %result) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN11HullLibrary13ReleaseResultER10HullResult(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %result, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -5785,7 +5773,7 @@ if.end7:                                          ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z7GetDistfffPKf(float noundef %px, float noundef %py, float noundef %pz, ptr nocapture noundef readonly %p2) local_unnamed_addr #6 {
+define dso_local noundef float @_Z7GetDistfffPKf(float noundef %px, float noundef %py, float noundef %pz, ptr noundef readonly captures(none) %p2) local_unnamed_addr #6 {
 entry:
   %0 = load float, ptr %p2, align 4
   %sub = fsub float %px, %0
@@ -5805,7 +5793,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5877,10 +5865,10 @@ declare void @llvm.assume(i1 noundef) #18
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

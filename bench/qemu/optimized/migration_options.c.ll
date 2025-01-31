@@ -442,7 +442,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @migrate_caps_check(ptr nocapture noundef readonly %old_caps, ptr nocapture noundef readonly %new_caps, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migrate_caps_check(ptr noundef readonly captures(none) %old_caps, ptr noundef readonly captures(none) %new_caps, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %call = tail call ptr @migration_incoming_get_current() #8
@@ -823,10 +823,10 @@ return:                                           ; preds = %if.end, %if.end9, %
 declare zeroext i1 @migration_is_running(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_migrate_capabilities(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_migrate_capabilities(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8
@@ -1246,7 +1246,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_query_migrate_parameters(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @qmp_query_migrate_parameters(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #8
   %call1 = tail call noalias dereferenceable_or_null(256) ptr @g_malloc0(i64 noundef 256) #10
@@ -1457,7 +1457,7 @@ declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @visit_type_BitmapMigrationNodeAliasList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @migrate_params_init(ptr nocapture noundef writeonly initializes((0, 1), (16, 17), (32, 33), (48, 49), (64, 65), (66, 67), (68, 69), (70, 71), (72, 73), (74, 75), (76, 77), (78, 79), (80, 96), (104, 105), (136, 137), (152, 153), (160, 161), (162, 163), (164, 165), (176, 177), (192, 193), (194, 195), (200, 201), (202, 203), (216, 217), (232, 233), (248, 249)) %params) local_unnamed_addr #0 {
+define dso_local void @migrate_params_init(ptr noundef writeonly captures(none) initializes((0, 1), (16, 17), (32, 33), (48, 49), (64, 65), (66, 67), (68, 69), (70, 71), (72, 73), (74, 75), (76, 77), (78, 79), (80, 96), (104, 105), (136, 137), (152, 153), (160, 161), (162, 163), (164, 165), (176, 177), (192, 193), (194, 195), (200, 201), (202, 203), (216, 217), (232, 233), (248, 249)) %params) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.75) #8
   %tls_hostname = getelementptr inbounds nuw i8, ptr %params, i64 88
@@ -1520,7 +1520,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @migrate_params_check(ptr nocapture noundef readonly %params, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @migrate_params_check(ptr noundef readonly captures(none) %params, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_compress_level = getelementptr inbounds nuw i8, ptr %params, i64 64
   %0 = load i8, ptr %has_compress_level, align 8
@@ -2847,7 +2847,7 @@ return:                                           ; preds = %if.then193.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2873,10 +2873,10 @@ declare void @qapi_free_BitmapMigrationNodeAliasList(ptr noundef) local_unnamed_
 declare i64 @llvm.ctpop.i64(i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

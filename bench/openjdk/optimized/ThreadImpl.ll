@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_setThreadContentionMonitoringEnabled0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_setThreadContentionMonitoringEnabled0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -15,7 +15,7 @@ define void @Java_sun_management_ThreadImpl_setThreadContentionMonitoringEnabled
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_setThreadCpuTimeEnabled0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_setThreadCpuTimeEnabled0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -24,7 +24,7 @@ define void @Java_sun_management_ThreadImpl_setThreadCpuTimeEnabled0(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_setThreadAllocatedMemoryEnabled0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_setThreadAllocatedMemoryEnabled0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -33,7 +33,7 @@ define void @Java_sun_management_ThreadImpl_setThreadAllocatedMemoryEnabled0(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_getThreadInfo1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_getThreadInfo1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @jmm_interface, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -50,7 +50,7 @@ define ptr @Java_sun_management_ThreadImpl_getThreads(ptr noundef %0, ptr nounde
 declare ptr @JVM_GetAllThreads(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_ThreadImpl_getThreadTotalCpuTime0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_management_ThreadImpl_getThreadTotalCpuTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -59,7 +59,7 @@ define i64 @Java_sun_management_ThreadImpl_getThreadTotalCpuTime0(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_getThreadTotalCpuTime1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_getThreadTotalCpuTime1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -68,7 +68,7 @@ define void @Java_sun_management_ThreadImpl_getThreadTotalCpuTime1(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_ThreadImpl_getThreadUserCpuTime0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_management_ThreadImpl_getThreadUserCpuTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -77,7 +77,7 @@ define i64 @Java_sun_management_ThreadImpl_getThreadUserCpuTime0(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_getThreadUserCpuTime1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_getThreadUserCpuTime1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -86,7 +86,7 @@ define void @Java_sun_management_ThreadImpl_getThreadUserCpuTime1(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_ThreadImpl_getThreadAllocatedMemory0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_management_ThreadImpl_getThreadAllocatedMemory0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
@@ -95,7 +95,7 @@ define i64 @Java_sun_management_ThreadImpl_getThreadAllocatedMemory0(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_getThreadAllocatedMemory1(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_getThreadAllocatedMemory1(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8
@@ -104,7 +104,7 @@ define void @Java_sun_management_ThreadImpl_getThreadAllocatedMemory1(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_management_ThreadImpl_getTotalThreadAllocatedMemory(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_management_ThreadImpl_getTotalThreadAllocatedMemory(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -113,7 +113,7 @@ define i64 @Java_sun_management_ThreadImpl_getTotalThreadAllocatedMemory(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_ThreadImpl_findMonitorDeadlockedThreads0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_ThreadImpl_findMonitorDeadlockedThreads0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
@@ -122,7 +122,7 @@ define ptr @Java_sun_management_ThreadImpl_findMonitorDeadlockedThreads0(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_ThreadImpl_findDeadlockedThreads0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_management_ThreadImpl_findDeadlockedThreads0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -131,7 +131,7 @@ define ptr @Java_sun_management_ThreadImpl_findDeadlockedThreads0(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_resetPeakThreadCount0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_resetPeakThreadCount0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -140,7 +140,7 @@ define void @Java_sun_management_ThreadImpl_resetPeakThreadCount0(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ThreadImpl_resetContentionTimes0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_management_ThreadImpl_resetContentionTimes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
@@ -149,7 +149,7 @@ define void @Java_sun_management_ThreadImpl_resetContentionTimes0(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_management_ThreadImpl_dumpThreads0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @Java_sun_management_ThreadImpl_dumpThreads0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @jmm_interface, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %9 = load ptr, ptr %8, align 8

@@ -623,7 +623,7 @@ return:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_ATTRIBUTE_count(ptr nocapture noundef readonly %attr) local_unnamed_addr #0 {
+define hidden i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(none) %attr) local_unnamed_addr #0 {
 entry:
   %single = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load i32, ptr %single, align 8
@@ -648,7 +648,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly %attr, i32 noundef %idx, i32 noundef %atrtype, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
+define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly %attr, i32 noundef %idx, i32 noundef %atrtype, ptr noundef readnone captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %attr, null
   br i1 %cmp.i, label %return, label %if.end.i

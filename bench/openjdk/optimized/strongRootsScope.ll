@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN16StrongRootsScopeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16StrongRootsScopeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9MarkScopeC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9MarkScopeC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN7nmethod24oops_do_marking_prologueEv() #2
   ret void
 }
@@ -19,7 +19,7 @@ define hidden void @_ZN9MarkScopeC2Ev(ptr nocapture nonnull readnone align 1 %0)
 declare void @_ZN7nmethod24oops_do_marking_prologueEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9MarkScopeD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9MarkScopeD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN7nmethod24oops_do_marking_epilogueEv() #2
   ret void
 }
@@ -27,7 +27,7 @@ define hidden void @_ZN9MarkScopeD2Ev(ptr nocapture nonnull readnone align 1 %0)
 declare void @_ZN7nmethod24oops_do_marking_epilogueEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16StrongRootsScopeC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16StrongRootsScopeC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7nmethod24oops_do_marking_prologueEv() #2
   store i32 %1, ptr %0, align 4
   %.not = icmp eq i32 %1, 0
@@ -44,7 +44,7 @@ define hidden void @_ZN16StrongRootsScopeC2Ej(ptr nocapture noundef nonnull writ
 declare void @_ZN7Threads25change_thread_claim_tokenEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16StrongRootsScopeD2Ev(ptr nocapture nonnull readonly align 4 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16StrongRootsScopeD2Ev(ptr nonnull readonly align 4 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN7nmethod24oops_do_marking_epilogueEv() #2
   ret void
 }

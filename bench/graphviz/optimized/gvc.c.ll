@@ -107,7 +107,7 @@ declare ptr @gvplugin_list(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare i32 @gvLayoutJobs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -306,7 +306,7 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8
@@ -392,13 +392,13 @@ define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @gvFreeRenderData(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @gvFreeRenderData(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   tail call void @free(ptr noundef %0) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @gvAddLibrary(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -409,13 +409,13 @@ define void @gvAddLibrary(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 declare void @gvconfig_plugin_install_from_library(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @gvcInfo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define ptr @gvcInfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @gvcVersion(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @gvcVersion(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -423,7 +423,7 @@ define ptr @gvcVersion(ptr nocapture noundef readonly %0) local_unnamed_addr #7 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @gvcBuildDate(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @gvcBuildDate(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8

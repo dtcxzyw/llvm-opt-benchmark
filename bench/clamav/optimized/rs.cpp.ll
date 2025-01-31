@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7RSCoder4InitEi(ptr nocapture noundef nonnull align 4 dereferenceable(11273) initializes((9220, 9224), (11272, 11273)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7RSCoder4InitEi(ptr noundef nonnull align 4 captures(none) dereferenceable(11273) initializes((9220, 9224), (11272, 11273)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 11272
@@ -46,7 +46,7 @@ _ZN7RSCoder6gfInitEv.exit:                        ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7RSCoder6gfInitEv(ptr nocapture noundef nonnull align 4 dereferenceable(11273) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7RSCoder6gfInitEv(ptr noundef nonnull align 4 captures(none) dereferenceable(11273) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   br label %3
 
@@ -83,7 +83,7 @@ define void @_ZN7RSCoder6gfInitEv(ptr nocapture noundef nonnull align 4 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7RSCoder6pnInitEv(ptr nocapture noundef nonnull align 4 dereferenceable(11273) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7RSCoder6pnInitEv(ptr noundef nonnull align 4 captures(none) dereferenceable(11273) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [256 x i32], align 16
   %3 = alloca [256 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9220
@@ -220,7 +220,7 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(11273) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11273) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -308,7 +308,7 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph23, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7RSCoder6EncodeEPhiS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(11273) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7RSCoder6EncodeEPhiS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11273) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [256 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9220
   %7 = load i32, ptr %6, align 4
@@ -483,7 +483,7 @@ _ZN7RSCoder6gfMultEii.exit25:                     ; preds = %.lr.ph33.split.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 4 dereferenceable(11273) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 4 dereferenceable(11273) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [512 x i32], align 16
   %7 = alloca [512 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9220
@@ -963,10 +963,10 @@ _ZN7RSCoder6gfMultEii.exit93:                     ; preds = %223, %235
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3

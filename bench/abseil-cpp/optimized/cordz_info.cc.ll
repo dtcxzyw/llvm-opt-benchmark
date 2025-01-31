@@ -27,7 +27,7 @@ $__clang_call_terminate = comdat any
 @_ZN4absl13cord_internal9CordzInfoD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl13cord_internal9CordzInfoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4absl13cord_internal9CordzInfo4HeadERKNS0_13CordzSnapshotE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %snapshot) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4absl13cord_internal9CordzInfo4HeadERKNS0_13CordzSnapshotE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %snapshot) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, i64 8) acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK4absl13cord_internal9CordzInfo4NextERKNS0_13CordzSnapshotE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1332) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %snapshot) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4absl13cord_internal9CordzInfo4NextERKNS0_13CordzSnapshotE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1332) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %snapshot) local_unnamed_addr #1 align 2 {
 entry:
   %ci_next_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %ci_next_ acquire, align 8
@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %cord, i32 noundef %method) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %cord, i32 noundef %method) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(1336) ptr @_Znwm(i64 noundef 1336) #18
   %rep.i.i = getelementptr inbounds nuw i8, ptr %cord, i64 8
@@ -240,7 +240,7 @@ _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %if.end, %if.then7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataERKS2_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %cord, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %src, i32 noundef %method) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataERKS2_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %cord, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %src, i32 noundef %method) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %cord, align 8
   %sub.i = add nsw i64 %0, -1
@@ -450,7 +450,7 @@ return:                                           ; preds = %if.then14, %_ZN4abs
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13cord_internal9CordzInfo18MaybeTrackCordImplERNS0_10InlineDataERKS2_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %cord, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %src, i32 noundef %method) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl13cord_internal9CordzInfo18MaybeTrackCordImplERNS0_10InlineDataERKS2_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %cord, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %src, i32 noundef %method) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %src, align 8
   %cmp.i.not = icmp eq i64 %0, 1
@@ -499,7 +499,7 @@ return:                                           ; preds = %cond.false, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv(ptr noundef readonly %src, ptr nocapture noundef writeonly %stack) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv(ptr noundef readonly %src, ptr noundef writeonly captures(none) %stack) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %return, label %if.end
@@ -532,7 +532,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl13cord_internal9CordzInfoC2EPNS0_7CordRepEPKS1_NS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %this, ptr noundef %rep, ptr noundef readonly %src, i32 noundef %method) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -959,7 +959,7 @@ declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull al
 declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer15CountLinearRepsENS2_6RepRefERNS2_11MemoryUsageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr %rep.coerce0, i64 %rep.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %memory_usage) unnamed_addr #14 align 2 {
+define internal fastcc { ptr, i64 } @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer15CountLinearRepsENS2_6RepRefERNS2_11MemoryUsageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr %rep.coerce0, i64 %rep.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %memory_usage) unnamed_addr #14 align 2 {
 entry:
   %tobool.not.i48 = icmp eq ptr %rep.coerce0, null
   br i1 %tobool.not.i48, label %return, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph
@@ -1105,7 +1105,7 @@ return:                                           ; preds = %while.body, %return
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %rep.coerce0, i64 %rep.coerce1) unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly %rep.coerce0, i64 %rep.coerce1) unnamed_addr #15 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %node_count = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1203,7 +1203,7 @@ if.end:                                           ; preds = %_ZNK4absl13cord_int
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

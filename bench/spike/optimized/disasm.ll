@@ -2374,332 +2374,332 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN14disassembler_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN14disassembler_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_0D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_0D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_1D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_1D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_2D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_2D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_3D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_3D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_4D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_4D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_5D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_5D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_6D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_6D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_7D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_7D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_8D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_8D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN3$_9D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN3$_9D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_10D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_10D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_11D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_11D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_12D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_12D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_13D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_13D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_14D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_14D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_15D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_15D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_16D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_16D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_17D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_17D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_18D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_18D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_19D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_19D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_20D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_20D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_21D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_21D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_22D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_22D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_23D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_23D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_24D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_24D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_25D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_25D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_26D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_26D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_27D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_27D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_28D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_28D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_29D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_29D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_30D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_30D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_31D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_31D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_32D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_32D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_33D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_33D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_34D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_34D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_35D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_35D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_36D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_36D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_37D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_37D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_38D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_38D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_40D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_40D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_41D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_41D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_42D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_42D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_43D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_43D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_44D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_44D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_45D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_45D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_46D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_46D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_47D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_47D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_48D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_48D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_49D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_49D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_50D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_50D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_51D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_51D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_52D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_52D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_53D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_53D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_54D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_54D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_55D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_55D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_56D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_56D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_57D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_57D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_58D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_58D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_60D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_60D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_62D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_62D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_63D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_63D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_64D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_64D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_65D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_65D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_66D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_66D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN4$_67D2Ev"(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define internal void @"_ZN4$_67D2Ev"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6144) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = trunc i64 %2 to i16
   %.lhs.trunc.i.i = and i64 %2, 127
@@ -2802,7 +2802,7 @@ _ZNK14disassembler_t6lookupE6insn_t.exit:         ; preds = %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6144) %0, i64 %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = trunc i64 %1 to i16
   %.lhs.trunc.i = and i64 %1, 127
   %4 = getelementptr inbounds nuw [256 x %"class.std::vector"], ptr %0, i64 0, i64 %.lhs.trunc.i
@@ -2885,7 +2885,7 @@ _ZNK14disassembler_t10probe_onceE6insn_tm.exit:   ; preds = %10, %29, %46, %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK13disasm_insn_t9to_stringB5cxx11E6insn_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3326,7 +3326,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14disassembler_t16add_instructionsEPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14disassembler_t16add_instructionsEPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.70", align 8
   %4 = alloca %"class.std::vector.70", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -15866,7 +15866,7 @@ _ZL22add_vector_viu_z6_insnP14disassembler_tPKcjj.exit: ; preds = %3672, %3674
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14disassembler_t8add_insnEP13disasm_insn_t(ptr nocapture noundef nonnull align 8 dereferenceable(6144) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN14disassembler_t8add_insnEP13disasm_insn_t(ptr noundef nonnull align 8 captures(none) dereferenceable(6144) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127
@@ -15965,7 +15965,7 @@ _ZNSt6vectorIPK13disasm_insn_tSaIS2_EE9push_backERKS2_.exit: ; preds = %24, %_ZN
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN13disasm_insn_tC2EPKcjjRKSt6vectorIPK5arg_tSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16033,7 +16033,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EEC2ERKS4_.exit:       ; preds = %18, %28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %34 = load i64, ptr %32, align 8
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
-  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0, i64 noundef %34, ptr noundef %1, i64 noundef %35)
+  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0, i64 noundef %34, ptr noundef nonnull %1, i64 noundef %35)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZNSt6vectorIPK5arg_tSaIS2_EEC2ERKS4_.exit
@@ -16081,7 +16081,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %47, %50
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 3, 24580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_xload_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 3, 24580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16148,7 +16148,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 35, 12324) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_xstore_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 35, 12324) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16215,7 +16215,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -536870865, -1073729488) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13add_xamo_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 -536870865, -1073729488) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16280,7 +16280,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12add_xlr_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -101683073, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12add_xlr_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -101683073, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -16347,7 +16347,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 20580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_b1type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 99, 20580) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16414,7 +16414,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 99, 28772) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_btype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 99, 28772) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16479,7 +16479,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 19, 28692) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_itype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 19, 28692) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16544,7 +16544,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4115, 1744834580) %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20add_itype_shift_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 4115, 1744834580) %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -16609,7 +16609,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -33554305, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_rtype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -33554305, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -16674,7 +16674,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 301990003, 1711276148) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_sfence_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 301990003, 1711276148) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16741,7 +16741,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_r1type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -16808,7 +16808,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4103, 16392) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14add_fload_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 4103, 16392) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16875,7 +16875,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 4135, 16424) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_fstore_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 4135, 16424) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -16942,7 +16942,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 83, 771756116) %2, i32 noundef range(i32 -33554305, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_frtype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 83, 771756116) %2, i32 noundef range(i32 -33554305, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17007,7 +17007,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1074790483, 1577058388) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fr1type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1074790483, 1577058388) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17074,7 +17074,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 67, 100663376) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fr3type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 67, 100663376) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17139,7 +17139,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -805306285, -201326508) %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_xftype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 -805306285, -201326508) %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17206,7 +17206,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 -1073741741, -436203436) %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_fxtype_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 -1073741741, -436203436) %2, i32 noundef range(i32 -1048449, -1019776) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17273,7 +17273,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_fx2type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17338,7 +17338,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15add_r3type_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 67, 100667444) %2, i32 noundef range(i32 67137663, 100692096) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15add_r3type_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 67, 100667444) %2, i32 noundef range(i32 67137663, 100692096) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17403,7 +17403,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 973078575, 1845510260) %2, i32 noundef range(i32 -100630529, -33521664) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12add_xst_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 973078575, 1845510260) %2, i32 noundef range(i32 -100630529, -33521664) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17644,10 +17644,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18add_vector_vv_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17720,7 +17720,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18add_vector_vx_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17793,7 +17793,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18add_vector_vi_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18add_vector_vi_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17866,7 +17866,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 805318743, -738185128) %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_viu_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 805318743, -738185128) %2, i32 noundef range(i32 -67080065, -33525632) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -17939,7 +17939,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073741911, 1543503960) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vvm_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1073741911, 1543503960) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18004,7 +18004,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073758295, 1543520344) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vxm_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1073758295, 1543520344) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18069,7 +18069,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1073754199, 1543516248) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19add_vector_vim_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1073754199, 1543516248) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18134,7 +18134,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1207963735, -1509416840) %2, i32 noundef range(i32 -66064257, -32509824) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17add_vector_v_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1207963735, -1509416840) %2, i32 noundef range(i32 -66064257, -32509824) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.70", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -18205,7 +18205,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18add_vector_vf_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18278,7 +18278,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2013266039, -1409286024) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype3_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 2013266039, -1409286024) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18343,7 +18343,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1879048311, -2063597448) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype4_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 1879048311, -2063597448) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18408,7 +18408,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 872419447, -2080366472) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_pitype5_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 872419447, -2080366472) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -18473,7 +18473,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14disassembler_tC2EPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) initializes((0, 6144)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14disassembler_tC2EPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) initializes((0, 6144)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18768,11 +18768,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 23:                                               ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %2, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %2, i64 %4, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 24:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 0, ptr noundef %2, i64 noundef %4)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %2, i64 noundef %4)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %18, %21, %23, %24
@@ -20380,7 +20380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6144) %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6144) %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds [256 x %"class.std::vector"], ptr %0, i64 0, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !57
@@ -20506,7 +20506,7 @@ _ZNSt6vectorIPK13disasm_insn_tSaIS2_EED2Ev.exit:  ; preds = %34, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_09to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_09to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20839,7 +20839,7 @@ define internal void @"_ZN3$_0D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_19to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_19to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21176,7 +21176,7 @@ define internal void @"_ZN3$_1D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_29to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_29to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21510,7 +21510,7 @@ define internal void @"_ZN3$_2D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_39to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_39to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21847,7 +21847,7 @@ define internal void @"_ZN3$_3D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_49to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_49to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -22044,7 +22044,7 @@ define internal void @"_ZN3$_4D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_59to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_59to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 31
@@ -22072,7 +22072,7 @@ define internal void @"_ZN3$_5D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_69to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_69to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 15
   %6 = and i64 %5, 31
@@ -22100,7 +22100,7 @@ define internal void @"_ZN3$_6D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK3$_79to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK3$_79to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 255
@@ -22115,7 +22115,7 @@ define internal void @"_ZN3$_7D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_89to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_89to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -22409,7 +22409,7 @@ define internal void @"_ZN3$_8D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK3$_99to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK3$_99to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = lshr i64 %2, 4
   %6 = and i64 %5, 15
@@ -22466,7 +22466,7 @@ define internal void @"_ZN3$_9D0Ev"(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_109to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_109to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = lshr i64 %2, 4
   %6 = and i64 %5, 15
@@ -22523,7 +22523,7 @@ define internal void @"_ZN4$_10D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_119to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define internal void @"_ZNK4$_119to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = lshr i64 %2, 4
   %5 = and i64 %4, 15
   %switch.tableidx = add nsw i64 %5, -4
@@ -22551,7 +22551,7 @@ define internal void @"_ZN4$_11D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_129to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define internal void @"_ZNK4$_129to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = lshr i64 %2, 4
   %5 = and i64 %4, 15
   %switch.tableidx = add nsw i64 %5, -4
@@ -22579,7 +22579,7 @@ define internal void @"_ZN4$_12D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_139to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_139to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 20
   %6 = and i64 %5, 31
@@ -22607,7 +22607,7 @@ define internal void @"_ZN4$_13D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_149to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_149to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 27
   %6 = and i64 %5, 31
@@ -22635,7 +22635,7 @@ define internal void @"_ZN4$_14D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_159to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_159to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 31
@@ -22663,7 +22663,7 @@ define internal void @"_ZN4$_15D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_169to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_169to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 15
   %6 = and i64 %5, 31
@@ -22691,7 +22691,7 @@ define internal void @"_ZN4$_16D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_179to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_179to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 20
   %6 = and i64 %5, 31
@@ -22719,7 +22719,7 @@ define internal void @"_ZN4$_17D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_189to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_189to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 27
   %6 = and i64 %5, 31
@@ -22747,7 +22747,7 @@ define internal void @"_ZN4$_18D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_199to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_199to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -28197,7 +28197,7 @@ define internal void @"_ZN4$_19D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_209to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_209to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = shl i64 %2, 32
   %5 = ashr i64 %4, 52
   %6 = trunc nsw i64 %5 to i32
@@ -28212,7 +28212,7 @@ define internal void @"_ZN4$_20D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_219to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_219to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 63
@@ -28227,7 +28227,7 @@ define internal void @"_ZN4$_21D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_229to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_229to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28266,7 +28266,7 @@ define internal void @"_ZN4$_22D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_239to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define internal void @"_ZNK4$_239to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
   tail call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %5)
@@ -28280,7 +28280,7 @@ define internal void @"_ZN4$_23D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_249to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define internal void @"_ZNK4$_249to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
   %6 = lshr i64 %2, 21
@@ -28297,7 +28297,7 @@ define internal void @"_ZN4$_24D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_259to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_259to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = lshr i64 %2, 7
@@ -28428,7 +28428,7 @@ define internal void @"_ZN4$_25D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_269to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_269to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = lshr i64 %2, 20
@@ -28488,7 +28488,7 @@ define internal void @"_ZN4$_26D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_279to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_279to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 31
@@ -28516,7 +28516,7 @@ define internal void @"_ZN4$_27D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_289to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_289to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 31
@@ -28544,7 +28544,7 @@ define internal void @"_ZN4$_28D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_299to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_299to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 31
@@ -28572,7 +28572,7 @@ define internal void @"_ZN4$_29D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_309to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_309to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 7
@@ -28601,7 +28601,7 @@ define internal void @"_ZN4$_30D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_319to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_319to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 7
@@ -28630,7 +28630,7 @@ define internal void @"_ZN4$_31D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_329to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_329to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 7
@@ -28661,7 +28661,7 @@ define internal void @"_ZN4$_32D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_339to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_339to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 7
@@ -28692,7 +28692,7 @@ define internal void @"_ZN4$_33D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_349to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_349to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 2
   %6 = and i64 %5, 7
@@ -28721,7 +28721,7 @@ define internal void @"_ZN4$_34D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_359to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_359to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @xpr_name, i64 16), align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
@@ -28746,7 +28746,7 @@ define internal void @"_ZN4$_35D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_369to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_369to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 31
   %6 = shl i64 %2, 51
@@ -28765,7 +28765,7 @@ define internal void @"_ZN4$_36D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_379to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_379to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = lshr i64 %2, 4
   %5 = and i64 %4, 4
   %6 = lshr i64 %2, 2
@@ -28789,7 +28789,7 @@ define internal void @"_ZN4$_37D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_389to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_389to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 16
   %6 = shl i64 %2, 3
@@ -28817,7 +28817,7 @@ define internal void @"_ZN4$_38D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_409to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_409to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = lshr i64 %2, 2
   %5 = and i64 %4, 31
   %6 = lshr i64 %2, 7
@@ -28835,7 +28835,7 @@ define internal void @"_ZN4$_40D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_419to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_419to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -28879,7 +28879,7 @@ define internal void @"_ZN4$_41D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_429to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_429to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29215,7 +29215,7 @@ define internal void @"_ZN4$_42D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_439to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_439to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29551,7 +29551,7 @@ define internal void @"_ZN4$_43D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_449to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_449to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29884,7 +29884,7 @@ define internal void @"_ZN4$_44D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_459to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_459to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30217,7 +30217,7 @@ define internal void @"_ZN4$_45D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_469to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_469to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30556,7 +30556,7 @@ define internal void @"_ZN4$_46D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_479to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_479to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30892,7 +30892,7 @@ define internal void @"_ZN4$_47D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_489to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_489to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = lshr i64 %2, 2
@@ -31026,7 +31026,7 @@ define internal void @"_ZN4$_48D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_499to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_499to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = lshr i64 %2, 2
@@ -31168,7 +31168,7 @@ define internal void @"_ZN4$_49D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_509to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_509to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -31365,7 +31365,7 @@ define internal void @"_ZN4$_50D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_519to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_519to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 31
@@ -31393,7 +31393,7 @@ define internal void @"_ZN4$_51D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_529to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_529to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 15
   %6 = and i64 %5, 31
@@ -31421,7 +31421,7 @@ define internal void @"_ZN4$_52D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_539to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_539to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 20
   %6 = and i64 %5, 31
@@ -31449,7 +31449,7 @@ define internal void @"_ZN4$_53D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_549to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_549to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = lshr i64 %2, 7
   %6 = and i64 %5, 31
@@ -31477,7 +31477,7 @@ define internal void @"_ZN4$_54D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_559to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_559to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = and i64 %2, 33554432
   %.not = icmp eq i64 %5, 0
@@ -31504,7 +31504,7 @@ define internal void @"_ZN4$_55D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_569to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_569to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2084, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -31528,7 +31528,7 @@ define internal void @"_ZN4$_56D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_579to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_579to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = shl i64 %2, 44
   %5 = ashr i64 %4, 59
   %6 = trunc nsw i64 %5 to i32
@@ -31543,7 +31543,7 @@ define internal void @"_ZN4$_57D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_589to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_589to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -31717,7 +31717,7 @@ define internal void @"_ZN4$_58D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK4$_609to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK4$_609to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31922,7 +31922,7 @@ define internal void @"_ZN4$_60D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_629to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_629to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 7
@@ -31937,7 +31937,7 @@ define internal void @"_ZN4$_62D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_639to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_639to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 15
@@ -31952,7 +31952,7 @@ define internal void @"_ZN4$_63D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_649to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_649to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 31
@@ -31967,7 +31967,7 @@ define internal void @"_ZN4$_64D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_659to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_659to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 63
@@ -31982,7 +31982,7 @@ define internal void @"_ZN4$_65D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_669to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_669to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 30
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %5) #20
@@ -31996,7 +31996,7 @@ define internal void @"_ZN4$_66D0Ev"(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNK4$_679to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #8 align 2 {
+define internal void @"_ZNK4$_679to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 %4, 20
   %6 = and i32 %5, 15
@@ -32248,13 +32248,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -32467,7 +32467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16add_unknown_insnP14disassembler_tPKcjj(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -2147454849, 1040216192) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16add_unknown_insnP14disassembler_tPKcjj(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -2147454849, 1040216192) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::vector.70", align 8
@@ -33130,10 +33130,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

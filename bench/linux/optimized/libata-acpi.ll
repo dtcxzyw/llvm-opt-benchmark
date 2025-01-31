@@ -55,7 +55,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_acpi_cbl
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_ata_acpi_cbl_80wire441, ptr @__UNIQUE_ID___addressable_ata_acpi_gtm438, ptr @__UNIQUE_ID___addressable_ata_acpi_gtm_xfermask440, ptr @__UNIQUE_ID___addressable_ata_acpi_stm439, ptr @__UNIQUE_ID_acpi_gtf_filter437, ptr @__UNIQUE_ID_acpi_gtf_filtertype436, ptr @__param_acpi_gtf_filter], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ata_dev_acpi_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ata_dev_acpi_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 16
   %4 = and i64 %3, 268435456
@@ -82,13 +82,13 @@ define dso_local ptr @ata_dev_acpi_handle(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -175,7 +175,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_gtm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_gtm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   store i64 -1, ptr %3, align 8
@@ -254,7 +254,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_gtm(ptr nocapture nound
 declare dso_local void @acpi_initialize_hp_context(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_acpi_ap_notify_dock(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef i32 @ata_acpi_ap_notify_dock(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -264,7 +264,7 @@ define internal noundef i32 @ata_acpi_ap_notify_dock(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ata_acpi_ap_uevent(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal void @ata_acpi_ap_uevent(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [2 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -402,7 +402,7 @@ define dso_local void @ata_acpi_bind_dev(ptr noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_acpi_dev_notify_dock(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef i32 @ata_acpi_dev_notify_dock(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -414,7 +414,7 @@ define internal noundef i32 @ata_acpi_dev_notify_dock(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ata_acpi_dev_uevent(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal void @ata_acpi_dev_uevent(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [2 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -458,7 +458,7 @@ define internal void @ata_acpi_dev_uevent(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_acpi_dissociate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_acpi_dissociate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.ata_acpi_gtm, align 1
   %3 = alloca %struct.acpi_object_list, align 8
   %4 = alloca [3 x %union.acpi_object], align 16
@@ -568,7 +568,7 @@ ata_acpi_stm.exit:                                ; preds = %52, %52, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_stm(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_acpi_stm(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ata_acpi_gtm, align 1
   %4 = alloca %struct.acpi_object_list, align 8
   %5 = alloca [3 x %union.acpi_object], align 16
@@ -646,16 +646,16 @@ declare dso_local i32 @acpi_evaluate_object(ptr noundef, ptr noundef, ptr nounde
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_acpi_gtm_xfermask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @ata_acpi_gtm_xfermask(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -689,7 +689,7 @@ declare dso_local zeroext i8 @ata_timing_cycle2mode(i32 noundef, i32 noundef) lo
 declare dso_local i32 @ata_xfer_mode2mask(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   %5 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %4, i32 noundef 0) #8
@@ -930,7 +930,7 @@ ata_acpi_stm.exit:                                ; preds = %42, %42, %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !6
@@ -1782,7 +1782,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
 declare dso_local i32 @ata_dev_reread_id(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_acpi_on_disable(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_acpi_on_disable(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #8
@@ -1908,7 +1908,7 @@ declare dso_local void @ata_port_schedule_eh(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kobject_uevent_env(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

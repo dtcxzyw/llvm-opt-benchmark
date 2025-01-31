@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_send_unre
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_nf_reject_ip6_tcphdr_get992, ptr @__UNIQUE_ID___addressable_nf_reject_ip6_tcphdr_put994, ptr @__UNIQUE_ID___addressable_nf_reject_ip6hdr_put993, ptr @__UNIQUE_ID___addressable_nf_reject_skb_v6_tcp_reset988, ptr @__UNIQUE_ID___addressable_nf_reject_skb_v6_unreach991, ptr @__UNIQUE_ID___addressable_nf_send_reset6995, ptr @__UNIQUE_ID___addressable_nf_send_unreach6996, ptr @__UNIQUE_ID_description999, ptr @__UNIQUE_ID_file997, ptr @__UNIQUE_ID_license998], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nf_reject_skb_v6_tcp_reset(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @nf_reject_skb_v6_tcp_reset(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.tcphdr, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #6
@@ -158,13 +158,13 @@ define dso_local ptr @nf_reject_skb_v6_tcp_reset(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nf_reject_ip6_tcphdr_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @nf_reject_ip6_tcphdr_get(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -255,7 +255,7 @@ define dso_local ptr @nf_reject_ip6_tcphdr_get(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @nf_reject_ip6hdr_put(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef ptr @nf_reject_ip6hdr_put(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 180
@@ -293,7 +293,7 @@ define dso_local noundef ptr @nf_reject_ip6hdr_put(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef initializes((178, 180)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef initializes((178, 180)) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -385,10 +385,10 @@ define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef initializes((178, 18
 declare i16 @llvm.bswap.i16(i16) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nf_reject_skb_v6_unreach(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 align 16 {
+define dso_local ptr @nf_reject_skb_v6_unreach(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 align 16 {
   %6 = alloca %struct.udphdr, align 8
   %7 = alloca i16, align 2
   %8 = alloca i8, align 1
@@ -718,7 +718,7 @@ declare dso_local zeroext i16 @nf_ip6_checksum(ptr noundef, i32 noundef, i32 nou
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
@@ -926,7 +926,7 @@ declare dso_local void @nf_ct_set_closing(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @ip6_local_out(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_send_unreach6(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define dso_local void @nf_send_unreach6(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.flowi, align 8
   %7 = alloca %struct.udphdr, align 8

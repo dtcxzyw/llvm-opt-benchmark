@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_llist_revers
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_llist_add_batch13, ptr @__UNIQUE_ID___addressable_llist_del_first17, ptr @__UNIQUE_ID___addressable_llist_del_first_this21, ptr @__UNIQUE_ID___addressable_llist_reverse_order22], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @llist_add_batch(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 align 16 {
+define dso_local zeroext i1 @llist_add_batch(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #0 align 16 {
   %4 = load volatile ptr, ptr %2, align 8
   store ptr %4, ptr %1, align 8
   %5 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, ptr %0, ptr elementtype(i64) %2, ptr %4) #3, !srcloc !5

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_8(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef initializes((0, 64)) %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_8(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef captures(none) initializes((0, 64)) %autoc) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %autoc, i8 0, i64 64, i1 false)
   br label %for.cond4.preheader
@@ -79,7 +79,7 @@ for.end42:                                        ; preds = %for.inc40, %for.con
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_12(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef initializes((0, 96)) %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_12(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef captures(none) initializes((0, 96)) %autoc) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %autoc, i8 0, i64 96, i1 false)
   br label %for.cond4.preheader
@@ -151,7 +151,7 @@ for.end42:                                        ; preds = %for.inc40, %for.con
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_16(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef initializes((0, 128)) %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_fma_lag_16(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef captures(none) initializes((0, 128)) %autoc) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %autoc, i8 0, i64 128, i1 false)
   br label %for.cond4.preheader
@@ -223,7 +223,7 @@ for.end42:                                        ; preds = %for.inc40, %for.con
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -40,7 +40,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 1, 17) i32 @_ZN7RegMask13num_registersEjR3LRG(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 17) i32 @_ZN7RegMask13num_registersEjR3LRG(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -4
   %3 = icmp ult i32 %switch.tableidx, 11
   br i1 %3, label %switch.lookup, label %5
@@ -57,7 +57,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN7RegMask14clear_to_pairsEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN7RegMask14clear_to_pairsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -86,7 +86,7 @@ define hidden void @_ZN7RegMask14clear_to_pairsEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -150,7 +150,7 @@ _ZNK7RegMask4SizeEv.exit.thread:                  ; preds = %._crit_edge.i, %23,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7RegMask4SizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK7RegMask4SizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -177,7 +177,7 @@ define hidden noundef i32 @_ZNK7RegMask4SizeEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -224,7 +224,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask9is_bound1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask9is_bound1Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 0
@@ -275,7 +275,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 0
@@ -347,7 +347,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask8is_boundEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask8is_boundEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %.off.i = add i32 %1, -8
   %switch.i = icmp ult i32 %.off.i, 6
   br i1 %switch.i, label %3, label %51
@@ -554,7 +554,7 @@ _ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %90, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 0
@@ -644,7 +644,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -671,7 +671,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -707,7 +707,7 @@ define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN7RegMask13clear_to_setsEj(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -820,7 +820,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN7RegMask13smear_to_setsEj(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -931,7 +931,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -994,7 +994,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 0
@@ -1037,7 +1037,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overla
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5

@@ -2926,7 +2926,7 @@ define hidden void @proto_register_ulp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ulp_ganssDataBitInterval_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @ulp_ganssDataBitInterval_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = icmp eq i32 %1, 15
   br i1 %3, label %4, label %5
 
@@ -2946,14 +2946,14 @@ define internal void @ulp_ganssDataBitInterval_fmt(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_ExtendedEphemeris_validity_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_ExtendedEphemeris_validity_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = shl i32 %1, 2
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1539, i32 noundef %3, i32 noundef %1) #7
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_PositionEstimate_latitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_PositionEstimate_latitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 9.000000e+01
   %5 = fmul double %4, 0x3E80000000000000
@@ -2962,7 +2962,7 @@ define internal void @ulp_PositionEstimate_latitude_fmt(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_PositionEstimate_longitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_PositionEstimate_longitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 3.600000e+02
   %5 = fmul double %4, 0x3E70000000000000
@@ -2971,7 +2971,7 @@ define internal void @ulp_PositionEstimate_longitude_fmt(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_QoP_horacc_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_QoP_horacc_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = tail call double @pow(double noundef 1.100000e+00, double noundef %3) #7
   %5 = fadd double %4, -1.000000e+00
@@ -2993,7 +2993,7 @@ define internal void @ulp_QoP_horacc_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_QoP_veracc_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_QoP_veracc_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = tail call double @pow(double noundef 1.025000e+00, double noundef %3) #7
   %5 = fadd double %4, -1.000000e+00
@@ -3003,7 +3003,7 @@ define internal void @ulp_QoP_veracc_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_NMRelement_rxLev_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_NMRelement_rxLev_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 63, label %4
@@ -3028,7 +3028,7 @@ define internal void @ulp_NMRelement_rxLev_fmt(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_UTRA_CarrierRSSI_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_UTRA_CarrierRSSI_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 76, label %4
@@ -3061,7 +3061,7 @@ define internal void @ulp_UTRA_CarrierRSSI_fmt(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_CPICH_Ec_N0_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_CPICH_Ec_N0_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 49, label %4
@@ -3098,7 +3098,7 @@ define internal void @ulp_CPICH_Ec_N0_fmt(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_CPICH_RSCP_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_CPICH_RSCP_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 123
   br i1 %3, label %4, label %5
 
@@ -3143,7 +3143,7 @@ define internal void @ulp_CPICH_RSCP_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_PrimaryCCPCH_RSCP_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_PrimaryCCPCH_RSCP_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 91, label %4
@@ -3176,7 +3176,7 @@ define internal void @ulp_PrimaryCCPCH_RSCP_fmt(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ulp_QoP_delay_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @ulp_QoP_delay_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = uitofp i32 %1 to double
   %exp2 = tail call double @exp2(double %3) #7
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1538, double noundef %exp2, i32 noundef %1) #7
@@ -3184,7 +3184,7 @@ define internal void @ulp_QoP_delay_fmt(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_RelativeTime_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_RelativeTime_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.000000e-02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1575, double noundef %4, i32 noundef %1) #7
@@ -3192,7 +3192,7 @@ define internal void @ulp_RelativeTime_fmt(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_RSRP_Range_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_RSRP_Range_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 97, label %4
@@ -3217,7 +3217,7 @@ define internal void @ulp_RSRP_Range_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_RSRQ_Range_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_RSRQ_Range_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 64, label %4
@@ -3246,7 +3246,7 @@ define internal void @ulp_RSRQ_Range_fmt(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_SignalDelta_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_SignalDelta_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @.str.1590, ptr @.str.1589
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1588, ptr noundef nonnull %3, i32 noundef %1) #7
@@ -3254,7 +3254,7 @@ define internal void @ulp_SignalDelta_fmt(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_locationAccuracy_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_locationAccuracy_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.000000e-01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1607, double noundef %4, i32 noundef %1) #7
@@ -3262,7 +3262,7 @@ define internal void @ulp_locationAccuracy_fmt(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_WimaxRTD_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_WimaxRTD_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 1.000000e-02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1608, double noundef %4, i32 noundef %1) #7
@@ -3270,7 +3270,7 @@ define internal void @ulp_WimaxRTD_fmt(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_WimaxNMR_rssi_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_WimaxNMR_rssi_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double -1.037500e+02)
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1609, double noundef %4, i32 noundef %1) #7
@@ -3278,7 +3278,7 @@ define internal void @ulp_WimaxNMR_rssi_fmt(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_UTRAN_gpsReferenceTimeUncertainty_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_UTRAN_gpsReferenceTimeUncertainty_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = tail call double @pow(double noundef 1.180000e+00, double noundef %3) #7
   %5 = fadd double %4, -1.000000e+00
@@ -3288,7 +3288,7 @@ define internal void @ulp_UTRAN_gpsReferenceTimeUncertainty_fmt(ptr nocapture no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_utran_GANSSTimingOfCell_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_utran_GANSSTimingOfCell_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1608, double noundef %4, i32 noundef %1) #7
@@ -3296,7 +3296,7 @@ define internal void @ulp_utran_GANSSTimingOfCell_fmt(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_Coordinate_latitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_Coordinate_latitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to float
   %4 = fpext float %3 to double
   %5 = fdiv double %4, 0x415FFFFFC0000000
@@ -3306,7 +3306,7 @@ define internal void @ulp_Coordinate_latitude_fmt(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ulp_Coordinate_longitude_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ulp_Coordinate_longitude_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to float
   %4 = fpext float %3 to double
   %5 = fmul double %4, 0x3E80000000000000
@@ -3328,7 +3328,7 @@ define internal i32 @dissect_ulp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ULP_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ULP_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #7
   %6 = load i32, ptr @hf_ulp_ULP_PDU_PDU, align 4
@@ -3386,7 +3386,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #4
@@ -3397,7 +3397,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_ulp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_ulp_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #7
   %6 = zext i16 %5 to i32
   ret i32 %6
@@ -6870,7 +6870,7 @@ define internal i32 @dissect_ulp_INTEGER_0_31536000(ptr noundef %0, i32 noundef 
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

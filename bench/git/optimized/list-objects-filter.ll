@@ -136,10 +136,10 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #3
+declare void @free(ptr allocptr noundef captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @filter_blobs_none__init(ptr nocapture readnone %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %filter) #4 {
+define internal void @filter_blobs_none__init(ptr readnone captures(none) %filter_options, ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %filter) #4 {
 entry:
   store ptr @filter_blobs_none, ptr %filter, align 8
   %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
@@ -148,7 +148,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_blobs_limit__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
+define internal void @filter_blobs_limit__init(ptr noundef readonly captures(none) %filter_options, ptr noundef writeonly captures(none) initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #11
   %blob_limit_value = getelementptr inbounds nuw i8, ptr %filter_options, i64 40
@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_trees_depth__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
+define internal void @filter_trees_depth__init(ptr noundef readonly captures(none) %filter_options, ptr noundef writeonly captures(none) initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
   tail call void @oidmap_init(ptr noundef %call, i64 noundef 0) #11
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_sparse_oid__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly %filter) #0 {
+define internal void @filter_sparse_oid__init(ptr noundef readonly captures(none) %filter_options, ptr noundef writeonly captures(none) %filter) #0 {
 entry:
   %oc = alloca %struct.object_context, align 8
   %sparse_oid = alloca %struct.object_id, align 4
@@ -271,7 +271,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_object_type__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
+define internal void @filter_object_type__init(ptr noundef readonly captures(none) %filter_options, ptr noundef writeonly captures(none) initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 4) #11
   %object_type = getelementptr inbounds nuw i8, ptr %filter_options, i64 56
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_combine__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef %filter) #0 {
+define internal void @filter_combine__init(ptr noundef readonly captures(none) %filter_options, ptr noundef captures(none) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #11
   %sub_nr = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
@@ -368,7 +368,7 @@ for.end:                                          ; preds = %list_objects_filter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @filter_blobs_none(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture readnone %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_blobs_none(ptr readnone captures(none) %r, i32 noundef %filter_situation, ptr noundef %obj, ptr readnone captures(none) %pathname, ptr readnone captures(none) %filename, ptr noundef %omits, ptr readnone captures(none) %filter_data_) #0 {
 entry:
   switch i32 %filter_situation, label %sw.default [
     i32 1, label %return
@@ -402,7 +402,7 @@ return:                                           ; preds = %sw.bb4, %if.then, %
 declare i32 @oidset_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @filter_blobs_limit(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr nocapture noundef readonly %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_blobs_limit(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr readnone captures(none) %pathname, ptr readnone captures(none) %filename, ptr noundef %omits, ptr noundef readonly captures(none) %filter_data_) #0 {
 entry:
   %object_length = alloca i64, align 8
   switch i32 %filter_situation, label %sw.default [
@@ -460,7 +460,7 @@ declare i32 @oidset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @oidmap_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 5) i32 @filter_trees_depth(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
+define internal range(i32 0, 5) i32 @filter_trees_depth(ptr readnone captures(none) %r, i32 noundef %filter_situation, ptr noundef %obj, ptr readnone captures(none) %pathname, ptr readnone captures(none) %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
 entry:
   %current_depth = getelementptr inbounds nuw i8, ptr %filter_data_, i64 56
   %0 = load i64, ptr %current_depth, align 8
@@ -593,7 +593,7 @@ declare ptr @oidmap_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @oidmap_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @oidmap_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -630,7 +630,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @filter_sparse(ptr nocapture noundef readonly %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
+define internal range(i32 0, 4) i32 @filter_sparse(ptr noundef readonly captures(none) %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
 entry:
   %dtype = alloca i32, align 4
   switch i32 %filter_situation, label %sw.default [
@@ -651,7 +651,7 @@ sw.bb2:                                           ; preds = %entry
   %conv = trunc i64 %call to i32
   %index = getelementptr inbounds nuw i8, ptr %r, i64 240
   %0 = load ptr, ptr %index, align 8
-  %call3 = call i32 @path_matches_pattern_list(ptr noundef %pathname, i32 noundef %conv, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %0) #11
+  %call3 = call i32 @path_matches_pattern_list(ptr noundef nonnull %pathname, i32 noundef %conv, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %0) #11
   %cmp = icmp eq i32 %call3, -1
   br i1 %cmp, label %if.then, label %sw.bb2.do.body_crit_edge
 
@@ -762,7 +762,7 @@ sw.bb74:                                          ; preds = %entry
   %conv80 = trunc i64 %call79 to i32
   %index82 = getelementptr inbounds nuw i8, ptr %r, i64 240
   %23 = load ptr, ptr %index82, align 8
-  %call83 = call i32 @path_matches_pattern_list(ptr noundef %pathname, i32 noundef %conv80, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %23) #11
+  %call83 = call i32 @path_matches_pattern_list(ptr noundef nonnull %pathname, i32 noundef %conv80, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %23) #11
   %cmp84 = icmp eq i32 %call83, -1
   br i1 %cmp84, label %if.then86, label %if.end88
 
@@ -822,12 +822,12 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #6
 declare i32 @path_matches_pattern_list(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @clear_pattern_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 5) i32 @filter_object_type(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr nocapture readnone %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data_) #0 {
+define internal range(i32 0, 5) i32 @filter_object_type(ptr readnone captures(none) %r, i32 noundef %filter_situation, ptr readnone captures(none) %obj, ptr readnone captures(none) %pathname, ptr readnone captures(none) %filename, ptr readnone captures(none) %omits, ptr noundef readonly captures(none) %filter_data_) #0 {
 entry:
   switch i32 %filter_situation, label %sw.default [
     i32 1, label %sw.bb
@@ -877,7 +877,7 @@ return:                                           ; preds = %sw.bb6, %switch.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @filter_combine(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data) #0 {
+define internal range(i32 0, 8) i32 @filter_combine(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr readnone captures(none) %omits, ptr noundef readonly captures(none) %filter_data) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -1015,7 +1015,7 @@ for.end:                                          ; preds = %process_subfilter.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_combine__free(ptr nocapture noundef %filter_data) #0 {
+define internal void @filter_combine__free(ptr noundef captures(none) %filter_data) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -1087,7 +1087,7 @@ for.end:                                          ; preds = %for.cond, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_combine__finalize_omits(ptr noundef %omits, ptr nocapture noundef readonly %filter_data) #0 {
+define internal void @filter_combine__finalize_omits(ptr noundef %omits, ptr noundef readonly captures(none) %filter_data) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -1163,7 +1163,7 @@ declare i32 @oidset_contains(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @oidset_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

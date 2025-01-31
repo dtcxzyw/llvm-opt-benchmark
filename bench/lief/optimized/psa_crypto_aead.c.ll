@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_encrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
   %14 = alloca %struct.mbedtls_psa_aead_operation_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %14, i8 0, i64 432, i1 false)
   %15 = call fastcc i32 @psa_aead_setup(ptr noundef nonnull %14, ptr noundef %0, ptr noundef %1, i32 noundef %3)
@@ -96,10 +96,10 @@ mbedtls_psa_aead_abort.exit:                      ; preds = %.thread, %45, %43, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
@@ -272,7 +272,7 @@ define hidden noundef i32 @mbedtls_psa_aead_abort(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_decrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
   %14 = alloca %struct.mbedtls_psa_aead_operation_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %14, i8 0, i64 432, i1 false)
   %15 = call fastcc i32 @psa_aead_setup(ptr noundef nonnull %14, ptr noundef %0, ptr noundef %1, i32 noundef %3)
@@ -382,7 +382,7 @@ declare i32 @mbedtls_gcm_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, i64
 declare i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @psa_aead_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
@@ -399,7 +399,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @psa_aead_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
@@ -535,7 +535,7 @@ declare i32 @mbedtls_ccm_update_ad(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @mbedtls_chachapoly_update_aad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i64 %2, ptr %7, align 8
   %8 = load i32, ptr %0, align 8
@@ -593,7 +593,7 @@ declare i32 @mbedtls_ccm_update(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare i32 @mbedtls_chachapoly_update(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64

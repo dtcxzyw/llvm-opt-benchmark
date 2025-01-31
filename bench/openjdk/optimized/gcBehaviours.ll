@@ -45,7 +45,7 @@ define hidden noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmet
 declare noundef zeroext i1 @_ZN7nmethod7is_coldEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK27ClosureIsUnloadingBehaviour12has_dead_oopEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK27ClosureIsUnloadingBehaviour12has_dead_oopEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.IsCompiledMethodUnloadingOopClosure, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

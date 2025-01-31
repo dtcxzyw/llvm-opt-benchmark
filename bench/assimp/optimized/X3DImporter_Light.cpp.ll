@@ -296,7 +296,7 @@ if.end.i3.i:                                      ; preds = %land.lhs.true.i.i48
   br i1 %tobool4.not.i4.i57, label %invoke.cont6, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i3.i
-  %call.i.i5.i = call double @strtod(ptr nocapture noundef nonnull %6, ptr noundef null) #20
+  %call.i.i5.i = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #20
   %conv.i.i.i = fptrunc double %call.i.i5.i to float
   br label %invoke.cont6
 
@@ -386,7 +386,7 @@ if.end.i3.i95:                                    ; preds = %land.lhs.true.i.i87
   br i1 %tobool4.not.i4.i97, label %invoke.cont14, label %cond.true.i.i98
 
 cond.true.i.i98:                                  ; preds = %if.end.i3.i95
-  %call.i.i5.i99 = call double @strtod(ptr nocapture noundef nonnull %12, ptr noundef null) #20
+  %call.i.i5.i99 = call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #20
   %conv.i.i.i100 = fptrunc double %call.i.i5.i99 to float
   %.pr162.pre = load ptr, ptr %node, align 8
   br label %invoke.cont14
@@ -819,7 +819,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN6Assimp11X3DImporter23ParseHelper_Group_BeginEb(ptr noundef nonnull align 8 dereferenceable(120), i1 noundef zeroext) local_unnamed_addr #4
 
@@ -1015,7 +1015,7 @@ if.end.i3.i:                                      ; preds = %land.lhs.true.i.i52
   br i1 %tobool4.not.i4.i61, label %invoke.cont7, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i3.i
-  %call.i.i5.i = call double @strtod(ptr nocapture noundef nonnull %6, ptr noundef null) #20
+  %call.i.i5.i = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #20
   %conv.i.i.i = fptrunc double %call.i.i5.i to float
   br label %invoke.cont7
 
@@ -1105,7 +1105,7 @@ if.end.i3.i99:                                    ; preds = %land.lhs.true.i.i91
   br i1 %tobool4.not.i4.i101, label %invoke.cont15, label %cond.true.i.i102
 
 cond.true.i.i102:                                 ; preds = %if.end.i3.i99
-  %call.i.i5.i103 = call double @strtod(ptr nocapture noundef nonnull %12, ptr noundef null) #20
+  %call.i.i5.i103 = call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #20
   %conv.i.i.i104 = fptrunc double %call.i.i5.i103 to float
   br label %invoke.cont15
 
@@ -1214,7 +1214,7 @@ if.end.i3.i150:                                   ; preds = %land.lhs.true.i.i14
   br i1 %tobool4.not.i4.i152, label %invoke.cont21, label %cond.true.i.i153
 
 cond.true.i.i153:                                 ; preds = %if.end.i3.i150
-  %call.i.i5.i154 = call double @strtod(ptr nocapture noundef nonnull %30, ptr noundef null) #20
+  %call.i.i5.i154 = call double @strtod(ptr noundef nonnull captures(none) %30, ptr noundef null) #20
   %conv.i.i.i155 = fptrunc double %call.i.i5.i154 to float
   br label %invoke.cont21
 
@@ -1594,7 +1594,7 @@ if.end.i3.i:                                      ; preds = %land.lhs.true.i.i57
   br i1 %tobool4.not.i4.i66, label %invoke.cont8, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i3.i
-  %call.i.i5.i = call double @strtod(ptr nocapture noundef nonnull %6, ptr noundef null) #20
+  %call.i.i5.i = call double @strtod(ptr noundef nonnull captures(none) %6, ptr noundef null) #20
   %conv.i.i.i = fptrunc double %call.i.i5.i to float
   br label %invoke.cont8
 
@@ -1639,7 +1639,7 @@ if.end.i3.i84:                                    ; preds = %land.lhs.true.i.i76
   br i1 %tobool4.not.i4.i86, label %invoke.cont12, label %cond.true.i.i87
 
 cond.true.i.i87:                                  ; preds = %if.end.i3.i84
-  %call.i.i5.i88 = call double @strtod(ptr nocapture noundef nonnull %9, ptr noundef null) #20
+  %call.i.i5.i88 = call double @strtod(ptr noundef nonnull captures(none) %9, ptr noundef null) #20
   %conv.i.i.i89 = fptrunc double %call.i.i5.i88 to float
   br label %invoke.cont12
 
@@ -1684,7 +1684,7 @@ if.end.i3.i110:                                   ; preds = %land.lhs.true.i.i10
   br i1 %tobool4.not.i4.i112, label %invoke.cont16, label %cond.true.i.i113
 
 cond.true.i.i113:                                 ; preds = %if.end.i3.i110
-  %call.i.i5.i114 = call double @strtod(ptr nocapture noundef nonnull %12, ptr noundef null) #20
+  %call.i.i5.i114 = call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #20
   %conv.i.i.i115 = fptrunc double %call.i.i5.i114 to float
   br label %invoke.cont16
 
@@ -1770,7 +1770,7 @@ if.end.i3.i156:                                   ; preds = %land.lhs.true.i.i14
   br i1 %tobool4.not.i4.i158, label %invoke.cont22, label %cond.true.i.i159
 
 cond.true.i.i159:                                 ; preds = %if.end.i3.i156
-  %call.i.i5.i160 = call double @strtod(ptr nocapture noundef nonnull %18, ptr noundef null) #20
+  %call.i.i5.i160 = call double @strtod(ptr noundef nonnull captures(none) %18, ptr noundef null) #20
   %conv.i.i.i161 = fptrunc double %call.i.i5.i160 to float
   br label %invoke.cont22
 
@@ -1879,7 +1879,7 @@ if.end.i3.i207:                                   ; preds = %land.lhs.true.i.i19
   br i1 %tobool4.not.i4.i209, label %invoke.cont28, label %cond.true.i.i210
 
 cond.true.i.i210:                                 ; preds = %if.end.i3.i207
-  %call.i.i5.i211 = call double @strtod(ptr nocapture noundef nonnull %36, ptr noundef null) #20
+  %call.i.i5.i211 = call double @strtod(ptr noundef nonnull captures(none) %36, ptr noundef null) #20
   %conv.i.i.i212 = fptrunc double %call.i.i5.i211 to float
   br label %invoke.cont28
 
@@ -2132,7 +2132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN6Assimp11X3DImporter20checkNodeMustBeEmptyERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
@@ -2339,7 +2339,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -2389,7 +2389,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
@@ -2663,10 +2663,10 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
@@ -2682,13 +2682,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

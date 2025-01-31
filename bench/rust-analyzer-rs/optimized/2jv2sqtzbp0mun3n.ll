@@ -328,7 +328,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.5" = private unnamed_addr constant [273 x ptr] [ptr @anon.4ea66905ef22295af600ddf4c22d61ee.51, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.52, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.53, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.54, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.55, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.56, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.57, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.58, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.59, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.60, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.61, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.62, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.63, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.64, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.65, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.66, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.67, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.68, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.69, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.70, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.71, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.72, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.73, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.74, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.75, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.76, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.77, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.78, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.79, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.80, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.81, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.82, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.83, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.84, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.85, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.86, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.87, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.88, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.89, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.90, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.91, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.92, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.93, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.94, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.95, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.96, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.97, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.98, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.99, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.100, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.101, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.102, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.103, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.104, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.105, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.106, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.107, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.108, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.109, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.110, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.111, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.112, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.113, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.114, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.115, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.116, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.117, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.118, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.119, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.120, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.121, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.122, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.123, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.124, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.125, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.126, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.127, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.128, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.129, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.130, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.131, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.132, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.133, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.134, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.135, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.136, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.137, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.138, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.139, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.140, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.141, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.142, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.143, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.144, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.145, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.146, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.147, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.148, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.149, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.150, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.151, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.152, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.153, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.154, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.155, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.156, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.157, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.158, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.159, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.160, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.161, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.162, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.163, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.164, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.165, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.166, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.167, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.168, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.169, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.170, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.171, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.172, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.173, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.174, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.175, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.176, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.177, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.178, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.179, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.180, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.181, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.182, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.183, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.184, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.185, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.186, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.187, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.188, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.189, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.190, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.191, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.192, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.193, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.194, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.195, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.196, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.197, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.198, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.199, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.200, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.201, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.202, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.203, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.204, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.205, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.206, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.207, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.208, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.209, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.210, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.211, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.212, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.213, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.214, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.215, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.216, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.217, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.218, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.219, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.220, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.221, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.222, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.223, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.224, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.225, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.226, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.227, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.228, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.229, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.230, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.231, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.232, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.233, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.234, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.235, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.236, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.237, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.238, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.239, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.240, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.241, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.242, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.243, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.244, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.245, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.246, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.247, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.248, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.249, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.250, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.251, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.252, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.253, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.254, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.255, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.256, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.257, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.258, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.259, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.260, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.261, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.262, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.263, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.264, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.265, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.266, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.267, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.268, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.269, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.270, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.271, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.272, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.273, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.274, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.275, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.276, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.277, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.278, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.279, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.280, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.281, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.282, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.283, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.284, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.285, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.286, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.287, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.288, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.289, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.290, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.291, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.292, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.293, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.294, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.295, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.296, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.297, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.298, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.299, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.300, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.301, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.302, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.303, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.304, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.305, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.306, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.307, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.308, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.309, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.310, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.311, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.312, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.313, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.314, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.315, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.316, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.317, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.318, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.319, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.320, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.321, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.322, ptr @anon.4ea66905ef22295af600ddf4c22d61ee.323], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hc10b84c0c04bc66aE"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hc10b84c0c04bc66aE"(ptr noalias noundef writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -357,12 +357,12 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hd998d600da2c9604E(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 {
+define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hd998d600da2c9604E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret i128 3426443349915538793607707548065177458
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0b23d2b6c9543a43E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0b23d2b6c9543a43E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -374,7 +374,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.16205154008623695745"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #3 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.16205154008623695745"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
@@ -388,7 +388,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17hcc192a847cf8d17eE.llvm.16205154
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hc05d7b02abe6c170E.llvm.16205154008623695745(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17hc05d7b02abe6c170E.llvm.16205154008623695745(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load i64, ptr %0, align 8, !alias.scope !11, !noalias !14, !noundef !4
@@ -398,12 +398,12 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17hbc9738bc375101baE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17hbc9738bc375101baE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr29drop_in_place$LT$$RF$bool$GT$17h8a34cc491d4e81caE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr29drop_in_place$LT$$RF$bool$GT$17h8a34cc491d4e81caE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
@@ -489,7 +489,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$parser..event..Even
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !45
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !range !54, !noalias !45, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %6, 0
@@ -515,7 +515,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$parser..event..Even
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$GT$17h370fa27fc09ee7aeE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$GT$17h370fa27fc09ee7aeE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
@@ -551,22 +551,22 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..Ente
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$$RF$parser..TopEntryPoint$GT$17haf1fd6d262fe1411E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$$RF$parser..TopEntryPoint$GT$17haf1fd6d262fe1411E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr56drop_in_place$LT$$RF$core..option..Option$LT$u32$GT$$GT$17h00c85c8433809bacE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr56drop_in_place$LT$$RF$core..option..Option$LT$u32$GT$$GT$17h00c85c8433809bacE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17h7e3b0087e79853b3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17h7e3b0087e79853b3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr63drop_in_place$LT$parser..syntax_kind..generated..SyntaxKind$GT$17h797eb7324c176444E"(ptr noalias nocapture readnone align 2 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr63drop_in_place$LT$parser..syntax_kind..generated..SyntaxKind$GT$17h797eb7324c176444E"(ptr noalias readnone align 2 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
@@ -623,12 +623,12 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr89drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$parser..TopEntryPoint$GT$$GT$17hc19aa883bafa47a7E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr89drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$$RF$parser..TopEntryPoint$GT$$GT$17hc19aa883bafa47a7E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Debug$GT$3fmt17he184af974e4ddc82E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Debug$GT$3fmt17he184af974e4ddc82E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -664,7 +664,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hccb1a28724c6a7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h1d62fa635e4da398E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define internal void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h1d62fa635e4da398E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load ptr, ptr %5, align 8, !invariant.load !4, !nonnull !4
   tail call void %6(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ea66905ef22295af600ddf4c22d61ee.15)
@@ -672,7 +672,7 @@ define internal void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h89e014fa0bc48910E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #6 {
+define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h89e014fa0bc48910E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   ret ptr %2
 }
@@ -695,14 +695,14 @@ define noundef zeroext i1 @"_ZN73_$LT$parser..edition..ParseEditionError$u20$as$
   store ptr %3, ptr %8, align 8, !alias.scope !78, !noalias !81
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %9, align 8, !alias.scope !78, !noalias !81
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN71_$LT$parser..edition..Edition$u20$as$u20$core..str..traits..FromStr$GT$8from_str17he0ec0f9d213ed9a5E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define void @"_ZN71_$LT$parser..edition..Edition$u20$as$u20$core..str..traits..FromStr$GT$8from_str17he0ec0f9d213ed9a5E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %.not.i = icmp eq i64 %2, 4
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h656e04c3d0754eddE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h656e04c3d0754eddE.exit32.thread"
 
@@ -752,7 +752,7 @@ define void @"_ZN71_$LT$parser..edition..Edition$u20$as$u20$core..str..traits..F
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN63_$LT$parser..edition..Edition$u20$as$u20$core..fmt..Display$GT$3fmt17h883469506ed96ab8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN63_$LT$parser..edition..Edition$u20$as$u20$core..fmt..Display$GT$3fmt17h883469506ed96ab8E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !100, !noundef !4
   %3 = zext nneg i8 %2 to i64
@@ -763,7 +763,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6parser5event5Event9tombstone17hf56820ac7fe0daccE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 12), (16, 18)) %0) unnamed_addr #7 {
+define hidden void @_ZN6parser5event5Event9tombstone17hf56820ac7fe0daccE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 18)) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -773,7 +773,7 @@ define hidden void @_ZN6parser5event5Event9tombstone17hf56820ac7fe0daccE(ptr noa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -827,7 +827,7 @@ define internal fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr no
 .body:                                            ; preds = %.loopexit138, %.loopexit.split-lp139.loopexit.split-lp, %.loopexit.split-lp139.loopexit, %168, %103, %210, %143
   %.pn = phi { ptr, i32 } [ %211, %210 ], [ %lpad.phi, %143 ], [ %104, %103 ], [ %169, %168 ], [ %lpad.loopexit140, %.loopexit138 ], [ %lpad.loopexit143, %.loopexit.split-lp139.loopexit ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp139.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !101
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc unwind label %158
 
 .noexc:                                           ; preds = %.body
@@ -868,7 +868,7 @@ default.unreachable:                              ; preds = %49
 ._crit_edge186:                                   ; preds = %174, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !108
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc89 unwind label %45
 
 .noexc89:                                         ; preds = %._crit_edge186
@@ -1177,7 +1177,7 @@ _ZN6parser6output6Output5error17ha9ef9eb6c6dc120cE.exit: ; preds = %"_ZN5alloc3v
 
 151:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !160
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %.noexc103 unwind label %.loopexit138
 
 .noexc103:                                        ; preds = %151
@@ -1351,7 +1351,7 @@ _ZN6parser6output6Output10enter_node17h492a13aca530ebc9E.exit: ; preds = %175, %
   store ptr %7, ptr %216, align 8, !alias.scope !180, !noalias !183
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %217, align 8, !alias.scope !180, !noalias !183
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ea66905ef22295af600ddf4c22d61ee.30) #22
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ea66905ef22295af600ddf4c22d61ee.30) #22
           to label %48 unwind label %210
 
 218:                                              ; preds = %45, %219
@@ -1369,7 +1369,7 @@ _ZN6parser6output6Output10enter_node17h492a13aca530ebc9E.exit: ; preds = %175, %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6parser13TopEntryPoint5parse17h969a27913f26e20dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN6parser13TopEntryPoint5parse17h969a27913f26e20dE(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, ptr, i64, i32, i8, [3 x i8] }, align 8
   %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
@@ -1454,7 +1454,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %27, ptr %37, align 8
-  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -1524,7 +1524,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
 
 54:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  invoke fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
           to label %55 unwind label %52
 
 55:                                               ; preds = %54
@@ -1569,7 +1569,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6parser16PrefixEntryPoint5parse17h9456256bc7b1e28fE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN6parser16PrefixEntryPoint5parse17h9456256bc7b1e28fE(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.lookup:
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, ptr, i64, i32, i8, [3 x i8] }, align 8
@@ -1596,7 +1596,7 @@ switch.lookup:
 
 12:                                               ; preds = %switch.lookup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void
 
@@ -1623,7 +1623,7 @@ define noundef ptr @_ZN6parser8Reparser8for_node17h61793e7e330d86d4E(i16 noundef
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6parser8Reparser5parse17h710c9f9a59c6f539E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN6parser8Reparser5parse17h710c9f9a59c6f539E(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly captures(none) %1, ptr noalias noundef readonly align 8 dereferenceable(72) %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, ptr, i64, i32, i8, [3 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -1645,7 +1645,7 @@ define void @_ZN6parser8Reparser5parse17h710c9f9a59c6f539E(ptr noalias nocapture
 
 11:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN6parser5event7process17hecd49fb19e6a71c3E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   ret void
 
@@ -1728,7 +1728,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !152, !noundef !4
   %3 = zext nneg i16 %2 to i64
@@ -1748,7 +1748,7 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfce8925f7caa6E(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #10
@@ -1766,7 +1766,7 @@ declare noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h6
 declare void @_ZN12tracing_core10dispatcher8Dispatch4exit17he976d4e472c35aa3E(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN12tracing_core10dispatcher8Dispatch5enter17h3cac8d89e8379413E(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #2
@@ -1775,7 +1775,7 @@ declare void @_ZN12tracing_core10dispatcher8Dispatch5enter17h3cac8d89e8379413E(p
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h854db7390f271597E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #2
+declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7106e1a990fd6321E"(i64 noundef, i1 noundef zeroext) unnamed_addr #2
@@ -1799,7 +1799,7 @@ declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c
 declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
+declare void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN6parser7grammar5entry3top11source_file17h9be33e96b98914a9E(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #2
@@ -1874,10 +1874,10 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17
 declare void @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$12set_interest17h1a39f13c89b876ceE"(ptr noundef nonnull align 8, i8 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i64 } @_ZN4core5slice5index5range17h55fa4084b90d8404E(i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
@@ -1898,7 +1898,7 @@ declare hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf73178c4ac54464eE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17had8410241c9b6fc0E.llvm.5939523040141051567"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
 declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #14
@@ -1910,7 +1910,7 @@ declare hidden void @"_ZN4core3ptr43drop_in_place$LT$parser..output..Output$GT$1
 declare hidden void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$parser..event..Event$GT$$GT$17h355e6cf0972506e1E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h683713d0922c344cE.llvm.5939523040141051567"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17he48c58f8dd8381cfE"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #2
@@ -1922,7 +1922,7 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -1931,7 +1931,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i8 @llvm.ucmp.i8.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

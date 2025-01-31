@@ -119,7 +119,7 @@ FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FTC_BasicQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -420,7 +420,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -488,7 +488,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i32 @FTC_MruList_New(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -605,7 +605,7 @@ FTC_MruNode_Remove.exit:                          ; preds = %42, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef writeonly %3) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -635,7 +635,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
@@ -1275,7 +1275,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
@@ -1373,7 +1373,7 @@ FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.FTC_BasicQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1719,7 +1719,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #0 {
+define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr %1, align 8
   %.not68 = icmp eq ptr %3, null
@@ -1832,7 +1832,7 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
 65:                                               ; preds = %61, %59
   %.1.us = phi i32 [ %.04264.us, %59 ], [ %spec.select, %61 ]
   %66 = load ptr, ptr %33, align 8
-  %67 = call fastcc i32 @ftc_snode_load(ptr noundef %0, ptr noundef %66, i32 noundef %6, ptr noundef nonnull %5)
+  %67 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %66, i32 noundef %6, ptr noundef nonnull %5)
   %68 = and i32 %67, 255
   %.not52.us = icmp eq i32 %68, 64
   br i1 %.not52.us, label %.lr.ph.split.us, label %._crit_edge
@@ -1899,7 +1899,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
 95:                                               ; preds = %91, %.thread58
   %.1 = phi i32 [ %.04264, %.thread58 ], [ %spec.select80, %91 ]
   %96 = load ptr, ptr %33, align 8
-  %97 = call fastcc i32 @ftc_snode_load(ptr noundef %0, ptr noundef %96, i32 noundef %6, ptr noundef nonnull %5)
+  %97 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %96, i32 noundef %6, ptr noundef nonnull %5)
   %98 = and i32 %97, 255
   %.not52 = icmp eq i32 %98, 64
   br i1 %.not52, label %.lr.ph.split, label %._crit_edge
@@ -2716,7 +2716,7 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef writeonly %3) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -2958,7 +2958,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef %0, ptr noundef %1, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -3022,7 +3022,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #1 {
+define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -3584,7 +3584,7 @@ define void @FTC_Node_Unref(ptr noundef %0, ptr noundef readonly %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_inode_new(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @ftc_inode_new(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3694,7 +3694,7 @@ FTC_INode_New.exit:                               ; preds = %3, %9, %FTC_INode_F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3736,7 +3736,7 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_basic_gnode_compare_faceid(ptr nocapture noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2, ptr noundef writeonly %3) #0 {
+define internal zeroext range(i8 0, 2) i8 @ftc_basic_gnode_compare_faceid(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2, ptr noundef writeonly %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %3, null
@@ -3815,7 +3815,7 @@ FTC_GNode_UnselectFamily.exit:                    ; preds = %FTC_MruList_Remove.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_inode_free(ptr noundef initializes((48, 52)) %0, ptr nocapture noundef %1) #0 {
+define internal void @ftc_inode_free(ptr noundef initializes((48, 52)) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4057,7 +4057,7 @@ FTC_MruList_Done.exit:                            ; preds = %FTC_MruList_Remove.
 declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_cache_init(ptr nocapture noundef initializes((0, 24)) %0) #0 {
+define internal i32 @ftc_cache_init(ptr noundef captures(none) initializes((0, 24)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -4163,7 +4163,7 @@ ftc_node_mru_unlink.exit:                         ; preds = %27, %.sink.split.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ftc_basic_family_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 80)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #6 {
+define internal noundef i32 @ftc_basic_family_init(ptr noundef writeonly captures(none) initializes((16, 20), (24, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4181,7 +4181,7 @@ define internal noundef i32 @ftc_basic_family_init(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4231,7 +4231,7 @@ declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare i32 @FT_Get_Glyph(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_snode_new(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
+define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %.val = load i32, ptr %1, align 8
   %5 = getelementptr i8, ptr %1, i64 8
@@ -4315,7 +4315,7 @@ FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i64 @ftc_snode_weight(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal i64 @ftc_snode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %.not20 = icmp eq i32 %4, 0
@@ -4359,7 +4359,7 @@ define internal i64 @ftc_snode_weight(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_snode_free(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @ftc_snode_free(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -4449,7 +4449,7 @@ FTC_GNode_Done.exit:                              ; preds = %._crit_edge, %15, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
@@ -4639,7 +4639,7 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -4660,7 +4660,7 @@ define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr nocapture noundef writeonly
 declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_basic_family_get_count(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @ftc_basic_family_get_count(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -4740,7 +4740,7 @@ FTC_Manager_LookupFace.exit:                      ; preds = %12, %FTC_MruNode_Up
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = call i32 @FTC_Manager_LookupSize(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
@@ -4767,7 +4767,7 @@ define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ftc_cache_resize(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4935,7 +4935,7 @@ define internal fastcc void @ftc_cache_resize(ptr nocapture noundef %0) unnamed_
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ftc_node_destroy(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @ftc_node_destroy(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i16, ptr %4, align 8
@@ -5034,7 +5034,7 @@ ftc_node_hash_unlink.exit:                        ; preds = %.lr.ph, %ftc_node_m
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_cmap_node_new(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @ftc_cmap_node_new(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -5066,12 +5066,12 @@ define internal i32 @ftc_cmap_node_new(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @ftc_cmap_node_weight(ptr nocapture readnone %0, ptr nocapture readnone %1) #8 {
+define internal noundef i64 @ftc_cmap_node_weight(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   ret i64 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2, ptr noundef writeonly %3) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2, ptr noundef writeonly %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -5088,7 +5088,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_cmap_node_free(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @ftc_cmap_node_free(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %0) #12
@@ -5098,7 +5098,7 @@ define internal void @ftc_cmap_node_free(ptr noundef %0, ptr nocapture noundef r
 declare i32 @FT_Activate_Size(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_face_node_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @ftc_face_node_init(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %6 = load ptr, ptr %5, align 8
@@ -5134,7 +5134,7 @@ define internal i32 @ftc_face_node_init(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_face_node_done(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @ftc_face_node_done(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -5213,7 +5213,7 @@ declare i32 @FT_Done_Size(ptr noundef) local_unnamed_addr #4
 declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_size_node_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -5342,7 +5342,7 @@ ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manag
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_size_node_done(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @ftc_size_node_done(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @FT_Done_Size(ptr noundef %4) #12
@@ -5361,13 +5361,13 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9

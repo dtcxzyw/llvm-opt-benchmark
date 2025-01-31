@@ -441,12 +441,12 @@ if.end:                                           ; preds = %if.then, %while.end
   br i1 %.b, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %call13 = tail call i32 @test_get_libctx(ptr noundef null, ptr noundef null, ptr noundef %config_file.0, ptr noundef nonnull @deflprov, ptr noundef %prov_name.0) #7
+  %call13 = tail call i32 @test_get_libctx(ptr noundef null, ptr noundef null, ptr noundef %config_file.0, ptr noundef nonnull @deflprov, ptr noundef nonnull %prov_name.0) #7
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.end21
 
 if.else:                                          ; preds = %if.end
-  %call17 = tail call i32 @test_get_libctx(ptr noundef nonnull @testctx, ptr noundef nonnull @nullprov, ptr noundef %config_file.0, ptr noundef nonnull @deflprov, ptr noundef %prov_name.0) #7
+  %call17 = tail call i32 @test_get_libctx(ptr noundef nonnull @testctx, ptr noundef nonnull @nullprov, ptr noundef %config_file.0, ptr noundef nonnull @deflprov, ptr noundef nonnull %prov_name.0) #7
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return, label %if.end21
 
@@ -888,14 +888,14 @@ return:                                           ; preds = %while.cond, %land.r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @opt_next() local_unnamed_addr #3
 
 declare ptr @opt_arg() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @test_get_libctx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2546,7 +2546,7 @@ declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #3
 declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range(i32 555, 871) %line, ptr noundef %type, ptr noundef %pkey, i32 noundef range(i32 4, 136) %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr nocapture noundef readonly %encode_cb, ptr nocapture noundef readonly %test_cb, ptr nocapture noundef readonly %check_cb, ptr nocapture noundef readonly %dump_cb, i32 noundef range(i32 0, 3) %flags) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range(i32 555, 871) %line, ptr noundef %type, ptr noundef %pkey, i32 noundef range(i32 4, 136) %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr noundef readonly captures(none) %encode_cb, ptr noundef readonly captures(none) %test_cb, ptr noundef readonly captures(none) %check_cb, ptr noundef readonly captures(none) %dump_cb, i32 noundef range(i32 0, 3) %flags) unnamed_addr #1 {
 entry:
   %encoded = alloca ptr, align 8
   %encoded_len = alloca i64, align 8
@@ -2720,7 +2720,7 @@ if.end115:                                        ; preds = %land.lhs.true94, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
+define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr noundef writeonly captures(none) %encoded, ptr noundef writeonly captures(none) %encoded_len, ptr noundef %object, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -2814,7 +2814,7 @@ end:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %object, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %input_type, ptr noundef %structure_type, ptr noundef %keytype, i32 noundef %selection, ptr noundef %pass) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr noundef writeonly captures(none) %object, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %input_type, ptr noundef %structure_type, ptr noundef %keytype, i32 noundef %selection, ptr noundef %pass) unnamed_addr #1 {
 entry:
   %testpkey = alloca ptr, align 8
   store ptr null, ptr %testpkey, align 8
@@ -3016,7 +3016,7 @@ declare i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef) local_unnamed_addr #
 declare i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @OSSL_ENCODER_CTX_set_cipher(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3055,7 +3055,7 @@ declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @EVP_PKEY_type_names_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @collect_name(ptr nocapture noundef readonly %name, ptr nocapture noundef %arg) #1 {
+define internal void @collect_name(ptr noundef readonly captures(none) %name, ptr noundef captures(none) %arg) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #8
   %0 = load ptr, ptr %arg, align 8
@@ -3106,10 +3106,10 @@ declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #3
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @test_output_memory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -3121,7 +3121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_unprotected_PKCS8_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 %data_len) #1 {
+define internal i32 @check_unprotected_PKCS8_PEM(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 %data_len) #1 {
 entry:
   %call = tail call i32 @test_strn_eq(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.267, ptr noundef %data, i64 noundef 27, ptr noundef nonnull @check_unprotected_PKCS8_PEM.expected_pem_header, i64 noundef 27) #7
   ret i32 %call
@@ -3140,7 +3140,7 @@ declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, pt
 declare void @test_output_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_protected_PKCS8_DER(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal i32 @check_protected_PKCS8_DER(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %datap = alloca ptr, align 8
   store ptr %data, ptr %datap, align 8
@@ -3155,7 +3155,7 @@ declare ptr @d2i_X509_SIG(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_protected_PKCS8_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 %data_len) #1 {
+define internal i32 @check_protected_PKCS8_PEM(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 %data_len) #1 {
 entry:
   %call = tail call i32 @test_strn_eq(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.267, ptr noundef %data, i64 noundef 37, ptr noundef nonnull @check_protected_PKCS8_PEM.expected_pem_header, i64 noundef 37) #7
   ret i32 %call
@@ -3190,14 +3190,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_public_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 %data_len) #1 {
+define internal i32 @check_public_PEM(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 %data_len) #1 {
 entry:
   %call = tail call i32 @test_strn_eq(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.267, ptr noundef %data, i64 noundef 26, ptr noundef nonnull @check_public_PEM.expected_pem_header, i64 noundef 26) #7
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_params_DER(ptr nocapture readnone %file, i32 %line, ptr nocapture noundef readonly %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal range(i32 0, 2) i32 @check_params_DER(ptr readnone captures(none) %file, i32 %line, ptr noundef readonly captures(none) %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %datap = alloca ptr, align 8
   store ptr %data, ptr %datap, align 8
@@ -3283,7 +3283,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
+define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %file, i32 noundef %line, ptr noundef writeonly captures(none) %encoded, ptr noundef writeonly captures(none) %encoded_len, ptr noundef %object, i32 %selection, ptr readnone captures(none) %output_type, ptr readnone captures(none) %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3410,10 +3410,10 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr nocapture readnone %pass, ptr nocapture readnone %pcipher) #1 {
+define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %file, i32 noundef %line, ptr noundef writeonly captures(none) %encoded, ptr noundef writeonly captures(none) %encoded_len, ptr noundef %object, i32 noundef %selection, ptr readnone captures(none) %output_type, ptr readnone captures(none) %output_structure, ptr readnone captures(none) %pass, ptr readnone captures(none) %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3477,7 +3477,7 @@ end:                                              ; preds = %if.end14, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_MSBLOB(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal i32 @check_MSBLOB(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %datap = alloca ptr, align 8
   store ptr %data, ptr %datap, align 8
@@ -3496,7 +3496,7 @@ declare i32 @i2b_PublicKey_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @b2i_PrivateKey(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_public_MSBLOB(ptr noundef %file, i32 noundef %line, ptr nocapture readnone %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal i32 @check_public_MSBLOB(ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %datap = alloca ptr, align 8
   store ptr %data, ptr %datap, align 8
@@ -3509,7 +3509,7 @@ entry:
 declare ptr @b2i_PublicKey(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr nocapture readnone %pcipher) #1 {
+define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %file, i32 noundef %line, ptr noundef writeonly captures(none) %encoded, ptr noundef writeonly captures(none) %encoded_len, ptr noundef %object, i32 noundef %selection, ptr readnone captures(none) %output_type, ptr readnone captures(none) %output_structure, ptr noundef %pass, ptr readnone captures(none) %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3572,7 +3572,7 @@ end:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_PVK(ptr nocapture readnone %file, i32 %line, ptr nocapture readnone %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal i32 @check_PVK(ptr readnone captures(none) %file, i32 %line, ptr readnone captures(none) %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %in = alloca ptr, align 8
   %saltlen = alloca i32, align 4
@@ -3602,7 +3602,7 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i32 @ossl_do_PVK_header(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

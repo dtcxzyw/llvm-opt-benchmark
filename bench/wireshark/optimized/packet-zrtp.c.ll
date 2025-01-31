@@ -328,7 +328,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [9 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -476,12 +476,12 @@ check_valid_version.exit.i:                       ; preds = %55, %52
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i
   %102 = call ptr @wmem_packet_scope() #4
-  %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %102, ptr noundef nonnull @.str.133, ptr noundef %94) #4
+  %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %102, ptr noundef nonnull @.str.133, ptr noundef nonnull %94) #4
   br label %key_to_val.exit.i
 
 key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.lr.ph.i._crit_edge.i
   %.011.i.i = phi ptr [ %101, %.lr.ph.i._crit_edge.i ], [ %103, %._crit_edge.i.i ]
-  %104 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %92, i32 noundef %95, ptr noundef %0, i32 noundef %.0135179.i, i32 noundef 4, ptr noundef %94, ptr noundef nonnull @.str.132, i32 noundef %.0180.i, ptr noundef %.011.i.i) #4
+  %104 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %92, i32 noundef %95, ptr noundef %0, i32 noundef %.0135179.i, i32 noundef 4, ptr noundef nonnull %94, ptr noundef nonnull @.str.132, i32 noundef %.0180.i, ptr noundef %.011.i.i) #4
   %105 = add nuw nsw i32 %.0135179.i, 4
   %106 = add nuw nsw i32 %.0180.i, 1
   %exitcond247.not.i = icmp eq i32 %106, %78
@@ -527,12 +527,12 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
 
 ._crit_edge.i144.i:                               ; preds = %.lr.ph186.i
   %120 = call ptr @wmem_packet_scope() #4
-  %121 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef nonnull @.str.136, ptr noundef %112) #4
+  %121 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef nonnull @.str.136, ptr noundef nonnull %112) #4
   br label %key_to_val.exit146.i
 
 key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i, %.lr.ph.i140._crit_edge.i
   %.011.i145.i = phi ptr [ %119, %.lr.ph.i140._crit_edge.i ], [ %121, %._crit_edge.i144.i ]
-  %122 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %110, i32 noundef %113, ptr noundef %0, i32 noundef %.1136188.i, i32 noundef 4, ptr noundef %112, ptr noundef nonnull @.str.135, i32 noundef %.1189.i, ptr noundef %.011.i145.i) #4
+  %122 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %110, i32 noundef %113, ptr noundef %0, i32 noundef %.1136188.i, i32 noundef 4, ptr noundef nonnull %112, ptr noundef nonnull @.str.135, i32 noundef %.1189.i, ptr noundef %.011.i145.i) #4
   %123 = add nuw nsw i32 %.1136188.i, 4
   %124 = add nuw nsw i32 %.1189.i, 1
   %exitcond252.not.i = icmp eq i32 %124, %83
@@ -578,12 +578,12 @@ key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i,
 
 ._crit_edge.i151.i:                               ; preds = %.lr.ph197.i
   %138 = call ptr @wmem_packet_scope() #4
-  %139 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef nonnull @.str.139, ptr noundef %130) #4
+  %139 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef nonnull @.str.139, ptr noundef nonnull %130) #4
   br label %key_to_val.exit153.i
 
 key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i, %.lr.ph.i147._crit_edge.i
   %.011.i152.i = phi ptr [ %137, %.lr.ph.i147._crit_edge.i ], [ %139, %._crit_edge.i151.i ]
-  %140 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %131, ptr noundef %0, i32 noundef %.2137199.i, i32 noundef 4, ptr noundef %130, ptr noundef nonnull @.str.138, i32 noundef %.2200.i, ptr noundef %.011.i152.i) #4
+  %140 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %131, ptr noundef %0, i32 noundef %.2137199.i, i32 noundef 4, ptr noundef nonnull %130, ptr noundef nonnull @.str.138, i32 noundef %.2200.i, ptr noundef %.011.i152.i) #4
   %141 = add nuw nsw i32 %.2137199.i, 4
   %142 = add nuw nsw i32 %.2200.i, 1
   %exitcond257.not.i = icmp eq i32 %142, %82
@@ -629,12 +629,12 @@ key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i,
 
 ._crit_edge.i158.i:                               ; preds = %.lr.ph208.i
   %156 = call ptr @wmem_packet_scope() #4
-  %157 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %156, ptr noundef nonnull @.str.142, ptr noundef %148) #4
+  %157 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %156, ptr noundef nonnull @.str.142, ptr noundef nonnull %148) #4
   br label %key_to_val.exit160.i
 
 key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i, %.lr.ph.i154._crit_edge.i
   %.011.i159.i = phi ptr [ %155, %.lr.ph.i154._crit_edge.i ], [ %157, %._crit_edge.i158.i ]
-  %158 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %146, i32 noundef %149, ptr noundef %0, i32 noundef %.3138210.i, i32 noundef 4, ptr noundef %148, ptr noundef nonnull @.str.141, i32 noundef %.3211.i, ptr noundef %.011.i159.i) #4
+  %158 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %146, i32 noundef %149, ptr noundef %0, i32 noundef %.3138210.i, i32 noundef 4, ptr noundef nonnull %148, ptr noundef nonnull @.str.141, i32 noundef %.3211.i, ptr noundef %.011.i159.i) #4
   %159 = add nuw nsw i32 %.3138210.i, 4
   %160 = add nuw nsw i32 %.3211.i, 1
   %exitcond262.not.i = icmp eq i32 %160, %88
@@ -680,12 +680,12 @@ key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i,
 
 ._crit_edge.i165.i:                               ; preds = %.lr.ph219.i
   %174 = call ptr @wmem_packet_scope() #4
-  %175 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %174, ptr noundef nonnull @.str.145, ptr noundef %166) #4
+  %175 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %174, ptr noundef nonnull @.str.145, ptr noundef nonnull %166) #4
   br label %key_to_val.exit167.i
 
 key_to_val.exit167.i:                             ; preds = %._crit_edge.i165.i, %.lr.ph.i161._crit_edge.i
   %.011.i166.i = phi ptr [ %173, %.lr.ph.i161._crit_edge.i ], [ %175, %._crit_edge.i165.i ]
-  %176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %164, i32 noundef %167, ptr noundef %0, i32 noundef %.4139221.i, i32 noundef 4, ptr noundef %166, ptr noundef nonnull @.str.144, i32 noundef %.4222.i, ptr noundef %.011.i166.i) #4
+  %176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %164, i32 noundef %167, ptr noundef %0, i32 noundef %.4139221.i, i32 noundef 4, ptr noundef nonnull %166, ptr noundef nonnull @.str.144, i32 noundef %.4222.i, ptr noundef %.011.i166.i) #4
   %177 = add nuw nsw i32 %.4139221.i, 4
   %178 = add nuw nsw i32 %.4222.i, 1
   %exitcond267.not.i = icmp eq i32 %178, %87
@@ -752,12 +752,12 @@ dissect_Hello.exit:                               ; preds = %key_to_val.exit167.
 
 ._crit_edge.i.i200:                               ; preds = %.lr.ph.i189
   %203 = call ptr @wmem_packet_scope() #4
-  %204 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %203, ptr noundef nonnull @.str.133, ptr noundef %195) #4
+  %204 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %203, ptr noundef nonnull @.str.133, ptr noundef nonnull %195) #4
   br label %key_to_val.exit.i196
 
 key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200, %.lr.ph.i._crit_edge.i195
   %.011.i.i197 = phi ptr [ %202, %.lr.ph.i._crit_edge.i195 ], [ %204, %._crit_edge.i.i200 ]
-  %205 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %196, ptr noundef %0, i32 noundef 68, i32 noundef 4, ptr noundef %195, ptr noundef nonnull @.str.207, ptr noundef %.011.i.i197) #4
+  %205 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %196, ptr noundef %0, i32 noundef 68, i32 noundef 4, ptr noundef nonnull %195, ptr noundef nonnull @.str.207, ptr noundef %.011.i.i197) #4
   %206 = call ptr @wmem_packet_scope() #4
   %207 = call ptr @tvb_get_string_enc(ptr noundef %206, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef 0) #4
   %208 = load i32, ptr @hf_zrtp_msg_cipher, align 4
@@ -786,12 +786,12 @@ key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200,
 
 ._crit_edge.i66.i:                                ; preds = %.lr.ph14.i
   %215 = call ptr @wmem_packet_scope() #4
-  %216 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %215, ptr noundef nonnull @.str.136, ptr noundef %207) #4
+  %216 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %215, ptr noundef nonnull @.str.136, ptr noundef nonnull %207) #4
   br label %key_to_val.exit68.i
 
 key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, %.lr.ph.i62._crit_edge.i
   %.011.i67.i = phi ptr [ %214, %.lr.ph.i62._crit_edge.i ], [ %216, %._crit_edge.i66.i ]
-  %217 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %208, ptr noundef %0, i32 noundef 72, i32 noundef 4, ptr noundef %207, ptr noundef nonnull @.str.207, ptr noundef %.011.i67.i) #4
+  %217 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %208, ptr noundef %0, i32 noundef 72, i32 noundef 4, ptr noundef nonnull %207, ptr noundef nonnull @.str.207, ptr noundef %.011.i67.i) #4
   %218 = call ptr @wmem_packet_scope() #4
   %219 = call ptr @tvb_get_string_enc(ptr noundef %218, ptr noundef %0, i32 noundef 76, i32 noundef 4, i32 noundef 0) #4
   %220 = load i32, ptr @hf_zrtp_msg_at, align 4
@@ -820,12 +820,12 @@ key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, 
 
 ._crit_edge.i73.i:                                ; preds = %.lr.ph18.i
   %227 = call ptr @wmem_packet_scope() #4
-  %228 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %227, ptr noundef nonnull @.str.139, ptr noundef %219) #4
+  %228 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %227, ptr noundef nonnull @.str.139, ptr noundef nonnull %219) #4
   br label %key_to_val.exit75.i
 
 key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, %.lr.ph.i69._crit_edge.i
   %.011.i74.i = phi ptr [ %226, %.lr.ph.i69._crit_edge.i ], [ %228, %._crit_edge.i73.i ]
-  %229 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %189, i32 noundef %220, ptr noundef %0, i32 noundef 76, i32 noundef 4, ptr noundef %219, ptr noundef nonnull @.str.208, ptr noundef %.011.i74.i) #4
+  %229 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %189, i32 noundef %220, ptr noundef %0, i32 noundef 76, i32 noundef 4, ptr noundef nonnull %219, ptr noundef nonnull @.str.208, ptr noundef %.011.i74.i) #4
   %230 = call ptr @wmem_packet_scope() #4
   %231 = call ptr @tvb_get_string_enc(ptr noundef %230, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef 0) #4
   %232 = load i32, ptr @hf_zrtp_msg_keya, align 4
@@ -854,12 +854,12 @@ key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, 
 
 ._crit_edge.i80.i:                                ; preds = %.lr.ph22.i
   %239 = call ptr @wmem_packet_scope() #4
-  %240 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %239, ptr noundef nonnull @.str.142, ptr noundef %231) #4
+  %240 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %239, ptr noundef nonnull @.str.142, ptr noundef nonnull %231) #4
   br label %key_to_val.exit82.i
 
 key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, %.lr.ph.i76._crit_edge.i
   %.011.i81.i = phi ptr [ %238, %.lr.ph.i76._crit_edge.i ], [ %240, %._crit_edge.i80.i ]
-  %241 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %232, ptr noundef %0, i32 noundef 80, i32 noundef 4, ptr noundef %231, ptr noundef nonnull @.str.207, ptr noundef %.011.i81.i) #4
+  %241 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %189, i32 noundef %232, ptr noundef %0, i32 noundef 80, i32 noundef 4, ptr noundef nonnull %231, ptr noundef nonnull @.str.207, ptr noundef %.011.i81.i) #4
   %242 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %231, ptr noundef nonnull dereferenceable(5) @.str.199, i64 noundef 4) #5
   %.not.i198 = icmp eq i32 %242, 0
   br i1 %.not.i198, label %245, label %243
@@ -900,12 +900,12 @@ key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, 
 
 ._crit_edge.i87.i:                                ; preds = %.lr.ph26.i
   %255 = call ptr @wmem_packet_scope() #4
-  %256 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %255, ptr noundef nonnull @.str.145, ptr noundef %247) #4
+  %256 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %255, ptr noundef nonnull @.str.145, ptr noundef nonnull %247) #4
   br label %key_to_val.exit89.i
 
 key_to_val.exit89.i:                              ; preds = %._crit_edge.i87.i, %.lr.ph.i83._crit_edge.i
   %.011.i88.i = phi ptr [ %254, %.lr.ph.i83._crit_edge.i ], [ %256, %._crit_edge.i87.i ]
-  %257 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %189, i32 noundef %248, ptr noundef %0, i32 noundef 84, i32 noundef 4, ptr noundef %247, ptr noundef nonnull @.str.209, ptr noundef %.011.i88.i) #4
+  %257 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %189, i32 noundef %248, ptr noundef %0, i32 noundef 84, i32 noundef 4, ptr noundef nonnull %247, ptr noundef nonnull @.str.209, ptr noundef %.011.i88.i) #4
   switch i32 %.060.i, label %266 [
     i32 1, label %258
     i32 2, label %261
@@ -1161,7 +1161,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_DHPart(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
@@ -1316,7 +1316,7 @@ declare void @srtp_add_address(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 declare void @srtcp_add_address(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -26,17 +26,17 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN13StubGenerator25ghash_long_swap_mask_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13StubGenerator25ghash_long_swap_mask_addrEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   ret ptr @_ZL20GHASH_LONG_SWAP_MASK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN13StubGenerator25ghash_byte_swap_mask_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13StubGenerator25ghash_byte_swap_mask_addrEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   ret ptr @_ZL20GHASH_BYTE_SWAP_MASK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN13StubGenerator21ghash_polynomial_addrEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13StubGenerator21ghash_polynomial_addrEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   ret ptr @_ZL16GHASH_POLYNOMIAL
 }
 
@@ -371,7 +371,7 @@ declare void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
@@ -1036,7 +1036,7 @@ declare void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 derefere
 declare void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator13schoolbookAADEi8Register11XMMRegisterS1_S1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13StubGenerator13schoolbookAADEi8Register11XMMRegisterS1_S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %class.Address, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1087,7 +1087,7 @@ declare void @_ZN9Assembler6vpslldE11XMMRegisterS0_ii(ptr noundef nonnull align 
 declare void @_ZN9Assembler6vpsrldE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator5gfmulE11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13StubGenerator5gfmulE11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN9Assembler10vpclmulqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 4, i32 %2, i32 %1, i32 noundef 0) #6
@@ -1145,7 +1145,7 @@ define hidden void @_ZN13StubGenerator5gfmulE11XMMRegisterS0_(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.AddressLiteral, align 8
   %6 = alloca %class.ExternalAddress, align 8
@@ -1253,7 +1253,7 @@ define hidden void @_ZN13StubGenerator22generateHtbl_one_blockE8RegisterS0_(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StubGenerator25generateHtbl_eight_blocksE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13StubGenerator25generateHtbl_eight_blocksE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.Label, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
@@ -1466,10 +1466,10 @@ declare void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 de
 declare void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

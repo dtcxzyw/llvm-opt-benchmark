@@ -245,7 +245,7 @@ getModuleEntry.exit:                              ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @removeAllModuleEntries(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define hidden void @removeAllModuleEntries(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret void
 }
 
@@ -473,7 +473,7 @@ define hidden void @freeCKAttributeArray(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
@@ -724,10 +724,10 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef ptr @updateGCMParams(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden noundef ptr @updateGCMParams(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %42, label %3
 
@@ -808,7 +808,7 @@ define hidden noundef ptr @updateGCMParams(ptr nocapture noundef readnone %0, pt
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -914,7 +914,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %43, %38, %20, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -975,7 +975,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %20, %16, %33, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1079,7 +1079,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %43, %38, %20, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1184,7 +1184,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %43, %38, %20, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1284,7 +1284,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %20, %16, %p11ThrowO
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -1343,13 +1343,13 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %27, %19, %8, %32, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.CK_ATTRIBUTE, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -1498,7 +1498,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %57, %16, %27, %._cr
 declare void @jAttributeToCKAttribute(ptr dead_on_unwind writable sret(%struct.CK_ATTRIBUTE) align 8, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckByteArrayToJByteArray(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1522,7 +1522,7 @@ define hidden ptr @ckByteArrayToJByteArray(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckULongArrayToJLongArray(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @ckULongArrayToJLongArray(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #16
   %5 = icmp eq ptr %4, null
   %6 = icmp ne i64 %2, 0
@@ -1579,7 +1579,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %13, %8, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 2) #16
   %5 = icmp eq ptr %4, null
   %6 = icmp ne i64 %2, 0
@@ -1642,7 +1642,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %12, %7, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 2) #16
   %5 = icmp eq ptr %4, null
   %6 = icmp ne i64 %2, 0
@@ -1705,7 +1705,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %12, %7, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1737,7 +1737,7 @@ define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -2024,7 +2024,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
@@ -2477,10 +2477,10 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %266, %258, %243, %2
 declare ptr @jDateObjectToCKDatePtr(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @printDebug(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #11 {
+define hidden void @printDebug(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #11 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i8, ptr @debug_j2pkcs11, align 1
   %4 = icmp eq i8 %3, 1
@@ -2505,16 +2505,16 @@ define hidden void @printDebug(ptr nocapture noundef readonly %0, ...) local_unn
 declare void @llvm.va_start.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

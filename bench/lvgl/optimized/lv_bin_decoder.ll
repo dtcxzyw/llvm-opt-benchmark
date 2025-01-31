@@ -43,14 +43,14 @@ define void @lv_bin_decoder_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_image_decoder_create() local_unnamed_addr #2
 
 declare void @lv_image_decoder_set_info_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !8
@@ -519,7 +519,7 @@ get_decoder_data.exit171:                         ; preds = %162, %168
 declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8
   %.fr177 = freeze i64 %6
@@ -863,7 +863,7 @@ fs_read_file_at.exit.thread:                      ; preds = %switch.early.test17
 declare void @lv_image_decoder_set_close_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_bin_decoder_close(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define void @lv_bin_decoder_close(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp eq ptr %4, null
@@ -886,7 +886,7 @@ define void @lv_bin_decoder_close(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -899,7 +899,7 @@ declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loca
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_decoder_data(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_decoder_data(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = icmp eq ptr %3, null
@@ -953,7 +953,7 @@ declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_indexed(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_indexed(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1068,7 +1068,7 @@ fs_read_file_at.exit.thread:                      ; preds = %33, %fs_read_file_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_alpha_only(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_alpha_only(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1251,7 +1251,7 @@ bit_extend.exit.us:                               ; preds = %.lr.ph.i.us, %.lr.p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #2
 

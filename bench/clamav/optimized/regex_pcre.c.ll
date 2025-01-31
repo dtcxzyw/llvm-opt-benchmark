@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [33 x i8] c"cli_pcre_report: (%d) %*s: %s%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_pcre_malloc(i64 noundef %0, ptr nocapture readnone %1) #0 {
+define ptr @cli_pcre_malloc(i64 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @cli_max_malloc(i64 noundef %0) #6
   ret ptr %3
 }
@@ -37,13 +37,13 @@ define ptr @cli_pcre_malloc(i64 noundef %0, ptr nocapture readnone %1) #0 {
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @cli_pcre_free(ptr nocapture noundef %0, ptr nocapture readnone %1) #2 {
+define void @cli_pcre_free(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #2 {
   tail call void @free(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -229,7 +229,7 @@ declare i32 @pcre2_set_match_limit_8(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @pcre2_set_recursion_limit_8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_pcre_match(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -301,7 +301,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @pcre2_get_ovector_pointer_8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_pcre_report(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -479,10 +479,10 @@ named_substr_print.exit:                          ; preds = %._crit_edge.i, %45,
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr nocapture noundef initializes((0, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -511,7 +511,7 @@ declare void @pcre2_match_data_free_8(ptr noundef) local_unnamed_addr #1
 declare ptr @pcre2_match_data_create_from_pattern_8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_pcre_results_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @cli_pcre_results_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -526,7 +526,7 @@ define void @cli_pcre_results_free(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_pcre_free_single(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @cli_pcre_free_single(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -569,10 +569,10 @@ declare void @pcre2_match_context_free_8(ptr noundef) local_unnamed_addr #1
 declare i32 @pcre2_pattern_info_8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

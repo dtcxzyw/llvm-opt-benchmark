@@ -965,7 +965,7 @@ declare i32 @create_ssl_objects(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @DTLS_set_timer_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, -1) i32 @timer_cb(ptr nocapture readnone %s, i32 noundef %timer_us) #3 {
+define internal noundef range(i32 0, -1) i32 @timer_cb(ptr readnone captures(none) %s, i32 noundef %timer_us) #3 {
 entry:
   %0 = load i32, ptr @timer_cb_count, align 4
   %inc = add i32 %0, 1
@@ -995,7 +995,7 @@ declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @generate_cookie_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %cookie, ptr nocapture noundef writeonly initializes((0, 4)) %cookie_len) #4 {
+define internal noundef i32 @generate_cookie_cb(ptr readnone captures(none) %ssl, ptr noundef writeonly captures(none) initializes((0, 8)) %cookie, ptr noundef writeonly captures(none) initializes((0, 4)) %cookie_len) #4 {
 entry:
   store i64 15258147055874352, ptr %cookie, align 1
   store i32 8, ptr %cookie_len, align 4
@@ -1005,7 +1005,7 @@ entry:
 declare void @SSL_CTX_set_cookie_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @verify_cookie_cb(ptr nocapture readnone %ssl, ptr noundef %cookie, i32 noundef %cookie_len) #1 {
+define internal i32 @verify_cookie_cb(ptr readnone captures(none) %ssl, ptr noundef %cookie, i32 noundef %cookie_len) #1 {
 entry:
   %conv = zext i32 %cookie_len to i64
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 58, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %cookie, i64 noundef %conv, ptr noundef nonnull @dummy_cookie, i64 noundef 8) #7
@@ -1029,7 +1029,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1072,7 +1072,7 @@ declare i32 @SSL_has_pending(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

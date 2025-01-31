@@ -31,7 +31,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #10
   ret ptr %2
 }
@@ -40,22 +40,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 -536870913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
@@ -160,7 +160,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %40, label %6
@@ -248,7 +248,7 @@ define internal void @_lib_backgroundjobs_destroyed(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal void @_lib_backgroundjobs_cancellable(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
@@ -272,7 +272,7 @@ define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr noundef %1, double noundef %2) #1 {
+define internal void @_lib_backgroundjobs_updated(ptr readnone captures(none) %0, ptr noundef %1, double noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
@@ -296,7 +296,7 @@ define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_backgroundjobs_message_updated(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal void @_lib_backgroundjobs_message_updated(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
@@ -323,7 +323,7 @@ define internal void @_lib_backgroundjobs_message_updated(ptr nocapture readnone
 declare ptr @dt_control_progress_get_gui_data(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @dt_control_progress_has_progress_bar(ptr noundef) local_unnamed_addr #3
 
@@ -336,7 +336,7 @@ declare i32 @dt_control_progress_cancellable(ptr noundef) local_unnamed_addr #3
 declare double @dt_control_progress_get_progress(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 14568
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #10
@@ -395,7 +395,7 @@ declare ptr @gtk_progress_bar_new() local_unnamed_addr #3
 declare void @g_main_context_invoke(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_added_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_added_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %3 = tail call i64 @gtk_box_get_type() #13
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %3) #10
@@ -421,7 +421,7 @@ declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #3
 declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_destroyed_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_destroyed_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = load ptr, ptr %3, align 8, !tbaa !44
@@ -492,7 +492,7 @@ declare i32 @dt_gui_container_has_children(ptr noundef) local_unnamed_addr #3
 declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_cancellable_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_cancellable_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !38
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -518,7 +518,7 @@ declare void @dtgtk_cairo_paint_cancel(ptr noundef, i32 noundef, i32 noundef, i3
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_backgroundjobs_cancel_callback_new(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_lib_backgroundjobs_cancel_callback_new(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !13
   tail call void @dt_control_progress_cancel(ptr noundef %3, ptr noundef %1) #10
   ret void
@@ -527,7 +527,7 @@ define internal void @_lib_backgroundjobs_cancel_callback_new(ptr nocapture read
 declare void @dt_control_progress_cancel(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_update_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !41
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !48
@@ -560,7 +560,7 @@ declare i64 @gtk_progress_bar_get_type() local_unnamed_addr #7
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_message_gui_thread(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_update_message_gui_thread(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !55
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
@@ -580,7 +580,7 @@ declare void @gtk_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }

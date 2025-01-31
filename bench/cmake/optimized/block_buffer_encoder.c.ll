@@ -295,7 +295,7 @@ select.unfold48:                                  ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct.lzma_options_lzma, align 8
   %8 = alloca [2 x %struct.lzma_filter], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
@@ -402,13 +402,13 @@ declare void @lzma_check_update(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare void @lzma_check_finish(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @lzma_block_header_size(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @lzma_raw_encoder_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 

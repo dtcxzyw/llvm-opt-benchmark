@@ -74,7 +74,7 @@ lexbor_mem_chunk_make.exit:                       ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_chunk_make(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_chunk_make(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lexbor_calloc(i64 noundef 1, i64 noundef 40) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
@@ -225,7 +225,7 @@ define hidden ptr @lexbor_mem_chunk_destroy(ptr noundef readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_chunk_init(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.biased.i = add i64 %2, 7
   %4 = and i64 %.biased.i, -8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -248,7 +248,7 @@ define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr 
 declare ptr @lexbor_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_alloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %55, label %4
 
@@ -342,7 +342,7 @@ lexbor_mem_chunk_make.exit:                       ; preds = %17, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_calloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_calloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lexbor_mem_alloc(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -356,10 +356,10 @@ define hidden ptr @lexbor_mem_calloc(ptr nocapture noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_mem_current_length_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i64 @lexbor_mem_current_length_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %2, align 8
@@ -367,7 +367,7 @@ define hidden i64 @lexbor_mem_current_length_noi(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_mem_current_size_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i64 @lexbor_mem_current_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i64, ptr %2, align 8
@@ -375,7 +375,7 @@ define hidden i64 @lexbor_mem_current_size_noi(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_mem_chunk_length_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @lexbor_mem_chunk_length_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i64, ptr %2, align 8
   ret i64 %.val

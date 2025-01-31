@@ -471,7 +471,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_stream(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @snd_device_alloc(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -483,7 +483,7 @@ declare dso_local i32 @dev_set_name(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
@@ -492,7 +492,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @snd_pcm_group_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
@@ -683,7 +683,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %3, null
   %7 = or i1 %5, %6
@@ -917,7 +917,7 @@ declare dso_local i32 @snd_ctl_get_preferred_subdevice(ptr noundef, i32 noundef)
 declare dso_local noalias ptr @alloc_pages_exact(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @free_pages_exact(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1042,7 +1042,7 @@ define internal void @alsa_pcm_exit() #9 section ".exit.text" align 16 {
 declare dso_local i32 @snd_ctl_unregister_ioctl(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
+define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
   switch i32 %2, label %130 [
     i32 -2147199696, label %5
     i32 -1054845647, label %42
@@ -1276,7 +1276,7 @@ define internal noundef i32 @alsa_pcm_init() #9 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @do_pcm_suspend(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @do_pcm_suspend(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1301,7 +1301,7 @@ declare dso_local i32 @snd_pcm_suspend_all(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @snd_info_create_card_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_stream_proc_info_read(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_stream_proc_info_read(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1311,7 +1311,7 @@ define internal void @snd_pcm_stream_proc_info_read(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %46, label %4
 
@@ -1394,7 +1394,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_substream_proc_info_read(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_substream_proc_info_read(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_proc_info_read(ptr noundef %4, ptr noundef %1)
@@ -1402,7 +1402,7 @@ define internal void @snd_pcm_substream_proc_info_read(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_substream_proc_hw_params_read(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_substream_proc_hw_params_read(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1487,7 +1487,7 @@ define internal void @snd_pcm_substream_proc_hw_params_read(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_substream_proc_sw_params_read(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_substream_proc_sw_params_read(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1560,7 +1560,7 @@ define internal void @snd_pcm_substream_proc_sw_params_read(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_substream_proc_status_read(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_substream_proc_status_read(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.snd_pcm_status64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -1661,7 +1661,7 @@ declare dso_local i32 @snd_pcm_status64(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @pid_vnr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_pcm_dev_free(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @snd_pcm_dev_free(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1926,7 +1926,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_pcm_dev_disconnect(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #13
@@ -2118,7 +2118,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @pcm_class_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pcm_class_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2163,7 +2163,7 @@ declare dso_local i32 @snd_ctl_register_ioctl_compat(ptr noundef) local_unnamed_
 declare dso_local ptr @snd_info_create_module_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_proc_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @snd_pcm_proc_read(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #13
   %3 = load ptr, ptr @snd_pcm_devices, align 8
   %4 = icmp eq ptr %3, @snd_pcm_devices

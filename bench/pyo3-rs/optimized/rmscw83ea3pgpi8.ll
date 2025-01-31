@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a6265c6917baa4b0df8df9cb3af29f78.0 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"unexpected token" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h041544aaa7e02434E(ptr nocapture writeonly sret([224 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h041544aaa7e02434E(ptr writeonly sret([224 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [224 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h04a9c5f004cd8fa3E"(ptr nonnull sret([224 x i8]) align 8 %5, ptr align 8 %1)
@@ -86,7 +86,7 @@ define { i32, i32 } @_ZN3syn11parse_quote5parse17h158447c0fbacb454E(ptr align 8 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h1fa504def7144763E(ptr nocapture writeonly sret([304 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h1fa504def7144763E(ptr writeonly sret([304 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [304 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7cc6e7c63d9d3e7fE"(ptr nonnull sret([304 x i8]) align 8 %5, ptr align 8 %1)
@@ -124,7 +124,7 @@ define void @_ZN3syn11parse_quote5parse17h1fa504def7144763E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h266b92ebc7f9d334E(ptr nocapture writeonly sret([464 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h266b92ebc7f9d334E(ptr writeonly sret([464 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [464 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7a0b4e1e84a21396E"(ptr nonnull sret([464 x i8]) align 8 %5, ptr align 8 %1)
@@ -162,7 +162,7 @@ define void @_ZN3syn11parse_quote5parse17h266b92ebc7f9d334E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h31c88d217fcf278bE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h31c88d217fcf278bE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h64586e092b63ea23E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
@@ -242,7 +242,7 @@ define { i32, i32 } @_ZN3syn11parse_quote5parse17h378c15f97172fe69E(ptr align 8 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h4b2b3b2b3a705211E(ptr nocapture writeonly sret([392 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h4b2b3b2b3a705211E(ptr writeonly sret([392 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [392 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h860c36e148724212E"(ptr nonnull sret([392 x i8]) align 8 %5, ptr align 8 %1)
@@ -280,7 +280,7 @@ define void @_ZN3syn11parse_quote5parse17h4b2b3b2b3a705211E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h4e30984f5359427fE(ptr nocapture writeonly sret([312 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h4e30984f5359427fE(ptr writeonly sret([312 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [312 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1612e498cb4f31b0E"(ptr nonnull sret([312 x i8]) align 8 %5, ptr align 8 %1)
@@ -318,7 +318,7 @@ define void @_ZN3syn11parse_quote5parse17h4e30984f5359427fE(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17h64ca6e155fdbb28cE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17h64ca6e155fdbb28cE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h48a6fb16180a436dE"(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
@@ -432,7 +432,7 @@ define i32 @_ZN3syn11parse_quote5parse17hb1f3a7a5bcd24634E(ptr align 8 %0, ptr a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hd7b2c3fba07746d5E(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hd7b2c3fba07746d5E(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [256 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h27d7a15bf7ffc491E"(ptr nonnull sret([256 x i8]) align 8 %5, ptr align 8 %1)
@@ -470,7 +470,7 @@ define void @_ZN3syn11parse_quote5parse17hd7b2c3fba07746d5E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hd8adb2edc23bdf41E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hd8adb2edc23bdf41E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hff596fd76f91679aE"(ptr nonnull sret([40 x i8]) align 8 %5, ptr align 8 %1)
@@ -508,7 +508,7 @@ define void @_ZN3syn11parse_quote5parse17hd8adb2edc23bdf41E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hedd3625720771f9aE(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hedd3625720771f9aE(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9a4f5d2af44e2a76E"(ptr nonnull sret([48 x i8]) align 8 %5, ptr align 8 %1)
@@ -546,7 +546,7 @@ define void @_ZN3syn11parse_quote5parse17hedd3625720771f9aE(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hf51f5ebbba5ee791E(ptr nocapture writeonly sret([592 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hf51f5ebbba5ee791E(ptr writeonly sret([592 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [592 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h0502ed24b4af14cdE"(ptr nonnull sret([592 x i8]) align 8 %5, ptr align 8 %1)
@@ -584,7 +584,7 @@ define void @_ZN3syn11parse_quote5parse17hf51f5ebbba5ee791E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hf87f087181a8d540E(ptr nocapture writeonly sret([96 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hf87f087181a8d540E(ptr writeonly sret([96 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [96 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h5cadd18849c3360eE"(ptr nonnull sret([96 x i8]) align 8 %5, ptr align 8 %1)
@@ -622,7 +622,7 @@ define void @_ZN3syn11parse_quote5parse17hf87f087181a8d540E(ptr nocapture writeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn11parse_quote5parse17hfc29e0aae92099f7E(ptr nocapture writeonly sret([352 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn11parse_quote5parse17hfc29e0aae92099f7E(ptr writeonly sret([352 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [352 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2c52c505fd0dc5d1E"(ptr nonnull sret([352 x i8]) align 8 %5, ptr align 8 %1)
@@ -666,7 +666,7 @@ define void @_ZN3syn11parse_quote5parse18panic_cold_display17hbf0c61599f31aed0E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h04a9c5f004cd8fa3E"(ptr nocapture writeonly sret([224 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h04a9c5f004cd8fa3E"(ptr writeonly sret([224 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [224 x i8], align 8
@@ -787,7 +787,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h04a9c5f004c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h0502ed24b4af14cdE"(ptr nocapture writeonly sret([592 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h0502ed24b4af14cdE"(ptr writeonly sret([592 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [592 x i8], align 8
@@ -908,7 +908,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h0502ed24b4a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1612e498cb4f31b0E"(ptr nocapture writeonly sret([312 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1612e498cb4f31b0E"(ptr writeonly sret([312 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [312 x i8], align 8
@@ -1029,7 +1029,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1612e498cb4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h27d7a15bf7ffc491E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h27d7a15bf7ffc491E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [256 x i8], align 8
@@ -1150,7 +1150,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h27d7a15bf7f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2c52c505fd0dc5d1E"(ptr nocapture writeonly sret([352 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2c52c505fd0dc5d1E"(ptr writeonly sret([352 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [352 x i8], align 8
@@ -1271,7 +1271,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2c52c505fd0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h48a6fb16180a436dE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h48a6fb16180a436dE"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1385,7 +1385,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h48a6fb16180
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h4a6c79adeb0945beE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h4a6c79adeb0945beE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1504,7 +1504,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h4a6c79adeb0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h50a9d449d1ebca9fE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h50a9d449d1ebca9fE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1630,7 +1630,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h50a9d449d1e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h5cadd18849c3360eE"(ptr nocapture writeonly sret([96 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h5cadd18849c3360eE"(ptr writeonly sret([96 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [96 x i8], align 8
@@ -1751,7 +1751,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h5cadd18849c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h64586e092b63ea23E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h64586e092b63ea23E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1865,7 +1865,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h64586e092b6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7a0b4e1e84a21396E"(ptr nocapture writeonly sret([464 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7a0b4e1e84a21396E"(ptr writeonly sret([464 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [464 x i8], align 8
@@ -1986,7 +1986,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7a0b4e1e84a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7cc6e7c63d9d3e7fE"(ptr nocapture writeonly sret([304 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7cc6e7c63d9d3e7fE"(ptr writeonly sret([304 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [304 x i8], align 8
@@ -2107,7 +2107,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h7cc6e7c63d9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h860c36e148724212E"(ptr nocapture writeonly sret([392 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h860c36e148724212E"(ptr writeonly sret([392 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [392 x i8], align 8
@@ -2228,7 +2228,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h860c36e1487
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9797269c745a44e5E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9797269c745a44e5E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -2354,7 +2354,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9797269c745
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9a4f5d2af44e2a76E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9a4f5d2af44e2a76E"(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -2475,7 +2475,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h9a4f5d2af44
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc6cd03a1f83b7d10E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc6cd03a1f83b7d10E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -2594,7 +2594,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc6cd03a1f83
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hff596fd76f91679aE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hff596fd76f91679aE"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -2719,7 +2719,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hff596fd76f9
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h0f776584e3fcf3ceE"(ptr align 8) unnamed_addr #0

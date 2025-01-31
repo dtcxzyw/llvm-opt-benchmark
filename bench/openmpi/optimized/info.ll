@@ -92,7 +92,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %13, %11, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @info_destructor(ptr nocapture noundef readonly %0) #0 {
+define internal void @info_destructor(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, -32766
@@ -687,17 +687,17 @@ declare i32 @opal_argv_count(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @opal_argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_info_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -770,7 +770,7 @@ define i32 @ompi_info_get_nthkey(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 declare i32 @opal_info_get_nthkey(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ompi_info_get_nkeys(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define noundef i32 @ompi_info_get_nkeys(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -828,7 +828,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %8,
 declare i32 @ompi_mpi_instance_retain() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_info_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_info_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i8 1, ptr %3, align 4

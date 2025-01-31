@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external local_unnamed_addr constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @oid_pos(ptr nocapture noundef readonly %oid, ptr noundef %table, i64 noundef %nr, ptr nocapture noundef readonly %fn) local_unnamed_addr #0 {
+define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %oid, ptr noundef %table, i64 noundef %nr, ptr noundef readonly captures(none) %fn) local_unnamed_addr #0 {
 entry:
   switch i64 %nr, label %for.cond.preheader [
     i64 0, label %return
@@ -183,7 +183,7 @@ return:                                           ; preds = %for.body, %entry, %
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr nocapture noundef readonly %hash, ptr nocapture noundef readonly %fanout_nbo, ptr nocapture noundef readonly %table, i64 noundef %stride, ptr noundef writeonly %result) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr noundef readonly captures(none) %hash, ptr noundef readonly captures(none) %fanout_nbo, ptr noundef readonly captures(none) %table, i64 noundef %stride, ptr noundef writeonly %result) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %hash, align 1
   %idxprom = zext i8 %0 to i64
@@ -261,7 +261,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

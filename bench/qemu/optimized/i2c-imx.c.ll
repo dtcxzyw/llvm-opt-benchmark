@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_imx_i2c_register_nodes, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @imx_i2c_init(ptr nocapture noundef writeonly initializes((0, 8), (40, 72)) %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @imx_i2c_init(ptr noundef writeonly captures(none) initializes((0, 8), (40, 72)) %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %addr1 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %addr, ptr %addr1, align 8
@@ -52,7 +52,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @imx_i2c_send(ptr nocapture noundef readonly %i2c, i8 noundef zeroext %addr, ptr nocapture noundef readonly %buf, i16 noundef zeroext %len) #1 {
+define internal void @imx_i2c_send(ptr noundef readonly captures(none) %i2c, i8 noundef zeroext %addr, ptr noundef readonly captures(none) %buf, i16 noundef zeroext %len) #1 {
 entry:
   %tobool.not = icmp eq i16 %len, 0
   br i1 %tobool.not, label %do.end122, label %if.end
@@ -212,7 +212,7 @@ do.end122:                                        ; preds = %while.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @imx_i2c_recv(ptr nocapture noundef readonly %i2c, i8 noundef zeroext %addr, ptr nocapture noundef writeonly %buf, i16 noundef zeroext %len) #1 {
+define internal void @imx_i2c_recv(ptr noundef readonly captures(none) %i2c, i8 noundef zeroext %addr, ptr noundef writeonly captures(none) %buf, i16 noundef zeroext %len) #1 {
 entry:
   %tobool.not = icmp eq i16 %len, 0
   br i1 %tobool.not, label %do.end190, label %if.end
@@ -450,7 +450,7 @@ entry:
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4

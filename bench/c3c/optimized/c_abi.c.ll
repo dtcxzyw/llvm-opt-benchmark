@@ -149,7 +149,7 @@ declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #3
 declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 63
@@ -230,7 +230,7 @@ define dso_local ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @abi_arg_new_direct_int_ext(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
@@ -268,7 +268,7 @@ abi_arg_new_direct_int_ext_by_reg.exit:           ; preds = %1, %10, %.critedge1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
@@ -309,7 +309,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
@@ -351,7 +351,7 @@ abi_arg_new_direct_coerce_int_ext_by_reg.exit:    ; preds = %1, %13, %.critedge1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
@@ -396,7 +396,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @abi_arg_new_direct_coerce_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @abi_arg_new_direct_coerce_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
@@ -573,7 +573,7 @@ declare void @c_abi_func_create_riscv(ptr noundef) local_unnamed_addr #3
 declare void @c_abi_func_create_wasm(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @c_abi_classify_return_type_default(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @c_abi_classify_return_type_default(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @type_void, align 8
@@ -590,7 +590,7 @@ define dso_local ptr @c_abi_classify_return_type_default(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @c_abi_classify_argument_type_default(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @type_lowering(ptr noundef %0)
   %3 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %2) #5
   br i1 %3, label %4, label %16
@@ -719,7 +719,7 @@ abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %58, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [5 x i8] c"xn--\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_punycode_decode(ptr nocapture noundef readonly %pEncoded, i64 noundef %enc_len, ptr nocapture noundef %pDecoded, ptr nocapture noundef %pout_length) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_punycode_decode(ptr noundef readonly captures(none) %pEncoded, i64 noundef %enc_len, ptr noundef captures(none) %pDecoded, ptr noundef captures(none) %pout_length) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pout_length, align 4
   %cmp74.not = icmp eq i64 %enc_len, 0
@@ -230,7 +230,7 @@ return:                                           ; preds = %for.body15, %adapt.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ossl_a2ulabel(ptr noundef %in, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
@@ -275,7 +275,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp13, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %cond.end
-  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef %inptr.0, i64 noundef %cond) #6
+  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %inptr.0, i64 noundef %cond) #6
   %tobool17.not = icmp eq i32 %call16, 0
   %spec.select = select i1 %tobool17.not, i32 0, i32 %result.0
   br label %if.end40
@@ -421,10 +421,10 @@ declare i32 @WPACKET_init_static_len(ptr noundef, ptr noundef, i64 noundef, i64 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

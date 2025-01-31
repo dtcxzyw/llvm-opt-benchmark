@@ -1193,7 +1193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_PyObject_HasLen(ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyObject_HasLen(ptr noundef readonly captures(none) %o) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %o, i64 8
   %o.val6 = load ptr, ptr %0, align 8
@@ -2299,7 +2299,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyObject_CheckBuffer(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyObject_CheckBuffer(ptr noundef readonly captures(none) %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -2695,7 +2695,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyBuffer_IsContiguous(ptr nocapture noundef readonly %view, i8 noundef signext %order) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @PyBuffer_IsContiguous(ptr noundef readonly captures(none) %view, i8 noundef signext %order) local_unnamed_addr #3 {
 entry:
   %suboffsets = getelementptr inbounds nuw i8, ptr %view, i64 64
   %0 = load ptr, ptr %suboffsets, align 8
@@ -2910,7 +2910,7 @@ return:                                           ; preds = %if.end11.i40, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @PyBuffer_GetPointer(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %indices) local_unnamed_addr #3 {
+define dso_local ptr @PyBuffer_GetPointer(ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %indices) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %view, align 8
   %ndim = getelementptr inbounds nuw i8, ptr %view, i64 36
@@ -3058,7 +3058,7 @@ declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnam
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyBuffer_FromContiguous(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyBuffer_FromContiguous(ptr noundef readonly captures(none) %view, ptr noundef readonly captures(none) %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %view, i64 16
   %0 = load i64, ptr %len1, align 8
@@ -3191,14 +3191,14 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_Py_add_one_to_index_F(i32 noundef %nd, ptr nocapture noundef %index, ptr nocapture noundef readonly %shape) unnamed_addr #5 {
+define internal void @_Py_add_one_to_index_F(i32 noundef %nd, ptr noundef captures(none) %index, ptr noundef readonly captures(none) %shape) unnamed_addr #5 {
 entry:
   %cmp8 = icmp sgt i32 %nd, 0
   br i1 %cmp8, label %for.body.preheader, label %for.end
@@ -3233,7 +3233,7 @@ for.end:                                          ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_Py_add_one_to_index_C(i32 noundef %nd, ptr nocapture noundef %index, ptr nocapture noundef readonly %shape) unnamed_addr #5 {
+define internal void @_Py_add_one_to_index_C(i32 noundef %nd, ptr noundef captures(none) %index, ptr noundef readonly captures(none) %shape) unnamed_addr #5 {
 entry:
   %k.08 = add i32 %nd, -1
   %cmp9 = icmp sgt i32 %k.08, -1
@@ -3755,7 +3755,7 @@ return:                                           ; preds = %if.then1.i.i68, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PyBuffer_FillContiguousStrides(i32 noundef %nd, ptr nocapture noundef readonly %shape, ptr nocapture noundef writeonly %strides, i32 noundef %itemsize, i8 noundef signext %fort) local_unnamed_addr #5 {
+define dso_local void @PyBuffer_FillContiguousStrides(i32 noundef %nd, ptr noundef readonly captures(none) %shape, ptr noundef writeonly captures(none) %strides, i32 noundef %itemsize, i8 noundef signext %fort) local_unnamed_addr #5 {
 entry:
   %conv = sext i32 %itemsize to i64
   %cmp = icmp eq i8 %fort, 70
@@ -5908,7 +5908,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyIndex_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyIndex_Check(ptr noundef readonly captures(none) %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -6785,7 +6785,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PySequence_Check(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PySequence_Check(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val4 = load ptr, ptr %0, align 8
@@ -9987,7 +9987,7 @@ return:                                           ; preds = %land.lhs.true10, %i
 declare ptr @PySeqIter_New(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyIter_Check(ptr noundef readonly captures(none) %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -10070,7 +10070,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyAIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyAIter_Check(ptr noundef readonly captures(none) %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -10184,7 +10184,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -10473,13 +10473,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -600,7 +600,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -793,7 +793,7 @@ return:                                           ; preds = %cond.end, %if.then
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
@@ -918,7 +918,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN9grpc_core8internal42alts_tsi_handshaker_get_client_for_testingEP19alts_tsi_handshaker(ptr nocapture noundef readonly %handshaker) local_unnamed_addr #9 {
+define noundef ptr @_ZN9grpc_core8internal42alts_tsi_handshaker_get_client_for_testingEP19alts_tsi_handshaker(ptr noundef readonly captures(none) %handshaker) local_unnamed_addr #9 {
 entry:
   %client = getelementptr inbounds nuw i8, ptr %handshaker, i64 112
   %0 = load ptr, ptr %client, align 8
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %do.end121, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL42handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %frame_protector_type) #13 {
+define internal noundef i32 @_ZL42handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %frame_protector_type) #13 {
 entry:
   store i32 2, ptr %frame_protector_type, align 4
   ret i32 0
@@ -1391,7 +1391,7 @@ delete.end:                                       ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: uwtable
-define internal noundef range(i32 1, 0) i32 @_ZL25handshaker_next_dedicatedP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture noundef readnone %bytes_to_send, ptr nocapture noundef readnone %bytes_to_send_size, ptr nocapture noundef readnone %result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #14 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 0) i32 @_ZL25handshaker_next_dedicatedP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef readnone captures(none) %bytes_to_send, ptr noundef readnone captures(none) %bytes_to_send_size, ptr noundef readnone captures(none) %result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #14 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
@@ -1609,7 +1609,7 @@ declare void @_Z29grpc_channel_destroy_internalP12grpc_channel(ptr noundef) loca
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 1, 0) i32 @_ZL15handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 0) i32 @_ZL15handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp34 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1918,7 +1918,7 @@ declare void @abort() local_unnamed_addr #17
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL34alts_tsi_handshaker_create_channelPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 {
+define internal void @_ZL34alts_tsi_handshaker_create_channelPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 {
 entry:
   %disable_retries_arg = alloca %struct.grpc_arg, align 8
   %args = alloca %struct.grpc_channel_args, align 8
@@ -2248,7 +2248,7 @@ declare void @_Z41grpc_alts_shared_resource_dedicated_startPKc(ptr noundef) loca
 declare noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %call = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
@@ -2339,7 +2339,7 @@ declare noundef i32 @_Z27alts_handshaker_client_nextP22alts_handshaker_clientP10
 declare void @_Z14grpc_cq_end_opP21grpc_completion_queuePvN4absl12lts_202308026StatusEPFvS1_P18grpc_cq_completionES1_S6_b(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusEEN3$_08__invokeES_P18grpc_cq_completion"(ptr nocapture readnone %0, ptr nocapture readnone %1) #18 align 2 {
+define internal void @"_ZZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusEEN3$_08__invokeES_P18grpc_cq_completion"(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #18 align 2 {
 entry:
   ret void
 }
@@ -2376,10 +2376,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #20
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22

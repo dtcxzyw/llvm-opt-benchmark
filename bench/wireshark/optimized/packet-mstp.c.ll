@@ -571,7 +571,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mstp_wtap(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mstp_wtap(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %6 = load i32, ptr @mstp_address_type, align 4
   %7 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 3, i32 noundef 1) #4
@@ -633,7 +633,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mstp_to_str(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
+define internal noundef i32 @mstp_to_str(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 1
   store i8 48, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 2
@@ -646,12 +646,12 @@ define internal noundef i32 @mstp_to_str(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mstp_str_len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @mstp_str_len(ptr readnone captures(none) %0) #2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @mstp_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #2 {
+define internal noundef nonnull ptr @mstp_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #2 {
   %.not = icmp eq i32 %1, 0
   %.str.15..str.18 = select i1 %.not, ptr @.str.15, ptr @.str.18
   ret ptr %.str.15..str.18

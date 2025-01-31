@@ -376,7 +376,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_ns_remove_null_elements(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
@@ -388,7 +388,7 @@ declare dso_local void @acpi_ut_predefined_warning(ptr noundef, i32 noundef, ptr
 declare dso_local i32 @acpi_ns_check_object_type(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %6 = icmp eq i32 %3, 0
@@ -686,7 +686,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 declare dso_local i32 @acpi_ns_wrap_with_package(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2

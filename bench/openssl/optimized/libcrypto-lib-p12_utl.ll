@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs12/p12_utl.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_asc2uni(ptr nocapture noundef readonly %asc, i32 noundef %asclen, ptr noundef writeonly %uni, ptr noundef writeonly %unilen) local_unnamed_addr #0 {
+define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %asc, i32 noundef %asclen, ptr noundef writeonly %uni, ptr noundef writeonly %unilen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %asclen, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -80,12 +80,12 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @OPENSSL_uni2asc(ptr nocapture noundef readonly %uni, i32 noundef %unilen) local_unnamed_addr #0 {
+define noalias ptr @OPENSSL_uni2asc(ptr noundef readonly captures(none) %uni, i32 noundef %unilen) local_unnamed_addr #0 {
 entry:
   %0 = and i32 %unilen, -2147483647
   %or.cond.not = icmp eq i32 %0, 0
@@ -325,7 +325,7 @@ return:                                           ; preds = %if.end8, %return.si
 declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_uni2utf8(ptr nocapture noundef readonly %uni, i32 noundef %unilen) local_unnamed_addr #0 {
+define ptr @OPENSSL_uni2utf8(ptr noundef readonly captures(none) %uni, i32 noundef %unilen) local_unnamed_addr #0 {
 entry:
   %and = and i32 %unilen, 1
   %tobool.not = icmp eq i32 %and, 0

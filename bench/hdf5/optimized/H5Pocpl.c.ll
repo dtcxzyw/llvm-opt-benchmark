@@ -1220,7 +1220,7 @@ define i32 @H5Pget_filter2(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5P__get_filter(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef i32 @H5P__get_filter(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef writeonly %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %8
 
@@ -1932,7 +1932,7 @@ define range(i32 -1, 1) i32 @H5Pset_fletcher32(i64 noundef %0) local_unnamed_add
 declare ptr @H5Z_find(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @H5Z_get_filter_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2198,7 +2198,7 @@ declare i32 @H5P__encode_uint8_t(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_uint8_t(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_pline_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 11, ptr noundef %3, ptr noundef nonnull %5) #9
   %7 = icmp eq ptr %6, null
@@ -2220,7 +2220,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_set(i64 %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_pline_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 11, ptr noundef %3, ptr noundef nonnull %5) #9
   %7 = icmp eq ptr %6, null
@@ -2242,7 +2242,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_get(i64 %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__ocrt_pipeline_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #3 {
+define internal noundef i32 @H5P__ocrt_pipeline_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -2912,7 +2912,7 @@ H5VM_limit_enc_size.exit156:                      ; preds = %347, %353, %359, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -3106,7 +3106,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture nound
 ._crit_edge108:                                   ; preds = %.lr.ph107, %._crit_edge102.thread, %._crit_edge102
   %.sroa.23.0130 = phi ptr [ null, %._crit_edge102 ], [ null, %._crit_edge102.thread ], [ %84, %.lr.ph107 ]
   %.1.lcssa124129 = phi i64 [ 0, %._crit_edge102 ], [ 0, %._crit_edge102.thread ], [ %79, %.lr.ph107 ]
-  %114 = tail call i32 @H5Z_append(ptr noundef %1, i32 noundef %41, i32 noundef %59, i64 noundef %.1.lcssa124129, ptr noundef %.sroa.23.0130) #9
+  %114 = tail call i32 @H5Z_append(ptr noundef nonnull %1, i32 noundef %41, i32 noundef %59, i64 noundef %.1.lcssa124129, ptr noundef %.sroa.23.0130) #9
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %116, label %120
 
@@ -3128,7 +3128,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = tail call i32 @H5O_msg_reset(i32 noundef 11, ptr noundef %3) #9
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -3145,7 +3145,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_del(i64 %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_copy(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5O_pline_t, align 8
   %5 = call ptr @H5O_msg_copy(i32 noundef 11, ptr noundef %2, ptr noundef nonnull %4) #9
   %6 = icmp eq ptr %5, null
@@ -3167,7 +3167,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_copy(ptr nocapture read
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5P__ocrt_pipeline_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #4 {
+define internal i32 @H5P__ocrt_pipeline_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -3316,7 +3316,7 @@ define internal i32 @H5P__ocrt_pipeline_cmp(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_close(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = tail call i32 @H5O_msg_reset(i32 noundef 11, ptr noundef %2) #9
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -3335,7 +3335,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_close(ptr nocapture rea
 declare ptr @H5O_msg_copy(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -3347,15 +3347,15 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @H5Z_filter_avail(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

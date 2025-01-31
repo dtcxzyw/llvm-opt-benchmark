@@ -160,7 +160,7 @@ declare i32 @config_error_nonbool(ptr noundef) local_unnamed_addr #1
 declare i32 @color_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_name_decoration(i32 noundef %type, ptr nocapture noundef readonly %name, ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local void @add_name_decoration(i32 noundef %type, ptr noundef readonly captures(none) %name, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #13
   %cmp.i = icmp ugt i64 %call, -17
@@ -182,7 +182,7 @@ st_add.exit9:                                     ; preds = %st_add.exit
   %add.i7 = add nuw i64 %call, 17
   %call3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7) #12
   %name4 = getelementptr inbounds nuw i8, ptr %call3, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4, ptr align 1 %name, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4, ptr nonnull align 1 %name, i64 %call, i1 false)
   %type5 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i32 %type, ptr %type5, align 8
   %call6 = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef %obj, ptr noundef %call3) #12
@@ -191,12 +191,12 @@ st_add.exit9:                                     ; preds = %st_add.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @add_decoration(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -650,7 +650,7 @@ add_name_decoration.exit40:                       ; preds = %st_add.exit.i31
   %add.i7.i33 = add nuw i64 %call.i29, 17
   %call3.i34 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7.i33) #12
   %name4.i35 = getelementptr inbounds nuw i8, ptr %call3.i34, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i35, ptr readonly align 1 %refname, i64 %call.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i35, ptr nonnull readonly align 1 %refname, i64 %call.i29, i1 false)
   %type5.i36 = getelementptr inbounds nuw i8, ptr %call3.i34, i64 8
   store i32 %deco_type.0, ptr %type5.i36, align 8
   %call6.i37 = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef %call22, ptr noundef %call3.i34) #12
@@ -700,7 +700,7 @@ add_name_decoration.exit52:                       ; preds = %st_add.exit.i43
   %add.i7.i45 = add nuw i64 %call.i41, 17
   %call3.i46 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7.i45) #12
   %name4.i47 = getelementptr inbounds nuw i8, ptr %call3.i46, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i47, ptr readonly align 1 %refname, i64 %call.i41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i47, ptr nonnull readonly align 1 %refname, i64 %call.i41, i1 false)
   %type5.i48 = getelementptr inbounds nuw i8, ptr %call3.i46, i64 8
   store i32 3, ptr %type5.i48, align 8
   %call6.i49 = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef nonnull %45, ptr noundef %call3.i46) #12
@@ -719,7 +719,7 @@ declare i32 @head_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @for_each_commit_graft(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_graft_decoration(ptr noundef %graft, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @add_graft_decoration(ptr noundef %graft, ptr readnone captures(none) %cb_data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit(ptr noundef %0, ptr noundef %graft) #12
@@ -873,7 +873,7 @@ if.then33:                                        ; preds = %while.body
 
 if.then36:                                        ; preds = %if.then33
   %call.i65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i65) #12
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %call29, i64 noundef %call.i65) #12
   %call.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix.297) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %prefix.297, i64 noundef %call.i66) #12
   %call.i67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
@@ -914,7 +914,7 @@ if.then.i:                                        ; preds = %if.end43
 show_name.exit:                                   ; preds = %if.end43, %if.then.i
   %name.sink4.i = phi ptr [ %call.i74, %if.then.i ], [ %name.i73, %if.end43 ]
   %call.i3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.sink4.i) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %name.sink4.i, i64 noundef %call.i3.i) #12
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %name.sink4.i, i64 noundef %call.i3.i) #12
   %call.i75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i, i64 noundef %call.i75) #12
   br i1 %tobool44.not, label %if.end53, label %land.lhs.true45
@@ -926,7 +926,7 @@ land.lhs.true45:                                  ; preds = %show_name.exit
 
 if.then49:                                        ; preds = %land.lhs.true45
   %call.i76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i76) #12
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %call29, i64 noundef %call.i76) #12
   %call.i77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pointer.0) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %pointer.0, i64 noundef %call.i77) #12
   %call.i78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
@@ -950,7 +950,7 @@ if.then.i89:                                      ; preds = %if.then49
 show_name.exit91:                                 ; preds = %if.then49, %if.then.i89
   %name.sink4.i87 = phi ptr [ %call.i90, %if.then.i89 ], [ %name.i86, %if.then49 ]
   %call.i3.i88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.sink4.i87) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %name.sink4.i87, i64 noundef %call.i3.i88) #12
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %name.sink4.i87, i64 noundef %call.i3.i88) #12
   %call.i92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i, i64 noundef %call.i92) #12
   br label %if.end53
@@ -968,7 +968,7 @@ while.end:                                        ; preds = %if.end53
 
 if.then55:                                        ; preds = %while.end
   %call.i93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i93) #12
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %call29, i64 noundef %call.i93) #12
   %call.i94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix.0) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %suffix.0, i64 noundef %call.i94) #12
   %call.i95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
@@ -982,7 +982,7 @@ if.end56:                                         ; preds = %get_name_decoration
 declare ptr @diff_get_color(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @show_decorations(ptr nocapture noundef readonly %opt, ptr noundef %commit) local_unnamed_addr #0 {
+define dso_local void @show_decorations(ptr noundef readonly captures(none) %opt, ptr noundef %commit) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_remerge_diff.parent2_desc, i64 24, i1 false)
@@ -1033,15 +1033,15 @@ return:                                           ; preds = %if.end6, %if.end9
 declare ptr @revision_sources_peek(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmt_output_subject(ptr noundef %filename, ptr noundef %subject, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local void @fmt_output_subject(ptr noundef %filename, ptr noundef %subject, ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %temp = alloca %struct.strbuf, align 8
   %patch_suffix = getelementptr inbounds nuw i8, ptr %info, i64 360
@@ -1106,7 +1106,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end12:                                         ; preds = %if.then4.i, %if.end.i, %if.end
   %call.i13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef %0, i64 noundef %call.i13) #12
+  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull %0, i64 noundef %call.i13) #12
   ret void
 }
 
@@ -1115,7 +1115,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @format_sanitized_subject(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmt_output_commit(ptr noundef %filename, ptr noundef %commit, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local void @fmt_output_commit(ptr noundef %filename, ptr noundef %commit, ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.pretty_print_context, align 8
   %subject = alloca %struct.strbuf, align 8
@@ -1131,12 +1131,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @repo_format_commit_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmt_output_email_subject(ptr noundef %sb, ptr nocapture noundef readonly %opt) local_unnamed_addr #0 {
+define dso_local void @fmt_output_email_subject(ptr noundef %sb, ptr noundef readonly captures(none) %opt) local_unnamed_addr #0 {
 entry:
   %total = getelementptr inbounds nuw i8, ptr %opt, i64 348
   %0 = load i32, ptr %total, align 4
@@ -1195,7 +1195,7 @@ if.end16:                                         ; preds = %if.then13, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @log_write_email_headers(ptr nocapture noundef %opt, ptr noundef %commit, ptr nocapture noundef writeonly %extra_headers_p, ptr nocapture noundef writeonly initializes((0, 4)) %need_8bit_cte_p, i32 noundef %maybe_multipart) local_unnamed_addr #0 {
+define dso_local void @log_write_email_headers(ptr noundef captures(none) %opt, ptr noundef %commit, ptr noundef writeonly captures(none) %extra_headers_p, ptr noundef writeonly captures(none) initializes((0, 4)) %need_8bit_cte_p, i32 noundef %maybe_multipart) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.pretty_print_context, align 8
   %subject.i = alloca %struct.strbuf, align 8
@@ -1922,7 +1922,7 @@ if.then258:                                       ; preds = %if.then254
 if.end259:                                        ; preds = %if.then258, %if.then254
   %95 = phi ptr [ %.pre209, %if.then258 ], [ %91, %if.then254 ]
   %call.i184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #13
-  call void @strbuf_add(ptr noundef nonnull %msgbuf, ptr noundef %95, i64 noundef %call.i184) #12
+  call void @strbuf_add(ptr noundef nonnull %msgbuf, ptr noundef nonnull %95, i64 noundef %call.i184) #12
   br label %if.end261
 
 if.end261:                                        ; preds = %if.end259, %land.lhs.true250, %if.end243
@@ -2108,7 +2108,7 @@ declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @graph_is_commit_finished(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @graph_show_remainder(ptr noundef) local_unnamed_addr #1
 
@@ -2137,7 +2137,7 @@ declare void @graph_show_commit_msg(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @commit_format_is_empty(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @fprintf_ln(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2267,7 +2267,7 @@ declare i32 @diff_queue_is_empty(ptr noundef) local_unnamed_addr #1
 declare void @diff_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @log_tree_commit(ptr noundef initializes((336, 344)) %opt, ptr noundef %commit) local_unnamed_addr #0 {
@@ -2465,7 +2465,7 @@ for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.
   %28 = load ptr, ptr %key.i.i.i, align 8
   %call9.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
   %conv.i.i.i = trunc i64 %call9.i.i.i to i32
-  %call10.i.i.i = call i32 @match_pathspec(ptr noundef %27, ptr noundef nonnull %pathspec.i.i.i, ptr noundef %28, i32 noundef %conv.i.i.i, i32 noundef 0, ptr noundef null, i32 noundef 0) #12
+  %call10.i.i.i = call i32 @match_pathspec(ptr noundef %27, ptr noundef nonnull %pathspec.i.i.i, ptr noundef nonnull %28, i32 noundef %conv.i.i.i, i32 noundef 0, ptr noundef null, i32 noundef 0) #12
   %tobool11.not.i.i.i = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool11.not.i.i.i, label %for.inc.i.i.i, label %if.then12.i.i.i
 
@@ -2702,7 +2702,7 @@ declare i32 @oid_object_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @lookup_object_by_type(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @wildmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2724,7 +2724,7 @@ declare i32 @parse_signed_commit(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @check_signature(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_sig_lines(ptr nocapture noundef readonly %opt, i32 noundef %status, ptr noundef %bol) unnamed_addr #0 {
+define internal fastcc void @show_sig_lines(ptr noundef readonly captures(none) %opt, i32 noundef %status, ptr noundef %bol) unnamed_addr #0 {
 entry:
   %use_color = getelementptr inbounds nuw i8, ptr %opt, i64 1724
   %0 = load i32, ptr %use_color, align 4
@@ -2776,7 +2776,7 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare i32 @for_each_mergetag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @show_one_mergetag(ptr nocapture noundef readonly %commit, ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @show_one_mergetag(ptr noundef readonly captures(none) %commit, ptr noundef readonly captures(none) %extra, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %verify_message = alloca %struct.strbuf, align 8
@@ -3030,13 +3030,13 @@ declare void @hashmap_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @diff_tree_combined_merge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #11

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.lolwut6Command = private unnamed_addr constant [3 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @generateSkyscraper(ptr noundef %canvas, ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define dso_local void @generateSkyscraper(ptr noundef %canvas, ptr noundef readonly captures(none) %si) local_unnamed_addr #0 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %0 = load i32, ptr %height, align 4

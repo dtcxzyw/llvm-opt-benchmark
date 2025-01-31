@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ctype = external dso_local local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_nameseg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_nameseg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   br label %4
 
 .critedge:                                        ; preds = %10, %4
@@ -67,7 +67,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_name_char(i8 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @acpi_ut_check_and_repair_ascii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local void @acpi_ut_check_and_repair_ascii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader.preheader
 

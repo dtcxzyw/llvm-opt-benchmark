@@ -173,7 +173,7 @@ define dso_local noundef zeroext i1 @tty_throttle_safe(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -182,7 +182,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @tty_unthrottle_safe(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -314,7 +314,7 @@ define dso_local void @tty_wait_until_sent(ptr noundef %0, i64 noundef %1) #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -329,7 +329,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #1
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @tty_termios_copy_hw(ptr nocapture noundef initializes((36, 44)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define dso_local void @tty_termios_copy_hw(ptr noundef captures(none) initializes((36, 44)) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 3200
@@ -351,7 +351,7 @@ define dso_local void @tty_termios_copy_hw(ptr nocapture noundef initializes((36
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @tty_termios_hw_change(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define dso_local zeroext i1 @tty_termios_hw_change(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -451,7 +451,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_set_termios(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef i32 @tty_set_termios(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ktermios, align 4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -606,7 +606,7 @@ define dso_local noundef i32 @tty_set_termios(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @tty_ldisc_ref(ptr noundef) local_unnamed_addr #1

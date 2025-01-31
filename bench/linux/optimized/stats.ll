@@ -49,7 +49,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ethtool_aggr
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_ethtool_aggregate_ctrl_stats678, ptr @__UNIQUE_ID___addressable_ethtool_aggregate_mac_stats676, ptr @__UNIQUE_ID___addressable_ethtool_aggregate_pause_stats679, ptr @__UNIQUE_ID___addressable_ethtool_aggregate_phy_stats677, ptr @__UNIQUE_ID___addressable_ethtool_aggregate_rmon_stats680], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_parse_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal i32 @stats_parse_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
   store i8 0, ptr %4, align 1
@@ -98,7 +98,7 @@ define internal i32 @stats_parse_request(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @stats_prepare_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @stats_prepare_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -220,7 +220,7 @@ define internal range(i32 -2147483648, 1) i32 @stats_prepare_data(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal range(i32 8, 1353) i32 @stats_reply_size(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 8, 1353) i32 @stats_reply_size(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -386,7 +386,7 @@ define internal noundef range(i32 -90, 1) i32 @stats_fill_reply(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_mac_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_mac_stats(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ethtool_eth_mac_stats, align 8
   %4 = alloca %struct.ethtool_eth_mac_stats, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -431,16 +431,16 @@ define dso_local void @ethtool_aggregate_mac_stats(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_phy_stats(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_phy_stats(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) #0 align 16 {
   %3 = alloca %struct.ethtool_eth_phy_stats, align 8
   %4 = alloca %struct.ethtool_eth_phy_stats, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -473,7 +473,7 @@ define dso_local void @ethtool_aggregate_phy_stats(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_ctrl_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_ctrl_stats(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ethtool_eth_ctrl_stats, align 8
   %4 = alloca %struct.ethtool_eth_ctrl_stats, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -518,7 +518,7 @@ define dso_local void @ethtool_aggregate_ctrl_stats(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_pause_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_pause_stats(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ethtool_pause_stats, align 8
   %4 = alloca %struct.ethtool_pause_stats, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -563,7 +563,7 @@ define dso_local void @ethtool_aggregate_pause_stats(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_rmon_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_rmon_stats(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ethtool_rmon_stats, align 8
   %5 = alloca %struct.ethtool_rmon_stats, align 8
@@ -627,7 +627,7 @@ declare dso_local zeroext i1 @__ethtool_dev_mm_supported(ptr noundef) local_unna
 declare dso_local void @ethnl_ops_complete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_stats(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i32 noundef range(i32 18, 21) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_stats(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2, i32 noundef range(i32 18, 21) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -703,7 +703,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_stats(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -90, 1) i32 @stats_put_mac_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_mac_stats(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext 0, i64 noundef %4)
@@ -864,7 +864,7 @@ define internal range(i32 -90, 1) i32 @stats_put_mac_stats(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -90, 1) i32 @stats_put_ctrl_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_ctrl_stats(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext 0, i64 noundef %4)
@@ -892,7 +892,7 @@ define internal range(i32 -90, 1) i32 @stats_put_ctrl_stats(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -90, 1) i32 @stats_put_rmon_stats(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -90, 1) i32 @stats_put_rmon_stats(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -1018,7 +1018,7 @@ define internal fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext %1, i64
 declare dso_local i32 @nla_put_64bit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef range(i32 5, 7) %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef range(i32 5, 7) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

@@ -39,7 +39,7 @@ $_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE17_M_realloc_insertIJRKNS0_12F
 @_ZN3ue220FDREngineDescriptionC1ERKNS_12FDREngineDefE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 20), (24, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %def) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 12), (16, 20), (24, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %def) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %def, align 8
   %cpu_features = getelementptr inbounds nuw i8, ptr %def, i64 16
@@ -72,7 +72,7 @@ entry:
 declare { i32, i64 } @_ZN3ue220targetByArchFeaturesEy(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue220FDREngineDescription27getDefaultFloodSuffixLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK3ue220FDREngineDescription27getDefaultFloodSuffixLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #2 align 2 {
 entry:
   %schemeWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %schemeWidth.i, align 4
@@ -147,7 +147,7 @@ _ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE12emplace_backIJRKNS0_12FDREngi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212chooseEngineERKNS_8target_tERKSt6vectorINS_11hwlmLiteralESaIS4_EEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef nonnull align 8 dereferenceable(24) %vl, i1 noundef zeroext %make_small) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212chooseEngineERKNS_8target_tERKSt6vectorINS_11hwlmLiteralESaIS4_EEb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef nonnull align 8 dereferenceable(24) %vl, i1 noundef zeroext %make_small) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.else.i.i:
   %allDescs = alloca %"class.std::vector", align 8
   %count = alloca i64, align 8
@@ -445,7 +445,7 @@ _ZNSt12_Vector_baseIN3ue220FDREngineDescriptionESaIS1_EED2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue220FDREngineDescription12getSchemeBitEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %b, i32 noundef %p) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK3ue220FDREngineDescription12getSchemeBitEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %b, i32 noundef %p) local_unnamed_addr #2 align 2 {
 entry:
   %numBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %numBuckets.i, align 8
@@ -455,7 +455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue220FDREngineDescription14getBucketWidthEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK3ue220FDREngineDescription14getBucketWidthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %0) local_unnamed_addr #2 align 2 {
 entry:
   %schemeWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i32, ptr %schemeWidth.i, align 4
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getFdrDescriptionEj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %engineID) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getFdrDescriptionEj(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i32 noundef %engineID) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.else.i.i:
   %allDescs = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allDescs, i8 0, i64 24, i1 false)
@@ -554,10 +554,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {

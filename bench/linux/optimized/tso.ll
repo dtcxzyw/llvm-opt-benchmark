@@ -19,7 +19,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tso_start: ;
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_tso_build_data756, ptr @__UNIQUE_ID___addressable_tso_build_hdr755, ptr @__UNIQUE_ID___addressable_tso_start757], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local void @tso_build_hdr(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 178
@@ -127,19 +127,19 @@ define dso_local void @tso_build_hdr(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #4 align 16 {
+define dso_local void @tso_build_data(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, %2
@@ -199,7 +199,7 @@ define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initializes((0, 4), (16, 19), (20, 24)) %1) #5 align 16 {
+define dso_local i32 @tso_start(ptr noundef %0, ptr noundef captures(none) initializes((0, 4), (16, 19), (20, 24)) %1) #5 align 16 {
   %3 = alloca %struct.vlan_hdr, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8

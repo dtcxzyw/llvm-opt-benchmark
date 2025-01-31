@@ -360,7 +360,7 @@ declare i32 @mbedtls_sha256_update(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @mbedtls_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 8
   %trunc = trunc i32 %5 to i8
   %switch.tableidx = add i8 %trunc, -3
@@ -462,7 +462,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @mbedtls_md5_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -475,7 +475,7 @@ declare i32 @mbedtls_sha256_finish(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @mbedtls_sha512_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.mbedtls_psa_hash_operation_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %7, i8 0, i64 224, i1 false)
   store i64 %4, ptr %5, align 8

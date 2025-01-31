@@ -286,7 +286,7 @@ define dso_local { i64, i64 } @i128_neg(i64 %0, i64 %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
@@ -495,7 +495,7 @@ define dso_local zeroext i1 @i128_is_zero(i64 %0, i64 %1) local_unnamed_addr #1 
 declare ptr @calloc_string(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @int_to_str(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @int_to_str(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -509,7 +509,7 @@ define dso_local ptr @int_to_str(ptr nocapture noundef readonly byval(%struct.In
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @int_from_real(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @int_from_real(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = add i32 %2, -8
   %5 = icmp ult i32 %4, 5
   %6 = fptoui double %1 to i64
@@ -544,7 +544,7 @@ define dso_local { i64, i64 } @i128_from_int(i64 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local { i64, i64 } @i128_from_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local { i64, i64 } @i128_from_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %.not9 = icmp eq i8 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -586,7 +586,7 @@ define dso_local { i64, i64 } @i128_from_str(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { i64, i64 } @i128_add64(i64 %0, i64 %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -1192,7 +1192,7 @@ i128_shl64.exit:                                  ; preds = %16, %13, %9, %7, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @i128_get_bit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local zeroext i1 @i128_get_bit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp sgt i32 %1, 63
   %4 = sub nsw i32 64, %1
   %5 = add nsw i32 %1, -64
@@ -1324,7 +1324,7 @@ i128_ashr64.exit:                                 ; preds = %32, %29, %25, %24, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #5 {
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
@@ -1396,7 +1396,7 @@ define dso_local range(i32 -1, 2) i32 @i128_scomp(i64 %0, i64 %1, i64 %2, i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local { i64, i64 } @i128_add_uwrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @i128_add_uwrap64(i64 %0, i64 %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #5 {
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
@@ -1432,7 +1432,7 @@ define dso_local zeroext i1 @i128_is_neg(i64 %0, i64 %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #9 {
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, 5
@@ -1510,7 +1510,7 @@ define dso_local range(i32 0, 129) i32 @i128_popcnt(i64 %0, i64 %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 129) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 0, 129) i32 @i128_ctz(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1609,7 +1609,7 @@ define dso_local range(i32 0, 129) i32 @i128_ctz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 129) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 0, 129) i32 @i128_clz(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %41, label %3
@@ -1708,14 +1708,14 @@ define dso_local range(i32 0, 129) i32 @i128_clz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 128) i32 @i128_lsb(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_ctz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 128) i32 @i128_msb(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_clz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
@@ -1785,7 +1785,7 @@ common.ret:                                       ; preds = %12, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef writeonly initializes((0, 16)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
+define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #13 {
   %7 = alloca %struct.Int128_, align 8
   %8 = alloca %struct.Int128_, align 8
   store i64 %0, ptr %7, align 8
@@ -2277,7 +2277,7 @@ define dso_local noundef zeroext i1 @binary_op_matches_res(i32 noundef %0, i32 n
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @int_comp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @int_comp(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
@@ -2425,7 +2425,7 @@ binary_op_matches_res.exit:                       ; preds = %67, %69, %71, %73, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @int_icomp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @int_icomp(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
@@ -2526,7 +2526,7 @@ binary_op_matches_res.exit:                       ; preds = %34, %36, %38, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @int_ucomp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @int_ucomp(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
@@ -2596,7 +2596,7 @@ binary_op_matches_res.exit:                       ; preds = %16, %18, %20, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @int_fits(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %11 [
     i32 7, label %12
     i32 6, label %3
@@ -2734,21 +2734,21 @@ i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @int_to_u64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
+define dso_local i64 @int_to_u64(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @int_to_i64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
+define dso_local i64 @int_to_i64(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @int_is_zero(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2759,7 +2759,7 @@ define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 130) i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
+define dso_local range(i32 0, 130) i32 @int_bits_needed(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #15 {
   %2 = alloca %struct.Int128_, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -2807,7 +2807,7 @@ i128_neg.exit:                                    ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_add(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2833,7 +2833,7 @@ define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_add64(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2855,7 +2855,7 @@ define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_sub(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2881,7 +2881,7 @@ define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_sub64(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2903,7 +2903,7 @@ define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_mul(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2947,7 +2947,7 @@ define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_conv(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @type_kind_bitsize(i32 noundef %5) #19
@@ -3136,7 +3136,7 @@ i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #13 {
+define dso_local void @int_div(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #13 {
   %4 = alloca %struct.Int128_, align 8
   %5 = alloca %struct.Int128_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3265,7 +3265,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #13 {
+define dso_local void @int_rem(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #13 {
   %4 = alloca %struct.Int128_, align 8
   %5 = alloca %struct.Int128_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3388,7 +3388,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_and(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3408,7 +3408,7 @@ define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_or(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3428,7 +3428,7 @@ define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_xor(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3448,7 +3448,7 @@ define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @int_neg(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -3471,7 +3471,7 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @int_not(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3491,7 +3491,7 @@ define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_shr64(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8
@@ -3611,7 +3611,7 @@ i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_shl64(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8
@@ -3703,7 +3703,7 @@ i128_shl64.exit10:                                ; preds = %29, %30, %32, %36, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local double @int_to_real(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #12 {
+define dso_local double @int_to_real(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -3
@@ -3730,7 +3730,7 @@ define dso_local double @int_to_real(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @int_is_neg(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @int_is_neg(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -13
@@ -3844,10 +3844,10 @@ declare double @llvm.fabs.f64(double) #16
 declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #16

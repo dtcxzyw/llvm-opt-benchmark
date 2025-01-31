@@ -82,7 +82,7 @@ define hidden void @timelib_time_dtor(ptr noundef %0) local_unnamed_addr #1 {
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -114,7 +114,7 @@ define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @timelib_time_clone(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @timelib_time_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias noundef dereferenceable_or_null(240) ptr @_ecalloc(i64 noundef 1, i64 noundef 240) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(240) %0, i64 240, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -144,7 +144,7 @@ define hidden noalias noundef ptr @timelib_time_clone(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
@@ -168,14 +168,14 @@ define hidden void @timelib_rel_time_dtor(ptr noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @timelib_rel_time_clone(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @timelib_rel_time_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias noundef dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_time_tz_abbr_update(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden void @timelib_time_tz_abbr_update(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -188,7 +188,7 @@ define hidden void @timelib_time_tz_abbr_update(ptr nocapture noundef %0, ptr no
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = tail call noalias ptr @_estrdup(ptr noundef %1) #18
+  %8 = tail call noalias ptr @_estrdup(ptr noundef nonnull %1) #18
   store ptr %8, ptr %4, align 8
   %.not15 = icmp eq i64 %3, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -214,7 +214,7 @@ define hidden void @timelib_time_tz_abbr_update(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @toupper(i32 noundef) local_unnamed_addr #7
@@ -313,7 +313,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @timelib_date_to_int(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define hidden i64 @timelib_date_to_int(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -328,7 +328,7 @@ define hidden i64 @timelib_date_to_int(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @timelib_decimal_hour_to_hms(double noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #8 {
+define hidden void @timelib_decimal_hour_to_hms(double noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #8 {
   %5 = fcmp olt double %0, 0.000000e+00
   %6 = tail call double @llvm.fabs.f64(double %0)
   %.0 = select i1 %5, double %6, double %0
@@ -363,7 +363,7 @@ declare double @llvm.fabs.f64(double) #9
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #10 {
+define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #10 {
   %5 = icmp sgt i32 %0, -1
   %6 = sitofp i32 %1 to double
   %7 = fdiv double %6, 6.000000e+01
@@ -390,7 +390,7 @@ define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_hmsf_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #10 {
+define hidden void @timelib_hmsf_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #10 {
   %6 = icmp sgt i32 %0, -1
   %7 = sitofp i32 %1 to double
   %8 = fdiv double %7, 6.000000e+01
@@ -531,7 +531,7 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @timelib_dump_date(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define hidden void @timelib_dump_date(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = and i32 %1, 2
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -727,10 +727,10 @@ define hidden void @timelib_dump_date(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @timelib_dump_rel_time(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden void @timelib_dump_rel_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8

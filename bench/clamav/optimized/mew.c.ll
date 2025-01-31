@@ -1726,7 +1726,7 @@ lzma_4862e0.exit.thread:                          ; preds = %742, %743, %748, %7
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = zext i32 %3 to i64
   %6 = icmp ugt i32 %3, 3
   br i1 %6, label %7, label %59
@@ -1826,7 +1826,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef %5, i32 noundef %6) unnamed_addr #3 {
   %8 = load ptr, ptr %2, align 8
   %9 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
   switch i32 %9, label %10 [
@@ -1961,7 +1961,7 @@ lzma_4862e0.exit.thread:                          ; preds = %.preheader.i54, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -1073741829, 1073741819) %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -1073741829, 1073741819) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2058,7 +2058,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_486204(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @lzma_upack_esi_00(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @lzma_upack_esi_00(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 11
@@ -2162,7 +2162,7 @@ define range(i32 -1, 2) i32 @lzma_upack_esi_00(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %15, %8
@@ -2192,7 +2192,7 @@ define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lzma_upack_esi_54(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lzma_upack_esi_54(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %2, align 4
   %9 = and i32 %8, -256
   %10 = or disjoint i32 %9, 8
@@ -2679,7 +2679,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @unmew(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

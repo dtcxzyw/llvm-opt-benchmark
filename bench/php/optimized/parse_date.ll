@@ -710,7 +710,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.690 = private unnamed_addr constant [2 x i8] c"z\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @timelib_parse_zone(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden i64 @timelib_parse_zone(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %.promoted = load ptr, ptr %0, align 8
@@ -935,7 +935,7 @@ define hidden i64 @timelib_parse_zone(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #1 {
+define internal fastcc i64 @timelib_parse_tz_cor(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   store i32 1, ptr %1, align 4
   %4 = tail call ptr @__ctype_b_loc() #21
@@ -983,7 +983,7 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 
 25:                                               ; preds = %._crit_edge, %._crit_edge
   store i32 0, ptr %1, align 4
-  %26 = tail call i64 @strtol(ptr nocapture noundef %3, ptr noundef null, i32 noundef 10) #19
+  %26 = tail call i64 @strtol(ptr noundef captures(none) %3, ptr noundef null, i32 noundef 10) #19
   %sext50 = mul i64 %26, 15461882265600
   %27 = ashr exact i64 %sext50, 32
   br label %98
@@ -996,10 +996,10 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 
 32:                                               ; preds = %28
   store i32 0, ptr %1, align 4
-  %33 = tail call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #19
+  %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #19
   %34 = mul i64 %33, 3600
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %36 = tail call i64 @strtol(ptr nocapture noundef nonnull %35, ptr noundef null, i32 noundef 10) #19
+  %36 = tail call i64 @strtol(ptr noundef nonnull captures(none) %35, ptr noundef null, i32 noundef 10) #19
   %37 = mul i64 %36, 60
   %38 = add i64 %37, %34
   %sext49 = shl i64 %38, 32
@@ -1011,13 +1011,13 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 58
   store i32 0, ptr %1, align 4
-  %44 = tail call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #19
+  %44 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #19
   br i1 %43, label %45, label %52
 
 45:                                               ; preds = %40
   %46 = mul i64 %44, 3600
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %48 = tail call i64 @strtol(ptr nocapture noundef nonnull %47, ptr noundef null, i32 noundef 10) #19
+  %48 = tail call i64 @strtol(ptr noundef nonnull captures(none) %47, ptr noundef null, i32 noundef 10) #19
   %49 = mul i64 %48, 60
   %50 = add i64 %49, %46
   %sext48 = shl i64 %50, 32
@@ -1042,10 +1042,10 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 
 62:                                               ; preds = %59
   store i32 0, ptr %1, align 4
-  %63 = tail call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #19
+  %63 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #19
   %64 = mul i64 %63, 3600
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %66 = tail call i64 @strtol(ptr nocapture noundef nonnull %65, ptr noundef null, i32 noundef 10) #19
+  %66 = tail call i64 @strtol(ptr noundef nonnull captures(none) %65, ptr noundef null, i32 noundef 10) #19
   %67 = mul i64 %66, 60
   %68 = add i64 %67, %64
   %sext46 = shl i64 %68, 32
@@ -1054,7 +1054,7 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 
 70:                                               ; preds = %._crit_edge
   store i32 0, ptr %1, align 4
-  %71 = tail call i64 @strtol(ptr nocapture noundef %3, ptr noundef null, i32 noundef 10) #19
+  %71 = tail call i64 @strtol(ptr noundef captures(none) %3, ptr noundef null, i32 noundef 10) #19
   %72 = sdiv i64 %71, 10000
   %73 = mul nsw i64 %72, 3600
   %74 = sdiv i64 %71, 100
@@ -1081,16 +1081,16 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 
 87:                                               ; preds = %84
   store i32 0, ptr %1, align 4
-  %88 = tail call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #19
+  %88 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #19
   %89 = mul i64 %88, 3600
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %91 = tail call i64 @strtol(ptr nocapture noundef nonnull %90, ptr noundef null, i32 noundef 10) #19
+  %91 = tail call i64 @strtol(ptr noundef nonnull captures(none) %90, ptr noundef null, i32 noundef 10) #19
   %92 = mul i64 %91, 60
   %93 = add i64 %92, %89
   %sext = shl i64 %93, 32
   %94 = ashr exact i64 %sext, 32
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %96 = tail call i64 @strtol(ptr nocapture noundef nonnull %95, ptr noundef null, i32 noundef 10) #19
+  %96 = tail call i64 @strtol(ptr noundef nonnull captures(none) %95, ptr noundef null, i32 noundef 10) #19
   %97 = add nsw i64 %94, %96
   br label %98
 
@@ -1102,12 +1102,12 @@ define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr n
 declare void @timelib_time_tz_abbr_update(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct._Scanner, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
@@ -1454,7 +1454,7 @@ add_warning.exit123:                              ; preds = %alloc_error_message
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noalias ptr @_emalloc_24() local_unnamed_addr #2
 
@@ -1464,7 +1464,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 declare ptr @timelib_time_ctor() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_error(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 513, 551) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_error(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 513, 551) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1535,10 +1535,10 @@ declare void @timelib_error_container_dtor(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull initializes((40, 48), (60, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull initializes((40, 48), (60, 64)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -44200,7 +44200,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
 declare i32 @timelib_valid_time(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_warning(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 257, 260) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_warning(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 257, 260) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -44269,13 +44269,13 @@ alloc_error_message.exit:                         ; preds = %3, %11
 declare i32 @timelib_valid_date(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_parse_from_format(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden ptr @timelib_parse_from_format(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @timelib_parse_from_format_with_map(ptr noundef %0, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @default_format_config)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_parse_from_format_with_map(ptr nocapture noundef readonly %0, ptr noundef %1, i64 %2, ptr noundef writeonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define hidden ptr @timelib_parse_from_format_with_map(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct._Scanner, align 8
   %10 = alloca i32, align 4
@@ -44703,8 +44703,8 @@ timelib_get_nr.exit:                              ; preds = %.lr.ph.i.i
   %177 = add nsw i64 %.pre44.i.i, 1
   %178 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %177) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %178, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i, i64 %.pre44.i.i, i1 false)
-  %179 = tail call i64 @strtoll(ptr nocapture noundef %178, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %178) #19
+  %179 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %178, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %178) #19
   %180 = load ptr, ptr %17, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store i64 %179, ptr %181, align 8
@@ -44938,8 +44938,8 @@ timelib_get_nr.exit532:                           ; preds = %.lr.ph.i.i521
   %298 = add nsw i64 %.pre44.i.i528, 1
   %299 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %298) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %299, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i520, i64 %.pre44.i.i528, i1 false)
-  %300 = tail call i64 @strtoll(ptr nocapture noundef %299, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %299) #19
+  %300 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %299, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %299) #19
   %301 = icmp eq i64 %300, -9999999
   br i1 %301, label %timelib_get_nr.exit532.thread, label %325
 
@@ -45111,8 +45111,8 @@ timelib_get_nr.exit556:                           ; preds = %.lr.ph.i.i545
   %379 = add nsw i64 %.pre44.i.i552, 1
   %380 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %379) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %380, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i544, i64 %.pre44.i.i552, i1 false)
-  %381 = tail call i64 @strtoll(ptr nocapture noundef %380, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %380) #19
+  %381 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %380, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %380) #19
   %382 = load ptr, ptr %17, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store i64 %381, ptr %383, align 8
@@ -45364,8 +45364,8 @@ timelib_get_nr_ex.exit:                           ; preds = %.lr.ph.i571
   %507 = add nsw i64 %.pre44.i, 1
   %508 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %507) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %508, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i, i64 %.pre44.i, i1 false)
-  %509 = tail call i64 @strtoll(ptr nocapture noundef %508, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %508) #19
+  %509 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %508, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %508) #19
   %510 = load ptr, ptr %17, align 8
   store i64 %509, ptr %510, align 8
   %511 = icmp eq i64 %509, -9999999
@@ -45539,8 +45539,8 @@ timelib_get_nr.exit598:                           ; preds = %.lr.ph.i.i587
   %595 = add nsw i64 %.pre44.i.i594, 1
   %596 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %595) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %596, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i586, i64 %.pre44.i.i594, i1 false)
-  %597 = tail call i64 @strtoll(ptr nocapture noundef %596, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %596) #19
+  %597 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %596, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %596) #19
   %598 = load ptr, ptr %17, align 8
   store i64 %597, ptr %598, align 8
   %599 = icmp eq i64 %597, -9999999
@@ -45796,8 +45796,8 @@ timelib_get_nr.exit630:                           ; preds = %.lr.ph.i.i619
   %731 = add nsw i64 %.pre44.i.i626, 1
   %732 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %731) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %732, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i618, i64 %.pre44.i.i626, i1 false)
-  %733 = tail call i64 @strtoll(ptr nocapture noundef %732, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %732) #19
+  %733 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %732, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %732) #19
   %734 = load ptr, ptr %17, align 8
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 24
   store i64 %733, ptr %735, align 8
@@ -45997,8 +45997,8 @@ timelib_get_nr.exit658:                           ; preds = %.lr.ph.i.i647
   %837 = add nsw i64 %.pre44.i.i654, 1
   %838 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %837) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %838, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i646, i64 %.pre44.i.i654, i1 false)
-  %839 = tail call i64 @strtoll(ptr nocapture noundef %838, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %838) #19
+  %839 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %838, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %838) #19
   %840 = load ptr, ptr %17, align 8
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 24
   store i64 %839, ptr %841, align 8
@@ -46318,8 +46318,8 @@ timelib_get_nr_ex.exit696:                        ; preds = %.lr.ph.i684
   %993 = add nsw i64 %.pre44.i692, 1
   %994 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %993) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %994, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i683, i64 %.pre44.i692, i1 false)
-  %995 = tail call i64 @strtoll(ptr nocapture noundef %994, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %994) #19
+  %995 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %994, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %994) #19
   %996 = icmp eq i64 %995, -9999999
   %997 = and i64 %.pre44.i692, 4294967295
   %998 = icmp ne i64 %997, 2
@@ -46468,8 +46468,8 @@ timelib_get_nr_ex.exit721:                        ; preds = %.lr.ph.i709
   %1069 = add nsw i64 %.pre44.i717, 1
   %1070 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %1069) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1070, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i708, i64 %.pre44.i717, i1 false)
-  %1071 = tail call i64 @strtoll(ptr nocapture noundef %1070, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %1070) #19
+  %1071 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1070, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %1070) #19
   %1072 = icmp eq i64 %1071, -9999999
   %1073 = and i64 %.pre44.i717, 4294967295
   %1074 = icmp ne i64 %1073, 2
@@ -46620,8 +46620,8 @@ timelib_get_nr.exit745:                           ; preds = %.lr.ph.i.i734
   %1146 = add nsw i64 %.pre44.i.i741, 1
   %1147 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %1146) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1147, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i733, i64 %.pre44.i.i741, i1 false)
-  %1148 = tail call i64 @strtoll(ptr nocapture noundef %1147, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %1147) #19
+  %1148 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1147, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %1147) #19
   %1149 = sitofp i64 %1148 to double
   %1150 = icmp eq i64 %1148, -9999999
   br i1 %1150, label %timelib_get_nr.exit745.thread, label %1151
@@ -46779,8 +46779,8 @@ timelib_get_nr.exit769:                           ; preds = %.lr.ph.i.i758
   %1230 = add nsw i64 %.pre44.i.i765, 1
   %1231 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %1230) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1231, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i757, i64 %.pre44.i.i765, i1 false)
-  %1232 = tail call i64 @strtoll(ptr nocapture noundef %1231, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %1231) #19
+  %1232 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1231, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %1231) #19
   %1233 = sitofp i64 %1232 to double
   %1234 = icmp eq i64 %1232, -9999999
   br i1 %1234, label %timelib_get_nr.exit769.thread, label %1235
@@ -47303,8 +47303,8 @@ timelib_get_nr.exit817:                           ; preds = %.lr.ph.i.i806
   %1499 = add nsw i64 %.pre44.i.i813, 1
   %1500 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %1499) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1500, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i805, i64 %.pre44.i.i813, i1 false)
-  %1501 = tail call i64 @strtoll(ptr nocapture noundef %1500, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %1500) #19
+  %1501 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1500, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %1500) #19
   %1502 = trunc i64 %1501 to i32
   %1503 = icmp eq i32 %1502, -9999999
   br i1 %1503, label %timelib_get_nr.exit817.thread, label %1527
@@ -47397,8 +47397,8 @@ timelib_get_nr.exit837:                           ; preds = %.lr.ph.i.i826
   %1544 = add nsw i64 %.pre44.i.i833, 1
   %1545 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %1544) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1545, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i.i825, i64 %.pre44.i.i833, i1 false)
-  %1546 = tail call i64 @strtoll(ptr nocapture noundef %1545, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %1545) #19
+  %1546 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1545, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %1545) #19
   %1547 = trunc i64 %1546 to i32
   %1548 = icmp eq i32 %1547, -9999999
   br i1 %1548, label %timelib_get_nr.exit837.thread, label %1572
@@ -47522,7 +47522,7 @@ timelib_get_nr.exit861:                           ; preds = %1606, %1601
   %1611 = tail call noalias dereferenceable_or_null(2) ptr @_ecalloc(i64 noundef 1, i64 noundef 2) #18
   %1612 = load i8, ptr %.promoted36.i.i849, align 1
   store i8 %1612, ptr %1611, align 1
-  %1613 = tail call i64 @strtoll(ptr nocapture noundef nonnull %1611, ptr noundef null, i32 noundef 10) #19
+  %1613 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %1611, ptr noundef null, i32 noundef 10) #19
   tail call void @_efree(ptr noundef nonnull %1611) #19
   %1614 = trunc i64 %1613 to i32
   %1615 = icmp eq i32 %1614, -9999999
@@ -47723,7 +47723,7 @@ add_pbf_error.exit873:                            ; preds = %1677, %1682
   %1719 = getelementptr inbounds nuw i8, ptr %1705, i64 80
   store i32 0, ptr %1719, align 8
   %1720 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %1721 = tail call i64 @strtol(ptr nocapture noundef nonnull %1720, ptr noundef null, i32 noundef 10) #19
+  %1721 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1720, ptr noundef null, i32 noundef 10) #19
   %sext23.i = mul i64 %1721, %.sink24.i
   %1722 = lshr exact i64 %sext23.i, 32
   %1723 = trunc nuw i64 %1722 to i32
@@ -48538,7 +48538,7 @@ add_pbf_warning.exit923:                          ; preds = %2084, %2090
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @timelib_lookup_relunit(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @timelib_lookup_relunit(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   br label %3
 
@@ -48593,7 +48593,7 @@ define internal fastcc noundef ptr @timelib_lookup_relunit(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 7) %1) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_nr(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 7) %1) unnamed_addr #0 {
   %.promoted.i = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted.i, align 1
   %4 = add i8 %3, -58
@@ -48638,8 +48638,8 @@ define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32
   %18 = add nsw i64 %.pre44.i, 1
   %19 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %18) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36.i, i64 %.pre44.i, i1 false)
-  %20 = tail call i64 @strtoll(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %19) #19
+  %20 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %19, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %19) #19
   br label %timelib_get_nr_ex.exit
 
 timelib_get_nr_ex.exit:                           ; preds = %.critedge.i, %.critedge2.i
@@ -48648,7 +48648,7 @@ timelib_get_nr_ex.exit:                           ; preds = %.critedge.i, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @timelib_skip_day_suffix(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @timelib_skip_day_suffix(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = tail call ptr @__ctype_b_loc() #21
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -48696,7 +48696,7 @@ define internal fastcc void @timelib_skip_day_suffix(ptr nocapture noundef nonnu
 declare void @timelib_do_normalize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_lookup_month(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_lookup_month(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, -33
@@ -48751,7 +48751,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_lookup_mo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_nr_ex(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 7) %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_nr_ex(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 7) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   %4 = load i8, ptr %.promoted, align 1
   %5 = add i8 %4, -58
@@ -48805,8 +48805,8 @@ define internal fastcc i64 @timelib_get_nr_ex(ptr nocapture noundef nonnull %0, 
   %21 = add nsw i64 %.pre44, 1
   %22 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %21) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %.promoted36, i64 %.pre44, i1 false)
-  %23 = tail call i64 @strtoll(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #19
-  tail call void @_efree(ptr noundef %22) #19
+  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #19
+  tail call void @_efree(ptr noundef nonnull %22) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge2._crit_edge
@@ -48815,7 +48815,7 @@ define internal fastcc i64 @timelib_get_nr_ex(ptr nocapture noundef nonnull %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_signed_nr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 4, 25) %2) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_signed_nr(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 4, 25) %2) unnamed_addr #0 {
   %4 = add nuw nsw i32 %2, 2
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %5) #18
@@ -49027,7 +49027,7 @@ add_error.exit57:                                 ; preds = %86, %90
 .critedge4:                                       ; preds = %.lr.ph78
   %108 = tail call ptr @__errno_location() #21
   store i32 0, ptr %108, align 4
-  %109 = tail call i64 @strtoll(ptr nocapture noundef %6, ptr noundef null, i32 noundef 10) #19
+  %109 = tail call i64 @strtoll(ptr noundef captures(none) %6, ptr noundef null, i32 noundef 10) #19
   %110 = load i32, ptr %108, align 4
   %111 = icmp eq i32 %110, 34
   tail call void @_efree(ptr noundef %6) #19
@@ -49106,7 +49106,7 @@ add_error.exit64:                                 ; preds = %139, %143
 declare double @pow(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @timelib_eat_spaces(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
+define internal fastcc void @timelib_eat_spaces(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
   %.promoted = load ptr, ptr %0, align 8
   br label %2
 
@@ -49153,7 +49153,7 @@ declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #2
 declare void @timelib_date_from_isodate(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_fill_holes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @timelib_fill_holes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %13
@@ -49521,7 +49521,7 @@ define hidden noundef nonnull ptr @timelib_timezone_abbreviations_list() local_u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
@@ -49530,7 +49530,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @timelib_string(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noalias ptr @timelib_string(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -49550,7 +49550,7 @@ define internal fastcc noalias ptr @timelib_string(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_month(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_month(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   br label %2
 
@@ -49623,7 +49623,7 @@ timelib_lookup_month.exit:                        ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_frac_nr(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_frac_nr(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   br label %2
 
@@ -49679,7 +49679,7 @@ define internal fastcc i64 @timelib_get_frac_nr(ptr nocapture noundef nonnull %0
   %18 = getelementptr inbounds nuw i8, ptr %.promoted36, i64 1
   %19 = add nsw i64 %16, -1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 1 %18, i64 %19, i1 false)
-  %20 = tail call double @strtod(ptr nocapture noundef %17, ptr noundef null) #19
+  %20 = tail call double @strtod(ptr noundef captures(none) %17, ptr noundef null) #19
   %21 = sub nsw i64 7, %16
   %22 = sitofp i64 %21 to double
   %23 = tail call double @pow(double noundef 1.000000e+01, double noundef %22) #19
@@ -49694,7 +49694,7 @@ define internal fastcc i64 @timelib_get_frac_nr(ptr nocapture noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @timelib_set_relative(ptr nocapture noundef nonnull %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @timelib_set_relative(ptr noundef nonnull captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   br label %7
 
@@ -50409,7 +50409,7 @@ add_with_overflow.exit:                           ; preds = %add_error.exit.i103
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 -12, 13) i64 @timelib_meridian(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #14 {
+define internal fastcc range(i64 -12, 13) i64 @timelib_meridian(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #14 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %4 = sext i8 %3 to i32
@@ -50491,7 +50491,7 @@ define internal fastcc range(i64 -12, 13) i64 @timelib_meridian(ptr nocapture no
 declare i64 @timelib_daynr_from_weeknr(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_relative_text(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @timelib_get_relative_text(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   br label %3
 
@@ -50566,7 +50566,7 @@ timelib_lookup_relative_text.exit:                ; preds = %30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #15
@@ -50576,7 +50576,7 @@ declare i32 @timelib_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @timelib_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5

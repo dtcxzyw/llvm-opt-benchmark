@@ -71,8 +71,8 @@ define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %11, ptr %16, align 1, !noalias !5
   %17 = add i32 %14, 4
   store i32 %17, ptr %13, align 8, !alias.scope !5
-  tail call void @appendBinaryStringInfoNT(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %9) #9
-  tail call void @pfree(ptr noundef %6) #9
+  tail call void @appendBinaryStringInfoNT(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %9) #9
+  tail call void @pfree(ptr noundef nonnull %6) #9
   br label %27
 
 18:                                               ; preds = %4
@@ -98,7 +98,7 @@ define dso_local void @pq_sendcountedtext(ptr noundef %0, ptr noundef %1, i32 no
 declare ptr @pg_server_to_client(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @appendBinaryStringInfoNT(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -113,8 +113,8 @@ define dso_local void @pq_sendtext(ptr noundef %0, ptr noundef %1, i32 noundef %
 5:                                                ; preds = %3
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
   %7 = trunc i64 %6 to i32
-  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %4, i32 noundef %7) #9
-  tail call void @pfree(ptr noundef %4) #9
+  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %7) #9
+  tail call void @pfree(ptr noundef nonnull %4) #9
   br label %9
 
 8:                                                ; preds = %3
@@ -129,7 +129,7 @@ define dso_local void @pq_sendtext(ptr noundef %0, ptr noundef %1, i32 noundef %
 define dso_local void @pq_sendstring(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @pg_server_to_client(ptr noundef %1, i32 noundef %4) #9
+  %5 = tail call ptr @pg_server_to_client(ptr noundef nonnull %1, i32 noundef %4) #9
   %.not = icmp eq ptr %5, %1
   br i1 %.not, label %10, label %6
 
@@ -137,13 +137,13 @@ define dso_local void @pq_sendstring(ptr noundef %0, ptr noundef %1) local_unnam
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
-  tail call void @appendBinaryStringInfoNT(ptr noundef %0, ptr noundef %5, i32 noundef %9) #9
-  tail call void @pfree(ptr noundef %5) #9
+  tail call void @appendBinaryStringInfoNT(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %9) #9
+  tail call void @pfree(ptr noundef nonnull %5) #9
   br label %12
 
 10:                                               ; preds = %2
   %11 = add i32 %4, 1
-  tail call void @appendBinaryStringInfoNT(ptr noundef %0, ptr noundef %1, i32 noundef %11) #9
+  tail call void @appendBinaryStringInfoNT(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %11) #9
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -151,7 +151,7 @@ define dso_local void @pq_sendstring(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_send_ascii_string(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @pq_send_ascii_string(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %.not15 = icmp eq i8 %3, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -238,7 +238,7 @@ define dso_local void @pq_sendfloat8(ptr noundef %0, double noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_endmessage(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @pq_endmessage(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @PqCommMethods, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -257,7 +257,7 @@ define dso_local void @pq_endmessage(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_endmessage_reuse(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @pq_endmessage_reuse(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @PqCommMethods, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -381,7 +381,7 @@ define dso_local void @pq_begintypsend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @pq_endtypsend(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local noundef ptr @pq_endtypsend(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -394,7 +394,7 @@ define dso_local noundef ptr @pq_endtypsend(ptr nocapture noundef readonly %0) l
 define dso_local void @pq_puttextmessage(i8 noundef signext %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @pg_server_to_client(ptr noundef %1, i32 noundef %4) #9
+  %5 = tail call ptr @pg_server_to_client(ptr noundef nonnull %1, i32 noundef %4) #9
   %.not = icmp eq ptr %5, %1
   %6 = load ptr, ptr @PqCommMethods, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -404,15 +404,15 @@ define dso_local void @pq_puttextmessage(i8 noundef signext %0, ptr noundef %1) 
 9:                                                ; preds = %2
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %11 = add i64 %10, 1
-  %12 = tail call i32 %8(i8 noundef signext %0, ptr noundef %5, i64 noundef %11) #9
-  tail call void @pfree(ptr noundef %5) #9
+  %12 = tail call i32 %8(i8 noundef signext %0, ptr noundef nonnull %5, i64 noundef %11) #9
+  tail call void @pfree(ptr noundef nonnull %5) #9
   br label %17
 
 13:                                               ; preds = %2
   %14 = shl i64 %3, 32
   %sext = add i64 %14, 4294967296
   %15 = ashr exact i64 %sext, 32
-  %16 = tail call i32 %8(i8 noundef signext %0, ptr noundef %1, i64 noundef %15) #9
+  %16 = tail call i32 %8(i8 noundef signext %0, ptr noundef nonnull %1, i64 noundef %15) #9
   br label %17
 
 17:                                               ; preds = %13, %9
@@ -429,7 +429,7 @@ define dso_local void @pq_putemptymessage(i8 noundef signext %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -466,7 +466,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_getmsgint(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @pq_getmsgint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %52 [
     i32 1, label %3
     i32 2, label %19
@@ -568,7 +568,7 @@ pq_copymsgbytes.exit6:                            ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_copymsgbytes(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @pq_copymsgbytes(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %12, label %5
 
@@ -610,7 +610,7 @@ declare i32 @llvm.bswap.i32(i32) #5
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pq_getmsgint64(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pq_getmsgint64(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -642,7 +642,7 @@ pq_copymsgbytes.exit:                             ; preds = %1
 declare i64 @llvm.bswap.i64(i64) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local float @pq_getmsgfloat4(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local float @pq_getmsgfloat4(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -672,7 +672,7 @@ pq_getmsgint.exit:                                ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @pq_getmsgfloat8(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local double @pq_getmsgfloat8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -702,7 +702,7 @@ pq_getmsgint64.exit:                              ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pq_getmsgbytes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @pq_getmsgbytes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %11, label %4
 
@@ -733,10 +733,10 @@ define dso_local ptr @pq_getmsgbytes(ptr nocapture noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pq_getmsgtext(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @pq_getmsgtext(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %12, label %5
 
@@ -794,7 +794,7 @@ declare ptr @pg_client_to_server(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pq_getmsgstring(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @pq_getmsgstring(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -819,12 +819,12 @@ define dso_local ptr @pq_getmsgstring(ptr nocapture noundef %0) local_unnamed_ad
 16:                                               ; preds = %1
   %17 = add nsw i32 %9, 1
   store i32 %17, ptr %3, align 8
-  %18 = tail call ptr @pg_client_to_server(ptr noundef %6, i32 noundef %8) #9
+  %18 = tail call ptr @pg_client_to_server(ptr noundef nonnull %6, i32 noundef %8) #9
   ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pq_getmsgrawstring(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @pq_getmsgrawstring(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -853,7 +853,7 @@ define dso_local noundef ptr @pq_getmsgrawstring(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pq_getmsgend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @pq_getmsgend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

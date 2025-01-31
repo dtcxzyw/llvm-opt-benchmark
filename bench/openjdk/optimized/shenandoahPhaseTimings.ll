@@ -391,7 +391,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN30ShenandoahWorkerTimingsTrackerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN30ShenandoahWorkerTimingsTrackerD2Ev
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 dereferenceable(30352) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
@@ -967,14 +967,14 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahPhaseTimings15is_worker_phaseEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN22ShenandoahPhaseTimings16worker_par_phaseENS_5PhaseENS_8ParPhaseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(30352) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN22ShenandoahPhaseTimings16worker_par_phaseENS_5PhaseENS_8ParPhaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = add nsw i32 %1, 1
   %5 = add nsw i32 %4, %2
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN22ShenandoahPhaseTimings11worker_dataENS_5PhaseENS_8ParPhaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30352) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN22ShenandoahPhaseTimings11worker_dataENS_5PhaseENS_8ParPhaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = add nsw i32 %1, 1
   %5 = add nsw i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27816
@@ -1004,7 +1004,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahPhaseTimings18is_root_work_phas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ShenandoahPhaseTimings14set_cycle_dataENS_5PhaseEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimings14set_cycle_dataENS_5PhaseEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [316 x double], ptr %4, i64 0, i64 %5
@@ -1013,7 +1013,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings14set_cycle_dataENS_5PhaseEd(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(ptr nocapture noundef nonnull align 8 dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(ptr noundef nonnull align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 30344
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy14is_at_shutdownEv(ptr noundef nonnull align 8 dereferenceable(528) %5) #12
@@ -1033,7 +1033,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(p
 declare noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy14is_at_shutdownEv(ptr noundef nonnull align 8 dereferenceable(528)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30352) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq i32 %1, 305
   br i1 %3, label %.preheader, label %.loopexit
 
@@ -1093,12 +1093,12 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN22ShenandoahPhaseTimings18record_workers_endENS_5PhaseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(30352) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimings18record_workers_endENS_5PhaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(30352) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(30352) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27816
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
@@ -1268,7 +1268,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %31, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30352) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30352) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.287) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.288) #12
@@ -1438,7 +1438,7 @@ declare noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenc
 declare noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull align 8 dereferenceable(80), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30ShenandoahWorkerTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 20), (24, 51)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN30ShenandoahWorkerTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 20), (24, 51)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1680
   %7 = load ptr, ptr %6, align 8
@@ -3019,7 +3019,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
@@ -3352,13 +3352,13 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 declare noundef i64 @_ZN15WorkerDataArrayImE13uninitializedEv() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

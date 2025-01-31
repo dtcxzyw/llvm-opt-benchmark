@@ -34,7 +34,7 @@ $_ZN11b2WeldJointD0Ev = comdat any
 @_ZN11b2WeldJointC1EPK14b2WeldJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN11b2WeldJointC2EPK14b2WeldJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14b2WeldJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 32), (36, 56)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
+define void @_ZN14b2WeldJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((16, 32), (36, 56)) %this, ptr noundef %bA, ptr noundef %bB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -132,7 +132,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11b2WeldJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(268) initializes((176, 232)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN11b2WeldJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(268) initializes((176, 232)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %K = alloca %struct.b2Mat33, align 4
   %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -427,7 +427,7 @@ declare void @_ZNK7b2Mat3312GetInverse22EPS_(ptr noundef nonnull align 4 derefer
 declare void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr noundef nonnull align 4 dereferenceable(36), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11b2WeldJoint24SolveVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(268) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #5 align 2 {
+define void @_ZN11b2WeldJoint24SolveVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) unnamed_addr #5 align 2 {
 entry:
   %velocities = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %velocities, align 8
@@ -644,7 +644,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11b2WeldJoint24SolvePositionConstraintsERK12b2SolverData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN11b2WeldJoint24SolvePositionConstraintsERK12b2SolverData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %K = alloca %struct.b2Mat33, align 4
   %C1 = alloca %struct.b2Vec2, align 8
@@ -895,7 +895,7 @@ declare <2 x float> @_ZNK7b2Mat337Solve22ERK6b2Vec2(ptr noundef nonnull align 4 
 declare { <2 x float>, float } @_ZNK7b2Mat337Solve33ERK6b2Vec3(ptr noundef nonnull align 4 dereferenceable(36), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @_ZNK11b2WeldJoint10GetAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this) unnamed_addr #6 align 2 {
+define <2 x float> @_ZNK11b2WeldJoint10GetAnchorAEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this) unnamed_addr #6 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -924,7 +924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @_ZNK11b2WeldJoint10GetAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this) unnamed_addr #6 align 2 {
+define <2 x float> @_ZNK11b2WeldJoint10GetAnchorBEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this) unnamed_addr #6 align 2 {
 entry:
   %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
@@ -953,7 +953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @_ZNK11b2WeldJoint16GetReactionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, float noundef %inv_dt) unnamed_addr #7 align 2 {
+define <2 x float> @_ZNK11b2WeldJoint16GetReactionForceEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, float noundef %inv_dt) unnamed_addr #7 align 2 {
 entry:
   %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 164
   %0 = load float, ptr %m_impulse, align 4
@@ -967,7 +967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK11b2WeldJoint17GetReactionTorqueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, float noundef %inv_dt) unnamed_addr #8 align 2 {
+define noundef float @_ZNK11b2WeldJoint17GetReactionTorqueEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, float noundef %inv_dt) unnamed_addr #8 align 2 {
 entry:
   %z = getelementptr inbounds nuw i8, ptr %this, i64 172
   %0 = load float, ptr %z, align 4
@@ -976,7 +976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11b2WeldJoint4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this) unnamed_addr #1 align 2 {
+define void @_ZN11b2WeldJoint4DumpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this) unnamed_addr #1 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8

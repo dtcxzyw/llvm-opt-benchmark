@@ -148,7 +148,7 @@ define dso_local ptr @i915_vma_instance(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
@@ -464,7 +464,7 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @i915_vma_work() local_unnamed_addr #0 align 16 {
@@ -1156,7 +1156,7 @@ define dso_local void @i915_vma_unpin_iomap(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_vma_unpin_and_release(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_vma_unpin_and_release(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %4 = icmp eq ptr %3, null
@@ -1353,7 +1353,7 @@ define dso_local void @__i915_vma_set_map_and_fenceable(ptr noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 536
@@ -1419,7 +1419,7 @@ define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @vma_invalidate_tlb(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local void @vma_invalidate_tlb(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -2362,7 +2362,7 @@ select.unfold:                                    ; preds = %.thread, %53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__i915_ggtt_pin(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
@@ -4067,7 +4067,7 @@ define dso_local noundef ptr @i915_vma_make_unshrinkable(ptr noundef readonly re
 declare dso_local void @i915_gem_object_make_unshrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_vma_make_shrinkable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_vma_make_shrinkable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   tail call void @i915_gem_object_make_shrinkable(ptr noundef %3) #17
@@ -4078,7 +4078,7 @@ define dso_local void @i915_vma_make_shrinkable(ptr nocapture noundef readonly %
 declare dso_local void @i915_gem_object_make_shrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_vma_make_purgeable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_vma_make_purgeable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   tail call void @i915_gem_object_make_purgeable(ptr noundef %3) #17
@@ -4114,7 +4114,7 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -4166,7 +4166,7 @@ define internal range(i32 -2, 1) i32 @__i915_vma_active(ptr noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__i915_vma_retire(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @__i915_vma_retire(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -88
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 -1, ptr elementtype(i32) %3) #17, !srcloc !15
@@ -4191,7 +4191,7 @@ define internal void @__i915_vma_retire(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_rotation_info_size(ptr noundef) local_unnamed_addr #2
@@ -4864,7 +4864,7 @@ define internal fastcc ptr @intel_remap_pages(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_partial_pages(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_partial_pages(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12

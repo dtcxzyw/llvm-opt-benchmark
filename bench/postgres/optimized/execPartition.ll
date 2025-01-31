@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.CreatePartitionPruneState = private unnamed_addr constant [26 x i8] c"CreatePartitionPruneState\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecSetupPartitionTupleRouting(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecSetupPartitionTupleRouting(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @palloc0(i64 noundef 64) #8
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -50,7 +50,7 @@ define dso_local noundef ptr @ExecSetupPartitionTupleRouting(ptr nocapture nound
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -215,7 +215,7 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.StringInfoData, align 8
   %8 = alloca i32, align 4
@@ -818,12 +818,12 @@ get_partition_for_tuple.exit:                     ; preds = %150, %168, %192, %2
   br i1 %346, label %347, label %348
 
 347:                                              ; preds = %343
-  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %.0.i137, i32 noundef %345) #8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %.0.i137, i32 noundef %345) #8
   br label %350
 
 348:                                              ; preds = %343
-  %349 = call i32 @pg_mbcliplen(ptr noundef %.0.i137, i32 noundef %345, i32 noundef 64) #8
-  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %.0.i137, i32 noundef %349) #8
+  %349 = call i32 @pg_mbcliplen(ptr noundef nonnull %.0.i137, i32 noundef %345, i32 noundef 64) #8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %.0.i137, i32 noundef %349) #8
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #8
   br label %350
 
@@ -1654,7 +1654,7 @@ declare ptr @ExecLookupResultRelByOid(ptr noundef, i32 noundef, i1 noundef zeroe
 declare void @CheckValidResultRel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, i32 noundef range(i32 0, -2147483648) %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4, i32 noundef range(i32 0, -2147483648) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1779,7 +1779,7 @@ declare ptr @execute_attr_map_slot(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @ExecGetRootToChildMap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecCleanupTupleRouting(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecCleanupTupleRouting(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 1
@@ -1877,7 +1877,7 @@ declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 declare void @ExecCloseIndices(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecInitPartitionPruning(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecInitPartitionPruning(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @ExecAssignExprContext(ptr noundef %6, ptr noundef %0) #8
@@ -2364,7 +2364,7 @@ PartitionPruneFixSubPlanMap.exit:                 ; preds = %.lr.ph68.i, %.prehe
 declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecFindMatchingSubPlans(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecFindMatchingSubPlans(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2427,7 +2427,7 @@ declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   tail call void @check_stack_depth() #8
   br i1 %2, label %5, label %.critedge
 
@@ -2568,7 +2568,7 @@ declare ptr @build_attrmap_by_name_if_req(ptr noundef, ptr noundef, i1 noundef z
 declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @ExecPrepareExprList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2605,7 +2605,7 @@ declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr 
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2618,10 +2618,10 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @ExecGetRangeTableRelation(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitPartitionPruneContext(ptr nocapture noundef initializes((0, 1), (4, 12), (16, 80)) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @InitPartitionPruneContext(ptr noundef captures(none) initializes((0, 1), (4, 12), (16, 80)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %3, align 8
@@ -2875,10 +2875,10 @@ declare ptr @get_matching_partitions(ptr noundef, ptr noundef) local_unnamed_add
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -126,7 +126,7 @@ declare i32 @Dar_ManRefactor(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Aig_ManDupDfs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManTranStochLock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Gia_ManTranStochLock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -146,7 +146,7 @@ define void @Gia_ManTranStochLock(ptr nocapture noundef readonly %0) local_unnam
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManTranStochUnlock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Gia_ManTranStochUnlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -166,7 +166,7 @@ define void @Gia_ManTranStochUnlock(ptr nocapture noundef readonly %0) local_unn
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Gia_ManTranStochOpt1(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Dar_RefPar_t_, align 4
   %4 = tail call ptr @Gia_ManDup(ptr noundef %1) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -321,10 +321,10 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 declare ptr @Gia_ManCompress2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @Gia_ManTranStochOpt2(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Sfm_Par_t_, align 4
   %3 = alloca %struct.If_Par_t_, align 8
   %4 = alloca %struct.Dar_RefPar_t_, align 4
@@ -516,7 +516,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @Gia_ManTranStochOpt3(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i32, ptr %3, align 8
@@ -1474,7 +1474,7 @@ declare ptr @Gia_ManTtopt(ptr noundef, i32 noundef, i32 noundef, i32 noundef) lo
 declare i32 @Abc_NtkToSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1483,16 +1483,16 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

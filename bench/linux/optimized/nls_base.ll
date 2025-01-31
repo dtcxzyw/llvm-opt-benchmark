@@ -48,7 +48,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_load_nls_def
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable___register_nls307, ptr @__UNIQUE_ID___addressable_load_nls310, ptr @__UNIQUE_ID___addressable_load_nls_default311, ptr @__UNIQUE_ID___addressable_unload_nls309, ptr @__UNIQUE_ID___addressable_unregister_nls308, ptr @__UNIQUE_ID___addressable_utf16s_to_utf8s306, ptr @__UNIQUE_ID___addressable_utf32_to_utf8304, ptr @__UNIQUE_ID___addressable_utf8_to_utf32303, ptr @__UNIQUE_ID___addressable_utf8s_to_utf16s305, ptr @__UNIQUE_ID_file312, ptr @__UNIQUE_ID_license313], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i32 1, 0) i32 @utf8_to_utf32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @utf8_to_utf32(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = zext i8 %4 to i64
@@ -180,7 +180,7 @@ define dso_local i32 @utf32_to_utf8(i32 noundef %0, ptr noundef writeonly %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @utf8s_to_utf16s(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp sgt i32 %1, 0
   %7 = icmp sgt i32 %4, 0
   %8 = and i1 %6, %7
@@ -331,7 +331,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @utf16s_to_utf8s(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp sgt i32 %4, 0
   %7 = icmp sgt i32 %1, 0
   %8 = and i1 %7, %6
@@ -769,13 +769,13 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #6 align 16 {
+define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #6 align 16 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %18, label %5
 
@@ -805,7 +805,7 @@ define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal range(i32 -22, 2) i32 @char2uni(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) #7 align 16 {
+define internal range(i32 -22, 2) i32 @char2uni(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 2)) %2) #7 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr [256 x i16], ptr @charset2uni, i64 0, i64 %5

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [12 x i8] c"can_include\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_indexam_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_indexam_has_property(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -44,7 +44,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @indexam_property(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @indexam_property(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   store i8 0, ptr %6, align 1
@@ -504,7 +504,7 @@ test_indoption.exit105:                           ; preds = %132, %136
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -518,7 +518,7 @@ define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -548,7 +548,7 @@ define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_indexam_progress_phasename(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_indexam_progress_phasename(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32

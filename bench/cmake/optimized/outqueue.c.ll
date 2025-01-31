@@ -28,7 +28,7 @@ get_options.exit:                                 ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @lzma_outq_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp ugt i32 %3, 16384
   %6 = icmp ugt i64 %2, 281474976710655
   %or.cond.i = or i1 %6, %5
@@ -95,7 +95,7 @@ get_options.exit:                                 ; preds = %4, %28, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lzma_outq_end(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @lzma_outq_end(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @lzma_free(ptr noundef %3, ptr noundef %1) #5
   store ptr null, ptr %0, align 8
@@ -111,7 +111,7 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @lzma_outq_get_buf(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local noundef ptr @lzma_outq_get_buf(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -143,7 +143,7 @@ define dso_local noundef ptr @lzma_outq_get_buf(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @lzma_outq_is_readable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @lzma_outq_is_readable(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -169,7 +169,7 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias nocapture noundef writeonly %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noalias noundef writeonly captures(none) %4, ptr noalias noundef writeonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

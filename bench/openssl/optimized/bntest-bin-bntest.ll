@@ -6656,7 +6656,7 @@ if.end27:                                         ; preds = %if.end22
   %res29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %7 = load ptr, ptr %res29, align 8
   %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
-  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3080, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef %call23, i64 noundef %call28, ptr noundef %7, i64 noundef %call31) #7
+  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3080, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %call23, i64 noundef %call28, ptr noundef nonnull %7, i64 noundef %call31) #7
   %tobool33.not = icmp ne i32 %call32, 0
   %spec.select = zext i1 %tobool33.not to i32
   br label %err
@@ -6747,7 +6747,7 @@ if.end27:                                         ; preds = %if.end22
   %res29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %10 = load ptr, ptr %res29, align 8
   %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3118, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef %call23, i64 noundef %call28, ptr noundef %10, i64 noundef %call31) #7
+  %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3118, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef nonnull %call23, i64 noundef %call28, ptr noundef nonnull %10, i64 noundef %call31) #7
   %tobool33.not = icmp ne i32 %call32, 0
   %spec.select = zext i1 %tobool33.not to i32
   br label %err
@@ -7075,7 +7075,7 @@ findattr.exit.i:                                  ; preds = %for.body.i.i
 if.then.i:                                        ; preds = %findattr.exit.i
   %func.i = getelementptr inbounds nuw i8, ptr %tp.013.i, i64 8
   %8 = load ptr, ptr %func.i, align 8
-  %call2.i = tail call i32 %8(ptr noundef %call1) #7
+  %call2.i = tail call i32 %8(ptr noundef nonnull %call1) #7
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then3.i, label %if.end18
 
@@ -7105,7 +7105,7 @@ if.end18:                                         ; preds = %if.then.i, %if.then
   %14 = load i32, ptr %numtests, align 4
   %inc19 = add nsw i32 %14, 1
   store i32 %inc19, ptr %numtests, align 4
-  tail call void @test_clearstanza(ptr noundef %call1) #7
+  tail call void @test_clearstanza(ptr noundef nonnull %call1) #7
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end18, %while.body
@@ -7194,7 +7194,7 @@ declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #2
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -7268,7 +7268,7 @@ declare i32 @test_BN_eq_word(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -7392,7 +7392,7 @@ declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 declare i32 @BN_are_coprime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -7422,7 +7422,7 @@ declare void @test_clearstanza(ptr noundef) local_unnamed_addr #2
 declare i32 @test_end_file(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_sum(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_sum(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1221, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -7868,7 +7868,7 @@ err:                                              ; preds = %equalBN.exit140.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_lshift1(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_lshift1(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1330, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8055,7 +8055,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_lshift(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_lshift(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1381, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8139,7 +8139,7 @@ err:                                              ; preds = %0, %lor.lhs.false24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_rshift(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_rshift(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1406, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8225,7 +8225,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_square(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_square(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1437, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8329,7 +8329,7 @@ err:                                              ; preds = %equalBN.exit25.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_product(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_product(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1497, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8440,7 +8440,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_quotient(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_quotient(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1535, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8629,7 +8629,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_modmul(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_modmul(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1617, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8790,7 +8790,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_modexp(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_modexp(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -8938,7 +8938,7 @@ err:                                              ; preds = %equalBN.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_exp(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_exp(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1724, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -8995,7 +8995,7 @@ err:                                              ; preds = %1, %lor.lhs.false16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_modsqrt(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_modsqrt(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1748, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -9080,7 +9080,7 @@ err:                                              ; preds = %if.then19, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @file_gcd(ptr nocapture noundef readonly %s) #1 {
+define internal range(i32 0, 2) i32 @file_gcd(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %call = tail call fastcc ptr @getBN(ptr noundef %s, ptr noundef nonnull @.str.640)
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1789, ptr noundef nonnull @.str.639, ptr noundef %call) #7
@@ -9137,7 +9137,7 @@ err:                                              ; preds = %1, %lor.lhs.false16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getBN(ptr nocapture noundef readonly %s, ptr noundef %attribute) unnamed_addr #1 {
+define internal fastcc ptr @getBN(ptr noundef readonly captures(none) %s, ptr noundef %attribute) unnamed_addr #1 {
 entry:
   %ret = alloca ptr, align 8
   %numpairs.i = getelementptr inbounds nuw i8, ptr %s, i64 36

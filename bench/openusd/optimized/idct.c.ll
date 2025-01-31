@@ -44,7 +44,7 @@ declare void @av1_highbd_iwht4x4_16_add_c(ptr noundef, ptr noundef, i32 noundef,
 declare void @av1_highbd_iwht4x4_1_add_c(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_4x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_4x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -81,7 +81,7 @@ av1_highbd_iwht4x4_add.exit:                      ; preds = %14, %13, %15
 declare void @av1_inv_txfm2d_add_4x4_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_4x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_4x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -95,7 +95,7 @@ define hidden void @av1_highbd_inv_txfm_add_4x8_c(ptr noundef %0, ptr noundef %1
 declare void @av1_inv_txfm2d_add_4x8_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_8x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_8x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -109,7 +109,7 @@ define hidden void @av1_highbd_inv_txfm_add_8x4_c(ptr noundef %0, ptr noundef %1
 declare void @av1_inv_txfm2d_add_8x4_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_16x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_16x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -123,7 +123,7 @@ define hidden void @av1_highbd_inv_txfm_add_16x32_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_16x32_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_32x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_32x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -137,7 +137,7 @@ define hidden void @av1_highbd_inv_txfm_add_32x16_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_32x16_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_16x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_16x4_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -151,7 +151,7 @@ define hidden void @av1_highbd_inv_txfm_add_16x4_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_16x4_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_4x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_4x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -165,7 +165,7 @@ define hidden void @av1_highbd_inv_txfm_add_4x16_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_4x16_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_32x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_32x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -179,7 +179,7 @@ define hidden void @av1_highbd_inv_txfm_add_32x8_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_32x8_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_8x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_8x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -193,7 +193,7 @@ define hidden void @av1_highbd_inv_txfm_add_8x32_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_8x32_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_32x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_32x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -207,7 +207,7 @@ define hidden void @av1_highbd_inv_txfm_add_32x64_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_32x64_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_64x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_64x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -221,7 +221,7 @@ define hidden void @av1_highbd_inv_txfm_add_64x32_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_64x32_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_16x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_16x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -235,7 +235,7 @@ define hidden void @av1_highbd_inv_txfm_add_16x64_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_16x64_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_64x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_64x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -249,7 +249,7 @@ define hidden void @av1_highbd_inv_txfm_add_64x16_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_64x16_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_8x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_8x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i8, ptr %3, align 4
@@ -263,7 +263,7 @@ define hidden void @av1_highbd_inv_txfm_add_8x8_c(ptr noundef %0, ptr noundef %1
 declare void @av1_inv_txfm2d_add_8x8_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_16x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_16x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i8, ptr %3, align 4
@@ -277,7 +277,7 @@ define hidden void @av1_highbd_inv_txfm_add_16x16_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_16x16_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_8x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_8x16_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -291,7 +291,7 @@ define hidden void @av1_highbd_inv_txfm_add_8x16_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_8x16_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_16x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_16x8_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   %6 = shl i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
@@ -305,7 +305,7 @@ define hidden void @av1_highbd_inv_txfm_add_16x8_c(ptr noundef %0, ptr noundef %
 declare void @av1_inv_txfm2d_add_16x8_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_32x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_32x32_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i8, ptr %3, align 4
@@ -319,7 +319,7 @@ define hidden void @av1_highbd_inv_txfm_add_32x32_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_32x32_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_64x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_64x64_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i8, ptr %3, align 4
@@ -333,7 +333,7 @@ define hidden void @av1_highbd_inv_txfm_add_64x64_c(ptr noundef %0, ptr noundef 
 declare void @av1_inv_txfm2d_add_64x64_c(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_highbd_inv_txfm_add_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_highbd_inv_txfm_add_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %av1_highbd_inv_txfm_add_4x4_c.exit [
@@ -573,7 +573,7 @@ av1_highbd_inv_txfm_add_4x4_c.exit:               ; preds = %116, %115, %114, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
 .preheader35.us.preheader:
   %4 = alloca [4096 x i16], align 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -655,7 +655,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr nocapture noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_inverse_transform_block(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define hidden void @av1_inverse_transform_block(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = alloca [4096 x i16], align 32
   %11 = alloca %struct.txfm_param, align 4
   %.not = icmp eq i32 %7, 0
@@ -827,10 +827,10 @@ av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -354,7 +354,7 @@ declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @tvb_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @subset_offset(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal i32 @subset_offset(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -365,7 +365,7 @@ define internal i32 @subset_offset(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @subset_get_ptr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal ptr @subset_get_ptr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -376,7 +376,7 @@ define internal ptr @subset_get_ptr(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @subset_memcpy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal ptr @subset_memcpy(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -388,7 +388,7 @@ define internal ptr @subset_memcpy(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @subset_find_guint8(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
+define internal i32 @subset_find_guint8(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -409,7 +409,7 @@ define internal i32 @subset_find_guint8(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @subset_pbrk_guint8(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @subset_pbrk_guint8(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -430,7 +430,7 @@ define internal i32 @subset_pbrk_guint8(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @subset_clone(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal ptr @subset_clone(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64

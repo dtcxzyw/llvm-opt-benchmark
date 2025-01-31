@@ -229,7 +229,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15btCompoundShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15btCompoundShapeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_dynamicAabbTree = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -637,7 +637,7 @@ if.end12:                                         ; preds = %if.then9, %if.end
 declare void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i32 noundef %childShapeIndex) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i32 noundef %childShapeIndex) local_unnamed_addr #0 align 2 {
 entry:
   %temp.sroa.0.i = alloca [4 x float], align 8
   %temp.sroa.2.i = alloca [4 x float], align 8
@@ -864,7 +864,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((64, 96)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((64, 96)) %this) unnamed_addr #0 align 2 {
 entry:
   %localAabbMin = alloca %class.btVector3, align 4
   %localAabbMax = alloca %class.btVector3, align 4
@@ -947,10 +947,10 @@ for.end48:                                        ; preds = %for.inc46, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btCompoundShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK15btCompoundShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trans, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMin, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #7 align 2 {
 entry:
   %m_localAabbMax = getelementptr inbounds nuw i8, ptr %this, i64 80
   %m_localAabbMin = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1091,7 +1091,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %inertia) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, float noundef %mass, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %inertia) unnamed_addr #7 align 2 {
 entry:
   %ident = alloca %class.btTransform, align 4
   %aabbMin = alloca %class.btVector3, align 4
@@ -1151,7 +1151,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPKfR11btTransformR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %masses, ptr noundef nonnull align 4 dereferenceable(64) %principal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPKfR11btTransformR9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly captures(none) %masses, ptr noundef nonnull align 4 dereferenceable(64) %principal, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %inertia) local_unnamed_addr #7 align 2 {
 entry:
   %tensor = alloca %class.btMatrix3x3, align 4
   %i = alloca %class.btVector3, align 4
@@ -1545,7 +1545,7 @@ for.end174:                                       ; preds = %for.inc173, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #7 align 2 {
+define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %scaling) unnamed_addr #7 align 2 {
 entry:
   %localAabbMin.i = alloca %class.btVector3, align 4
   %localAabbMax.i = alloca %class.btVector3, align 4
@@ -1694,7 +1694,7 @@ for.end:                                          ; preds = %_ZN15btCompoundShap
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
   %localAabbMin = alloca %class.btVector3, align 4
   %localAabbMax = alloca %class.btVector3, align 4
@@ -1961,13 +1961,13 @@ declare void @_ZNK16btCollisionShape20serializeSingleShapeEP12btSerializer(ptr n
 declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #11

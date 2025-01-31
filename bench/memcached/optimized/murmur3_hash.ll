@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @MurmurHash3_x86_32(ptr nocapture noundef readonly %key, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %key, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %div35 = lshr i64 %length, 2
   %conv = trunc i64 %div35 to i32

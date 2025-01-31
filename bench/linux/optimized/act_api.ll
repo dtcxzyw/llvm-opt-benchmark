@@ -152,10 +152,10 @@ define dso_local i32 @tcf_dev_queue_xmit(ptr noundef %0, ptr noundef %1) #0 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sch_frag_xmit_hook(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -324,7 +324,7 @@ define dso_local i32 @tcf_action_update_hw_stats(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #4
@@ -383,7 +383,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcf_idr_release(ptr noundef %0, i1
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_generic_walker(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 align 16 {
+define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 align 16 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -831,7 +831,7 @@ define dso_local i32 @tcf_generic_walker(ptr nocapture noundef readonly %0, ptr 
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @tcf_idr_search(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @tcf_idr_search(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   tail call void @mutex_lock(ptr noundef %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -883,7 +883,7 @@ declare dso_local ptr @idr_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_idr_create(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) #0 align 16 {
+define dso_local i32 @tcf_idr_create(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %7) #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3520) #15
@@ -1074,7 +1074,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_idr_create_from_flags(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local i32 @tcf_idr_create_from_flags(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   %8 = and i32 %6, 1
   %9 = icmp eq i32 %8, 0
   %10 = tail call i32 @tcf_idr_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %9, i32 noundef %6)
@@ -1082,7 +1082,7 @@ define dso_local i32 @tcf_idr_create_from_flags(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcf_idr_cleanup(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @tcf_idr_cleanup(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   tail call void @mutex_lock(ptr noundef %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1106,7 +1106,7 @@ define dso_local void @tcf_idr_cleanup(ptr nocapture noundef readonly %0, i32 no
 declare dso_local ptr @idr_remove(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_idr_check_alloc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @tcf_idr_check_alloc(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %1, align 4
   %7 = icmp eq i32 %6, 0
@@ -1224,7 +1224,7 @@ define dso_local i32 @tcf_idr_check_alloc(ptr nocapture noundef readonly %0, ptr
 declare dso_local i32 @idr_alloc_u32(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcf_idrinfo_destroy(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @tcf_idrinfo_destroy(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
@@ -1441,7 +1441,7 @@ declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_write_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -1523,7 +1523,7 @@ define dso_local noundef range(i32 -2, 1) i32 @tcf_unregister_action(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %6 = load i24, ptr %5, align 1
   %7 = and i24 %6, 4
@@ -1653,7 +1653,7 @@ declare dso_local i32 @net_ratelimit() local_unnamed_addr #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread8, label %.preheader
@@ -1990,7 +1990,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @tcf_action_dump_terse(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br i1 %4, label %.split.us, label %.split
@@ -2100,7 +2100,7 @@ define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcf_idr_insert_many(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tcf_idr_insert_many(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   br label %3
 
 3:                                                ; preds = %20, %2
@@ -2323,7 +2323,7 @@ declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) lo
 declare dso_local void @rtnl_lock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 align 16 {
+define dso_local ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 align 16 {
   %9 = alloca %struct.nla_bitfield32, align 8
   %10 = alloca %struct.nla_bitfield32, align 8
   %11 = alloca [12 x ptr], align 16
@@ -2511,7 +2511,7 @@ define dso_local ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 align 16 {
+define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 align 16 {
   %11 = alloca [32 x ptr], align 16
   %12 = alloca [33 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #14
@@ -3519,7 +3519,7 @@ declare dso_local void @tcf_chain_put_by_act(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3582,7 +3582,7 @@ declare dso_local void @tc_cleanup_offload_action(ptr noundef) local_unnamed_add
 declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 48, 51) %5, i32 noundef range(i32 0, 3) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 48, 51) %5, i32 noundef range(i32 0, 3) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4367,7 +4367,7 @@ define internal i32 @tc_dump_action(ptr noundef %0, ptr noundef %1) #0 align 16 
 declare dso_local zeroext i1 @netlink_capable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 49, 51) %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 49, 51) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca [12 x ptr], align 16
   %8 = alloca ptr, align 8
   %9 = alloca %struct.netlink_callback, align 8

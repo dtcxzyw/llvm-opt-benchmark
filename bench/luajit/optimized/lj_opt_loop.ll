@@ -160,7 +160,7 @@ return:                                           ; preds = %for.body24.i, %for.
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cploop_opt(ptr nocapture readnone %L, ptr nocapture readnone %dummy, ptr nocapture noundef initializes((8, 20)) %ud) #0 {
+define internal noalias noundef ptr @cploop_opt(ptr readnone captures(none) %L, ptr readnone captures(none) %dummy, ptr noundef captures(none) initializes((8, 20)) %ud) #0 {
 entry:
   %phi.i = alloca [64 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %phi.i)
@@ -1154,10 +1154,10 @@ declare hidden void @lj_snap_grow_map_(ptr noundef, i32 noundef) local_unnamed_a
 declare hidden void @lj_ir_rollback(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

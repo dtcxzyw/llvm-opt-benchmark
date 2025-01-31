@@ -205,7 +205,7 @@ if.end131:                                        ; preds = %if.end116
   %salt = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %33 = load ptr, ptr %salt, align 8
   %call135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr132) #6
-  %call136 = call i32 @sodium_base642bin(ptr noundef %33, i64 noundef %conv, ptr noundef %add.ptr132, i64 noundef %call135, ptr noundef null, ptr noundef nonnull %bin_len, ptr noundef nonnull %str_end, i32 noundef 3) #7
+  %call136 = call i32 @sodium_base642bin(ptr noundef %33, i64 noundef %conv, ptr noundef nonnull %add.ptr132, i64 noundef %call135, ptr noundef null, ptr noundef nonnull %bin_len, ptr noundef nonnull %str_end, i32 noundef 3) #7
   %cmp137 = icmp ne i32 %call136, 0
   %34 = load i64, ptr %bin_len, align 8
   %cmp140 = icmp ugt i64 %34, 4294967295
@@ -225,7 +225,7 @@ if.end153:                                        ; preds = %if.end143
   store i64 %conv1, ptr %bin_len157, align 8
   %36 = load ptr, ptr %ctx, align 8
   %call159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr154) #6
-  %call160 = call i32 @sodium_base642bin(ptr noundef %36, i64 noundef %conv1, ptr noundef %add.ptr154, i64 noundef %call159, ptr noundef null, ptr noundef nonnull %bin_len157, ptr noundef nonnull %str_end158, i32 noundef 3) #7
+  %call160 = call i32 @sodium_base642bin(ptr noundef %36, i64 noundef %conv1, ptr noundef nonnull %add.ptr154, i64 noundef %call159, ptr noundef null, ptr noundef nonnull %bin_len157, ptr noundef nonnull %str_end158, i32 noundef 3) #7
   %cmp161 = icmp ne i32 %call160, 0
   %37 = load i64, ptr %bin_len157, align 8
   %cmp164 = icmp ugt i64 %37, 4294967295
@@ -252,10 +252,10 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %str, ptr nocapture noundef nonnull writeonly %v) unnamed_addr #2 {
+define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly %str, ptr noundef nonnull writeonly captures(none) %v) unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %str, align 1
   %1 = add i8 %0, -58
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 declare i32 @sodium_base642bin(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @_sodium_argon2_validate_inputs(ptr noundef) local_unnamed_addr #3
 
@@ -556,15 +556,15 @@ return:                                           ; preds = %if.end127, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @sodium_bin2base64(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

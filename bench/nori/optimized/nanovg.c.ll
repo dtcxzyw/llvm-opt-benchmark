@@ -185,7 +185,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.nvgGlobalCompositeOperation.32 = private unnamed_addr constant [11 x i64] [i64 549755813888, i64 4294967296, i64 4294967296, i64 549755813888, i64 8589934592, i64 274877906944, i64 549755813888, i64 274877906944, i64 8589934592, i64 4294967296, i64 549755813888], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %stbtt__isfont.exit.thread18 [
     i8 49, label %4
@@ -361,7 +361,7 @@ stbtt__isfont.exit.thread18:                      ; preds = %16, %23, %19, %62, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef writeonly captures(none) initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1071,7 +1071,7 @@ stbtt__find_table.exit156.thread:                 ; preds = %338, %stbtt__find_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1441,14 +1441,14 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %5 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %4, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2408,7 +2408,7 @@ fons__tmpalloc.exit.thread:                       ; preds = %fons__tmpalloc.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp slt i32 %1, %8
@@ -2590,14 +2590,14 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %79, %9, %6, %117, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp slt i32 %1, %4
@@ -2714,13 +2714,13 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %75, %5, %2, %78
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2839,7 +2839,7 @@ define dso_local void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2957,7 +2957,7 @@ define dso_local range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -3077,7 +3077,7 @@ stbtt_GetGlyphKernAdvance.exit:                   ; preds = %77, %68, %27, %20, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local void @stbtt_GetCodepointHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
   %5 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3197,7 +3197,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %34, %62, %.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -3271,7 +3271,7 @@ define dso_local void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3334,7 +3334,7 @@ define dso_local void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local float @stbtt_ScaleForPixelHeight(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #6 {
+define dso_local float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3366,7 +3366,7 @@ define dso_local float @stbtt_ScaleForPixelHeight(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local float @stbtt_ScaleForMappingEmToPixels(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #6 {
+define dso_local float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3387,12 +3387,12 @@ define dso_local float @stbtt_ScaleForMappingEmToPixels(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @stbtt_FreeShape(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local void @stbtt_FreeShape(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #4 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -3493,7 +3493,7 @@ define dso_local void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetGlyphBitmapBox(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3602,7 +3602,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %43, %.sink.spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #5 {
+define dso_local void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #5 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -3712,13 +3712,13 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetCodepointBitmapBox(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
+define dso_local void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef %11) local_unnamed_addr #3 {
+define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11) local_unnamed_addr #3 {
   %13 = alloca ptr, align 8
   %14 = alloca [129 x float], align 16
   %.sroa.3.i.i.i = alloca { float, float, i32 }, align 8
@@ -6207,12 +6207,12 @@ stbtt__rasterize.exit:                            ; preds = %stbtt__rasterize_so
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @stbtt_FreeBitmap(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local void @stbtt_FreeBitmap(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #3 {
+define dso_local ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #3 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -6362,13 +6362,13 @@ fons__tmpalloc.exit.thread:                       ; preds = %68, %71, %10, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbtt_GetGlyphBitmap(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define dso_local ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 {
+define dso_local void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -6429,41 +6429,41 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %10, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stbtt_MakeGlyphBitmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define dso_local void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbtt_GetCodepointBitmapSubpixel(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 {
+define dso_local ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %5)
   %12 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %11, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stbtt_MakeCodepointBitmapSubpixel(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 {
+define dso_local void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %9)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define dso_local ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %3)
   %10 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define dso_local void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %7)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #3 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -6654,10 +6654,10 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #11 {
+define dso_local void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #11 {
   %.not = icmp eq i32 %7, 0
   %9 = select i1 %.not, float -5.000000e-01, float 0.000000e+00
   %10 = sitofp i32 %1 to float
@@ -6739,7 +6739,7 @@ define dso_local void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 20616
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, 32
@@ -6847,12 +6847,12 @@ fons__tmpalloc.exit54:                            ; preds = %fons__tmpalloc.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @stbtt_PackEnd(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define dso_local void @stbtt_PackEnd(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @stbtt_PackSetOversampling(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define dso_local void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp ult i32 %1, 9
   br i1 %4, label %5, label %7
 
@@ -6875,7 +6875,7 @@ define dso_local void @stbtt_PackSetOversampling(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
+define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph85, label %._crit_edge86
 
@@ -7187,7 +7187,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #3 {
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca ptr, align 8
@@ -8188,7 +8188,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_PackFontRangesPackRects(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define dso_local void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp sgt i32 %2, 0
@@ -8288,7 +8288,7 @@ stbrp_pack_rects.exit:                            ; preds = %42, %.lr.ph43.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbtt_fontinfo, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.preheader53.preheader, label %._crit_edge60
@@ -8494,7 +8494,7 @@ fons__tmpalloc.exit.thread:                       ; preds = %36, %39, %fons__tmp
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca %struct.stbtt_pack_range, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %4, ptr %9, align 4
@@ -8510,7 +8510,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #11 {
+define dso_local void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #11 {
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds %struct.stbtt_packedchar, ptr %0, i64 %9
   %.not = icmp eq i32 %7, 0
@@ -8610,7 +8610,7 @@ define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
@@ -8618,7 +8618,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #14 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #14 {
   %.not84 = icmp eq i32 %3, 0
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
@@ -8796,7 +8796,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @stbtt_GetFontNameString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define dso_local ptr @stbtt_GetFontNameString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8990,7 +8990,7 @@ stbtt__find_table.exit.thread:                    ; preds = %39, %127, %58, %6, 
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
+define dso_local i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 {
   %invariant.gep = getelementptr i8, ptr %0, i64 45
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
@@ -9239,32 +9239,32 @@ stbtt__find_table.exit60.i:                       ; preds = %120
   br i1 %.not39.i, label %150, label %144
 
 144:                                              ; preds = %143
-  %145 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
+  %145 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
   %.not45.i = icmp eq i32 %145, 0
   br i1 %.not45.i, label %146, label %stbtt__matches.exit
 
 146:                                              ; preds = %144
-  %147 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
+  %147 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
   %.not46.i = icmp eq i32 %147, 0
   br i1 %.not46.i, label %148, label %stbtt__matches.exit
 
 148:                                              ; preds = %146
-  %149 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %149 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not47.i = icmp eq i32 %149, 0
   br i1 %.not47.i, label %.loopexit, label %stbtt__matches.exit
 
 150:                                              ; preds = %143
-  %151 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
+  %151 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
   %.not42.i = icmp eq i32 %151, 0
   br i1 %.not42.i, label %152, label %stbtt__matches.exit
 
 152:                                              ; preds = %150
-  %153 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
+  %153 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
   %.not43.i = icmp eq i32 %153, 0
   br i1 %.not43.i, label %154, label %stbtt__matches.exit
 
 154:                                              ; preds = %152
-  %155 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %155 = tail call fastcc i32 @stbtt__matchpair(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
   %.not44.i = icmp eq i32 %155, 0
   br i1 %.not44.i, label %.loopexit, label %stbtt__matches.exit
 
@@ -9280,24 +9280,24 @@ stbtt__matches.exit:                              ; preds = %.loopexit, %144, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @fons__tt_init(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define dso_local noundef i32 @fons__tt_init(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @fons__tt_done(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define dso_local noundef i32 @fons__tt_done(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @fons__tt_loadFont(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 20)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @fons__tt_loadFont(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 20)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   store ptr %0, ptr %1, align 8
   %5 = tail call i32 @stbtt_InitFont(ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @fons__tt_getFontVMetrics(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define dso_local void @fons__tt_getFontVMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %19, label %5
 
@@ -9371,7 +9371,7 @@ stbtt_GetFontVMetrics.exit:                       ; preds = %34, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local float @fons__tt_getPixelHeightScale(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #6 {
+define dso_local float @fons__tt_getPixelHeightScale(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -9403,13 +9403,13 @@ define dso_local float @fons__tt_getPixelHeightScale(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @fons__tt_getGlyphIndex(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @fons__tt_getGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @fons__tt_buildGlyphBitmap(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #4 {
+define dso_local noundef i32 @fons__tt_buildGlyphBitmap(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #4 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -9529,13 +9529,13 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %39, %67, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fons__tt_renderGlyphBitmap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define dso_local void @fons__tt_renderGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -32768, 32768) i32 @fons__tt_getGlyphKernAdvance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -32768, 32768) i32 @fons__tt_getGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -9653,7 +9653,7 @@ stbtt_GetGlyphKernAdvance.exit:                   ; preds = %75, %3, %10, %18, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @fonsCreateInternal(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local noundef ptr @fonsCreateInternal(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = tail call noalias dereferenceable_or_null(21120) ptr @malloc(i64 noundef 21120) #59
@@ -9830,7 +9830,7 @@ fonsPushState.exit:                               ; preds = %66, %49
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fonsPushState(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @fonsPushState(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 19
@@ -9874,7 +9874,7 @@ define dso_local void @fonsPushState(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsClearState(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define dso_local void @fonsClearState(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20620
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
@@ -10028,7 +10028,7 @@ fons__deleteAtlas.exit:                           ; preds = %37, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @fonsAddFallbackFont(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define dso_local range(i32 0, 2) i32 @fonsAddFallbackFont(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -10054,7 +10054,7 @@ define dso_local range(i32 0, 2) i32 @fonsAddFallbackFont(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetSize(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetSize(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
@@ -10067,7 +10067,7 @@ define dso_local void @fonsSetSize(ptr nocapture noundef %0, float noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetColor(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetColor(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
@@ -10080,7 +10080,7 @@ define dso_local void @fonsSetColor(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetSpacing(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetSpacing(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
@@ -10093,7 +10093,7 @@ define dso_local void @fonsSetSpacing(ptr nocapture noundef %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetBlur(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetBlur(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
@@ -10106,7 +10106,7 @@ define dso_local void @fonsSetBlur(ptr nocapture noundef %0, float noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetAlign(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetAlign(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
@@ -10119,7 +10119,7 @@ define dso_local void @fonsSetAlign(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsSetFont(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @fonsSetFont(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20620
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %5 = load i32, ptr %4, align 4
@@ -10131,7 +10131,7 @@ define dso_local void @fonsSetFont(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fonsPopState(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @fonsPopState(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 2
@@ -10159,7 +10159,7 @@ define dso_local void @fonsPopState(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.10)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread35, label %6
@@ -10199,22 +10199,22 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #18
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFontMem(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFontMem(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10381,13 +10381,13 @@ fons__allocFont.exit.thread:                      ; preds = %19, %fons__freeFont
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @fonsGetFontByName(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -10423,7 +10423,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsGetFontByName(ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
@@ -11002,10 +11002,10 @@ fons__flush.exit80:                               ; preds = %377, %364, %27, %5,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
-define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %1, float noundef %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
+define dso_local float @fonsTextBounds(ptr noundef captures(none) %0, float noundef %1, float noundef %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = alloca %struct.FONSquad, align 4
@@ -11344,7 +11344,7 @@ fons__decutf8.exit:                               ; preds = %135, %139
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @fons__getGlyph(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i16 noundef signext %3, i16 noundef signext %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc noundef ptr @fons__getGlyph(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i16 noundef signext %3, i16 noundef signext %4, i32 noundef %5) unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11986,7 +11986,7 @@ fons__blur.exit:                                  ; preds = %.preheader.i23.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fons__getQuad(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, float noundef %4, float noundef %5, ptr nocapture noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #5 {
+define internal fastcc void @fons__getQuad(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, float noundef %4, float noundef %5, ptr noundef captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef writeonly captures(none) %8) unnamed_addr #5 {
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %92, label %10
 
@@ -12217,7 +12217,7 @@ fons__tt_getGlyphKernAdvance.exit:                ; preds = %84, %10, %19, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 80)) %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @fonsTextIterInit(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 80)) %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20620
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %10 = load i32, ptr %9, align 4
@@ -12459,7 +12459,7 @@ fons__getVertAlign.exit:                          ; preds = %87, %95, %105, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @fonsTextIterNext(ptr nocapture noundef %0, ptr nocapture noundef initializes((48, 56)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @fonsTextIterNext(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((48, 56)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -13314,7 +13314,7 @@ fons__flush.exit125:                              ; preds = %520, %529
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @fonsVertMetrics(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
+define dso_local void @fonsVertMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20620
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %7 = load i32, ptr %6, align 4
@@ -13390,7 +13390,7 @@ define dso_local void @fonsVertMetrics(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define dso_local void @fonsLineBounds(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20620
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21100
   %7 = load i32, ptr %6, align 4
@@ -13566,7 +13566,7 @@ define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @fonsGetTextureData(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
+define dso_local ptr @fonsGetTextureData(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -13592,7 +13592,7 @@ define dso_local ptr @fonsGetTextureData(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @fonsValidateTexture(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @fonsValidateTexture(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -13650,7 +13650,7 @@ define dso_local void @fonsSetErrorCallback(ptr noundef writeonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fonsGetAtlasSize(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
+define dso_local void @fonsGetAtlasSize(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -14167,7 +14167,7 @@ fons__addWhiteRect.exit:                          ; preds = %._crit_edge, %111
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @stbi_failure_reason() local_unnamed_addr #24 {
@@ -14176,7 +14176,7 @@ define dso_local ptr @stbi_failure_reason() local_unnamed_addr #24 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @stbi_image_free(ptr nocapture noundef %0) local_unnamed_addr #25 {
+define dso_local void @stbi_image_free(ptr noundef captures(none) %0) local_unnamed_addr #25 {
   tail call void @free(ptr noundef %0) #57
   ret void
 }
@@ -14188,7 +14188,7 @@ define dso_local void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
@@ -14261,7 +14261,7 @@ stbi_load_from_file.exit:                         ; preds = %stbi__start_file.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -14318,7 +14318,7 @@ stbi__start_file.exit:                            ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
   %8 = call fastcc ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7, i32 noundef 8)
@@ -14454,7 +14454,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_from_file_16(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -14511,7 +14511,7 @@ stbi__start_file.exit:                            ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stbi__result_info, align 4
   %8 = call fastcc ptr @stbi__load_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %7, i32 noundef 16)
@@ -14649,7 +14649,7 @@ stbi__vertical_flip.exit:                         ; preds = %._crit_edge.i29, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_16(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
@@ -14722,7 +14722,7 @@ stbi_load_from_file_16.exit:                      ; preds = %stbi__start_file.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
@@ -14743,7 +14743,7 @@ define dso_local ptr @stbi_load_16_from_memory(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -14785,7 +14785,7 @@ stbi__start_callbacks.exit:                       ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
@@ -14806,7 +14806,7 @@ define dso_local ptr @stbi_load_from_memory(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local ptr @stbi_load_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -14848,7 +14848,7 @@ stbi__start_callbacks.exit:                       ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = alloca [2048 x i8], align 16
   %10 = alloca %struct.stbi__gif, align 8
   %11 = alloca %struct.stbi__context, align 8
@@ -15076,7 +15076,7 @@ stbi__vertical_flip_slices.exit:                  ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
@@ -15097,7 +15097,7 @@ define dso_local noundef ptr @stbi_loadf_from_memory(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__loadf_main(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__loadf_main(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [2048 x i8], align 16
   %7 = tail call fastcc i32 @stbi__hdr_test(ptr noundef %0)
   %.not = icmp eq i32 %7, 0
@@ -15322,7 +15322,7 @@ stbi__float_postprocess.exit:                     ; preds = %.loopexit.i, %stbi_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbi__context, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -15364,7 +15364,7 @@ stbi__start_callbacks.exit:                       ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %7, null
@@ -15422,7 +15422,7 @@ stbi_loadf_from_file.exit:                        ; preds = %19, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @stbi__stdio_callbacks, i64 24, i1 false)
@@ -15644,7 +15644,7 @@ stbi__hdr_test_core.exit20:                       ; preds = %stbi__get8.exit.i13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %3, null
@@ -15744,7 +15744,7 @@ stbi__start_file.exit:                            ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -17471,7 +17471,7 @@ define dso_local void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stbi__context, align 8
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %6, null
@@ -17806,7 +17806,7 @@ stbi__bmp_info.exit.thread:                       ; preds = %84, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stbi__context, align 8
   %3 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %3, null
@@ -18368,7 +18368,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_memory(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__context, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -18431,7 +18431,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stbi__context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -18473,7 +18473,7 @@ stbi__start_callbacks.exit:                       ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %0) local_unnamed_addr #27 {
+define dso_local noundef ptr @nvgCreateInternal(ptr noundef readonly captures(none) %0) local_unnamed_addr #27 {
   %2 = alloca %struct.FONSparams, align 8
   %3 = tail call noalias dereferenceable_or_null(8920) ptr @malloc(i64 noundef 8920) #59
   %4 = icmp eq ptr %3, null
@@ -18676,7 +18676,7 @@ nvgSave.exit:                                     ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgSave(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define dso_local void @nvgSave(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 31
@@ -18708,7 +18708,7 @@ define dso_local void @nvgSave(ptr nocapture noundef %0) local_unnamed_addr #11 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #28 {
+define dso_local void @nvgReset(ptr noundef captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
@@ -18908,7 +18908,7 @@ define dso_local noundef ptr @nvgInternalParams(ptr noundef readnone returned %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgDeleteImage(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @nvgDeleteImage(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -18917,7 +18917,7 @@ define dso_local void @nvgDeleteImage(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgBeginFrame(ptr nocapture noundef initializes((136, 408), (8840, 8844), (8856, 8872), (8900, 8916)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #27 {
+define dso_local void @nvgBeginFrame(ptr noundef captures(none) initializes((136, 408), (8840, 8844), (8856, 8872), (8900, 8916)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #27 {
 nvgSave.exit:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   store i32 1, ptr %4, align 8
@@ -19012,7 +19012,7 @@ nvgSave.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgCancelFrame(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local void @nvgCancelFrame(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -19021,7 +19021,7 @@ define dso_local void @nvgCancelFrame(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @nvgEndFrame(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -19135,7 +19135,7 @@ define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgImageSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local void @nvgImageSize(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -19419,7 +19419,7 @@ nvg__hue.exit35:                                  ; preds = %71, %75, %77, %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgTransformIdentity(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #12 {
+define dso_local void @nvgTransformIdentity(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #12 {
   store float 1.000000e+00, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -19435,7 +19435,7 @@ define dso_local void @nvgTransformIdentity(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgTransformTranslate(ptr nocapture noundef writeonly initializes((0, 24)) %0, float noundef %1, float noundef %2) local_unnamed_addr #12 {
+define dso_local void @nvgTransformTranslate(ptr noundef writeonly captures(none) initializes((0, 24)) %0, float noundef %1, float noundef %2) local_unnamed_addr #12 {
   store float 1.000000e+00, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %4, align 4
@@ -19451,7 +19451,7 @@ define dso_local void @nvgTransformTranslate(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgTransformScale(ptr nocapture noundef writeonly initializes((0, 24)) %0, float noundef %1, float noundef %2) local_unnamed_addr #12 {
+define dso_local void @nvgTransformScale(ptr noundef writeonly captures(none) initializes((0, 24)) %0, float noundef %1, float noundef %2) local_unnamed_addr #12 {
   store float %1, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %4, align 4
@@ -19467,7 +19467,7 @@ define dso_local void @nvgTransformScale(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformRotate(ptr nocapture noundef writeonly initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
+define dso_local void @nvgTransformRotate(ptr noundef writeonly captures(none) initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
   %3 = tail call float @cosf(float noundef %1) #57
   %4 = tail call float @sinf(float noundef %1) #57
   store float %3, ptr %0, align 4
@@ -19486,7 +19486,7 @@ define dso_local void @nvgTransformRotate(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformSkewX(ptr nocapture noundef writeonly initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
+define dso_local void @nvgTransformSkewX(ptr noundef writeonly captures(none) initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %3, align 4
@@ -19503,7 +19503,7 @@ define dso_local void @nvgTransformSkewX(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformSkewY(ptr nocapture noundef writeonly initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
+define dso_local void @nvgTransformSkewY(ptr noundef writeonly captures(none) initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #32 {
   store float 1.000000e+00, ptr %0, align 4
   %3 = tail call float @tanf(float noundef %1) #57
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -19520,7 +19520,7 @@ define dso_local void @nvgTransformSkewY(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTransformMultiply(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define dso_local void @nvgTransformMultiply(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -19571,7 +19571,7 @@ define dso_local void @nvgTransformMultiply(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTransformPremultiply(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define dso_local void @nvgTransformPremultiply(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %.sroa.0.0.copyload = load float, ptr %1, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -19618,7 +19618,7 @@ define dso_local void @nvgTransformPremultiply(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -19718,7 +19718,7 @@ define dso_local range(i32 0, 2) i32 @nvgTransformInverse(ptr nocapture noundef 
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTransformPoint(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
+define dso_local void @nvgTransformPoint(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(none) %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
   %6 = load float, ptr %2, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load float, ptr %7, align 4
@@ -19756,7 +19756,7 @@ define dso_local noundef float @nvgRadToDeg(float noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgRestore(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define dso_local void @nvgRestore(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 2
@@ -19772,7 +19772,7 @@ define dso_local void @nvgRestore(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgShapeAntiAlias(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgShapeAntiAlias(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19785,7 +19785,7 @@ define dso_local void @nvgShapeAntiAlias(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgStrokeWidth(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgStrokeWidth(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19798,7 +19798,7 @@ define dso_local void @nvgStrokeWidth(ptr nocapture noundef %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgMiterLimit(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgMiterLimit(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19811,7 +19811,7 @@ define dso_local void @nvgMiterLimit(ptr nocapture noundef %0, float noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgLineCap(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgLineCap(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19824,7 +19824,7 @@ define dso_local void @nvgLineCap(ptr nocapture noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgLineJoin(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgLineJoin(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19837,7 +19837,7 @@ define dso_local void @nvgLineJoin(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgGlobalAlpha(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgGlobalAlpha(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -19850,7 +19850,7 @@ define dso_local void @nvgGlobalAlpha(ptr nocapture noundef %0, float noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTransform(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #11 {
+define dso_local void @nvgTransform(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #11 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, -1
@@ -19893,7 +19893,7 @@ define dso_local void @nvgTransform(ptr nocapture noundef %0, float noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgResetTransform(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define dso_local void @nvgResetTransform(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -19916,7 +19916,7 @@ define dso_local void @nvgResetTransform(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTranslate(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
+define dso_local void @nvgTranslate(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -19957,7 +19957,7 @@ define dso_local void @nvgTranslate(ptr nocapture noundef %0, float noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgRotate(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
+define dso_local void @nvgRotate(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -20003,7 +20003,7 @@ define dso_local void @nvgRotate(ptr nocapture noundef %0, float noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgSkewX(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
+define dso_local void @nvgSkewX(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -20043,7 +20043,7 @@ define dso_local void @nvgSkewX(ptr nocapture noundef %0, float noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgSkewY(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
+define dso_local void @nvgSkewY(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -20085,7 +20085,7 @@ define dso_local void @nvgSkewY(ptr nocapture noundef %0, float noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgScale(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
+define dso_local void @nvgScale(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -20126,7 +20126,7 @@ define dso_local void @nvgScale(ptr nocapture noundef %0, float noundef %1, floa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgCurrentTransform(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
+define dso_local void @nvgCurrentTransform(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 
@@ -20146,7 +20146,7 @@ define dso_local void @nvgCurrentTransform(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgStrokeColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
+define dso_local void @nvgStrokeColor(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -20181,7 +20181,7 @@ define dso_local void @nvgStrokeColor(ptr nocapture noundef %0, <2 x float> %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgStrokePaint(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.NVGpaint) align 8 %1) local_unnamed_addr #11 {
+define dso_local void @nvgStrokePaint(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.NVGpaint) align 8 captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
@@ -20237,7 +20237,7 @@ define dso_local void @nvgStrokePaint(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFillColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
+define dso_local void @nvgFillColor(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -20272,7 +20272,7 @@ define dso_local void @nvgFillColor(ptr nocapture noundef %0, <2 x float> %1, <2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFillPaint(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.NVGpaint) align 8 %1) local_unnamed_addr #11 {
+define dso_local void @nvgFillPaint(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.NVGpaint) align 8 captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
@@ -20328,7 +20328,7 @@ define dso_local void @nvgFillPaint(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nvgCreateImage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local i32 @nvgCreateImage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -20354,7 +20354,7 @@ define dso_local i32 @nvgCreateImage(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nvgCreateImageRGBA(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local i32 @nvgCreateImageRGBA(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -20363,7 +20363,7 @@ define dso_local i32 @nvgCreateImageRGBA(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nvgCreateImageMem(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local i32 @nvgCreateImageMem(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stbi__context, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -20404,7 +20404,7 @@ define dso_local i32 @nvgCreateImageMem(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgUpdateImage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local void @nvgUpdateImage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20421,7 +20421,7 @@ define dso_local void @nvgUpdateImage(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 initializes((0, 76)) %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
+define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias writable writeonly sret(%struct.NVGpaint) align 4 captures(none) initializes((0, 76)) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %11, align 4
   %12 = fsub float %4, %2
@@ -20472,7 +20472,7 @@ define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 initializes((0, 76)) %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
+define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias writable writeonly sret(%struct.NVGpaint) align 4 captures(none) initializes((0, 76)) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
   %11 = fadd float %4, %5
   %12 = fmul float %11, 5.000000e-01
   %13 = fsub float %5, %4
@@ -20511,7 +20511,7 @@ define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 initializes((0, 76)) %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, <2 x float> %8, <2 x float> %9, ptr nocapture noundef readonly byval(%struct.NVGcolor) align 8 %10) local_unnamed_addr #28 {
+define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias writable writeonly sret(%struct.NVGpaint) align 4 captures(none) initializes((0, 76)) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, <2 x float> %8, <2 x float> %9, ptr noundef readonly byval(%struct.NVGcolor) align 8 captures(none) %10) local_unnamed_addr #28 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %12, align 4
   store float 1.000000e+00, ptr %0, align 4
@@ -20549,7 +20549,7 @@ define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias nocapture writable sret(%struct.NVGpaint) align 4 initializes((0, 76)) %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #35 {
+define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias writable sret(%struct.NVGpaint) align 4 captures(none) initializes((0, 76)) %0, ptr noundef readnone captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #35 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 24, i1 false)
   %11 = tail call float @cosf(float noundef %6) #57
@@ -20583,7 +20583,7 @@ define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias nocapture writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgScissor(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
+define dso_local void @nvgScissor(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %8 = load i32, ptr %7, align 8
@@ -20642,7 +20642,7 @@ define dso_local void @nvgScissor(ptr nocapture noundef %0, float noundef %1, fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgIntersectScissor(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
+define dso_local void @nvgIntersectScissor(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #11 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %8 = load i32, ptr %7, align 8
@@ -20868,7 +20868,7 @@ nvgTransformInverse.exit:                         ; preds = %.nvgTransformInvers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgResetScissor(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define dso_local void @nvgResetScissor(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
@@ -20885,7 +20885,7 @@ define dso_local void @nvgResetScissor(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgGlobalCompositeOperation(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgGlobalCompositeOperation(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, 11
@@ -20914,7 +20914,7 @@ nvg__compositeOperationState.exit:                ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgGlobalCompositeBlendFunc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define dso_local void @nvgGlobalCompositeBlendFunc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %6 = load i32, ptr %5, align 8
@@ -20932,7 +20932,7 @@ define dso_local void @nvgGlobalCompositeBlendFunc(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgGlobalCompositeBlendFuncSeparate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
+define dso_local void @nvgGlobalCompositeBlendFuncSeparate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #11 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %8 = load i32, ptr %7, align 8
@@ -20950,7 +20950,7 @@ define dso_local void @nvgGlobalCompositeBlendFuncSeparate(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgBeginPath(ptr nocapture noundef initializes((124, 128)) %0) local_unnamed_addr #36 {
+define dso_local void @nvgBeginPath(ptr noundef captures(none) initializes((124, 128)) %0) local_unnamed_addr #36 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8848
@@ -20964,7 +20964,7 @@ define dso_local void @nvgBeginPath(ptr nocapture noundef initializes((124, 128)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgMoveTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #3 {
+define dso_local void @nvgMoveTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = alloca [3 x float], align 4
   store float 0.000000e+00, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -20976,7 +20976,7 @@ define dso_local void @nvgMoveTo(ptr nocapture noundef %0, float noundef %1, flo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__appendCommands(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @nvg__appendCommands(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %6 = load i32, ptr %5, align 8
@@ -21180,7 +21180,7 @@ define internal fastcc void @nvg__appendCommands(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgLineTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #3 {
+define dso_local void @nvgLineTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = alloca [3 x float], align 4
   store float 1.000000e+00, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -21192,7 +21192,7 @@ define dso_local void @nvgLineTo(ptr nocapture noundef %0, float noundef %1, flo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgBezierTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #3 {
+define dso_local void @nvgBezierTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #3 {
   %8 = alloca [7 x float], align 16
   store float 2.000000e+00, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -21212,7 +21212,7 @@ define dso_local void @nvgBezierTo(ptr nocapture noundef %0, float noundef %1, f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgQuadTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
+define dso_local void @nvgQuadTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = alloca [7 x float], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load float, ptr %7, align 8
@@ -21244,7 +21244,7 @@ define dso_local void @nvgQuadTo(ptr nocapture noundef %0, float noundef %1, flo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgArcTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #3 {
+define dso_local void @nvgArcTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #3 {
   %7 = alloca [3 x float], align 4
   %8 = alloca [3 x float], align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -21395,7 +21395,7 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgArc(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define dso_local void @nvgArc(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = alloca [138 x float], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %10 = load i32, ptr %9, align 4
@@ -21536,7 +21536,7 @@ define dso_local void @nvgArc(ptr nocapture noundef %0, float noundef %1, float 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgClosePath(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @nvgClosePath(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca [1 x float], align 4
   store i32 1077936128, ptr %2, align 4
   call fastcc void @nvg__appendCommands(ptr noundef %0, ptr noundef %2, i32 noundef 1)
@@ -21544,7 +21544,7 @@ define dso_local void @nvgClosePath(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgPathWinding(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @nvgPathWinding(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca [2 x float], align 4
   store float 4.000000e+00, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -21555,7 +21555,7 @@ define dso_local void @nvgPathWinding(ptr nocapture noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgRect(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
+define dso_local void @nvgRect(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = alloca [13 x float], align 16
   store float 0.000000e+00, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -21589,13 +21589,13 @@ define dso_local void @nvgRect(ptr nocapture noundef %0, float noundef %1, float
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgRoundedRect(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #3 {
+define dso_local void @nvgRoundedRect(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #3 {
   tail call void @nvgRoundedRectVarying(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %5, float noundef %5, float noundef %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #3 {
+define dso_local void @nvgRoundedRectVarying(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #3 {
   %10 = alloca [13 x float], align 16
   %11 = alloca [44 x float], align 16
   %12 = fcmp olt float %5, 0x3FB99999A0000000
@@ -21792,7 +21792,7 @@ define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgEllipse(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
+define dso_local void @nvgEllipse(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = alloca [32 x float], align 16
   store float 0.000000e+00, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -21872,7 +21872,7 @@ define dso_local void @nvgEllipse(ptr nocapture noundef %0, float noundef %1, fl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgCircle(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
+define dso_local void @nvgCircle(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = alloca [32 x float], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 16
@@ -21953,7 +21953,7 @@ define dso_local void @nvgCircle(ptr nocapture noundef %0, float noundef %1, flo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) local_unnamed_addr #37 {
+define dso_local void @nvgDebugDumpPathCache(ptr noundef readonly captures(none) %0) local_unnamed_addr #37 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -22050,7 +22050,7 @@ define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
@@ -22153,7 +22153,7 @@ define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__flattenPaths(ptr nocapture noundef readonly %0) unnamed_addr #3 {
+define internal fastcc void @nvg__flattenPaths(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
   %2 = alloca %struct.NVGpoint, align 4
   %3 = alloca %struct.NVGpoint, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8848
@@ -22594,7 +22594,7 @@ nvg__normalize.exit:                              ; preds = %.lr.ph132, %218
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__expandFill(ptr nocapture noundef readonly %0, float noundef %1) unnamed_addr #3 {
+define internal fastcc void @nvg__expandFill(ptr noundef readonly captures(none) %0, float noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8848
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8864
@@ -23166,7 +23166,7 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #3 {
+define internal fastcc void @nvg__expandStroke(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8848
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8856
@@ -24129,7 +24129,7 @@ nvg__allocTempVerts.exit.thread:                  ; preds = %nvg__roundCapEnd.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8872
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @fonsAddFont(ptr noundef %5, ptr noundef %1, ptr noundef %2)
@@ -24137,7 +24137,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFont(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFontMem(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFontMem(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8872
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fonsAddFontMem(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
@@ -24145,7 +24145,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFontMem(ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #21 {
+define dso_local i32 @nvgFindFont(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #21 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %fonsGetFontByName.exit, label %4
 
@@ -24187,7 +24187,7 @@ fonsGetFontByName.exit:                           ; preds = %18, %._crit_edge.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @nvgAddFallbackFontId(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define dso_local range(i32 0, 2) i32 @nvgAddFallbackFontId(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = icmp eq i32 %1, -1
   %5 = icmp eq i32 %2, -1
   %or.cond = or i1 %4, %5
@@ -24221,7 +24221,7 @@ fonsAddFallbackFont.exit:                         ; preds = %17, %6, %3
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #38 {
+define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #38 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %nvgFindFont.exit, label %5
 
@@ -24319,7 +24319,7 @@ nvgAddFallbackFontId.exit:                        ; preds = %36, %22, %nvgFindFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFontSize(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgFontSize(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24332,7 +24332,7 @@ define dso_local void @nvgFontSize(ptr nocapture noundef %0, float noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFontBlur(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgFontBlur(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24345,7 +24345,7 @@ define dso_local void @nvgFontBlur(ptr nocapture noundef %0, float noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTextLetterSpacing(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgTextLetterSpacing(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24358,7 +24358,7 @@ define dso_local void @nvgTextLetterSpacing(ptr nocapture noundef %0, float noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTextLineHeight(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgTextLineHeight(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24371,7 +24371,7 @@ define dso_local void @nvgTextLineHeight(ptr nocapture noundef %0, float noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgTextAlign(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgTextAlign(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24384,7 +24384,7 @@ define dso_local void @nvgTextAlign(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFontFaceId(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @nvgFontFaceId(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -24397,7 +24397,7 @@ define dso_local void @nvgFontFaceId(ptr nocapture noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #39 {
+define dso_local void @nvgFontFace(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #39 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8872
@@ -24895,7 +24895,7 @@ nvg__allocTempVerts.exit.thread:                  ; preds = %110, %nvg__allocTem
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nvg__allocTextAtlas(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @nvg__allocTextAtlas(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8872
@@ -25083,7 +25083,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %32, i32 2
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %34, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %35 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
   %.not.us.us.us = icmp eq i32 %35, 0
   br i1 %.not.us.us.us, label %._crit_edge54, label %.preheader.us.us.us, !llvm.loop !124
 
@@ -25103,7 +25103,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %39, i32 2
   %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %41, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %42 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
   %.not.us.us = icmp eq i32 %42, 0
   br i1 %.not.us.us, label %._crit_edge54, label %.preheader.us.us, !llvm.loop !124
 
@@ -25117,7 +25117,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %47 = load ptr, ptr %43, align 8
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = call float @nvgText(ptr noundef %0, float noundef %46, float noundef %.149.us.us.us60.us, ptr noundef %47, ptr noundef %49)
+  %50 = call float @nvgText(ptr noundef nonnull %0, float noundef %46, float noundef %.149.us.us.us60.us, ptr noundef %47, ptr noundef %49)
   %51 = load float, ptr %8, align 4
   %52 = load float, ptr %28, align 4
   %53 = call float @llvm.fmuladd.f32(float %51, float %52, float %.149.us.us.us60.us)
@@ -25141,7 +25141,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %57, i32 2
   %59 = load ptr, ptr %58, align 8
-  %60 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %59, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %60 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
   %.not.us = icmp eq i32 %60, 0
   br i1 %.not.us, label %._crit_edge54, label %.preheader.us, !llvm.loop !124
 
@@ -25156,7 +25156,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %66 = load ptr, ptr %61, align 8
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = call float @nvgText(ptr noundef %0, float noundef %65, float noundef %.149.us.us55, ptr noundef %66, ptr noundef %68)
+  %69 = call float @nvgText(ptr noundef nonnull %0, float noundef %65, float noundef %.149.us.us55, ptr noundef %66, ptr noundef %68)
   %70 = load float, ptr %8, align 4
   %71 = load float, ptr %28, align 4
   %72 = call float @llvm.fmuladd.f32(float %70, float %71, float %.149.us.us55)
@@ -25181,7 +25181,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = call float @nvgText(ptr noundef %0, float noundef %1, float noundef %.149, ptr noundef %76, ptr noundef %78)
+  %79 = call float @nvgText(ptr noundef nonnull %0, float noundef %1, float noundef %.149, ptr noundef %76, ptr noundef %78)
   %80 = load float, ptr %8, align 4
   %81 = load float, ptr %28, align 4
   %82 = call float @llvm.fmuladd.f32(float %80, float %81, float %.149)
@@ -25195,7 +25195,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %84, i32 2
   %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %86, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %87 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
   %.not = icmp eq i32 %87, 0
   br i1 %.not, label %._crit_edge54, label %.preheader, !llvm.loop !124
 
@@ -25208,7 +25208,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgTextMetrics(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #17 {
+define dso_local void @nvgTextMetrics(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #17 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %7 = load i32, ptr %6, align 8
@@ -25411,7 +25411,7 @@ fonsVertMetrics.exit:                             ; preds = %39, %97, %100, %127
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nvgTextBreakLines(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.FONStextIter, align 8
   %8 = alloca %struct.FONStextIter, align 8
   %9 = alloca %struct.FONSquad, align 4
@@ -25808,7 +25808,7 @@ define dso_local i32 @nvgTextBreakLines(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
+define dso_local i32 @nvgTextGlyphPositions(ptr noundef captures(none) %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = alloca %struct.FONStextIter, align 8
   %9 = alloca %struct.FONStextIter, align 8
   %10 = alloca %struct.FONSquad, align 4
@@ -25994,7 +25994,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local float @nvgTextBounds(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define dso_local float @nvgTextBounds(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %9 = load i32, ptr %8, align 8
@@ -26128,7 +26128,7 @@ define dso_local float @nvgTextBounds(ptr nocapture noundef readonly %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #3 {
+define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #3 {
   %8 = alloca [2 x %struct.NVGtextRow], align 16
   %9 = alloca float, align 4
   %10 = alloca float, align 4
@@ -26292,7 +26292,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %113, i32 2
   %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %115, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %116 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %115, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
   %.not.us.us.us = icmp eq i32 %116, 0
   br i1 %.not.us.us.us, label %._crit_edge118, label %.preheader.us.us.us, !llvm.loop !128
 
@@ -26353,7 +26353,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %143, i32 2
   %145 = load ptr, ptr %144, align 8
-  %146 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %145, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %146 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
   %.not.us.us = icmp eq i32 %146, 0
   br i1 %.not.us.us, label %._crit_edge118, label %.preheader.us.us, !llvm.loop !128
 
@@ -26417,7 +26417,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %176, i32 2
   %178 = load ptr, ptr %177, align 8
-  %179 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %178, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %179 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %178, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
   %.not.us = icmp eq i32 %179, 0
   br i1 %.not.us, label %._crit_edge118, label %.preheader.us, !llvm.loop !128
 
@@ -26519,7 +26519,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %233, i32 2
   %235 = load ptr, ptr %234, align 8
-  %236 = call i32 @nvgTextBreakLines(ptr noundef %0, ptr noundef %235, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %236 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %235, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
   %.not = icmp eq i32 %236, 0
   br i1 %.not, label %._crit_edge118, label %.preheader, !llvm.loop !128
 
@@ -26547,7 +26547,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -26730,7 +26730,7 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0,
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4, i32 noundef range(i32 -1, 18) %5) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4, i32 noundef range(i32 -1, 18) %5) unnamed_addr #14 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -26949,7 +26949,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fons__atlasAddRect(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @fons__atlasAddRect(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 8
@@ -27287,7 +27287,7 @@ fons__atlasAddSkylineLevel.exit:                  ; preds = %5, %56, %._crit_edg
 declare float @expf(float noundef) local_unnamed_addr #41
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @fons__blurRows(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge47
 
@@ -27445,7 +27445,7 @@ define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #37 {
+define internal noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #37 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32
@@ -27453,23 +27453,23 @@ define internal noundef i32 @stbi__stdio_read(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @stbi__stdio_skip(ptr nocapture noundef %0, i32 noundef %1) #37 {
+define internal void @stbi__stdio_skip(ptr noundef captures(none) %0, i32 noundef %1) #37 {
   %3 = sext i32 %1 to i64
   %4 = tail call i32 @fseek(ptr noundef %0, i64 noundef %3, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_eof(ptr nocapture noundef %0) #37 {
+define internal noundef i32 @stbi__stdio_eof(ptr noundef captures(none) %0) #37 {
   %2 = tail call i32 @feof(ptr noundef %0) #57
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @stbi__load_main(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 12)) %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #3 {
+define internal fastcc ptr @stbi__load_main(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) initializes((0, 12)) %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #3 {
   %8 = alloca %struct.stbi__gif, align 8
   %9 = alloca [256 x [4 x i8]], align 16
   %10 = alloca %struct.stbi__bmp_data, align 4
@@ -33558,7 +33558,7 @@ stbi__gif_test_raw.exit:                          ; preds = %10, %stbi__get8.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__psd_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__psd_load(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #3 {
   %8 = tail call fastcc i32 @stbi__get32be(ptr noundef nonnull %0)
   %.not = icmp eq i32 %8, 943870035
   br i1 %.not, label %10, label %9
@@ -35296,7 +35296,7 @@ stbi__pic_test_core.exit:                         ; preds = %stbi__get8.exit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__pic_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__pic_load(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [10 x %struct.stbi__pic_packet], align 16
   %7 = alloca [4 x i8], align 1
   %8 = alloca [4 x i8], align 1
@@ -37049,7 +37049,7 @@ stbi__get8.exit14.thread:                         ; preds = %36, %stbi__get8.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__pnm_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__pnm_load(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call fastcc i32 @stbi__pnm_info(ptr noundef %0, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -37204,7 +37204,7 @@ stbi__getn.exit:                                  ; preds = %44, %52, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__hdr_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__hdr_load(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4
@@ -37294,7 +37294,7 @@ sub_1:                                            ; preds = %sub_0
 38:                                               ; preds = %.tail
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 3
   store ptr %39, ptr %7, align 8
-  %40 = call i64 @strtol(ptr nocapture noundef nonnull %39, ptr noundef null, i32 noundef 10) #57
+  %40 = call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #57
   %.fr = freeze i64 %40
   %41 = trunc i64 %.fr to i32
   store i32 %41, ptr %1, align 4
@@ -38659,7 +38659,7 @@ stbi__get8.exit79.thread:                         ; preds = %108, %switch.early.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__tga_load(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__tga_load(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #3 {
   %6 = alloca [4 x i8], align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
@@ -40383,7 +40383,7 @@ stbi__get8.exit359:                               ; preds = %733, %736, %stbi__r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr nocapture noundef initializes((18472, 18473), (18504, 18512)) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr noundef captures(none) initializes((18472, 18473), (18504, 18512)) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18508
@@ -40422,12 +40422,12 @@ define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr nocaptu
 
 .lr.ph38:                                         ; preds = %11, %.loopexit
   %.037 = phi i32 [ %.0, %.loopexit ], [ %.034, %11 ]
-  %17 = tail call fastcc i32 @stbi__process_marker(ptr noundef %0, i32 noundef %.037)
+  %17 = tail call fastcc i32 @stbi__process_marker(ptr noundef nonnull %0, i32 noundef %.037)
   %.not23 = icmp eq i32 %17, 0
   br i1 %.not23, label %.loopexit30, label %18
 
 18:                                               ; preds = %.lr.ph38
-  %19 = tail call fastcc zeroext i8 @stbi__get_marker(ptr noundef %0)
+  %19 = tail call fastcc zeroext i8 @stbi__get_marker(ptr noundef nonnull %0)
   %20 = icmp eq i8 %19, -1
   br i1 %20, label %.lr.ph, label %.loopexit
 
@@ -40476,7 +40476,7 @@ stbi__at_eof.exit.thread:                         ; preds = %24, %stbi__at_eof.e
   %41 = zext i1 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 18480
   store i32 %41, ptr %42, align 8
-  %43 = tail call fastcc i32 @stbi__process_frame_header(ptr noundef %0, i32 noundef %1)
+  %43 = tail call fastcc i32 @stbi__process_frame_header(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %.lr.ph38, %._crit_edge, %9, %stbi__at_eof.exit.thread27, %8
@@ -40485,7 +40485,7 @@ stbi__at_eof.exit.thread:                         ; preds = %24, %stbi__at_eof.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @stbi__idct_simd(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
+define internal void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #42 {
   %4 = load <8 x i16>, ptr %2, align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load <8 x i16>, ptr %5, align 16
@@ -40785,7 +40785,7 @@ define internal void @stbi__idct_simd(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) #43 {
+define internal void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) #43 {
   %7 = icmp eq i32 %5, 4
   %8 = icmp sgt i32 %4, 7
   %or.cond = and i1 %7, %8
@@ -40913,7 +40913,7 @@ define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4) #43 {
+define internal noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #43 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1
   %8 = load i8, ptr %2, align 1
@@ -41099,7 +41099,7 @@ declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #44
 declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #44
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @stbi__get_marker(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc zeroext i8 @stbi__get_marker(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18472
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, -1
@@ -41231,7 +41231,7 @@ stbi__get8.exit.thread:                           ; preds = %44, %stbi__get8.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__process_marker(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__process_marker(ptr noundef captures(none) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
   %trunc = trunc nuw i32 %1 to i8
   switch i8 %trunc, label %547 [
@@ -42670,7 +42670,7 @@ stbi__skip.exit:                                  ; preds = %467, %464, %727, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__process_frame_header(ptr nocapture noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__process_frame_header(ptr noundef captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %5 = load ptr, ptr %4, align 8
@@ -43749,7 +43749,7 @@ stbi__get8.exit7:                                 ; preds = %stbi__get8.exit7.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #45 {
+define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #45 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   br label %.preheader64
 
@@ -43900,7 +43900,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__skip(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @stbi__skip(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %8
 
@@ -43999,7 +43999,7 @@ stbi__mul2sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__free_jpeg_components(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @stbi__free_jpeg_components(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -44103,12 +44103,12 @@ stbi__mad3sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @resample_row_1(ptr nocapture readnone %0, ptr noundef readnone returned %1, ptr nocapture readnone %2, i32 %3, i32 %4) #9 {
+define internal noundef ptr @resample_row_1(ptr readnone captures(none) %0, ptr noundef readnone returned %1, ptr readnone captures(none) %2, i32 %3, i32 %4) #9 {
   ret ptr %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4) #1 {
+define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #1 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -44140,7 +44140,7 @@ define internal noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4) #1 {
+define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly initializes((0, 2)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4) #1 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1
   br i1 %6, label %8, label %10
@@ -44236,7 +44236,7 @@ define internal noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %3, 0
   %7 = icmp sgt i32 %4, 0
   %or.cond = and i1 %6, %7
@@ -44273,7 +44273,7 @@ define internal noundef ptr @stbi__resample_row_generic(ptr noundef returned wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18468
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 16
@@ -44620,7 +44620,7 @@ stbi__extend_receive.exit69:                      ; preds = %174, %182
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__grow_buffer_unsafe(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @stbi__grow_buffer_unsafe(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18476
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18468
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18464
@@ -44852,7 +44852,7 @@ stbi__refill_buffer.exit.i23:                     ; preds = %100, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18488
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -45062,7 +45062,7 @@ stbi__jpeg_get_bit.exit:                          ; preds = %105, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stbi__jpeg_get_bits(ptr nocapture noundef %0, i32 noundef range(i32 1, 15) %1) unnamed_addr #3 {
+define internal fastcc i32 @stbi__jpeg_get_bits(ptr noundef captures(none) %0, i32 noundef range(i32 1, 15) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18468
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, %1
@@ -45091,7 +45091,7 @@ define internal fastcc i32 @stbi__jpeg_get_bits(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__parse_png_file(ptr nocapture noundef nonnull initializes((8, 32)) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef nonnull captures(none) initializes((8, 32)) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #3 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i16], align 2
@@ -47494,7 +47494,7 @@ stbi__get16be.exit13:                             ; preds = %85, %88, %stbi__ref
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__getn(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__getn(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -47557,7 +47557,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__getn(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 7) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 7) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #3 {
   %8 = icmp eq i32 %4, 16
   %9 = zext i1 %8 to i32
   %10 = shl i32 %3, %9
@@ -47731,7 +47731,7 @@ stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2size
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr captures(none) %.24.val, ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47800,7 +47800,7 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr captures(none) %.24.val, ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47869,7 +47869,7 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #5 {
+define internal fastcc void @stbi__de_iphone(ptr readonly captures(none) %.0.val, ptr captures(none) %.24.val) unnamed_addr #5 {
   %1 = load i32, ptr %.0.val, align 8
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -47979,7 +47979,7 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__expand_png_palette(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -48103,7 +48103,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mul2sizes
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocapture noundef nonnull initializes((24, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #37 {
+define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr noundef nonnull captures(none) initializes((24, 32)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #37 {
   %9 = icmp eq i32 %6, 16
   %10 = load ptr, ptr %0, align 8
   %11 = mul i32 %4, %3
@@ -49509,7 +49509,7 @@ stbi__get16le.exit13:                             ; preds = %85, %88, %stbi__ref
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @stbi__bmp_parse_header(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -52110,7 +52110,7 @@ stbi__process_gif_raster.exit.thread:             ; preds = %stbi__get8.exit, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__gif_header(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @stbi__gif_header(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -52867,7 +52867,7 @@ stbi__get8.exit95:                                ; preds = %341, %344, %stbi__r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__gif_parse_colortable(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 2, 257) %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @stbi__gif_parse_colortable(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 2, 257) %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -53033,7 +53033,7 @@ stbi__get8.exit26:                                ; preds = %59, %62, %stbi__ref
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__out_gif_code(ptr nocapture noundef nonnull %0, i16 noundef zeroext %1) unnamed_addr #48 {
+define internal fastcc void @stbi__out_gif_code(ptr noundef nonnull captures(none) %0, i16 noundef zeroext %1) unnamed_addr #48 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2100
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds nuw [8192 x %struct.stbi__gif_lzw], ptr %3, i64 0, i64 %4
@@ -53657,7 +53657,7 @@ stbi__pnm_getinteger.exit68:                      ; preds = %180, %stbi__at_eof.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__pnm_skip_whitespace(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc void @stbi__pnm_skip_whitespace(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -54112,10 +54112,10 @@ stbi__refill_buffer.exit.i30:                     ; preds = %103, %102
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #49
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #49
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @stbi__hdr_convert(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #50 {
+define internal fastcc void @stbi__hdr_convert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #50 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
@@ -54221,7 +54221,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #49
 declare double @pow(double noundef, double noundef) local_unnamed_addr #41
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stbi__tga_read_rgb16(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 3)) %1) unnamed_addr #3 {
+define internal fastcc void @stbi__tga_read_rgb16(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 3)) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -54355,7 +54355,7 @@ stbi__get16le.exit:                               ; preds = %34, %37, %stbi__ref
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture noundef nonnull initializes((0, 1024)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #45 {
+define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef nonnull captures(none) initializes((0, 1024)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #45 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [17 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
@@ -55876,7 +55876,7 @@ sub_1:                                            ; preds = %43
 57:                                               ; preds = %.tail
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store ptr %58, ptr %6, align 8
-  %59 = call i64 @strtol(ptr nocapture noundef nonnull %58, ptr noundef null, i32 noundef 10) #57
+  %59 = call i64 @strtol(ptr noundef nonnull captures(none) %58, ptr noundef null, i32 noundef 10) #57
   br i1 %.not, label %.cont25, label %.else27
 
 .else27:                                          ; preds = %57
@@ -56717,7 +56717,7 @@ declare float @acosf(float noundef) local_unnamed_addr #41
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @nvg__addPoint(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #51 {
+define internal fastcc void @nvg__addPoint(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #51 {
   %5 = getelementptr i8, ptr %0, i64 8848
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -56827,7 +56827,7 @@ nvg__lastPath.exit.thread:                        ; preds = %4, %44, %nvg__lastP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nvg__tesselateBezier(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #3 {
+define internal fastcc void @nvg__tesselateBezier(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #3 {
   %12 = icmp sgt i32 %9, 10
   br i1 %12, label %.loopexit, label %.lr.ph
 
@@ -56908,7 +56908,7 @@ tailrecurse:                                      ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.val, float noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #13 {
+define internal fastcc void @nvg__calculateJoins(ptr readonly captures(none) %.8848.val, float noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #13 {
   %4 = fcmp ogt float %0, 0.000000e+00
   %5 = fdiv float 1.000000e+00, %0
   %.071 = select i1 %4, float %5, float 0.000000e+00
@@ -57077,7 +57077,7 @@ define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @nvg__bevelJoin(ptr noundef nonnull writeonly initializes((0, 68)) %0, float %.8.val, float %.12.val, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #11 {
+define internal fastcc nonnull ptr @nvg__bevelJoin(ptr noundef nonnull writeonly initializes((0, 68)) %0, float %.8.val, float %.12.val, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #11 {
   %7 = fneg float %.8.val
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load float, ptr %8, align 4
@@ -57496,10 +57496,10 @@ declare i16 @llvm.bitreverse.i16(i16) #52
 declare float @llvm.sqrt.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #53
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #53
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #53
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #54
@@ -57511,7 +57511,7 @@ declare void @llvm.assume(i1 noundef) #55
 declare i32 @llvm.umin.i32(i32, i32) #52
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #56
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #56
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #52

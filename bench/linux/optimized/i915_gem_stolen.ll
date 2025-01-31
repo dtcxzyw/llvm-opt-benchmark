@@ -76,7 +76,7 @@ define dso_local i32 @i915_gem_stolen_insert_node_in_range(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -88,7 +88,7 @@ declare dso_local i32 @drm_mm_insert_node_in_range(ptr noundef, ptr noundef, i64
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_gem_stolen_insert_node(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
@@ -124,7 +124,7 @@ define dso_local void @i915_gem_stolen_remove_node(ptr noundef %0, ptr noundef %
 declare dso_local void @drm_mm_remove_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @i915_gem_object_create_stolen(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @i915_gem_object_create_stolen(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8128
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @i915_gem_object_create_region(ptr noundef %4, i64 noundef %1, i64 noundef 0, i32 noundef 0) #11
@@ -407,7 +407,7 @@ define dso_local ptr @i915_gem_stolen_smem_setup(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @i915_gem_object_is_stolen(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local zeroext i1 @i915_gem_object_is_stolen(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @i915_gem_object_stolen_ops
@@ -423,14 +423,14 @@ define dso_local zeroext i1 @i915_gem_stolen_initialized(ptr noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_gem_stolen_area_address(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @i915_gem_stolen_area_address(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7232
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_gem_stolen_area_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @i915_gem_stolen_area_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7232
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7240
   %4 = load i64, ptr %3, align 8
@@ -441,7 +441,7 @@ define dso_local i64 @i915_gem_stolen_area_size(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_gem_stolen_node_address(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 16 {
+define dso_local i64 @i915_gem_stolen_node_address(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7232
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -451,7 +451,7 @@ define dso_local i64 @i915_gem_stolen_node_address(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_gem_stolen_node_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @i915_gem_stolen_node_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -467,7 +467,7 @@ define dso_local zeroext i1 @i915_gem_stolen_node_allocated(ptr noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_gem_stolen_node_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @i915_gem_stolen_node_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -573,7 +573,7 @@ define internal noundef i32 @init_stolen_lmem(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @release_stolen_lmem(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @release_stolen_lmem(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -1721,13 +1721,13 @@ declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local zeroext i1 @i915_vtd_active(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_mm_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__devm_request_region(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -1824,7 +1824,7 @@ define internal noundef i32 @init_stolen_smem(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @release_stolen_smem(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @release_stolen_smem(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8144
   %4 = load volatile ptr, ptr %3, align 8
@@ -1897,7 +1897,7 @@ define internal noundef i32 @i915_gem_object_get_pages_stolen(ptr noundef %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_gem_object_put_pages_stolen(ptr nocapture readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @i915_gem_object_put_pages_stolen(ptr readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @sg_free_table(ptr noundef %1) #11
   tail call void @kfree(ptr noundef %1) #11
   ret void

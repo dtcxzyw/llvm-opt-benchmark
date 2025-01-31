@@ -44,7 +44,7 @@ $_ZNK7rocksdb13HistogramImpl3numEv = comdat any
 @_ZN7rocksdb13HistogramStatC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb13HistogramStatC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -211,7 +211,7 @@ while.end23:                                      ; preds = %while.end23.loopexi
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #1 align 2 {
+define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -282,7 +282,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb13HistogramStatC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(920) initializes((912, 920)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb13HistogramStatC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(920) initializes((912, 920)) %this) unnamed_addr #4 align 2 {
 entry:
   %num_buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 912
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
@@ -325,7 +325,7 @@ _ZN7rocksdb13HistogramStat5ClearEv.exit:          ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb13HistogramStat5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 24), align 8
   store atomic i64 %0, ptr %this monotonic, align 8
@@ -362,7 +362,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb13HistogramStat3AddEm(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this, i64 noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 captures(none) dereferenceable(920) %this, i64 noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8
@@ -459,7 +459,7 @@ if.end9:                                          ; preds = %if.then8, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %other) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this monotonic, align 8
   %1 = load atomic i64, ptr %other monotonic, align 8
@@ -535,7 +535,7 @@ for.end:                                          ; preds = %for.body, %while.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
@@ -616,7 +616,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %cond.end.i, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, double noundef %p) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this, double noundef %p) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
@@ -701,7 +701,7 @@ return:                                           ; preds = %for.end, %cond.end
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef double @_ZNK7rocksdb13HistogramStat7AverageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramStat7AverageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
@@ -716,7 +716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
@@ -747,7 +747,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %buf = alloca [1650 x i8], align 16
   %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1355,7 +1355,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %if.end, %
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #10
 
@@ -1367,7 +1367,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, ptr nocapture noundef writeonly %data) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this, ptr noundef writeonly captures(none) %data) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
@@ -1698,7 +1698,7 @@ invoke.cont:                                      ; preds = %for.body.i, %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb13HistogramImpl5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7rocksdb13HistogramImpl5EmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
@@ -1707,7 +1707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb13HistogramImpl3AddEm(ptr nocapture noundef nonnull align 8 dereferenceable(968) %this, i64 noundef %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13HistogramImpl3AddEm(ptr noundef nonnull align 8 captures(none) dereferenceable(968) %this, i64 noundef %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
@@ -1901,10 +1901,10 @@ if.end:                                           ; preds = %_ZN7rocksdb13Histog
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 928
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #23
@@ -1993,7 +1993,7 @@ invoke.cont:                                      ; preds = %for.body.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %num_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2075,7 +2075,7 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %cond.end.i.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK7rocksdb13HistogramImpl10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this, double noundef %p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramImpl10PercentileEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, double noundef %p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %num_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2158,7 +2158,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %cond.end.i, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef double @_ZNK7rocksdb13HistogramImpl7AverageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramImpl7AverageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
@@ -2173,7 +2173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef double @_ZNK7rocksdb13HistogramImpl17StandardDeviationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7rocksdb13HistogramImpl17StandardDeviationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
@@ -2204,7 +2204,7 @@ _ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb13HistogramImpl8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #0 align 2 {
+define void @_ZNK7rocksdb13HistogramImpl8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this) unnamed_addr #0 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(920) %stats_)
@@ -2212,7 +2212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7rocksdb13HistogramImpl4DataEPNS_13HistogramDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this, ptr nocapture noundef writeonly %data) unnamed_addr #4 align 2 {
+define void @_ZNK7rocksdb13HistogramImpl4DataEPNS_13HistogramDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(968) %this, ptr noundef writeonly captures(none) %data) unnamed_addr #4 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef nonnull align 8 dereferenceable(920) %stats_, ptr noundef %data)
@@ -2272,7 +2272,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #13
@@ -2292,7 +2292,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

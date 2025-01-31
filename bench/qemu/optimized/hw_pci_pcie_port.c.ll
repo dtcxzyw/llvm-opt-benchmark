@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_pcie_port_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_port_init_reg(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define dso_local void @pcie_port_init_reg(ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -224,7 +224,7 @@ return:                                           ; preds = %for.inc.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_chassis_del_slot(ptr nocapture noundef %s) local_unnamed_addr #5 {
+define dso_local void @pcie_chassis_del_slot(ptr noundef captures(none) %s) local_unnamed_addr #5 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %s, i64 7168
   %0 = load ptr, ptr %next, align 16
@@ -247,7 +247,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pcie_find_port_by_pn(ptr nocapture noundef readonly %bus, i8 noundef zeroext %pn) local_unnamed_addr #1 {
+define dso_local ptr @pcie_find_port_by_pn(ptr noundef readonly captures(none) %bus, i8 noundef zeroext %pn) local_unnamed_addr #1 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -297,7 +297,7 @@ return:                                           ; preds = %for.inc, %if.end8
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pcie_find_port_first(ptr nocapture noundef readonly %bus) local_unnamed_addr #1 {
+define dso_local ptr @pcie_find_port_first(ptr noundef readonly captures(none) %bus) local_unnamed_addr #1 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -338,7 +338,7 @@ return:                                           ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pcie_count_ds_ports(ptr nocapture noundef readonly %bus) local_unnamed_addr #1 {
+define dso_local i32 @pcie_count_ds_ports(ptr noundef readonly captures(none) %bus) local_unnamed_addr #1 {
 entry:
   %devices = getelementptr inbounds nuw i8, ptr %bus, i64 184
   br label %for.body
@@ -403,7 +403,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_port_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
+define internal void @pcie_port_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pcie_port_props) #9
@@ -415,7 +415,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_slot_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
+define internal void @pcie_slot_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #9
@@ -442,7 +442,7 @@ declare void @pcie_cap_slot_unplug_cb(ptr noundef, ptr noundef, ptr noundef) #6
 declare void @pcie_cap_slot_unplug_request_cb(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @pcie_slot_is_hotpluggbale_bus(ptr nocapture readnone %plug_handler, ptr nocapture noundef readonly %bus) #1 {
+define internal zeroext i1 @pcie_slot_is_hotpluggbale_bus(ptr readnone captures(none) %plug_handler, ptr noundef readonly captures(none) %bus) #1 {
 entry:
   %parent = getelementptr inbounds nuw i8, ptr %bus, i64 40
   %0 = load ptr, ptr %parent, align 8
@@ -454,7 +454,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

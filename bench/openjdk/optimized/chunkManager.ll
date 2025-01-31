@@ -83,7 +83,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_9MetachunkE(ptr nocapture noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace12ChunkManager26return_chunk_simple_lockedEPNS_9MetachunkE(ptr noundef nonnull align 8 captures(none) dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
@@ -182,7 +182,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 declare noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((0, 376)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(376) initializes((0, 376)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -203,7 +203,7 @@ _ZN9metaspace19FreeChunkListVectorC2Ev.exit:      ; preds = %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace12ChunkManager29split_chunk_and_add_splintersEPNS_9MetachunkEa(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 {
@@ -928,7 +928,7 @@ define hidden noundef i64 @_ZNK9metaspace12ChunkManager31calc_committed_word_siz
 declare noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @Metaspace_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %4

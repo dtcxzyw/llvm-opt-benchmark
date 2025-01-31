@@ -71,7 +71,7 @@ $__clang_call_terminate = comdat any
 @_ZN10btBoxShapeC1ERK9btVector3 = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN10btBoxShapeC2ERK9btVector3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btBoxShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %boxHalfExtents) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btBoxShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %boxHalfExtents) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10btBoxShape, i64 16), ptr %this, align 8
@@ -190,7 +190,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10btBoxShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %t, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK10btBoxShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %t, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMin, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #0 align 2 {
 entry:
   %m_implicitShapeDimensions.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %vtable = load ptr, ptr %this, align 8
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10btBoxShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK10btBoxShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, float noundef %mass, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #0 align 2 {
 entry:
   %m_implicitShapeDimensions.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_implicitShapeDimensions.i.i, align 8

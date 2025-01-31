@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @p5s = internal global ptr null, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @ruby_scan_oct(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) local_unnamed_addr #0 {
+define dso_local i64 @ruby_scan_oct(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -55,7 +55,7 @@ define dso_local i64 @ruby_scan_oct(ptr noundef nonnull %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @ruby_scan_hex(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) local_unnamed_addr #0 {
+define dso_local i64 @ruby_scan_hex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -94,7 +94,7 @@ define dso_local i64 @ruby_scan_hex(ptr noundef nonnull %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = sext i32 %2 to i64
   store i32 0, ptr %4, align 4
   %.not = icmp eq i64 %1, 0
@@ -372,7 +372,7 @@ ruby_scan_digits.exit:                            ; preds = %ruby_scan_digits.ex
 declare ptr @rb_errno_ptr() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias nonnull ptr @ruby_strdup(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #1 {
+define dso_local noalias nonnull ptr @ruby_strdup(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %3 = add i64 %2, 1
   %4 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %3) #21
@@ -388,7 +388,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #4
@@ -436,7 +436,7 @@ ruby_strdup.exit:                                 ; preds = %8, %12
 declare i64 @rb_data_object_wrap(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #5
+declare void @free(ptr allocptr noundef captures(none)) #5
 
 ; Function Attrs: nounwind
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -445,7 +445,7 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @rb_sys_fail(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_each_words(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader33
 
@@ -2822,7 +2822,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @llvm.get.rounding() #10
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #11 {
+define internal fastcc ptr @d2b(double noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #11 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %5
 
@@ -4087,7 +4087,7 @@ Balloc.exit64:                                    ; preds = %83, %113
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = bitcast double %0 to i64
@@ -5861,7 +5861,7 @@ nrv_alloc.exit:                                   ; preds = %nrv_alloc.exit.sink
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef ptr @nrv_alloc(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef range(i64 2, 10) %2) unnamed_addr #12 {
+define internal fastcc noundef ptr @nrv_alloc(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i64 noundef range(i64 2, 10) %2) unnamed_addr #12 {
   %4 = tail call noalias ptr @malloc(i64 noundef %2) #21
   %5 = load i8, ptr %0, align 1
   store i8 %5, ptr %4, align 1
@@ -6269,7 +6269,7 @@ cmp.exit.thread84:                                ; preds = %58, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #11 {
+define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #11 {
   %7 = bitcast double %0 to i64
   %.not = icmp slt i64 %7, 0
   %8 = tail call double @llvm.fabs.f64(double %0)
@@ -6438,7 +6438,7 @@ declare double @llvm.fabs.f64(double) #8
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -6465,7 +6465,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

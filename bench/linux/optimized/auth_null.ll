@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"AUTH_NULL\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @nul_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef ptr @nul_create(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @null_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @null_auth, i64 36)) #5, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6
@@ -42,12 +42,12 @@ define internal noundef ptr @nul_create(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @nul_destroy(ptr nocapture readnone %0) #1 align 16 {
+define internal void @nul_destroy(ptr readnone captures(none) %0) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @nul_lookup_cred(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 align 16 {
+define internal ptr @nul_lookup_cred(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 align 16 {
   %4 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @null_cred, i64 80), align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader
@@ -91,17 +91,17 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @nul_destroy_cred(ptr nocapture readnone %0) #1 align 16 {
+define internal void @nul_destroy_cred(ptr readnone captures(none) %0) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @nul_match(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #1 align 16 {
+define internal noundef i32 @nul_match(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #1 align 16 {
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -90, 1) i32 @nul_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @nul_marshal(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -116,7 +116,7 @@ define internal noundef range(i32 -90, 1) i32 @nul_marshal(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nul_refresh(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @nul_refresh(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -127,7 +127,7 @@ define internal noundef i32 @nul_refresh(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -5, 1) i32 @nul_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -5, 1) i32 @nul_validate(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -162,7 +162,7 @@ declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed
 declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

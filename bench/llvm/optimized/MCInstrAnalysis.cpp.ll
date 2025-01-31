@@ -46,7 +46,7 @@ $_ZNK4llvm15MCInstrAnalysis14findPltEntriesEmNS_8ArrayRefIhEERKNS_6TripleE = com
 @_ZTVN4llvm15MCInstrAnalysisE = unnamed_addr constant { [22 x ptr] } { [22 x ptr] [ptr null, ptr null, ptr @_ZN4llvm15MCInstrAnalysisD2Ev, ptr @_ZN4llvm15MCInstrAnalysisD0Ev, ptr @_ZN4llvm15MCInstrAnalysis10resetStateEv, ptr @_ZN4llvm15MCInstrAnalysis11updateStateERKNS_6MCInstEm, ptr @_ZNK4llvm15MCInstrAnalysis8isBranchERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis19isConditionalBranchERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis21isUnconditionalBranchERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis16isIndirectBranchERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis6isCallERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis8isReturnERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis12isTerminatorERKNS_6MCInstE, ptr @_ZNK4llvm15MCInstrAnalysis20mayAffectControlFlowERKNS_6MCInstERKNS_14MCRegisterInfoE, ptr @_ZNK4llvm15MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntE, ptr @_ZNK4llvm15MCInstrAnalysis11isZeroIdiomERKNS_6MCInstERNS_5APIntEj, ptr @_ZNK4llvm15MCInstrAnalysis20isDependencyBreakingERKNS_6MCInstERNS_5APIntEj, ptr @_ZNK4llvm15MCInstrAnalysis25isOptimizableRegisterMoveERKNS_6MCInstEj, ptr @_ZNK4llvm15MCInstrAnalysis14evaluateBranchERKNS_6MCInstEmmRm, ptr @_ZNK4llvm15MCInstrAnalysis28evaluateMemoryOperandAddressERKNS_6MCInstEPKNS_15MCSubtargetInfoEmm, ptr @_ZNK4llvm15MCInstrAnalysis32getMemoryOperandRelocationOffsetERKNS_6MCInstEm, ptr @_ZNK4llvm15MCInstrAnalysis14findPltEntriesEmNS_8ArrayRefIhEERKNS_6TripleE] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, 65
@@ -70,17 +70,17 @@ _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis14evaluateBranchERKNS_6MCInstEmmRm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, i64 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis14evaluateBranchERKNS_6MCInstEmmRm(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2, i64 %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #1 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i8 } @_ZNK4llvm15MCInstrAnalysis28evaluateMemoryOperandAddressERKNS_6MCInstEPKNS_15MCSubtargetInfoEmm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, i64 %3, i64 %4) unnamed_addr #1 align 2 {
+define dso_local { i64, i8 } @_ZNK4llvm15MCInstrAnalysis28evaluateMemoryOperandAddressERKNS_6MCInstEPKNS_15MCSubtargetInfoEmm(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr readnone captures(none) %2, i64 %3, i64 %4) unnamed_addr #1 align 2 {
   ret { i64, i8 } { i64 undef, i8 0 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i8 } @_ZNK4llvm15MCInstrAnalysis32getMemoryOperandRelocationOffsetERKNS_6MCInstEm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define dso_local { i64, i8 } @_ZNK4llvm15MCInstrAnalysis32getMemoryOperandRelocationOffsetERKNS_6MCInstEm(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #1 align 2 {
   ret { i64, i8 } { i64 undef, i8 0 }
 }
 
@@ -287,7 +287,7 @@ define linkonce_odr hidden void @_ZNK4llvm15MCInstrAnalysis14findPltEntriesEmNS_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4

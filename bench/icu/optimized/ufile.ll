@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_fopen_75(ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %perm, ptr noundef %locale, ptr noundef %codepage) local_unnamed_addr #0 {
+define noundef ptr @u_fopen_75(ptr noundef readonly captures(none) %filename, ptr noundef readonly captures(none) %perm, ptr noundef %locale, ptr noundef %codepage) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef %perm)
   %cmp = icmp eq ptr %call, null
@@ -114,13 +114,13 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_fopen_u_75(ptr noundef %filename, ptr nocapture noundef readonly %perm, ptr noundef %locale, ptr noundef %codepage) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @u_fopen_u_75(ptr noundef %filename, ptr noundef readonly captures(none) %perm, ptr noundef %locale, ptr noundef %codepage) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [296 x i8], align 16
   %filenameString = alloca %"class.icu_75::UnicodeString", align 8
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @u_locbund_init_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -303,7 +303,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @u_fflush_75(ptr noundef %file) local_unnamed_addr #0 {
@@ -342,7 +342,7 @@ declare void @_Z23ufile_flush_translit_75P5UFILE(ptr noundef) local_unnamed_addr
 declare void @_Z17ufile_flush_io_75P5UFILE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @u_frewind_75(ptr noundef %file) local_unnamed_addr #0 {
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @ucnv_reset_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #1
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @u_fclose_75(ptr noundef %file) local_unnamed_addr #0 {
@@ -468,7 +468,7 @@ declare void @u_locbund_close_75(ptr noundef) local_unnamed_addr #2
 declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @u_fgetfile_75(ptr nocapture noundef readonly %f) local_unnamed_addr #7 {
+define ptr @u_fgetfile_75(ptr noundef readonly captures(none) %f) local_unnamed_addr #7 {
 entry:
   %fFile = getelementptr inbounds nuw i8, ptr %f, i64 8
   %0 = load ptr, ptr %fFile, align 8
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @u_fgetlocale_75(ptr nocapture noundef readonly %file) local_unnamed_addr #7 {
+define ptr @u_fgetlocale_75(ptr noundef readonly captures(none) %file) local_unnamed_addr #7 {
 entry:
   %fBundle = getelementptr inbounds nuw i8, ptr %file, i64 48
   %0 = load ptr, ptr %fBundle, align 8
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_fgetcodepage_75(ptr nocapture noundef readonly %file) local_unnamed_addr #0 {
+define ptr @u_fgetcodepage_75(ptr noundef readonly captures(none) %file) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -519,7 +519,7 @@ return:                                           ; preds = %if.then, %entry
 declare ptr @ucnv_getName_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @u_fsetcodepage_75(ptr noundef %codepage, ptr nocapture noundef %file) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @u_fsetcodepage_75(ptr noundef %codepage, ptr noundef captures(none) %file) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -555,7 +555,7 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 declare ptr @ucnv_open_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @u_fgetConverter_75(ptr nocapture noundef readonly %file) local_unnamed_addr #7 {
+define ptr @u_fgetConverter_75(ptr noundef readonly captures(none) %file) local_unnamed_addr #7 {
 entry:
   %fConverter = getelementptr inbounds nuw i8, ptr %file, i64 16
   %0 = load ptr, ptr %fConverter, align 8
@@ -573,7 +573,7 @@ entry:
 declare ptr @u_locbund_getNumberFormat_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

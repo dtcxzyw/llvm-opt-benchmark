@@ -164,7 +164,7 @@ $_ZTIN3irr2io15CFloatAttributeE = comdat any
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr2io11CAttributesC2EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CAttributesC2EPNS_5video12IVideoDriverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 33), (40, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -295,7 +295,7 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributesD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributesD1Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -400,7 +400,7 @@ _ZN3irr2io11CAttributesD2Ev.exit:                 ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr2io11CAttributesD1Ev(ptr nocapture noundef %this) unnamed_addr #2 align 2 {
+define void @_ZTv0_n24_N3irr2io11CAttributesD1Ev(ptr noundef captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -434,7 +434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -502,13 +502,13 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes13findAttributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes13findAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #5 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -553,7 +553,7 @@ cleanup:                                          ; preds = %for.inc, %cleanup.l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3irr2io11CAttributes13getAttributePEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZNK3irr2io11CAttributes13getAttributePEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName) local_unnamed_addr #5 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -594,7 +594,7 @@ cleanup:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -830,7 +830,7 @@ _ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit:        ; preds = %for.body.i.epil, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr2io11CAttributes18getAttributeAsBoolEPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName, i1 noundef zeroext %defaultNotFound) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr2io11CAttributes18getAttributeAsBoolEPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName, i1 noundef zeroext %defaultNotFound) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -878,7 +878,7 @@ cleanup:                                          ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, i32 noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, i32 noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1111,7 +1111,7 @@ _ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit:        ; preds = %for.body.i.epil, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeAsIntEPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName, i32 noundef %defaultNotFound) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeAsIntEPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName, i32 noundef %defaultNotFound) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1159,7 +1159,7 @@ cleanup:                                          ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEPKcf(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, float noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEPKcf(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, float noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1392,7 +1392,7 @@ _ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit:        ; preds = %for.body.i.epil, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZNK3irr2io11CAttributes19getAttributeAsFloatEPKcf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName, float noundef %defaultNotFound) unnamed_addr #1 align 2 {
+define noundef float @_ZNK3irr2io11CAttributes19getAttributeAsFloatEPKcf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName, float noundef %defaultNotFound) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1440,7 +1440,7 @@ cleanup:                                          ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1455,7 +1455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3irr2io11CAttributes16getAttributeNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index) unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK3irr2io11CAttributes16getAttributeNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index) unnamed_addr #8 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1483,7 +1483,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes16getAttributeTypeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes16getAttributeTypeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #1 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1531,7 +1531,7 @@ if.end:                                           ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes16getAttributeTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes16getAttributeTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeAsIntEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3irr2io11CAttributes17getAttributeAsIntEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1591,7 +1591,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZNK3irr2io11CAttributes19getAttributeAsFloatEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
+define noundef float @_ZNK3irr2io11CAttributes19getAttributeAsFloatEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1621,7 +1621,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr2io11CAttributes18getAttributeAsBoolEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr2io11CAttributes18getAttributeAsBoolEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1651,7 +1651,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes6addIntEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, i32 noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes6addIntEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, i32 noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
@@ -1725,7 +1725,7 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes8addFloatEPKcf(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, float noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes8addFloatEPKcf(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, float noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
@@ -1799,7 +1799,7 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes7addBoolEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %attributeName, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes7addBoolEPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %attributeName, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
@@ -1873,7 +1873,7 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK3irr2io11CAttributes15existsAttributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK3irr2io11CAttributes15existsAttributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly %attributeName) unnamed_addr #5 align 2 {
 entry:
   %Attributes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1919,7 +1919,7 @@ _ZNK3irr2io11CAttributes13getAttributePEPKc.exit: ; preds = %_ZNK3irr2io11CAttri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index, i1 noundef zeroext %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1948,7 +1948,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index, i32 noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index, i32 noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1977,7 +1977,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributes12setAttributeEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %index, float noundef %value) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributes12setAttributeEif(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %index, float noundef %value) unnamed_addr #1 align 2 {
 entry:
   %Attributes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2284,7 +2284,7 @@ _ZN3irr2io14CBoolAttributeD0Ev.exit:              ; preds = %if.then.i.i.i.i.i.i
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #13
 
@@ -2608,16 +2608,16 @@ _ZN3irr2io15CFloatAttributeD0Ev.exit:             ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18

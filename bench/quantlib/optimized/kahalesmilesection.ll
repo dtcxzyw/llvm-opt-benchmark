@@ -496,7 +496,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib18KahaleSmileSection9cFunctionEEE =
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEdeEv = private unnamed_addr constant [172 x i8] c"typename boost::detail::sp_dereference<T>::type boost::shared_ptr<QuantLib::KahaleSmileSection::cFunction>::operator*() const [T = QuantLib::KahaleSmileSection::cFunction]\00", align 1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -581,7 +581,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -713,7 +713,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18KahaleSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 112)) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18KahaleSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 112)) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %atm.addr = alloca double, align 8
   %deleteArbitragePoints.addr = alloca i8, align 1
@@ -4058,7 +4058,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18KahaleSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18KahaleSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %atm.addr = alloca double, align 8
   %deleteArbitragePoints.addr = alloca i8, align 1
@@ -10137,7 +10137,7 @@ cleanup:                                          ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 2147483648) i64 @_ZNK8QuantLib18KahaleSmileSection5indexEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, double noundef %strike) local_unnamed_addr #14 align 2 {
+define noundef range(i64 0, 2147483648) i64 @_ZNK8QuantLib18KahaleSmileSection5indexEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, double noundef %strike) local_unnamed_addr #14 align 2 {
 entry:
   %k_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %k_, align 8, !tbaa !3
@@ -11198,7 +11198,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #20
@@ -11670,7 +11670,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #35
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #35
   %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #30
-  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef 0, i64 noundef %call.i.i8) #30
+  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #30
   %cmp.not10 = icmp eq i64 %call2.i9, -1
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
@@ -11692,10 +11692,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #30
   %sub.i.i.i = sub nuw i64 %0, %call2.i11
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %call, i64 %sub.i.i.i)
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef %with, i64 noundef %call.i.i6)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %with, i64 noundef %call.i.i6)
   %add = add i64 %call2.i11, %call1
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #30
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef %add, i64 noundef %call.i.i) #30
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #30
   %cmp.not = icmp eq i64 %call2.i, -1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !166
 
@@ -11860,7 +11860,7 @@ declare void @_ZNSt12domain_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #20
@@ -14511,7 +14511,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #24
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #19
 
 declare void @_ZN8QuantLib17SmileSectionUtilsC1ERKNS_12SmileSectionERKSt6vectorIdSaIdEEdb(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(24), double noundef, i1 noundef zeroext) unnamed_addr #7
 
@@ -14751,7 +14751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib5Brent9solveImplINS_18KahaleSmileSection8sHelper1EEEdRKT_d(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(48) %f, double noundef %xAccuracy) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16271,7 +16271,7 @@ unreachable:                                      ; preds = %invoke.cont144
 declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #27
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28

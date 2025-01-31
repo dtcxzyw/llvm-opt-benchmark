@@ -25,7 +25,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #1 {
+define dso_local noundef i32 @FuzzerInitialize(ptr noundef readnone captures(none) %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #1 {
 entry:
   tail call void @FuzzerSetRand() #4
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 258, ptr noundef null) #4

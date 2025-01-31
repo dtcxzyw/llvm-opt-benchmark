@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"%.*s: %.*s\0D\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dynhds_init(ptr nocapture noundef writeonly initializes((0, 52)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @Curl_dynhds_init(ptr noundef writeonly captures(none) initializes((0, 52)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24,7 +24,7 @@ define dso_local void @Curl_dynhds_init(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_dynhds_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @Curl_dynhds_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -62,7 +62,7 @@ define dso_local void @Curl_dynhds_free(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_dynhds_reset(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @Curl_dynhds_reset(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -91,21 +91,21 @@ define dso_local void @Curl_dynhds_reset(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @Curl_dynhds_count(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @Curl_dynhds_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_dynhds_set_opts(ptr noundef writeonly captures(none) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @Curl_dynhds_getn(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
@@ -123,7 +123,7 @@ define dso_local ptr @Curl_dynhds_getn(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_dynhds_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not16 = icmp eq i64 %5, 0
@@ -170,7 +170,7 @@ define dso_local ptr @Curl_dynhds_get(ptr nocapture noundef readonly %0, ptr nou
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_dynhds_cget(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -190,7 +190,7 @@ define dso_local ptr @Curl_dynhds_cget(ptr nocapture noundef readonly %0, ptr no
 
 13:                                               ; preds = %.lr.ph.i
   %14 = load ptr, ptr %9, align 8
-  %15 = tail call i32 @curl_strnequal(ptr noundef %14, ptr noundef %1, i64 noundef %3) #9
+  %15 = tail call i32 @curl_strnequal(ptr noundef %14, ptr noundef nonnull %1, i64 noundef %3) #9
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %._crit_edge.i, label %16
 
@@ -216,10 +216,10 @@ Curl_dynhds_get.exit:                             ; preds = %20, %2, %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
@@ -341,18 +341,18 @@ entry_new.exit.thread58:                          ; preds = %19, %56, %entry_new
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_dynhds_cadd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_dynhds_cadd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
-  %6 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef %1, i64 noundef %4, ptr noundef %2, i64 noundef %5)
+  %6 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %4, ptr noundef nonnull %2, i64 noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5
@@ -497,7 +497,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split4, label %.split
 
@@ -512,7 +512,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @Curl_dynhds_h1_dprint(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -550,7 +550,7 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, p
 declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
+define dso_local ptr @Curl_dynhds_to_nva(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -604,7 +604,7 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr 
 declare void @Curl_strntolower(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

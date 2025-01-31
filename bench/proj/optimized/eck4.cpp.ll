@@ -122,7 +122,7 @@ define internal { double, double } @_ZL14eck4_s_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define internal { double, double } @_ZL14eck4_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL14eck4_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = tail call double @sin(double noundef %1) #6
   %5 = fmul double %4, 0x400C90FDAA22168C
   %6 = fmul double %1, %1

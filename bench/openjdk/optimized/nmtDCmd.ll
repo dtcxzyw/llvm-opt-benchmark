@@ -392,7 +392,7 @@ define hidden void @_ZN7NMTDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 d
 declare void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK7NMTDCmd9get_scaleEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK7NMTDCmd9get_scaleEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -408,7 +408,7 @@ define hidden noundef i64 @_ZNK7NMTDCmd9get_scaleEPKc(ptr nocapture noundef nonn
 declare noundef i64 @_ZN7NMTUtil15scale_from_nameEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7NMTDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(440) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN7NMTDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(440) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %_ZNK7NMTDCmd9get_scaleEPKc.exit
@@ -658,7 +658,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %128, %127, %65, %59
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7NMTDCmd6reportEbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7NMTDCmd6reportEbm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.MemBaseline, align 8
   %5 = alloca %class.MemSummaryReporter, align 8
   %6 = alloca %class.MemDetailReporter, align 8
@@ -884,7 +884,7 @@ _ZN11MemBaselineD2Ev.exit:                        ; preds = %_ZN14LinkedListImpl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7NMTDCmd27check_detail_tracking_levelEP12outputStream(ptr nocapture noundef nonnull readnone align 8 dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7NMTDCmd27check_detail_tracking_levelEP12outputStream(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %.not = icmp eq i32 %3, 3
   br i1 %.not, label %5, label %4
@@ -900,7 +900,7 @@ define hidden noundef zeroext i1 @_ZN7NMTDCmd27check_detail_tracking_levelEP12ou
 declare void @_ZN11MemBaseline8baselineEb(ptr noundef nonnull align 8 dereferenceable(2676), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7NMTDCmd11report_diffEbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7NMTDCmd11report_diffEbm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.MemBaseline, align 8
   %5 = alloca %class.MemSummaryDiffReporter, align 8
   %6 = alloca %class.MemDetailDiffReporter, align 8
@@ -1558,7 +1558,7 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 declare noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -2909,7 +2909,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -3425,7 +3425,7 @@ declare void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8
 declare void @_ZNK15GenDCmdArgument9to_stringEPcS0_m(ptr noundef nonnull align 8 dereferenceable(51), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

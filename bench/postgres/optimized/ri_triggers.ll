@@ -126,7 +126,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.RI_FKey_trigger_type = private unnamed_addr constant [12 x i32] [i32 2, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_check_ins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_check_ins(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str, i32 noundef 1)
@@ -220,7 +220,7 @@ default.unreachable1:                             ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RI_FKey_check(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @RI_FKey_check(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.RI_QueryKey, align 4
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [262 x i8], align 16
@@ -534,7 +534,7 @@ quoteOneName.exit:                                ; preds = %120
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_check_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_check_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.1, i32 noundef 2)
@@ -544,7 +544,7 @@ define dso_local noundef i64 @RI_FKey_check_upd(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_noaction_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_noaction_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.2, i32 noundef 3)
@@ -554,7 +554,7 @@ define dso_local noundef i64 @RI_FKey_noaction_del(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_restrict(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @ri_restrict(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.RI_QueryKey, align 4
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [262 x i8], align 16
@@ -993,7 +993,7 @@ quoteOneName.exit:                                ; preds = %168
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_restrict_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_restrict_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.3, i32 noundef 3)
@@ -1003,7 +1003,7 @@ define dso_local noundef i64 @RI_FKey_restrict_del(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_noaction_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_noaction_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.4, i32 noundef 2)
@@ -1013,7 +1013,7 @@ define dso_local noundef i64 @RI_FKey_noaction_upd(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_restrict_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_restrict_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.5, i32 noundef 2)
@@ -1023,7 +1023,7 @@ define dso_local noundef i64 @RI_FKey_restrict_upd(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_cascade_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_cascade_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RI_QueryKey, align 4
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [262 x i8], align 16
@@ -1256,7 +1256,7 @@ quoteOneName.exit:                                ; preds = %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ri_FetchConstraintInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @ri_FetchConstraintInfo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -1746,7 +1746,7 @@ quoteOneName.exit18:                              ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.HASHCTL, align 8
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -1817,7 +1817,7 @@ ri_HashPreparedPlan.exit:                         ; preds = %27, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef range(i32 5, 10) %8) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef range(i32 5, 10) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca [64 x i64], align 16
@@ -2071,7 +2071,7 @@ declare i32 @SPI_finish() local_unnamed_addr #1
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_cascade_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_cascade_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RI_QueryKey, align 4
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca %struct.StringInfoData, align 8
@@ -2322,7 +2322,7 @@ quoteOneName.exit:                                ; preds = %87
 declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_setnull_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_setnull_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.20, i32 noundef 3)
@@ -2332,7 +2332,7 @@ define dso_local noundef i64 @RI_FKey_setnull_del(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_set(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
+define internal fastcc void @ri_set(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.RI_QueryKey, align 4
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca [262 x i8], align 16
@@ -2641,7 +2641,7 @@ quoteOneName.exit92:                              ; preds = %108
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_setnull_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_setnull_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.21, i32 noundef 2)
@@ -2651,7 +2651,7 @@ define dso_local noundef i64 @RI_FKey_setnull_upd(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_setdefault_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_setdefault_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.22, i32 noundef 3)
@@ -2661,7 +2661,7 @@ define dso_local noundef i64 @RI_FKey_setdefault_del(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @RI_FKey_setdefault_upd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @RI_FKey_setdefault_upd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @ri_CheckTrigger(ptr %.val, ptr noundef nonnull @.str.23, i32 noundef 2)
@@ -2671,7 +2671,7 @@ define dso_local noundef i64 @RI_FKey_setdefault_upd(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RI_FKey_pk_upd_check_required(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @RI_FKey_pk_upd_check_required(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @ri_FetchConstraintInfo(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load i32, ptr %6, align 8
@@ -2735,7 +2735,7 @@ ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -2792,7 +2792,7 @@ slot_attisnull.exit:                              ; preds = %10, %slot_getsomeat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ri_KeysEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ri_KeysEqual(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.HASHCTL, align 8
   %7 = alloca %struct.RI_CompareKey, align 4
   %8 = alloca i8, align 1
@@ -3080,7 +3080,7 @@ ri_AttributesEqual.exit:                          ; preds = %ri_HashCompareOp.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RI_FKey_fk_upd_check_required(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @RI_FKey_fk_upd_check_required(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = tail call fastcc ptr @ri_FetchConstraintInfo(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
@@ -3167,7 +3167,7 @@ ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexi
 declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RI_Initial_Check(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @RI_Initial_Check(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [262 x i8], align 16
   %6 = alloca [262 x i8], align 16
@@ -3916,7 +3916,7 @@ declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
@@ -3927,7 +3927,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errtableconstraint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 3, 2) %5, i1 noundef zeroext %6) unnamed_addr #4 {
+define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 3, 2) %5, i1 noundef zeroext %6) unnamed_addr #4 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = alloca %struct.StringInfoData, align 8
   %10 = alloca i32, align 4
@@ -4156,7 +4156,7 @@ slot_getattr.exit:                                ; preds = %48, %slot_getsomeat
 declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RI_PartitionRemove_Check(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @RI_PartitionRemove_Check(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [262 x i8], align 16
   %6 = alloca [262 x i8], align 16
@@ -4703,7 +4703,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @generate_operator_clause(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4843,10 +4843,10 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

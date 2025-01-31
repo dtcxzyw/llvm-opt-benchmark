@@ -536,7 +536,7 @@ _ZN6vectorImLb0EjE9push_backEOm.exit14:           ; preds = %lor.lhs.false.i2, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15prime_generator8finalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15prime_generator8finalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -723,7 +723,7 @@ _ZN7svectorImjED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14prime_iteratorC2EP15prime_generator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 4), (8, 17)) %this, ptr noundef %g) unnamed_addr #6 align 2 {
+define hidden void @_ZN14prime_iteratorC2EP15prime_generator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 4), (8, 17)) %this, ptr noundef %g) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %cmp = icmp eq ptr %g, null
@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN14prime_iterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZN14prime_iterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8
   %inc = add i32 %0, 1
@@ -857,7 +857,7 @@ _ZN15prime_generator10initializeEv.exit:          ; preds = %lor.lhs.false.i2.i,
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14prime_iterator8finalizeEv() local_unnamed_addr #3 align 2 {
@@ -1013,7 +1013,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [36 x i8] c"0x%016lx, 0x%04x, %ld, 0x%04x, %ld\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readnone %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr noundef readnone captures(none) %info, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %cmp20 = icmp sgt i32 %argc, 0
   br i1 %cmp20, label %for.body.preheader, label %for.end
@@ -148,7 +148,7 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -178,7 +178,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @plugin_exit(i64 %id, ptr nocapture readnone %p) #0 {
+define internal void @plugin_exit(i64 %id, ptr readnone captures(none) %p) #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.10) #6
   %0 = load ptr, ptr @pages, align 8
@@ -247,7 +247,7 @@ declare ptr @qemu_plugin_tb_get_insn(ptr noundef, i64 noundef) local_unnamed_add
 declare void @qemu_plugin_register_vcpu_mem_cb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @vcpu_haddr(i32 noundef %cpu_index, i32 noundef %meminfo, i64 noundef %vaddr, ptr nocapture readnone %udata) #0 {
+define internal void @vcpu_haddr(i32 noundef %cpu_index, i32 noundef %meminfo, i64 noundef %vaddr, ptr readnone captures(none) %udata) #0 {
 entry:
   %call = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %meminfo, i64 noundef %vaddr) #6
   %0 = load i8, ptr @track_io, align 1
@@ -354,7 +354,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cmp_access_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @cmp_access_count(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i32, ptr @sort_by, align 4
   switch i32 %0, label %default.unreachable [

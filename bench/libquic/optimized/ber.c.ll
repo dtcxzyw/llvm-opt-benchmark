@@ -53,7 +53,7 @@ return:                                           ; preds = %lor.lhs.false9, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %orig_in, ptr nocapture noundef nonnull writeonly %ber_found, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_find_ber(ptr noundef %orig_in, ptr noundef nonnull writeonly captures(none) %ber_found, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %in = alloca %struct.cbs_st, align 8
   %contents = alloca %struct.cbs_st, align 8
@@ -318,7 +318,7 @@ declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %in, ptr noundef %out, ptr nocapture noundef writeonly %out_storage, i32 noundef %outer_tag, i32 noundef %inner_tag) local_unnamed_addr #0 {
+define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %in, ptr noundef %out, ptr noundef writeonly captures(none) %out_storage, i32 noundef %outer_tag, i32 noundef %inner_tag) local_unnamed_addr #0 {
 entry:
   %result = alloca %struct.cbb_st, align 8
   %child = alloca %struct.cbs_st, align 8
@@ -404,7 +404,7 @@ declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_un
 declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

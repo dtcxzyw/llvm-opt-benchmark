@@ -99,7 +99,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @syslog_openlog(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @syslog_openlog(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -199,7 +199,7 @@ exit:                                             ; preds = %land.lhs.true48, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @syslog_closelog(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @syslog_closelog(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @PyInterpreterState_Get() #4
   %call1.i.i = tail call ptr @PyInterpreterState_Main() #4
@@ -253,7 +253,7 @@ syslog_closelog_impl.exit:                        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @syslog_syslog(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal noundef ptr @syslog_syslog(ptr readnone captures(none) %module, ptr noundef %args) #0 {
 entry:
   %priority = alloca i32, align 4
   %message = alloca ptr, align 8
@@ -373,7 +373,7 @@ exit:                                             ; preds = %return.critedge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_setlogmask(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @syslog_setlogmask(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #4
   %cmp = icmp eq i64 %call, -1
@@ -421,7 +421,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_LOG_MASK(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @syslog_LOG_MASK(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #4
   %cmp = icmp eq i64 %call, -1
@@ -451,7 +451,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_LOG_UPTO(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @syslog_LOG_UPTO(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #4
   %cmp = icmp eq i64 %call, -1

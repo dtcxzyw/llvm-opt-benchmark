@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [11 x i8] c" ,.;:-_)]}\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 5) i8 @lv_text_utf8_size(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext range(i8 0, 5) i8 @lv_text_utf8_size(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -155,7 +155,7 @@ define internal i32 @lv_text_utf8_conv_wc(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.cont95, label %.cont95.thread
 
@@ -364,7 +364,7 @@ define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_prev(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal range(i32 -128, 2097152) i32 @lv_text_utf8_prev(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #4 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !6
   %5 = add i32 %4, -1
@@ -414,7 +414,7 @@ select.unfold:                                    ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @lv_text_utf8_get_byte_id(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal i32 @lv_text_utf8_get_byte_id(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 {
   %.not16 = icmp eq i32 %1, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 
@@ -463,7 +463,7 @@ lv_text_utf8_size.exit:                           ; preds = %6, %9, %12, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @lv_text_utf8_get_char_id(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal i32 @lv_text_utf8_get_char_id(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !tbaa !6
@@ -485,7 +485,7 @@ define internal i32 @lv_text_utf8_get_char_id(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @lv_text_utf8_get_length(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(none) %0) #4 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
   store i32 0, ptr %2, align 4, !tbaa !6
@@ -511,7 +511,7 @@ define internal i32 @lv_text_utf8_get_length(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_text_get_size(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -543,7 +543,7 @@ define void @lv_text_get_size(ptr nocapture noundef initializes((0, 8)) %0, ptr 
 22:                                               ; preds = %.lr.ph, %lv_text_get_width.exit
   %23 = phi ptr [ %1, %.lr.ph ], [ %48, %lv_text_get_width.exit ]
   %.04759 = phi i32 [ 0, %.lr.ph ], [ %25, %lv_text_get_width.exit ]
-  %24 = call i32 @lv_text_get_next_line(ptr noundef nonnull %23, ptr noundef %2, i32 noundef %3, i32 noundef %spec.select, ptr noundef null, i32 noundef %6)
+  %24 = call i32 @lv_text_get_next_line(ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %spec.select, ptr noundef null, i32 noundef %6)
   %25 = add i32 %24, %.04759
   %26 = load i32, ptr %11, align 4, !tbaa !16
   %27 = sext i32 %26 to i64
@@ -641,7 +641,7 @@ lv_text_get_width.exit:                           ; preds = %30, %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #7
 
@@ -1076,10 +1076,10 @@ define i32 @lv_text_get_width(ptr noundef readonly %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @lv_text_is_cmd(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @lv_text_is_cmd(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 35
   %4 = load i32, ptr %0, align 4, !tbaa !6
   br i1 %3, label %5, label %6
@@ -1122,7 +1122,7 @@ define noundef zeroext i1 @lv_text_is_cmd(ptr nocapture noundef %0, i32 noundef 
 declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_text_encoded_letter_next_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = tail call i32 @lv_text_utf8_next(ptr noundef %0, ptr noundef %3)
   store i32 %5, ptr %1, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0
@@ -1427,7 +1427,7 @@ lv_text_utf8_get_byte_id.exit:                    ; preds = %lv_text_utf8_get_by
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.lcssa.i
-  %38 = tail call ptr @lv_memcpy(ptr noundef %37, ptr noundef %2, i64 noundef %8) #10
+  %38 = tail call ptr @lv_memcpy(ptr noundef nonnull %37, ptr noundef nonnull %2, i64 noundef %8) #10
   br label %39
 
 39:                                               ; preds = %._crit_edge, %6, %3

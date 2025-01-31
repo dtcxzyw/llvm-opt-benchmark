@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
@@ -172,7 +172,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
 declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #2
@@ -181,19 +181,19 @@ declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr 
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @michael_mic(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_verify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_verify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8, !annotation !12
@@ -605,7 +605,7 @@ define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(
 declare dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -865,7 +865,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca [32 x i8], align 16
   %5 = alloca [16 x i8], align 16
@@ -1196,10 +1196,10 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -1469,7 +1469,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [6 x i8], align 1
   %3 = alloca [32 x i8], align 16
   %4 = alloca [16 x i8], align 16
@@ -2033,7 +2033,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encr
 declare dso_local void @ieee80211_aes_cmac_256(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decrypt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca [6 x i8], align 1
@@ -2156,7 +2156,7 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_decrypt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [16 x i8], align 16
   %4 = alloca [6 x i8], align 1
@@ -2409,7 +2409,7 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
 declare dso_local i32 @ieee80211_aes_gmac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decrypt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [6 x i8], align 1
   %4 = alloca [12 x i8], align 1

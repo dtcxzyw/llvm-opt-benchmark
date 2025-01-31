@@ -74,7 +74,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_basic(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_basic(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %m = alloca %struct._PyMutex, align 1
   store i8 0, ptr %m, align 1
@@ -118,7 +118,7 @@ cond.end8:                                        ; preds = %PyMutex_Unlock.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_two_threads(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_two_threads(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %test_data = alloca %struct.test_lock2_data, align 8
   store i64 0, ptr %test_data, align 8
@@ -195,7 +195,7 @@ cond.end37:                                       ; preds = %PyMutex_Unlock.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_counter(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %test_data = alloca %struct.test_data_counter, align 8
   %thread_data = alloca [5 x %struct.thread_data_counter], align 16
@@ -235,7 +235,7 @@ cond.end:                                         ; preds = %for.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_counter_slow(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %test_data = alloca %struct.test_data_counter, align 8
   %thread_data = alloca [5 x %struct.thread_data_counter], align 16
@@ -275,7 +275,7 @@ cond.end:                                         ; preds = %for.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testinternalcapi_benchmark_locks(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testinternalcapi_benchmark_locks(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 4
@@ -375,7 +375,7 @@ exit:                                             ; preds = %land.lhs.true38, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_lock_benchmark(ptr nocapture readnone %module, ptr nocapture readnone %obj) #0 {
+define internal noundef ptr @test_lock_benchmark(ptr readnone captures(none) %module, ptr readnone captures(none) %obj) #0 {
 entry:
   %call = tail call fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 100)
   %cmp = icmp eq ptr %call, null
@@ -403,7 +403,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_once(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_once(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %once = alloca %struct._PyOnceFlag, align 1
   %counter = alloca i32, align 4
@@ -461,7 +461,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_lock_rwlock(ptr nocapture readnone %self, ptr nocapture readnone %obj) #0 {
+define internal noundef nonnull ptr @test_lock_rwlock(ptr readnone captures(none) %self, ptr readnone captures(none) %obj) #0 {
 entry:
   %test_data = alloca %struct.test_rwlock_data, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %test_data, ptr noundef nonnull align 8 dereferenceable(24) @__const.test_lock_rwlock.test_data, i64 24, i1 false)
@@ -606,7 +606,7 @@ cond.end50:                                       ; preds = %wait_until.exit28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1093,7 +1093,7 @@ declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @init_maybe_fail(ptr nocapture noundef %arg) #0 {
+define internal range(i32 -1, 1) i32 @init_maybe_fail(ptr noundef captures(none) %arg) #0 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %inc = add i32 %0, 1
@@ -1117,7 +1117,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_PyRWMutex_Lock(ptr noundef) local_unnamed_addr #1
 

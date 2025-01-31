@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [6 x i8] c"UTF-7\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr nocapture noundef initializes((0, 8)) %cp, ptr nocapture noundef writeonly initializes((0, 8)) %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr noundef captures(none) initializes((0, 8)) %cp, ptr noundef writeonly captures(none) initializes((0, 8)) %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %start = alloca [8 x i8], align 1
   %target = alloca [1 x i16], align 2
@@ -98,7 +98,7 @@ return:                                           ; preds = %if.end18, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @T_FileStream_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.else41, %if.end4
 declare i32 @u_unescapeAt_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i16 @_ZL7_charAtiPv(i32 noundef %offset, ptr nocapture noundef readonly %context) #3 {
+define internal noundef zeroext i16 @_ZL7_charAtiPv(i32 noundef %offset, ptr noundef readonly captures(none) %context) #3 {
 entry:
   %currentPos = getelementptr inbounds nuw i8, ptr %context, i64 8
   %0 = load ptr, ptr %currentPos, align 8
@@ -645,7 +645,7 @@ entry:
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ucbuf_open(ptr noundef %fileName, ptr noundef %cp, i8 noundef signext %showWarning, i8 noundef signext %buffered, ptr noundef %error) local_unnamed_addr #0 {
@@ -935,7 +935,7 @@ if.end3:                                          ; preds = %if.end, %entry
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucbuf_ungetc(i32 noundef %c, ptr nocapture noundef %buf) local_unnamed_addr #6 {
+define void @ucbuf_ungetc(i32 noundef %c, ptr noundef captures(none) %buf) local_unnamed_addr #6 {
 entry:
   %currentPos = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8
@@ -1234,16 +1234,16 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucbuf_readline(ptr noundef %buf, ptr nocapture noundef writeonly %len, ptr noundef %err) local_unnamed_addr #0 {
+define ptr @ucbuf_readline(ptr noundef %buf, ptr noundef writeonly captures(none) %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %currentPos = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8
@@ -1400,7 +1400,7 @@ return:                                           ; preds = %if.else, %for.cond,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare void @ucnv_setToUCallBack_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1409,7 +1409,7 @@ declare void @UCNV_TO_U_CALLBACK_STOP_75(ptr noundef, ptr noundef, ptr noundef, 
 declare void @ucnv_getInvalidChars_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @ucnv_reset_75(ptr noundef) local_unnamed_addr #2
 
@@ -1420,7 +1420,7 @@ declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @ucnv_compareNames_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

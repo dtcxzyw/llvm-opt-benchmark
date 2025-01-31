@@ -92,7 +92,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_td
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_tdls_oper_request2985, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_mgd_protect_tdls_discover.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1814, ptr @trace_drv_mgd_protect_tdls_discover.__UNIQUE_ID___addressable___SCK__tp_func_drv_mgd_protect_tdls_discover1813, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_tdls_cancel_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2220, ptr @trace_drv_tdls_cancel_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_tdls_cancel_channel_switch2219, ptr @trace_drv_tdls_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2206, ptr @trace_drv_tdls_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_tdls_channel_switch2205, ptr @trace_drv_tdls_recv_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2234, ptr @trace_drv_tdls_recv_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_tdls_recv_channel_switch2233], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_tdls_peer_del_work(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_tdls_peer_del_work(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -10
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr i8, ptr %1, i64 -6
@@ -113,16 +113,16 @@ define dso_local void @ieee80211_tdls_peer_del_work(ptr nocapture noundef readno
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sta_info_destroy_addr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @ieee80211_tdls_mgmt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @ieee80211_tdls_mgmt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #0 align 16 {
   %12 = getelementptr i8, ptr %1, i64 2304
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = load i32, ptr %13, align 4
@@ -577,7 +577,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @ieee80211_tdls_prep_mgmt_p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_tdls_oper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_tdls_oper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 3560
   %7 = load ptr, ptr %6, align 8
@@ -898,7 +898,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local void @cfg80211_tdls_oper_request(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_tdls_channel_switch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ieee80211_tdls_channel_switch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [9 x i8], align 1
   %7 = getelementptr i8, ptr %1, i64 2304
   %8 = getelementptr i8, ptr %1, i64 3560
@@ -1181,7 +1181,7 @@ define dso_local i32 @ieee80211_tdls_channel_switch(ptr nocapture noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_tdls_cancel_channel_switch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_tdls_cancel_channel_switch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 3560
   %6 = load ptr, ptr %5, align 8
@@ -1830,10 +1830,10 @@ define dso_local void @ieee80211_tdls_handle_disconnect(ptr noundef %0, ptr noun
 declare dso_local ptr @ieee80211_find_sta(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @wiphy_delayed_work_queue(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -3129,7 +3129,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %760 = getelementptr i8, ptr %7, i64 %696
   %761 = sub i64 %759, %696
   %762 = trunc i64 %761 to i32
-  %763 = tail call ptr @skb_put(ptr noundef %32, i32 noundef %762) #12
+  %763 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %762) #12
   %764 = and i64 %761, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %763, ptr align 1 %760, i64 %764, i1 false)
   br label %765
@@ -3149,7 +3149,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 
 774:                                              ; preds = %770
   %775 = getelementptr inbounds nuw i8, ptr %678, i64 2916
-  %776 = tail call ptr @skb_put(ptr noundef %32, i32 noundef 24) #12
+  %776 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 24) #12
   %777 = load ptr, ptr %661, align 8
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 128
   %779 = tail call ptr @ieee80211_ie_build_ht_oper(ptr noundef %776, ptr noundef nonnull %775, ptr noundef nonnull %778, i16 noundef zeroext 23, i1 noundef zeroext true) #12
@@ -3160,7 +3160,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 5062
   %783 = select i1 %6, ptr %782, ptr %1
   %784 = select i1 %6, ptr %1, ptr %782
-  %785 = tail call ptr @skb_put(ptr noundef %32, i32 noundef 20) #12
+  %785 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 20) #12
   store i8 101, ptr %785, align 1
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 1
   store i8 18, ptr %786, align 1
@@ -3194,7 +3194,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br label %804
 
 804:                                              ; preds = %803, %798
-  %805 = tail call ptr @skb_put(ptr noundef %32, i32 noundef 7) #12
+  %805 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 7) #12
   %806 = tail call ptr @ieee80211_ie_build_vht_oper(ptr noundef %805, ptr noundef nonnull %795, ptr noundef nonnull %686) #12
   br label %807
 
@@ -3205,7 +3205,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %809 = getelementptr i8, ptr %7, i64 %766
   %810 = sub i64 %8, %766
   %811 = trunc i64 %810 to i32
-  %812 = tail call ptr @skb_put(ptr noundef %32, i32 noundef %811) #12
+  %812 = tail call ptr @skb_put(ptr noundef nonnull %32, i32 noundef %811) #12
   %813 = and i64 %810, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %812, ptr align 1 %809, i64 %813, i1 false)
   br label %897
@@ -3399,7 +3399,7 @@ declare dso_local void @ieee80211_apply_vhtcap_overrides(ptr noundef, ptr nounde
 declare dso_local ptr @ieee80211_ie_build_vht_cap(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_tdls_chandef_vht_upgrade(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_tdls_chandef_vht_upgrade(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.cfg80211_chan_def, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1336
@@ -3541,7 +3541,7 @@ declare dso_local ptr @ieee80211_write_he_6ghz_cap(ptr noundef, i16 noundef zero
 declare dso_local ptr @ieee80211_ie_build_eht_cap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i16 noundef zeroext range(i16 2412, 5001) %2, i16 noundef zeroext range(i16 2472, 5826) %3, i16 noundef zeroext range(i16 5, 21) %4) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i8 @ieee80211_tdls_add_subband(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i16 noundef zeroext range(i16 2412, 5001) %2, i16 noundef zeroext range(i16 2472, 5826) %3, i16 noundef zeroext range(i16 5, 21) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.cfg80211_chan_def, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -3911,7 +3911,7 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10

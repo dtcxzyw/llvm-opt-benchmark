@@ -241,7 +241,7 @@ define zeroext i1 @lv_tree_walk(ptr noundef %0, i8 noundef zeroext %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @_lv_tree_node_destructor_cb(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef zeroext i1 @_lv_tree_node_destructor_cb(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 

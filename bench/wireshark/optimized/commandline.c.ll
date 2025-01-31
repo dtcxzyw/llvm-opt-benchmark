@@ -201,7 +201,7 @@ define hidden void @commandline_print_usage(i32 noundef %0) local_unnamed_addr #
 declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @g_get_tmp_dir() local_unnamed_addr #1
 
@@ -622,7 +622,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   unreachable
 
 29:                                               ; preds = %22
-  %30 = tail call i32 @process_stat_cmd_arg(ptr noundef %23) #10
+  %30 = tail call i32 @process_stat_cmd_arg(ptr noundef nonnull %23) #10
   %.not28 = icmp eq i32 %30, 0
   br i1 %.not28, label %31, label %.backedge
 
@@ -708,7 +708,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
 declare i32 @get_nonzero_guint32(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @list_stat_cmd_args() local_unnamed_addr #1
 
@@ -757,9 +757,9 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cl_find_custom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @cl_find_custom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  %4 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #14
+  %4 = tail call i32 @memcmp(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3) #14
   ret i32 %4
 }
 
@@ -809,19 +809,19 @@ define hidden void @commandline_options_free() local_unnamed_addr #0 {
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

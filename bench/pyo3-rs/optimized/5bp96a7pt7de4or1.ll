@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bc2ac81a3cdfbee4218d64a37f6c8381.0 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"unexpected token" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h0d871b18e98ca73eE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h0d871b18e98ca73eE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -59,7 +59,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h0d871b18e98ca73eE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h215a14291bde550aE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h215a14291bde550aE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -112,7 +112,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h215a14291bde550aE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h23e8f9093eae9743E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h23e8f9093eae9743E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -165,7 +165,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h23e8f9093eae9743E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h2a456b18e6e51856E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h2a456b18e6e51856E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -218,7 +218,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h2a456b18e6e51856E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h2a7d970e3d3bed1dE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h2a7d970e3d3bed1dE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -271,7 +271,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h2a7d970e3d3bed1dE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h2bd2e03dd7164d49E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h2bd2e03dd7164d49E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -324,7 +324,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h2bd2e03dd7164d49E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h343e5485587c8f4eE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h343e5485587c8f4eE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -377,7 +377,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h343e5485587c8f4eE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h4903791d0a7d993bE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h4903791d0a7d993bE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -430,7 +430,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h4903791d0a7d993bE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h499804af4c0a1838E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h499804af4c0a1838E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -483,7 +483,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h499804af4c0a1838E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h4e1983b5f935d3e4E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h4e1983b5f935d3e4E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -536,7 +536,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h4e1983b5f935d3e4E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h5b26ff784f8becd3E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h5b26ff784f8becd3E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -589,7 +589,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h5b26ff784f8becd3E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h686c5bb2c0f0256cE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h686c5bb2c0f0256cE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -642,7 +642,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h686c5bb2c0f0256cE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h72e3e3eb964ef847E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h72e3e3eb964ef847E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -695,7 +695,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h72e3e3eb964ef847E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h7c59945262d89db8E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h7c59945262d89db8E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -748,7 +748,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h7c59945262d89db8E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h8c5511d79e8a30e5E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h8c5511d79e8a30e5E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -801,7 +801,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h8c5511d79e8a30e5E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17h95dc0eee455004d8E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17h95dc0eee455004d8E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -854,7 +854,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17h95dc0eee455004d8E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17ha454a51d098f0f92E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17ha454a51d098f0f92E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -907,7 +907,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17ha454a51d098f0f92E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17ha7158461117a8561E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17ha7158461117a8561E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -960,7 +960,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17ha7158461117a8561E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17haa479d84277eb9aeE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17haa479d84277eb9aeE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1013,7 +1013,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17haa479d84277eb9aeE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hac269c7928a67d90E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hac269c7928a67d90E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1066,7 +1066,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hac269c7928a67d90E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hb073d437efa2c90aE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hb073d437efa2c90aE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1119,7 +1119,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hb073d437efa2c90aE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hb222adbac59b5c9dE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hb222adbac59b5c9dE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1172,7 +1172,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hb222adbac59b5c9dE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hb23745d62a7fcf0fE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hb23745d62a7fcf0fE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1225,7 +1225,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hb23745d62a7fcf0fE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hb8494ca47154c9bbE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hb8494ca47154c9bbE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1278,7 +1278,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hb8494ca47154c9bbE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hb9c4efbec303a6e7E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hb9c4efbec303a6e7E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1331,7 +1331,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hb9c4efbec303a6e7E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hcb3b3f8d487dd45eE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hcb3b3f8d487dd45eE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1384,7 +1384,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hcb3b3f8d487dd45eE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hcebd72b3848af44aE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hcebd72b3848af44aE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1437,7 +1437,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hcebd72b3848af44aE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hd35c2dfc73ef95c2E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hd35c2dfc73ef95c2E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1490,7 +1490,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hd35c2dfc73ef95c2E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hd5462bd54679bc1fE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hd5462bd54679bc1fE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1543,7 +1543,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hd5462bd54679bc1fE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hd597ebda6a4c52dcE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hd597ebda6a4c52dcE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1596,7 +1596,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hd597ebda6a4c52dcE(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse11ParseBuffer4step17hf9d2cec6007a5132E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN3syn5parse11ParseBuffer4step17hf9d2cec6007a5132E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 12)) %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1649,7 +1649,7 @@ define void @_ZN3syn5parse11ParseBuffer4step17hf9d2cec6007a5132E(ptr nocapture w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h3b719775c66ce910E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h3b719775c66ce910E"(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -1792,7 +1792,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h3b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h5d0900c646babb03E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h5d0900c646babb03E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -1928,7 +1928,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h5d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6063386f2997f6d8E"(ptr nocapture writeonly sret([104 x i8]) align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6063386f2997f6d8E"(ptr writeonly sret([104 x i8]) align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [104 x i8], align 8
@@ -2071,7 +2071,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h60
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9d01e1b3e1c76e8aE"(ptr nocapture writeonly sret([232 x i8]) align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9d01e1b3e1c76e8aE"(ptr writeonly sret([232 x i8]) align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [232 x i8], align 8
@@ -2214,7 +2214,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc0a0c4be764a2460E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc0a0c4be764a2460E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -2358,7 +2358,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h20af73fc124c658dE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h20af73fc124c658dE"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -2472,7 +2472,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h20af73fc124
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h7bbce977acd4a75aE"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #2

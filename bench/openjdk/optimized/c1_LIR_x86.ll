@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noundef i32 @_ZNK7LIR_Opr12as_float_regEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK7LIR_Opr12as_float_regEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 32) #5
@@ -19,7 +19,7 @@ define hidden noundef i32 @_ZNK7LIR_Opr12as_float_regEv(ptr nocapture noundef no
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noundef i32 @_ZNK7LIR_Opr13as_double_regEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK7LIR_Opr13as_double_regEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 37) #5
@@ -27,7 +27,7 @@ define hidden noundef i32 @_ZNK7LIR_Opr13as_double_regEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK7LIR_Opr16as_xmm_float_regEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden i32 @_ZNK7LIR_Opr16as_xmm_float_regEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 14
@@ -38,7 +38,7 @@ define hidden i32 @_ZNK7LIR_Opr16as_xmm_float_regEv(ptr nocapture noundef nonnul
 declare i32 @_ZN8FrameMap9nr2xmmregEi(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK7LIR_Opr17as_xmm_double_regEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden i32 @_ZNK7LIR_Opr17as_xmm_double_regEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 14

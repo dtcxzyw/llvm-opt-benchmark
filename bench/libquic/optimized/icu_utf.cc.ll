@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8base_icuL15utf8_errorValueE = internal unnamed_addr constant [6 x i32] [i32 21, i32 159, i32 65535, i32 1114111, i32 67108863, i32 2147483647], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr nocapture noundef readonly %s, ptr nocapture noundef %pi, i32 noundef %length, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %pi, i32 noundef %length, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pi, align 4
   %1 = and i32 %c, 255

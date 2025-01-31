@@ -366,7 +366,7 @@ _ZN8GraphKit4pushEP4Node.exit:                    ; preds = %74, %63, %_ZN4Node7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5Parse16array_addressingE9BasicTypeiRPK4Type(ptr noundef nonnull align 8 dereferenceable(352) %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN5Parse16array_addressingE9BasicTypeiRPK4Type(ptr noundef nonnull align 8 dereferenceable(352) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.PreserveJVMState, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -4486,10 +4486,10 @@ _ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %294, %._crit_edge.i
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL8jint_cmpPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef range(i32 -1, 2) i32 @_ZL8jint_cmpPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
@@ -4497,7 +4497,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL8jint_cmpPKvS0_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse27linear_search_switch_rangesEP4NodeRP11SwitchRangeS4_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse27linear_search_switch_rangesEP4NodeRP11SwitchRangeS4_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -5040,7 +5040,7 @@ _ZN13GrowableArrayI12SwitchRangesED2Ev.exit:      ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN5Parse18create_jump_tablesEP4NodeP11SwitchRangeS3_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
@@ -6542,7 +6542,7 @@ define hidden void @_ZN5Parse6do_retEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN5Parse12merge_commonEPNS_5BlockEi(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [30 x i8], align 16
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -6822,7 +6822,7 @@ declare noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 de
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr noundef %4)
   %7 = fcmp une float %6, -1.000000e+00
   br i1 %7, label %48, label %8
@@ -6892,7 +6892,7 @@ define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK5Parse17seems_never_takenEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %0, float noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK5Parse17seems_never_takenEf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, float noundef %1) local_unnamed_addr #7 align 2 {
   %3 = fcmp olt float %1, 0x3EB0C6F7A0000000
   ret i1 %3
 }
@@ -7436,7 +7436,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse19adjust_map_after_ifEN8BoolTest4maskEP4NodefPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, ptr nocapture noundef readonly %2, float noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse19adjust_map_after_ifEN8BoolTest4maskEP4NodefPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, float noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 255
@@ -8283,7 +8283,7 @@ _ZN8GraphKit11set_controlEP4Node.exit90:          ; preds = %_ZN4Node7del_outEPS
 declare noundef ptr @_ZN8BoolNode6negateEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5Parse34path_is_suitable_for_uncommon_trapEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK5Parse34path_is_suitable_for_uncommon_trapEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseInterpreter, align 1
   %4 = trunc i8 %3 to i1
   %5 = fcmp olt float %1, 0x3EB0C6F7A0000000
@@ -8307,7 +8307,7 @@ define hidden noundef zeroext i1 @_ZNK5Parse34path_is_suitable_for_uncommon_trap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -15536,16 +15536,16 @@ declare void @llvm.assume(i1 noundef) #12
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

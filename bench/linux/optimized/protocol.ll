@@ -93,7 +93,7 @@ define dso_local void @usb_stor_transparent_scsi_command(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local i32 @usb_stor_access_xfer_buf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.sg_mapping_iter, align 8
   %8 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #6
@@ -221,10 +221,10 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sg_nents(ptr noundef) local_unnamed_addr #1
@@ -239,10 +239,10 @@ declare dso_local zeroext i1 @sg_miter_skip(ptr noundef, i64 noundef) local_unna
 declare dso_local zeroext i1 @sg_miter_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #1
@@ -251,7 +251,7 @@ declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #1
 declare dso_local void @sg_miter_stop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usb_stor_set_xfer_buf(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local void @usb_stor_set_xfer_buf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6

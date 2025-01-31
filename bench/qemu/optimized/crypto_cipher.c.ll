@@ -333,7 +333,7 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @gnutls_cipher_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_encrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_encrypt(ptr noundef readonly captures(none) %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
@@ -463,7 +463,7 @@ return:                                           ; preds = %if.then3, %cleanup,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_decrypt(ptr nocapture noundef readonly %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_decrypt(ptr noundef readonly captures(none) %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #0 {
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
@@ -563,7 +563,7 @@ return:                                           ; preds = %if.then3, %cleanup,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_setiv(ptr nocapture noundef readonly %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_cipher_setiv(ptr noundef readonly captures(none) %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
   %blocksize = getelementptr inbounds nuw i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8
@@ -594,10 +594,10 @@ declare i32 @gnutls_cipher_decrypt2(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

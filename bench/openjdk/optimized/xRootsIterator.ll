@@ -171,10 +171,10 @@ define hidden void @_ZN28XStrongOopStorageSetIteratorC2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28XStrongOopStorageSetIterator5applyEP10OopClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN28XStrongOopStorageSetIterator5applyEP10OopClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.TimeInstant, align 8
   %4 = alloca %"struct.OopStorage::BasicParState::IterationData", align 8
   %5 = alloca %class.XStatTimer, align 8
@@ -286,7 +286,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN27OopStorageSetS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19XStrongCLDsIterator5applyEP10CLDClosure(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19XStrongCLDsIterator5applyEP10CLDClosure(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.TimeInstant, align 8
   %4 = alloca %class.XStatTimer, align 8
   %5 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN17XStatTimerDisable7_activeE)
@@ -471,7 +471,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17XNMethodsIteratorC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN17XNMethodsIteratorC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load i8, ptr @ClassUnloading, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4
@@ -487,7 +487,7 @@ define hidden void @_ZN17XNMethodsIteratorC2Ev(ptr nocapture nonnull readnone al
 declare void @_ZN8XNMethod17nmethods_do_beginEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17XNMethodsIteratorD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN17XNMethodsIteratorD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load i8, ptr @ClassUnloading, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4
@@ -503,7 +503,7 @@ define hidden void @_ZN17XNMethodsIteratorD2Ev(ptr nocapture nonnull readnone al
 declare void @_ZN8XNMethod15nmethods_do_endEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17XNMethodsIterator5applyEP14NMethodClosure(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17XNMethodsIterator5applyEP14NMethodClosure(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.TimeInstant, align 8
   %4 = alloca %class.XStatTimer, align 8
   %5 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN17XStatTimerDisable7_activeE)
@@ -971,7 +971,7 @@ _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26XWeakOopStorageSetIterator15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN26XWeakOopStorageSetIterator15report_num_deadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -991,7 +991,7 @@ _ZN25OopStorageSetWeakParStateILb1ELb0EE15report_num_deadEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18XWeakRootsIterator15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18XWeakRootsIterator15report_num_deadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2166,10 +2166,10 @@ define internal void @_GLOBAL__sub_I_xRootsIterator.cpp() #3 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

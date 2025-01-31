@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i32 @cmd_fsmonitor__daemon(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define dso_local noundef i32 @cmd_fsmonitor__daemon(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readnone captures(none) %prefix) local_unnamed_addr #0 {
 entry:
   %options = alloca [1 x %struct.option], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %options, i8 0, i64 88, i1 false)
@@ -51,7 +51,7 @@ if.end:                                           ; preds = %sub_1, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
 declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #2

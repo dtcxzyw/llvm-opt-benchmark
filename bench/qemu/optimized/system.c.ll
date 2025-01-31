@@ -104,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @gdb_get_cpu_index(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local i32 @gdb_get_cpu_index(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
@@ -128,7 +128,7 @@ entry:
 declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_syscall_handling(ptr nocapture noundef readnone %syscall_packet) local_unnamed_addr #2 {
+define dso_local void @gdb_syscall_handling(ptr noundef readnone captures(none) %syscall_packet) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @vm_stop(i32 noundef 0) #15
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
@@ -339,10 +339,10 @@ declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gdb_sigterm_handler(i32 %signal) #2 {
@@ -368,7 +368,7 @@ declare void @gdb_init_gdbserver_state() local_unnamed_addr #3
 declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gdb_vm_state_change(ptr nocapture readnone %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
+define internal void @gdb_vm_state_change(ptr readnone captures(none) %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #15
@@ -503,13 +503,13 @@ declare zeroext i1 @qemu_chr_fe_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @gdb_chr_can_receive(ptr nocapture readnone %opaque) #1 {
+define internal noundef i32 @gdb_chr_can_receive(ptr readnone captures(none) %opaque) #1 {
 entry:
   ret i32 4096
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gdb_chr_receive(ptr nocapture readnone %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #2 {
+define internal void @gdb_chr_receive(ptr readnone captures(none) %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #2 {
 entry:
   %cmp3 = icmp sgt i32 %size, 0
   br i1 %cmp3, label %for.body.preheader, label %for.end
@@ -532,7 +532,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gdb_chr_event(ptr nocapture noundef %opaque, i32 noundef %event) #2 {
+define internal void @gdb_chr_event(ptr noundef captures(none) %opaque, i32 noundef %event) #2 {
 entry:
   %cond = icmp eq i32 %event, 1
   br i1 %cond, label %for.cond.preheader, label %sw.epilog
@@ -658,7 +658,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i32 @gdb_put_packet(ptr noundef) local_unnamed_addr #3
 
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_qemu_phy_mem_mode(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
+define dso_local void @gdb_handle_query_qemu_phy_mem_mode(ptr noundef readnone captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %.b = load i1, ptr @phy_memory_mode, align 4
@@ -749,7 +749,7 @@ declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare void @gdb_put_strbuf() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_set_qemu_phy_mem_mode(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
+define dso_local void @gdb_handle_set_qemu_phy_mem_mode(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
@@ -770,7 +770,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_rcmd(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
+define dso_local void @gdb_handle_query_rcmd(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #2 {
 entry:
   %zero = alloca i8, align 1
   store i8 0, ptr %zero, align 1
@@ -809,7 +809,7 @@ if.else:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   %div = ashr exact i32 %conv, 1
-  tail call void @gdb_hextomem(ptr noundef nonnull %4, ptr noundef %2, i32 noundef %div) #15
+  tail call void @gdb_hextomem(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef %div) #15
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call13 = call ptr @g_byte_array_append(ptr noundef %6, ptr noundef nonnull %zero, i32 noundef 1) #15
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_system_state, i64 56), align 8
@@ -826,7 +826,7 @@ return:                                           ; preds = %do.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @gdb_hextomem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -835,7 +835,7 @@ declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @qemu_chr_be_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_attached(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
+define dso_local void @gdb_handle_query_attached(ptr noundef readnone captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.15) #15
   ret void
@@ -895,7 +895,7 @@ declare zeroext i1 @runstate_needs_reset() local_unnamed_addr #3
 declare void @vm_start() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr nocapture noundef readonly %newstates) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly captures(none) %newstates) local_unnamed_addr #2 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1137,7 +1137,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1537,10 +1537,10 @@ return:                                           ; preds = %if.end9, %if.end
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @pid_order(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 -1, 2) i32 @pid_order(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -1568,7 +1568,7 @@ declare void @replay_gdb_attached() local_unnamed_addr #3
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_gdb_class_init(ptr noundef %oc, ptr nocapture readnone %data) #2 {
+define internal void @char_gdb_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #15
   %internal = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -1581,14 +1581,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @gdb_monitor_open(ptr nocapture readnone %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #12 {
+define internal void @gdb_monitor_open(ptr readnone captures(none) %chr, ptr readnone captures(none) %backend, ptr noundef writeonly captures(none) initializes((0, 1)) %be_opened, ptr readnone captures(none) %errp) #12 {
 entry:
   store i8 0, ptr %be_opened, align 1
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @gdb_monitor_write(ptr nocapture readnone %chr, ptr noundef %buf, i32 noundef returned %len) #2 {
+define internal noundef i32 @gdb_monitor_write(ptr readnone captures(none) %chr, ptr noundef %buf, i32 noundef returned %len) #2 {
 glib_autoptr_cleanup_GString.exit:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.44) #15
   tail call void @gdb_memtohex(ptr noundef %call, ptr noundef %buf, i32 noundef %len) #15
@@ -1607,10 +1607,10 @@ declare void @cpu_physical_memory_rw(i64 noundef, ptr noundef, i64 noundef, i1 n
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #14

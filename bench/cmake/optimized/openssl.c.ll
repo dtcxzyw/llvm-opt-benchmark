@@ -1629,7 +1629,7 @@ do_file_type.exit246.thread271:                   ; preds = %229, %do_file_type.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.in6_addr, align 4
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1648,7 +1648,7 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   br i1 %.not111, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = call i32 @inet_pton(i32 noundef 10, ptr noundef %7, ptr noundef nonnull %5) #13
+  %17 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
   %.not112 = icmp eq i32 %17, 0
   br i1 %.not112, label %._crit_edge205, label %21
 
@@ -1715,7 +1715,7 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
 39:                                               ; preds = %.thread
   %40 = load ptr, ptr %2, align 8
   %41 = load ptr, ptr %27, align 8
-  %42 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef %33, i64 noundef range(i64 -2147483648, 2147483648) %36, ptr noundef %40, i64 noundef %8) #13
+  %42 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef nonnull %33, i64 noundef range(i64 -2147483648, 2147483648) %36, ptr noundef %40, i64 noundef %8) #13
   %or.cond.not.i.us = and i1 %.not.i, %42
   br i1 %or.cond.not.i.us, label %43, label %subj_alt_hostcheck.exit.us
 
@@ -1726,7 +1726,7 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   br i1 %.not10.i.us, label %subj_alt_hostcheck.exit.us, label %46
 
 46:                                               ; preds = %43
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.76, ptr noundef %41, ptr noundef %33) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.76, ptr noundef %41, ptr noundef nonnull %33) #13
   br label %subj_alt_hostcheck.exit.us
 
 subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.us, %39, %43, %46, %.thread
@@ -1988,7 +1988,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -2014,7 +2014,7 @@ declare i32 @ASN1_STRING_type(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @ASN1_STRING_to_UTF8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2282,7 +2282,7 @@ load_cacert_from_memory.exit.i:                   ; preds = %118, %111, %._crit_
 
 load_cacert_from_memory.exit.thread.i:            ; preds = %load_cacert_from_memory.exit.i, %load_cacert_from_memory.exit.thread121.i, %100, %96
   %.024.i120.i = phi i32 [ %.1.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread121.i ], [ 27, %100 ], [ 77, %96 ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.79) #13
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.79) #13
   br label %set_cached_x509_store.exit
 
 129:                                              ; preds = %load_cacert_from_memory.exit.i
@@ -2733,7 +2733,7 @@ ossl_strerror.exit:                               ; preds = %53, %switch.lookup,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ossl_data_pending(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef zeroext i1 @ossl_data_pending(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2825,7 +2825,7 @@ define internal i32 @ossl_connect(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_connect_nonblocking(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal i32 @ossl_connect_nonblocking(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef %2)
   ret i32 %4
 }
@@ -2833,7 +2833,7 @@ define internal i32 @ossl_connect_nonblocking(ptr noundef %0, ptr noundef %1, pt
 declare void @Curl_ssl_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @ossl_get_internals(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+define internal ptr @ossl_get_internals(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 4194347
@@ -3055,7 +3055,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_close_all(ptr nocapture noundef %0) #0 {
+define internal void @ossl_close_all(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3196,7 +3196,7 @@ define internal range(i32 0, 55) i32 @ossl_set_engine_default(ptr noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ossl_engines_list(ptr nocapture readnone %0) #0 {
+define internal ptr @ossl_engines_list(ptr readnone captures(none) %0) #0 {
   %2 = tail call ptr @ENGINE_get_first() #13
   %.not14 = icmp eq ptr %2, null
   br i1 %.not14, label %.loopexit, label %.lr.ph
@@ -3275,7 +3275,7 @@ define internal void @ossl_free_multi_ssl_backend_data(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3369,7 +3369,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
+define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #0 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -3572,7 +3572,7 @@ declare void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef, ptr noundef) l
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2147483647) i32 @passwd_callback(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @passwd_callback(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %12
 
@@ -3585,7 +3585,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @passwd_callback(ptr noca
 9:                                                ; preds = %5
   %10 = add nsw i32 %7, 1
   %11 = sext i32 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %3, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %3, i64 %11, i1 false)
   br label %12
 
 12:                                               ; preds = %4, %5, %9
@@ -3789,7 +3789,7 @@ declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 declare void @ERR_error_string_n(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @d2i_X509_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3816,7 +3816,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3888,7 +3888,7 @@ declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @RAND_status() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5536,13 +5536,13 @@ verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %7
 
 748:                                              ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
   %.0519.i231.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %.05118.i.i.i, %verifystatus.exit.i.i ]
-  %749 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %0) #13
+  %749 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %0) #13
   br i1 %749, label %759, label %750
 
 750:                                              ; preds = %748
   store ptr null, ptr %23, align 8
   call void @Curl_ssl_sessionid_lock(ptr noundef %1) #13
-  %751 = call zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef null) #13
+  %751 = call zeroext i1 @Curl_ssl_getsessionid(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %23, ptr noundef null) #13
   br i1 %751, label %758, label %752
 
 752:                                              ; preds = %750
@@ -5573,7 +5573,7 @@ verifystatus.exit.i.i:                            ; preds = %747, %742, %740, %7
 761:                                              ; preds = %verifystatus.exit.i.i, %675, %infof_certstack.exit.i.i
   %.2.i.i = phi i32 [ %.1.i.i, %675 ], [ 0, %verifystatus.exit.i.i ], [ %.1.i.i, %infof_certstack.exit.i.i ]
   %spec.select.i.i = select i1 %.not.i71, i32 0, i32 %.2.i.i
-  %762 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %0) #13
+  %762 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %0) #13
   %.in.v.i.i = select i1 %762, i64 2008, i64 2000
   %.in.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v.i.i
   %763 = load ptr, ptr %.in.i.i, align 8
@@ -5700,7 +5700,7 @@ declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #1
 declare void @SSL_CTX_set_msg_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture readnone %5, ptr noundef readonly %6) #0 {
+define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, ptr noundef readonly %6) #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   %.not = icmp eq ptr %6, null
@@ -5936,7 +5936,7 @@ declare zeroext i1 @Curl_tls_keylog_enabled() local_unnamed_addr #1
 declare void @SSL_CTX_set_keylog_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ossl_keylog_callback(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @ossl_keylog_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i1 @Curl_tls_keylog_write_line(ptr noundef %1) #13
   ret void
 }
@@ -6233,7 +6233,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
 declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @ossl_bio_cf_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ossl_bio_cf_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #13
   switch i32 %1, label %20 [
     i32 8, label %6
@@ -6313,7 +6313,7 @@ declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i64 @SSL_get_verify_result(ptr noundef) local_unnamed_addr #1
 
@@ -6431,16 +6431,16 @@ declare i32 @SSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

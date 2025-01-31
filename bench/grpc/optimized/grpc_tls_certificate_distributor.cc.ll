@@ -1159,7 +1159,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %land.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32grpc_tls_certificate_distributor15SetErrorForCertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN4absl12lts_202308026StatusEESC_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %cert_name, ptr nocapture noundef readonly %root_cert_error, ptr nocapture noundef readonly %identity_cert_error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32grpc_tls_certificate_distributor15SetErrorForCertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN4absl12lts_202308026StatusEESC_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %cert_name, ptr noundef readonly captures(none) %root_cert_error, ptr noundef readonly captures(none) %identity_cert_error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %identity_cert_error_to_report = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1845,7 +1845,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit198:     ; preds = %ehcleanup163
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32grpc_tls_certificate_distributor8SetErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32grpc_tls_certificate_distributor8SetErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp18 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2150,7 +2150,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit68:      ; preds = %ehcleanup80
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef %watcher, ptr noundef %root_cert_name, ptr noundef %identity_cert_name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10unique_ptrINS_31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESC_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef captures(none) %watcher, ptr noundef %root_cert_name, ptr noundef %identity_cert_name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i202 = alloca i8, align 1
   %__args.addr3.i203 = alloca i8, align 1
@@ -3916,7 +3916,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @grpc_tls_identity_pairs_add_pair(ptr noundef %pairs, ptr noundef %private_key, ptr noundef %cert_chain) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -5718,7 +5718,7 @@ _ZNKSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %4 = load ptr, ptr %__args1, align 8
   %call.i.i1.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  invoke void @_ZN9grpc_core14PemKeyCertPairC2ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i64 %call.i.i.i.i, ptr %3, i64 %call.i.i1.i.i, ptr %4)
+  invoke void @_ZN9grpc_core14PemKeyCertPairC2ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i64 %call.i.i.i.i, ptr nonnull %3, i64 %call.i.i1.i.i, ptr nonnull %4)
           to label %invoke.cont unwind label %invoke.cont21
 
 invoke.cont:                                      ; preds = %_ZNKSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EE12_M_check_lenEmPKc.exit
@@ -5868,7 +5868,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -5896,13 +5896,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

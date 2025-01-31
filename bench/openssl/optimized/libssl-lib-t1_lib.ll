@@ -330,7 +330,7 @@ entry:
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl_load_sigalgs(ptr noundef %ctx) local_unnamed_addr #2 {
@@ -401,7 +401,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @tls1_group_id_lookup(ptr nocapture noundef readonly %ctx, i16 noundef zeroext %group_id) local_unnamed_addr #4 {
+define ptr @tls1_group_id_lookup(ptr noundef readonly captures(none) %ctx, i16 noundef zeroext %group_id) local_unnamed_addr #4 {
 entry:
   %group_list_len = getelementptr inbounds nuw i8, ptr %ctx, i64 1608
   %0 = load i64, ptr %group_list_len, align 8
@@ -432,7 +432,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @tls1_group_id2name(ptr nocapture noundef readonly %ctx, i16 noundef zeroext %group_id) local_unnamed_addr #4 {
+define ptr @tls1_group_id2name(ptr noundef readonly captures(none) %ctx, i16 noundef zeroext %group_id) local_unnamed_addr #4 {
 entry:
   %group_list_len.i = getelementptr inbounds nuw i8, ptr %ctx, i64 1608
   %0 = load i64, ptr %group_list_len.i, align 8
@@ -529,7 +529,7 @@ return:                                           ; preds = %for.inc, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tls1_get_supported_groups(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %pgroups, ptr nocapture noundef writeonly %pgroupslen) local_unnamed_addr #6 {
+define void @tls1_get_supported_groups(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) %pgroups, ptr noundef writeonly captures(none) %pgroupslen) local_unnamed_addr #6 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -588,7 +588,7 @@ sw.epilog:                                        ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tls_valid_group(ptr nocapture noundef readonly %s, i16 noundef zeroext %group_id, i32 noundef %minversion, i32 noundef %maxversion, i32 noundef %isec, ptr noundef writeonly %okfortls13) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @tls_valid_group(ptr noundef readonly captures(none) %s, i16 noundef zeroext %group_id, i32 noundef %minversion, i32 noundef %maxversion, i32 noundef %isec, ptr noundef writeonly %okfortls13) local_unnamed_addr #7 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -758,7 +758,7 @@ return:                                           ; preds = %if.else45, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @tls_group_allowed(ptr noundef %s, i16 noundef zeroext %group, i32 noundef %op) local_unnamed_addr #2 {
@@ -1188,7 +1188,7 @@ return:                                           ; preds = %if.end26, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_groups(ptr nocapture noundef %pext, ptr nocapture noundef writeonly %pextlen, ptr nocapture noundef readonly %groups, i64 noundef %ngroups) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_groups(ptr noundef captures(none) %pext, ptr noundef writeonly captures(none) %pextlen, ptr noundef readonly captures(none) %groups, i64 noundef %ngroups) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %ngroups, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1270,7 +1270,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_groups_list(ptr noundef %ctx, ptr noundef %pext, ptr nocapture noundef writeonly %pextlen, ptr noundef %str) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_groups_list(ptr noundef %ctx, ptr noundef %pext, ptr noundef writeonly captures(none) %pextlen, ptr noundef %str) local_unnamed_addr #2 {
 entry:
   %gcb = alloca %struct.gid_cb_st, align 8
   %gidcnt = getelementptr inbounds nuw i8, ptr %gcb, i64 8
@@ -1323,7 +1323,7 @@ return:                                           ; preds = %entry, %end
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gid_cb(ptr noundef readonly %elem, i32 noundef %len, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @gid_cb(ptr noundef readonly %elem, i32 noundef %len, ptr noundef captures(none) %arg) #2 {
 entry:
   %etmp = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %elem, null
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tls1_get_formatlist(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 8)) %pformats, ptr nocapture noundef writeonly initializes((0, 8)) %num_formats) local_unnamed_addr #6 {
+define void @tls1_get_formatlist(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 8)) %pformats, ptr noundef writeonly captures(none) initializes((0, 8)) %num_formats) local_unnamed_addr #6 {
 entry:
   %ecpointformats = getelementptr inbounds nuw i8, ptr %s, i64 2544
   %0 = load ptr, ptr %ecpointformats, align 8
@@ -2144,7 +2144,7 @@ return:                                           ; preds = %for.inc, %for.inc.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @tls12_get_psigalgs(ptr nocapture noundef readonly %s, i32 noundef %sent, ptr nocapture noundef writeonly %psigs) local_unnamed_addr #6 {
+define i64 @tls12_get_psigalgs(ptr noundef readonly captures(none) %s, i32 noundef %sent, ptr noundef writeonly captures(none) %psigs) local_unnamed_addr #6 {
 entry:
   %cert = getelementptr inbounds nuw i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert, align 8
@@ -2223,7 +2223,7 @@ return:                                           ; preds = %if.else13, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tls_check_sigalg_curve(ptr nocapture noundef readonly %s, i32 noundef %curve) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @tls_check_sigalg_curve(ptr noundef readonly captures(none) %s, i32 noundef %curve) local_unnamed_addr #4 {
 entry:
   %cert = getelementptr inbounds nuw i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert, align 8
@@ -2703,7 +2703,7 @@ lor.lhs.false168:                                 ; preds = %land.lhs.true164
 if.then173:                                       ; preds = %lor.lhs.false168, %land.lhs.true164
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1965, ptr noundef nonnull @__func__.tls12_check_peer_sigalg) #15
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 40, i32 noundef 370, ptr noundef null) #15
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 40, i32 noundef 370, ptr noundef null) #15
   br label %return
 
 if.end.i90:                                       ; preds = %for.end
@@ -2834,7 +2834,7 @@ return:                                           ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sigalg_security_bits(ptr noundef %ctx, ptr nocapture noundef nonnull readonly %lu) unnamed_addr #2 {
+define internal fastcc i32 @sigalg_security_bits(ptr noundef %ctx, ptr noundef nonnull readonly captures(none) %lu) unnamed_addr #2 {
 entry:
   %hash.i = getelementptr inbounds nuw i8, ptr %lu, i64 12
   %0 = load i32, ptr %hash.i, align 4
@@ -2907,7 +2907,7 @@ return:                                           ; preds = %if.else14, %if.then
 declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_get_peer_signature_type_nid(ptr noundef readonly %s, ptr nocapture noundef writeonly %pnid) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_get_peer_signature_type_nid(ptr noundef readonly %s, ptr noundef writeonly captures(none) %pnid) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -2944,7 +2944,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_get_signature_type_nid(ptr noundef readonly %s, ptr nocapture noundef writeonly %pnid) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_get_signature_type_nid(ptr noundef readonly %s, ptr noundef writeonly captures(none) %pnid) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -3031,7 +3031,7 @@ return:                                           ; preds = %if.end18, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ssl_set_sig_mask(ptr nocapture noundef %pmask_a, ptr noundef %s, i32 noundef %op) local_unnamed_addr #2 {
+define void @ssl_set_sig_mask(ptr noundef captures(none) %pmask_a, ptr noundef %s, i32 noundef %op) local_unnamed_addr #2 {
 entry:
   %cert.i = getelementptr inbounds nuw i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert.i, align 8
@@ -3508,7 +3508,7 @@ return:                                           ; preds = %for.inc44.us, %for.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef initializes((5360, 5368)) %s) local_unnamed_addr #2 {
@@ -3944,7 +3944,7 @@ return:                                           ; preds = %for.inc28, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @tls_get_ticket_from_client(ptr noundef initializes((2528, 2532)) %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly initializes((0, 8)) %ret) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @tls_get_ticket_from_client(ptr noundef initializes((2528, 2532)) %s, ptr noundef readonly captures(none) %hello, ptr noundef writeonly captures(none) initializes((0, 8)) %ret) local_unnamed_addr #2 {
 entry:
   store ptr null, ptr %ret, align 8
   %ticket_expected = getelementptr inbounds nuw i8, ptr %s, i64 2528
@@ -3991,7 +3991,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @tls_decrypt_ticket(ptr noundef %s, ptr noundef %etick, i64 noundef %eticklen, ptr nocapture noundef readonly %sess_id, i64 noundef %sesslen, ptr nocapture noundef writeonly initializes((0, 8)) %psess) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @tls_decrypt_ticket(ptr noundef %s, ptr noundef %etick, i64 noundef %eticklen, ptr noundef readonly captures(none) %sess_id, i64 noundef %sesslen, ptr noundef writeonly captures(none) initializes((0, 8)) %psess) local_unnamed_addr #2 {
 entry:
   %p = alloca ptr, align 8
   %slen = alloca i32, align 4
@@ -4389,7 +4389,7 @@ if.end251:                                        ; preds = %if.then247, %sw.bb2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ssl_hmac_new(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define ptr @ssl_hmac_new(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str.2, i32 noundef 3893) #15
   %cmp = icmp eq ptr %call, null
@@ -4446,7 +4446,7 @@ return:                                           ; preds = %if.then4, %entry, %
 declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ssl_hmac_get0_EVP_MAC_CTX(ptr nocapture noundef readonly %ctx) local_unnamed_addr #10 {
+define ptr @ssl_hmac_get0_EVP_MAC_CTX(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
@@ -4749,7 +4749,7 @@ cond.end:                                         ; preds = %if.end96
 for.body:                                         ; preds = %cond.end, %for.inc
   %i.050 = phi i32 [ %inc, %for.inc ], [ 0, %cond.end ]
   %call106 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call98, i32 noundef %i.050) #15
-  %call107 = tail call i32 @ssl_cipher_disabled(ptr noundef %s, ptr noundef %call106, i32 noundef 65537, i32 noundef 0)
+  %call107 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %s, ptr noundef %call106, i32 noundef 65537, i32 noundef 0)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %if.end110, label %for.inc
 
@@ -4854,7 +4854,7 @@ return:                                           ; preds = %for.inc, %if.end96,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls12_copy_sigalgs(ptr noundef %s, ptr noundef %pkt, ptr nocapture noundef readonly %psig, i64 noundef %psiglen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls12_copy_sigalgs(ptr noundef %s, ptr noundef %pkt, ptr noundef readonly captures(none) %psig, i64 noundef %psiglen) local_unnamed_addr #2 {
 entry:
   %cmp19.not23 = icmp eq i64 %psiglen, 0
   br i1 %cmp19.not23, label %if.then35, label %for.body.lr.ph
@@ -4977,7 +4977,7 @@ return:                                           ; preds = %if.end, %for.end, %
 declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_save_u16(ptr nocapture noundef %pkt, ptr nocapture noundef %pdest, ptr nocapture noundef writeonly %pdestlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_save_u16(ptr noundef captures(none) %pkt, ptr noundef captures(none) %pdest, ptr noundef writeonly captures(none) %pdestlen) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val = load i64, ptr %0, align 8
@@ -5043,7 +5043,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_save_sigalgs(ptr nocapture noundef %s, ptr nocapture noundef %pkt, i32 noundef %cert) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_save_sigalgs(ptr noundef captures(none) %s, ptr noundef captures(none) %pkt, i32 noundef %cert) local_unnamed_addr #2 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %method, align 8
@@ -5489,7 +5489,7 @@ return:                                           ; preds = %if.end.i, %if.end2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly %elem, i32 noundef %len, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly %elem, i32 noundef %len, ptr noundef captures(none) %arg) #2 {
 entry:
   %etmp = alloca [40 x i8], align 16
   %sig_alg = alloca i32, align 4
@@ -5625,7 +5625,7 @@ return:                                           ; preds = %for.inc58, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_raw_sigalgs(ptr nocapture noundef %c, ptr nocapture noundef readonly %psigs, i64 noundef %salglen, i32 noundef %client) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_raw_sigalgs(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %psigs, i64 noundef %salglen, i32 noundef %client) local_unnamed_addr #2 {
 entry:
   %mul = shl i64 %salglen, 1
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str.2, i32 noundef 2959) #15
@@ -5652,7 +5652,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_sigalgs(ptr nocapture noundef %c, ptr nocapture noundef readonly %psig_nids, i64 noundef %salglen, i32 noundef %client) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_sigalgs(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %psig_nids, i64 noundef %salglen, i32 noundef %client) local_unnamed_addr #2 {
 entry:
   %and = and i64 %salglen, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -6126,7 +6126,7 @@ for.cond156:                                      ; preds = %for.body161
 for.body161:                                      ; preds = %if.end154, %for.cond156
   %i.0214 = phi i32 [ %inc173, %for.cond156 ], [ 0, %if.end154 ]
   %call163 = call ptr @OPENSSL_sk_value(ptr noundef %chain.addr.0, i32 noundef %i.0214) #15
-  %call164 = call fastcc i32 @tls1_check_sig_alg(ptr noundef %s, ptr noundef %call163, i32 noundef %default_nid.0186)
+  %call164 = call fastcc i32 @tls1_check_sig_alg(ptr noundef nonnull %s, ptr noundef %call163, i32 noundef %default_nid.0186)
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %if.then166, label %for.cond156
 
@@ -6148,7 +6148,7 @@ if.else175:                                       ; preds = %cond.end.thread, %c
 skip_sigs:                                        ; preds = %for.cond156, %if.end154, %if.else175, %if.then168, %if.then117
   %tobool76181 = phi i1 [ true, %if.then117 ], [ true, %if.then168 ], [ %tobool76182, %if.else175 ], [ true, %if.end154 ], [ true, %for.cond156 ]
   %rv.2 = phi i32 [ %rv.1, %if.then117 ], [ %and169, %if.then168 ], [ %spec.select139, %if.else175 ], [ %or155, %if.end154 ], [ %or155, %for.cond156 ]
-  %call181 = call fastcc i32 @tls1_check_cert_param(ptr noundef %s, ptr noundef %x.addr.0, i32 noundef 1)
+  %call181 = call fastcc i32 @tls1_check_cert_param(ptr noundef nonnull %s, ptr noundef %x.addr.0, i32 noundef 1)
   %tobool182.not = icmp eq i32 %call181, 0
   br i1 %tobool182.not, label %if.else185, label %if.then183
 
@@ -6189,7 +6189,7 @@ for.cond197:                                      ; preds = %for.body202
 for.body202:                                      ; preds = %if.then195, %for.cond197
   %i.1217 = phi i32 [ %inc214, %for.cond197 ], [ 0, %if.then195 ]
   %call204 = call ptr @OPENSSL_sk_value(ptr noundef %chain.addr.0, i32 noundef %i.1217) #15
-  %call205 = call fastcc i32 @tls1_check_cert_param(ptr noundef %s, ptr noundef %call204, i32 noundef 0)
+  %call205 = call fastcc i32 @tls1_check_cert_param(ptr noundef nonnull %s, ptr noundef %call204, i32 noundef 0)
   %tobool206.not = icmp eq i32 %call205, 0
   br i1 %tobool206.not, label %if.then207, label %for.cond197
 
@@ -6409,7 +6409,7 @@ declare i32 @X509_chain_check_suiteb(ptr noundef, ptr noundef, ptr noundef, i64 
 declare i32 @SSL_version(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_sig_alg(ptr nocapture noundef readonly %s, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
+define internal fastcc ptr @find_sig_alg(ptr noundef readonly captures(none) %s, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
 entry:
   %gname.i = alloca [50 x i8], align 16
   %idx.i = alloca i64, align 8
@@ -6654,7 +6654,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls1_check_sig_alg(ptr nocapture noundef readonly %s, ptr noundef %x, i32 noundef range(i32 -1, 987) %default_nid) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @tls1_check_sig_alg(ptr noundef readonly captures(none) %s, ptr noundef %x, i32 noundef range(i32 -1, 987) %default_nid) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %default_nid, -1
   br i1 %cmp, label %return, label %if.end
@@ -8034,7 +8034,7 @@ return:                                           ; preds = %if.end6.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr nocapture noundef writeonly %ctx, i8 noundef zeroext %mode) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr noundef writeonly captures(none) %ctx, i8 noundef zeroext %mode) local_unnamed_addr #2 {
 entry:
   %switch = icmp ult i8 %mode, 5
   br i1 %switch, label %if.end, label %if.then
@@ -8098,7 +8098,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @SSL_SESSION_get_max_fragment_length(ptr nocapture noundef readonly %session) local_unnamed_addr #10 {
+define zeroext i8 @SSL_SESSION_get_max_fragment_length(ptr noundef readonly captures(none) %session) local_unnamed_addr #10 {
 entry:
   %max_fragment_len_mode = getelementptr inbounds nuw i8, ptr %session, i64 880
   %0 = load i8, ptr %max_fragment_len_mode, align 8
@@ -8185,7 +8185,7 @@ declare i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef, ptr noundef, i64 noun
 declare i32 @OSSL_PROVIDER_get_capabilities(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @add_provider_groups(ptr noundef %params, ptr nocapture noundef readonly %data) #2 {
+define internal range(i32 0, 2) i32 @add_provider_groups(ptr noundef %params, ptr noundef readonly captures(none) %data) #2 {
 entry:
   %gid = alloca i32, align 4
   %is_kem = alloca i32, align 4
@@ -8517,7 +8517,7 @@ declare ptr @EVP_KEYMGMT_get0_provider(ptr noundef) local_unnamed_addr #0
 declare void @EVP_KEYMGMT_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @add_provider_sigalgs(ptr noundef %params, ptr nocapture noundef readonly %data) #2 {
+define internal range(i32 0, 2) i32 @add_provider_sigalgs(ptr noundef %params, ptr noundef readonly captures(none) %data) #2 {
 entry:
   %code_point = alloca i32, align 4
   %0 = load ptr, ptr %data, align 8
@@ -9106,7 +9106,7 @@ declare ptr @SSL_get_ciphers(ptr noundef) local_unnamed_addr #0
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_sigorhash(ptr nocapture noundef nonnull writeonly %psig, ptr nocapture noundef nonnull writeonly %phash, ptr noundef nonnull %str) unnamed_addr #2 {
+define internal fastcc void @get_sigorhash(ptr noundef nonnull writeonly captures(none) %psig, ptr noundef nonnull writeonly captures(none) %phash, ptr noundef nonnull %str) unnamed_addr #2 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(4) @.str.8) #16
   %cmp = icmp eq i32 %call, 0
@@ -9182,7 +9182,7 @@ declare i32 @X509_get_extension_flags(ptr noundef) local_unnamed_addr #0
 declare i32 @X509_get_signature_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_cert_usable(ptr nocapture noundef readonly %s, i32 %sig.12.val, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @check_cert_usable(ptr noundef readonly captures(none) %s, i32 %sig.12.val, ptr noundef %x, ptr noundef %pkey) unnamed_addr #2 {
 entry:
   %mdnid = alloca i32, align 4
   %pknid = alloca i32, align 4
@@ -9294,16 +9294,16 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 declare i32 @EVP_PKEY_get_size(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

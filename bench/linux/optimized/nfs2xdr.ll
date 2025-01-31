@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_nfs_xdr_status.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1936, ptr @trace_nfs_xdr_status.__UNIQUE_ID___addressable___SCK__tp_func_nfs_xdr_status1935], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !6
@@ -126,7 +126,7 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef 
 declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_fhandle(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_fhandle(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %4, ptr noundef nonnull align 2 dereferenceable(32) %5, i64 32, i1 false)
@@ -134,7 +134,7 @@ define internal void @nfs2_xdr_enc_fhandle(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_attrstat(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_attrstat(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6, !prof !6
@@ -174,7 +174,7 @@ define internal i32 @nfs2_xdr_dec_attrstat(ptr nocapture readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_sattrargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_sattrargs(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -186,7 +186,7 @@ define internal void @nfs2_xdr_enc_sattrargs(ptr nocapture readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_diropargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_diropargs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -213,7 +213,7 @@ define internal void @nfs2_xdr_enc_diropargs(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_diropres(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_diropres(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread5, label %6, !prof !6
@@ -264,7 +264,7 @@ define internal i32 @nfs2_xdr_dec_diropres(ptr nocapture readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_readlinkargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_readlinkargs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -280,7 +280,7 @@ define internal void @nfs2_xdr_enc_readlinkargs(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_readlinkres(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_readlinkres(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %39, label %6, !prof !6
@@ -343,7 +343,7 @@ define internal i32 @nfs2_xdr_dec_readlinkres(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_readargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_readargs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -376,7 +376,7 @@ define internal void @nfs2_xdr_enc_readargs(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_readres(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %42, label %6, !prof !6
@@ -447,7 +447,7 @@ define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_writeargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_writeargs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -483,7 +483,7 @@ define internal void @nfs2_xdr_enc_writeargs(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_writeres(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_writeres(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -532,7 +532,7 @@ define internal i32 @nfs2_xdr_dec_writeres(ptr nocapture readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_createargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_createargs(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -562,7 +562,7 @@ define internal void @nfs2_xdr_enc_createargs(ptr nocapture readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_removeargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_removeargs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -590,7 +590,7 @@ define internal void @nfs2_xdr_enc_removeargs(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_stat(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5, !prof !6
@@ -626,7 +626,7 @@ define internal i32 @nfs2_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_renameargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_renameargs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -681,7 +681,7 @@ define internal void @nfs2_xdr_enc_renameargs(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_linkargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_linkargs(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -713,7 +713,7 @@ define internal void @nfs2_xdr_enc_linkargs(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_symlinkargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_symlinkargs(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -751,7 +751,7 @@ define internal void @nfs2_xdr_enc_symlinkargs(ptr nocapture readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs2_xdr_enc_readdirargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs2_xdr_enc_readdirargs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -774,7 +774,7 @@ define internal void @nfs2_xdr_enc_readdirargs(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_readdirres(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_readdirres(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %27, label %6, !prof !6
@@ -818,7 +818,7 @@ define internal i32 @nfs2_xdr_dec_readdirres(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs2_xdr_dec_statfsres(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal i32 @nfs2_xdr_dec_statfsres(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %43, label %6, !prof !6
@@ -891,10 +891,10 @@ declare i32 @llvm.bswap.i32(i32) #2
 declare dso_local ptr @xdr_reserve_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 68) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %113, label %5, !prof !6
@@ -1105,7 +1105,7 @@ declare void @llvm.write_register.i64(metadata, i64) #6
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @encode_sattr(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef 32) #8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 1

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Shutdown_beforeHalt(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_lang_Shutdown_beforeHalt(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void (...) @JVM_BeforeHalt() #2
   ret void
 }
@@ -12,7 +12,7 @@ define void @Java_java_lang_Shutdown_beforeHalt(ptr nocapture noundef readnone %
 declare void @JVM_BeforeHalt(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_Shutdown_halt0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_lang_Shutdown_halt0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @JVM_Halt(i32 noundef %2) #2
   ret void
 }

@@ -1889,7 +1889,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12CompileErrorC2ERKNS_8LocationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12CompileErrorC2ERKNS_8LocationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4Luau12CompileErrorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -1908,7 +1908,7 @@ define dso_local void @_ZN4Luau12CompileErrorC2ERKNS_8LocationERKNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
@@ -1959,7 +1959,7 @@ define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4Luau12Com
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -2014,7 +2014,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14compileOrThrowERNS_15BytecodeBuilderERKNS_11ParseResultERKNS_12AstNameTableERKNS_14CompileOptionsE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14compileOrThrowERNS_15BytecodeBuilderERKNS_11ParseResultERKNS_12AstNameTableERKNS_14CompileOptionsE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::CompileOptions", align 8
   %6 = alloca i8, align 1
   %7 = alloca %"class.std::vector.14", align 8
@@ -2537,7 +2537,7 @@ _ZNSt6vectorIPN4Luau15AstExprFunctionESaIS2_EED2Ev.exit72: ; preds = %236, %238
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau8CompilerC2ERNS_15BytecodeBuilderERKNS_14CompileOptionsE(ptr noundef nonnull align 8 dereferenceable(1200) %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3438,7 +3438,7 @@ _ZN4Luau8Compiler17gatherConstUpvalsEPNS_15AstExprFunctionE.exit: ; preds = %._c
   %250 = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load ptr, ptr %249, align 8
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload) #27
-  invoke void @_ZN4Luau15BytecodeBuilder14pushDebugUpvalENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %250, ptr %.sroa.0.0.copyload, i64 %251)
+  invoke void @_ZN4Luau15BytecodeBuilder14pushDebugUpvalENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %250, ptr nonnull %.sroa.0.0.copyload, i64 %251)
           to label %252 unwind label %.loopexit.split-lp.loopexit
 
 252:                                              ; preds = %.preheader
@@ -3810,7 +3810,7 @@ _ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE5clearEv.exit: ; preds = %435, %438
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN4Luau15AstExprFunctionC1ERKNS_8LocationERKNS_8AstArrayIPNS_7AstAttrEEERKNS4_INS_14AstGenericTypeEEERKNS4_INS_18AstGenericTypePackEEEPNS_8AstLocalERKNS4_ISJ_EEbS3_PNS_12AstStatBlockEmRKNS_7AstNameERKSt8optionalINS_11AstTypeListEEPNS_11AstTypePackERKSS_IS1_E(ptr noundef nonnull align 8 dereferenceable(212), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 4 dereferenceable(20)) unnamed_addr #3
 
@@ -4177,7 +4177,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler15FunctionVisitorD2Ev(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14compileOrThrowERNS_15BytecodeBuilderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14CompileOptionsERKNS_12ParseOptionsE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14compileOrThrowERNS_15BytecodeBuilderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14CompileOptionsERKNS_12ParseOptionsE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Luau::Allocator", align 8
   %6 = alloca %"class.Luau::AstNameTable", align 8
   %7 = alloca %"struct.Luau::ParseResult", align 8
@@ -4624,7 +4624,7 @@ _ZNSt6vectorIN4Luau10HotCommentESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4L
 declare void @_ZN4Luau9AllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14CompileOptionsERKNS_12ParseOptionsEPNS_15BytecodeEncoderE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14CompileOptionsERKNS_12ParseOptionsEPNS_15BytecodeEncoderE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Luau::Allocator", align 8
   %7 = alloca %"class.Luau::AstNameTable", align 8
   %8 = alloca %"struct.Luau::ParseResult", align 8
@@ -5894,7 +5894,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare noundef zeroext i1 @_ZNK4Luau15AstExprFunction18hasNativeAttributeEv(ptr noundef nonnull align 8 dereferenceable(212)) local_unnamed_addr #3
 
@@ -6179,7 +6179,7 @@ _ZNK4Luau7AstNameeqEPKc.exit4.thread:             ; preds = %2, %7, %13, %_ZNK4L
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef i32 @_ZN4Luau15BytecodeBuilder13beginFunctionEhb(ptr noundef nonnull align 8 dereferenceable(840), i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -7183,7 +7183,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_8Compiler5LocalENS_16DenseHashPointerESt
   %62 = load i8, ptr %50, align 4
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %64 = load i32, ptr %63, align 4
-  tail call void @_ZN4Luau15BytecodeBuilder14pushDebugLocalENS0_9StringRefEhjj(ptr noundef nonnull align 8 dereferenceable(840) %57, ptr %.sroa.0.0.copyload, i64 %61, i8 noundef zeroext %62, i32 noundef %64, i32 noundef %56)
+  tail call void @_ZN4Luau15BytecodeBuilder14pushDebugLocalENS0_9StringRefEhjj(ptr noundef nonnull align 8 dereferenceable(840) %57, ptr nonnull %.sroa.0.0.copyload, i64 %61, i8 noundef zeroext %62, i32 noundef %64, i32 noundef %56)
   br label %65
 
 65:                                               ; preds = %54, %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_8Compiler5LocalENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit
@@ -11573,7 +11573,7 @@ _ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit: ; preds = %._ZN4Luau8Compi
   %492 = getelementptr inbounds nuw i8, ptr %..i221, i64 40
   %.sroa.016.0.copyload = load ptr, ptr %492, align 8
   %493 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.016.0.copyload) #27
-  %494 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %491, ptr %.sroa.016.0.copyload, i64 %493)
+  %494 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %491, ptr nonnull %.sroa.016.0.copyload, i64 %493)
           to label %495 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 495:                                              ; preds = %_ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit
@@ -11582,7 +11582,7 @@ _ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit: ; preds = %._ZN4Luau8Compi
 
 497:                                              ; preds = %495
   %498 = load ptr, ptr %0, align 8
-  %499 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr %.sroa.016.0.copyload, i64 %493)
+  %499 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr nonnull %.sroa.016.0.copyload, i64 %493)
           to label %500 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 500:                                              ; preds = %497
@@ -17311,7 +17311,7 @@ _ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit: ; preds = %26
 _ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread: ; preds = %32, %30, %13, %7, %_ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit
   %37 = load ptr, ptr %0, align 8
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i) #27
-  %39 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %37, ptr %.sroa.0.0.copyload.i, i64 %38)
+  %39 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %37, ptr nonnull %.sroa.0.0.copyload.i, i64 %38)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %43
 
@@ -17342,7 +17342,7 @@ _ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread30: ; preds = %3, %4
   %.sroa.05.0.copyload = load ptr, ptr %52, align 8
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.05.0.copyload) #27
   %54 = load ptr, ptr %0, align 8
-  %55 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %54, ptr %.sroa.05.0.copyload, i64 %53)
+  %55 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %54, ptr nonnull %.sroa.05.0.copyload, i64 %53)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -17353,7 +17353,7 @@ _ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread30: ; preds = %3, %4
 
 59:                                               ; preds = %_ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread30
   %60 = load ptr, ptr %0, align 8
-  %61 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr %.sroa.05.0.copyload, i64 %53)
+  %61 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr nonnull %.sroa.05.0.copyload, i64 %53)
   %62 = trunc i32 %61 to i8
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %60, i32 noundef 7, i8 noundef zeroext %2, i8 noundef zeroext 0, i8 noundef zeroext %62)
   br label %63
@@ -17469,12 +17469,12 @@ _ZN4Luau8Compiler14canImportChainEPNS_13AstExprGlobalE.exit: ; preds = %51
 _ZN4Luau8Compiler14canImportChainEPNS_13AstExprGlobalE.exit.thread: ; preds = %57, %55, %38, %32, %_ZN4Luau8Compiler14canImportChainEPNS_13AstExprGlobalE.exit
   %63 = load ptr, ptr %0, align 8
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i) #27
-  %65 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %63, ptr %.sroa.0.0.copyload.i, i64 %64)
+  %65 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %63, ptr nonnull %.sroa.0.0.copyload.i, i64 %64)
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.070, i64 40
   %.sroa.030.0.copyload = load ptr, ptr %67, align 8
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.030.0.copyload) #27
-  %69 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %66, ptr %.sroa.030.0.copyload, i64 %68)
+  %69 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %66, ptr nonnull %.sroa.030.0.copyload, i64 %68)
   %70 = icmp ne ptr %.071, null
   br i1 %70, label %71, label %76
 
@@ -17483,7 +17483,7 @@ _ZN4Luau8Compiler14canImportChainEPNS_13AstExprGlobalE.exit.thread: ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %.071, i64 40
   %.sroa.024.0.copyload = load ptr, ptr %73, align 8
   %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.024.0.copyload) #27
-  %75 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %72, ptr %.sroa.024.0.copyload, i64 %74)
+  %75 = tail call noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %72, ptr nonnull %.sroa.024.0.copyload, i64 %74)
   br label %76
 
 76:                                               ; preds = %_ZN4Luau8Compiler14canImportChainEPNS_13AstExprGlobalE.exit.thread, %71
@@ -17562,7 +17562,7 @@ _ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit: ; preds = %104, %107
   %.sroa.013.0.copyload = load ptr, ptr %112, align 8
   %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.013.0.copyload) #27
   %114 = load ptr, ptr %0, align 8
-  %115 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %114, ptr %.sroa.013.0.copyload, i64 %113)
+  %115 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder17addConstantStringENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(840) %114, ptr nonnull %.sroa.013.0.copyload, i64 %113)
           to label %116 unwind label %121
 
 116:                                              ; preds = %_ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit
@@ -17588,7 +17588,7 @@ _ZN4Luau8Compiler12setDebugLineERKNS_8LocationE.exit: ; preds = %104, %107
 
 126:                                              ; preds = %116
   %127 = load ptr, ptr %0, align 8
-  %128 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr %.sroa.013.0.copyload, i64 %113)
+  %128 = invoke noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr nonnull %.sroa.013.0.copyload, i64 %113)
           to label %129 unwind label %121
 
 129:                                              ; preds = %126
@@ -27542,7 +27542,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau8Compiler19ConstUpvalu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZN4Luau15BytecodeBuilder14pushDebugLocalENS0_9StringRefEhjj(ptr noundef nonnull align 8 dereferenceable(840), ptr, i64, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -28170,10 +28170,10 @@ declare i8 @llvm.umin.i8(i8, i8) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21

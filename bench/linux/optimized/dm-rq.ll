@@ -69,7 +69,7 @@ define dso_local i32 @dm_get_reserved_rq_based_ios() local_unnamed_addr #0 align
 declare dso_local i32 @__dm_get_module_param(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @dm_request_based(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @dm_request_based(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -102,7 +102,7 @@ define dso_local void @dm_stop_queue(ptr noundef %0) local_unnamed_addr #0 align
 declare dso_local void @blk_mq_quiesce_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_mq_kick_requeue_list(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @dm_mq_kick_requeue_list(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   tail call void @blk_mq_delay_kick_requeue_list(ptr noundef %3, i64 noundef 0) #14
@@ -110,17 +110,17 @@ define dso_local void @dm_mq_kick_requeue_list(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @dm_attr_rq_based_seq_io_merge_deadline_show(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @dm_attr_rq_based_seq_io_merge_deadline_show(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 0) #14
   %4 = sext i32 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i64 @dm_attr_rq_based_seq_io_merge_deadline_store(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef returned %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef i64 @dm_attr_rq_based_seq_io_merge_deadline_store(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef returned %2) local_unnamed_addr #5 align 16 {
   ret i64 %2
 }
 
@@ -212,7 +212,7 @@ define dso_local i32 @dm_mq_init_request_queue(ptr noundef initializes((416, 424
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dm_table_get_immutable_target(ptr noundef) local_unnamed_addr #1
@@ -230,10 +230,10 @@ declare dso_local void @blk_mq_free_tag_set(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_mq_cleanup_mapped_device(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dm_mq_cleanup_mapped_device(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -257,7 +257,7 @@ declare dso_local void @blk_mq_delay_kick_requeue_list(ptr noundef, i64 noundef)
 declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
@@ -740,7 +740,7 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @dm_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef initializes((248, 256)) %1, i32 %2, i32 %3) #8 align 16 {
+define internal noundef i32 @dm_mq_init_request(ptr noundef readonly captures(none) %0, ptr noundef initializes((248, 256)) %1, i32 %2, i32 %3) #8 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 248
@@ -792,7 +792,7 @@ declare dso_local zeroext i8 @blk_insert_cloned_request(ptr noundef) local_unnam
 declare dso_local void @blk_rq_unprep_clone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dm_requeue_original_request(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dm_requeue_original_request(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -854,7 +854,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 declare dso_local i32 @blk_rq_prep_clone(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @dm_rq_bio_constructor(ptr nocapture noundef writeonly initializes((-16, 0), (56, 64)) %0, ptr noundef %1, ptr noundef %2) #11 align 16 {
+define internal noundef i32 @dm_rq_bio_constructor(ptr noundef writeonly captures(none) initializes((-16, 0), (56, 64)) %0, ptr noundef %1, ptr noundef %2) #11 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 -8
@@ -865,7 +865,7 @@ define internal noundef i32 @dm_rq_bio_constructor(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @end_clone_request(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define internal noundef i32 @end_clone_request(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

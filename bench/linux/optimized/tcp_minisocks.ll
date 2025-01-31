@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_child_pr
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_tcp_ca_openreq_child947, ptr @__UNIQUE_ID___addressable_tcp_check_req962, ptr @__UNIQUE_ID___addressable_tcp_child_process963, ptr @__UNIQUE_ID___addressable_tcp_create_openreq_child957, ptr @__UNIQUE_ID___addressable_tcp_openreq_init_rwin946, ptr @__UNIQUE_ID___addressable_tcp_time_wait942, ptr @__UNIQUE_ID___addressable_tcp_timewait_state_process938, ptr @__UNIQUE_ID___addressable_tcp_twsk_destructor943, ptr @__UNIQUE_ID___addressable_tcp_twsk_purge944], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.tcp_options_received, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -380,10 +380,10 @@ define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @tcp_parse_options(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -398,7 +398,7 @@ declare dso_local i64 @ktime_get_seconds() local_unnamed_addr #3
 declare dso_local void @inet_twsk_deschedule_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
@@ -609,7 +609,7 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
 declare dso_local ptr @inet_twsk_alloc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
@@ -624,7 +624,7 @@ declare dso_local void @tcp_update_metrics(ptr noundef) local_unnamed_addr #3
 declare dso_local void @tcp_done(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_twsk_destructor(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @tcp_twsk_destructor(ptr noundef readonly captures(none) %0) #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #8
           to label %8 [label %2], !srcloc !7
 
@@ -800,7 +800,7 @@ define dso_local void @tcp_openreq_init_rwin(ptr noundef initializes((132, 136))
 declare dso_local void @tcp_select_initial_window(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_ca_openreq_child(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @tcp_ca_openreq_child(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -4
@@ -878,7 +878,7 @@ declare dso_local void @tcp_assign_congestion_control(ptr noundef) local_unnamed
 declare dso_local void @tcp_set_ca_state(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcp_create_openreq_child(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local ptr @tcp_create_openreq_child(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @inet_csk_clone_lock(ptr noundef %0, ptr noundef %1, i32 noundef 2080) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %226, label %6
@@ -1215,7 +1215,7 @@ declare dso_local void @inet_csk_reset_keepalive_timer(ptr noundef, i64 noundef)
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcp_check_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local ptr @tcp_check_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4) #0 align 16 {
   %6 = alloca %struct.tcp_options_received, align 4
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8

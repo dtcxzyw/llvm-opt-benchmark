@@ -68,7 +68,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN4cvc58internal6theory5arith6linear18ApproximateSimplex26mkApproximateSimplexSolverERKNS3_14ArithVariablesERNS3_7TreeLogERNS3_21ApproximateStatisticsE(ptr nocapture noundef nonnull readnone align 1 %vars, ptr nocapture noundef nonnull readnone align 8 dereferenceable(133) %l, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN4cvc58internal6theory5arith6linear18ApproximateSimplex26mkApproximateSimplexSolverERKNS3_14ArithVariablesERNS3_7TreeLogERNS3_21ApproximateStatisticsE(ptr noundef nonnull readnone align 1 captures(none) %vars, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(133) %l, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   call void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory5arith6linear18ApproximateSimplex26mkApproximateSimplexSolverERKNS3_14ArithVariablesERNS3_7TreeLogERNS3_21ApproximateStatisticsE, ptr noundef nonnull @.str, i32 noundef 3155)
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear21ApproximateStatisticsC2ERNS0_18StatisticsRegistryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear21ApproximateStatisticsC2ERNS0_18StatisticsRegistryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1

@@ -178,7 +178,7 @@ rng_backend_free_requests.exit:                   ; preds = %land.rhs.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rng_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @rng_backend_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #3
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -224,7 +224,7 @@ return:                                           ; preds = %if.end5, %if.then4
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @rng_backend_prop_get_opened(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @rng_backend_prop_get_opened(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #3
   %opened = getelementptr inbounds nuw i8, ptr %call.i, i64 40

@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN2cv10softdoubleC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN2cv10softdoubleC2El
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv9softfloatC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %_ZN2cvL11ui32_to_f32Ej.exit, label %3
 
@@ -186,7 +186,7 @@ _ZN2cvL11ui32_to_f32Ej.exit:                      ; preds = %2, %_ZN2cvL28softfl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv9softfloatC2Em(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = lshr i64 %1, 32
   %.not.i.i = icmp ult i64 %1, 4294967296
   %spec.select.i.i = select i1 %.not.i.i, i8 32, i8 0
@@ -283,7 +283,7 @@ _ZN2cvL11ui64_to_f32Em.exit:                      ; preds = %50, %46, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv9softfloatC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv9softfloatC2Ei(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = icmp slt i32 %1, 0
   %5 = and i32 %1, 2147483647
@@ -308,7 +308,7 @@ _ZN2cvL10i32_to_f32Ei.exit:                       ; preds = %8, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv9softfloatC2El(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp slt i64 %1, 0
   %4 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
   %5 = lshr i64 %4, 32
@@ -425,7 +425,7 @@ _ZN2cvL10i64_to_f32El.exit:                       ; preds = %_ZN2cvL24softfloat_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %4 = zext i32 %3 to i64
@@ -509,7 +509,7 @@ _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %11, %15, %18, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   %6 = zext i32 %4 to i64
@@ -531,7 +531,7 @@ _ZN2cvL7f32_addENS_9softfloatES0_.exit:           ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   %6 = zext i32 %4 to i64
@@ -553,7 +553,7 @@ _ZN2cvL7f32_subENS_9softfloatES0_.exit:           ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -795,7 +795,7 @@ _ZN2cvL7f32_mulENS_9softfloatES0_.exit:           ; preds = %_ZN2cvL24softfloat_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -1036,7 +1036,7 @@ _ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -1292,7 +1292,7 @@ _ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %120,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %3 to i64
@@ -1326,7 +1326,7 @@ _ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %3 to i64
@@ -1360,7 +1360,7 @@ _ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %5 = zext i32 %3 to i64
@@ -1411,7 +1411,7 @@ _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %5 = zext i32 %3 to i64
@@ -1462,7 +1462,7 @@ _ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %3 to i64
@@ -1513,7 +1513,7 @@ _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %3 to i64
@@ -1564,7 +1564,7 @@ _ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv10softdoubleC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv10softdoubleC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %_ZN2cvL11ui32_to_f64Ej.exit, label %3
 
@@ -1601,7 +1601,7 @@ _ZN2cvL11ui32_to_f64Ej.exit:                      ; preds = %3, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv10softdoubleC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv10softdoubleC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %_ZN2cvL11ui64_to_f64Em.exit, label %4
@@ -1636,7 +1636,7 @@ _ZN2cvL11ui64_to_f64Em.exit:                      ; preds = %2, %14, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv10softdoubleC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv10softdoubleC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %_ZN2cvL10i32_to_f64Ei.exit, label %3
 
@@ -1678,7 +1678,7 @@ _ZN2cvL10i32_to_f64Ei.exit:                       ; preds = %3, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv10softdoubleC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv10softdoubleC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = icmp slt i64 %1, 0
   %5 = and i64 %1, 9223372036854775807
@@ -1702,7 +1702,7 @@ _ZN2cvL10i64_to_f64El.exit:                       ; preds = %8, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = lshr i64 %3, 23
@@ -1744,7 +1744,7 @@ _ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit: ; preds = %1, %11, %13, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1817,7 +1817,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %26, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvFloorRKN2cv9softfloatE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvFloorRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1885,7 +1885,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z6cvCeilRKN2cv9softfloatE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z6cvCeilRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1953,7 +1953,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8
   %3 = lshr i64 %2, 52
   %4 = and i64 %3, 2047
@@ -1996,7 +1996,7 @@ _ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2067,7 +2067,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %23, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2133,7 +2133,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z6cvCeilRKN2cv10softdoubleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 {
+define noundef i32 @_Z6cvCeilRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2199,7 +2199,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 {
+define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8
   %.lobit.i = lshr i64 %2, 63
   %3 = trunc nuw nsw i64 %.lobit.i to i8
@@ -2276,7 +2276,7 @@ _ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit:      ; preds = %17, %21, %24, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp slt i64 %3, 0
   %5 = lshr i64 %3, 52
@@ -2390,7 +2390,7 @@ _ZN2cvL10f64_to_f32ENS_10softdoubleE.exit:        ; preds = %11, %16, %25, %53, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   %6 = icmp slt i64 %4, 0
@@ -2411,7 +2411,7 @@ _ZN2cvL7f64_addENS_10softdoubleES0_.exit:         ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   %6 = icmp slt i64 %4, 0
@@ -2432,7 +2432,7 @@ _ZN2cvL7f64_subENS_10softdoubleES0_.exit:         ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
@@ -2681,7 +2681,7 @@ _ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25soft
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -2953,7 +2953,7 @@ _ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
+define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   tail call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable align 8 %0, i64 %4, i64 %5)
@@ -2961,7 +2961,7 @@ define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #6 {
+define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #6 {
   %2 = lshr i64 %.0.val, 52
   %3 = and i64 %2, 2047
   %4 = and i64 %.0.val, 4503599627370495
@@ -3239,7 +3239,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %125, %131
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3271,7 +3271,7 @@ _ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3303,7 +3303,7 @@ _ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3352,7 +3352,7 @@ _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3401,7 +3401,7 @@ _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3450,7 +3450,7 @@ _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %3, 9218868437227405312
@@ -3499,7 +3499,7 @@ _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) local_unnamed_addr #1 {
+define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr %3, align 4
@@ -4008,7 +4008,7 @@ _ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit:    ; preds = %37, %249, %251, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #1 {
+define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #1 {
   %5 = load i64, ptr %1, align 8
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %3, align 8
@@ -4585,7 +4585,7 @@ _ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit:  ; preds = %34, %278, %_ZN2cvL2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4sqrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 {
+define void @_ZN2cv4sqrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %4 = zext i32 %3 to i64
@@ -4785,7 +4785,7 @@ _ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4sqrtERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 {
+define void @_ZN2cv4sqrtERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %.not.i = icmp sgt i64 %3, -1
@@ -4980,7 +4980,7 @@ _ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #7 {
+define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
@@ -4989,7 +4989,7 @@ define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5423,7 +5423,7 @@ _ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %206, %207
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #7 {
+define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -5432,7 +5432,7 @@ define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5839,7 +5839,7 @@ _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %185, %186
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
@@ -5848,7 +5848,7 @@ define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
+define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -6041,7 +6041,7 @@ _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -6050,7 +6050,7 @@ define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -6555,7 +6555,7 @@ _ZNK2cv10softdoubleplERKS0_.exit32:               ; preds = %204, %203, %_ZNK2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softfloat", align 4
   %5 = alloca %"struct.cv::softfloat", align 4
   %6 = alloca %"struct.cv::softfloat", align 4
@@ -7178,7 +7178,7 @@ _ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %87, %100, %113, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
@@ -7786,7 +7786,7 @@ _ZN2cvL7f64_powENS_10softdoubleES0_.exit:         ; preds = %85, %98, %111, %116
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 {
+define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8024,7 +8024,7 @@ _ZN2cvL8f32_cbrtENS_9softfloatE.exit:             ; preds = %2, %26, %_ZNK2cv10s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8105,7 +8105,7 @@ _ZN2cvL7f64_sinENS_10softdoubleE.exit:            ; preds = %14, %18, %19, %20, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8186,7 +8186,7 @@ _ZN2cvL7f64_cosENS_10softdoubleE.exit:            ; preds = %14, %18, %19, %22, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 4)) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
   %4 = lshr i64 %1, 23
   %5 = and i64 %4, 255
   %6 = and i64 %1, 8388607
@@ -8357,7 +8357,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %83, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 4)) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
   %4 = lshr i64 %1, 23
   %5 = and i64 %4, 255
   %6 = and i64 %1, 8388607
@@ -8589,7 +8589,7 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %23, %39, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 4)) %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 255) %2, i64 noundef range(i64 -3221225471, 4294967296) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 255) %2, i64 noundef range(i64 -3221225471, 4294967296) %3) unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = icmp ult i32 %5, 65536
   %7 = shl nuw i32 %5, 16
@@ -8703,7 +8703,7 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %63, %61, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = lshr i64 %1, 52
   %6 = and i64 %5, 2047
   %7 = and i64 %1, 4503599627370495
@@ -8897,7 +8897,7 @@ _ZN2cvL24softfloat_roundPackToF64Eblm.exit:       ; preds = %13, %28, %_ZN2cvL27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = lshr i64 %1, 52
   %6 = and i64 %5, 2047
   %7 = and i64 %1, 4503599627370495
@@ -9084,7 +9084,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %94, %100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 2047) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 2047) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = lshr i64 %3, 32
   %.not.i = icmp ult i64 %3, 4294967296
   %spec.select.i = select i1 %.not.i, i8 32, i8 0
@@ -9206,7 +9206,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #8 {
+define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #8 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
@@ -9436,7 +9436,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cv10softdoublea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 {
+define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #11 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9471,7 +9471,7 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 {
+define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #11 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9529,10 +9529,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #12
 declare i64 @llvm.smax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

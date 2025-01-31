@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [33 x i8] c"Key conflicts with existing key.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecOpenIndices(ptr nocapture noundef initializes((16, 20)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @ExecOpenIndices(ptr noundef captures(none) initializes((16, 20)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -132,7 +132,7 @@ declare void @BuildSpeculativeIndexInfo(ptr noundef, ptr noundef) local_unnamed_
 declare void @list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecCloseIndices(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecCloseIndices(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -884,7 +884,7 @@ index_recheck_constraint.exit.thread:             ; preds = %71, %.lr.ph135.us, 
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 6)) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 6)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i8], align 16
@@ -1098,7 +1098,7 @@ declare void @SpeculativeInsertionWait(i32 noundef, i32 noundef) local_unnamed_a
 declare void @XactLockTableWait(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @BuildIndexValueDescription(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1153,10 +1153,10 @@ declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr no
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

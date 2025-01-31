@@ -199,7 +199,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %95 = fmul double %83, 8.000000e+00
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %95, ptr %96, align 8
-  tail call void @amd_l1(i64 noundef %0, ptr noundef %.0146, ptr noundef %.0145, ptr noundef %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef nonnull %5) #3
+  tail call void @amd_l1(i64 noundef %0, ptr noundef nonnull %.0146, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef nonnull %5) #3
   %97 = tail call ptr @SuiteSparse_free(ptr noundef %.0148) #3
   %98 = tail call ptr @SuiteSparse_free(ptr noundef %.0147) #3
   %99 = tail call ptr @SuiteSparse_free(ptr noundef nonnull %43) #3
@@ -210,7 +210,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %108
 
 .critedge:                                        ; preds = %93
-  tail call void @amd_l1(i64 noundef %0, ptr noundef %.0146, ptr noundef %.0145, ptr noundef %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef null) #3
+  tail call void @amd_l1(i64 noundef %0, ptr noundef nonnull %.0146, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef null) #3
   %103 = tail call ptr @SuiteSparse_free(ptr noundef %.0148) #3
   %104 = tail call ptr @SuiteSparse_free(ptr noundef %.0147) #3
   %105 = tail call ptr @SuiteSparse_free(ptr noundef nonnull %43) #3

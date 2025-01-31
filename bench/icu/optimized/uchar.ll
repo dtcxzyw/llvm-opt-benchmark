@@ -93,14 +93,14 @@ return:                                           ; preds = %entry, %if.end
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, 32) i32 @_ZL14_enumTypeValuePKvj(ptr nocapture readnone %context, i32 noundef %value) #0 {
+define internal noundef range(i32 0, 32) i32 @_ZL14_enumTypeValuePKvj(ptr readnone captures(none) %context, i32 noundef %value) #0 {
 entry:
   %and = and i32 %value, 31
   ret i32 %and
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14_enumTypeRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #1 {
+define internal noundef signext i8 @_ZL14_enumTypeRangePKviij(ptr noundef readonly captures(none) %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #1 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %context1 = getelementptr inbounds nuw i8, ptr %context, i64 8
@@ -2971,7 +2971,7 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uchar_addPropertyStarts_75(ptr noundef %sa, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #1 {
+define void @uchar_addPropertyStarts_75(ptr noundef %sa, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3104,7 +3104,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 %end, i32 %value) #1 {
+define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr noundef readonly captures(none) %context, i32 noundef %start, i32 %end, i32 %value) #1 {
 entry:
   %add = getelementptr inbounds nuw i8, ptr %context, i64 8
   %0 = load ptr, ptr %add, align 8
@@ -3114,7 +3114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @upropsvec_addPropertyStarts_75(ptr noundef %sa, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #1 {
+define void @upropsvec_addPropertyStarts_75(ptr noundef %sa, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

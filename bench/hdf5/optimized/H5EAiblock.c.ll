@@ -257,7 +257,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_dest(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define i64 @H5EA__iblock_create(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = tail call ptr @H5EA__iblock_alloc(ptr noundef %0)

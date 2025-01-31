@@ -263,7 +263,7 @@ if.end7:                                          ; preds = %ends_with_dirsep.ex
 
 if.then9:                                         ; preds = %if.end7
   %5 = load ptr, ptr @bio_out, align 8
-  %call10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.29, ptr noundef %dirname) #14
+  %call10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %dirname) #14
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end7
@@ -272,13 +272,13 @@ if.end11:                                         ; preds = %if.then9, %if.end7
   br i1 %cmp14, label %if.then16, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end11
-  %call19122 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %d, ptr noundef %dirname) #14
+  %call19122 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %d, ptr noundef nonnull %dirname) #14
   %cmp20.not123 = icmp eq ptr %call19122, null
   br i1 %cmp20.not123, label %while.end, label %while.body
 
 if.then16:                                        ; preds = %if.end11
   %6 = load ptr, ptr @bio_err, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.30, ptr noundef %dirname) #14
+  %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.30, ptr noundef nonnull %dirname) #14
   br label %err
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end34
@@ -303,7 +303,7 @@ if.then31:                                        ; preds = %lor.lhs.false, %whi
 
 if.end34:                                         ; preds = %lor.lhs.false
   %spec.select93 = call i64 @llvm.umax.i64(i64 %call22, i64 %fname_max_len.0124)
-  %call19 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %d, ptr noundef %dirname) #14
+  %call19 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %d, ptr noundef nonnull %dirname) #14
   %cmp20.not = icmp eq ptr %call19, null
   br i1 %cmp20.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -339,7 +339,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %errs.1128 = phi i32 [ 0, %for.body.lr.ph ], [ %errs.2, %for.inc ]
   %n.0127 = phi i32 [ 0, %for.body.lr.ph ], [ %inc73, %for.inc ]
   %call51 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call13, i32 noundef %n.0127) #14
-  %call53 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.33, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, ptr noundef %call51) #14
+  %call53 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.33, ptr noundef nonnull %dirname, ptr noundef nonnull %pathsep.0, ptr noundef %call51) #14
   %cmp54.not = icmp slt i32 %call53, %conv43
   br i1 %cmp54.not, label %if.end57, label %for.inc
 
@@ -458,7 +458,7 @@ if.end8.i:                                        ; preds = %for.body.i97
 if.then11.i:                                      ; preds = %if.end8.i
   %21 = load ptr, ptr @bio_err, align 8
   %call12.i = call ptr @opt_getprog() #14
-  %call13.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.47, ptr noundef %call12.i, ptr noundef %call51) #14
+  %call13.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.47, ptr noundef %call12.i, ptr noundef nonnull %call51) #14
   br label %do_file.exit
 
 if.end15.i:                                       ; preds = %if.end8.i
@@ -475,7 +475,7 @@ if.end20.i:                                       ; preds = %if.end15.i
 if.then24.i:                                      ; preds = %if.end20.i
   %22 = load ptr, ptr @bio_err, align 8
   %call25.i = call ptr @opt_getprog() #14
-  %call26.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.48, ptr noundef %call25.i, ptr noundef %call51) #14
+  %call26.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.48, ptr noundef %call25.i, ptr noundef nonnull %call51) #14
   br label %do_file.exit
 
 if.end27.i:                                       ; preds = %if.end20.i
@@ -535,7 +535,7 @@ if.then60.i:                                      ; preds = %if.then57.i
 
 if.then65.i:                                      ; preds = %if.then60.i
   %conv.i = trunc i64 %call63.i to i32
-  %call67.i = call fastcc i32 @add_entry(i32 noundef %type.0.i, i32 noundef %conv.i, ptr noundef %call51, ptr noundef nonnull %digest.i, i32 noundef 1, i16 noundef zeroext -1)
+  %call67.i = call fastcc i32 @add_entry(i32 noundef %type.0.i, i32 noundef %conv.i, ptr noundef nonnull %call51, ptr noundef nonnull %digest.i, i32 noundef 1, i16 noundef zeroext -1)
   br label %if.end73.i
 
 if.else68.i:                                      ; preds = %if.then60.i
@@ -551,7 +551,7 @@ if.end73.i:                                       ; preds = %if.else68.i, %if.th
 if.then79.i:                                      ; preds = %if.end73.i
   %call80.i = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name.0.i) #14
   %conv81.i = trunc i64 %call80.i to i32
-  %call83.i = call fastcc i32 @add_entry(i32 noundef %type.0.i, i32 noundef %conv81.i, ptr noundef %call51, ptr noundef nonnull %digest.i, i32 noundef 1, i16 noundef zeroext -1)
+  %call83.i = call fastcc i32 @add_entry(i32 noundef %type.0.i, i32 noundef %conv81.i, ptr noundef nonnull %call51, ptr noundef nonnull %digest.i, i32 noundef 1, i16 noundef zeroext -1)
   %add84.i = add nuw nsw i32 %call83.i, %errs.1.i
   br label %do_file.exit
 
@@ -678,7 +678,7 @@ while.end130:                                     ; preds = %while.cond124
   %idxprom134 = zext i16 %51 to i64
   %arrayidx135 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %idxprom134
   %52 = load ptr, ptr %arrayidx135, align 8
-  %call136 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %50, ptr noundef %52, i32 noundef %nextid.2) #14
+  %call136 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef nonnull %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %50, ptr noundef %52, i32 noundef %nextid.2) #14
   %.b88 = load i1, ptr @verbose, align 4
   br i1 %.b88, label %if.then138, label %if.end143
 
@@ -745,7 +745,7 @@ if.then173:                                       ; preds = %if.else171
   %idxprom177 = zext i16 %64 to i64
   %arrayidx178 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %idxprom177
   %65 = load ptr, ptr %arrayidx178, align 8
-  %call181 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %63, ptr noundef %65, i32 noundef %conv106) #14
+  %call181 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef nonnull %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %63, ptr noundef %65, i32 noundef %conv106) #14
   %.b87 = load i1, ptr @verbose, align 4
   br i1 %.b87, label %if.then183, label %if.end187
 
@@ -810,17 +810,17 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @X509_get_default_cert_dir_env() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -829,12 +829,12 @@ declare ptr @X509_get_default_cert_dir() local_unnamed_addr #1
 declare i32 @app_access(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sk_strcmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
+define internal i32 @sk_strcmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #6 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -861,13 +861,13 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9
@@ -890,7 +890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #9
@@ -900,10 +900,10 @@ declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #1
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2) %type, i32 noundef %hash, ptr noundef %filename, ptr noundef readonly %digest, i32 noundef range(i32 0, 2) %need_symlink, i16 noundef zeroext %old_id) unnamed_addr #0 {
@@ -1124,13 +1124,13 @@ declare i64 @X509_NAME_hash_old(ptr noundef) local_unnamed_addr #1
 declare void @X509_INFO_free(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

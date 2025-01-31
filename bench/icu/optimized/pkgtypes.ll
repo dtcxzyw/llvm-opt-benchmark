@@ -282,19 +282,19 @@ while.end:                                        ; preds = %if.end60.us68, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #1
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #1
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #1
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #1
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i32 @T_FileStream_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -543,7 +543,7 @@ while.end:                                        ; preds = %if.end63.us50, %if.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
@@ -725,11 +725,11 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %0 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1024, ptr noundef %strAlias) #12
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1024, ptr noundef nonnull %strAlias) #12
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call7 = call ptr @strncpy(ptr noundef nonnull %aBuf, ptr noundef %strAlias, i64 noundef %sub.ptr.sub) #10
+  %call7 = call ptr @strncpy(ptr noundef nonnull %aBuf, ptr noundef nonnull %strAlias, i64 noundef %sub.ptr.sub) #10
   %arrayidx = getelementptr inbounds [1024 x i8], ptr %aBuf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %call2.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %aBuf, i32 noundef 47) #11
@@ -862,7 +862,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly %l, ptr nocapture noundef readonly %str) local_unnamed_addr #9 {
+define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonly %l, ptr noundef readonly captures(none) %str) local_unnamed_addr #9 {
 entry:
   %tobool.not3 = icmp eq ptr %l, null
   br i1 %tobool.not3, label %return, label %for.body
@@ -910,7 +910,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

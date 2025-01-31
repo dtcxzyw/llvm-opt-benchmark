@@ -85,7 +85,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #18
   ret ptr %2
 }
@@ -94,27 +94,27 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @gui_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 997
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct._PangoRectangle, align 4
   %8 = alloca [4096 x i8], align 16
   %9 = alloca [4096 x i8], align 16
@@ -620,10 +620,10 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_camera_error_callback(ptr nocapture readnone %0, i32 %1, ptr noundef %2) #1 {
+define internal void @_camera_error_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef %2) #1 {
   %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #18
   tail call void (ptr, ...) @dt_control_log(ptr noundef %4) #18
   %5 = tail call i32 @g_idle_add(ptr noundef nonnull @_bailout_of_tethering, ptr noundef %2) #18
@@ -631,7 +631,7 @@ define internal void @_camera_error_callback(ptr nocapture readnone %0, i32 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_camera_property_value_changed(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal void @_camera_property_value_changed(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = tail call ptr @g_list_find_custom(ptr noundef %6, ptr noundef %1, ptr noundef nonnull @_compare_property_by_name) #18
@@ -650,7 +650,7 @@ define internal void @_camera_property_value_changed(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_camera_property_accessibility_changed(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @_camera_property_accessibility_changed(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #0 {
   ret void
 }
 
@@ -704,7 +704,7 @@ declare ptr @gtk_spin_button_new_with_range(double noundef, double noundef, doub
 declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_capture_button_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_capture_button_clicked(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = tail call i64 @gtk_toggle_button_get_type() #20
@@ -790,7 +790,7 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_toggle_capture_mode_clicked(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_toggle_capture_mode_clicked(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = tail call i64 @gtk_widget_get_type() #20
@@ -858,7 +858,7 @@ declare i64 @gtk_entry_get_type() local_unnamed_addr #6
 declare ptr @gtk_button_new_with_label(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_show_property_popupmenu_clicked(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_show_property_popupmenu_clicked(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !75
   tail call void @dt_gui_menu_popup(ptr noundef %4, ptr noundef %0, i32 noundef 9, i32 noundef 3) #18
@@ -866,7 +866,7 @@ define internal void @_show_property_popupmenu_clicked(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_add_property_button_clicked(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
+define internal void @_add_property_button_clicked(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca [256 x i8], align 16
   %4 = ptrtoint ptr %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1007,10 +1007,10 @@ define internal void @_add_property_button_clicked(ptr nocapture readnone %0, pt
 declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -1024,10 +1024,10 @@ define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define void @view_enter(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #18
@@ -1288,7 +1288,7 @@ define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_lib_property_add_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @_lib_property_add_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !42
   %5 = tail call i32 @dt_camctl_camera_property_exists(ptr noundef %4, ptr noundef null, ptr noundef %2) #18
   %6 = icmp eq i32 %5, 0
@@ -1365,7 +1365,7 @@ define internal fastcc noundef ptr @_lib_property_add_new(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_property_add_to_gui(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @_lib_property_add_to_gui(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1448
   %5 = load double, ptr %4, align 8, !tbaa !23
@@ -1410,7 +1410,7 @@ define internal fastcc void @_lib_property_add_to_gui(ptr noundef nonnull %0, pt
 declare ptr @dt_conf_all_string_entries(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1419,7 +1419,7 @@ declare void @dt_conf_string_entry_free(ptr noundef) #3
 declare void @dt_camctl_camera_build_property_menu(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_property_choice_callback(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_property_choice_callback(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = tail call i64 @gtk_entry_get_type() #20
@@ -1436,7 +1436,7 @@ declare void @dt_camctl_tether_mode(ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @dt_camctl_camera_get_model(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @view_leave(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define void @view_leave(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !42
@@ -1495,7 +1495,7 @@ declare void @gtk_grid_remove_row(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_property_free(ptr nocapture noundef readonly %0) #1 {
+define internal void @_lib_property_free(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   tail call void @g_object_unref(ptr noundef %3) #18
@@ -1527,7 +1527,7 @@ declare void @pango_font_description_set_absolute_size(ptr noundef, double nound
 declare void @pango_layout_set_font_description(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1542,7 +1542,7 @@ declare void @pango_cairo_show_layout(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @dt_camctl_camera_get_property(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #3
 
@@ -1562,7 +1562,7 @@ declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @g_idle_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_bailout_of_tethering(ptr nocapture noundef readonly %0) #1 {
+define internal noundef i32 @_bailout_of_tethering(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !42
   tail call void @dt_camctl_tether_mode(ptr noundef %2, ptr noundef null, i32 noundef 0) #18
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !42
@@ -1578,7 +1578,7 @@ declare void @dt_ctl_switch_mode_to(ptr noundef) local_unnamed_addr #3
 declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_compare_property_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal i32 @_compare_property_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #19
@@ -1588,7 +1588,7 @@ define internal i32 @_compare_property_by_name(ptr nocapture noundef readonly %0
 declare i32 @dt_bauhaus_combobox_set_from_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @gtk_label_set_xalign(ptr noundef, float noundef) local_unnamed_addr #3
 
@@ -1615,7 +1615,7 @@ declare void @dt_gui_menu_popup(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1626,7 +1626,7 @@ declare i32 @dt_camctl_camera_property_exists(ptr noundef, ptr noundef, ptr noun
 declare ptr @dt_camctl_camera_property_get_first_choice(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 declare ptr @dt_bauhaus_combobox_new(ptr noundef) local_unnamed_addr #3
 
@@ -1647,7 +1647,7 @@ declare ptr @dt_camctl_camera_property_get_next_choice(ptr noundef, ptr noundef,
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @property_changed_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @property_changed_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !91
@@ -1663,7 +1663,7 @@ declare void @dt_camctl_camera_set_property_string(ptr noundef, ptr noundef, ptr
 declare void @gtk_grid_insert_row(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_osd_button_clicked(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @_osd_button_clicked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   tail call void (...) @dt_control_queue_redraw_center() #18
   ret void
 }
@@ -1678,10 +1678,10 @@ declare ptr @gtk_menu_item_get_label(ptr noundef) local_unnamed_addr #3
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr nocapture, i32 immarg, <32 x i1>) #16
+declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr captures(none), i32 immarg, <32 x i1>) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr nocapture, i32 immarg, <16 x i1>) #16
+declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr captures(none), i32 immarg, <16 x i1>) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #17

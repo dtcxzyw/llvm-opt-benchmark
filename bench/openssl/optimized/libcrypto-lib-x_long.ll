@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @long_new(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @long_new(ptr noundef writeonly captures(none) initializes((0, 8)) %pval, ptr noundef readonly captures(none) %it) #1 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @long_free(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
+define internal void @long_free(ptr noundef writeonly captures(none) initializes((0, 8)) %pval, ptr noundef readonly captures(none) %it) #1 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #2 {
+define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(none) %pval, ptr noundef readonly captures(none) %cont, i32 noundef %len, i32 %utype, ptr readnone captures(none) %free_cont, ptr noundef readonly captures(none) %it) #2 {
 entry:
   %cmp = icmp sgt i32 %len, 1
   br i1 %cmp, label %if.then, label %if.then10
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end41, %if.then4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #3 {
+define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %pval, ptr noundef writeonly %cont, ptr readnone captures(none) %putype, ptr noundef readonly captures(none) %it) #3 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 8
   %size = getelementptr inbounds nuw i8, ptr %it, i64 40
@@ -241,7 +241,7 @@ return:                                           ; preds = %entry, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @long_print(ptr noundef %out, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, i32 %indent, ptr nocapture readnone %pctx) #2 {
+define internal i32 @long_print(ptr noundef %out, ptr noundef readonly captures(none) %pval, ptr readnone captures(none) %it, i32 %indent, ptr readnone captures(none) %pctx) #2 {
 entry:
   %l.0.copyload = load i64, ptr %pval, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.3, i64 noundef %l.0.copyload) #5

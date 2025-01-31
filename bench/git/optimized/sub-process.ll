@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.21 = private unnamed_addr constant [54 x i8] c"subprocess '%s' requested unsupported capability '%s'\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @cmd2process_cmp(ptr nocapture noundef readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture noundef readnone %keydata) local_unnamed_addr #0 {
+define dso_local i32 @cmd2process_cmp(ptr noundef readnone captures(none) %cmp_data, ptr noundef readonly captures(none) %eptr, ptr noundef readonly captures(none) %entry_or_key, ptr noundef readnone captures(none) %keydata) local_unnamed_addr #0 {
 entry:
   %cmd = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %cmd, align 8
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @subprocess_find_entry(ptr noundef %hashmap, ptr noundef %cmd) local_unnamed_addr #2 {
@@ -173,7 +173,7 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #3
 declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef initializes((16, 24)) %entry1, ptr noundef %cmd, ptr nocapture noundef readonly %startfn) local_unnamed_addr #2 {
+define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef initializes((16, 24)) %entry1, ptr noundef %cmd, ptr noundef readonly captures(none) %startfn) local_unnamed_addr #2 {
 entry:
   %cmd2 = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   store ptr %cmd, ptr %cmd2, align 8
@@ -256,7 +256,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 declare void @hashmap_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr nocapture noundef readonly %entry1, ptr noundef %welcome_prefix, ptr nocapture noundef readonly %versions, ptr noundef %chosen_version, ptr nocapture noundef readonly %capabilities, ptr noundef %supported_capabilities) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly captures(none) %entry1, ptr noundef %welcome_prefix, ptr noundef readonly captures(none) %versions, ptr noundef %chosen_version, ptr noundef readonly captures(none) %capabilities, ptr noundef %supported_capabilities) local_unnamed_addr #2 {
 entry:
   %version_scratch.i = alloca i32, align 4
   %call = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
@@ -587,7 +587,7 @@ declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #3
 declare ptr @strbuf_split_buf(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
@@ -598,7 +598,7 @@ declare i32 @packet_flush_gently(i32 noundef) local_unnamed_addr #3
 declare ptr @packet_read_line(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #5 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #14
@@ -633,7 +633,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #8
@@ -642,10 +642,10 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #8
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

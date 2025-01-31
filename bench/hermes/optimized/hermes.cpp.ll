@@ -912,7 +912,7 @@ $_ZTIN8facebook3jsi21DecoratedHostFunctionE = comdat any
 @_ZTIv = external local_unnamed_addr constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes6detail23hermesFatalErrorHandlerEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(32) %reason, i1 zeroext %1) #0 {
+define hidden void @_ZN8facebook6hermes6detail23hermesFatalErrorHandlerEPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %reason, i1 zeroext %1) #0 {
 entry:
   %2 = load ptr, ptr @_ZN8facebook6hermes6detailL16sApiFatalHandlerB5cxx11E, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -931,7 +931,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN8facebook6hermes13HermesRuntime16isHermesBytecodeEPKhm(ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8facebook6hermes13HermesRuntime16isHermesBytecodeEPKhm(ptr noundef readonly captures(none) %data, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %len, 127
   br i1 %cmp.i, label %land.rhs.i, label %_ZN6hermes3hbc20BCProviderFromBuffer16isBytecodeStreamEN4llvh8ArrayRefIhEE.exit
@@ -1068,7 +1068,7 @@ declare void @_ZN4llvh14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt12system_errorC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %__ec.coerce0, ptr %__ec.coerce1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1141,7 +1141,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime36sampledTraceToStreamInDevToolsFormatERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime36sampledTraceToStreamInDevToolsFormatERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1632,7 +1632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime11loadSegmentESt10unique_ptrIKNS_3jsi6BufferESt14default_deleteIS5_EERKNS3_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime11loadSegmentESt10unique_ptrIKNS_3jsi6BufferESt14default_deleteIS5_EERKNS3_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %buffer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.299", align 8
   %ret = alloca %"struct.std::pair.250", align 8
@@ -2215,7 +2215,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2322,7 +2322,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -2455,7 +2455,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2473,7 +2473,7 @@ entry:
 declare noundef i32 @_ZN6hermes2vm6GCBase11getObjectIDEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2489,7 +2489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2505,7 +2505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pni) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %pni) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2522,7 +2522,7 @@ entry:
 declare noundef i32 @_ZN6hermes2vm6GCBase11getObjectIDENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(741), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sym) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2537,7 +2537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %val) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %val, align 8
   switch i32 %0, label %lor.lhs.false23.i [
@@ -2647,7 +2647,7 @@ return:                                           ; preds = %entry, %return.fold
 declare i64 @_ZN6hermes2vm6GCBase13getSnapshotIDENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(741), i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime14getObjectForIDEm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime14getObjectForIDEm(ptr noalias writeonly sret(%"class.facebook::jsi::Value") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %if.end, %_ZN8facebo
 declare noundef ptr @_ZN6hermes2vm6GCBase14getObjectForIDEj(ptr noundef nonnull align 8 dereferenceable(741), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK8facebook6hermes13HermesRuntime14getGCExecTraceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK8facebook6hermes13HermesRuntime14getGCExecTraceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2698,7 +2698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime21getIOTrackingInfoJSONB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime21getIOTrackingInfoJSONB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strstrm = alloca %"class.llvh::raw_string_ostream", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #39
@@ -2746,7 +2746,7 @@ declare void @_ZN6hermes2vm7Runtime21getIOTrackingInfoJSONERN4llvh11raw_ostreamE
 declare void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8facebook6hermes13HermesRuntime11getDebuggerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8facebook6hermes13HermesRuntime11getDebuggerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %debugger_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %debugger_, align 8
@@ -2754,7 +2754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime20registerForProfilingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime20registerForProfilingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.7", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -2803,7 +2803,7 @@ declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #10
 declare void @_ZN6hermes2vm16SamplingProfiler6createERNS0_7RuntimeE(ptr sret(%"class.std::unique_ptr.7") align 8, ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime22unregisterForProfilingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime22unregisterForProfilingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2826,7 +2826,7 @@ _ZNSt10unique_ptrIN6hermes2vm16SamplingProfilerESt14default_deleteIS2_EE5resetEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook6hermes13HermesRuntime19asyncTriggerTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN8facebook6hermes13HermesRuntime19asyncTriggerTimeoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -2836,7 +2836,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime14watchTimeLimitEj(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %timeoutInMs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime14watchTimeLimitEj(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this, i32 noundef %timeoutInMs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.15", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -3014,7 +3014,7 @@ declare void @_ZN6hermes2vm16TimeLimitMonitor11getOrCreateEv(ptr sret(%"class.st
 declare void @_ZN6hermes2vm16TimeLimitMonitor12watchRuntimeERNS0_7RuntimeENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef nonnull align 8 dereferenceable(9832), i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime16unwatchTimeLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook6hermes13HermesRuntime16unwatchTimeLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -3034,7 +3034,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6hermes2vm16TimeLimitMonitor14unwatchRuntimeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sourceMapBuf, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %buffer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %sourceMapBuf, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.296", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3142,7 +3142,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS_3jsi18PreparedJavaScriptEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %js) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS_3jsi18PreparedJavaScriptEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %js) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.278", align 8
@@ -3326,7 +3326,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %jsiBuffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sourceMapBuf, ptr noundef %sourceURL) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl30prepareJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::shared_ptr.296") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %jsiBuffer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %sourceMapBuf, ptr noundef %sourceURL) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::unique_ptr.252", align 8
   %agg.tmp6.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3988,7 +3988,7 @@ _ZNSt12__shared_ptrIKN8facebook3jsi18PreparedJavaScriptELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8facebook6hermes13HermesRuntime23rootsListLengthForTestsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK8facebook6hermes13HermesRuntime23rootsListLengthForTestsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #12 align 2 {
 entry:
   %hermesValues_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %chunk.08.i.i = load ptr, ptr %hermesValues_, align 8
@@ -4089,7 +4089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17prepareJavaScriptERKSt10shared_ptrIKNS_3jsi6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.296") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %jsiBuffer, ptr noundef nonnull %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17prepareJavaScriptERKSt10shared_ptrIKNS_3jsi6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::shared_ptr.296") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %jsiBuffer, ptr noundef nonnull %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.299", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4310,7 +4310,7 @@ return:                                           ; preds = %_ZN8facebook3jsi6Ob
 declare void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl18evaluateJavaScriptERKSt10shared_ptrIKNS_3jsi6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl18evaluateJavaScriptERKSt10shared_ptrIKNS_3jsi6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.299", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
@@ -4361,7 +4361,7 @@ declare noundef i32 @_ZN6hermes2vm7Runtime9drainJobsEv(ptr noundef nonnull align
 declare void @_ZN6hermes2vm7Runtime16clearKeptObjectsEv(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl6globalEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl6globalEv(ptr noalias writeonly sret(%"class.facebook::jsi::Object") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -4381,7 +4381,7 @@ entry:
 declare ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -4461,7 +4461,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad5, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl13isInspectableEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl13isInspectableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret i1 false
 }
@@ -4474,7 +4474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneSymbolEPKNS_3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneSymbolEPKNS_3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
 entry:
   %tobool.not.i = icmp eq ptr %pv, null
   br i1 %tobool.not.i, label %_ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.exit, label %if.end.i
@@ -4489,7 +4489,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneBigIntEPKNS_3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneBigIntEPKNS_3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
 entry:
   %tobool.not.i = icmp eq ptr %pv, null
   br i1 %tobool.not.i, label %_ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.exit, label %if.end.i
@@ -4504,7 +4504,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneStringEPKNS_3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneStringEPKNS_3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
 entry:
   %tobool.not.i = icmp eq ptr %pv, null
   br i1 %tobool.not.i, label %_ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.exit, label %if.end.i
@@ -4519,7 +4519,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneObjectEPKNS_3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl11cloneObjectEPKNS_3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
 entry:
   %tobool.not.i = icmp eq ptr %pv, null
   br i1 %tobool.not.i, label %_ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.exit, label %if.end.i
@@ -4534,7 +4534,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl15clonePropNameIDEPKNS_3jsi7Runtime12PointerValueE(ptr nocapture nonnull readnone align 8 %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl15clonePropNameIDEPKNS_3jsi7Runtime12PointerValueE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef returned %pv) unnamed_addr #13 align 2 {
 entry:
   %tobool.not.i = icmp eq ptr %pv, null
   br i1 %tobool.not.i, label %_ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.exit, label %if.end.i
@@ -4549,7 +4549,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl5cloneEPKNS_3jsi7Runtime12PointerValueE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl25createPropNameIDFromAsciiEPKcm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl25createPropNameIDFromAsciiEPKcm(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -4662,7 +4662,7 @@ lpad:                                             ; preds = %invoke.cont23, %if.
 declare ptr @_ZN6hermes2vm16stringToSymbolIDERNS0_7RuntimeENS0_12PseudoHandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl24createPropNameIDFromUtf8EPKhm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl24createPropNameIDFromUtf8EPKhm(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -4758,7 +4758,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl11checkStatusEN6hermes2vm15ExecutionStatus
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromStringERKNS_3jsi6StringE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromStringERKNS_3jsi6StringE(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -4828,7 +4828,7 @@ lpad:                                             ; preds = %invoke.cont19, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromSymbolERKNS_3jsi6SymbolE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromSymbolERKNS_3jsi6SymbolE(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sym) unnamed_addr #0 align 2 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %0 = load ptr, ptr %sym, align 8
@@ -4845,7 +4845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4utf8B5cxx11ERKNS_3jsi10PropNameIDE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4utf8B5cxx11ERKNS_3jsi10PropNameIDE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -4900,7 +4900,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 declare { ptr, i64 } @_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(9832), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr %view.coerce0, i64 %view.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl18utf8FromStringViewB5cxx11EN6hermes2vm10StringViewE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr %view.coerce0, i64 %view.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %view.sroa.3.8.extract.trunc = trunc i64 %view.coerce1 to i32
@@ -5032,7 +5032,7 @@ eh.resume:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl7compareERKNS_3jsi10PropNameIDES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl7compareERKNS_3jsi10PropNameIDES5_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5051,7 +5051,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef zeroext i1 @_ZN6hermes34convertUTF16ToUTF8WithReplacementsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEEm(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, i64 } @_ZN8facebook6hermes17HermesRuntimeImpl18utf16FromErrorWhatERKSt9exceptionRN4llvh15SmallVectorImplItEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %ex, ptr noundef nonnull align 8 dereferenceable(16) %buf) local_unnamed_addr #0 align 2 {
+define hidden { ptr, i64 } @_ZN8facebook6hermes17HermesRuntimeImpl18utf16FromErrorWhatERKSt9exceptionRN4llvh15SmallVectorImplItEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %ex, ptr noundef nonnull align 8 dereferenceable(16) %buf) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %ex, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -5081,7 +5081,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %cond.true.i
 declare noundef zeroext i1 @_ZN4llvh24convertUTF8ToUTF16StringENS_9StringRefERNS_15SmallVectorImplItEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14symbolToStringB5cxx11ERKNS_3jsi6SymbolE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14symbolToStringB5cxx11ERKNS_3jsi6SymbolE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -5151,7 +5151,7 @@ declare ptr @_ZN6hermes2vm23symbolDescriptiveStringERNS0_7RuntimeENS0_6HandleINS
 declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl21createBigIntFromInt64El(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl21createBigIntFromInt64El(ptr noalias writeonly sret(%"class.facebook::jsi::BigInt") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %value.addr.i = alloca i64, align 8
@@ -5221,7 +5221,7 @@ lpad:                                             ; preds = %invoke.cont6, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl22createBigIntFromUint64Em(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl22createBigIntFromUint64Em(ptr noalias writeonly sret(%"class.facebook::jsi::BigInt") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %tmp.i = alloca [2 x i64], align 16
@@ -5293,7 +5293,7 @@ lpad:                                             ; preds = %invoke.cont6, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl13bigintIsInt64ERKNS_3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bigint) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl13bigintIsInt64ERKNS_3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bigint) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %bigint, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5308,7 +5308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl14bigintIsUint64ERKNS_3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bigint) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl14bigintIsUint64ERKNS_3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bigint) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %bigint, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5323,7 +5323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN8facebook6hermes17HermesRuntimeImpl8truncateERKNS_3jsi6BigIntE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bigint) unnamed_addr #14 align 2 {
+define hidden noundef i64 @_ZN8facebook6hermes17HermesRuntimeImpl8truncateERKNS_3jsi6BigIntE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bigint) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %bigint, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5346,7 +5346,7 @@ _ZNK6hermes2vm15BigIntPrimitive21truncateToSingleDigitEv.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14bigintToStringERKNS_3jsi6BigIntEi(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %bigint, i32 noundef %radix) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14bigintToStringERKNS_3jsi6BigIntEi(ptr noalias writeonly sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %bigint, i32 noundef %radix) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %radix.addr = alloca i32, align 4
@@ -5526,7 +5526,7 @@ lpad6:                                            ; preds = %if.then.i.i.i.i.i, 
 declare { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive8toStringERNS0_7RuntimeENS0_12PseudoHandleIS1_EEh(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl21createStringFromAsciiEPKcm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl21createStringFromAsciiEPKcm(ptr noalias writeonly sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -5611,7 +5611,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl11checkStatusEN6hermes2vm15ExecutionStatus
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl20createStringFromUtf8EPKhm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl20createStringFromUtf8EPKhm(ptr noalias writeonly sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -5677,7 +5677,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4utf8B5cxx11ERKNS_3jsi6StringE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %str) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4utf8B5cxx11ERKNS_3jsi6StringE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %str) unnamed_addr #0 align 2 {
 entry:
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %runtime_, align 8
@@ -5785,7 +5785,7 @@ declare { i32, i64 } @_ZN6hermes2vm19runtimeJSONParseRefERNS0_7RuntimeEONS_11UTF
 declare void @_ZN6hermes11UTF16StreamC1EN4llvh8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12createObjectEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12createObjectEv(ptr noalias writeonly sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -5842,7 +5842,7 @@ lpad:                                             ; preds = %invoke.cont3, %entr
 declare ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12createObjectESt10shared_ptrINS_3jsi10HostObjectEE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12createObjectESt10shared_ptrINS_3jsi10HostObjectEE(ptr noalias writeonly sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -6262,7 +6262,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl13getHostObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.335") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl13getHostObjectERKNS_3jsi6ObjectE(ptr noalias writeonly sret(%"class.std::shared_ptr.335") align 8 captures(none) initializes((0, 16)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6302,7 +6302,7 @@ _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl14hasNativeStateERKNS_3jsi6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl14hasNativeStateERKNS_3jsi6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 4
@@ -6372,7 +6372,7 @@ cleanup:                                          ; preds = %_ZN6hermes2vm8JSObj
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14setNativeStateERKNS_3jsi6ObjectESt10shared_ptrINS2_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef %state) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14setNativeStateERKNS_3jsi6ObjectESt10shared_ptrINS2_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef captures(none) %state) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6605,7 +6605,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 declare noundef ptr @_ZN6hermes2vm11NativeState6createERNS0_7RuntimeEPvPFvRNS0_7HadesGCEPS1_E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %ns) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i = getelementptr inbounds nuw i8, ptr %ns, i64 8
   %1 = load ptr, ptr %context_.i, align 8
@@ -6695,10 +6695,10 @@ delete.end:                                       ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14getNativeStateERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.367") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14getNativeStateERKNS_3jsi6ObjectE(ptr noalias writeonly sret(%"class.std::shared_ptr.367") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
@@ -6820,7 +6820,7 @@ lpad:                                             ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl25setExternalMemoryPressureERKNS_3jsi6ObjectEm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, i64 noundef %amt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl25setExternalMemoryPressureERKNS_3jsi6ObjectEm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, i64 noundef %amt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7136,7 +7136,7 @@ declare void @_ZN6hermes2vm7HadesGC20creditExternalMemoryEPNS0_6GCCellEj(ptr nou
 declare void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152), ptr noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11getPropertyERKNS_3jsi6ObjectERKNS2_6StringE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11getPropertyERKNS_3jsi6ObjectERKNS2_6StringE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7199,7 +7199,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11getPropertyERKNS_3jsi6ObjectERKNS2_10PropNameIDE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11getPropertyERKNS_3jsi6ObjectERKNS2_10PropNameIDE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7266,7 +7266,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 declare { i32, i64 } @_ZN6hermes2vm8JSObject17getNamedOrIndexedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl11hasPropertyERKNS_3jsi6ObjectERKNS2_6StringE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl11hasPropertyERKNS_3jsi6ObjectERKNS2_6StringE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7328,7 +7328,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 declare i32 @_ZN6hermes2vm8JSObject11hasComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl11hasPropertyERKNS_3jsi6ObjectERKNS2_10PropNameIDE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl11hasPropertyERKNS_3jsi6ObjectERKNS2_10PropNameIDE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7392,7 +7392,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 declare i32 @_ZN6hermes2vm8JSObject17hasNamedOrIndexedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16setPropertyValueERKNS_3jsi6ObjectERKNS2_6StringERKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16setPropertyValueERKNS_3jsi6ObjectERKNS2_6StringERKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7509,7 +7509,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16setPropertyValueERKNS_3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16setPropertyValueERKNS_3jsi6ObjectERKNS2_10PropNameIDERKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -7630,7 +7630,7 @@ lpad:                                             ; preds = %if.end.i, %if.end.i
 declare i32 @_ZN6hermes2vm8JSObject17putNamedOrIndexedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), i32, ptr, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl7isArrayERKNS_3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl7isArrayERKNS_3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7652,7 +7652,7 @@ _ZN6hermes2vm5vmisaINS0_7JSArrayEEEbNS0_11HermesValueE.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl13isArrayBufferERKNS_3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl13isArrayBufferERKNS_3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7674,7 +7674,7 @@ _ZN6hermes2vm5vmisaINS0_13JSArrayBufferEEEbNS0_11HermesValueE.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl10isFunctionERKNS_3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl10isFunctionERKNS_3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7696,7 +7696,7 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12isHostObjectERKNS_3jsi6ObjectE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12isHostObjectERKNS_3jsi6ObjectE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7718,7 +7718,7 @@ _ZN6hermes2vm5vmisaINS0_10HostObjectEEEbNS0_11HermesValueE.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl14isHostFunctionERKNS_3jsi8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %func) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl14isHostFunctionERKNS_3jsi8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %func) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %func, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7740,7 +7740,7 @@ _ZN6hermes2vm5vmisaINS0_25FinalizableNativeFunctionEEEbNS0_11HermesValueE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16getPropertyNamesERKNS_3jsi6ObjectE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16getPropertyNamesERKNS_3jsi6ObjectE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.facebook::jsi::Value", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8037,7 +8037,7 @@ ehcleanup54:                                      ; preds = %if.then.i.i.i, %ehc
 declare ptr @_ZN6hermes2vm21getForInPropertyNamesERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERjS6_(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11createArrayEm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl11createArrayEm(ptr noalias writeonly sret(%"class.facebook::jsi::Array") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8106,7 +8106,7 @@ lpad:                                             ; preds = %invoke.cont11, %if.
 declare void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::WeakObject") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias writeonly sret(%"class.facebook::jsi::WeakObject") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %obj) unnamed_addr #0 align 2 {
 entry:
   %wr.i = alloca %"class.hermes::vm::WeakRoot.383", align 4
   %0 = load ptr, ptr %obj, align 8
@@ -8131,7 +8131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias writeonly sret(%"class.facebook::jsi::Value") align 8 captures(none) initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %0 = load ptr, ptr %wo, align 8
@@ -8175,7 +8175,7 @@ return:                                           ; preds = %if.end, %_ZN8facebo
 declare ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef %buffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEE(ptr noalias writeonly sret(%"class.facebook::jsi::ArrayBuffer") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef captures(none) %buffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8302,7 +8302,7 @@ declare ptr @_ZN6hermes2vm13JSArrayBuffer6createERNS0_7RuntimeENS0_6HandleINS0_8
 declare noundef i32 @_ZN6hermes2vm13JSArrayBuffer20setExternalDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEPhjPvPFvRNS0_7HadesGCEPNS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #14 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %arr) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8340,7 +8340,7 @@ _ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN8facebook6hermes17HermesRuntimeImpl4sizeERKNS_3jsi11ArrayBufferE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -8402,7 +8402,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl4dataERKNS_3jsi11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl4dataERKNS_3jsi11ArrayBufferE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -8479,7 +8479,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl15getValueAtIndexERKNS_3jsi5ArrayEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl15getValueAtIndexERKNS_3jsi5ArrayEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %arr, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.addr = alloca i64, align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8737,7 +8737,7 @@ lpad10:                                           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl19setValueAtIndexImplERKNS_3jsi5ArrayEmRKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %arr, i64 noundef %i, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl19setValueAtIndexImplERKNS_3jsi5ArrayEmRKNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %arr, i64 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.addr = alloca i64, align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -8926,7 +8926,7 @@ invoke.cont39:                                    ; preds = %invoke.cont35
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS2_5ValueERNS2_7RuntimeERKS7_PSA_mEE(ptr noalias sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr nocapture noundef %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS2_5ValueERNS2_7RuntimeERKS7_PSA_mEE(ptr noalias sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr noundef captures(none) %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context = alloca %"class.std::unique_ptr.395", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
@@ -9072,7 +9072,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8facebook6hermes17HermesRuntimeImpl15getHostFunctionERKNS_3jsi8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %func) unnamed_addr #14 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8facebook6hermes17HermesRuntimeImpl15getHostFunctionERKNS_3jsi8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %func) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %func, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9085,7 +9085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4callERKNS_3jsi8FunctionERKNS2_5ValueEPS7_m(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %func, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %jsThis, ptr nocapture noundef readonly %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl4callERKNS_3jsi8FunctionERKNS2_5ValueEPS7_m(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %func, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %jsThis, ptr noundef readonly captures(none) %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9377,7 +9377,7 @@ unreachable:                                      ; preds = %invoke.cont9
 declare noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17callAsConstructorERKNS_3jsi8FunctionEPKNS2_5ValueEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %func, ptr nocapture noundef readonly %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl17callAsConstructorERKNS_3jsi8FunctionEPKNS2_5ValueEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %func, ptr noundef readonly captures(none) %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9673,7 +9673,7 @@ unreachable:                                      ; preds = %invoke.cont9
 declare ptr @_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE(ptr, ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6SymbolES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6SymbolES5_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9688,7 +9688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6BigIntES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6BigIntES5_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9712,7 +9712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6StringES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6StringES5_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9731,7 +9731,7 @@ entry:
 declare noundef zeroext i1 @_ZNK6hermes2vm15StringPrimitive6equalsEPKS1_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6ObjectES5_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook6hermes17HermesRuntimeImpl12strictEqualsERKNS_3jsi6ObjectES5_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9744,7 +9744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl10instanceOfERKNS_3jsi6ObjectERKNS2_8FunctionE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8facebook6hermes17HermesRuntimeImpl10instanceOfERKNS_3jsi6ObjectERKNS2_8FunctionE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -9806,13 +9806,13 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 declare i32 @_ZN6hermes2vm22instanceOfOperator_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEES5_(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl9pushScopeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden noalias noundef ptr @_ZN8facebook6hermes17HermesRuntimeImpl9pushScopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl8popScopeEPNS_3jsi7Runtime10ScopeStateE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %prv) unnamed_addr #2 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl8popScopeEPNS_3jsi7Runtime10ScopeStateE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %prv) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -10326,7 +10326,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes17makeHermesRuntimeERKN6hermes2vm13RuntimeConfigE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.413") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes17makeHermesRuntimeERKN6hermes2vm13RuntimeConfigE(ptr noalias writeonly sret(%"class.std::unique_ptr.413") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %"class.std::unique_ptr.421", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
@@ -10464,7 +10464,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes27makeThreadSafeHermesRuntimeERKN6hermes2vm13RuntimeConfigE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.429") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes27makeThreadSafeHermesRuntimeERKN6hermes2vm13RuntimeConfigE(ptr noalias writeonly sret(%"class.std::unique_ptr.429") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ret = alloca %"class.std::unique_ptr.437", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
@@ -10554,7 +10554,7 @@ lpad:                                             ; preds = %_ZSt11make_uniqueIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(184) ptr @_ZN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEE16getUnsafeRuntimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #1 align 2 {
+define internal noundef nonnull align 8 dereferenceable(184) ptr @_ZN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEE16getUnsafeRuntimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #1 align 2 {
 entry:
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
@@ -10562,7 +10562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEESt14default_deleteIS8_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEESt14default_deleteIS8_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -12319,7 +12319,7 @@ lpad.i:                                           ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
@@ -12609,7 +12609,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #26
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #26
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
@@ -13529,7 +13529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %ns) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %1, align 8
@@ -15964,7 +15964,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
 declare void @_ZN6hermes6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
@@ -16409,7 +16409,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -19929,7 +19929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE18evaluateJavaScriptERKSt10shared_ptrIKNS0_6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE18evaluateJavaScriptERKSt10shared_ptrIKNS0_6BufferEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::shared_ptr.299", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -19996,7 +19996,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS0_18PreparedJavaScriptEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %js) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS0_18PreparedJavaScriptEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %js) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20026,7 +20026,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15drainMicrotasksEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 %maxMicrotasksHint) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15drainMicrotasksEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 %maxMicrotasksHint) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20084,7 +20084,7 @@ lpad:                                             ; preds = %_ZN8facebook6hermes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6globalEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6globalEv(ptr noalias writeonly sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i.i.i = alloca %"class.hermes::vm::HermesValue", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20130,7 +20130,7 @@ lpad:                                             ; preds = %call.i.i.noexc, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20160,7 +20160,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE13isInspectableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE13isInspectableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20197,7 +20197,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneSymbolEPKNS0_7Runtime12PointerValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneSymbolEPKNS0_7Runtime12PointerValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20239,7 +20239,7 @@ _ZN8facebook6hermes17HermesRuntimeImpl11cloneBigIntEPKNS_3jsi7Runtime12PointerVa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneStringEPKNS0_7Runtime12PointerValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneStringEPKNS0_7Runtime12PointerValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20266,7 +20266,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i, %_ZN8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneObjectEPKNS0_7Runtime12PointerValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11cloneObjectEPKNS0_7Runtime12PointerValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20293,7 +20293,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i, %_ZN8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15clonePropNameIDEPKNS0_7Runtime12PointerValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15clonePropNameIDEPKNS0_7Runtime12PointerValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef returned %pv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20320,7 +20320,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i, %_ZN8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE25createPropNameIDFromAsciiEPKcm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE25createPropNameIDFromAsciiEPKcm(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %str, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20350,7 +20350,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE24createPropNameIDFromUtf8EPKhm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE24createPropNameIDFromUtf8EPKhm(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20380,7 +20380,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE26createPropNameIDFromStringERKNS0_6StringE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE26createPropNameIDFromStringERKNS0_6StringE(ptr noalias writeonly sret(%"class.facebook::jsi::PropNameID") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20430,7 +20430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4utf8B5cxx11ERKNS0_10PropNameIDE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4utf8B5cxx11ERKNS0_10PropNameIDE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcScope.i.i = alloca %"class.hermes::vm::GCScope", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20500,7 +20500,7 @@ invoke.cont:                                      ; preds = %invoke.cont9.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE7compareERKNS0_10PropNameIDESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE7compareERKNS0_10PropNameIDESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20527,7 +20527,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14symbolToStringB5cxx11ERKNS0_6SymbolE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14symbolToStringB5cxx11ERKNS0_6SymbolE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sym) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20665,7 +20665,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE20createStringFromUtf8EPKhm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE20createStringFromUtf8EPKhm(ptr noalias writeonly sret(%"class.facebook::jsi::String") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %utf8, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20695,7 +20695,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4utf8B5cxx11ERKNS0_6StringE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4utf8B5cxx11ERKNS0_6StringE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -20735,7 +20735,7 @@ lpad:                                             ; preds = %call6.i.i.noexc, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12createObjectEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12createObjectEv(ptr noalias writeonly sret(%"class.facebook::jsi::Object") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i.i.i = alloca %"class.hermes::vm::HermesValue", align 8
   %gcScope.i.i = alloca %"class.hermes::vm::GCScope", align 8
@@ -20809,7 +20809,7 @@ invoke.cont:                                      ; preds = %invoke.cont3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12createObjectESt10shared_ptrINS0_10HostObjectEE(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12createObjectESt10shared_ptrINS0_10HostObjectEE(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef captures(none) %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.335", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20948,7 +20948,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15getHostFunctionERKNS0_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15getHostFunctionERKNS0_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__typeinfo_result.i.i.i.i = alloca %"union.std::_Any_data", align 8
   %__ptr.i.i.i = alloca %"union.std::_Any_data", align 8
@@ -21234,7 +21234,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11getPropertyERKNS0_6ObjectERKNS0_10PropNameIDE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11getPropertyERKNS0_6ObjectERKNS0_10PropNameIDE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21264,7 +21264,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11getPropertyERKNS0_6ObjectERKNS0_6StringE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11getPropertyERKNS0_6ObjectERKNS0_6StringE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21294,7 +21294,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11hasPropertyERKNS0_6ObjectERKNS0_10PropNameIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11hasPropertyERKNS0_6ObjectERKNS0_10PropNameIDE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcScope.i.i = alloca %"class.hermes::vm::GCScope", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21373,7 +21373,7 @@ invoke.cont:                                      ; preds = %invoke.cont15.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11hasPropertyERKNS0_6ObjectERKNS0_6StringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11hasPropertyERKNS0_6ObjectERKNS0_6StringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcScope.i.i = alloca %"class.hermes::vm::GCScope", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21450,7 +21450,7 @@ invoke.cont:                                      ; preds = %invoke.cont16.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16setPropertyValueERKNS0_6ObjectERKNS0_10PropNameIDERKNS0_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16setPropertyValueERKNS0_6ObjectERKNS0_10PropNameIDERKNS0_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21480,7 +21480,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16setPropertyValueERKNS0_6ObjectERKNS0_6StringERKNS0_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16setPropertyValueERKNS0_6ObjectERKNS0_6StringERKNS0_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21510,7 +21510,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE7isArrayERKNS0_6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE7isArrayERKNS0_6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21544,7 +21544,7 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE13isArrayBufferERKNS0_6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE13isArrayBufferERKNS0_6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21578,7 +21578,7 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE10isFunctionERKNS0_6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE10isFunctionERKNS0_6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21612,7 +21612,7 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12isHostObjectERKNS0_6ObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12isHostObjectERKNS0_6ObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21646,7 +21646,7 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14isHostFunctionERKNS0_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14isHostFunctionERKNS0_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21680,7 +21680,7 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16getPropertyNamesERKNS0_6ObjectE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16getPropertyNamesERKNS0_6ObjectE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21710,7 +21710,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16createWeakObjectERKNS0_6ObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE16createWeakObjectERKNS0_6ObjectE(ptr noalias writeonly sret(%"class.facebook::jsi::WeakObject") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wr.i.i.i = alloca %"class.hermes::vm::WeakRoot.383", align 4
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21760,7 +21760,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14lockWeakObjectERKNS0_10WeakObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE14lockWeakObjectERKNS0_10WeakObjectE(ptr noalias writeonly sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i.i.i = alloca %"class.hermes::vm::HermesValue", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21830,7 +21830,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi6Ob
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11createArrayEm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE11createArrayEm(ptr noalias writeonly sret(%"class.facebook::jsi::Array") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -21860,7 +21860,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE17createArrayBufferESt10shared_ptrINS0_13MutableBufferEE(ptr noalias sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %buffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE17createArrayBufferESt10shared_ptrINS0_13MutableBufferEE(ptr noalias sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef captures(none) %buffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.386", align 8
   %0 = load ptr, ptr %buffer, align 8
@@ -21958,7 +21958,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22010,7 +22010,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_11ArrayBufferE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22038,7 +22038,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4dataERKNS0_11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4dataERKNS0_11ArrayBufferE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22068,7 +22068,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15getValueAtIndexERKNS0_5ArrayEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE15getValueAtIndexERKNS0_5ArrayEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22098,7 +22098,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE19setValueAtIndexImplERKNS0_5ArrayEmRKNS0_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, i64 noundef %i, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE19setValueAtIndexImplERKNS0_5ArrayEmRKNS0_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, i64 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22128,7 +22128,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE30createFunctionFromHostFunctionERKNS0_10PropNameIDEjSt8functionIFNS0_5ValueERNS0_7RuntimeERKSF_PSI_mEE(ptr noalias sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr nocapture noundef %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE30createFunctionFromHostFunctionERKNS0_10PropNameIDEjSt8functionIFNS0_5ValueERNS0_7RuntimeERKSF_PSI_mEE(ptr noalias sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr noundef captures(none) %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.393", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22209,7 +22209,7 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit9: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4callERKNS0_8FunctionERKNS0_5ValueEPSF_m(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %jsThis, ptr nocapture noundef readonly %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4callERKNS0_8FunctionERKNS0_5ValueEPSF_m(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %jsThis, ptr noundef readonly captures(none) %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22239,7 +22239,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE17callAsConstructorERKNS0_8FunctionEPKNS0_5ValueEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f, ptr nocapture noundef readonly %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE17callAsConstructorERKNS0_8FunctionEPKNS0_5ValueEm(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f, ptr noundef readonly captures(none) %args, i64 noundef %count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22269,7 +22269,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noalias noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE9pushScopeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE9pushScopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22287,7 +22287,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE8popScopeEPNS0_7Runtime10ScopeStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture readnone %ss) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE8popScopeEPNS0_7Runtime10ScopeStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr readnone captures(none) %ss) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22305,7 +22305,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6SymbolESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6SymbolESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22356,7 +22356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6StringESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6StringESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22394,7 +22394,7 @@ lpad:                                             ; preds = %_ZN8facebook3jsi20W
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6ObjectESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE12strictEqualsERKNS0_6ObjectESD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %b) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22419,7 +22419,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE10instanceOfERKNS0_6ObjectERKNS0_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE10instanceOfERKNS0_6ObjectERKNS0_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %o, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcScope.i.i = alloca %"class.hermes::vm::GCScope", align 8
   %with_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24389,13 +24389,13 @@ declare i64 @llvm.umax.i64(i64, i64) #34
 declare i64 @llvm.umin.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

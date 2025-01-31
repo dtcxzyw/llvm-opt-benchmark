@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @ossl_tdes_gettable_ctx_params(ptr nocapture noundef readnone %cctx, ptr nocapture noundef readnone %provctx) local_unnamed_addr #2 {
+define noundef nonnull ptr @ossl_tdes_gettable_ctx_params(ptr noundef readnone captures(none) %cctx, ptr noundef readnone captures(none) %provctx) local_unnamed_addr #2 {
 entry:
   ret ptr @ossl_tdes_known_gettable_ctx_params
 }
@@ -255,7 +255,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_cipher_generic_initiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ossl_cipher_generic_set_ctx_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 

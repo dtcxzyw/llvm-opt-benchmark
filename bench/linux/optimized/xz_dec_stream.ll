@@ -753,7 +753,7 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xz_dec_reset(ptr nocapture noundef writeonly initializes((0, 8), (32, 36), (44, 45), (72, 184)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @xz_dec_reset(ptr noundef writeonly captures(none) initializes((0, 8), (32, 36), (44, 45), (72, 184)) %0) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4
@@ -829,7 +829,7 @@ declare dso_local ptr @xz_dec_lzma2_create(i32 noundef, i32 noundef) local_unnam
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xz_dec_end(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -854,7 +854,7 @@ define dso_local void @xz_dec_end(ptr noundef %0) local_unnamed_addr #0 align 16
 declare dso_local void @xz_dec_lzma2_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 0, 8) i32 @crc32_validate(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @crc32_validate(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -898,7 +898,7 @@ define internal fastcc noundef range(i32 0, 8) i32 @crc32_validate(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1030,7 +1030,7 @@ define internal fastcc noundef range(i32 0, 8) i32 @dec_index(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite)
-define internal fastcc void @index_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc void @index_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1098,7 +1098,7 @@ define internal fastcc range(i32 1, 8) i32 @dec_stream_footer(ptr noundef %0) un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
 declare dso_local i32 @crc32_le(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -1119,7 +1119,7 @@ declare dso_local i32 @xz_dec_lzma2_run(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

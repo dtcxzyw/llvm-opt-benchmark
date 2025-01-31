@@ -152,10 +152,10 @@ define hidden noundef ptr @mbedtls_ecp_curve_info_from_name(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 3) i32 @mbedtls_ecp_get_type(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 3) i32 @mbedtls_ecp_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -337,7 +337,7 @@ mbedtls_ecp_point_free.exit:                      ; preds = %.lr.ph.split, %22
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #7
 
@@ -389,7 +389,7 @@ define hidden i32 @mbedtls_ecp_copy(ptr noundef %0, ptr noundef %1) local_unname
 declare i32 @mbedtls_mpi_copy(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_group_copy(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_group_copy(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 8
   %4 = tail call i32 @mbedtls_ecp_group_load(ptr noundef %0, i32 noundef %3) #19
   ret i32 %4
@@ -487,7 +487,7 @@ define hidden i32 @mbedtls_ecp_point_read_string(ptr noundef %0, i32 noundef %1,
 declare i32 @mbedtls_mpi_read_string(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_point_write_binary(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_point_write_binary(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #6 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %7) #19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -709,7 +709,7 @@ declare i32 @mbedtls_mpi_set_bit(ptr noundef, i64 noundef, i8 noundef zeroext) l
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_tls_read_point(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_tls_read_point(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ult i64 %3, 2
   br i1 %5, label %18, label %6
 
@@ -739,7 +739,7 @@ define hidden i32 @mbedtls_ecp_tls_read_point(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_tls_write_point(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_tls_write_point(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #6 {
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %17, label %8
 
@@ -765,7 +765,7 @@ define hidden i32 @mbedtls_ecp_tls_write_point(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_tls_read_group(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_tls_read_group(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ult i64 %2, 3
   br i1 %4, label %mbedtls_ecp_tls_read_group_id.exit.thread, label %5
 
@@ -814,7 +814,7 @@ mbedtls_ecp_tls_read_group_id.exit.thread:        ; preds = %22, %5, %3, %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_read_group_id(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_read_group_id(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i64 %2, 3
   br i1 %4, label %mbedtls_ecp_curve_info_from_tls_id.exit.thread, label %5
 
@@ -863,7 +863,7 @@ mbedtls_ecp_curve_info_from_tls_id.exit.thread:   ; preds = %22, %5, %3, %mbedtl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_write_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_write_group(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = load i32, ptr %0, align 8
   br label %6
 
@@ -903,7 +903,7 @@ mbedtls_ecp_curve_info_from_grp_id.exit.thread:   ; preds = %9, %mbedtls_ecp_cur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #6 {
   %8 = icmp eq ptr %4, null
   br i1 %8, label %11, label %9
 
@@ -1687,7 +1687,7 @@ mbedtls_ecp_mul_restartable.exit:                 ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_muladd_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_ecp_muladd_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #6 {
   %8 = alloca %struct.mbedtls_ecp_point, align 8
   %9 = alloca [4 x %struct.mbedtls_mpi], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2878,10 +2878,10 @@ define hidden i32 @mbedtls_ecp_self_test(i32 noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #12 {
+define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #12 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %.lr.ph.preheader
 
@@ -2910,7 +2910,7 @@ define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #6 {
+define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #6 {
   store i64 0, ptr @add_count, align 8
   store i64 0, ptr @dbl_count, align 8
   store i64 0, ptr @mul_count, align 8
@@ -3358,7 +3358,7 @@ declare i32 @mbedtls_mpi_inv_mod(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ecp_double_jac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #6 {
@@ -3420,12 +3420,12 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %19
   br i1 %.not13.i, label %.preheader.i154, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
 
 32:                                               ; preds = %.preheader.i154, %28
-  %33 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef nonnull %24)
+  %33 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef nonnull %24)
   %.not134 = icmp eq i32 %33, 0
   br i1 %.not134, label %34, label %mbedtls_mpi_sub_mod.exit
 
 34:                                               ; preds = %32
-  %35 = tail call fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef %0, ptr noundef %3, ptr noundef %11)
+  %35 = tail call fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %11)
   %.not135 = icmp eq i32 %35, 0
   br i1 %.not135, label %57, label %mbedtls_mpi_sub_mod.exit
 
@@ -3460,23 +3460,23 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
 
 47:                                               ; preds = %mbedtls_mpi_mul_int_mod.exit
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %49 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %48, ptr noundef nonnull %48)
+  %49 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %48, ptr noundef nonnull %48)
   %.not127 = icmp eq i32 %49, 0
   br i1 %.not127, label %50, label %mbedtls_mpi_sub_mod.exit
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %52 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %11, ptr noundef nonnull %11)
+  %52 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef nonnull %11, ptr noundef nonnull %11)
   %.not128 = icmp eq i32 %52, 0
   br i1 %.not128, label %53, label %mbedtls_mpi_sub_mod.exit
 
 53:                                               ; preds = %50
-  %54 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %51, ptr noundef nonnull %7)
+  %54 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %51, ptr noundef nonnull %7)
   %.not129 = icmp eq i32 %54, 0
   br i1 %.not129, label %55, label %mbedtls_mpi_sub_mod.exit
 
 55:                                               ; preds = %53
-  %56 = tail call fastcc i32 @mbedtls_mpi_add_mod(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %11)
+  %56 = tail call fastcc i32 @mbedtls_mpi_add_mod(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %3, ptr noundef nonnull %11)
   %.not130 = icmp eq i32 %56, 0
   br i1 %.not130, label %57, label %mbedtls_mpi_sub_mod.exit
 
@@ -3577,7 +3577,7 @@ mbedtls_mpi_sub_mod.exit:                         ; preds = %44, %22, %30, %38, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecp_normalize_jac_many(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc i32 @ecp_normalize_jac_many(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %6, label %9
@@ -3945,13 +3945,13 @@ declare i32 @mbedtls_mpi_shift_r(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

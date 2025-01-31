@@ -292,7 +292,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing12ErrorHandler4InitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 12)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN5zxing12ErrorHandler4InitEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((8, 12)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
@@ -322,7 +322,7 @@ define hidden void @_ZN5zxing12ErrorHandler9PrintInfoEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1

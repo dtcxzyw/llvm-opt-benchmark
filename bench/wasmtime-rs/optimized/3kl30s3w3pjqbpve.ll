@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hbb9d5cd285b46c05E"(ptr nocapture writeonly sret({ i8, [7 x i8], { ptr, ptr } }) align 8 initializes((0, 1), (8, 24)) %0, ptr nocapture readnone align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hbb9d5cd285b46c05E"(ptr writeonly sret({ i8, [7 x i8], { ptr, ptr } }) align 8 captures(none) initializes((0, 1), (8, 24)) %0, ptr readnone align 1 captures(none) %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne ptr %3, null
@@ -18,7 +18,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd44f2eb05f4d13e6E"(ptr nocapture writeonly sret({ i8, [7 x i8], { ptr, ptr } }) align 8 initializes((0, 1), (8, 24)) %0, ptr nocapture readnone align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd44f2eb05f4d13e6E"(ptr writeonly sret({ i8, [7 x i8], { ptr, ptr } }) align 8 captures(none) initializes((0, 1), (8, 24)) %0, ptr readnone align 1 captures(none) %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne ptr %3, null

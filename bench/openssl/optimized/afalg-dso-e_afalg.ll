@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %kver.i.i = alloca [3 x i32], align 4
   %ut.i.i = alloca %struct.utsname, align 1
@@ -328,13 +328,13 @@ declare i32 @CRYPTO_set_mem_functions(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ERR_AFALG_error(i32 noundef range(i32 100, 113) %reason, i32 noundef range(i32 212, 883) %line) unnamed_addr #1 {
@@ -358,13 +358,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
@@ -386,7 +386,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afalg_destroy(ptr nocapture readnone %e) #1 {
+define internal noundef i32 @afalg_destroy(ptr readnone captures(none) %e) #1 {
 entry:
   %.b.i = load i1, ptr @error_loaded, align 4
   br i1 %.b.i, label %if.then.i, label %for.body.i.preheader
@@ -417,7 +417,7 @@ free_cbc.exit:                                    ; preds = %for.body.i
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @afalg_init(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @afalg_init(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -425,7 +425,7 @@ entry:
 declare i32 @ENGINE_set_finish_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @afalg_finish(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @afalg_finish(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -509,7 +509,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @afalg_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @afalg_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end
@@ -555,7 +555,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %ctx, ptr noundef %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %sa.i = alloca %struct.sockaddr_alg, align 4
   %cmp = icmp eq ptr %ctx, null
@@ -1100,9 +1100,9 @@ if.end22:                                         ; preds = %if.then42.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %events.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %strbuf.i)
-  %call23 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #14
+  %call23 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #14
   %tobool.not = icmp eq i32 %call23, 0
-  %call28 = call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %ctx) #14
+  %call28 = call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef nonnull %ctx) #14
   br i1 %tobool.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
@@ -1224,12 +1224,12 @@ return:                                           ; preds = %if.end, %ERR_AFALG_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #8
@@ -1256,7 +1256,7 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @ASYNC_pause_job() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
@@ -1274,7 +1274,7 @@ declare i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @afalg_waitfd_cleanup(ptr nocapture readnone %ctx, ptr nocapture readnone %key, i32 noundef %waitfd, ptr nocapture readnone %custom) #1 {
+define internal void @afalg_waitfd_cleanup(ptr readnone captures(none) %ctx, ptr readnone captures(none) %key, i32 noundef %waitfd, ptr readnone captures(none) %custom) #1 {
 entry:
   %call = tail call i32 @close(i32 noundef %waitfd) #14
   ret void
@@ -1286,10 +1286,10 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

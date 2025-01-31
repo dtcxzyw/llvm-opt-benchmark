@@ -2711,7 +2711,7 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9Valu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10JsonWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2721,7 +2721,7 @@ define void @_ZN7xgboost10JsonWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3025,7 +3025,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3329,7 +3329,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3633,7 +3633,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3938,7 +3938,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4670,7 +4670,7 @@ define linkonce_odr void @_ZN7xgboost10JsonStringD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"struct.std::array", align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4811,10 +4811,10 @@ _ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonIntegerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.39", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5016,7 +5016,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_8JsonNullE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5047,7 +5047,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 34)
@@ -5110,7 +5110,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonBooleanE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -5169,7 +5169,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.33", align 1
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::allocator.33", align 1
@@ -5577,7 +5577,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost5ValueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost5ValueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -5690,7 +5690,7 @@ _ZN7xgboost15DummyJsonObjectEv.exit:              ; preds = %20, %23, %27
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost5ValueixEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost5ValueixEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -6370,7 +6370,7 @@ define void @_ZNK7xgboost10JsonString4SaveEPNS_10JsonWriterE(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7xgboost9JsonArrayC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost9JsonArrayC2EOS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6398,7 +6398,7 @@ define void @_ZN7xgboost9JsonArrayC2EOS0_(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7xgboost9JsonArrayeqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7xgboost9JsonArrayeqERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 4
@@ -6636,7 +6636,7 @@ define void @_ZNK7xgboost9JsonArray4SaveEPNS_10JsonWriterE(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7xgboost10JsonNumbereqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7xgboost10JsonNumbereqERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -6862,7 +6862,7 @@ define void @_ZNK7xgboost10JsonNumber4SaveEPNS_10JsonWriterE(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7xgboost11JsonIntegereqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7xgboost11JsonIntegereqERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
@@ -7070,7 +7070,7 @@ define void @_ZNK7xgboost11JsonInteger4SaveEPNS_10JsonWriterE(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7xgboost8JsonNulleqERKNS_5ValueE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK7xgboost8JsonNulleqERKNS_5ValueE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 6
@@ -7087,7 +7087,7 @@ define void @_ZNK7xgboost8JsonNull4SaveEPNS_10JsonWriterE(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7xgboost11JsonBooleaneqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7xgboost11JsonBooleaneqERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 5
@@ -7465,7 +7465,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10Jso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7xgboost10JsonReader10SkipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN7xgboost10JsonReader10SkipSpacesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -7852,7 +7852,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit46: ; preds = %.noexc45, %_ZN4dmlc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost10JsonReader4LoadEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
@@ -8182,7 +8182,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader11ParseStringEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader11ParseStringEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.33", align 1
@@ -8507,7 +8507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader9ParseNullEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader9ParseNullEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca [1 x i8], align 1
   %5 = alloca %"class.std::allocator.33", align 1
@@ -8693,7 +8693,7 @@ define linkonce_odr void @_ZN7xgboost8JsonNullD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader10ParseArrayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader10ParseArrayEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.40", align 8
   %4 = alloca %"class.xgboost::JsonArray", align 8
   %5 = alloca %"class.xgboost::Json", align 8
@@ -9205,7 +9205,7 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader11ParseObjectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader11ParseObjectEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
   %4 = alloca i8, align 1
   %5 = alloca %"class.xgboost::JsonObject", align 8
@@ -9910,7 +9910,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader11ParseNumberEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader11ParseNumberEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.33", align 1
@@ -10252,7 +10252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %126
 
 124:                                              ; preds = %120
-  %125 = call float @strtof(ptr nocapture noundef nonnull %11, ptr noundef null) #14
+  %125 = call float @strtof(ptr noundef nonnull captures(none) %11, ptr noundef null) #14
   br label %126
 
 126:                                              ; preds = %._crit_edge, %124
@@ -10294,7 +10294,7 @@ define linkonce_odr void @_ZN7xgboost10JsonNumberD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost11JsonIntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
@@ -10302,7 +10302,7 @@ define linkonce_odr void @_ZN7xgboost11JsonIntegerD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10JsonReader12ParseBooleanEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10JsonReader12ParseBooleanEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10629,7 +10629,7 @@ define linkonce_odr void @_ZN7xgboost11JsonBooleanD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4Json4LoadENS_10StringViewESt13_Ios_Openmode(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4Json4LoadENS_10StringViewESt13_Ios_Openmode(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) initializes((0, 8)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.xgboost::UBJReader", align 8
   %6 = alloca %"class.xgboost::Json", align 8
   %7 = alloca %"class.xgboost::JsonReader", align 8
@@ -10743,7 +10743,7 @@ define linkonce_odr void @_ZN7xgboost10JsonReaderD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4Json4DumpES0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4Json4DumpES0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::UBJWriter", align 8
   %5 = alloca %"class.xgboost::JsonWriter", align 8
   %6 = alloca %"class.std::vector.31", align 8
@@ -10954,7 +10954,7 @@ _ZN7xgboost4JsonD2Ev.exit13:                      ; preds = %91, %87, %85
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4Json4DumpES0_PSt6vectorIcSaIcEESt13_Ios_Openmode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4Json4DumpES0_PSt6vectorIcSaIcEESt13_Ios_Openmode(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::UBJWriter", align 8
   %5 = alloca %"class.xgboost::JsonWriter", align 8
   %6 = load ptr, ptr %1, align 8
@@ -11091,7 +11091,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -11111,7 +11111,7 @@ define linkonce_odr void @_ZN7xgboost10JsonWriterD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4Json4DumpES0_PNS_10JsonWriterE(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4Json4DumpES0_PNS_10JsonWriterE(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %3, align 8
@@ -12763,7 +12763,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10Json
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJReader11ParseObjectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost9UBJReader11ParseObjectEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::Json") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.xgboost::Json", align 8
@@ -13040,7 +13040,7 @@ define void @_ZN7xgboost9UBJReader4LoadEv(ptr dead_on_unwind noalias writable sr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -13345,7 +13345,7 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %128, %131, %135
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIfLNS_5Value9ValueKindE7EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
@@ -13740,7 +13740,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIdLNS_5Value9ValueKindE8EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
@@ -14135,7 +14135,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIhLNS_5Value9ValueKindE9EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
@@ -14528,7 +14528,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIiLNS_5Value9ValueKindE10EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
@@ -14923,7 +14923,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIlLNS_5Value9ValueKindE11EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
@@ -15636,7 +15636,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %7, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15725,7 +15725,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonIntegerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, -128
@@ -16098,7 +16098,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit37:         ; preds = %146, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_8JsonNullE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16172,7 +16172,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16249,7 +16249,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonBooleanE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -16900,7 +16900,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4dmlc10StackTraceB5cxx11Emm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -17378,7 +17378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit46: ; 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
@@ -17410,10 +17410,10 @@ declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #22
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -17759,7 +17759,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -18317,7 +18317,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #25
@@ -19751,10 +19751,10 @@ declare float @llvm.fabs.f32(float) #30
 declare i32 @llvm.abs.i32(i32, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #30
@@ -19763,7 +19763,7 @@ declare i64 @llvm.umax.i64(i64, i64) #30
 declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #30

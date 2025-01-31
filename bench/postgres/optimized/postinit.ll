@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CheckClientConnectionPending = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pg_split_opts(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #12
   %5 = load i8, ptr %2, align 1
@@ -227,7 +227,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @check_max_connections(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local zeroext i1 @check_max_connections(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr @autovacuum_max_workers, align 4
   %6 = load i32, ptr @max_worker_processes, align 4
@@ -241,7 +241,7 @@ define dso_local zeroext i1 @check_max_connections(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @check_autovacuum_max_workers(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local zeroext i1 @check_autovacuum_max_workers(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i32, ptr @MaxConnections, align 4
   %5 = load i32, ptr %0, align 4
   %6 = load i32, ptr @max_worker_processes, align 4
@@ -255,7 +255,7 @@ define dso_local zeroext i1 @check_autovacuum_max_workers(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @check_max_worker_processes(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local zeroext i1 @check_max_worker_processes(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i32, ptr @MaxConnections, align 4
   %5 = load i32, ptr @autovacuum_max_workers, align 4
   %6 = load i32, ptr %0, align 4
@@ -269,7 +269,7 @@ define dso_local zeroext i1 @check_max_worker_processes(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @check_max_wal_senders(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local zeroext i1 @check_max_wal_senders(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i32, ptr @MaxConnections, align 4
   %5 = load i32, ptr @autovacuum_max_workers, align 4
   %6 = load i32, ptr @max_worker_processes, align 4
@@ -1013,7 +1013,7 @@ sub_0.i:                                          ; preds = %304
 
 354:                                              ; preds = %352
   %355 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %10) #12
-  %356 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.45, ptr noundef %341, ptr noundef nonnull %345) #12
+  %356 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.45, ptr noundef nonnull %341, ptr noundef nonnull %345) #12
   %357 = call ptr @quote_identifier(ptr noundef nonnull %10) #12
   %358 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.46, ptr noundef %357) #12
   br label %.sink.split.i
@@ -1311,7 +1311,7 @@ declare zeroext i1 @has_rolreplication(i32 noundef) local_unnamed_addr #1
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_startup_options(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @process_startup_options(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = select i1 %1, i32 3, i32 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1390,14 +1390,14 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare zeroext i1 @database_is_invalid_form(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @InvalidateCatalogSnapshot() local_unnamed_addr #1
 
 declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
@@ -1431,7 +1431,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1450,7 +1450,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1507,10 +1507,10 @@ declare ptr @heap_getnext(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

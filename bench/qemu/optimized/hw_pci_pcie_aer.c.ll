@@ -190,7 +190,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 declare zeroext i8 @pcie_cap_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_aer_exit(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local void @pcie_aer_exit(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %log = getelementptr inbounds nuw i8, ptr %dev, i64 2184
   %0 = load ptr, ptr %log, align 8
@@ -201,7 +201,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_aer_root_set_vector(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
+define dso_local void @pcie_aer_root_set_vector(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %vector, 32
   br i1 %cmp, label %if.end, label %if.else
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -38, 1) i32 @pcie_aer_inject_error(ptr noundef %dev, ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -38, 1) i32 @pcie_aer_inject_error(ptr noundef %dev, ptr noundef readonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %header_log_overflow = alloca %struct.PCIEAERErr, align 4
   %0 = load i32, ptr %err, align 4
@@ -869,10 +869,10 @@ return:                                           ; preds = %if.end38.i.thread, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_aer_write_config(ptr nocapture noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @pcie_aer_write_config(ptr noundef captures(none) %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %err.i = alloca %struct.PCIEAERErr, align 4
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
@@ -946,7 +946,7 @@ aer_log_del_err.exit.i:                           ; preds = %pcie_aer_update_unc
   %arrayidx5.i.i = getelementptr i8, ptr %7, i64 40
   %conv.i.i = zext i16 %dec.i.i to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %7, ptr align 4 %arrayidx5.i.i, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %7, ptr align 4 %arrayidx5.i.i, i64 %mul.i.i, i1 false)
   call fastcc void @pcie_aer_update_log(ptr noundef nonnull %dev, ptr noundef nonnull %err.i)
   br label %pcie_aer_clear_error.exit
 
@@ -992,7 +992,7 @@ if.end11:                                         ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_aer_root_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local void @pcie_aer_root_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #5 {
 entry:
   %aer_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2172
   %0 = load i16, ptr %aer_cap, align 4
@@ -1016,7 +1016,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_aer_root_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local void @pcie_aer_root_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #5 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1128,7 +1128,7 @@ declare zeroext i1 @msi_enabled(ptr noundef) local_unnamed_addr #1
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pcie_aer_state_log_num_valid(ptr nocapture noundef readonly %opaque, i32 %version_id) #6 {
+define internal zeroext i1 @pcie_aer_state_log_num_valid(ptr noundef readonly captures(none) %opaque, i32 %version_id) #6 {
 entry:
   %0 = load i16, ptr %opaque, align 8
   %log_max = getelementptr inbounds nuw i8, ptr %opaque, i64 2
@@ -1138,7 +1138,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -22, 1) i32 @pcie_aer_parse_error_string(ptr nocapture noundef readonly %error_name, ptr nocapture noundef writeonly %status, ptr nocapture noundef writeonly %correctable) local_unnamed_addr #7 {
+define dso_local range(i32 -22, 1) i32 @pcie_aer_parse_error_string(ptr noundef readonly captures(none) %error_name, ptr noundef writeonly captures(none) %status, ptr noundef writeonly captures(none) %correctable) local_unnamed_addr #7 {
 entry:
   br label %for.body
 
@@ -1171,16 +1171,16 @@ return:                                           ; preds = %for.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcie_aer_update_log(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %err) unnamed_addr #0 {
+define internal fastcc void @pcie_aer_update_log(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %err) unnamed_addr #0 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1313,7 +1313,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1323,10 +1323,10 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -144,7 +144,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib19EulerDiscretizationEEE = comd
 @_ZN8QuantLib30GeometricBrownianMotionProcessC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN8QuantLib30GeometricBrownianMotionProcessC2Eddd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -229,7 +229,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -411,7 +411,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess2x0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess2x0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this) unnamed_addr #9 align 2 {
 entry:
   %initialValue_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load double, ptr %initialValue_, align 8, !tbaa !40
@@ -419,7 +419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess5driftEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, double %0, double noundef %x) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess5driftEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, double %0, double noundef %x) unnamed_addr #9 align 2 {
 entry:
   %mue_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load double, ptr %mue_, align 8, !tbaa !53
@@ -428,7 +428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess9diffusionEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, double %0, double noundef %x) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib30GeometricBrownianMotionProcess9diffusionEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, double %0, double noundef %x) unnamed_addr #9 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load double, ptr %sigma_, align 8, !tbaa !54

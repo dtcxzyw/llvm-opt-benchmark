@@ -163,13 +163,13 @@ thread-pre-split:                                 ; preds = %25, %26, %36, %37, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000e_phc_getcrosststamp(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -204,7 +204,7 @@ declare dso_local void @netdev_err(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000e_ptp_remove(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -291,7 +291,7 @@ define internal noundef i32 @e1000e_phc_adjtime(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) #0 align 16 {
+define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -12264
   %5 = getelementptr i8, ptr %0, i64 -80
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #8
@@ -309,7 +309,7 @@ define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000e_phc_settime(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @e1000e_phc_settime(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp sgt i64 %3, 9223372035
   br i1 %4, label %12, label %5
@@ -337,7 +337,7 @@ define internal noundef i32 @e1000e_phc_settime(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @e1000e_phc_enable(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #6 align 16 {
+define internal noundef i32 @e1000e_phc_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #6 align 16 {
   ret i32 -95
 }
 
@@ -369,7 +369,7 @@ declare dso_local void @timecounter_init(ptr noundef, ptr noundef, i64 noundef) 
 declare dso_local i32 @get_device_system_crosststamp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -110, 1) i32 @e1000e_phc_get_syncdevicetime(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -110, 1) i32 @e1000e_phc_get_syncdevicetime(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1464
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1472
   %6 = load ptr, ptr %5, align 8

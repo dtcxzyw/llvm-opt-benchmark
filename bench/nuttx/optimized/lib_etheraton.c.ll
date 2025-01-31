@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ether_aton.addr = internal global %struct.ether_addr zeroinitializer, align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @ether_aton_r(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @ether_aton_r(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %40, %2
@@ -95,7 +95,7 @@ xdigit.exit.thread28:                             ; preds = %28, %13, %39, %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
-define ptr @ether_aton(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @ether_aton(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %scevgep = getelementptr i8, ptr %0, i64 17
   br label %2
 

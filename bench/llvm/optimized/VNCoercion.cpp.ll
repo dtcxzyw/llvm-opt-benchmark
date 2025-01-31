@@ -108,323 +108,329 @@ _ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit50: ; 
   %28 = load ptr, ptr %27, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
+  %29 = icmp eq ptr %28, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %21, %25
-  %29 = phi i32 [ %.pre, %25 ], [ %22, %21 ]
-  %30 = and i32 %29, 255
-  %.not131 = icmp eq i32 %30, 14
-  br i1 %.not131, label %31, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit
+  %30 = phi i32 [ %.pre, %25 ], [ %22, %21 ]
+  %.0.i = phi i1 [ %29, %25 ], [ false, %21 ]
+  %31 = and i32 %30, 255
+  %32 = icmp ne i32 %31, 14
+  %.not.i = or i1 %.0.i, %32
+  br i1 %.not.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit, label %33
 
-31:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %32 = lshr i32 %29, 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 464
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #9
-  %.idx4.i.i.i.i = shl nsw i64 %35, 2
-  %36 = getelementptr inbounds i8, ptr %34, i64 %.idx4.i.i.i.i
-  %37 = ashr i64 %35, 2
-  %38 = icmp sgt i64 %37, 0
-  br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
+33:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
+  %34 = lshr i32 %30, 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 464
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #9
+  %.idx4.i.i.i.i = shl nsw i64 %37, 2
+  %38 = getelementptr inbounds i8, ptr %36, i64 %.idx4.i.i.i.i
+  %39 = ashr i64 %37, 2
+  %40 = icmp sgt i64 %39, 0
+  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %31
-  %39 = and i64 %.idx4.i.i.i.i, -16
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %34, i64 %39
-  br label %40
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %33
+  %41 = and i64 %.idx4.i.i.i.i, -16
+  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %36, i64 %41
+  br label %42
 
-40:                                               ; preds = %55, %.lr.ph.i.i.i.i.i.i.i
-  %.047.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %57, %55 ]
-  %.02946.i.i.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i.i ], [ %56, %55 ]
-  %41 = load i32, ptr %.02946.i.i.i.i.i.i.i, align 4
-  %42 = icmp eq i32 %41, %32
-  br i1 %42, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %43
+42:                                               ; preds = %57, %.lr.ph.i.i.i.i.i.i.i
+  %.047.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %59, %57 ]
+  %.02946.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %58, %57 ]
+  %43 = load i32, ptr %.02946.i.i.i.i.i.i.i, align 4
+  %44 = icmp eq i32 %43, %34
+  br i1 %44, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %45
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, %32
-  br i1 %46, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit, label %47
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, %34
+  br i1 %48, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit, label %49
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 8
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %32
-  br i1 %50, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115, label %51
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, %34
+  br i1 %52, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115, label %53
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 12
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, %32
-  br i1 %54, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117, label %55
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 12
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, %34
+  br i1 %56, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117, label %57
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 16
-  %57 = add nsw i64 %.047.i.i.i.i.i.i.i, -1
-  %58 = icmp sgt i64 %.047.i.i.i.i.i.i.i, 1
-  br i1 %58, label %40, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !4
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 16
+  %59 = add nsw i64 %.047.i.i.i.i.i.i.i, -1
+  %60 = icmp sgt i64 %.047.i.i.i.i.i.i.i, 1
+  br i1 %60, label %42, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !4
 
-._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %55
-  %59 = and i64 %35, 3
+._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %57
+  %61 = and i64 %37, 3
   br label %._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %31
-  %.pre-phi56.i.i.i.i.i.i.i = phi i64 [ %59, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %35, %31 ]
-  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %34, %31 ]
-  switch i64 %.pre-phi56.i.i.i.i.i.i.i, label %71 [
-    i64 3, label %60
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %33
+  %.pre-phi56.i.i.i.i.i.i.i = phi i64 [ %61, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %37, %33 ]
+  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %36, %33 ]
+  switch i64 %.pre-phi56.i.i.i.i.i.i.i, label %73 [
+    i64 3, label %62
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i.i.i
   ]
 
-60:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %61 = load i32, ptr %.029.lcssa.i.i.i.i.i.i.i, align 4
-  %62 = icmp eq i32 %61, %32
-  br i1 %62, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %63
+62:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
+  %63 = load i32, ptr %.029.lcssa.i.i.i.i.i.i.i, align 4
+  %64 = icmp eq i32 %63, %34
+  br i1 %64, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %65
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 4
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
-  %65 = load i32, ptr %.1.i.i.i.i.i.i.i, align 4
-  %66 = icmp eq i32 %65, %32
-  br i1 %66, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %67
+._crit_edge._crit_edge.i.i.i.i.i.i.i:             ; preds = %65, %._crit_edge.i.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i.i = phi ptr [ %66, %65 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+  %67 = load i32, ptr %.1.i.i.i.i.i.i.i, align 4
+  %68 = icmp eq i32 %67, %34
+  br i1 %68, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %69
 
-67:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 4
+69:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge52.i.i.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i.i.i:           ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
-  %69 = load i32, ptr %.2.i.i.i.i.i.i.i, align 4
-  %70 = icmp eq i32 %69, %32
-  br i1 %70, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %71
+._crit_edge._crit_edge52.i.i.i.i.i.i.i:           ; preds = %69, %._crit_edge.i.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i.i = phi ptr [ %70, %69 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+  %71 = load i32, ptr %.2.i.i.i.i.i.i.i, align 4
+  %72 = icmp eq i32 %71, %34
+  br i1 %72, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i, label %73
 
-71:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
+73:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit: ; preds = %43
-  %72 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 4
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit: ; preds = %45
+  %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 4
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115: ; preds = %47
-  %73 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 8
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115: ; preds = %49
+  %75 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 8
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117: ; preds = %51
-  %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 12
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117: ; preds = %53
+  %76 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 12
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i: ; preds = %40, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117, %71, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %60
-  %.028.i.i.i.i.i.i.i = phi ptr [ %36, %71 ], [ %.029.lcssa.i.i.i.i.i.i.i, %60 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i ], [ %72, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit ], [ %73, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115 ], [ %74, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117 ], [ %.02946.i.i.i.i.i.i.i, %40 ]
-  %75 = icmp ne ptr %.028.i.i.i.i.i.i.i, %36
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i: ; preds = %42, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117, %73, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %62
+  %.028.i.i.i.i.i.i.i = phi ptr [ %38, %73 ], [ %.029.lcssa.i.i.i.i.i.i.i, %62 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i ], [ %74, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit ], [ %75, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit115 ], [ %76, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i.loopexit.split.loop.exit117 ], [ %.02946.i.i.i.i.i.i.i, %42 ]
+  %77 = icmp ne ptr %.028.i.i.i.i.i.i.i, %38
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit
 
 _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i
-  %76 = phi i1 [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %75, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i ]
-  %77 = load i32, ptr %8, align 8
-  %78 = and i32 %77, 255
-  %79 = add nsw i32 %78, -17
-  %spec.select.i.i51 = icmp ult i32 %79, 2
-  br i1 %spec.select.i.i51, label %80, label %_ZNK4llvm4Type13getScalarTypeEv.exit53
+  %78 = phi i1 [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %77, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_11PointerTypeE.exit.i ]
+  %79 = load i32, ptr %8, align 8
+  %80 = and i32 %79, 255
+  %81 = add nsw i32 %80, -17
+  %spec.select.i.i51 = icmp ult i32 %81, 2
+  br i1 %spec.select.i.i51, label %82, label %_ZNK4llvm4Type13getScalarTypeEv.exit53
 
-80:                                               ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %82, align 8
-  %.phi.trans.insert113 = getelementptr inbounds nuw i8, ptr %83, i64 8
+82:                                               ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %84, align 8
+  %.phi.trans.insert113 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.pre114 = load i32, ptr %.phi.trans.insert113, align 8
+  %86 = icmp eq ptr %85, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit53
 
-_ZNK4llvm4Type13getScalarTypeEv.exit53:           ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit, %80
-  %84 = phi i32 [ %.pre114, %80 ], [ %77, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit ]
-  %85 = and i32 %84, 255
-  %.not132 = icmp eq i32 %85, 14
-  br i1 %.not132, label %86, label %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge
+_ZNK4llvm4Type13getScalarTypeEv.exit53:           ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit, %82
+  %87 = phi i32 [ %.pre114, %82 ], [ %79, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit ]
+  %.0.i52 = phi i1 [ %86, %82 ], [ false, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit ]
+  %88 = and i32 %87, 255
+  %89 = icmp ne i32 %88, 14
+  %.not.i55 = or i1 %.0.i52, %89
+  br i1 %.not.i55, label %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge, label %90
 
 _ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit53
-  br i1 %76, label %132, label %.critedge
+  br i1 %78, label %136, label %.critedge
 
-86:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit53
-  %87 = lshr i32 %84, 8
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 464
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #9
-  %.idx4.i.i.i.i56 = shl nsw i64 %90, 2
-  %91 = getelementptr inbounds i8, ptr %89, i64 %.idx4.i.i.i.i56
-  %92 = ashr i64 %90, 2
-  %93 = icmp sgt i64 %92, 0
-  br i1 %93, label %.lr.ph.i.i.i.i.i.i.i66, label %._crit_edge.i.i.i.i.i.i.i57
+90:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit53
+  %91 = lshr i32 %87, 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 464
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #9
+  %.idx4.i.i.i.i56 = shl nsw i64 %94, 2
+  %95 = getelementptr inbounds i8, ptr %93, i64 %.idx4.i.i.i.i56
+  %96 = ashr i64 %94, 2
+  %97 = icmp sgt i64 %96, 0
+  br i1 %97, label %.lr.ph.i.i.i.i.i.i.i66, label %._crit_edge.i.i.i.i.i.i.i57
 
-.lr.ph.i.i.i.i.i.i.i66:                           ; preds = %86
-  %94 = and i64 %.idx4.i.i.i.i56, -16
-  %scevgep.i.i.i.i.i.i.i67 = getelementptr i8, ptr %89, i64 %94
-  br label %95
+.lr.ph.i.i.i.i.i.i.i66:                           ; preds = %90
+  %98 = and i64 %.idx4.i.i.i.i56, -16
+  %scevgep.i.i.i.i.i.i.i67 = getelementptr i8, ptr %93, i64 %98
+  br label %99
 
-95:                                               ; preds = %110, %.lr.ph.i.i.i.i.i.i.i66
-  %.047.i.i.i.i.i.i.i68 = phi i64 [ %92, %.lr.ph.i.i.i.i.i.i.i66 ], [ %112, %110 ]
-  %.02946.i.i.i.i.i.i.i69 = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i.i66 ], [ %111, %110 ]
-  %96 = load i32, ptr %.02946.i.i.i.i.i.i.i69, align 4
-  %97 = icmp eq i32 %96, %87
-  br i1 %97, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %98
+99:                                               ; preds = %114, %.lr.ph.i.i.i.i.i.i.i66
+  %.047.i.i.i.i.i.i.i68 = phi i64 [ %96, %.lr.ph.i.i.i.i.i.i.i66 ], [ %116, %114 ]
+  %.02946.i.i.i.i.i.i.i69 = phi ptr [ %93, %.lr.ph.i.i.i.i.i.i.i66 ], [ %115, %114 ]
+  %100 = load i32, ptr %.02946.i.i.i.i.i.i.i69, align 4
+  %101 = icmp eq i32 %100, %91
+  br i1 %101, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %102
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, %87
-  br i1 %101, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125, label %102
-
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 8
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 4
   %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, %87
-  br i1 %105, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123, label %106
+  %105 = icmp eq i32 %104, %91
+  br i1 %105, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 8
   %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, %87
-  br i1 %109, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit, label %110
+  %109 = icmp eq i32 %108, %91
+  br i1 %109, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 16
-  %112 = add nsw i64 %.047.i.i.i.i.i.i.i68, -1
-  %113 = icmp sgt i64 %.047.i.i.i.i.i.i.i68, 1
-  br i1 %113, label %95, label %._crit_edge.loopexit.i.i.i.i.i.i.i70, !llvm.loop !4
+  %111 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 12
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, %91
+  br i1 %113, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit, label %114
 
-._crit_edge.loopexit.i.i.i.i.i.i.i70:             ; preds = %110
-  %114 = and i64 %90, 3
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 16
+  %116 = add nsw i64 %.047.i.i.i.i.i.i.i68, -1
+  %117 = icmp sgt i64 %.047.i.i.i.i.i.i.i68, 1
+  br i1 %117, label %99, label %._crit_edge.loopexit.i.i.i.i.i.i.i70, !llvm.loop !4
+
+._crit_edge.loopexit.i.i.i.i.i.i.i70:             ; preds = %114
+  %118 = and i64 %94, 3
   br label %._crit_edge.i.i.i.i.i.i.i57
 
-._crit_edge.i.i.i.i.i.i.i57:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i70, %86
-  %.pre-phi56.i.i.i.i.i.i.i58 = phi i64 [ %114, %._crit_edge.loopexit.i.i.i.i.i.i.i70 ], [ %90, %86 ]
-  %.029.lcssa.i.i.i.i.i.i.i59 = phi ptr [ %scevgep.i.i.i.i.i.i.i67, %._crit_edge.loopexit.i.i.i.i.i.i.i70 ], [ %89, %86 ]
-  switch i64 %.pre-phi56.i.i.i.i.i.i.i58, label %126 [
-    i64 3, label %115
+._crit_edge.i.i.i.i.i.i.i57:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i70, %90
+  %.pre-phi56.i.i.i.i.i.i.i58 = phi i64 [ %118, %._crit_edge.loopexit.i.i.i.i.i.i.i70 ], [ %94, %90 ]
+  %.029.lcssa.i.i.i.i.i.i.i59 = phi ptr [ %scevgep.i.i.i.i.i.i.i67, %._crit_edge.loopexit.i.i.i.i.i.i.i70 ], [ %93, %90 ]
+  switch i64 %.pre-phi56.i.i.i.i.i.i.i58, label %130 [
+    i64 3, label %119
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i64
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i.i.i60
   ]
 
-115:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i57
-  %116 = load i32, ptr %.029.lcssa.i.i.i.i.i.i.i59, align 4
-  %117 = icmp eq i32 %116, %87
-  br i1 %117, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %118
-
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i59, i64 4
-  br label %._crit_edge._crit_edge.i.i.i.i.i.i.i64
-
-._crit_edge._crit_edge.i.i.i.i.i.i.i64:           ; preds = %118, %._crit_edge.i.i.i.i.i.i.i57
-  %.1.i.i.i.i.i.i.i65 = phi ptr [ %119, %118 ], [ %.029.lcssa.i.i.i.i.i.i.i59, %._crit_edge.i.i.i.i.i.i.i57 ]
-  %120 = load i32, ptr %.1.i.i.i.i.i.i.i65, align 4
-  %121 = icmp eq i32 %120, %87
+119:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i57
+  %120 = load i32, ptr %.029.lcssa.i.i.i.i.i.i.i59, align 4
+  %121 = icmp eq i32 %120, %91
   br i1 %121, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %122
 
-122:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i64
-  %123 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i65, i64 4
-  br label %._crit_edge._crit_edge52.i.i.i.i.i.i.i60
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i59, i64 4
+  br label %._crit_edge._crit_edge.i.i.i.i.i.i.i64
 
-._crit_edge._crit_edge52.i.i.i.i.i.i.i60:         ; preds = %122, %._crit_edge.i.i.i.i.i.i.i57
-  %.2.i.i.i.i.i.i.i61 = phi ptr [ %123, %122 ], [ %.029.lcssa.i.i.i.i.i.i.i59, %._crit_edge.i.i.i.i.i.i.i57 ]
-  %124 = load i32, ptr %.2.i.i.i.i.i.i.i61, align 4
-  %125 = icmp eq i32 %124, %87
+._crit_edge._crit_edge.i.i.i.i.i.i.i64:           ; preds = %122, %._crit_edge.i.i.i.i.i.i.i57
+  %.1.i.i.i.i.i.i.i65 = phi ptr [ %123, %122 ], [ %.029.lcssa.i.i.i.i.i.i.i59, %._crit_edge.i.i.i.i.i.i.i57 ]
+  %124 = load i32, ptr %.1.i.i.i.i.i.i.i65, align 4
+  %125 = icmp eq i32 %124, %91
   br i1 %125, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %126
 
-126:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.i60, %._crit_edge.i.i.i.i.i.i.i57
-  br i1 %76, label %132, label %.critedge
+126:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i64
+  %127 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i65, i64 4
+  br label %._crit_edge._crit_edge52.i.i.i.i.i.i.i60
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit: ; preds = %106
-  %127 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 12
+._crit_edge._crit_edge52.i.i.i.i.i.i.i60:         ; preds = %126, %._crit_edge.i.i.i.i.i.i.i57
+  %.2.i.i.i.i.i.i.i61 = phi ptr [ %127, %126 ], [ %.029.lcssa.i.i.i.i.i.i.i59, %._crit_edge.i.i.i.i.i.i.i57 ]
+  %128 = load i32, ptr %.2.i.i.i.i.i.i.i61, align 4
+  %129 = icmp eq i32 %128, %91
+  br i1 %129, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74, label %130
+
+130:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i.i60, %._crit_edge.i.i.i.i.i.i.i57
+  br i1 %78, label %136, label %.critedge
+
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit: ; preds = %110
+  %131 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 12
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123: ; preds = %102
-  %128 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 8
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123: ; preds = %106
+  %132 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 8
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125: ; preds = %98
-  %129 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 4
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125: ; preds = %102
+  %133 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i69, i64 4
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
 
-_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74: ; preds = %95, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125, %115, %._crit_edge._crit_edge.i.i.i.i.i.i.i64, %._crit_edge._crit_edge52.i.i.i.i.i.i.i60
-  %.028.i.i.i.i.i.i.i63 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i59, %115 ], [ %.1.i.i.i.i.i.i.i65, %._crit_edge._crit_edge.i.i.i.i.i.i.i64 ], [ %.2.i.i.i.i.i.i.i61, %._crit_edge._crit_edge52.i.i.i.i.i.i.i60 ], [ %127, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit ], [ %128, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123 ], [ %129, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125 ], [ %.02946.i.i.i.i.i.i.i69, %95 ]
-  %130 = icmp ne ptr %.028.i.i.i.i.i.i.i63, %91
-  %131 = xor i1 %76, %130
-  br i1 %131, label %132, label %137
+_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74: ; preds = %99, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125, %119, %._crit_edge._crit_edge.i.i.i.i.i.i.i64, %._crit_edge._crit_edge52.i.i.i.i.i.i.i60
+  %.028.i.i.i.i.i.i.i63 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i59, %119 ], [ %.1.i.i.i.i.i.i.i65, %._crit_edge._crit_edge.i.i.i.i.i.i.i64 ], [ %.2.i.i.i.i.i.i.i61, %._crit_edge._crit_edge52.i.i.i.i.i.i.i60 ], [ %131, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit ], [ %132, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit123 ], [ %133, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74.loopexit.split.loop.exit125 ], [ %.02946.i.i.i.i.i.i.i69, %99 ]
+  %134 = icmp ne ptr %.028.i.i.i.i.i.i.i63, %95
+  %135 = xor i1 %78, %134
+  br i1 %135, label %136, label %141
 
-132:                                              ; preds = %126, %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
-  %133 = load i8, ptr %0, align 8
-  %134 = icmp ugt i8 %133, 21
-  br i1 %134, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread, label %135
+136:                                              ; preds = %130, %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
+  %137 = load i8, ptr %0, align 8
+  %138 = icmp ugt i8 %137, 21
+  br i1 %138, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread, label %139
 
-135:                                              ; preds = %132
-  %136 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
+139:                                              ; preds = %136
+  %140 = tail call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #9
   br label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread
 
-137:                                              ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
-  %brmerge.demorgan = and i1 %76, %130
-  br i1 %brmerge.demorgan, label %138, label %155
+141:                                              ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74
+  %brmerge.demorgan = and i1 %78, %134
+  br i1 %brmerge.demorgan, label %142, label %159
 
-138:                                              ; preds = %137
-  %139 = load i32, ptr %10, align 8
-  %140 = and i32 %139, 255
-  %141 = add nsw i32 %140, -17
-  %spec.select.i.i.i = icmp ult i32 %141, 2
-  br i1 %spec.select.i.i.i, label %142, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
+142:                                              ; preds = %141
+  %143 = load i32, ptr %10, align 8
+  %144 = and i32 %143, 255
+  %145 = add nsw i32 %144, -17
+  %spec.select.i.i.i = icmp ult i32 %145, 2
+  br i1 %spec.select.i.i.i, label %146, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %144, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %145, i64 8
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %148, align 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %138, %142
-  %146 = phi i32 [ %.pre.i, %142 ], [ %139, %138 ]
-  %147 = load i32, ptr %8, align 8
-  %148 = and i32 %147, 255
-  %149 = add nsw i32 %148, -17
-  %spec.select.i.i.i76 = icmp ult i32 %149, 2
-  br i1 %spec.select.i.i.i76, label %150, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %142, %146
+  %150 = phi i32 [ %.pre.i, %146 ], [ %143, %142 ]
+  %151 = load i32, ptr %8, align 8
+  %152 = and i32 %151, 255
+  %153 = add nsw i32 %152, -17
+  %spec.select.i.i.i76 = icmp ult i32 %153, 2
+  br i1 %spec.select.i.i.i76, label %154, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79
 
-150:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %152, align 8
-  %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %153, i64 8
+154:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %156, align 8
+  %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %.pre.i78 = load i32, ptr %.phi.trans.insert.i77, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79:  ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %150
-  %154 = phi i32 [ %.pre.i78, %150 ], [ %147, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ]
-  %.not44.unshifted = xor i32 %154, %146
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79:  ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %154
+  %158 = phi i32 [ %.pre.i78, %154 ], [ %151, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ]
+  %.not44.unshifted = xor i32 %158, %150
   %.not44 = icmp ult i32 %.not44.unshifted, 256
-  br i1 %.not44, label %155, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread
+  br i1 %.not44, label %159, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread
 
-155:                                              ; preds = %137, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79
-  br i1 %76, label %156, label %.critedge
+159:                                              ; preds = %141, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79
+  br i1 %78, label %160, label %.critedge
 
-156:                                              ; preds = %155
-  %157 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull %1)
-  %.fca.0.extract = extractvalue { i64, i8 } %157, 0
+160:                                              ; preds = %159
+  %161 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull %1)
+  %.fca.0.extract = extractvalue { i64, i8 } %161, 0
   %.not45 = icmp eq i64 %.fca.0.extract10, %.fca.0.extract
   br i1 %.not45, label %.critedge, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread
 
-.critedge:                                        ; preds = %126, %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge, %155, %156
-  %158 = load i32, ptr %10, align 8
-  %159 = and i32 %158, 255
-  %160 = icmp eq i32 %159, 20
-  br i1 %160, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread, label %161
-
-161:                                              ; preds = %.critedge
-  %162 = load i32, ptr %8, align 8
+.critedge:                                        ; preds = %130, %_ZNK4llvm4Type13getScalarTypeEv.exit53._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit74_crit_edge, %159, %160
+  %162 = load i32, ptr %10, align 8
   %163 = and i32 %162, 255
-  %164 = icmp ne i32 %163, 20
+  %164 = icmp eq i32 %163, 20
+  br i1 %164, label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread, label %165
+
+165:                                              ; preds = %.critedge
+  %166 = load i32, ptr %8, align 8
+  %167 = and i32 %166, 255
+  %168 = icmp ne i32 %167, 20
   br label %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread
 
-_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread: ; preds = %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %7, %7, %7, %161, %.critedge, %156, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79, %132, %18, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit50, %3, %135
-  %.0 = phi i1 [ %136, %135 ], [ true, %3 ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit50 ], [ false, %18 ], [ false, %132 ], [ false, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79 ], [ false, %156 ], [ false, %.critedge ], [ %164, %161 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ]
+_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit.thread: ; preds = %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit, %7, %7, %7, %165, %.critedge, %160, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79, %136, %18, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit50, %3, %139
+  %.0 = phi i1 [ %140, %139 ], [ true, %3 ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit50 ], [ false, %18 ], [ false, %136 ], [ false, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit79 ], [ false, %160 ], [ false, %.critedge ], [ %168, %165 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ], [ false, %_ZN4llvm10VNCoercionL35isFirstClassAggregateOrScalableTypeEPNS_4TypeE.exit ]
   ret i1 %.0
 }
 
@@ -955,7 +961,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit: ;
 declare noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm10VNCoercion30analyzeLoadFromClobberingStoreEPNS_4TypeEPNS_5ValueEPNS_9StoreInstERKNS_10DataLayoutE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(512) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4llvm10VNCoercion30analyzeLoadFromClobberingStoreEPNS_4TypeEPNS_5ValueEPNS_9StoreInstERKNS_10DataLayoutE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(512) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1156,7 +1162,7 @@ define dso_local noundef i32 @_ZN4llvm10VNCoercion29analyzeLoadFromClobberingLoa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm10VNCoercion32analyzeLoadFromClobberingMemInstEPNS_4TypeEPNS_5ValueEPNS_12MemIntrinsicERKNS_10DataLayoutE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(512) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4llvm10VNCoercion32analyzeLoadFromClobberingMemInstEPNS_4TypeEPNS_5ValueEPNS_12MemIntrinsicERKNS_10DataLayoutE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(512) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
@@ -2228,7 +2234,7 @@ declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5Valu
 declare void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #1
 
@@ -2260,7 +2266,7 @@ declare void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8
 declare void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
@@ -2598,10 +2604,10 @@ declare noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_
 declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

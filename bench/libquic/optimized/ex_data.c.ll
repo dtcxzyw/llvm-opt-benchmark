@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ex_data.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_get_ex_new_index(ptr noundef %ex_data_class, ptr nocapture noundef writeonly %out_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_get_ex_new_index(ptr noundef %ex_data_class, ptr noundef writeonly captures(none) %out_index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #6
   %cmp = icmp eq ptr %call, null
@@ -81,14 +81,14 @@ declare ptr @sk_new_null() local_unnamed_addr #2
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
 
 declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %index, ptr noundef %val) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr noundef captures(none) %ad, i32 noundef %index, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ad, align 8
   %cmp = icmp eq ptr %0, null
@@ -141,7 +141,7 @@ return:                                           ; preds = %for.end, %if.then12
 declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @CRYPTO_get_ex_data(ptr nocapture noundef readonly %ad, i32 noundef %idx) local_unnamed_addr #0 {
+define hidden ptr @CRYPTO_get_ex_data(ptr noundef readonly captures(none) %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ad, align 8
   %cmp = icmp eq ptr %0, null
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CRYPTO_new_ex_data(ptr nocapture noundef writeonly initializes((0, 8)) %ad) local_unnamed_addr #4 {
+define hidden void @CRYPTO_new_ex_data(ptr noundef writeonly captures(none) initializes((0, 8)) %ad) local_unnamed_addr #4 {
 entry:
   store ptr null, ptr %ad, align 8
   ret void

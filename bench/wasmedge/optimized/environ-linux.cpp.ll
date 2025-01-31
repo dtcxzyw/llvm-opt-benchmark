@@ -9,7 +9,7 @@ $_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi = comdat any
 @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi = private unnamed_addr constant [132 x i16] [i16 0, i16 63, i16 44, i16 71, i16 27, i16 29, i16 60, i16 1, i16 45, i16 8, i16 12, i16 6, i16 48, i16 2, i16 21, i16 poison, i16 10, i16 20, i16 75, i16 43, i16 54, i16 31, i16 28, i16 41, i16 33, i16 59, i16 74, i16 22, i16 51, i16 70, i16 69, i16 34, i16 64, i16 18, i16 68, i16 16, i16 37, i16 46, i16 52, i16 55, i16 32, i16 poison, i16 49, i16 24, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 47, i16 poison, i16 poison, i16 poison, i16 65, i16 36, i16 poison, i16 9, i16 61, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 25, i16 poison, i16 poison, i16 poison, i16 57, i16 17, i16 35, i16 67, i16 50, i16 66, i16 poison, i16 58, i16 poison, i16 5, i16 3, i16 4, i16 38, i16 40, i16 39, i16 13, i16 15, i16 42, i16 30, i16 53, i16 poison, i16 poison, i16 73, i16 14, i16 poison, i16 23, i16 7, i16 26, i16 72, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 19, i16 poison, i16 poison, i16 11, i16 poison, i16 poison, i16 poison, i16 poison, i16 62, i16 56], align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t(ptr nocapture noundef nonnull readnone align 8 dereferenceable(344) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(344) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp ult i8 %1, 31
   br i1 %3, label %switch.lookup, label %11
 
@@ -58,7 +58,7 @@ switch.lookup:
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK8WasmEdge4Host4WASI7Environ10schedYieldEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(344) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK8WasmEdge4Host4WASI7Environ10schedYieldEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(344) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i32 @sched_yield() #3
   ret i32 1
 }

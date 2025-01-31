@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @uprv_itou_75(ptr nocapture noundef %buffer, i32 noundef %capacity, i32 noundef %i, i32 noundef %radix, i32 noundef %minwidth) local_unnamed_addr #0 {
+define i32 @uprv_itou_75(ptr noundef captures(none) %buffer, i32 noundef %capacity, i32 noundef %i, i32 noundef %radix, i32 noundef %minwidth) local_unnamed_addr #0 {
 entry:
   %0 = sext i32 %capacity to i64
   br label %do.body

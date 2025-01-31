@@ -852,7 +852,7 @@ ehcleanup73:                                      ; preds = %ehcleanup72, %lpad3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17algebraic_numbers7managerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7managerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -906,13 +906,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN17algebraic_numbers7manager11updt_paramsERK10params_ref(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %p) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager11updt_paramsERK10params_ref(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(728) ptr @_ZNK17algebraic_numbers7manager2qmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(728) ptr @_ZNK17algebraic_numbers7manager2qmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_qmanager.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -921,7 +921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZNK17algebraic_numbers7manager3bqmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZNK17algebraic_numbers7manager3bqmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_bqmanager.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -929,7 +929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %a, align 8
@@ -968,7 +968,7 @@ _ZN17algebraic_numbers7manager3imp3delERNS_4anumE.exit: ; preds = %entry, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager5resetERNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager5resetERNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %a, align 8
@@ -1007,7 +1007,7 @@ _ZN17algebraic_numbers7manager3imp5resetERNS_4anumE.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager7is_zeroERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager7is_zeroERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -1015,7 +1015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_posERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_posERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -1046,7 +1046,7 @@ _ZN17algebraic_numbers7manager3imp6is_posERKNS_4anumE.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_negERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_negERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -1077,7 +1077,7 @@ _ZN17algebraic_numbers7manager3imp6is_negERKNS_4anumE.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager11is_rationalERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager11is_rationalERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager3imp11is_rationalERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -1386,7 +1386,7 @@ return:                                           ; preds = %.noexc.i79, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_intERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager6is_intERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager3imp6is_intERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -1513,7 +1513,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN17algebraic_numbers7manager6degreeERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN17algebraic_numbers7manager6degreeERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -1538,7 +1538,7 @@ _ZN17algebraic_numbers7manager3imp6degreeERKNS_4anumE.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager11to_rationalERKNS_4anumER3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager11to_rationalERKNS_4anumER3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp11to_rationalERNS_4anumER3mpq(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r)
@@ -1612,7 +1612,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %if.then.i.i8.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager11to_rationalERKNS_4anumER8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager11to_rationalERKNS_4anumER8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp11to_rationalERNS_4anumER8rational(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %r)
@@ -1781,7 +1781,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager4swapERNS_4anumES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %b) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager6int_ltERKNS_4anumERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager6int_ltERKNS_4anumERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp6int_ltERKNS_4anumERS2_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -1877,7 +1877,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager6int_gtERKNS_4anumERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager6int_gtERKNS_4anumERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp6int_gtERKNS_4anumERS2_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -1963,7 +1963,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager6selectERKNS_4anumES3_RS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %prev, ptr noundef nonnull align 8 dereferenceable(8) %curr, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager6selectERKNS_4anumES3_RS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %prev, ptr noundef nonnull align 8 dereferenceable(8) %curr, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp6selectERNS_4anumES3_S3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %prev, ptr noundef nonnull align 8 dereferenceable(8) %curr, ptr noundef nonnull align 8 dereferenceable(8) %result)
@@ -2115,7 +2115,7 @@ ehcleanup:                                        ; preds = %lpad52, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_n = alloca %class._scoped_numeral.9, align 8
   %0 = load ptr, ptr %this, align 8
@@ -2170,7 +2170,7 @@ lpad:                                             ; preds = %invoke.cont5, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3setERNS_4anumERK3mpq(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %n)
@@ -2202,7 +2202,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERK3mpz(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_n = alloca %class._scoped_numeral.9, align 8
   %0 = load ptr, ptr %this, align 8
@@ -2359,7 +2359,7 @@ lpad:                                             ; preds = %if.else.i.i7.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3setERNS_4anumERKS2_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %n)
@@ -2544,7 +2544,7 @@ if.end19:                                         ; preds = %_ZN17algebraic_numb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEER7svectorINS_4anumEjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEER7svectorINS_4anumEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %p, align 8
@@ -2581,7 +2581,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEER7svectorIS9_jE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEER7svectorIS9_jE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp13isolate_rootsERK7obj_refIN10polynomial10polynomialENS3_7managerEERKNS3_9var2valueIS0_NS_4anumEEER7svectorISA_jEb(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots, i1 noundef zeroext false)
@@ -3272,7 +3272,7 @@ ehcleanup246:                                     ; preds = %ehcleanup244, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEER7svectorIS9_jERSD_I4signjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %signs) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager13isolate_rootsERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEER7svectorIS9_jERSD_I4signjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %signs) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp13isolate_rootsERK7obj_refIN10polynomial10polynomialENS3_7managerEERKNS3_9var2valueIS0_NS_4anumEEER7svectorISA_jERSE_I4signjE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v, ptr noundef nonnull align 8 dereferenceable(8) %roots, ptr noundef nonnull align 8 dereferenceable(8) %signs)
@@ -3610,7 +3610,7 @@ if.end:                                           ; preds = %.noexc1.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager7mk_rootERK7obj_refIN10polynomial10polynomialENS2_7managerEEjRNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager7mk_rootERK7obj_refIN10polynomial10polynomialENS2_7managerEEjRNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_isolate_tmp1.i = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -3621,7 +3621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager7mk_rootEPK5sexprjRNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef %p, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager7mk_rootEPK5sexprjRNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef %p, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_isolate_tmp1.i = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -3632,7 +3632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager4rootERKNS_4anumEjRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager4rootERKNS_4anumEjRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp4rootERNS_4anumEjS3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -3740,7 +3740,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager5powerERKNS_4anumEjRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager5powerERKNS_4anumEjRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp5powerERNS_4anumEjS3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -3910,7 +3910,7 @@ eh.resume:                                        ; preds = %lpad16, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3addERKNS_4anumES3_RS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3addERKNS_4anumES3_RS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3addERNS_4anumES3_S3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c)
@@ -4105,7 +4105,7 @@ terminate.lpad:                                   ; preds = %if.else.i.i, %.noex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3subERKNS_4anumES3_RS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3subERKNS_4anumES3_RS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3subERNS_4anumES3_S3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c)
@@ -4180,7 +4180,7 @@ if.end23:                                         ; preds = %if.then16, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3mulERKNS_4anumES3_RS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3mulERKNS_4anumES3_RS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3mulERNS_4anumES3_S3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c)
@@ -4277,7 +4277,7 @@ if.end21:                                         ; preds = %if.end5.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3divERKNS_4anumES3_RS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3divERKNS_4anumES3_RS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3divERNS_4anumES3_S3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c)
@@ -4368,7 +4368,7 @@ lpad:                                             ; preds = %invoke.cont6, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3negERNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3negERNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3negERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -4456,7 +4456,7 @@ if.end9:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager3invERNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager3invERNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp3invERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -4757,7 +4757,7 @@ unreachable:                                      ; preds = %invoke.cont52
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -4872,7 +4872,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -4881,7 +4881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumERK3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumERK3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager3imp2eqERNS_4anumERK3mpq(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b)
@@ -4982,7 +4982,7 @@ return:                                           ; preds = %if.end8.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumERK3mpz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumERK3mpz(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_b = alloca %class._scoped_numeral.9, align 8
   %0 = load ptr, ptr %this, align 8
@@ -5054,7 +5054,7 @@ lpad:                                             ; preds = %invoke.cont5, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
@@ -5063,7 +5063,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumERK3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumERK3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager3imp2ltERNS_4anumERK3mpq(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b)
@@ -5171,7 +5171,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumERK3mpz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumERK3mpz(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_b = alloca %class._scoped_numeral.9, align 8
   %0 = load ptr, ptr %this, align 8
@@ -5243,7 +5243,7 @@ lpad:                                             ; preds = %invoke.cont5, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2gtERKNS_4anumERK3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2gtERKNS_4anumERK3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager3imp2gtERNS_4anumERK3mpq(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %b)
@@ -5351,7 +5351,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2gtERKNS_4anumERK3mpz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager2gtERKNS_4anumERK3mpz(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_b = alloca %class._scoped_numeral.9, align 8
   %0 = load ptr, ptr %this, align 8
@@ -5423,7 +5423,7 @@ lpad:                                             ; preds = %invoke.cont5, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager14get_polynomialERKNS_4anumER7svectorI3mpzjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager14get_polynomialERKNS_4anumER7svectorI3mpzjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp14get_polynomialERKNS_4anumER7svectorI3mpzjE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %r)
@@ -5594,7 +5594,7 @@ if.end21:                                         ; preds = %if.else18, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 536870912) i32 @_ZN17algebraic_numbers7manager5get_iERKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 536870912) i32 @_ZN17algebraic_numbers7manager5get_iERKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %a, align 8
@@ -5642,7 +5642,7 @@ _ZN17algebraic_numbers7manager3imp5get_iERKNS_4anumE.exit: ; preds = %if.then.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER4mpbq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(20) %l) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER4mpbq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(20) %l) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -5680,7 +5680,7 @@ _ZN12mpbq_manager3setER4mpbqRKS0_.exit:           ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bq = alloca %class._scoped_numeral.15, align 8
   %0 = load ptr, ptr %this, align 8
@@ -5847,7 +5847,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull align 8 dereferenceable(32) %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %l) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class._scoped_numeral.9, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -6026,7 +6026,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER3mpqj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER3mpqj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp9get_lowerERKNS_4anumER3mpqj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision)
@@ -6211,7 +6211,7 @@ if.end:                                           ; preds = %_ZN15_scoped_numera
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER8rationalj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_lowerERKNS_4anumER8rationalj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_l = alloca %class._scoped_numeral.9, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -6367,7 +6367,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER4mpbq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(20) %u) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER4mpbq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(20) %u) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -6405,7 +6405,7 @@ _ZN12mpbq_manager3setER4mpbqRKS0_.exit:           ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER3mpq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER3mpq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bq = alloca %class._scoped_numeral.15, align 8
   %0 = load ptr, ptr %this, align 8
@@ -6479,7 +6479,7 @@ lpad:                                             ; preds = %if.else.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER8rational(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull align 8 dereferenceable(32) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER8rational(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %u) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class._scoped_numeral.9, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -6635,7 +6635,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER3mpqj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER3mpqj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN17algebraic_numbers7manager3imp9get_upperERKNS_4anumER3mpqj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision)
@@ -6820,7 +6820,7 @@ if.end:                                           ; preds = %_ZN15_scoped_numera
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER8rationalj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull align 8 dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17algebraic_numbers7manager9get_upperERKNS_4anumER8rationalj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %l, i32 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_l = alloca %class._scoped_numeral.9, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -6976,7 +6976,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN17algebraic_numbers7manager12eval_sign_atERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN17algebraic_numbers7manager12eval_sign_atERK7obj_refIN10polynomial10polynomialENS2_7managerEERKNS2_9var2valueIS0_NS_4anumEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef i32 @_ZN17algebraic_numbers7manager3imp12eval_sign_atERK7obj_refIN10polynomial10polynomialENS3_7managerEERKNS3_9var2valueIS0_NS_4anumEEE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(8) %x2v)
@@ -7744,7 +7744,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup28
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager16display_intervalERSoRKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager16display_intervalERSoRKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17algebraic_numbers7manager3imp16display_intervalERSoRKNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -7797,7 +7797,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager15display_decimalERSoRKNS_4anumEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %precision) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager15display_decimalERSoRKNS_4anumEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %precision) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17algebraic_numbers7manager3imp15display_decimalERSoRKNS_4anumEj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a, i32 noundef %precision)
@@ -7943,7 +7943,7 @@ if.end25:                                         ; preds = %_ZN15_scoped_numera
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager12display_rootERSoRKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager12display_rootERSoRKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17algebraic_numbers7manager3imp12display_rootERSoRKNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -8082,7 +8082,7 @@ if.end38:                                         ; preds = %_ZN11mpq_managerILb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager19display_mathematicaERSoRKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager19display_mathematicaERSoRKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17algebraic_numbers7manager3imp19display_mathematicaERSoRKNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -8147,7 +8147,7 @@ if.end22:                                         ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager17display_root_smt2ERSoRKNS_4anumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17algebraic_numbers7manager17display_root_smt2ERSoRKNS_4anumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN17algebraic_numbers7manager3imp17display_root_smt2ERSoRKNS_4anumE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %a)
@@ -8286,7 +8286,7 @@ if.end38:                                         ; preds = %_ZN11mpq_managerILb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17algebraic_numbers7manager16reset_statisticsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN17algebraic_numbers7manager16reset_statisticsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_compare_cheap.i = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -8295,7 +8295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK17algebraic_numbers7manager18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %st) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK17algebraic_numbers7manager18collect_statisticsER10statistics(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %st) local_unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -8603,7 +8603,7 @@ declare void @_ZN12mpbq_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN11upolynomial12core_managerC2ER8reslimitR11mpz_managerILb0EE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(600)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -11678,7 +11678,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -12941,7 +12941,7 @@ if.end17:                                         ; preds = %if.then10, %if.else
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 declare noundef zeroext i1 @_ZN10polynomial7manager8is_constEPKNS_10polynomialE(ptr noundef) local_unnamed_addr #0
 
@@ -25369,10 +25369,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

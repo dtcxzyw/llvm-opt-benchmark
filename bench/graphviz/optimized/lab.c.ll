@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @color_rgb_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.rgb_struct) align 8 captures(none) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -31,7 +31,7 @@ define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @color_xyz_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @color_xyz_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.xyz_struct) align 8 captures(none) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -56,7 +56,7 @@ define i24 @color_lab_init(double noundef %0, double noundef %1, double noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @RGB2XYZ(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.rgb_struct) align 8 %1) local_unnamed_addr #2 {
+define void @RGB2XYZ(ptr dead_on_unwind noalias writable writeonly sret(%struct.xyz_struct) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.rgb_struct) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %3, 2.550000e+02
   %5 = fcmp ogt double %4, 4.045000e-02
@@ -137,7 +137,7 @@ PivotRgb.exit12:                                  ; preds = %30, %35
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define i24 @RGB2LAB(ptr nocapture noundef readonly byval(%struct.rgb_struct) align 8 %0) local_unnamed_addr #4 {
+define i24 @RGB2LAB(ptr noundef readonly byval(%struct.rgb_struct) align 8 captures(none) %0) local_unnamed_addr #4 {
   %.sroa.017.0.copyload = load double, ptr %0, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.418.0.copyload = load double, ptr %.sroa.418.0..sroa_idx, align 8
@@ -280,7 +280,7 @@ PivotXYZ.exit13:                                  ; preds = %62, %64
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @LAB2RGB_real_01(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @LAB2RGB_real_01(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = alloca %struct.rgb_struct, align 8
   %3 = load double, ptr %0, align 8
   %4 = fptosi double %3 to i8
@@ -313,7 +313,7 @@ define void @LAB2RGB_real_01(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define void @LAB2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, i24 %1) local_unnamed_addr #6 {
+define void @LAB2RGB(ptr dead_on_unwind noalias writable writeonly sret(%struct.rgb_struct) align 8 captures(none) initializes((0, 24)) %0, i24 %1) local_unnamed_addr #6 {
   %.sroa.0.0.extract.trunc = zext i24 %1 to i32
   %.sroa.5.0.extract.shift = lshr i24 %1, 8
   %.sroa.5.0.extract.trunc = zext nneg i24 %.sroa.5.0.extract.shift to i32
@@ -469,7 +469,7 @@ XYZ2RGB.exit:                                     ; preds = %73, %76
 declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.xyz_struct) align 8 %1) local_unnamed_addr #2 {
+define void @XYZ2RGB(ptr dead_on_unwind noalias writable writeonly sret(%struct.rgb_struct) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.xyz_struct) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %3, 1.000000e+02
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -553,7 +553,7 @@ define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sre
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #8 {
+define noalias noundef ptr @lab_gamut(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -652,13 +652,13 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define ptr @lab_gamut_quadtree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define ptr @lab_gamut_quadtree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = alloca i32, align 4
   %4 = call ptr @lab_gamut(ptr noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq ptr %4, null
@@ -678,7 +678,7 @@ define ptr @lab_gamut_quadtree(ptr nocapture noundef readonly %0, i32 noundef %1
 declare ptr @QuadTree_new_from_point_list(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) local_unnamed_addr #11 {
@@ -1025,7 +1025,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #15 {

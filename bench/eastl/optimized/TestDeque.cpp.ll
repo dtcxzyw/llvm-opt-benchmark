@@ -4836,7 +4836,7 @@ return:                                           ; preds = %if.end44, %_ZN5east
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl5dequeIiNS_9allocatorELj64EE6insertENS_13DequeIteratorIiPKiRS4_Lj64EEEOi(ptr noalias sret(%"struct.eastl::DequeIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef byval(%"struct.eastl::DequeIterator.0") align 8 %position, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 {
@@ -65604,7 +65604,7 @@ _ZN5eastl9DequeBaseIi17CountingAllocatorLj64EED2Ev.exit: ; preds = %entry, %_ZN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EE12emplace_backIJPiEEEvDpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this, ptr %args.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EE12emplace_backIJPiEEEvDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %this, ptr %args.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mItEnd = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mItEnd, align 8
@@ -65748,7 +65748,7 @@ if.end23:                                         ; preds = %_ZZ9TestDequevEN1aD
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl5dequeIZ9TestDequevE1aNS_9allocatorELj32EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mItBegin = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mItBegin, align 8
@@ -66530,7 +66530,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl5dequeIiNS_9allocatorELj64EE18DoInitFromIteratorIPKiEEvT_S6_NS_20forward_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 {
@@ -90662,7 +90662,7 @@ return:                                           ; preds = %_ZN10TestObjectD2Ev
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl5dequeIiNS_9allocatorELj64EE8DoAssignINS_12ListIteratorIiPiRiEEEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -114034,7 +114034,7 @@ return:                                           ; preds = %_ZN10TestObjectD2Ev
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl5dequeIi17InstanceAllocatorLj64EE8DoAssignINS_13DequeIteratorIiPKiRS5_Lj64EEEEEvT_S9_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef byval(%"struct.eastl::DequeIterator.0") align 8 %first, ptr noundef byval(%"struct.eastl::DequeIterator.0") align 8 %last) local_unnamed_addr #0 comdat align 2 {
@@ -119872,10 +119872,10 @@ _ZN5eastl18uninitialized_copyINS_13move_iteratorINS_13DequeIteratorIiPiRiLj64EEE
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

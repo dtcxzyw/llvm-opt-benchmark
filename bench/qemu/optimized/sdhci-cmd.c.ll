@@ -24,7 +24,7 @@ declare void @qtest_writew(ptr noundef, i64 noundef, i16 noundef zeroext) local_
 declare void @qtest_writel(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @sdhci_read_cmd(ptr noundef %qts, i64 noundef %base_addr, ptr nocapture noundef writeonly %msg, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local i64 @sdhci_read_cmd(ptr noundef %qts, i64 noundef %base_addr, ptr noundef writeonly captures(none) %msg, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %conv = trunc i64 %count to i16
   %add.i = add i64 %base_addr, 4
@@ -88,7 +88,7 @@ read_fifo.exit:                                   ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sdhci_write_cmd(ptr noundef %qts, i64 noundef %base_addr, ptr nocapture noundef readonly %msg, i64 noundef %count, i64 noundef %blksize) local_unnamed_addr #0 {
+define dso_local void @sdhci_write_cmd(ptr noundef %qts, i64 noundef %base_addr, ptr noundef readonly captures(none) %msg, i64 noundef %count, i64 noundef %blksize) local_unnamed_addr #0 {
 entry:
   %conv = trunc i64 %blksize to i16
   %add.i = add i64 %base_addr, 4

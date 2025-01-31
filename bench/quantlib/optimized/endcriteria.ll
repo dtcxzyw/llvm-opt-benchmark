@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib11EndCriteriaC1Emmddd = unnamed_addr alias void (ptr, i64, i64, double, double, double), ptr @_ZN8QuantLib11EndCriteriaC2Emmddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11EndCriteriaC2Emmddd(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %maxIterations, i64 noundef %maxStationaryStateIterations, double noundef %rootEpsilon, double noundef %functionEpsilon, double noundef %gradientNormEpsilon) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11EndCriteriaC2Emmddd(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %this, i64 noundef %maxIterations, i64 noundef %maxStationaryStateIterations, double noundef %rootEpsilon, double noundef %functionEpsilon, double noundef %gradientNormEpsilon) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -444,10 +444,10 @@ unreachable:                                      ; preds = %invoke.cont73, %inv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -571,7 +571,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria18checkMaxIterationsEmRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %iteration, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria18checkMaxIterationsEmRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %iteration, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %cmp = icmp uge i64 %iteration, %0
@@ -586,7 +586,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria20checkStationaryPointEddRmRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %xOld, double noundef %xNew, ptr nocapture noundef nonnull align 8 dereferenceable(8) %statStateIterations, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria20checkStationaryPointEddRmRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %xOld, double noundef %xNew, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %statStateIterations, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %sub = fsub double %xNew, %xOld
   %0 = tail call double @llvm.fabs.f64(double %sub)
@@ -621,7 +621,7 @@ return:                                           ; preds = %if.end, %if.end4, %
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria28checkStationaryFunctionValueEddRmRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %fxOld, double noundef %fxNew, ptr nocapture noundef nonnull align 8 dereferenceable(8) %statStateIterations, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria28checkStationaryFunctionValueEddRmRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %fxOld, double noundef %fxNew, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %statStateIterations, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %sub = fsub double %fxNew, %fxOld
   %0 = tail call double @llvm.fabs.f64(double %sub)
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end, %if.end4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria31checkStationaryFunctionAccuracyEdbRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %f, i1 noundef zeroext %positiveOptimization, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria31checkStationaryFunctionAccuracyEdbRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %f, i1 noundef zeroext %positiveOptimization, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %functionEpsilon_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %functionEpsilon_, align 8
@@ -670,7 +670,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria21checkZeroGradientNormEdRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %gradientNorm, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteria21checkZeroGradientNormEdRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %gradientNorm, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %gradientNormEpsilon_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %gradientNormEpsilon_, align 8, !tbaa !12
@@ -686,7 +686,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib11EndCriteriaclEmRmbddddRNS0_4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %iteration, ptr nocapture noundef nonnull align 8 dereferenceable(8) %statStateIterations, i1 noundef zeroext %positiveOptimization, double noundef %fold, double noundef %0, double noundef %fnew, double noundef %normgnew, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib11EndCriteriaclEmRmbddddRNS0_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %iteration, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %statStateIterations, i1 noundef zeroext %positiveOptimization, double noundef %fold, double noundef %0, double noundef %fnew, double noundef %normgnew, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ecType) local_unnamed_addr #6 align 2 {
 entry:
   %1 = load i64, ptr %this, align 8, !tbaa !3
   %cmp.i.not = icmp ult i64 %iteration, %1
@@ -736,14 +736,14 @@ lor.end:                                          ; preds = %lor.end.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib11EndCriteria13maxIterationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef i64 @_ZNK8QuantLib11EndCriteria13maxIterationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib11EndCriteria28maxStationaryStateIterationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef i64 @_ZNK8QuantLib11EndCriteria28maxStationaryStateIterationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %maxStationaryStateIterations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %maxStationaryStateIterations_, align 8, !tbaa !9
@@ -751,7 +751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib11EndCriteria11rootEpsilonEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib11EndCriteria11rootEpsilonEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %rootEpsilon_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %rootEpsilon_, align 8, !tbaa !10
@@ -759,7 +759,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib11EndCriteria15functionEpsilonEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib11EndCriteria15functionEpsilonEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %functionEpsilon_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %functionEpsilon_, align 8, !tbaa !11
@@ -767,7 +767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib11EndCriteria19gradientNormEpsilonEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib11EndCriteria19gradientNormEpsilonEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %gradientNormEpsilon_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %gradientNormEpsilon_, align 8, !tbaa !12
@@ -1016,12 +1016,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 

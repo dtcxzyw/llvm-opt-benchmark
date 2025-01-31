@@ -55,7 +55,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mempool_free
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable_mempool_alloc407, ptr @__UNIQUE_ID___addressable_mempool_alloc_pages415, ptr @__UNIQUE_ID___addressable_mempool_alloc_preallocated408, ptr @__UNIQUE_ID___addressable_mempool_alloc_slab411, ptr @__UNIQUE_ID___addressable_mempool_create403, ptr @__UNIQUE_ID___addressable_mempool_create_node404, ptr @__UNIQUE_ID___addressable_mempool_destroy400, ptr @__UNIQUE_ID___addressable_mempool_exit399, ptr @__UNIQUE_ID___addressable_mempool_free410, ptr @__UNIQUE_ID___addressable_mempool_free_pages416, ptr @__UNIQUE_ID___addressable_mempool_free_slab412, ptr @__UNIQUE_ID___addressable_mempool_init402, ptr @__UNIQUE_ID___addressable_mempool_init_node401, ptr @__UNIQUE_ID___addressable_mempool_kfree414, ptr @__UNIQUE_ID___addressable_mempool_kmalloc413, ptr @__UNIQUE_ID___addressable_mempool_resize406, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mempool_exit(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @mempool_exit(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -111,10 +111,10 @@ define dso_local void @mempool_exit(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @remove_element(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @remove_element(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -149,7 +149,7 @@ define internal fastcc ptr @remove_element(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
@@ -295,7 +295,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -611,7 +611,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
@@ -754,7 +754,7 @@ define dso_local noalias ptr @mempool_kmalloc(i32 noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mempool_kfree(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define dso_local void @mempool_kfree(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @kfree(ptr noundef %0) #7
   ret void
 }

@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 @_ZN9CryptDataC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9CryptDataC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData8SetKey13EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) initializes((2504, 2507)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData8SetKey13EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2516) initializes((2504, 2507)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2506
   store i8 0, ptr %4, align 2
@@ -69,7 +69,7 @@ define void @_ZN9CryptData8SetKey15EPKc(ptr noundef nonnull align 8 dereferencea
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   tail call void @_Z9InitCRC32Pj(ptr noundef nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %5 = tail call noundef i32 @_Z5CRC32jPKvm(i32 noundef -1, ptr noundef %1, i64 noundef %4)
+  %5 = tail call noundef i32 @_Z5CRC32jPKvm(i32 noundef -1, ptr noundef nonnull %1, i64 noundef %4)
   %6 = trunc i32 %5 to i16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2508
   store i16 %6, ptr %7, align 4
@@ -118,7 +118,7 @@ declare void @_Z9InitCRC32Pj(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @_Z5CRC32jPKvm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dereferenceable(2516) %0) local_unnamed_addr #1 align 2 {
@@ -138,7 +138,7 @@ define void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) initializes((940, 944), (2504, 2507)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2516) initializes((940, 944), (2504, 2507)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 940
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2504
@@ -151,7 +151,7 @@ define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData9Decrypt13EPhm(ptr nocapture noundef nonnull align 8 dereferenceable(2516) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData9Decrypt13EPhm(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %.not4 = icmp eq i64 %2, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -184,7 +184,7 @@ define void @_ZN9CryptData9Decrypt13EPhm(ptr nocapture noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData7Crypt15EPhm(ptr nocapture noundef nonnull align 8 dereferenceable(2516) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData7Crypt15EPhm(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %.not4 = icmp eq i64 %2, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -344,10 +344,10 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_Z8strncpyzPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData6Swap20EPhS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2516) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #6 align 2 {
+define void @_ZN9CryptData6Swap20EPhS0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = load i8, ptr %1, align 1
   %5 = load i8, ptr %2, align 1
   store i8 %5, ptr %1, align 1
@@ -356,7 +356,7 @@ define void @_ZN9CryptData6Swap20EPhS0_(ptr nocapture noundef nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData14EncryptBlock20EPh(ptr nocapture noundef nonnull align 8 dereferenceable(2516) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %5 = load i32, ptr %4, align 8
@@ -522,7 +522,7 @@ _ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData9UpdKeys20EPh(ptr nocapture noundef nonnull align 8 dereferenceable(2516) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData9UpdKeys20EPh(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2492
@@ -580,7 +580,7 @@ define void @_ZN9CryptData9UpdKeys20EPh(ptr nocapture noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData14DecryptBlock20EPh(ptr nocapture noundef nonnull align 8 dereferenceable(2516) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData14DecryptBlock20EPh(ptr noundef nonnull align 8 captures(none) dereferenceable(2516) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [16 x i8], align 16
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2488
@@ -943,7 +943,7 @@ declare noundef zeroext i1 @_ZN11SecPasswordeqERS_(ptr noundef nonnull align 8 d
 declare void @_Z11SecHideDataPvmbb(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef ptr @_Z9WideToRawPKwmPhm(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -960,7 +960,7 @@ declare void @_Z9cleandataPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @_ZN8Rijndael4InitEbPKhjS1_(ptr noundef nonnull align 4 dereferenceable(264), i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca [68 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
@@ -1049,7 +1049,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
+define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef captures(none) %8) unnamed_addr #1 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca %struct.sha256_context, align 8
   %12 = alloca [64 x i8], align 16
@@ -1190,7 +1190,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef nonnull align 8 dereferenceable(2516) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef %8) local_unnamed_addr #1 align 2 {
+define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef nonnull align 8 dereferenceable(2516) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef %8) local_unnamed_addr #1 align 2 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
   %12 = alloca [32 x i8], align 16
@@ -1334,7 +1334,7 @@ define void @_ZN9CryptData8SetKey50EbP11SecPasswordPKwPKhS5_jPhS6_(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_Z9WideToUtfPKwPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1876,7 +1876,7 @@ declare void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull align 8 dereferenceab
 declare noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6GetRndPhm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define void @_Z6GetRndPhm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %class.RarTime, align 8
   %4 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %4, null
@@ -1932,13 +1932,13 @@ _ZL13TimeRandomizePhm.exit:                       ; preds = %.critedge, %._crit_
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIwSaIwEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2069,7 +2069,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
@@ -2102,7 +2102,7 @@ declare i16 @llvm.fshl.i16(i16, i16, i16) #16
 declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
@@ -2111,10 +2111,10 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

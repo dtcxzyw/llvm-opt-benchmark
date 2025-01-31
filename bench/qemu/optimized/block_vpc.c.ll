@@ -120,7 +120,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @vpc_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @vpc_reopen_prepare(ptr readnone captures(none) %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #2 {
 entry:
   ret i32 0
 }
@@ -556,7 +556,7 @@ return:                                           ; preds = %entry, %glib_autopt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vpc_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @vpc_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -569,7 +569,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vpc_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vpc_co_create(ptr noundef captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %footer = alloca %struct.vhd_footer, align 8
   %uuid = alloca %struct.QemuUUID, align 4
@@ -828,7 +828,7 @@ return:                                           ; preds = %sw.epilog, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vpc_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vpc_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -1008,7 +1008,7 @@ qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vpc_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @vpc_has_zero_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1032,7 +1032,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @vpc_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 101) i32 @vpc_probe(ptr noundef readonly captures(none) %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #3 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1051,7 +1051,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vpc_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal i32 @vpc_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1147,7 +1147,7 @@ if.end20:                                         ; preds = %get_image_offset.ex
 fail:                                             ; preds = %get_image_offset.exit, %if.end20, %if.end
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end20 ], [ %call14, %get_image_offset.exit ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %local_qiov) #15
-  call void @qemu_co_mutex_unlock(ptr noundef %0) #15
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %0) #15
   br label %return
 
 return:                                           ; preds = %fail, %if.then
@@ -1156,7 +1156,7 @@ return:                                           ; preds = %fail, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vpc_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal i32 @vpc_co_pwritev(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1279,7 +1279,7 @@ if.end28:                                         ; preds = %if.end20
 fail:                                             ; preds = %if.end20, %if.end28, %if.then23.i, %if.end, %if.then17
   %ret.1 = phi i32 [ %conv18, %if.then17 ], [ 0, %if.end ], [ %call23, %if.end20 ], [ 0, %if.end28 ], [ %call31.i, %if.then23.i ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %local_qiov) #15
-  call void @qemu_co_mutex_unlock(ptr noundef %0) #15
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %0) #15
   br label %return
 
 return:                                           ; preds = %fail, %if.then
@@ -1288,7 +1288,7 @@ return:                                           ; preds = %fail, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 2, 70) i32 @vpc_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 2, 70) i32 @vpc_co_block_status(ptr noundef readonly captures(none) %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %pnum, ptr noundef writeonly captures(none) %map, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1421,7 +1421,7 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @vpc_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #4 {
+define internal noundef i32 @vpc_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %bdi) #4 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1453,7 +1453,7 @@ declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i64 @bdrv_getlength(ptr noundef) #1
 
@@ -1478,7 +1478,7 @@ declare void @bdrv_graph_rdunlock_main_loop() local_unnamed_addr #1
 declare ptr @qemu_opt_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
@@ -1506,10 +1506,10 @@ declare void @blk_set_allow_write_beyond_eof(ptr noundef, i1 noundef zeroext) lo
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #11
@@ -1659,7 +1659,7 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
+define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1754,7 +1754,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2207613189118) i64 @alloc_block(ptr nocapture noundef readonly %bs, i64 noundef %offset) #0 {
+define internal range(i64 -2147483648, 2207613189118) i64 @alloc_block(ptr noundef readonly captures(none) %bs, i64 noundef %offset) #0 {
 entry:
   %bat_value = alloca i32, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1894,7 +1894,7 @@ cleanup:                                          ; preds = %if.end10.i, %lor.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @rewrite_footer(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 -2147483648, 1) i32 @rewrite_footer(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1909,7 +1909,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14

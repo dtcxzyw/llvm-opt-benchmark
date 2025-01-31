@@ -84,7 +84,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((0, 50)) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr noundef nonnull align 8 captures(none) dereferenceable(50) initializes((0, 50)) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -137,7 +137,7 @@ if.end:                                           ; preds = %entry, %_ZN5folly8O
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen30HTTPDefaultSessionCodecFactory8getCodecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18TransportDirectionEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(32) %nextProtocol, i8 noundef zeroext %direction, i1 noundef zeroext %isTLS) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen30HTTPDefaultSessionCodecFactory8getCodecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18TransportDirectionEb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(32) %nextProtocol, i8 noundef zeroext %direction, i1 noundef zeroext %isTLS) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp41 = alloca %"class.google::LogMessage", align 8
@@ -589,7 +589,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %__functor) #4 comdat align 2 {
@@ -688,7 +688,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

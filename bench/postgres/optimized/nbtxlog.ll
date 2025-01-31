@@ -1737,7 +1737,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   unreachable
 
 236:                                              ; preds = %230, %226, %._crit_edge
-  call void @PageRestoreTempPage(ptr noundef %145, ptr noundef %.0.i.i120) #7
+  call void @PageRestoreTempPage(ptr noundef %145, ptr noundef nonnull %.0.i.i120) #7
   %237 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %spec.select = select i1 %17, i16 129, i16 128
   store i16 %spec.select, ptr %237, align 4
@@ -1758,7 +1758,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   br i1 %.not117, label %272, label %244
 
 244:                                              ; preds = %242
-  %245 = call i32 @XLogReadBufferForRedo(ptr noundef %1, i8 noundef zeroext 2, ptr noundef nonnull %9) #7
+  %245 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %1, i8 noundef zeroext 2, ptr noundef nonnull %9) #7
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %247, label %269
 
@@ -1978,7 +1978,7 @@ declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #2
 declare ptr @_bt_swap_posting(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
 
@@ -2071,7 +2071,7 @@ declare i64 @_bt_dedup_finish_pending(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @XLogReadBufferForRedoExtended(ptr noundef, i8 noundef zeroext, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 65536) %3) unnamed_addr #0 {
+define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 65536) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %6
@@ -2153,7 +2153,7 @@ declare void @ResolveRecoveryConflictWithSnapshot(i32 noundef, i1 noundef zeroex
 declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @ResolveRecoveryConflictWithSnapshotFullXid(i64, i1 noundef zeroext, i64, i32) local_unnamed_addr #2
 
@@ -2161,10 +2161,10 @@ declare void @ResolveRecoveryConflictWithSnapshotFullXid(i64, i1 noundef zeroext
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -38,14 +38,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [62 x i8] c"mca: base: components_open: component %s open function failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fc_pair_constructor(ptr nocapture noundef writeonly initializes((40, 56)) %0) #0 {
+define internal void @fc_pair_constructor(ptr noundef writeonly captures(none) initializes((40, 56)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @fc_pair_destructor(ptr nocapture noundef %0) #1 {
+define internal void @fc_pair_destructor(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
@@ -360,10 +360,10 @@ declare noalias ptr @opal_cstring_create(ptr noundef) local_unnamed_addr #3
 declare i32 @opal_cstring_to_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noalias ptr @opal_argv_split(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -372,7 +372,7 @@ declare i32 @opal_argv_count(ptr noundef) local_unnamed_addr #3
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef zeroext i1 @mca_base_show_load_errors(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @mca_base_show_load_errors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @show_load_errors, align 4
   switch i32 %3, label %5 [
     i32 0, label %.loopexit
@@ -425,7 +425,7 @@ define noundef zeroext i1 @mca_base_show_load_errors(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_base_show_load_errors_finalize() local_unnamed_addr #2 {
@@ -692,7 +692,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare void @mca_base_component_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -32,7 +32,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN20XGlobalsForVMStructsC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20XGlobalsForVMStructsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20XGlobalsForVMStructsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20XGlobalsForVMStructsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
   store ptr @XGlobalPhase, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @XGlobalSeqNum, ptr %2, align 8

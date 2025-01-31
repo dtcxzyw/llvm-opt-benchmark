@@ -1016,7 +1016,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN20AStringListListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20EthernetAddressModel13headerColumnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.0) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20EthernetAddressModel13headerColumnsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.0) align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.0, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -1229,7 +1229,7 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %61, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1283,7 +1283,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20EthernetAddressModel12filterValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.0) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20EthernetAddressModel12filterValuesEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.0) align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.0, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -1592,7 +1592,7 @@ declare ptr @get_ipv4_hash_table() local_unnamed_addr #1
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL32ipv4_hash_table_resolved_to_listPvS_S_(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL32ipv4_hash_table_resolved_to_listPvS_S_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QList.0, align 8
@@ -1787,7 +1787,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGen
 declare ptr @get_ipv6_hash_table() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL32ipv6_hash_table_resolved_to_listPvS_S_(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL32ipv6_hash_table_resolved_to_listPvS_S_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QList.0, align 8
@@ -1982,7 +1982,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGen
 declare ptr @get_eth_hashtable() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23eth_hash_to_qstringlistPvS_S_(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23eth_hash_to_qstringlistPvS_S_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QList.0, align 8
@@ -2624,7 +2624,7 @@ _ZN7QStringD2Ev.exit51:                           ; preds = %_ZN7QStringD2Ev.exi
 declare ptr @get_wka_hashtable() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23wka_hash_to_qstringlistPvS_S_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL23wka_hash_to_qstringlistPvS_S_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -3110,7 +3110,7 @@ define void @_ZN10PortsModel8populateEv(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10PortsModel12filterValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.0) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10PortsModel12filterValuesEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.0) align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.0, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -3415,7 +3415,7 @@ _ZN7QStringD2Ev.exit57:                           ; preds = %85, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10PortsModel13headerColumnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.0) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10PortsModel13headerColumnsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.0) align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.0, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -3630,7 +3630,7 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %61, %_ZN17QArrayDat
 declare ptr @get_serv_port_hashtable() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL29serv_port_hash_to_qstringlistPvS_S_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL29serv_port_hash_to_qstringlistPvS_S_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -5355,7 +5355,7 @@ _ZN9QtPrivate16QGenericArrayOpsI5QListI7QStringEE10copyAppendEPKS3_S6_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI5QListI7QStringEE12allocateGrowERKS3_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -5578,7 +5578,7 @@ declare void @llvm.assume(i1 noundef) #7
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare zeroext i1 @get_hash_ether_used(ptr noundef) local_unnamed_addr #1
 
@@ -6813,10 +6813,10 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
 declare i64 @llvm.smax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9

@@ -76,7 +76,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @pci_bridge_get_device(ptr nocapture noundef readonly %bus) local_unnamed_addr #2 {
+define dso_local ptr @pci_bridge_get_device(ptr noundef readonly captures(none) %bus) local_unnamed_addr #2 {
 entry:
   %parent_dev = getelementptr inbounds nuw i8, ptr %bus, i64 2232
   %0 = load ptr, ptr %parent_dev, align 8
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @pci_bridge_get_base(ptr nocapture noundef readonly %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
+define dso_local i64 @pci_bridge_get_base(ptr noundef readonly captures(none) %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
 entry:
   %conv = zext i8 %type to i32
   %and = and i32 %conv, 1
@@ -162,7 +162,7 @@ if.end9:                                          ; preds = %if.then.i11, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 4095, 0) i64 @pci_bridge_get_limit(ptr nocapture noundef readonly %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
+define dso_local range(i64 4095, 0) i64 @pci_bridge_get_limit(ptr noundef readonly captures(none) %bridge, i8 noundef zeroext %type) local_unnamed_addr #4 {
 entry:
   %conv = zext i8 %type to i32
   %and = and i32 %conv, 1
@@ -507,7 +507,7 @@ declare void @pci_default_write_config(ptr noundef, i32 noundef, i32 noundef, i3
 declare void @bus_cold_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pci_bridge_disable_base_limit(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local void @pci_bridge_disable_base_limit(ptr noundef readonly captures(none) %dev) local_unnamed_addr #5 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -759,7 +759,7 @@ if.end11:                                         ; preds = %do.body, %if.then3
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_bridge_map_irq(ptr nocapture noundef writeonly initializes((7104, 7120)) %br, ptr noundef %bus_name, ptr noundef %map_irq) local_unnamed_addr #7 {
+define dso_local void @pci_bridge_map_irq(ptr noundef writeonly captures(none) initializes((7104, 7120)) %br, ptr noundef %bus_name, ptr noundef %map_irq) local_unnamed_addr #7 {
 entry:
   %map_irq1 = getelementptr inbounds nuw i8, ptr %br, i64 7104
   store ptr %map_irq, ptr %map_irq1, align 16
@@ -769,7 +769,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %dev, i32 noundef %cap_offset, ptr nocapture noundef readonly byval(%struct.PCIResReserve) align 8 %res_reserve, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %dev, i32 noundef %cap_offset, ptr noundef readonly byval(%struct.PCIResReserve) align 8 captures(none) %res_reserve, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %mem_pref_32 = getelementptr inbounds nuw i8, ptr %res_reserve, i64 24
   %0 = load i64, ptr %mem_pref_32, align 8
@@ -888,7 +888,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_bridge_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_bridge_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 10, ptr noundef nonnull @__func__.ACPI_DEV_AML_IF_CLASS) #9
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
@@ -905,7 +905,7 @@ declare void @build_pci_bridge_aml(ptr noundef, ptr noundef) #1
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

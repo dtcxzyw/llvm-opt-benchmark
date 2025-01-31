@@ -364,7 +364,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN11CardTableRSC1E9MemRegion = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN11CardTableRSC2E9MemRegion
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CardTableRS22scan_old_to_young_refsEP17TenuredGenerationPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11CardTableRS22scan_old_to_young_refsEP17TenuredGenerationPP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.OldGenScanClosure, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -409,7 +409,7 @@ define hidden void @_ZN11CardTableRS22scan_old_to_young_refsEP17TenuredGeneratio
 declare noundef ptr @_ZN10SerialHeap4heapEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %2 to i64
@@ -1091,7 +1091,7 @@ _ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread: ; preds = %418, %_ZN1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CardTableRS31maintain_old_to_young_invariantEP17TenuredGenerationb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11CardTableRS31maintain_old_to_young_invariantEP17TenuredGenerationb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3
@@ -1142,7 +1142,7 @@ declare void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr noundef nonnull alig
 declare void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(88), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CardTableRS6verifyEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11CardTableRS6verifyEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CheckForUnmarkedObjects, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN11CardTableRS6verifyEvE23CheckForUnmarkedObjects, i64 16), ptr %2, align 8
   %3 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #11
@@ -1241,10 +1241,10 @@ define hidden void @_ZN11CardTableRS11clear_cardsEPhS0_(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK11CardTableRS11is_in_youngEPKv(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK11CardTableRS11is_in_youngEPKv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #11
   %4 = tail call noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef %1) #11
   ret i1 %4
@@ -1565,7 +1565,7 @@ declare noundef ptr @_ZN16DefNewGeneration22copy_to_survivor_spaceEP7oopDesc(ptr
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN11CardTableRS6verifyEvEN23CheckForUnmarkedObjects9do_objectEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal void @_ZZN11CardTableRS6verifyEvEN23CheckForUnmarkedObjects9do_objectEP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.SerialCheckForUnmarkedOops, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -8588,10 +8588,10 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OldGenScanC
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

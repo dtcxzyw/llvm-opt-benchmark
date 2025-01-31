@@ -88,12 +88,12 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
@@ -267,7 +267,7 @@ define internal noundef i32 @mem_puts(ptr noundef %bp, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #8
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @mem_write(ptr noundef %bp, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @mem_write(ptr noundef %bp, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
@@ -392,7 +392,7 @@ return:                                           ; preds = %if.then20.i, %mem_r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mem_ctrl(ptr nocapture noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal i64 @mem_ctrl(ptr noundef captures(none) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   %ptr1 = getelementptr inbounds nuw i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr1, align 8
@@ -611,7 +611,7 @@ return:                                           ; preds = %sw.bb48, %sw.bb52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mem_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @mem_new(ptr noundef writeonly captures(none) %bi) #1 {
 entry:
   %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 0)
   ret i32 %call
@@ -673,17 +673,17 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mem_init(ptr nocapture noundef writeonly %bi, i64 noundef range(i64 0, 2) %flags) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @mem_init(ptr noundef writeonly captures(none) %bi, i64 noundef range(i64 0, 2) %flags) unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 111) #7
   %cmp = icmp eq ptr %call, null
@@ -736,7 +736,7 @@ declare ptr @BUF_MEM_new_ex(i64 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @secmem_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @secmem_new(ptr noundef writeonly captures(none) %bi) #1 {
 entry:
   %call = tail call fastcc i32 @mem_init(ptr noundef %bi, i64 noundef 1)
   ret i32 %call

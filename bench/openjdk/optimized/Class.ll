@@ -66,7 +66,7 @@ define void @Java_java_lang_Class_registerNatives(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_Class_forName0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define ptr @Java_java_lang_Class_forName0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [128 x i8], align 16
   %8 = icmp eq ptr %2, null
   br i1 %8, label %9, label %10
@@ -159,7 +159,7 @@ declare zeroext i8 @verifyClassname(ptr noundef, i8 noundef zeroext) local_unnam
 declare ptr @JVM_FindClassFromCaller(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @Java_java_lang_Class_isInstance(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -200,7 +200,7 @@ define zeroext i8 @Java_java_lang_Class_isAssignableFrom(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_Class_getPrimitiveClass(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_lang_Class_getPrimitiveClass(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 

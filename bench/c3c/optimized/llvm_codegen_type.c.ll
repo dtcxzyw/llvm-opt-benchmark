@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [7 x i8] c"tempid\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_update_prototype_abi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @llvm_update_prototype_abi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -514,7 +514,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_twostruct(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_twostruct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x ptr], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -554,7 +554,7 @@ declare ptr @LLVMIntTypeInContext(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @type_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_func_type_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_func_type_param(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -1272,7 +1272,7 @@ llvm_abi_type.exit206:                            ; preds = %369, %371
 declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -1406,7 +1406,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_func_type(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_func_type(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call ptr @llvm_update_prototype_abi(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
@@ -1432,7 +1432,7 @@ define dso_local ptr @llvm_func_type(ptr noundef %0, ptr nocapture noundef reado
 declare ptr @LLVMFunctionType(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_pointee_type(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_pointee_type(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @type_voidptr, align 8
@@ -1491,7 +1491,7 @@ declare i32 @LLVMCountStructElementTypes(ptr noundef) local_unnamed_addr #2
 declare ptr @LLVMStructGetTypeAtIndex(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_type_from_decl(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_type_from_decl(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
@@ -1928,7 +1928,7 @@ declare void @LLVMStructSetBody(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @LLVMVectorType(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_coerce_type(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_coerce_type(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca [10 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2841,7 +2841,7 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @llvm_generate_temp_introspection_global(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @llvm_generate_temp_introspection_global(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((40, 48)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2860,7 +2860,7 @@ define internal fastcc noundef ptr @llvm_generate_temp_introspection_global(ptr 
 declare i32 @type_kind_bitsize(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #2
 
@@ -3118,10 +3118,10 @@ declare i32 @LLVMPreferredAlignmentOfGlobal(ptr noundef, ptr noundef) local_unna
 declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

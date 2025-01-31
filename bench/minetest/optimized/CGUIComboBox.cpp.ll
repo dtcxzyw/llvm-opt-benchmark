@@ -204,7 +204,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.28 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBoxC2EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %vtt, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBoxC2EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %vtt, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef readonly byval(%"class.irr::core::rect") align 8 captures(none) %rectangle) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -452,16 +452,16 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox21updateListButtonWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox21updateListButtonWidthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, i32 noundef %width) local_unnamed_addr #0 align 2 {
 entry:
   %ListButton = getelementptr inbounds nuw i8, ptr %this, i64 312
   %0 = load ptr, ptr %ListButton, align 8, !tbaa !46
@@ -908,7 +908,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((380, 388)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((380, 388)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #0 align 2 {
 entry:
   %HAlign = getelementptr inbounds nuw i8, ptr %this, i64 380
   store i32 %horizontal, ptr %HAlign, align 4, !tbaa !76
@@ -1281,7 +1281,7 @@ if.end102:                                        ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui12CGUIComboBox19getMaxSelectionRowsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK3irr3gui12CGUIComboBox19getMaxSelectionRowsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) unnamed_addr #3 align 2 {
 entry:
   %MaxSelectionRows = getelementptr inbounds nuw i8, ptr %this, i64 388
   %0 = load i32, ptr %MaxSelectionRows, align 4, !tbaa !78
@@ -1289,7 +1289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui12CGUIComboBox12getItemCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK3irr3gui12CGUIComboBox12getItemCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) unnamed_addr #3 align 2 {
 entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1304,7 +1304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3irr3gui12CGUIComboBox7getItemEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK3irr3gui12CGUIComboBox7getItemEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #4 align 2 {
 entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1330,7 +1330,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui12CGUIComboBox11getItemDataEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK3irr3gui12CGUIComboBox11getItemDataEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #4 align 2 {
 entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui12CGUIComboBox19getIndexForItemDataEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, i32 noundef %data) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK3irr3gui12CGUIComboBox19getIndexForItemDataEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, i32 noundef %data) unnamed_addr #4 align 2 {
 entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1765,7 +1765,7 @@ _ZN3irr4core5arrayINS_3gui12CGUIComboBox10SComboDataEE5clearEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui12CGUIComboBox11getSelectedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK3irr3gui12CGUIComboBox11getSelectedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) unnamed_addr #3 align 2 {
 entry:
   %Selected = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load i32, ptr %Selected, align 8, !tbaa !86
@@ -1773,7 +1773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox11setSelectedEi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox11setSelectedEi(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %this, i32 noundef %idx) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %idx, -1
   br i1 %cmp, label %if.end13, label %lor.lhs.false
@@ -4769,7 +4769,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #6
 
@@ -4780,7 +4780,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
@@ -4902,7 +4902,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 

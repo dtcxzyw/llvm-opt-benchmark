@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15pme_spline_workC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN15pme_spline_workC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN15pme_spline_workC2Ei(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(192) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(192) %0, i32 noundef %1) unnamed_addr #0 align 2 {
 .preheader34.preheader:
   %2 = alloca [8 x float], align 32
   %.ptr28 = getelementptr inbounds nuw i8, ptr %0, i64 96

@@ -877,7 +877,7 @@ if.end25.i:                                       ; preds = %if.else.i, %if.then
   %ns_avg.i = getelementptr inbounds nuw i8, ptr %arrayidx19.i, i64 32
   %25 = load double, ptr %ns_avg.i, align 8
   %mul.i = fmul double %25, 1.000000e-03
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.21, ptr noundef %22, i32 noundef %sub30.i, ptr noundef nonnull @.str.16, double noundef %23, i64 noundef %24, double noundef %mul.i) #16
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call20.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %22, i32 noundef %sub30.i, ptr noundef nonnull @.str.16, double noundef %23, i64 noundef %24, double noundef %mul.i) #16
   %26 = load ptr, ptr %call20.i, align 8
   %call31.i = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.22, ptr noundef %26) #16
   %call32.i = call ptr @g_string_free(ptr noundef nonnull %call20.i, i32 noundef 1) #16
@@ -913,7 +913,7 @@ report_destroy.exit:                              ; preds = %for.body.i5, %pr_re
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qsp_tree_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp, ptr nocapture noundef readonly %up) #3 {
+define internal i32 @qsp_tree_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp, ptr noundef readonly captures(none) %up) #3 {
 entry:
   %0 = load i32, ptr %up, align 4
   switch i32 %0, label %do.body [
@@ -1037,7 +1037,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @qsp_tree_report(ptr nocapture noundef readonly %key, ptr nocapture readnone %value, ptr nocapture noundef %udata) #3 {
+define internal range(i32 0, 2) i32 @qsp_tree_report(ptr noundef readonly captures(none) %key, ptr readnone captures(none) %value, ptr noundef captures(none) %udata) #3 {
 entry:
   %n_entries = getelementptr inbounds nuw i8, ptr %udata, i64 8
   %0 = load i64, ptr %n_entries, align 8
@@ -1174,7 +1174,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @qht_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @qsp_entry_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #5 {
+define internal zeroext i1 @qsp_entry_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp) #5 {
 entry:
   %0 = load ptr, ptr %ap, align 8
   %1 = load ptr, ptr %bp, align 8
@@ -1434,7 +1434,7 @@ qsp_entry_find.exit:                              ; preds = %qsp_init.exit, %if.
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
@@ -1442,7 +1442,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 declare ptr @qht_lookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qsp_entry_create(ptr noundef %ht, ptr nocapture noundef readonly %entry1, i32 noundef %hash) unnamed_addr #3 {
+define internal fastcc ptr @qsp_entry_create(ptr noundef %ht, ptr noundef readonly captures(none) %entry1, i32 noundef %hash) unnamed_addr #3 {
 entry:
   %existing.i = alloca ptr, align 8
   %existing = alloca ptr, align 8
@@ -1502,7 +1502,7 @@ if.then.i:                                        ; preds = %entry
   store ptr null, ptr %existing.i, align 8
   %call2.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call2.i, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %call3.i = call zeroext i1 @qht_insert(ptr noundef nonnull @qsp_callsite_ht, ptr noundef %call2.i, i32 noundef %xor51.i.i.i.i, ptr noundef nonnull %existing.i) #16
+  %call3.i = call zeroext i1 @qht_insert(ptr noundef nonnull @qsp_callsite_ht, ptr noundef nonnull %call2.i, i32 noundef %xor51.i.i.i.i, ptr noundef nonnull %existing.i) #16
   %6 = load ptr, ptr %existing.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %qsp_callsite_find.exit, label %if.then6.i
@@ -1535,10 +1535,10 @@ if.end:                                           ; preds = %if.then, %qsp_calls
 declare zeroext i1 @qht_insert(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @qsp_callsite_cmp(ptr noundef readonly %ap, ptr noundef readonly %bp) #5 {
@@ -1587,7 +1587,7 @@ lor.end13:                                        ; preds = %lor.rhs, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @qsp_entry_no_thread_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #5 {
+define internal zeroext i1 @qsp_entry_no_thread_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp) #5 {
 entry:
   %callsite = getelementptr inbounds nuw i8, ptr %ap, i64 8
   %0 = load ptr, ptr %callsite, align 8
@@ -1637,7 +1637,7 @@ qsp_callsite_cmp.exit:                            ; preds = %entry, %lor.rhs.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @qsp_entry_no_thread_obj_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #5 {
+define internal zeroext i1 @qsp_entry_no_thread_obj_cmp(ptr noundef readonly captures(none) %ap, ptr noundef readonly captures(none) %bp) #5 {
 entry:
   %callsite = getelementptr inbounds nuw i8, ptr %ap, i64 8
   %0 = load ptr, ptr %callsite, align 8
@@ -1772,7 +1772,7 @@ if.end8:                                          ; preds = %if.else, %if.then6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qsp_ht_delete(ptr noundef %p, i32 %h, ptr nocapture readnone %htp) #3 {
+define internal void @qsp_ht_delete(ptr noundef %p, i32 %h, ptr readnone captures(none) %htp) #3 {
 entry:
   tail call void @g_free(ptr noundef %p) #16
   ret void
@@ -1865,7 +1865,7 @@ declare void @g_tree_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -1877,7 +1877,7 @@ declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #0
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -1886,10 +1886,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

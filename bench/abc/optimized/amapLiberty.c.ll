@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.6 = private unnamed_addr constant [31 x i8] c"Parsing finished successfully.\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Amap_LibertyPrintLibertyItem(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Amap_LibertyPrintLibertyItem(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = icmp sgt i32 %3, 0
   %7 = getelementptr i8, ptr %1, i64 8
@@ -323,10 +323,10 @@ Amap_LibertyItem.exit95.thread:                   ; preds = %104, %Amap_LibertyI
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Amap_LibertyPrintLiberty(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Amap_LibertyPrintLiberty(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -362,13 +362,13 @@ define range(i32 0, 2) i32 @Amap_LibertyPrintLiberty(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @Amap_LibertyTimeStamp() local_unnamed_addr #2 {
@@ -394,13 +394,13 @@ declare ptr @asctime(ptr noundef) local_unnamed_addr #3
 declare ptr @localtime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Amap_LibertyCellIsFlop(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Amap_LibertyCellIsFlop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -457,7 +457,7 @@ Amap_LibertyItem.exit15:                          ; preds = %21
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Amap_LibertyCellIsDontUse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Amap_LibertyCellIsDontUse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -509,7 +509,7 @@ Amap_LibertyItem.exit9:                           ; preds = %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Amap_LibertyPinFunction(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define ptr @Amap_LibertyPinFunction(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -561,7 +561,7 @@ Amap_LibertyItem.exit11:                          ; preds = %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Amap_LibertyCellOutput(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define ptr @Amap_LibertyCellOutput(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -645,7 +645,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyPinFunc
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_LibertyCellOutputs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noalias noundef ptr @Amap_LibertyCellOutputs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -799,7 +799,7 @@ Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunc
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Amap_LibertyCellArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define ptr @Amap_LibertyCellArea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -851,7 +851,7 @@ Amap_LibertyItem.exit11:                          ; preds = %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Amap_LibertyCellCountOutputs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define i32 @Amap_LibertyCellCountOutputs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -942,7 +942,7 @@ Amap_LibertyItem.exit13:                          ; preds = %34
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @Amap_LibertyGetString(ptr nocapture noundef readonly %0, i64 %1) local_unnamed_addr #7 {
+define noundef nonnull ptr @Amap_LibertyGetString(ptr noundef readonly captures(none) %0, i64 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %sext = shl i64 %1, 32
@@ -957,10 +957,10 @@ define noundef nonnull ptr @Amap_LibertyGetString(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @Amap_LibertyGetStringFormula(ptr nocapture noundef readonly %0, i64 %1) local_unnamed_addr #7 {
+define noundef nonnull ptr @Amap_LibertyGetStringFormula(ptr noundef readonly captures(none) %0, i64 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %sext = shl i64 %1, 32
@@ -977,7 +977,7 @@ define noundef nonnull ptr @Amap_LibertyGetStringFormula(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Amap_LibertyPrintGenlib(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Amap_LibertyPrintGenlib(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
@@ -1525,10 +1525,10 @@ Amap_LibertyItem.exit185:                         ; preds = %270
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #8
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Amap_LibertyPrintGenlibStr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define noalias noundef ptr @Amap_LibertyPrintGenlibStr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
 Amap_LibertyItem.exit:
   %2 = alloca [100 x i8], align 16
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
@@ -2091,7 +2091,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @Vec_StrPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -2177,10 +2177,10 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Amap_LibertyFileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @Amap_LibertyFileSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.46)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -2202,13 +2202,13 @@ define noundef i32 @Amap_LibertyFileSize(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Amap_LibertyFixFileHead(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @Amap_LibertyFixFileHead(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   br label %2
 
 2:                                                ; preds = %5, %1
@@ -2726,7 +2726,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipSpaces(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipSpaces(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #11 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = icmp ult ptr %5, %2
@@ -2799,7 +2799,7 @@ Amap_LibertyCharIsSpace.exit.thread:              ; preds = %.lr.ph.split, %.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr nocapture noundef %0, ptr noundef readnone %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr noundef captures(none) %0, ptr noundef readnone %1) unnamed_addr #11 {
   %3 = ptrtoint ptr %1 to i64
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -2861,7 +2861,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @Amap_LibertyNewItem(ptr nocapture noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #12 {
+define internal fastcc ptr @Amap_LibertyNewItem(ptr noundef captures(none) %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2896,7 +2896,7 @@ define internal fastcc ptr @Amap_LibertyNewItem(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @Amap_LibertyUpdateHead(ptr nocapture noundef %0, i64 %1) unnamed_addr #11 {
+define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0, i64 %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %sext = shl i64 %1, 32
@@ -3079,7 +3079,7 @@ Amap_LibertyFileSize.exit:                        ; preds = %Amap_LibertyFixFile
   %14 = icmp eq i32 %11, 0
   br i1 %14, label %15, label %16
 
-15:                                               ; preds = %Amap_LibertyFileSize.exit, %Amap_LibertyFileSize.exit.thread
+15:                                               ; preds = %Amap_LibertyFileSize.exit.thread, %Amap_LibertyFileSize.exit
   tail call void @free(ptr noundef nonnull %calloc) #23
   br label %48
 
@@ -3146,22 +3146,22 @@ Amap_LibertyCountItems.exit:                      ; preds = %Amap_LibertyCountIt
   store i32 1, ptr %47, align 4
   br label %48
 
-48:                                               ; preds = %15, %Amap_LibertyCountItems.exit
-  %.0 = phi ptr [ %calloc, %Amap_LibertyCountItems.exit ], [ null, %15 ]
+48:                                               ; preds = %Amap_LibertyCountItems.exit, %15
+  %.0 = phi ptr [ null, %15 ], [ %calloc, %Amap_LibertyCountItems.exit ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Amap_LibertyStop(ptr nocapture noundef %0) local_unnamed_addr #16 {
+define void @Amap_LibertyStop(ptr noundef captures(none) %0) local_unnamed_addr #16 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -3468,7 +3468,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #23
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
   call void @free(ptr noundef %9) #23
   br label %16
 
@@ -3722,13 +3722,13 @@ Amap_LibertyStop.exit:                            ; preds = %93, %96
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -3740,7 +3740,7 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #19
@@ -3749,16 +3749,16 @@ declare void @llvm.va_start.p0(ptr) #19
 declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

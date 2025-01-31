@@ -1046,7 +1046,7 @@ define hidden void @proto_register_iec60870_asdu() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iec60870_asdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_iec60870_asdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.asduheader, align 4
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -2370,7 +2370,7 @@ define hidden void @proto_reg_handoff_iec60870_5_103() local_unnamed_addr #0 {
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_iec104apdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_iec104apdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %1) #7
   br label %6
 
@@ -2406,7 +2406,7 @@ define internal i32 @get_iec104apdu_len(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2611,7 +2611,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2622,7 +2622,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2635,7 +2635,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_SIQ(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_SIQ(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_siq, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2669,7 +2669,7 @@ define internal fastcc void @get_SIQ(ptr noundef %0, ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_CP24Time(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_CP24Time(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2720,7 +2720,7 @@ define internal fastcc void @get_CP24Time(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_DIQ(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_DIQ(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_diq, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2754,7 +2754,7 @@ define internal fastcc void @get_DIQ(ptr noundef %0, ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_QDS(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_QDS(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_qds, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2788,7 +2788,7 @@ define internal fastcc void @get_QDS(ptr noundef %0, ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_BCR(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_BCR(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_bcr, align 4
   %5 = load i8, ptr %1, align 1
   %6 = zext i8 %5 to i32
@@ -2824,7 +2824,7 @@ define internal fastcc void @get_BCR(ptr noundef %0, ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_CP56Time(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i8, ptr %1, align 1
@@ -2969,10 +2969,10 @@ declare signext i16 @tvb_get_letohis(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_iec101_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_iec101_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   switch i8 %5, label %15 [
     i8 -27, label %6
@@ -3001,7 +3001,7 @@ define internal i32 @get_iec101_len(ptr nocapture readnone %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iec60870_101(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_iec60870_101(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.asdu_parms, align 4
@@ -3124,7 +3124,7 @@ define internal noundef i32 @dissect_iec60870_101(ptr noundef %0, ptr noundef %1
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 262) i32 @get_iec103_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 262) i32 @get_iec103_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   switch i8 %5, label %13 [
     i8 -27, label %6
@@ -3151,7 +3151,7 @@ define internal range(i32 0, 262) i32 @get_iec103_len(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.tm, align 8
   %7 = alloca i8, align 1
@@ -3489,10 +3489,10 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

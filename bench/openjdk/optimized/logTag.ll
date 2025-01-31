@@ -186,7 +186,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef range(i32 0, 177) i32 @_ZN6LogTag11from_stringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 177) i32 @_ZN6LogTag11from_stringEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -212,7 +212,7 @@ define hidden noundef range(i32 0, 177) i32 @_ZN6LogTag11from_stringEPKc(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %0) local_unnamed_addr #2 align 2 {
@@ -227,7 +227,7 @@ define hidden noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %0) local_unn
   %5 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %.01517
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #5
-  %8 = tail call noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef %6, i64 noundef %7, ptr noundef %0, i64 noundef %2) #6
+  %8 = tail call noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef nonnull %6, i64 noundef %7, ptr noundef nonnull %0, i64 noundef %2) #6
   %9 = fcmp ult double %8, %.01318
   %.114 = select i1 %9, double %.01318, double %8
   %.1 = select i1 %9, i32 %.019, i32 %4
@@ -240,7 +240,7 @@ define hidden noundef i32 @_ZN6LogTag11fuzzy_matchEPKc(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 

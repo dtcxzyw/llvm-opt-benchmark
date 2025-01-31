@@ -1114,10 +1114,10 @@ declare void @app_RAND_load_conf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @load_index(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_entry(ptr nocapture noundef nonnull readonly %db, i32 noundef %indx, i32 noundef range(i32 0, -2147483648) %verbose, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @print_entry(ptr noundef nonnull readonly captures(none) %db, i32 noundef %indx, i32 noundef range(i32 0, -2147483648) %verbose, ptr noundef %s) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %indx, -1
   %tobool = icmp ne i32 %verbose, 0
@@ -1154,7 +1154,7 @@ if.end:                                           ; preds = %for.body, %entry
 declare ptr @SRP_get_default_gN(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr nocapture noundef nonnull readonly %db, ptr noundef readonly %id, i8 noundef signext range(i8 73, 86) %type) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr noundef nonnull readonly captures(none) %db, ptr noundef readonly %id, i8 noundef signext range(i8 73, 86) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %id, null
   br i1 %cmp, label %return, label %if.end
@@ -1235,7 +1235,7 @@ return:                                           ; preds = %land.lhs.true35, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_user(ptr nocapture noundef nonnull readonly %db, i32 noundef %userindex, i32 noundef %verbose) unnamed_addr #0 {
+define internal fastcc void @print_user(ptr noundef nonnull readonly captures(none) %db, i32 noundef %userindex, i32 noundef %verbose) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %verbose, 0
   br i1 %cmp, label %if.then, label %if.end8
@@ -1345,7 +1345,7 @@ if.end8:                                          ; preds = %for.inc.i, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @srp_create_user(ptr noundef %user, ptr noundef %srp_verifier, ptr nocapture noundef writeonly %srp_usersalt, ptr noundef %g, ptr noundef %N, ptr noundef %passout, i32 noundef %verbose) unnamed_addr #0 {
+define internal fastcc ptr @srp_create_user(ptr noundef %user, ptr noundef %srp_verifier, ptr noundef writeonly captures(none) %srp_usersalt, ptr noundef %g, ptr noundef %N, ptr noundef %passout, i32 noundef %verbose) unnamed_addr #0 {
 entry:
   %password = alloca [1025 x i8], align 16
   %cb_tmp = alloca %struct.pw_cb_data, align 8
@@ -1405,7 +1405,7 @@ if.end16:                                         ; preds = %if.end9, %if.then13
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @update_index(ptr nocapture noundef nonnull readonly %db, ptr nocapture noundef nonnull readonly %row) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_index(ptr noundef nonnull readonly captures(none) %db, ptr noundef nonnull readonly captures(none) %row) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_malloc(i64 noundef 56, ptr noundef nonnull @.str.96) #5
   br label %for.body
@@ -1504,7 +1504,7 @@ if.else:                                          ; preds = %cond.end
   %call15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %srp_verifier) #6
   %tobool16.not = icmp eq i32 %call15, 0
   %spec.select = select i1 %tobool16.not, ptr %call11, ptr null
-  call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.70, i32 noundef 152) #5
+  call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str.70, i32 noundef 152) #5
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then13
@@ -1549,7 +1549,7 @@ declare i32 @TXT_DB_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

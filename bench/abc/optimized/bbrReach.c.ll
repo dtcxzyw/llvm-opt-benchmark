@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Bbr_ManSetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   store i32 50000, ptr %2, align 4
@@ -49,7 +49,7 @@ define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Bbr_bddComputeRangeCube(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -110,12 +110,12 @@ define void @Bbr_StopManager(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @Cudd_CheckZeroRef(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Aig_ManInitStateVarMap(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) local_unnamed_addr #2 {
+define noundef ptr @Aig_ManInitStateVarMap(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -201,10 +201,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @Cudd_SetVarMap(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Aig_ManCreateOutputs(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noalias noundef ptr @Aig_ManCreateOutputs(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val11 = load i32, ptr %3, align 8
   %4 = sext i32 %.val11 to i64
@@ -342,14 +342,14 @@ declare ptr @Cudd_bddXnor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @Aig_ManFreeGlobalBdds(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @Cudd_SharingSize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @Cudd_ReduceHeap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Aig_ManComputeReachable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Aig_ManComputeReachable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = alloca i32, align 4
@@ -666,11 +666,11 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
 
 143:                                              ; preds = %129
   call void @Cudd_Ref(ptr noundef nonnull %.2196) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0191282) #14
-  %144 = call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef nonnull %.2196) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0191282) #14
+  %144 = call ptr @Cudd_bddVarMap(ptr noundef nonnull %0, ptr noundef nonnull %.2196) #14
   call void @Cudd_Ref(ptr noundef %144) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.2196) #14
-  %145 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %144, ptr noundef %.0190283) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.2196) #14
+  %145 = call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %.0190283) #14
   %.not209 = icmp eq i32 %145, 0
   br i1 %.not209, label %146, label %._crit_edge
 
@@ -695,7 +695,7 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   %153 = ptrtoint ptr %152 to i64
   %154 = xor i64 %153, 1
   %155 = inttoptr i64 %154 to ptr
-  %156 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %144, ptr noundef %155) #14
+  %156 = call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %155) #14
   %.not211 = icmp eq i32 %156, 0
   br i1 %.not211, label %157, label %169
 
@@ -703,13 +703,13 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   %158 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %159 = trunc nuw nsw i64 %indvars.iv to i32
   %160 = load ptr, ptr %158, align 8
-  %161 = call ptr @Cudd_bddIntersect(ptr noundef %0, ptr noundef %144, ptr noundef %160) #14
+  %161 = call ptr @Cudd_bddIntersect(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %160) #14
   call void @Cudd_Ref(ptr noundef %161) #14
   %162 = load i32, ptr %46, align 4
   %163 = load i32, ptr %96, align 4
-  %164 = call ptr @Aig_ManVerifyUsingBddsCountExample(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %59, ptr noundef %161, i32 noundef %159, i32 noundef %162, i32 noundef %163) #14
+  %164 = call ptr @Aig_ManVerifyUsingBddsCountExample(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %59, ptr noundef %161, i32 noundef %159, i32 noundef %162, i32 noundef %163) #14
   store ptr %164, ptr %97, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %161) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %161) #14
   %165 = load i32, ptr %96, align 4
   %.not212 = icmp eq i32 %165, 0
   br i1 %.not212, label %166, label %168
@@ -721,7 +721,7 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   br label %168
 
 168:                                              ; preds = %166, %157
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0190283) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0190283) #14
   store i32 %.0199280, ptr %98, align 4
   %.val241.pre = load i32, ptr %95, align 8
   br label %.loopexit
@@ -749,7 +749,7 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   %174 = ptrtoint ptr %.2329 to i64
   %175 = xor i64 %174, 1
   %176 = inttoptr i64 %175 to ptr
-  %177 = call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %144, ptr noundef %176) #14
+  %177 = call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %176) #14
   call void @Cudd_Ref(ptr noundef %177) #14
   %178 = load i32, ptr %60, align 4
   %179 = load i32, ptr %59, align 8
@@ -814,10 +814,10 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %205 = getelementptr inbounds ptr, ptr %201, i64 %204
   store ptr %177, ptr %205, align 8
   call void @Cudd_Ref(ptr noundef %177) #14
-  %206 = call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.2329, ptr noundef %144) #14
+  %206 = call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %.2329, ptr noundef %144) #14
   call void @Cudd_Ref(ptr noundef %206) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2329) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %144) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.2329) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %144) #14
   %207 = load i32, ptr %46, align 4
   %.not213 = icmp eq i32 %207, 0
   br i1 %.not213, label %.thread263, label %208
@@ -838,7 +838,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
 
 213:                                              ; preds = %211
   %.val228 = load i32, ptr %21, align 8
-  %214 = call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %206, i32 noundef %.val228) #14
+  %214 = call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %206, i32 noundef %.val228) #14
   %215 = load ptr, ptr @stdout, align 8
   %216 = fmul double %214, 1.000000e+02
   %.val227 = load i32, ptr %21, align 8
@@ -861,7 +861,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %.1195 = phi ptr [ null, %Vec_PtrPush.exit ], [ %144, %143 ], [ %144, %.loopexit ], [ %144, %146 ], [ %144, %.thread263 ]
   %.1 = phi ptr [ %3, %Vec_PtrPush.exit ], [ %.0190283, %143 ], [ %.2, %.loopexit ], [ %.0190283, %146 ], [ %206, %.thread263 ]
   %.not219 = phi i1 [ true, %Vec_PtrPush.exit ], [ %.not209, %143 ], [ %.not209, %.loopexit ], [ %.not209, %146 ], [ %.not209, %.thread263 ]
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1195) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1195) #14
   %.val244308 = load i32, ptr %60, align 4
   %224 = icmp sgt i32 %.val244308, 0
   br i1 %224, label %.lr.ph311, label %.critedge
@@ -871,7 +871,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %.val234 = load ptr, ptr %62, align 8
   %225 = getelementptr inbounds nuw ptr, ptr %.val234, i64 %indvars.iv322
   %226 = load ptr, ptr %225, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %226) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %226) #14
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %.val244 = load i32, ptr %60, align 4
   %227 = sext i32 %.val244 to i64
@@ -912,7 +912,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
 
 238:                                              ; preds = %236
   %.val226 = load i32, ptr %21, align 8
-  %239 = call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef nonnull %.1, i32 noundef %.val226) #14
+  %239 = call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef nonnull %.1, i32 noundef %.val226) #14
   %240 = load i32, ptr %91, align 4
   %241 = icmp sgt i32 %.0199.lcssa, %240
   br i1 %241, label %245, label %242
@@ -938,7 +938,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   br label %254
 
 254:                                              ; preds = %245, %236
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1) #14
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %256 = load i32, ptr %255, align 4
   %.not220 = icmp eq i32 %256, 0
@@ -1018,7 +1018,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #14
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
   call void @free(ptr noundef %9) #14
   br label %16
 
@@ -1039,10 +1039,10 @@ declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds_int(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds_int(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -1278,7 +1278,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
   br i1 %.not106120, label %117, label %115
 
 115:                                              ; preds = %Vec_PtrFree.exit
-  %116 = call i32 @Aig_ManComputeReachable(ptr noundef nonnull %24, ptr noundef %0, ptr noundef %79, ptr noundef %80, ptr noundef %65, ptr noundef nonnull %1, i32 noundef %8)
+  %116 = call i32 @Aig_ManComputeReachable(ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef %79, ptr noundef %80, ptr noundef %65, ptr noundef nonnull %1, i32 noundef %8)
   br label %117
 
 117:                                              ; preds = %115, %Vec_PtrFree.exit
@@ -1378,7 +1378,7 @@ declare i32 @Cudd_ReadKeys(ptr noundef) local_unnamed_addr #3
 declare i32 @Cudd_ReadDead(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 108
   %.val87 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val87, 0
@@ -1751,7 +1751,7 @@ declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
@@ -1760,10 +1760,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -1772,16 +1772,16 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

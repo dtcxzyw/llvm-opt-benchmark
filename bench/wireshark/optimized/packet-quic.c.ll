@@ -828,7 +828,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.quic_max_packet_number.17 = private unnamed_addr constant [4 x i64] [i64 2, i64 0, i64 2, i64 1], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @quic_stream_add_proto_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @quic_stream_add_proto_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -845,7 +845,7 @@ define hidden void @quic_stream_add_proto_data(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_get_stream_state(i16 %.80.val.50.val, ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_get_stream_state(i16 %.80.val.50.val, ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %.not = icmp eq i32 %1, 0
@@ -906,7 +906,7 @@ define internal fastcc ptr @quic_get_stream_state(i16 %.80.val.50.val, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @quic_stream_get_proto_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @quic_stream_get_proto_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -923,7 +923,7 @@ define hidden ptr @quic_stream_get_proto_data(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @quic_add_connection(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @quic_add_connection(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #15
   %4 = load i32, ptr @proto_quic, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #15
@@ -952,7 +952,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_connection_add_cid(ptr noundef nonnull %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @quic_connection_add_cid(ptr noundef nonnull %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %5, label %6
@@ -1183,7 +1183,7 @@ quic_connection_equal.exit.thread:                ; preds = %17, %quic_connectio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @quic_connection_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @quic_connection_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i8, ptr %0, align 8
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %3, %4
@@ -1227,7 +1227,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @quic_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @quic_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @quic_connections, align 8
   %5 = tail call ptr @wmem_list_head(ptr noundef %4) #15
   %.not7.i = icmp eq ptr %5, null
@@ -1296,7 +1296,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @quic_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @quic_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @quic_connections, align 8
   %5 = tail call ptr @wmem_list_head(ptr noundef %4) #15
   %.not7.i = icmp eq ptr %5, null
@@ -1403,7 +1403,7 @@ declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_quic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_quic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.quic_pp_cipher, align 8
   %7 = alloca %struct.quic_cid, align 8
@@ -3959,7 +3959,7 @@ define internal void @quic_cleanup() #0 {
 declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @quic_follow_conv_filter(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noalias ptr @quic_follow_conv_filter(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = tail call ptr @wmem_file_scope() #15
   %6 = load i32, ptr @proto_quic, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %1, i32 noundef %6, i32 noundef 0) #15
@@ -4009,14 +4009,14 @@ define internal noalias ptr @quic_follow_index_filter(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @quic_follow_address_filter(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #4 {
+define internal noalias noundef ptr @quic_follow_address_filter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #4 {
   ret ptr null
 }
 
 declare ptr @udp_port_to_display(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @follow_quic_tap_listener(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @follow_quic_tap_listener(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, -1
@@ -4191,7 +4191,7 @@ copy_address.exit44:                              ; preds = %copy_address.exit44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @quic_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 2) i32 @quic_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %5
 
@@ -4232,7 +4232,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_quic_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_quic_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.quic_cid, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
@@ -4390,10 +4390,10 @@ quic_connection_from_conv.exit.thread:            ; preds = %5, %quic_connection
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
@@ -4423,7 +4423,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_extract_header(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @quic_extract_header(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) initializes((0, 4)) %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #15
   %.not = icmp sgt i8 %6, -1
   br i1 %.not, label %.critedge, label %quic_get_long_packet_type.exit
@@ -4485,7 +4485,7 @@ quic_get_long_packet_type.exit:                   ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_connection_find(ptr noundef %0, i8 noundef zeroext %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @quic_connection_find(ptr noundef %0, i8 noundef zeroext %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = icmp ne i8 %1, -1
   %6 = icmp eq i8 %1, 1
   br i1 %6, label %7, label %12
@@ -4798,7 +4798,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_connection_find_dcid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_connection_find_dcid(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -4930,7 +4930,7 @@ declare zeroext i1 @wmem_map_lookup_extended(ptr noundef, ptr noundef, ptr nound
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_connection_update_initial(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @quic_connection_update_initial(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %16, label %5
@@ -4999,7 +4999,7 @@ declare i32 @tvb_find_tvb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_quic_long_header_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_quic_long_header_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1) #15
@@ -5137,7 +5137,7 @@ declare i32 @gcry_cipher_checktag(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct._StringInfo, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._StringInfo, align 8
@@ -5294,7 +5294,7 @@ is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.e
 76:                                               ; preds = %72
   %77 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(32) %77, i64 32, i1 false)
-  call void @wmem_free(ptr noundef null, ptr noundef %77) #15
+  call void @wmem_free(ptr noundef null, ptr noundef nonnull %77) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -5321,7 +5321,7 @@ quic_derive_initial_secrets.exit.thread:          ; preds = %80, %75, %68
 81:                                               ; preds = %76
   %82 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %82, i64 32, i1 false)
-  call void @wmem_free(ptr noundef null, ptr noundef %82) #15
+  call void @wmem_free(ptr noundef null, ptr noundef nonnull %82) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %1, align 8
@@ -5357,7 +5357,7 @@ quic_ciphers_prepare.exit.thread:                 ; preds = %quic_ciphers_prepar
 declare i32 @tls13_get_quic_secret(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_decrypt_header(ptr noundef %0, i32 noundef %1, ptr %.0.val, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_decrypt_header(ptr noundef %0, i32 noundef %1, ptr %.0.val, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [5 x i8], align 1
   %9 = alloca [4 x i8], align 1
@@ -5463,7 +5463,7 @@ declare ptr @proto_tree_add_item_ret_varint(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
+define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, i32 noundef range(i32 0, 2) %7, ptr noundef readonly %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
   %12 = alloca [12 x i8], align 1
   %13 = alloca [16 x i8], align 16
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5925,7 +5925,7 @@ declare i32 @tls13_hkdf_expand_label(i32 noundef, ptr noundef, ptr noundef, ptr 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_hp_cipher_prepare(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_hp_cipher_prepare(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull writeonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._StringInfo, align 8
   %8 = alloca ptr, align 8
   %9 = alloca [32 x i8], align 16
@@ -6014,7 +6014,7 @@ quic_hp_cipher_init.exit:                         ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_pp_cipher_prepare(ptr noundef nonnull initializes((8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_pp_cipher_prepare(ptr noundef nonnull initializes((8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._StringInfo, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct._StringInfo, align 8
@@ -6103,7 +6103,7 @@ quic_pp_cipher_init.exit:                         ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %35, ptr noundef nonnull align 1 dereferenceable(12) %36, i64 12, i1 false)
-  call void @wmem_free(ptr noundef null, ptr noundef %36) #15
+  call void @wmem_free(ptr noundef null, ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %37 = load ptr, ptr %0, align 8
@@ -6143,7 +6143,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @dissect_gquic_frame_type(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_quic_frame_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_quic_frame_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
@@ -7763,7 +7763,7 @@ declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @tvb_skip_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @quic_get_crypto_state(i16 %.80.val.50.val, ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @quic_get_crypto_state(i16 %.80.val.50.val, ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %.v = select i1 %.not, i64 664, i64 672
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
@@ -7833,7 +7833,7 @@ define internal fastcc ptr @quic_get_crypto_state(i16 %.80.val.50.val, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((328, 330)) %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((328, 330)) %3, ptr noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef captures(none) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 328
   store i16 2, ptr %9, align 8
@@ -7885,7 +7885,7 @@ define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @wmem_map_insert(ptr noundef %42, ptr noundef %40, ptr noundef nonnull %37) #15
+  %43 = tail call ptr @wmem_map_insert(ptr noundef %42, ptr noundef nonnull %40, ptr noundef nonnull %37) #15
   br label %desegment_quic_crypto.exit
 
 44:                                               ; preds = %29
@@ -7910,7 +7910,7 @@ define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call ptr @wmem_map_insert(ptr noundef %61, ptr noundef %59, ptr noundef nonnull %56) #15
+  %62 = tail call ptr @wmem_map_insert(ptr noundef %61, ptr noundef nonnull %59, ptr noundef nonnull %56) #15
   br label %86
 
 63:                                               ; preds = %11
@@ -8293,14 +8293,14 @@ declare i32 @g_direct_hash(ptr noundef) #8
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @quic_crypto_retrans_hash(ptr nocapture noundef readonly %0) #9 {
+define internal i32 @quic_crypto_retrans_hash(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @quic_crypto_retrans_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @quic_crypto_retrans_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -8361,7 +8361,7 @@ declare i32 @wmem_compare_uint(ptr noundef, ptr noundef) #1
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_quic_stream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr noundef nonnull %5, i8 %.42.val) unnamed_addr #0 {
+define internal fastcc void @process_quic_stream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull %5, i8 %.42.val) unnamed_addr #0 {
   %.not = icmp eq i8 %.42.val, 1
   br i1 %.not, label %16, label %7
 
@@ -8408,7 +8408,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_update_key(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @quic_update_key(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct._StringInfo, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %1) #15
@@ -8497,7 +8497,7 @@ declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @quic_connection_destroy(ptr nocapture noundef initializes((64, 80), (96, 112), (128, 144), (160, 176), (192, 208), (224, 240), (248, 264), (304, 320), (328, 344)) %0, ptr nocapture readnone %1) #0 {
+define internal void @quic_connection_destroy(ptr noundef captures(none) initializes((64, 80), (96, 112), (128, 144), (160, 176), (192, 208), (224, 240), (248, 264), (304, 320), (328, 344)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @gcry_cipher_close(ptr noundef %4) #15
@@ -8577,16 +8577,16 @@ declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

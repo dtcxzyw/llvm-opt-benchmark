@@ -119,13 +119,13 @@ define dso_local void @intel_engine_park_heartbeat(ptr noundef %0) local_unnamed
 declare dso_local zeroext i1 @cancel_delayed_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_unpark_heartbeats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_unpark_heartbeats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4040
   br label %3
 
@@ -205,7 +205,7 @@ next_heartbeat.exit:                              ; preds = %43, %33, %8, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_park_heartbeats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_park_heartbeats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4040
   br label %3
 

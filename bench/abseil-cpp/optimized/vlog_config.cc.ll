@@ -79,7 +79,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit: ; preds = %while.body.i, %if.end, %while.cond.preheader.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i, ptr %10)
+  %call4.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i, ptr nonnull %10)
   %v_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i, i32 2147483647, i32 %call4.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -119,7 +119,7 @@ while.body:                                       ; preds = %while.cond.preheade
 if.end:                                           ; preds = %while.body, %while.cond.preheader, %entry
   %10 = load ptr, ptr %v, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4 = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i, ptr %10)
+  %call4 = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i, ptr nonnull %10)
   %v_ = getelementptr inbounds nuw i8, ptr %v, i64 8
   %11 = cmpxchg ptr %v_, i32 2147483647, i32 %call4 seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -158,7 +158,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -202,7 +202,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -246,7 +246,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -290,7 +290,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -334,7 +334,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -378,7 +378,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
 _ZN4absl12log_internal21RegisterAndInitializeEPNS0_8VLogSiteE.exit.i: ; preds = %while.body.i.i, %while.cond.preheader.i.i, %if.end.i
   %10 = load ptr, ptr %this, align 8
   %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr %10)
+  %call4.i.i = tail call noundef i32 @_ZN4absl12log_internal9VLogLevelESt17basic_string_viewIcSt11char_traitsIcEE(i64 %call.i.i.i.i, ptr nonnull %10)
   %v_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = cmpxchg ptr %v_.i.i, i32 2147483647, i32 %call4.i.i seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
@@ -564,7 +564,7 @@ return:                                           ; preds = %for.inc, %return.si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -759,7 +759,7 @@ while.body:                                       ; preds = %invoke.cont4, %if.e
 
 if.then:                                          ; preds = %while.body
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #20
-  %call10 = invoke fastcc noundef i32 @_ZN4absl12log_internal12_GLOBAL__N_19VLogLevelESt17basic_string_viewIcSt11char_traitsIcEEPKSt6vectorINS1_11VModuleInfoESaIS7_EEi(i64 %call.i.i, ptr %16, ptr noundef nonnull %infos, i32 noundef %10)
+  %call10 = invoke fastcc noundef i32 @_ZN4absl12log_internal12_GLOBAL__N_19VLogLevelESt17basic_string_viewIcSt11char_traitsIcEEPKSt6vectorINS1_11VModuleInfoESaIS7_EEi(i64 %call.i.i, ptr nonnull %16, ptr noundef nonnull %infos, i32 noundef %10)
           to label %if.end unwind label %lpad3.loopexit.split-lp.loopexit
 
 lpad:                                             ; preds = %invoke.cont
@@ -888,7 +888,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2097,7 +2097,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
@@ -2128,7 +2128,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.16", align 1
@@ -2169,7 +2169,7 @@ _ZNSt15__new_allocatorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEE9constru
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val17 = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2475,19 +2475,19 @@ _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

@@ -6498,7 +6498,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare ptr @_PyArena_Malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_Py_asdl_stmt_seq_new(i64 noundef %size, ptr noundef %arena) local_unnamed_addr #0 {
@@ -14638,7 +14638,7 @@ declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_type(ptr nocapture noundef readonly %state, ptr noundef %type, ptr noundef %base, ptr nocapture noundef readonly %fields, i32 noundef range(i32 0, 8) %num_fields, ptr noundef %doc) unnamed_addr #0 {
+define internal fastcc ptr @make_type(ptr noundef readonly captures(none) %state, ptr noundef %type, ptr noundef %base, ptr noundef readonly captures(none) %fields, i32 noundef range(i32 0, 8) %num_fields, ptr noundef %doc) unnamed_addr #0 {
 entry:
   %conv = zext nneg i32 %num_fields to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #6
@@ -14714,7 +14714,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_attributes(ptr nocapture noundef readonly %state, ptr noundef nonnull %type, ptr nocapture noundef readonly %attrs, i32 noundef range(i32 0, 5) %num_fields) unnamed_addr #0 {
+define internal fastcc i32 @add_attributes(ptr noundef readonly captures(none) %state, ptr noundef nonnull %type, ptr noundef readonly captures(none) %attrs, i32 noundef range(i32 0, 5) %num_fields) unnamed_addr #0 {
 entry:
   %conv = zext nneg i32 %num_fields to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #6
@@ -14842,7 +14842,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ast_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @ast_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %0, align 8
@@ -14874,7 +14874,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ast_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @ast_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %dict = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %dict, align 8
@@ -14903,7 +14903,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ast_type_init(ptr noundef %self, ptr nocapture noundef readonly %args, ptr noundef %kw) #0 {
+define internal i32 @ast_type_init(ptr noundef %self, ptr noundef readonly captures(none) %args, ptr noundef %kw) #0 {
 entry:
   %i = alloca i64, align 8
   %key = alloca ptr, align 8
@@ -15094,7 +15094,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare ptr @PyType_GetSlot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast_type_reduce(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @ast_type_reduce(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %dict = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -15167,7 +15167,7 @@ declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ast2obj_list(ptr noundef %state, ptr noundef readonly %seq, ptr nocapture noundef readonly %func) unnamed_addr #0 {
+define internal fastcc ptr @ast2obj_list(ptr noundef %state, ptr noundef readonly %seq, ptr noundef readonly captures(none) %func) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %seq, null
   br i1 %cmp, label %cond.end.thread, label %cond.end
@@ -17990,7 +17990,7 @@ return:                                           ; preds = %if.then1.i.i900, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_type_ignore(ptr nocapture noundef %state, ptr noundef readonly %_o) #0 {
+define internal ptr @ast2obj_type_ignore(ptr noundef captures(none) %state, ptr noundef readonly %_o) #0 {
 entry:
   %tobool.not = icmp eq ptr %_o, null
   br i1 %tobool.not, label %return, label %if.end
@@ -20441,7 +20441,7 @@ return:                                           ; preds = %if.then1.i.i691, %i
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @ast2obj_object(ptr nocapture readnone %_unused_state, ptr noundef %o) #4 {
+define internal noundef nonnull ptr @ast2obj_object(ptr readnone captures(none) %_unused_state, ptr noundef %o) #4 {
 entry:
   %tobool.not = icmp eq ptr %o, null
   %spec.store.select = select i1 %tobool.not, ptr @_Py_NoneStruct, ptr %o
@@ -21493,7 +21493,7 @@ return:                                           ; preds = %if.then1.i.i72, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_operator(ptr nocapture noundef readonly %state, i32 noundef %o) unnamed_addr #4 {
+define internal fastcc noundef ptr @ast2obj_operator(ptr noundef readonly captures(none) %state, i32 noundef %o) unnamed_addr #4 {
 entry:
   switch i32 %o, label %sw.epilog [
     i32 1, label %sw.bb
@@ -21928,7 +21928,7 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
   %15 = load ptr, ptr %elements.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %15, i64 %i.014.i
   %16 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i = tail call ptr @ast2obj_stmt(ptr noundef %state, ptr noundef %16) #6
+  %call2.i = tail call ptr @ast2obj_stmt(ptr noundef nonnull %state, ptr noundef %16) #6
   %tobool3.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
@@ -22354,7 +22354,7 @@ return:                                           ; preds = %if.then1.i.i82, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ast2obj_alias(ptr nocapture noundef %state, ptr noundef readonly %_o) #0 {
+define internal ptr @ast2obj_alias(ptr noundef captures(none) %state, ptr noundef readonly %_o) #0 {
 entry:
   %tobool.not = icmp eq ptr %_o, null
   br i1 %tobool.not, label %return, label %if.end
@@ -23792,7 +23792,7 @@ return:                                           ; preds = %if.then1.i.i285, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_unaryop(ptr nocapture noundef readonly %state, i32 noundef %o) unnamed_addr #4 {
+define internal fastcc noundef ptr @ast2obj_unaryop(ptr noundef readonly captures(none) %state, i32 noundef %o) unnamed_addr #4 {
 entry:
   switch i32 %o, label %sw.epilog [
     i32 1, label %sw.bb
@@ -23970,7 +23970,7 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
   %15 = load ptr, ptr %elements.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %15, i64 %i.014.i
   %16 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i = tail call ptr @ast2obj_expr(ptr noundef %state, ptr noundef %16) #6
+  %call2.i = tail call ptr @ast2obj_expr(ptr noundef nonnull %state, ptr noundef %16) #6
   %tobool3.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
@@ -24112,7 +24112,7 @@ return:                                           ; preds = %if.then1.i.i57, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @ast2obj_expr_context(ptr nocapture noundef readonly %state, i32 noundef %o) unnamed_addr #4 {
+define internal fastcc noundef ptr @ast2obj_expr_context(ptr noundef readonly captures(none) %state, i32 noundef %o) unnamed_addr #4 {
 entry:
   switch i32 %o, label %sw.epilog [
     i32 1, label %sw.bb
@@ -24188,7 +24188,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_stmt(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_stmt(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -33294,7 +33294,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_ignore(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_ignore(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %tag = alloca ptr, align 8
@@ -33505,7 +33505,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @obj2ast_expr(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -39117,7 +39117,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39152,7 +39152,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_identifier(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_identifier(ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39197,7 +39197,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %vararg = alloca ptr, align 8
@@ -40157,7 +40157,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_string(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_string(ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -40202,7 +40202,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -40812,7 +40812,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -41312,7 +41312,7 @@ return:                                           ; preds = %if.then1.i.i93, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_operator(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_operator(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %Add_type = getelementptr inbounds nuw i8, ptr %state, i64 32
   %0 = load ptr, ptr %Add_type, align 8
@@ -41493,7 +41493,7 @@ return:                                           ; preds = %if.end79, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %context_expr = alloca ptr, align 8
@@ -41678,7 +41678,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %pattern = alloca ptr, align 8
@@ -42011,7 +42011,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -42696,7 +42696,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %asname = alloca ptr, align 8
@@ -43195,7 +43195,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %annotation = alloca ptr, align 8
@@ -43764,7 +43764,7 @@ return:                                           ; preds = %if.then1.i.i102, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -45783,7 +45783,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_boolop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_boolop(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %And_type = getelementptr inbounds nuw i8, ptr %state, i64 48
   %0 = load ptr, ptr %And_type, align 8
@@ -45821,7 +45821,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_unaryop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_unaryop(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %Invert_type = getelementptr inbounds nuw i8, ptr %state, i64 496
   %0 = load ptr, ptr %Invert_type, align 8
@@ -45885,7 +45885,7 @@ return:                                           ; preds = %if.end16, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef nonnull %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %target = alloca ptr, align 8
@@ -46260,7 +46260,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %Eq_type = getelementptr inbounds nuw i8, ptr %state, i64 304
   %0 = load ptr, ptr %Eq_type, align 8
@@ -46402,7 +46402,7 @@ return:                                           ; preds = %if.end58, %if.end51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr nocapture noundef nonnull readonly %state, ptr noundef %obj, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr noundef nonnull readonly captures(none) %state, ptr noundef %obj, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %Load_type = getelementptr inbounds nuw i8, ptr %state, i64 592
   %0 = load ptr, ptr %Load_type, align 8
@@ -46453,10 +46453,10 @@ return:                                           ; preds = %if.end9, %if.end2, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

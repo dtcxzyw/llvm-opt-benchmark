@@ -38,7 +38,7 @@ define dso_local noundef range(i64 16, 68719476737) i64 @_ZN5clang11OMPChildren4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang9OMPClauseEEEPS4_EET0_OT_S8_.exit, label %4
 
@@ -67,7 +67,7 @@ define dso_local { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef returned writeonly initializes((0, 9)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef returned writeonly initializes((0, 9)) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = trunc i64 %2 to i32
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -99,10 +99,10 @@ define dso_local noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef returned writeonly initializes((0, 9)) %0, ptr nocapture readonly %1, i64 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef returned writeonly initializes((0, 9)) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = trunc i64 %2 to i32
   %7 = icmp ne ptr %3, null
   %8 = zext i1 %7 to i8
@@ -137,7 +137,7 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang22OMPExecutableDirective21isStandaloneDirectiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang22OMPExecutableDirective21isStandaloneDirectiveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %3 [
     i8 -98, label %.critedge
@@ -164,7 +164,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang22OMPExecutableDirective21isStand
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang22OMPExecutableDirective18getStructuredBlockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang22OMPExecutableDirective18getStructuredBlockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %4 [
     i8 -63, label %_ZN4llvm8dyn_castIN5clang16OMPLoopDirectiveENS1_22OMPExecutableDirectiveEEEDcPT0_.exit
@@ -242,7 +242,7 @@ _ZN5clang22OMPExecutableDirective10getRawStmtEv.exit: ; preds = %.preheader.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPLoopDirective7getBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPLoopDirective7getBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -725,7 +725,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE18uninitialized_co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEENS4_IFvPNS_30OMPLoopTransformationDirectiveEEEE(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::function_ref.8") align 8 %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEENS4_IFvPNS_30OMPLoopTransformationDirectiveEEEE(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %2, ptr readonly captures(none) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::function_ref.8") align 8 captures(none) %5) local_unnamed_addr #6 align 2 {
   %7 = tail call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false) #12
   %.not46 = icmp eq i32 %2, 0
   br i1 %.not46, label %._crit_edge, label %.preheader.lr.ph
@@ -803,7 +803,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective18getTransformedStmtEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective18getTransformedStmtEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -816,7 +816,7 @@ define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective18getTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = tail call noundef ptr @_ZN5clang4Stmt16IgnoreContainersEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false) #12
   %.not46.i.i = icmp eq i32 %2, 0
   br i1 %.not46.i.i, label %_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit, label %.preheader.i.i
@@ -895,7 +895,7 @@ _ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_ref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -940,7 +940,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -989,7 +989,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1039,7 +1039,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1089,7 +1089,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1139,7 +1139,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1189,7 +1189,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1239,7 +1239,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
@@ -1289,7 +1289,7 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPMetaDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtESB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPMetaDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtESB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -1442,7 +1442,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPMetaDirectiveEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPParallelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPParallelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
   %9 = trunc i64 %4 to i32
   %10 = icmp ne ptr %5, null
   %11 = and i64 %4, 4294967295
@@ -1604,7 +1604,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPParallelDirectiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 65) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -2208,7 +2208,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPSimdDirectiveEJR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang15OMPForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang15OMPForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 36) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -2789,7 +2789,7 @@ _ZN5clang15OMPForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective11getPreInitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective11getPreInitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2897,7 +2897,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_15OMPForDirectiveEJRj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPTileDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEjPNS_4StmtESB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPTileDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEjPNS_4StmtESB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
   %10 = trunc i64 %4 to i32
   %11 = icmp ne ptr %6, null
   %12 = and i64 %4, 4294967295
@@ -3066,10 +3066,10 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPTileDirectiveEJN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjSB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEjSB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
   %10 = trunc i64 %4 to i32
   %11 = icmp ne ptr %5, null
   %12 = and i64 %4, 4294967295
@@ -3390,7 +3390,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPReverseDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEjPNS_4StmtESB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEjPNS_4StmtESB_SB_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #6 align 2 {
   %10 = trunc i64 %4 to i32
   %11 = icmp ne ptr %6, null
   %12 = and i64 %4, 4294967295
@@ -3559,7 +3559,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPInterchangeDirec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19OMPForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang19OMPForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 37) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -4195,7 +4195,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPForSimdDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
   %9 = trunc i64 %4 to i32
   %10 = icmp ne ptr %5, null
   %11 = and i64 %4, 4294967295
@@ -4500,7 +4500,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPSectionDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17OMPScopeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang17OMPScopeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -4650,7 +4650,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPScopeDirectiveEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPSingleDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPSingleDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -4938,7 +4938,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMasterDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective6CreateERKNS_10ASTContextERKNS_19DeclarationNameInfoENS_14SourceLocationES7_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i32 %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective6CreateERKNS_10ASTContextERKNS_19DeclarationNameInfoENS_14SourceLocationES7_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 %2, i32 %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %5 to i32
   %9 = icmp ne ptr %6, null
   %10 = and i64 %5, 4294967295
@@ -5095,7 +5095,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang23OMPParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang23OMPParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 50) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -5772,7 +5772,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPParallelForDirec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang27OMPParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang27OMPParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 51) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -6408,7 +6408,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPParallelForSimdD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -6565,7 +6565,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMasterDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -6722,7 +6722,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPParallelMaskedDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
   %9 = trunc i64 %4 to i32
   %10 = icmp ne ptr %5, null
   %11 = and i64 %4, 4294967295
@@ -6884,7 +6884,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPParallelSections
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPTaskDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPTaskDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -7089,7 +7089,7 @@ _ZN5clang21OMPTaskyieldDirectiveC2Ev.exit:        ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -7239,7 +7239,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAssumeDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17OMPErrorDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang17OMPErrorDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -7423,7 +7423,7 @@ _ZN5clang19OMPBarrierDirectiveC2Ev.exit:          ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -7559,7 +7559,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskwaitDirectiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -7768,7 +7768,7 @@ _ZN5clang29OMPCancellationPointDirectiveC2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPCancelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEENS5_3omp9DirectiveE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, i32 noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPCancelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEENS5_3omp9DirectiveE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, i32 noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = shl i64 %4, 3
   %9 = and i64 %8, 34359738360
@@ -7908,7 +7908,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPCancelDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17OMPFlushDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang17OMPFlushDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -8044,7 +8044,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPFlushDirectiveEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -8180,7 +8180,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPDepobjDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang16OMPScanDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang16OMPScanDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -8316,7 +8316,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_16OMPScanDirectiveEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -8470,7 +8470,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPOrderedDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS0_11ExpressionsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr nocapture noundef readonly byval(%"struct.clang::OMPAtomicDirective::Expressions") align 8 %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtENS0_11ExpressionsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef readonly byval(%"struct.clang::OMPAtomicDirective::Expressions") align 8 captures(none) %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -8670,7 +8670,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPAtomicDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPTargetDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPTargetDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -8820,7 +8820,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPTargetDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #6 align 2 {
   %9 = trunc i64 %4 to i32
   %10 = icmp ne ptr %5, null
   %11 = and i64 %4, 4294967295
@@ -8982,7 +8982,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetParallelDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang29OMPTargetParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang29OMPTargetParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 74) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -9659,7 +9659,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_29OMPTargetParallelFo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -9809,7 +9809,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetDataDirect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -9959,7 +9959,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTargetEnterDataD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -10109,7 +10109,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPTargetExitDataDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -10259,7 +10259,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_17OMPTeamsDirectiveEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 87) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -10901,7 +10901,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPTaskLoopDirectiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24OMPTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang24OMPTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 88) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -11537,7 +11537,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTaskLoopSimdDire
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPMasterTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPMasterTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 42) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -12179,7 +12179,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMasterTaskLoopDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPMaskedTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPMaskedTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 39) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -12821,7 +12821,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPMaskedTaskLoopDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang30OMPMasterTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang30OMPMasterTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 43) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -13457,7 +13457,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMasterTaskLoopSi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang30OMPMaskedTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang30OMPMaskedTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 40) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -14093,7 +14093,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_30OMPMaskedTaskLoopSi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang34OMPParallelMasterTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang34OMPParallelMasterTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 56) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -14735,7 +14735,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMasterTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang34OMPParallelMaskedTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang34OMPParallelMaskedTaskLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 53) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -15377,7 +15377,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPParallelMaskedTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang38OMPParallelMasterTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang38OMPParallelMasterTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 57) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -16013,7 +16013,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMasterTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang38OMPParallelMaskedTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang38OMPParallelMaskedTaskLoopSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 54) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -16649,7 +16649,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPParallelMaskedTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang22OMPDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang22OMPDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 18) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -17285,7 +17285,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPDistributeDirect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -17435,7 +17435,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_24OMPTargetUpdateDire
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang33OMPDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang33OMPDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 21) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -18209,7 +18209,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPDistributeParall
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang37OMPDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang37OMPDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 22) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -18942,7 +18942,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPDistributeParall
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang26OMPDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang26OMPDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 23) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -19578,7 +19578,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_26OMPDistributeSimdDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang33OMPTargetParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang33OMPTargetParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 75) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -20214,7 +20214,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetParallelFo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang22OMPTargetSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang22OMPTargetSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 76) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -20818,7 +20818,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_22OMPTargetSimdDirect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang27OMPTeamsDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang27OMPTeamsDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 92) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -21454,7 +21454,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_27OMPTeamsDistributeD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang31OMPTeamsDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang31OMPTeamsDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 97) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -22090,7 +22090,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPTeamsDistributeS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang42OMPTeamsDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang42OMPTeamsDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 96) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -22823,7 +22823,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_42OMPTeamsDistributeP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang38OMPTeamsDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang38OMPTeamsDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 95) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -23597,7 +23597,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_38OMPTeamsDistributeP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -23747,7 +23747,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPTargetTeamsDirec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang33OMPTargetTeamsDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang33OMPTargetTeamsDistributeDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 78) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -24383,7 +24383,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_33OMPTargetTeamsDistr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang44OMPTargetTeamsDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang44OMPTargetTeamsDistributeParallelForDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #6 align 2 {
   %11 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 81) #12
   br i1 %11, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %12
 
@@ -25157,7 +25157,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_44OMPTargetTeamsDistr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang48OMPTargetTeamsDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang48OMPTargetTeamsDistributeParallelForSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 82) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -25890,7 +25890,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_48OMPTargetTeamsDistr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang37OMPTargetTeamsDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang37OMPTargetTeamsDistributeSimdDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 83) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -26526,7 +26526,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_37OMPTargetTeamsDistr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang19OMPInteropDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang19OMPInteropDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #6 align 2 {
   %6 = trunc i64 %4 to i32
   %7 = shl i64 %4, 3
   %8 = and i64 %7, 34359738360
@@ -26662,7 +26662,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_19OMPInteropDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5, i32 %6) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5, i32 %6) local_unnamed_addr #6 align 2 {
   %8 = trunc i64 %4 to i32
   %9 = icmp ne ptr %5, null
   %10 = and i64 %4, 4294967295
@@ -26816,7 +26816,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPDispatchDirectiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, ptr readonly captures(none) %3, i64 %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = trunc i64 %4 to i32
   %8 = icmp ne ptr %5, null
   %9 = and i64 %4, 4294967295
@@ -26966,7 +26966,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_18OMPMaskedDirectiveE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang23OMPGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang23OMPGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 105) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -27602,7 +27602,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_23OMPGenericLoopDirec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang28OMPTeamsGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang28OMPTeamsGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 112) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -28335,7 +28335,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_28OMPTeamsGenericLoop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang34OMPTargetTeamsGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang34OMPTargetTeamsGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7, i1 noundef zeroext %8) local_unnamed_addr #6 align 2 {
   %10 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 111) #12
   br i1 %10, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %11
 
@@ -29074,7 +29074,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_34OMPTargetTeamsGener
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang31OMPParallelGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang31OMPParallelGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 107) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -29710,7 +29710,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_31OMPParallelGenericL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang37OMPTargetParallelGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang37OMPTargetParallelGenericLoopDirective6CreateERKNS_10ASTContextENS_14SourceLocationES4_jN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtERKNS_21OMPLoopBasedDirective11HelperExprsE(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 %1, i32 %2, i32 noundef %3, ptr readonly captures(none) %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(616) %7) local_unnamed_addr #6 align 2 {
   %9 = tail call noundef zeroext i1 @_ZN5clang33isOpenMPLoopBoundSharingDirectiveEN4llvm3omp9DirectiveE(i32 noundef 110) #12
   br i1 %9, label %_ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit, label %10
 
@@ -30358,7 +30358,7 @@ declare noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4llvm3omp9Di
 declare void @_ZN5clang4Stmt12addStmtClassENS0_9StmtClassE(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE6assignEmS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 {
@@ -30449,7 +30449,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef zeroext i1 @_ZN5clang21isOpenMPLoopDirectiveEN4llvm3omp9DirectiveE(i32 noundef) local_unnamed_addr #7
 

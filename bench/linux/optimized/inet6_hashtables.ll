@@ -58,7 +58,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet6_hash: 
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable___inet6_lookup_established853, ptr @__UNIQUE_ID___addressable_inet6_ehashfn848, ptr @__UNIQUE_ID___addressable_inet6_hash866, ptr @__UNIQUE_ID___addressable_inet6_hash_connect865, ptr @__UNIQUE_ID___addressable_inet6_lookup862, ptr @__UNIQUE_ID___addressable_inet6_lookup_listener861, ptr @__UNIQUE_ID___addressable_inet6_lookup_reuseport855, ptr @__UNIQUE_ID___addressable_inet6_lookup_run_sk_lookup860], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_ehashfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4) #0 align 16 {
+define dso_local i32 @inet6_ehashfn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3, i16 noundef zeroext %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @inet6_ehashfn.___once_key, i1 false) #7
@@ -195,10 +195,10 @@ define dso_local i32 @inet6_ehashfn(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @__do_once_start(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -210,7 +210,7 @@ declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed
 declare dso_local void @__do_once_done(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__inet6_lookup_established(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7) #0 align 16 {
+define dso_local ptr @__inet6_lookup_established(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7) #0 align 16 {
   %9 = zext i16 %5 to i32
   %10 = shl nuw i32 %9, 16
   %11 = zext i16 %3 to i32
@@ -694,7 +694,7 @@ define dso_local ptr @inet6_lookup_listener(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #3 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -823,7 +823,7 @@ define internal fastcc i32 @ipv6_portaddr_hash(i32 %.336.val, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @inet6_lhash2_lookup(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
+define internal fastcc ptr @inet6_lhash2_lookup(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load volatile ptr, ptr %11, align 8
@@ -1006,7 +1006,7 @@ define dso_local i32 @inet6_hash_connect(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local i32 @__inet_hash_connect(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
+define internal noundef range(i32 -99, 1) i32 @__inet6_check_established(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1285,7 +1285,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @migrate_disable() local_unnamed_addr #2

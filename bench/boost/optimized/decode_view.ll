@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !3, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
@@ -130,7 +130,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit4:     ; preds = %switch.lookup, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr %1, i64 %2, i64 noundef %3, i24 %4) unnamed_addr #2 align 2 {
+define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0, ptr %1, i64 %2, i64 noundef %3, i24 %4) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8, !tbaa !16
@@ -144,7 +144,7 @@ define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %.sroa.04.0.copyload = load ptr, ptr %0, align 8, !tbaa !19
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -199,10 +199,10 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::decode_view") align 8 %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef readonly byval(%"class.boost::urls::decode_view") align 8 captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !19
@@ -273,7 +273,7 @@ _ZN5boost4urls6detail14decoded_strcmpINS0_11decode_viewEEEiS3_T_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost4urls11decode_view5writeERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define void @_ZNK5boost4urls11decode_view5writeERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -312,7 +312,7 @@ define void @_ZNK5boost4urls11decode_view5writeERSo(ptr nocapture noundef nonnul
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !42
   %.not9 = icmp eq i64 %1, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -346,7 +346,7 @@ define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls11decode_view13remove_suffixEm(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN5boost4urls11decode_view13remove_suffixEm(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13, !noalias !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16, !noalias !46
@@ -397,7 +397,7 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit:    ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !17
@@ -449,7 +449,7 @@ define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withENS_4core17basic_string_viewIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !17
@@ -542,7 +542,7 @@ _ZN5boost4urls11decode_view8iteratormmEv.exit12:  ; preds = %32, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
@@ -571,7 +571,7 @@ define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withEc(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK5boost4urls11decode_view9ends_withEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
@@ -616,7 +616,7 @@ _ZNK5boost4urls11decode_view4backEv.exit:         ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias nocapture writable sret(%"class.boost::urls::decode_view::iterator") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
+define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::decode_view::iterator") align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %4 = load ptr, ptr %1, align 8, !tbaa !13, !noalias !65
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -652,7 +652,7 @@ define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5boost4urls11decode_view5rfindEc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::decode_view::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
+define void @_ZNK5boost4urls11decode_view5rfindEc(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::decode_view::iterator") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !16

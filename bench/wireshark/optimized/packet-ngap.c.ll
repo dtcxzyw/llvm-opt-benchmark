@@ -7418,7 +7418,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedNGRANCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedNGRANCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_LastVisitedNGRANCellInformation_PDU, align 4
@@ -7439,7 +7439,7 @@ define internal i32 @dissect_ngap_LastVisitedNGRANCellInformation(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedPSCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedPSCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_LastVisitedPSCellInformation_PDU, align 4
@@ -7458,7 +7458,7 @@ define internal i32 @dissect_ngap_LastVisitedPSCellInformation(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MobilityRestrictionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MobilityRestrictionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_MobilityRestrictionList_PDU, align 4
@@ -7470,7 +7470,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MobilityRestric
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MDT_Configuration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MDT_Configuration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_MDT_Configuration_PDU, align 4
@@ -7482,7 +7482,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MDT_Configurati
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_NGRAN_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_NGRAN_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_NGRAN_CGI_PDU, align 4
@@ -7501,7 +7501,7 @@ define internal i32 @dissect_ngap_NGRAN_CGI(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_SONConfigurationTransfer_PDU, align 4
@@ -7530,7 +7530,7 @@ dissect_ngap_SONConfigurationTransfer.exit:       ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU, align 4
@@ -7565,7 +7565,7 @@ dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU, align 4
@@ -9221,7 +9221,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AllowedNSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AllowedNSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AllowedNSSAI_PDU, align 4
@@ -9233,7 +9233,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AllowedNSSAI_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFName_PDU, align 4
@@ -9244,7 +9244,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFName_PDU(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadResponse_PDU, align 4
@@ -9256,7 +9256,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadResponse_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFSetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFSetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFSetID_PDU, align 4
@@ -9267,7 +9267,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFSetID_PDU(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TNLAssociationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TNLAssociationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TNLAssociationList_PDU, align 4
@@ -9279,7 +9279,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TNLAssociationList
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationSetupList_PDU, align 4
@@ -9291,7 +9291,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociation
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToAddList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToAddList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToAddList_PDU, align 4
@@ -9303,7 +9303,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociation
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToRemoveList_PDU, align 4
@@ -9315,7 +9315,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociation
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToUpdateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToUpdateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToUpdateList_PDU, align 4
@@ -9327,7 +9327,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociation
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TrafficLoadReductionIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TrafficLoadReductionIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TrafficLoadReductionIndication_PDU, align 4
@@ -9338,7 +9338,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TrafficLoadReducti
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMF_UE_NGAP_ID_PDU, align 4
@@ -9349,7 +9349,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_UE_NGAP_ID_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AssistanceDataForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AssistanceDataForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AssistanceDataForPaging_PDU, align 4
@@ -9361,7 +9361,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AssistanceDataForP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCancelledAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCancelledAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastCancelledAreaList_PDU, align 4
@@ -9373,7 +9373,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCancelled
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCompletedAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCompletedAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastCompletedAreaList_PDU, align 4
@@ -9385,7 +9385,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCompleted
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CancelAllWarningMessages_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CancelAllWarningMessages_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CancelAllWarningMessages_PDU, align 4
@@ -9396,7 +9396,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CancelAllWarningMe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Cause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Cause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Cause_PDU, align 4
@@ -9408,7 +9408,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Cause_PDU(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CellIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CellIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CellIDListForRestart_PDU, align 4
@@ -9420,7 +9420,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellIDListForResta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ConcurrentWarningMessageInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ConcurrentWarningMessageInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ConcurrentWarningMessageInd_PDU, align 4
@@ -9431,7 +9431,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConcurrentWarningM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CoreNetworkAssistanceInformationForInactive_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CoreNetworkAssistanceInformationForInactive_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CoreNetworkAssistanceInformationForInactive_PDU, align 4
@@ -9443,7 +9443,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CoreNetworkAssista
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CriticalityDiagnostics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CriticalityDiagnostics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CriticalityDiagnostics_PDU, align 4
@@ -9455,7 +9455,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CriticalityDiagnos
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -9508,7 +9508,7 @@ dissect_ngap_DataCodingScheme.exit:               ; preds = %4, %ngap_get_privat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PagingDRX_PDU, align 4
@@ -9519,7 +9519,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingDRX_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DirectForwardingPathAvailability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DirectForwardingPathAvailability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DirectForwardingPathAvailability_PDU, align 4
@@ -9530,7 +9530,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DirectForwardingPa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyAreaIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyAreaIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EmergencyAreaIDListForRestart_PDU, align 4
@@ -9542,7 +9542,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyAreaIDLis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyFallbackIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyFallbackIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EmergencyFallbackIndicator_PDU, align 4
@@ -9554,7 +9554,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyFallbackI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EUTRA_CGI_PDU, align 4
@@ -9589,7 +9589,7 @@ dissect_ngap_EUTRA_CGI.exit:                      ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_S_TMSI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_S_TMSI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_FiveG_S_TMSI_PDU, align 4
@@ -9601,7 +9601,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_S_TMSI_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalRANNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalRANNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GlobalRANNodeID_PDU, align 4
@@ -9612,7 +9612,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalRANNodeID_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GUAMI_PDU, align 4
@@ -9647,7 +9647,7 @@ dissect_ngap_GUAMI.exit:                          ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverType_PDU, align 4
@@ -9680,7 +9680,7 @@ dissect_ngap_HandoverType.exit:                   ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IMSVoiceSupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IMSVoiceSupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IMSVoiceSupportIndicator_PDU, align 4
@@ -9691,7 +9691,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IMSVoiceSupportInd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IndexToRFSP_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IndexToRFSP_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IndexToRFSP_PDU, align 4
@@ -9702,7 +9702,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IndexToRFSP_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InfoOnRecommendedCellsAndRANNodesForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InfoOnRecommendedCellsAndRANNodesForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InfoOnRecommendedCellsAndRANNodesForPaging_PDU, align 4
@@ -9714,7 +9714,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InfoOnRecommendedC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingRequestType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingRequestType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingRequestType_PDU, align 4
@@ -9726,7 +9726,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MaskedIMEISV_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MaskedIMEISV_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MaskedIMEISV_PDU, align 4
@@ -9737,7 +9737,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MaskedIMEISV_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MessageIdentifier_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MessageIdentifier_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -9761,7 +9761,7 @@ dissect_ngap_MessageIdentifier.exit:              ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NAS_PDU_PDU, align 4
@@ -9772,7 +9772,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NASSecurityParametersFromNGRAN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NASSecurityParametersFromNGRAN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -9803,7 +9803,7 @@ dissect_ngap_NASSecurityParametersFromNGRAN.exit: ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NewSecurityContextInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NewSecurityContextInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NewSecurityContextInd_PDU, align 4
@@ -9814,7 +9814,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NewSecurityContext
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGAP_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGAP_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -9845,7 +9845,7 @@ dissect_ngap_NGAP_Message.exit:                   ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANTraceID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANTraceID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGRANTraceID_PDU, align 4
@@ -9856,7 +9856,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANTraceID_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NR_CGI_PDU, align 4
@@ -9891,7 +9891,7 @@ dissect_ngap_NR_CGI.exit:                         ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -9938,7 +9938,7 @@ dissect_ngap_NRPPa_PDU.exit:                      ; preds = %18, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NumberOfBroadcastsRequested_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NumberOfBroadcastsRequested_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NumberOfBroadcastsRequested_PDU, align 4
@@ -9949,7 +9949,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NumberOfBroadcasts
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStartNSSAIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStartNSSAIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadStartNSSAIList_PDU, align 4
@@ -9961,7 +9961,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStartNSSAI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingOrigin_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingOrigin_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PagingOrigin_PDU, align 4
@@ -9972,7 +9972,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingOrigin_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PagingPriority_PDU, align 4
@@ -9983,7 +9983,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingPriority_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceAdmittedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceAdmittedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceAdmittedList_PDU, align 4
@@ -9995,7 +9995,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToModifyListModRes_PDU, align 4
@@ -10007,7 +10007,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListCxtRes_PDU, align 4
@@ -10019,7 +10019,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListHOAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListHOAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListHOAck_PDU, align 4
@@ -10031,7 +10031,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListPSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListPSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListPSReq_PDU, align 4
@@ -10043,7 +10043,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListSURes_PDU, align 4
@@ -10055,7 +10055,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceHandoverList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceHandoverList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceHandoverList_PDU, align 4
@@ -10067,7 +10067,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelCpl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelCpl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListCxtRelCpl_PDU, align 4
@@ -10079,7 +10079,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListHORqd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListHORqd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListHORqd_PDU, align 4
@@ -10091,7 +10091,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModCfm_PDU, align 4
@@ -10103,7 +10103,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModInd_PDU, align 4
@@ -10115,7 +10115,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModReq_PDU, align 4
@@ -10127,7 +10127,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModRes_PDU, align 4
@@ -10139,7 +10139,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyList_PDU, align 4
@@ -10151,7 +10151,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListNot_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListNot_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListNot_PDU, align 4
@@ -10163,7 +10163,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListPSAck_PDU, align 4
@@ -10175,7 +10175,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListPSFail_PDU, align 4
@@ -10187,7 +10187,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListRelRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListRelRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListRelRes_PDU, align 4
@@ -10199,7 +10199,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListCxtReq_PDU, align 4
@@ -10211,7 +10211,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListCxtRes_PDU, align 4
@@ -10223,7 +10223,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListHOReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListHOReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListHOReq_PDU, align 4
@@ -10235,7 +10235,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSUReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSUReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListSUReq_PDU, align 4
@@ -10247,7 +10247,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListSURes_PDU, align 4
@@ -10259,7 +10259,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToBeSwitchedDLList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToBeSwitchedDLList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToBeSwitchedDLList_PDU, align 4
@@ -10271,7 +10271,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSwitchedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSwitchedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSwitchedList_PDU, align 4
@@ -10283,7 +10283,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListHOCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListHOCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToReleaseListHOCmd_PDU, align 4
@@ -10295,7 +10295,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListRelCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListRelCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToReleaseListRelCmd_PDU, align 4
@@ -10307,7 +10307,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PLMNSupportList_PDU, align 4
@@ -10319,7 +10319,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNSupportList_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailedCellIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailedCellIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSFailedCellIDList_PDU, align 4
@@ -10331,7 +10331,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailedCellIDLis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANNodeName_PDU, align 4
@@ -10342,7 +10342,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANNodeName_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANPagingPriority_PDU, align 4
@@ -10353,7 +10353,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingPriority_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANStatusTransfer_TransparentContainer_PDU, align 4
@@ -10382,7 +10382,7 @@ dissect_ngap_RANStatusTransfer_TransparentContainer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -10420,7 +10420,7 @@ dissect_ngap_RAN_UE_NGAP_ID.exit:                 ; preds = %4, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RelativeAMFCapacity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RelativeAMFCapacity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RelativeAMFCapacity_PDU, align 4
@@ -10431,7 +10431,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelativeAMFCapacit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RepetitionPeriod_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RepetitionPeriod_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RepetitionPeriod_PDU, align 4
@@ -10442,7 +10442,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RepetitionPeriod_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ResetType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ResetType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ResetType_PDU, align 4
@@ -10454,7 +10454,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetType_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RoutingID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RoutingID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RoutingID_PDU, align 4
@@ -10465,7 +10465,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RoutingID_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -10486,7 +10486,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReportRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReportRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RRCInactiveTransitionReportRequest_PDU, align 4
@@ -10497,7 +10497,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RRCState_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RRCState_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RRCState_PDU, align 4
@@ -10508,7 +10508,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCState_PDU(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityContext_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityContext_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecurityContext_PDU, align 4
@@ -10520,7 +10520,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityContext_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityKey_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityKey_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecurityKey_PDU, align 4
@@ -10531,7 +10531,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityKey_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SerialNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SerialNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -10567,7 +10567,7 @@ dissect_ngap_SerialNumber.exit:                   ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ServedGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ServedGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ServedGUAMIList_PDU, align 4
@@ -10579,7 +10579,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ServedGUAMIList_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SliceSupportList_PDU, align 4
@@ -10591,7 +10591,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SliceSupportList_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SourceToTarget_TransparentContainer_PDU, align 4
@@ -10602,7 +10602,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_Tra
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SupportedTAList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SupportedTAList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SupportedTAList_PDU, align 4
@@ -10614,7 +10614,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SupportedTAList_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TAIListForPaging_PDU, align 4
@@ -10626,7 +10626,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForPaging_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TAIListForRestart_PDU, align 4
@@ -10638,7 +10638,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForRestart_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TargetID_PDU, align 4
@@ -10650,7 +10650,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetID_PDU(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -10769,7 +10769,7 @@ dissect_ngap_TargetToSource_TransparentContainer.exit: ; preds = %18, %24, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TimeToWait_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TimeToWait_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TimeToWait_PDU, align 4
@@ -10780,7 +10780,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimeToWait_PDU(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TraceActivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TraceActivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TraceActivation_PDU, align 4
@@ -10792,7 +10792,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceActivation_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TransportLayerAddress_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TransportLayerAddress_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TransportLayerAddress_PDU, align 4
@@ -10803,7 +10803,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TransportLayerAddr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEAggregateMaximumBitRate_PDU, align 4
@@ -10815,7 +10815,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEAggregateMaximum
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_associatedLogicalNG_connectionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_associatedLogicalNG_connectionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UE_associatedLogicalNG_connectionList_PDU, align 4
@@ -10827,7 +10827,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_associatedLogic
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextRequest_PDU, align 4
@@ -10838,7 +10838,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextRequest_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_NGAP_IDs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_NGAP_IDs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UE_NGAP_IDs_PDU, align 4
@@ -10850,7 +10850,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_NGAP_IDs_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEPagingIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEPagingIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEPagingIdentity_PDU, align 4
@@ -10862,7 +10862,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEPagingIdentity_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEPresenceInAreaOfInterestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEPresenceInAreaOfInterestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEPresenceInAreaOfInterestList_PDU, align 4
@@ -10874,7 +10874,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEPresenceInAreaOf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapability_PDU, align 4
@@ -10885,7 +10885,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityForPaging_PDU, align 4
@@ -10897,7 +10897,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UESecurityCapabilities_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UESecurityCapabilities_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UESecurityCapabilities_PDU, align 4
@@ -10909,7 +10909,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UESecurityCapabili
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UnavailableGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UnavailableGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UnavailableGUAMIList_PDU, align 4
@@ -10921,7 +10921,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UnavailableGUAMILi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UserLocationInformation_PDU, align 4
@@ -10933,7 +10933,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WarningAreaList_PDU, align 4
@@ -10945,7 +10945,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaList_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageContents_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageContents_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -11045,7 +11045,7 @@ dissect_ngap_WarningMessageContents.exit:         ; preds = %53, %4, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WarningSecurityInfo_PDU, align 4
@@ -11056,7 +11056,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WarningType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WarningType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -11092,7 +11092,7 @@ dissect_ngap_WarningType.exit:                    ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformationList_PDU, align 4
@@ -11104,7 +11104,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingNotPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingNotPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DataForwardingNotPossible_PDU, align 4
@@ -11115,7 +11115,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingNotP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NetworkInstance_PDU, align 4
@@ -11126,7 +11126,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NetworkInstance_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionAggregateMaximumBitRate_PDU, align 4
@@ -11138,7 +11138,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionAggregat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToModifyListModCfm_PDU, align 4
@@ -11150,7 +11150,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListCxtFail_PDU, align 4
@@ -11162,7 +11162,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListCxtRelReq_PDU, align 4
@@ -11174,7 +11174,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionType_PDU, align 4
@@ -11185,7 +11185,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionType_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAddOrModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAddOrModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowAddOrModifyRequestList_PDU, align 4
@@ -11197,7 +11197,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAddOrModify
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowSetupRequestList_PDU, align 4
@@ -11209,7 +11209,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowSetupReques
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowListWithCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowListWithCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowListWithCause_PDU, align 4
@@ -11221,7 +11221,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowListWithCau
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecurityIndication_PDU, align 4
@@ -11233,7 +11233,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityIndication
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformation_PDU, align 4
@@ -11245,7 +11245,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UL_NGU_UP_TNLModifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UL_NGU_UP_TNLModifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UL_NGU_UP_TNLModifyList_PDU, align 4
@@ -11257,7 +11257,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UL_NGU_UP_TNLModif
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaCoordinates_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaCoordinates_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WarningAreaCoordinates_PDU, align 4
@@ -11268,7 +11268,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaCoordin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSecondaryRATUsageList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSecondaryRATUsageList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSecondaryRATUsageList_PDU, align 4
@@ -11280,7 +11280,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFlag_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFlag_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverFlag_PDU, align 4
@@ -11291,7 +11291,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFlag_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RedirectionVoiceFallback_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RedirectionVoiceFallback_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RedirectionVoiceFallback_PDU, align 4
@@ -11302,7 +11302,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RedirectionVoiceFa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERetentionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERetentionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERetentionInformation_PDU, align 4
@@ -11313,7 +11313,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERetentionInforma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EN_DCSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EN_DCSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -11344,7 +11344,7 @@ dissect_ngap_EN_DCSONConfigurationTransfer.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CNAssistedRANTuning_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CNAssistedRANTuning_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CNAssistedRANTuning_PDU, align 4
@@ -11356,7 +11356,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CNAssistedRANTunin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CommonNetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CommonNetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CommonNetworkInstance_PDU, align 4
@@ -11367,7 +11367,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonNetworkInsta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGRAN_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGRAN_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGRAN_TNLAssociationToRemoveList_PDU, align 4
@@ -11379,7 +11379,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGRAN_TNLAssociati
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EndpointIPAddressAndPort_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EndpointIPAddressAndPort_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EndpointIPAddressAndPort_PDU, align 4
@@ -11391,7 +11391,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EndpointIPAddressA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_AMFInformationReroute_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_AMFInformationReroute_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SourceToTarget_AMFInformationReroute_PDU, align 4
@@ -11403,7 +11403,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_AMF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RIMInformationTransfer_PDU, align 4
@@ -11415,7 +11415,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RIMInformationTran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCCOperationPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCCOperationPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SRVCCOperationPossible_PDU, align 4
@@ -11426,7 +11426,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCCOperationPoss
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargetRNC_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargetRNC_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TargetRNC_ID_PDU, align 4
@@ -11438,7 +11438,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetRNC_ID_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantPDUSessionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantPDUSessionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RedundantPDUSessionInformation_PDU, align 4
@@ -11450,7 +11450,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantPDUSessio
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Authorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Authorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IAB_Authorized_PDU, align 4
@@ -11461,7 +11461,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Authorized_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Supported_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Supported_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IAB_Supported_PDU, align 4
@@ -11472,7 +11472,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Supported_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IABNodeIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IABNodeIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IABNodeIndication_PDU, align 4
@@ -11483,7 +11483,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABNodeIndication_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NB_IoT_PagingDRX_PDU, align 4
@@ -11494,7 +11494,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_PagingDRX_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_Paging_eDRXInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_Paging_eDRXInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NB_IoT_Paging_eDRXInfo_PDU, align 4
@@ -11506,7 +11506,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_Paging_eDRX
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_DefaultPagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_DefaultPagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NB_IoT_DefaultPagingDRX_PDU, align 4
@@ -11517,7 +11517,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_DefaultPagi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Enhanced_CoverageRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Enhanced_CoverageRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Enhanced_CoverageRestriction_PDU, align 4
@@ -11528,7 +11528,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Enhanced_CoverageR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_ConnectedTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_ConnectedTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Extended_ConnectedTime_PDU, align 4
@@ -11539,7 +11539,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_Connected
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingAssisDataforCEcapabUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingAssisDataforCEcapabUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PagingAssisDataforCEcapabUE_PDU, align 4
@@ -11551,7 +11551,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingAssisDatafor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WUS_Assistance_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WUS_Assistance_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WUS_Assistance_Information_PDU, align 4
@@ -11563,7 +11563,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WUS_Assistance_Inf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_DifferentiationInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_DifferentiationInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UE_DifferentiationInfo_PDU, align 4
@@ -11575,7 +11575,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_Differentiation
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_UEPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_UEPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NB_IoT_UEPriority_PDU, align 4
@@ -11586,7 +11586,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_UEPriority_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UL_CP_SecurityInformation_PDU, align 4
@@ -11598,7 +11598,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CP_SecurityInfo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DL_CP_SecurityInformation_PDU, align 4
@@ -11610,7 +11610,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CP_SecurityInfo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TAI_PDU, align 4
@@ -11621,7 +11621,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TAI_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LTEV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LTEV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LTEV2XServicesAuthorized_PDU, align 4
@@ -11633,7 +11633,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LTEV2XServicesAuth
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NRV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NRV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NRV2XServicesAuthorized_PDU, align 4
@@ -11645,7 +11645,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRV2XServicesAutho
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LTEUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LTEUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LTEUESidelinkAggregateMaximumBitrate_PDU, align 4
@@ -11657,7 +11657,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LTEUESidelinkAggre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NRUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NRUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NRUESidelinkAggregateMaximumBitrate_PDU, align 4
@@ -11669,7 +11669,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRUESidelinkAggreg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PC5QoSParameters_PDU, align 4
@@ -11681,7 +11681,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PC5QoSParameters_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBrestricted_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBrestricted_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CEmodeBrestricted_PDU, align 4
@@ -11692,7 +11692,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBrestricted_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EUTRA_PagingeDRXInformation_PDU, align 4
@@ -11704,7 +11704,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_PagingeDRXIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBSupport_Indicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBSupport_Indicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CEmodeBSupport_Indicator_PDU, align 4
@@ -11715,7 +11715,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBSupport_Ind
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LTEM_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LTEM_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LTEM_Indication_PDU, align 4
@@ -11726,7 +11726,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LTEM_Indication_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EndIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EndIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EndIndication_PDU, align 4
@@ -11737,7 +11737,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EndIndication_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EDT_Session_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EDT_Session_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EDT_Session_PDU, align 4
@@ -11748,7 +11748,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EDT_Session_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInfoRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInfoRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UECapabilityInfoRequest_PDU, align 4
@@ -11759,7 +11759,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInfoRe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToResumeListRESReq_PDU, align 4
@@ -11771,7 +11771,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToResumeListRESRes_PDU, align 4
@@ -11783,7 +11783,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSuspendListSUSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSuspendListSUSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSuspendListSUSReq_PDU, align 4
@@ -11795,7 +11795,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceResumeListRESReq_PDU, align 4
@@ -11807,7 +11807,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceResumeListRESRes_PDU, align 4
@@ -11819,7 +11819,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_UP_CIoT_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_UP_CIoT_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UE_UP_CIoT_Support_PDU, align 4
@@ -11830,7 +11830,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_UP_CIoT_Support
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Request_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Request_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Suspend_Request_Indication_PDU, align 4
@@ -11841,7 +11841,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Request_In
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Response_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Response_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Suspend_Response_Indication_PDU, align 4
@@ -11852,7 +11852,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Response_I
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RGLevelWirelineAccessCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RGLevelWirelineAccessCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RGLevelWirelineAccessCharacteristics_PDU, align 4
@@ -11863,7 +11863,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RGLevelWirelineAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_W_AGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_W_AGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_W_AGFIdentityInformation_PDU, align 4
@@ -11874,7 +11874,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_W_AGFIdentityInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTNGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTNGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GlobalTNGF_ID_PDU, align 4
@@ -11886,7 +11886,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTNGF_ID_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTWIF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTWIF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GlobalTWIF_ID_PDU, align 4
@@ -11898,7 +11898,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTWIF_ID_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalW_AGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalW_AGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GlobalW_AGF_ID_PDU, align 4
@@ -11910,7 +11910,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalW_AGF_ID_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationW_AGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationW_AGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UserLocationInformationW_AGF_PDU, align 4
@@ -11922,7 +11922,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTNGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTNGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UserLocationInformationTNGF_PDU, align 4
@@ -11934,7 +11934,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AuthenticatedIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AuthenticatedIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AuthenticatedIndication_PDU, align 4
@@ -11945,7 +11945,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AuthenticatedIndic
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TNGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TNGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TNGFIdentityInformation_PDU, align 4
@@ -11956,7 +11956,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TNGFIdentityInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TWIFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TWIFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TWIFIdentityInformation_PDU, align 4
@@ -11967,7 +11967,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TWIFIdentityInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTWIF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTWIF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UserLocationInformationTWIF_PDU, align 4
@@ -11979,7 +11979,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PLMNIdentity_PDU, align 4
@@ -11990,7 +11990,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNIdentity_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IntersystemSONConfigurationTransfer_PDU, align 4
@@ -12002,7 +12002,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONConf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SONInformationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SONInformationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SONInformationReport_PDU, align 4
@@ -12014,7 +12014,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SONInformationRepo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MDTPLMNList_PDU, align 4
@@ -12026,7 +12026,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNList_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PrivacyIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PrivacyIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PrivacyIndicator_PDU, align 4
@@ -12037,7 +12037,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivacyIndicator_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_URI_address_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_URI_address_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_URI_address_PDU, align 4
@@ -12048,7 +12048,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_URI_address_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_AccessInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_AccessInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NPN_AccessInformation_PDU, align 4
@@ -12060,7 +12060,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_AccessInformat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Failure_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Failure_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct._asn1_ctx_t, align 8
@@ -12141,7 +12141,7 @@ dissect_ngap_TargettoSource_Failure_TransparentContainer.exit: ; preds = %4, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityID_PDU, align 4
@@ -12152,7 +12152,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EarlyStatusTransfer_TransparentContainer_PDU, align 4
@@ -12164,7 +12164,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyStatusTransfe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NotifySourceNGRANNode_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NotifySourceNGRANNode_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NotifySourceNGRANNode_PDU, align 4
@@ -12175,7 +12175,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NotifySourceNGRANN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Extended_RANNodeName_PDU, align 4
@@ -12187,7 +12187,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_RANNodeNa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Extended_AMFName_PDU, align 4
@@ -12199,7 +12199,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_AMFName_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -12229,7 +12229,7 @@ dissect_ngap_GlobalCable_ID.exit:                 ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IntersystemSONInformationRequest_PDU, align 4
@@ -12241,7 +12241,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInfo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationReply_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationReply_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IntersystemSONInformationReply_PDU, align 4
@@ -12253,7 +12253,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInfo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemCellStateIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemCellStateIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IntersystemCellStateIndication_PDU, align 4
@@ -12265,7 +12265,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemCellSta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemResourceStatusReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemResourceStatusReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IntersystemResourceStatusReport_PDU, align 4
@@ -12277,7 +12277,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemResourc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SuccessfulHandoverReportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SuccessfulHandoverReportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SuccessfulHandoverReportList_PDU, align 4
@@ -12289,7 +12289,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SuccessfulHandover
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_AreaSessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_AreaSessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_AreaSessionID_PDU, align 4
@@ -12300,7 +12300,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_AreaSessionID_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_QoSFlowsToBeSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_QoSFlowsToBeSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_QoSFlowsToBeSetupList_PDU, align 4
@@ -12312,7 +12312,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_QoSFlowsToBeSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ServiceArea_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ServiceArea_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_ServiceArea_PDU, align 4
@@ -12324,7 +12324,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ServiceArea_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_SessionID_PDU, align 4
@@ -12336,7 +12336,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionID_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionReleaseRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12347,7 +12347,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionRe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12358,7 +12358,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupResponseTransfer_OCTET_STRING_PDU, align 4
@@ -12369,7 +12369,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupUnsuccessfulTransfer_OCTET_STRING_PDU, align 4
@@ -12380,7 +12380,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12391,7 +12391,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12402,7 +12402,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12413,7 +12413,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagingAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagingAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastGroupPagingAreaList_PDU, align 4
@@ -12425,7 +12425,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModFailureTransfer_OCTET_STRING_PDU, align 4
@@ -12436,7 +12436,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModRequestTransfer_OCTET_STRING_PDU, align 4
@@ -12447,7 +12447,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModResponseTransfer_OCTET_STRING_PDU, align 4
@@ -12458,7 +12458,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionToReleaseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionToReleaseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionToReleaseList_PDU, align 4
@@ -12470,7 +12470,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionToReleas
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupRequestList_PDU, align 4
@@ -12482,7 +12482,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupReq
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetuporModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetuporModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetuporModifyRequestList_PDU, align 4
@@ -12494,7 +12494,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetuporM
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TimeSyncAssistanceInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TimeSyncAssistanceInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TimeSyncAssistanceInfo_PDU, align 4
@@ -12506,7 +12506,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimeSyncAssistance
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QMCConfigInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QMCConfigInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QMCConfigInfo_PDU, align 4
@@ -12518,7 +12518,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QMCConfigInfo_PDU(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QMCDeactivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QMCDeactivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QMCDeactivation_PDU, align 4
@@ -12530,7 +12530,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QMCDeactivation_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NR_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NR_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NR_PagingeDRXInformation_PDU, align 4
@@ -12542,7 +12542,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NR_PagingeDRXInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RedCapIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RedCapIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RedCapIndication_PDU, align 4
@@ -12553,7 +12553,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RedCapIndication_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargetNSSAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargetNSSAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TargetNSSAIInformation_PDU, align 4
@@ -12565,7 +12565,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetNSSAIInforma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UESliceMaximumBitRateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UESliceMaximumBitRateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UESliceMaximumBitRateList_PDU, align 4
@@ -12577,7 +12577,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UESliceMaximumBitR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -12598,7 +12598,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PEIPSassistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PEIPSassistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PEIPSassistanceInformation_PDU, align 4
@@ -12610,7 +12610,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PEIPSassistanceInf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSeAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSeAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_FiveG_ProSeAuthorized_PDU, align 4
@@ -12622,7 +12622,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSeAuthori
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSePC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSePC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_FiveG_ProSePC5QoSParameters_PDU, align 4
@@ -12634,7 +12634,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSePC5QoSP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionTNLInfo5GC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionTNLInfo5GC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_SessionTNLInfo5GC_PDU, align 4
@@ -12646,7 +12646,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionTNLInfo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionFSAIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionFSAIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_SessionFSAIDList_PDU, align 4
@@ -12658,7 +12658,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionFSAIDLi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionReleaseResponseTransfer_OCTET_STRING_PDU, align 4
@@ -12669,7 +12669,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNModificationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNModificationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MDTPLMNModificationList_PDU, align 4
@@ -12681,7 +12681,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNModificatio
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HFCNode_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HFCNode_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HFCNode_ID_new_PDU, align 4
@@ -12693,7 +12693,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HFCNode_ID_new_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GlobalCable_ID_new_PDU, align 4
@@ -12705,7 +12705,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_new
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TargetHomeENB_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TargetHomeENB_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TargetHomeENB_ID_PDU, align 4
@@ -12717,7 +12717,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetHomeENB_ID_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATUsageInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATUsageInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecondaryRATUsageInformation_PDU, align 4
@@ -12729,7 +12729,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATUsageI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponseTransfer_OCTET_STRING_PDU, align 4
@@ -12740,7 +12740,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_S_NSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_S_NSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_S_NSSAI_PDU, align 4
@@ -12752,7 +12752,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_S_NSSAI_PDU(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MaximumIntegrityProtectedDataRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MaximumIntegrityProtectedDataRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MaximumIntegrityProtectedDataRate_PDU, align 4
@@ -12763,7 +12763,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MaximumIntegrityPr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowPerTNLInformationList_PDU, align 4
@@ -12775,7 +12775,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AdditionalDLUPTNLInformationForHOList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AdditionalDLUPTNLInformationForHOList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AdditionalDLUPTNLInformationForHOList_PDU, align 4
@@ -12787,7 +12787,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AdditionalDLUPTNLI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationPairList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationPairList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformationPairList_PDU, align 4
@@ -12799,7 +12799,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecurityResult_PDU, align 4
@@ -12811,7 +12811,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityResult_PDU
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AssociatedQosFlowList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AssociatedQosFlowList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AssociatedQosFlowList_PDU, align 4
@@ -12823,7 +12823,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AssociatedQosFlowL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForEquivalent_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForEquivalent_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CNTypeRestrictionsForEquivalent_PDU, align 4
@@ -12835,7 +12835,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictions
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForServing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForServing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CNTypeRestrictionsForServing_PDU, align 4
@@ -12846,7 +12846,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictions
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ULForwarding_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ULForwarding_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ULForwarding_PDU, align 4
@@ -12857,7 +12857,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ULForwarding_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CPTransportLayerInformation_PDU, align 4
@@ -12869,7 +12869,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CPTransportLayerIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingAdditionalInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingAdditionalInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingAdditionalInfo_PDU, align 4
@@ -12880,7 +12880,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SCTP_TLAs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SCTP_TLAs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SCTP_TLAs_PDU, align 4
@@ -12892,7 +12892,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SCTP_TLAs_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingResponseERABList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingResponseERABList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DataForwardingResponseERABList_PDU, align 4
@@ -12904,7 +12904,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingResp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMIType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMIType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_GUAMIType_PDU, align 4
@@ -12915,7 +12915,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMIType_PDU(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -12999,7 +12999,7 @@ dissect_ngap_RAT_Information.exit:                ; preds = %.lr.ph.i, %ngap_get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedRATRestrictionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedRATRestrictionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedRATRestrictionInformation_PDU, align 4
@@ -13011,7 +13011,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedRATRestric
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosMonitoringRequest_PDU, align 4
@@ -13022,7 +13022,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringReque
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SgNB_UE_X2AP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SgNB_UE_X2AP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SgNB_UE_X2AP_ID_PDU, align 4
@@ -13033,7 +13033,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SgNB_UE_X2AP_ID_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedPacketDelayBudget_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedPacketDelayBudget_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedPacketDelayBudget_PDU, align 4
@@ -13044,7 +13044,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedPacketDela
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DL_NGU_TNLInformationReused_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DL_NGU_TNLInformationReused_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DL_NGU_TNLInformationReused_PDU, align 4
@@ -13055,7 +13055,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DL_NGU_TNLInformat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowPerTNLInformation_PDU, align 4
@@ -13067,7 +13067,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantQosFlowIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantQosFlowIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RedundantQosFlowIndicator_PDU, align 4
@@ -13078,7 +13078,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantQosFlowIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TSCTrafficCharacteristics_PDU, align 4
@@ -13090,7 +13090,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPagingOfNB_IoT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPagingOfNB_IoT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -13125,7 +13125,7 @@ dissect_ngap_UERadioCapabilityForPagingOfNB_IoT.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AlternativeQoSParaSetList_PDU, align 4
@@ -13137,7 +13137,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSPara
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetIndex_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetIndex_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AlternativeQoSParaSetIndex_PDU, align 4
@@ -13173,7 +13173,7 @@ dissect_ngap_AlternativeQoSParaSetIndex.exit:     ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEHistoryInformationFromTheUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEHistoryInformationFromTheUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEHistoryInformationFromTheUE_PDU, align 4
@@ -13185,7 +13185,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEHistoryInformati
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NPN_Support_PDU, align 4
@@ -13197,7 +13197,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_Support_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_PagingAssistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_PagingAssistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NPN_PagingAssistanceInformation_PDU, align 4
@@ -13209,7 +13209,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_PagingAssistan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_MobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_MobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NPN_MobilityInformation_PDU, align 4
@@ -13221,7 +13221,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_MobilityInform
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NID_PDU, align 4
@@ -13232,7 +13232,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NID_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSRequestInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSRequestInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DAPSRequestInfo_PDU, align 4
@@ -13244,7 +13244,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSRequestInfo_PD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSResponseInfoList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSResponseInfoList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DAPSResponseInfoList_PDU, align 4
@@ -13256,7 +13256,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSResponseInfoLi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedSliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedSliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedSliceSupportList_PDU, align 4
@@ -13268,7 +13268,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedSliceSuppo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ConfiguredTACIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ConfiguredTACIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ConfiguredTACIndication_PDU, align 4
@@ -13279,7 +13279,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConfiguredTACIndic
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringReportingFrequency_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringReportingFrequency_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosMonitoringReportingFrequency_PDU, align 4
@@ -13290,7 +13290,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringRepor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowParametersList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowParametersList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowParametersList_PDU, align 4
@@ -13302,7 +13302,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowParametersL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowFeedbackList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowFeedbackList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_QosFlowFeedbackList_PDU, align 4
@@ -13314,7 +13314,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowFeedbackLis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BurstArrivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BurstArrivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -13345,7 +13345,7 @@ dissect_ngap_BurstArrivalTime.exit:               ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedUEIdentityIndexValue_PDU, align 4
@@ -13356,7 +13356,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedUEIdentity
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExpectedUEActivityBehaviour_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExpectedUEActivityBehaviour_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExpectedUEActivityBehaviour_PDU, align 4
@@ -13368,7 +13368,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExpectedUEActivity
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MicoAllPLMN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MicoAllPLMN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MicoAllPLMN_PDU, align 4
@@ -13379,7 +13379,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MicoAllPLMN_PDU(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedReportIntervalMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedReportIntervalMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedReportIntervalMDT_PDU, align 4
@@ -13390,7 +13390,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedReportInte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SourceNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SourceNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SourceNodeID_PDU, align 4
@@ -13402,7 +13402,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SourceNodeID_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NRNTNTAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NRNTNTAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NRNTNTAIInformation_PDU, align 4
@@ -13414,7 +13414,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRNTNTAIInformatio
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LastVisitedPSCellList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LastVisitedPSCellList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LastVisitedPSCellList_PDU, align 4
@@ -13426,7 +13426,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LastVisitedPSCellL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_SupportIndicator_PDU, align 4
@@ -13437,7 +13437,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SupportIndicat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionFailedtoSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionFailedtoSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionFailedtoSetupList_PDU, align 4
@@ -13449,7 +13449,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionFailedto
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupResponseList_PDU, align 4
@@ -13461,7 +13461,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupRes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_SourcetoTargetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_SourcetoTargetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_ActiveSessionInformation_SourcetoTargetList_PDU, align 4
@@ -13473,7 +13473,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_TargettoSourceList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_TargettoSourceList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_ActiveSessionInformation_TargettoSourceList_PDU, align 4
@@ -13485,7 +13485,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_OnboardingSupport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_OnboardingSupport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OnboardingSupport_PDU, align 4
@@ -13496,7 +13496,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OnboardingSupport_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SurvivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SurvivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SurvivalTime_PDU, align 4
@@ -13507,7 +13507,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SurvivalTime_PDU(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionPairID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionPairID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionPairID_PDU, align 4
@@ -13518,7 +13518,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionPairID_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_M4ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_M4ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_M4ReportAmountMDT_PDU, align 4
@@ -13529,7 +13529,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_M4ReportAmountMDT_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_M5ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_M5ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_M5ReportAmountMDT_PDU, align 4
@@ -13540,7 +13540,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_M5ReportAmountMDT_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_M6ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_M6ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_M6ReportAmountMDT_PDU, align 4
@@ -13551,7 +13551,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_M6ReportAmountMDT_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_M7ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_M7ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_M7ReportAmountMDT_PDU, align 4
@@ -13562,7 +13562,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_M7ReportAmountMDT_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_IncludeBeamMeasurementsIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_IncludeBeamMeasurementsIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_IncludeBeamMeasurementsIndication_PDU, align 4
@@ -13573,7 +13573,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IncludeBeamMeasure
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExcessPacketDelayThresholdConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExcessPacketDelayThresholdConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExcessPacketDelayThresholdConfiguration_PDU, align 4
@@ -13585,7 +13585,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExcessPacketDelayT
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicationForVoiceService_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicationForVoiceService_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
@@ -13606,7 +13606,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TAINSAGSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TAINSAGSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TAINSAGSupportList_PDU, align 4
@@ -13618,7 +13618,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TAINSAGSupportList
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGAPIESupportInformationRequestList_PDU, align 4
@@ -13630,7 +13630,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGAPIESupportInformationResponseList_PDU, align 4
@@ -13642,7 +13642,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInfor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyMeasurement_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyMeasurement_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_EarlyMeasurement_PDU, align 4
@@ -13653,7 +13653,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyMeasurement_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BeamMeasurementsReportConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BeamMeasurementsReportConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BeamMeasurementsReportConfiguration_PDU, align 4
@@ -13665,7 +13665,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BeamMeasurementsRe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HashedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HashedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HashedUEIdentityIndexValue_PDU, align 4
@@ -13676,7 +13676,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HashedUEIdentityIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedMobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedMobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ExtendedMobilityInformation_PDU, align 4
@@ -13687,7 +13687,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedMobilityIn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdate_PDU, align 4
@@ -13730,7 +13730,7 @@ dissect_ngap_AMFConfigurationUpdate.exit:         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateAcknowledge_PDU, align 4
@@ -13773,7 +13773,7 @@ dissect_ngap_AMFConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateFailure_PDU, align 4
@@ -13816,7 +13816,7 @@ dissect_ngap_AMFConfigurationUpdateFailure.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFCPRelocationIndication_PDU, align 4
@@ -13859,7 +13859,7 @@ dissect_ngap_AMFCPRelocationIndication.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_AMFStatusIndication_PDU, align 4
@@ -13902,7 +13902,7 @@ dissect_ngap_AMFStatusIndication.exit:            ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationRequest_PDU, align 4
@@ -13945,7 +13945,7 @@ dissect_ngap_BroadcastSessionModificationRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationResponse_PDU, align 4
@@ -13988,7 +13988,7 @@ dissect_ngap_BroadcastSessionModificationResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationFailure_PDU, align 4
@@ -14031,7 +14031,7 @@ dissect_ngap_BroadcastSessionModificationFailure.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequest_PDU, align 4
@@ -14074,7 +14074,7 @@ dissect_ngap_BroadcastSessionReleaseRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseResponse_PDU, align 4
@@ -14117,7 +14117,7 @@ dissect_ngap_BroadcastSessionReleaseResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequired_PDU, align 4
@@ -14160,7 +14160,7 @@ dissect_ngap_BroadcastSessionReleaseRequired.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupRequest_PDU, align 4
@@ -14203,7 +14203,7 @@ dissect_ngap_BroadcastSessionSetupRequest.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupResponse_PDU, align 4
@@ -14246,7 +14246,7 @@ dissect_ngap_BroadcastSessionSetupResponse.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupFailure_PDU, align 4
@@ -14289,7 +14289,7 @@ dissect_ngap_BroadcastSessionSetupFailure.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_CellTrafficTrace_PDU, align 4
@@ -14332,7 +14332,7 @@ dissect_ngap_CellTrafficTrace.exit:               ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablishmentIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablishmentIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ConnectionEstablishmentIndication_PDU, align 4
@@ -14375,7 +14375,7 @@ dissect_ngap_ConnectionEstablishmentIndication.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DeactivateTrace_PDU, align 4
@@ -14418,7 +14418,7 @@ dissect_ngap_DeactivateTrace.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupRequest_PDU, align 4
@@ -14461,7 +14461,7 @@ dissect_ngap_DistributionSetupRequest.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupResponse_PDU, align 4
@@ -14504,7 +14504,7 @@ dissect_ngap_DistributionSetupResponse.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionSetupFailure_PDU, align 4
@@ -14547,7 +14547,7 @@ dissect_ngap_DistributionSetupFailure.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionReleaseRequest_PDU, align 4
@@ -14590,7 +14590,7 @@ dissect_ngap_DistributionReleaseRequest.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DistributionReleaseResponse_PDU, align 4
@@ -14633,7 +14633,7 @@ dissect_ngap_DistributionReleaseResponse.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkNASTransport_PDU, align 4
@@ -14679,7 +14679,7 @@ dissect_ngap_DownlinkNASTransport.exit:           ; preds = %4, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkNonUEAssociatedNRPPaTransport_PDU, align 4
@@ -14722,7 +14722,7 @@ dissect_ngap_DownlinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANConfigurationTransfer_PDU, align 4
@@ -14765,7 +14765,7 @@ dissect_ngap_DownlinkRANConfigurationTransfer.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANEarlyStatusTransfer_PDU, align 4
@@ -14808,7 +14808,7 @@ dissect_ngap_DownlinkRANEarlyStatusTransfer.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRANStatusTransfer_PDU, align 4
@@ -14851,7 +14851,7 @@ dissect_ngap_DownlinkRANStatusTransfer.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkUEAssociatedNRPPaTransport_PDU, align 4
@@ -14894,7 +14894,7 @@ dissect_ngap_DownlinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_ErrorIndication_PDU, align 4
@@ -14937,7 +14937,7 @@ dissect_ngap_ErrorIndication.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCancel_PDU, align 4
@@ -14980,7 +14980,7 @@ dissect_ngap_HandoverCancel.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCancelAcknowledge_PDU, align 4
@@ -15023,7 +15023,7 @@ dissect_ngap_HandoverCancelAcknowledge.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverNotify_PDU, align 4
@@ -15066,7 +15066,7 @@ dissect_ngap_HandoverNotify.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequired_PDU, align 4
@@ -15109,7 +15109,7 @@ dissect_ngap_HandoverRequired.exit:               ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCommand_PDU, align 4
@@ -15152,7 +15152,7 @@ dissect_ngap_HandoverCommand.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverPreparationFailure_PDU, align 4
@@ -15195,7 +15195,7 @@ dissect_ngap_HandoverPreparationFailure.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequest_PDU, align 4
@@ -15241,7 +15241,7 @@ dissect_ngap_HandoverRequest.exit:                ; preds = %4, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledge_PDU, align 4
@@ -15284,7 +15284,7 @@ dissect_ngap_HandoverRequestAcknowledge.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverFailure_PDU, align 4
@@ -15327,7 +15327,7 @@ dissect_ngap_HandoverFailure.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverSuccess_PDU, align 4
@@ -15370,7 +15370,7 @@ dissect_ngap_HandoverSuccess.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupRequest_PDU, align 4
@@ -15413,7 +15413,7 @@ dissect_ngap_InitialContextSetupRequest.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupResponse_PDU, align 4
@@ -15456,7 +15456,7 @@ dissect_ngap_InitialContextSetupResponse.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialContextSetupFailure_PDU, align 4
@@ -15499,7 +15499,7 @@ dissect_ngap_InitialContextSetupFailure.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_InitialUEMessage_PDU, align 4
@@ -15545,7 +15545,7 @@ dissect_ngap_InitialUEMessage.exit:               ; preds = %4, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReport_PDU, align 4
@@ -15588,7 +15588,7 @@ dissect_ngap_LocationReport.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingControl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingControl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingControl_PDU, align 4
@@ -15631,7 +15631,7 @@ dissect_ngap_LocationReportingControl.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_LocationReportingFailureIndication_PDU, align 4
@@ -15674,7 +15674,7 @@ dissect_ngap_LocationReportingFailureIndication.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequest_PDU, align 4
@@ -15717,7 +15717,7 @@ dissect_ngap_MulticastSessionActivationRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationResponse_PDU, align 4
@@ -15760,7 +15760,7 @@ dissect_ngap_MulticastSessionActivationResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationFailure_PDU, align 4
@@ -15803,7 +15803,7 @@ dissect_ngap_MulticastSessionActivationFailure.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequest_PDU, align 4
@@ -15846,7 +15846,7 @@ dissect_ngap_MulticastSessionDeactivationRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationResponse_PDU, align 4
@@ -15889,7 +15889,7 @@ dissect_ngap_MulticastSessionDeactivationResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequest_PDU, align 4
@@ -15932,7 +15932,7 @@ dissect_ngap_MulticastSessionUpdateRequest.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateResponse_PDU, align 4
@@ -15975,7 +15975,7 @@ dissect_ngap_MulticastSessionUpdateResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateFailure_PDU, align 4
@@ -16018,7 +16018,7 @@ dissect_ngap_MulticastSessionUpdateFailure.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastGroupPaging_PDU, align 4
@@ -16061,7 +16061,7 @@ dissect_ngap_MulticastGroupPaging.exit:           ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NASNonDeliveryIndication_PDU, align 4
@@ -16104,7 +16104,7 @@ dissect_ngap_NASNonDeliveryIndication.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGReset_PDU, align 4
@@ -16147,7 +16147,7 @@ dissect_ngap_NGReset.exit:                        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGResetAcknowledge_PDU, align 4
@@ -16190,7 +16190,7 @@ dissect_ngap_NGResetAcknowledge.exit:             ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupRequest_PDU, align 4
@@ -16233,7 +16233,7 @@ dissect_ngap_NGSetupRequest.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupResponse_PDU, align 4
@@ -16276,7 +16276,7 @@ dissect_ngap_NGSetupResponse.exit:                ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_NGSetupFailure_PDU, align 4
@@ -16319,7 +16319,7 @@ dissect_ngap_NGSetupFailure.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadStart_PDU, align 4
@@ -16362,7 +16362,7 @@ dissect_ngap_OverloadStart.exit:                  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_OverloadStop_PDU, align 4
@@ -16405,7 +16405,7 @@ dissect_ngap_OverloadStop.exit:                   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_Paging_PDU, align 4
@@ -16448,7 +16448,7 @@ dissect_ngap_Paging.exit:                         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequest_PDU, align 4
@@ -16491,7 +16491,7 @@ dissect_ngap_PathSwitchRequest.exit:              ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledge_PDU, align 4
@@ -16534,7 +16534,7 @@ dissect_ngap_PathSwitchRequestAcknowledge.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestFailure_PDU, align 4
@@ -16577,7 +16577,7 @@ dissect_ngap_PathSwitchRequestFailure.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequest_PDU, align 4
@@ -16620,7 +16620,7 @@ dissect_ngap_PDUSessionResourceModifyRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponse_PDU, align 4
@@ -16663,7 +16663,7 @@ dissect_ngap_PDUSessionResourceModifyResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndication_PDU, align 4
@@ -16706,7 +16706,7 @@ dissect_ngap_PDUSessionResourceModifyIndication.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirm_PDU, align 4
@@ -16749,7 +16749,7 @@ dissect_ngap_PDUSessionResourceModifyConfirm.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotify_PDU, align 4
@@ -16792,7 +16792,7 @@ dissect_ngap_PDUSessionResourceNotify.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommand_PDU, align 4
@@ -16835,7 +16835,7 @@ dissect_ngap_PDUSessionResourceReleaseCommand.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponse_PDU, align 4
@@ -16878,7 +16878,7 @@ dissect_ngap_PDUSessionResourceReleaseResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequest_PDU, align 4
@@ -16921,7 +16921,7 @@ dissect_ngap_PDUSessionResourceSetupRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponse_PDU, align 4
@@ -16964,7 +16964,7 @@ dissect_ngap_PDUSessionResourceSetupResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PrivateMessage_PDU, align 4
@@ -17007,7 +17007,7 @@ dissect_ngap_PrivateMessage.exit:                 ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSCancelRequest_PDU, align 4
@@ -17050,7 +17050,7 @@ dissect_ngap_PWSCancelRequest.exit:               ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSCancelResponse_PDU, align 4
@@ -17093,7 +17093,7 @@ dissect_ngap_PWSCancelResponse.exit:              ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSFailureIndication_PDU, align 4
@@ -17136,7 +17136,7 @@ dissect_ngap_PWSFailureIndication.exit:           ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PWSRestartIndication_PDU, align 4
@@ -17179,7 +17179,7 @@ dissect_ngap_PWSRestartIndication.exit:           ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdate_PDU, align 4
@@ -17222,7 +17222,7 @@ dissect_ngap_RANConfigurationUpdate.exit:         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateAcknowledge_PDU, align 4
@@ -17265,7 +17265,7 @@ dissect_ngap_RANConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateFailure_PDU, align 4
@@ -17308,7 +17308,7 @@ dissect_ngap_RANConfigurationUpdateFailure.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RANCPRelocationIndication_PDU, align 4
@@ -17351,7 +17351,7 @@ dissect_ngap_RANCPRelocationIndication.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RerouteNASRequest_PDU, align 4
@@ -17394,7 +17394,7 @@ dissect_ngap_RerouteNASRequest.exit:              ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RetrieveUEInformation_PDU, align 4
@@ -17437,7 +17437,7 @@ dissect_ngap_RetrieveUEInformation.exit:          ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_RRCInactiveTransitionReport_PDU, align 4
@@ -17480,7 +17480,7 @@ dissect_ngap_RRCInactiveTransitionReport.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReport_PDU, align 4
@@ -17523,7 +17523,7 @@ dissect_ngap_SecondaryRATDataUsageReport.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TraceFailureIndication_PDU, align 4
@@ -17566,7 +17566,7 @@ dissect_ngap_TraceFailureIndication.exit:         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_TraceStart_PDU, align 4
@@ -17609,7 +17609,7 @@ dissect_ngap_TraceStart.exit:                     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationRequest_PDU, align 4
@@ -17652,7 +17652,7 @@ dissect_ngap_UEContextModificationRequest.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationResponse_PDU, align 4
@@ -17695,7 +17695,7 @@ dissect_ngap_UEContextModificationResponse.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextModificationFailure_PDU, align 4
@@ -17738,7 +17738,7 @@ dissect_ngap_UEContextModificationFailure.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseCommand_PDU, align 4
@@ -17781,7 +17781,7 @@ dissect_ngap_UEContextReleaseCommand.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseComplete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseComplete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseComplete_PDU, align 4
@@ -17824,7 +17824,7 @@ dissect_ngap_UEContextReleaseComplete.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextReleaseRequest_PDU, align 4
@@ -17867,7 +17867,7 @@ dissect_ngap_UEContextReleaseRequest.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequest_PDU, align 4
@@ -17910,7 +17910,7 @@ dissect_ngap_UEContextResumeRequest.exit:         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponse_PDU, align 4
@@ -17953,7 +17953,7 @@ dissect_ngap_UEContextResumeResponse.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeFailure_PDU, align 4
@@ -17996,7 +17996,7 @@ dissect_ngap_UEContextResumeFailure.exit:         ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequest_PDU, align 4
@@ -18039,7 +18039,7 @@ dissect_ngap_UEContextSuspendRequest.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendResponse_PDU, align 4
@@ -18082,7 +18082,7 @@ dissect_ngap_UEContextSuspendResponse.exit:       ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendFailure_PDU, align 4
@@ -18125,7 +18125,7 @@ dissect_ngap_UEContextSuspendFailure.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEInformationTransfer_PDU, align 4
@@ -18168,7 +18168,7 @@ dissect_ngap_UEInformationTransfer.exit:          ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckRequest_PDU, align 4
@@ -18211,7 +18211,7 @@ dissect_ngap_UERadioCapabilityCheckRequest.exit:  ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckResponse_PDU, align 4
@@ -18254,7 +18254,7 @@ dissect_ngap_UERadioCapabilityCheckResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingRequest_PDU, align 4
@@ -18297,7 +18297,7 @@ dissect_ngap_UERadioCapabilityIDMappingRequest.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingResponse_PDU, align 4
@@ -18340,7 +18340,7 @@ dissect_ngap_UERadioCapabilityIDMappingResponse.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityInfoIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityInfoIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityInfoIndication_PDU, align 4
@@ -18383,7 +18383,7 @@ dissect_ngap_UERadioCapabilityInfoIndication.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UETNLABindingReleaseRequest_PDU, align 4
@@ -18426,7 +18426,7 @@ dissect_ngap_UETNLABindingReleaseRequest.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkNASTransport_PDU, align 4
@@ -18472,7 +18472,7 @@ dissect_ngap_UplinkNASTransport.exit:             ; preds = %4, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkNonUEAssociatedNRPPaTransport_PDU, align 4
@@ -18515,7 +18515,7 @@ dissect_ngap_UplinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANConfigurationTransfer_PDU, align 4
@@ -18558,7 +18558,7 @@ dissect_ngap_UplinkRANConfigurationTransfer.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANEarlyStatusTransfer_PDU, align 4
@@ -18601,7 +18601,7 @@ dissect_ngap_UplinkRANEarlyStatusTransfer.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRANStatusTransfer_PDU, align 4
@@ -18644,7 +18644,7 @@ dissect_ngap_UplinkRANStatusTransfer.exit:        ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkUEAssociatedNRPPaTransport_PDU, align 4
@@ -18687,7 +18687,7 @@ dissect_ngap_UplinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningRequest_PDU, align 4
@@ -18730,7 +18730,7 @@ dissect_ngap_WriteReplaceWarningRequest.exit:     ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningResponse_PDU, align 4
@@ -18773,7 +18773,7 @@ dissect_ngap_WriteReplaceWarningResponse.exit:    ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UplinkRIMInformationTransfer_PDU, align 4
@@ -18816,7 +18816,7 @@ dissect_ngap_UplinkRIMInformationTransfer.exit:   ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_DownlinkRIMInformationTransfer_PDU, align 4
@@ -18861,7 +18861,7 @@ dissect_ngap_DownlinkRIMInformationTransfer.exit: ; preds = %4, %18
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequestTransfer_PDU, align 4
@@ -18872,7 +18872,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponseTransfer_PDU, align 4
@@ -18901,7 +18901,7 @@ dissect_ngap_PDUSessionResourceSetupResponseTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupUnsuccessfulTransfer_PDU, align 4
@@ -18930,7 +18930,7 @@ dissect_ngap_PDUSessionResourceSetupUnsuccessfulTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommandTransfer_PDU, align 4
@@ -18959,7 +18959,7 @@ dissect_ngap_PDUSessionResourceReleaseCommandTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponseTransfer_PDU, align 4
@@ -18988,7 +18988,7 @@ dissect_ngap_PDUSessionResourceReleaseResponseTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequestTransfer_PDU, align 4
@@ -19017,7 +19017,7 @@ dissect_ngap_PDUSessionResourceModifyRequestTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponseTransfer_PDU, align 4
@@ -19046,7 +19046,7 @@ dissect_ngap_PDUSessionResourceModifyResponseTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyUnsuccessfulTransfer_PDU, align 4
@@ -19075,7 +19075,7 @@ dissect_ngap_PDUSessionResourceModifyUnsuccessfulTransfer.exit: ; preds = %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyTransfer_PDU, align 4
@@ -19104,7 +19104,7 @@ dissect_ngap_PDUSessionResourceNotifyTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyReleasedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyReleasedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyReleasedTransfer_PDU, align 4
@@ -19133,7 +19133,7 @@ dissect_ngap_PDUSessionResourceNotifyReleasedTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationTransfer_PDU, align 4
@@ -19162,7 +19162,7 @@ dissect_ngap_PDUSessionResourceModifyIndicationTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirmTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirmTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirmTransfer_PDU, align 4
@@ -19191,7 +19191,7 @@ dissect_ngap_PDUSessionResourceModifyConfirmTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestTransfer_PDU, align 4
@@ -19220,7 +19220,7 @@ dissect_ngap_PathSwitchRequestTransfer.exit:      ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestSetupFailedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestSetupFailedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestSetupFailedTransfer_PDU, align 4
@@ -19249,7 +19249,7 @@ dissect_ngap_PathSwitchRequestSetupFailedTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledgeTransfer_PDU, align 4
@@ -19278,7 +19278,7 @@ dissect_ngap_PathSwitchRequestAcknowledgeTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestUnsuccessfulTransfer_PDU, align 4
@@ -19307,7 +19307,7 @@ dissect_ngap_PathSwitchRequestUnsuccessfulTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequiredTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequiredTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequiredTransfer_PDU, align 4
@@ -19336,7 +19336,7 @@ dissect_ngap_HandoverRequiredTransfer.exit:       ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverCommandTransfer_PDU, align 4
@@ -19365,7 +19365,7 @@ dissect_ngap_HandoverCommandTransfer.exit:        ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverPreparationUnsuccessfulTransfer_PDU, align 4
@@ -19394,7 +19394,7 @@ dissect_ngap_HandoverPreparationUnsuccessfulTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledgeTransfer_PDU, align 4
@@ -19423,7 +19423,7 @@ dissect_ngap_HandoverRequestAcknowledgeTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverResourceAllocationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverResourceAllocationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_HandoverResourceAllocationUnsuccessfulTransfer_PDU, align 4
@@ -19452,7 +19452,7 @@ dissect_ngap_HandoverResourceAllocationUnsuccessfulTransfer.exit: ; preds = %4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReportTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReportTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReportTransfer_PDU, align 4
@@ -19481,7 +19481,7 @@ dissect_ngap_SecondaryRATDataUsageReportTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU, align 4
@@ -19510,7 +19510,7 @@ dissect_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequestTransfer_PDU, align 4
@@ -19539,7 +19539,7 @@ dissect_ngap_UEContextResumeRequestTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponseTransfer_PDU, align 4
@@ -19568,7 +19568,7 @@ dissect_ngap_UEContextResumeResponseTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequestTransfer_PDU, align 4
@@ -19597,7 +19597,7 @@ dissect_ngap_UEContextSuspendRequestTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModRequestTransfer_PDU, align 4
@@ -19626,7 +19626,7 @@ dissect_ngap_MBSSessionSetupOrModRequestTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModResponseTransfer_PDU, align 4
@@ -19655,7 +19655,7 @@ dissect_ngap_MBSSessionSetupOrModResponseTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModFailureTransfer_PDU, align 4
@@ -19684,7 +19684,7 @@ dissect_ngap_MBSSessionSetupOrModFailureTransfer.exit: ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBSSessionReleaseResponseTransfer_PDU, align 4
@@ -19719,7 +19719,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ngap_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @ngap_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.3105, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %7 = load i32, ptr @st_node_packet_types, align 4
   %8 = load i32, ptr %3, align 4
@@ -19793,7 +19793,7 @@ define hidden void @proto_register_ngap() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+02
   %5 = fpext float %4 to double
@@ -19802,7 +19802,7 @@ define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_PacketDelayBudget_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_PacketDelayBudget_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fpext float %4 to double
@@ -19811,7 +19811,7 @@ define internal void @ngap_PacketDelayBudget_fmt(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = and i32 %1, 31
   %4 = lshr i32 %1, 5
   switch i32 %4, label %8 [
@@ -19860,14 +19860,14 @@ define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_Threshold_RSRP_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_Threshold_RSRP_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = add i32 %1, -156
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.3788, i32 noundef %3, i32 noundef %1) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_Threshold_RSRQ_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_Threshold_RSRQ_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fadd float %4, -4.300000e+01
@@ -19877,7 +19877,7 @@ define internal void @ngap_Threshold_RSRQ_fmt(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_PacketLossRate_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_PacketLossRate_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+01
   %5 = fpext float %4 to double
@@ -19886,7 +19886,7 @@ define internal void @ngap_PacketLossRate_fmt(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+01
   %5 = fpext float %4 to double
@@ -19895,7 +19895,7 @@ define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ngap_Threshold_SINR_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @ngap_Threshold_SINR_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fadd float %4, -2.300000e+01
@@ -19917,7 +19917,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -20532,7 +20532,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -20760,7 +20760,7 @@ declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -22325,7 +22325,7 @@ define internal i32 @dissect_ngap_UEHistoryInformation(ptr noundef %0, i32 nound
 declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ngap_get_ranmode_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ngap_get_ranmode_id(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_ngap, align 4
@@ -26923,7 +26923,7 @@ define internal i32 @dissect_ngap_NID(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionReleaseRequestTransfer_PDU, align 4
@@ -26935,7 +26935,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionRe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupRequestTransfer_PDU, align 4
@@ -26947,7 +26947,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupResponseTransfer_PDU, align 4
@@ -26972,7 +26972,7 @@ define internal i32 @dissect_ngap_MBSSessionStatus(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupUnsuccessfulTransfer_PDU, align 4
@@ -26984,7 +26984,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequestTransfer_PDU, align 4
@@ -26996,7 +26996,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequestTransfer_PDU, align 4
@@ -27008,7 +27008,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequestTransfer_PDU, align 4
@@ -28294,7 +28294,7 @@ declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) loca
 declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
@@ -28546,10 +28546,10 @@ declare ptr @json_get_object(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @json_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_n2_info_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_n2_info_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca double, align 8
   %7 = tail call ptr @json_get_object(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   %.not = icmp eq ptr %7, null
@@ -28611,16 +28611,16 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare zeroext i1 @json_get_double(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

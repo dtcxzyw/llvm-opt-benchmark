@@ -63,7 +63,7 @@ define internal i32 @aes_init() #2 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @crypto_aes_encrypt(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal void @crypto_aes_encrypt(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -1464,7 +1464,7 @@ define internal void @crypto_aes_encrypt(ptr noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @crypto_aes_decrypt(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal void @crypto_aes_decrypt(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272

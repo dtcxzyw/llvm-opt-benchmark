@@ -35,7 +35,7 @@ define zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h223b2f473c3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7987b86dE"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7987b86dE"(ptr writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -50,7 +50,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c2681d2f505E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c2681d2f505E"(ptr writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -65,7 +65,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c268
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f38a9c32E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f38a9c32E"(ptr writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -80,7 +80,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e801f645E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e801f645E"(ptr writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -95,7 +95,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$5entry17hcd7af0961c3fbd3dE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 initializes((0, 40)) %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$5entry17hcd7af0961c3fbd3dE"(ptr writeonly sret({ i64, [4 x i64] }) align 8 captures(none) initializes((0, 40)) %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { i64, [4 x i64] }, align 8
   call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2cb8cf1b2262c157E"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %5, ptr align 8 %1, i64 %2, i64 %3)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
@@ -420,7 +420,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6ab915156fdbE"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 8 %1, i16 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6ab915156fdbE"(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) %0, ptr align 8 %1, i16 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, align 8
@@ -513,7 +513,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 2 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr readonly align 8 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = load i16, ptr %1, align 2, !noundef !4
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
@@ -551,7 +551,7 @@ declare void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c5173
 declare { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr align 8, ptr align 1, i64, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2cb8cf1b2262c157E"(ptr sret({ i64, [4 x i64] }) align 8, ptr align 8, i64, i64) unnamed_addr #0
@@ -617,10 +617,10 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

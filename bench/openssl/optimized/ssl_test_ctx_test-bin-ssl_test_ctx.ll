@@ -719,7 +719,7 @@ if.then85:                                        ; preds = %if.then80
   br label %err
 
 if.then91:                                        ; preds = %for.cond73
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 909, ptr noundef nonnull @.str.10, ptr noundef %0) #7
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 909, ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #7
   br label %err
 
 for.inc100:                                       ; preds = %if.then80, %if.then11, %if.then30, %if.then52, %if.then64, %if.then41, %if.then19
@@ -747,7 +747,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %client, ptr noundef %conf, ptr noundef %client_section) unnamed_addr #1 {
@@ -806,7 +806,7 @@ if.then16:                                        ; preds = %if.then12
   br label %return
 
 if.then22:                                        ; preds = %for.cond6
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 817, ptr noundef nonnull @.str.10, ptr noundef %0) #7
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 817, ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #7
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.preheader, %entry, %if.then22, %if.then16
@@ -871,7 +871,7 @@ if.then16:                                        ; preds = %if.then12
   br label %return
 
 if.then22:                                        ; preds = %for.cond6
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 850, ptr noundef nonnull @.str.10, ptr noundef %0) #7
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 850, ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #7
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.preheader, %entry, %if.then22, %if.then16
@@ -882,7 +882,7 @@ return:                                           ; preds = %for.cond, %for.cond
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl_test_extra_conf_free_data(ptr nocapture noundef nonnull readonly %conf) unnamed_addr #1 {
+define internal fastcc void @ssl_test_extra_conf_free_data(ptr noundef nonnull readonly captures(none) %conf) unnamed_addr #1 {
 entry:
   %npn_protocols = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %0 = load ptr, ptr %npn_protocols, align 8
@@ -933,7 +933,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_client_verify_callback(ptr nocapture noundef writeonly %client_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_client_verify_callback(ptr noundef writeonly captures(none) %client_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -962,7 +962,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_servername(ptr nocapture noundef writeonly %client_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_servername(ptr noundef writeonly captures(none) %client_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -992,7 +992,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_client_npn_protocols(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_client_npn_protocols(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %npn_protocols = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %npn_protocols, align 8
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_client_alpn_protocols(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_client_alpn_protocols(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %alpn_protocols = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %alpn_protocols, align 8
@@ -1016,7 +1016,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_ct_validation(ptr nocapture noundef writeonly %client_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_ct_validation(ptr noundef writeonly captures(none) %client_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_client_reneg_ciphers(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_client_reneg_ciphers(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %reneg_ciphers = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %reneg_ciphers, align 8
@@ -1058,7 +1058,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_client_srp_user(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_client_srp_user(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %srp_user = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %srp_user, align 8
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_client_srp_password(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_client_srp_password(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %srp_password = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %srp_password, align 8
@@ -1082,7 +1082,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_max_fragment_len_mode(ptr nocapture noundef writeonly %client_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_max_fragment_len_mode(ptr noundef writeonly captures(none) %client_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_client_enable_pha(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_client_enable_pha(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %enable_pha = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1142,7 +1142,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_client_no_extms_on_reneg(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_client_no_extms_on_reneg(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %no_extms_on_reneg = getelementptr inbounds nuw i8, ptr %ctx, i64 68
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1178,7 +1178,7 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_servername_callback(ptr nocapture noundef writeonly %server_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_servername_callback(ptr noundef writeonly captures(none) %server_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1207,7 +1207,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_server_npn_protocols(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_server_npn_protocols(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %npn_protocols = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %npn_protocols, align 8
@@ -1219,7 +1219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_server_alpn_protocols(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_server_alpn_protocols(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %alpn_protocols = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %alpn_protocols, align 8
@@ -1231,7 +1231,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_server_broken_session_ticket(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_server_broken_session_ticket(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %broken_session_ticket = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1261,7 +1261,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_certstatus(ptr nocapture noundef writeonly %server_conf, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_certstatus(ptr noundef writeonly captures(none) %server_conf, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1291,7 +1291,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_server_srp_user(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_server_srp_user(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %srp_user = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %srp_user, align 8
@@ -1303,7 +1303,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_server_srp_password(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_server_srp_password(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %srp_password = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %srp_password, align 8
@@ -1315,7 +1315,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_server_force_pha(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_server_force_pha(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %force_pha = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1345,7 +1345,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_server_session_ticket_app_data(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_server_session_ticket_app_data(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %session_ticket_app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %session_ticket_app_data, align 8
@@ -1357,7 +1357,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_expected_result(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_expected_result(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1387,7 +1387,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_client_alert(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_client_alert(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   %expected_client_alert = getelementptr inbounds nuw i8, ptr %test_ctx, i64 428
   br label %for.body.i.i
@@ -1417,7 +1417,7 @@ parse_alert.exit:                                 ; preds = %for.cond.i.i, %if.t
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_server_alert(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_server_alert(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   %expected_server_alert = getelementptr inbounds nuw i8, ptr %test_ctx, i64 432
   br label %for.body.i.i
@@ -1447,7 +1447,7 @@ parse_alert.exit:                                 ; preds = %for.cond.i.i, %if.t
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_protocol(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_protocol(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   %expected_protocol = getelementptr inbounds nuw i8, ptr %test_ctx, i64 436
   br label %for.body.i
@@ -1477,7 +1477,7 @@ parse_enum.exit:                                  ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_expected_servername(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_expected_servername(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1507,7 +1507,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_session_ticket(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_session_ticket(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1537,7 +1537,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_compression_expected(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_compression_expected(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %compression_expected = getelementptr inbounds nuw i8, ptr %ctx, i64 448
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1567,7 +1567,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_session_id(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_session_id(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1597,7 +1597,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_test_method(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_test_method(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1626,7 +1626,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_test_expected_npn_protocol(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_test_expected_npn_protocol(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %expected_npn_protocol = getelementptr inbounds nuw i8, ptr %ctx, i64 456
   %0 = load ptr, ptr %expected_npn_protocol, align 8
@@ -1638,7 +1638,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_test_expected_alpn_protocol(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_test_expected_alpn_protocol(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %expected_alpn_protocol = getelementptr inbounds nuw i8, ptr %ctx, i64 464
   %0 = load ptr, ptr %expected_alpn_protocol, align 8
@@ -1650,7 +1650,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_handshake_mode(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_handshake_mode(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1680,7 +1680,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @parse_key_update_type(ptr nocapture noundef writeonly %test_ctx, ptr nocapture noundef readonly %value) #4 {
+define internal range(i32 0, 2) i32 @parse_key_update_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef readonly captures(none) %value) #4 {
 entry:
   br label %for.body.i
 
@@ -1710,7 +1710,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_resumption_expected(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_resumption_expected(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %resumption_expected = getelementptr inbounds nuw i8, ptr %ctx, i64 472
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1740,7 +1740,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal noundef i32 @parse_test_app_data_size(ptr nocapture noundef writeonly initializes((8, 12)) %ctx, ptr nocapture noundef readonly %value) #5 {
+define internal noundef i32 @parse_test_app_data_size(ptr noundef writeonly captures(none) initializes((8, 12)) %ctx, ptr noundef readonly captures(none) %value) #5 {
 entry:
   %call = tail call i32 @atoi(ptr noundef %value) #8
   %app_data_size = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -1749,7 +1749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal noundef i32 @parse_test_max_fragment_size(ptr nocapture noundef writeonly initializes((12, 16)) %ctx, ptr nocapture noundef readonly %value) #5 {
+define internal noundef i32 @parse_test_max_fragment_size(ptr noundef writeonly captures(none) initializes((12, 16)) %ctx, ptr noundef readonly captures(none) %value) #5 {
 entry:
   %call = tail call i32 @atoi(ptr noundef %value) #8
   %max_fragment_size = getelementptr inbounds nuw i8, ptr %ctx, i64 12
@@ -1758,7 +1758,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_tmp_key_type(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_tmp_key_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_tmp_key_type = getelementptr inbounds nuw i8, ptr %test_ctx, i64 476
   %call = tail call fastcc i32 @parse_expected_key_type(ptr noundef nonnull %expected_tmp_key_type, ptr noundef %value)
@@ -1766,7 +1766,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_server_cert_type(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_server_cert_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_server_cert_type = getelementptr inbounds nuw i8, ptr %test_ctx, i64 480
   %call = tail call fastcc i32 @parse_expected_key_type(ptr noundef nonnull %expected_server_cert_type, ptr noundef %value)
@@ -1774,7 +1774,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_server_sign_hash(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_server_sign_hash(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_server_sign_hash = getelementptr inbounds nuw i8, ptr %test_ctx, i64 484
   %cmp.i = icmp eq ptr %value, null
@@ -1801,7 +1801,7 @@ parse_expected_sign_hash.exit:                    ; preds = %entry, %if.end4.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_server_sign_type(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_server_sign_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_server_sign_type = getelementptr inbounds nuw i8, ptr %test_ctx, i64 488
   %call = tail call fastcc i32 @parse_expected_key_type(ptr noundef nonnull %expected_server_sign_type, ptr noundef %value)
@@ -1809,7 +1809,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_server_ca_names(ptr nocapture noundef %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_server_ca_names(ptr noundef captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_server_ca_names = getelementptr inbounds nuw i8, ptr %test_ctx, i64 496
   %libctx = getelementptr inbounds nuw i8, ptr %test_ctx, i64 568
@@ -1843,7 +1843,7 @@ parse_expected_ca_names.exit:                     ; preds = %entry, %if.end4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_client_cert_type(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_client_cert_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_client_cert_type = getelementptr inbounds nuw i8, ptr %test_ctx, i64 504
   %call = tail call fastcc i32 @parse_expected_key_type(ptr noundef nonnull %expected_client_cert_type, ptr noundef %value)
@@ -1851,7 +1851,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_client_sign_hash(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_client_sign_hash(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_client_sign_hash = getelementptr inbounds nuw i8, ptr %test_ctx, i64 508
   %cmp.i = icmp eq ptr %value, null
@@ -1878,7 +1878,7 @@ parse_expected_sign_hash.exit:                    ; preds = %entry, %if.end4.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_client_sign_type(ptr nocapture noundef writeonly %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_client_sign_type(ptr noundef writeonly captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_client_sign_type = getelementptr inbounds nuw i8, ptr %test_ctx, i64 512
   %call = tail call fastcc i32 @parse_expected_key_type(ptr noundef nonnull %expected_client_sign_type, ptr noundef %value)
@@ -1886,7 +1886,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_expected_client_ca_names(ptr nocapture noundef %test_ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_expected_client_ca_names(ptr noundef captures(none) %test_ctx, ptr noundef %value) #1 {
 entry:
   %expected_client_ca_names = getelementptr inbounds nuw i8, ptr %test_ctx, i64 520
   %libctx = getelementptr inbounds nuw i8, ptr %test_ctx, i64 568
@@ -1920,7 +1920,7 @@ parse_expected_ca_names.exit:                     ; preds = %entry, %if.end4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_use_sctp(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_use_sctp(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %use_sctp = getelementptr inbounds nuw i8, ptr %ctx, i64 528
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1950,7 +1950,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_compress_certificates(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_compress_certificates(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %compress_certificates = getelementptr inbounds nuw i8, ptr %ctx, i64 532
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -1980,7 +1980,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_enable_client_sctp_label_bug(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_enable_client_sctp_label_bug(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %enable_client_sctp_label_bug = getelementptr inbounds nuw i8, ptr %ctx, i64 536
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -2010,7 +2010,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @parse_test_enable_server_sctp_label_bug(ptr nocapture noundef writeonly %ctx, ptr noundef %value) #1 {
+define internal range(i32 0, 2) i32 @parse_test_enable_server_sctp_label_bug(ptr noundef writeonly captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %enable_server_sctp_label_bug = getelementptr inbounds nuw i8, ptr %ctx, i64 540
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %value, ptr noundef nonnull @.str.43) #7
@@ -2040,7 +2040,7 @@ parse_boolean.exit:                               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_test_expected_cipher(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_test_expected_cipher(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %expected_cipher = getelementptr inbounds nuw i8, ptr %ctx, i64 552
   %0 = load ptr, ptr %expected_cipher, align 8
@@ -2052,7 +2052,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_test_expected_session_ticket_app_data(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_test_expected_session_ticket_app_data(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %expected_session_ticket_app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 560
   %0 = load ptr, ptr %expected_session_ticket_app_data, align 8
@@ -2064,7 +2064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @parse_test_fips_version(ptr nocapture noundef %ctx, ptr noundef %value) #1 {
+define internal i32 @parse_test_fips_version(ptr noundef captures(none) %ctx, ptr noundef %value) #1 {
 entry:
   %fips_version = getelementptr inbounds nuw i8, ptr %ctx, i64 576
   %0 = load ptr, ptr %fips_version, align 8
@@ -2076,10 +2076,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_expected_key_type(ptr nocapture noundef writeonly %ptype, ptr noundef %value) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parse_expected_key_type(ptr noundef writeonly captures(none) %ptype, ptr noundef %value) unnamed_addr #1 {
 entry:
   %nid = alloca i32, align 4
   %cmp = icmp eq ptr %value, null

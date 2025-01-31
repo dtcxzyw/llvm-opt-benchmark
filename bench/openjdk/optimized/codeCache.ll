@@ -881,7 +881,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EE6appendEPKcz(ptr nound
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = sub i64 256, %5
-  %8 = call i32 @jio_vsnprintf(ptr noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #20
+  %8 = call i32 @jio_vsnprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -930,7 +930,7 @@ define hidden void @_ZN9CodeCache19reserve_heap_memoryEmm(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache8add_heapE13ReservedSpacePKc12CodeBlobType(ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache8add_heapE13ReservedSpacePKc12CodeBlobType(ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = load i8, ptr @SegmentedCodeCache, align 1
@@ -1076,7 +1076,7 @@ switch.lookup:                                    ; preds = %1
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %5 = load i32, ptr %4, align 8
@@ -1796,7 +1796,7 @@ _ZN9CodeCache13get_code_heapEPKv.exit:            ; preds = %24
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -2041,7 +2041,7 @@ _ZN9CodeCache9find_blobEPv.exit:                  ; preds = %8, %1, %3, %_ZN9Cod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache8blobs_doEPFvP8CodeBlobE(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache8blobs_doEPFvP8CodeBlobE(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not1114 = icmp eq i32 %3, 0
@@ -2086,7 +2086,7 @@ define hidden void @_ZN9CodeCache8blobs_doEPFvP8CodeBlobE(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache11nmethods_doEPFvP7nmethodE(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache11nmethods_doEPFvP7nmethodE(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache14_nmethod_heapsE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread14, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
@@ -3110,7 +3110,7 @@ define hidden void @_ZN9CodeCache14UnlinkingScopeC2EP17BoolObjectClosure(ptr nou
 declare void @_ZN17DependencyContext14cleaning_startEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache14UnlinkingScopeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache14UnlinkingScopeD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @_ZN20IsUnloadingBehaviour8_currentE, align 8
@@ -5088,7 +5088,7 @@ _ZN9CodeCache23mark_for_deoptimizationEP19DeoptimizationScopeR14KlassDepChange.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache40mark_dependents_on_method_for_breakpointERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache40mark_dependents_on_method_for_breakpointERK12methodHandle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.DeoptimizationScope, align 8
   call void @_ZN19DeoptimizationScopeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
   %3 = load ptr, ptr %0, align 8
@@ -8705,7 +8705,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare i32 @jio_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
@@ -8883,13 +8883,13 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

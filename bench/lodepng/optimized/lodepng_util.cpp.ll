@@ -128,7 +128,7 @@ $_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_default_appendEm = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7lodepng16getPNGHeaderInfoERKSt6vectorIhSaIhEE(ptr noalias nocapture writeonly sret(%struct.LodePNGInfo) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7lodepng16getPNGHeaderInfoERKSt6vectorIhSaIhEE(ptr noalias writeonly sret(%struct.LodePNGInfo) align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
   %h = alloca i32, align 4
@@ -165,13 +165,13 @@ declare noundef i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(ptr noundef, ptr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZN7lodepng5StateD1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng12getChunkInfoERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERS0_ImSaImEERKS0_IhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %names, ptr nocapture noundef nonnull align 8 dereferenceable(24) %sizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng12getChunkInfoERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERS0_ImSaImEERKS0_IhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %names, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %sizes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [5 x i8], align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -385,7 +385,7 @@ declare noundef i32 @_Z20lodepng_chunk_lengthPKh(ptr noundef) local_unnamed_addr
 declare noundef ptr @_Z24lodepng_chunk_next_constPKhS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng9getChunksEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS0_IS0_IhSaIhEESaISB_EERKSB_(ptr noundef %names, ptr noundef %chunks, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng9getChunksEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS0_IS0_IhSaIhEESaISB_EERKSB_(ptr noundef %names, ptr noundef %chunks, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [5 x i8], align 1
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -636,7 +636,7 @@ eh.resume:                                        ; preds = %ehcleanup41, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng12insertChunksERSt6vectorIhSaIhEEPKS0_IS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %png, ptr nocapture noundef readonly %chunks) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng12insertChunksERSt6vectorIhSaIhEEPKS0_IS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %png, ptr noundef readonly captures(none) %chunks) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [5 x i8], align 1
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1081,7 +1081,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %filterTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %filterTypes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %state = alloca %"class.lodepng::State", align 8
   %w = alloca i32, align 4
@@ -1745,7 +1745,7 @@ declare noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEEPKhmRK25LodePNGDe
 declare noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng14getFilterTypesERSt6vectorIhSaIhEERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %filterTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng14getFilterTypesERSt6vectorIhSaIhEERKS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %filterTypes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %passes = alloca %"class.std::vector.13", align 8
   %state = alloca %"class.lodepng::State", align 8
@@ -2021,7 +2021,7 @@ _ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 256) i32 @_ZN7lodepng15getPaletteValueEPKhmi(ptr nocapture noundef readonly %data, i64 noundef %i, i32 noundef %bits) local_unnamed_addr #5 {
+define noundef range(i32 0, 256) i32 @_ZN7lodepng15getPaletteValueEPKhmi(ptr noundef readonly captures(none) %data, i64 noundef %i, i32 noundef %bits) local_unnamed_addr #5 {
 entry:
   switch i32 %bits, label %return [
     i32 8, label %if.then
@@ -2077,7 +2077,7 @@ return:                                           ; preds = %entry, %if.then18, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7lodepng22lodepng_icc_curve_initEPNS_15LodePNGICCCurveE(ptr nocapture noundef writeonly initializes((8, 24)) %curve) local_unnamed_addr #6 {
+define void @_ZN7lodepng22lodepng_icc_curve_initEPNS_15LodePNGICCCurveE(ptr noundef writeonly captures(none) initializes((8, 24)) %curve) local_unnamed_addr #6 {
 entry:
   %lut = getelementptr inbounds nuw i8, ptr %curve, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut, i8 0, i64 16, i1 false)
@@ -2085,7 +2085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN7lodepng25lodepng_icc_curve_cleanupEPNS_15LodePNGICCCurveE(ptr nocapture noundef readonly %curve) local_unnamed_addr #7 {
+define void @_ZN7lodepng25lodepng_icc_curve_cleanupEPNS_15LodePNGICCCurveE(ptr noundef readonly captures(none) %curve) local_unnamed_addr #7 {
 entry:
   %lut = getelementptr inbounds nuw i8, ptr %curve, i64 8
   %0 = load ptr, ptr %lut, align 8
@@ -2094,7 +2094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr nocapture noundef writeonly initializes((136, 152), (192, 208), (248, 264)) %icc) local_unnamed_addr #6 {
+define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr noundef writeonly captures(none) initializes((136, 152), (192, 208), (248, 264)) %icc) local_unnamed_addr #6 {
 entry:
   %lut.i = getelementptr inbounds nuw i8, ptr %icc, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i, i8 0, i64 16, i1 false)
@@ -2106,7 +2106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN7lodepng19lodepng_icc_cleanupEPNS_10LodePNGICCE(ptr nocapture noundef readonly %icc) local_unnamed_addr #7 {
+define void @_ZN7lodepng19lodepng_icc_cleanupEPNS_10LodePNGICCE(ptr noundef readonly captures(none) %icc) local_unnamed_addr #7 {
 entry:
   %lut.i = getelementptr inbounds nuw i8, ptr %icc, i64 136
   %0 = load ptr, ptr %lut.i, align 8
@@ -2121,7 +2121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng12convertToXYZEPfS0_PKhjjPK12LodePNGState(ptr nocapture noundef %out, ptr nocapture noundef writeonly %whitepoint, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr noundef %state) local_unnamed_addr #0 {
+define noundef i32 @_ZN7lodepng12convertToXYZEPfS0_PKhjjPK12LodePNGState(ptr noundef captures(none) %out, ptr noundef writeonly captures(none) %whitepoint, ptr noundef %in, i32 noundef %w, i32 noundef %h, ptr noundef %state) local_unnamed_addr #0 {
 entry:
   %tempmode = alloca %struct.LodePNGColorMode, align 8
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
@@ -2358,7 +2358,7 @@ cleanup:                                          ; preds = %if.end10, %if.then,
 declare void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr sret(%struct.LodePNGColorMode) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr nocapture noundef nonnull %icc, ptr noundef readonly %data, i64 noundef range(i64 0, 4294967296) %size) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef nonnull captures(none) %icc, ptr noundef readonly %data, i64 noundef range(i64 0, 4294967296) %size) unnamed_addr #8 {
 entry:
   %cmp = icmp samesign ult i64 %size, 132
   br i1 %cmp, label %return, label %if.end37
@@ -3532,7 +3532,7 @@ return:                                           ; preds = %lor.lhs.false, %_ZN
 declare noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr nocapture noundef writeonly %out, i64 noundef range(i64 256, 65537) %n, i64 noundef range(i64 0, 3) %c, ptr nocapture noundef readonly %info, i32 noundef %use_icc, ptr nocapture noundef nonnull readonly %icc) unnamed_addr #9 {
+define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef writeonly captures(none) %out, i64 noundef range(i64 256, 65537) %n, i64 noundef range(i64 0, 3) %c, ptr noundef readonly captures(none) %info, i32 noundef %use_icc, ptr noundef nonnull readonly captures(none) %icc) unnamed_addr #9 {
 entry:
   %sub = add nsw i64 %n, -1
   %conv = uitofp nneg i64 %sub to float
@@ -3633,7 +3633,7 @@ if.end49:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr nocapture noundef %im, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %info, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc, ptr nocapture noundef writeonly %whitepoint) unnamed_addr #10 {
+define internal fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr noundef captures(none) %im, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %info, i32 noundef range(i32 0, 2) %use_icc, ptr noundef nonnull readonly captures(none) %icc, ptr noundef writeonly captures(none) %whitepoint) unnamed_addr #10 {
 entry:
   %m = alloca [9 x float], align 16
   %mul = mul i32 %h, %w
@@ -3724,7 +3724,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng17convertToXYZFloatEPfS0_PKfjjPK12LodePNGState(ptr nocapture noundef %out, ptr nocapture noundef writeonly %whitepoint, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng17convertToXYZFloatEPfS0_PKfjjPK12LodePNGState(ptr noundef captures(none) %out, ptr noundef writeonly captures(none) %whitepoint, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %state) local_unnamed_addr #4 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %info_png = getelementptr inbounds nuw i8, ptr %state, i64 208
@@ -4093,7 +4093,7 @@ cleanup:                                          ; preds = %if.then, %_ZN7lodep
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr noundef %state, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #0 {
+define noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr noundef %out, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, ptr noundef %state, ptr noundef readonly captures(none) %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #0 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %mode16 = alloca %struct.LodePNGColorMode, align 8
@@ -4272,7 +4272,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %info, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %info, i32 noundef range(i32 0, 2) %use_icc, ptr noundef nonnull readonly captures(none) %icc, ptr noundef readonly captures(none) %whitepoint, i32 noundef %rendering_intent) unnamed_addr #10 {
 entry:
   %m = alloca [9 x float], align 16
   %white = alloca [3 x float], align 4
@@ -4516,7 +4516,7 @@ return:                                           ; preds = %for.body51, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr nocapture noundef %im, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %info, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc) unnamed_addr #9 {
+define internal fastcc void @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef captures(none) %im, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %info, i32 noundef range(i32 0, 2) %use_icc, ptr noundef nonnull readonly captures(none) %icc) unnamed_addr #9 {
 entry:
   %mul = mul i32 %h, %w
   %conv = zext i32 %mul to i64
@@ -5011,7 +5011,7 @@ if.end65:                                         ; preds = %for.inc9, %for.inc4
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %state, ptr noundef readonly captures(none) %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #4 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %info_png = getelementptr inbounds nuw i8, ptr %state, i64 208
@@ -5471,7 +5471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN7lodepng15extractZlibInfoERSt6vectorINS_13ZlibBlockInfoESaIS1_EERKS0_IhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %zlibinfo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %in) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng15extractZlibInfoERSt6vectorINS_13ZlibBlockInfoESaIS1_EERKS0_IhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %zlibinfo, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %in) local_unnamed_addr #0 {
 entry:
   %decoder = alloca %"struct.lodepng::ExtractPNG", align 8
   store ptr %zlibinfo, ptr %decoder, align 8
@@ -5822,10 +5822,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %ehcleanup91, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9isICCwordEPKhmmPKc(ptr nocapture noundef readonly %data, i64 noundef range(i64 132, 4294967296) %size, i64 noundef %pos, ptr nocapture noundef readonly %word) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9isICCwordEPKhmmPKc(ptr noundef readonly captures(none) %data, i64 noundef range(i64 132, 4294967296) %size, i64 noundef %pos, ptr noundef readonly captures(none) %word) unnamed_addr #5 {
 entry:
   %add = add i64 %pos, 4
   %cmp = icmp ugt i64 %add, %size
@@ -5872,7 +5872,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr nocapture noundef nonnull readonly %curve, float noundef %x) unnamed_addr #14 {
+define internal fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef nonnull readonly captures(none) %curve, float noundef %x) unnamed_addr #14 {
 entry:
   %0 = load i32, ptr %curve, align 8
   switch i32 %0, label %if.end114 [
@@ -6323,7 +6323,7 @@ cond.false185:                                    ; preds = %while.body175, %whi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL7getChrmEPfS0_jPKNS_10LodePNGICCEPK11LodePNGInfo(ptr nocapture noundef nonnull writeonly %m, ptr nocapture noundef writeonly %whitepoint, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc, ptr nocapture noundef readonly %info) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL7getChrmEPfS0_jPKNS_10LodePNGICCEPK11LodePNGInfo(ptr noundef nonnull writeonly captures(none) %m, ptr noundef writeonly captures(none) %whitepoint, i32 noundef range(i32 0, 2) %use_icc, ptr noundef nonnull readonly captures(none) %icc, ptr noundef readonly captures(none) %info) unnamed_addr #10 {
 entry:
   %t.i = alloca [9 x float], align 16
   %t.i.i = alloca [9 x float], align 16
@@ -6812,10 +6812,10 @@ return:                                           ; preds = %if.then5, %if.else2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(ptr nocapture noundef nonnull %m) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(ptr noundef nonnull captures(none) %m) unnamed_addr #10 {
 entry:
   %result = alloca [9 x double], align 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %m, i64 16
@@ -6924,7 +6924,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr nocapture noundef nonnull %m, float noundef %wx0, float noundef %wy0, float noundef %wz0, float noundef %wx1, float noundef %wy1, float noundef %wz1) unnamed_addr #10 {
+define internal fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr noundef nonnull captures(none) %m, float noundef %wx0, float noundef %wy0, float noundef %wz0, float noundef %wx1, float noundef %wy1, float noundef %wz1) unnamed_addr #10 {
 entry:
   %conv = fpext float %wx0 to double
   %conv14 = fpext float %wy0 to double
@@ -7267,7 +7267,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
@@ -10625,7 +10625,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -11387,10 +11387,10 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #24

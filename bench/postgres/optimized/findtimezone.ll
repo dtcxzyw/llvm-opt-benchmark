@@ -66,13 +66,13 @@ define dso_local noundef i32 @pg_open_tzfile(ptr noundef %0, ptr noundef %1) loc
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @select_default_timezone(ptr noundef %0) local_unnamed_addr #4 {
@@ -414,7 +414,7 @@ validate_zone.exit11.thread:                      ; preds = %validate_zone.exit1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pg_load_tz(ptr noundef %0) unnamed_addr #4 {
@@ -428,11 +428,11 @@ define internal fastcc noundef ptr @pg_load_tz(ptr noundef %0) unnamed_addr #4 {
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @tzparse(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
+  %8 = tail call zeroext i1 @tzparse(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
   br i1 %8, label %16, label %18
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @tzload(ptr noundef %0, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
+  %10 = tail call i32 @tzload(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pg_load_tz.tz, i64 256), i1 noundef zeroext true) #13
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
@@ -457,14 +457,14 @@ define internal fastcc noundef ptr @pg_load_tz(ptr noundef %0) unnamed_addr #4 {
 declare zeroext i1 @pg_tz_acceptable(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @tzparse(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 declare i32 @tzload(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare void @tzset() local_unnamed_addr #7
@@ -476,7 +476,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #7
 declare ptr @localtime(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3) unnamed_addr #4 {
   %5 = alloca %struct.stat, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = tail call ptr @pgfnames(ptr noundef nonnull %0) #13
@@ -625,7 +625,7 @@ zone_name_pref.exit56:                            ; preds = %zone_name_pref.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -811,10 +811,10 @@ compare_tm.exit.thread:                           ; preds = %60, %.lr.ph, %compa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -822,20 +822,20 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @pgfnames(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @pgfnames_cleanup(ptr noundef) local_unnamed_addr #5
 
 declare ptr @pg_localtime(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

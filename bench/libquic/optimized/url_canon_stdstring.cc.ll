@@ -19,7 +19,7 @@ $_ZTIN3url12CanonOutputTIcEE = comdat any
 @_ZN3url20StdStringCanonOutputD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3url20StdStringCanonOutputD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i, i8 0, i64 16, i1 false)
@@ -69,7 +69,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3url20StdStringCanonOutputD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3url20StdStringCanonOutputD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
@@ -85,7 +85,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutput8CompleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3url20StdStringCanonOutput8CompleteEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutput6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 20)) %this, i32 noundef %sz) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3url20StdStringCanonOutput6ResizeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((8, 20)) %this, i32 noundef %sz) unnamed_addr #0 align 2 {
 entry:
   %str_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8
@@ -125,7 +125,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

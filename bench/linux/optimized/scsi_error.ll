@@ -225,10 +225,10 @@ define dso_local void @scsi_schedule_eh(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
@@ -457,7 +457,7 @@ define dso_local void @scmd_eh_abort_handler(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @scsi_noretry_cmd(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @scsi_noretry_cmd(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 16
@@ -631,7 +631,7 @@ define dso_local void @scsi_eh_scmd_add(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @scsi_eh_inc_host_failed(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @scsi_eh_inc_host_failed(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -112
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -881,7 +881,7 @@ define dso_local noundef range(i32 0, 2) i32 @scsi_timeout(ptr noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @scsi_block_when_processing_errors(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @scsi_block_when_processing_errors(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = tail call i32 @__SCT__might_resched() #14
   %4 = load ptr, ptr %0, align 8
@@ -944,7 +944,7 @@ define dso_local range(i32 0, 2) i32 @scsi_block_when_processing_errors(ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -959,7 +959,7 @@ declare dso_local void @schedule() local_unnamed_addr #1
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 8201, 8200) i32 @scsi_check_sense(ptr nocapture noundef %0) #0 align 16 {
+define dso_local range(i32 8201, 8200) i32 @scsi_check_sense(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca %struct.scsi_sense_hdr, align 8
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
@@ -1398,7 +1398,7 @@ thread-pre-split:                                 ; preds = %46, %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @scsi_command_normalize_sense(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext i1 @scsi_command_normalize_sense(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @scsi_normalize_sense(ptr noundef %4, i32 noundef 96, ptr noundef %1) #14
@@ -1406,7 +1406,7 @@ define dso_local zeroext i1 @scsi_command_normalize_sense(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_eh_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @scsi_eh_done(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -1426,7 +1426,7 @@ define dso_local void @scsi_eh_done(ptr nocapture noundef readonly %0) local_unn
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_eh_prep_cmnd(ptr nocapture noundef %0, ptr noundef initializes((0, 54), (56, 80)) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noundef initializes((0, 54), (56, 80)) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %8 = load i16, ptr %7, align 4
@@ -1550,13 +1550,13 @@ define dso_local void @scsi_eh_prep_cmnd(ptr nocapture noundef %0, ptr noundef i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @scsi_eh_restore_cmnd(ptr nocapture noundef writeonly initializes((128, 132), (152, 153), (156, 158), (160, 196), (200, 224), (232, 236), (240, 244), (288, 292)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @scsi_eh_restore_cmnd(ptr noundef writeonly captures(none) initializes((128, 132), (152, 153), (156, 158), (160, 196), (200, 224), (232, 236), (240, 244), (288, 292)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i16
@@ -1727,7 +1727,7 @@ define dso_local range(i32 0, 2) i32 @scsi_eh_get_sense(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 8201, 8200) i32 @scsi_decide_disposition(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 8201, 8200) i32 @scsi_decide_disposition(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2016
   %4 = load i32, ptr %3, align 8
@@ -1959,7 +1959,7 @@ define dso_local range(i32 8201, 8200) i32 @scsi_decide_disposition(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_handle_queue_full(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @scsi_handle_queue_full(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -2013,7 +2013,7 @@ define internal fastcc void @scsi_handle_queue_full(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_handle_queue_ramp_up(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @scsi_handle_queue_ramp_up(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -3490,7 +3490,7 @@ define dso_local void @scsi_report_bus_reset(ptr noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @__scsi_report_device_reset(ptr nocapture noundef %0, ptr nocapture readnone %1) #6 align 16 {
+define internal void @__scsi_report_device_reset(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 393216
@@ -3881,7 +3881,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @scsi_normalize_sense(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @scsi_get_sense_info_fld(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef zeroext i1 @scsi_get_sense_info_fld(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = icmp slt i32 %1, 7
   br i1 %4, label %28, label %5
 

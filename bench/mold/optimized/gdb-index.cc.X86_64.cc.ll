@@ -864,7 +864,7 @@ _ZN4mold3elf10get_bufferINS0_6X86_64EEESt4spanIhLm18446744073709551615EERNS0_7Co
   br label %for.inc
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i145: ; preds = %_ZN4mold3elf10get_bufferINS0_6X86_64EEESt4spanIhLm18446744073709551615EERNS0_7ContextIT_EEPNS0_5ChunkIS6_EE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %bcmp.i146 = call i32 @bcmp(ptr %name.sroa.6.0.copyload, ptr nonnull @.str.7, i64 %name.sroa.0.0.copyload)
+  %bcmp.i146 = call i32 @bcmp(ptr nonnull %name.sroa.6.0.copyload, ptr nonnull @.str.7, i64 %name.sroa.0.0.copyload)
   %cmp.i.i147 = icmp eq i32 %bcmp.i146, 0
   br i1 %cmp.i.i147, label %if.then28, label %for.inc
 
@@ -1826,7 +1826,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef i64 @_ZNK4mold11HyperLogLog15get_cardinalityEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
@@ -2022,7 +2022,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
@@ -2037,10 +2037,10 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
@@ -2049,7 +2049,7 @@ declare i64 @llvm.ctpop.i64(i64) #11
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #4 comdat align 2 {
@@ -2817,11 +2817,11 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.then3.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__rhs, i64 %call.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__rhs, i64 %call.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef %__rhs, i64 noundef %call.i.i)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %if.then.i4.i, %if.then.i.i.i, %if.end.i.i.i.i, %if.else.i.i
@@ -2986,11 +2986,11 @@ if.then.i.i.i12:                                  ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.end.i.i.i.i11:                                 ; preds = %if.then3.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__lhs, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__lhs, i64 %call.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %if.then.i3.i, %if.then.i.i.i12, %if.end.i.i.i.i11, %if.else.i.i
@@ -3456,7 +3456,7 @@ _ZNSt12_Vector_baseIN4mold3elf8CompunitESaIS2_EE13_M_deallocateEPS2_m.exit: ; pr
 declare void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_St26random_access_iterator_tagED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_St26random_access_iterator_tagED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -3469,7 +3469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %alloc.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8
@@ -3553,7 +3553,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %_ZN3tbb6detail2d112
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_E6cancelERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %my_wait_context = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %my_wait_context, align 16
@@ -3572,13 +3572,13 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_ED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_ED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_ED0Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #15 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E_S7_ED0Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -3597,7 +3597,7 @@ declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E_SB_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E_SB_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -4122,7 +4122,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRK
 declare void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E_SB_EEKNS1_16auto_partitionerEE8run_bodyERS4_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E_SB_EEKNS1_16auto_partitionerEE8run_bodyERS4_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
 entry:
   %p.i298.i.i.i.i.i.i.i.i.i.i.i = alloca ptr, align 8
   %high_pc.i299.i.i.i.i.i.i.i.i.i.i.i = alloca %struct.Record.332, align 8
@@ -5912,7 +5912,7 @@ return:                                           ; preds = %do.body.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_6X86_64EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %range, i64 noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_6X86_64EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly captures(none) %range, i64 noundef %base) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -6026,7 +6026,7 @@ nrvo.skipdtor:                                    ; preds = %lor.rhs
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_6X86_64EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %vec, ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef readonly %addrx, i64 noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL18read_rnglist_rangeINS0_6X86_64EEEvRSt6vectorISt4pairImmESaIS5_EEPhPNSt11conditionalIXsrT_5is_64ENSA_IXsrSB_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENSA_IXsrSB_5is_leENSC_IjLi4EEENSE_IjLi4EEEE4typeEE4typeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %vec, ptr noundef nonnull readonly captures(none) %p, ptr noundef readonly captures(none) %addrx, i64 noundef %base) unnamed_addr #4 {
 entry:
   %_M_finish.i226 = getelementptr inbounds nuw i8, ptr %vec, i64 8
   %_M_end_of_storage.i227 = getelementptr inbounds nuw i8, ptr %vec, i64 16
@@ -7533,7 +7533,7 @@ declare void @_ZN3tbb6detail2r116execute_and_waitERNS0_2d14taskERNS2_18task_grou
 declare void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -7546,7 +7546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %alloc.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8
@@ -7630,7 +7630,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %_ZN3tbb6detail2d112
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_E6cancelERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %my_wait_context = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %my_wait_context, align 16
@@ -7649,20 +7649,20 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_ED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_ED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_ED0Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #15 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6X86_64EEESt6vectorISA_SaISA_EEEEZNS6_L14read_compunitsIS8_EESC_INS6_8CompunitESaISH_EERNS6_7ContextIT_EEEUlSA_E_SA_ED0Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_6X86_64EEESt6vectorISE_SaISE_EEEEZNSA_L14read_compunitsISC_EESG_INSA_8CompunitESaISL_EERNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_6X86_64EEESt6vectorISE_SaISE_EEEEZNSA_L14read_compunitsISC_EESG_INSA_8CompunitESaISL_EERNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -8179,7 +8179,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wr
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_6X86_64EEESt6vectorISE_SaISE_EEEEZNSA_L14read_compunitsISC_EESG_INSA_8CompunitESaISL_EERNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEE8run_bodyERS4_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
+define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSA_6X86_64EEESt6vectorISE_SaISE_EEEEZNSA_L14read_compunitsISC_EESG_INSA_8CompunitESaISL_EERNSA_7ContextIT_EEEUlSE_E_SE_EEKNS1_16auto_partitionerEE8run_bodyERS4_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(144) %this, i64 %r.0.val, i64 %r.8.val) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i23.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.mold::Fatal", align 8
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.mold::Fatal", align 8
@@ -8641,7 +8641,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_6X86_64EEEElsIRA30_KcEERS5_OT_.exit: ; pred
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4mold3elflsINS0_6X86_64EEERSoS3_RKNS0_9InputFileIT_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_St26random_access_iterator_tagED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_St26random_access_iterator_tagED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -8654,7 +8654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d218for_each_root_taskIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_St26random_access_iterator_tagE7executeERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %alloc.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8
@@ -8738,7 +8738,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %_ZN3tbb6detail2d112
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_E6cancelERNS0_2d114execution_dataE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(105) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_E6cancelERNS0_2d114execution_dataE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(105) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %my_wait_context = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %my_wait_context, align 16
@@ -8757,20 +8757,20 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_ED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_ED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write)
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_ED0Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #15 align 2 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorIS7_SaIS7_EEEEZNS6_L14read_compunitsINS6_6X86_64EEESB_RNS6_7ContextIT_EEEUlRS7_E0_S7_ED0Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
-define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E0_SB_EEKNS1_16auto_partitionerEED2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8CompunitESt6vectorISB_SaISB_EEEEZNSA_L14read_compunitsINSA_6X86_64EEESF_RNSA_7ContextIT_EEEUlRSB_E0_SB_EEKNS1_16auto_partitionerEED2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -12439,7 +12439,7 @@ if.end22:                                         ; preds = %do.cond, %land.rhs,
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
@@ -16235,10 +16235,10 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22
@@ -16247,7 +16247,7 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

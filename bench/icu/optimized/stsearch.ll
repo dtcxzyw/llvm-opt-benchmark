@@ -28,13 +28,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7512StringSearch17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7512StringSearch17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7512StringSearch16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringES3_RKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringES3_RKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
@@ -302,7 +302,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare ptr @usearch_openFromCollator_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIteratorERKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIteratorERKNS_6LocaleEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale, ptr noundef %breakiter, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512StringSearchE, i64 16), ptr %this, align 8
@@ -940,7 +940,7 @@ declare noundef zeroext i1 @_ZNK6icu_7514SearchIteratoreqERKS0_(ptr noundef nonn
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512StringSearch9setOffsetEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512StringSearch9setOffsetEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %m_strsrch_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_strsrch_, align 8
@@ -951,7 +951,7 @@ entry:
 declare void @usearch_setOffset_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7512StringSearch9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7512StringSearch9getOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #1 align 2 {
 entry:
   %m_strsrch_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_strsrch_, align 8
@@ -1061,7 +1061,7 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef ptr @_ZNK6icu_7512StringSearch11getCollatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK6icu_7512StringSearch11getCollatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_strsrch_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_strsrch_, align 8
@@ -1080,7 +1080,7 @@ _ZN6icu_7517RuleBasedCollator16rbcFromUCollatorEP9UCollator.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512StringSearch11setCollatorEPNS_17RuleBasedCollatorER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef %coll, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512StringSearch11setCollatorEPNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef %coll, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -1155,7 +1155,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512StringSearch5resetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512StringSearch5resetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #1 align 2 {
 entry:
   %m_strsrch_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_strsrch_, align 8
@@ -1232,7 +1232,7 @@ declare void @_ZN6icu_7514SearchIterator13setMatchStartEi(ptr noundef nonnull al
 declare void @_ZN6icu_7514SearchIterator14setMatchLengthEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512StringSearch10handleNextEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7512StringSearch10handleNextEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0

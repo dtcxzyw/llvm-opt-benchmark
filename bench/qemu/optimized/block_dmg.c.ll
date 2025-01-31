@@ -421,7 +421,7 @@ return:                                           ; preds = %if.end3, %do.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dmg_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @dmg_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @dmg_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
+define internal void @dmg_refresh_limits(ptr noundef writeonly captures(none) initializes((16464, 16468)) %bs, ptr readnone captures(none) %errp) #2 {
 entry:
   %bl = getelementptr inbounds nuw i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
@@ -462,7 +462,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 3) i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
+define internal range(i32 0, 3) i32 @dmg_probe(ptr readnone captures(none) %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
 entry:
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end
@@ -490,7 +490,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @dmg_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -5, 1) i32 @dmg_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -594,7 +594,7 @@ declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_resource_fork(ptr nocapture noundef readonly %bs, ptr nocapture noundef nonnull %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @dmg_read_resource_fork(ptr noundef readonly captures(none) %bs, ptr noundef nonnull captures(none) %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
 entry:
   %buffer.i32 = alloca i32, align 4
   %buffer.i26 = alloca i32, align 4
@@ -702,7 +702,7 @@ fail:                                             ; preds = %if.end38, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @dmg_read_plist_xml(ptr nocapture noundef readonly %bs, ptr nocapture noundef nonnull %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @dmg_read_plist_xml(ptr noundef readonly captures(none) %bs, ptr noundef nonnull captures(none) %ds, i64 noundef %info_begin, i64 noundef range(i64 1, 0) %info_length) unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -737,7 +737,7 @@ while.body:                                       ; preds = %while.cond
 if.end11:                                         ; preds = %while.body
   %incdec.ptr = getelementptr i8, ptr %call8, i64 1
   store i8 0, ptr %call8, align 1
-  %call12 = call noalias ptr @g_base64_decode(ptr noundef %add.ptr, ptr noundef nonnull %out_len) #11
+  %call12 = call noalias ptr @g_base64_decode(ptr noundef nonnull %add.ptr, ptr noundef nonnull %out_len) #11
   %2 = load i64, ptr %out_len, align 8
   %conv = trunc i64 %2 to i32
   %call13 = call fastcc i32 @dmg_read_mish_block(ptr noundef %0, ptr noundef %ds, ptr noundef %call12, i32 noundef %conv)
@@ -776,7 +776,7 @@ declare i64 @llvm.bswap.i64(i64) #5
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @dmg_read_mish_block(ptr nocapture noundef %s, ptr nocapture noundef nonnull %ds, ptr nocapture noundef readonly %buffer, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @dmg_read_mish_block(ptr noundef captures(none) %s, ptr noundef nonnull captures(none) %ds, ptr noundef readonly captures(none) %buffer, i32 noundef %count) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %buffer, align 4
   %cmp = icmp ne i32 %0, 1752394093
@@ -1023,22 +1023,22 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noalias ptr @g_base64_decode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @dmg_read_chunk(ptr nocapture noundef readonly %bs, i64 noundef %sector_num) #0 {
+define internal range(i32 -2147483648, 1) i32 @dmg_read_chunk(ptr noundef readonly captures(none) %bs, i64 noundef %sector_num) #0 {
 entry:
   %qiov.i92 = alloca %struct.QEMUIOVector, align 8
   %qiov.i87 = alloca %struct.QEMUIOVector, align 8
@@ -1373,10 +1373,10 @@ declare void @assert_bdrv_graph_readable() local_unnamed_addr #1
 declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -1385,7 +1385,7 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

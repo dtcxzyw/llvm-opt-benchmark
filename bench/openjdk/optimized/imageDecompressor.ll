@@ -92,7 +92,7 @@ define hidden void @_ZN17ImageDecompressor24image_decompressor_closeEv() local_u
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZN17ImageDecompressor23image_decompressor_initEv.exit
@@ -157,10 +157,10 @@ _ZN17ImageDecompressor23image_decompressor_initEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN17ImageDecompressor5getU8EPhP6Endian(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZN17ImageDecompressor5getU8EPhP6Endian(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 1
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -187,13 +187,13 @@ define hidden noundef i64 @_ZN17ImageDecompressor5getU8EPhP6Endian(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN17ImageDecompressor5getU4EPhP6Endian(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN17ImageDecompressor5getU4EPhP6Endian(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %struct.ResourceHeader, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -293,10 +293,10 @@ define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15ZipDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ZipDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -316,7 +316,7 @@ define hidden noundef zeroext i8 @_ZN15ZipDecompressor10decompressEPvyS0_yPPc(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef initializes((0, 10)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 10)) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) %1, i64 10, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -419,7 +419,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %_ZN24SharedSt
   %62 = getelementptr inbounds nuw i8, ptr %.0194, i64 3
   %sext124 = shl i64 %60, 32
   %63 = ashr exact i64 %sext124, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %59, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %59, i64 %63, i1 false)
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   br label %294
 
@@ -665,7 +665,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %_ZN24Share
   %211 = zext nneg i32 %210 to i64
   %212 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %211) #12
   %213 = and i64 %206, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr align 1 %205, i64 %213, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr nonnull align 1 %205, i64 %213, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 %213
   store i8 47, ptr %214, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, ptr noundef nonnull align 1 dereferenceable(1) %212, i64 %211, i1 false)
@@ -751,7 +751,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   %263 = trunc i64 %262 to i32
   %sext122 = shl i64 %262, 32
   %264 = ashr exact i64 %sext122, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr align 1 %261, i64 %264, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr nonnull align 1 %261, i64 %264, i1 false)
   %265 = getelementptr inbounds i8, ptr %.3, i64 %264
   %266 = add nsw i32 %.2113, %263
   br label %267
@@ -770,7 +770,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   %272 = trunc i64 %271 to i32
   %sext121 = shl i64 %271, 32
   %273 = ashr exact i64 %sext121, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr align 1 %152, i64 %273, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %152, i64 %273, i1 false)
   %274 = getelementptr inbounds i8, ptr %149, i64 %273
   br label %.loopexit
 
@@ -854,7 +854,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
 declare noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN24SharedStringDecompressor14decompress_intERPh(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN24SharedStringDecompressor14decompress_intERPh(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp slt i8 %3, 0
@@ -928,12 +928,12 @@ define hidden noundef i32 @_ZN24SharedStringDecompressor14decompress_intERPh(ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZN6Endian8set_javaEPht(ptr noundef, i16 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @JVM_LoadZipLibrary() local_unnamed_addr #7
 

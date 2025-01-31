@@ -51,7 +51,7 @@ $_ZN5clang5arcmt13MigrateActionD0Ev = comdat any
 @_ZN5clang5arcmt13MigrateActionC1ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EEN4llvm9StringRefES8_b = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr, i64, i1), ptr @_ZN5clang5arcmt13MigrateActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EEN4llvm9StringRefES8_b
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5arcmt11CheckAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5arcmt11CheckAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -184,10 +184,10 @@ _ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit: ; preds = %_ZNK5cl
 declare noundef zeroext i1 @_ZN5clang5arcmt20checkForManualIssuesERNS_18CompilerInvocationERKNS_17FrontendInputFileESt10shared_ptrINS_22PCHContainerOperationsEEPNS_18DiagnosticConsumerEbN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(77), ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef byval(%"class.llvm::StringRef") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt11CheckActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5arcmt11CheckActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.121", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -212,7 +212,7 @@ _ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit: ; p
 declare void @_ZN5clang21WrapperFrontendActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5arcmt12ModifyAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5arcmt12ModifyAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -330,7 +330,7 @@ _ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit: ; preds = %_ZNK5cl
 declare noundef zeroext i1 @_ZN5clang5arcmt20applyTransformationsERNS_18CompilerInvocationERKNS_17FrontendInputFileESt10shared_ptrINS_22PCHContainerOperationsEEPNS_18DiagnosticConsumerE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(77), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt12ModifyActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5arcmt12ModifyActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.121", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -353,7 +353,7 @@ _ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5arcmt13MigrateAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5arcmt13MigrateAction15BeginInvocationERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -497,7 +497,7 @@ _ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit: ; preds = %_ZNK5cl
 declare noundef zeroext i1 @_ZN5clang5arcmt25migrateWithTemporaryFilesERNS_18CompilerInvocationERKNS_17FrontendInputFileESt10shared_ptrINS_22PCHContainerOperationsEEPNS_18DiagnosticConsumerEN4llvm9StringRefEbSC_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(77), ptr noundef, ptr noundef, ptr, i64, i1 noundef zeroext, ptr noundef byval(%"class.llvm::StringRef") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt13MigrateActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EEN4llvm9StringRefES8_b(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr nocapture noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5arcmt13MigrateActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS3_EEN4llvm9StringRefES8_b(ptr noundef nonnull align 8 dereferenceable(177) %0, ptr noundef captures(none) %1, ptr %2, i64 %3, ptr %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %10 = alloca %"class.std::unique_ptr.121", align 8
@@ -769,10 +769,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

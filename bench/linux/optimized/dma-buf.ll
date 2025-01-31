@@ -117,7 +117,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [25 x ptr] [ptr @__UNIQUE_ID___addressable_dma_buf_attach395, ptr @__UNIQUE_ID___addressable_dma_buf_begin_cpu_access420, ptr @__UNIQUE_ID___addressable_dma_buf_detach398, ptr @__UNIQUE_ID___addressable_dma_buf_dynamic_attach394, ptr @__UNIQUE_ID___addressable_dma_buf_end_cpu_access423, ptr @__UNIQUE_ID___addressable_dma_buf_export384, ptr @__UNIQUE_ID___addressable_dma_buf_fd385, ptr @__UNIQUE_ID___addressable_dma_buf_get386, ptr @__UNIQUE_ID___addressable_dma_buf_init447, ptr @__UNIQUE_ID___addressable_dma_buf_map_attachment407, ptr @__UNIQUE_ID___addressable_dma_buf_map_attachment_unlocked410, ptr @__UNIQUE_ID___addressable_dma_buf_mmap426, ptr @__UNIQUE_ID___addressable_dma_buf_move_notify417, ptr @__UNIQUE_ID___addressable_dma_buf_pin401, ptr @__UNIQUE_ID___addressable_dma_buf_put389, ptr @__UNIQUE_ID___addressable_dma_buf_unmap_attachment413, ptr @__UNIQUE_ID___addressable_dma_buf_unmap_attachment_unlocked416, ptr @__UNIQUE_ID___addressable_dma_buf_unpin404, ptr @__UNIQUE_ID___addressable_dma_buf_vmap433, ptr @__UNIQUE_ID___addressable_dma_buf_vmap_unlocked436, ptr @__UNIQUE_ID___addressable_dma_buf_vunmap442, ptr @__UNIQUE_ID___addressable_dma_buf_vunmap_unlocked445, ptr @__exitcall_dma_buf_deinit, ptr @dma_buf_deinit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_buf_export(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @dma_buf_export(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -331,16 +331,16 @@ define dso_local ptr @dma_buf_export(ptr nocapture noundef readonly %0) #0 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1282,7 +1282,7 @@ define dso_local i32 @dma_buf_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %
 declare dso_local void @vma_set_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca %struct.iosys_map, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1372,10 +1372,10 @@ define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr nocapture noundef initial
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_buf_vmap_unlocked(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define dso_local i32 @dma_buf_vmap_unlocked(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca %struct.iosys_map, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -1721,7 +1721,7 @@ declare dso_local ptr @alloc_file_pseudo(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i64 @dma_buf_llseek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) #6 align 16 {
+define internal i64 @dma_buf_llseek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @dma_buf_fops
@@ -1905,7 +1905,7 @@ define internal range(i32 0, 9) i32 @dma_buf_poll(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @dma_buf_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal i64 @dma_buf_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.dma_buf_import_sync_file, align 8
   %5 = alloca %struct.dma_fence_unwrap, align 8
   %6 = alloca %struct.dma_buf_export_sync_file, align 8
@@ -2201,7 +2201,7 @@ default.unreachable16:                            ; preds = %18
 declare dso_local i64 @compat_ptr_ioctl(ptr noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dma_buf_mmap_internal(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @dma_buf_mmap_internal(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @dma_buf_fops
@@ -2241,7 +2241,7 @@ define internal i32 @dma_buf_mmap_internal(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @dma_buf_fops
@@ -2273,7 +2273,7 @@ define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dma_buf_show_fdinfo(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @dma_buf_show_fdinfo(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
@@ -2370,7 +2370,7 @@ define internal fastcc noundef zeroext i1 @dma_buf_poll_add_cb(ptr noundef nonnu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dma_buf_poll_cb(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @dma_buf_poll_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #10
@@ -2534,7 +2534,7 @@ declare dso_local void @kill_anon_super(ptr noundef) #2
 declare dso_local ptr @init_pseudo(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dma_buf_release(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @dma_buf_release(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2611,7 +2611,7 @@ define internal void @dma_buf_release(ptr nocapture noundef readonly %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @dmabuffs_dname(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal ptr @dmabuffs_dname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !69
@@ -2662,7 +2662,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dma_buf_debug_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @dma_buf_debug_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @dma_buf_debug_show, ptr noundef %4) #10
@@ -2676,7 +2676,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dma_buf_debug_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @dma_buf_debug_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @db_list, i64 16)) #10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %65

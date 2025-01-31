@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.finalize_grouping_exprs_walker = private unnamed_addr constant [31 x i8] c"finalize_grouping_exprs_walker\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformAggregateCall(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @transformAggregateCall(ptr noundef %0, ptr noundef captures(none) initializes((32, 40)) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 74
@@ -270,7 +270,7 @@ list_length.exit121.split:                        ; preds = %list_length.exit121
   %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %90) #10
   %92 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #10
   %93 = call i32 @exprLocation(ptr noundef %86) #10
-  %94 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %93) #10
+  %94 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %93) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 213, ptr noundef nonnull @__func__.transformAggregateCall) #10
   unreachable
 
@@ -407,7 +407,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_agglevels_and_constraints(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_agglevels_and_constraints(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.check_agg_arguments_context, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 9
@@ -677,7 +677,7 @@ check_agg_arguments.exit:                         ; preds = %42, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformGroupingFunc(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformGroupingFunc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @palloc0(i64 noundef 40) #10
@@ -740,7 +740,7 @@ list_length.exit:                                 ; preds = %2
 declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -1061,7 +1061,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @ParseExprKindName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1696,7 +1696,7 @@ declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @locate_agg_of_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @expand_groupingset_node(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @expand_groupingset_node(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %.thread82 [
@@ -1879,7 +1879,7 @@ declare ptr @list_union_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cmp_list_len_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @cmp_list_len_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %list_length.exit, label %4
@@ -1909,7 +1909,7 @@ list_length.exit4:                                ; preds = %list_length.exit, %
 declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cmp_list_len_contents_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @cmp_list_len_contents_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %list_length.exit.i.thread, label %list_length.exit.i
@@ -1997,7 +1997,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @get_aggregate_argtypes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local i32 @get_aggregate_argtypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2071,7 +2071,7 @@ declare i32 @enforce_generic_type_consistency(ptr noundef, ptr noundef, i32 noun
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2150,7 +2150,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_transfn_expr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly %9) local_unnamed_addr #0 {
   %11 = zext i1 %3 to i8
   %12 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %12, align 4
@@ -2232,7 +2232,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2254,7 +2254,7 @@ define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2292,7 +2292,7 @@ define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr nocap
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_finalfn_expr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_finalfn_expr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -3062,10 +3062,10 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

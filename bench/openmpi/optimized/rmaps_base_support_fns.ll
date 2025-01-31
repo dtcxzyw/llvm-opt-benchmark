@@ -165,14 +165,14 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 declare i32 @prte_util_filter_dash_host_nodes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_base_get_target_nodes(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define noundef i32 @prte_rmaps_base_get_target_nodes(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.pmix_list_t, align 8
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -605,7 +605,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 .lr.ph.i454:                                      ; preds = %221, %.lr.ph.i454
   %227 = phi ptr [ %229, %.lr.ph.i454 ], [ %226, %221 ]
   %.07.i455 = phi ptr [ %228, %.lr.ph.i454 ], [ %225, %221 ]
-  call void %227(ptr noundef %.0330540) #10
+  call void %227(ptr noundef nonnull %.0330540) #10
   %228 = getelementptr inbounds nuw i8, ptr %.07.i455, i64 8
   %229 = load ptr, ptr %228, align 8
   %.not.i456 = icmp eq ptr %229, null
@@ -1138,7 +1138,7 @@ pmix_obj_run_destructors.exit463:                 ; preds = %.lr.ph.i460, %._cri
 .lr.ph.i471:                                      ; preds = %493, %.lr.ph.i471
   %499 = phi ptr [ %501, %.lr.ph.i471 ], [ %498, %493 ]
   %.07.i472 = phi ptr [ %500, %.lr.ph.i471 ], [ %497, %493 ]
-  call void %499(ptr noundef %.0334547) #10
+  call void %499(ptr noundef nonnull %.0334547) #10
   %500 = getelementptr inbounds nuw i8, ptr %.07.i472, i64 8
   %501 = load ptr, ptr %500, align 8
   %.not.i473 = icmp eq ptr %501, null
@@ -1214,7 +1214,7 @@ pmix_obj_run_destructors.exit474:                 ; preds = %.lr.ph.i471, %493
 .lr.ph.i477:                                      ; preds = %533, %.lr.ph.i477
   %539 = phi ptr [ %541, %.lr.ph.i477 ], [ %538, %533 ]
   %.07.i478 = phi ptr [ %540, %.lr.ph.i477 ], [ %537, %533 ]
-  call void %539(ptr noundef %.0334547) #10
+  call void %539(ptr noundef nonnull %.0334547) #10
   %540 = getelementptr inbounds nuw i8, ptr %.07.i478, i64 8
   %541 = load ptr, ptr %540, align 8
   %.not.i479 = icmp eq ptr %541, null
@@ -1338,7 +1338,7 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %533
 .lr.ph.i483:                                      ; preds = %596, %.lr.ph.i483
   %602 = phi ptr [ %604, %.lr.ph.i483 ], [ %601, %596 ]
   %.07.i484 = phi ptr [ %603, %.lr.ph.i483 ], [ %600, %596 ]
-  call void %602(ptr noundef %.1335554) #10
+  call void %602(ptr noundef nonnull %.1335554) #10
   %603 = getelementptr inbounds nuw i8, ptr %.07.i484, i64 8
   %604 = load ptr, ptr %603, align 8
   %.not.i485 = icmp eq ptr %604, null
@@ -1435,7 +1435,7 @@ pmix_obj_run_destructors.exit486:                 ; preds = %.lr.ph.i483, %596
 .lr.ph.i489:                                      ; preds = %647, %.lr.ph.i489
   %653 = phi ptr [ %655, %.lr.ph.i489 ], [ %652, %647 ]
   %.07.i490 = phi ptr [ %654, %.lr.ph.i489 ], [ %651, %647 ]
-  call void %653(ptr noundef %.1335554) #10
+  call void %653(ptr noundef nonnull %.1335554) #10
   %654 = getelementptr inbounds nuw i8, ptr %.07.i490, i64 8
   %655 = load ptr, ptr %654, align 8
   %.not.i491 = icmp eq ptr %655, null
@@ -1532,7 +1532,7 @@ pmix_obj_run_destructors.exit492:                 ; preds = %.lr.ph.i489, %647
 .lr.ph.i495:                                      ; preds = %696, %.lr.ph.i495
   %702 = phi ptr [ %704, %.lr.ph.i495 ], [ %701, %696 ]
   %.07.i496 = phi ptr [ %703, %.lr.ph.i495 ], [ %700, %696 ]
-  call void %702(ptr noundef %.1335554) #10
+  call void %702(ptr noundef nonnull %.1335554) #10
   %703 = getelementptr inbounds nuw i8, ptr %.07.i496, i64 8
   %704 = load ptr, ptr %703, align 8
   %.not.i497 = icmp eq ptr %704, null
@@ -1627,7 +1627,7 @@ pmix_obj_run_destructors.exit498:                 ; preds = %.lr.ph.i495, %696
 .lr.ph.i501:                                      ; preds = %745, %.lr.ph.i501
   %751 = phi ptr [ %753, %.lr.ph.i501 ], [ %750, %745 ]
   %.07.i502 = phi ptr [ %752, %.lr.ph.i501 ], [ %749, %745 ]
-  call void %751(ptr noundef %.1335554) #10
+  call void %751(ptr noundef nonnull %.1335554) #10
   %752 = getelementptr inbounds nuw i8, ptr %.07.i502, i64 8
   %753 = load ptr, ptr %752, align 8
   %.not.i503 = icmp eq ptr %753, null
@@ -1791,7 +1791,7 @@ pmix_obj_run_destructors.exit504:                 ; preds = %.lr.ph.i501, %745
 .lr.ph.i507:                                      ; preds = %837, %.lr.ph.i507
   %843 = phi ptr [ %845, %.lr.ph.i507 ], [ %842, %837 ]
   %.07.i508 = phi ptr [ %844, %.lr.ph.i507 ], [ %841, %837 ]
-  call void %843(ptr noundef %.1335554) #10
+  call void %843(ptr noundef nonnull %.1335554) #10
   %844 = getelementptr inbounds nuw i8, ptr %.07.i508, i64 8
   %845 = load ptr, ptr %844, align 8
   %.not.i509 = icmp eq ptr %845, null
@@ -1971,7 +1971,7 @@ declare i32 @hwloc_bitmap_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @prte_util_dash_host_compute_slots(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2413,7 +2413,7 @@ declare i32 @prte_rmaps_base_bind_proc(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @pmix_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_rmaps_base_get_ncpus(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i32 @prte_rmaps_base_get_ncpus(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2512,7 +2512,7 @@ declare i32 @hwloc_bitmap_and(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @prte_rmaps_base_check_avail(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @prte_rmaps_base_check_avail(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %20
@@ -2757,7 +2757,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %70
 declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @prte_rmaps_base_get_cpuset(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((24, 32)) %2) local_unnamed_addr #0 {
+define void @prte_rmaps_base_get_cpuset(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((24, 32)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2790,7 +2790,7 @@ define void @prte_rmaps_base_get_cpuset(ptr nocapture noundef readnone %0, ptr n
 declare ptr @prte_hwloc_base_generate_cpuset(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_rmaps_base_check_support(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_check_support(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %5 = load i16, ptr %4, align 4
   %6 = and i16 %5, 4096
@@ -2893,7 +2893,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_check_support(ptr nocapture nounde
 declare ptr @hwloc_topology_get_support(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 2
@@ -3009,7 +3009,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7
@@ -3035,7 +3035,7 @@ declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #3
 declare i32 @hwloc_bitmap_isincluded(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_reflect_DirectMethodHandleAccessor_00024NativeAccessor_invoke0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_reflect_DirectMethodHandleAccessor_00024NativeAccessor_invoke0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @JVM_InvokeMethod(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2
   ret ptr %6
 }
@@ -12,7 +12,7 @@ define ptr @Java_jdk_internal_reflect_DirectMethodHandleAccessor_00024NativeAcce
 declare ptr @JVM_InvokeMethod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_reflect_DirectConstructorHandleAccessor_00024NativeAccessor_newInstance0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_reflect_DirectConstructorHandleAccessor_00024NativeAccessor_newInstance0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @JVM_NewInstanceFromConstructor(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret ptr %5
 }

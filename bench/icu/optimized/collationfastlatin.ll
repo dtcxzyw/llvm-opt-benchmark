@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr nocapture noundef writeonly %primaries, i32 noundef %capacity) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef writeonly captures(none) %primaries, i32 noundef %capacity) local_unnamed_addr #0 align 2 {
 entry:
   %fastLatinTable = getelementptr inbounds nuw i8, ptr %data, i64 88
   %0 = load ptr, ptr %fastLatinTable, align 8
@@ -195,7 +195,7 @@ return:                                           ; preds = %if.then21, %_ZNK6ic
 declare noundef i32 @_ZNK6icu_7513CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %primaries, i32 noundef %options, ptr noundef %left, i32 noundef %leftLength, ptr noundef %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef readonly captures(none) %table, ptr noundef readonly captures(none) %primaries, i32 noundef %options, ptr noundef %left, i32 noundef %leftLength, ptr noundef %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
 entry:
   %leftLength.addr = alloca i32, align 4
   %rightLength.addr = alloca i32, align 4
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %if.else40, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin6lookupEPKti(ptr nocapture noundef readonly %table, i32 noundef %c) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin6lookupEPKti(ptr noundef readonly captures(none) %table, i32 noundef %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = and i32 %c, -64
   %or.cond = icmp eq i32 %0, 8192
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr nocapture noundef readonly %table, i32 noundef %c, i32 noundef %ce, ptr noundef readonly %s16, ptr nocapture noundef readonly %s8, ptr nocapture noundef nonnull align 4 dereferenceable(4) %sIndex, ptr nocapture noundef nonnull align 4 dereferenceable(4) %sLength) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %table, i32 noundef %c, i32 noundef %ce, ptr noundef readonly %s16, ptr noundef readonly captures(none) %s8, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sIndex, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sLength) local_unnamed_addr #4 align 2 {
 entry:
   %0 = add i32 %ce, -3072
   %or.cond = icmp ult i32 %0, -2048
@@ -1985,7 +1985,7 @@ if.end22:                                         ; preds = %if.else15, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin11compareUTF8EPKtS2_iPKhiS4_i(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %primaries, i32 noundef %options, ptr nocapture noundef readonly %left, i32 noundef %leftLength, ptr nocapture noundef readonly %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -2, 2) i32 @_ZN6icu_7518CollationFastLatin11compareUTF8EPKtS2_iPKhiS4_i(ptr noundef readonly captures(none) %table, ptr noundef readonly captures(none) %primaries, i32 noundef %options, ptr noundef readonly captures(none) %left, i32 noundef %leftLength, ptr noundef readonly captures(none) %right, i32 noundef %rightLength) local_unnamed_addr #2 align 2 {
 entry:
   %leftLength.addr = alloca i32, align 4
   %rightLength.addr = alloca i32, align 4
@@ -3596,7 +3596,7 @@ return:                                           ; preds = %if.else58, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin10lookupUTF8EPKtiPKhRii(ptr nocapture noundef readonly %table, i32 noundef %c, ptr nocapture noundef readonly %s8, ptr nocapture noundef nonnull align 4 dereferenceable(4) %sIndex, i32 noundef %sLength) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin10lookupUTF8EPKtiPKhRii(ptr noundef readonly captures(none) %table, i32 noundef %c, ptr noundef readonly captures(none) %s8, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sIndex, i32 noundef %sLength) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %sIndex, align 4
   %add = add nsw i32 %0, 1
@@ -3648,7 +3648,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi(ptr nocapture noundef readonly %table, i32 noundef %c, ptr nocapture noundef readonly %s8, ptr nocapture noundef nonnull align 4 dereferenceable(4) %sIndex) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7518CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi(ptr noundef readonly captures(none) %table, i32 noundef %c, ptr noundef readonly captures(none) %s8, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sIndex) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %c, 198
   br i1 %cmp, label %if.then, label %if.end
@@ -3701,7 +3701,7 @@ return:                                           ; preds = %if.else, %if.then9,
 declare noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -64,7 +64,7 @@ define void @_ZN7anki_io25new_tempfile_in_parent_of17h5736518e7a800b45E(ptr sret
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7anki_io13atomic_rename17h7394cf1f8fa13ba2E(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3, i1 zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN7anki_io13atomic_rename17h7394cf1f8fa13ba2E(ptr writeonly sret({ i64, [7 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 1 %2, i64 %3, i1 zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }, align 8
   %7 = alloca { ptr, { { ptr, i64 }, i32, [1 x i32] } }, align 8
   %8 = alloca { { i64, [3 x i64] }, { ptr, i64 } }, align 8
@@ -241,7 +241,7 @@ define noundef zeroext i1 @_ZN7anki_io16filename_is_safe17h213df1d603cc1d19E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5ba808892d3d51E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5ba808892d3d51E"(ptr writeonly sret({ i64, [5 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [21 x i64] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
@@ -328,7 +328,7 @@ declare void @_ZN8tempfile4file13NamedTempFile3new17h9d3c26bad0824576E(ptr sret(
 declare void @_ZN3std3env8temp_dir17hc73ed224725fa276E(ptr sret({ { { { { ptr, i64 }, i64 } } } }) align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snafu..ResultExt$LT$T$C$E$GT$$GT$7context17hdced20d4a4f20fe5E"(ptr sret({ i64, [7 x i64] }) align 8, ptr align 8, ptr align 8, ptr align 8) unnamed_addr #0

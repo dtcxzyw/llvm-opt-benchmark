@@ -296,7 +296,7 @@ declare i64 @FT_Atan2(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @FT_Vector_From_Polar(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_subpath_start(ptr nocapture noundef nonnull initializes((136, 137)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull captures(none) initializes((136, 137)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -447,7 +447,7 @@ ft_stroke_border_moveto.exit20:                   ; preds = %52, %65, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
@@ -766,7 +766,7 @@ ft_stroker_outside.exit:                          ; preds = %77, %.thread77.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_lineto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -897,7 +897,7 @@ ft_stroke_border_grow.exit:                       ; preds = %49, %56
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
@@ -1290,7 +1290,7 @@ declare i64 @FT_Sin(i64 noundef) local_unnamed_addr #1
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_conicto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1856,7 +1856,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_cubicto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2385,7 +2385,7 @@ ft_stroke_border_close.exit54:                    ; preds = %173, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_cap(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -3599,12 +3599,12 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @FT_Vector_Unit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
@@ -3754,16 +3754,16 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 declare i64 @llvm.smax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

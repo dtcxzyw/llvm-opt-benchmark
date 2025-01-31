@@ -287,7 +287,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node23IsConstructCallCallbackERKN2v820FunctionCallbackInfoINS0_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 {
+define dso_local void @_ZN4node23IsConstructCallCallbackERKN2v820FunctionCallbackInfoINS0_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -334,7 +334,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15LibuvStreamWrap10InitializeEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPv(ptr %target.coerce, ptr nocapture readnone %unused.coerce, ptr %context.coerce, ptr nocapture readnone %priv) #3 align 2 {
+define dso_local void @_ZN4node15LibuvStreamWrap10InitializeEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPv(ptr %target.coerce, ptr readnone captures(none) %unused.coerce, ptr %context.coerce, ptr readnone captures(none) %priv) #3 align 2 {
 entry:
   %cmp.i.i.i = icmp eq ptr %context.coerce, null
   br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %if.end.i.i
@@ -549,7 +549,7 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i578, %_ZNK
 declare ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef, ptr noundef, ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @_ZN2v816FunctionTemplate16InstanceTemplateEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
@@ -771,7 +771,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15LibuvStreamWrap17GetWriteQueueSizeERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info) #3 align 2 {
+define dso_local void @_ZN4node15LibuvStreamWrap17GetWriteQueueSizeERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %info) #3 align 2 {
 entry:
   %values_.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load ptr, ptr %values_.i, align 8
@@ -857,7 +857,7 @@ return:                                           ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15LibuvStreamWrap11SetBlockingERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define dso_local void @_ZN4node15LibuvStreamWrap11SetBlockingERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %1 = load i64, ptr %0, align 8
@@ -1044,7 +1044,7 @@ declare void @_ZN4node14SetProtoMethodEPN2v87IsolateENS0_5LocalINS0_16FunctionTe
 declare void @_ZN4node10StreamBase10AddMethodsEPNS_11EnvironmentEN2v85LocalINS3_16FunctionTemplateEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node15LibuvStreamWrap4FromEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr nocapture noundef readonly %env, ptr %object.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node15LibuvStreamWrap4FromEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef readonly captures(none) %env, ptr %object.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 96
   %0 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1095,7 +1095,7 @@ _ZN4node6UnwrapINS_15LibuvStreamWrapEEEPT_N2v85LocalINS4_5ValueEEE.exit: ; preds
 declare noundef zeroext i1 @_ZN2v816FunctionTemplate11HasInstanceENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node15LibuvStreamWrap5GetFDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node15LibuvStreamWrap5GetFDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #3 align 2 {
 entry:
   %fd = alloca i32, align 4
   store i32 -1, ptr %fd, align 4
@@ -1117,7 +1117,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @uv_fileno(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap5GetFDEv(ptr nocapture noundef readonly %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap5GetFDEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %fd.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fd.i)
@@ -1168,7 +1168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node15LibuvStreamWrap9IsClosingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node15LibuvStreamWrap9IsClosingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #3 align 2 {
 entry:
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %stream_.i, align 8
@@ -1180,7 +1180,7 @@ entry:
 declare i32 @uv_is_closing(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_ZThn88_N4node15LibuvStreamWrap9IsClosingEv(ptr nocapture noundef readonly %this) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZThn88_N4node15LibuvStreamWrap9IsClosingEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stream_.i.i, align 8
@@ -1203,7 +1203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4node15LibuvStreamWrap9IsIPCPipeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node15LibuvStreamWrap9IsIPCPipeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #8 align 2 {
 entry:
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %stream_.i.i.i, align 8
@@ -1224,7 +1224,7 @@ _ZNK4node15LibuvStreamWrap17is_named_pipe_ipcEv.exit: ; preds = %entry, %land.rh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZThn88_N4node15LibuvStreamWrap9IsIPCPipeEv(ptr nocapture noundef readonly %this) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZThn88_N4node15LibuvStreamWrap9IsIPCPipeEv(ptr noundef readonly captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   %stream_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stream_.i.i.i.i, align 8
@@ -1245,7 +1245,7 @@ _ZN4node15LibuvStreamWrap9IsIPCPipeEv.exit:       ; preds = %entry, %land.rhs.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node15LibuvStreamWrap9ReadStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node15LibuvStreamWrap9ReadStartEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #3 align 2 {
 entry:
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %stream_.i, align 8
@@ -1256,7 +1256,7 @@ entry:
 declare i32 @uv_read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap9ReadStartEv(ptr nocapture noundef readonly %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap9ReadStartEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stream_.i.i, align 8
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node15LibuvStreamWrap8ReadStopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node15LibuvStreamWrap8ReadStopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #3 align 2 {
 entry:
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %stream_.i, align 8
@@ -1276,7 +1276,7 @@ entry:
 declare i32 @uv_read_stop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap8ReadStopEv(ptr nocapture noundef readonly %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap8ReadStopEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %stream_.i.i, align 8
@@ -1285,7 +1285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15LibuvStreamWrap9OnUvAllocEmP8uv_buf_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i64 noundef %suggested_size, ptr nocapture noundef writeonly initializes((0, 16)) %buf) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15LibuvStreamWrap9OnUvAllocEmP8uv_buf_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i64 noundef %suggested_size, ptr noundef writeonly captures(none) initializes((0, 16)) %buf) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1947,7 +1947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef %req_wrap_) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef %req_wrap_) unnamed_addr #3 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %req_wrap_, i64 16
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -2043,7 +2043,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture noundef readonly %this, ptr noundef %req_wrap_) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE(ptr noundef readonly captures(none) %this, ptr noundef %req_wrap_) unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %req_wrap_, i64 16
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2099,7 +2099,7 @@ _ZN4node15LibuvStreamWrap10DoShutdownEPNS_12ShutdownWrapE.exit: ; preds = %_ZN4n
 declare void @_ZN4node9StreamReq4DoneEiPKc(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 -2147483648, 1) i32 @_ZN4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @_ZN4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef captures(none) %bufs, ptr noundef captures(none) %count) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %1 = load i64, ptr %count, align 8
@@ -2166,7 +2166,7 @@ return:                                           ; preds = %if.end, %entry, %en
 declare i32 @uv_try_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -2147483648, 1) i32 @_ZThn88_N4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr nocapture noundef readonly %this, ptr nocapture noundef %bufs, ptr nocapture noundef %count) unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @_ZThn88_N4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm(ptr noundef readonly captures(none) %this, ptr noundef captures(none) %bufs, ptr noundef captures(none) %count) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %1 = load i64, ptr %count, align 8
@@ -2231,7 +2231,7 @@ _ZN4node15LibuvStreamWrap10DoTryWriteEPP8uv_buf_tPm.exit: ; preds = %entry, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node15LibuvStreamWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef %req_wrap, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node15LibuvStreamWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef %req_wrap, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle) unnamed_addr #3 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %req_wrap, i64 24
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -2328,7 +2328,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture noundef readonly %this, ptr noundef %req_wrap, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZThn88_N4node15LibuvStreamWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr noundef readonly captures(none) %this, ptr noundef %req_wrap, ptr noundef %bufs, i64 noundef %count, ptr noundef %send_handle) unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %req_wrap, i64 24
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2565,13 +2565,13 @@ declare noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(p
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr nocapture noundef readonly %handle, i64 noundef %suggested_size, ptr nocapture noundef writeonly initializes((0, 16)) %buf) #3 align 2 {
+define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr noundef readonly captures(none) %handle, i64 noundef %suggested_size, ptr noundef writeonly captures(none) initializes((0, 16)) %buf) #3 align 2 {
 entry:
   %scope.i.i = alloca %"class.v8::HandleScope", align 8
   %handle.val = load ptr, ptr %handle, align 8
@@ -2611,7 +2611,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_18__invokeEP11uv_stream_slPK8uv_buf_t"(ptr nocapture noundef readonly %stream, i64 noundef %nread, ptr noundef %buf) #3 align 2 {
+define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_18__invokeEP11uv_stream_slPK8uv_buf_t"(ptr noundef readonly captures(none) %stream, i64 noundef %nread, ptr noundef %buf) #3 align 2 {
 entry:
   %try_catch.i = alloca %"class.node::errors::TryCatchScope", align 8
   %stream.val = load ptr, ptr %stream, align 8
@@ -2680,7 +2680,7 @@ declare void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef) local_unname
 declare void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3560,10 +3560,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

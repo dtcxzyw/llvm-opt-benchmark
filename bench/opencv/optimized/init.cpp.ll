@@ -735,7 +735,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv3dnn14dnn4_v2024052122initializeLayerFactoryEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -4344,7 +4344,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_116ProtobufShutdownD2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_116ProtobufShutdownD2Ev(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 1
   invoke void @_ZN6google8protobuf23ShutdownProtobufLibraryEv()
           to label %2 unwind label %3

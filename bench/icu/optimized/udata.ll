@@ -273,7 +273,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -606,7 +606,7 @@ if.else24:                                        ; preds = %if.end15
   %sub.ptr.rhs.cast = ptrtoint ptr %item to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv27 = trunc i64 %sub.ptr.sub to i32
-  %call29 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %itemPath, ptr noundef %item, i32 noundef %conv27, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
+  %call29 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %itemPath, ptr noundef nonnull %item, i32 noundef %conv27, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %if.end34 unwind label %lpad4
 
 if.end34:                                         ; preds = %if.else24, %if.end15
@@ -650,7 +650,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
@@ -741,7 +741,7 @@ land.lhs.true40:                                  ; preds = %land.lhs.true34
   %8 = load ptr, ptr %basename, align 8
   %9 = load i32, ptr %basenameLen, align 8
   %conv44 = zext i32 %9 to i64
-  %call45 = tail call i32 @strncmp(ptr noundef %retval.0.i, ptr noundef %8, i64 noundef %conv44) #16
+  %call45 = tail call i32 @strncmp(ptr noundef nonnull %retval.0.i, ptr noundef %8, i64 noundef %conv44) #16
   %cmp46 = icmp eq i32 %call45, 0
   br i1 %cmp46, label %land.lhs.true47, label %if.else53
 
@@ -847,10 +847,10 @@ return:                                           ; preds = %do.cond, %do.body, 
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef) local_unnamed_addr #6
 
@@ -1055,7 +1055,7 @@ if.then18:                                        ; preds = %if.end10
 if.end20:                                         ; preds = %if.end10
   %call22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   tail call void @umtx_lock_75(ptr noundef null)
-  %call23 = tail call ptr @uhash_get_75(ptr noundef %call, ptr noundef %path)
+  %call23 = tail call ptr @uhash_get_75(ptr noundef %call, ptr noundef nonnull %path)
   %cmp24.not = icmp eq ptr %call23, null
   br i1 %cmp24.not, label %if.else, label %if.then25
 
@@ -1499,7 +1499,7 @@ invoke.cont140:                                   ; preds = %if.then139
   br i1 %cmp143.not, label %if.end154, label %if.then144
 
 if.then144:                                       ; preds = %invoke.cont140
-  %call146 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef nonnull @.str, ptr noundef nonnull %call141, ptr noundef nonnull %add.ptr128, ptr noundef nonnull @.str, ptr noundef %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
+  %call146 = invoke fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef nonnull @.str, ptr noundef nonnull %call141, ptr noundef nonnull %add.ptr128, ptr noundef nonnull @.str, ptr noundef nonnull %type, ptr noundef %name, ptr noundef %isAcceptable, ptr noundef %context, ptr noundef %subErrorCode, ptr noundef %pErrorCode)
           to label %invoke.cont145 unwind label %lpad13
 
 invoke.cont145:                                   ; preds = %if.then144
@@ -1740,7 +1740,7 @@ if.end24:                                         ; preds = %if.else, %if.then16
 declare zeroext i16 @udata_getInfoSize_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @udata_setFileAccess_75(i32 noundef %access, ptr nocapture noundef readnone %0) local_unnamed_addr #8 {
+define void @udata_setFileAccess_75(i32 noundef %access, ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
 entry:
   store i32 %access, ptr @_ZL15gDataFileAccess, align 4
   ret void
@@ -1849,7 +1849,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare ptr @uhash_get_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -1884,7 +1884,7 @@ declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #6
 declare ptr @u_getTimeZoneFilesDirectory_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr nocapture noundef nonnull writeonly %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0_S0_PFaPvS0_S0_PK9UDataInfoES1_P10UErrorCodeS8_(ptr noundef %pkgName, ptr noundef %dataPath, ptr noundef %tocEntryPathSuffix, ptr noundef %path, ptr noundef %type, ptr noundef nonnull %name, ptr noundef readonly %isAcceptable, ptr noundef %context, ptr noundef nonnull writeonly captures(none) %subErrorCode, ptr noundef nonnull %pErrorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %dataMemory = alloca %struct.UDataMemory, align 8
   %iter = alloca %"class.icu_75::UDataPathIterator", align 8
@@ -2405,7 +2405,7 @@ lor.lhs.false:                                    ; preds = %if.end.i, %_ZL20uda
 
 if.end35:                                         ; preds = %lor.lhs.false
   %call36 = call ptr @u_getDataDirectory_75()
-  call void @_ZN6icu_7517UDataPathIteratorC1EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %call36, ptr noundef nonnull %retval.0.i, ptr noundef %path, ptr noundef nonnull @.str.1, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
+  call void @_ZN6icu_7517UDataPathIteratorC1EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %iter, ptr noundef %call36, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %path, ptr noundef nonnull @.str.1, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end35
@@ -2497,13 +2497,13 @@ declare i16 @llvm.bswap.i16(i16) #10
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

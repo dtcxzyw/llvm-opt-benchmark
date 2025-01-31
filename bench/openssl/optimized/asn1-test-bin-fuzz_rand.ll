@@ -49,7 +49,7 @@ if.end:                                           ; preds = %lor.lhs.false3
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #0 {
+define internal range(i32 0, 2) i32 @fuzz_rand_provider_init(ptr readnone captures(none) %handle, ptr readnone captures(none) %in, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %provctx) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
   store ptr %call, ptr %provctx, align 8
@@ -87,7 +87,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @fuzz_rand_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #3 {
+define internal noundef ptr @fuzz_rand_query(ptr readnone captures(none) %provctx, i32 noundef %operation_id, ptr noundef writeonly captures(none) initializes((0, 4)) %no_cache) #3 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %cond = icmp eq i32 %operation_id, 5
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @fuzz_rand_newctx(ptr nocapture readnone %provctx, ptr nocapture readnone %parent, ptr nocapture readnone %parent_dispatch) #0 {
+define internal noalias ptr @fuzz_rand_newctx(ptr readnone captures(none) %provctx, ptr readnone captures(none) %parent, ptr readnone captures(none) %parent_dispatch) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 4, ptr noundef nonnull @.str.3, i32 noundef 28) #6
   %cmp.not = icmp eq ptr %call, null
@@ -118,21 +118,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fuzz_rand_instantiate(ptr nocapture noundef writeonly initializes((0, 4)) %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
+define internal noundef i32 @fuzz_rand_instantiate(ptr noundef writeonly captures(none) initializes((0, 4)) %vrng, i32 %strength, i32 %prediction_resistance, ptr readnone captures(none) %pstr, i64 %pstr_len, ptr readnone captures(none) %params) #3 {
 entry:
   store i32 1, ptr %vrng, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fuzz_rand_uninstantiate(ptr nocapture noundef writeonly initializes((0, 4)) %vrng) #3 {
+define internal noundef i32 @fuzz_rand_uninstantiate(ptr noundef writeonly captures(none) initializes((0, 4)) %vrng) #3 {
 entry:
   store i32 0, ptr %vrng, align 4
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal noundef i32 @fuzz_rand_generate(ptr nocapture readnone %vdrbg, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adinlen) #4 {
+define internal noundef i32 @fuzz_rand_generate(ptr readnone captures(none) %vdrbg, ptr noundef writeonly captures(none) %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr readnone captures(none) %adin, i64 %adinlen) #4 {
 entry:
   %cmp3.not = icmp eq i64 %outlen, 0
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -152,19 +152,19 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fuzz_rand_enable_locking(ptr nocapture readnone %vrng) #5 {
+define internal noundef i32 @fuzz_rand_enable_locking(ptr readnone captures(none) %vrng) #5 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fuzz_rand_gettable_ctx_params(ptr nocapture readnone %vrng, ptr nocapture readnone %provctx) #5 {
+define internal noundef nonnull ptr @fuzz_rand_gettable_ctx_params(ptr readnone captures(none) %vrng, ptr readnone captures(none) %provctx) #5 {
 entry:
   ret ptr @fuzz_rand_gettable_ctx_params.known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fuzz_rand_get_ctx_params(ptr nocapture noundef readonly %vrng, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @fuzz_rand_get_ctx_params(ptr noundef readonly captures(none) %vrng, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.4) #6
   %cmp.not = icmp eq ptr %call, null

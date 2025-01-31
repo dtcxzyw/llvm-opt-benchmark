@@ -428,7 +428,7 @@ declare ptr @cli_jsonarray(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_scanhwp5_stream(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @cli_scanhwp5_stream(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %7 = icmp slt i32 %3, 0
   br i1 %7, label %8, label %9
@@ -562,12 +562,12 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -771,7 +771,7 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwp5_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @hwp5_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp sgt i32 %1, -1
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6
@@ -1044,7 +1044,7 @@ parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -1068,7 +1068,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 
 17:                                               ; preds = %.thread
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.77) #9
-  br label %292
+  br label %271
 
 18:                                               ; preds = %.thread
   %19 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %11) #9
@@ -1077,7 +1077,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 
 21:                                               ; preds = %18
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.78) #9
-  br label %292
+  br label %271
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1088,7 +1088,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 
 26:                                               ; preds = %22
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.79) #9
-  br label %292
+  br label %271
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -1146,13 +1146,13 @@ fmap_readn.exit:                                  ; preds = %47
 
 fmap_readn.exit.thread:                           ; preds = %47, %44, %fmap_readn.exit
   %.not88 = icmp eq ptr %.064, null
-  br i1 %.not88, label %292, label %51
+  br i1 %.not88, label %271, label %51
 
 51:                                               ; preds = %fmap_readn.exit.thread
   %52 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %.064) #9
-  br label %292
+  br label %271
 
 54:                                               ; preds = %fmap_readn.exit
   %55 = load ptr, ptr %31, align 8
@@ -1184,13 +1184,13 @@ fmap_readn.exit.thread:                           ; preds = %47, %44, %fmap_read
   %69 = zext i16 %.0..0..0.96.pre to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.81, i32 noundef %69) #9
   %.not87 = icmp eq ptr %.064, null
-  br i1 %.not87, label %292, label %70
+  br i1 %.not87, label %271, label %70
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %.064) #9
-  br label %292
+  br label %271
 
 73:                                               ; preds = %42
   %74 = sub nuw i64 %67, %65
@@ -1207,13 +1207,13 @@ fmap_readn.exit93:                                ; preds = %73
 
 fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exit93
   %.not82 = icmp eq ptr %.064, null
-  br i1 %.not82, label %292, label %77
+  br i1 %.not82, label %271, label %77
 
 77:                                               ; preds = %fmap_readn.exit93.thread
   %78 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull %.064) #9
-  br label %292
+  br label %271
 
 80:                                               ; preds = %fmap_readn.exit93
   %81 = load ptr, ptr %31, align 8
@@ -1247,13 +1247,13 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   %97 = zext i16 %.0..0..0.99.pre to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.83, i32 noundef %97) #9
   %.not81 = icmp eq ptr %.064, null
-  br i1 %.not81, label %292, label %98
+  br i1 %.not81, label %271, label %98
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull %.064) #9
-  br label %292
+  br label %271
 
 101:                                              ; preds = %94
   store i64 %93, ptr %8, align 8
@@ -1263,7 +1263,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 102:                                              ; preds = %101, %102
   %.060 = phi i32 [ 0, %101 ], [ %103, %102 ]
   %103 = add nuw nsw i32 %.060, 1
-  %104 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %3, ptr noundef %.065, i32 noundef %.060, i32 noundef 0, ptr noundef %8, ptr noundef %9)
+  %104 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %3, ptr noundef nonnull %.065, i32 noundef %.060, i32 noundef 0, ptr noundef %8, ptr noundef %9)
   %105 = icmp ne i32 %104, 0
   %106 = load i32, ptr %9, align 4
   %107 = icmp ne i32 %106, 0
@@ -1276,13 +1276,13 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 
 108:                                              ; preds = %.critedge
   %.not80 = icmp eq ptr %.064, null
-  br i1 %.not80, label %292, label %109
+  br i1 %.not80, label %271, label %109
 
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %.064) #9
-  br label %292
+  br label %271
 
 112:                                              ; preds = %.critedge
   %113 = load ptr, ptr %31, align 8
@@ -1298,431 +1298,389 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br label %120
 
 120:                                              ; preds = %116, %112
-  store i32 0, ptr %9, align 4
-  %.not.i94 = icmp eq ptr %.065, null
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  br label %123
+  %.promoted137 = load i64, ptr %8, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  br label %122
 
-123:                                              ; preds = %120, %parsehwp3_infoblk_1.exit
+122:                                              ; preds = %120, %parsehwp3_infoblk_1.exit
+  %123 = phi i64 [ %.promoted137, %120 ], [ %267, %parsehwp3_infoblk_1.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br i1 %.not.i94, label %124, label %126
+  %124 = load ptr, ptr %31, align 8
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, 2
+  %.not97.i = icmp eq i32 %126, 0
+  br i1 %.not97.i, label %141, label %127
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %121, align 8
-  br label %126
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %121, align 8
+  %129 = call ptr @cli_jsonobj(ptr noundef %128, ptr noundef nonnull @.str.92) #9
+  %.not98.i = icmp eq ptr %129, null
+  br i1 %.not98.i, label %130, label %131
 
-126:                                              ; preds = %124, %123
-  %127 = phi ptr [ %125, %124 ], [ %.065, %123 ]
-  %128 = load i64, ptr %8, align 8
-  %129 = load ptr, ptr %31, align 8
-  %130 = load i32, ptr %129, align 4
-  %131 = and i32 %130, 2
-  %.not97.i = icmp eq i32 %131, 0
-  br i1 %.not97.i, label %146, label %132
-
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %122, align 8
-  %134 = call ptr @cli_jsonobj(ptr noundef %133, ptr noundef nonnull @.str.92) #9
-  %.not98.i = icmp eq ptr %134, null
-  br i1 %.not98.i, label %135, label %136
-
-135:                                              ; preds = %132
+130:                                              ; preds = %127
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.93) #9
   br label %.critedge2.thread
 
-136:                                              ; preds = %132
-  %137 = call ptr @cli_jsonarray(ptr noundef nonnull %134, ptr noundef nonnull @.str.94) #9
-  %.not99.i = icmp eq ptr %137, null
-  br i1 %.not99.i, label %138, label %139
+131:                                              ; preds = %127
+  %132 = call ptr @cli_jsonarray(ptr noundef nonnull %129, ptr noundef nonnull @.str.94) #9
+  %.not99.i = icmp eq ptr %132, null
+  br i1 %.not99.i, label %133, label %134
 
-138:                                              ; preds = %136
+133:                                              ; preds = %131
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.95) #9
   br label %.critedge2.thread
 
-139:                                              ; preds = %136
-  %140 = call i32 @json_object_object_get_ex(ptr noundef nonnull %134, ptr noundef nonnull @.str.96, ptr noundef nonnull %7) #9
-  %.not100.i = icmp eq i32 %140, 0
-  br i1 %.not100.i, label %.sink.split.i, label %141
+134:                                              ; preds = %131
+  %135 = call i32 @json_object_object_get_ex(ptr noundef nonnull %129, ptr noundef nonnull @.str.96, ptr noundef nonnull %7) #9
+  %.not100.i = icmp eq i32 %135, 0
+  br i1 %.not100.i, label %.sink.split.i, label %136
 
-141:                                              ; preds = %139
-  %142 = load ptr, ptr %7, align 8
-  %143 = call i32 @json_object_get_int(ptr noundef %142) #9
-  %144 = add nsw i32 %143, 1
+136:                                              ; preds = %134
+  %137 = load ptr, ptr %7, align 8
+  %138 = call i32 @json_object_get_int(ptr noundef %137) #9
+  %139 = add nsw i32 %138, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %141, %139
-  %.sink.i = phi i32 [ %144, %141 ], [ 1, %139 ]
-  %145 = call i32 @cli_jsonint(ptr noundef nonnull %134, ptr noundef nonnull @.str.96, i32 noundef %.sink.i) #9
-  br label %146
+.sink.split.i:                                    ; preds = %136, %134
+  %.sink.i = phi i32 [ %139, %136 ], [ 1, %134 ]
+  %140 = call i32 @cli_jsonint(ptr noundef nonnull %129, ptr noundef nonnull @.str.96, i32 noundef %.sink.i) #9
+  br label %141
 
-146:                                              ; preds = %.sink.split.i, %126
-  %.083.i = phi ptr [ null, %126 ], [ %137, %.sink.split.i ]
-  %147 = getelementptr inbounds nuw i8, ptr %127, i64 88
-  %148 = load i64, ptr %147, align 8
-  %or.cond.not.i = icmp ult i64 %128, %148
-  br i1 %or.cond.not.i, label %149, label %fmap_readn.exit.thread.i
+141:                                              ; preds = %.sink.split.i, %122
+  %.083.i = phi ptr [ null, %122 ], [ %132, %.sink.split.i ]
+  %142 = load i64, ptr %40, align 8
+  %or.cond.not.i = icmp ult i64 %123, %142
+  br i1 %or.cond.not.i, label %143, label %fmap_readn.exit.thread.i
 
-149:                                              ; preds = %146
-  %150 = sub nuw i64 %148, %128
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %150, i64 4)
-  %151 = getelementptr inbounds nuw i8, ptr %127, i64 104
-  %152 = load ptr, ptr %151, align 8
-  %153 = call ptr %152(ptr noundef nonnull %127, i64 noundef %128, i64 noundef %spec.select.i.i, i32 noundef 0) #9
-  %.not26.i.i = icmp eq ptr %153, null
-  br i1 %.not26.i.i, label %.fmap_readn.exit.thread_crit_edge.i, label %fmap_readn.exit.i
+143:                                              ; preds = %141
+  %144 = sub nuw i64 %142, %123
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %144, i64 4)
+  %145 = load ptr, ptr %41, align 8
+  %146 = call ptr %145(ptr noundef nonnull %.065, i64 noundef %123, i64 noundef %spec.select.i.i, i32 noundef 0) #9
+  %.not26.i.i = icmp eq ptr %146, null
+  br i1 %.not26.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
 
-.fmap_readn.exit.thread_crit_edge.i:              ; preds = %149
-  %.pre148.i = load i64, ptr %8, align 8
-  br label %fmap_readn.exit.thread.i
+fmap_readn.exit.i:                                ; preds = %143
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %146, i64 %spec.select.i.i, i1 false)
+  %.not101.i = icmp ugt i64 %144, 3
+  br i1 %.not101.i, label %147, label %fmap_readn.exit.thread.i
 
-fmap_readn.exit.i:                                ; preds = %149
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 1 %153, i64 %spec.select.i.i, i1 false)
-  %.not101.i = icmp ugt i64 %150, 3
-  %.pre149.i = load i64, ptr %8, align 8
-  br i1 %.not101.i, label %155, label %fmap_readn.exit.thread.i
-
-fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, %146, %.fmap_readn.exit.thread_crit_edge.i
-  %154 = phi i64 [ %.pre148.i, %.fmap_readn.exit.thread_crit_edge.i ], [ %.pre149.i, %fmap_readn.exit.i ], [ %128, %146 ]
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.97, i64 noundef %154) #9
+fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, %141, %143
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.97, i64 noundef %123) #9
   br label %.critedge2.thread
 
-155:                                              ; preds = %fmap_readn.exit.i
-  %156 = add i64 %.pre149.i, 4
-  store i64 %156, ptr %8, align 8
-  %157 = load ptr, ptr %31, align 8
-  %158 = load i32, ptr %157, align 4
-  %159 = and i32 %158, 2
-  %.not102.i = icmp eq i32 %159, 0
-  br i1 %.not102.i, label %thread-pre-split.i, label %160
+147:                                              ; preds = %fmap_readn.exit.i
+  %148 = add i64 %123, 4
+  %149 = load ptr, ptr %31, align 8
+  %150 = load i32, ptr %149, align 4
+  %151 = and i32 %150, 2
+  %.not102.i = icmp eq i32 %151, 0
+  br i1 %.not102.i, label %thread-pre-split.i, label %152
 
-160:                                              ; preds = %155
-  %161 = call ptr @cli_jsonobj(ptr noundef %.083.i, ptr noundef null) #9
-  %.not103.i = icmp eq ptr %161, null
-  br i1 %.not103.i, label %162, label %163
+152:                                              ; preds = %147
+  %153 = call ptr @cli_jsonobj(ptr noundef %.083.i, ptr noundef null) #9
+  %.not103.i = icmp eq ptr %153, null
+  br i1 %.not103.i, label %154, label %155
 
-162:                                              ; preds = %160
+154:                                              ; preds = %152
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.98) #9
   br label %.critedge2.thread
 
-163:                                              ; preds = %160
+155:                                              ; preds = %152
   %.0..0..0..0..0.133.i = load i32, ptr %5, align 4
-  %164 = call i32 @cli_jsonint(ptr noundef nonnull %161, ptr noundef nonnull @.str.99, i32 noundef %.0..0..0..0..0.133.i) #9
-  br label %165
+  %156 = call i32 @cli_jsonint(ptr noundef nonnull %153, ptr noundef nonnull @.str.99, i32 noundef %.0..0..0..0..0.133.i) #9
+  br label %157
 
-thread-pre-split.i:                               ; preds = %155
+thread-pre-split.i:                               ; preds = %147
   %.0..0..0..0..0.134.pr.i = load i32, ptr %5, align 4
-  br label %165
+  br label %157
 
-165:                                              ; preds = %thread-pre-split.i, %163
-  %.0.134.i = phi i32 [ %.0..0..0..0..0.134.pr.i, %thread-pre-split.i ], [ %.0..0..0..0..0.133.i, %163 ]
-  %.082.i = phi ptr [ null, %thread-pre-split.i ], [ %161, %163 ]
-  %166 = icmp eq i32 %.0.134.i, 5
-  br i1 %166, label %167, label %173
+157:                                              ; preds = %thread-pre-split.i, %155
+  %.0.134.i = phi i32 [ %.0..0..0..0..0.134.pr.i, %thread-pre-split.i ], [ %.0..0..0..0..0.133.i, %155 ]
+  %.082.i = phi ptr [ null, %thread-pre-split.i ], [ %153, %155 ]
+  %158 = icmp eq i32 %.0.134.i, 5
+  br i1 %158, label %159, label %165
+
+159:                                              ; preds = %157
+  %160 = load ptr, ptr %31, align 8
+  %161 = load i32, ptr %160, align 4
+  %162 = and i32 %161, 2
+  %.not120.i = icmp eq i32 %162, 0
+  br i1 %.not120.i, label %parsehwp3_infoblk_1.exit, label %163
+
+163:                                              ; preds = %159
+  %164 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101) #9
+  br label %parsehwp3_infoblk_1.exit
+
+165:                                              ; preds = %157
+  %166 = load i64, ptr %40, align 8
+  %or.cond141.not.i = icmp ult i64 %148, %166
+  br i1 %or.cond141.not.i, label %167, label %fmap_readn.exit125.thread.i
 
 167:                                              ; preds = %165
-  %168 = load ptr, ptr %31, align 8
-  %169 = load i32, ptr %168, align 4
-  %170 = and i32 %169, 2
-  %.not120.i = icmp eq i32 %170, 0
-  br i1 %.not120.i, label %parsehwp3_infoblk_1.exit, label %171
+  %168 = sub nuw i64 %166, %148
+  %spec.select.i122.i = call i64 @llvm.umin.i64(i64 %168, i64 4)
+  %169 = load ptr, ptr %41, align 8
+  %170 = call ptr %169(ptr noundef nonnull %.065, i64 noundef %148, i64 noundef %spec.select.i122.i, i32 noundef 0) #9
+  %.not26.i123.i = icmp eq ptr %170, null
+  br i1 %.not26.i123.i, label %fmap_readn.exit125.thread.i, label %fmap_readn.exit125.i
 
-171:                                              ; preds = %167
-  %172 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101) #9
-  br label %parsehwp3_infoblk_1.exit
+fmap_readn.exit125.i:                             ; preds = %167
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %170, i64 %spec.select.i122.i, i1 false)
+  %.not104.i = icmp ugt i64 %168, 3
+  br i1 %.not104.i, label %171, label %fmap_readn.exit125.thread.i
 
-173:                                              ; preds = %165
-  %174 = load i64, ptr %147, align 8
-  %or.cond141.not.i = icmp ult i64 %156, %174
-  br i1 %or.cond141.not.i, label %175, label %fmap_readn.exit125.thread.i
-
-175:                                              ; preds = %173
-  %176 = sub nuw i64 %174, %156
-  %spec.select.i122.i = call i64 @llvm.umin.i64(i64 %176, i64 4)
-  %177 = load ptr, ptr %151, align 8
-  %178 = call ptr %177(ptr noundef nonnull %127, i64 noundef %156, i64 noundef %spec.select.i122.i, i32 noundef 0) #9
-  %.not26.i123.i = icmp eq ptr %178, null
-  br i1 %.not26.i123.i, label %.fmap_readn.exit125.thread_crit_edge.i, label %fmap_readn.exit125.i
-
-.fmap_readn.exit125.thread_crit_edge.i:           ; preds = %175
-  %.pre146.i = load i64, ptr %8, align 8
-  br label %fmap_readn.exit125.thread.i
-
-fmap_readn.exit125.i:                             ; preds = %175
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %178, i64 %spec.select.i122.i, i1 false)
-  %.not104.i = icmp ugt i64 %176, 3
-  %.pre147.i = load i64, ptr %8, align 8
-  br i1 %.not104.i, label %180, label %fmap_readn.exit125.thread.i
-
-fmap_readn.exit125.thread.i:                      ; preds = %fmap_readn.exit125.i, %173, %.fmap_readn.exit125.thread_crit_edge.i
-  %179 = phi i64 [ %.pre146.i, %.fmap_readn.exit125.thread_crit_edge.i ], [ %.pre147.i, %fmap_readn.exit125.i ], [ %156, %173 ]
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.102, i64 noundef %179) #9
+fmap_readn.exit125.thread.i:                      ; preds = %fmap_readn.exit125.i, %165, %167
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.102, i64 noundef %148) #9
   br label %.critedge2.thread
 
-180:                                              ; preds = %fmap_readn.exit125.i
-  %181 = add i64 %.pre147.i, 4
-  store i64 %181, ptr %8, align 8
-  %182 = load ptr, ptr %31, align 8
-  %183 = load i32, ptr %182, align 4
-  %184 = and i32 %183, 2
-  %.not105.i = icmp eq i32 %184, 0
-  br i1 %.not105.i, label %thread-pre-split140.i, label %185
+171:                                              ; preds = %fmap_readn.exit125.i
+  %172 = add i64 %123, 8
+  %173 = load ptr, ptr %31, align 8
+  %174 = load i32, ptr %173, align 4
+  %175 = and i32 %174, 2
+  %.not105.i = icmp eq i32 %175, 0
+  br i1 %.not105.i, label %thread-pre-split140.i, label %176
 
-185:                                              ; preds = %180
-  %186 = call i32 @cli_jsonint64(ptr noundef %.082.i, ptr noundef nonnull @.str.103, i64 noundef %128) #9
+176:                                              ; preds = %171
+  %177 = call i32 @cli_jsonint64(ptr noundef %.082.i, ptr noundef nonnull @.str.103, i64 noundef %123) #9
   %.0..0..0..0..0..i = load i32, ptr %6, align 4
-  %187 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.104, i32 noundef %.0..0..0..0..0..i) #9
-  br label %188
+  %178 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.104, i32 noundef %.0..0..0..0..0..i) #9
+  br label %179
 
-thread-pre-split140.i:                            ; preds = %180
+thread-pre-split140.i:                            ; preds = %171
   %.0..0..0..0..0.126.pr.i = load i32, ptr %6, align 4
-  br label %188
+  br label %179
 
-188:                                              ; preds = %thread-pre-split140.i, %185
-  %.0.126.i = phi i32 [ %.0..0..0..0..0.126.pr.i, %thread-pre-split140.i ], [ %.0..0..0..0..0..i, %185 ]
-  %189 = zext i32 %.0.126.i to i64
-  %190 = add i64 %181, %189
-  %191 = load i64, ptr %147, align 8
-  %192 = icmp ugt i64 %190, %191
-  br i1 %192, label %193, label %194
+179:                                              ; preds = %thread-pre-split140.i, %176
+  %.0.126.i = phi i32 [ %.0..0..0..0..0.126.pr.i, %thread-pre-split140.i ], [ %.0..0..0..0..0..i, %176 ]
+  %180 = zext i32 %.0.126.i to i64
+  %181 = add i64 %172, %180
+  %182 = load i64, ptr %40, align 8
+  %183 = icmp ugt i64 %181, %182
+  br i1 %183, label %184, label %185
 
-193:                                              ; preds = %188
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.105, i64 noundef %190, i64 noundef %191) #9
+184:                                              ; preds = %179
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.105, i64 noundef %181, i64 noundef %182) #9
   br label %.critedge2.thread
 
-194:                                              ; preds = %188
-  switch i32 %.0.134.i, label %275 [
-    i32 0, label %195
-    i32 1, label %205
-    i32 2, label %217
-    i32 3, label %226
-    i32 4, label %243
-    i32 257, label %269
-    i32 6, label %249
-    i32 256, label %263
+185:                                              ; preds = %179
+  switch i32 %.0.134.i, label %262 [
+    i32 0, label %186
+    i32 1, label %195
+    i32 2, label %207
+    i32 3, label %216
+    i32 4, label %230
+    i32 257, label %256
+    i32 6, label %236
+    i32 256, label %250
   ]
 
-195:                                              ; preds = %194
-  %196 = icmp eq i32 %.0.126.i, 0
-  br i1 %196, label %197, label %204
+186:                                              ; preds = %185
+  %187 = icmp eq i32 %.0.126.i, 0
+  br i1 %187, label %188, label %194
 
-197:                                              ; preds = %195
-  %198 = load ptr, ptr %31, align 8
-  %199 = load i32, ptr %198, align 4
-  %200 = and i32 %199, 2
-  %.not118.i = icmp eq i32 %200, 0
-  br i1 %.not118.i, label %203, label %201
+188:                                              ; preds = %186
+  %189 = load ptr, ptr %31, align 8
+  %190 = load i32, ptr %189, align 4
+  %191 = and i32 %190, 2
+  %.not118.i = icmp eq i32 %191, 0
+  br i1 %.not118.i, label %.critedge2.thread216, label %192
 
-201:                                              ; preds = %197
-  %202 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.106) #9
-  br label %203
+192:                                              ; preds = %188
+  %193 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.106) #9
+  br label %.critedge2.thread216
 
-203:                                              ; preds = %201, %197
-  store i32 1, ptr %9, align 4
+194:                                              ; preds = %186
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.107, i64 noundef %123) #9
+  br label %.critedge2.thread
+
+195:                                              ; preds = %185
+  %196 = load ptr, ptr %31, align 8
+  %197 = load i32, ptr %196, align 4
+  %198 = and i32 %197, 2
+  %.not116.i = icmp eq i32 %198, 0
+  br i1 %.not116.i, label %201, label %199
+
+199:                                              ; preds = %195
+  %200 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.108) #9
+  br label %201
+
+201:                                              ; preds = %199, %195
+  %.not117.i = icmp eq i32 %.0.126.i, 0
+  br i1 %.not117.i, label %parsehwp3_infoblk_1.exit, label %202
+
+202:                                              ; preds = %201
+  %203 = add i64 %123, 40
+  %204 = add i32 %.0.126.i, -32
+  %205 = zext i32 %204 to i64
+  %206 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %203, i64 noundef %205, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
   br label %parsehwp3_infoblk_1.exit
 
-204:                                              ; preds = %195
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.107, i64 noundef %128) #9
-  br label %.critedge2.thread
+207:                                              ; preds = %185
+  %208 = load ptr, ptr %31, align 8
+  %209 = load i32, ptr %208, align 4
+  %210 = and i32 %209, 2
+  %.not114.i = icmp eq i32 %210, 0
+  br i1 %.not114.i, label %213, label %211
 
-205:                                              ; preds = %194
-  %206 = load ptr, ptr %31, align 8
-  %207 = load i32, ptr %206, align 4
-  %208 = and i32 %207, 2
-  %.not116.i = icmp eq i32 %208, 0
-  br i1 %.not116.i, label %211, label %209
+211:                                              ; preds = %207
+  %212 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.109) #9
+  br label %213
 
-209:                                              ; preds = %205
-  %210 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.108) #9
-  br label %211
-
-211:                                              ; preds = %209, %205
-  %.not117.i = icmp eq i32 %.0.126.i, 0
-  br i1 %.not117.i, label %.loopexit.i, label %212
-
-212:                                              ; preds = %211
-  %213 = add i64 %.pre147.i, 36
-  %214 = add i32 %.0.126.i, -32
-  %215 = zext i32 %214 to i64
-  %216 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %213, i64 noundef %215, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
-  br label %.loopexit.i
-
-217:                                              ; preds = %194
-  %218 = load ptr, ptr %31, align 8
-  %219 = load i32, ptr %218, align 4
-  %220 = and i32 %219, 2
-  %.not114.i = icmp eq i32 %220, 0
-  br i1 %.not114.i, label %223, label %221
-
-221:                                              ; preds = %217
-  %222 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.109) #9
-  br label %223
-
-223:                                              ; preds = %221, %217
+213:                                              ; preds = %211, %207
   %.not115.i = icmp eq i32 %.0.126.i, 0
-  br i1 %.not115.i, label %.loopexit.i, label %224
+  br i1 %.not115.i, label %parsehwp3_infoblk_1.exit, label %214
 
-224:                                              ; preds = %223
-  %225 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %181, i64 noundef %189, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
-  br label %.loopexit.i
+214:                                              ; preds = %213
+  %215 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %172, i64 noundef %180, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
+  br label %parsehwp3_infoblk_1.exit
 
-226:                                              ; preds = %194
-  %227 = urem i32 %.0.126.i, 617
-  %228 = udiv i32 %.0.126.i, 617
-  %.not112.i = icmp eq i32 %227, 0
-  br i1 %.not112.i, label %230, label %229
+216:                                              ; preds = %185
+  %217 = urem i32 %.0.126.i, 617
+  %218 = udiv i32 %.0.126.i, 617
+  %.not112.i = icmp eq i32 %217, 0
+  br i1 %.not112.i, label %220, label %219
 
-229:                                              ; preds = %226
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.110, i64 noundef %128, i32 noundef %.0.126.i) #9
+219:                                              ; preds = %216
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.110, i64 noundef %123, i32 noundef %.0.126.i) #9
   br label %.critedge2.thread
 
-230:                                              ; preds = %226
-  %231 = load ptr, ptr %31, align 8
-  %232 = load i32, ptr %231, align 4
-  %233 = and i32 %232, 2
-  %.not113.i = icmp eq i32 %233, 0
-  br i1 %.not113.i, label %237, label %234
+220:                                              ; preds = %216
+  %221 = load ptr, ptr %31, align 8
+  %222 = load i32, ptr %221, align 4
+  %223 = and i32 %222, 2
+  %.not113.i = icmp eq i32 %223, 0
+  br i1 %.not113.i, label %227, label %224
 
-234:                                              ; preds = %230
-  %235 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.111) #9
-  %236 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.96, i32 noundef %228) #9
-  br label %237
+224:                                              ; preds = %220
+  %225 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.111) #9
+  %226 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.96, i32 noundef %218) #9
+  br label %227
 
-237:                                              ; preds = %234, %230
+227:                                              ; preds = %224, %220
   %.not143.i = icmp ult i32 %.0.126.i, 617
-  br i1 %.not143.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  br i1 %.not143.i, label %parsehwp3_infoblk_1.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %237
-  %wide.trip.count.i = zext nneg i32 %228 to i64
+.lr.ph.preheader.i:                               ; preds = %227
+  %wide.trip.count.i = zext nneg i32 %218 to i64
+  %invariant.op = add i64 %123, 296
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %238 = load i64, ptr %8, align 8
-  %239 = mul nuw nsw i64 %indvars.iv.i, 617
-  %240 = add nuw nsw i64 %239, 288
-  %241 = add i64 %240, %238
-  %242 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %127, i64 noundef %241, i64 noundef 325, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
+  %228 = mul nuw nsw i64 %indvars.iv.i, 617
+  %.reass = add i64 %228, %invariant.op
+  %229 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %.reass, i64 noundef 325, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %parsehwp3_infoblk_1.exit, label %.lr.ph.i
 
-243:                                              ; preds = %194
-  %244 = load ptr, ptr %31, align 8
-  %245 = load i32, ptr %244, align 4
-  %246 = and i32 %245, 2
-  %.not111.i = icmp eq i32 %246, 0
-  br i1 %.not111.i, label %.loopexit.i, label %247
+230:                                              ; preds = %185
+  %231 = load ptr, ptr %31, align 8
+  %232 = load i32, ptr %231, align 4
+  %233 = and i32 %232, 2
+  %.not111.i = icmp eq i32 %233, 0
+  br i1 %.not111.i, label %parsehwp3_infoblk_1.exit, label %234
 
-247:                                              ; preds = %243
-  %248 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.112) #9
-  br label %.loopexit.i
-
-249:                                              ; preds = %194
-  %250 = load ptr, ptr %31, align 8
-  %251 = load i32, ptr %250, align 4
-  %252 = and i32 %251, 2
-  %.not108.i = icmp eq i32 %252, 0
-  br i1 %.not108.i, label %257, label %253
-
-253:                                              ; preds = %249
-  %254 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.113) #9
-  %255 = add i32 %.0.126.i, -324
-  %256 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.114, i32 noundef %255) #9
-  br label %257
-
-257:                                              ; preds = %253, %249
-  %.not109.i = icmp eq i32 %.0.126.i, 0
-  br i1 %.not109.i, label %.loopexit.i, label %258
-
-258:                                              ; preds = %257
-  %259 = add i64 %.pre147.i, 328
-  %260 = add i32 %.0.126.i, -324
-  %261 = zext i32 %260 to i64
-  %262 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %259, i64 noundef %261, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
-  br label %.loopexit.i
-
-263:                                              ; preds = %194
-  %264 = load ptr, ptr %31, align 8
-  %265 = load i32, ptr %264, align 4
-  %266 = and i32 %265, 2
-  %.not107.i = icmp eq i32 %266, 0
-  br i1 %.not107.i, label %.loopexit.i, label %267
-
-267:                                              ; preds = %263
-  %268 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.115) #9
-  br label %.loopexit.i
-
-269:                                              ; preds = %194
-  %270 = load ptr, ptr %31, align 8
-  %271 = load i32, ptr %270, align 4
-  %272 = and i32 %271, 2
-  %.not106.i = icmp eq i32 %272, 0
-  br i1 %.not106.i, label %.loopexit.i, label %273
-
-273:                                              ; preds = %269
-  %274 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.116) #9
-  br label %.loopexit.i
-
-275:                                              ; preds = %194
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.117, i64 noundef %128, i32 noundef %.0.134.i) #9
-  %.not119.i = icmp eq i32 %.0.126.i, 0
-  br i1 %.not119.i, label %.loopexit.i, label %276
-
-276:                                              ; preds = %275
-  %277 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %127, i64 noundef %181, i64 noundef %189, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %.lr.ph.i, %276, %275, %273, %269, %267, %263, %258, %257, %247, %243, %237, %224, %223, %212, %211
-  %.084.i = phi i32 [ %277, %276 ], [ 0, %275 ], [ 0, %273 ], [ 0, %269 ], [ 0, %267 ], [ 0, %263 ], [ %262, %258 ], [ 0, %257 ], [ 0, %247 ], [ 0, %243 ], [ %225, %224 ], [ 0, %223 ], [ %216, %212 ], [ 0, %211 ], [ 0, %237 ], [ %242, %.lr.ph.i ]
-  %278 = load i64, ptr %8, align 8
-  %279 = add i64 %278, %189
-  store i64 %279, ptr %8, align 8
+234:                                              ; preds = %230
+  %235 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.112) #9
   br label %parsehwp3_infoblk_1.exit
 
-.critedge2.thread:                                ; preds = %135, %138, %162, %204, %229, %193, %fmap_readn.exit125.thread.i, %fmap_readn.exit.thread.i
-  %.0.i95.ph = phi i32 [ 20, %135 ], [ 20, %138 ], [ 20, %162 ], [ 26, %204 ], [ 26, %229 ], [ 12, %193 ], [ 12, %fmap_readn.exit125.thread.i ], [ 12, %fmap_readn.exit.thread.i ]
+236:                                              ; preds = %185
+  %237 = load ptr, ptr %31, align 8
+  %238 = load i32, ptr %237, align 4
+  %239 = and i32 %238, 2
+  %.not108.i = icmp eq i32 %239, 0
+  br i1 %.not108.i, label %244, label %240
+
+240:                                              ; preds = %236
+  %241 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.113) #9
+  %242 = add i32 %.0.126.i, -324
+  %243 = call i32 @cli_jsonint(ptr noundef %.082.i, ptr noundef nonnull @.str.114, i32 noundef %242) #9
+  br label %244
+
+244:                                              ; preds = %240, %236
+  %.not109.i = icmp eq i32 %.0.126.i, 0
+  br i1 %.not109.i, label %parsehwp3_infoblk_1.exit, label %245
+
+245:                                              ; preds = %244
+  %246 = add i64 %123, 332
+  %247 = add i32 %.0.126.i, -324
+  %248 = zext i32 %247 to i64
+  %249 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %246, i64 noundef %248, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
+  br label %parsehwp3_infoblk_1.exit
+
+250:                                              ; preds = %185
+  %251 = load ptr, ptr %31, align 8
+  %252 = load i32, ptr %251, align 4
+  %253 = and i32 %252, 2
+  %.not107.i = icmp eq i32 %253, 0
+  br i1 %.not107.i, label %parsehwp3_infoblk_1.exit, label %254
+
+254:                                              ; preds = %250
+  %255 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.115) #9
+  br label %parsehwp3_infoblk_1.exit
+
+256:                                              ; preds = %185
+  %257 = load ptr, ptr %31, align 8
+  %258 = load i32, ptr %257, align 4
+  %259 = and i32 %258, 2
+  %.not106.i = icmp eq i32 %259, 0
+  br i1 %.not106.i, label %parsehwp3_infoblk_1.exit, label %260
+
+260:                                              ; preds = %256
+  %261 = call i32 @cli_jsonstr(ptr noundef %.082.i, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.116) #9
+  br label %parsehwp3_infoblk_1.exit
+
+262:                                              ; preds = %185
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.117, i64 noundef %123, i32 noundef %.0.134.i) #9
+  %.not119.i = icmp eq i32 %.0.126.i, 0
+  br i1 %.not119.i, label %parsehwp3_infoblk_1.exit, label %263
+
+263:                                              ; preds = %262
+  %264 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %172, i64 noundef %180, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
+  br label %parsehwp3_infoblk_1.exit
+
+.critedge2.thread:                                ; preds = %130, %133, %154, %194, %219, %184, %fmap_readn.exit125.thread.i, %fmap_readn.exit.thread.i
+  %.0.i95.ph = phi i32 [ 20, %130 ], [ 20, %133 ], [ 20, %154 ], [ 26, %194 ], [ 26, %219 ], [ 12, %184 ], [ 12, %fmap_readn.exit125.thread.i ], [ 12, %fmap_readn.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %288
+  br label %.critedge2
 
-parsehwp3_infoblk_1.exit:                         ; preds = %167, %171, %203, %.loopexit.i
-  %280 = phi i64 [ %279, %.loopexit.i ], [ %181, %203 ], [ %156, %171 ], [ %156, %167 ]
-  %.0.i95 = phi i32 [ %.084.i, %.loopexit.i ], [ 0, %203 ], [ 0, %171 ], [ 0, %167 ]
+.critedge2.thread216:                             ; preds = %188, %192
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %281 = icmp ne i32 %.0.i95, 0
-  %282 = load i32, ptr %9, align 4
-  %283 = icmp ne i32 %282, 0
-  %or.cond6 = select i1 %281, i1 true, i1 %283
-  br i1 %or.cond6, label %.critedge2, label %123
+  %265 = sub i64 %172, %.promoted
+  %266 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.065, i64 noundef %.promoted, i64 noundef %265, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
+  br label %.critedge2
 
-.critedge2:                                       ; preds = %parsehwp3_infoblk_1.exit
-  %284 = icmp eq i32 %.0.i95, 0
-  br i1 %284, label %285, label %288
+parsehwp3_infoblk_1.exit:                         ; preds = %.lr.ph.i, %201, %202, %213, %214, %227, %230, %234, %244, %245, %250, %254, %256, %260, %262, %263, %159, %163
+  %267 = phi i64 [ %148, %163 ], [ %148, %159 ], [ %181, %263 ], [ %181, %262 ], [ %181, %260 ], [ %181, %256 ], [ %181, %254 ], [ %181, %250 ], [ %181, %245 ], [ %181, %244 ], [ %181, %234 ], [ %181, %230 ], [ %181, %227 ], [ %181, %214 ], [ %181, %213 ], [ %181, %202 ], [ %181, %201 ], [ %181, %.lr.ph.i ]
+  %.0.i95 = phi i32 [ 0, %163 ], [ 0, %159 ], [ %264, %263 ], [ 0, %262 ], [ 0, %260 ], [ 0, %256 ], [ 0, %254 ], [ 0, %250 ], [ %249, %245 ], [ 0, %244 ], [ 0, %234 ], [ 0, %230 ], [ 0, %227 ], [ %215, %214 ], [ 0, %213 ], [ %206, %202 ], [ 0, %201 ], [ %229, %.lr.ph.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  %.not255 = icmp eq i32 %.0.i95, 0
+  br i1 %.not255, label %122, label %.critedge2
 
-285:                                              ; preds = %.critedge2
-  %286 = sub i64 %280, %.promoted
-  %287 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %.065, i64 noundef %.promoted, i64 noundef %286, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #9
-  br label %288
-
-288:                                              ; preds = %.critedge2.thread, %285, %.critedge2
-  %.2 = phi i32 [ %287, %285 ], [ %.0.i95, %.critedge2 ], [ %.0.i95.ph, %.critedge2.thread ]
+.critedge2:                                       ; preds = %parsehwp3_infoblk_1.exit, %.critedge2.thread, %.critedge2.thread216
+  %.2 = phi i32 [ %266, %.critedge2.thread216 ], [ %.0.i95.ph, %.critedge2.thread ], [ %.0.i95, %parsehwp3_infoblk_1.exit ]
   %.not79 = icmp eq ptr %.064, null
-  br i1 %.not79, label %292, label %289
+  br i1 %.not79, label %271, label %268
 
-289:                                              ; preds = %288
-  %290 = getelementptr inbounds nuw i8, ptr %.064, i64 96
-  %291 = load ptr, ptr %290, align 8
-  call void %291(ptr noundef nonnull %.064) #9
-  br label %292
+268:                                              ; preds = %.critedge2
+  %269 = getelementptr inbounds nuw i8, ptr %.064, i64 96
+  %270 = load ptr, ptr %269, align 8
+  call void %270(ptr noundef nonnull %.064) #9
+  br label %271
 
-292:                                              ; preds = %288, %289, %108, %109, %96, %98, %fmap_readn.exit93.thread, %77, %68, %70, %fmap_readn.exit.thread, %51, %26, %21, %17
-  %.0 = phi i32 [ 2, %17 ], [ 11, %21 ], [ 19, %26 ], [ 12, %51 ], [ 12, %fmap_readn.exit.thread ], [ 27, %70 ], [ 27, %68 ], [ 12, %77 ], [ 12, %fmap_readn.exit93.thread ], [ 27, %98 ], [ 27, %96 ], [ %104, %109 ], [ %104, %108 ], [ %.2, %289 ], [ %.2, %288 ]
+271:                                              ; preds = %.critedge2, %268, %108, %109, %96, %98, %fmap_readn.exit93.thread, %77, %68, %70, %fmap_readn.exit.thread, %51, %26, %21, %17
+  %.0 = phi i32 [ 2, %17 ], [ 11, %21 ], [ 19, %26 ], [ 12, %51 ], [ 12, %fmap_readn.exit.thread ], [ 27, %70 ], [ 27, %68 ], [ 12, %77 ], [ 12, %fmap_readn.exit93.thread ], [ 27, %98 ], [ 27, %96 ], [ %104, %109 ], [ %104, %108 ], [ %.2, %268 ], [ %.2, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -1766,7 +1724,7 @@ define i32 @cli_scanhwpml(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @xmlReaderForIO(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1775,7 +1733,7 @@ declare i32 @msxml_read_cb(ptr noundef, ptr noundef, i32 noundef) #1
 declare i32 @cli_json_parse_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca %struct.stat, align 8
@@ -2014,7 +1972,7 @@ declare i32 @xmlTextReaderClose(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeTextReader(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2035,7 +1993,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @cli_jsonbool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2044,13 +2002,13 @@ declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @cl_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -2423,7 +2381,7 @@ fmap_readn.exit224:                               ; preds = %133
 150:                                              ; preds = %.lr.ph, %150
   %.2 = phi i32 [ %.1132315, %.lr.ph ], [ %151, %150 ]
   %151 = add nsw i32 %.2, 1
-  %152 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %152 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.2, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %153 = icmp ne i32 %152, 0
   %154 = load i32, ptr %11, align 4
   %155 = icmp ne i32 %154, 0
@@ -2442,7 +2400,7 @@ fmap_readn.exit224:                               ; preds = %133
 156:                                              ; preds = %._crit_edge, %156
   %.4 = phi i32 [ %.1132.lcssa, %._crit_edge ], [ %157, %156 ]
   %157 = add nsw i32 %.4, 1
-  %158 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.4, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %158 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.4, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %159 = icmp ne i32 %158, 0
   %160 = load i32, ptr %11, align 4
   %161 = icmp ne i32 %160, 0
@@ -2497,7 +2455,7 @@ fmap_readn.exit229:                               ; preds = %165
 177:                                              ; preds = %176, %177
   %.6 = phi i32 [ %.0131316416, %176 ], [ %178, %177 ]
   %178 = add nsw i32 %.6, 1
-  %179 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.6, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %179 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.6, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %180 = icmp ne i32 %179, 0
   %181 = load i32, ptr %11, align 4
   %182 = icmp ne i32 %181, 0
@@ -2521,7 +2479,7 @@ fmap_readn.exit229:                               ; preds = %165
 187:                                              ; preds = %185, %187
   %.8 = phi i32 [ %.0131316416, %185 ], [ %188, %187 ]
   %188 = add nsw i32 %.8, 1
-  %189 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.8, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %189 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.8, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %190 = icmp ne i32 %189, 0
   %191 = load i32, ptr %11, align 4
   %192 = icmp ne i32 %191, 0
@@ -2541,7 +2499,7 @@ fmap_readn.exit229:                               ; preds = %165
 195:                                              ; preds = %193, %195
   %.10 = phi i32 [ %.0131316416, %193 ], [ %196, %195 ]
   %196 = add nsw i32 %.10, 1
-  %197 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.10, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %197 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.10, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %198 = icmp ne i32 %197, 0
   %199 = load i32, ptr %11, align 4
   %200 = icmp ne i32 %199, 0
@@ -2561,7 +2519,7 @@ fmap_readn.exit229:                               ; preds = %165
 203:                                              ; preds = %201, %203
   %.12 = phi i32 [ %.0131316416, %201 ], [ %204, %203 ]
   %204 = add nsw i32 %.12, 1
-  %205 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef %1, i32 noundef %.12, i32 noundef %80, ptr noundef %7, ptr noundef %11)
+  %205 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.12, i32 noundef %80, ptr noundef %7, ptr noundef %11)
   %206 = icmp ne i32 %205, 0
   %207 = load i32, ptr %11, align 4
   %208 = icmp ne i32 %207, 0
@@ -2697,12 +2655,12 @@ declare i32 @json_object_get_int(ptr noundef) local_unnamed_addr #1
 declare i32 @cli_jsonint64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwpml_scan_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @hwpml_scan_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp sgt i32 %1, -1
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6
@@ -2721,10 +2679,10 @@ define internal i32 @hwpml_scan_cb(ptr nocapture readnone %0, i32 noundef %1, pt
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

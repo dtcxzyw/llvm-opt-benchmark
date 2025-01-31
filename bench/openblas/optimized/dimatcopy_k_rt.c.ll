@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double noundef %2, ptr nocapture noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i64 %0, 1
   %7 = icmp slt i64 %1, 1
   %8 = or i1 %6, %7

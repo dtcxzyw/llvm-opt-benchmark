@@ -621,7 +621,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7datalog15register_engineC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10scoped_ptrIN7datalog7contextEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1683,7 +1683,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5166,13 +5166,10 @@ if.end.i7:                                        ; preds = %invoke.cont10
 
 _ZNK6vectorI6symbolLb0EjE4sizeEv.exit:            ; preds = %invoke.cont10, %if.end.i7
   %retval.0.i9 = phi i32 [ %9, %if.end.i7 ], [ 0, %invoke.cont10 ]
-  invoke void @_ZN10dl_context18register_predicateEP9func_decljPK6symbol(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %call.i, i32 noundef %retval.0.i9, ptr noundef %8)
-          to label %invoke.cont19 unwind label %lpad7
+  invoke void @_ZN10dl_context18register_predicateEP9func_decljPK6symbol(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %call.i, i32 noundef %retval.0.i9, ptr noundef %8)
+          to label %if.then.i.i.i unwind label %lpad7
 
-invoke.cont19:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
-  br i1 %tobool.not.i.i, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %invoke.cont19
+if.then.i.i.i:                                    ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
   %m_ref_count.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %10 = load i32, ptr %m_ref_count.i.i.i.i11, align 4
   %dec.i.i.i.i = add i32 %10, -1
@@ -5191,7 +5188,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   tail call void @__clang_call_terminate(ptr %12) #17
   unreachable
 
-_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %invoke.cont19, %if.then.i.i.i, %if.then2.i.i.i
+_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then.i.i.i, %if.then2.i.i.i
   ret void
 
 lpad7:                                            ; preds = %_ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
@@ -5738,13 +5735,10 @@ invoke.cont:                                      ; preds = %_ZN7obj_refI9func_d
 invoke.cont5:                                     ; preds = %invoke.cont
   %m_context.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load ptr, ptr %m_context.i, align 8
-  invoke void @_ZN7datalog7context17register_variableEP9func_decl(ptr noundef nonnull align 8 dereferenceable(3556) %4, ptr noundef %call.i)
-          to label %invoke.cont8 unwind label %lpad
+  invoke void @_ZN7datalog7context17register_variableEP9func_decl(ptr noundef nonnull align 8 dereferenceable(3556) %4, ptr noundef nonnull %call.i)
+          to label %if.then.i.i.i unwind label %lpad
 
-invoke.cont8:                                     ; preds = %invoke.cont5
-  br i1 %tobool.not.i.i, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %invoke.cont8
+if.then.i.i.i:                                    ; preds = %invoke.cont5
   %m_ref_count.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %5 = load i32, ptr %m_ref_count.i.i.i.i5, align 4
   %dec.i.i.i.i = add i32 %5, -1
@@ -5763,7 +5757,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #17
   unreachable
 
-_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %invoke.cont8, %if.then.i.i.i, %if.then2.i.i.i
+_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then.i.i.i, %if.then2.i.i.i
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %_ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit, %invoke.cont5
@@ -5787,10 +5781,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

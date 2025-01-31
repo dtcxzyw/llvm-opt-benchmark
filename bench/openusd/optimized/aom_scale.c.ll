@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = add i32 %4, -1
   %12 = load i32, ptr %0, align 8
   %13 = mul i32 %12, %5
@@ -471,13 +471,13 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_c(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_c(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = lshr i32 %6, 1
   %11 = sext i32 %1 to i64
@@ -550,7 +550,7 @@ declare void @aom_vertical_band_2_1_scale_c(ptr noundef, i32 noundef, ptr nounde
 declare void @aom_vertical_band_2_1_scale_i_c(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_2t1_ps(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_2t1_ps(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
@@ -578,7 +578,7 @@ define internal void @scale1d_2t1_ps(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_2t1_i(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_2t1_i(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10

@@ -604,7 +604,7 @@ define hidden void @proto_register_sml() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @sml_fmt_length(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @sml_fmt_length(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 1
   %4 = select i1 %3, ptr @.str.183, ptr @.str.184
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.182, i32 noundef %1, ptr noundef nonnull %4) #5
@@ -616,7 +616,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #5
@@ -671,7 +671,7 @@ define hidden void @proto_reg_handoff_sml() local_unnamed_addr #0 {
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3925,7 +3925,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_globalSignature(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_globalSignature(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -4625,7 +4625,7 @@ declare zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef, i32 noundef, i32 nounde
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_codepage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_codepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -4722,7 +4722,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_clientId(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_clientId(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -4819,7 +4819,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_reqFileId(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -4903,7 +4903,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_serverId(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_serverId(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -5000,7 +5000,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_username(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_username(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -5097,7 +5097,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_password(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_password(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -5194,7 +5194,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -5293,7 +5293,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @sml_time_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr @ett_sml_timetype, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.300) #5
@@ -5614,7 +5614,7 @@ get_length.exit111:                               ; preds = %get_length.exit105,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_parameterTreePath(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -6353,7 +6353,7 @@ get_length.exit285:                               ; preds = %295, %306, %314
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @sml_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4, ptr noundef nonnull captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6744,7 +6744,7 @@ sml_listtype_type.exit:                           ; preds = %75, %sml_timestampe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_objName(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_objName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -6828,7 +6828,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_unit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_unit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -6919,7 +6919,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_scaler(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_scaler(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -7010,7 +7010,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_valueSignature(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -7779,7 +7779,7 @@ get_length.exit315:                               ; preds = %get_length.exit309,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_status(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -7871,7 +7871,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_regPeriod(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -7952,7 +7952,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_periodSignature(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -8049,7 +8049,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_rawdata(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_rawdata(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -8146,7 +8146,7 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field_listName(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @field_listName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -8243,10 +8243,10 @@ get_length.exit:                                  ; preds = %9, %20, %28
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

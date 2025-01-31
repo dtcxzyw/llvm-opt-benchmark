@@ -734,7 +734,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zbee_append_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #0 {
+define hidden void @zbee_append_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef nonnull @zbee_append_info.buffer, i64 noundef 512, ptr noundef %2, ptr noundef nonnull %4) #4
@@ -747,14 +747,14 @@ define hidden void @zbee_append_info(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @zbee_parse_eui64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef i64 @zbee_parse_eui64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = tail call i64 @tvb_get_letoh64(ptr noundef %2, i32 noundef %7) #4
   %9 = load i32, ptr %3, align 4
@@ -778,7 +778,7 @@ declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_eui64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @zdp_parse_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden zeroext i8 @zdp_parse_status(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %4) #4
   %6 = load i32, ptr @hf_zbee_zdp_status, align 4
@@ -796,7 +796,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6) #4
   %8 = lshr i32 %7, 27
@@ -890,7 +890,7 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @zdp_parse_cinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden zeroext i8 @zdp_parse_cinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr @hf_zbee_zdp_cinfo, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef %1, ptr noundef nonnull @zdp_parse_cinfo.cinfo, i32 noundef 0, i32 noundef 1) #4
@@ -905,7 +905,7 @@ define hidden zeroext i8 @zdp_parse_cinfo(ptr noundef %0, i32 noundef %1, ptr no
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @zdp_parse_server_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden zeroext i16 @zdp_parse_server_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %2, i32 noundef %5) #4
   %7 = load i32, ptr %3, align 4
@@ -920,7 +920,7 @@ define hidden zeroext i16 @zdp_parse_server_flags(ptr noundef %0, i32 noundef %1
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zdp_parse_node_desc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define hidden void @zdp_parse_node_desc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = icmp ne ptr %0, null
@@ -1052,7 +1052,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zdp_parse_power_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden void @zdp_parse_power_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr @hf_zbee_zdp_power, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef %1, ptr noundef nonnull @zdp_parse_power_desc.power_desc, i32 noundef -2147483648, i32 noundef 1) #4
@@ -1063,7 +1063,7 @@ define hidden void @zdp_parse_power_desc(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zdp_parse_simple_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden void @zdp_parse_simple_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1223,7 +1223,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zdp_parse_complex_desc(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @zdp_parse_complex_desc(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp ne ptr %1, null
   %8 = icmp ne i32 %2, -1
   %or.cond = and i1 %7, %8

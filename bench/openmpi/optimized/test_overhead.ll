@@ -252,7 +252,7 @@ declare i32 @MPI_Comm_rank(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MPI_Comm_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_send(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -299,7 +299,7 @@ define internal void @op_send(ptr nocapture noundef writeonly initializes((0, 8)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_coll(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_coll(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -323,7 +323,7 @@ define internal void @op_coll(ptr nocapture noundef writeonly initializes((0, 8)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_a2a(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_a2a(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -347,7 +347,7 @@ define internal void @op_a2a(ptr nocapture noundef writeonly initializes((0, 8))
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send_pingpong(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_send_pingpong(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -403,7 +403,7 @@ define internal void @op_send_pingpong(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_put(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_put(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4
@@ -434,7 +434,7 @@ define internal void @op_put(ptr nocapture noundef writeonly initializes((0, 8))
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_get(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_get(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4
@@ -465,18 +465,18 @@ define internal void @op_get(ptr nocapture noundef writeonly initializes((0, 8))
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @MPI_Gather(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comp_double(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @comp_double(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp olt double %3, %4
@@ -487,7 +487,7 @@ define internal range(i32 -1, 2) i32 @comp_double(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @MPI_Finalize() local_unnamed_addr #1
 
@@ -524,7 +524,7 @@ declare i32 @MPI_Win_create(ptr noundef, i64 noundef, i32 noundef, ptr noundef, 
 declare i32 @MPI_Win_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10

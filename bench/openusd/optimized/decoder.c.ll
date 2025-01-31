@@ -188,7 +188,7 @@ define hidden ptr @av1_decoder_create(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
@@ -379,7 +379,7 @@ define internal void @initialize_dec() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dec_free_mi(ptr nocapture noundef initializes((32, 36)) %0) #0 {
+define internal void @dec_free_mi(ptr noundef captures(none) initializes((32, 36)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @aom_free(ptr noundef %3) #10
@@ -398,7 +398,7 @@ define internal void @dec_free_mi(ptr nocapture noundef initializes((32, 36)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dec_setup_mi(ptr nocapture noundef readonly %0) #4 {
+define internal void @dec_setup_mi(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -415,7 +415,7 @@ define internal void @dec_setup_mi(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dec_set_mb_mi(ptr nocapture noundef writeonly initializes((0, 20), (36, 41), (60, 64)) %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @dec_set_mb_mi(ptr noundef writeonly captures(none) initializes((0, 20), (36, 41), (60, 64)) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = add nsw i32 %1, 7
   %5 = add nsw i32 %2, 7
   %6 = ashr i32 %4, 2
@@ -488,7 +488,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #6
 declare void @aom_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_dec_free_cb_buf(ptr nocapture noundef initializes((458808, 458812)) %0) local_unnamed_addr #0 {
+define hidden void @av1_dec_free_cb_buf(ptr noundef captures(none) initializes((458808, 458812)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 458800
   %3 = load ptr, ptr %2, align 16
   tail call void @aom_free(ptr noundef %3) #10
@@ -514,7 +514,7 @@ declare void @av1_loop_restoration_dealloc(ptr noundef, i32 noundef) local_unnam
 declare void @aom_img_metadata_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_visit_palette(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @av1_visit_palette(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1486,7 +1486,7 @@ update_frame_buffers.exit:                        ; preds = %decrease_ref_count.
 declare i32 @aom_decode_frame_from_obus(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @av1_get_raw_frame(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define hidden range(i32 -1, 1) i32 @av1_get_raw_frame(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 431832
   %6 = load i64, ptr %5, align 8
   %.not = icmp ult i64 %1, %6
@@ -1509,7 +1509,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_raw_frame(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @av1_get_frame_to_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define hidden range(i32 -1, 1) i32 @av1_get_frame_to_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 431832
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -1530,7 +1530,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_to_show(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 

@@ -535,7 +535,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Sele
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4pkpy15CodeEmitContext8get_loopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK4pkpy15CodeEmitContext8get_loopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.05 = load i32, ptr %2, align 8
   %3 = icmp sgt i32 %.05, -1
@@ -569,7 +569,7 @@ define noundef i32 @_ZNK4pkpy15CodeEmitContext8get_loopEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4pkpy15CodeEmitContext11enter_blockENS_13CodeBlockTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN4pkpy15CodeEmitContext11enter_blockENS_13CodeBlockTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = and i32 %1, -3
   %or.cond = icmp eq i32 %3, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -705,7 +705,7 @@ _ZNSt6vectorIN4pkpy9CodeBlockESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy15CodeEmitContext10exit_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy15CodeEmitContext10exit_blockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1081,7 +1081,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -1414,7 +1414,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit5:    ; preds = %_ZN4pkpy5stackINS_1
 declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pkpy15CodeEmitContext17revert_last_emit_Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN4pkpy15CodeEmitContext17revert_last_emit_Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1435,7 +1435,7 @@ define void @_ZN4pkpy15CodeEmitContext17revert_last_emit_Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pkpy15CodeEmitContext24try_merge_for_iter_storeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4pkpy15CodeEmitContext24try_merge_for_iter_storeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1677,7 +1677,7 @@ _ZN4pkpy12small_vectorIPNS_8PyObjectELm8EE9push_backERKS2_.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pkpy15CodeEmitContext10patch_jumpEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4pkpy15CodeEmitContext10patch_jumpEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1696,7 +1696,7 @@ define void @_ZN4pkpy15CodeEmitContext10patch_jumpEi(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy15CodeEmitContext9add_labelENS_7StrNameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i16 %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy15CodeEmitContext9add_labelENS_7StrNameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i16 %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
@@ -1785,7 +1785,7 @@ _ZNK4pkpy12NameDictImplIiE8containsENS_7StrNameE.exit.thread: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4pkpy12NameDictImplIiE3setENS_7StrNameEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i16 %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 {
@@ -2125,7 +2125,7 @@ _ZN4pkpy13SmallNameDictIiE7try_setENS_7StrNameEi.exit.thread: ; preds = %34, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4pkpy15CodeEmitContext11add_varnameENS_7StrNameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i16 %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN4pkpy15CodeEmitContext11add_varnameENS_7StrNameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i16 %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -2569,7 +2569,7 @@ _ZNSt8_Rb_treeIPvSt4pairIKS0_iESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE22_M_empla
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4pkpy15CodeEmitContext13add_func_declESt10shared_ptrINS_8FuncDeclEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN4pkpy15CodeEmitContext13add_func_declESt10shared_ptrINS_8FuncDeclEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 392
@@ -2632,7 +2632,7 @@ _ZNSt6vectorISt10shared_ptrIN4pkpy8FuncDeclEESaIS3_EE9push_backERKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy15CodeEmitContext15emit_store_nameENS_9NameScopeENS_7StrNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1, i16 %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy15CodeEmitContext15emit_store_nameENS_9NameScopeENS_7StrNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1, i16 %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2753,7 +2753,7 @@ define void @_ZN4pkpy15CodeEmitContext15emit_store_nameENS_9NameScopeENS_7StrNam
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8NameExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy8NameExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -2865,7 +2865,7 @@ _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %16, %.lr.ph.i._
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3000,7 +3000,7 @@ define noundef zeroext i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8NameExpr10emit_storeEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy8NameExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -3029,7 +3029,7 @@ define noundef zeroext i1 @_ZN4pkpy8NameExpr10emit_storeEPNS_15CodeEmitContextE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10InvertExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy10InvertExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3043,7 +3043,7 @@ define void @_ZN4pkpy10InvertExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy11StarredExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy11StarredExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3060,7 +3060,7 @@ define void @_ZN4pkpy11StarredExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy11StarredExpr10emit_storeEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy11StarredExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 1
@@ -3081,7 +3081,7 @@ define noundef zeroext i1 @_ZN4pkpy11StarredExpr10emit_storeEPNS_15CodeEmitConte
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy7NotExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy7NotExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3095,7 +3095,7 @@ define void @_ZN4pkpy7NotExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy7AndExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy7AndExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3129,7 +3129,7 @@ define void @_ZN4pkpy7AndExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy6OrExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy6OrExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3163,7 +3163,7 @@ define void @_ZN4pkpy6OrExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy12Literal0Expr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy12Literal0Expr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3286,7 +3286,7 @@ define void @_ZN4pkpy12Literal0Expr5emit_EPNS_15CodeEmitContextE(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8LongExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy8LongExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -3303,7 +3303,7 @@ define void @_ZN4pkpy8LongExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8ImagExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy8ImagExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = alloca double, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3324,7 +3324,7 @@ define void @_ZN4pkpy8ImagExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy9BytesExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy9BytesExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -3341,7 +3341,7 @@ define void @_ZN4pkpy9BytesExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy11LiteralExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy11LiteralExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %1, align 8
@@ -3553,7 +3553,7 @@ _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %_ZN4pkpy6py_varIRlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy11NegatedExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy11NegatedExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %1, align 8
@@ -3732,7 +3732,7 @@ _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %_ZN4pkpy6py_varIRlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy9SliceExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy9SliceExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3938,7 +3938,7 @@ define void @_ZN4pkpy12DictItemExpr5emit_EPNS_15CodeEmitContextE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %3, align 8
@@ -4091,7 +4091,7 @@ define noundef zeroext i1 @_ZN4pkpy9TupleExpr10emit_storeEPNS_15CodeEmitContextE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy9TupleExpr8emit_delEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy9TupleExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4306,7 +4306,7 @@ _ZNK4pkpy15CodeEmitContext8get_loopEv.exit:       ; preds = %114, %117, %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy11FStringExpr17_load_simple_exprEPNS_15CodeEmitContextENS_3StrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy11FStringExpr17_load_simple_exprEPNS_15CodeEmitContextENS_3StrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = alloca %"struct.pkpy::Str", align 8
@@ -4999,7 +4999,7 @@ _ZNKSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPKSt13_Rb_tree
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt3setIcSt4lessIcESaIcEEC2IPKcEET_S7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5136,7 +5136,7 @@ declare void @_ZNK4pkpy3Str6substrEi(ptr dead_on_unwind writable sret(%"struct.p
 declare void @_ZN4pkpy3StrC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10SubscrExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy10SubscrExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5229,7 +5229,7 @@ define void @_ZN4pkpy10SubscrExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5291,7 +5291,7 @@ define noundef zeroext i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10SubscrExpr8emit_delEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy10SubscrExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5311,7 +5311,7 @@ define noundef zeroext i1 @_ZN4pkpy10SubscrExpr8emit_delEPNS_15CodeEmitContextE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10AttribExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy10AttribExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5327,7 +5327,7 @@ define void @_ZN4pkpy10AttribExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5343,7 +5343,7 @@ define noundef zeroext i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10AttribExpr10emit_storeEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN4pkpy10AttribExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5359,7 +5359,7 @@ define noundef zeroext i1 @_ZN4pkpy10AttribExpr10emit_storeEPNS_15CodeEmitContex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10AttribExpr11emit_methodEPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4pkpy10AttribExpr11emit_methodEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5375,7 +5375,7 @@ define void @_ZN4pkpy10AttribExpr11emit_methodEPNS_15CodeEmitContextE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5771,7 +5771,7 @@ _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %172, %176
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pkpy10BinaryExpr10is_compareEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK4pkpy10BinaryExpr10is_compareEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
   %4 = icmp ult i8 %3, 60
@@ -5783,7 +5783,7 @@ define noundef zeroext i1 @_ZNK4pkpy10BinaryExpr10is_compareEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10BinaryExpr13_emit_compareEPNS_15CodeEmitContextERNS_14small_vector_2IiLm6EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy10BinaryExpr13_emit_compareEPNS_15CodeEmitContextERNS_14small_vector_2IiLm6EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -6190,7 +6190,7 @@ _ZN4pkpy14small_vector_2IiLm6EED2Ev.exit53:       ; preds = %116, %119
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy11TernaryExpr5emit_EPNS_15CodeEmitContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy11TernaryExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7794,7 +7794,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Sele
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_hESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8218,7 +8218,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE8_M_er
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy12SequenceExprD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8396,7 +8396,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4pkpy13LargeNameDictIiE10_rehash_2xEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8578,7 +8578,7 @@ declare void @_ZN4pkpy15pool128_deallocEPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %0, i16 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 {
@@ -8691,7 +8691,7 @@ define linkonce_odr void @_ZN4pkpy3Py_IlED0Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN4pkpy8PyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIvESaIS8_EE10_M_find_trISt17basic_string_viewIcS3_EvEESt23_Rb_tree_const_iteratorIS8_ERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9849,10 +9849,10 @@ declare i64 @llvm.smax.i64(i64, i64) #24
 declare i64 @llvm.smin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27

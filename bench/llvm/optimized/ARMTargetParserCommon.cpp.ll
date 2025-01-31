@@ -925,7 +925,7 @@ thread-pre-split.thread:                          ; preds = %.thread113, %_ZNK4l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm3ARM12parseArchISAENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm3ARM12parseArchISAENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   %.not.i.i = icmp ult i64 %1, 7
   br i1 %.not.i.i, label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
@@ -964,7 +964,7 @@ _ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3ARM15parseArchEndianENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3ARM15parseArchEndianENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   %.not.i = icmp ult i64 %1, 5
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit6.thread52, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
@@ -1046,7 +1046,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3ARM21parseBranchProtectionENS_9StringRefERNS0_22ParsedBranchProtectionERS1_b(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(35) initializes((0, 35)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm3ARM21parseBranchProtectionENS_9StringRefERNS0_22ParsedBranchProtectionERS1_b(ptr %0, i64 %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(35) initializes((0, 35)) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
@@ -1228,7 +1228,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit79.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not49, label %_ZN4llvmeqENS_9StringRefES0_.exit79.thread142, label %.lr.ph, !llvm.loop !4
 
 _ZN4llvmeqENS_9StringRefES0_.exit83:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit57
-  %bcmp.i82 = call i32 @bcmp(ptr %34, ptr nonnull @.str.95, i64 %.sroa.speculated.i.i.i.i)
+  %bcmp.i82 = call i32 @bcmp(ptr nonnull %34, ptr nonnull @.str.95, i64 %.sroa.speculated.i.i.i.i)
   %58 = icmp eq i32 %bcmp.i82, 0
   br i1 %58, label %_ZN4llvmeqENS_9StringRefES0_.exit83.thread, label %.loopexit.sink.split.loopexit190
 
@@ -1282,16 +1282,16 @@ declare noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonn
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

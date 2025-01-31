@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @has_small_order.blocklist = internal unnamed_addr constant <{ [32 x i8], <{ i8, [31 x i8] }>, [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8] }> <{ [32 x i8] zeroinitializer, <{ i8, [31 x i8] }> <{ i8 1, [31 x i8] zeroinitializer }>, [32 x i8] c"\E0\EBz|;A\B8\AE\16V\E3\FA\F1\9F\C4j\DA\09\8D\EB\9C2\B1\FD\86b\05\16_I\B8\00", [32 x i8] c"_\9C\95\BC\A3P\8C$\B1\D0\B1U\9C\83\EF[\04D\\\C4X\1C\8E\86\D8\22N\DD\D0\9F\11W", [32 x i8] c"\EC\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F", [32 x i8] c"\ED\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F", [32 x i8] c"\EE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F" }>, align 16
 
 ; Function Attrs: nounwind ssp uwtable
-define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr noundef %q, ptr nocapture noundef readonly %n, ptr noundef %p) #0 {
+define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr noundef %q, ptr noundef readonly captures(none) %n, ptr noundef %p) #0 {
 entry:
   %c.i = alloca [7 x i8], align 1
   %t = alloca [32 x i8], align 16
@@ -792,7 +792,7 @@ return:                                           ; preds = %has_small_order.exi
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef %q, ptr nocapture noundef readonly %n) #0 {
+define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef %q, ptr noundef readonly captures(none) %n) #0 {
 entry:
   %tempX.i = alloca [5 x i64], align 16
   %tempZ.i = alloca [5 x i64], align 16
@@ -902,7 +902,7 @@ for.end:                                          ; preds = %for.body
 declare void @_sodium_fe25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_mul(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef nonnull readonly %f, ptr nocapture noundef nonnull readonly %g) unnamed_addr #2 {
+define internal fastcc void @fe25519_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %h, ptr noundef nonnull readonly captures(none) %f, ptr noundef nonnull readonly captures(none) %g) unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %f, align 8
   %conv = zext i64 %0 to i128
@@ -1032,18 +1032,18 @@ declare void @_sodium_fe25519_tobytes(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

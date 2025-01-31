@@ -45,7 +45,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #9
   ret ptr %2
 }
@@ -54,17 +54,17 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 880
 }
 
@@ -136,14 +136,14 @@ define hidden void @update(ptr noundef %0) local_unnamed_addr #1 {
 47:                                               ; preds = %.preheader
   call void @dt_lib_gui_set_label(ptr noundef %0, ptr noundef %40) #9
   store i32 %44, ptr %4, align 8, !tbaa !48
-  call void @g_free(ptr noundef %43) #9
+  call void @g_free(ptr noundef nonnull %43) #9
   %48 = load ptr, ptr %2, align 8, !tbaa !47
   %49 = call i32 @sqlite3_finalize(ptr noundef %48) #9
-  call void @g_free(ptr noundef %14) #9
+  call void @g_free(ptr noundef nonnull %14) #9
   br label %58
 
 50:                                               ; preds = %.preheader
-  call void @g_free(ptr noundef %43) #9
+  call void @g_free(ptr noundef nonnull %43) #9
   %51 = load ptr, ptr %2, align 8, !tbaa !47
   %52 = call i32 @sqlite3_step(ptr noundef %51) #9
   %53 = icmp eq i32 %52, 100
@@ -175,7 +175,7 @@ define hidden void @update(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef) local_unnamed_addr #4
 
@@ -188,12 +188,12 @@ declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #4
 
@@ -208,7 +208,7 @@ declare ptr @dt_ioppr_deserialize_iop_order_list(ptr noundef, i64 noundef) local
 declare void @g_list_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @dt_lib_gui_set_label(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -305,7 +305,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_loaded_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_image_loaded_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = tail call i32 @dt_view_get_current() #9
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %6
@@ -382,7 +382,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #8
+declare void @free(ptr allocptr noundef captures(none)) #8
 
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -498,7 +498,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @get_params(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !tbaa !56
@@ -514,7 +514,7 @@ define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @preset_autoapply(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @preset_autoapply(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 

@@ -238,7 +238,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal i64 @dictStrCaseHash(ptr noundef %key) #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #16
-  %call1 = tail call i64 @dictGenCaseHashFunction(ptr noundef %key, i64 noundef %call) #17
+  %call1 = tail call i64 @dictGenCaseHashFunction(ptr noundef nonnull %key, i64 noundef %call) #17
   ret i64 %call1
 }
 
@@ -247,7 +247,7 @@ declare i32 @dictSdsKeyCaseCompare(ptr noundef, ptr noundef, ptr noundef) #1
 declare void @dictSdsDestructor(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dictLuaScriptDestructor(ptr nocapture readnone %d, ptr noundef %val) #0 {
+define internal void @dictLuaScriptDestructor(ptr readnone captures(none) %d, ptr noundef %val) #0 {
 entry:
   %cmp = icmp eq ptr %val, null
   br i1 %cmp, label %return, label %if.end
@@ -264,7 +264,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sha1hex(ptr nocapture noundef writeonly %digest, ptr noundef %script, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @sha1hex(ptr noundef writeonly captures(none) %digest, ptr noundef %script, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.SHA1_CTX, align 4
   %hash = alloca [20 x i8], align 16
@@ -505,7 +505,7 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -571,7 +571,7 @@ scriptingRelease.exit:                            ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %body, ptr nocapture noundef writeonly %out_flags, ptr noundef writeonly %out_shebang_len, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %body, ptr noundef writeonly captures(none) %out_flags, ptr noundef writeonly %out_shebang_len, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %numparts = alloca i32, align 4
   %numflags = alloca i32, align 4
@@ -673,7 +673,7 @@ if.then31:                                        ; preds = %for.body.preheader,
   %arrayidx28140 = phi ptr [ %arrayidx28, %for.body ], [ %arrayidx28135, %for.body.preheader ]
   %script_flags.178139 = phi i64 [ %script_flags.2.lcssa, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv91138 = phi i64 [ %indvars.iv.next92, %for.body ], [ 1, %for.body.preheader ]
-  call void @sdsrange(ptr noundef %11, i64 noundef 6, i64 noundef -1) #17
+  call void @sdsrange(ptr noundef nonnull %11, i64 noundef 6, i64 noundef -1) #17
   %12 = load ptr, ptr %arrayidx28140, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 -1
   %13 = load i8, ptr %arrayidx.i, align 1
@@ -841,7 +841,7 @@ return:                                           ; preds = %if.then2, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -857,7 +857,7 @@ declare void @sdsfree(ptr noundef) #1
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -866,7 +866,7 @@ declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @sdssplitlen(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @evalGetCommandFlags(ptr nocapture noundef %c, i64 noundef %cmd_flags) local_unnamed_addr #0 {
+define dso_local i64 @evalGetCommandFlags(ptr noundef captures(none) %c, i64 noundef %cmd_flags) local_unnamed_addr #0 {
 entry:
   %funcname = alloca [43 x i8], align 16
   %script_flags = alloca i64, align 8
@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %out_funcname) unnamed_addr #0 {
+define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %out_funcname) unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA1_CTX, align 4
   %hash.i = alloca [20 x i8], align 16
@@ -1601,7 +1601,7 @@ declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef,
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1964,7 +1964,7 @@ if.end133:                                        ; preds = %for.body, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1979,7 +1979,7 @@ declare void @scriptKill(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ldbDisable(ptr nocapture noundef %c) local_unnamed_addr #7 {
+define dso_local void @ldbDisable(ptr noundef captures(none) %c) local_unnamed_addr #7 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -1989,7 +1989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ldbEnable(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @ldbEnable(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -2833,10 +2833,10 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ldbReplParseCommand(ptr nocapture noundef %argcp, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local ptr @ldbReplParseCommand(ptr noundef captures(none) %argcp, ptr noundef writeonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 328), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
@@ -3030,7 +3030,7 @@ keep_reading:                                     ; preds = %keep_reading.loopex
 
 return.sink.split:                                ; preds = %while.cond, %keep_reading
   %retval.0.ph = phi ptr [ null, %keep_reading ], [ %call15, %while.cond ]
-  tail call void @sdsfree(ptr noundef %call1) #17
+  tail call void @sdsfree(ptr noundef nonnull %call1) #17
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %sdslen.exit
@@ -3039,10 +3039,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
@@ -3479,7 +3479,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ldbRedisProtocolToHuman(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local ptr @ldbRedisProtocolToHuman(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %bulklen.i = alloca i64, align 8
   %0 = load i8, ptr %reply, align 1
@@ -3630,7 +3630,7 @@ sw.epilog:                                        ; preds = %sw.bb17, %ldbRedisP
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Int(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Int(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
@@ -3646,7 +3646,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bulk(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bulk(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %bulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
@@ -3681,7 +3681,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Status(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Status(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
@@ -3696,7 +3696,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ldbRedisProtocolToHuman_MultiBulk(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local ptr @ldbRedisProtocolToHuman_MultiBulk(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
@@ -3763,7 +3763,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ldbRedisProtocolToHuman_Set(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local ptr @ldbRedisProtocolToHuman_Set(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
@@ -3816,7 +3816,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ldbRedisProtocolToHuman_Map(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local ptr @ldbRedisProtocolToHuman_Map(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %mbulklen = alloca i64, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
@@ -3873,7 +3873,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Null(ptr nocapture noundef %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Null(ptr noundef captures(none) %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
@@ -3885,7 +3885,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bool(ptr nocapture noundef %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Bool(ptr noundef captures(none) %o, ptr noundef readonly %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
@@ -3910,7 +3910,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @ldbRedisProtocolToHuman_Double(ptr nocapture noundef %o, ptr noundef %reply) local_unnamed_addr #0 {
+define dso_local nonnull ptr @ldbRedisProtocolToHuman_Double(ptr noundef captures(none) %o, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %reply, i64 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 13) #16
@@ -3993,7 +3993,7 @@ lor.lhs.false:                                    ; preds = %while.end8
   br i1 %tobool11.not, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %lor.lhs.false, %while.end8
-  call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef %varname) #17
+  call void @lua_getfield(ptr noundef %lua, i32 noundef -10002, ptr noundef nonnull %varname) #17
   %call.i13 = call ptr @sdsnew(ptr noundef nonnull @.str.102) #17
   %call.i.i14 = call ptr @ldbCatStackValueRec(ptr noundef %call.i13, ptr noundef %lua, i32 noundef -1, i32 noundef 0)
   call void @ldbLogWithMaxLen(ptr noundef %call.i.i14)
@@ -4068,7 +4068,7 @@ if.end12:                                         ; preds = %if.then10, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ldbBreak(ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @ldbBreak(ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %line = alloca i64, align 8
   %cmp = icmp eq i32 %argc, 1
@@ -4483,7 +4483,7 @@ return:                                           ; preds = %if.end19, %if.then1
 declare ptr @sdsjoinsds(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ldbRedis(ptr noundef %lua, ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @ldbRedis(ptr noundef %lua, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %log.i = alloca ptr, align 8
   %add = add nsw i32 %argc, 1
@@ -4680,7 +4680,7 @@ if.end12:                                         ; preds = %if.end, %if.then10
 declare i32 @lua_getinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ldbMaxlen(ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local void @ldbMaxlen(ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %argc, 2
   br i1 %cmp, label %if.then, label %if.end4thread-pre-split
@@ -5351,10 +5351,10 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

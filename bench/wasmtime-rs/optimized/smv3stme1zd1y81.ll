@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ab7af7fe6821724b9adbfb7b10fb5aed.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ab7af7fe6821724b9adbfb7b10fb5aed.0, [16 x i8] c"e\00\00\00\00\00\00\00\BB\00\00\00\1E\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define nonnull align 8 ptr @"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17hb1038a735fc44791E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17hb1038a735fc44791E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -8

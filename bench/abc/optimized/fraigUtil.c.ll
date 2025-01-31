@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [47 x i8] c"Number of candidate pairs = %d.  Proved = %d.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fraig_Dfs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Fraig_Dfs(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -112,7 +112,7 @@ define internal fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Fraig_DfsOne(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Fraig_DfsOne(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -127,7 +127,7 @@ define noundef ptr @Fraig_DfsOne(ptr nocapture noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fraig_DfsNodes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Fraig_DfsNodes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
@@ -158,7 +158,7 @@ define ptr @Fraig_DfsNodes(ptr nocapture noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_CountNodes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Fraig_CountNodes(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -276,7 +276,7 @@ tailrecurse:                                      ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -297,7 +297,7 @@ define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_ManMarkRealFanouts(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Fraig_ManMarkRealFanouts(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -433,7 +433,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Fraig_BitStringCountOnes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Fraig_BitStringCountOnes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = shl i32 %1, 2
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -461,7 +461,7 @@ define i32 @Fraig_BitStringCountOnes(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_ManCheckConsistency(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @Fraig_ManCheckConsistency(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -597,12 +597,12 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 declare i32 @Fraig_NodeIsVar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @Fraig_NodeIsConst(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_PrintNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Fraig_PrintNode(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -736,7 +736,7 @@ select.unfold._crit_edge.i30:                     ; preds = %select.unfold.i27, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fraig_PrintBinary(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @Fraig_PrintBinary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = sext i32 %2 to i64
   %5 = and i32 %2, 31
   %6 = lshr i64 %4, 5
@@ -802,7 +802,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1259,7 +1259,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -1279,7 +1279,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @Fraig_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define ptr @Fraig_NodeRecognizeMux(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -1451,7 +1451,7 @@ define ptr @Fraig_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_ManCountExors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Fraig_ManCountExors(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1548,7 +1548,7 @@ Fraig_NodeIsExorType.exit:                        ; preds = %.lr.ph, %16, %20, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_ManCountMuxes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Fraig_ManCountMuxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1653,7 +1653,7 @@ Fraig_NodeIsMuxType.exit:                         ; preds = %.lr.ph, %16, %20, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -1719,7 +1719,7 @@ define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_CountPis(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @Fraig_CountPis(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Msat_IntVecReadSize(ptr noundef %1) #15
   %4 = tail call ptr @Msat_IntVecReadArray(ptr noundef %1) #15
   %5 = icmp sgt i32 %3, 0
@@ -2215,7 +2215,7 @@ define noundef ptr @Fraig_CollectSupergate(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_ManIncrementTravId(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @Fraig_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -2224,7 +2224,7 @@ define void @Fraig_ManIncrementTravId(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_NodeSetTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((20, 24)) %1) local_unnamed_addr #9 {
+define void @Fraig_NodeSetTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((20, 24)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2233,7 +2233,7 @@ define void @Fraig_NodeSetTravIdCurrent(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2244,7 +2244,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2259,16 +2259,16 @@ define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr nocapture noundef rea
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1865,7 +1865,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @odictiter_traverse(ptr nocapture noundef readonly %di, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @odictiter_traverse(ptr noundef readonly captures(none) %di, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %di_odict = getelementptr inbounds nuw i8, ptr %di, i64 24
   %0 = load ptr, ptr %di_odict, align 8
@@ -1910,7 +1910,7 @@ return:                                           ; preds = %if.then18, %if.then
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictiter_iternext(ptr nocapture noundef %di) #0 {
+define internal ptr @odictiter_iternext(ptr noundef captures(none) %di) #0 {
 entry:
   %kind.i = getelementptr inbounds nuw i8, ptr %di, i64 16
   %0 = load i32, ptr %kind.i, align 8
@@ -2290,7 +2290,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictkeys_iter(ptr nocapture noundef readonly %dv) #0 {
+define internal ptr @odictkeys_iter(ptr noundef readonly captures(none) %dv) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -2375,7 +2375,7 @@ return:                                           ; preds = %_Py_NewRef.exit24.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictitems_iter(ptr nocapture noundef readonly %dv) #0 {
+define internal ptr @odictitems_iter(ptr noundef readonly captures(none) %dv) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -2392,7 +2392,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictvalues_iter(ptr nocapture noundef readonly %dv) #0 {
+define internal ptr @odictvalues_iter(ptr noundef readonly captures(none) %dv) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -2705,7 +2705,7 @@ land.rhs:                                         ; preds = %Py_DECREF.exit91, %
   br i1 %tobool21.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %call22 = call ptr @PyObject_GetItem(ptr noundef %arg, ptr noundef nonnull %call20) #7
+  %call22 = call ptr @PyObject_GetItem(ptr noundef nonnull %arg, ptr noundef nonnull %call20) #7
   %cmp23.not = icmp eq ptr %call22, null
   br i1 %cmp23.not, label %if.end26, label %if.then24
 
@@ -3088,7 +3088,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @odict_mp_ass_sub(ptr noundef %od, ptr noundef %v, ptr noundef %w) #0 {
@@ -3125,7 +3125,7 @@ return:                                           ; preds = %if.end.i6, %if.else
 declare void @PyDict_Clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @_odict_keys_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @_odict_keys_equal(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) unnamed_addr #0 {
 entry:
   %od_first = getelementptr inbounds nuw i8, ptr %a, i64 48
   %od_first1 = getelementptr inbounds nuw i8, ptr %b, i64 48
@@ -3338,7 +3338,7 @@ exit:                                             ; preds = %cond.end9, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odict_sizeof(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odict_sizeof(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call i64 @_PyDict_SizeOf(ptr noundef %od) #7
   %od_fast_nodes_size = getelementptr inbounds nuw i8, ptr %od, i64 72
@@ -3364,7 +3364,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odict_reduce(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odict_reduce(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %call = tail call ptr @_PyObject_GetState(ptr noundef %od) #7
@@ -3757,21 +3757,21 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictkeys_new(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictkeys_new(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyDictView_New(ptr noundef %od, ptr noundef nonnull @PyODictKeys_Type) #7
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictvalues_new(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictvalues_new(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyDictView_New(ptr noundef %od, ptr noundef nonnull @PyODictValues_Type) #7
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictitems_new(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictitems_new(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyDictView_New(ptr noundef %od, ptr noundef nonnull @PyODictItems_Type) #7
   ret ptr %call
@@ -3876,7 +3876,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @odict_clear(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @odict_clear(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   tail call void @PyDict_Clear(ptr noundef %od) #7
   %od_fast_nodes.i = getelementptr inbounds nuw i8, ptr %od, i64 64
@@ -3919,7 +3919,7 @@ _odict_clear_nodes.exit:                          ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odict_copy(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odict_copy(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %od, i64 8
   %od.val28 = load ptr, ptr %0, align 8
@@ -4065,7 +4065,7 @@ return:                                           ; preds = %for.cond26, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odict_reversed(ptr noundef %od, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odict_reversed(ptr noundef %od, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @PyODictIter_Type) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -4668,7 +4668,7 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_GetItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictiter_reduce(ptr nocapture noundef readonly %di, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictiter_reduce(ptr noundef readonly captures(none) %di, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %tmp = alloca %struct.odictiterobject, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tmp, ptr noundef nonnull align 8 dereferenceable(64) %di, i64 64, i1 false)
@@ -4767,7 +4767,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @_PyEval_GetBuiltin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictkeys_reversed(ptr nocapture noundef readonly %dv, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictkeys_reversed(ptr noundef readonly captures(none) %dv, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -4852,7 +4852,7 @@ return:                                           ; preds = %_Py_NewRef.exit24.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictitems_reversed(ptr nocapture noundef readonly %dv, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictitems_reversed(ptr noundef readonly captures(none) %dv, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -4869,7 +4869,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @odictvalues_reversed(ptr nocapture noundef readonly %dv, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @odictvalues_reversed(ptr noundef readonly captures(none) %dv, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %dv_dict = getelementptr inbounds nuw i8, ptr %dv, i64 16
   %0 = load ptr, ptr %dv_dict, align 8
@@ -4957,13 +4957,13 @@ return:                                           ; preds = %_Py_NewRef.exit24.i
 declare i64 @llvm.smax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

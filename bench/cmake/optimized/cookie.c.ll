@@ -310,7 +310,7 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [128 x i8], align 16
   %10 = alloca ptr, align 8
   %11 = tail call i64 @time(ptr noundef null) #12
@@ -1754,10 +1754,10 @@ sub_0:                                            ; preds = %447
 declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -1868,7 +1868,7 @@ define internal fastcc ptr @sanitize_cookie_path(ptr noundef %0) unnamed_addr #0
 declare zeroext i1 @Curl_host_is_ipnum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @cookie_tailmatch(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -1880,7 +1880,7 @@ define internal fastcc zeroext i1 @cookie_tailmatch(ptr noundef %0, i64 noundef 
   %7 = getelementptr inbounds i8, ptr %2, i64 %4
   %8 = sub i64 0, %1
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
-  %10 = tail call i32 @curl_strnequal(ptr noundef %0, ptr noundef %9, i64 noundef %1) #12
+  %10 = tail call i32 @curl_strnequal(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %1) #12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %17, label %11
 
@@ -1902,7 +1902,7 @@ define internal fastcc zeroext i1 @cookie_tailmatch(ptr noundef %0, i64 noundef 
 declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @Curl_getdate_capped(ptr noundef) local_unnamed_addr #1
 
@@ -1917,15 +1917,15 @@ declare ptr @Curl_memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_a
 declare ptr @Curl_memdup0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_expired(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @remove_expired(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = tail call i64 @time(ptr noundef null) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %4 = load i64, ptr %3, align 8
@@ -2085,12 +2085,12 @@ cookie_hash_domain.exit:                          ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @Curl_get_line(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_cookie_cleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -2200,7 +2200,7 @@ define dso_local ptr @Curl_cookie_getlist(ptr noundef %0, ptr noundef %1, ptr no
   %27 = getelementptr inbounds i8, ptr %2, i64 %24
   %28 = sub i64 0, %23
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %17, ptr noundef %29, i64 noundef %23) #12
+  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %17, ptr noundef nonnull %29, i64 noundef %23) #12
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %cookie_tailmatch.exit.thread, label %31
 
@@ -2543,10 +2543,10 @@ Curl_cookie_freelist.exit:                        ; preds = %.lr.ph.i, %10, %dup
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cookie_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @cookie_sort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2938,7 +2938,7 @@ define dso_local void @Curl_flush_cookies(ptr noundef %0, i1 noundef zeroext %1)
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = tail call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 2) #12
-  br i1 %.not, label %114, label %8
+  br i1 %.not, label %113, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2656
@@ -3163,7 +3163,7 @@ get_netscape_format.exit.i:                       ; preds = %53, %52, %.lr.ph68.
 cookie_output.exit.thread:                        ; preds = %96, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %114
+  br label %113
 
 cookie_output.exit:                               ; preds = %99, %101, %103
   %105 = load ptr, ptr @Curl_cfree, align 8
@@ -3171,102 +3171,98 @@ cookie_output.exit:                               ; preds = %99, %101, %103
   call void %105(ptr noundef %106) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not32 = icmp eq ptr %0, null
-  br i1 %.not32, label %114, label %107
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2642
+  %108 = load i64, ptr %107, align 2
+  %109 = and i64 %108, 268435456
+  %.not21 = icmp eq i64 %109, 0
+  br i1 %.not21, label %113, label %110
 
-107:                                              ; preds = %cookie_output.exit
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2642
-  %109 = load i64, ptr %108, align 2
-  %110 = and i64 %109, 268435456
-  %.not21 = icmp eq i64 %110, 0
-  br i1 %.not21, label %114, label %111
+110:                                              ; preds = %cookie_output.exit
+  %111 = load ptr, ptr %5, align 8
+  %112 = call ptr @curl_easy_strerror(i32 noundef %.039.i) #12
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef %111, ptr noundef %112) #12
+  br label %113
 
-111:                                              ; preds = %107
-  %112 = load ptr, ptr %5, align 8
-  %113 = call ptr @curl_easy_strerror(i32 noundef %.039.i) #12
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef %112, ptr noundef %113) #12
-  br label %114
+113:                                              ; preds = %2, %cookie_output.exit.thread, %cookie_output.exit, %110
+  br i1 %1, label %114, label %142
 
-114:                                              ; preds = %2, %cookie_output.exit.thread, %cookie_output.exit, %107, %111
-  br i1 %1, label %115, label %143
-
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %117 = load ptr, ptr %116, align 8
-  %.not22 = icmp eq ptr %117, null
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %116 = load ptr, ptr %115, align 8
+  %.not22 = icmp eq ptr %116, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2656
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not22, label %._crit_edge, label %118
+  br i1 %.not22, label %._crit_edge, label %117
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 184
-  %120 = load ptr, ptr %119, align 8
-  %.not23 = icmp eq ptr %.pre, %120
-  br i1 %.not23, label %143, label %._crit_edge
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 184
+  %119 = load ptr, ptr %118, align 8
+  %.not23 = icmp eq ptr %.pre, %119
+  br i1 %.not23, label %142, label %._crit_edge
 
-._crit_edge:                                      ; preds = %115, %118
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 2656
+._crit_edge:                                      ; preds = %114, %117
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 2656
   %.not.i24 = icmp eq ptr %.pre, null
   br i1 %.not.i24, label %Curl_cookie_cleanup.exit, label %.preheader.i25
 
 .preheader.i25:                                   ; preds = %._crit_edge, %Curl_cookie_freelist.exit.i
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i28, %Curl_cookie_freelist.exit.i ], [ 0, %._crit_edge ]
-  %122 = getelementptr inbounds nuw [63 x ptr], ptr %.pre, i64 0, i64 %indvars.iv.i26
-  %123 = load ptr, ptr %122, align 8
-  %.not4.i.i = icmp eq ptr %123, null
+  %121 = getelementptr inbounds nuw [63 x ptr], ptr %.pre, i64 0, i64 %indvars.iv.i26
+  %122 = load ptr, ptr %121, align 8
+  %.not4.i.i = icmp eq ptr %122, null
   br i1 %.not4.i.i, label %Curl_cookie_freelist.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i25, %.lr.ph.i.i
-  %.05.i.i = phi ptr [ %124, %.lr.ph.i.i ], [ %123, %.preheader.i25 ]
-  %124 = load ptr, ptr %.05.i.i, align 8
-  %125 = load ptr, ptr @Curl_cfree, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 40
-  %127 = load ptr, ptr %126, align 8
-  call void %125(ptr noundef %127) #12
-  %128 = load ptr, ptr @Curl_cfree, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
-  %130 = load ptr, ptr %129, align 8
-  call void %128(ptr noundef %130) #12
-  %131 = load ptr, ptr @Curl_cfree, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
-  %133 = load ptr, ptr %132, align 8
-  call void %131(ptr noundef %133) #12
-  %134 = load ptr, ptr @Curl_cfree, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  %136 = load ptr, ptr %135, align 8
-  call void %134(ptr noundef %136) #12
-  %137 = load ptr, ptr @Curl_cfree, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
-  %139 = load ptr, ptr %138, align 8
-  call void %137(ptr noundef %139) #12
-  %140 = load ptr, ptr @Curl_cfree, align 8
-  call void %140(ptr noundef nonnull %.05.i.i) #12
-  %.not.i.i27 = icmp eq ptr %124, null
+  %.05.i.i = phi ptr [ %123, %.lr.ph.i.i ], [ %122, %.preheader.i25 ]
+  %123 = load ptr, ptr %.05.i.i, align 8
+  %124 = load ptr, ptr @Curl_cfree, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 40
+  %126 = load ptr, ptr %125, align 8
+  call void %124(ptr noundef %126) #12
+  %127 = load ptr, ptr @Curl_cfree, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 24
+  %129 = load ptr, ptr %128, align 8
+  call void %127(ptr noundef %129) #12
+  %130 = load ptr, ptr @Curl_cfree, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
+  %132 = load ptr, ptr %131, align 8
+  call void %130(ptr noundef %132) #12
+  %133 = load ptr, ptr @Curl_cfree, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
+  %135 = load ptr, ptr %134, align 8
+  call void %133(ptr noundef %135) #12
+  %136 = load ptr, ptr @Curl_cfree, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
+  %138 = load ptr, ptr %137, align 8
+  call void %136(ptr noundef %138) #12
+  %139 = load ptr, ptr @Curl_cfree, align 8
+  call void %139(ptr noundef nonnull %.05.i.i) #12
+  %.not.i.i27 = icmp eq ptr %123, null
   br i1 %.not.i.i27, label %Curl_cookie_freelist.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 Curl_cookie_freelist.exit.i:                      ; preds = %.lr.ph.i.i, %.preheader.i25
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 63
-  br i1 %exitcond.not.i29, label %141, label %.preheader.i25, !llvm.loop !10
+  br i1 %exitcond.not.i29, label %140, label %.preheader.i25, !llvm.loop !10
 
-141:                                              ; preds = %Curl_cookie_freelist.exit.i
-  %142 = load ptr, ptr @Curl_cfree, align 8
-  call void %142(ptr noundef nonnull %.pre) #12
+140:                                              ; preds = %Curl_cookie_freelist.exit.i
+  %141 = load ptr, ptr @Curl_cfree, align 8
+  call void %141(ptr noundef nonnull %.pre) #12
   br label %Curl_cookie_cleanup.exit
 
-Curl_cookie_cleanup.exit:                         ; preds = %._crit_edge, %141
-  store ptr null, ptr %121, align 8
-  br label %143
+Curl_cookie_cleanup.exit:                         ; preds = %._crit_edge, %140
+  store ptr null, ptr %120, align 8
+  br label %142
 
-143:                                              ; preds = %Curl_cookie_cleanup.exit, %118, %114
-  %144 = call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #12
+142:                                              ; preds = %Curl_cookie_cleanup.exit, %117, %113
+  %143 = call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 2) #12
   ret void
 }
 
 declare ptr @curl_easy_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
 
@@ -3279,7 +3275,7 @@ declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_fopen(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cookie_sort_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @cookie_sort_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -3296,16 +3292,16 @@ declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

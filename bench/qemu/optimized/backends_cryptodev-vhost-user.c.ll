@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cryptodev_vhost_user_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @cryptodev_vhost_user_get_vhost(ptr nocapture noundef readonly %cc, ptr noundef %b, i16 noundef zeroext %queue) local_unnamed_addr #0 {
+define dso_local ptr @cryptodev_vhost_user_get_vhost(ptr noundef readonly captures(none) %cc, ptr noundef %b, i16 noundef zeroext %queue) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %0 = load i32, ptr %cc, align 8
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_vhost_user_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @cryptodev_vhost_user_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #5
   %init = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -220,7 +220,7 @@ return:                                           ; preds = %if.then11, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_vhost_user_cleanup(ptr noundef %backend, ptr nocapture readnone %errp) #0 {
+define internal void @cryptodev_vhost_user_cleanup(ptr noundef %backend, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
@@ -424,7 +424,7 @@ if.end9:                                          ; preds = %if.then8, %if.end6
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @cryptodev_vhost_user_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @cryptodev_vhost_user_get_chardev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 1224
@@ -656,10 +656,10 @@ declare ptr @qemu_chr_fe_get_driver(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

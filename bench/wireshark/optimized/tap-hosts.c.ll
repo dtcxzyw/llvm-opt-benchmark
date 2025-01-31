@@ -45,7 +45,7 @@ define hidden void @register_tap_listener_hosts() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hosts_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @hosts_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   store i1 false, ptr @dump_v4, align 4
   store i1 false, ptr @dump_v6, align 4
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %0) #8
@@ -58,7 +58,7 @@ define internal void @hosts_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
   br label %36
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 0) #7
+  %7 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef 0) #7
   %8 = load ptr, ptr %7, align 8
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -145,7 +145,7 @@ sub_2:                                            ; preds = %sub_1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -159,7 +159,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hosts_draw(ptr nocapture readnone %0) #0 {
+define internal void @hosts_draw(ptr readnone captures(none) %0) #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts6 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 32), align 8
@@ -200,14 +200,14 @@ define internal void @hosts_draw(ptr nocapture readnone %0) #0 {
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @get_ipv4_hash_table() local_unnamed_addr #1
 
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ipv4_hash_table_print_resolved(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
+define internal void @ipv4_hash_table_print_resolved(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 2
@@ -227,7 +227,7 @@ define internal void @ipv4_hash_table_print_resolved(ptr nocapture readnone %0, 
 declare ptr @get_ipv6_hash_table() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ipv6_hash_table_print_resolved(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
+define internal void @ipv6_hash_table_print_resolved(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 2
@@ -245,7 +245,7 @@ define internal void @ipv6_hash_table_print_resolved(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6

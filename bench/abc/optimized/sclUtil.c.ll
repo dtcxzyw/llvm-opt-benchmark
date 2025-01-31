@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [53 x i8] c"Cannot find buffer in the current library. Quitting.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Mio_LibraryReadBuf(ptr noundef %4) #16
@@ -146,14 +146,14 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %38
 declare ptr @Mio_LibraryReadBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @Abc_SclCellFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclSclGates2MioGates(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_SclSclGates2MioGates(ptr readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -291,7 +291,7 @@ Vec_IntFreeP.exit:                                ; preds = %.critedge.thread, %
 declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclTransferGates(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @Abc_SclTransferGates(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -363,7 +363,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %15, %18, %Abc_ObjIs
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_SclManPrintGateSizes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define void @Abc_SclManPrintGateSizes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca [64 x i32], align 16
   %5 = alloca [64 x double], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
@@ -497,10 +497,10 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_SclPrintGateSizes(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   tail call void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %4 = load ptr, ptr %3, align 8
@@ -562,7 +562,7 @@ define ptr @Abc_SclFindMaxAreaCell(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_SclFindMinAreas(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noalias noundef ptr @Abc_SclFindMinAreas(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 100
   %.val20 = load i32, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
@@ -684,7 +684,7 @@ Abc_SclFindMaxAreaCell.exit.loopexit:             ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclMinsizePerform(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Abc_SclMinsizePerform(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Abc_SclFindMinAreas(ptr noundef %0, i32 noundef %2)
   tail call void @Abc_SclMioGates2SclGates(ptr noundef %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -777,7 +777,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_SclCountMinSize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_SclCountMinSize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_SclFindMinAreas(ptr noundef %0, i32 noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -868,7 +868,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclReadTimingConstr(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_SclReadTimingConstr(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.9)
   %6 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef %5)
@@ -944,16 +944,16 @@ Abc_UtilStrsav.exit:                              ; preds = %12, %14
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @Abc_FrameSetDrivingCell(ptr noundef) local_unnamed_addr #1
 
@@ -962,15 +962,15 @@ declare ptr @Abc_FrameReadDrivingCell(...) local_unnamed_addr #1
 declare void @Abc_FrameSetMaxLoad(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #9
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare float @Abc_FrameReadMaxLoad(...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_SclExtractBarBufs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_SclExtractBarBufs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Mio_LibraryReadBuf(ptr noundef %3) #16
@@ -1114,7 +1114,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %21, %24, %27, %Vec_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclInsertBarBufs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Abc_SclInsertBarBufs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val810 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val810, 0
@@ -1158,22 +1158,22 @@ define void @Abc_SclInsertBarBufs(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14

@@ -846,7 +846,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.startStream = private unnamed_addr constant [12 x i8] c"startStream\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @debug_screencast(ptr noalias nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define hidden void @debug_screencast(ptr noalias noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr @DEBUG_SCREENCAST_ENABLED, align 4
   %.not = icmp eq i32 %3, 0
@@ -867,7 +867,7 @@ define hidden void @debug_screencast(ptr noalias nocapture noundef readonly %0, 
 declare void @llvm.va_start.p0(ptr) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #1
@@ -1071,10 +1071,10 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
+define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = zext i8 %2 to i32
   store i32 %4, ptr @DEBUG_SCREENCAST_ENABLED, align 4
   %5 = load i32, ptr @glib_version_2_68, align 4
@@ -1427,14 +1427,14 @@ declare i32 @initXdgDesktopPortal(...) local_unnamed_addr #4
 declare void @portalScreenCastCleanup(...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_screencast_ScreencastHelper_closeSession(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @Java_sun_awt_screencast_ScreencastHelper_closeSession(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_closeSession, i32 noundef 905, ptr noundef null)
   tail call fastcc void @doCleanup()
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #3 {
+define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #3 {
   %10 = alloca [0 x %struct.GdkRectangle], align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.split, label %12
@@ -2490,12 +2490,12 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @getPipewireFd(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -2503,13 +2503,13 @@ declare i32 @getPipewireFd(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @onCoreError(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #3 {
+define internal void @onCoreError(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #3 {
   %6 = tail call ptr @strerror(i32 noundef %3) #15
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.onCoreError, i32 noundef 560, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %6, ptr noundef %4)
   %7 = icmp eq i32 %1, 0
@@ -2536,7 +2536,7 @@ define internal void @onCoreError(ptr nocapture readnone %0, i32 noundef %1, i32
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @onStreamStateChanged(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 {
+define internal void @onStreamStateChanged(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -2848,7 +2848,7 @@ spa_debug_type_find_name.exit:                    ; preds = %126, %140
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @onStreamProcess(ptr nocapture noundef readonly %0) #3 {
+define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -3069,7 +3069,7 @@ define internal void @onStreamProcess(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @spa_pod_parser_get(ptr nocapture noundef nonnull %0, ...) unnamed_addr #0 {
+define internal i32 @spa_pod_parser_get(ptr noundef nonnull captures(none) %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4330,7 +4330,7 @@ spa_pod_parser_getv.exit:                         ; preds = %29, %99, %spa_pod_p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #12 {
@@ -4375,7 +4375,7 @@ define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spa_pod_builder_add(ptr nocapture noundef nonnull %0, ...) unnamed_addr #3 {
+define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0, ...) unnamed_addr #3 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.spa_pod, align 8
   %4 = alloca %struct.spa_pod_fd, align 8
@@ -5721,7 +5721,7 @@ spa_pod_builder_addv.exit:                        ; preds = %75, %124, %163
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spa_pod_builder_pop(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @spa_pod_builder_pop(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -5898,10 +5898,10 @@ spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_po
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_string_len(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = add i32 %2, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6171,7 +6171,7 @@ spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_primitive(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_primitive(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
@@ -6343,7 +6343,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_raw_padded(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
@@ -6491,10 +6491,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

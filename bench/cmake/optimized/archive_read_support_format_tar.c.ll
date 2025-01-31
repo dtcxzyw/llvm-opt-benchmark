@@ -669,7 +669,7 @@ archive_block_is_null.exit:                       ; preds = %.preheader, %11, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_read_format_tar_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_read_format_tar_options(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -987,7 +987,7 @@ gnu_add_sparse_entry.exit.thread:                 ; preds = %58, %52, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_tar_read_data(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_tar_read_data(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8
@@ -1201,7 +1201,7 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_tar_cleanup(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @archive_read_format_tar_cleanup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1252,14 +1252,14 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_number_field(ptr nocapture noundef nonnull readonly %0, i64 noundef range(i64 8, 13) %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @validate_number_field(ptr noundef nonnull readonly captures(none) %0, i64 noundef range(i64 8, 13) %1) unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %.preheader [
     i8 -1, label %.loopexit
@@ -1321,7 +1321,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_number_field(ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @tar_atol(ptr nocapture noundef readonly %0, i64 noundef range(i64 8, 13) %1) unnamed_addr #4 {
+define internal fastcc i64 @tar_atol(ptr noundef readonly captures(none) %0, i64 noundef range(i64 8, 13) %1) unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %3, -1
   br i1 %.not, label %.lr.ph.i.i, label %4
@@ -1477,7 +1477,7 @@ tar_atol256.exit:                                 ; preds = %.critedge2.i.i, %42
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @archive_string_conversion_from_charset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1488,7 +1488,7 @@ declare void @archive_entry_set_ino(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @archive_string_default_conversion_for_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @tar_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1595,11 +1595,11 @@ thread-pre-split180:                              ; preds = %.preheader
   br i1 %exitcond.not.i169, label %archive_block_is_null.exit170, label %thread-pre-split180, !llvm.loop !5
 
 archive_block_is_null.exit170:                    ; preds = %.preheader
-  %42 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 512) #13
+  %42 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 512) #13
   br label %archive_block_is_null.exit170.thread
 
 archive_block_is_null.exit170.thread:             ; preds = %thread-pre-split180, %archive_block_is_null.exit170, %37, %tar_flush_unconsumed.exit164
-  call void @archive_clear_error(ptr noundef %0) #13
+  call void @archive_clear_error(ptr noundef nonnull %0) #13
   br label %.loopexit
 
 archive_block_is_null.exit.thread:                ; preds = %23, %thread-pre-split
@@ -1768,7 +1768,7 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   br i1 %or.cond.i, label %103, label %104
 
 103:                                              ; preds = %.lr.ph.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.25) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.25) #13
   br label %header_Solaris_ACL.exit.thread
 
 104:                                              ; preds = %.lr.ph.i
@@ -1780,7 +1780,7 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %104
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.26) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.26) #13
   br label %header_Solaris_ACL.exit.thread
 
 110:                                              ; preds = %104
@@ -1804,7 +1804,7 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i245, %94
   %.065.lcssa89.i = phi i32 [ %116, %._crit_edge.i245 ], [ 0, %94 ]
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.27, i32 noundef %.065.lcssa89.i) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.27, i32 noundef %.065.lcssa89.i) #13
   br label %header_Solaris_ACL.exit.thread
 
 119:                                              ; preds = %118, %._crit_edge.i245
@@ -1814,7 +1814,7 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   br i1 %.not73.i, label %122, label %121
 
 121:                                              ; preds = %119
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.28) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.28) #13
   br label %header_Solaris_ACL.exit.thread
 
 122:                                              ; preds = %119
@@ -1841,7 +1841,7 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %133
-  %138 = call ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 1) #13
+  %138 = call ptr @archive_string_conversion_from_charset(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i32 noundef 1) #13
   store ptr %138, ptr %134, align 8
   %139 = icmp eq ptr %138, null
   br i1 %139, label %.loopexit, label %140
@@ -1867,11 +1867,11 @@ tar_flush_unconsumed.exit175:                     ; preds = %81, %83
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %150
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.30) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.30) #13
   br label %header_Solaris_ACL.exit
 
 155:                                              ; preds = %150
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.31) #13
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.31) #13
   br label %header_Solaris_ACL.exit
 
 156:                                              ; preds = %85
@@ -2222,7 +2222,7 @@ select.unfold:                                    ; preds = %read_mac_metadata_b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @gnu_add_sparse_entry(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @gnu_add_sparse_entry(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -2278,21 +2278,21 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 declare ptr @archive_entry_pathname_w(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @archive_entry_set_filetype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %7 = tail call fastcc i32 @read_body_to_string(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
@@ -3951,7 +3951,7 @@ pax_header.exit:                                  ; preds = %56, %106, %116, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @header_gnutar(ptr noundef %0, ptr noundef initializes((80, 88)) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @header_gnutar(ptr noundef %0, ptr noundef initializes((80, 88)) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = tail call fastcc i32 @header_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %8 = icmp eq i32 %7, -30
@@ -4134,7 +4134,7 @@ tar_flush_unconsumed.exit.i:                      ; preds = %80, %.preheader.i
 
 88:                                               ; preds = %85
   store i64 512, ptr %4, align 8
-  %89 = call fastcc i32 @gnu_sparse_old_parse(ptr noundef %0, ptr noundef %1, ptr noundef %82, i32 noundef 21)
+  %89 = call fastcc i32 @gnu_sparse_old_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %82, i32 noundef 21)
   %.not19.i = icmp eq i32 %89, 0
   br i1 %.not19.i, label %90, label %gnu_sparse_old_read.exit.thread
 
@@ -4348,7 +4348,7 @@ set_conversion_failed_error.exit:                 ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @gnu_sparse_10_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @gnu_sparse_10_read(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %6 = load ptr, ptr %5, align 8
@@ -4463,7 +4463,7 @@ gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @read_body_to_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @read_body_to_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %6 = tail call fastcc i64 @tar_atol(ptr noundef nonnull %5, i64 noundef 12)
   %or.cond = icmp ugt i64 %6, 1048576
@@ -4531,7 +4531,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @archive_entry_copy_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4575,10 +4575,10 @@ declare i32 @_archive_entry_copy_uname_l(ptr noundef, ptr noundef, i64 noundef, 
 declare void @archive_entry_copy_uname(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc i64 @tar_atol10(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #4 {
   %.not68.i = icmp eq i64 %1, 0
   br i1 %.not68.i, label %tar_atol_base_n.exit, label %.lr.ph.i
 
@@ -4664,7 +4664,7 @@ tar_atol_base_n.exit:                             ; preds = %.critedge2.i, %12, 
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 320
   br label %6
@@ -4921,7 +4921,7 @@ declare void @archive_entry_set_birthtime(ptr noundef, i64 noundef, i64 noundef)
 declare void @archive_entry_set_symlink_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pax_attribute_acl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 256, 15361) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @pax_attribute_acl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 256, 15361) %4) unnamed_addr #0 {
   switch i32 %4, label %8 [
     i32 256, label %9
     i32 512, label %6
@@ -5002,7 +5002,7 @@ define internal fastcc void @pax_attribute_schily_xattr(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %2, align 1
   %5 = icmp eq i8 %4, 32
   br i1 %5, label %.preheader, label %gnu_add_sparse_entry.exit.thread
@@ -5197,7 +5197,7 @@ declare void @archive_entry_xattr_add_entry(ptr noundef, ptr noundef, ptr nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr noundef initializes((80, 88)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -5405,7 +5405,7 @@ declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 declare i32 @_archive_entry_copy_symlink_l(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 4, 22) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 4, 22) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
   br label %7
@@ -5475,7 +5475,7 @@ declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnam
 declare void @archive_entry_copy_mac_metadata(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @gnu_sparse_10_atol(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i64 @gnu_sparse_10_atol(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %.pre = load i64, ptr %2, align 8
@@ -5662,7 +5662,7 @@ readline.exit:                                    ; preds = %25, %39
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
@@ -5671,10 +5671,10 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

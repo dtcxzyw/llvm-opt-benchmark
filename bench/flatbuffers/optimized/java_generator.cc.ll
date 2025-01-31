@@ -9998,7 +9998,7 @@ ehcleanup699:                                     ; preds = %lpad7, %lpad.i182, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lines, i1 noundef zeroext %surroundWithPreTag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDocCommentBodyEPN14grpc_generator7PrinterERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEERKSt6vectorISA_SaISA_EEb(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(48) %vars, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lines, i1 noundef zeroext %surroundWithPreTag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -10647,7 +10647,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -10816,7 +10816,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN19grpc_java_generator12_GLOBAL__N_128CompareMethodClientStreamingERKSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS4_EES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %method1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %method2) #3 {
+define internal noundef zeroext i1 @_ZN19grpc_java_generator12_GLOBAL__N_128CompareMethodClientStreamingERKSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS4_EES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %method1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %method2) #3 {
 entry:
   %0 = load ptr, ptr %method1, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -13449,10 +13449,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

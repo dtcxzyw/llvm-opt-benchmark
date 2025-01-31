@@ -275,13 +275,13 @@ Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @srand(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareClear(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareClear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -384,7 +384,7 @@ Abc_Clock.exit19:                                 ; preds = %.critedge, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -555,7 +555,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit41,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
@@ -576,7 +576,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #17
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
   call void @free(ptr noundef %9) #17
   br label %16
 
@@ -593,7 +593,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkDontCareWinSweepLeafTfo_rec(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -674,7 +674,7 @@ define void @Abc_NtkDontCareWinSweepLeafTfo_rec(ptr noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareWinSweepLeafTfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -767,7 +767,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareWinCollectRoots_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareWinCollectRoots_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val1925 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val1925, 0
@@ -949,7 +949,7 @@ Vec_PtrPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareWinCollectRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareWinCollectRoots(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.val = load ptr, ptr %3, align 8
@@ -976,7 +976,7 @@ define void @Abc_NtkDontCareWinCollectRoots(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val2.i = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -1145,7 +1145,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1273,7 +1273,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDontCareWindow(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWindow(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1430,7 +1430,7 @@ common.ret41:                                     ; preds = %23, %13, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @Odc_And(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i16 @Odc_And(ptr noundef captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq i16 %1, %2
   br i1 %4, label %Odc_HashLookup.exit, label %5
 
@@ -1988,7 +1988,7 @@ define range(i32 0, 2) i32 @Abc_NtkDontCareQuantify(ptr noundef initializes((20,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkDontCareSimulateSetElem2(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Abc_NtkDontCareSimulateSetElem2(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph19, label %._crit_edge20
@@ -2056,7 +2056,7 @@ define void @Abc_NtkDontCareSimulateSetElem2(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkDontCareSimulateSetElem(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Abc_NtkDontCareSimulateSetElem(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -2117,7 +2117,7 @@ Abc_InfoCopy.exit:                                ; preds = %Abc_InfoCopy.exit.l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkDontCareSimulateSetRand(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkDontCareSimulateSetRand(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -2169,7 +2169,7 @@ define void @Abc_NtkDontCareSimulateSetRand(ptr nocapture noundef readonly %0) l
 declare i32 @rand() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_NtkDontCareCountMintsWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define i32 @Abc_NtkDontCareCountMintsWord(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -2197,7 +2197,7 @@ define i32 @Abc_NtkDontCareCountMintsWord(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkDontCareTruthOne(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #6 {
+define void @Abc_NtkDontCareTruthOne(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 72
   %.val58 = load ptr, ptr %3, align 8
   %4 = lshr i16 %1, 1
@@ -2362,7 +2362,7 @@ common.ret21:                                     ; preds = %6, %2, %12
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkDontCareSimulate(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define i32 @Abc_NtkDontCareSimulate(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %4 = load i16, ptr %3, align 2
   %5 = add i16 %4, 1
@@ -2476,7 +2476,7 @@ Extra_TruthCountOnes.exit:                        ; preds = %select.unfold.i, %A
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1073741824, 1073741824) i32 @Abc_NtkDontCareSimulateBefore(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1073741824, 1073741824) i32 @Abc_NtkDontCareSimulateBefore(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2560,7 +2560,7 @@ Abc_NtkDontCareCountMintsWord.exit:               ; preds = %.lr.ph.i16, %Abc_Nt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDontCareCompute(ptr noundef initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Abc_NtkDontCareCompute(ptr noundef initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -3291,13 +3291,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -3392,7 +3392,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -3401,7 +3401,7 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
@@ -3410,10 +3410,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #16

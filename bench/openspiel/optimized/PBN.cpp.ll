@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bitMapRank = external local_unnamed_addr global [16 x i16], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 64)) %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 64)) %1) local_unnamed_addr #0 {
 .preheader.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   br label %.preheader
@@ -230,7 +230,7 @@ define noundef range(i32 0, 15) i32 @_Z6IsCardc(i8 noundef signext %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr nocapture noundef nonnull readonly align 4 dereferenceable(112) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(420) %1) local_unnamed_addr #2 {
+define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(112) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(420) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %or.cond = icmp ugt i32 %3, 52
   br i1 %or.cond, label %.loopexit, label %4
@@ -294,7 +294,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

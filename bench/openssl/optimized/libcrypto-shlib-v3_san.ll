@@ -59,7 +59,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare ptr @GENERAL_NAMES_it() #0
 
 ; Function Attrs: nounwind uwtable
-define ptr @i2v_GENERAL_NAMES(ptr nocapture noundef readnone %method, ptr noundef %gens, ptr noundef %ret) #1 {
+define ptr @i2v_GENERAL_NAMES(ptr noundef readnone captures(none) %method, ptr noundef %gens, ptr noundef %ret) #1 {
 entry:
   %call110 = tail call i32 @OPENSSL_sk_num(ptr noundef %gens) #3
   %cmp12 = icmp sgt i32 %call110, 0
@@ -101,7 +101,7 @@ return:                                           ; preds = %for.cond, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_subject_alt(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) #1 {
+define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) #1 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %nval) #3
   %call3 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call1) #3
@@ -190,7 +190,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_issuer_alt(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) #1 {
+define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) #1 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %nval) #3
   %call3 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call1) #3
@@ -349,7 +349,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #0
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define ptr @i2v_GENERAL_NAME(ptr nocapture readnone %method, ptr nocapture noundef readonly %gen, ptr noundef %ret) local_unnamed_addr #1 {
+define ptr @i2v_GENERAL_NAME(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %gen, ptr noundef %ret) local_unnamed_addr #1 {
 entry:
   %ret.addr = alloca ptr, align 8
   %othername = alloca [300 x i8], align 16
@@ -664,7 +664,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @i2t_ASN1_OBJECT(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @GENERAL_NAME_print(ptr noundef %out, ptr nocapture noundef readonly %gen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GENERAL_NAME_print(ptr noundef %out, ptr noundef readonly captures(none) %gen) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %gen, align 8
   switch i32 %0, label %return [
@@ -832,7 +832,7 @@ declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define ptr @v2i_GENERAL_NAMES(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) local_unnamed_addr #1 {
+define ptr @v2i_GENERAL_NAMES(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) local_unnamed_addr #1 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %nval) #3
   %call3 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call1) #3
@@ -883,7 +883,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define ptr @v2i_GENERAL_NAME(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) local_unnamed_addr #1 {
+define ptr @v2i_GENERAL_NAME(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef readonly captures(none) %cnf) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %cnf, i32 noundef 0)
   ret ptr %call
@@ -894,7 +894,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @GENERAL_NAME_free(ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define ptr @v2i_GENERAL_NAME_ex(ptr noundef %out, ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr nocapture noundef readonly %cnf, i32 noundef %is_nc) local_unnamed_addr #1 {
+define ptr @v2i_GENERAL_NAME_ex(ptr noundef %out, ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef readonly captures(none) %cnf, i32 noundef %is_nc) local_unnamed_addr #1 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %cnf, i64 8
   %0 = load ptr, ptr %name1, align 8
@@ -961,7 +961,7 @@ return:                                           ; preds = %if.end35, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @a2i_GENERAL_NAME(ptr noundef %out, ptr nocapture readnone %method, ptr noundef %ctx, i32 noundef %gen_type, ptr noundef %value, i32 noundef %is_nc) local_unnamed_addr #1 {
+define ptr @a2i_GENERAL_NAME(ptr noundef %out, ptr readnone captures(none) %method, ptr noundef %ctx, i32 noundef %gen_type, ptr noundef %value, i32 noundef %is_nc) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1194,14 +1194,14 @@ declare ptr @ASN1_IA5STRING_new() local_unnamed_addr #0
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ASN1_IA5STRING_free(ptr noundef) local_unnamed_addr #0
 
 declare i32 @ossl_v3_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 

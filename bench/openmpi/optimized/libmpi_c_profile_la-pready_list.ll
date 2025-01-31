@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Pready_list = weak alias i32 (i32, ptr, ptr), ptr @PMPI_Pready_list
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %.thread

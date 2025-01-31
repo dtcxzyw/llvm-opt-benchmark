@@ -1272,7 +1272,7 @@ declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @help() unnamed_addr #3 {
@@ -1341,7 +1341,7 @@ define internal fastcc void @help() unnamed_addr #3 {
 declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @find_other_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1792,7 +1792,7 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef nonnull %0) unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @PQsetClientEncoding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1894,7 +1894,7 @@ define internal fastcc void @dropDBs(ptr noundef nonnull %0) unnamed_addr #3 {
   %19 = load i32, ptr @if_exists, align 4
   %.not13 = icmp eq i32 %19, 0
   %20 = select i1 %.not13, ptr @.str.120, ptr @.str.185
-  %21 = tail call ptr @fmtId(ptr noundef %11) #14
+  %21 = tail call ptr @fmtId(ptr noundef nonnull %11) #14
   %22 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %18, ptr noundef nonnull @.str.281, ptr noundef nonnull %20, ptr noundef %21) #14
   br label %23
 
@@ -2037,7 +2037,7 @@ define internal fastcc void @dumpRoles(ptr noundef nonnull %0) unnamed_addr #3 {
 sub_0:                                            ; preds = %27, %121
   %.0172 = phi i32 [ %122, %121 ], [ 0, %27 ]
   %30 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %8) #14
-  %31 = tail call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
+  %31 = tail call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
   %33 = tail call ptr @PQgetvalue(ptr noundef nonnull %7, i32 noundef %.0172, i32 noundef %9) #14
   %34 = load i8, ptr %33, align 1
@@ -2531,7 +2531,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   br i1 %5, label %87, label %rolename_lookup.exit.us
 
 87:                                               ; preds = %86
-  %88 = tail call i64 @strtoul(ptr nocapture noundef %81, ptr noundef null, i32 noundef 10) #14
+  %88 = tail call i64 @strtoul(ptr noundef captures(none) %81, ptr noundef null, i32 noundef 10) #14
   %89 = and i64 %88, 4294967295
   %.not96.us = icmp eq i64 %89, 10
   br i1 %.not96.us, label %rolename_lookup.exit.us, label %90
@@ -2539,7 +2539,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
 90:                                               ; preds = %87
   %91 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #15
   %92 = trunc i64 %91 to i32
-  %93 = tail call i32 @hash_bytes(ptr noundef %82, i32 noundef %92) #14
+  %93 = tail call i32 @hash_bytes(ptr noundef nonnull %82, i32 noundef %92) #14
   %.val.i.i.us = load i32, ptr %62, align 4
   %94 = load ptr, ptr %51, align 8
   %.01416.i.i.us = and i32 %.val.i.i.us, %93
@@ -2583,7 +2583,7 @@ rolename_lookup.exit.us:                          ; preds = %103, %87, %86
 117:                                              ; preds = %rolename_lookup.exit.us
   %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #15
   %119 = trunc i64 %118 to i32
-  %120 = tail call i32 @hash_bytes(ptr noundef %80, i32 noundef %119) #14
+  %120 = tail call i32 @hash_bytes(ptr noundef nonnull %80, i32 noundef %119) #14
   %.pre.i.i.us = load i32, ptr %70, align 8
   %.pre176.i.i.us = load i32, ptr %67, align 8
   br label %121
@@ -3068,7 +3068,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   %.074 = phi i32 [ %55, %51 ], [ 0, %8 ]
   %11 = tail call ptr @createPQExpBuffer() #14
   %12 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 0) #14
-  %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #14
+  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #14
   %14 = trunc i64 %13 to i32
   %15 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 1) #14
   %16 = tail call ptr @PQgetvalue(ptr noundef nonnull %2, i32 noundef %.074, i32 noundef 2) #14
@@ -3203,17 +3203,17 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   br i1 %15, label %53, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = call zeroext i1 @simple_string_list_member(ptr noundef nonnull @database_exclude_names, ptr noundef %13) #14
+  %17 = call zeroext i1 @simple_string_list_member(ptr noundef nonnull @database_exclude_names, ptr noundef nonnull %13) #14
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.287, ptr noundef %13) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.287, ptr noundef nonnull %13) #14
   br label %53
 
 19:                                               ; preds = %16
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.288, ptr noundef %13) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.288, ptr noundef nonnull %13) #14
   %20 = load ptr, ptr @OPF, align 8
-  %21 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %20, ptr noundef nonnull @.str.289, ptr noundef %13) #14
+  %21 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %20, ptr noundef nonnull @.str.289, ptr noundef nonnull %13) #14
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.102) #15
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %27, label %24
@@ -3229,7 +3229,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr @OPF, align 8
-  %30 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %29, ptr noundef nonnull @.str.291, ptr noundef %13) #14
+  %30 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %29, ptr noundef nonnull @.str.291, ptr noundef nonnull %13) #14
   br label %31
 
 31:                                               ; preds = %24, %27, %28
@@ -3257,7 +3257,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull %.str.298..str.297.i) #14
   %40 = load ptr, ptr @connstr, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.299, ptr noundef %40) #14
-  call void @appendConnStrVal(ptr noundef nonnull %2, ptr noundef %13) #14
+  call void @appendConnStrVal(ptr noundef nonnull %2, ptr noundef nonnull %13) #14
   %41 = load ptr, ptr %2, align 8
   call void @appendShellString(ptr noundef nonnull %3, ptr noundef %41) #14
   %42 = load ptr, ptr %3, align 8
@@ -3273,7 +3273,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   br i1 %.not22, label %47, label %46
 
 46:                                               ; preds = %36
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.293, ptr noundef %13) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.293, ptr noundef nonnull %13) #14
   call void @exit(i32 noundef 1) #17
   unreachable
 
@@ -3308,7 +3308,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
 declare void @PQfinish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -3355,7 +3355,7 @@ declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
@@ -3383,17 +3383,17 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @buildACLCommands(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare zeroext i1 @processSQLNamePattern(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3404,10 +3404,10 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @appendConnStrVal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
@@ -3449,10 +3449,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

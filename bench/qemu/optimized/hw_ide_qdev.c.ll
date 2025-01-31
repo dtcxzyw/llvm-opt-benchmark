@@ -139,7 +139,7 @@ declare ptr @blk_by_legacy_dinfo(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @ide_get_geometry(ptr nocapture noundef readonly %bus, i32 noundef %unit, ptr nocapture noundef writeonly %cyls, ptr nocapture noundef writeonly %heads, ptr nocapture noundef writeonly %secs) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @ide_get_geometry(ptr noundef readonly captures(none) %bus, i32 noundef %unit, ptr noundef writeonly captures(none) %cyls, ptr noundef writeonly captures(none) %heads, ptr noundef writeonly captures(none) %secs) local_unnamed_addr #2 {
 entry:
   %ifs = getelementptr inbounds nuw i8, ptr %bus, i64 136
   %idxprom = sext i32 %unit to i64
@@ -176,7 +176,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @ide_get_bios_chs_trans(ptr nocapture noundef readonly %bus, i32 noundef %unit) local_unnamed_addr #3 {
+define dso_local i32 @ide_get_bios_chs_trans(ptr noundef readonly captures(none) %bus, i32 noundef %unit) local_unnamed_addr #3 {
 entry:
   %idxprom = sext i32 %unit to i64
   %chs_trans.idx = mul nsw i64 %idxprom, 984
@@ -209,7 +209,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ide_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #6
   %get_fw_dev_path = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -253,7 +253,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @qdev_fw_name(ptr noundef) local_unnamed_addr #1
 
@@ -264,7 +264,7 @@ declare void @qemu_del_vm_change_state_handler(ptr noundef) local_unnamed_addr #
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_hd_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ide_hd_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
@@ -458,7 +458,7 @@ declare void @add_boot_device_path(i32 noundef, ptr noundef, ptr noundef) local_
 declare void @add_boot_device_lchs(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cd_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ide_cd_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cf_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ide_cf_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE_CLASS) #6
@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ide_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -528,7 +528,7 @@ entry:
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_dev_get_bootindex(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @ide_dev_get_bootindex(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 506, ptr noundef nonnull @__func__.IDE_DEVICE) #6
   %bootindex = getelementptr inbounds nuw i8, ptr %call.i, i64 196
@@ -537,7 +537,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_dev_set_bootindex(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @ide_dev_set_bootindex(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %boot_index = alloca i32, align 4
   %local_err = alloca ptr, align 8

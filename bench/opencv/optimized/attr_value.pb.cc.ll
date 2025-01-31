@@ -397,7 +397,7 @@ define weak hidden noundef ptr @_Z44descriptor_table_attr_5fvalue_2eproto_getter
 declare void @_ZN6google8protobuf8internal20AddDescriptorsRunnerC1EPKNS1_15DescriptorTableE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue11clear_shapeEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue11clear_shapeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -428,7 +428,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16TensorShapeProtoEE5C
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue12clear_tensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue12clear_tensorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1238,12 +1238,12 @@ define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValueD0Ev(ptr noundef 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK17opencv_tensorflow19AttrValue_ListValue13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK17opencv_tensorflow19AttrValue_ListValue13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -2640,7 +2640,7 @@ define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue9MergeImplEPN6goo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow19AttrValue_ListValue12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow19AttrValue_ListValue12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret ptr @_ZN17opencv_tensorflow19AttrValue_ListValue12_class_data_E
 }
 
@@ -2890,7 +2890,7 @@ define hidden void @_ZN17opencv_tensorflow19AttrValue_ListValue8CopyFromERKS0_(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow19AttrValue_ListValue13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow19AttrValue_ListValue13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 true
 }
 
@@ -2979,7 +2979,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIbE12InternalSwapEPS2_(ptr nound
 declare void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK17opencv_tensorflow19AttrValue_ListValue11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK17opencv_tensorflow19AttrValue_ListValue11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z44descriptor_table_attr_5fvalue_2eproto_getterv, ptr noundef nonnull @_ZL42descriptor_table_attr_5fvalue_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) @_ZL40file_level_metadata_attr_5fvalue_2eproto)
   ret { ptr, ptr } %2
 }
@@ -2987,28 +2987,28 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow19AttrValue_ListValue11GetMet
 declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal5shapeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal6tensorEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal6tensorEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal4listEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal4listEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal4funcEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN17opencv_tensorflow9AttrValue9_Internal4funcEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3354,7 +3354,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit19: ; preds = %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue11clear_shapeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue11clear_shapeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 7
@@ -3464,7 +3464,7 @@ _ZN6google8protobuf5Arena14InternalHelperINS0_11MessageLiteEE14GetOwningArenaEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue12clear_tensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue12clear_tensorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 8
@@ -3637,7 +3637,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN17opencv_tensorflow12NameAttrListEE14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValueC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16), (24, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow9AttrValueC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 16), (24, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -3652,7 +3652,7 @@ define hidden void @_ZN17opencv_tensorflow9AttrValueC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16), (24, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow9AttrValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16), (24, 28)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow9AttrValueE, i64 16), ptr %0, align 8
@@ -4210,12 +4210,12 @@ define hidden void @_ZN17opencv_tensorflow9AttrValueD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK17opencv_tensorflow9AttrValue13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK17opencv_tensorflow9AttrValue13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -4799,7 +4799,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %51,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK17opencv_tensorflow9AttrValue18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK17opencv_tensorflow9AttrValue18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
@@ -5476,18 +5476,18 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow9AttrValue12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN17opencv_tensorflow9AttrValue9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow9AttrValue12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow9AttrValue12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret ptr @_ZN17opencv_tensorflow9AttrValue12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %151 [
@@ -5897,12 +5897,12 @@ _ZN17opencv_tensorflow9AttrValue5ClearEv.exit:    ; preds = %4, %8, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow9AttrValue13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow9AttrValue13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -5925,13 +5925,13 @@ define hidden void @_ZN17opencv_tensorflow9AttrValue12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK17opencv_tensorflow9AttrValue11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK17opencv_tensorflow9AttrValue11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z44descriptor_table_attr_5fvalue_2eproto_getterv, ptr noundef nonnull @_ZL42descriptor_table_attr_5fvalue_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL40file_level_metadata_attr_5fvalue_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5947,7 +5947,7 @@ define hidden void @_ZN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseC2Ev(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0, ptr noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %0, ptr noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = ptrtoint ptr %1 to i64
   store i64 %4, ptr %3, align 8
@@ -6094,7 +6094,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUse11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK17opencv_tensorflow31NameAttrList_AttrEntry_DoNotUse11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z44descriptor_table_attr_5fvalue_2eproto_getterv, ptr noundef nonnull @_ZL42descriptor_table_attr_5fvalue_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL40file_level_metadata_attr_5fvalue_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
@@ -6519,7 +6519,7 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow31NameAttrList_AttrEnt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK17opencv_tensorflow12NameAttrList13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK17opencv_tensorflow12NameAttrList13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -7701,7 +7701,7 @@ define hidden void @_ZN17opencv_tensorflow12NameAttrList9MergeImplEPN6google8pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow12NameAttrList12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow12NameAttrList12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret ptr @_ZN17opencv_tensorflow12NameAttrList12_class_data_E
 }
 
@@ -7781,7 +7781,7 @@ _ZN17opencv_tensorflow12NameAttrList5ClearEv.exit: ; preds = %_ZN6google8protobu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow12NameAttrList13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow12NameAttrList13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 true
 }
 
@@ -7843,7 +7843,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK17opencv_tensorflow12NameAttrList11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK17opencv_tensorflow12NameAttrList11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z44descriptor_table_attr_5fvalue_2eproto_getterv, ptr noundef nonnull @_ZL42descriptor_table_attr_5fvalue_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL40file_level_metadata_attr_5fvalue_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
@@ -9727,7 +9727,7 @@ declare noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11
 declare noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_20stringpiece_internal11StringPieceEPKc(ptr, i64, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMaybeAliasedOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -10445,7 +10445,7 @@ declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef 
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -13426,7 +13426,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefF
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 declare void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef) local_unnamed_addr #0
 
@@ -14231,13 +14231,13 @@ define internal void @_GLOBAL__sub_I_attr_value.pb.cc() #19 section ".text.start
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23

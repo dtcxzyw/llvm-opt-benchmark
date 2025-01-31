@@ -573,7 +573,7 @@ declare void @_ZN6hermes5irgen11ESTreeIRGen29blockDeclarationInstantiationEPNS_6
 declare void @_ZN6hermes5irgen11ESTreeIRGen18emitCreateFunctionEPNS_6ESTree23FunctionDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen14genIfStatementEPNS_6ESTree15IfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %IfStmt) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen14genIfStatementEPNS_6ESTree15IfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %IfStmt) local_unnamed_addr #0 align 2 {
 entry:
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #8
@@ -607,7 +607,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen17genForInStatementEPNS_6ESTree18ForInStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %ForInStmt) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen17genForInStatementEPNS_6ESTree18ForInStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %ForInStmt) local_unnamed_addr #0 align 2 {
 entry:
   %initRef = alloca %"class.hermes::irgen::LReference", align 8
   %lref = alloca %"class.hermes::irgen::LReference", align 8
@@ -857,7 +857,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN6hermes5irgen14S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen18genReturnStatementEPNS_6ESTree19ReturnStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %RetStmt) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen18genReturnStatementEPNS_6ESTree19ReturnStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %RetStmt) local_unnamed_addr #0 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %RetStmt, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -1225,7 +1225,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(pt
 declare void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen16genForWhileLoopsEPNS_6ESTree17LoopStatementNodeEPNS2_4NodeES6_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %loop, ptr noundef %init, ptr noundef %preTest, ptr noundef %postTest, ptr noundef %update, ptr noundef %body) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen16genForWhileLoopsEPNS_6ESTree17LoopStatementNodeEPNS2_4NodeES6_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %loop, ptr noundef %init, ptr noundef %preTest, ptr noundef %postTest, ptr noundef %update, ptr noundef %body) local_unnamed_addr #0 align 2 {
 entry:
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #8
@@ -1927,7 +1927,7 @@ for.end104:                                       ; preds = %_ZNK6hermes15Scoped
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen27genExportDefaultDeclarationEPNS_6ESTree28ExportDefaultDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %exportDecl) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen27genExportDefaultDeclarationEPNS_6ESTree28ExportDefaultDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %exportDecl) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2053,7 +2053,7 @@ if.end28:                                         ; preds = %if.then13, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen23genExportAllDeclarationEPNS_6ESTree24ExportAllDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %exportDecl) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen23genExportAllDeclarationEPNS_6ESTree24ExportAllDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %exportDecl) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp11 = alloca [1 x ptr], align 8
   %ref.tmp17 = alloca [2 x ptr], align 8
@@ -2086,7 +2086,7 @@ entry:
 declare noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %kind, ptr nocapture noundef readonly %declarator) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %kind, ptr noundef readonly captures(none) %declarator) local_unnamed_addr #0 align 2 {
 entry:
   %lref = alloca %"class.hermes::irgen::LReference", align 8
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2153,7 +2153,7 @@ if.end20:                                         ; preds = %if.end20.sink.split
 declare void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr sret(%"class.hermes::irgen::LReference") align 8, ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
@@ -2263,7 +2263,7 @@ return:                                           ; preds = %if.end, %for.inc, %
 declare noundef zeroext i1 @_ZN6hermes5irgen14isConstantExprEPNS_6ESTree4NodeE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen18genConstSwitchStmtEPNS_6ESTree19SwitchStatementNodeERN4llvh15SmallVectorImplIPNS_7LiteralEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %switchStmt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %caseLiterals) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen18genConstSwitchStmtEPNS_6ESTree19SwitchStatementNodeERN4llvh15SmallVectorImplIPNS_7LiteralEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %switchStmt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %caseLiterals) local_unnamed_addr #0 align 2 {
 entry:
   %enterBlockScope = alloca %"class.std::optional", align 8
   %valueSet = alloca %"class.llvh::SmallPtrSet", align 8
@@ -2560,7 +2560,7 @@ declare ptr @_ZN6hermes5irgen15FunctionContext21genAnonymousLabelNameEN4llvh9Str
 declare noundef ptr @_ZN6hermes9IRBuilder22createIteratorNextInstEPNS_14AllocStackInstES2_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #1
 
@@ -2571,7 +2571,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnul
 declare ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen17genForOfStatementEPNS1_18ForOfStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_OS7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen17genForOfStatementEPNS1_18ForOfStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_OS7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3) #0 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args1.val = load i32, ptr %__args1, align 4
@@ -2597,7 +2597,7 @@ if.then.i.i.i:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen17genForOfStatementEPNS1_18ForOfStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen17genForOfStatementEPNS1_18ForOfStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -2650,10 +2650,10 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

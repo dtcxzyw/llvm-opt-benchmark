@@ -23,7 +23,7 @@ define hidden void @WebPInitUpsamplersSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -489,7 +489,7 @@ define internal void @UpsampleRgbaLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -955,7 +955,7 @@ define internal void @UpsampleBgraLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -1417,7 +1417,7 @@ define internal void @UpsampleRgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -1879,7 +1879,7 @@ define internal void @UpsampleBgrLinePair_SSE2(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -2345,7 +2345,7 @@ define internal void @UpsampleArgbLinePair_SSE2(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 2)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 2)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -2813,7 +2813,7 @@ define internal void @UpsampleRgb565LinePair_SSE2(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 2)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgba4444LinePair_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 2)) %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -3620,12 +3620,12 @@ define internal void @Yuv444ToRgb565_SSE2(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @VP8YuvToRgba32_SSE2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #6

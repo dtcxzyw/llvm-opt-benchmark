@@ -156,13 +156,13 @@ return:                                           ; preds = %if.end40, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @internal_exr_revert_add_part(ptr noundef %ctxt, ptr nocapture noundef %outpart, ptr nocapture noundef writeonly initializes((0, 4)) %new_index) local_unnamed_addr #0 {
+define hidden void @internal_exr_revert_add_part(ptr noundef %ctxt, ptr noundef captures(none) %outpart, ptr noundef writeonly captures(none) initializes((0, 4)) %new_index) local_unnamed_addr #0 {
 entry:
   %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
@@ -269,7 +269,7 @@ if.end29:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @internal_exr_context_restore_handlers(ptr nocapture noundef writeonly initializes((56, 80)) %ctxt, i32 noundef returned %rv) local_unnamed_addr #3 {
+define hidden noundef i32 @internal_exr_context_restore_handlers(ptr noundef writeonly captures(none) initializes((56, 80)) %ctxt, i32 noundef returned %rv) local_unnamed_addr #3 {
 entry:
   %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   store ptr @dispatch_standard_error, ptr %standard_error, align 8
@@ -322,7 +322,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dispatch_print_error(ptr noundef %pctxt, i32 noundef returned %code, ptr nocapture noundef readonly %msg, ...) #0 {
+define internal noundef i32 @dispatch_print_error(ptr noundef %pctxt, i32 noundef returned %code, ptr noundef readonly captures(none) %msg, ...) #0 {
 entry:
   %stackbuf = alloca [256 x i8], align 16
   %fmtargs = alloca [1 x %struct.__va_list_tag], align 16
@@ -379,7 +379,7 @@ if.end17:                                         ; preds = %if.end.i22, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_alloc_context(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef readonly %initializers, i32 noundef %mode, i64 noundef %default_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_alloc_context(ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef readonly captures(none) %initializers, i32 noundef %mode, i64 noundef %default_size) local_unnamed_addr #0 {
 entry:
   %gmaxw = alloca i32, align 4
   %gmaxh = alloca i32, align 4
@@ -746,7 +746,7 @@ declare i32 @exr_attr_list_destroy(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @internal_exr_update_default_handlers(ptr nocapture noundef %inits) local_unnamed_addr #6 {
+define hidden void @internal_exr_update_default_handlers(ptr noundef captures(none) %inits) local_unnamed_addr #6 {
 entry:
   %error_handler_fn = getelementptr inbounds nuw i8, ptr %inits, i64 8
   %0 = load ptr, ptr %error_handler_fn, align 8
@@ -821,18 +821,18 @@ declare noalias ptr @internal_exr_alloc(i64 noundef) #4
 declare void @internal_exr_free(ptr noundef) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare ptr @exr_get_error_code_as_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5

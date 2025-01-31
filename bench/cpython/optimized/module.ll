@@ -282,7 +282,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @module_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
+define internal i32 @module_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #1 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %0 = load ptr, ptr %call.i, align 8
@@ -1144,7 +1144,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_adapt(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @pysqlite_adapt(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %PrepareProtocolType = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -1187,7 +1187,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_complete_statement(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
+define internal noundef ptr @pysqlite_complete_statement(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %statement_length = alloca i64, align 8
@@ -1359,7 +1359,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pysqlite_register_adapter(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @pysqlite_register_adapter(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1403,7 +1403,7 @@ exit:                                             ; preds = %lor.lhs.false, %pys
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_register_converter(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @pysqlite_register_converter(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %or.cond = icmp eq i64 %nargs, 2
@@ -1493,7 +1493,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2243,7 +2243,7 @@ declare ptr @sqlite3_libversion() local_unnamed_addr #2
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @get_threadsafety(ptr nocapture noundef readonly %state) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 4) i32 @get_threadsafety(ptr noundef readonly captures(none) %state) unnamed_addr #1 {
 entry:
   %call = tail call i32 @sqlite3_threadsafe() #5
   %0 = icmp ult i32 %call, 3
@@ -2312,10 +2312,10 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

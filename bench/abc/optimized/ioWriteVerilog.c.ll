@@ -177,18 +177,18 @@ Abc_NtkIsMappedNetlist.exit.thread:               ; preds = %3, %Abc_NtkIsAigNet
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #11
@@ -1963,10 +1963,10 @@ Io_WriteVerilogObjects.exit:                      ; preds = %487, %Abc_Base10Log
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Io_WriteLutModule(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Io_WriteLutModule(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = shl nuw i32 1, %1
   %4 = add nsw i32 %1, -1
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %3, i32 noundef %4) #10
@@ -1976,7 +1976,7 @@ define void @Io_WriteLutModule(ptr nocapture noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Io_WriteFixedModules(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Io_WriteFixedModules(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 57, i64 1, ptr %0)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 14, i64 1, ptr %0)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 14, i64 1, ptr %0)
@@ -2008,7 +2008,7 @@ define void @Io_WriteFixedModules(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteVerilogObjectsLut(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_WriteVerilogObjectsLut(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 80
   %.val240 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val240, i64 4
@@ -3600,12 +3600,12 @@ Io_WriteVerilogGetName.exit525:                   ; preds = %613, %._crit_edge.i
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @Abc_SopToTruth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_WriteVerilogLutInt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #11
@@ -3819,7 +3819,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %18, %._crit_edge.i,
 declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 3, 11) %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogPis(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 3, 11) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 40
   %.val2152 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val2152, i64 4
@@ -4046,7 +4046,7 @@ Io_WriteVerilogGetName.exit49:                    ; preds = %64, %._crit_edge.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 3, 6) %2) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogPos(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 3, 6) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 48
   %.val3469 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val3469, i64 4
@@ -4314,7 +4314,7 @@ Io_WriteVerilogGetName.exit65:                    ; preds = %75, %._crit_edge.i5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogRegs(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 128
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4565,7 +4565,7 @@ Io_WriteVerilogGetName.exit59:                    ; preds = %76, %._crit_edge.i4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr noundef readonly captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val = load i32, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4755,7 +4755,7 @@ define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogWires(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @Io_WriteVerilogWiresCount(ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4932,7 +4932,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
 77:                                               ; preds = %75, %72, %Io_WriteVerilogGetName.exit
   %.2116 = phi i32 [ 3, %75 ], [ %.0114353, %72 ], [ %.0114353, %Io_WriteVerilogGetName.exit ]
   %.2107 = phi i32 [ 0, %75 ], [ %.0105354, %72 ], [ 0, %Io_WriteVerilogGetName.exit ]
-  %78 = tail call ptr @Abc_ObjName(ptr noundef %28) #10
+  %78 = tail call ptr @Abc_ObjName(ptr noundef nonnull %28) #10
   %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %78) #11
   %80 = trunc i64 %79 to i32
   %81 = load i8, ptr %78, align 1
@@ -5676,7 +5676,7 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
 362:                                              ; preds = %360, %357, %Io_WriteVerilogGetName.exit317
   %.12126 = phi i32 [ 3, %360 ], [ %.10124378, %357 ], [ %.10124378, %Io_WriteVerilogGetName.exit317 ]
   %.12 = phi i32 [ 0, %360 ], [ %.10379, %357 ], [ 0, %Io_WriteVerilogGetName.exit317 ]
-  %363 = tail call ptr @Abc_ObjName(ptr noundef %313) #10
+  %363 = tail call ptr @Abc_ObjName(ptr noundef nonnull %313) #10
   %364 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %363) #11
   %365 = trunc i64 %364 to i32
   %366 = load i8, ptr %363, align 1
@@ -5790,7 +5790,7 @@ Io_WriteVerilogGetName.exit342:                   ; preds = %376, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_WriteVerilogLatches(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 128
   %.val42 = load i32, ptr %3, align 8
   %4 = icmp eq i32 %.val42, 0
@@ -6467,7 +6467,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 declare i32 @Mio_LibraryReadGateNameMax(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #2
 
@@ -6488,19 +6488,19 @@ declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @Hop_ObjPrintVerilog(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

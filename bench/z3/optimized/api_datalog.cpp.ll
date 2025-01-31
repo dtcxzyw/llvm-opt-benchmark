@@ -2419,7 +2419,7 @@ terminate.lpad:                                   ; preds = %lpad17
 declare void @_Z27log_Z3_fixedpoint_to_stringP11_Z3_contextP14_Z3_fixedpointjPKP7_Z3_ast(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @Z3_fixedpoint_from_stream(ptr noundef %c, ptr nocapture noundef readonly %d, ptr noundef nonnull align 8 dereferenceable(16) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @Z3_fixedpoint_from_stream(ptr noundef %c, ptr noundef readonly captures(none) %d, ptr noundef nonnull align 8 dereferenceable(16) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %coll = alloca %struct.dl_collected_cmds, align 8
   %ctx = alloca %class.cmd_context, align 8
@@ -4301,7 +4301,7 @@ terminate.lpad:                                   ; preds = %lpad37
 declare void @_Z32log_Z3_fixedpoint_get_assertionsP11_Z3_contextP14_Z3_fixedpoint(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Z3_fixedpoint_set_reduce_assign_callback(ptr nocapture noundef readnone %c, ptr nocapture noundef readonly %d, ptr noundef %f) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @Z3_fixedpoint_set_reduce_assign_callback(ptr noundef readnone captures(none) %c, ptr noundef readonly captures(none) %d, ptr noundef %f) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %m_datalog.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %m_datalog.i, align 8
@@ -4311,7 +4311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Z3_fixedpoint_set_reduce_app_callback(ptr nocapture noundef readnone %c, ptr nocapture noundef readonly %d, ptr noundef %f) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @Z3_fixedpoint_set_reduce_app_callback(ptr noundef readnone captures(none) %c, ptr noundef readonly captures(none) %d, ptr noundef %f) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %m_datalog.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %m_datalog.i, align 8
@@ -4321,7 +4321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_fixedpoint_init(ptr noundef %c, ptr nocapture noundef readonly %d, ptr noundef %state) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_fixedpoint_init(ptr noundef %c, ptr noundef readonly captures(none) %d, ptr noundef %state) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_datalog.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %m_datalog.i, align 8
@@ -5246,7 +5246,7 @@ declare void @_Z28log_Z3_fixedpoint_set_paramsP11_Z3_contextP14_Z3_fixedpointP10
 declare void @_ZN10params_ref8validateERK12param_descrs(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_fixedpoint_add_callback(ptr noundef %c, ptr nocapture noundef readonly %d, ptr noundef %state, ptr noundef %new_lemma_eh, ptr noundef %predecessor_eh, ptr noundef %unfold_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_fixedpoint_add_callback(ptr noundef %c, ptr noundef readonly captures(none) %d, ptr noundef %state, ptr noundef %new_lemma_eh, ptr noundef %predecessor_eh, ptr noundef %unfold_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_datalog.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %m_datalog.i, align 8
@@ -5303,7 +5303,7 @@ terminate.lpad:                                   ; preds = %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_fixedpoint_add_constraint(ptr nocapture noundef readnone %c, ptr nocapture noundef readonly %d, ptr noundef %e, i32 noundef %lvl) local_unnamed_addr #3 {
+define void @Z3_fixedpoint_add_constraint(ptr noundef readnone captures(none) %c, ptr noundef readonly captures(none) %d, ptr noundef %e, i32 noundef %lvl) local_unnamed_addr #3 {
 entry:
   %m_datalog.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %m_datalog.i, align 8
@@ -6987,7 +6987,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
@@ -7357,7 +7357,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -7641,10 +7641,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

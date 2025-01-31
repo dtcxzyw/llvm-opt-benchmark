@@ -583,7 +583,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly %attr, i32 noundef %idx, i32 noundef %atrtype, ptr nocapture readnone %data) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly %attr, i32 noundef %idx, i32 noundef %atrtype, ptr readnone captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %attr, null
   br i1 %cmp.i, label %X509_ATTRIBUTE_get0_type.exit.thread, label %X509_ATTRIBUTE_get0_type.exit

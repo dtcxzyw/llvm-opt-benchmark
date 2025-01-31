@@ -161,7 +161,7 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @ginPostingListDecodeAllSegments(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -210,7 +210,7 @@ declare i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef, i32 noundef, ptr 
 declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @GinDataPageAddPostingItem(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define dso_local void @GinDataPageAddPostingItem(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
@@ -265,10 +265,10 @@ define dso_local void @GinDataPageAddPostingItem(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @GinPageDeletePostingItem(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local void @GinPageDeletePostingItem(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -311,7 +311,7 @@ define dso_local void @GinPageDeletePostingItem(ptr nocapture noundef %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginVacuumPostingTreeLeaf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ginVacuumPostingTreeLeaf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = icmp slt i32 %1, 0
@@ -962,7 +962,7 @@ declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) 
 declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ginDataFillRoot(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5) #3 {
+define dso_local void @ginDataFillRoot(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #3 {
   %.sroa.37 = alloca %struct.ItemPointerData, align 8
   %.sroa.3 = alloca %struct.ItemPointerData, align 8
   %7 = getelementptr i8, ptr %3, i64 24
@@ -1358,10 +1358,10 @@ define dso_local ptr @ginScanBeginPostingTree(ptr noundef initializes((0, 128)) 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dataLocateItem(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal i32 @dataLocateItem(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
@@ -1516,7 +1516,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dataGetLeftMostPage(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @dataGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val = load i16, ptr %3, align 2
   %4 = getelementptr i8, ptr %1, i64 34
@@ -1529,7 +1529,7 @@ define internal i32 @dataGetLeftMostPage(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @dataIsMoveRight(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal zeroext i1 @dataIsMoveRight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 4
@@ -1581,7 +1581,7 @@ define internal zeroext i1 @dataIsMoveRight(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @dataFindChildPtr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
+define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i64
@@ -1673,7 +1673,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @dataBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) #0 {
+define internal range(i32 0, 3) i32 @dataBeginPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) #0 {
   %9 = alloca %struct.ItemPointerData, align 2
   %10 = alloca [820 x %struct.PostingItem], align 16
   %11 = alloca i32, align 4
@@ -2999,7 +2999,7 @@ dataBeginPlaceToPageInternal.exit:                ; preds = %dataSplitPageIntern
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dataExecPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef readonly %5) #0 {
+define internal void @dataExecPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly %5) #0 {
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %BufferGetPage.exit, label %BufferGetPage.exit.thread
 
@@ -3268,7 +3268,7 @@ dataExecPlaceToPageLeaf.exit:                     ; preds = %156, %152, %148, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dataPrepareDownlink(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal ptr @dataPrepareDownlink(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = tail call ptr @palloc(i64 noundef 10) #11
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %11
@@ -3322,10 +3322,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -257,12 +257,12 @@ declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @AES_bi_ige_encrypt(ptr noundef readonly %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr nocapture noundef readnone %key2, ptr noundef readonly %ivec, i32 noundef %enc) local_unnamed_addr #0 {
+define void @AES_bi_ige_encrypt(ptr noundef readonly %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef readnone captures(none) %key2, ptr noundef readonly %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tmp = alloca [16 x i8], align 16
   %tmp2 = alloca [16 x i8], align 16

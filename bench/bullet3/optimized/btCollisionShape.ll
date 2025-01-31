@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16btCollisionShape17getBoundingSphereER9btVector3Rf(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %center, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %radius) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK16btCollisionShape17getBoundingSphereER9btVector3Rf(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %center, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %radius) unnamed_addr #1 align 2 {
 entry:
   %tr = alloca %class.btTransform, align 4
   %aabbMin = alloca %class.btVector3, align 4
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16btCollisionShape21calculateTemporalAabbERK11btTransformRK9btVector3S5_fRS3_S6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linvel, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angvel, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK16btCollisionShape21calculateTemporalAabbERK11btTransformRK9btVector3S5_fRS3_S6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linvel, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angvel, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
@@ -236,7 +236,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK16btCollisionShape20serializeSingleShapeEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %serializer) unnamed_addr #2 align 2 {

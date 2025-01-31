@@ -17,7 +17,7 @@ define dso_local void @_ZN5clang9SemaNVPTXC2ERNS_4SemaE(ptr noundef nonnull alig
 declare void @_ZN5clang8SemaBaseC2ERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(17560)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9SemaNVPTX29CheckNVPTXBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 1 %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9SemaNVPTX29CheckNVPTXBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = and i32 %2, -4
   %switch = icmp eq i32 %5, 2160
   br i1 %switch, label %6, label %9

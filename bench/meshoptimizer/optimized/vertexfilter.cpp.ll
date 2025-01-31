@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_decodeFilterOct(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
+define dso_local void @meshopt_decodeFilterOct(ptr noundef captures(none) %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i16], align 16
   %tail.sroa.0.i = alloca <2 x i64>, align 16
@@ -327,7 +327,7 @@ if.end:                                           ; preds = %_ZN7meshoptL12dispa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_decodeFilterQuat(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
+define dso_local void @meshopt_decodeFilterQuat(ptr noundef captures(none) %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tail.i)
@@ -537,7 +537,7 @@ _ZN7meshoptL12dispatchSimdIsEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL20deco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_decodeFilterExp(ptr nocapture noundef %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
+define dso_local void @meshopt_decodeFilterExp(ptr noundef captures(none) %buffer, i64 noundef %count, i64 noundef %stride) local_unnamed_addr #0 {
 entry:
   %tail.i = alloca [16 x i32], align 16
   %div1 = lshr i64 %stride, 2
@@ -600,7 +600,7 @@ _ZN7meshoptL12dispatchSimdIjEEvPFvPT_mES2_mm.exit: ; preds = %_ZN7meshoptL19deco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_encodeFilterOct(ptr nocapture noundef writeonly %destination, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data) local_unnamed_addr #1 {
+define dso_local void @meshopt_encodeFilterOct(ptr noundef writeonly captures(none) %destination, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr noundef readonly captures(none) %data) local_unnamed_addr #1 {
 entry:
   %cmp69.not = icmp eq i64 %count, 0
   br i1 %cmp69.not, label %for.end, label %for.body.lr.ph
@@ -733,7 +733,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_encodeFilterQuat(ptr nocapture noundef writeonly %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data) local_unnamed_addr #1 {
+define dso_local void @meshopt_encodeFilterQuat(ptr noundef writeonly captures(none) %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr noundef readonly captures(none) %data) local_unnamed_addr #1 {
 entry:
   %cmp60.not = icmp eq i64 %count, 0
   br i1 %cmp60.not, label %for.end, label %for.body.lr.ph
@@ -848,7 +848,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @meshopt_encodeFilterExp(ptr nocapture noundef writeonly %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr nocapture noundef readonly %data, i32 noundef %mode) local_unnamed_addr #1 {
+define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(none) %destination_, i64 noundef %count, i64 noundef %stride, i32 noundef %bits, ptr noundef readonly captures(none) %data, i32 noundef %mode) local_unnamed_addr #1 {
 entry:
   %component_exp = alloca [64 x i32], align 16
   %div45 = lshr i64 %stride, 2
@@ -1024,10 +1024,10 @@ declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #3
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #6
@@ -1036,10 +1036,10 @@ declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #6
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

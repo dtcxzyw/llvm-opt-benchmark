@@ -1646,7 +1646,7 @@ declare void @_ZN3net25QuicReceivedPacketManagerC1EPNS_19QuicConnectionStatsE(pt
 declare void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr %args.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1028) %this, ptr %args.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
   %offset_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
@@ -1743,7 +1743,7 @@ declare void @_ZN3net21QuicSentPacketManagerC1ENS_11PerspectiveEhPKNS_9QuicClock
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN3net30QuicMultipathSentPacketManagerC1EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) unnamed_addr #1
 
@@ -2721,7 +2721,7 @@ if.end58:                                         ; preds = %if.then57, %if.end5
 declare noundef zeroext i1 @_ZNK3net10QuicConfig10negotiatedEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection18SetNetworkTimeoutsENS_8QuicTime5DeltaES2_(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i64 %handshake_timeout.coerce0, i64 %handshake_timeout.coerce1, i64 %idle_timeout.coerce0, i64 %idle_timeout.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection18SetNetworkTimeoutsENS_8QuicTime5DeltaES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, i64 %handshake_timeout.coerce0, i64 %handshake_timeout.coerce1, i64 %idle_timeout.coerce0, i64 %idle_timeout.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -2847,7 +2847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection21OnSendConnectionStateERKNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection21OnSendConnectionStateERKNS_23CachedNetworkParametersE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -2866,7 +2866,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection24OnReceiveConnectionStateERKNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection24OnReceiveConnectionStateERKNS_23CachedNetworkParametersE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -2885,7 +2885,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
 entry:
   %sent_packet_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
@@ -2897,7 +2897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection16SetMaxPacingRateENS_13QuicBandwidthE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i64 %max_pacing_rate.coerce) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection16SetMaxPacingRateENS_13QuicBandwidthE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, i64 %max_pacing_rate.coerce) unnamed_addr #0 align 2 {
 entry:
   %sent_packet_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
@@ -2909,7 +2909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i64 noundef %num_streams) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, i64 noundef %num_streams) local_unnamed_addr #0 align 2 {
 entry:
   %sent_packet_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
@@ -2921,7 +2921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19SelectMutualVersionERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %available_versions) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19SelectMutualVersionERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %available_versions) local_unnamed_addr #0 align 2 {
 entry:
   %framer_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %supported_versions_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
@@ -3182,7 +3182,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicConnection8OnPacketEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) initializes((584, 585)) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN3net14QuicConnection8OnPacketEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3372) initializes((584, 585)) %this) unnamed_addr #10 align 2 {
 entry:
   %last_packet_decrypted_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   store i8 0, ptr %last_packet_decrypted_, align 8
@@ -3190,7 +3190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection19OnPublicResetPacketERKNS_21QuicPublicResetPacketE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(96) %packet) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection19OnPublicResetPacketERKNS_21QuicPublicResetPacketE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull align 8 dereferenceable(96) %packet) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %error_details = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.0", align 1
@@ -3296,7 +3296,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %connected_ = getelementptr inbounds nuw i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
@@ -4235,7 +4235,7 @@ _ZN3net14QuicConnection17WriteIfNotBlockedEv.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection29OnUnauthenticatedPublicHeaderERKNS_22QuicPacketPublicHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %header) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection29OnUnauthenticatedPublicHeaderERKNS_22QuicPacketPublicHeaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %header) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %header, align 8
   %connection_id_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -4503,7 +4503,7 @@ declare noundef zeroext i1 @_ZNK3net19QuicPacketGenerator20IsPendingPacketEmptyE
 declare noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager16IsAwaitingPacketEm(ptr noundef nonnull align 8 dereferenceable(248), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection17OnDecryptedPacketENS_15EncryptionLevelE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((584, 585), (608, 609)) %this, i8 noundef signext %level) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection17OnDecryptedPacketENS_15EncryptionLevelE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((584, 585), (608, 609)) %this, i8 noundef signext %level) unnamed_addr #0 align 2 {
 entry:
   %last_decrypted_packet_level_ = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i8 %level, ptr %last_decrypted_packet_level_, align 8
@@ -4603,7 +4603,7 @@ return:                                           ; preds = %if.end, %if.end14
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection22ProcessValidatedPacketERKNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection22ProcessValidatedPacketERKNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %header) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator.0", align 1
@@ -5361,7 +5361,7 @@ eh.resume:                                        ; preds = %lpad16, %ehcleanup5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection31MaybeConsiderAsMemoryCorruptionERKNS_15QuicStreamFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %frame) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection31MaybeConsiderAsMemoryCorruptionERKNS_15QuicStreamFrameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %frame) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i32, ptr %frame, align 8
   %cmp = icmp ne i32 %0, 1
@@ -5993,7 +5993,7 @@ _ZN3net14QuicConnection22SetRetransmissionAlarmEv.exit: ; preds = %if.then.i, %i
 declare noundef zeroext i1 @_ZNK3net17PacketNumberQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3net14QuicConnection15GetLeastUnackedEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i8 noundef zeroext %path_id) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK3net14QuicConnection15GetLeastUnackedEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, i8 noundef zeroext %path_id) local_unnamed_addr #0 align 2 {
 entry:
   %sent_packet_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
@@ -6009,7 +6009,7 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align
 declare void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef nonnull align 8 dereferenceable(128), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection22SetRetransmissionAlarmEv(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection22SetRetransmissionAlarmEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %delay_setting_retransmission_alarm_ = getelementptr inbounds nuw i8, ptr %this, i64 1284
   %0 = load i8, ptr %delay_setting_retransmission_alarm_, align 4
@@ -6154,7 +6154,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net14QuicConnection24ValidateStopWaitingFrameERKNS_20QuicStopWaitingFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stop_waiting) local_unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZN3net14QuicConnection24ValidateStopWaitingFrameERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stop_waiting) local_unnamed_addr #12 align 2 {
 entry:
   %least_unacked = getelementptr inbounds nuw i8, ptr %stop_waiting, i64 8
   %0 = load i64, ptr %least_unacked, align 8
@@ -6170,7 +6170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnPaddingFrameERKNS_16QuicPaddingFrameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnPaddingFrameERKNS_16QuicPaddingFrameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6189,7 +6189,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection11OnPingFrameERKNS_13QuicPingFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 1 dereferenceable(1) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection11OnPingFrameERKNS_13QuicPingFrameE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 1 dereferenceable(1) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6216,7 +6216,7 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue3MaxEv(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS_17PacketNumberQueueEh(ptr noundef nonnull align 8 dereferenceable(128), i64 noundef, ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection16OnRstStreamFrameERKNS_18QuicRstStreamFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection16OnRstStreamFrameERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6333,7 +6333,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_16Quic
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection13OnGoAwayFrameERKNS_15QuicGoAwayFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((696, 697), (3369, 3370)) %this, ptr noundef nonnull align 8 dereferenceable(40) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection13OnGoAwayFrameERKNS_15QuicGoAwayFrameE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((696, 697), (3369, 3370)) %this, ptr noundef nonnull align 8 dereferenceable(40) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6370,7 +6370,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6405,7 +6405,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnBlockedFrameERKNS_16QuicBlockedFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection14OnBlockedFrameERKNS_16QuicBlockedFrameE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) initializes((696, 697)) %this, ptr noundef nonnull align 4 dereferenceable(4) %frame) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load ptr, ptr %debug_visitor_, align 8
@@ -6536,7 +6536,7 @@ return:                                           ; preds = %if.then5, %if.end11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicConnection15ClearLastFramesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) initializes((688, 697)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN3net14QuicConnection15ClearLastFramesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3372) initializes((688, 697)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %should_last_packet_instigate_acks_ = getelementptr inbounds nuw i8, ptr %this, i64 696
   store i8 0, ptr %should_last_packet_instigate_acks_, align 8
@@ -6843,7 +6843,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @_ZN3net14QuicConnection14DelayedAckTimeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3372) %this) local_unnamed_addr #13 align 2 {
+define dso_local { i64, i64 } @_ZN3net14QuicConnection14DelayedAckTimeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #13 align 2 {
 entry:
   ret { i64, i64 } { i64 0, i64 25000 }
 }
@@ -6889,7 +6889,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr nocapture noundef initializes((8, 16)) %stop_waiting) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(3372) %this, ptr noundef captures(none) initializes((8, 16)) %stop_waiting) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %stop_waiting, align 8
   %sent_packet_manager_.i = getelementptr inbounds nuw i8, ptr %this, i64 3192
@@ -6920,7 +6920,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr noundef nonnull align 8 dereferenceable(128), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn16_N3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE(ptr noundef %this, ptr nocapture noundef initializes((8, 16)) %stop_waiting) unnamed_addr #14 align 2 {
+define dso_local void @_ZThn16_N3net14QuicConnection24PopulateStopWaitingFrameEPNS_20QuicStopWaitingFrameE(ptr noundef %this, ptr noundef captures(none) initializes((8, 16)) %stop_waiting) unnamed_addr #14 align 2 {
 entry:
   %0 = load i8, ptr %stop_waiting, align 8
   %sent_packet_manager_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 3176
@@ -8651,7 +8651,7 @@ if.end28:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection12SetPingAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection12SetPingAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %perspective_ = getelementptr inbounds nuw i8, ptr %this, i64 3204
   %0 = load i32, ptr %perspective_, align 4
@@ -8957,7 +8957,7 @@ while.end:                                        ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i8 noundef signext %retransmittable) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection8CanWriteENS_22HasRetransmittableDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, i8 noundef signext %retransmittable) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path_id = alloca i8, align 1
   %connected_ = getelementptr inbounds nuw i8, ptr %this, i64 3208
@@ -9783,7 +9783,7 @@ declare void @_ZN3net19QuicPacketGenerator20FlushAllQueuedFramesEv(ptr noundef n
 declare void @_ZN3net19QuicPacketGenerator20ReserializeAllFramesERKNS_21PendingRetransmissionEPcm(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 8 dereferenceable(26), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection24NeuterUnencryptedPacketsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection24NeuterUnencryptedPacketsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %sent_packet_manager_ = getelementptr inbounds nuw i8, ptr %this, i64 3192
   %0 = load ptr, ptr %sent_packet_manager_, align 8
@@ -9820,7 +9820,7 @@ _ZN3net14QuicConnection22SetRetransmissionAlarmEv.exit: ; preds = %if.then.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, i8 noundef signext %retransmittable, i8 noundef signext %handshake) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, i8 noundef signext %retransmittable, i8 noundef signext %handshake) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i8 %handshake, 1
   br i1 %cmp, label %return, label %if.end
@@ -9835,7 +9835,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn16_N3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE(ptr nocapture noundef readonly %this, i8 noundef signext %retransmittable, i8 noundef signext %handshake) unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZThn16_N3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE(ptr noundef readonly captures(none) %this, i8 noundef signext %retransmittable, i8 noundef signext %handshake) unnamed_addr #14 align 2 {
 entry:
   %cmp.i = icmp eq i8 %handshake, 1
   br i1 %cmp.i, label %_ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11IsHandshakeE.exit, label %if.end.i
@@ -9851,7 +9851,7 @@ _ZN3net14QuicConnection20ShouldGeneratePacketENS_22HasRetransmittableDataENS_11I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19ShouldDiscardPacketERKNS_16SerializedPacketE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %packet) local_unnamed_addr #12 align 2 {
 entry:
   %connected_ = getelementptr inbounds nuw i8, ptr %this, i64 3208
   %0 = load i8, ptr %connected_, align 8
@@ -9874,7 +9874,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %packet) local_unnamed_addr #15 align 2 {
 entry:
   %retransmittable_frames = getelementptr inbounds nuw i8, ptr %packet, i64 16
   %0 = load ptr, ptr %retransmittable_frames, align 8
@@ -9929,7 +9929,7 @@ declare noundef ptr @_ZN3net9QuicUtils10CopyBufferERKNS_16SerializedPacketE(ptr 
 declare void @_ZN3net19QuicEncryptedPacketC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext range(i8 0, 2) i8 @_ZN3net14QuicConnection17IsRetransmittableERKNS_16SerializedPacketE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3372) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %packet) local_unnamed_addr #12 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN3net14QuicConnection17IsRetransmittableERKNS_16SerializedPacketE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(3372) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %packet) local_unnamed_addr #12 align 2 {
 entry:
   %transmission_type = getelementptr inbounds nuw i8, ptr %packet, i64 61
   %0 = load i8, ptr %transmission_type, align 1
@@ -10080,14 +10080,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection20OnUnrecoverableErrorENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection20OnUnrecoverableErrorENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source)
   ret void
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn16_N3net14QuicConnection20OnUnrecoverableErrorENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr nocapture noundef %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) unnamed_addr #14 align 2 {
+define dso_local void @_ZThn16_N3net14QuicConnection20OnUnrecoverableErrorENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef captures(none) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source) unnamed_addr #14 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN3net14QuicConnection28TearDownLocalConnectionStateENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(3372) %0, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef %source)
@@ -10095,7 +10095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection18OnCongestionChangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection18OnCongestionChangeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
   %visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %0 = load ptr, ptr %visitor_, align 8
@@ -10152,7 +10152,7 @@ if.end24:                                         ; preds = %if.then19, %if.end
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn24_N3net14QuicConnection18OnCongestionChangeEv(ptr nocapture noundef readonly %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZThn24_N3net14QuicConnection18OnCongestionChangeEv(ptr noundef readonly captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   %visitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %0 = load ptr, ptr %visitor_.i, align 8
@@ -10209,7 +10209,7 @@ _ZN3net14QuicConnection18OnCongestionChangeEv.exit: ; preds = %if.end.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection15OnPathDegradingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection15OnPathDegradingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) unnamed_addr #0 align 2 {
 entry:
   %visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %0 = load ptr, ptr %visitor_, align 8
@@ -10221,7 +10221,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn24_N3net14QuicConnection15OnPathDegradingEv(ptr nocapture noundef readonly %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZThn24_N3net14QuicConnection15OnPathDegradingEv(ptr noundef readonly captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   %visitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %0 = load ptr, ptr %visitor_.i, align 8
@@ -11046,7 +11046,7 @@ declare noundef ptr @_ZN4base16BooleanHistogram10FactoryGetEPKci(ptr noundef, i3
 declare void @_ZN4base13HistogramBase10AddBooleanEb(ptr noundef nonnull align 8 dereferenceable(44), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection15CancelAllAlarmsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection15CancelAllAlarmsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ack_alarm_ = getelementptr inbounds nuw i8, ptr %this, i64 2336
   %0 = load ptr, ptr %ack_alarm_, align 8
@@ -11282,7 +11282,7 @@ return:                                           ; preds = %cleanup.action, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3372) initializes((840, 841)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN3net14QuicConnection25EnableSavingCryptoPacketsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3372) initializes((840, 841)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %save_crypto_packets_as_termination_packets_ = getelementptr inbounds nuw i8, ptr %this, i64 840
   store i8 1, ptr %save_crypto_packets_as_termination_packets_, align 8
@@ -11323,7 +11323,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection15SetTimeoutAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection15SetTimeoutAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %time_of_last_received_packet_ = getelementptr inbounds nuw i8, ptr %this, i64 3160
   %time_of_last_sent_new_packet_ = getelementptr inbounds nuw i8, ptr %this, i64 3168
@@ -11538,7 +11538,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad28.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef %connection, i32 noundef %ack_mode) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicConnection19ScopedPacketBundlerC2EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef %connection, i32 noundef %ack_mode) unnamed_addr #0 align 2 {
 entry:
   store ptr %connection, ptr %this, align 8
   %already_in_batch_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11604,7 +11604,7 @@ declare noundef zeroext i1 @_ZN3net19QuicPacketGenerator11InBatchModeEv(ptr noun
 declare void @_ZN3net19QuicPacketGenerator20StartBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net14QuicConnection19ScopedPacketBundler13ShouldSendAckENS0_11AckBundlingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %ack_mode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net14QuicConnection19ScopedPacketBundler13ShouldSendAckENS0_11AckBundlingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i32 noundef %ack_mode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
   switch i32 %ack_mode, label %sw.default [
@@ -11667,7 +11667,7 @@ return:                                           ; preds = %cleanup.action, %sw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -11775,7 +11775,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef %connection) unnamed_addr #16 align 2 {
+define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerC2EPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef %connection) unnamed_addr #16 align 2 {
 entry:
   store ptr %connection, ptr %this, align 8
   %already_delayed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11788,7 +11788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %already_delayed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %already_delayed_, align 8
@@ -11894,7 +11894,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicConnection24OnPeerMigrationValidatedEh(ptr nocapture noundef nonnull align 8 dereferenceable(3372) %this, i8 zeroext %path_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicConnection24OnPeerMigrationValidatedEh(ptr noundef nonnull align 8 captures(none) dereferenceable(3372) %this, i8 zeroext %path_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %active_peer_migration_type_ = getelementptr inbounds nuw i8, ptr %this, i64 568
@@ -11999,7 +11999,7 @@ declare void @_ZN3net10QuicFramer12OnPathClosedEh(ptr noundef nonnull align 8 de
 declare noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i64 } @_ZN3net14QuicConnection16GetCurrentPacketB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3372) %this) local_unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
   %current_packet_data_ = getelementptr inbounds nuw i8, ptr %this, i64 600
@@ -12031,7 +12031,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12164,7 +12164,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
@@ -12289,7 +12289,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -12366,7 +12366,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -12411,7 +12411,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_116AckAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_116AckAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12424,7 +12424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_116AckAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_116AckAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bundler = alloca %"class.net::QuicConnection::ScopedPacketBundler", align 8
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -12495,7 +12495,7 @@ _ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit: ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_127RetransmissionAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_127RetransmissionAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12508,7 +12508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_127RetransmissionAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_127RetransmissionAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
@@ -12517,7 +12517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_117SendAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_117SendAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12530,7 +12530,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_117SendAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_117SendAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
@@ -12539,7 +12539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_120TimeoutAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_120TimeoutAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12552,7 +12552,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_120TimeoutAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_120TimeoutAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
@@ -12561,7 +12561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_117PingAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_117PingAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12574,7 +12574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_117PingAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_117PingAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
@@ -12595,7 +12595,7 @@ _ZN3net14QuicConnection13OnPingTimeoutEv.exit:    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   ret void
 }
@@ -12608,7 +12608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegate7OnAlarmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegate7OnAlarmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %connection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %connection_, align 8
@@ -12870,10 +12870,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #20

@@ -115,7 +115,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214makeNFABuilderERNS_13ReportManagerERKNS_14CompileContextERKNS_16ParsedExpressionE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %expr) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214makeNFABuilderERNS_13ReportManagerERKNS_14CompileContextERKNS_16ParsedExpressionE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %expr) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %grey = getelementptr inbounds nuw i8, ptr %cc, i64 24
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !5
@@ -222,13 +222,13 @@ _ZNSt10unique_ptrIN3ue212_GLOBAL__N_114NFABuilderImplESt14default_deleteIS2_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue210NFABuilderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN3ue210NFABuilderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue210NFABuilderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3ue210NFABuilderD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #28
   unreachable
@@ -246,7 +246,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -346,7 +346,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 16), ptr %this, align 8
   %id2vertex = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -433,31 +433,31 @@ do.end:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl8getStartEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl8getStartEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl15getStartDotStarEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl15getStartDotStarEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl9getAcceptEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl9getAcceptEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl12getAcceptEODEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl12getAcceptEODEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl14isSpecialStateEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %p) unnamed_addr #3 align 2 {
+define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl14isSpecialStateEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %p) unnamed_addr #3 align 2 {
 entry:
   %spec.select = icmp ult i32 %p, 4
   ret i1 %spec.select
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl12addCharReachEjRKNS_9CharReachE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %pos, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr) unnamed_addr #10 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl12addCharReachEjRKNS_9CharReachE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %pos, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %cr) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %this.val = load ptr, ptr %0, align 8
@@ -523,7 +523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl13setAssertFlagEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %pos, i32 noundef %flag) unnamed_addr #10 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl13setAssertFlagEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %pos, i32 noundef %flag) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %this.val = load ptr, ptr %0, align 8
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN3ue212_GLOBAL__N_114NFABuilderImpl13getAssertFlagEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %pos) unnamed_addr #11 align 2 {
+define internal noundef i32 @_ZN3ue212_GLOBAL__N_114NFABuilderImpl13getAssertFlagEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %pos) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %this.val = load ptr, ptr %0, align 8
@@ -640,7 +640,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl7addEdgeEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %startPos, i32 noundef %endPos) unnamed_addr #2 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl7addEdgeEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %startPos, i32 noundef %endPos) unnamed_addr #2 align 2 {
 entry:
   %tmp = alloca %"struct.std::pair.124", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -683,7 +683,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl7hasEdgeEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %startPos, i32 noundef %endPos) unnamed_addr #11 align 2 {
+define internal noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl7hasEdgeEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %startPos, i32 noundef %endPos) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %this.val = load ptr, ptr %0, align 8
@@ -738,7 +738,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl11numVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) unnamed_addr #12 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_114NFABuilderImpl11numVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this) unnamed_addr #12 align 2 {
 entry:
   %vertIdx = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i32, ptr %vertIdx, align 8
@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl11cloneRegionEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %first, i32 noundef %last, i32 noundef %posOffset) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl11cloneRegionEjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %this, i32 noundef %first, i32 noundef %last, i32 noundef %posOffset) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not18 = icmp ugt i32 %first, %last
   br i1 %cmp.not18, label %for.end, label %for.body.lr.ph
@@ -795,7 +795,7 @@ for.end:                                          ; preds = %_ZN3ue219NFAGraphVe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl8getGraphEv(ptr noalias nocapture writeonly sret(%"struct.ue2::BuiltExpression") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImpl8getGraphEv(ptr noalias writeonly sret(%"struct.ue2::BuiltExpression") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.74", align 1
@@ -1201,7 +1201,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #18
@@ -1308,7 +1308,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #13
 
@@ -1444,7 +1444,7 @@ declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenc
 declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr noalias sret(%"struct.std::pair.124") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %u.coerce0, i64 %u.coerce1, ptr %v.coerce0, i64 %v.coerce1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {

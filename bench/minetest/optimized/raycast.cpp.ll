@@ -34,7 +34,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(69) %pt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(69) %pt2) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK11RaycastSortclERK12PointedThingS2_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(69) %pt1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(69) %pt2) local_unnamed_addr #3 align 2 {
 entry:
   %distanceSq = getelementptr inbounds nuw i8, ptr %pt1, i64 64
   %0 = load float, ptr %distanceSq, align 4, !tbaa !4
@@ -125,13 +125,13 @@ cleanup:                                          ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RaycastStateC2ERKN3irr4core6line3dIfEEbbRKSt8optionalI14PointabilitiesE(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %shootline, i1 noundef zeroext %objects_pointable, i1 noundef zeroext %liquids_pointable, ptr noundef nonnull align 8 dereferenceable(232) %pointabilities) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12RaycastStateC2ERKN3irr4core6line3dIfEEbbRKSt8optionalI14PointabilitiesE(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 24)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %shootline, i1 noundef zeroext %objects_pointable, i1 noundef zeroext %liquids_pointable, ptr noundef nonnull align 8 dereferenceable(232) %pointabilities) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d.0", align 8
   %ref.tmp3 = alloca %"class.irr::core::vector3d.0", align 8
@@ -211,14 +211,14 @@ _ZNSt14priority_queueI12PointedThingSt6vectorIS0_SaIS0_EE11RaycastSortED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN7voxalgo17VoxelLineIteratorC1ERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 4 dereferenceable(70), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12)) unnamed_addr #0
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_Z16boxLineCollisionRKN3irr4core8aabbox3dIfEENS0_8vector3dIfEES6_PS6_S7_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, <2 x float> %start.coerce0, float %start.coerce1, <2 x float> %dir.coerce0, float %dir.coerce1, ptr nocapture noundef writeonly %collision_point, ptr nocapture noundef writeonly %collision_normal) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_Z16boxLineCollisionRKN3irr4core8aabbox3dIfEENS0_8vector3dIfEES6_PS6_S7_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %box, <2 x float> %start.coerce0, float %start.coerce1, <2 x float> %dir.coerce0, float %dir.coerce1, ptr noundef writeonly captures(none) %collision_point, ptr noundef writeonly captures(none) %collision_normal) local_unnamed_addr #7 {
 entry:
   %0 = extractelement <2 x float> %dir.coerce0, i64 0
   %1 = extractelement <2 x float> %start.coerce0, i64 0
@@ -421,7 +421,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_Z16boxLineCollisionRKN3irr4core8aabbox3dIfEENS0_8vector3dIfEES6_S6_PS6_S7_S7_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box, <2 x float> %rotation.coerce0, float %rotation.coerce1, <2 x float> %start.coerce0, float %start.coerce1, <2 x float> %dir.coerce0, float %dir.coerce1, ptr nocapture noundef %collision_point, ptr nocapture noundef %collision_normal, ptr nocapture noundef writeonly %raw_collision_normal) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_Z16boxLineCollisionRKN3irr4core8aabbox3dIfEENS0_8vector3dIfEES6_S6_PS6_S7_S7_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %box, <2 x float> %rotation.coerce0, float %rotation.coerce1, <2 x float> %start.coerce0, float %start.coerce1, <2 x float> %dir.coerce0, float %dir.coerce1, ptr noundef captures(none) %collision_point, ptr noundef captures(none) %collision_normal, ptr noundef writeonly captures(none) %raw_collision_normal) local_unnamed_addr #7 {
 entry:
   %rotation.sroa.0.0.vec.extract = extractelement <2 x float> %rotation.coerce0, i64 0
   %mul.i = fmul nsz float %rotation.sroa.0.0.vec.extract, 0x3F91DF46A0000000
@@ -1023,7 +1023,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15

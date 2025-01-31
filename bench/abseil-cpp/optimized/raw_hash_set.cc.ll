@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled41should_rehash_for_bug_detection_on_insertEPKNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled41should_rehash_for_bug_detection_on_insertEPKNS0_6ctrl_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.then4 [
@@ -98,7 +98,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled39should_rehash_for_bug_detection_on_moveEPKNS0_6ctrl_tEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled39should_rehash_for_bug_detection_on_moveEPKNS0_6ctrl_tEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl18container_internal12_GLOBAL__N_110RandomSeedEvE7counter)
   %1 = load i64, ptr %0, align 8
@@ -167,10 +167,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8, !noalias !11
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %common, i64 16
@@ -214,7 +214,7 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal24DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %common, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy, ptr noundef %tmp_space) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal24DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %common, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %policy, ptr noundef %tmp_space) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %slots_.i = getelementptr inbounds nuw i8, ptr %common, i64 8
   %0 = load ptr, ptr %slots_.i, align 8
@@ -380,7 +380,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4absl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
@@ -477,7 +477,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef initializes((0, 16)) %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef captures(none) initializes((0, 16)) %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
 entry:
   %old_capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
@@ -506,10 +506,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %old_slots, ptr nocapture noundef writeonly %new_slots, i64 noundef %slot_size) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef readonly captures(none) %old_slots, ptr noundef writeonly captures(none) %new_slots, i64 noundef %slot_size) local_unnamed_addr #11 align 2 {
 entry:
   %old_capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef readonly %old_slots, i64 noundef %slot_size) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef readonly captures(none) %old_slots, i64 noundef %slot_size) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %capacity_.i = getelementptr inbounds nuw i8, ptr %c, i64 16

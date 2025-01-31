@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ASCIIData_75 = local_unnamed_addr constant %struct.UConverterSharedData { i32 296, i32 -1, ptr null, ptr @_ZL16_ASCIIStaticData, i8 0, i8 0, ptr @_ZL10_ASCIIImpl, i32 0, %struct.UConverterMBCSTable zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL27_Latin1ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal void @_ZL27_Latin1ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #0 {
 entry:
   %source1 = getelementptr inbounds nuw i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8
@@ -212,7 +212,7 @@ if.end77:                                         ; preds = %while.end.thread.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL29_Latin1FromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #0 {
+define internal void @_ZL29_Latin1FromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef captures(none) %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -577,7 +577,7 @@ if.end237:                                        ; preds = %if.then236, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 65536) i32 @_ZL19_Latin1GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #1 {
+define internal noundef range(i32 0, 65536) i32 @_ZL19_Latin1GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #1 {
 entry:
   %source1 = getelementptr inbounds nuw i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8
@@ -603,7 +603,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20_Latin1GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr nocapture readnone %cnv, ptr nocapture noundef readonly %sa, i32 %which, ptr nocapture readnone %pErrorCode) #2 {
+define internal void @_ZL20_Latin1GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr readnone captures(none) %cnv, ptr noundef readonly captures(none) %sa, i32 %which, ptr readnone captures(none) %pErrorCode) #2 {
 entry:
   %addRange = getelementptr inbounds nuw i8, ptr %sa, i64 16
   %0 = load ptr, ptr %addRange, align 8
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pFromUArgs, ptr nocapture noundef %pToUArgs, ptr nocapture noundef %pErrorCode) #0 {
+define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pFromUArgs, ptr noundef captures(none) %pToUArgs, ptr noundef captures(none) %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pToUArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -799,7 +799,7 @@ return:                                           ; preds = %if.end107, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL26_ASCIIToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal void @_ZL26_ASCIIToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #0 {
 entry:
   %source1 = getelementptr inbounds nuw i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8
@@ -1026,7 +1026,7 @@ if.end126:                                        ; preds = %while.body121, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 65536) i32 @_ZL18_ASCIIGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #3 {
+define internal noundef range(i32 0, 65536) i32 @_ZL18_ASCIIGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #3 {
 entry:
   %source1 = getelementptr inbounds nuw i8, ptr %pArgs, i64 16
   %0 = load ptr, ptr %source1, align 8
@@ -1066,7 +1066,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19_ASCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr nocapture readnone %cnv, ptr nocapture noundef readonly %sa, i32 %which, ptr nocapture readnone %pErrorCode) #2 {
+define internal void @_ZL19_ASCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr readnone captures(none) %cnv, ptr noundef readonly captures(none) %sa, i32 %which, ptr readnone captures(none) %pErrorCode) #2 {
 entry:
   %addRange = getelementptr inbounds nuw i8, ptr %sa, i64 16
   %0 = load ptr, ptr %addRange, align 8
@@ -1076,7 +1076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL18ucnv_ASCIIFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pFromUArgs, ptr nocapture noundef %pToUArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal void @_ZL18ucnv_ASCIIFromUTF8P25UConverterFromUnicodeArgsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pFromUArgs, ptr noundef captures(none) %pToUArgs, ptr noundef writeonly captures(none) %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pToUArgs, i64 8
   %0 = load ptr, ptr %converter, align 8

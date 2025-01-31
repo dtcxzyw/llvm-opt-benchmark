@@ -7,12 +7,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm3sys17InitializeCOMRAIID1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3sys17InitializeCOMRAIID2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm3sys17InitializeCOMRAIIC2ENS0_16COMThreadingModeEb(ptr nocapture nonnull readnone align 1 %0, i32 %1, i1 zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3sys17InitializeCOMRAIIC2ENS0_16COMThreadingModeEb(ptr nonnull readnone align 1 captures(none) %0, i32 %1, i1 zeroext %2) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm3sys17InitializeCOMRAIID2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3sys17InitializeCOMRAIID2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

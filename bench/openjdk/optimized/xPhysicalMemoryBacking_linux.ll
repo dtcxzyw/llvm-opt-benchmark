@@ -117,7 +117,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22XPhysicalMemoryBackingC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN22XPhysicalMemoryBackingC2Em
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22XPhysicalMemoryBackingC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 4), (16, 41)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22XPhysicalMemoryBackingC2Em(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((0, 4), (16, 41)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.XErrno, align 4
   %5 = alloca %class.GCLogPreciousHandle, align 8
@@ -316,7 +316,7 @@ thread-pre-split:                                 ; preds = %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking9create_fdEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking9create_fdEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = load ptr, ptr @AllocateHeapAt, align 8
   %5 = icmp eq ptr %4, null
@@ -369,7 +369,7 @@ declare noundef ptr @_ZNK6XErrno9to_stringEv(ptr noundef nonnull align 4 derefer
 declare i32 @fstatfs64(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking8is_tmpfsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking8is_tmpfsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 16914836
@@ -377,7 +377,7 @@ define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking8is_tmpfsEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking12is_hugetlbfsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking12is_hugetlbfsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 2508478710
@@ -385,14 +385,14 @@ define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking12is_hugetlbfsEv(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking37tmpfs_supports_transparent_huge_pagesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(41) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking37tmpfs_supports_transparent_huge_pagesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call i32 @access(ptr noundef nonnull @.str.49, i32 noundef 4) #12
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking13create_mem_fdEPKc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking13create_mem_fdEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %class.XErrno, align 4
   %5 = alloca %class.GCLogPreciousHandle, align 8
@@ -446,14 +446,14 @@ define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking13create_mem_fdEPKc(ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare noundef i32 @_ZN8XSyscall12memfd_createEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare noundef zeroext i1 @_ZNK6XErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking14create_file_fdEPKc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK22XPhysicalMemoryBacking14create_file_fdEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.XMountPoint, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8
   %5 = alloca %class.XErrno, align 4
@@ -585,7 +585,7 @@ declare noundef ptr @_ZNK11XMountPoint3getEv(ptr noundef nonnull align 8 derefer
 declare noundef i32 @_ZN2os4openEPKcii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #0 comdat align 2 {
@@ -602,13 +602,13 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
 declare noundef i32 @_ZN2os18current_process_idEv() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZN11XMountPointD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking14is_initializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -616,7 +616,7 @@ define hidden noundef zeroext i1 @_ZNK22XPhysicalMemoryBacking14is_initializedEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22XPhysicalMemoryBacking20warn_available_spaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22XPhysicalMemoryBacking20warn_available_spaceEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8
   %5 = alloca %class.GCLogPreciousHandle, align 8
@@ -677,7 +677,7 @@ define hidden void @_ZNK22XPhysicalMemoryBacking20warn_available_spaceEm(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22XPhysicalMemoryBacking18warn_max_map_countEm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22XPhysicalMemoryBacking18warn_max_map_countEm(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca i64, align 8
   %5 = alloca %class.GCLogPreciousHandle, align 8
@@ -755,20 +755,20 @@ declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22XPhysicalMemoryBacking18warn_commit_limitsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22XPhysicalMemoryBacking18warn_commit_limitsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK22XPhysicalMemoryBacking20warn_available_spaceEm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1)
   tail call void @_ZNK22XPhysicalMemoryBacking18warn_max_map_countEm(ptr nonnull align 8 poison, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsEmmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.XErrno, align 4
   %6 = load i32, ptr %0, align 8
   %7 = tail call ptr @mmap64(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %6, i64 noundef %1) #12
@@ -813,7 +813,7 @@ declare void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef, ptr noundef, i64 nound
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking27fallocate_compat_mmap_tmpfsEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking27fallocate_compat_mmap_tmpfsEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = load i32, ptr %0, align 8
   %6 = tail call ptr @mmap64(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %5, i64 noundef %1) #12
@@ -860,7 +860,7 @@ _ZL18safe_touch_mappingPvmm.exit:                 ; preds = %.lr.ph.i, %14, %8
 declare void @_ZN2os14realign_memoryEPcmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking23fallocate_compat_pwriteEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking23fallocate_compat_pwriteEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
@@ -900,7 +900,7 @@ define hidden i32 @_ZNK22XPhysicalMemoryBacking23fallocate_compat_pwriteEmm(ptr 
 declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking26fallocate_fill_hole_compatEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking26fallocate_fill_hole_compatEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = alloca i8, align 1
   %6 = alloca %class.XErrno, align 4
@@ -982,7 +982,7 @@ _ZNK22XPhysicalMemoryBacking23fallocate_compat_pwriteEmm.exit: ; preds = %31, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = load i32, ptr %0, align 8
   %6 = tail call noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef %5, i32 noundef 0, i64 noundef %1, i64 noundef %2) #12
@@ -1004,7 +1004,7 @@ define hidden i32 @_ZNK22XPhysicalMemoryBacking27fallocate_fill_hole_syscallEmm(
 declare noundef i32 @_ZN8XSyscall9fallocateEiimm(i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking19fallocate_fill_holeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking19fallocate_fill_holeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = alloca %class.XErrno, align 4
   %6 = alloca %class.GCLogPreciousHandle, align 8
@@ -1070,7 +1070,7 @@ declare noundef zeroext i1 @_ZNK6XErrnocvbEv(ptr noundef nonnull align 4 derefer
 declare noundef zeroext i1 @_ZNK6XErrnoneEi(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZNK22XPhysicalMemoryBacking20fallocate_punch_holeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden i32 @_ZNK22XPhysicalMemoryBacking20fallocate_punch_holeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
   %6 = icmp eq i32 %5, 1
@@ -1602,7 +1602,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.XErrno, align 4
   %6 = inttoptr i64 %1 to ptr
   %7 = load i32, ptr %0, align 8
@@ -1626,7 +1626,7 @@ define hidden void @_ZNK22XPhysicalMemoryBacking3mapEmmm(ptr nocapture noundef n
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22XPhysicalMemoryBacking5unmapEmm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XErrno, align 4
   %5 = inttoptr i64 %1 to ptr
   %6 = tail call ptr @mmap64(ptr noundef %5, i64 noundef %2, i32 noundef 0, i32 noundef 16434, i32 noundef -1, i64 noundef 0) #12
@@ -1726,13 +1726,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -226,10 +226,10 @@ define dso_local void @nmi_panic(ptr noundef %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid optsize
 define dso_local void @panic(ptr noundef %0, ...) #4 align 16 {
@@ -498,7 +498,7 @@ define dso_local void @check_panic_on_warn(ptr noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @console_verbose() local_unnamed_addr #6
@@ -1067,7 +1067,7 @@ declare dso_local i32 @proc_douintvec(ptr noundef, i32 noundef, ptr noundef, ptr
 declare dso_local i32 @sysfs_add_file_to_group(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @warn_count_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @warn_count_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = load volatile i32, ptr @warn_count, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.18, i32 noundef %4) #18
   %6 = sext i32 %5 to i64
@@ -1138,7 +1138,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #6
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @clear_warn_once_set(ptr nocapture readnone %0, i64 %1) #2 align 16 {
+define internal noundef i32 @clear_warn_once_set(ptr readnone captures(none) %0, i64 %1) #2 align 16 {
   tail call void @generic_bug_clear_once() #18
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__start_once, i8 0, i64 sub (i64 ptrtoint (ptr @__end_once to i64), i64 ptrtoint (ptr @__start_once to i64)), i1 false)
   ret i32 0
@@ -1148,7 +1148,7 @@ define internal noundef i32 @clear_warn_once_set(ptr nocapture readnone %0, i64 
 declare dso_local void @generic_bug_clear_once() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -1157,7 +1157,7 @@ declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17

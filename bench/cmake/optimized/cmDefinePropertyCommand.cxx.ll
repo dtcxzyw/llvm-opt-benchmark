@@ -166,7 +166,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_Z23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatus(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_Z23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatus(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %"struct.std::pair.286"], align 8
   %4 = alloca %"class.std::function.282", align 8
   %5 = alloca %"class.std::function.282", align 8
@@ -1228,7 +1228,7 @@ define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKcZ23cmDefineProperty
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %14 = extractvalue { i64, ptr } %10, 1
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr readonly %.029.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr nonnull readonly %.029.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i)
   %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   %16 = icmp ule i64 %12, %11
   %or.cond.i.i.i.i = and i1 %16, %15
@@ -1250,7 +1250,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit.thread.i.i.i.i"
   %22 = extractvalue { i64, ptr } %18, 1
-  %bcmp.i.i.i42.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr readonly %.val31.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i)
+  %bcmp.i.i.i42.i.i.i.i = tail call i32 @bcmp(ptr %22, ptr nonnull readonly %.val31.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i40.i.i.i.i)
   %23 = icmp eq i32 %bcmp.i.i.i42.i.i.i.i, 0
   %24 = icmp ule i64 %20, %19
   %or.cond84.i.i.i.i = and i1 %24, %23
@@ -1272,7 +1272,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i41.i.i.i.i: ; preds = %"_ZN9
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit45.thread.i.i.i.i"
   %30 = extractvalue { i64, ptr } %26, 1
-  %bcmp.i.i.i48.i.i.i.i = tail call i32 @bcmp(ptr %30, ptr readonly %.val33.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i46.i.i.i.i)
+  %bcmp.i.i.i48.i.i.i.i = tail call i32 @bcmp(ptr %30, ptr nonnull readonly %.val33.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i46.i.i.i.i)
   %31 = icmp eq i32 %bcmp.i.i.i48.i.i.i.i, 0
   %32 = icmp ule i64 %28, %27
   %or.cond86.i.i.i.i = and i1 %32, %31
@@ -1294,7 +1294,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i47.i.i.i.i: ; preds = %"_ZN9
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i53.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZ23cmDefinePropertyCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0EclIPKPKcEEbT_.exit51.thread.i.i.i.i"
   %38 = extractvalue { i64, ptr } %34, 1
-  %bcmp.i.i.i54.i.i.i.i = tail call i32 @bcmp(ptr %38, ptr readonly %.val35.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i52.i.i.i.i)
+  %bcmp.i.i.i54.i.i.i.i = tail call i32 @bcmp(ptr %38, ptr nonnull readonly %.val35.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i52.i.i.i.i)
   %39 = icmp eq i32 %bcmp.i.i.i54.i.i.i.i, 0
   %40 = icmp ule i64 %36, %35
   %or.cond88.i.i.i.i = and i1 %40, %39
@@ -1336,7 +1336,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i53.i.i.i.i: ; preds = %"_ZN9
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i59.i.i.i.i: ; preds = %45
   %50 = extractvalue { i64, ptr } %46, 1
-  %bcmp.i.i.i60.i.i.i.i = tail call i32 @bcmp(ptr %50, ptr readonly %.029.val37.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i58.i.i.i.i)
+  %bcmp.i.i.i60.i.i.i.i = tail call i32 @bcmp(ptr %50, ptr nonnull readonly %.029.val37.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i58.i.i.i.i)
   %51 = icmp eq i32 %bcmp.i.i.i60.i.i.i.i, 0
   %52 = icmp ule i64 %48, %47
   %or.cond90.i.i.i.i = and i1 %52, %51
@@ -1362,7 +1362,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i59.i.i.i.i: ; preds = %45
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i65.i.i.i.i: ; preds = %54
   %59 = extractvalue { i64, ptr } %55, 1
-  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr %59, ptr readonly %.1.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i64.i.i.i.i)
+  %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr %59, ptr nonnull readonly %.1.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i64.i.i.i.i)
   %60 = icmp eq i32 %bcmp.i.i.i66.i.i.i.i, 0
   %61 = icmp ule i64 %57, %56
   %or.cond92.i.i.i.i = and i1 %61, %60
@@ -1388,7 +1388,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i65.i.i.i.i: ; preds = %54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i71.i.i.i.i: ; preds = %63
   %68 = extractvalue { i64, ptr } %64, 1
-  %bcmp.i.i.i72.i.i.i.i = tail call i32 @bcmp(ptr %68, ptr readonly %.2.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i70.i.i.i.i)
+  %bcmp.i.i.i72.i.i.i.i = tail call i32 @bcmp(ptr %68, ptr nonnull readonly %.2.val.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i70.i.i.i.i)
   %69 = icmp eq i32 %bcmp.i.i.i72.i.i.i.i, 0
   %70 = icmp ule i64 %66, %65
   %or.cond94.i.i.i.i = and i1 %70, %69
@@ -1593,10 +1593,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1636,7 +1636,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2116,16 +2116,16 @@ define internal void @_GLOBAL__sub_I_cmDefinePropertyCommand.cxx() #11 section "
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

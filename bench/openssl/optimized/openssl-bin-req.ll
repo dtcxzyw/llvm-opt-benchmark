@@ -1335,7 +1335,7 @@ if.then469:                                       ; preds = %if.then461
   call void @ERR_clear_error() #10
   %inc470 = add nuw nsw i32 %i.1925, 1
   %90 = load ptr, ptr %passout, align 8
-  %call459 = call i32 @PEM_write_bio_PrivateKey(ptr noundef nonnull %call437, ptr noundef %pkey.2332, ptr noundef %spec.select287, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %90) #10
+  %call459 = call i32 @PEM_write_bio_PrivateKey(ptr noundef nonnull %call437, ptr noundef nonnull %pkey.2332, ptr noundef %spec.select287, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %90) #10
   %tobool460.not = icmp eq i32 %call459, 0
   br i1 %tobool460.not, label %if.then461, label %if.end472
 
@@ -1574,7 +1574,7 @@ if.then652:                                       ; preds = %if.else649
 
 if.end655:                                        ; preds = %if.else649, %if.then643, %if.then646
   %cond661 = select i1 %cmp572, ptr %CAcert.1, ptr %call600
-  call void @X509V3_set_ctx(ptr noundef nonnull %ext_ctx, ptr noundef %cond661, ptr noundef nonnull %call600, ptr noundef null, ptr noundef null, i32 noundef 2) #10
+  call void @X509V3_set_ctx(ptr noundef nonnull %ext_ctx, ptr noundef nonnull %cond661, ptr noundef nonnull %call600, ptr noundef null, ptr noundef null, i32 noundef 2) #10
   br i1 %cmp544, label %if.then664, label %if.end674
 
 if.then664:                                       ; preds = %if.end655
@@ -2100,7 +2100,7 @@ declare i32 @set_nameopt(ptr noundef) local_unnamed_addr #1
 declare i32 @set_cert_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2116,7 +2116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ext_name_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal i32 @ext_name_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %a, ptr noundef nonnull dereferenceable(1) %b) #11
   ret i32 %call
@@ -2161,7 +2161,7 @@ declare i32 @X509V3_EXT_add_nconf(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @ASN1_STRING_set_default_mask_asc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2170,7 +2170,7 @@ declare void @app_RAND_load_conf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @app_conf_try_number(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_keygen_ctx(ptr noundef %gstr, ptr nocapture noundef nonnull %pkeytype, ptr nocapture noundef nonnull %pkeylen, ptr noundef %keygen_engine) unnamed_addr #0 {
+define internal fastcc ptr @set_keygen_ctx(ptr noundef %gstr, ptr noundef nonnull captures(none) %pkeytype, ptr noundef nonnull captures(none) %pkeylen, ptr noundef %keygen_engine) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %bits = alloca i64, align 8
@@ -2826,11 +2826,11 @@ if.end59.i:                                       ; preds = %for.end.i29
 
 join.exit.thread.i:                               ; preds = %if.end59.i
   %37 = load ptr, ptr @bio_err, align 8
-  %call3.i90.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %35) #10
+  %call3.i90.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %35) #10
   br label %prompt_info.exit
 
 if.end64.i:                                       ; preds = %if.end59.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %35, i64 %call.i84.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %35, i64 %call.i84.i, i1 false)
   %add.ptr.i88.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i84.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i88.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %38 = load ptr, ptr @req_conf, align 8
@@ -2845,11 +2845,11 @@ if.end64.i:                                       ; preds = %if.end59.i
 
 join.exit101.thread.i:                            ; preds = %if.end64.i
   %41 = load ptr, ptr @bio_err, align 8
-  %call3.i100.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %39) #10
+  %call3.i100.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %39) #10
   br label %prompt_info.exit
 
 if.end76.i:                                       ; preds = %if.end64.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %39, i64 %call.i91.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %39, i64 %call.i91.i, i1 false)
   %add.ptr.i97.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i91.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i97.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %42 = load ptr, ptr @req_conf, align 8
@@ -2862,11 +2862,11 @@ if.end76.i:                                       ; preds = %if.end64.i
 
 join.exit112.thread.i:                            ; preds = %if.end76.i
   %45 = load ptr, ptr @bio_err, align 8
-  %call3.i111.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %45, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %43) #10
+  %call3.i111.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %45, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %43) #10
   br label %prompt_info.exit
 
 if.end88.i:                                       ; preds = %if.end76.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %43, i64 %call.i102.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %43, i64 %call.i102.i, i1 false)
   %add.ptr.i108.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i102.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i108.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %46 = load ptr, ptr @req_conf, align 8
@@ -2887,11 +2887,11 @@ if.end93.i:                                       ; preds = %if.then92.i, %if.en
 
 join.exit123.thread.i:                            ; preds = %if.end93.i
   %49 = load ptr, ptr @bio_err, align 8
-  %call3.i122.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %47) #10
+  %call3.i122.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %47) #10
   br label %prompt_info.exit
 
 if.end99.i:                                       ; preds = %if.end93.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %47, i64 %call.i113.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %47, i64 %call.i113.i, i1 false)
   %add.ptr.i119.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i113.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i119.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %50 = load ptr, ptr @req_conf, align 8
@@ -2988,11 +2988,11 @@ if.end151.i:                                      ; preds = %if.end143.i
 
 join.exit138.thread.i:                            ; preds = %if.end151.i
   %59 = load ptr, ptr @bio_err, align 8
-  %call3.i137.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %59, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %57) #10
+  %call3.i137.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %59, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %57) #10
   br label %prompt_info.exit
 
 if.end156.i:                                      ; preds = %if.end151.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i128.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %57, i64 %call.i128.i, i1 false)
   %add.ptr.i134.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i128.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %add.ptr.i134.i, ptr noundef nonnull align 1 dereferenceable(9) @.str.214, i64 9, i1 false)
   %60 = load ptr, ptr @req_conf, align 8
@@ -3006,11 +3006,11 @@ if.end156.i:                                      ; preds = %if.end151.i
 
 join.exit149.thread.i:                            ; preds = %if.end156.i
   %62 = load ptr, ptr @bio_err, align 8
-  %call3.i148.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %57) #10
+  %call3.i148.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %57) #10
   br label %prompt_info.exit
 
 if.end167.i:                                      ; preds = %if.end156.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i139.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %57, i64 %call.i139.i, i1 false)
   %add.ptr.i145.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i139.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr.i145.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.215, i64 7, i1 false)
   %63 = load ptr, ptr @req_conf, align 8
@@ -3022,11 +3022,11 @@ if.end167.i:                                      ; preds = %if.end156.i
 
 join.exit160.thread.i:                            ; preds = %if.end167.i
   %65 = load ptr, ptr @bio_err, align 8
-  %call3.i159.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %57) #10
+  %call3.i159.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %57) #10
   br label %prompt_info.exit
 
 if.end174.i:                                      ; preds = %if.end167.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i150.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %57, i64 %call.i150.i, i1 false)
   %add.ptr.i156.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i150.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i156.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.212, i64 5, i1 false)
   %66 = load ptr, ptr @req_conf, align 8
@@ -3046,11 +3046,11 @@ if.end179.i:                                      ; preds = %if.then178.i, %if.e
 
 join.exit171.thread.i:                            ; preds = %if.end179.i
   %68 = load ptr, ptr @bio_err, align 8
-  %call3.i170.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef %57) #10
+  %call3.i170.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.216, ptr noundef nonnull %57) #10
   br label %prompt_info.exit
 
 if.end184.i:                                      ; preds = %if.end179.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %57, i64 %call.i161.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr nonnull align 1 %57, i64 %call.i161.i, i1 false)
   %add.ptr.i167.i = getelementptr inbounds i8, ptr %buf.i, i64 %call.i161.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i167.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.213, i64 5, i1 false)
   %69 = load ptr, ptr @req_conf, align 8
@@ -3262,10 +3262,10 @@ declare i32 @X509_REQ_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, pt
 declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @build_data(ptr noundef %text, ptr noundef %def, ptr noundef %value, i32 noundef %n_min, i32 noundef %n_max, ptr noundef nonnull %buf, ptr noundef %desc1, ptr noundef %desc2) unnamed_addr #0 {
@@ -3416,15 +3416,15 @@ declare i32 @X509_NAME_add_entry_by_NID(ptr noundef, i32 noundef, i32 noundef, p
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @X509_REQ_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PEM_read_bio_Parameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3451,17 +3451,17 @@ declare ptr @EVP_PKEY_CTX_new_from_name(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_PKEY_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -628,7 +628,7 @@ opal_obj_new.exit126:                             ; preds = %.lr.ph.i.i123, %186
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_seq_tracker_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {

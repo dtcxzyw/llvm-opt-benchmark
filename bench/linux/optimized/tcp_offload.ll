@@ -894,7 +894,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 declare dso_local i32 @skb_gro_receive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @tcp_gro_complete(ptr nocapture noundef initializes((136, 140)) %0) #4 align 16 {
+define dso_local void @tcp_gro_complete(ptr noundef captures(none) initializes((136, 140)) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 178
@@ -1117,7 +1117,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initializes((136, 140)) %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef i32 @tcp4_gro_complete(ptr noundef captures(none) initializes((136, 140)) %0, i32 noundef %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 180

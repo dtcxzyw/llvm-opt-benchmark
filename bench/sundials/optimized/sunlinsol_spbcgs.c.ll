@@ -93,17 +93,17 @@ define ptr @SUNLinSol_SPBCGS(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 declare ptr @SUNLinSolNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNLinSolGetType_SPBCGS(ptr nocapture readnone %0) #2 {
+define noundef i32 @SUNLinSolGetType_SPBCGS(ptr readnone captures(none) %0) #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNLinSolGetID_SPBCGS(ptr nocapture readnone %0) #2 {
+define noundef i32 @SUNLinSolGetID_SPBCGS(ptr readnone captures(none) %0) #2 {
   ret i32 6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSolSetATimes_SPBCGS(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #3 {
+define noundef i32 @SUNLinSolSetATimes_SPBCGS(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %5, align 8
@@ -114,7 +114,7 @@ define noundef i32 @SUNLinSolSetATimes_SPBCGS(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSolSetPreconditioner_SPBCGS(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 {
+define noundef i32 @SUNLinSolSetPreconditioner_SPBCGS(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %2, ptr %6, align 8
@@ -128,7 +128,7 @@ define noundef i32 @SUNLinSolSetPreconditioner_SPBCGS(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSolSetScalingVectors_SPBCGS(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #3 {
+define noundef i32 @SUNLinSolSetScalingVectors_SPBCGS(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %1, ptr %5, align 8
@@ -139,7 +139,7 @@ define noundef i32 @SUNLinSolSetScalingVectors_SPBCGS(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSolSetZeroGuess_SPBCGS(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define noundef i32 @SUNLinSolSetZeroGuess_SPBCGS(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
@@ -147,7 +147,7 @@ define noundef i32 @SUNLinSolSetZeroGuess_SPBCGS(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSolInitialize_SPBCGS(ptr nocapture noundef readonly %0) #4 {
+define noundef i32 @SUNLinSolInitialize_SPBCGS(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
@@ -175,7 +175,7 @@ define noundef i32 @SUNLinSolInitialize_SPBCGS(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNLinSolSetup_SPBCGS(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define i32 @SUNLinSolSetup_SPBCGS(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -207,7 +207,7 @@ define i32 @SUNLinSolSetup_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, double noundef %4) #0 {
+define i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, double noundef %4) #0 {
   %6 = alloca [3 x double], align 16
   %7 = alloca [3 x ptr], align 16
   %8 = load ptr, ptr %0, align 8
@@ -686,7 +686,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @SUNLinSolNumIters_SPBCGS(ptr nocapture noundef readonly %0) #5 {
+define i32 @SUNLinSolNumIters_SPBCGS(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -694,7 +694,7 @@ define i32 @SUNLinSolNumIters_SPBCGS(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define double @SUNLinSolResNorm_SPBCGS(ptr nocapture noundef readonly %0) #5 {
+define double @SUNLinSolResNorm_SPBCGS(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load double, ptr %3, align 8
@@ -702,7 +702,7 @@ define double @SUNLinSolResNorm_SPBCGS(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNLinSolResid_SPBCGS(ptr nocapture noundef readonly %0) #5 {
+define ptr @SUNLinSolResid_SPBCGS(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -710,7 +710,7 @@ define ptr @SUNLinSolResid_SPBCGS(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPBCGS(ptr nocapture noundef readonly %0) #5 {
+define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPBCGS(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i32, ptr %3, align 8
@@ -719,7 +719,7 @@ define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPBCGS(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLinSolSpace_SPBCGS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define noundef i32 @SUNLinSolSpace_SPBCGS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8
@@ -749,7 +749,7 @@ define noundef i32 @SUNLinSolSpace_SPBCGS(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLinSolFree_SPBCGS(ptr nocapture noundef %0) #0 {
+define noundef i32 @SUNLinSolFree_SPBCGS(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %53, label %3
@@ -885,7 +885,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSol_SPBCGSSetPrecType(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @SUNLinSol_SPBCGSSetPrecType(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
@@ -893,7 +893,7 @@ define noundef i32 @SUNLinSol_SPBCGSSetPrecType(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNLinSol_SPBCGSSetMaxl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @SUNLinSol_SPBCGSSetMaxl(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %1, 1
   %spec.store.select = select i1 %3, i32 5, i32 %1
   %4 = load ptr, ptr %0, align 8
@@ -921,10 +921,10 @@ declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

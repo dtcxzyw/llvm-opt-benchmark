@@ -73,7 +73,7 @@ $_ZTV31ShenandoahIsUnloadingOopClosure = comdat any
 @_ZN16ShenandoahUnloadC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16ShenandoahUnloadC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_ZN16ShenandoahUnloadC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ShenandoahUnloadC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ClassUnloading, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
@@ -88,7 +88,7 @@ define hidden void @_ZN16ShenandoahUnloadC2Ev(ptr nocapture nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ShenandoahUnload7prepareEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ShenandoahUnload7prepareEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN9CodeCache25increment_unloading_cycleEv() #6
   tail call void @_ZN17DependencyContext14cleaning_startEv() #6
   ret void
@@ -99,7 +99,7 @@ declare void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_addr #2
 declare void @_ZN17DependencyContext14cleaning_startEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ShenandoahUnload6unloadEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ShenandoahUnload6unloadEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ClassUnloadingContext, align 8
   %3 = alloca %class.ShenandoahTimingsTracker, align 8
   %4 = alloca %class.ShenandoahTimingsTracker, align 8
@@ -197,7 +197,7 @@ declare void @_ZN9CodeCache22purge_exception_cachesEv() local_unnamed_addr #2
 declare void @_ZN21ClassUnloadingContextD1Ev(ptr noundef nonnull align 8 dereferenceable(26)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ShenandoahUnload6finishEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ShenandoahUnload6finishEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN11MetaspaceGC16compute_new_sizeEv() #6
   ret void
 }

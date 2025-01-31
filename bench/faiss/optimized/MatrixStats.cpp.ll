@@ -48,7 +48,7 @@ $_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__det
 @_ZN5faiss11MatrixStatsC1EmmPKf = unnamed_addr alias void (ptr, i64, i64, ptr), ptr @_ZN5faiss11MatrixStatsC2EmmPKf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %0, align 8
@@ -125,7 +125,7 @@ define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr nocapture noundef non
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss11MatrixStats11PerDimStats16compute_mean_stdEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((56, 80)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5faiss11MatrixStats11PerDimStats16compute_mean_stdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((56, 80)) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -158,7 +158,7 @@ define void @_ZN5faiss11MatrixStats11PerDimStats16compute_mean_stdEv(ptr nocaptu
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #3 align 2 {
+define void @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #3 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -178,7 +178,7 @@ define void @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss11MatrixStatsC2EmmPKf(ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -894,10 +894,10 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i64 @_ZN5faiss10hash_bytesEPKhl(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
@@ -1322,7 +1322,7 @@ declare void @llvm.assume(i1 noundef) #17
 declare float @llvm.fabs.f32(float) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #18
@@ -1331,10 +1331,10 @@ declare double @llvm.fabs.f64(double) #18
 declare double @llvm.sqrt.f64(double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

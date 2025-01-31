@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 poison, i32 6, i32 7, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PRF(ptr nocapture noundef writeonly %result, i32 noundef %resLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef %seed, i32 noundef %seedLen, i32 noundef %hash, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define i32 @wc_PRF(ptr noundef writeonly captures(none) %result, i32 noundef %resLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef %seed, i32 noundef %seedLen, i32 noundef %hash, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %previous = alloca [64 x i8], align 16
   %current = alloca [64 x i8], align 16
@@ -163,12 +163,12 @@ declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PRF_TLSv1(ptr noundef %digest, i32 noundef %digLen, ptr noundef %secret, i32 noundef %secLen, ptr nocapture noundef readonly %label, i32 noundef %labLen, ptr nocapture noundef readonly %seed, i32 noundef %seedLen, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define i32 @wc_PRF_TLSv1(ptr noundef %digest, i32 noundef %digLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef readonly captures(none) %label, i32 noundef %labLen, ptr noundef readonly captures(none) %seed, i32 noundef %seedLen, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %sha_result = alloca [224 x i8], align 16
   %labelSeed = alloca [128 x i8], align 16
@@ -293,7 +293,7 @@ return:                                           ; preds = %while.body12.i, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PRF_TLS(ptr noundef %digest, i32 noundef %digLen, ptr noundef %secret, i32 noundef %secLen, ptr nocapture noundef readonly %label, i32 noundef %labLen, ptr nocapture noundef readonly %seed, i32 noundef %seedLen, i32 noundef %useAtLeastSha256, i32 noundef %hash_type, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define i32 @wc_PRF_TLS(ptr noundef %digest, i32 noundef %digLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef readonly captures(none) %label, i32 noundef %labLen, ptr noundef readonly captures(none) %seed, i32 noundef %seedLen, i32 noundef %useAtLeastSha256, i32 noundef %hash_type, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %labelSeed = alloca [128 x i8], align 16
   %tobool.not = icmp eq i32 %useAtLeastSha256, 0
@@ -357,7 +357,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @wc_HKDF_Extract_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -393,7 +393,7 @@ wc_Tls13_HKDF_Extract_ex.exit:                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %okm, i32 noundef %okmLen, ptr noundef %prk, i32 noundef %prkLen, ptr nocapture noundef readonly %protocol, i32 noundef %protocolLen, ptr nocapture noundef readonly %label, i32 noundef %labelLen, ptr nocapture noundef readonly %info, i32 noundef %infoLen, i32 noundef %digest, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %okm, i32 noundef %okmLen, ptr noundef %prk, i32 noundef %prkLen, ptr noundef readonly captures(none) %protocol, i32 noundef %protocolLen, ptr noundef readonly captures(none) %label, i32 noundef %labelLen, ptr noundef readonly captures(none) %info, i32 noundef %infoLen, i32 noundef %digest, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %data = alloca [111 x i8], align 16
   %add = add i32 %labelLen, %protocolLen
@@ -491,7 +491,7 @@ return:                                           ; preds = %while.body12.i, %wh
 declare i32 @wc_HKDF_Expand_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %okm, i32 noundef %okmLen, ptr noundef %prk, i32 noundef %prkLen, ptr nocapture noundef readonly %protocol, i32 noundef %protocolLen, ptr nocapture noundef readonly %label, i32 noundef %labelLen, ptr nocapture noundef readonly %info, i32 noundef %infoLen, i32 noundef %digest) local_unnamed_addr #0 {
+define i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef %okm, i32 noundef %okmLen, ptr noundef %prk, i32 noundef %prkLen, ptr noundef readonly captures(none) %protocol, i32 noundef %protocolLen, ptr noundef readonly captures(none) %label, i32 noundef %labelLen, ptr noundef readonly captures(none) %info, i32 noundef %infoLen, i32 noundef %digest) local_unnamed_addr #0 {
 entry:
   %data.i = alloca [111 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 111, ptr nonnull %data.i)
@@ -592,10 +592,10 @@ wc_Tls13_HKDF_Expand_Label_ex.exit:               ; preds = %while.body12.i.i, %
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

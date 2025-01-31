@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliCopyExtra = external hidden local_unnamed_addr constant [24 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliStoreHuffmanTree(ptr noundef %depths, i64 noundef %num, ptr noundef %tree, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
+define hidden void @BrotliStoreHuffmanTree(ptr noundef %depths, i64 noundef %num, ptr noundef %tree, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) local_unnamed_addr #0 {
 entry:
   %huffman_tree = alloca [704 x i8], align 16
   %huffman_tree_extra_bits = alloca [704 x i8], align 16
@@ -243,7 +243,7 @@ BrotliStoreHuffmanTreeToBitMask.exit:             ; preds = %if.end25, %for.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare hidden void @BrotliWriteHuffmanTree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -252,7 +252,7 @@ declare hidden void @BrotliCreateHuffmanTree(ptr noundef, i64 noundef, i32 nound
 declare hidden void @BrotliConvertBitDepthsToSymbols(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef %tree, ptr nocapture noundef readonly %histogram, i64 noundef %histogram_total, i64 noundef %max_bits, ptr noundef %depth, ptr noundef %bits, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
+define hidden void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef %tree, ptr noundef readonly captures(none) %histogram, i64 noundef %histogram_total, i64 noundef %max_bits, ptr noundef %depth, ptr noundef %bits, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) local_unnamed_addr #0 {
 entry:
   %symbols = alloca [4 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %symbols, i8 0, i64 32, i1 false)
@@ -843,12 +843,12 @@ if.end218:                                        ; preds = %if.end216, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare hidden i32 @BrotliSetDepth(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliStoreMetaBlock(ptr noundef %m, ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, i32 noundef %is_last, ptr nocapture noundef readonly %params, i32 noundef %literal_context_mode, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef readonly %mb, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
+define hidden void @BrotliStoreMetaBlock(ptr noundef %m, ptr noundef readonly captures(none) %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, i32 noundef %is_last, ptr noundef readonly captures(none) %params, i32 noundef %literal_context_mode, ptr noundef readonly captures(none) %commands, i64 noundef %n_commands, ptr noundef readonly captures(none) %mb, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) local_unnamed_addr #0 {
 entry:
   %dist = getelementptr inbounds nuw i8, ptr %params, i64 56
   %alphabet_size_max = getelementptr inbounds nuw i8, ptr %params, i64 64
@@ -2048,7 +2048,7 @@ if.end132:                                        ; preds = %if.then131, %for.en
 declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef %self, ptr noundef %tree, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #0 {
+define internal fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef %self, ptr noundef %tree, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #0 {
 entry:
   %type_histo.i = alloca [258 x i32], align 16
   %length_histo.i = alloca [26 x i32], align 16
@@ -2272,7 +2272,7 @@ BuildAndStoreBlockSplitCode.exit:                 ; preds = %StoreVarLenUint8.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreTrivialContextMap(ptr noundef %arena, i64 noundef %num_types, i64 noundef range(i64 2, 7) %context_bits, ptr noundef %tree, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #0 {
+define internal fastcc void @StoreTrivialContextMap(ptr noundef %arena, i64 noundef %num_types, i64 noundef range(i64 2, 7) %context_bits, ptr noundef %tree, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #0 {
 entry:
   %sub = add i64 %num_types, -1
   %cmp.i = icmp eq i64 %sub, 0
@@ -2464,7 +2464,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EncodeContextMap(ptr noundef %m, ptr noundef %arena, ptr nocapture noundef readonly %context_map, i64 noundef range(i64 1, 0) %context_map_size, i64 noundef %num_clusters, ptr noundef %tree, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #0 {
+define internal fastcc void @EncodeContextMap(ptr noundef %m, ptr noundef %arena, ptr noundef readonly captures(none) %context_map, i64 noundef range(i64 1, 0) %context_map_size, i64 noundef %num_clusters, ptr noundef %tree, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #0 {
 entry:
   %mtf.i = alloca [256 x i8], align 16
   %depths2 = getelementptr inbounds nuw i8, ptr %arena, i64 1088
@@ -2911,7 +2911,7 @@ return:                                           ; preds = %StoreVarLenUint8.ex
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @StoreSymbol(ptr nocapture noundef %self, i64 noundef range(i64 0, 65536) %symbol, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #4 {
+define internal fastcc void @StoreSymbol(ptr noundef captures(none) %self, i64 noundef range(i64 0, 65536) %symbol, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #4 {
 entry:
   %block_len_ = getelementptr inbounds nuw i8, ptr %self, i64 920
   %0 = load i64, ptr %block_len_, align 8
@@ -3074,7 +3074,7 @@ if.end:                                           ; preds = %GetBlockLengthPrefi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliStoreMetaBlockTrivial(ptr noundef %m, ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %is_last, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
+define hidden void @BrotliStoreMetaBlockTrivial(ptr noundef %m, ptr noundef readonly captures(none) %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %is_last, ptr noundef readonly captures(none) %params, ptr noundef readonly captures(none) %commands, i64 noundef %n_commands, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 20640) #12
   %alphabet_size_max = getelementptr inbounds nuw i8, ptr %params, i64 64
@@ -3289,7 +3289,7 @@ if.end:                                           ; preds = %if.then, %BuildHist
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %histogram, i64 noundef %histogram_length, i64 noundef %alphabet_size, ptr noundef %tree, ptr noundef %depth, ptr noundef %bits, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #0 {
+define internal fastcc void @BuildAndStoreHuffmanTree(ptr noundef %histogram, i64 noundef %histogram_length, i64 noundef %alphabet_size, ptr noundef %tree, ptr noundef %depth, ptr noundef %bits, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #0 {
 entry:
   %s4 = alloca [4 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s4, i8 0, i64 32, i1 false)
@@ -3535,7 +3535,7 @@ if.end22:                                         ; preds = %if.end40.sink.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @StoreDataWithHuffmanCodes(ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %mask, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef readonly %lit_depth, ptr nocapture noundef readonly %lit_bits, ptr nocapture noundef readonly %cmd_depth, ptr nocapture noundef readonly %cmd_bits, ptr nocapture noundef readonly %dist_depth, ptr nocapture noundef readonly %dist_bits, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #5 {
+define internal fastcc void @StoreDataWithHuffmanCodes(ptr noundef readonly captures(none) %input, i64 noundef %start_pos, i64 noundef %mask, ptr noundef readonly captures(none) %commands, i64 noundef %n_commands, ptr noundef readonly captures(none) %lit_depth, ptr noundef readonly captures(none) %lit_bits, ptr noundef readonly captures(none) %cmd_depth, ptr noundef readonly captures(none) %cmd_bits, ptr noundef readonly captures(none) %dist_depth, ptr noundef readonly captures(none) %dist_bits, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) unnamed_addr #5 {
 entry:
   %cmp73.not = icmp eq i64 %n_commands, 0
   br i1 %cmp73.not, label %for.end35, label %for.body.preheader
@@ -3787,7 +3787,7 @@ for.end35:                                        ; preds = %for.inc33, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliStoreMetaBlockFast(ptr noundef %m, ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %is_last, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
+define hidden void @BrotliStoreMetaBlockFast(ptr noundef %m, ptr noundef readonly captures(none) %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %is_last, ptr noundef readonly captures(none) %params, ptr noundef readonly captures(none) %commands, i64 noundef %n_commands, ptr noundef captures(none) %storage_ix, ptr noundef captures(none) %storage) local_unnamed_addr #0 {
 entry:
   %histogram = alloca [256 x i32], align 16
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 20640) #12
@@ -4097,7 +4097,7 @@ if.end73:                                         ; preds = %if.then72, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_final_block, ptr noalias nocapture noundef readonly %input, i64 noundef %position, i64 noundef %mask, i64 noundef %len, ptr noalias nocapture noundef %storage_ix, ptr noalias nocapture noundef %storage) local_unnamed_addr #6 {
+define hidden void @BrotliStoreUncompressedMetaBlock(i32 noundef %is_final_block, ptr noalias noundef readonly captures(none) %input, i64 noundef %position, i64 noundef %mask, i64 noundef %len, ptr noalias noundef captures(none) %storage_ix, ptr noalias noundef captures(none) %storage) local_unnamed_addr #6 {
 entry:
   %and = and i64 %mask, %position
   %0 = load i64, ptr %storage_ix, align 8
@@ -4225,16 +4225,16 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

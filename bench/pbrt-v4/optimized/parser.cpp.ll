@@ -814,7 +814,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15ParsedParameter8AddFloatEf(ptr nocapture noundef nonnull align 8 dereferenceable(233) %this, float noundef %v) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt15ParsedParameter8AddFloatEf(ptr noundef nonnull align 8 captures(none) dereferenceable(233) %this, float noundef %v) local_unnamed_addr #3 align 2 {
 entry:
   %nStored.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -954,7 +954,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15ParsedParameter6AddIntEi(ptr nocapture noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt15ParsedParameter6AddIntEi(ptr noundef nonnull align 8 captures(none) dereferenceable(233) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %nStored.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -1319,7 +1319,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15ParsedParameter7AddBoolEb(ptr nocapture noundef nonnull align 8 dereferenceable(233) %this, i1 noundef zeroext %v) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt15ParsedParameter7AddBoolEb(ptr noundef nonnull align 8 captures(none) dereferenceable(233) %this, i1 noundef zeroext %v) local_unnamed_addr #3 align 2 {
 entry:
   %nStored.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -1879,13 +1879,13 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont4
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4pbrt12ParserTargetD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt12ParserTargetD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4pbrt12ParserTargetD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4pbrt12ParserTargetD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -1957,7 +1957,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt9Tokenizer14CreateFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS_7FileLocEEE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef %errorCallback) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -2536,7 +2536,7 @@ ehcleanup:                                        ; preds = %_ZNSt8functionIFvPK
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -2586,7 +2586,7 @@ declare void @_ZN4pbrt11ErrorStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basi
 declare noundef i32 @_ZN4pbrt9LastErrorEv() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
@@ -2692,7 +2692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt9TokenizerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %str, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt9TokenizerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %str, ptr noundef %filename, ptr noundef captures(none) %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %__args.addr2.i.i = alloca ptr, align 8
@@ -2866,7 +2866,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9Tokenizer8CheckUTFEPKvi(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef readonly %ptr, i32 noundef %len) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt9Tokenizer8CheckUTFEPKvi(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef readonly captures(none) %ptr, i32 noundef %len) local_unnamed_addr #3 align 2 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8
@@ -2920,7 +2920,7 @@ if.end:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt9TokenizerC2EPvmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %ptr, i64 noundef %len, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt9TokenizerC2EPvmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %ptr, i64 noundef %len, ptr noundef %filename, ptr noundef captures(none) %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %__args.addr2.i.i = alloca ptr, align 8
@@ -3192,7 +3192,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt9Tokenizer4NextEv(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt9Tokenizer4NextEv(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ch.addr.i = alloca i32, align 4
   %__args.addr.i87 = alloca ptr, align 8
@@ -3629,7 +3629,7 @@ return:                                           ; preds = %while.end106, %whil
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -3667,7 +3667,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EE(ptr noundef %target, ptr nocapture noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EE(ptr noundef %target, ptr noundef captures(none) %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i2725 = alloca %"class.std::allocator", align 1
   %ref.tmp.i2726 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8910,7 +8910,7 @@ _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 range(i64 9, 282) %apiFunc.coerce0, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 range(i64 9, 282) %apiFunc.coerce0, ptr noundef readonly byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9675,7 +9675,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 initializes((0, 16), (80, 96)) %agg.result, ptr noundef nonnull %nextToken, ptr nocapture %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 initializes((0, 16), (80, 96)) %agg.result, ptr noundef nonnull %nextToken, ptr captures(none) %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i236 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i138 = alloca i32, align 4
@@ -11300,7 +11300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget6OptionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget6OptionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %nName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11375,7 +11375,7 @@ lpad:                                             ; preds = %_ZN4pbrt12normalize
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget8IdentityENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget8IdentityENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11403,7 +11403,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget9TranslateEfffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %dx, float noundef %dy, float noundef %dz, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget9TranslateEfffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %dx, float noundef %dy, float noundef %dz, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %dx.addr = alloca float, align 4
@@ -11437,7 +11437,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget6RotateEffffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %angle, float noundef %ax, float noundef %ay, float noundef %az, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget6RotateEffffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %angle, float noundef %ax, float noundef %ay, float noundef %az, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %angle.addr = alloca float, align 4
@@ -11473,7 +11473,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget5ScaleEfffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %sx, float noundef %sy, float noundef %sz, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget5ScaleEfffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %sx, float noundef %sy, float noundef %sz, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %sx.addr = alloca float, align 4
@@ -11507,7 +11507,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget6LookAtEfffffffffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %ex, float noundef %ey, float noundef %ez, float noundef %lx, float noundef %ly, float noundef %lz, float noundef %ux, float noundef %uy, float noundef %uz, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget6LookAtEfffffffffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %ex, float noundef %ey, float noundef %ez, float noundef %lx, float noundef %ly, float noundef %lz, float noundef %ux, float noundef %uy, float noundef %uz, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ex.addr = alloca float, align 4
@@ -11585,7 +11585,7 @@ ehcleanup8:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget15ConcatTransformEPfNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %transform, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget15ConcatTransformEPfNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %transform, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i7 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11662,7 +11662,7 @@ _ZN4pbrt6PrintfIJEEEvPKcDpOT_.exit:               ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget9TransformEPfNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %transform, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget9TransformEPfNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %transform, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i7 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11739,7 +11739,7 @@ _ZN4pbrt6PrintfIJEEEvPKcDpOT_.exit:               ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget16CoordinateSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget16CoordinateSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11767,7 +11767,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget17CoordSysTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget17CoordSysTransformERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11795,7 +11795,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget18ActiveTransformAllENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget18ActiveTransformAllENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11823,7 +11823,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget22ActiveTransformEndTimeENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget22ActiveTransformEndTimeENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11851,7 +11851,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget24ActiveTransformStartTimeENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget24ActiveTransformStartTimeENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11879,7 +11879,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget14TransformTimesEffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %start, float noundef %end, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget14TransformTimesEffNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %start, float noundef %end, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %start.addr = alloca float, align 4
@@ -11911,7 +11911,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget10ColorSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget10ColorSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11939,7 +11939,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget11PixelFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget11PixelFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
@@ -12641,7 +12641,7 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget4FilmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr nocapture noundef %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget4FilmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i66 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13171,7 +13171,7 @@ eh.resume:                                        ; preds = %ehcleanup88, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget7SamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget7SamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i34 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i30 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13469,7 +13469,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget11AcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget11AcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
@@ -13629,7 +13629,7 @@ eh.resume:                                        ; preds = %ehcleanup9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget10IntegratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget10IntegratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i92 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14279,7 +14279,7 @@ declare void @_ZNK4pbrt19ParameterDictionary12GetOneStringERKNSt7__cxx1112basic_
 declare void @_ZN4pbrt19ParameterDictionary12RemoveStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget6CameraERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget6CameraERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i11 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14539,7 +14539,7 @@ eh.resume:                                        ; preds = %ehcleanup30, %lpad
 declare void @_ZN4pbrt19ParameterDictionary10RemoveBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget15MakeNamedMediumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget15MakeNamedMediumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i12 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14787,7 +14787,7 @@ eh.resume:                                        ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget15MediumInterfaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %insideName, ptr noundef nonnull align 8 dereferenceable(32) %outsideName, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget15MediumInterfaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %insideName, ptr noundef nonnull align 8 dereferenceable(32) %outsideName, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14815,7 +14815,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget10WorldBeginENS_7FileLocE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget10WorldBeginENS_7FileLocE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -14839,7 +14839,7 @@ _ZN4pbrt6PrintfIJEEEvPKcDpOT_.exit:               ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget14AttributeBeginENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget14AttributeBeginENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14871,7 +14871,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget12AttributeEndENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget12AttributeEndENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14903,7 +14903,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %target, ptr nocapture noundef readonly %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget9AttributeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef readonly captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
@@ -19510,7 +19510,7 @@ ehcleanup592:                                     ; preds = %_ZN4pstd8optionalIN
 declare void @_ZN4pbrt19ParameterDictionary15RenameParameterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt22FormattingParserTarget15upgradeMaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19ParameterDictionaryENS_7FileLocEENK3$_0clEPKcf"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %paramName, float noundef %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt22FormattingParserTarget15upgradeMaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19ParameterDictionaryENS_7FileLocEENK3$_0clEPKcf"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %paramName, float noundef %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %rgb = alloca %"class.pstd::optional.111", align 4
@@ -19830,7 +19830,7 @@ declare void @_ZN4pbrt19ParameterDictionary14RemoveSpectrumERKNSt7__cxx1112basic
 declare void @_ZNK4pbrt19ParameterDictionary21ToParameterDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget8MaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget8MaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef readonly byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
@@ -20077,7 +20077,7 @@ eh.resume:                                        ; preds = %ehcleanup26, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget17MakeNamedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget17MakeNamedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i34 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20763,7 +20763,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget13NamedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget13NamedMaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20791,7 +20791,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget11LightSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget11LightSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i158 = alloca %struct._Guard, align 8
   %__guard.i148 = alloca %struct._Guard, align 8
@@ -21876,7 +21876,7 @@ eh.resume:                                        ; preds = %ehcleanup139, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef %name, ptr nocapture noundef nonnull %totalScale) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4pbrtL17upgradeRGBToScaleEPNS_19ParameterDictionaryEPKcPf(ptr noundef nonnull %dict, ptr noundef %name, ptr noundef nonnull captures(none) %totalScale) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::vector.106", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22110,7 +22110,7 @@ declare noundef ptr @_ZNK4pbrt19ParameterDictionary3locERKNSt7__cxx1112basic_str
 declare noundef float @_ZN4pbrt19ParameterDictionary16UpgradeBlackbodyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget15AreaLightSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget15AreaLightSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i47 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i41 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22564,7 +22564,7 @@ eh.resume:                                        ; preds = %ehcleanup66, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget5ShapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget5ShapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readonly captures(none) %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i327 = alloca %struct._Guard, align 8
   %__guard.i316 = alloca %struct._Guard, align 8
@@ -24402,7 +24402,7 @@ eh.resume:                                        ; preds = %ehcleanup325, %lpad
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #20
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef ptr @_ZN4pbrt8Triangle10CreateMeshEPKNS_9TransformEbRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef, ptr) local_unnamed_addr #0
 
@@ -24451,7 +24451,7 @@ declare void @_ZN4pbrt19ParameterDictionary14RemoveVector3fERKNSt7__cxx1112basic
 declare void @_ZNK4pbrt19ParameterDictionary15GetPoint3fArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::vector.114") align 8, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget18ReverseOrientationENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget18ReverseOrientationENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24664,7 +24664,7 @@ if.end26:                                         ; preds = %invoke.cont25, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget9ObjectEndENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget9ObjectEndENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24692,7 +24692,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget14ObjectInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget14ObjectInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i10 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24841,7 +24841,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad.i.i6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTarget10EndOfFilesEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt22FormattingParserTarget10EndOfFilesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -24930,10 +24930,10 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E9_M_invokeERKSt9_Any_dataS3_OS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(40) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E9_M_invokeERKSt9_Any_dataS3_OS5_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr noundef nonnull align 8 dereferenceable(40) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msg.addr.i.i.i.i = alloca ptr, align 8
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -24999,7 +24999,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad3.i.i.i, %lpad.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEENK3$_1clEMS7_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13InlinedVectorIPNS0_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISP_EEEENS0_7FileLocEESV_EUlS3_S5_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -25328,7 +25328,7 @@ ehcleanup42:                                      ; preds = %lpad33, %ehcleanup2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -25642,7 +25642,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #23
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #23
 
 declare noundef float @_ZNK17double_conversion23StringToDoubleConverter13StringToFloatEPKciPi(ptr noundef nonnull align 8 dereferenceable(42), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -25860,7 +25860,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -25929,7 +25929,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 declare void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr sret(%"class.std::unique_lock") align 8, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS6_EEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS6_EEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %timport.i.i.i.i.i.i.i = alloca %"class.std::unique_ptr", align 8
@@ -26095,7 +26095,7 @@ lpad.body.i.i.i.i.i.i:                            ; preds = %ehcleanup.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS6_EEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS6_EEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -26151,7 +26151,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteISA_EEE3$_2E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteISA_EEE3$_2E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #4 align 2 {
 entry:
   %msg.addr.i.i.i = alloca ptr, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -26163,7 +26163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteISA_EEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteISA_EEE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -27925,7 +27925,7 @@ declare void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 deref
 declare void @_ZNK4pbrt19ParameterDictionary15GetPoint2fArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::vector.152") align 8, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrtL17upgradeTriMeshUVsB5cxx11ERKNS_22FormattingParserTargetEPNS_19ParameterDictionaryEENK3$_0clEPKc"(ptr nocapture readonly %this.0.val, ptr %this.8.val, ptr noundef %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrtL17upgradeTriMeshUVsB5cxx11ERKNS_22FormattingParserTargetEPNS_19ParameterDictionaryEENK3$_0clEPKc"(ptr readonly captures(none) %this.0.val, ptr %this.8.val, ptr noundef %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fuv = alloca %"class.std::vector.90", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30771,7 +30771,7 @@ ehcleanup42:                                      ; preds = %lpad33, %ehcleanup2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pstd8optionalIN4pbrt5TokenEEEiEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS9_EEE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr noalias sret(%"class.pstd::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pstd8optionalIN4pbrt5TokenEEEiEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS9_EEE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr noalias sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i39.i.i.i = alloca i32, align 4
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -31040,7 +31040,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup64.thread.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4pstd8optionalIN4pbrt5TokenEEEiEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS9_EEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4pstd8optionalIN4pbrt5TokenEEEiEZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS9_EEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -31079,10 +31079,10 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSQ_E_clESQ_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSQ_E_clESQ_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i90 = alloca ptr, align 8
   %__args.addr2.i84 = alloca ptr, align 8
@@ -31702,7 +31702,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS7_EEEvPS7_PKcOT_DpOT0_(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -32115,7 +32115,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E9_M_invokeERKSt9_Any_dataS3_OS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(40) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E9_M_invokeERKSt9_Any_dataS3_OS5_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr noundef nonnull align 8 dereferenceable(40) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msg.addr.i.i.i.i = alloca ptr, align 8
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -32181,7 +32181,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad3.i.i.i, %lpad.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4pbrt5TokenEPKcEZNS0_5parseEPNS0_12ParserTargetESt10unique_ptrINS0_9TokenizerESt14default_deleteISA_EEE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -32211,7 +32211,7 @@ declare noundef zeroext i1 @_ZN4pbrt14DoParallelWorkEv() local_unnamed_addr #0
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_10ParseFilesEPNS2_12ParserTargetEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_10ParseFilesEPNS2_12ParserTargetEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #4 align 2 {
 entry:
   %msg.addr.i.i.i = alloca ptr, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -32223,7 +32223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_10ParseFilesEPNS2_12ParserTargetEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_10ParseFilesEPNS2_12ParserTargetEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -32243,7 +32243,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_11ParseStringEPNS2_12ParserTargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_11ParseStringEPNS2_12ParserTargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OS5_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #4 align 2 {
 entry:
   %msg.addr.i.i.i = alloca ptr, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -32255,7 +32255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_11ParseStringEPNS2_12ParserTargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcPKN4pbrt7FileLocEEZNS2_11ParseStringEPNS2_12ParserTargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -37894,10 +37894,10 @@ declare void @llvm.assume(i1 noundef) #28
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #31
@@ -37906,7 +37906,7 @@ declare i64 @llvm.umax.i64(i64, i64) #31
 declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

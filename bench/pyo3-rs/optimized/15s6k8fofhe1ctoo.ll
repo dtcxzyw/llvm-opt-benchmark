@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h8edff5b9ddeb4b98E"(ptr nocapture align 8 %0) unnamed_addr #0 {
+define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h8edff5b9ddeb4b98E"(ptr align 8 captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %2, align 8
@@ -246,7 +246,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hfcbbad47823f28cfE(i64
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h6e0588da9b67e5e1E"(ptr nocapture align 8 %0) unnamed_addr #0 {
+define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h6e0588da9b67e5e1E"(ptr align 8 captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %2, align 8

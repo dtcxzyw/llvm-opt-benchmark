@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [42 x i8] c"unable to update child node to new parent\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__locate_record(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__locate_record(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
   store i32 -1, ptr %6, align 4
   %.not29 = icmp eq i32 %1, 0
   br i1 %.not29, label %.critedge, label %.lr.ph
@@ -129,7 +129,7 @@ define range(i32 -1, 1) i32 @H5B2__locate_record(ptr nocapture noundef readonly 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
@@ -514,7 +514,7 @@ H5B2__update_child_flush_depends.exit:            ; preds = %233, %239, %225
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @H5B2__create_internal(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -525,7 +525,7 @@ declare i32 @H5B2__create_leaf(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @H5B2__protect_leaf(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1190,7 +1190,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
   %253 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0263, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = mul nuw nsw i64 %185, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0262, ptr nonnull align 8 %254, i64 %255, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.0262, ptr nonnull align 8 %254, i64 %255, i1 false)
   %.not = icmp eq i16 %77, %84
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1232,7 +1232,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
 266:                                              ; preds = %265, %.lr.ph.i280
   %indvars.iv.i281 = phi i64 [ 0, %.lr.ph.i280 ], [ %indvars.iv.next.i282, %265 ]
   %267 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0262, i64 %indvars.iv.i281
-  %268 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %264, ptr noundef %267, ptr noundef nonnull %.1244, ptr noundef nonnull %.1246)
+  %268 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %264, ptr noundef nonnull %267, ptr noundef nonnull %.1244, ptr noundef nonnull %.1246)
   %269 = icmp slt i32 %268, 0
   br i1 %269, label %270, label %265
 
@@ -1335,7 +1335,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i16 %1 to i32
   %7 = icmp ugt i16 %1, 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -1771,7 +1771,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %313 = zext i32 %312 to i64
   %314 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0442, i64 %313
   %315 = mul nuw nsw i64 %249, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0439, ptr align 8 %314, i64 %315, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.0439, ptr align 8 %314, i64 %315, i1 false)
   %.not639 = icmp eq i32 %243, %.pre-phi
   br i1 %.not639, label %._crit_edge625, label %.lr.ph624
 
@@ -1807,7 +1807,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
 326:                                              ; preds = %325, %.lr.ph.i519
   %indvars.iv.i520 = phi i64 [ 0, %.lr.ph.i519 ], [ %indvars.iv.next.i521, %325 ]
   %327 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0439, i64 %indvars.iv.i520
-  %328 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %324, ptr noundef %327, ptr noundef nonnull %.1460, ptr noundef nonnull %.1458)
+  %328 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %324, ptr noundef nonnull %327, ptr noundef nonnull %.1460, ptr noundef nonnull %.1458)
   %329 = icmp slt i32 %328, 0
   br i1 %329, label %330, label %325
 
@@ -1918,7 +1918,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %404 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0436, i64 %.pre-phi670
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 24
   %406 = mul nuw nsw i64 %346, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0442, ptr nonnull align 8 %405, i64 %406, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.0442, ptr nonnull align 8 %405, i64 %406, i1 false)
   %.not640 = icmp eq i32 %124, %340
   br i1 %.not640, label %._crit_edge631, label %.lr.ph630
 
@@ -1955,7 +1955,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
 418:                                              ; preds = %417, %.lr.ph.i526
   %indvars.iv.i527 = phi i64 [ 0, %.lr.ph.i526 ], [ %indvars.iv.next.i528, %417 ]
   %419 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.0442, i64 %indvars.iv.i527
-  %420 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %416, ptr noundef %419, ptr noundef nonnull %.1456, ptr noundef nonnull %.1460)
+  %420 = tail call i32 @H5B2__update_flush_depend(ptr noundef %0, i32 noundef %416, ptr noundef nonnull %419, ptr noundef nonnull %.1456, ptr noundef nonnull %.1460)
   %421 = icmp slt i32 %420, 0
   br i1 %421, label %422, label %417
 
@@ -2233,7 +2233,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__merge2(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__merge2(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i16 %1 to i32
   %9 = icmp ugt i16 %1, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -2545,7 +2545,7 @@ H5B2__update_child_flush_depends.exit.thread:     ; preds = %131, %120, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__merge3(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__merge3(ptr noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i16 %1 to i32
   %9 = icmp ugt i16 %1, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -3565,7 +3565,7 @@ define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__node_size(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__node_size(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @H5B2__protect_internal(ptr noundef %0, ptr noundef %3, ptr noundef %2, i16 noundef zeroext %1, i1 noundef zeroext false, i32 noundef 128) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %40, label %8

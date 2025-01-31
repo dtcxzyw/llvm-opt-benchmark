@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %59, label %5
 
@@ -112,7 +112,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 5) i32 @chartorune(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1
@@ -204,7 +204,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @isvalidcharntorune(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @isvalidcharntorune(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @charntorune(ptr noundef %2, ptr noundef %0, i32 noundef %1)
   store i32 %5, ptr %3, align 4
   %6 = load i32, ptr %2, align 4
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @isvalidcharntorune(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 5) i32 @runetochar(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ult i32 %3, 128
   br i1 %4, label %5, label %7
@@ -322,7 +322,7 @@ runetochar.exit:                                  ; preds = %5, %3, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not12 = icmp eq i32 %1, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -357,7 +357,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @fullrune(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @fullrune(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %15
 

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__ia32_compat_sys_sigreturn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
@@ -92,7 +92,7 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigset_t, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
@@ -426,13 +426,13 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @get_sigframe(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef 
 declare dso_local i32 @__copy_siginfo_to_user32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #4
@@ -777,7 +777,7 @@ declare void @llvm.write_register.i64(metadata, i64) #5
 declare dso_local void @set_current_blocked(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.sigcontext_32, align 4
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #7

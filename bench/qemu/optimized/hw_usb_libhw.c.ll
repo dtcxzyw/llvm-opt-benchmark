@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @usb_packet_map(ptr noundef %p, ptr nocapture noundef readonly %sgl) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @usb_packet_map(ptr noundef %p, ptr noundef readonly captures(none) %sgl) local_unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %0 = load i32, ptr %p, align 8
@@ -102,7 +102,7 @@ return:                                           ; preds = %for.inc, %for.body.
 declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_packet_unmap(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %sgl) local_unnamed_addr #0 {
+define dso_local void @usb_packet_unmap(ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %sgl) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 8
   %cmp = icmp eq i32 %0, 105
@@ -140,10 +140,10 @@ declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef
 declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

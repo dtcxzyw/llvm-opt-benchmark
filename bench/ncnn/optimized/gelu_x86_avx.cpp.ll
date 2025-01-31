@@ -27,7 +27,7 @@ define hidden void @_ZN4ncnn12GELU_x86_avxC2Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN4ncnn4GELUC2Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN4ncnn12GELU_x86_avx15create_pipelineERKNS_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(212) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4ncnn12GELU_x86_avx15create_pipelineERKNS_6OptionE(ptr noundef nonnull align 8 captures(none) dereferenceable(212) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

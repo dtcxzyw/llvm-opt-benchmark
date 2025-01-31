@@ -390,10 +390,10 @@ ehcleanup28:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10FontEngine12readSettingsEv(ptr noundef nonnull align 8 dereferenceable(638) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -917,12 +917,12 @@ eh.resume:                                        ; preds = %ehcleanup216, %ehcl
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN8Settings23registerChangedCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFvS7_PvES8_(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL20font_setting_changedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv(ptr nocapture nonnull readnone align 8 %name, ptr nocapture readnone %userdata) #3 {
+define internal void @_ZL20font_setting_changedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv(ptr nonnull readnone align 8 captures(none) %name, ptr readnone captures(none) %userdata) #3 {
 entry:
   %0 = load ptr, ptr @g_fontengine, align 8, !tbaa !29
   tail call void @_ZN10FontEngine12readSettingsEv(ptr noundef nonnull align 8 dereferenceable(638) %0)
@@ -1311,7 +1311,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41, %if.
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN10FontEngine8initFontERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %spec) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN10FontEngine8initFontERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(7) %spec) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i597 = alloca i64, align 8
   %__dnew.i.i587 = alloca i64, align 8
@@ -3061,7 +3061,7 @@ if.end:                                           ; preds = %if.then.i23.i, %cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10FontEngine13getTextHeightERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %spec) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN10FontEngine13getTextHeightERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(7) %spec) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %spec, align 4, !tbaa.struct !111
   %call.i = tail call noundef ptr @_ZN10FontEngine7getFontE8FontSpecb(ptr noundef nonnull align 8 dereferenceable(638) %this, i64 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext false)
@@ -3075,7 +3075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10FontEngine12getTextWidthERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %text, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %spec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN10FontEngine12getTextWidthERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %text, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(7) %spec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %spec, align 4, !tbaa.struct !111
   %call.i = tail call noundef ptr @_ZN10FontEngine7getFontE8FontSpecb(ptr noundef nonnull align 8 dereferenceable(638) %this, i64 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext false)
@@ -3089,7 +3089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10FontEngine13getLineHeightERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(7) %spec) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN10FontEngine13getLineHeightERK8FontSpec(ptr noundef nonnull align 8 dereferenceable(638) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(7) %spec) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %spec, align 4, !tbaa.struct !111
   %call.i = tail call noundef ptr @_ZN10FontEngine7getFontE8FontSpecb(ptr noundef nonnull align 8 dereferenceable(638) %this, i64 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext false)
@@ -3108,7 +3108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN10FontEngine18getDefaultFontSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(638) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZN10FontEngine18getDefaultFontSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(638) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load i32, ptr %m_default_size, align 8, !tbaa !28
@@ -3116,7 +3116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(638) %this, i8 noundef zeroext %mode) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(638) %this, i8 noundef zeroext %mode) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp eq i8 %mode, 4
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
@@ -3311,7 +3311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjPN3irr3gui8IGUIFontEESt10_Select1stIS6_ESt4lessIjESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3342,7 +3342,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14

@@ -1097,13 +1097,13 @@ init_task.exit354:                                ; preds = %.lr.ph.i.i351, %548
 declare i32 @mca_coll_han_comm_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_allreduce_t0_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_allreduce_t0_task(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -1218,7 +1218,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_allreduce_t1_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_allreduce_t1_task(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1413,7 +1413,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_allreduce_t2_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_allreduce_t2_task(ptr noundef captures(none) %0) #0 {
   %2 = alloca [2 x ptr], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1651,7 +1651,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_allreduce_t3_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_allreduce_t3_task(ptr noundef captures(none) %0) #0 {
   %2 = alloca [2 x ptr], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2715,7 +2715,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_han_allreduce_reproducible(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define i32 @mca_coll_han_allreduce_reproducible(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 792
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 800

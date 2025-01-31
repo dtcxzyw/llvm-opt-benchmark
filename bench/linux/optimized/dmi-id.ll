@@ -447,7 +447,7 @@ declare dso_local void @class_unregister(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @dmi_get_system_info(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @sys_dmi_field_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sys_dmi_field_show(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @dmi_get_system_info(i32 noundef %5) #7
@@ -463,7 +463,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sys_dmi_field_show(ptr n
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @sys_dmi_modalias_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef initializes((0, 4)) %2) #2 align 16 {
+define internal noundef i64 @sys_dmi_modalias_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef initializes((0, 4)) %2) #2 align 16 {
   %4 = tail call fastcc i64 @get_modalias(ptr noundef %2, i64 noundef 4095)
   %5 = getelementptr i8, ptr %2, i64 %4
   store i8 10, ptr %5, align 1
@@ -562,7 +562,7 @@ define internal fastcc noundef i64 @get_modalias(ptr noundef initializes((0, 4))
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) #1
@@ -574,7 +574,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @dmi_dev_uevent(ptr nocapture readnone %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @dmi_dev_uevent(ptr readnone captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.43) #7
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %22

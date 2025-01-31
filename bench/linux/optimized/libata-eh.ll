@@ -377,13 +377,13 @@ define dso_local void @__ata_ehi_push_desc(ptr noundef %0, ptr noundef %1, ...) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ata_ehi_push_desc(ptr noundef %0, ptr noundef %1, ...) #0 align 16 {
@@ -417,7 +417,7 @@ define dso_local void @ata_ehi_push_desc(ptr noundef %0, ptr noundef %1, ...) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ata_ehi_clear_desc(ptr nocapture noundef writeonly initializes((36, 37), (116, 120)) %0) #3 align 16 {
+define dso_local void @ata_ehi_clear_desc(ptr noundef writeonly captures(none) initializes((36, 37), (116, 120)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -511,7 +511,7 @@ define dso_local void @ata_port_pbar_desc(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ata_internal_cmd_timeout(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 16 {
+define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 16 {
   %3 = load ptr, ptr %0, align 64
   br label %6
 
@@ -569,7 +569,7 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @ata_internal_cmd_timed_out(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 16 {
+define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 16 {
   %3 = load ptr, ptr %0, align 64
   br label %6
 
@@ -632,7 +632,7 @@ define dso_local void @ata_internal_cmd_timed_out(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_ering_map(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ata_ering_map(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
@@ -664,7 +664,7 @@ define dso_local i32 @ata_ering_map(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_acquire(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_acquire(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -694,7 +694,7 @@ define dso_local void @ata_eh_acquire(ptr nocapture noundef readonly %0) local_u
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_release(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_release(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -779,7 +779,7 @@ define dso_local void @ata_scsi_error(ptr noundef %0) local_unnamed_addr #0 alig
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #6 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_cmd_error_handler(ptr nocapture readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local void @ata_scsi_cmd_error_handler(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   tail call void @ata_sff_flush_pio_task(ptr noundef %1) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 16
@@ -938,7 +938,7 @@ define dso_local void @ata_scsi_cmd_error_handler(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_port_error_handler(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @ata_scsi_port_error_handler(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 14776
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1518,7 +1518,7 @@ declare dso_local void @scsi_eh_finish_cmd(ptr noundef, ptr noundef) local_unnam
 declare dso_local ptr @ata_link_next(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @ata_dev_next(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -1999,7 +1999,7 @@ define dso_local i32 @ata_port_freeze(ptr noundef %0) #0 align 16 {
 declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_qc_schedule_eh(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_qc_schedule_eh(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
@@ -2171,7 +2171,7 @@ define dso_local void @ata_std_sched_eh(ptr noundef %0) #0 align 16 {
 declare dso_local void @scsi_schedule_eh(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ata_std_end_eh(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local void @ata_std_end_eh(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 400
   store i32 0, ptr %3, align 8
@@ -2708,7 +2708,7 @@ declare dso_local void @ata_dev_power_set_standby(ptr noundef) local_unnamed_add
 declare dso_local i32 @ata_scsi_offline_dev(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_eh_clear_action(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_eh_clear_action(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %25
 
@@ -2949,7 +2949,7 @@ define dso_local void @ata_eh_done(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @atapi_eh_tur(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @atapi_eh_tur(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.ata_taskfile, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
@@ -6569,7 +6569,7 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   %757 = load i32, ptr %756, align 4
   %758 = and i32 %757, -7
   store i32 %758, ptr %756, align 4
-  %759 = call ptr @ata_dev_next(ptr noundef nonnull %752, ptr noundef %10, i32 noundef 2) #18
+  %759 = call ptr @ata_dev_next(ptr noundef nonnull %752, ptr noundef nonnull %10, i32 noundef 2) #18
   %760 = icmp eq ptr %759, null
   br i1 %760, label %.loopexit, label %751, !llvm.loop !74
 
@@ -9746,7 +9746,7 @@ declare dso_local i32 @__SCT__tp_func_ata_port_freeze(ptr noundef, ptr noundef) 
 declare dso_local i32 @__SCT__tp_func_ata_port_thaw(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @ata_eh_scsidone(ptr nocapture readnone %0) #14 align 16 {
+define internal void @ata_eh_scsidone(ptr readnone captures(none) %0) #14 align 16 {
   ret void
 }
 
@@ -9775,7 +9775,7 @@ declare dso_local i32 @ata_eh_read_sense_success_ncq_log(ptr noundef) local_unna
 declare dso_local void @ata_scsi_set_sense(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ata_eh_request_sense(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ata_eh_request_sense(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.ata_taskfile, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -9921,7 +9921,7 @@ declare dso_local i32 @__SCT__tp_func_ata_eh_link_autopsy_qc(ptr noundef, ptr no
 declare dso_local i32 @__SCT__tp_func_ata_eh_link_autopsy(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__scsi_format_command(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6

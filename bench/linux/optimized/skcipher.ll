@@ -309,10 +309,10 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @skcipher_done_slow(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
@@ -568,7 +568,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
@@ -713,7 +713,7 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
 declare dso_local void @scatterwalk_copychunks(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
@@ -738,7 +738,7 @@ define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
@@ -844,7 +844,7 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 1
@@ -858,7 +858,7 @@ define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -868,7 +868,7 @@ define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((48, 52), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((48, 52), (112, 128)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1034,7 +1034,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
@@ -1369,7 +1369,7 @@ define dso_local i32 @crypto_has_skcipher(ptr noundef %0, i32 noundef %1, i32 no
 declare dso_local i32 @crypto_type_has_alg(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @skcipher_prepare_alg_common(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @skcipher_prepare_alg_common(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 512
@@ -1866,7 +1866,7 @@ define internal void @skcipher_free_instance_simple(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skcipher_setkey_simple(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @skcipher_setkey_simple(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1883,7 +1883,7 @@ define internal i32 @skcipher_setkey_simple(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align 16 {
+define internal i32 @skcipher_init_tfm_simple(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -1907,7 +1907,7 @@ define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skcipher_exit_tfm_simple(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @skcipher_exit_tfm_simple(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #9
@@ -2124,7 +2124,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocapture noundef initializes((104, 112)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr noundef captures(none) initializes((104, 112)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2281,7 +2281,7 @@ define internal i32 @crypto_skcipher_init_tfm(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_skcipher_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @crypto_skcipher_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3) #9
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
@@ -2348,12 +2348,12 @@ declare dso_local ptr @crypto_alloc_tfm_node(ptr noundef, ptr noundef, i32 nound
 declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @skcipher_noimport(ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 16 {
+define internal noundef i32 @skcipher_noimport(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @skcipher_noexport(ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 16 {
+define internal noundef i32 @skcipher_noexport(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   ret i32 0
 }
 

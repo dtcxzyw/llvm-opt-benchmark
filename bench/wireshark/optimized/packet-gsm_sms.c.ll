@@ -891,7 +891,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.618 = private unnamed_addr constant [20 x i8] c"(0) no Command-Data\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dis_field_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @dis_field_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %3, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #8
@@ -1050,7 +1050,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dis_field_udh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define hidden void @dis_field_udh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %3, align 4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #8
   %12 = load i32, ptr %3, align 4
@@ -1414,7 +1414,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm_fragment_params_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @sm_fragment_params_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @wmem_str_hash(ptr noundef %2) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1427,7 +1427,7 @@ define internal i32 @sm_fragment_params_hash(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm_fragment_params_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @sm_fragment_params_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1532,7 +1532,7 @@ define hidden void @proto_reg_handoff_gsm_sms() local_unnamed_addr #0 {
 declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_csm8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal void @dis_iei_csm8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 3
   br i1 %.not, label %10, label %7
 
@@ -1571,7 +1571,7 @@ define internal void @dis_iei_csm8(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_spe_sms_msg_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_spe_sms_msg_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %10, label %7
 
@@ -1599,7 +1599,7 @@ define internal void @dis_iei_spe_sms_msg_ind(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_apa_8bit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal void @dis_iei_apa_8bit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %10, label %7
 
@@ -1629,7 +1629,7 @@ define internal void @dis_iei_apa_8bit(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_apa_16bit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal void @dis_iei_apa_16bit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 4
   br i1 %.not, label %10, label %7
 
@@ -1657,7 +1657,7 @@ define internal void @dis_iei_apa_16bit(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_scp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_scp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %10, label %7
 
@@ -1677,7 +1677,7 @@ define internal void @dis_iei_scp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_udh_si(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_udh_si(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %10, label %7
 
@@ -1696,7 +1696,7 @@ define internal void @dis_iei_udh_si(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_csm16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal void @dis_iei_csm16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 4
   br i1 %.not, label %10, label %7
 
@@ -1734,7 +1734,7 @@ define internal void @dis_iei_csm16(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_tf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_tf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = icmp ult i8 %4, 3
   br i1 %7, label %8, label %11
 
@@ -1771,7 +1771,7 @@ define internal void @dis_iei_tf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_ps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_ps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %10, label %7
 
@@ -1793,7 +1793,7 @@ define internal void @dis_iei_ps(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 2
   br i1 %8, label %9, label %11
@@ -1816,7 +1816,7 @@ define internal void @dis_iei_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_pa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_pa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %10, label %7
 
@@ -1838,7 +1838,7 @@ define internal void @dis_iei_pa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_la(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_la(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 2
   br i1 %8, label %9, label %11
@@ -1861,7 +1861,7 @@ define internal void @dis_iei_la(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_sa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_sa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 2
   br i1 %8, label %9, label %11
@@ -1884,7 +1884,7 @@ define internal void @dis_iei_sa(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_lp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_lp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 2
   br i1 %8, label %9, label %11
@@ -1907,7 +1907,7 @@ define internal void @dis_iei_lp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_sp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_sp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 2
   br i1 %8, label %9, label %11
@@ -1930,7 +1930,7 @@ define internal void @dis_iei_sp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_vp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_vp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = zext i8 %4 to i32
   %8 = icmp ult i8 %4, 4
   br i1 %8, label %9, label %11
@@ -1959,7 +1959,7 @@ define internal void @dis_iei_vp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_upi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_upi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %10, label %7
 
@@ -1978,7 +1978,7 @@ define internal void @dis_iei_upi(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_lang_ss(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_lang_ss(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %10, label %7
 
@@ -1997,7 +1997,7 @@ define internal void @dis_iei_lang_ss(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_iei_lang_ls(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal void @dis_iei_lang_ls(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %10, label %7
 
@@ -2766,7 +2766,7 @@ dis_field_st.exit:                                ; preds = %dis_field_dt.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dis_msg_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal void @dis_msg_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_gsm_sms_tp_udhi, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
@@ -2862,7 +2862,7 @@ default.unreachable35:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %7 = load i32, ptr @hf_gsm_sms_tp_dcs, align 4
@@ -3783,7 +3783,7 @@ define internal fastcc void @dis_field_scts_aux(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3962,7 +3962,7 @@ addresses_equal.exit:                             ; preds = %63, %56, %54, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @sm_fragment_temporary_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noalias noundef ptr @sm_fragment_temporary_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %31, label %5
 
@@ -4011,7 +4011,7 @@ define internal noalias noundef ptr @sm_fragment_temporary_key(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @sm_fragment_persistent_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noalias noundef ptr @sm_fragment_persistent_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #10
   %5 = icmp eq ptr %2, null
   br i1 %5, label %40, label %6
@@ -4158,16 +4158,16 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i8 @llvm.umin.i8(i8, i8) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

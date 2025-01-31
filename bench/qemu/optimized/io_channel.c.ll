@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [13 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_writev_all, ptr @.str.18, ptr @.str.19, i32 238, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_write_all, ptr @.str.18, ptr @.str.19, i32 349, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_set_fd_handlers, ptr @.str.20, ptr @.str.19, i32 554, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.18, ptr @.str.19, i32 339, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.20, ptr @.str.21, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_all_eof, ptr @.str.18, ptr @.str.19, i32 113, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_all, ptr @.str.18, ptr @.str.19, i32 121, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_yield, ptr @.str.20, ptr @.str.19, i32 632, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all_eof, ptr @.str.18, ptr @.str.19, i32 329, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_writev_full_all, ptr @.str.18, ptr @.str.19, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_full_all_eof, ptr @.str.18, ptr @.str.19, i32 129, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_clear_fd_handlers, ptr @.str.20, ptr @.str.19, i32 600, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_full_all, ptr @.str.18, ptr @.str.19, i32 219, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qio_channel_has_feature(ptr nocapture noundef readonly %ioc, i32 noundef %feature) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qio_channel_has_feature(ptr noundef readonly captures(none) %ioc, i32 noundef %feature) local_unnamed_addr #0 {
 entry:
   %features = getelementptr inbounds nuw i8, ptr %ioc, i64 40
   %0 = load i32, ptr %features, align 8
@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @qio_channel_set_feature(ptr nocapture noundef %ioc, i32 noundef %feature) local_unnamed_addr #1 {
+define dso_local void @qio_channel_set_feature(ptr noundef captures(none) %ioc, i32 noundef %feature) local_unnamed_addr #1 {
 entry:
   %shl = shl nuw i32 1, %feature
   %features = getelementptr inbounds nuw i8, ptr %ioc, i64 40
@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qio_channel_set_name(ptr nocapture noundef %ioc, ptr noundef %name) local_unnamed_addr #2 {
+define dso_local void @qio_channel_set_name(ptr noundef captures(none) %ioc, ptr noundef %name) local_unnamed_addr #2 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %ioc, i64 48
   %0 = load ptr, ptr %name1, align 8
@@ -270,17 +270,17 @@ if.then14.us.us:                                  ; preds = %qio_channel_readv_f
   br i1 %call15.us.us, label %if.then16.us.us, label %if.else.us.us
 
 if.else.us.us:                                    ; preds = %if.then14.us.us
-  call void @qio_channel_wait(ptr noundef %ioc, i32 noundef 1)
+  call void @qio_channel_wait(ptr noundef nonnull %ioc, i32 noundef 1)
   br label %if.end17.us.us
 
 if.then16.us.us:                                  ; preds = %if.then14.us.us
-  call void @qio_channel_yield(ptr noundef %ioc, i32 noundef 1)
+  call void @qio_channel_yield(ptr noundef nonnull %ioc, i32 noundef 1)
   br label %if.end17.us.us
 
 if.end17.us.us:                                   ; preds = %if.then16.us.us, %if.else.us.us
   %6 = load i32, ptr %nlocal_iov, align 4
   %7 = load ptr, ptr %local_iov, align 8
-  %call.i.i.us.us = call ptr @object_get_class(ptr noundef %ioc) #8
+  %call.i.i.us.us = call ptr @object_get_class(ptr noundef nonnull %ioc) #8
   %call1.i.i.us.us = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.us.us, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_GET_CLASS) #8
   %8 = load i32, ptr %features.i.i, align 8
   %and.i.i.us.us = and i32 %8, 1
@@ -829,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qio_channel_set_follow_coroutine_ctx(ptr nocapture noundef writeonly initializes((88, 89)) %ioc, i1 noundef zeroext %enabled) local_unnamed_addr #5 {
+define dso_local void @qio_channel_set_follow_coroutine_ctx(ptr noundef writeonly captures(none) initializes((88, 89)) %ioc, i1 noundef zeroext %enabled) local_unnamed_addr #5 {
 entry:
   %frombool = zext i1 %enabled to i8
   %follow_coroutine_ctx = getelementptr inbounds nuw i8, ptr %ioc, i64 88
@@ -1223,7 +1223,7 @@ if.end16:                                         ; preds = %land.lhs.true9, %la
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qio_channel_wake_read(ptr nocapture noundef %ioc) local_unnamed_addr #2 {
+define dso_local void @qio_channel_wake_read(ptr noundef captures(none) %ioc) local_unnamed_addr #2 {
 entry:
   %read_coroutine = getelementptr inbounds nuw i8, ptr %ioc, i64 64
   %0 = atomicrmw xchg ptr %read_coroutine, i64 0 seq_cst, align 8
@@ -1246,7 +1246,7 @@ declare ptr @g_main_context_new() local_unnamed_addr #3
 declare ptr @g_main_loop_new(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_wait_complete(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %opaque) #2 {
+define internal noundef i32 @qio_channel_wait_complete(ptr readnone captures(none) %ioc, i32 %condition, ptr noundef %opaque) #2 {
 entry:
   tail call void @g_main_loop_quit(ptr noundef %opaque) #8
   ret i32 0
@@ -1281,7 +1281,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
 declare ptr @iohandler_get_aio_context() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_restart_read(ptr nocapture noundef %opaque) #2 {
+define internal void @qio_channel_restart_read(ptr noundef captures(none) %opaque) #2 {
 entry:
   %read_coroutine = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %0 = atomicrmw xchg ptr %read_coroutine, i64 0 seq_cst, align 8
@@ -1308,7 +1308,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_restart_write(ptr nocapture noundef %opaque) #2 {
+define internal void @qio_channel_restart_write(ptr noundef captures(none) %opaque) #2 {
 entry:
   %write_coroutine = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   %0 = atomicrmw xchg ptr %write_coroutine, i64 0 seq_cst, align 8

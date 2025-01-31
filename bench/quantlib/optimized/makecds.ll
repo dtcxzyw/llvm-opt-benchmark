@@ -254,7 +254,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib17CreditDefaultSwapEEE = comdat any
 @_ZN8QuantLib21MakeCreditDefaultSwapC1ERKNS_4DateEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN8QuantLib21MakeCreditDefaultSwapC2ERKNS_4DateEd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setIN5boost10shared_ptrIN8QuantLib10ObservableEEESt4lessIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -371,7 +371,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21MakeCreditDefaultSwapC2ERKNS_6PeriodEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 4), (8, 17), (20, 28), (32, 33), (48, 72)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tenor, double noundef %couponRate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21MakeCreditDefaultSwapC2ERKNS_6PeriodEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 4), (8, 17), (20, 28), (32, 33), (48, 72)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %tenor, double noundef %couponRate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.QuantLib::Actual360", align 8
   %ref.tmp4 = alloca %"class.QuantLib::Actual360", align 8
@@ -583,7 +583,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21MakeCreditDefaultSwapC2ERKNS_4DateEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 4), (8, 17), (32, 33), (40, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %termDate, double noundef %couponRate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21MakeCreditDefaultSwapC2ERKNS_4DateEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 4), (8, 17), (32, 33), (40, 72)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %termDate, double noundef %couponRate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp = alloca %"class.QuantLib::Actual360", align 8
   %ref.tmp6 = alloca %"class.QuantLib::Actual360", align 8
@@ -1619,7 +1619,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN8QuantLib12WeekendsOnlyC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
@@ -2015,7 +2015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap14withDayCounterERNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((72, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap14withDayCounterERNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((72, 80)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dayCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %dayCounter, align 8, !tbaa !52
@@ -2075,7 +2075,7 @@ _ZN8QuantLib10DayCounteraSERKS0_.exit:            ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap24withLastPeriodDayCounterERNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((88, 96)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lastPeriodDayCounter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap24withLastPeriodDayCounterERNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((88, 96)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lastPeriodDayCounter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lastPeriodDayCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %lastPeriodDayCounter, align 8, !tbaa !52
@@ -2151,7 +2151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((120, 128)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %engine_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %engine, align 8, !tbaa !92
@@ -2211,7 +2211,7 @@ _ZN5boost10shared_ptrIN8QuantLib13PricingEngineEEaSERKS3_.exit: ; preds = %_ZN5b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap13withTradeDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((112, 120)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tradeDate) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib21MakeCreditDefaultSwap13withTradeDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((112, 120)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %tradeDate) local_unnamed_addr #11 align 2 {
 entry:
   %tradeDate_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %tradeDate, align 8, !tbaa !66
@@ -3602,13 +3602,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

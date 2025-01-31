@@ -1864,7 +1864,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_emm_sec_par_from_eutra(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_emm_sec_par_from_eutra(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #10
@@ -1879,7 +1879,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_emm_sec_par_to_eutra(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_emm_sec_par_to_eutra(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_nonce_mme, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #10
   %10 = add i32 %3, 4
@@ -1908,7 +1908,7 @@ define hidden noundef zeroext i16 @de_emm_sec_par_to_eutra(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_eps_cmn_add_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_eps_cmn_add_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_cmn_add_info, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #10
   %10 = load i32, ptr @ett_nas_eps_cmn_add_info, align 4
@@ -1933,7 +1933,7 @@ define internal noundef zeroext i16 @de_eps_cmn_add_info(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_eps_cmn_eps_be_ctx_status(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_eps_cmn_eps_be_ctx_status(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_ebi7, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = load i32, ptr @hf_nas_eps_emm_ebi6, align 4
@@ -1982,7 +1982,7 @@ declare zeroext i16 @de_ms_cm_3(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare zeroext i16 @de_plmn_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 6, i32 noundef 1) #10
   %9 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #10
@@ -1995,7 +1995,7 @@ define hidden noundef zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr nound
 declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_ue_net_cap.oct3_flags, i32 noundef 0) #10
   %8 = add i32 %3, 1
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef 1, ptr noundef nonnull @de_emm_ue_net_cap.oct4_flags, i32 noundef 0) #10
@@ -2077,7 +2077,7 @@ define hidden zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr
 declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_emm_ue_add_sec_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_emm_ue_add_sec_cap(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_ue_add_sec_cap.oct3_flags, i32 noundef 0) #10
   %8 = add i32 %3, 1
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef 1, ptr noundef nonnull @de_emm_ue_add_sec_cap.oct4_flags, i32 noundef 0) #10
@@ -2089,7 +2089,7 @@ define hidden noundef zeroext i16 @de_emm_ue_add_sec_cap(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @de_esm_apn_aggr_max_br(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_esm_apn_aggr_max_br(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %13
@@ -2407,7 +2407,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_esm_qci, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = add i32 %3, 1
@@ -2908,7 +2908,7 @@ define internal fastcc range(i32 260, 10001) i32 @calc_bitrate_ext2(i8 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_esm_rel_assist_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_esm_rel_assist_ind(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 4
@@ -2920,7 +2920,7 @@ define hidden noundef zeroext i16 @de_esm_rel_assist_ind(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_esm_ext_apn_agr_max_br(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_esm_ext_apn_agr_max_br(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_eps_esm_ext_apn_ambr_dl_unit, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
@@ -3042,7 +3042,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_esm_ext_eps_qos(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden noundef zeroext i16 @de_esm_ext_eps_qos(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_eps_esm_ext_mbr_unit, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
@@ -3182,7 +3182,7 @@ get_ext_eps_qos_unit.exit50:                      ; preds = %get_ext_eps_qos_uni
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_add_upd_res(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_add_upd_res(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -3194,7 +3194,7 @@ define internal noundef zeroext i16 @de_emm_add_upd_res(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_add_upd_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_add_upd_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_emm_pnb_ciot, align 4
@@ -3209,7 +3209,7 @@ define internal noundef zeroext i16 @de_emm_add_upd_type(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_auth_resp_par(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_auth_resp_par(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_res, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -3217,7 +3217,7 @@ define internal noundef zeroext i16 @de_emm_auth_resp_par(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_sms_services_status(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_sms_services_status(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -3229,7 +3229,7 @@ define internal noundef zeroext i16 @de_emm_sms_services_status(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_csfb_resp(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_csfb_resp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %10 = or disjoint i32 %8, 4
@@ -3240,7 +3240,7 @@ define internal noundef zeroext i16 @de_emm_csfb_resp(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_cause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_cause(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_nas_eps_emm_cause, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
@@ -3253,7 +3253,7 @@ define internal noundef zeroext i16 @de_emm_cause(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_eps_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_eps_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_nas_eps_emm_odd_even, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
@@ -3315,7 +3315,7 @@ proto_item_set_hidden.exit:                       ; preds = %35, %32, %19, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i16 @de_emm_eps_net_feature_sup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal zeroext i16 @de_emm_eps_net_feature_sup(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_eps_net_feature_sup.oct3_flags, i32 noundef 0) #10
   %8 = icmp ult i32 %4, 2
   br i1 %8, label %9, label %11
@@ -3345,7 +3345,7 @@ define internal zeroext i16 @de_emm_eps_net_feature_sup(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
@@ -3501,7 +3501,7 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_imeisv_req(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_imeisv_req(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -3512,7 +3512,7 @@ define internal noundef zeroext i16 @de_emm_nas_imeisv_req(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_ksi_and_seq_no(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_ksi_and_seq_no(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = load i32, ptr @hf_nas_eps_emm_nas_key_set_id, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0) #10
@@ -3523,7 +3523,7 @@ define internal noundef zeroext i16 @de_emm_nas_ksi_and_seq_no(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_key_set_id(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_key_set_id(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_tsc, align 4
@@ -3535,7 +3535,7 @@ define internal noundef zeroext i16 @de_emm_nas_key_set_id(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
@@ -3694,7 +3694,7 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_sec_alsgs(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_sec_alsgs(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #10
@@ -3709,14 +3709,14 @@ define internal noundef zeroext i16 @de_emm_nas_sec_alsgs(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nonce(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nonce(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_nonce, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #10
   ret i16 4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_paging_id(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_paging_id(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 7, i32 noundef 0) #10
@@ -3727,7 +3727,7 @@ define internal noundef zeroext i16 @de_emm_paging_id(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ext_cause(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ext_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -3745,14 +3745,14 @@ define internal noundef zeroext i16 @de_emm_ext_cause(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nas_short_mac(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nas_short_mac(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_short_mac, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #10
   ret i16 2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %.not147 = icmp eq i32 %4, 0
   br i1 %.not147, label %.loopexit124, label %.lr.ph146
@@ -3893,7 +3893,7 @@ default.unreachable164:                           ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ue_ra_cap_inf_upd_need(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ue_ra_cap_inf_upd_need(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 4
@@ -3905,7 +3905,7 @@ define internal noundef zeroext i16 @de_emm_ue_ra_cap_inf_upd_need(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ue_sec_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ue_sec_cap(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_ue_sec_cap.oct3_flags, i32 noundef 0) #10
   %8 = add i32 %3, 1
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef 1, ptr noundef nonnull @de_emm_ue_sec_cap.oct4_flags, i32 noundef 0) #10
@@ -3932,7 +3932,7 @@ define internal noundef zeroext i16 @de_emm_ue_sec_cap(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -4001,7 +4001,7 @@ define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ss_code(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ss_code(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_ss_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -4009,7 +4009,7 @@ define internal noundef zeroext i16 @de_emm_ss_code(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_lcs_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_lcs_ind(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_lcs_ind, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -4017,7 +4017,7 @@ define internal noundef zeroext i16 @de_emm_lcs_ind(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_lcs_client_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_lcs_client_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #10
   %9 = tail call i32 @dissect_gsm_map_lcs_LCS_ClientID_PDU(ptr noundef %8, ptr noundef %2, ptr noundef %1, ptr noundef null) #10
   %10 = trunc i32 %4 to i16
@@ -4025,7 +4025,7 @@ define internal noundef zeroext i16 @de_emm_lcs_client_id(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_gen_msg_cont_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_gen_msg_cont_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_eps_emm_gen_msg_cont_type, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
@@ -4040,7 +4040,7 @@ define internal noundef zeroext i16 @de_emm_gen_msg_cont_type(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_gen_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_gen_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_gen_msg_cont, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #10
   %10 = load i32, ptr @ett_nas_eps_gen_msg_cont, align 4
@@ -4078,7 +4078,7 @@ define internal noundef zeroext i16 @de_emm_gen_msg_cont(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_guti_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_guti_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = or disjoint i32 %8, 4
   %10 = load i32, ptr @hf_nas_eps_spare_bits, align 4
@@ -4090,7 +4090,7 @@ define internal noundef zeroext i16 @de_emm_guti_type(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_hash_mme(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_hash_mme(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_hash_mme, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 8, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -4098,7 +4098,7 @@ define internal noundef zeroext i16 @de_emm_hash_mme(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
@@ -4228,7 +4228,7 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_network_policy(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_network_policy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 4
@@ -4239,7 +4239,7 @@ define internal noundef zeroext i16 @de_emm_network_policy(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_add_info_req(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_add_info_req(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 7, i32 noundef 0) #10
@@ -4249,7 +4249,7 @@ define internal noundef zeroext i16 @de_emm_add_info_req(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.tm, align 8
@@ -4394,7 +4394,7 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_n1_ue_network_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_n1_ue_network_cap(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0) #10
@@ -4403,7 +4403,7 @@ define internal noundef zeroext i16 @de_emm_n1_ue_network_cap(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_avail(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_avail(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 5, i32 noundef 0) #10
@@ -4414,7 +4414,7 @@ define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_avail(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_req(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_req(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 7, i32 noundef 0) #10
@@ -4425,7 +4425,7 @@ define internal noundef zeroext i16 @de_emm_ue_radio_cap_id_req(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4458,7 +4458,7 @@ define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_nb_s1_drx_param(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_nb_s1_drx_param(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #10
@@ -4469,7 +4469,7 @@ define internal noundef zeroext i16 @de_emm_nb_s1_drx_param(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_imsi_offset(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_imsi_offset(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_emm_imsi_offset, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -4477,7 +4477,7 @@ define internal noundef zeroext i16 @de_emm_imsi_offset(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_ue_request_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_ue_request_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #10
@@ -4489,7 +4489,7 @@ define internal noundef zeroext i16 @de_emm_ue_request_type(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_paging_restriction(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_paging_restriction(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i64, align 8
   %9 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %10 = shl i32 %3, 3
@@ -4516,7 +4516,7 @@ define internal noundef zeroext i16 @de_emm_paging_restriction(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_eps_add_req_result(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_emm_eps_add_req_result(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 6, i32 noundef 0) #10
@@ -4528,7 +4528,7 @@ define internal noundef zeroext i16 @de_emm_eps_add_req_result(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_cause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_cause(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_nas_eps_esm_cause, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
@@ -4541,7 +4541,7 @@ define internal noundef zeroext i16 @de_esm_cause(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_inf_trf_flg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_inf_trf_flg(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 4
@@ -4552,7 +4552,7 @@ define internal noundef zeroext i16 @de_esm_inf_trf_flg(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_notif_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_notif_ind(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_esm_notif_ind, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = trunc i32 %4 to i16
@@ -4560,7 +4560,7 @@ define internal noundef zeroext i16 @de_esm_notif_ind(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca [8 x i8], align 1
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %10 = and i8 %9, 7
@@ -4675,7 +4675,7 @@ define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_re_attempt_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_re_attempt_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 6, i32 noundef 0) #10
@@ -4698,7 +4698,7 @@ define internal noundef zeroext i16 @de_esm_re_attempt_ind(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_nbifom_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_nbifom_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load ptr, ptr @nbifom_handle, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9
@@ -4720,7 +4720,7 @@ define internal noundef zeroext i16 @de_esm_nbifom_cont(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -4876,7 +4876,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_pkmf_address(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_pkmf_address(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %10 = shl i32 %3, 3
@@ -4906,7 +4906,7 @@ define internal noundef zeroext i16 @de_esm_pkmf_address(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_hdr_compr_config(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_hdr_compr_config(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_esm_hdr_compr_config.flags, i32 noundef 0) #10
   %8 = add i32 %3, 1
   %9 = load i32, ptr @hf_nas_eps_esm_hdr_compr_config_max_cid, align 4
@@ -4930,7 +4930,7 @@ define internal noundef zeroext i16 @de_esm_hdr_compr_config(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_ctrl_plane_only_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_ctrl_plane_only_ind(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 4
@@ -4942,7 +4942,7 @@ define internal noundef zeroext i16 @de_esm_ctrl_plane_only_ind(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5141,14 +5141,14 @@ define internal zeroext i16 @de_esm_ext_pco(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_hdr_compr_config_status(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_hdr_compr_config_status(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 2, ptr noundef nonnull @de_esm_hdr_compr_config_status.flags, i32 noundef 0) #10
   %8 = trunc i32 %4 to i16
   ret i16 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_esm_serv_plmn_rate_ctrl(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_esm_serv_plmn_rate_ctrl(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_esm_serv_plmn_rate_ctrl_val, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.1016) #10
@@ -5349,7 +5349,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @de_emm_wus_assist_info_ue_paging_prob_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @de_emm_wus_assist_info_ue_paging_prob_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp ult i32 %1, 20
   br i1 %3, label %4, label %7
 
@@ -5379,7 +5379,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #1 {
+define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
@@ -5549,7 +5549,7 @@ define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef
 declare void @proto_register_alias(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nas_eps_plain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_nas_eps_plain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1014, ptr noundef nonnull @.str.816) #10
@@ -5670,7 +5670,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_nas_eps_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_nas_eps_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #10
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %15, label %7
@@ -10281,7 +10281,7 @@ declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -10292,7 +10292,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -10309,7 +10309,7 @@ declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare zeroext i16 @de_sm_pco(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
@@ -10383,10 +10383,10 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

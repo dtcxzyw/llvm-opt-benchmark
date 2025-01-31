@@ -742,72 +742,72 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr23drop_in_place$LT$u8$GT$17h4649ada60e88c322E"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr23drop_in_place$LT$u8$GT$17h4649ada60e88c322E"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr24drop_in_place$LT$u32$GT$17h1fb8e2fad4c39c26E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr24drop_in_place$LT$u32$GT$17h1fb8e2fad4c39c26E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr24drop_in_place$LT$u64$GT$17h3df60c2877687e11E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr24drop_in_place$LT$u64$GT$17h3df60c2877687e11E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h5bfe048dc469f2feE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h5bfe048dc469f2feE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$i32$GT$17hdf01e4157bdbb560E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$i32$GT$17hdf01e4157bdbb560E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$i64$GT$17h23fac6b99fa98583E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$i64$GT$17h23fac6b99fa98583E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17he11788cb1222de40E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17he11788cb1222de40E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr49drop_in_place$LT$$RF$$u5b$u8$u3b$$u20$16$u5d$$GT$17h4e7b921e7066bba4E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr49drop_in_place$LT$$RF$$u5b$u8$u3b$$u20$16$u5d$$GT$17h4e7b921e7066bba4E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr62drop_in_place$LT$wasmparser..readers..core..types..RefType$GT$17h03ad358bc8c91ad7E"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr62drop_in_place$LT$wasmparser..readers..core..types..RefType$GT$17h03ad358bc8c91ad7E"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..readers..core..operators..MemArg$GT$17h03033b350a6051b3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr65drop_in_place$LT$wasmparser..readers..core..operators..MemArg$GT$17h03033b350a6051b3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$wasmparser..readers..core..types..RefType$GT$17h6f8a70b128fa194fE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$wasmparser..readers..core..types..RefType$GT$17h6f8a70b128fa194fE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$wasmparser..readers..core..types..ValType$GT$17hae9c650355f9c25cE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr66drop_in_place$LT$$RF$wasmparser..readers..core..types..ValType$GT$17hae9c650355f9c25cE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr67drop_in_place$LT$$RF$wasmparser..readers..core..operators..V128$GT$17hbe5734706b6156a6E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr67drop_in_place$LT$$RF$wasmparser..readers..core..operators..V128$GT$17hbe5734706b6156a6E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr67drop_in_place$LT$$RF$wasmparser..readers..core..types..HeapType$GT$17h0b043cf22110a6faE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr67drop_in_place$LT$$RF$wasmparser..readers..core..types..HeapType$GT$17h0b043cf22110a6faE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
@@ -824,7 +824,7 @@ define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !15, !noalias !6, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %8, 0
@@ -847,42 +847,42 @@ define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Ordering$GT$17h03615dda3a283304E"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Ordering$GT$17h03615dda3a283304E"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..Ieee32$GT$17hc20b144a4047fe8bE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..Ieee32$GT$17hc20b144a4047fe8bE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..Ieee64$GT$17hbb18586bc2250805E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..Ieee64$GT$17hbb18586bc2250805E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..MemArg$GT$17h761838bde452551bE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$wasmparser..readers..core..operators..MemArg$GT$17h761838bde452551bE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr70drop_in_place$LT$$RF$wasmparser..readers..core..operators..BrTable$GT$17ha586febc9108bc4cE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr70drop_in_place$LT$$RF$wasmparser..readers..core..operators..BrTable$GT$17ha586febc9108bc4cE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$wasmparser..readers..core..operators..TryTable$GT$17h4ae812749363b454E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$wasmparser..readers..core..operators..TryTable$GT$17h4ae812749363b454E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$wasmparser..readers..core..operators..BlockType$GT$17h8791563fb763846eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$wasmparser..readers..core..operators..BlockType$GT$17h8791563fb763846eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !16, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -902,7 +902,7 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !26
-  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !27
+  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !27
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !20
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h13e4086984b97ba6E.exit"
 
@@ -4874,7 +4874,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h5322f312f297f84bE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h5322f312f297f84bE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !40, !noundef !4
   %trunc = trunc nuw i8 %3 to i1
   %anon.7eb13e003025e6876387f413763c524e.644.anon.7eb13e003025e6876387f413763c524e.645 = select i1 %trunc, ptr @anon.7eb13e003025e6876387f413763c524e.645, ptr @anon.7eb13e003025e6876387f413763c524e.644
@@ -4883,7 +4883,7 @@ define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section17hf886fdb97de50262E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section17hf886fdb97de50262E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { [4 x i32], i32, [11 x i32] } }, align 8
   %6 = alloca { [2 x i32], i32, [11 x i32] }, align 8
   %.sroa.9.i.i = alloca [11 x i32], align 4
@@ -4903,7 +4903,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  call void %18(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %16)
+  call void %18(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %16)
   %19 = load i64, ptr %14, align 8, !range !41, !noundef !4
   %20 = icmp eq i64 %19, -9223372036854775805
   br i1 %20, label %.lr.ph, label %31
@@ -4979,7 +4979,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   br label %47
 
 41:                                               ; preds = %32
-  call void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !61
+  call void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias noundef nonnull sret({ [2 x i32], i32, [11 x i32] }) align 8 captures(none) dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !61
   %42 = load i32, ptr %26, align 8, !range !65, !noalias !63, !noundef !4
   %.not.i.i.i = icmp eq i32 %42, 3
   %43 = zext i1 %.not.i.i.i to i8
@@ -5015,7 +5015,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   store i64 %.sroa.5.014.i.i, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !72
   store i32 %.sroa.510.0.i10.i, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.67.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78.i.i, i64 44, i1 false), !noalias !71
-  call void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmparser..readers..SectionLimited$LT$wasmparser..readers..core..types..RecGroup$GT$$GT$25into_iter_err_on_gc_types28_$u7b$$u7b$closure$u7d$$u7d$17hee5c589524d1a1a2E.llvm.14349183512120193719"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !noalias !76
+  call void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmparser..readers..SectionLimited$LT$wasmparser..readers..core..types..RecGroup$GT$$GT$25into_iter_err_on_gc_types28_$u7b$$u7b$closure$u7d$$u7d$17hee5c589524d1a1a2E.llvm.14349183512120193719"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %5), !noalias !76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !71
   %.sroa.763.8.copyload = load ptr, ptr %7, align 8, !noalias !53
   %.sroa.9.8.copyload = load ptr, ptr %.sroa.9.8..sroa_idx, align 8, !noalias !53
@@ -5035,12 +5035,12 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   store ptr %.sroa.9.8.copyload, ptr %.sroa.425.0..sroa_idx, align 8
   store i64 %.sroa.10.8.copyload, ptr %.sroa.526.0..sroa_idx, align 8
   %51 = load ptr, ptr %29, align 8, !invariant.load !4, !nonnull !4
-  invoke void %51(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64, i64 }) align 8 dereferenceable(48) %12, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  invoke void %51(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64, i64 }) align 8 captures(none) dereferenceable(48) %12, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %59 unwind label %53
 
 52:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 %.sroa.9.8.copyload)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 %.sroa.9.8.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -5082,7 +5082,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   %64 = load ptr, ptr %30, align 8, !invariant.load !4, !nonnull !4
-  call void %64(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  call void %64(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %65 = load i64, ptr %10, align 8, !range !41, !noundef !4
   %66 = icmp eq i64 %65, -9223372036854775805
@@ -5122,7 +5122,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_section17hd7e6fa10c89fdbfcE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_section17hd7e6fa10c89fdbfcE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { i64, [8 x i64] }, align 8
   %.sroa.2107 = alloca [3 x i64], align 8
   %.sroa.2101 = alloca [3 x i64], align 8
@@ -5150,7 +5150,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   %21 = load i32, ptr %20, align 8, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %23 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
-  call void %23(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %19, ptr noundef nonnull align 1 %2, i32 noundef %21)
+  call void %23(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %19, ptr noundef nonnull align 1 %2, i32 noundef %21)
   %24 = load i64, ptr %19, align 8, !range !41, !noundef !4
   %25 = icmp eq i64 %24, -9223372036854775805
   br i1 %25, label %.lr.ph, label %38
@@ -5234,13 +5234,13 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %52 = load ptr, ptr %51, align 8, !invariant.load !4, !nonnull !4
-  call void %52(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2)
+  call void %52(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2)
   %53 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775805
   br i1 %54, label %60, label %61
 
 55:                                               ; preds = %39
-  call void @"_ZN94_$LT$wasmparser..readers..core..imports..Import$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0e0353c810551765E"(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %18), !noalias !109
+  call void @"_ZN94_$LT$wasmparser..readers..core..imports..Import$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0e0353c810551765E"(ptr noalias noundef nonnull sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %18), !noalias !109
   %56 = load i64, ptr %5, align 8, !range !112, !noalias !111, !noundef !4
   %.not.i = icmp eq i64 %56, 7
   %57 = zext i1 %.not.i to i8
@@ -5298,7 +5298,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   %69 = icmp ne ptr %.sroa.9123.1170, null
   call void @llvm.assume(i1 %69)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.9123.1170)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.9123.1170)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %101
@@ -5308,7 +5308,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   %.sroa.3109.0.extract.trunc = trunc i64 %71 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   %72 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  call void %72(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %17, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.3109.0.extract.trunc, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
+  call void %72(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %17, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.3109.0.extract.trunc, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
   %73 = load i64, ptr %17, align 8, !range !41, !noundef !4
   %74 = icmp eq i64 %73, -9223372036854775805
   br i1 %74, label %96, label %97
@@ -5318,10 +5318,10 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   store ptr %.sroa.9123.0.copyload, ptr %10, align 8
   store i64 %.sroa.11.sroa.0.0.copyload, ptr %.sroa.8111.8..sroa_idx, align 8
   %76 = load ptr, ptr %35, align 8, !invariant.load !4, !nonnull !4
-  call void %76(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }) align 4 dereferenceable(24) %9, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10)
+  call void %76(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }) align 4 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %77 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
-  call void %77(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
+  call void %77(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
   %78 = load i64, ptr %8, align 8, !range !41, !noundef !4
   %79 = icmp eq i64 %78, -9223372036854775805
   br i1 %79, label %102, label %103
@@ -5336,7 +5336,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   store i8 %.sroa.11.sroa.8.0.copyload, ptr %32, align 8, !alias.scope !113, !noalias !116
   store i8 %.sroa.11.sroa.7.0.copyload, ptr %33, align 1, !alias.scope !113, !noalias !116
   %82 = load ptr, ptr %34, align 8, !invariant.load !4, !nonnull !4
-  call void %82(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %16, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
+  call void %82(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %16, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %83 = load i64, ptr %16, align 8, !range !41, !noundef !4
   %84 = icmp eq i64 %83, -9223372036854775805
@@ -5348,10 +5348,10 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   %.sroa.3109.0.extract.trunc115 = trunc i64 %86 to i48
   store i48 %.sroa.3109.0.extract.trunc115, ptr %13, align 8
   %87 = load ptr, ptr %28, align 8, !invariant.load !4, !nonnull !4
-  call void %87(ptr noalias nocapture noundef nonnull sret({ { i32, [2 x i32] }, i8, [3 x i8] }) align 4 dereferenceable(16) %12, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(6) %13)
+  call void %87(ptr noalias noundef nonnull sret({ { i32, [2 x i32] }, i8, [3 x i8] }) align 4 captures(none) dereferenceable(16) %12, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(6) %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %88 = load ptr, ptr %29, align 8, !invariant.load !4, !nonnull !4
-  call void %88(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
+  call void %88(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
   %89 = load i64, ptr %11, align 8, !range !41, !noundef !4
   %90 = icmp eq i64 %89, -9223372036854775805
   br i1 %90, label %106, label %107
@@ -5361,7 +5361,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
   %.sroa.3109.0.extract.trunc113 = trunc i64 %92 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %93 = load ptr, ptr %27, align 8, !invariant.load !4, !nonnull !4
-  call void %93(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.3109.0.extract.trunc113, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
+  call void %93(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.3109.0.extract.trunc113, ptr noalias noundef nonnull readonly align 1 %.sroa.12.0.copyload, i64 noundef %.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.14.0.copyload, i64 noundef %.sroa.15.0.copyload)
   %94 = load i64, ptr %14, align 8, !range !41, !noundef !4
   %95 = icmp eq i64 %94, -9223372036854775805
   br i1 %95, label %108, label %109
@@ -5447,7 +5447,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_import_secti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_section17hf5f980d991268a29E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_section17hf5f980d991268a29E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { i32, [3 x i32] }, align 8
   %.sroa.234 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
@@ -5464,7 +5464,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_sec
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !nonnull !4
-  call void %15(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %11)
+  call void %15(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %11)
   %16 = load i64, ptr %9, align 8, !range !41, !noundef !4
   %17 = icmp eq i64 %16, -9223372036854775805
   br i1 %17, label %.lr.ph, label %20
@@ -5532,7 +5532,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_sec
   br label %37
 
 "_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14e5039106bcca39E.exit": ; preds = %21
-  call void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %8), !noalias !123
+  call void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %8), !noalias !123
   %33 = load i32, ptr %5, align 8, !range !126, !noalias !125, !noundef !4
   %34 = trunc nuw nsw i32 %33 to i8
   store i8 %34, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !120, !noalias !123
@@ -5551,7 +5551,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_sec
 38:                                               ; preds = %"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14e5039106bcca39E.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %39 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
-  call void %39(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.9.0.copyload)
+  call void %39(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.9.0.copyload)
   %40 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %41 = icmp eq i64 %40, -9223372036854775805
   br i1 %41, label %43, label %46
@@ -5561,7 +5561,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_sec
   %42 = icmp ne ptr %.sroa.10.146, null
   call void @llvm.assume(i1 %42)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.146)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %47
@@ -5588,7 +5588,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator22parse_function_sec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_section17hc2ff5a577f221813E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_section17hc2ff5a577f221813E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { i32, [9 x i32] }, align 8
   %.sroa.253 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
@@ -5604,7 +5604,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_sectio
   %13 = load i32, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %15 = load ptr, ptr %14, align 8, !invariant.load !4, !nonnull !4
-  call void %15(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %13)
+  call void %15(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %13)
   %16 = load i64, ptr %11, align 8, !range !41, !noundef !4
   %17 = icmp eq i64 %16, -9223372036854775805
   br i1 %17, label %.lr.ph, label %20
@@ -5676,7 +5676,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_sectio
   br label %38
 
 33:                                               ; preds = %21
-  call void @"_ZN92_$LT$wasmparser..readers..core..tables..Table$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hcbf62a7479196bfeE"(ptr noalias nocapture noundef nonnull sret({ i32, [9 x i32] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %10), !noalias !132
+  call void @"_ZN92_$LT$wasmparser..readers..core..tables..Table$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hcbf62a7479196bfeE"(ptr noalias noundef nonnull sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %10), !noalias !132
   %34 = load i32, ptr %5, align 8, !range !135, !noalias !134, !noundef !4
   %.not.i = icmp eq i32 %34, 2
   %35 = zext i1 %.not.i to i8
@@ -5700,11 +5700,11 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_sectio
   store i32 %.sroa.956.0.copyload, ptr %.sroa.429.0..sroa_idx, align 4
   store ptr %.sroa.10.0.copyload, ptr %.sroa.530.0..sroa_idx, align 8
   %40 = load ptr, ptr %18, align 8, !invariant.load !4, !nonnull !4
-  call void %40(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }) align 4 dereferenceable(24) %9, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
+  call void %40(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }) align 4 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %41 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
-  call void %41(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  call void %41(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
   %42 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %43 = icmp eq i64 %42, -9223372036854775805
   br i1 %43, label %45, label %48
@@ -5714,7 +5714,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_sectio
   %44 = icmp ne ptr %.sroa.10.166, null
   call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.166)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.166)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -5745,7 +5745,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_table_sectio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_section17h31e9738be16db0e9E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_section17h31e9738be16db0e9E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { i64, [4 x i64] }, align 8
   %.sroa.243 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
@@ -5759,7 +5759,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_secti
   %12 = load i32, ptr %11, align 8, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !nonnull !4
-  call void %14(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %12)
+  call void %14(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %12)
   %15 = load i64, ptr %10, align 8, !range !41, !noundef !4
   %16 = icmp eq i64 %15, -9223372036854775805
   br i1 %16, label %.lr.ph, label %22
@@ -5829,7 +5829,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_secti
   br label %40
 
 35:                                               ; preds = %23
-  call void @"_ZN10wasmparser7readers4core8memories106_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..MemoryType$GT$11from_reader17hdbf6e1aa4a220031E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %9), !noalias !141
+  call void @"_ZN10wasmparser7readers4core8memories106_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..MemoryType$GT$11from_reader17hdbf6e1aa4a220031E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %9), !noalias !141
   %36 = load i64, ptr %5, align 8, !range !144, !noalias !143, !noundef !4
   %.not.i = icmp eq i64 %36, 2
   %37 = zext i1 %.not.i to i8
@@ -5856,7 +5856,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_secti
   store i8 %.sroa.11.sroa.7.0.copyload, ptr %20, align 1, !alias.scope !145, !noalias !148
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %43 = load ptr, ptr %21, align 8, !invariant.load !4, !nonnull !4
-  call void %43(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8)
+  call void %43(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
   %44 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %45 = icmp eq i64 %44, -9223372036854775805
   br i1 %45, label %47, label %50
@@ -5866,7 +5866,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_secti
   %46 = icmp ne ptr %.sroa.946.175, null
   call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.946.175)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.946.175)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %51
@@ -5893,7 +5893,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_memory_secti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section17h27ce425690621867E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section17h27ce425690621867E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { i32, [3 x i32] }, align 8
   %.sroa.232 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
@@ -5906,7 +5906,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
   %11 = load i32, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !nonnull !4
-  call void %13(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %11)
+  call void %13(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %11)
   %14 = load i64, ptr %9, align 8, !range !41, !noundef !4
   %15 = icmp eq i64 %14, -9223372036854775805
   br i1 %15, label %.lr.ph, label %17
@@ -5970,7 +5970,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
   br label %34
 
 "_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he174e1c85987eed0E.exit": ; preds = %18
-  call void @"_ZN10wasmparser7readers4core4tags103_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..TagType$GT$11from_reader17h8dae02eeee4b7035E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %8), !noalias !155
+  call void @"_ZN10wasmparser7readers4core4tags103_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..TagType$GT$11from_reader17h8dae02eeee4b7035E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %8), !noalias !155
   %30 = load i32, ptr %5, align 8, !range !126, !noalias !157, !noundef !4
   %31 = trunc nuw nsw i32 %30 to i8
   store i8 %31, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !152, !noalias !155
@@ -5989,7 +5989,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
 35:                                               ; preds = %"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he174e1c85987eed0E.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %36 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
-  call void %36(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.9.0.copyload)
+  call void %36(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.9.0.copyload)
   %37 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %38 = icmp eq i64 %37, -9223372036854775805
   br i1 %38, label %40, label %43
@@ -5999,7 +5999,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
   %39 = icmp ne ptr %.sroa.10.144, null
   call void @llvm.assume(i1 %39)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.144)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.10.144)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %44
@@ -6026,7 +6026,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator17parse_tag_section1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_section17h694d541ff427459bE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_section17h694d541ff427459bE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %.sroa.272 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
@@ -6051,7 +6051,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   %22 = load i32, ptr %21, align 8, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %24 = load ptr, ptr %23, align 8, !invariant.load !4, !nonnull !4
-  call void %24(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %20, ptr noundef nonnull align 1 %2, i32 noundef %22)
+  call void %24(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %20, ptr noundef nonnull align 1 %2, i32 noundef %22)
   %25 = load i64, ptr %20, align 8, !range !41, !noundef !4
   %26 = icmp eq i64 %25, -9223372036854775805
   br i1 %26, label %.lr.ph, label %38
@@ -6133,7 +6133,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   br label %56
 
 51:                                               ; preds = %39
-  call void @"_ZN94_$LT$wasmparser..readers..core..globals..Global$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h2e0b7506d394fd62E"(ptr noalias nocapture noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %19), !noalias !163
+  call void @"_ZN94_$LT$wasmparser..readers..core..globals..Global$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h2e0b7506d394fd62E"(ptr noalias noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %19), !noalias !163
   %52 = load i8, ptr %27, align 8, !range !166, !noalias !165, !noundef !4
   %.not.i = icmp eq i8 %52, 2
   %53 = zext i1 %.not.i to i8
@@ -6165,7 +6165,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   store i8 0, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias nocapture noundef nonnull sret({ i16, [27 x i16] }) align 8 dereferenceable(56) %15, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
+  call void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias noundef nonnull sret({ i16, [27 x i16] }) align 8 captures(none) dereferenceable(56) %15, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
   %59 = load i16, ptr %15, align 8, !range !167, !noundef !4
   %60 = icmp eq i16 %59, 574
   br i1 %60, label %64, label %62
@@ -6175,7 +6175,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   %61 = icmp ne ptr %.sroa.0.1103, null
   call void @llvm.assume(i1 %61)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 %.sroa.0.1103)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 %.sroa.0.1103)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %99
@@ -6203,7 +6203,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   %65 = load ptr, ptr %.sroa.564.0..sroa_idx, align 8, !nonnull !4, !align !16, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %65)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %65)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %95
@@ -6246,10 +6246,10 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   store i32 %.sink, ptr %8, align 16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   %77 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
-  call void %77(ptr noalias nocapture noundef nonnull sret({ { i32, [2 x i32] }, i8, [3 x i8] }) align 4 dereferenceable(16) %10, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(6) %18)
+  call void %77(ptr noalias noundef nonnull sret({ { i32, [2 x i32] }, i8, [3 x i8] }) align 4 captures(none) dereferenceable(16) %10, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 1 dereferenceable(6) %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %78 = load ptr, ptr %37, align 8, !invariant.load !4, !nonnull !4
-  call void %78(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %10, ptr noalias nocapture noundef nonnull align 16 dereferenceable(32) %8)
+  call void %78(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %8)
   %79 = load i64, ptr %9, align 8, !range !41, !noundef !4
   %80 = icmp eq i64 %79, -9223372036854775805
   br i1 %80, label %81, label %84
@@ -6300,7 +6300,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   store ptr %11, ptr %92, align 8, !alias.scope !170, !noalias !173
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %93, align 8, !alias.scope !170, !noalias !173
-  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr noalias nocapture noundef align 8 dereferenceable(48) %12)
+  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef align 8 captures(none) dereferenceable(48) %12)
           to label %94 unwind label %86
 
 94:                                               ; preds = %88
@@ -6332,7 +6332,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator20parse_export_section17h15b3f5b9441cdcf0E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator20parse_export_section17h15b3f5b9441cdcf0E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { [20 x i8], i8, [3 x i8] }, align 8
   %.sroa.2122 = alloca [3 x i64], align 8
   %.sroa.2116 = alloca [3 x i64], align 8
@@ -6355,7 +6355,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_export_secti
   %16 = load i32, ptr %15, align 8, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %18 = load ptr, ptr %17, align 8, !invariant.load !4, !nonnull !4
-  call void %18(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %16)
+  call void %18(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, ptr noundef nonnull align 1 %2, i32 noundef %16)
   %19 = load i64, ptr %14, align 8, !range !41, !noundef !4
   %20 = icmp eq i64 %19, -9223372036854775805
   br i1 %20, label %.lr.ph, label %27
@@ -6426,13 +6426,13 @@ default.unreachable:                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %41 = load ptr, ptr %40, align 8, !invariant.load !4, !nonnull !4
-  call void %41(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 %2)
+  call void %41(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %2)
   %42 = load i64, ptr %7, align 8, !range !41, !noundef !4
   %43 = icmp eq i64 %42, -9223372036854775805
   br i1 %43, label %49, label %50
 
 44:                                               ; preds = %28
-  call void @"_ZN94_$LT$wasmparser..readers..core..exports..Export$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0af74a0ee9dea409E"(ptr noalias nocapture noundef nonnull sret({ [20 x i8], i8, [3 x i8] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !179
+  call void @"_ZN94_$LT$wasmparser..readers..core..exports..Export$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0af74a0ee9dea409E"(ptr noalias noundef nonnull sret({ [20 x i8], i8, [3 x i8] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !179
   %45 = load i8, ptr %21, align 4, !range !182, !noalias !181, !noundef !4
   %.not.i = icmp eq i8 %45, 5
   %46 = zext i1 %.not.i to i8
@@ -6479,7 +6479,7 @@ default.unreachable:                              ; preds = %52
   %54 = icmp ne ptr %.sroa.0.1146, null
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.0.1146)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 %.sroa.0.1146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %88
@@ -6487,7 +6487,7 @@ default.unreachable:                              ; preds = %52
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %56 = load ptr, ptr %26, align 8, !invariant.load !4, !nonnull !4
-  call void %56(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
+  call void %56(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
   %57 = load i64, ptr %12, align 8, !range !41, !noundef !4
   %58 = icmp eq i64 %57, -9223372036854775805
   br i1 %58, label %75, label %76
@@ -6495,7 +6495,7 @@ default.unreachable:                              ; preds = %52
 59:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %60 = load ptr, ptr %25, align 8, !invariant.load !4, !nonnull !4
-  call void %60(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
+  call void %60(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
   %61 = load i64, ptr %11, align 8, !range !41, !noundef !4
   %62 = icmp eq i64 %61, -9223372036854775805
   br i1 %62, label %80, label %81
@@ -6503,7 +6503,7 @@ default.unreachable:                              ; preds = %52
 63:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %64 = load ptr, ptr %24, align 8, !invariant.load !4, !nonnull !4
-  call void %64(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
+  call void %64(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
   %65 = load i64, ptr %10, align 8, !range !41, !noundef !4
   %66 = icmp eq i64 %65, -9223372036854775805
   br i1 %66, label %82, label %83
@@ -6511,7 +6511,7 @@ default.unreachable:                              ; preds = %52
 67:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %68 = load ptr, ptr %23, align 8, !invariant.load !4, !nonnull !4
-  call void %68(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
+  call void %68(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
   %69 = load i64, ptr %8, align 8, !range !41, !noundef !4
   %70 = icmp eq i64 %69, -9223372036854775805
   br i1 %70, label %84, label %85
@@ -6519,7 +6519,7 @@ default.unreachable:                              ; preds = %52
 71:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %72 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
-  call void %72(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
+  call void %72(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.copyload, i64 noundef %.sroa.7130.0.copyload)
   %73 = load i64, ptr %9, align 8, !range !41, !noundef !4
   %74 = icmp eq i64 %73, -9223372036854775805
   br i1 %74, label %86, label %87
@@ -6601,13 +6601,13 @@ default.unreachable:                              ; preds = %52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator19parse_start_section17h19e06f69c5976cfaE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator19parse_start_section17h19e06f69c5976cfaE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %.sroa.28 = alloca [3 x i64], align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
-  call void %7(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 %2, i32 noundef %1)
+  call void %7(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %2, i32 noundef %1)
   %8 = load i64, ptr %5, align 8, !range !41, !noundef !4
   %9 = icmp eq i64 %8, -9223372036854775805
   br i1 %9, label %10, label %11
@@ -6630,7 +6630,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator19parse_start_sectio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator21parse_element_section17h05d3ebee58f34af5E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_wasm19sections_translator21parse_element_section17h05d3ebee58f34af5E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, [2 x i64] }, align 8
@@ -6673,7 +6673,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator21parse_element_sect
   %38 = load i32, ptr %37, align 8, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %40 = load ptr, ptr %39, align 8, !invariant.load !4, !nonnull !4
-  call void %40(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %36, ptr noundef nonnull align 1 %2, i32 noundef %38)
+  call void %40(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %36, ptr noundef nonnull align 1 %2, i32 noundef %38)
   %41 = load i64, ptr %36, align 8, !range !41, !noundef !4
   %42 = icmp eq i64 %41, -9223372036854775805
   br i1 %42, label %.lr.ph, label %66
@@ -6820,7 +6820,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator21parse_element_sect
   br label %86
 
 78:                                               ; preds = %67
-  call void @"_ZN96_$LT$wasmparser..readers..core..elements..Element$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hb32b79ec34ae1fd0E"(ptr noalias nocapture noundef nonnull sret({ i32, [25 x i32] }) align 8 dereferenceable(104) %22, ptr noalias noundef nonnull align 8 dereferenceable(56) %.sroa.25.0..sroa_idx), !noalias !195
+  call void @"_ZN96_$LT$wasmparser..readers..core..elements..Element$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hb32b79ec34ae1fd0E"(ptr noalias noundef nonnull sret({ i32, [25 x i32] }) align 8 captures(none) dereferenceable(104) %22, ptr noalias noundef nonnull align 8 dereferenceable(56) %.sroa.25.0..sroa_idx), !noalias !195
   %79 = load i32, ptr %22, align 8, !range !200, !noalias !197, !noundef !4
   %.not.i.i = icmp eq i32 %79, 5
   %80 = zext i1 %.not.i.i to i8
@@ -6901,7 +6901,7 @@ thread-pre-split:                                 ; preds = %111
 
 .lr.ph505:                                        ; preds = %.lr.ph.i, %thread-pre-split
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  invoke void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %20)
+  invoke void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(56) %20)
           to label %97 unwind label %.thread117.loopexit.split-lp.loopexit.i, !noalias !202
 
 93:                                               ; preds = %._crit_edge506
@@ -6950,7 +6950,7 @@ thread-pre-split:                                 ; preds = %111
 _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit.thread: ; preds = %.thread121.i, %.loopexit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !202
-  %102 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf22ca881168f0ad2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13), !noalias !202
+  %102 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf22ca881168f0ad2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13), !noalias !202
   %103 = extractvalue { ptr, i64 } %102, 0
   %104 = extractvalue { ptr, i64 } %102, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !202
@@ -6977,7 +6977,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit.th
   %110 = icmp ne ptr %.sroa.10.1129.i, null
   call void @llvm.assume(i1 %110)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !202
-  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noalias noundef nonnull align 8 %.sroa.10.1129.i)
+  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 %.sroa.10.1129.i)
           to label %119 unwind label %.thread117.loopexit.split-lp.loopexit.split-lp.i, !noalias !202
 
 111:                                              ; preds = %.noexc90.i, %105
@@ -7008,7 +7008,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit.th
   %.sroa.8.0 = phi ptr [ %.sroa.8.1, %172 ], [ %.sroa.8.0.copyload, %119 ]
   %.sroa.0188.0 = phi i64 [ %.sroa.0188.1, %172 ], [ %.sroa.0188.0.copyload, %119 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !219
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1334a83bcc88afc7E.llvm.510628653122287189"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !202
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1334a83bcc88afc7E.llvm.510628653122287189"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21), !noalias !202
   %121 = load i64, ptr %56, align 8, !range !15, !noalias !219, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %121, 0
   br i1 %.not.i.i.i.i, label %_ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit, label %122
@@ -7037,7 +7037,7 @@ thread-pre-split415:                              ; preds = %153
 
 .lr.ph507:                                        ; preds = %.lr.ph171.i, %thread-pre-split415
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  invoke void @"_ZN94_$LT$wasmparser..readers..core..init..ConstExpr$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h3fc774c0b9eb2c79E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
+  invoke void @"_ZN94_$LT$wasmparser..readers..core..init..ConstExpr$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h3fc774c0b9eb2c79E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
           to label %134 unwind label %.thread117.loopexit.i, !noalias !202
 
 130:                                              ; preds = %._crit_edge508
@@ -7081,13 +7081,13 @@ thread-pre-split415:                              ; preds = %153
   store i64 0, ptr %50, align 8, !noalias !202
   store i64 %.sroa.11.8.copyload.i, ptr %51, align 8, !noalias !202
   store i8 0, ptr %52, align 8, !noalias !202
-  invoke void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias nocapture noundef nonnull sret({ i16, [27 x i16] }) align 8 dereferenceable(56) %18, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
+  invoke void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias noundef nonnull sret({ i16, [27 x i16] }) align 8 captures(none) dereferenceable(56) %18, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
           to label %141 unwind label %.thread117.loopexit.i, !noalias !202
 
 .loopexit164.i:                                   ; preds = %134, %.thread151.i
   %.sroa.9107.1158.i = phi ptr [ %133, %.thread151.i ], [ %.sroa.9107.8.copyload.i, %134 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !202
-  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 %.sroa.9107.1158.i)
+  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 %.sroa.9107.1158.i)
           to label %176 unwind label %.thread117.loopexit.split-lp.loopexit.split-lp.i, !noalias !202
 
 141:                                              ; preds = %139
@@ -7110,7 +7110,7 @@ thread-pre-split415:                              ; preds = %153
   %146 = load ptr, ptr %.sroa.573.0..sroa_idx.i, align 8, !noalias !202, !nonnull !4, !align !16, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18), !noalias !202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !202
-  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 %146)
+  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 %146)
           to label %175 unwind label %.thread117.loopexit.split-lp.loopexit.split-lp.i, !noalias !202
 
 147:                                              ; preds = %144
@@ -7168,7 +7168,7 @@ thread-pre-split415:                              ; preds = %153
   store ptr %14, ptr %.sroa.7110.0..sroa_idx.i, align 8, !noalias !249
   store i64 1, ptr %.sroa.8.0..sroa_idx.i162, align 8, !noalias !249
   store ptr null, ptr %.sroa.10111.0..sroa_idx.i, align 8, !noalias !249
-  invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i unwind label %161, !noalias !202
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %163
@@ -7184,7 +7184,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %163
 
 165:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !253
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.8.0..sroa_idx178.i)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.8.0..sroa_idx178.i)
           to label %.noexc103.i unwind label %.thread117.loopexit.split-lp.loopexit.split-lp.i, !noalias !202
 
 .noexc103.i:                                      ; preds = %165
@@ -7264,7 +7264,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   %178 = icmp ne ptr %.sroa.8.0.i414, null
   call void @llvm.assume(i1 %178)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %24, ptr noalias noundef nonnull align 8 %.sroa.8.0.i414)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull align 8 %.sroa.8.0.i414)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   br label %.critedge
@@ -7297,7 +7297,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   %185 = trunc i64 %83 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   %186 = load ptr, ptr %65, align 8, !invariant.load !4, !nonnull !4
-  call void %186(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %26, ptr noundef nonnull align 1 %2, i32 noundef %185, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
+  call void %186(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %26, ptr noundef nonnull align 1 %2, i32 noundef %185, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
   %187 = load i64, ptr %26, align 8, !range !41, !noundef !4
   %188 = icmp eq i64 %187, -9223372036854775805
   br i1 %188, label %195, label %196
@@ -7313,13 +7313,13 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   store i8 0, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32)
-  invoke void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias nocapture noundef nonnull sret({ i16, [27 x i16] }) align 8 dereferenceable(56) %32, ptr noalias noundef nonnull align 8 dereferenceable(40) %34)
+  invoke void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias noundef nonnull sret({ i16, [27 x i16] }) align 8 captures(none) dereferenceable(56) %32, ptr noalias noundef nonnull align 8 dereferenceable(40) %34)
           to label %200 unwind label %.thread289.loopexit
 
 191:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   %192 = load ptr, ptr %58, align 8, !invariant.load !4, !nonnull !4
-  call void %192(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %25, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
+  call void %192(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %25, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
   %193 = load i64, ptr %25, align 8, !range !41, !noundef !4
   %194 = icmp eq i64 %193, -9223372036854775805
   br i1 %194, label %231, label %232
@@ -7375,7 +7375,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   %205 = load ptr, ptr %.sroa.5113.0..sroa_idx, align 8, !nonnull !4, !align !16, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %23, ptr noalias noundef nonnull align 8 %205)
+  invoke void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %23, ptr noalias noundef nonnull align 8 %205)
           to label %230 unwind label %.thread289.loopexit.split-lp
 
 206:                                              ; preds = %203
@@ -7395,7 +7395,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   %switch = icmp eq i32 %79, 0
   %..sroa.714.1 = select i1 %switch, i32 0, i32 %.sroa.711.0.copyload.i
   %211 = load ptr, ptr %64, align 8, !invariant.load !4, !nonnull !4
-  call void %211(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %27, ptr noundef nonnull align 1 %2, i32 noundef %..sroa.714.1, i32 noundef %.sroa.0135.0, i32 %.sroa.3136.0, i32 noundef %.0, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
+  call void %211(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %27, ptr noundef nonnull align 1 %2, i32 noundef %..sroa.714.1, i32 noundef %.sroa.0135.0, i32 %.sroa.3136.0, i32 noundef %.0, ptr noalias noundef nonnull align 4 %.sroa.8.2267, i64 noundef %.sroa.12.2265)
   %212 = load i64, ptr %27, align 8, !range !41, !noundef !4
   %213 = icmp eq i64 %212, -9223372036854775805
   br i1 %213, label %214, label %215
@@ -7438,7 +7438,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
   store ptr %28, ptr %222, align 8, !alias.scope !267, !noalias !270
   %223 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 1, ptr %223, align 8, !alias.scope !267, !noalias !270
-  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %30, ptr noalias nocapture noundef align 8 dereferenceable(48) %29)
+  invoke fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef align 8 captures(none) dereferenceable(48) %29)
           to label %224 unwind label %216
 
 224:                                              ; preds = %218
@@ -7502,7 +7502,7 @@ _ZN14cranelift_wasm19sections_translator10read_elems17h77d41a18ecafbc0bE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section17h5bf1e932aac3fab1E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section17h5bf1e932aac3fab1E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
@@ -7526,7 +7526,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   %21 = load i32, ptr %20, align 8, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %23 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
-  call void %23(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %19, ptr noundef nonnull align 1 %2, i32 noundef %21)
+  call void %23(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %19, ptr noundef nonnull align 1 %2, i32 noundef %21)
   %24 = load i64, ptr %19, align 8, !range !41, !noundef !4
   %25 = icmp eq i64 %24, -9223372036854775805
   br i1 %25, label %.lr.ph, label %33
@@ -7612,7 +7612,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   br label %55
 
 48:                                               ; preds = %34
-  call void @"_ZN89_$LT$wasmparser..readers..core..data..Data$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hf96069882b79feceE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %.sroa.25.0..sroa_idx), !noalias !283
+  call void @"_ZN89_$LT$wasmparser..readers..core..data..Data$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hf96069882b79feceE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %.sroa.25.0..sroa_idx), !noalias !283
   %49 = load i32, ptr %7, align 8, !range !135, !noalias !285, !noundef !4
   %.not.i.i = icmp eq i32 %49, 2
   %50 = zext i1 %.not.i.i to i8
@@ -7646,7 +7646,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   %58 = icmp ne ptr %.sroa.8.0.i151, null
   call void @llvm.assume(i1 %58)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 %.sroa.8.0.i151)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 %.sroa.8.0.i151)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %73
@@ -7655,7 +7655,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   %60 = trunc i64 %53 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %61 = load ptr, ptr %32, align 8, !invariant.load !4, !nonnull !4
-  call void %61(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %60, ptr noalias noundef nonnull readonly align 1 %.sroa.9.i.sroa.5.0.copyload, i64 noundef %.sroa.9.i.sroa.6.0.copyload)
+  call void %61(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noundef nonnull align 1 %2, i32 noundef %60, ptr noalias noundef nonnull readonly align 1 %.sroa.9.i.sroa.5.0.copyload, i64 noundef %.sroa.9.i.sroa.6.0.copyload)
   %62 = load i64, ptr %10, align 8, !range !41, !noundef !4
   %63 = icmp eq i64 %62, -9223372036854775805
   br i1 %63, label %68, label %69
@@ -7671,7 +7671,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   store i8 0, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias nocapture noundef nonnull sret({ i16, [27 x i16] }) align 8 dereferenceable(56) %15, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
+  call void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias noundef nonnull sret({ i16, [27 x i16] }) align 8 captures(none) dereferenceable(56) %15, ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
   %66 = load i16, ptr %15, align 8, !range !167, !noundef !4
   %67 = icmp eq i16 %66, 574
   br i1 %67, label %75, label %74
@@ -7717,7 +7717,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   %76 = load ptr, ptr %.sroa.580.0..sroa_idx, align 8, !nonnull !4, !align !16, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 %76)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 %76)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Operator$GT$17h698f50c823eb4e73E.exit115"
@@ -7742,7 +7742,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %84 = load ptr, ptr %31, align 8, !invariant.load !4, !nonnull !4
-  call void %84(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.711.0.copyload.i, i32 noundef %.sroa.095.0, i32 %.sroa.496.0, i64 noundef %.0, ptr noalias noundef nonnull readonly align 1 %.sroa.9.i.sroa.5.0.copyload, i64 noundef %.sroa.9.i.sroa.6.0.copyload)
+  call void %84(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %2, i32 noundef %.sroa.711.0.copyload.i, i32 noundef %.sroa.095.0, i32 %.sroa.496.0, i64 noundef %.0, ptr noalias noundef nonnull readonly align 1 %.sroa.9.i.sroa.5.0.copyload, i64 noundef %.sroa.9.i.sroa.6.0.copyload)
   %85 = load i64, ptr %11, align 8, !range !41, !noundef !4
   %86 = icmp eq i64 %85, -9223372036854775805
   br i1 %86, label %87, label %88
@@ -7788,7 +7788,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_data_section
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !305
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !305
-  invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %90
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %92
@@ -7805,7 +7805,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %92
 
 95:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !309
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.546.0..sroa_idx)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.546.0..sroa_idx)
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %97 = load i64, ptr %96, align 8, !range !15, !noalias !309, !noundef !4
   %.not.i.i.i.i.i113 = icmp eq i64 %97, 0
@@ -7841,7 +7841,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %92
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section17h17b951e48ceec6ddE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section17h17b951e48ceec6ddE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 {
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = alloca { [32 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { ptr, [2 x i64] }, align 8
@@ -7914,7 +7914,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_name_section
 
 "_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit": ; preds = %"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h695d5cacc46e3b03E.exit.lr.ph", %33
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8), !noalias !323
-  call void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724"(ptr noalias nocapture noundef nonnull sret({ i8, [55 x i8] }) align 8 dereferenceable(56) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %16), !noalias !321
+  call void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %16), !noalias !321
   %.sroa.0.0.copyload = load i8, ptr %8, align 8, !noalias !325
   %.sroa.7145.0.copyload = load ptr, ptr %.sroa.7145.0..sroa_idx, align 8, !noalias !325
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !325
@@ -7956,7 +7956,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %27 = icmp ne ptr %.sroa.7145.0.copyload, null
   call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noalias noundef nonnull align 8 %.sroa.7145.0.copyload)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 %.sroa.7145.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   br label %52
@@ -8030,7 +8030,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
 
 .lr.ph336:                                        ; preds = %.lr.ph285.preheader, %.lr.ph285thread-pre-split
   call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %15), !noalias !331
+  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %15), !noalias !331
   %42 = load ptr, ptr %7, align 8, !noalias !333, !noundef !4
   %.not.i138 = icmp eq ptr %42, null
   %43 = zext i1 %.not.i138 to i8
@@ -8057,7 +8057,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %48 = icmp ne ptr %.sroa.9147.3191, null
   call void @llvm.assume(i1 %48)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 %.sroa.9147.3191)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 %.sroa.9147.3191)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
@@ -8097,7 +8097,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
 
 .lr.ph:                                           ; preds = %.lr.ph284.preheader, %.lr.ph284.backedge
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  call void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [23 x i8] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %14), !noalias !339
+  call void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias noundef nonnull sret({ [32 x i8], i8, [23 x i8] }) align 8 captures(none) dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %14), !noalias !339
   %58 = load i8, ptr %21, align 8, !range !166, !noalias !341, !noundef !4
   %.not.i139 = icmp eq i8 %58, 2
   %59 = zext i1 %.not.i139 to i8
@@ -8123,7 +8123,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %64 = icmp ne ptr %.sroa.0149.3224, null
   call void @llvm.assume(i1 %64)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 %.sroa.0149.3224)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 %.sroa.0149.3224)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %86
@@ -8181,7 +8181,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
 
 .lr.ph335:                                        ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
-  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !349
+  call void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !349
   %77 = load ptr, ptr %5, align 8, !noalias !351, !noundef !4
   %.not.i140 = icmp eq ptr %77, null
   %78 = zext i1 %.not.i140 to i8
@@ -8209,7 +8209,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %85 = icmp ne ptr %.sroa.9154.4253, null
   call void @llvm.assume(i1 %85)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 %.sroa.9154.4253)
+  call void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 %.sroa.9154.4253)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
@@ -8221,7 +8221,7 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #2
@@ -8257,7 +8257,7 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex
 declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u64$GT$3fmt17hbb818f12dd458be5E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #2
+declare void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5b51ea524e6f9582E"(i64 noundef, i1 noundef zeroext) unnamed_addr #2
@@ -8335,79 +8335,79 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb611deb7f4b9da5eE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull align 8) unnamed_addr #2
+declare void @"_ZN124_$LT$wasmtime_types..error..WasmError$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17hf7982775a4849455E"(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull align 8) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias nocapture noundef sret({ i16, [27 x i16] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @_ZN10wasmparser13binary_reader12BinaryReader13read_operator17h9ab9466f361724c9E(ptr noalias noundef sret({ i16, [27 x i16] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h812d90b0b7ba5babE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf22ca881168f0ad2E"(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #2
+declare hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hf22ca881168f0ad2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724"(ptr noalias nocapture noundef sret({ i8, [55 x i8] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724"(ptr noalias noundef sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN94_$LT$wasmparser..readers..core..exports..Export$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0af74a0ee9dea409E"(ptr noalias nocapture noundef sret({ [20 x i8], i8, [3 x i8] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN94_$LT$wasmparser..readers..core..exports..Export$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0af74a0ee9dea409E"(ptr noalias noundef sret({ [20 x i8], i8, [3 x i8] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN55_$LT$u32$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hd9eb70c70449eb06E"(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN94_$LT$wasmparser..readers..core..imports..Import$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0e0353c810551765E"(ptr noalias nocapture noundef sret({ i64, [8 x i64] }) align 8 dereferenceable(72), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN94_$LT$wasmparser..readers..core..imports..Import$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0e0353c810551765E"(ptr noalias noundef sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN10wasmparser7readers4core8memories106_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..MemoryType$GT$11from_reader17hdbf6e1aa4a220031E"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN10wasmparser7readers4core8memories106_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..MemoryType$GT$11from_reader17hdbf6e1aa4a220031E"(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN94_$LT$wasmparser..readers..core..globals..Global$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h2e0b7506d394fd62E"(ptr noalias nocapture noundef sret({ [24 x i8], i8, [7 x i8] }) align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN94_$LT$wasmparser..readers..core..globals..Global$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h2e0b7506d394fd62E"(ptr noalias noundef sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN96_$LT$wasmparser..readers..core..elements..Element$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hb32b79ec34ae1fd0E"(ptr noalias nocapture noundef sret({ i32, [25 x i32] }) align 8 dereferenceable(104), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN96_$LT$wasmparser..readers..core..elements..Element$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hb32b79ec34ae1fd0E"(ptr noalias noundef sret({ i32, [25 x i32] }) align 8 captures(none) dereferenceable(104), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN92_$LT$wasmparser..readers..core..tables..Table$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hcbf62a7479196bfeE"(ptr noalias nocapture noundef sret({ i32, [9 x i32] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN92_$LT$wasmparser..readers..core..tables..Table$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hcbf62a7479196bfeE"(ptr noalias noundef sret({ i32, [9 x i32] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN94_$LT$wasmparser..readers..core..init..ConstExpr$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h3fc774c0b9eb2c79E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN94_$LT$wasmparser..readers..core..init..ConstExpr$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h3fc774c0b9eb2c79E"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias nocapture noundef sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias noundef sret({ [2 x i32], i32, [11 x i32] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN89_$LT$wasmparser..readers..core..data..Data$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hf96069882b79feceE"(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN89_$LT$wasmparser..readers..core..data..Data$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17hf96069882b79feceE"(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN92_$LT$wasmparser..readers..core..names..Naming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha2d25d924aec9d3fE"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias nocapture noundef sret({ [32 x i8], i8, [23 x i8] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias noundef sret({ [32 x i8], i8, [23 x i8] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN10wasmparser7readers4core4tags103_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..TagType$GT$11from_reader17h8dae02eeee4b7035E"(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
+declare void @"_ZN10wasmparser7readers4core4tags103_$LT$impl$u20$wasmparser..readers..FromReader$u20$for$u20$wasmparser..readers..core..types..TagType$GT$11from_reader17h8dae02eeee4b7035E"(ptr noalias noundef sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmparser..readers..SectionLimited$LT$wasmparser..readers..core..types..RecGroup$GT$$GT$25into_iter_err_on_gc_types28_$u7b$$u7b$closure$u7d$$u7d$17hee5c589524d1a1a2E.llvm.14349183512120193719"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias nocapture noundef align 8 dereferenceable(64)) unnamed_addr #0
+declare hidden void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmparser..readers..SectionLimited$LT$wasmparser..readers..core..types..RecGroup$GT$$GT$25into_iter_err_on_gc_types28_$u7b$$u7b$closure$u7d$$u7d$17hee5c589524d1a1a2E.llvm.14349183512120193719"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 captures(none) dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h328ab801774b13d4E.llvm.510628653122287189"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_types..FuncIndex$GT$$GT$17h318c1a1339b2e71fE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1334a83bcc88afc7E.llvm.510628653122287189"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1334a83bcc88afc7E.llvm.510628653122287189"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

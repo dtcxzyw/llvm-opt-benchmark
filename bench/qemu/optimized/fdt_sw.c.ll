@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -18, 1) i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -18, 1) i32 @fdt_create_with_flags(ptr noundef writeonly captures(none) %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %bufsize, 48
   br i1 %cmp, label %return, label %if.end
@@ -39,10 +39,10 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -3, 1) i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @fdt_create(ptr noundef writeonly captures(none) %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %bufsize, 48
   br i1 %cmp.i, label %fdt_create_with_flags.exit, label %if.end.i
@@ -239,10 +239,10 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr nocapture noundef %fdt, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr noundef captures(none) %fdt, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -351,7 +351,7 @@ return:                                           ; preds = %fdt_sw_probe_memrsv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr nocapture noundef %fdt) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr noundef captures(none) %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i.i = zext i8 %0 to i32
@@ -472,7 +472,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %fdt, ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
+define dso_local range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %fdt, ptr noundef readonly captures(none) %name) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -640,7 +640,7 @@ fdt_grab_space_.exit:                             ; preds = %lor.lhs.false.i
 if.end7:                                          ; preds = %fdt_grab_space_.exit
   store i32 16777216, ptr %add.ptr2.i.i.i, align 4
   %name9 = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name9, ptr align 1 %name, i64 %conv2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name9, ptr nonnull align 1 %name, i64 %conv2, i1 false)
   br label %return
 
 return:                                           ; preds = %fdt_sw_probe_struct_.exit, %if.end, %lor.lhs.false.i, %if.end.i, %fdt_grab_space_.exit, %if.end7
@@ -649,10 +649,10 @@ return:                                           ; preds = %fdt_sw_probe_struct
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 -9, 1) i32 @fdt_end_node(ptr noundef %fdt) local_unnamed_addr #2 {
@@ -819,7 +819,7 @@ return:                                           ; preds = %fdt_sw_probe_struct
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr nocapture noundef writeonly %valp) local_unnamed_addr #6 {
+define dso_local range(i32 -9, 1) i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr noundef writeonly captures(none) %valp) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %fdt_sw_probe_struct
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @fdt_add_string_(ptr nocapture noundef %fdt, ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc i32 @fdt_add_string_(ptr noundef captures(none) %fdt, ptr noundef readonly captures(none) %s) unnamed_addr #4 {
 entry:
   %totalsize = getelementptr inbounds nuw i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize, align 1
@@ -1188,7 +1188,7 @@ if.end:                                           ; preds = %entry
   %idx.neg = sub nsw i64 0, %idx.ext10
   %add.ptr11 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
   %conv12 = zext i32 %conv to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11, ptr align 1 %s, i64 %conv12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11, ptr nonnull align 1 %s, i64 %conv12, i1 false)
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add3)
   store i32 %rev.i.i, ptr %size_dt_strings, align 4
   %sub14 = sub i32 0, %add3
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @fdt_property(ptr noundef %fdt, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #6 {
+define dso_local range(i32 -9, 1) i32 @fdt_property(ptr noundef %fdt, ptr noundef %name, ptr noundef readonly captures(none) %val, i32 noundef %len) local_unnamed_addr #6 {
 entry:
   %ptr = alloca ptr, align 8
   %call = call i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %ptr)

@@ -274,7 +274,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -299,7 +299,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @file_close(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -30, 1) i32 @file_close(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -318,7 +318,7 @@ define internal range(i32 -30, 1) i32 @file_close(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef i32 @file_free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -337,12 +337,12 @@ declare i32 @archive_mstring_get_mbs(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @archive_mstring_get_wcs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 declare void @__archive_ensure_cloexec_flag(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @archive_write_get_bytes_in_last_block(ptr noundef) local_unnamed_addr #1
 
@@ -351,14 +351,14 @@ declare i32 @archive_write_set_bytes_in_last_block(ptr noundef, i32 noundef) loc
 declare i32 @archive_write_set_skip_file(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 declare void @archive_mstring_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

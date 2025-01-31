@@ -158,7 +158,7 @@ define internal noundef i32 @mca_part_persist_component_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @mca_part_persist_component_init(ptr nocapture noundef initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #0 {
+define internal noundef nonnull ptr @mca_part_persist_component_init(ptr noundef captures(none) initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #0 {
   store i32 1, ptr %0, align 4
   %4 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0) #4
   br i1 %4, label %5, label %7

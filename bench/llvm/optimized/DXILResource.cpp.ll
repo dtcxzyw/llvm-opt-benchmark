@@ -200,7 +200,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 @_ZN4llvm23DXILResourceWrapperPassD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm23DXILResourceWrapperPassD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo5isUAVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo5isUAVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 1
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo5isUAVEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isCBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isCBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 2
@@ -216,7 +216,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isCBufferEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isSamplerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isSamplerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 3
@@ -224,7 +224,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo9isSamplerEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo8isStructEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo8isStructEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 12
@@ -232,7 +232,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo8isStructEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo7isTypedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo7isTypedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %.off = add i32 %3, -1
@@ -241,7 +241,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo7isTypedEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo10isFeedbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo10isFeedbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -17
@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo10isFeedbackEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo13isMultiSampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo13isMultiSampleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 3
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfo13isMultiSample
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo3SRVEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjNS0_12ResourceKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 48), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo3SRVEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjNS0_12ResourceKindE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 48), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -280,10 +280,10 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo3SRVEPNS_5ValueENS_9StringRefE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo9RawBufferEPNS_5ValueENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 48)) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo9RawBufferEPNS_5ValueENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 48)) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -299,7 +299,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo9RawBufferEPNS_5ValueENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo16StructuredBufferEPNS_5ValueENS_9StringRefEjNS_10MaybeAlignE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 48), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i16 %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo16StructuredBufferEPNS_5ValueENS_9StringRefEjNS_10MaybeAlignE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 48), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i16 %5) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -324,7 +324,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo16StructuredBufferEPNS_5ValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo11Texture2DMSEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 48), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo11Texture2DMSEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjj(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 48), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -346,7 +346,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo11Texture2DMSEPNS_5ValueENS_9S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo16Texture2DMSArrayEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 48), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo16Texture2DMSArrayEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjj(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 48), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -368,7 +368,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo16Texture2DMSArrayEPNS_5ValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo3UAVEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjbbNS0_12ResourceKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo3UAVEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjbbNS0_12ResourceKindE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %10, align 8
@@ -396,7 +396,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo3UAVEPNS_5ValueENS_9StringRefE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo11RWRawBufferEPNS_5ValueENS_9StringRefEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51)) %0, ptr noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo11RWRawBufferEPNS_5ValueENS_9StringRefEbb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51)) %0, ptr noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -420,7 +420,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo11RWRawBufferEPNS_5ValueENS_9S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWStructuredBufferEPNS_5ValueENS_9StringRefEjNS_10MaybeAlignEbbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i16 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWStructuredBufferEPNS_5ValueENS_9StringRefEjNS_10MaybeAlignEbbb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 60)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i16 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %10, align 8
@@ -454,7 +454,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWStructuredBufferEPNS_5Valu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo13RWTexture2DMSEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjjb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo13RWTexture2DMSEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjjb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
@@ -483,7 +483,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo13RWTexture2DMSEPNS_5ValueENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWTexture2DMSArrayEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjjb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWTexture2DMSArrayEPNS_5ValueENS_9StringRefENS0_11ElementTypeEjjb(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 64)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
@@ -512,7 +512,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo18RWTexture2DMSArrayEPNS_5Valu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo17FeedbackTexture2DEPNS_5ValueENS_9StringRefENS0_19SamplerFeedbackTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 56)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo17FeedbackTexture2DEPNS_5ValueENS_9StringRefENS0_19SamplerFeedbackTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 56)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -530,7 +530,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo17FeedbackTexture2DEPNS_5Value
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo22FeedbackTexture2DArrayEPNS_5ValueENS_9StringRefENS0_19SamplerFeedbackTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 51), (52, 56)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo22FeedbackTexture2DArrayEPNS_5ValueENS_9StringRefENS0_19SamplerFeedbackTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 51), (52, 56)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo22FeedbackTexture2DArrayEPNS_5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo7CBufferEPNS_5ValueENS_9StringRefEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 52)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo7CBufferEPNS_5ValueENS_9StringRefEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 52)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -566,7 +566,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo7CBufferEPNS_5ValueENS_9String
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm4dxil12ResourceInfo7SamplerEPNS_5ValueENS_9StringRefENS0_11SamplerTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 initializes((0, 25), (28, 52)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4dxil12ResourceInfo7SamplerEPNS_5ValueENS_9StringRefENS0_11SamplerTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::dxil::ResourceInfo") align 8 captures(none) initializes((0, 25), (28, 52)) %0, ptr noundef %1, ptr %2, i64 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -584,7 +584,7 @@ define dso_local void @_ZN4llvm4dxil12ResourceInfo7SamplerEPNS_5ValueENS_9String
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoeqERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoeqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -785,7 +785,7 @@ _ZStneIJRKPN4llvm5ValueERKNS0_9StringRefERKNS0_4dxil12ResourceInfo15ResourceBind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1044,7 +1044,7 @@ _ZStltIJRKN4llvm4dxil12ResourceInfo15ResourceBindingERKNS1_13ResourceClassERKNS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -1955,7 +1955,7 @@ declare noundef ptr @_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE(ptr 
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, -4294901760) i64 @_ZNK4llvm4dxil12ResourceInfo16getAnnotatePropsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, -4294901760) i64 @_ZNK4llvm4dxil12ResourceInfo16getAnnotatePropsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 12
@@ -2065,7 +2065,7 @@ define dso_local range(i64 0, -4294901760) i64 @_ZNK4llvm4dxil12ResourceInfo16ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm4dxil12ResourceInfo5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm4dxil12ResourceInfo5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3722,7 +3722,7 @@ _ZN4llvm16DenseMapIteratorIPNS_8CallInstEjNS_12DenseMapInfoIS2_vEENS_6detail12De
 declare void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DXILResourceAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DXILResourceMap") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm20DXILResourceAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DXILResourceMap") align 8 %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca %"class.(anonymous namespace)::ResourceMapper", align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4407,7 +4407,7 @@ _ZN12_GLOBAL__N_114ResourceMapper20mapHandleFromBindingEPN4llvm8CallInstE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23DXILResourcePrinterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm23DXILResourcePrinterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #4 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm20DXILResourceAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %1, align 8
@@ -4438,7 +4438,7 @@ define dso_local void @_ZN4llvm23DXILResourcePrinterPass3runERNS_6ModuleERNS_15A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23DXILResourceWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm23DXILResourceWrapperPassC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #4 align 2 {
   %2 = alloca %class.anon.227, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4557,14 +4557,14 @@ define dso_local void @_ZN4llvm23DXILResourceWrapperPassD0Ev(ptr noundef nonnull
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm23DXILResourceWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm23DXILResourceWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm23DXILResourceWrapperPass11runOnModuleERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm23DXILResourceWrapperPass11runOnModuleERNS_6ModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #4 align 2 {
   %3 = alloca %"class.(anonymous namespace)::ResourceMapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #25
@@ -4621,7 +4621,7 @@ _ZN12_GLOBAL__N_114ResourceMapperD2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23DXILResourceWrapperPass13releaseMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm23DXILResourceWrapperPass13releaseMemoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -4655,7 +4655,7 @@ _ZNSt10unique_ptrIN4llvm15DXILResourceMapESt14default_deleteIS1_EE5resetEPS1_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm23DXILResourceWrapperPass5printERNS_11raw_ostreamEPKNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture readnone %2) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm23DXILResourceWrapperPass5printERNS_11raw_ostreamEPKNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr readnone captures(none) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4768,7 +4768,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
@@ -5020,7 +5020,7 @@ declare noundef ptr @_ZNK4llvm13TargetExtType13getLayoutTypeEv(ptr noundef nonnu
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(512), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
@@ -6115,7 +6115,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 256204778801521549) %3) unnamed_addr #13 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -9223372036854775808, 256204778801521549) %3) unnamed_addr #13 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -6863,16 +6863,16 @@ define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call
 declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #19

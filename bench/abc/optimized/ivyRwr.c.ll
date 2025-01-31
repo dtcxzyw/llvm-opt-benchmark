@@ -467,8 +467,8 @@ Abc_Clock.exit170.i:                              ; preds = %233, %._crit_edge.i
   br i1 %252, label %.lr.ph211.i, label %.critedge.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %.lr.ph211.i, %Abc_Clock.exit170.i
-  call void @Ivy_ManIncrementTravId(ptr noundef %0) #12
-  %253 = call i32 @Ivy_ObjMffcLabel(ptr noundef %0, ptr noundef nonnull %85) #12
+  call void @Ivy_ManIncrementTravId(ptr noundef nonnull %0) #12
+  %253 = call i32 @Ivy_ObjMffcLabel(ptr noundef nonnull %0, ptr noundef nonnull %85) #12
   %254 = load ptr, ptr %53, align 8
   %255 = getelementptr i8, ptr %254, i64 4
   %.val149212.i = load i32, ptr %255, align 4
@@ -1070,14 +1070,14 @@ Abc_Clock.exit76:                                 ; preds = %544, %549
   %554 = load i32, ptr %553, align 8
   %555 = xor i32 %554, 1
   store i32 %555, ptr %553, align 8
-  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %545)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %545)
   %556 = load i32, ptr %553, align 8
   %557 = xor i32 %556, 1
   store i32 %557, ptr %553, align 8
   br label %558
 
 .critedge70:                                      ; preds = %Abc_Clock.exit76
-  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %545)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %545)
   br label %558
 
 558:                                              ; preds = %.critedge70, %552
@@ -1199,7 +1199,7 @@ declare ptr @Rwt_ManReadDecs(ptr noundef) local_unnamed_addr #1
 declare i32 @Rwt_ManReadCompl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %.val29.i = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %.val29.i, 0
   %4 = getelementptr i8, ptr %2, i64 24
@@ -1309,12 +1309,12 @@ declare void @Ivy_ManResetLevels(ptr noundef) local_unnamed_addr #1
 declare i32 @Ivy_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @Ivy_ManCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_NodeGetTruth_rec(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define i32 @Ivy_NodeGetTruth_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1377,7 +1377,7 @@ common.ret39:                                     ; preds = %._crit_edge, %11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val29 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val29, 0
   %3 = getelementptr i8, ptr %1, i64 24
@@ -1475,7 +1475,7 @@ define ptr @Ivy_GraphToNetwork(ptr noundef %0, ptr nocapture noundef readonly %1
 declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -1619,7 +1619,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %98 = zext nneg i32 %96 to i64
   %99 = xor i64 %98, %97
   %100 = inttoptr i64 %99 to ptr
-  %101 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %88, ptr noundef %100) #12
+  %101 = tail call ptr @Ivy_And(ptr noundef nonnull %0, ptr noundef %88, ptr noundef %100) #12
   %102 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %101, ptr %102, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1639,7 +1639,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr nocaptu
 Ivy_GraphToNetwork.exit:                          ; preds = %52, %67, %.critedge.i
   %.025.in.i = phi i64 [ %57, %52 ], [ %75, %67 ], [ %109, %.critedge.i ]
   %.025.i = inttoptr i64 %.025.in.i to ptr
-  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %.025.i, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
+  tail call void @Ivy_ObjReplace(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.025.i, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %110 = load ptr, ptr %6, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 144
   %112 = load ptr, ptr %111, align 8
@@ -1699,7 +1699,7 @@ declare void @Ivy_ObjReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @Ivy_NodeFindCutsAll(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1708,7 +1708,7 @@ declare void @Ivy_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 declare i32 @Ivy_ObjMffcLabel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -1718,7 +1718,7 @@ declare ptr @Ivy_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Ivy_ManPropagateBuffers(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
@@ -1727,10 +1727,10 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

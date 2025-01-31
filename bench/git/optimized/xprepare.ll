@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.s_chastore = type { ptr, ptr, i64, i64, ptr, ptr, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @xdl_prepare_env(ptr noundef %mf1, ptr noundef %mf2, ptr nocapture noundef readonly %xpp, ptr noundef %xe) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @xdl_prepare_env(ptr noundef %mf1, ptr noundef %mf2, ptr noundef readonly captures(none) %xpp, ptr noundef %xe) local_unnamed_addr #0 {
 entry:
   %cf = alloca %struct.s_xdlclassifier, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %cf, i8 0, i64 104, i1 false)
@@ -690,12 +690,12 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i64 @xdl_guess_lines(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @xdl_prepare_ctx(i32 noundef range(i32 1, 3) %pass, ptr noundef %mf, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %narec, ptr nocapture noundef readonly %xpp, ptr noundef nonnull %cf, ptr noundef %xdf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @xdl_prepare_ctx(i32 noundef range(i32 1, 3) %pass, ptr noundef %mf, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %narec, ptr noundef readonly captures(none) %xpp, ptr noundef nonnull %cf, ptr noundef %xdf) unnamed_addr #0 {
 entry:
   %narec.addr = alloca i64, align 8
   %bsize = alloca i64, align 8
@@ -1025,7 +1025,7 @@ declare void @xdl_cha_free(ptr noundef) local_unnamed_addr #2
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @xdl_mmfile_first(ptr noundef, ptr noundef) local_unnamed_addr #2
 

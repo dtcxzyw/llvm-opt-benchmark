@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Py_hexdigits = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_strhex(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen) local_unnamed_addr #0 {
+define dso_local ptr @_Py_strhex(ptr noundef readonly captures(none) %argbuf, i64 noundef %arglen) local_unnamed_addr #0 {
 entry:
   %cmp40.not.i = icmp slt i64 %arglen, 4611686018427387903
   br i1 %cmp40.not.i, label %if.end44.i, label %if.then42.i
@@ -82,7 +82,7 @@ _Py_strhex_impl.exit:                             ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_Py_strhex_impl(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_sep_group, i32 noundef range(i32 0, 2) %return_bytes) unnamed_addr #0 {
+define internal fastcc ptr @_Py_strhex_impl(ptr noundef readonly captures(none) %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_sep_group, i32 noundef range(i32 0, 2) %return_bytes) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %sep, null
   br i1 %tobool.not, label %if.end38, label %if.then
@@ -457,7 +457,7 @@ return:                                           ; preds = %while.body168, %whi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_strhex_bytes(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen) local_unnamed_addr #0 {
+define hidden ptr @_Py_strhex_bytes(ptr noundef readonly captures(none) %argbuf, i64 noundef %arglen) local_unnamed_addr #0 {
 entry:
   %cmp40.not.i = icmp slt i64 %arglen, 4611686018427387903
   br i1 %cmp40.not.i, label %if.end44.i, label %if.then42.i
@@ -509,14 +509,14 @@ _Py_strhex_impl.exit:                             ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_strhex_with_sep(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group) local_unnamed_addr #0 {
+define hidden ptr @_Py_strhex_with_sep(ptr noundef readonly captures(none) %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @_Py_strhex_impl(ptr noundef %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_strhex_bytes_with_sep(ptr nocapture noundef readonly %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group) local_unnamed_addr #0 {
+define dso_local ptr @_Py_strhex_bytes_with_sep(ptr noundef readonly captures(none) %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @_Py_strhex_impl(ptr noundef %argbuf, i64 noundef %arglen, ptr noundef %sep, i32 noundef %bytes_per_group, i32 noundef 1)
   ret ptr %call
@@ -536,7 +536,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

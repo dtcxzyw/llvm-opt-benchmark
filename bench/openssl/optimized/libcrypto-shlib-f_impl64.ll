@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_gf_mul(ptr noalias nocapture noundef %cs, ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define void @ossl_gf_mul(ptr noalias noundef captures(none) %cs, ptr noundef readonly captures(none) %as, ptr noundef readonly captures(none) %bs) local_unnamed_addr #0 {
 entry:
   %aa = alloca [4 x i64], align 16
   %bb = alloca [4 x i64], align 16
@@ -174,7 +174,7 @@ for.end104:                                       ; preds = %for.end91
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_gf_mulw_unsigned(ptr noalias nocapture noundef %cs, ptr nocapture noundef readonly %as, i32 noundef %b) local_unnamed_addr #0 {
+define void @ossl_gf_mulw_unsigned(ptr noalias noundef captures(none) %cs, ptr noundef readonly captures(none) %as, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %conv.i = zext i32 %b to i128
   br label %for.body
@@ -239,7 +239,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_gf_sqr(ptr noalias nocapture noundef writeonly %cs, ptr nocapture noundef readonly %as) local_unnamed_addr #0 {
+define void @ossl_gf_sqr(ptr noalias noundef writeonly captures(none) %cs, ptr noundef readonly captures(none) %as) local_unnamed_addr #0 {
 entry:
   %aa = alloca [4 x i64], align 16
   br label %for.body

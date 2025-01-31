@@ -384,7 +384,7 @@ define void @_ZN4LIEF7VisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4LIEF7VisitorclEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF7VisitorclEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 

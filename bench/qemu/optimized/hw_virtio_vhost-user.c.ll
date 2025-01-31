@@ -167,7 +167,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_writev_all, ptr @.str.101, ptr @.str.102, i32 359, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.101, ptr @.str.102, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_full_all, ptr @.str.101, ptr @.str.102, i32 842, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_user_gpu_set_socket(ptr nocapture noundef readonly %dev, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local i32 @vhost_user_gpu_set_socket(ptr noundef readonly captures(none) %dev, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -182,10 +182,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_user_write(ptr nocapture noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef %fds, i32 noundef %fd_num) unnamed_addr #0 {
+define internal fastcc i32 @vhost_user_write(ptr noundef readonly captures(none) %dev, ptr noundef nonnull %msg, ptr noundef %fds, i32 noundef %fd_num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
@@ -290,7 +290,7 @@ return:                                           ; preds = %trace_vhost_user_wr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @vhost_user_get_shared_object(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %uuid, ptr nocapture noundef writeonly %dmabuf_fd) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_user_get_shared_object(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %uuid, ptr noundef writeonly captures(none) %dmabuf_fd) local_unnamed_addr #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
@@ -343,7 +343,7 @@ return:                                           ; preds = %if.end11, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @vhost_user_read(ptr %dev.536.val.8.val.0.val, ptr noundef nonnull %msg) unnamed_addr #0 {
@@ -454,7 +454,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @qemu_chr_fe_get_msgfd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vhost_user_init(ptr nocapture noundef %user, ptr noundef %chr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vhost_user_init(ptr noundef captures(none) %user, ptr noundef %chr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %user, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -520,7 +520,7 @@ if.end:                                           ; preds = %vhost_user_host_not
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_cleanup(ptr nocapture noundef %user) local_unnamed_addr #0 {
+define dso_local void @vhost_user_cleanup(ptr noundef captures(none) %user) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %user, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1132,7 +1132,7 @@ return:                                           ; preds = %if.end106, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_user_backend_cleanup(ptr nocapture noundef %dev) #0 {
+define internal noundef i32 @vhost_user_backend_cleanup(ptr noundef captures(none) %dev) #0 {
 entry:
   %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
@@ -1208,7 +1208,7 @@ if.end15:                                         ; preds = %if.then14, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @vhost_user_memslots_limit(ptr nocapture noundef readonly %dev) #5 {
+define internal i32 @vhost_user_memslots_limit(ptr noundef readonly captures(none) %dev) #5 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
@@ -1220,13 +1220,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vhost_user_no_private_memslots(ptr nocapture readnone %dev) #6 {
+define internal noundef zeroext i1 @vhost_user_no_private_memslots(ptr readnone captures(none) %dev) #6 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_net_set_mtu(ptr nocapture noundef readonly %dev, i16 noundef zeroext %mtu) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_net_set_mtu(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %mtu) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end, %entry, %pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_log_base(ptr nocapture noundef readonly %dev, i64 %base, ptr nocapture noundef readonly %log) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_log_base(ptr noundef readonly captures(none) %dev, i64 %base, ptr noundef readonly captures(none) %log) #0 {
 entry:
   %fds = alloca [512 x i32], align 16
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -1370,7 +1370,7 @@ return:                                           ; preds = %if.end5, %if.end19,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_mem_table(ptr nocapture noundef readonly %dev, ptr nocapture readnone %mem) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_mem_table(ptr noundef readonly captures(none) %dev, ptr readnone captures(none) %mem) #0 {
 entry:
   %msg_reply.i21 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1711,7 +1711,7 @@ return:                                           ; preds = %if.end22, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_addr(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %addr) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_addr(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %addr) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 52
@@ -1732,7 +1732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_endian(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
+define internal i32 @vhost_user_set_vring_endian(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %ring) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %protocol_features = getelementptr inbounds nuw i8, ptr %dev, i64 480
@@ -1765,7 +1765,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_num(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_num(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %ring) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %ring.val = load i64, ptr %ring, align 4
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_base(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %ring) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %ring.val = load i64, ptr %ring, align 4
@@ -1807,7 +1807,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_get_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_vring_base(ptr noundef readonly captures(none) %dev, ptr noundef captures(none) %ring) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 20
@@ -1919,7 +1919,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_kick(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %file) #0 {
+define internal i32 @vhost_user_set_vring_kick(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %file) #0 {
 entry:
   %fds.i = alloca [512 x i32], align 16
   %msg.i = alloca %struct.VhostUserMsg, align 4
@@ -1960,7 +1960,7 @@ vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_call(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %file) #0 {
+define internal i32 @vhost_user_set_vring_call(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %file) #0 {
 entry:
   %fds.i = alloca [512 x i32], align 16
   %msg.i = alloca %struct.VhostUserMsg, align 4
@@ -2001,7 +2001,7 @@ vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_err(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %file) #0 {
+define internal i32 @vhost_user_set_vring_err(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %file) #0 {
 entry:
   %fds.i = alloca [512 x i32], align 16
   %msg.i = alloca %struct.VhostUserMsg, align 4
@@ -2042,7 +2042,7 @@ vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_features(ptr nocapture noundef readonly %dev, i64 noundef %features) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_features(ptr noundef readonly captures(none) %dev, i64 noundef %features) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %and = and i64 %features, 67108864
@@ -2080,7 +2080,7 @@ return:                                           ; preds = %entry, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -71, 1) i32 @vhost_user_get_features(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %features) #0 {
+define internal range(i32 -71, 1) i32 @vhost_user_get_features(ptr noundef readonly captures(none) %dev, ptr noundef writeonly captures(none) %features) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i)
@@ -2134,7 +2134,7 @@ vhost_user_get_u64.exit:                          ; preds = %if.end16.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_owner(ptr nocapture noundef readonly %dev) #0 {
+define internal i32 @vhost_user_set_owner(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 8
@@ -2147,7 +2147,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_reset_device(ptr nocapture noundef readonly %dev) #0 {
+define internal i32 @vhost_user_reset_device(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 8
@@ -2171,7 +2171,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, -1) i32 @vhost_user_get_vq_index(ptr nocapture noundef readonly %dev, i32 noundef returned %idx) #0 {
+define internal range(i32 0, -1) i32 @vhost_user_get_vq_index(ptr noundef readonly captures(none) %dev, i32 noundef returned %idx) #0 {
 entry:
   %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
@@ -2194,7 +2194,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_enable(ptr nocapture noundef readonly %dev, i32 noundef %enable) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_enable(ptr noundef readonly captures(none) %dev, i32 noundef %enable) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %features = getelementptr inbounds nuw i8, ptr %dev, i64 456
@@ -2248,7 +2248,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vhost_user_requires_shm_log(ptr nocapture noundef readonly %dev) #0 {
+define internal zeroext i1 @vhost_user_requires_shm_log(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
@@ -2269,7 +2269,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_migration_done(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %mac_addr) #0 {
+define internal i32 @vhost_user_migration_done(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %mac_addr) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 18
@@ -2315,13 +2315,13 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vhost_user_set_iotlb_callback(ptr nocapture readnone %dev, i32 %enabled) #6 {
+define internal void @vhost_user_set_iotlb_callback(ptr readnone captures(none) %dev, i32 %enabled) #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_send_device_iotlb_msg(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %imsg) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -2383,7 +2383,7 @@ return:                                           ; preds = %entry, %process_mes
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_get_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %config, i32 noundef %config_len, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_config(ptr noundef readonly captures(none) %dev, ptr noundef writeonly captures(none) %config, i32 noundef %config_len, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 20
@@ -2473,7 +2473,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_config(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -2565,7 +2565,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_create_session(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %session_info, ptr nocapture noundef writeonly %session_id) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_create_session(ptr noundef readonly captures(none) %dev, ptr noundef readonly captures(none) %session_info, ptr noundef writeonly captures(none) %session_id) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %protocol_features = getelementptr inbounds nuw i8, ptr %dev, i64 480
@@ -2734,7 +2734,7 @@ return:                                           ; preds = %if.end93, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_close_session(ptr nocapture noundef readonly %dev, i64 noundef %session_id) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_close_session(ptr noundef readonly captures(none) %dev, i64 noundef %session_id) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %protocol_features = getelementptr inbounds nuw i8, ptr %dev, i64 480
@@ -2771,7 +2771,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_get_inflight_fd(ptr nocapture noundef readonly %dev, i16 noundef zeroext %queue_size, ptr nocapture noundef writeonly %inflight) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_inflight_fd(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %queue_size, ptr noundef writeonly captures(none) %inflight) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
@@ -2879,7 +2879,7 @@ return:                                           ; preds = %if.end26, %if.end6,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_inflight_fd(ptr nocapture noundef readonly %dev, ptr noundef %inflight) #0 {
+define internal i32 @vhost_user_set_inflight_fd(ptr noundef readonly captures(none) %dev, ptr noundef %inflight) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 32
@@ -2922,7 +2922,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_dev_start(ptr nocapture noundef readonly %dev, i1 noundef zeroext %started) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_dev_start(ptr noundef readonly captures(none) %dev, i1 noundef zeroext %started) #0 {
 entry:
   %protocol_features = getelementptr inbounds nuw i8, ptr %dev, i64 480
   %0 = load i64, ptr %protocol_features, align 8
@@ -2952,7 +2952,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_reset_status(ptr nocapture noundef readonly %dev) #0 {
+define internal void @vhost_user_reset_status(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %msg.i.i = alloca %struct.VhostUserMsg, align 4
   %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
@@ -2992,7 +2992,7 @@ if.end3:                                          ; preds = %entry, %if.then1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @vhost_user_supports_device_state(ptr nocapture noundef readonly %dev) #7 {
+define internal zeroext i1 @vhost_user_supports_device_state(ptr noundef readonly captures(none) %dev) #7 {
 entry:
   %protocol_features = getelementptr inbounds nuw i8, ptr %dev, i64 480
   %0 = load i64, ptr %protocol_features, align 8
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_device_state_fd(ptr nocapture noundef readonly %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr nocapture noundef writeonly initializes((0, 4)) %reply_fd, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_device_state_fd(ptr noundef readonly captures(none) %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr noundef writeonly captures(none) initializes((0, 4)) %reply_fd, ptr noundef %errp) #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -3111,7 +3111,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_check_device_state(ptr nocapture noundef readonly %dev, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_check_device_state(ptr noundef readonly captures(none) %dev, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 8
@@ -3196,7 +3196,7 @@ declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -3250,7 +3250,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_get_max_memslots(ptr nocapture noundef readonly %dev, ptr nocapture noundef nonnull writeonly %max_memslots) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_get_max_memslots(ptr noundef readonly captures(none) %dev, ptr noundef nonnull writeonly captures(none) %max_memslots) unnamed_addr #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i)
@@ -3309,7 +3309,7 @@ return:                                           ; preds = %vhost_user_get_u64.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_postcopy_notifier(ptr nocapture noundef readonly %notifier, ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_postcopy_notifier(ptr noundef readonly captures(none) %notifier, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i9.i = alloca %struct.timeval, align 8
   %msg_reply.i.i15 = alloca %struct.VhostUserMsg, align 4
@@ -3674,7 +3674,7 @@ return:                                           ; preds = %sw.bb, %entry, %vho
 declare void @postcopy_add_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_write_sync(ptr nocapture noundef readonly %dev, ptr noundef nonnull %msg, i1 noundef zeroext %wait_for_reply) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_write_sync(ptr noundef readonly captures(none) %dev, ptr noundef nonnull %msg, i1 noundef zeroext %wait_for_reply) unnamed_addr #0 {
 entry:
   %msg.i.i = alloca %struct.VhostUserMsg, align 4
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
@@ -4012,7 +4012,7 @@ declare i32 @qio_channel_read_all(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i32 @vhost_backend_handle_iotlb_msg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_vring_host_notifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef nonnull readonly %area, i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_vring_host_notifier(ptr noundef readonly captures(none) %dev, ptr noundef nonnull readonly captures(none) %area, i32 noundef %fd) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load i64, ptr %area, align 8
@@ -4316,7 +4316,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #3
 declare void @qemu_socket_set_nonblock(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_postcopy_fault_handler(ptr noundef %pcfd, ptr nocapture noundef readonly %ufd) #0 {
+define internal i32 @vhost_user_postcopy_fault_handler(ptr noundef %pcfd, ptr noundef readonly captures(none) %ufd) #0 {
 entry:
   %_now.i.i46 = alloca %struct.timeval, align 8
   %_now.i.i32 = alloca %struct.timeval, align 8
@@ -4696,7 +4696,7 @@ declare void @postcopy_unregister_shared_ufd(ptr noundef) local_unnamed_addr #3
 declare void @postcopy_remove_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_remove_regions(ptr nocapture noundef readonly %dev, ptr noundef nonnull initializes((8, 12)) %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_remove_regions(ptr noundef readonly captures(none) %dev, ptr noundef nonnull initializes((8, 12)) %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %msg_reply.i.i39 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i56.i = alloca %struct.timeval, align 8
@@ -5428,7 +5428,7 @@ return:                                           ; preds = %err, %if.then32, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -105, 1) i32 @vhost_user_fill_set_mem_table_msg(ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %dev, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %msg, ptr nocapture noundef nonnull writeonly %fds, ptr nocapture noundef nonnull %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -105, 1) i32 @vhost_user_fill_set_mem_table_msg(ptr noundef readonly captures(none) %u, ptr noundef readonly captures(none) %dev, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %msg, ptr noundef nonnull writeonly captures(none) %fds, ptr noundef nonnull captures(none) %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = alloca i64, align 8
@@ -5661,10 +5661,10 @@ declare ptr @memory_region_from_host(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @memory_region_get_fd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_status(ptr nocapture noundef readonly %dev, i8 noundef zeroext range(i8 7, 9) %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_status(ptr noundef readonly captures(none) %dev, i8 noundef zeroext range(i8 7, 9) %status) unnamed_addr #0 {
 entry:
   %msg.i.i6 = alloca %struct.VhostUserMsg, align 4
   %msg.i.i = alloca %struct.VhostUserMsg, align 4
@@ -5747,10 +5747,10 @@ return:                                           ; preds = %vhost_user_get_stat
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

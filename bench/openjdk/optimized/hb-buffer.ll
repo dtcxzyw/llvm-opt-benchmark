@@ -37,7 +37,7 @@ $_ZN9hb_utf8_t4nextEPKhS1_Pjj = comdat any
 @_hb_NullPool = external local_unnamed_addr constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @hb_segment_properties_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_segment_properties_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -82,7 +82,7 @@ define hidden range(i32 0, 2) i32 @hb_segment_properties_equal(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_segment_properties_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_segment_properties_hash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = mul i32 %2, 31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -151,7 +151,7 @@ define hidden void @hb_segment_properties_overlay(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -254,10 +254,10 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t13make_room_forEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, %2
@@ -308,7 +308,7 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %26, %23, %_ZN11hb_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t13shift_forwardEj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t13shift_forwardEj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, %1
@@ -378,10 +378,10 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %29, %26, %_ZN11hb_b
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 0, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 83
@@ -405,7 +405,7 @@ define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t7similarERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((24, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t7similarERKS_(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((24, 44)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %4)
@@ -441,7 +441,7 @@ declare void @hb_unicode_funcs_destroy(ptr noundef) local_unnamed_addr #6
 declare ptr @hb_unicode_funcs_reference(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((24, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((24, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %3)
@@ -474,7 +474,7 @@ define hidden void @_ZN11hb_buffer_t5resetEv(ptr nocapture noundef nonnull align
 declare ptr @hb_unicode_funcs_get_default() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((44, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((44, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -495,13 +495,13 @@ define hidden void @_ZN11hb_buffer_t5clearEv(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((81, 82), (176, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t5enterEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((81, 82), (176, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 177
@@ -535,7 +535,7 @@ define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11hb_buffer_t5leaveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) initializes((176, 178), (184, 192)) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN11hb_buffer_t5leaveEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(220) initializes((176, 178), (184, 192)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 1073741823, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -548,7 +548,7 @@ define hidden void @_ZN11hb_buffer_t5leaveEv(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11hb_buffer_t3addEjj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11hb_buffer_t3addEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
@@ -590,7 +590,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread:            ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11hb_buffer_t8add_infoERK15hb_glyph_info_t(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -626,7 +626,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread:            ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 88), (92, 96), (112, 120)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((82, 88), (92, 96), (112, 120)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83
@@ -643,7 +643,7 @@ define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11hb_buffer_t15clear_positionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN11hb_buffer_t15clear_positionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 0, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83
@@ -672,7 +672,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -809,7 +809,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit:             ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -833,7 +833,7 @@ define hidden noundef i32 @_ZN11hb_buffer_t11sync_so_farEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t7move_toEj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t7move_toEj(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -1027,7 +1027,7 @@ _ZN11hb_buffer_t13make_room_forEjj.exit:          ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11hb_buffer_t9set_masksEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN11hb_buffer_t9set_masksEjjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %6
 
@@ -1260,7 +1260,7 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit45: ; preds = %.lr.ph67, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11hb_buffer_t18merge_out_clustersEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN11hb_buffer_t18merge_out_clustersEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(220) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 2
@@ -1515,7 +1515,7 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t21delete_glyphs_inplaceEPFbPK15hb_glyph_info_tE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t21delete_glyphs_inplaceEPFbPK15hb_glyph_info_tE(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %.not52 = icmp eq i32 %4, 0
@@ -1632,7 +1632,7 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t24guess_segment_propertiesEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t24guess_segment_propertiesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(220) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
@@ -1757,7 +1757,7 @@ define hidden noundef nonnull ptr @hb_buffer_get_empty() local_unnamed_addr #11 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden nonnull ptr @hb_buffer_create_similar(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden nonnull ptr @hb_buffer_create_similar(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(224) ptr @calloc(i64 noundef 1, i64 noundef 224) #23
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %.hb_buffer_create.exit_crit_edge, label %3
@@ -1829,7 +1829,7 @@ hb_buffer_create.exit:                            ; preds = %.hb_buffer_create.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_reset(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @hb_buffer_reset(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1949,7 +1949,7 @@ _ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread: ; preds = %1, %5, %2, %25
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_buffer_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
@@ -2061,21 +2061,21 @@ _ZL23hb_object_get_user_dataIK11hb_buffer_tEPvPT_P18hb_user_data_key_t.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hb_buffer_set_content_type(ptr nocapture noundef writeonly initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden void @hb_buffer_set_content_type(ptr noundef writeonly captures(none) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_content_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_content_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_set_unicode_funcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define hidden void @hb_buffer_set_unicode_funcs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2103,14 +2103,14 @@ define hidden void @hb_buffer_set_unicode_funcs(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @hb_buffer_get_unicode_funcs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @hb_buffer_get_unicode_funcs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_direction(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_direction(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2126,14 +2126,14 @@ define hidden void @hb_buffer_set_direction(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_direction(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_direction(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_script(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_script(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2149,14 +2149,14 @@ define hidden void @hb_buffer_set_script(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_script(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_script(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_language(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_language(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2172,14 +2172,14 @@ define hidden void @hb_buffer_set_language(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @hb_buffer_get_language(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @hb_buffer_get_language(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_segment_properties(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_segment_properties(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2195,14 +2195,14 @@ define hidden void @hb_buffer_set_segment_properties(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_get_segment_properties(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #1 {
+define hidden void @hb_buffer_get_segment_properties(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_flags(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_flags(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2218,14 +2218,14 @@ define hidden void @hb_buffer_set_flags(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_cluster_level(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_cluster_level(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2241,14 +2241,14 @@ define hidden void @hb_buffer_set_cluster_level(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_cluster_level(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_cluster_level(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_replacement_codepoint(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_replacement_codepoint(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2264,14 +2264,14 @@ define hidden void @hb_buffer_set_replacement_codepoint(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_replacement_codepoint(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_replacement_codepoint(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_invisible_glyph(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_invisible_glyph(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2287,14 +2287,14 @@ define hidden void @hb_buffer_set_invisible_glyph(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_invisible_glyph(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_invisible_glyph(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_set_not_found_glyph(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @hb_buffer_set_not_found_glyph(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2310,14 +2310,14 @@ define hidden void @hb_buffer_set_not_found_glyph(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_not_found_glyph(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_not_found_glyph(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_clear_contents(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define hidden void @hb_buffer_clear_contents(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -2345,7 +2345,7 @@ define hidden void @hb_buffer_clear_contents(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 2) i32 @hb_buffer_pre_allocate(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @hb_buffer_pre_allocate(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not.i = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
@@ -2364,7 +2364,7 @@ _ZN11hb_buffer_t6ensureEj.exit:                   ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @hb_buffer_allocation_successful(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_buffer_allocation_successful(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -2373,7 +2373,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_allocation_successful(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden void @hb_buffer_add(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
@@ -2417,7 +2417,7 @@ _ZN11hb_buffer_t3addEjj.exit:                     ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 2) i32 @hb_buffer_set_length(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @hb_buffer_set_length(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load atomic i32, ptr %3 monotonic, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -2508,14 +2508,14 @@ _ZL9hb_memsetPvij.exit26:                         ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @hb_buffer_get_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @hb_buffer_get_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_buffer_get_glyph_infos(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden ptr @hb_buffer_get_glyph_infos(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -2532,7 +2532,7 @@ define hidden ptr @hb_buffer_get_glyph_infos(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @hb_buffer_get_glyph_positions(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
+define hidden ptr @hb_buffer_get_glyph_positions(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -2588,7 +2588,7 @@ _ZN11hb_buffer_t15clear_positionsEv.exit:         ; preds = %22, %13, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @hb_buffer_has_positions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @hb_buffer_has_positions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 1
@@ -2597,7 +2597,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_has_positions(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 8) i32 @hb_glyph_info_get_glyph_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 8) i32 @hb_glyph_info_get_glyph_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 7
@@ -2605,7 +2605,7 @@ define hidden range(i32 0, 8) i32 @hb_glyph_info_get_glyph_flags(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hb_buffer_reverse(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden void @hb_buffer_reverse(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = alloca %struct.hb_glyph_position_t, align 4
   %3 = alloca %struct.hb_glyph_info_t, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2676,7 +2676,7 @@ _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hb_buffer_reverse_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define hidden void @hb_buffer_reverse_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca %struct.hb_glyph_position_t, align 4
   %5 = alloca %struct.hb_glyph_info_t, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2764,7 +2764,7 @@ define hidden void @hb_buffer_reverse_clusters(ptr noundef nonnull %0) local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_guess_segment_properties(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @hb_buffer_guess_segment_properties(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
@@ -2839,7 +2839,7 @@ _ZN11hb_buffer_t24guess_segment_propertiesEv.exit: ; preds = %31, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_add_utf8(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden void @hb_buffer_add_utf8(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3069,7 +3069,7 @@ _ZL17hb_buffer_add_utfI9hb_utf8_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_add_utf16(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @hb_buffer_add_utf16(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3339,7 +3339,7 @@ _ZL17hb_buffer_add_utfI13hb_utf16_xe_tItEEvP11hb_buffer_tPKNT_11codepoint_tEiji.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_add_utf32(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @hb_buffer_add_utf32(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3539,7 +3539,7 @@ _ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb1EEEvP11hb_buffer_tPKNT_11codepoint_tE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_add_latin1(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @hb_buffer_add_latin1(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %.not.i.i = icmp eq i32 %7, 0
@@ -3725,7 +3725,7 @@ _ZL17hb_buffer_add_utfI11hb_latin1_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_add_codepoints(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @hb_buffer_add_codepoints(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %.not.i.i = icmp eq i32 %7, 0
@@ -3908,7 +3908,7 @@ _ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb0EEEvP11hb_buffer_tPKNT_11codepoint_tE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @hb_buffer_append(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @hb_buffer_append(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load i32, ptr %5, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %3, i32 %6)
@@ -4281,7 +4281,7 @@ thread-pre-split:                                 ; preds = %128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hb_buffer_normalize_glyphs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden void @hb_buffer_normalize_glyphs(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = alloca %struct.hb_glyph_info_t, align 4
   %3 = alloca %struct.hb_glyph_position_t, align 4
   %4 = alloca %struct.hb_glyph_info_t, align 4
@@ -4734,7 +4734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_buffer_t19_cluster_group_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t4sortEjjPFiPK15hb_glyph_info_tS2_E(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t4sortEjjPFiPK15hb_glyph_info_tS2_E(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 align 2 {
   %5 = alloca %struct.hb_glyph_info_t, align 4
   %.02122 = add i32 %1, 1
   %6 = icmp ult i32 %.02122, %2
@@ -4815,7 +4815,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit:         ; preds = %23, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 256) i32 @hb_buffer_diff(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
+define hidden range(i32 0, 256) i32 @hb_buffer_diff(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -5034,7 +5034,7 @@ define hidden range(i32 0, 256) i32 @hb_buffer_diff(ptr nocapture noundef readon
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_set_message_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden void @hb_buffer_set_message_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
@@ -5081,7 +5081,7 @@ define hidden void @hb_buffer_set_message_func(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11hb_buffer_t12message_implEP9hb_font_tPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN11hb_buffer_t12message_implEP9hb_font_tPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
   %5 = alloca [100 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8
@@ -5101,7 +5101,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t12message_implEP9hb_font_tPKcP
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #15
@@ -6375,7 +6375,7 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20
@@ -6384,10 +6384,10 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

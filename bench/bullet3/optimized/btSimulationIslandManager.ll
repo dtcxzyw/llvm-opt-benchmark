@@ -214,7 +214,7 @@ entry:
 declare void @_ZN11btUnionFind5resetEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btSimulationIslandManager10findUnionsEP12btDispatcherP16btCollisionWorld(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture readnone %0, ptr nocapture noundef readonly %colWorld) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN25btSimulationIslandManager10findUnionsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr readnone captures(none) %0, ptr noundef readonly captures(none) %colWorld) local_unnamed_addr #0 align 2 {
 entry:
   %m_broadphasePairCache.i = getelementptr inbounds nuw i8, ptr %colWorld, i64 104
   %1 = load ptr, ptr %m_broadphasePairCache.i, align 8
@@ -350,7 +350,7 @@ if.end16:                                         ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btSimulationIslandManager21updateActivationStateEP16btCollisionWorldP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr nocapture noundef readonly %colWorld, ptr nocapture readnone %dispatcher) unnamed_addr #0 align 2 {
+define dso_local void @_ZN25btSimulationIslandManager21updateActivationStateEP16btCollisionWorldP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef readonly captures(none) %colWorld, ptr readnone captures(none) %dispatcher) unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %colWorld, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -400,7 +400,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN25btSimulationIslandManager26storeIslandActivationStateEP16btCollisionWorld(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture noundef readonly %colWorld) unnamed_addr #5 align 2 {
+define dso_local void @_ZN25btSimulationIslandManager26storeIslandActivationStateEP16btCollisionWorld(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef readonly captures(none) %colWorld) unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %colWorld, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -480,7 +480,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr nocapture noundef readonly %collisionWorld) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr noundef readonly captures(none) %collisionWorld) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str)
@@ -929,7 +929,7 @@ declare void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 der
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btSimulationIslandManager22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr nocapture noundef readonly %collisionWorld, ptr noundef %callback) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN25btSimulationIslandManager22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr noundef readonly captures(none) %collisionWorld, ptr noundef %callback) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr noundef %collisionWorld)
   tail call void @_ZN25btSimulationIslandManager14processIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr noundef %collisionWorld, ptr noundef %callback)
@@ -937,7 +937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btSimulationIslandManager14processIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr nocapture noundef readonly %collisionWorld, ptr noundef %callback) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25btSimulationIslandManager14processIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef %dispatcher, ptr noundef readonly captures(none) %collisionWorld, ptr noundef %callback) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %ref.tmp = alloca %class.btPersistentManifoldSortPredicateDeterministic, align 1

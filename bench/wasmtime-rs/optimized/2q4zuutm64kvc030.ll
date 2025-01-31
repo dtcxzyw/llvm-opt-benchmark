@@ -78,7 +78,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_names28_$u7b$$u7b$closure$u7d$$u7d$17h4b88a368503140c9E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_names28_$u7b$$u7b$closure$u7d$$u7d$17h4b88a368503140c9E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -103,7 +103,7 @@ define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl8settings12SettingGroup17num_bool_settings28_$u7b$$u7b$closure$u7d$$u7d$17h3e5ed6214d235b6bE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl8settings12SettingGroup17num_bool_settings28_$u7b$$u7b$closure$u7d$$u7d$17h3e5ed6214d235b6bE"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !3
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -111,7 +111,7 @@ define hidden noundef zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl8settings12Se
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hf3978e1a609b3468E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hf3978e1a609b3468E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !6, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -122,7 +122,7 @@ define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingG
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hb64fa36704fb131aE"(ptr nocapture writeonly sret({ { i64, [4 x i64] }, { ptr, i64 }, i8, [7 x i8] }) align 8 initializes((0, 57)) %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #4 {
+define hidden void @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hb64fa36704fb131aE"(ptr writeonly sret({ { i64, [4 x i64] }, { ptr, i64 }, i8, [7 x i8] }) align 8 captures(none) initializes((0, 57)) %0, ptr readonly align 8 captures(none) %1, ptr readonly align 8 captures(none) %2) unnamed_addr #4 {
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %6 = load i8, ptr %5, align 1, !noundef !3
@@ -144,14 +144,14 @@ define hidden void @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuil
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN93_$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$u20$as$u20$core..hash..Hash$GT$4hash17h14edc7743d2d82b6E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$u20$as$u20$core..hash..Hash$GT$4hash17h14edc7743d2d82b6E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17hcd98c23575c67417E(ptr align 8 %1, i64 %3)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN88_$LT$cranelift_codegen_meta..cdsl..settings..BoolSetting$u20$as$u20$core..hash..Hash$GT$4hash17h7b5188b74bdc9ecdE"(ptr nocapture readonly align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN88_$LT$cranelift_codegen_meta..cdsl..settings..BoolSetting$u20$as$u20$core..hash..Hash$GT$4hash17h7b5188b74bdc9ecdE"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !8, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -164,7 +164,7 @@ define void @"_ZN88_$LT$cranelift_codegen_meta..cdsl..settings..BoolSetting$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..hash..Hash$GT$4hash17h9e3726b76f4abcb5E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..hash..Hash$GT$4hash17h9e3726b76f4abcb5E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !3
   %4 = xor i64 %3, -9223372036854775808
   %5 = icmp ult i64 %4, 3
@@ -213,7 +213,7 @@ define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN84_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u20$core..hash..Hash$GT$4hash17h3b37329063b6b920E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN84_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u20$core..hash..Hash$GT$4hash17h3b37329063b6b920E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !6, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -237,7 +237,7 @@ define void @"_ZN84_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u20$core..hash..Hash$GT$4hash17hc4cdcba113b368b6E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u20$core..hash..Hash$GT$4hash17hc4cdcba113b368b6E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr, {} }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
@@ -298,7 +298,7 @@ declare hidden i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17for
 declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64, i64, ptr align 8) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @_ZN4core4hash6Hasher11write_usize17hcd98c23575c67417E(ptr align 8, i64) unnamed_addr #0
@@ -322,10 +322,10 @@ declare hidden void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

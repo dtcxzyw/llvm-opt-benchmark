@@ -2774,7 +2774,7 @@ CCdestroy.exit:                                   ; preds = %.lr.ph.i161, %1159
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
@@ -2975,10 +2975,10 @@ declare i32 @JVM_GetClassFieldsCount(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @JVM_GetClassMethodsCount(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i16 @class_to_ID(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
@@ -3287,10 +3287,10 @@ pop_and_free.exit:                                ; preds = %165, %168
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare ptr @JVM_FindClassFromClass(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
@@ -3329,7 +3329,7 @@ define internal void @CCerror(ptr noundef nonnull %0, ptr noundef %1, ...) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_CCerror_info(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @print_CCerror_info(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
@@ -7052,7 +7052,7 @@ declare ptr @JVM_GetCPMethodClassNameUTF(ptr noundef, ptr noundef, i32 noundef) 
 declare ptr @JVM_GetCPFieldClassNameUTF(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 77) i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 77) i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = load ptr, ptr %1, align 8
   br label %6
@@ -7261,7 +7261,7 @@ pop_and_free.exit:                                ; preds = %6, %pop_and_free.ex
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare i32 @JVM_GetMethodIxMaxStack(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -7742,7 +7742,7 @@ declare zeroext i8 @JVM_IsConstructorIx(ptr noundef, ptr noundef, i32 noundef) l
 declare ptr @JVM_GetCPFieldSignatureUTF(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext range(i8 0, 2) %7) unnamed_addr #0 {
+define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext range(i8 0, 2) %7) unnamed_addr #0 {
   %9 = alloca %struct.register_info_type, align 8
   %10 = alloca %struct.stack_info_type, align 8
   %11 = alloca %struct.register_info_type, align 8
@@ -8211,7 +8211,7 @@ copy_stack.exit:                                  ; preds = %.lr.ph31.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @merge_registers(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @merge_registers(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -8543,10 +8543,10 @@ declare i32 @llvm.bswap.i32(i32) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

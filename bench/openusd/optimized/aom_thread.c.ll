@@ -57,7 +57,7 @@ define hidden range(i32 0, 2) i32 @aom_set_worker_interface(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @aom_get_worker_interface() local_unnamed_addr #2 {
@@ -65,7 +65,7 @@ define hidden noundef nonnull ptr @aom_get_worker_interface() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @init(ptr nocapture noundef writeonly initializes((0, 56)) %0) #3 {
+define internal void @init(ptr noundef writeonly captures(none) initializes((0, 56)) %0) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -167,7 +167,7 @@ sync.exit:                                        ; preds = %._crit_edge.i.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sync(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 2) i32 @sync(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %change_state.exit, label %4
@@ -201,7 +201,7 @@ change_state.exit:                                ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @launch(ptr nocapture noundef %0) #4 {
+define internal void @launch(ptr noundef captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %change_state.exit, label %4
@@ -240,7 +240,7 @@ change_state.exit:                                ; preds = %1, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @execute(ptr nocapture noundef %0) #4 {
+define internal void @execute(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -265,7 +265,7 @@ define internal void @execute(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @end(ptr nocapture noundef %0) #4 {
+define internal void @end(ptr noundef captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %3
@@ -316,7 +316,7 @@ change_state.exit:                                ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @aom_calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
@@ -336,7 +336,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_loop(ptr nocapture noundef %0) #4 {
+define internal noundef ptr @thread_loop(ptr noundef captures(none) %0) #4 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -424,7 +424,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #7
 declare void @aom_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #7

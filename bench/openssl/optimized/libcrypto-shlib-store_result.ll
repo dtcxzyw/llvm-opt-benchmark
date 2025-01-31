@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_store_handle_load_result = private unnamed_addr constant [5 x i32] [i32 0, i32 poison, i32 132, i32 134, i32 135], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_store_handle_load_result(ptr noundef %params, ptr nocapture noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_store_handle_load_result(ptr noundef %params, ptr noundef captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %tpass.i = alloca [1025 x i8], align 16
   %tpass_len.i = alloca i64, align 8
@@ -293,7 +293,7 @@ try_key_ref.exit.thread36.i:                      ; preds = %if.then23.i.i, %lan
 try_key_ref.exit.i:                               ; preds = %if.end31.i.i
   %call34.i.i = call i32 @ERR_pop_to_mark() #5
   %call35.i.i = call ptr @evp_keymgmt_util_make_pkey(ptr noundef nonnull %keymgmt.1.i.i, ptr noundef nonnull %keydata.129.i.i) #5
-  call void @EVP_KEYMGMT_free(ptr noundef %keymgmt.1.i.i) #5
+  call void @EVP_KEYMGMT_free(ptr noundef nonnull %keymgmt.1.i.i) #5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %import_data.i.i)
   %cmp7.i = icmp eq ptr %call35.i.i, null
   br i1 %cmp7.i, label %err, label %if.then22.i
@@ -880,7 +880,7 @@ declare ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -987,7 +987,7 @@ declare i32 @PKCS12_mac_present(ptr noundef) local_unnamed_addr #1
 declare i32 @PKCS12_verify_mac(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ossl_pw_get_passphrase(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1014,10 +1014,10 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

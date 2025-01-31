@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParametersC1ERKNS_8GfCameraENS1_12FOVDirectionE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParametersC2ERKNS_8GfCameraENS1_12FOVDirectionE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParametersC2ERKNS_8GfCameraENS1_12FOVDirectionE(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParametersC2ERKNS_8GfCameraENS1_12FOVDirectionE(ptr noundef nonnull align 8 captures(none) dereferenceable(168) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
@@ -167,7 +167,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera12GetTransformEv(pt
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 

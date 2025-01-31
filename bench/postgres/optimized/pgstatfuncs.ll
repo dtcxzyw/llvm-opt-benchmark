@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [17 x i8] c"sync_error_count\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_analyze_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_analyze_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -95,7 +95,7 @@ define dso_local i64 @pg_stat_get_analyze_count(ptr nocapture noundef readonly %
 declare ptr @pgstat_fetch_stat_tabentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_autoanalyze_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_autoanalyze_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -114,7 +114,7 @@ define dso_local i64 @pg_stat_get_autoanalyze_count(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_autovacuum_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_autovacuum_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -133,7 +133,7 @@ define dso_local i64 @pg_stat_get_autovacuum_count(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_blocks_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_blocks_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -152,7 +152,7 @@ define dso_local i64 @pg_stat_get_blocks_fetched(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_blocks_hit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_blocks_hit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -171,7 +171,7 @@ define dso_local i64 @pg_stat_get_blocks_hit(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_dead_tuples(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_dead_tuples(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -190,7 +190,7 @@ define dso_local i64 @pg_stat_get_dead_tuples(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_ins_since_vacuum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_ins_since_vacuum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -209,7 +209,7 @@ define dso_local i64 @pg_stat_get_ins_since_vacuum(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_live_tuples(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_live_tuples(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -228,7 +228,7 @@ define dso_local i64 @pg_stat_get_live_tuples(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_mod_since_analyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_mod_since_analyze(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -247,7 +247,7 @@ define dso_local i64 @pg_stat_get_mod_since_analyze(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_numscans(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_numscans(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -265,7 +265,7 @@ define dso_local i64 @pg_stat_get_numscans(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_deleted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_deleted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -284,7 +284,7 @@ define dso_local i64 @pg_stat_get_tuples_deleted(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -303,7 +303,7 @@ define dso_local i64 @pg_stat_get_tuples_fetched(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_hot_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_hot_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -322,7 +322,7 @@ define dso_local i64 @pg_stat_get_tuples_hot_updated(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_newpage_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_newpage_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -341,7 +341,7 @@ define dso_local i64 @pg_stat_get_tuples_newpage_updated(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_inserted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_inserted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -360,7 +360,7 @@ define dso_local i64 @pg_stat_get_tuples_inserted(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_returned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_returned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -379,7 +379,7 @@ define dso_local i64 @pg_stat_get_tuples_returned(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_tuples_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_tuples_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -398,7 +398,7 @@ define dso_local i64 @pg_stat_get_tuples_updated(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_vacuum_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_vacuum_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -417,7 +417,7 @@ define dso_local i64 @pg_stat_get_vacuum_count(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_last_analyze_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_last_analyze_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -442,7 +442,7 @@ define dso_local i64 @pg_stat_get_last_analyze_time(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_last_autoanalyze_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_last_autoanalyze_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -467,7 +467,7 @@ define dso_local i64 @pg_stat_get_last_autoanalyze_time(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_last_autovacuum_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_last_autovacuum_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -492,7 +492,7 @@ define dso_local i64 @pg_stat_get_last_autovacuum_time(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_last_vacuum_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_last_vacuum_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -517,7 +517,7 @@ define dso_local i64 @pg_stat_get_last_vacuum_time(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_lastscan(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_lastscan(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -542,7 +542,7 @@ define dso_local i64 @pg_stat_get_lastscan(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_function_calls(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_function_calls(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -567,7 +567,7 @@ define dso_local i64 @pg_stat_get_function_calls(ptr nocapture noundef %0) local
 declare ptr @pgstat_fetch_stat_funcentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_function_total_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_function_total_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -594,7 +594,7 @@ define dso_local i64 @pg_stat_get_function_total_time(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_function_self_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_function_self_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -840,7 +840,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1541,7 +1541,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @inet_in(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @GetBackgroundWorkerTypeByPid(i32 noundef) local_unnamed_addr #1
 
@@ -1552,14 +1552,14 @@ declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @numeric_in(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_backend_pid(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_backend_pid(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @MyProcPid, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_pid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_pid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1586,7 +1586,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_backend_pid
 declare ptr @pgstat_get_beentry_by_proc_number(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_dbid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_dbid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1611,7 +1611,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_dbid(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_userid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_userid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1636,7 +1636,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_stat_get_backend_userid(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_subxact(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_subxact(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i64], align 16
   %3 = alloca [2 x i8], align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1690,7 +1690,7 @@ declare ptr @pgstat_get_local_beentry_by_proc_number(i32 noundef) local_unnamed_
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_activity(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_activity(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1728,7 +1728,7 @@ define dso_local i64 @pg_stat_get_backend_activity(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_wait_event_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_wait_event_type(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1779,7 +1779,7 @@ define dso_local i64 @pg_stat_get_backend_wait_event_type(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_wait_event(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_wait_event(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1830,7 +1830,7 @@ define dso_local i64 @pg_stat_get_backend_wait_event(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_activity_start(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_activity_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1867,7 +1867,7 @@ define dso_local i64 @pg_stat_get_backend_activity_start(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_xact_start(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_xact_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1904,7 +1904,7 @@ define dso_local i64 @pg_stat_get_backend_xact_start(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_start(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_start(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1941,7 +1941,7 @@ define dso_local i64 @pg_stat_get_backend_start(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_client_addr(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_client_addr(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SockAddr, align 8
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2024,7 +2024,7 @@ define dso_local i64 @pg_stat_get_backend_client_addr(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_backend_client_port(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_backend_client_port(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SockAddr, align 8
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2107,7 +2107,7 @@ define dso_local i64 @pg_stat_get_backend_client_port(ptr nocapture noundef %0) 
 declare i64 @int4in(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbackends(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbackends(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2138,7 +2138,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbacke
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_blocks_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_blocks_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2159,7 +2159,7 @@ define dso_local i64 @pg_stat_get_db_blocks_fetched(ptr nocapture noundef readon
 declare ptr @pgstat_fetch_stat_dbentry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_blocks_hit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_blocks_hit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2178,7 +2178,7 @@ define dso_local i64 @pg_stat_get_db_blocks_hit(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_bufferpin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_bufferpin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2197,7 +2197,7 @@ define dso_local i64 @pg_stat_get_db_conflict_bufferpin(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_lock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_lock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2216,7 +2216,7 @@ define dso_local i64 @pg_stat_get_db_conflict_lock(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_snapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_snapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2235,7 +2235,7 @@ define dso_local i64 @pg_stat_get_db_conflict_snapshot(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_startup_deadlock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_startup_deadlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2254,7 +2254,7 @@ define dso_local i64 @pg_stat_get_db_conflict_startup_deadlock(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_tablespace(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_tablespace(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2273,7 +2273,7 @@ define dso_local i64 @pg_stat_get_db_conflict_tablespace(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_deadlocks(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_deadlocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2292,7 +2292,7 @@ define dso_local i64 @pg_stat_get_db_deadlocks(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_sessions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_sessions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2311,7 +2311,7 @@ define dso_local i64 @pg_stat_get_db_sessions(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_sessions_abandoned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_sessions_abandoned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2330,7 +2330,7 @@ define dso_local i64 @pg_stat_get_db_sessions_abandoned(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_sessions_fatal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_sessions_fatal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2349,7 +2349,7 @@ define dso_local i64 @pg_stat_get_db_sessions_fatal(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_sessions_killed(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_sessions_killed(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2368,7 +2368,7 @@ define dso_local i64 @pg_stat_get_db_sessions_killed(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_temp_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_temp_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2387,7 +2387,7 @@ define dso_local i64 @pg_stat_get_db_temp_bytes(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_temp_files(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_temp_files(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2406,7 +2406,7 @@ define dso_local i64 @pg_stat_get_db_temp_files(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_tuples_deleted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_tuples_deleted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2425,7 +2425,7 @@ define dso_local i64 @pg_stat_get_db_tuples_deleted(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_tuples_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_tuples_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2444,7 +2444,7 @@ define dso_local i64 @pg_stat_get_db_tuples_fetched(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_tuples_inserted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_tuples_inserted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2463,7 +2463,7 @@ define dso_local i64 @pg_stat_get_db_tuples_inserted(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_tuples_returned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_tuples_returned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2482,7 +2482,7 @@ define dso_local i64 @pg_stat_get_db_tuples_returned(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_tuples_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_tuples_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2501,7 +2501,7 @@ define dso_local i64 @pg_stat_get_db_tuples_updated(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_xact_commit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_xact_commit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2519,7 +2519,7 @@ define dso_local i64 @pg_stat_get_db_xact_commit(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_xact_rollback(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_xact_rollback(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2538,7 +2538,7 @@ define dso_local i64 @pg_stat_get_db_xact_rollback(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_logicalslot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_logicalslot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2557,7 +2557,7 @@ define dso_local i64 @pg_stat_get_db_conflict_logicalslot(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_stat_reset_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_stat_reset_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2582,7 +2582,7 @@ define dso_local i64 @pg_stat_get_db_stat_reset_time(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_conflict_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_conflict_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2616,7 +2616,7 @@ define dso_local i64 @pg_stat_get_db_conflict_all(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_checksum_failures(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_checksum_failures(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call zeroext i1 @DataChecksumsEnabled() #9
@@ -2646,7 +2646,7 @@ define dso_local i64 @pg_stat_get_db_checksum_failures(ptr nocapture noundef %0)
 declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_checksum_last_failure(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_checksum_last_failure(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call zeroext i1 @DataChecksumsEnabled() #9
@@ -2675,7 +2675,7 @@ define dso_local i64 @pg_stat_get_db_checksum_last_failure(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_active_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_active_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2697,7 +2697,7 @@ define dso_local i64 @pg_stat_get_db_active_time(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_blk_read_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_blk_read_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2719,7 +2719,7 @@ define dso_local i64 @pg_stat_get_db_blk_read_time(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_blk_write_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_blk_write_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2741,7 +2741,7 @@ define dso_local i64 @pg_stat_get_db_blk_write_time(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_idle_in_transaction_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_idle_in_transaction_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2763,7 +2763,7 @@ define dso_local i64 @pg_stat_get_db_idle_in_transaction_time(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_db_session_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_db_session_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2785,7 +2785,7 @@ define dso_local i64 @pg_stat_get_db_session_time(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_num_timed(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_num_timed(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -2794,7 +2794,7 @@ define dso_local i64 @pg_stat_get_checkpointer_num_timed(ptr nocapture noundef r
 declare ptr @pgstat_fetch_stat_checkpointer() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_num_requested(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_num_requested(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2802,7 +2802,7 @@ define dso_local i64 @pg_stat_get_checkpointer_num_requested(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_restartpoints_timed(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_restartpoints_timed(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -2810,7 +2810,7 @@ define dso_local i64 @pg_stat_get_checkpointer_restartpoints_timed(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_restartpoints_requested(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_restartpoints_requested(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -2818,7 +2818,7 @@ define dso_local i64 @pg_stat_get_checkpointer_restartpoints_requested(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_restartpoints_performed(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_restartpoints_performed(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2826,7 +2826,7 @@ define dso_local i64 @pg_stat_get_checkpointer_restartpoints_performed(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_buffers_written(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_buffers_written(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i64, ptr %3, align 8
@@ -2834,7 +2834,7 @@ define dso_local i64 @pg_stat_get_checkpointer_buffers_written(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_bgwriter_buf_written_clean(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_bgwriter_buf_written_clean(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_bgwriter() #9
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -2843,7 +2843,7 @@ define dso_local i64 @pg_stat_get_bgwriter_buf_written_clean(ptr nocapture nound
 declare ptr @pgstat_fetch_stat_bgwriter() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_bgwriter_maxwritten_clean(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_bgwriter_maxwritten_clean(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_bgwriter() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2851,7 +2851,7 @@ define dso_local i64 @pg_stat_get_bgwriter_maxwritten_clean(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_write_time(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_write_time(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2861,7 +2861,7 @@ define dso_local i64 @pg_stat_get_checkpointer_write_time(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_sync_time(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_sync_time(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i64, ptr %3, align 8
@@ -2871,7 +2871,7 @@ define dso_local i64 @pg_stat_get_checkpointer_sync_time(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_checkpointer_stat_reset_time(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_checkpointer_stat_reset_time(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_checkpointer() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i64, ptr %3, align 8
@@ -2879,7 +2879,7 @@ define dso_local i64 @pg_stat_get_checkpointer_stat_reset_time(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_bgwriter_stat_reset_time(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_bgwriter_stat_reset_time(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_bgwriter() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -2887,7 +2887,7 @@ define dso_local i64 @pg_stat_get_bgwriter_stat_reset_time(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_buf_alloc(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_buf_alloc(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pgstat_fetch_stat_bgwriter() #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -3100,7 +3100,7 @@ declare zeroext i1 @pgstat_tracks_io_object(i32 noundef, i32 noundef, i32 nounde
 declare zeroext i1 @pgstat_tracks_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_wal(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_wal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [9 x i64], align 16
   %3 = alloca [9 x i8], align 1
   %4 = alloca [256 x i8], align 16
@@ -3246,7 +3246,7 @@ declare ptr @pgstat_fetch_slru() local_unnamed_addr #1
 declare ptr @pgstat_get_slru_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_numscans(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_numscans(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3267,7 +3267,7 @@ define dso_local i64 @pg_stat_get_xact_numscans(ptr nocapture noundef readonly %
 declare ptr @find_tabstat_entry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_returned(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_returned(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3286,7 +3286,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_returned(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3305,7 +3305,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_fetched(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_hot_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_hot_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3324,7 +3324,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_hot_updated(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_newpage_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_newpage_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3343,7 +3343,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_newpage_updated(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_blocks_fetched(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_blocks_fetched(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3362,7 +3362,7 @@ define dso_local i64 @pg_stat_get_xact_blocks_fetched(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_blocks_hit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_blocks_hit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3381,7 +3381,7 @@ define dso_local i64 @pg_stat_get_xact_blocks_hit(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_inserted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_inserted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3400,7 +3400,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_inserted(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_updated(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_updated(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3419,7 +3419,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_updated(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_tuples_deleted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_tuples_deleted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3438,7 +3438,7 @@ define dso_local i64 @pg_stat_get_xact_tuples_deleted(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_function_calls(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_function_calls(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3463,7 +3463,7 @@ define dso_local i64 @pg_stat_get_xact_function_calls(ptr nocapture noundef %0) 
 declare ptr @find_funcstat_entry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_function_total_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_function_total_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3490,7 +3490,7 @@ define dso_local i64 @pg_stat_get_xact_function_total_time(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_xact_function_self_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_xact_function_self_time(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3517,7 +3517,7 @@ define dso_local i64 @pg_stat_get_xact_function_self_time(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = call i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef nonnull %2) #9
   %4 = load i8, ptr %2, align 1
@@ -3537,7 +3537,7 @@ define dso_local i64 @pg_stat_get_snapshot_timestamp(ptr nocapture noundef write
 declare i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_clear_snapshot(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_clear_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void @pgstat_clear_snapshot() #9
   ret i64 0
 }
@@ -3545,7 +3545,7 @@ define dso_local noundef i64 @pg_stat_clear_snapshot(ptr nocapture noundef readn
 declare void @pgstat_clear_snapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_force_next_flush(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_force_next_flush(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void @pgstat_force_next_flush() #9
   ret i64 0
 }
@@ -3553,7 +3553,7 @@ define dso_local noundef i64 @pg_stat_force_next_flush(ptr nocapture noundef rea
 declare void @pgstat_force_next_flush() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void @pgstat_reset_counters() #9
   ret i64 0
 }
@@ -3561,7 +3561,7 @@ define dso_local noundef i64 @pg_stat_reset(ptr nocapture noundef readnone %0) l
 declare void @pgstat_reset_counters() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_shared(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_shared(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3675,12 +3675,12 @@ declare void @pgstat_reset_of_kind(i32 noundef) local_unnamed_addr #1
 declare void @XLogPrefetchResetStats() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_single_table_counters(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_single_table_counters(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3696,7 +3696,7 @@ declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #1
 declare void @pgstat_reset(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_single_function_counters(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_single_function_counters(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3706,7 +3706,7 @@ define dso_local noundef i64 @pg_stat_reset_single_function_counters(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_slru(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_slru(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3732,7 +3732,7 @@ define dso_local noundef i64 @pg_stat_reset_slru(ptr nocapture noundef readonly 
 declare void @pgstat_reset_slru(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3758,7 +3758,7 @@ define dso_local noundef i64 @pg_stat_reset_replication_slot(ptr nocapture nound
 declare void @pgstat_reset_replslot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3792,7 +3792,7 @@ define dso_local noundef i64 @pg_stat_reset_subscription_stats(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_archiver(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_archiver(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [7 x i64], align 16
   %3 = alloca [7 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %2, i8 0, i64 56, i1 false)
@@ -3907,7 +3907,7 @@ define dso_local i64 @pg_stat_get_archiver(ptr nocapture noundef readnone %0) lo
 declare ptr @pgstat_fetch_stat_archiver() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_replication_slot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.nameData, align 8
   %3 = alloca [10 x i64], align 16
   %4 = alloca [10 x i8], align 1
@@ -4007,7 +4007,7 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @pgstat_fetch_replslot(ptr noundef byval(%struct.nameData) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_stat_get_subscription_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_stat_get_subscription_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca [4 x i8], align 4
   %4 = alloca %struct.PgStat_StatSubEntry, align 8
@@ -4072,7 +4072,7 @@ define dso_local i64 @pg_stat_get_subscription_stats(ptr nocapture noundef reado
 declare ptr @pgstat_fetch_stat_subscription(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_stat_have_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_stat_have_stats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -4100,7 +4100,7 @@ declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

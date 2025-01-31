@@ -17,7 +17,7 @@ $_ZNK15AbstractDecoder9has_errorEv = comdat any
 @_ZN10ElfDecoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10ElfDecoderD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ElfDecoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ElfDecoderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -133,7 +133,7 @@ _ZN10ElfDecoder12get_elf_fileEPKc.exit:           ; preds = %._crit_edge.i, %.lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ElfDecoder12get_elf_fileEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10ElfDecoder12get_elf_fileEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.023 = load ptr, ptr %3, align 8
   %.not24 = icmp eq ptr %.023, null
@@ -185,7 +185,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread:      ; preds = %.lr.ph, %_ZNK7ElfFi
 declare noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10ElfDecoder15get_source_infoEPhPcmPib(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10ElfDecoder15get_source_infoEPhPcmPib(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca i32, align 4
   store i8 0, ptr %2, align 1
@@ -291,7 +291,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK15AbstractDecoder9has_errorEv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -82,7 +82,7 @@ $_ZTIN8facebook5velox13AlignedBufferE = comdat any
 @_ZN8facebook5velox4bitsL13kZeroBitmasksE = internal unnamed_addr constant [8 x i8] c"\FE\FD\FB\F7\EF\DF\BF\7F", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 5) i32 @_ZN8facebook5velox4exec11getFlatBoolEPNS0_10BaseVectorERKNS0_17SelectivityVectorERNS1_7EvalCtxEPN5boost13intrusive_ptrINS0_6BufferEEESD_bPPKmSG_(ptr noundef %vector, ptr noundef nonnull align 8 dereferenceable(38) %activeRows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context, ptr noundef %tempValues, ptr noundef %tempNulls, i1 noundef zeroext %mergeNullsToValues, ptr nocapture noundef writeonly %valuesOut, ptr nocapture noundef writeonly %nullsOut) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN8facebook5velox4exec11getFlatBoolEPNS0_10BaseVectorERKNS0_17SelectivityVectorERNS1_7EvalCtxEPN5boost13intrusive_ptrINS0_6BufferEEESD_bPPKmSG_(ptr noundef %vector, ptr noundef nonnull align 8 dereferenceable(38) %activeRows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %context, ptr noundef %tempValues, ptr noundef %tempNulls, i1 noundef zeroext %mergeNullsToValues, ptr noundef writeonly captures(none) %valuesOut, ptr noundef writeonly captures(none) %nullsOut) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i38 = alloca %class.anon.57, align 8
   %agg.tmp1.i.i39 = alloca %class.anon.58, align 8
@@ -1364,7 +1364,7 @@ return:                                           ; preds = %if.then, %_ZNK8face
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN8facebook5velox4exec12_GLOBAL__N_123refineBooleanMixNonNullEPKmRKNS0_17SelectivityVectorE(ptr noundef %bits, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38) %rows) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN8facebook5velox4exec12_GLOBAL__N_123refineBooleanMixNonNullEPKmRKNS0_17SelectivityVectorE(ptr noundef %bits, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(38) %rows) unnamed_addr #0 {
 entry:
   %begin_.i = getelementptr inbounds nuw i8, ptr %rows, i64 28
   %0 = load i32, ptr %begin_.i, align 4
@@ -1476,7 +1476,7 @@ return:                                           ; preds = %for.end.i.i, %land.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2559,7 +2559,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #10
@@ -2571,10 +2571,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }

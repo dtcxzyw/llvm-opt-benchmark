@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs2_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #0 {
+define void @Cbs2_SetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 48)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 20, i1 false)
   store i32 1000, ptr %0, align 4
@@ -47,10 +47,10 @@ define void @Cbs2_SetDefaultParams(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs2_ManSetConflictNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cbs2_ManSetConflictNum(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -531,7 +531,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cbs2_ManStop(ptr nocapture noundef initializes((144, 152), (160, 168), (176, 184), (192, 200), (208, 216), (224, 232), (240, 248), (256, 264), (272, 280), (288, 296)) %0) local_unnamed_addr #5 {
+define void @Cbs2_ManStop(ptr noundef captures(none) initializes((144, 152), (160, 168), (176, 184), (192, 200), (208, 216), (224, 232), (240, 248), (256, 264), (272, 280), (288, 296)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
@@ -745,17 +745,17 @@ Vec_IntFree.exit48:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Cbs2_ReadModel(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Cbs2_ReadModel(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cbs2_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Cbs2_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1107,7 +1107,7 @@ Cbs2_ManPropagateTwo.exit.thread:                 ; preds = %138, %Cbs2_ManAssig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManPropagateOne(ptr noundef captures(none) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 32
@@ -1404,7 +1404,7 @@ Cbs2_ManAssign.exit122:                           ; preds = %._crit_edge.i.i113,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cbs2_ManPropagate2(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Cbs2_ManPropagate2(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1928,7 +1928,7 @@ Cbs2_ManPropagateUnassigned.exit:                 ; preds = %.sink.split.i, %228
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cbs2_ManUpdateFrontier(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cbs2_ManUpdateFrontier(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2195,7 +2195,7 @@ Abc_Clock.exit61:                                 ; preds = %.critedge2, %133
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Cbs2_QuePush(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @Cbs2_QuePush(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2522,7 +2522,7 @@ Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Cbs2_ManAssign(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @Cbs2_ManAssign(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
   %6 = ashr i32 %1, 1
   %7 = getelementptr i8, ptr %0, i64 152
   %.val = load ptr, ptr %7, align 8
@@ -2595,7 +2595,7 @@ Cbs2_QuePush.exit:                                ; preds = %._crit_edge.i, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef initializes((56, 60)) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @Cbs2_ManCancelUntil(ptr noundef captures(none) initializes((56, 60)) %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2643,7 +2643,7 @@ define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManResolve(ptr noundef captures(none) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %6 = load i32, ptr %5, align 4
@@ -4004,7 +4004,7 @@ Cbs2_ManBumpClean.exit:                           ; preds = %189, %Cbs2_ManClean
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cbs2_ManSatPrintStats(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Cbs2_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 72
@@ -4146,7 +4146,7 @@ define void @Cbs2_ManSatPrintStats(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
@@ -4167,7 +4167,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #27
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #26
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #26
   call void @free(ptr noundef %9) #26
   br label %16
 
@@ -4184,7 +4184,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cbs2_ObjPrintFanouts(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Cbs2_ObjPrintFanouts(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %1)
   %4 = getelementptr i8, ptr %0, i64 248
   %.val6 = load ptr, ptr %4, align 8
@@ -4215,7 +4215,7 @@ define void @Cbs2_ObjPrintFanouts(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cbs2_ManPrintFanouts(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define void @Cbs2_ManPrintFanouts(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4282,7 +4282,7 @@ Cbs2_ObjPrintFanouts.exit:                        ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cbs2_ObjCreateFanout(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define void @Cbs2_ObjCreateFanout(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = shl nsw i32 %1, 1
   %6 = getelementptr i8, ptr %0, i64 248
   %.val13 = load ptr, ptr %6, align 8
@@ -4313,7 +4313,7 @@ define void @Cbs2_ObjCreateFanout(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Cbs2_ObjDeleteFanout(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @Cbs2_ObjDeleteFanout(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = shl nsw i32 %1, 1
   %4 = getelementptr i8, ptr %0, i64 232
   %.val6 = load ptr, ptr %4, align 8
@@ -4405,7 +4405,7 @@ common.ret29:                                     ; preds = %11, %2, %3, %16
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cbs2_ManDeleteFanout_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @Cbs2_ManDeleteFanout_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr i8, ptr %0, i64 232
   %5 = getelementptr i8, ptr %0, i64 248
@@ -4469,13 +4469,13 @@ tailrecurse:                                      ; preds = %30, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Cbs2_ManCheckFanouts(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define void @Cbs2_ManCheckFanouts(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
 .critedge:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cbs2_ManSolveMiterNc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define noundef ptr @Cbs2_ManSolveMiterNc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -5034,10 +5034,10 @@ declare void @Cec_ManSatAddToStore(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManAnalyze(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManAnalyze(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5353,7 +5353,7 @@ Cbs2_QuePush.exit63:                              ; preds = %._crit_edge.i57, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManDeriveReason(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManDeriveReason(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
@@ -5900,7 +5900,7 @@ Cbs2_QueFinish.exit:                              ; preds = %.critedge, %Cbs2_Qu
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Cbs2_ManWatchClause(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @Cbs2_ManWatchClause(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 120
   %.val = load ptr, ptr %4, align 8
   %5 = xor i32 %2, 1
@@ -6015,10 +6015,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #19
@@ -6033,10 +6033,10 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

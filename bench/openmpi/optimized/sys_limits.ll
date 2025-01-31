@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [10 x i8] c"unlimited\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @prte_util_init_sys_limits(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @prte_util_init_sys_limits(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @prte_set_max_sys_limits, align 8
   %4 = icmp eq ptr %3, null
@@ -257,10 +257,10 @@ declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32 1, 10) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32 1, 10) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.rlimit, align 8
   %5 = alloca %struct.rlimit, align 8
   store i64 0, ptr %4, align 8
@@ -270,12 +270,12 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
 
 8:                                                ; preds = %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %10 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %9) #7
+  %10 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i64 noundef %9) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i64 @strtol(ptr nocapture noundef %1, ptr noundef null, i32 noundef 10) #6
+  %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #6
   br label %14
 
 14:                                               ; preds = %8, %3, %12
@@ -342,13 +342,13 @@ define i32 @prte_getpagesize() local_unnamed_addr #0 {
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #3

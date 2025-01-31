@@ -12,7 +12,7 @@ define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6bo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5770fd8c6ff2f6e6E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5770fd8c6ff2f6e6E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   invoke void @"_ZN82_$LT$pyo3_macros_backend..utils..LitCStr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0dd52eb07ce5a2e7E"(ptr align 8 %1, ptr nonnull align 8 %3)
@@ -39,7 +39,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5770fd8c6ff2f6e6E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h8c4d067e7865c47dE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h8c4d067e7865c47dE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   invoke void @"_ZN84_$LT$pyo3_macros_backend..utils..PythonDoc$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0102e492124e3031E"(ptr align 8 %1, ptr nonnull align 8 %3)
@@ -66,7 +66,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h8c4d067e7865c47dE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN19pyo3_macros_backend5utils20option_type_argument28_$u7b$$u7b$closure$u7d$$u7d$17h8f48c3b0f94f61f9E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define hidden zeroext i1 @"_ZN19pyo3_macros_backend5utils20option_type_argument28_$u7b$$u7b$closure$u7d$$u7d$17h8f48c3b0f94f61f9E"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = alloca [8 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   store ptr @anon.06e7e092f553c95666f1043904b4b908.1, ptr %2, align 8
@@ -97,7 +97,7 @@ declare void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr sret([32
 declare void @"_ZN82_$LT$pyo3_macros_backend..utils..LitCStr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0dd52eb07ce5a2e7E"(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8) unnamed_addr #1

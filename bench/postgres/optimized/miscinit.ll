@@ -444,7 +444,7 @@ define dso_local void @checkDataDir() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -549,7 +549,7 @@ define dso_local void @SetDataDir(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @make_absolute_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ChangeToDataDir() local_unnamed_addr #0 {
@@ -605,7 +605,7 @@ define dso_local i32 @GetAuthenticatedUserId() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetUserIdAndSecContext(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #9 {
+define dso_local void @GetUserIdAndSecContext(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @CurrentUserId, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr @SecurityRestrictionContext, align 4
@@ -645,7 +645,7 @@ define dso_local zeroext i1 @InNoForceRLSOperation() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetUserIdAndContext(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #9 {
+define dso_local void @GetUserIdAndContext(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @CurrentUserId, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr @SecurityRestrictionContext, align 4
@@ -854,7 +854,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @system_user(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @system_user(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @SystemUser, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -984,10 +984,10 @@ define dso_local i64 @EstimateClientConnectionInfoSpace() local_unnamed_addr #0 
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
+define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #12 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %4 = load ptr, ptr @MyClientConnectionInfo, align 8
   %.not = icmp eq ptr %4, null
@@ -1022,7 +1022,7 @@ define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RestoreClientConnectionInfo(ptr noundef %0) local_unnamed_addr #0 {
@@ -1396,7 +1396,7 @@ define dso_local void @TouchSocketLockFiles() local_unnamed_addr #14 {
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %.lr.ph14
-  %13 = tail call i32 @utime(ptr noundef %9, ptr noundef null) #21
+  %13 = tail call i32 @utime(ptr noundef nonnull %9, ptr noundef null) #21
   %.pre = load i32, ptr %2, align 4
   br label %14
 
@@ -1412,10 +1412,10 @@ define dso_local void @TouchSocketLockFiles() local_unnamed_addr #14 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1616,10 +1616,10 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #15
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #15
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -1627,7 +1627,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #15
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
@@ -1718,13 +1718,13 @@ define dso_local noundef zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #17
 
 declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1885,7 +1885,7 @@ define dso_local void @process_shmem_requests() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @pg_bindtextdomain(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local void @pg_bindtextdomain(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret void
 }
 
@@ -1893,27 +1893,27 @@ define dso_local void @pg_bindtextdomain(ptr nocapture noundef readnone %0) loca
 declare i32 @getppid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare zeroext i1 @PGSharedMemoryIsInUse(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree
 declare i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 declare void @on_proc_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 

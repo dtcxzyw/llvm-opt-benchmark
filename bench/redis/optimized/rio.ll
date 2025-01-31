@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @rioFdIO = internal unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, { %struct.anon, [24 x i8] } } { ptr @rioFdRead, ptr @rioFdWrite, ptr @rioFdTell, ptr @rioFdFlush, ptr null, i64 0, i64 0, i64 0, i64 0, { %struct.anon, [24 x i8] } { %struct.anon zeroinitializer, [24 x i8] undef } }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioInitWithBuffer(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @rioInitWithBuffer(ptr noundef writeonly captures(none) initializes((0, 112)) %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioBufferIO, i64 112, i1 false)
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
@@ -27,10 +27,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioInitWithFile(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %fp) local_unnamed_addr #0 {
+define dso_local void @rioInitWithFile(ptr noundef writeonly captures(none) initializes((0, 112)) %r, ptr noundef %fp) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFileIO, i64 112, i1 false)
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioInitWithConn(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %conn, i64 noundef %read_limit) local_unnamed_addr #2 {
+define dso_local void @rioInitWithConn(ptr noundef writeonly captures(none) initializes((0, 112)) %r, ptr noundef %conn, i64 noundef %read_limit) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioConnIO, i64 96, i1 false)
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
@@ -64,7 +64,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @sdsclear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioFreeConn(ptr nocapture noundef %r, ptr noundef writeonly %remaining) local_unnamed_addr #2 {
+define dso_local void @rioFreeConn(ptr noundef captures(none) %r, ptr noundef writeonly %remaining) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %remaining, null
   br i1 %tobool.not, label %if.end17.critedge, label %land.lhs.true
@@ -155,7 +155,7 @@ declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioInitWithFd(ptr nocapture noundef writeonly initializes((0, 112)) %r, i32 noundef %fd) local_unnamed_addr #2 {
+define dso_local void @rioInitWithFd(ptr noundef writeonly captures(none) initializes((0, 112)) %r, i32 noundef %fd) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFdIO, i64 112, i1 false)
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
@@ -171,7 +171,7 @@ entry:
 declare ptr @sdsempty() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioFreeFd(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local void @rioFreeFd(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %r, i64 88
   %0 = load ptr, ptr %buf, align 8
@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioGenericUpdateChecksum(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local void @rioGenericUpdateChecksum(ptr noundef captures(none) %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %cksum = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load i64, ptr %cksum, align 8
@@ -192,7 +192,7 @@ entry:
 declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioSetAutoSync(ptr nocapture noundef %r, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local void @rioSetAutoSync(ptr noundef captures(none) %r, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %write = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load ptr, ptr %write, align 8
@@ -209,7 +209,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioSetReclaimCache(ptr nocapture noundef %r, i32 noundef %enabled) local_unnamed_addr #0 {
+define dso_local void @rioSetReclaimCache(ptr noundef captures(none) %r, i32 noundef %enabled) local_unnamed_addr #0 {
 entry:
   %reclaim_cache = getelementptr inbounds nuw i8, ptr %r, i64 96
   %0 = trunc i32 %enabled to i8
@@ -222,7 +222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext range(i8 1, 9) i8 @rioCheckType(ptr nocapture noundef readonly %r) local_unnamed_addr #4 {
+define dso_local zeroext range(i8 1, 9) i8 @rioCheckType(ptr noundef readonly captures(none) %r) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %r, align 8
   %cmp = icmp eq ptr %0, @rioFileRead
@@ -243,7 +243,7 @@ return:                                           ; preds = %if.else4, %if.else,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @rioFileRead(ptr nocapture noundef readonly %r, ptr nocapture noundef %buf, i64 noundef %len) #5 {
+define internal noundef i64 @rioFileRead(ptr noundef readonly captures(none) %r, ptr noundef captures(none) %buf, i64 noundef %len) #5 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 0, 2) i64 @rioBufferRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #6 {
+define internal range(i64 0, 2) i64 @rioBufferRead(ptr noundef captures(none) %r, ptr noundef writeonly captures(none) %buf, i64 noundef %len) #6 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -318,7 +318,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rioConnRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #2 {
+define internal noundef i64 @rioConnRead(ptr noundef captures(none) %r, ptr noundef writeonly captures(none) %buf, i64 noundef %len) #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %buf1 = getelementptr inbounds nuw i8, ptr %r, i64 88
@@ -1130,7 +1130,7 @@ entry:
 declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rioBufferWrite(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) #2 {
+define internal noundef i64 @rioBufferWrite(ptr noundef captures(none) %r, ptr noundef %buf, i64 noundef %len) #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -1144,7 +1144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @rioBufferTell(ptr nocapture noundef readonly %r) #4 {
+define internal i64 @rioBufferTell(ptr noundef readonly captures(none) %r) #4 {
 entry:
   %pos = getelementptr inbounds nuw i8, ptr %r, i64 80
   %0 = load i64, ptr %pos, align 8
@@ -1152,7 +1152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @rioBufferFlush(ptr nocapture readnone %r) #7 {
+define internal noundef i32 @rioBufferFlush(ptr readnone captures(none) %r) #7 {
 entry:
   ret i32 1
 }
@@ -1160,7 +1160,7 @@ entry:
 declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rioFileWrite(ptr nocapture noundef %r, ptr nocapture noundef %buf, i64 noundef %len) #2 {
+define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %r, ptr noundef captures(none) %buf, i64 noundef %len) #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %autosync = getelementptr inbounds nuw i8, ptr %r, i64 88
@@ -1292,7 +1292,7 @@ return:                                           ; preds = %cond.end, %cond.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @rioFileTell(ptr nocapture noundef readonly %r) #5 {
+define internal noundef i64 @rioFileTell(ptr noundef readonly captures(none) %r) #5 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -1301,7 +1301,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @rioFileFlush(ptr nocapture noundef readonly %r) #5 {
+define internal range(i32 0, 2) i32 @rioFileFlush(ptr noundef readonly captures(none) %r) #5 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
@@ -1312,7 +1312,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1320,26 +1320,26 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @sync_file_range(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @reclaimFilePageCache(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @rioConnWrite(ptr nocapture readnone %r, ptr nocapture readnone %buf, i64 %len) #7 {
+define internal noundef i64 @rioConnWrite(ptr readnone captures(none) %r, ptr readnone captures(none) %buf, i64 %len) #7 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @rioConnTell(ptr nocapture noundef readonly %r) #4 {
+define internal i64 @rioConnTell(ptr noundef readonly captures(none) %r) #4 {
 entry:
   %read_so_far = getelementptr inbounds nuw i8, ptr %r, i64 104
   %0 = load i64, ptr %read_so_far, align 8
@@ -1347,19 +1347,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @rioConnFlush(ptr nocapture readnone %r) #7 {
+define internal noundef i32 @rioConnFlush(ptr readnone captures(none) %r) #7 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @rioFdRead(ptr nocapture readnone %r, ptr nocapture readnone %buf, i64 %len) #7 {
+define internal noundef i64 @rioFdRead(ptr readnone captures(none) %r, ptr readnone captures(none) %buf, i64 %len) #7 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, 2) i64 @rioFdWrite(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) #2 {
+define internal range(i64 0, 2) i64 @rioFdWrite(ptr noundef captures(none) %r, ptr noundef %buf, i64 noundef %len) #2 {
 entry:
   %cmp = icmp eq ptr %buf, null
   %cmp2 = icmp eq i64 %len, 0
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @rioFdTell(ptr nocapture noundef readonly %r) #4 {
+define internal i64 @rioFdTell(ptr noundef readonly captures(none) %r) #4 {
 entry:
   %pos = getelementptr inbounds nuw i8, ptr %r, i64 80
   %0 = load i64, ptr %pos, align 8
@@ -1664,7 +1664,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rioFdFlush(ptr nocapture noundef %r) #2 {
+define internal range(i32 0, 2) i32 @rioFdFlush(ptr noundef captures(none) %r) #2 {
 entry:
   %call = tail call i64 @rioFdWrite(ptr noundef %r, ptr noundef null, i64 noundef 0)
   %conv = trunc nuw nsw i64 %call to i32
@@ -1672,13 +1672,13 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @sdsMakeRoomFor(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1691,13 +1691,13 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -172,7 +172,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @NewBandMat(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @NewLintArray(i64 noundef) local_unnamed_addr #1
 
@@ -185,7 +185,7 @@ declare void @DestroyArray(ptr noundef) local_unnamed_addr #1
 declare double @SUNRsqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @KINBBDPrecFree(ptr nocapture noundef readonly %0) #0 {
+define internal void @KINBBDPrecFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -217,7 +217,7 @@ define internal void @KINBBDPrecFree(ptr nocapture noundef readonly %0) #0 {
 declare i32 @KINSpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -429,7 +429,7 @@ KBBDDQJac.exit:                                   ; preds = %KBBDDQJac.exit.loop
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @KINBBDPrecSolve(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @KINBBDPrecSolve(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %4) #5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
@@ -440,7 +440,7 @@ define internal noundef i32 @KINBBDPrecSolve(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -483,7 +483,7 @@ define range(i32 -5, 1) i32 @KINBBDPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @KINBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @KINBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

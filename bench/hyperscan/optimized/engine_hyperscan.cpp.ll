@@ -612,7 +612,7 @@ _ZN15EngineHyperscanD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan11makeContextEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK15EngineHyperscan11makeContextEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32, !noalias !5
@@ -636,13 +636,13 @@ _ZNSt10unique_ptrI15EngineHSContextSt14default_deleteIS0_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan4scanEPKcjjR11ResultEntryR13EngineContext(ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this, ptr noundef %data, i32 noundef %len, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(12) %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ectx) unnamed_addr #3 align 2 {
+define hidden void @_ZNK15EngineHyperscan4scanEPKcjjR11ResultEntryR13EngineContext(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this, ptr noundef %data, i32 noundef %len, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(12) %result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ectx) unnamed_addr #3 align 2 {
 entry:
   %sc = alloca %"struct.(anonymous namespace)::ScanHSContext", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc) #29
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZL11onMatchEchojyyjPv(i32 noundef %id, i64 %0, i64 noundef %to, i32 %1, ptr nocapture noundef readonly %ctx) #11 {
+define internal noundef i32 @_ZL11onMatchEchojyyjPv(i32 noundef %id, i64 %0, i64 noundef %to, i32 %1, ptr noundef readonly captures(none) %ctx) #11 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %result, align 8
@@ -703,7 +703,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL7onMatchjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %ctx) #12 {
+define internal noundef i32 @_ZL7onMatchjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %ctx) #12 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %result, align 8
@@ -717,13 +717,13 @@ entry:
 declare i32 @hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan13scan_vectoredEPKPKcPKjjjR11ResultEntryR13EngineContext(ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this, ptr noundef %data, ptr noundef %len, i32 noundef %count, i32 noundef %streamId, ptr noundef nonnull align 8 dereferenceable(12) %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ectx) unnamed_addr #3 align 2 {
+define hidden void @_ZNK15EngineHyperscan13scan_vectoredEPKPKcPKjjjR11ResultEntryR13EngineContext(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this, ptr noundef %data, ptr noundef %len, i32 noundef %count, i32 noundef %streamId, ptr noundef nonnull align 8 dereferenceable(12) %result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ectx) unnamed_addr #3 align 2 {
 entry:
   %sc = alloca %"struct.(anonymous namespace)::ScanHSContext", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sc) #29
@@ -756,7 +756,7 @@ if.end:                                           ; preds = %entry
 declare i32 @hs_scan_vector(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan10streamOpenER13EngineContextj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %ectx, i32 noundef %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK15EngineHyperscan10streamOpenER13EngineContextj(ptr noalias writeonly sret(%"class.std::unique_ptr.10") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %ectx, i32 noundef %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i, i8 0, i64 16, i1 false), !noalias !10
@@ -805,7 +805,7 @@ _ZNSt10unique_ptrI14EngineHSStreamSt14default_deleteIS0_EED2Ev.exit15: ; preds =
 declare i32 @hs_open_stream(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan11streamCloseESt10unique_ptrI12EngineStreamSt14default_deleteIS1_EER11ResultEntry(ptr nocapture nonnull readnone align 16 %this, ptr nocapture noundef readonly %stream, ptr noundef nonnull align 8 dereferenceable(12) %result) unnamed_addr #3 align 2 {
+define hidden void @_ZNK15EngineHyperscan11streamCloseESt10unique_ptrI12EngineStreamSt14default_deleteIS1_EER11ResultEntry(ptr nonnull readnone align 16 captures(none) %this, ptr noundef readonly captures(none) %stream, ptr noundef nonnull align 8 dereferenceable(12) %result) unnamed_addr #3 align 2 {
 entry:
   %sc = alloca %"struct.(anonymous namespace)::ScanHSContext", align 8
   %0 = load ptr, ptr %stream, align 8
@@ -833,7 +833,7 @@ entry:
 declare i32 @hs_close_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan10streamScanER12EngineStreamPKcjjR11ResultEntry(ptr nocapture nonnull readnone align 16 %this, ptr noundef nonnull align 8 dereferenceable(12) %stream, ptr noundef %data, i32 noundef %len, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(12) %result) unnamed_addr #3 align 2 {
+define hidden void @_ZNK15EngineHyperscan10streamScanER12EngineStreamPKcjjR11ResultEntry(ptr nonnull readnone align 16 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(12) %stream, ptr noundef %data, i32 noundef %len, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(12) %result) unnamed_addr #3 align 2 {
 entry:
   %sc = alloca %"struct.(anonymous namespace)::ScanHSContext", align 8
   %ctx2 = getelementptr inbounds nuw i8, ptr %stream, i64 24
@@ -868,7 +868,7 @@ if.end:                                           ; preds = %entry
 declare i32 @hs_scan_stream(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15EngineHyperscan20streamCompressExpandER12EngineStreamRSt6vectorIcSaIcEE(ptr nocapture nonnull readnone align 16 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %stream, ptr nocapture noundef nonnull align 8 dereferenceable(24) %temp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK15EngineHyperscan20streamCompressExpandER12EngineStreamRSt6vectorIcSaIcEE(ptr nonnull readnone align 16 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %stream, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %temp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %used = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %used) #29
@@ -1052,7 +1052,7 @@ declare i32 @hs_compress_stream(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare i32 @hs_reset_and_expand_stream(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZNK15EngineHyperscan10printStatsEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZNK15EngineHyperscan10printStatsEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this) unnamed_addr #11 align 2 {
 entry:
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_string_length.i.i, align 8
@@ -1106,7 +1106,7 @@ if.end22:                                         ; preds = %if.then19, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZNK15EngineHyperscan13printCsvStatsEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZNK15EngineHyperscan13printCsvStatsEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %this) unnamed_addr #11 align 2 {
 entry:
   %signatures = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %signatures, align 16
@@ -1725,7 +1725,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z20buildEngineHyperscanRKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE8ScanModeRKS5_SH_RKN3ue24GreyE(ptr noalias sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %expressions, i32 noundef %scan_mode, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %sigs_name, ptr nocapture noundef nonnull readnone align 1 %grey) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z20buildEngineHyperscanRKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE8ScanModeRKS5_SH_RKN3ue24GreyE(ptr noalias sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %expressions, i32 noundef %scan_mode, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %sigs_name, ptr noundef nonnull readnone align 1 captures(none) %grey) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %compiledSize = alloca i64, align 8
@@ -3126,7 +3126,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 declare noundef ptr @_Z12loadDatabasePKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10dbFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef range(i32 1, 5) %mode) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10dbFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, i32 noundef range(i32 1, 5) %mode) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__c.addr.i59.i = alloca i8, align 1
   %__c.addr.i.i = alloca i8, align 1
@@ -3808,7 +3808,7 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad, %
 declare noundef zeroext i1 @_Z14readExpressionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_PjP11hs_expr_extPb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare i32 @hs_compile_lit_multi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -3881,7 +3881,7 @@ declare i32 @hs_database_info(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 declare i32 @hs_scratch_size(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -4076,10 +4076,10 @@ _ZN14CompileHSStatsD2Ev.exit:                     ; preds = %if.else.i19.i.i, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -4282,7 +4282,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit: ; preds = %for.body.i.i14,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #10
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #20
@@ -4303,7 +4303,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1

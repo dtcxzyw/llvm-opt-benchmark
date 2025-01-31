@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm16MCRelocationInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCRelocationInfoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16MCRelocationInfoC2ERNS_9MCContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCRelocationInfoC2ERNS_9MCContextE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm16MCRelocationInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -19,7 +19,7 @@ define dso_local void @_ZN4llvm16MCRelocationInfoC2ERNS_9MCContextE(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm16MCRelocationInfoD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16MCRelocationInfoD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -34,14 +34,14 @@ define dso_local void @_ZN4llvm16MCRelocationInfoD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4llvm16MCRelocationInfo28createExprForCAPIVariantKindEPKNS_6MCExprEj(ptr nocapture nonnull readnone align 8 %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm16MCRelocationInfo28createExprForCAPIVariantKindEPKNS_6MCExprEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, ptr %1, ptr null
   ret ptr %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm22createMCRelocationInfoERKNS_6TripleERNS_9MCContextE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @_ZN4llvm22createMCRelocationInfoERKNS_6TripleERNS_9MCContextE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #2 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #7
   tail call void @_ZN4llvm16MCRelocationInfoC1ERNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %1) #5
   ret ptr %3

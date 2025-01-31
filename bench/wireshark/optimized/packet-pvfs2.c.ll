@@ -612,7 +612,7 @@ define hidden void @proto_register_pvfs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @pvfc_fmt_release_num(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @pvfc_fmt_release_num(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = udiv i32 %1, 10000
   %4 = urem i32 %1, 10000
   %.lhs.trunc = trunc nuw nsw i32 %4 to i16
@@ -685,7 +685,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #2
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pvfs2_io_tracking_hash(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @pvfs2_io_tracking_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i64, ptr %0, align 8
   %3 = lshr i64 %2, 32
   %4 = xor i64 %3, %2
@@ -694,7 +694,7 @@ define internal i32 @pvfs2_io_tracking_hash(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @pvfs2_io_tracking_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @pvfs2_io_tracking_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -720,7 +720,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
@@ -729,7 +729,7 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_pvfs_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_pvfs_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 16
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #9
   %7 = add i32 %6, 24
@@ -737,7 +737,7 @@ define internal i32 @get_pvfs_pdu_len(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pvfs_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pvfs_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   ret i32 %5
@@ -2068,7 +2068,7 @@ declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_pvfs_distribution(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_pvfs_distribution(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -2118,7 +2118,7 @@ declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #9
   %7 = add i32 %3, 4
   %8 = add i32 %6, 1
@@ -2172,17 +2172,17 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
 36:                                               ; preds = %30
   %sext140.i = shl i64 %34, 32
   %37 = ashr exact i64 %sext140.i, 32
-  %38 = tail call ptr @format_text(ptr noundef %35, ptr noundef %31, i64 noundef %37) #9
+  %38 = tail call ptr @format_text(ptr noundef %35, ptr noundef nonnull %31, i64 noundef %37) #9
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #10
   %40 = add i64 %39, 13
   %41 = load ptr, ptr %32, align 8
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef %40) #9
-  %43 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %40, ptr noundef nonnull @.str.404, ptr noundef %38) #9
+  %43 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %40, ptr noundef nonnull @.str.404, ptr noundef nonnull %38) #9
   br label %47
 
 44:                                               ; preds = %30
   %45 = sext i32 %8 to i64
-  %46 = tail call ptr @format_text(ptr noundef %35, ptr noundef %31, i64 noundef %45) #9
+  %46 = tail call ptr @format_text(ptr noundef %35, ptr noundef nonnull %31, i64 noundef %45) #9
   br label %47
 
 47:                                               ; preds = %44, %36, %16
@@ -2243,7 +2243,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2259,7 +2259,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -2455,10 +2455,10 @@ declare ptr @get_ascii_string(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

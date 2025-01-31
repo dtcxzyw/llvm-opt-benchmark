@@ -28,7 +28,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_authenc_extractkeys511, ptr @__UNIQUE_ID___addressable_crypto_authenc_module_init515, ptr @__UNIQUE_ID_alias_crypto520, ptr @__UNIQUE_ID_alias_userspace519, ptr @__UNIQUE_ID_description518, ptr @__UNIQUE_ID_file516, ptr @__UNIQUE_ID_license517, ptr @__exitcall_crypto_authenc_module_exit, ptr @crypto_authenc_module_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ugt i32 %2, 3
   br i1 %4, label %5, label %34
 
@@ -79,13 +79,13 @@ define dso_local noundef range(i32 -22, 1) i32 @crypto_authenc_extractkeys(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @crypto_authenc_module_exit() #3 section ".exit.text" align 16 {
@@ -235,10 +235,10 @@ declare dso_local ptr @crypto_attr_alg_name(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @crypto_grab_skcipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_authenc_init_tfm(ptr nocapture noundef %0) #5 align 16 {
+define internal i32 @crypto_authenc_init_tfm(ptr noundef captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -302,7 +302,7 @@ define internal i32 @crypto_authenc_init_tfm(ptr nocapture noundef %0) #5 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_authenc_exit_tfm(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal void @crypto_authenc_exit_tfm(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -316,7 +316,7 @@ define internal void @crypto_authenc_exit_tfm(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_authenc_setkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
+define internal i32 @crypto_authenc_setkey(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
   %4 = alloca %struct.crypto_authenc_keys, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -607,7 +607,7 @@ declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @crypto_put_default_null_skcipher() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_ahash_setkey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -693,7 +693,7 @@ define internal void @crypto_authenc_encrypt_done(ptr noundef %0, i32 noundef %1
 declare dso_local i32 @crypto_skcipher_encrypt(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @authenc_geniv_ahash_done(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define internal void @authenc_geniv_ahash_done(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %25
 

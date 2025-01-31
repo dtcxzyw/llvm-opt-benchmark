@@ -149,7 +149,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mpi_fortran_weights_empty_ = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_thread_level(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define void @ompi_mpi_thread_level(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 %0, ptr @ompi_mpi_thread_requested, align 4
   store i32 %0, ptr %1, align 4
   store i32 %0, ptr @ompi_mpi_thread_provided, align 4
@@ -510,7 +510,7 @@ declare void @ompi_hook_base_mpi_init_top(i32 noundef, ptr noundef, i32 noundef,
 declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @opal_setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -523,7 +523,7 @@ declare i32 @ompi_comm_init_mpi3() local_unnamed_addr #1
 declare noalias ptr @opal_argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -552,7 +552,7 @@ declare i32 @ompi_comm_failure_detector_init() local_unnamed_addr #1
 declare ptr @event_base_get_method(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @ompi_show_all_mca_params(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

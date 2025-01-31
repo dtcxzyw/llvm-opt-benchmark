@@ -642,7 +642,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [30 x i8], align 16
@@ -1328,7 +1328,7 @@ declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef z
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1545,7 +1545,7 @@ check_for_tn3270.exit:                            ; preds = %53, %50, %18, %63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_outmark_subopt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_outmark_subopt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -1581,7 +1581,7 @@ define internal void @dissect_outmark_subopt(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_tn3270_regime_subopt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_tn3270_regime_subopt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -1627,7 +1627,7 @@ define internal void @dissect_tn3270_regime_subopt(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_naws_subopt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_naws_subopt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_telnet_naws_subopt_width, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %10 = add i32 %3, 2
@@ -1637,14 +1637,14 @@ define internal void @dissect_naws_subopt(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_rfc_subopt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_rfc_subopt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_telnet_rfc_subopt_cmd, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_authentication_subopt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_authentication_subopt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #5
   %10 = load i32, ptr @hf_telnet_auth_cmd, align 4
@@ -1758,7 +1758,7 @@ dissect_authentication_data.exit:                 ; preds = %.lr.ph, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_encryption_subopt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal void @dissect_encryption_subopt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #5
   %9 = load i32, ptr @hf_telnet_enc_cmd, align 4
   %10 = zext i8 %8 to i32
@@ -1847,7 +1847,7 @@ define internal void @dissect_encryption_subopt(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -2299,7 +2299,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_starttls_subopt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_starttls_subopt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #5
   %9 = load i32, ptr @proto_telnet, align 4
   %10 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %8, i32 noundef %9) #5
@@ -2362,10 +2362,10 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_tn3270_model(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @check_tn3270_model(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.353) #6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %35, label %5
@@ -2593,10 +2593,10 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -611,7 +611,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -744,13 +744,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30Scheduler_Functionalities_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30Scheduler_Functionalities_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i.i.i.i.i.i.i.i.i = alloca %"class.std::function", align 8
   %agg.tmp4.i.i.i.i.i.i.i.i.i = alloca %"class.std::function", align 8
@@ -3413,7 +3413,7 @@ _ZNSt6vectorISt10shared_ptrIN4entt8internal21basic_process_handlerIjEEESaIS5_EE5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19Scheduler_Swap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19Scheduler_Swap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %scheduler = alloca %"class.entt::basic_scheduler", align 16
   %other = alloca %"class.entt::basic_scheduler", align 16
@@ -5023,7 +5023,7 @@ ehcleanup259:                                     ; preds = %ehcleanup257, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19Scheduler_Then_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19Scheduler_Then_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scheduler = alloca %"class.entt::basic_scheduler", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -6435,7 +6435,7 @@ lpad:                                             ; preds = %_ZNKSt6vectorISt10s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22Scheduler_Functor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22Scheduler_Functor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scheduler = alloca %"class.entt::basic_scheduler", align 8
   %first_functor = alloca i8, align 1
@@ -7152,7 +7152,7 @@ ehcleanup103:                                     ; preds = %ehcleanup58, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30Scheduler_SpawningProcess_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30Scheduler_SpawningProcess_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scheduler = alloca %"class.entt::basic_scheduler", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -7969,7 +7969,7 @@ ehcleanup120:                                     ; preds = %ehcleanup118, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30Scheduler_CustomAllocator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30Scheduler_CustomAllocator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scheduler = alloca %"class.entt::basic_scheduler", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -8454,7 +8454,7 @@ ehcleanup101:                                     ; preds = %ehcleanup95, %lpad5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30Scheduler_Functionalities_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 {
@@ -8739,7 +8739,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext) local_unnamed_addr #0
 
@@ -9120,7 +9120,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN4entt8internal15process_handlerIj11foo_processEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9848,7 +9848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #16 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #16 align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !227
   store i8 1, ptr %0, align 1, !tbaa !17
@@ -9856,7 +9856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -9882,7 +9882,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #16 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #16 align 2 {
 entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !229
   store i8 1, ptr %0, align 1, !tbaa !17
@@ -9890,7 +9890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN30Scheduler_Functionalities_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -10117,7 +10117,7 @@ _ZSt8_DestroyIN4entt8internal15process_handlerIj11foo_processEEEvPT_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal18CmpHelperOpFailureImjEENS_15AssertionResultEPKcS4_RKT_RKT0_S4_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %expr1, ptr noundef %expr2, ptr noundef nonnull align 8 dereferenceable(8) %val1, ptr noundef nonnull align 4 dereferenceable(4) %val2, ptr noundef %op) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -10832,7 +10832,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -10946,7 +10946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -11045,7 +11045,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -11164,7 +11164,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i, align 8, !tbaa !71
@@ -11270,7 +11270,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
 entry:
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i.i, align 8, !tbaa !71
@@ -11288,7 +11288,7 @@ if.then.i:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN19Scheduler_Swap_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -12471,7 +12471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -12570,7 +12570,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -12689,7 +12689,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4tickEjPv"(ptr noundef nonnull align 8 dereferenceable(9) %process)
@@ -12767,7 +12767,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -12789,7 +12789,7 @@ if.then2.i:                                       ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -12810,7 +12810,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4tickEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4tickEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4.i.i.i = alloca %"class.testing::Message", align 8
@@ -13016,7 +13016,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -13115,7 +13115,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -13234,7 +13234,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4tickEjPv"(ptr noundef nonnull align 8 dereferenceable(9) %process)
@@ -13312,7 +13312,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -13334,7 +13334,7 @@ if.then2.i:                                       ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -13355,7 +13355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4tickEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4tickEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4.i.i.i = alloca %"class.testing::Message", align 8
@@ -13561,7 +13561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -13660,7 +13660,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -13779,7 +13779,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjE4tickEjPv"(ptr noundef nonnull align 8 dereferenceable(9) %process)
@@ -13857,7 +13857,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %immediate) unnamed_addr #4 align 2 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -13879,7 +13879,7 @@ if.then2.i:                                       ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -13900,7 +13900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjE4tickEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_2jEEjE4tickEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp5.i.i.i = alloca %"class.testing::internal::AssertHelper", align 8
@@ -14054,7 +14054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -14153,7 +14153,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -14272,7 +14272,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i, align 8, !tbaa !164
@@ -14455,7 +14455,7 @@ if.end:                                           ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
 entry:
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i.i, align 8, !tbaa !164
@@ -14473,7 +14473,7 @@ if.then.i:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -14561,7 +14561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN4entt8internal15process_handlerIjNS0_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((16, 24), (40, 48)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %process.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -14660,7 +14660,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8), (24, 32)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %process, align 8, !tbaa !4
@@ -14779,7 +14779,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 %delta, ptr nocapture readnone %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEE6updateEjPv"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 %delta, ptr readnone captures(none) %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i, align 8, !tbaa !190
@@ -14866,7 +14866,7 @@ if.end:                                           ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
+define internal void @"_ZN4entt8internal15process_handlerIjNS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEE5abortEb"(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %immediate) unnamed_addr #17 align 2 {
 entry:
   %current.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %current.i.i, align 8, !tbaa !190
@@ -14884,7 +14884,7 @@ if.then.i:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjED2Ev"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void

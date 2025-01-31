@@ -73,7 +73,7 @@ list_length.exit:                                 ; preds = %3, %7
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @ExecBitmapAnd(ptr nocapture readnone %0) #2 {
+define internal noalias noundef nonnull ptr @ExecBitmapAnd(ptr readnone captures(none) %0) #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
@@ -84,7 +84,7 @@ define internal noalias noundef nonnull ptr @ExecBitmapAnd(ptr nocapture readnon
 declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @MultiExecBitmapAnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -184,7 +184,7 @@ declare zeroext i1 @tbm_is_empty(ptr noundef) local_unnamed_addr #1
 declare void @InstrStopNode(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndBitmapAnd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndBitmapAnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -219,7 +219,7 @@ define dso_local void @ExecEndBitmapAnd(ptr nocapture noundef readonly %0) local
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanBitmapAnd(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanBitmapAnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

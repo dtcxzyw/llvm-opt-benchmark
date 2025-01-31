@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"Check box\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_checkbox_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72)) %1) #0 {
+define internal void @lv_checkbox_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 72)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @.str.1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -34,7 +34,7 @@ define internal void @lv_checkbox_constructor(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_checkbox_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_checkbox_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -53,7 +53,7 @@ define internal void @lv_checkbox_destructor(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_checkbox_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_area_t, align 4
@@ -307,14 +307,14 @@ define noundef ptr @lv_checkbox_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_checkbox_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -405,7 +405,7 @@ define void @lv_checkbox_set_text_static(ptr noundef %0, ptr noundef %1) local_u
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_checkbox_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_checkbox_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3

@@ -113,7 +113,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_arch_io_free_memtype_wc339, ptr @__UNIQUE_ID___addressable_arch_io_reserve_memtype_wc338, ptr @__UNIQUE_ID___addressable_pat_enabled327, ptr @__UNIQUE_ID___addressable_pat_memtype_list_init347, ptr @__UNIQUE_ID___addressable_pat_pfn_immune_to_uc_mtrr335, ptr @__UNIQUE_ID___addressable_pgprot_writecombine344, ptr @__UNIQUE_ID___addressable_pgprot_writethrough345, ptr @__setup_nopat, ptr @__setup_pat_debug_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @nopat(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @nopat(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   %2 = load i1, ptr @pat_disabled, align 1
   br i1 %2, label %7, label %3
 
@@ -137,7 +137,7 @@ define dso_local zeroext i1 @pat_enabled() #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @pat_debug_setup(ptr nocapture readnone %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @pat_debug_setup(ptr readnone captures(none) %0) #2 section ".init.text" align 16 {
   store i32 1, ptr @pat_debug_enable, align 4
   ret i32 1
 }
@@ -274,7 +274,7 @@ thread-pre-split:                                 ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @init_cache_modes(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
@@ -332,7 +332,7 @@ pat_get_cache_mode.exit:                          ; preds = %3, %11, %12, %13, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
@@ -905,7 +905,7 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @memtype_reserve_io(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @memtype_reserve_io(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 align 16 {
   %4 = alloca i32, align 4
   %5 = sub i64 %1, %0
   %6 = load i32, ptr %2, align 4
@@ -1062,12 +1062,12 @@ define dso_local void @arch_io_free_memtype_wc(i64 noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i64 @phys_mem_access_prot(ptr nocapture noundef readnone %0, i64 noundef %1, i64 noundef %2, i64 returned %3) local_unnamed_addr #9 align 16 {
+define dso_local i64 @phys_mem_access_prot(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 returned %3) local_unnamed_addr #9 align 16 {
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @phys_mem_access_prot_allowed(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @phys_mem_access_prot_allowed(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 11
@@ -1136,13 +1136,13 @@ define dso_local i32 @track_pfn_copy(ptr noundef %0) local_unnamed_addr #3 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @follow_phys(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
+define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
   %5 = alloca %struct.pagerange_state, align 8
   %6 = alloca i32, align 4
   %7 = load i64, ptr %2, align 8
@@ -1338,7 +1338,7 @@ define internal fastcc i32 @reserve_pfn_range(i64 noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @track_pfn_remap(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
+define dso_local i32 @track_pfn_remap(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 16 {
   %6 = shl i64 %2, 12
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
@@ -1425,7 +1425,7 @@ define dso_local i32 @track_pfn_remap(ptr noundef %0, ptr nocapture noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @track_pfn_insert(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 %2) local_unnamed_addr #3 align 16 {
+define dso_local void @track_pfn_insert(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2) local_unnamed_addr #3 align 16 {
   %4 = load i1, ptr @pat_disabled, align 1
   br i1 %4, label %12, label %5
 
@@ -1649,7 +1649,7 @@ declare dso_local zeroext i8 @mtrr_type_lookup(i64 noundef, i64 noundef, ptr nou
 declare dso_local i32 @walk_system_ram_range(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal range(i32 0, 2) i32 @pagerange_is_ram_callback(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2) #12 align 16 {
+define internal range(i32 0, 2) i32 @pagerange_is_ram_callback(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #12 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp ult i64 %4, %0
   %6 = zext i1 %5 to i32
@@ -1703,7 +1703,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #6
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @memtype_seq_open(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
+define internal i32 @memtype_seq_open(ptr readnone captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = tail call i32 @seq_open(ptr noundef %1, ptr noundef nonnull @memtype_seq_ops) #17
   ret i32 %3
 }
@@ -1715,7 +1715,7 @@ declare dso_local i32 @seq_release(ptr noundef, ptr noundef) #6
 declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @memtype_seq_start(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal noundef ptr @memtype_seq_start(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
@@ -1750,13 +1750,13 @@ define internal noundef ptr @memtype_seq_start(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @memtype_seq_stop(ptr nocapture readnone %0, ptr noundef %1) #3 align 16 {
+define internal void @memtype_seq_stop(ptr readnone captures(none) %0, ptr noundef %1) #3 align 16 {
   tail call void @kfree(ptr noundef %1) #17
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @memtype_seq_next(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #3 align 16 {
+define internal noundef ptr @memtype_seq_next(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #3 align 16 {
   tail call void @kfree(ptr noundef %1) #17
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
@@ -1783,7 +1783,7 @@ define internal noundef ptr @memtype_seq_next(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @memtype_seq_show(ptr noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef i32 @memtype_seq_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8

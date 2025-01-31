@@ -151,7 +151,7 @@ define ptr @N_VNewEmpty_Serial(i64 noundef %0, ptr noundef %1) local_unnamed_add
 declare ptr @N_VNewEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @N_VGetVectorID_Serial(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @N_VGetVectorID_Serial(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
@@ -258,7 +258,7 @@ define void @N_VDestroy_Serial(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @N_VSpace_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 {
+define void @N_VSpace_Serial(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %1, align 8
@@ -267,7 +267,7 @@ define void @N_VSpace_Serial(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @N_VGetArrayPointer_Serial(ptr nocapture noundef readonly %0) #5 {
+define ptr @N_VGetArrayPointer_Serial(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -275,7 +275,7 @@ define ptr @N_VGetArrayPointer_Serial(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr nocapture noundef readonly %1) #6 {
+define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -291,7 +291,7 @@ define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @N_VGetLength_Serial(ptr nocapture noundef readonly %0) #5 {
+define i64 @N_VGetLength_Serial(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -669,7 +669,7 @@ Vaxpy_Serial.exit:                                ; preds = %.lr.ph, %.lr.ph.i15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VConst_Serial(double noundef %0, ptr nocapture noundef readonly %1) #7 {
+define void @N_VConst_Serial(double noundef %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -690,7 +690,7 @@ define void @N_VConst_Serial(double noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VProd_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define void @N_VProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -722,7 +722,7 @@ define void @N_VProd_Serial(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VDiv_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -853,7 +853,7 @@ VScaleBy_Serial.exit:                             ; preds = %.lr.ph, %.lr.ph.i33
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VAbs_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define void @N_VAbs_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -880,7 +880,7 @@ define void @N_VAbs_Serial(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VInv_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define void @N_VInv_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -907,7 +907,7 @@ define void @N_VInv_Serial(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VAddConst_Serial(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef readonly %2) #7 {
+define void @N_VAddConst_Serial(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -934,7 +934,7 @@ define void @N_VAddConst_Serial(ptr nocapture noundef readonly %0, double nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VDotProd_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define double @N_VDotProd_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -963,7 +963,7 @@ define double @N_VDotProd_Serial(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VMaxNorm_Serial(ptr nocapture noundef readonly %0) #8 {
+define double @N_VMaxNorm_Serial(ptr noundef readonly captures(none) %0) #8 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -989,7 +989,7 @@ define double @N_VMaxNorm_Serial(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @N_VWrmsNormMask_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #9 {
+define double @N_VWrmsNormMask_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #9 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1043,7 +1043,7 @@ N_VWSqrSumMaskLocal_Serial.exit:                  ; preds = %25, %3
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @N_VWrmsNorm_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define double @N_VWrmsNorm_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1084,7 +1084,7 @@ N_VWSqrSumLocal_Serial.exit:                      ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VMin_Serial(ptr nocapture noundef readonly %0) #8 {
+define double @N_VMin_Serial(ptr noundef readonly captures(none) %0) #8 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1110,7 +1110,7 @@ define double @N_VMin_Serial(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @N_VWL2Norm_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define double @N_VWL2Norm_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1148,7 +1148,7 @@ define double @N_VWL2Norm_Serial(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VL1Norm_Serial(ptr nocapture noundef readonly %0) #8 {
+define double @N_VL1Norm_Serial(ptr noundef readonly captures(none) %0) #8 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1173,7 +1173,7 @@ define double @N_VL1Norm_Serial(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VCompare_Serial(double noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define void @N_VCompare_Serial(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1202,7 +1202,7 @@ define void @N_VCompare_Serial(double noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1239,7 +1239,7 @@ define range(i32 0, 2) i32 @N_VInvTest_Serial(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1307,7 +1307,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define double @N_VMinQuotient_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1352,7 +1352,7 @@ define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VWSqrSumLocal_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define double @N_VWSqrSumLocal_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1382,7 +1382,7 @@ define double @N_VWSqrSumLocal_Serial(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @N_VWSqrSumMaskLocal_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
+define double @N_VWSqrSumMaskLocal_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1425,7 +1425,7 @@ define double @N_VWSqrSumMaskLocal_Serial(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VDotProdMulti_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #10 {
+define noundef i32 @N_VDotProdMulti_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #10 {
   %5 = icmp eq i32 %0, 1
   br i1 %5, label %6, label %22
 
@@ -1510,7 +1510,7 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VBufSize_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
+define noundef i32 @N_VBufSize_Serial(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = shl nsw i64 %4, 3
@@ -1519,7 +1519,7 @@ define noundef i32 @N_VBufSize_Serial(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VBufPack_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 {
+define noundef i32 @N_VBufPack_Serial(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1542,7 +1542,7 @@ define noundef i32 @N_VBufPack_Serial(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VBufUnpack_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define noundef i32 @N_VBufUnpack_Serial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1565,7 +1565,7 @@ define noundef i32 @N_VBufUnpack_Serial(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @N_VPrint_Serial(ptr nocapture noundef readonly %0) #11 {
+define void @N_VPrint_Serial(ptr noundef readonly captures(none) %0) #11 {
   %2 = load ptr, ptr @stdout, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
@@ -1589,7 +1589,7 @@ N_VPrintFile_Serial.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @N_VPrintFile_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #11 {
+define void @N_VPrintFile_Serial(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1656,12 +1656,12 @@ define ptr @N_VMake_Serial(i64 noundef %0, ptr noundef %1, ptr noundef %2) local
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare i32 @N_VCopyOps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #15
@@ -1673,7 +1673,7 @@ declare double @llvm.fabs.f64(double) #15
 declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #7 {
+define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #7 {
   %5 = load ptr, ptr %2, align 8
   switch i32 %0, label %56 [
     i32 1, label %6
@@ -1946,7 +1946,7 @@ N_VScale_Serial.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #7 {
+define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #7 {
   %6 = icmp eq i32 %0, 1
   br i1 %6, label %7, label %11
 
@@ -2291,7 +2291,7 @@ VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #7 {
+define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 {
   %5 = load ptr, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
@@ -2427,7 +2427,7 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef range(i32 2, 1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2482,7 +2482,7 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef range(i32 2, 1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2538,7 +2538,7 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef range(i32 2, 1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2594,7 +2594,7 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef range(i32 2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 2, 1) %0, double noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
@@ -2650,7 +2650,7 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef range(i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) #7 {
+define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #7 {
   %5 = icmp eq i32 %0, 1
   br i1 %5, label %6, label %52
 
@@ -2838,7 +2838,7 @@ N_VScale_Serial.exit:                             ; preds = %._crit_edge.us, %._
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1, ptr nocapture noundef readonly %2) #7 {
+define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq i32 %0, 1
   %6 = load ptr, ptr %4, align 8
@@ -2896,7 +2896,7 @@ N_VConst_Serial.exit:                             ; preds = %._crit_edge.us, %.l
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @N_VWrmsNormVectorArray_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #9 {
+define noundef i32 @N_VWrmsNormVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #9 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq i32 %0, 1
   br i1 %6, label %7, label %30
@@ -3026,7 +3026,7 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @N_VWrmsNormMaskVectorArray_Serial(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) #9 {
+define noundef i32 @N_VWrmsNormMaskVectorArray_Serial(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #9 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq i32 %0, 1
   br i1 %7, label %8, label %39
@@ -3182,7 +3182,7 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
+define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) #0 {
   %7 = load ptr, ptr %3, align 8
   %8 = icmp eq i32 %0, 1
   %9 = icmp eq i32 %1, 1
@@ -3457,7 +3457,7 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 {
+define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 {
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i32 %0, 1
@@ -3862,7 +3862,7 @@ N_VScale_Serial.exit:                             ; preds = %.critedge, %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableFusedOps_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableFusedOps_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -3912,7 +3912,7 @@ define noundef i32 @N_VEnableFusedOps_Serial(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableLinearCombination_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableLinearCombination_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VLinearCombination_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3923,7 +3923,7 @@ define noundef i32 @N_VEnableLinearCombination_Serial(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableScaleAddMulti_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableScaleAddMulti_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VScaleAddMulti_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3934,7 +3934,7 @@ define noundef i32 @N_VEnableScaleAddMulti_Serial(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableDotProdMulti_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableDotProdMulti_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VDotProdMulti_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3948,7 +3948,7 @@ define noundef i32 @N_VEnableDotProdMulti_Serial(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableLinearSumVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableLinearSumVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VLinearSumVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3959,7 +3959,7 @@ define noundef i32 @N_VEnableLinearSumVectorArray_Serial(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableScaleVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableScaleVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VScaleVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3970,7 +3970,7 @@ define noundef i32 @N_VEnableScaleVectorArray_Serial(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableConstVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableConstVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VConstVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3981,7 +3981,7 @@ define noundef i32 @N_VEnableConstVectorArray_Serial(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableWrmsNormVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableWrmsNormVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VWrmsNormVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3992,7 +3992,7 @@ define noundef i32 @N_VEnableWrmsNormVectorArray_Serial(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableWrmsNormMaskVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableWrmsNormMaskVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VWrmsNormMaskVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4003,7 +4003,7 @@ define noundef i32 @N_VEnableWrmsNormMaskVectorArray_Serial(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableScaleAddMultiVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableScaleAddMultiVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VScaleAddMultiVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4014,7 +4014,7 @@ define noundef i32 @N_VEnableScaleAddMultiVectorArray_Serial(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VEnableLinearCombinationVectorArray_Serial(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 {
+define noundef i32 @N_VEnableLinearCombinationVectorArray_Serial(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr null, ptr @N_VLinearCombinationVectorArray_Serial
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4025,10 +4025,10 @@ define noundef i32 @N_VEnableLinearCombinationVectorArray_Serial(ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

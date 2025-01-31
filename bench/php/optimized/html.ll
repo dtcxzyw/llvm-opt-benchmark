@@ -4280,13 +4280,13 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.php_escape_html_entities_ex = private unnamed_addr constant [4 x ptr] [ptr @ent_ht_html4, ptr @ent_ht_be_apos, ptr @ent_ht_html4, ptr @ent_ht_html5], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 9437184) i32 @php_next_utf8_char(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define range(i32 0, 9437184) i32 @php_next_utf8_char(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @get_next_char(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = load i64, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %7 = sub i64 %2, %6
@@ -6622,10 +6622,10 @@ process_named_entity_html.exit:                   ; preds = %.critedge2.i
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #5 {
   %6 = icmp ugt i64 %1, 7
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -6803,13 +6803,13 @@ define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_htmlspecialchars(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_htmlspecialchars(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   tail call fastcc void @php_html_entities(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc void @php_html_entities(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -6956,7 +6956,7 @@ define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_htmlspecialchars_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_htmlspecialchars_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 11, ptr %4, align 8
@@ -7046,7 +7046,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_html_entity_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_html_entity_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -7161,7 +7161,7 @@ define hidden void @zif_html_entity_decode(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_htmlentities(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_htmlentities(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   tail call fastcc void @php_html_entities(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
@@ -7549,7 +7549,7 @@ determine_charset.exit:                           ; preds = %46, %48, %62, %67
 declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 122880) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @write_s3row_data(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 122880) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [9 x i8], align 1
   %6 = alloca [33 x i8], align 16
   %7 = alloca i32, align 4
@@ -7763,7 +7763,7 @@ write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -7771,7 +7771,7 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #8 {
+define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #8 {
   switch i32 %1, label %unimap_bsearch.exit.thread [
     i32 1, label %4
     i32 5, label %6
@@ -8018,7 +8018,7 @@ unimap_bsearch.exit.thread:                       ; preds = %91, %61, %36, %unim
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc range(i64 0, 5) i64 @write_octet_sequence(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i64 0, 5) i64 @write_octet_sequence(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 {
   switch i32 %1, label %php_utf32_utf8.exit [
     i32 0, label %4
     i32 1, label %50
@@ -8127,7 +8127,7 @@ php_utf32_utf8.exit:                              ; preds = %33, %21, %10, %6, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
@@ -8142,7 +8142,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare ptr @__ctype_b_loc() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -8153,13 +8153,13 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

@@ -247,7 +247,7 @@ declare noundef ptr @_ZN13OopStorageSet11create_weakEPKc8MEMFLAGS(ptr noundef, i
 declare void @_ZN11StringDedup10StorageUseC1EP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11StringDedup9ProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup9ProcessorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -264,7 +264,7 @@ define hidden void @_ZN11StringDedup9Processor10initializeEv() local_unnamed_add
 declare void @_ZN15CPUTimeCounters14create_counterEN13CPUTimeGroups11CPUTimeTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup9Processor17wait_for_requestsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup9Processor17wait_for_requestsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
@@ -468,7 +468,7 @@ define hidden noundef ptr @_ZN11StringDedup9Processor20storage_for_requestsEv() 
 declare noundef ptr @_ZN11StringDedup10StorageUse6obtainEPVPS0_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup9Processor5yieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup9Processor5yieldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
@@ -519,7 +519,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %1, %15, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup9Processor13cleanup_tableEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup9Processor13cleanup_tableEbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN11StringDedup5Table23cleanup_start_if_neededEbb(i1 noundef zeroext %1, i1 noundef zeroext %2) #12
   br i1 %4, label %.preheader, label %7
 
@@ -543,7 +543,7 @@ declare noundef zeroext i1 @_ZN11StringDedup5Table12cleanup_stepEv() local_unnam
 declare void @_ZN11StringDedup5Table11cleanup_endEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup9Processor16process_requestsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup9Processor16process_requestsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.OopStorage::ParState", align 8
   %3 = alloca %"class.StringDedup::Processor::ProcessRequest", align 8
   tail call void @_ZN11StringDedup4Stat20report_process_startEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE) #12
@@ -572,7 +572,7 @@ declare void @_ZN11StringDedup4Stat20report_process_startEv(ptr noundef nonnull 
 declare void @_ZN11StringDedup4Stat18report_process_endEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.StringDedup::Stat", align 8
   %4 = alloca %"class.OopStorage::ParState", align 8
   %5 = alloca %"class.StringDedup::Processor::ProcessRequest", align 8
@@ -734,7 +734,7 @@ declare void @_ZN11StringDedup4Stat19report_active_startEv(ptr noundef nonnull a
 declare void @_ZN11StringDedup4Stat17report_active_endEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup9Processor14log_statisticsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup9Processor14log_statisticsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.StringDedup::Stat", align 8
   tail call void @_ZN11StringDedup4Stat3addEPKS0_(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup11_total_statE, ptr noundef nonnull @_ZN11StringDedup9_cur_statE) #12
   tail call void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr noundef nonnull @_ZN11StringDedup9_cur_statE, ptr noundef nonnull @_ZN11StringDedup11_total_statE) #12
@@ -772,7 +772,7 @@ declare void @_ZN11StringDedup5Table14log_statisticsEv() local_unnamed_addr #1
 declare void @_ZN11StringDedup4StatC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_var_init.8() #6 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
@@ -897,7 +897,7 @@ declare noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaTh
 declare void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11StringDedup9Processor14ProcessRequest6do_oopEPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
@@ -3086,10 +3086,10 @@ declare noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEP
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

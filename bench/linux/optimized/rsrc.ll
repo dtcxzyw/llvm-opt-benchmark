@@ -72,13 +72,13 @@ define dso_local noundef range(i32 -12, 1) i32 @__io_account_mem(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @io_rsrc_node_destroy(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @io_rsrc_node_destroy(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1164
@@ -107,7 +107,7 @@ define dso_local void @io_rsrc_node_destroy(ptr nocapture noundef %0, ptr nounde
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @io_rsrc_node_ref_zero(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @io_rsrc_node_ref_zero(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1136
   %4 = load volatile ptr, ptr %3, align 8
@@ -320,7 +320,7 @@ define dso_local noundef ptr @io_rsrc_node_alloc(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_register_files_update(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_register_files_update(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.io_uring_rsrc_update2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   %5 = icmp eq i32 %2, 0
@@ -353,10 +353,10 @@ define dso_local i32 @io_register_files_update(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__io_register_rsrc_update(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__io_register_rsrc_update(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.compat_iovec, align 8
   %6 = alloca %struct.iovec, align 8
   %7 = alloca ptr, align 8
@@ -769,7 +769,7 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_register_rsrc_update(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_register_rsrc_update(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.io_uring_rsrc_update2, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   %6 = icmp eq i32 %2, 32
@@ -1200,7 +1200,7 @@ thread-pre-split:                                 ; preds = %66, %.thread10
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @io_files_update_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_files_update_prep(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 33
@@ -1386,7 +1386,7 @@ define dso_local noundef i32 @io_files_update(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @io_queue_rsrc_removal(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @io_queue_rsrc_removal(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1643,7 +1643,7 @@ define dso_local range(i32 -2147483648, 1) i32 @io_sqe_files_unregister(ptr noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1777,7 +1777,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @io_rsrc_ref_quiesce(ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -14, 1) i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @io_rsrc_data_alloc(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #4 align 16 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 24) #13
   %8 = icmp eq ptr %7, null
@@ -1850,7 +1850,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @io_is_uring_fops(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @io_file_bitmap_set(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @io_file_bitmap_set(ptr noundef captures(none) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -1876,7 +1876,7 @@ define internal fastcc void @io_file_bitmap_set(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__io_sqe_buffers_unregister(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @__io_sqe_buffers_unregister(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2001,7 +2001,7 @@ define dso_local void @__io_sqe_buffers_unregister(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @io_buffer_unmap(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @io_buffer_unmap(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, @dummy_ubuf
   br i1 %4, label %35, label %5
@@ -2090,7 +2090,7 @@ define dso_local range(i32 -2147483648, 1) i32 @io_sqe_buffers_unregister(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @io_pin_pages(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @io_pin_pages(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = add i64 %0, 4095
   %5 = add i64 %4, %1
   %6 = lshr i64 %5, 12
@@ -2242,7 +2242,7 @@ define internal fastcc range(i32 -14, 1) i32 @io_copy_iov(i16 %.4.val, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_sqe_buffer_register(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_sqe_buffer_register(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store ptr @dummy_ubuf, ptr %2, align 8

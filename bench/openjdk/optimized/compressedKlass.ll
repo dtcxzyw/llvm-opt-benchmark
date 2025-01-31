@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_ZN23CompressedKlassPointers29initialize_for_given_encodingEPhmS0_i(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23CompressedKlassPointers29initialize_for_given_encodingEPhmS0_i(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = add nsw i32 %3, 32
   %6 = icmp sgt i32 %3, 31
   %7 = zext nneg i32 %5 to i64

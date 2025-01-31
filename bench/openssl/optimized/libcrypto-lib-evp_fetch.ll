@@ -600,7 +600,7 @@ dealloc_tmp_evp_method_store.exit:                ; preds = %if.end, %if.then.i
 declare void @ossl_method_store_do_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_on_operation_id(i32 noundef %id, ptr noundef %method, ptr nocapture noundef readonly %arg) #0 {
+define internal void @filter_on_operation_id(i32 noundef %id, ptr noundef %method, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %and = and i32 %id, 255
   %0 = load i32, ptr %arg, align 8
@@ -657,7 +657,7 @@ declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @ossl_method_store_cache_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_tmp_evp_method_store(ptr nocapture noundef %data) #0 {
+define internal ptr @get_tmp_evp_method_store(ptr noundef captures(none) %data) #0 {
 entry:
   %tmp_store = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %tmp_store, align 8
@@ -676,7 +676,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reserve_evp_method_store(ptr noundef %store, ptr nocapture noundef readonly %data) #0 {
+define internal i32 @reserve_evp_method_store(ptr noundef %store, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -698,7 +698,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @unreserve_evp_method_store(ptr noundef %store, ptr nocapture noundef readonly %data) #0 {
+define internal i32 @unreserve_evp_method_store(ptr noundef %store, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -720,7 +720,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_evp_method_from_store(ptr noundef %store, ptr noundef %prov, ptr nocapture noundef readonly %data) #0 {
+define internal ptr @get_evp_method_from_store(ptr noundef %store, ptr noundef %prov, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %method = alloca ptr, align 8
   store ptr null, ptr %method, align 8
@@ -759,7 +759,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %cond.end
-  %call10 = tail call i32 @ossl_namemap_name2num_n(ptr noundef nonnull %call, ptr noundef %3, i64 noundef %cond) #4
+  %call10 = tail call i32 @ossl_namemap_name2num_n(ptr noundef nonnull %call, ptr noundef nonnull %3, i64 noundef %cond) #4
   %cmp12 = icmp eq i32 %call10, 0
   br i1 %cmp12, label %return, label %lor.lhs.false
 
@@ -801,7 +801,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @put_evp_method_in_store(ptr noundef %store, ptr noundef %method, ptr noundef %prov, ptr noundef %names, ptr noundef %propdef, ptr nocapture noundef readonly %data) #0 {
+define internal i32 @put_evp_method_in_store(ptr noundef %store, ptr noundef %method, ptr noundef %prov, ptr noundef %names, ptr noundef %propdef, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %cmp.not = icmp eq ptr %names, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -869,7 +869,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @construct_evp_method(ptr noundef %algodef, ptr noundef %prov, ptr nocapture noundef %data) #0 {
+define internal ptr @construct_evp_method(ptr noundef %algodef, ptr noundef %prov, ptr noundef captures(none) %data) #0 {
 entry:
   %call = tail call ptr @ossl_provider_libctx(ptr noundef %prov) #4
   %call1 = tail call ptr @ossl_namemap_stored(ptr noundef %call) #4
@@ -898,7 +898,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destruct_evp_method(ptr noundef %method, ptr nocapture noundef readonly %data) #0 {
+define internal void @destruct_evp_method(ptr noundef %method, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %destruct_method = getelementptr inbounds nuw i8, ptr %data, i64 64
   %0 = load ptr, ptr %destruct_method, align 8
@@ -907,7 +907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ossl_method_construct(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -927,7 +927,7 @@ declare i32 @ossl_method_unlock_store(ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @ossl_namemap_name2num_n(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

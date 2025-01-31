@@ -21,7 +21,7 @@ $__clang_call_terminate = comdat any
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7517RuleBasedCollator13cloneRuleDataERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %length, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7517RuleBasedCollator13cloneRuleDataERiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indexes.i17 = alloca [20 x i32], align 16
   %indexes.i = alloca [20 x i32], align 16
@@ -145,7 +145,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7517RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %indexes = alloca [20 x i32], align 16
   %tailoring = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7519CollationDataWriter14writeTailoringERKNS_18CollationTailoringERKNS_17CollationSettingsEPiPhiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %settings, ptr nocapture noundef %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7519CollationDataWriter14writeTailoringERKNS_18CollationTailoringERKNS_17CollationSettingsEPiPhiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(852) %settings, ptr noundef captures(none) %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %t, i64 328
   %data = getelementptr inbounds nuw i8, ptr %t, i64 24
@@ -170,14 +170,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7519CollationDataWriter9writeBaseERKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(140) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %settings, ptr nocapture noundef readonly %rootElements, i32 noundef %rootElementsLength, ptr nocapture noundef %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7519CollationDataWriter9writeBaseERKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(140) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(852) %settings, ptr noundef readonly captures(none) %rootElements, i32 noundef %rootElementsLength, ptr noundef captures(none) %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(140) %data, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef %rootElements, i32 noundef %rootElementsLength, ptr noundef %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext %isBase, ptr nocapture noundef readonly %dataVersion, ptr noundef nonnull align 8 dereferenceable(140) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %settings, ptr nocapture noundef readonly %rootElements, i32 noundef %rootElementsLength, ptr nocapture noundef %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6icu_7519CollationDataWriter5writeEaPKhRKNS_13CollationDataERKNS_17CollationSettingsEPKviPiPhiR10UErrorCode(i8 noundef signext %isBase, ptr noundef readonly captures(none) %dataVersion, ptr noundef nonnull align 8 dereferenceable(140) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(852) %settings, ptr noundef readonly captures(none) %rootElements, i32 noundef %rootElementsLength, ptr noundef captures(none) %indexes, ptr noundef %dest, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %unsafeBackwardSet = alloca %"class.icu_75::UnicodeSet", align 8
@@ -862,17 +862,17 @@ declare void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiRNS_9UVector32ER
 declare void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @utrie2_serialize_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare noundef i32 @_ZNK6icu_7510UnicodeSet9serializeEPtiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh(ptr nocapture noundef readonly %indexes, i32 noundef %startIndex, ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dest) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh(ptr noundef readonly captures(none) %indexes, i32 noundef %startIndex, ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(none) %dest) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom = sext i32 %startIndex to i64
   %arrayidx = getelementptr inbounds i32, ptr %indexes, i64 %idxprom
@@ -920,10 +920,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

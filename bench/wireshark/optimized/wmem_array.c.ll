@@ -49,7 +49,7 @@ define noalias noundef ptr @wmem_array_new(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_array_grow(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @wmem_array_grow(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -87,7 +87,7 @@ define void @wmem_array_grow(ptr nocapture noundef %0, i32 noundef %1) local_unn
 declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_array_set_null_terminator(ptr nocapture noundef initializes((32, 33)) %0) local_unnamed_addr #0 {
+define void @wmem_array_set_null_terminator(ptr noundef captures(none) initializes((32, 33)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -139,7 +139,7 @@ wmem_array_write_null_terminator.exit:            ; preds = %.wmem_array_grow.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @wmem_array_bzero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @wmem_array_bzero(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -153,10 +153,10 @@ define void @wmem_array_bzero(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_array_append(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @wmem_array_append(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -259,10 +259,10 @@ wmem_array_write_null_terminator.exit:            ; preds = %wmem_array_grow.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_array_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @wmem_array_index(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %1, %4
@@ -287,7 +287,7 @@ define ptr @wmem_array_index(ptr nocapture noundef readonly %0, i32 noundef %1) 
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @wmem_array_try_index(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @wmem_array_try_index(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp ult i32 %1, %5
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @wmem_array_try_index(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @wmem_array_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define void @wmem_array_sort(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -323,10 +323,10 @@ define void @wmem_array_sort(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @wmem_array_get_raw(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define ptr @wmem_array_get_raw(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3

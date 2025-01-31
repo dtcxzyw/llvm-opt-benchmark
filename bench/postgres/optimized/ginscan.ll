@@ -51,7 +51,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @initGinState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginFreeScanKeys(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9664
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -145,7 +145,7 @@ declare void @tbm_free(ptr noundef) local_unnamed_addr #1
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -489,7 +489,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i64 @FunctionCall7Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -695,7 +695,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginrescan(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @ginrescan(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   tail call void @ginFreeScanKeys(ptr noundef %7)
@@ -721,10 +721,10 @@ define dso_local void @ginrescan(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginendscan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ginendscan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @ginFreeScanKeys(ptr noundef %3)

@@ -400,7 +400,7 @@ _ZN7irr_ptrIN3irr3gui11IGUIElementEvED2Ev.exit:   ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -575,7 +575,7 @@ _ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -589,7 +589,7 @@ declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcS
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -777,7 +777,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN12GUIModalMenuD1Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN12GUIModalMenuD1Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
@@ -787,28 +787,28 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZTv0_n24_N12GUIModalMenuD1Ev(ptr nocapture readonly %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZTv0_n24_N12GUIModalMenuD1Ev(ptr readonly captures(none) %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN12GUIModalMenuD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN12GUIModalMenuD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZTv0_n24_N12GUIModalMenuD0Ev(ptr nocapture readonly %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZTv0_n24_N12GUIModalMenuD0Ev(ptr readonly captures(none) %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12GUIModalMenu17allowFocusRemovalEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((353, 354)) %this, i1 noundef zeroext %allow) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN12GUIModalMenu17allowFocusRemovalEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(384) initializes((353, 354)) %this, i1 noundef zeroext %allow) local_unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %allow to i8
   %m_allow_focus_removal = getelementptr inbounds nuw i8, ptr %this, i64 353
@@ -948,7 +948,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN14TouchScreenGUI4showEv(ptr noundef nonnull align 8 dereferenceable(1120)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12GUIModalMenu16remapDoubleClickERKN3irr6SEventE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %event) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN12GUIModalMenu16remapDoubleClickERKN3irr6SEventE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %event) local_unnamed_addr #3 align 2 {
 entry:
   %translated = alloca %"struct.irr::SEvent", align 8
   %m_remap_dbl_click = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -1020,7 +1020,7 @@ return:                                           ; preds = %cleanup, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb(ptr noundef nonnull align 8 dereferenceable(384) %this, i32 noundef %touch_event, i1 noundef zeroext %second_try) local_unnamed_addr #3 align 2 {
@@ -1188,7 +1188,7 @@ cleanup35:                                        ; preds = %do.end.i, %do.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIModalMenu5enterEPN3irr3gui11IGUIElementE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %hovered) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIModalMenu5enterEPN3irr3gui11IGUIElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this, ptr noundef %hovered) local_unnamed_addr #3 align 2 {
 entry:
   %gui_event = alloca %"struct.irr::SEvent", align 8
   %tobool.not = icmp eq ptr %hovered, null
@@ -1236,7 +1236,7 @@ return:                                           ; preds = %_ZN7irr_ptrIN3irr3g
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIModalMenu5leaveEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIModalMenu5leaveEv(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %this) local_unnamed_addr #3 align 2 {
 entry:
   %gui_event = alloca %"struct.irr::SEvent", align 8
   %m_touch_hovered = getelementptr inbounds nuw i8, ptr %this, i64 360
@@ -3468,7 +3468,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #0
 
@@ -3476,7 +3476,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 

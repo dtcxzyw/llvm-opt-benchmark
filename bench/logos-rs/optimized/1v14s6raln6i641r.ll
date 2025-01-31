@@ -103,7 +103,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17h59cecaa781dfbae2E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17h59cecaa781dfbae2E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -376,7 +376,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17h6afa01e7d96e846aE"(ptr nocapture readonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17h6afa01e7d96e846aE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -416,7 +416,7 @@ define hidden void @"_ZN13logos_codegen8generate28_$u7b$$u7b$closure$u7d$$u7d$17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN13logos_codegen20strip_attrs_from_vec28_$u7b$$u7b$closure$u7d$$u7d$17h388abbccd4e8edc3E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden zeroext i1 @"_ZN13logos_codegen20strip_attrs_from_vec28_$u7b$$u7b$closure$u7d$$u7d$17h388abbccd4e8edc3E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN13logos_codegen13is_logos_attr17hfb1f99ed0e854f5eE(ptr align 8 %1)
   %4 = xor i1 %3, true
   ret i1 %4
@@ -432,7 +432,7 @@ declare hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr sr
 declare hidden void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hfc021a92a961e390E"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr sret([88 x i8]) align 8, ptr align 8, ptr align 8) unnamed_addr #1

@@ -386,7 +386,7 @@ derive_mpi.exit.thread:                           ; preds = %42, %31, %65, %61, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8, ptr nocapture readnone %9) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8, ptr readnone captures(none) %9) local_unnamed_addr #1 {
   %11 = alloca [139 x i8], align 16
   %12 = alloca ptr, align 8
   %13 = alloca %struct.mbedtls_mpi, align 8
@@ -465,7 +465,7 @@ declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #2
 declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecdsa_write_signature(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_ecdsa_write_signature(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = tail call i32 @mbedtls_ecdsa_write_signature_restartable(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr poison)
   ret i32 %10
 }
@@ -477,7 +477,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture readnone %5) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.mbedtls_mpi, align 8
@@ -704,7 +704,7 @@ declare i32 @mbedtls_ecp_muladd_restartable(ptr noundef, ptr noundef, ptr nounde
 declare i32 @mbedtls_ecp_is_zero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @mbedtls_asn1_write_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -713,16 +713,16 @@ declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

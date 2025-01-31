@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [26 x i8] c"The LUT size is too small\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CreateDecomposedNetwork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CreateDecomposedNetwork(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -454,7 +454,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %247 = load ptr, ptr %242, align 8
   %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv378
   %249 = load ptr, ptr %248, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %249) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %249) #10
   %250 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv378
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %242, align 8
@@ -571,7 +571,7 @@ Abc_Clock.exit296:                                ; preds = %.critedge288, %293
   %fputc = call i32 @fputc(i32 10, ptr %298)
   %305 = call i64 @fwrite(ptr nonnull @.str.11, i64 10, i64 1, ptr %298)
   %fputc279 = call i32 @fputc(i32 10, ptr %298)
-  call void @WriteLUTSintoBLIFfile(ptr noundef %298, ptr noundef %0, ptr noundef nonnull @CreateDecomposedNetwork.pLuts, i32 noundef %55, ptr noundef nonnull %16, ptr noundef %2, i32 poison, ptr poison)
+  call void @WriteLUTSintoBLIFfile(ptr noundef %298, ptr noundef nonnull %0, ptr noundef nonnull @CreateDecomposedNetwork.pLuts, i32 noundef %55, ptr noundef nonnull %16, ptr noundef %2, i32 poison, ptr poison)
   %306 = call i64 @fwrite(ptr nonnull @.str.12, i64 5, i64 1, ptr %298)
   %307 = call i32 @fclose(ptr noundef %298)
   br i1 %.not286, label %.preheader413, label %308
@@ -624,15 +624,15 @@ Abc_Clock.exit298:                                ; preds = %308, %311
   %333 = load ptr, ptr %329, align 8
   %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %indvars.iv394
   %335 = load ptr, ptr %334, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %335) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %335) #10
   %336 = load ptr, ptr %330, align 8
   %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv394
   %338 = load ptr, ptr %337, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %338) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %338) #10
   %339 = load ptr, ptr %331, align 8
   %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv394
   %341 = load ptr, ptr %340, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %341) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %341) #10
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %342 = load i32, ptr %326, align 8
   %343 = sext i32 %342 to i64
@@ -642,7 +642,7 @@ Abc_Clock.exit298:                                ; preds = %308, %311
 ._crit_edge348:                                   ; preds = %332, %323
   %345 = getelementptr inbounds nuw i8, ptr %325, i64 48
   %346 = load ptr, ptr %345, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %346) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %346) #10
   %347 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %348 = load ptr, ptr %347, align 8
   %.not281 = icmp eq ptr %348, null
@@ -691,7 +691,7 @@ declare i32 @Extra_ProfileWidth(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @Cudd_bddNewVar(ptr noundef) local_unnamed_addr #1
 
@@ -714,16 +714,16 @@ declare ptr @Cudd_bddAndAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @Extra_bddPermuteArray(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 %6, ptr nocapture readnone %7) local_unnamed_addr #0 {
+define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 %6, ptr readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %3, 0
   br i1 %9, label %.lr.ph107, label %._crit_edge108
 
@@ -943,10 +943,10 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
@@ -960,22 +960,22 @@ declare void @WriteDDintoBLIFfile(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9

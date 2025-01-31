@@ -1177,7 +1177,7 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @capinfos_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define internal void @capinfos_cmdarg_err(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 10, i64 1, ptr %3) #19
   %5 = load ptr, ptr @stderr, align 8
@@ -1188,7 +1188,7 @@ define internal void @capinfos_cmdarg_err(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @capinfos_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
+define internal void @capinfos_cmdarg_err_cont(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #17
   %5 = load ptr, ptr @stderr, align 8
@@ -1214,7 +1214,7 @@ declare void @init_process_policies() local_unnamed_addr #1
 declare ptr @configuration_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
@@ -1227,7 +1227,7 @@ declare i32 @ws_getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @print_usage(ptr noundef captures(none) %0) unnamed_addr #5 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %2 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 39, i64 1, ptr %0)
   %fputc65 = tail call i32 @fputc(i32 10, ptr %0)
@@ -2631,7 +2631,7 @@ print_stats_table_header_label.exit116.i:         ; preds = %628, %putquote.exit
   %.0123.i = phi ptr [ %.0.i, %print_stats_table_header_label.exit120.i ], [ %.0121.i, %632 ]
   %634 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %633) #22
   %635 = load i32, ptr %.0123.i, align 8
-  %636 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %633, i64 noundef %634, ptr noundef nonnull @.str.93, i32 noundef %635) #16
+  %636 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %633, i64 noundef %634, ptr noundef nonnull @.str.93, i32 noundef %635) #16
   %637 = load i8, ptr @field_separator, align 1
   %638 = zext nneg i8 %637 to i32
   %639 = call i32 @putchar(i32 noundef %638)
@@ -2645,7 +2645,7 @@ print_stats_table_header_label.exit116.i:         ; preds = %628, %putquote.exit
   br label %putquote.exit.i118.i
 
 putquote.exit.i118.i:                             ; preds = %641, %.lr.ph.i132
-  %644 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef %633)
+  %644 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef nonnull %633)
   %645 = load i8, ptr @quote_char, align 1
   %.not.i1.i119.i = icmp eq i8 %645, 0
   br i1 %.not.i1.i119.i, label %print_stats_table_header_label.exit120.i, label %646
@@ -2822,7 +2822,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
   %724 = zext i32 %720 to i64
   %725 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %724, i32 noundef 0, i16 noundef zeroext 0) #16
   %puts161.i = call i32 @puts(ptr nonnull dereferenceable(1) %725)
-  call void @g_free(ptr noundef %725) #16
+  call void @g_free(ptr noundef nonnull %725) #16
   br label %726
 
 726:                                              ; preds = %723, %721, %717
@@ -2842,7 +2842,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
 732:                                              ; preds = %727
   %733 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %729, i32 noundef 1, i16 noundef zeroext 0) #16
   %puts162.i = call i32 @puts(ptr nonnull dereferenceable(1) %733)
-  call void @g_free(ptr noundef %733) #16
+  call void @g_free(ptr noundef nonnull %733) #16
   br label %734
 
 734:                                              ; preds = %732, %730, %726
@@ -2862,7 +2862,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
 740:                                              ; preds = %735
   %741 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %737, i32 noundef 1, i16 noundef zeroext 0) #16
   %puts163.i = call i32 @puts(ptr nonnull dereferenceable(1) %741)
-  call void @g_free(ptr noundef %741) #16
+  call void @g_free(ptr noundef nonnull %741) #16
   br label %742
 
 742:                                              ; preds = %740, %738, %734
@@ -3027,7 +3027,7 @@ absolute_time_string.exit179.i:                   ; preds = %796, %794, %793
   %809 = fptosi double %801 to i64
   %810 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %809, i32 noundef 4, i16 noundef zeroext 0) #16
   %puts165.i = call i32 @puts(ptr nonnull dereferenceable(1) %810)
-  call void @g_free(ptr noundef %810) #16
+  call void @g_free(ptr noundef nonnull %810) #16
   br label %print_value.exit.i
 
 print_value.exit.i:                               ; preds = %808, %806, %804, %798
@@ -3057,7 +3057,7 @@ print_value.exit.i:                               ; preds = %808, %806, %804, %7
   %822 = fptosi double %814 to i64
   %823 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %822, i32 noundef 3, i16 noundef zeroext 0) #16
   %puts166.i = call i32 @puts(ptr nonnull dereferenceable(1) %823)
-  call void @g_free(ptr noundef %823) #16
+  call void @g_free(ptr noundef nonnull %823) #16
   br label %print_value.exit180.i
 
 print_value.exit180.i:                            ; preds = %821, %819, %817, %print_value.exit.i, %742
@@ -3098,7 +3098,7 @@ print_value.exit180.i:                            ; preds = %821, %819, %817, %p
   %840 = fptosi double %832 to i64
   %841 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %840, i32 noundef 6, i16 noundef zeroext 0) #16
   %puts168.i = call i32 @puts(ptr nonnull dereferenceable(1) %841)
-  call void @g_free(ptr noundef %841) #16
+  call void @g_free(ptr noundef nonnull %841) #16
   br label %print_value.exit181.i
 
 print_value.exit181.i:                            ; preds = %839, %837, %835, %827
@@ -4539,12 +4539,12 @@ declare void @wtap_cleanup() local_unnamed_addr #1
 declare void @free_progdirs() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @wtap_open_offline(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #1
 
@@ -4562,7 +4562,7 @@ declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @wtap_set_cb_new_ipv4(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @count_ipv4_address(i32 %0, ptr nocapture readnone %1, i32 %2) #8 {
+define internal void @count_ipv4_address(i32 %0, ptr readnone captures(none) %1, i32 %2) #8 {
   %4 = load i32, ptr @num_ipv4_addresses, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr @num_ipv4_addresses, align 4
@@ -4572,7 +4572,7 @@ define internal void @count_ipv4_address(i32 %0, ptr nocapture readnone %1, i32 
 declare void @wtap_set_cb_new_ipv6(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @count_ipv6_address(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #8 {
+define internal void @count_ipv6_address(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #8 {
   %4 = load i32, ptr @num_ipv6_addresses, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr @num_ipv6_addresses, align 4
@@ -4582,7 +4582,7 @@ define internal void @count_ipv6_address(ptr nocapture readnone %0, ptr nocaptur
 declare void @wtap_set_cb_new_secrets(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @count_decryption_secret(i32 %0, ptr nocapture readnone %1, i32 %2) #8 {
+define internal void @count_decryption_secret(i32 %0, ptr readnone captures(none) %1, i32 %2) #8 {
   %4 = load i32, ptr @num_decryption_secrets, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr @num_decryption_secrets, align 4
@@ -4596,7 +4596,7 @@ declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @wtap_read(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4638,10 +4638,10 @@ declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @gcry_md_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4650,12 +4650,12 @@ declare i32 @gcry_md_ctl(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare ptr @gcry_md_read(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @gcry_md_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4663,7 +4663,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4
@@ -4697,19 +4697,19 @@ declare void @display_epoch_time(ptr noundef, i64 noundef, ptr noundef, i32 noun
 declare void @format_nstime_as_iso8601(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
@@ -4718,7 +4718,7 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

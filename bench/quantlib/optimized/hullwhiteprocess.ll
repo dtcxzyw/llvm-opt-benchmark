@@ -196,7 +196,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib24OrnsteinUhlenbeckProcessEEE =
 @_ZN8QuantLib23HullWhiteForwardProcessC1ERKNS_6HandleINS_18YieldTermStructureEEEdd = unnamed_addr alias void (ptr, ptr, double, double), ptr @_ZN8QuantLib23HullWhiteForwardProcessC2ERKNS_6HandleINS_18YieldTermStructureEEEdd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -281,7 +281,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1313,7 +1313,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess2x0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess2x0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -1495,7 +1495,7 @@ declare double @exp(double noundef) local_unnamed_addr #12
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess9diffusionEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, double noundef %t, double noundef %x) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess9diffusionEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, double noundef %t, double noundef %x) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -1638,7 +1638,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess12stdDeviationEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess12stdDeviationEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -1660,7 +1660,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess8varianceEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess8varianceEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -1682,7 +1682,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess1aEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess1aEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #14 align 2 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load double, ptr %a_, align 8, !tbaa !51
@@ -1690,7 +1690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib16HullWhiteProcess5sigmaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib16HullWhiteProcess5sigmaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #14 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load double, ptr %sigma_, align 8, !tbaa !65
@@ -1897,7 +1897,7 @@ ehcleanup14:                                      ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess2x0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess2x0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -2099,7 +2099,7 @@ _ZNK8QuantLib23HullWhiteForwardProcess1BEdd.exit: ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess1BEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, double noundef %t, double noundef %T) local_unnamed_addr #15 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess1BEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, double noundef %t, double noundef %T) local_unnamed_addr #15 align 2 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load double, ptr %a_, align 8, !tbaa !74
@@ -2126,7 +2126,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess9diffusionEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, double noundef %t, double noundef %x) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess9diffusionEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, double noundef %t, double noundef %x) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -2311,7 +2311,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess3M_TEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, double noundef %s, double noundef %t, double noundef %T) local_unnamed_addr #15 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess3M_TEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, double noundef %s, double noundef %t, double noundef %T) local_unnamed_addr #15 align 2 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load double, ptr %a_, align 8, !tbaa !74
@@ -2359,7 +2359,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess12stdDeviationEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess12stdDeviationEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -2381,7 +2381,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess8varianceEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess8varianceEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #6 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %process_, align 8, !tbaa !40
@@ -2403,7 +2403,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess1aEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess1aEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #14 align 2 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load double, ptr %a_, align 8, !tbaa !74
@@ -2411,7 +2411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess5sigmaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib23HullWhiteForwardProcess5sigmaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #14 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load double, ptr %sigma_, align 8, !tbaa !77
@@ -3183,7 +3183,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #19
@@ -3467,7 +3467,7 @@ declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 
@@ -3541,7 +3541,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

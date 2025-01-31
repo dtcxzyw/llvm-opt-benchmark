@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5C__trace_write_remove_entry_log_msg = private unnamed_addr constant [38 x i8] c"H5C__trace_write_remove_entry_log_msg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__log_trace_set_up(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__log_trace_set_up(ptr noundef writeonly captures(none) initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @H5C_trace_log_class_g, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #7
@@ -100,11 +100,11 @@ define range(i32 -1, 1) i32 @H5C__log_trace_set_up(ptr nocapture noundef writeon
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %1) #8
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #8
   br label %31
 
 29:                                               ; preds = %25
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %2) #8
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, i32 noundef %2) #8
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -161,24 +161,24 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @setbuf(ptr nocapture noundef, ptr noundef) local_unnamed_addr #4
+declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr nocapture noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -208,7 +208,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_expunge_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_expunge_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.10, i64 noundef %1, i32 noundef %2, i32 noundef %3) #8
@@ -216,7 +216,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_expunge_entry_log_msg(ptr
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #9
   %10 = trunc i64 %9 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef %8) #8
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #8
   %.not.i = icmp eq i32 %12, %10
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %14
 
@@ -240,7 +240,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_flush_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_flush_cache_log_msg(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.13, i32 noundef %1) #8
@@ -248,7 +248,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_flush_cache_log_msg(ptr n
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #9
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %6) #8
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #8
   %.not.i = icmp eq i32 %10, %8
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %12
 
@@ -272,7 +272,7 @@ H5C__trace_write_log_message.exit:                ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_insert_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_insert_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = trunc i64 %4 to i32
@@ -281,7 +281,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_insert_entry_log_msg(ptr 
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = trunc i64 %12 to i32
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, ptr noundef %11) #8
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #8
   %.not.i = icmp eq i32 %15, %13
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %17
 
@@ -305,7 +305,7 @@ H5C__trace_write_log_message.exit:                ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_dirty_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_dirty_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -315,7 +315,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_dirty_log_msg(
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -339,7 +339,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_clean_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_clean_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -349,7 +349,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_clean_log_msg(
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -373,7 +373,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_unserialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_unserialized_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -383,7 +383,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_unserialized_entry_l
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -407,7 +407,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_serialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_serialized_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -417,7 +417,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_serialized_entry_log
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -441,7 +441,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_move_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_move_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.19, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #8
@@ -449,7 +449,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_move_entry_log_msg(ptr no
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -473,7 +473,7 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_pin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_pin_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -483,7 +483,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_pin_entry_log_msg(ptr noc
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -507,7 +507,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_create_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_create_fd_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -519,7 +519,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_create_fd_log_msg(ptr noc
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #9
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef %12) #8
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #8
   %.not.i = icmp eq i32 %16, %14
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %18
 
@@ -543,7 +543,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_protect_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_protect_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -556,7 +556,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_protect_entry_log_msg(ptr
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %0, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %14) #8
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #8
   %.not.i = icmp eq i32 %18, %16
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %20
 
@@ -580,7 +580,7 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_resize_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_resize_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -591,7 +591,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_resize_entry_log_msg(ptr 
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = trunc i64 %12 to i32
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, ptr noundef %11) #8
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %11) #8
   %.not.i = icmp eq i32 %15, %13
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %17
 
@@ -615,7 +615,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_unpin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_unpin_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -625,7 +625,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_unpin_entry_log_msg(ptr n
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -649,7 +649,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_destroy_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_destroy_fd_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -661,7 +661,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_destroy_fd_log_msg(ptr no
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #9
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef %12) #8
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %12) #8
   %.not.i = icmp eq i32 %16, %14
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %18
 
@@ -685,7 +685,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_unprotect_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_unprotect_entry_log_msg(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #8
@@ -693,7 +693,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_unprotect_entry_log_msg(p
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -717,7 +717,7 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_set_cache_config_log_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_set_cache_config_log_msg(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %1, align 8
@@ -804,7 +804,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_set_cache_config_log_msg(
   %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #9
   %88 = trunc i64 %87 to i32
   %89 = load ptr, ptr %0, align 8
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.3, ptr noundef %86) #8
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.3, ptr noundef nonnull %86) #8
   %.not.i = icmp eq i32 %90, %88
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %92
 
@@ -828,7 +828,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5C__trace_write_remove_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5C__trace_write_remove_entry_log_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -838,7 +838,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_write_remove_entry_log_msg(ptr 
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef %9) #8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #8
   %.not.i = icmp eq i32 %13, %11
   br i1 %.not.i, label %H5C__trace_write_log_message.exit, label %15
 
@@ -862,13 +862,13 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

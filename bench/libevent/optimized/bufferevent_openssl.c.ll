@@ -319,14 +319,14 @@ define internal i32 @bio_bufferevent_puts(ptr noundef %b, ptr noundef %s) #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #5
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @bio_bufferevent_write(ptr noundef %b, ptr noundef %s, i32 noundef %conv)
+  %call1 = tail call i32 @bio_bufferevent_write(ptr noundef %b, ptr noundef nonnull %s, i32 noundef %conv)
   ret i32 %call1
 }
 
 declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @bio_bufferevent_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @bio_bufferevent_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr readnone captures(none) %ptr) #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %b) #4
   switch i32 %cmd, label %sw.default [
@@ -434,7 +434,7 @@ declare ptr @bufferevent_get_input(ptr noundef) local_unnamed_addr #1
 declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @BIO_get_shutdown(ptr noundef) local_unnamed_addr #1
 
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_openssl_get_fd(ptr nocapture noundef readonly %bev_ssl) #0 {
+define internal i32 @be_openssl_get_fd(ptr noundef readonly captures(none) %bev_ssl) #0 {
 entry:
   %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8
@@ -548,7 +548,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @be_openssl_bio_set_fd(ptr nocapture noundef readonly %bev_ssl, i32 noundef %fd) #0 {
+define internal range(i32 -1, 1) i32 @be_openssl_bio_set_fd(ptr noundef readonly captures(none) %bev_ssl, i32 noundef %fd) #0 {
 entry:
   %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @init_bio_counts(ptr nocapture noundef initializes((552, 568)) %bev_ssl) #0 {
+define internal void @init_bio_counts(ptr noundef captures(none) initializes((552, 568)) %bev_ssl) #0 {
 entry:
   %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8

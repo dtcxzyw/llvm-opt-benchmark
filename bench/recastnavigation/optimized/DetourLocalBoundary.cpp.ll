@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15dtLocalBoundaryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtLocalBoundaryD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtLocalBoundaryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) unnamed_addr #0 align 2 {
+define void @_ZN15dtLocalBoundaryC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -23,12 +23,12 @@ define void @_ZN15dtLocalBoundaryC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN15dtLocalBoundaryD2Ev(ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZN15dtLocalBoundaryD2Ev(ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtLocalBoundary5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15dtLocalBoundary5resetEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) local_unnamed_addr #0 align 2 {
   store float 0x47EFFFFFE0000000, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
@@ -42,7 +42,7 @@ define void @_ZN15dtLocalBoundary5resetEv(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull align 4 dereferenceable(308) %0, float noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 captures(none) dereferenceable(308) %0, float noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -144,10 +144,10 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 4 dereferenceable(308) initializes((0, 12)) %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
@@ -330,7 +330,7 @@ declare noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilte
 declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQueryFilter(ptr nocapture noundef nonnull readonly align 4 dereferenceable(308) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(308) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0

@@ -30,16 +30,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xxh64_digest
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_xxh32305, ptr @__UNIQUE_ID___addressable_xxh32_copy_state303, ptr @__UNIQUE_ID___addressable_xxh32_digest310, ptr @__UNIQUE_ID___addressable_xxh32_reset307, ptr @__UNIQUE_ID___addressable_xxh32_update309, ptr @__UNIQUE_ID___addressable_xxh64306, ptr @__UNIQUE_ID___addressable_xxh64_copy_state304, ptr @__UNIQUE_ID___addressable_xxh64_digest312, ptr @__UNIQUE_ID___addressable_xxh64_reset308, ptr @__UNIQUE_ID___addressable_xxh64_update311, ptr @__UNIQUE_ID_description315, ptr @__UNIQUE_ID_file313, ptr @__UNIQUE_ID_license314], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xxh32_copy_state(ptr nocapture noundef writeonly initializes((0, 44)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @xxh32_copy_state(ptr noundef writeonly captures(none) initializes((0, 44)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(44) %0, ptr noundef align 4 dereferenceable(44) %1, i64 44, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xxh64_copy_state(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @xxh64_copy_state(ptr noundef writeonly captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %0, ptr noundef align 8 dereferenceable(80) %1, i64 80, i1 false)
   ret void
 }
@@ -316,7 +316,7 @@ define dso_local i64 @xxh64(ptr noundef readonly %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xxh32_reset(ptr nocapture noundef writeonly initializes((0, 44)) %0, i32 noundef %1) #3 align 16 {
+define dso_local void @xxh32_reset(ptr noundef writeonly captures(none) initializes((0, 44)) %0, i32 noundef %1) #3 align 16 {
   %3 = add i32 %1, 606290984
   %4 = add i32 %1, -2048144777
   %5 = add i32 %1, 1640531535
@@ -335,10 +335,10 @@ define dso_local void @xxh32_reset(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xxh64_reset(ptr nocapture noundef writeonly initializes((0, 80)) %0, i64 noundef %1) #3 align 16 {
+define dso_local void @xxh64_reset(ptr noundef writeonly captures(none) initializes((0, 80)) %0, i64 noundef %1) #3 align 16 {
   %3 = add i64 %1, 6983438078262162902
   %4 = add i64 %1, -4417276706812531889
   %5 = add i64 %1, 7046029288634856825
@@ -357,7 +357,7 @@ define dso_local void @xxh64_reset(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = icmp eq ptr %1, null
   br i1 %5, label %125, label %6
@@ -613,7 +613,7 @@ define dso_local i32 @xxh32_digest(ptr noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = icmp eq ptr %1, null
   br i1 %5, label %119, label %6

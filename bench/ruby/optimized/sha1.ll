@@ -12,7 +12,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rb_Digest_SHA1_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @rb_Digest_SHA1_Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %.sroa.0.0.copyload = load i32, ptr %1, align 1
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.42.0.copyload = load i32, ptr %.sroa.42.0..sroa_idx, align 1
@@ -1039,10 +1039,10 @@ define void @rb_Digest_SHA1_Transform(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @rb_Digest_SHA1_Init(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #3 {
+define noundef i32 @rb_Digest_SHA1_Init(ptr noundef writeonly captures(none) initializes((0, 28)) %0) local_unnamed_addr #3 {
   store i32 1732584193, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
@@ -1060,7 +1060,7 @@ define noundef i32 @rb_Digest_SHA1_Init(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @rb_Digest_SHA1_Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %.tr = trunc i64 %2 to i32
@@ -1104,7 +1104,7 @@ define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture nound
   %.02627 = phi i32 [ %32, %.lr.ph ], [ %25, %22 ]
   %30 = zext i32 %.02627 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  tail call void @rb_Digest_SHA1_Transform(ptr noundef %0, ptr noundef %31)
+  tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
   %32 = add i32 %.02627, 64
   %33 = add i32 %.02627, 127
   %34 = zext i32 %33 to i64
@@ -1127,7 +1127,7 @@ define void @rb_Digest_SHA1_Update(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA1_Finish(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %5

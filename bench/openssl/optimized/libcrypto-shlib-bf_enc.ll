@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @BF_encrypt(ptr nocapture noundef %data, ptr noundef readonly %key) local_unnamed_addr #0 {
+define void @BF_encrypt(ptr noundef captures(none) %data, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %S = getelementptr inbounds nuw i8, ptr %key, i64 72
   %0 = load i32, ptr %data, align 4
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @BF_decrypt(ptr nocapture noundef %data, ptr noundef readonly %key) local_unnamed_addr #0 {
+define void @BF_decrypt(ptr noundef captures(none) %data, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %S = getelementptr inbounds nuw i8, ptr %key, i64 72
   %0 = load i32, ptr %data, align 4
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @BF_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %schedule, ptr nocapture noundef %ivec, i32 noundef %encrypt) local_unnamed_addr #1 {
+define void @BF_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef %schedule, ptr noundef captures(none) %ivec, i32 noundef %encrypt) local_unnamed_addr #1 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %encrypt, 0

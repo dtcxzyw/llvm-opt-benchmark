@@ -87,10 +87,10 @@ define dso_local i32 @iommu_device_sysfs_add(ptr noundef initializes((32, 40)) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #4
@@ -105,10 +105,10 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #4
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iommu_device_sysfs_remove(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @iommu_device_sysfs_remove(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -123,7 +123,7 @@ define dso_local void @iommu_device_sysfs_remove(ptr nocapture noundef %0) #1 al
 declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iommu_device_link(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @iommu_device_link(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -177,7 +177,7 @@ declare dso_local i32 @sysfs_create_link_nowarn(ptr noundef, ptr noundef, ptr no
 declare dso_local void @sysfs_remove_link_from_group(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iommu_device_unlink(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @iommu_device_unlink(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @sysfs_remove_link(ptr noundef %1, ptr noundef nonnull @.str.1) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8

@@ -355,7 +355,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_table(ptr nocapture noundef readonly %tbl, i32 noundef %idx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_table(ptr noundef readonly captures(none) %tbl, i32 noundef %idx) unnamed_addr #0 {
 entry:
   %atime = alloca %struct.asn1_string_st, align 8
   %day = alloca i32, align 4
@@ -874,7 +874,7 @@ return:                                           ; preds = %if.end, %if.end252
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

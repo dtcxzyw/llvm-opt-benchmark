@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [39 x i8] c"unable to encode object header message\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5SM__message_compare(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5SM__message_compare(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5SM_compare_udata_t, align 8
   %5 = alloca %struct.H5O_loc_t, align 8
   %6 = alloca %struct.H5O_mesg_operator_t, align 8
@@ -177,7 +177,7 @@ define range(i32 -1, 1) i32 @H5SM__message_compare(ptr noundef %0, ptr noundef %
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5SM__compare_cb(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef initializes((12, 16)) %2) #2 {
+define internal noundef i32 @H5SM__compare_cb(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) initializes((12, 16)) %2) #2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
@@ -206,7 +206,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %2, %7
@@ -284,7 +284,7 @@ define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr 
 declare i32 @H5O_msg_iterate(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5SM__message_encode(ptr noundef initializes((0, 9)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @H5SM__message_encode(ptr noundef initializes((0, 9)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %1, align 8
   %6 = trunc i32 %5 to i8
@@ -372,7 +372,7 @@ define noundef i32 @H5SM__message_encode(ptr noundef initializes((0, 9)) %0, ptr
 declare void @H5F_addr_encode_len(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5SM__message_decode(ptr noundef %0, ptr noundef initializes((0, 8), (16, 20)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @H5SM__message_decode(ptr noundef %0, ptr noundef initializes((0, 8), (16, 20)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %0, align 1
@@ -465,7 +465,7 @@ define noundef i32 @H5SM__message_decode(ptr noundef %0, ptr noundef initializes
 declare void @H5F_addr_decode_len(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @H5O_msg_flush(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

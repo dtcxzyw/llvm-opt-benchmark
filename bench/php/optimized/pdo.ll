@@ -79,7 +79,7 @@ define ptr @php_pdo_get_exception() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_pdo_drivers(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
+define hidden void @zif_pdo_drivers(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -279,7 +279,7 @@ define hidden noundef i32 @zm_shutdown_pdo(i32 %0, i32 %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
+define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = tail call noalias ptr @_estrdup(ptr noundef nonnull @.str.7) #13
@@ -374,7 +374,7 @@ define range(i32 -1, 1) i32 @php_pdo_register_driver(ptr noundef %0) local_unnam
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @php_pdo_unregister_driver(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @php_pdo_unregister_driver(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef nonnull @.str.4, i64 noundef 3) #13
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
@@ -396,7 +396,7 @@ define void @php_pdo_unregister_driver(ptr nocapture noundef readonly %0) local_
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_pdo_register_driver_specific_ce(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @php_pdo_register_driver_specific_ce(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull @module_registry, ptr noundef nonnull @.str.4, i64 noundef 3) #13
   %.not = icmp eq ptr %4, null
@@ -436,7 +436,7 @@ define hidden noundef ptr @pdo_find_driver(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph215
 
@@ -668,7 +668,7 @@ define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
@@ -711,26 +711,26 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

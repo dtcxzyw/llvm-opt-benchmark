@@ -73,7 +73,7 @@ $_ZTIN8QuantLib16ExerciseStrategyINS_10CurveStateEEE = comdat any
 @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC1ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 80)) %this, ptr nocapture noundef %basisSystem, ptr nocapture noundef %basisCoefficients, ptr noundef nonnull align 8 dereferenceable(128) %evolution, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, ptr nocapture noundef %exercise, ptr nocapture noundef %control) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 80)) %this, ptr noundef captures(none) %basisSystem, ptr noundef captures(none) %basisCoefficients, ptr noundef nonnull align 8 dereferenceable(128) %evolution, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, ptr noundef captures(none) %exercise, ptr noundef captures(none) %control) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::valarray", align 8
   %ref.tmp28 = alloca %"class.std::valarray", align 8
@@ -1485,12 +1485,12 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN8QuantLib10isInSubsetERKSt6vectorIdSaIdEES4_(ptr dead_on_unwind writable sret(%"class.std::valarray") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription9rateTimesEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
@@ -1546,7 +1546,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13exerciseTimesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.16") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -1591,7 +1591,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13relevantTimesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.16") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relevantTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -1636,7 +1636,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((80, 104)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(312) initializes((80, 104)) %this) unnamed_addr #0 align 2 {
 entry:
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %exercise_, align 8, !tbaa !10
@@ -1666,7 +1666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy8exerciseERKNS_10CurveStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy8exerciseERKNS_10CurveStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
 entry:
   %exerciseIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1762,7 +1762,7 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPd
 declare noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((88, 96)) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy8nextStepERKNS_10CurveStateE(ptr noundef nonnull align 8 captures(none) dereferenceable(312) initializes((88, 96)) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
 entry:
   %newPrincipal_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load double, ptr %newPrincipal_, align 8, !tbaa !84
@@ -1862,7 +1862,7 @@ if.end32:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.32") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.32") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #18
   invoke void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(312) %call, ptr noundef nonnull align 8 dereferenceable(312) %this)
@@ -2950,7 +2950,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
@@ -3097,10 +3097,10 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6

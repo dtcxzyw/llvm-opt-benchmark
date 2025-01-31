@@ -129,7 +129,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_irq_domain_f
 @llvm.compiler.used = appending global [38 x ptr] [ptr @__UNIQUE_ID___addressable___irq_domain_add326, ptr @__UNIQUE_ID___addressable___irq_domain_alloc_fwnode320, ptr @__UNIQUE_ID___addressable___irq_domain_alloc_irqs404, ptr @__UNIQUE_ID___addressable___irq_resolve_mapping378, ptr @__UNIQUE_ID___addressable_irq_create_fwspec_mapping371, ptr @__UNIQUE_ID___addressable_irq_create_mapping_affinity365, ptr @__UNIQUE_ID___addressable_irq_create_of_mapping372, ptr @__UNIQUE_ID___addressable_irq_dispose_mapping375, ptr @__UNIQUE_ID___addressable_irq_domain_add_legacy332, ptr @__UNIQUE_ID___addressable_irq_domain_alloc_irqs_parent426, ptr @__UNIQUE_ID___addressable_irq_domain_associate359, ptr @__UNIQUE_ID___addressable_irq_domain_associate_many360, ptr @__UNIQUE_ID___addressable_irq_domain_create_hierarchy394, ptr @__UNIQUE_ID___addressable_irq_domain_create_legacy333, ptr @__UNIQUE_ID___addressable_irq_domain_create_simple331, ptr @__UNIQUE_ID___addressable_irq_domain_disconnect_hierarchy395, ptr @__UNIQUE_ID___addressable_irq_domain_free_fwnode323, ptr @__UNIQUE_ID___addressable_irq_domain_free_irqs_common399, ptr @__UNIQUE_ID___addressable_irq_domain_free_irqs_parent427, ptr @__UNIQUE_ID___addressable_irq_domain_get_irq_data396, ptr @__UNIQUE_ID___addressable_irq_domain_pop_irq421, ptr @__UNIQUE_ID___addressable_irq_domain_push_irq412, ptr @__UNIQUE_ID___addressable_irq_domain_remove329, ptr @__UNIQUE_ID___addressable_irq_domain_reset_irq_data393, ptr @__UNIQUE_ID___addressable_irq_domain_set_hwirq_and_chip397, ptr @__UNIQUE_ID___addressable_irq_domain_set_info398, ptr @__UNIQUE_ID___addressable_irq_domain_simple_ops386, ptr @__UNIQUE_ID___addressable_irq_domain_translate_onecell389, ptr @__UNIQUE_ID___addressable_irq_domain_translate_twocell392, ptr @__UNIQUE_ID___addressable_irq_domain_update_bus_token330, ptr @__UNIQUE_ID___addressable_irq_domain_xlate_onecell381, ptr @__UNIQUE_ID___addressable_irq_domain_xlate_onetwocell385, ptr @__UNIQUE_ID___addressable_irq_domain_xlate_twocell382, ptr @__UNIQUE_ID___addressable_irq_find_matching_fwspec334, ptr @__UNIQUE_ID___addressable_irq_get_default_host336, ptr @__UNIQUE_ID___addressable_irq_set_default_host335, ptr @__UNIQUE_ID___addressable_irqchip_fwnode_ops319, ptr @__UNIQUE_ID___addressable_of_phandle_args_to_fwspec366], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @irqchip_fwnode_get_name(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @irqchip_fwnode_get_name(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -193,7 +193,7 @@ define dso_local noundef ptr @__irq_domain_alloc_fwnode(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -202,7 +202,7 @@ declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_un
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @irq_domain_free_fwnode(ptr noundef %0) #1 align 16 {
@@ -514,7 +514,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @fwnode_handle_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_domain_update_bus_token(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local void @irq_domain_update_bus_token(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
@@ -1091,7 +1091,7 @@ define dso_local i32 @irq_create_mapping_affinity(ptr noundef %0, i64 noundef %1
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @of_phandle_args_to_fwspec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) #7 align 16 {
+define dso_local void @of_phandle_args_to_fwspec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 12)) %3) #7 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = select i1 %5, ptr null, ptr %6
@@ -1831,7 +1831,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_create_of_mapping(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local i32 @irq_create_of_mapping(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca %struct.irq_fwspec, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1871,7 +1871,7 @@ define dso_local i32 @irq_create_of_mapping(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @irq_dispose_mapping(i32 noundef %0) #1 align 16 {
@@ -2235,7 +2235,7 @@ define dso_local ptr @irq_domain_get_irq_data(ptr noundef readnone %0, i32 nound
 declare dso_local ptr @radix_tree_lookup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onecell(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onecell(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #1 align 16 {
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %8, label %9, !prof !16
 
@@ -2258,7 +2258,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onecell(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_twocell(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_twocell(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #1 align 16 {
   %7 = alloca %struct.irq_fwspec, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2311,7 +2311,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_twocell(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_translate_twocell(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_translate_twocell(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 2
@@ -2340,7 +2340,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_translate_twocell(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onetwocell(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onetwocell(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #1 align 16 {
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %8, label %9, !prof !16
 
@@ -2374,7 +2374,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_onetwocell(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @irq_domain_translate_onecell(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_domain_translate_onecell(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
@@ -2430,7 +2430,7 @@ define dso_local i32 @irq_domain_alloc_descs(i32 noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @irq_domain_reset_irq_data(ptr nocapture noundef writeonly initializes((8, 16), (24, 32), (48, 56)) %0) #9 align 16 {
+define dso_local void @irq_domain_reset_irq_data(ptr noundef writeonly captures(none) initializes((8, 16), (24, 32), (48, 56)) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2690,7 +2690,7 @@ define dso_local void @irq_domain_free_irqs_common(ptr noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_domain_free_irqs_parent(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local void @irq_domain_free_irqs_parent(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3054,7 +3054,7 @@ define dso_local i32 @irq_domain_push_irq(ptr noundef %0, i32 noundef %1, ptr no
 declare dso_local ptr @irq_to_desc(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %0, i32 noundef %1) #1 align 16 {
@@ -3220,7 +3220,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %
 91:                                               ; preds = %87
   %92 = load ptr, ptr %30, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 160
-  tail call void @radix_tree_replace_slot(ptr noundef nonnull %93, ptr noundef nonnull %89, ptr noundef %3) #16
+  tail call void @radix_tree_replace_slot(ptr noundef nonnull %93, ptr noundef nonnull %89, ptr noundef nonnull %3) #16
   br label %94
 
 94:                                               ; preds = %91, %87, %82
@@ -3239,7 +3239,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %
 declare dso_local void @irq_free_descs(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_domain_alloc_irqs_parent(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local i32 @irq_domain_alloc_irqs_parent(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

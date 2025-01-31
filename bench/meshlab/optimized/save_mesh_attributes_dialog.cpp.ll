@@ -184,7 +184,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -3625,7 +3625,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog17setMaskCapabilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog17setMaskCapabilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -5195,7 +5195,7 @@ declare void @_ZN11QMetaObject18connectSlotsByNameEP7QObject(ptr noundef) local_
 declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
@@ -5408,14 +5408,14 @@ define void @_ZThn16_N24SaveMeshAttributesDialogD0Ev(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog21selectAllPossibleBitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog21selectAllPossibleBitsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
   tail call void @_ZN24SaveMeshAttributesDialog20on_AllButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   tail call void @_ZN24SaveMeshAttributesDialog10updateMaskEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog20on_AllButton_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog20on_AllButton_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -5561,7 +5561,7 @@ define void @_ZN24SaveMeshAttributesDialog20on_AllButton_clickedEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog10updateMaskEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((72, 76)) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog10updateMaskEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((72, 76)) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5658,7 +5658,7 @@ define void @_ZN24SaveMeshAttributesDialog10updateMaskEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK24SaveMeshAttributesDialog10getNewMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK24SaveMeshAttributesDialog10getNewMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -5781,7 +5781,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK24SaveMeshAttributesDialog12saveTexturesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK24SaveMeshAttributesDialog12saveTexturesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 216
@@ -5793,7 +5793,7 @@ define noundef zeroext i1 @_ZNK24SaveMeshAttributesDialog12saveTexturesEv(ptr no
 declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK24SaveMeshAttributesDialog17getTextureQualityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK24SaveMeshAttributesDialog17getTextureQualityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -5821,14 +5821,14 @@ declare void @_ZN22RichParameterListFrame26writeValuesOnParameterListER17RichPar
 declare noundef i32 @_ZNK8QSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN24SaveMeshAttributesDialog23on_cancelButton_clickedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((72, 76)) %0) local_unnamed_addr #15 align 2 {
+define void @_ZN24SaveMeshAttributesDialog23on_cancelButton_clickedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((72, 76)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog26on_check_help_stateChangedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog26on_check_help_stateChangedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN22RichParameterListFrame10toggleHelpEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
@@ -6174,7 +6174,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog21on_NoneButton_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog21on_NoneButton_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -6236,7 +6236,7 @@ define void @_ZN24SaveMeshAttributesDialog21on_NoneButton_clickedEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = and i32 %3, %2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii.exit, label %8
@@ -6265,7 +6265,7 @@ _ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii.exit: ; preds = %5, %8
 declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = and i32 %2, %1
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %12, label %7
@@ -6283,7 +6283,7 @@ define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeCheckedEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeCheckedEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef %1)
@@ -6299,7 +6299,7 @@ declare noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef) local_unnamed_addr #0
 declare noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog35on_saveTextureCheckBox_stateChangedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN24SaveMeshAttributesDialog35on_saveTextureCheckBox_stateChangedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -6314,7 +6314,7 @@ define void @_ZN24SaveMeshAttributesDialog35on_saveTextureCheckBox_stateChangedE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24SaveMeshAttributesDialog37on_textureQualitySpinBox_valueChangedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24SaveMeshAttributesDialog37on_textureQualitySpinBox_valueChangedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = icmp eq i32 %1, -1
@@ -7939,16 +7939,16 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

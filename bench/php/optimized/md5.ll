@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @make_digest(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @make_digest(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
@@ -42,7 +42,7 @@ make_digest_ex.exit:                              ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @make_digest_ex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @make_digest_ex(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -82,7 +82,7 @@ define void @make_digest_ex(ptr nocapture noundef writeonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_md5(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.PHP_MD5_CTX, align 4
@@ -256,7 +256,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD5InitArgs(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @PHP_MD5InitArgs(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -337,7 +337,7 @@ define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @PHP_MD5Final(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -486,7 +486,7 @@ define void @PHP_MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_md5_file(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca [1024 x i8], align 16
@@ -751,10 +751,10 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #2
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef range(i64 64, -63) %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @body(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 64, -63) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1316,7 +1316,7 @@ define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #7
@@ -1330,7 +1330,7 @@ declare noalias ptr @_emalloc_48() local_unnamed_addr #2
 declare noalias ptr @_emalloc_64() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9

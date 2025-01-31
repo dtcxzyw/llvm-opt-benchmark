@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -268435456, 268435457) i32 @ompi_group_calc_bmap(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -268435456, 268435457) i32 @ompi_group_calc_bmap(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %0, 2
   br i1 %4, label %.loopexit, label %.lr.ph.preheader.i
 
@@ -59,7 +59,7 @@ define i32 @ompi_group_div_ceil(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_group_translate_ranks_bmap(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define noundef i32 @ompi_group_translate_ranks_bmap(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -158,7 +158,7 @@ define noundef i32 @ompi_group_translate_ranks_bmap(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -240,7 +240,7 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %7, label %16

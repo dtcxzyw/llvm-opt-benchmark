@@ -393,10 +393,10 @@ define dso_local i32 @e820__get_entry_type(i64 noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__range_add(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 section ".init.text" align 16 {
@@ -406,7 +406,7 @@ define dso_local void @e820__range_add(i64 noundef %0, i64 noundef %1, i32 nound
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @__e820__range_add(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @__e820__range_add(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 section ".init.text" align 16 {
   %5 = load i32, ptr %0, align 4
   %6 = icmp ugt i32 %5, 319
   br i1 %6, label %7, label %11
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 -1, 2) i32 @cpcompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 section ".init.text" align 16 {
+define internal range(i32 -1, 2) i32 @cpcompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 section ".init.text" align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -798,7 +798,7 @@ define internal range(i32 -1, 2) i32 @cpcompare(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i64 @e820__range_update(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 section ".init.text" align 16 {
@@ -808,7 +808,7 @@ define dso_local i64 @e820__range_update(i64 noundef %0, i64 noundef %1, i32 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i64 @__e820__range_update(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc i64 @__e820__range_update(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 section ".init.text" align 16 {
   %6 = icmp eq i32 %3, %4
   br i1 %6, label %7, label %8, !prof !10
 
@@ -1004,7 +1004,7 @@ define dso_local i64 @e820__range_remove(i64 noundef %0, i64 noundef %1, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__update_table_print() local_unnamed_addr #3 section ".init.text" align 16 {
@@ -1059,7 +1059,7 @@ define dso_local void @e820__setup_pci_gap() local_unnamed_addr #3 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc range(i32 0, 2) i32 @e820_search_gap(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @e820_search_gap(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #9 section ".init.text" align 16 {
   %3 = load ptr, ptr @e820_table, align 8
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -1191,7 +1191,7 @@ define dso_local void @e820__memory_setup_extended(i64 noundef %0, i32 noundef %
 declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 214748365) %1) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @__append_e820_table(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 214748365) %1) unnamed_addr #3 section ".init.text" align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread, label %.lr.ph
 
@@ -2041,7 +2041,7 @@ declare dso_local i32 @acpi_nvs_register(i64 noundef, i64 noundef) local_unnamed
 declare dso_local i64 @memblock_phys_alloc_range(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @memparse(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -2185,7 +2185,7 @@ define internal fastcc void @parse_memmap_one(ptr noundef nonnull %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5

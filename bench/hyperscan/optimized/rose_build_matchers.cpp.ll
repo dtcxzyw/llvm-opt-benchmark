@@ -2595,19 +2595,19 @@ _ZNSt6vectorIjSaIjEED2Ev.exit299:                 ; preds = %if.then.i.i.i298, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl9isDelayedEj(ptr noundef nonnull align 8 dereferenceable(780), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare noundef i32 @_ZN3ue213RoseBuildImpl12getLiteralIdERKNS_11ue2_literalERKSt6vectorIhSaIhEES8_jNS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue216buildHWLMMatcherERKNS_13RoseBuildImplEPNS_8LitProtoE(ptr noalias sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef %litProto) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2761,7 +2761,7 @@ _ZNSt10unique_ptrI4HWLMN3ue212bytecode_ptrIS0_E7deleterIS0_EEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue225buildFloatingMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEmPyPm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold, ptr nocapture noundef initializes((0, 8)) %fgroups, ptr nocapture noundef %historyRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue225buildFloatingMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEmPyPm(ptr noalias writeonly sret(%"class.std::unique_ptr.199") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold, ptr noundef captures(none) initializes((0, 8)) %fgroups, ptr noundef captures(none) %historyRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.153", align 8
   %mp = alloca %"struct.ue2::(anonymous namespace)::MatcherProto", align 8
@@ -4523,7 +4523,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_112MatcherProtoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_112MatcherProtoD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %accel_lits = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %accel_lits, align 8
@@ -4656,7 +4656,7 @@ _ZNSt6vectorIN3ue211hwlmLiteralESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i22, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue229buildDelayRebuildMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue229buildDelayRebuildMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEm(ptr noalias writeonly sret(%"class.std::unique_ptr.199") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.153", align 8
   %mp = alloca %"struct.ue2::(anonymous namespace)::MatcherProto", align 8
@@ -4826,7 +4826,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue227buildSmallBlockMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue227buildSmallBlockMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EE(ptr noalias writeonly sret(%"class.std::unique_ptr.199") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fragments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.153", align 8
   %mp = alloca %"struct.ue2::(anonymous namespace)::MatcherProto", align 8
@@ -5111,7 +5111,7 @@ unreachable:                                      ; preds = %invoke.cont57
 declare noundef i32 @_ZN3ue212findMinWidthERKNS_13RoseBuildImplENS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue228buildEodAnchoredMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue228buildEodAnchoredMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EE(ptr noalias writeonly sret(%"class.std::unique_ptr.199") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %fragments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.153", align 8
   %mp = alloca %"struct.ue2::(anonymous namespace)::MatcherProto", align 8
@@ -5451,7 +5451,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare noundef zeroext i1 @_ZNK3ue211LeftEngInfocvbEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
@@ -5668,14 +5668,14 @@ declare noundef zeroext i1 @_ZNK3ue213RoseBuildImpl15isRootSuccessorERKNS_12grap
 declare void @_ZNK3ue211ue2_literal4elemcvNS_9CharReachEEv(ptr sret(%"class.ue2::CharReach") align 8, ptr noundef nonnull align 1 dereferenceable(2)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN3ue217buildForwardAccelEP4HWLMRKSt6vectorINS_11AccelStringESaIS3_EEy(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #2
 
 declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %lit.8.val, i32 %lit.116.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %lit.8.val, i32 %lit.116.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(86) %info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp45 = alloca %"struct.ue2::suffix_id", align 8
   %conv.i = zext i32 %lit.116.val to i64
@@ -7127,7 +7127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr %this.0.val, ptr nocapture readonly %this.8.val, i32 %__it.coerce.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr %this.0.val, ptr readonly captures(none) %this.8.val, i32 %__it.coerce.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %literal_info.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 288
   %conv.i = zext i32 %__it.coerce.0.val to i64
@@ -10138,7 +10138,7 @@ lor.end:                                          ; preds = %land.rhs.i.i.i, %lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm5ELm7EE6__lessERKSK_SN_(ptr noundef nonnull align 8 dereferenceable(56) %__t, ptr noundef nonnull align 8 dereferenceable(56) %__u) local_unnamed_addr #0 comdat align 2 {
@@ -16444,7 +16444,7 @@ declare i64 @llvm.smax.i64(i64, i64) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

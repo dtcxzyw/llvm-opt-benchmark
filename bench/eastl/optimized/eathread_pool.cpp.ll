@@ -52,7 +52,7 @@ entry:
 declare void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool3JobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool3JobC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 32)) %this) unnamed_addr #2 align 2 {
 entry:
   %mpRunnable = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable, i8 0, i64 24, i1 false)
@@ -690,7 +690,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread10ThreadPool8ShutdownENS1_7JobWaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %jobWait, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread10ThreadPool8ShutdownENS1_7JobWaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %jobWait, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp22 = alloca %"struct.EA::Thread::ThreadTime", align 8
   %0 = load i8, ptr %this, align 8
@@ -874,7 +874,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare noundef i32 @_ZN2EA6Thread17GetProcessorCountEv() local_unnamed_addr #1
 
@@ -1048,7 +1048,7 @@ _ZN2EA6Thread10ThreadPool10FixThreadsEv.exit:     ; preds = %for.inc.i, %while.e
 declare noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2, 1) i32 @_ZN2EA6Thread10ThreadPool20WaitForJobCompletionEiNS1_7JobWaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %nJob, i32 noundef %jobWait, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2, 1) i32 @_ZN2EA6Thread10ThreadPool20WaitForJobCompletionEiNS1_7JobWaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %nJob, i32 noundef %jobWait, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp9 = alloca %"struct.EA::Thread::ThreadTime", align 8
   %ref.tmp34 = alloca %"struct.EA::Thread::ThreadTime", align 8
@@ -1459,7 +1459,7 @@ declare { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv() local_unnamed_addr #1
 declare noundef i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
 entry:
   %mpNodeHead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !46
@@ -1570,7 +1570,7 @@ if.end18:                                         ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -3, 0) i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %job, ptr noundef writeonly %ppThread, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -3, 0) i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %job, ptr noundef writeonly %ppThread, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i8, ptr %this, align 8
   %tobool = trunc i8 %1 to i1
@@ -1847,7 +1847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %tp) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE(ptr noundef nonnull align 8 captures(none) dereferenceable(272) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(41) %tp) local_unnamed_addr #9 align 2 {
 entry:
   %mnProcessor = getelementptr inbounds nuw i8, ptr %tp, i64 20
   %0 = load i32, ptr %mnProcessor, align 4
@@ -1891,7 +1891,7 @@ if.end11:                                         ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2EA6Thread10ThreadPool9AddThreadERKNS0_16ThreadParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %tp, i1 noundef zeroext %bBeginThread) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN2EA6Thread10ThreadPool9AddThreadERKNS0_16ThreadParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %tp, i1 noundef zeroext %bBeginThread) local_unnamed_addr #0 align 2 {
 entry:
   %tpUsed = alloca %"struct.EA::Thread::ThreadParameters", align 8
   %call = tail call noundef ptr @_ZN2EA6Thread10ThreadPool16CreateThreadInfoEv(ptr noundef nonnull align 8 dereferenceable(272) %this)
@@ -2052,7 +2052,7 @@ lpad13:                                           ; preds = %cond.false9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
 entry:
   %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -2316,7 +2316,7 @@ _ZN2EA6Thread10ThreadPoolD2Ev.exit:               ; preds = %entry
 declare noundef ptr @_ZN2EA6Thread12GetAllocatorEv() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

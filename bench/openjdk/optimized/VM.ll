@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"(J)J\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_misc_VM_latestUserDefinedLoader0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_misc_VM_latestUserDefinedLoader0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_LatestUserDefinedLoader(ptr noundef %0) #2
   ret ptr %3
 }
@@ -27,7 +27,7 @@ define void @Java_jdk_internal_misc_VM_initialize(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_misc_VM_getRuntimeArguments(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_misc_VM_getRuntimeArguments(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_GetVmArguments(ptr noundef %0) #2
   ret ptr %3
 }

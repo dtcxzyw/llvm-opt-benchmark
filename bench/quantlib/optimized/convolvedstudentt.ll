@@ -76,7 +76,7 @@ $_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 @_ZN8QuantLib30InverseCumulativeBehrensFisherC1ERKSt6vectorIiSaIiEERKS1_IdSaIdEEd = unnamed_addr alias void (ptr, ptr, ptr, double), ptr @_ZN8QuantLib30InverseCumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23CumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %degreesFreedom, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %factors) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23CumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %degreesFreedom, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %factors) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1060,10 +1060,10 @@ unreachable:                                      ; preds = %invoke.cont105, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -1185,7 +1185,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23CumulativeBehrensFisher13polynCharactTEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, i32 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23CumulativeBehrensFisher13polynCharactTEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.0") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %this, i32 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %low = alloca %"class.std::vector.0", align 8
   %recursionFactor = alloca %"class.std::vector.0", align 8
@@ -1626,7 +1626,7 @@ ehcleanup58:                                      ; preds = %if.then.i.i.i212, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23CumulativeBehrensFisher25convolveVectorPolynomialsERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23CumulativeBehrensFisher25convolveVectorPolynomialsERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.0") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !12
@@ -1757,7 +1757,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #7
@@ -1817,7 +1817,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23CumulativeBehrensFisherclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, double noundef %x) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib23CumulativeBehrensFisherclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, double noundef %x) local_unnamed_addr #0 align 2 {
 entry:
   %polyConvolved_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %polyConvolved_, align 8, !tbaa !14
@@ -1899,7 +1899,7 @@ declare double @sin(double noundef) local_unnamed_addr #7
 declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23CumulativeBehrensFisher7densityEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, double noundef %x) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib23CumulativeBehrensFisher7densityEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, double noundef %x) local_unnamed_addr #0 align 2 {
 entry:
   %a2_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load double, ptr %a2_, align 8, !tbaa !51
@@ -1986,7 +1986,7 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES7_dET1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30InverseCumulativeBehrensFisherclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, double noundef %q) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib30InverseCumulativeBehrensFisherclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, double noundef %q) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3634,7 +3634,7 @@ cleanup:                                          ; preds = %entry, %"_ZNK8Quant
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
@@ -3663,7 +3663,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -3676,7 +3676,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14

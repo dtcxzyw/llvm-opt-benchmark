@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @spg_key_orderbys_distances(i64 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @spg_key_orderbys_distances(i64 noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 3
   %7 = tail call ptr @palloc(i64 noundef %6) #3
@@ -119,14 +119,14 @@ declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @point_distance(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @box_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @box_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 32) #3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare double @pg_hypot(double noundef, double noundef) local_unnamed_addr #1
 

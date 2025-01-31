@@ -1293,7 +1293,7 @@ cond.false38:                                     ; preds = %sh_testbit.exit125
   unreachable
 
 cond.end39:                                       ; preds = %sh_testbit.exit125
-  tail call fastcc void @sh_clearbit(ptr noundef %ptr.addr.0, i32 noundef %conv16, ptr noundef nonnull %11)
+  tail call fastcc void @sh_clearbit(ptr noundef nonnull %ptr.addr.0, i32 noundef %conv16, ptr noundef nonnull %11)
   %19 = load ptr, ptr %ptr.addr.0, align 8
   %cmp.not.i = icmp eq ptr %19, null
   %p_next4.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %ptr.addr.0, i64 8
@@ -1604,7 +1604,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -1616,7 +1616,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sh_setbit(ptr noundef %ptr, i32 noundef %list, ptr nocapture noundef %table) unnamed_addr #0 {
+define internal fastcc void @sh_setbit(ptr noundef %ptr, i32 noundef %list, ptr noundef captures(none) %table) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %list, -1
   %conv = zext nneg i32 %list to i64
@@ -1770,7 +1770,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sh_clearbit(ptr noundef %ptr, i32 noundef %list, ptr nocapture noundef %table) unnamed_addr #0 {
+define internal fastcc void @sh_clearbit(ptr noundef %ptr, i32 noundef %list, ptr noundef captures(none) %table) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %list, -1
   %conv = zext nneg i32 %list to i64

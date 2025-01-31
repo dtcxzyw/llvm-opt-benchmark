@@ -104,7 +104,7 @@ define internal noundef ptr @H5VL_pass_through_info_copy(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   store i32 0, ptr %0, align 4
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
@@ -127,7 +127,7 @@ define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_info_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @H5VL_pass_through_info_free(ptr noundef captures(none) %0) #0 {
   %2 = tail call i64 @H5Eget_current_stack() #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -148,7 +148,7 @@ define internal noundef i32 @H5VL_pass_through_info_free(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_info_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 -1, ptr %3, align 4
@@ -181,7 +181,7 @@ define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -219,7 +219,7 @@ define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5VL_pass_through_get_object(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @H5VL_pass_through_get_object(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -228,7 +228,7 @@ define internal ptr @H5VL_pass_through_get_object(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %3, align 8
@@ -243,7 +243,7 @@ define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -266,7 +266,7 @@ define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5VL_pass_through_unwrap_object(ptr nocapture noundef %0) #0 {
+define internal ptr @H5VL_pass_through_unwrap_object(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -287,7 +287,7 @@ define internal ptr @H5VL_pass_through_unwrap_object(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_free_wrap_ctx(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @H5VL_pass_through_free_wrap_ctx(ptr noundef captures(none) %0) #0 {
   %2 = tail call i64 @H5Eget_current_stack() #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -308,7 +308,7 @@ define internal noundef i32 @H5VL_pass_through_free_wrap_ctx(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
@@ -347,7 +347,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
@@ -386,7 +386,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_attr_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -414,7 +414,7 @@ define internal i32 @H5VL_pass_through_attr_read(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_write(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_attr_write(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -442,7 +442,7 @@ define internal i32 @H5VL_pass_through_attr_write(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_attr_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -470,7 +470,7 @@ define internal i32 @H5VL_pass_through_attr_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_attr_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -498,7 +498,7 @@ define internal i32 @H5VL_pass_through_attr_specific(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_attr_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -526,7 +526,7 @@ define internal i32 @H5VL_pass_through_attr_optional(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_attr_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_attr_close(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -566,7 +566,7 @@ define internal i32 @H5VL_pass_through_attr_close(ptr nocapture noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %0, align 8
@@ -605,7 +605,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
@@ -644,7 +644,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %15
@@ -725,7 +725,7 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = icmp ugt i64 %0, 1
   br i1 %10, label %11, label %15
@@ -806,7 +806,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_dataset_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -834,7 +834,7 @@ define internal i32 @H5VL_pass_through_dataset_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_dataset_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = load i64, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -861,7 +861,7 @@ define internal i32 @H5VL_pass_through_dataset_specific(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_dataset_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -889,7 +889,7 @@ define internal i32 @H5VL_pass_through_dataset_optional(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_dataset_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_dataset_close(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -929,7 +929,7 @@ define internal i32 @H5VL_pass_through_dataset_close(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
@@ -968,7 +968,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
@@ -1007,7 +1007,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_datatype_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_datatype_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1035,7 +1035,7 @@ define internal i32 @H5VL_pass_through_datatype_get(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_datatype_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_datatype_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = load i64, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1062,7 +1062,7 @@ define internal i32 @H5VL_pass_through_datatype_specific(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_datatype_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_datatype_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1090,7 +1090,7 @@ define internal i32 @H5VL_pass_through_datatype_optional(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_datatype_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_datatype_close(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -1276,7 +1276,7 @@ H5VL_pass_through_info_free.exit:                 ; preds = %31, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_file_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_file_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1304,7 +1304,7 @@ define internal i32 @H5VL_pass_through_file_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_file_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5VL_file_specific_args_t, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -1468,7 +1468,7 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_file_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_file_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1496,7 +1496,7 @@ define internal i32 @H5VL_pass_through_file_optional(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_file_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_file_close(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -1536,7 +1536,7 @@ define internal i32 @H5VL_pass_through_file_close(ptr nocapture noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %0, align 8
@@ -1575,7 +1575,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
@@ -1614,7 +1614,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_group_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_group_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1642,7 +1642,7 @@ define internal i32 @H5VL_pass_through_group_get(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_group_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_group_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5VL_group_specific_args_t, align 8
   %6 = load i64, ptr %0, align 8
   %7 = load i32, ptr %1, align 8
@@ -1700,7 +1700,7 @@ define internal i32 @H5VL_pass_through_group_specific(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_group_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_group_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -1728,7 +1728,7 @@ define internal i32 @H5VL_pass_through_group_optional(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_group_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_group_close(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -1943,7 +1943,7 @@ define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_link_get(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -1971,7 +1971,7 @@ define internal i32 @H5VL_pass_through_link_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_link_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -1999,7 +1999,7 @@ define internal i32 @H5VL_pass_through_link_specific(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_link_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2027,7 +2027,7 @@ define internal i32 @H5VL_pass_through_link_optional(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2066,7 +2066,7 @@ define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_object_copy(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
+define internal i32 @H5VL_pass_through_object_copy(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2096,7 +2096,7 @@ define internal i32 @H5VL_pass_through_object_copy(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_object_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_object_get(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2124,7 +2124,7 @@ define internal i32 @H5VL_pass_through_object_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_object_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_object_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = load i64, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2151,7 +2151,7 @@ define internal i32 @H5VL_pass_through_object_specific(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_object_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_object_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2179,7 +2179,7 @@ define internal i32 @H5VL_pass_through_object_optional(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_introspect_get_conn_cls(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_introspect_get_conn_cls(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %6
 
@@ -2231,7 +2231,7 @@ define internal i32 @H5VL_pass_through_introspect_get_cap_flags(ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_introspect_opt_query(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_introspect_opt_query(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -2240,7 +2240,7 @@ define internal i32 @H5VL_pass_through_introspect_opt_query(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_wait(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_request_wait(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -2266,7 +2266,7 @@ define internal i32 @H5VL_pass_through_request_wait(ptr nocapture noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_notify(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_request_notify(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -2287,7 +2287,7 @@ define internal i32 @H5VL_pass_through_request_notify(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_cancel(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal i32 @H5VL_pass_through_request_cancel(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
@@ -2308,7 +2308,7 @@ define internal i32 @H5VL_pass_through_request_cancel(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_specific(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @H5VL_pass_through_request_specific(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
@@ -2317,7 +2317,7 @@ define internal i32 @H5VL_pass_through_request_specific(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_optional(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @H5VL_pass_through_request_optional(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
@@ -2326,7 +2326,7 @@ define internal i32 @H5VL_pass_through_request_optional(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_request_free(ptr nocapture noundef %0) #0 {
+define internal i32 @H5VL_pass_through_request_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -2347,7 +2347,7 @@ define internal i32 @H5VL_pass_through_request_free(ptr nocapture noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_blob_put(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_blob_put(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2356,7 +2356,7 @@ define internal i32 @H5VL_pass_through_blob_put(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_blob_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i32 @H5VL_pass_through_blob_get(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
@@ -2365,7 +2365,7 @@ define internal i32 @H5VL_pass_through_blob_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_blob_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_blob_specific(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -2374,7 +2374,7 @@ define internal i32 @H5VL_pass_through_blob_specific(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_blob_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5VL_pass_through_blob_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
@@ -2383,7 +2383,7 @@ define internal i32 @H5VL_pass_through_blob_optional(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_token_cmp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_token_cmp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -2392,7 +2392,7 @@ define internal i32 @H5VL_pass_through_token_cmp(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_token_to_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_token_to_str(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -2401,7 +2401,7 @@ define internal i32 @H5VL_pass_through_token_to_str(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_token_from_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_token_from_str(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -2410,7 +2410,7 @@ define internal i32 @H5VL_pass_through_token_from_str(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @H5VL_pass_through_optional(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -2419,7 +2419,7 @@ define internal i32 @H5VL_pass_through_optional(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @H5Iis_valid(i64 noundef) local_unnamed_addr #1
 
@@ -2443,22 +2443,22 @@ declare i32 @H5Idec_ref(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Eset_current_stack(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @H5VLget_value(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @H5VLconnector_info_to_str(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @H5allocate_memory(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @H5VLregister_connector_by_value(i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2472,7 +2472,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @H5VLconnector_str_to_info(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 

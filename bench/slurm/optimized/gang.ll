@@ -916,7 +916,7 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_gs_part(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_gs_part(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %3) #9
   %.not = icmp eq i32 %4, 0
@@ -1493,7 +1493,7 @@ _update_all_active_rows.exit:                     ; preds = %.lr.ph.i, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %_find_job_index.exit.thread, label %5
@@ -1923,7 +1923,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_timeslicer_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_timeslicer_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.suspend_msg, align 8
   %3 = alloca %struct.suspend_msg, align 8
   %4 = alloca %struct.timespec, align 8
@@ -2737,7 +2737,7 @@ declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -65535, 65536) i32 @_sort_partitions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -65535, 65536) i32 @_sort_partitions(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2753,12 +2753,12 @@ define internal range(i32 -65535, 65536) i32 @_sort_partitions(ptr nocapture nou
 declare void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_jobs(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @_print_jobs(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %3 = and i64 %2, 8192
   %.not = icmp eq i64 %3, 0
@@ -3547,7 +3547,7 @@ _fill_sockets.exit.thread:                        ; preds = %.loopexit.i, %179, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_job_fits_in_active_row(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_job_fits_in_active_row(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -4027,10 +4027,10 @@ declare i32 @job_requeue(i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroe
 declare i16 @llvm.umax.i16(i16, i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -59,13 +59,13 @@ define dso_local range(i32 -19, 1) i32 @cypress_detect(ptr noundef %0, i1 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext range(i8 0, 18) %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext range(i8 0, 18) %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = and i8 %1, 3
   %6 = lshr i8 %1, 2
@@ -195,7 +195,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @cypress_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -518,7 +518,7 @@ define internal void @cypress_reset(ptr noundef %0) #0 align 16 {
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 3) i32 @cypress_protocol_handler(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @cypress_protocol_handler(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %4 = load i8, ptr %3, align 1
@@ -827,7 +827,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #4
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
@@ -848,7 +848,7 @@ declare dso_local i32 @input_mt_init_slots(ptr noundef, i32 noundef, i32 noundef
 declare dso_local void @input_alloc_absinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cypress_process_packet(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cypress_process_packet(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.cytp_report_data, align 4
   %3 = alloca [2 x %struct.input_mt_pos], align 8
   %4 = alloca [2 x i32], align 8

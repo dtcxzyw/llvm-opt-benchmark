@@ -441,7 +441,7 @@ return:                                           ; preds = %if.then29, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_lower(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %cptr, i64 noundef %len) local_unnamed_addr #3 {
+define hidden void @_Py_bytes_lower(ptr noundef writeonly captures(none) %result, ptr noundef readonly captures(none) %cptr, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp4 = icmp sgt i64 %len, 0
   br i1 %cmp4, label %for.body, label %for.end
@@ -464,7 +464,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_upper(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %cptr, i64 noundef %len) local_unnamed_addr #3 {
+define hidden void @_Py_bytes_upper(ptr noundef writeonly captures(none) %result, ptr noundef readonly captures(none) %cptr, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp4 = icmp sgt i64 %len, 0
   br i1 %cmp4, label %for.body, label %for.end
@@ -487,7 +487,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_title(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #3 {
+define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %result, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp7 = icmp sgt i64 %len, 0
   br i1 %cmp7, label %for.body, label %for.end
@@ -539,7 +539,7 @@ for.end:                                          ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_capitalize(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #3 {
+define hidden void @_Py_bytes_capitalize(ptr noundef writeonly captures(none) %result, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp = icmp sgt i64 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_bytes_swapcase(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #3 {
+define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %result, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %cmp9 = icmp sgt i64 %len, 0
   br i1 %cmp9, label %for.body, label %for.end
@@ -616,7 +616,7 @@ for.end:                                          ; preds = %if.end23, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_maketrans(ptr nocapture noundef readonly %frm, ptr nocapture noundef readonly %to) local_unnamed_addr #1 {
+define hidden ptr @_Py_bytes_maketrans(ptr noundef readonly captures(none) %frm, ptr noundef readonly captures(none) %to) local_unnamed_addr #1 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %frm, i64 16
   %0 = load i64, ptr %len, align 8
@@ -695,7 +695,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @find_internal(ptr noundef %str, i64 noundef %len, ptr nocapture noundef readonly %function_name, ptr noundef %args, i32 noundef range(i32 -1, 2) %dir) unnamed_addr #1 {
+define internal fastcc i64 @find_internal(ptr noundef %str, i64 noundef %len, ptr noundef readonly captures(none) %function_name, ptr noundef %args, i32 noundef range(i32 -1, 2) %dir) unnamed_addr #1 {
 entry:
   %subobj = alloca ptr, align 8
   %byte = alloca i8, align 1
@@ -1015,7 +1015,7 @@ return:                                           ; preds = %stringlib_count.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_args_finds_byte(ptr nocapture noundef readonly %function_name, ptr noundef %args, ptr nocapture noundef nonnull writeonly %subobj, ptr nocapture noundef nonnull writeonly %byte, ptr nocapture noundef nonnull writeonly %start, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parse_args_finds_byte(ptr noundef readonly captures(none) %function_name, ptr noundef %args, ptr noundef nonnull writeonly captures(none) %subobj, ptr noundef nonnull writeonly captures(none) %byte, ptr noundef nonnull writeonly captures(none) %start, ptr noundef nonnull writeonly captures(none) %end) unnamed_addr #1 {
 entry:
   %tmp_subobj = alloca ptr, align 8
   %call = call fastcc i32 @stringlib_parse_args_finds(ptr noundef %function_name, ptr noundef %args, ptr noundef %tmp_subobj, ptr noundef %start, ptr noundef %end)
@@ -1155,14 +1155,14 @@ declare void @PyErr_Clear() local_unnamed_addr #2
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_startswith(ptr nocapture noundef readonly %str, i64 noundef %len, ptr noundef %args) local_unnamed_addr #1 {
+define hidden ptr @_Py_bytes_startswith(ptr noundef readonly captures(none) %str, i64 noundef %len, ptr noundef %args) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @_Py_bytes_tailmatch(ptr noundef %str, i64 noundef %len, ptr noundef nonnull @.str.8, ptr noundef %args, i32 noundef -1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_Py_bytes_tailmatch(ptr nocapture noundef readonly %str, i64 noundef %len, ptr noundef %function_name, ptr noundef %args, i32 noundef range(i32 -1, 2) %direction) unnamed_addr #1 {
+define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(none) %str, i64 noundef %len, ptr noundef %function_name, ptr noundef %args, i32 noundef range(i32 -1, 2) %direction) unnamed_addr #1 {
 entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8
@@ -1247,7 +1247,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_endswith(ptr nocapture noundef readonly %str, i64 noundef %len, ptr noundef %args) local_unnamed_addr #1 {
+define hidden ptr @_Py_bytes_endswith(ptr noundef readonly captures(none) %str, i64 noundef %len, ptr noundef %args) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @_Py_bytes_tailmatch(ptr noundef %str, i64 noundef %len, ptr noundef nonnull @.str.9, ptr noundef %args, i32 noundef 1)
   ret ptr %call
@@ -1817,7 +1817,7 @@ return:                                           ; preds = %if.end48.us, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #6 {
+define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %p) unnamed_addr #6 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -1995,7 +1995,7 @@ for.end66:                                        ; preds = %for.body55
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @stringlib__two_way(ptr noundef %haystack, i64 noundef %len_haystack, ptr nocapture noundef nonnull readonly %p) unnamed_addr #7 {
+define internal fastcc i64 @stringlib__two_way(ptr noundef %haystack, i64 noundef %len_haystack, ptr noundef nonnull readonly captures(none) %p) unnamed_addr #7 {
 entry:
   %len_needle1 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = load i64, ptr %len_needle1, align 8
@@ -2424,7 +2424,7 @@ return:                                           ; preds = %periodicwindowloop.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stringlib_parse_args_finds(ptr nocapture noundef readonly %function_name, ptr noundef %args, ptr nocapture noundef nonnull writeonly %subobj, ptr nocapture noundef nonnull writeonly %start, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @stringlib_parse_args_finds(ptr noundef readonly captures(none) %function_name, ptr noundef %args, ptr noundef nonnull writeonly captures(none) %subobj, ptr noundef nonnull writeonly captures(none) %start, ptr noundef nonnull writeonly captures(none) %end) unnamed_addr #1 {
 entry:
   %tmp_subobj = alloca ptr, align 8
   %tmp_start = alloca i64, align 8
@@ -2497,20 +2497,20 @@ return:                                           ; preds = %if.then13, %if.then
 declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @_PyEval_SliceIndex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr nocapture noundef readonly %str, i64 noundef %len, ptr noundef %substr, i64 noundef %start, i64 noundef %end, i32 noundef range(i32 -1, 2) %direction) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly captures(none) %str, i64 noundef %len, ptr noundef %substr, i64 noundef %start, i64 noundef %end, i32 noundef range(i32 -1, 2) %direction) unnamed_addr #1 {
 entry:
   %sub_view = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %sub_view, i8 0, i64 80, i1 false)
@@ -2615,13 +2615,13 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

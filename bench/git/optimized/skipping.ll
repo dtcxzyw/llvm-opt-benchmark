@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [47 x i8] c"received ack for commit %s not sent as 'have'\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @skipping_negotiator_init(ptr nocapture noundef writeonly initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
+define dso_local void @skipping_negotiator_init(ptr noundef writeonly captures(none) initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
   %add_tip = getelementptr inbounds nuw i8, ptr %negotiator, i64 8
@@ -41,7 +41,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @known_common(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
+define internal void @known_common(ptr noundef readonly captures(none) %n, ptr noundef %c) #0 {
 entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = and i32 %bf.load, 256
@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_tip(ptr nocapture noundef initializes((0, 8)) %n, ptr noundef %c) #0 {
+define internal void @add_tip(ptr noundef captures(none) initializes((0, 8)) %n, ptr noundef %c) #0 {
 entry:
   store ptr null, ptr %n, align 8
   %bf.load = load i32, ptr %c, align 8
@@ -94,7 +94,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @next(ptr nocapture noundef initializes((0, 16)) %n) #0 {
+define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %n) #0 {
 entry:
   %queue.i.i = alloca %struct.prio_queue, align 8
   %data = getelementptr inbounds nuw i8, ptr %n, i64 40
@@ -205,7 +205,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   store i32 %bf.set.i.i.i, ptr %9, align 8
   %call.i.i.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #6
   store ptr %9, ptr %call.i.i.i, align 8
-  call void @prio_queue_put(ptr noundef %0, ptr noundef nonnull %call.i.i.i) #6
+  call void @prio_queue_put(ptr noundef nonnull %0, ptr noundef nonnull %call.i.i.i) #6
   %16 = load i32, ptr %non_common_revs.i, align 8
   %inc.i.i.i = add nsw i32 %16, 1
   store i32 %inc.i.i.i, ptr %non_common_revs.i, align 8
@@ -350,7 +350,7 @@ get_rev.exit:                                     ; preds = %while.body.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ack(ptr nocapture noundef readonly %n, ptr noundef %c) #0 {
+define internal range(i32 0, 2) i32 @ack(ptr noundef readonly captures(none) %n, ptr noundef %c) #0 {
 entry:
   %bf.load = load i32, ptr %c, align 8
   %0 = and i32 %bf.load, 256
@@ -373,7 +373,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @release(ptr nocapture noundef %n) #0 {
+define internal void @release(ptr noundef captures(none) %n) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -387,7 +387,7 @@ entry:
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_, ptr nocapture readnone %data) #0 {
+define internal i32 @compare(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %a_, align 8
   %1 = load ptr, ptr %b_, align 8
@@ -398,7 +398,7 @@ entry:
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @clear_marks(ptr noundef %refname, ptr noundef %oid, i32 %flag, ptr nocapture readnone %cb_data) #0 {
+define internal noundef i32 @clear_marks(ptr noundef %refname, ptr noundef %oid, i32 %flag, ptr readnone captures(none) %cb_data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @parse_object(ptr noundef %0, ptr noundef %oid) #6
@@ -425,7 +425,7 @@ declare void @prio_queue_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @prio_queue_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -433,7 +433,7 @@ declare i32 @repo_parse_commit_gently(ptr noundef, ptr noundef, i32 noundef) loc
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_common(ptr nocapture noundef %data, ptr noundef %seen_commit) unnamed_addr #0 {
+define internal fastcc void @mark_common(ptr noundef captures(none) %data, ptr noundef %seen_commit) unnamed_addr #0 {
 entry:
   %queue = alloca %struct.prio_queue, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %queue, i8 0, i64 40, i1 false)
@@ -516,7 +516,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @clear_prio_queue(ptr noundef) local_unnamed_addr #1
 
@@ -534,10 +534,10 @@ declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @clear_commit_marks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

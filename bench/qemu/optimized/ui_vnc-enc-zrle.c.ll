@@ -988,7 +988,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vnc_zrle_clear(ptr nocapture noundef readonly %vs) local_unnamed_addr #0 {
+define dso_local void @vnc_zrle_clear(ptr noundef readonly captures(none) %vs) local_unnamed_addr #0 {
 entry:
   %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
@@ -1281,7 +1281,7 @@ declare void @vnc_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare void @buffer_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @buffer_reserve(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1298,7 +1298,7 @@ declare void @vnc_write_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #
 declare i32 @palette_color(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %use_rle, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %use_palette) unnamed_addr #0 {
+define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %use_rle, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %use_palette) unnamed_addr #0 {
 entry:
   store i8 0, ptr %use_rle, align 1
   store i8 0, ptr %use_palette, align 1
@@ -7520,16 +7520,16 @@ declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -73,7 +73,7 @@ $_ZTV4JSON = comdat any
 @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE = private unnamed_addr constant [4 x ptr] [ptr @.str.49, ptr @.str.48, ptr @.str.50, ptr @.str.51], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4JSONC2EPKcbP12outputStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV4JSON, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -122,7 +122,7 @@ define hidden void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(54) initializes((53, 54)) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 captures(none) dereferenceable(54) initializes((53, 54)) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 align 2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 0, ptr %5, align 1
@@ -631,7 +631,7 @@ _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %10, %153, %124, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -639,7 +639,7 @@ define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON13skip_to_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON13skip_to_tokenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit
@@ -1234,7 +1234,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %_ZN4JSON8mar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4JSON8mark_posEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4JSON8mark_posEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1980,7 +1980,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %23, %5, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1996,7 +1996,7 @@ define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JS
 11:                                               ; preds = %4
   %12 = icmp ugt i64 %5, 1
   %13 = select i1 %12, ptr @.str.35, ptr @.str.36
-  tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.34, ptr noundef %2, ptr noundef nonnull %13, ptr noundef %1)
+  tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.34, ptr noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %1)
   br label %23
 
 14:                                               ; preds = %.lr.ph
@@ -2020,7 +2020,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph
 ._crit_edge:                                      ; preds = %14, %.preheader
   %21 = icmp ugt i64 %5, 1
   %22 = select i1 %21, ptr @.str.35, ptr @.str.36
-  tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.37, ptr noundef %2, ptr noundef nonnull %22, ptr noundef %1)
+  tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %3, ptr noundef nonnull @.str.37, ptr noundef %2, ptr noundef nonnull %22, ptr noundef nonnull %1)
   br label %23
 
 23:                                               ; preds = %._crit_edge, %_ZN4JSON4nextEv.exit, %11
@@ -2029,7 +2029,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4JSON4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i8 @_ZN4JSON4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -2178,7 +2178,7 @@ _ZL7is_wordh.exit._crit_edge:                     ; preds = %_ZN4JSON4nextEv.exi
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN4JSON4skipEm(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN4JSON4skipEm(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -2212,7 +2212,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %2, %.lr.phthread-pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4JSON4peekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i8 @_ZN4JSON4peekEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -2220,13 +2220,13 @@ define hidden noundef zeroext i8 @_ZN4JSON4peekEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN4JSON4skipEm.exit, label %.lr.ph
@@ -2296,7 +2296,7 @@ _ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.079 = load i8, ptr %4, align 1
@@ -2322,10 +2322,10 @@ define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN4JSON17skip_line_commentEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i8 @_ZN4JSON17skip_line_commentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -2404,7 +2404,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON7skip_toEh.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON18skip_block_commentEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON18skip_block_commentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -2509,7 +2509,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %35, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @_ZN4JSON7skip_toEh(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i8 @_ZN4JSON7skip_toEh(ptr noundef nonnull align 8 captures(none) dereferenceable(54) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %3, align 8
   %4 = load i8, ptr %.promoted, align 1
@@ -2534,7 +2534,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %2, %_ZN4JSON4nextEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN4JSON8strerrorENS_10JSON_ERRORE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(54) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN4JSON8strerrorENS_10JSON_ERRORE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(54) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp ult i32 %1, 4
   br i1 %3, label %switch.lookup, label %4
 

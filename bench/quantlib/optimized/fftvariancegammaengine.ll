@@ -224,7 +224,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib22FFTVarianceGammaEngineC1ERKN5boost10shared_ptrINS_20VarianceGammaProcessEEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN8QuantLib22FFTVarianceGammaEngineC2ERKN5boost10shared_ptrINS_20VarianceGammaProcessEEEd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -309,7 +309,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -446,7 +446,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22FFTVarianceGammaEngineC2ERKN5boost10shared_ptrINS_20VarianceGammaProcessEEEd(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %logStrikeSpacing) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22FFTVarianceGammaEngineC2ERKN5boost10shared_ptrINS_20VarianceGammaProcessEEEd(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %process, double noundef %logStrikeSpacing) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.20", align 8
   %0 = load ptr, ptr %process, align 8, !tbaa !39
@@ -566,7 +566,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22FFTVarianceGammaEngine5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22FFTVarianceGammaEngine5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(456) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %process = alloca %"class.boost::shared_ptr.27", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %process) #27
@@ -723,7 +723,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22FFTVarianceGammaEngine18precalculateExpiryENS_4DateE(ptr nocapture noundef nonnull align 8 dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22FFTVarianceGammaEngine18precalculateExpiryENS_4DateE(ptr noundef nonnull align 8 captures(none) dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca %"class.QuantLib::Date", align 8
   %process = alloca %"class.boost::shared_ptr.27", align 8
@@ -1468,7 +1468,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QuantLib22FFTVarianceGammaEngine23complexFourierTransformESt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %this, double %u.coerce0, double %u.coerce1) unnamed_addr #8 align 2 {
+define { double, double } @_ZNK8QuantLib22FFTVarianceGammaEngine23complexFourierTransformESt7complexIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(456) %this, double %u.coerce0, double %u.coerce1) unnamed_addr #8 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %0 = load ptr, ptr %process_, align 8, !tbaa !41
@@ -1719,10 +1719,10 @@ declare double @log(double noundef) local_unnamed_addr #13
 declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib22FFTVarianceGammaEngine14discountFactorENS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib22FFTVarianceGammaEngine14discountFactorENS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca %"class.QuantLib::Date", align 8
   %process = alloca %"class.boost::shared_ptr.27", align 8
@@ -1840,7 +1840,7 @@ lpad:                                             ; preds = %call.i.noexc, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib22FFTVarianceGammaEngine13dividendYieldENS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib22FFTVarianceGammaEngine13dividendYieldENS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(456) %this, i64 %d.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca %"class.QuantLib::Date", align 8
   %process = alloca %"class.boost::shared_ptr.27", align 8
@@ -3734,7 +3734,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -3765,7 +3765,7 @@ declare { double, double } @clog(double noundef, double noundef) local_unnamed_a
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

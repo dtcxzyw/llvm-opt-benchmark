@@ -93,7 +93,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_start_struct(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr noundef writeonly %obj, i64 noundef %size, ptr nocapture readnone %errp) #0 {
+define internal noundef zeroext i1 @opts_start_struct(ptr noundef captures(none) %v, ptr readnone captures(none) %name, ptr noundef writeonly %obj, i64 noundef %size, ptr readnone captures(none) %errp) #0 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -211,7 +211,7 @@ return:                                           ; preds = %for.end, %opts_visi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_check_struct(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_check_struct(ptr noundef readonly captures(none) %v, ptr noundef %errp) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %any = alloca ptr, align 8
@@ -241,7 +241,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @opts_end_struct(ptr nocapture noundef %v, ptr nocapture readnone %obj) #0 {
+define internal void @opts_end_struct(ptr noundef captures(none) %v, ptr readnone captures(none) %obj) #0 {
 entry:
   %depth = getelementptr inbounds nuw i8, ptr %v, i64 224
   %0 = load i32, ptr %depth, align 8
@@ -280,7 +280,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_start_list(ptr nocapture noundef %v, ptr noundef %name, ptr noundef writeonly %list, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_start_list(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly %list, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
@@ -326,7 +326,7 @@ return:                                           ; preds = %lookup_distinct.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @opts_next_list(ptr nocapture noundef %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
+define internal ptr @opts_next_list(ptr noundef captures(none) %v, ptr noundef writeonly captures(none) %tail, i64 noundef %size) #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
@@ -400,13 +400,13 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @opts_check_list(ptr nocapture readnone %v, ptr nocapture readnone %errp) #3 {
+define internal noundef zeroext i1 @opts_check_list(ptr readnone captures(none) %v, ptr readnone captures(none) %errp) #3 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @opts_end_list(ptr nocapture noundef %v, ptr nocapture readnone %obj) #0 {
+define internal void @opts_end_list(ptr noundef captures(none) %v, ptr readnone captures(none) %obj) #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
@@ -426,7 +426,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_int64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %endptr = alloca ptr, align 8
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
@@ -537,7 +537,7 @@ return:                                           ; preds = %if.end, %if.end67, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_uint64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_uint64(ptr noundef captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca i64, align 8
   %endptr = alloca ptr, align 8
@@ -644,7 +644,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_size(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @lookup_scalar(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -688,7 +688,7 @@ return:                                           ; preds = %if.then.i, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_bool(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_bool(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @lookup_scalar(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call1, null
@@ -733,7 +733,7 @@ return:                                           ; preds = %if.then.i, %if.end9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_str(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_str(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @lookup_scalar(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp ne ptr %call1, null
@@ -772,7 +772,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @opts_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %present) #0 {
+define internal void @opts_optional(ptr noundef readonly captures(none) %v, ptr noundef %name, ptr noundef writeonly captures(none) %present) #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
@@ -868,7 +868,7 @@ declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @lookup_scalar(ptr nocapture noundef readonly %ov, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc ptr @lookup_scalar(ptr noundef readonly captures(none) %ov, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %ov, i64 240
   %0 = load i32, ptr %list_mode, align 8
@@ -916,10 +916,10 @@ return:                                           ; preds = %lookup_distinct.exi
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @processed(ptr nocapture noundef readonly %ov, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @processed(ptr noundef readonly captures(none) %ov, ptr noundef %name) unnamed_addr #0 {
 entry:
   %list_mode = getelementptr inbounds nuw i8, ptr %ov, i64 240
   %0 = load i32, ptr %list_mode, align 8

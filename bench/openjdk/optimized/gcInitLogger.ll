@@ -262,7 +262,7 @@ _ZN12GCInitLogger13print_workersEv.exit:          ; preds = %43, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger13print_versionEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger13print_versionEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -291,7 +291,7 @@ declare noundef ptr @_ZN19Abstract_VM_Version10vm_releaseEv() local_unnamed_addr
 declare noundef ptr @_ZN19Abstract_VM_Version15jdk_debug_levelEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger9print_cpuEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger9print_cpuEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   store i32 3, ptr %2, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -315,7 +315,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger12print_memoryEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger12print_memoryEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = tail call noundef i64 @_ZN2os15physical_memoryEv() #7
   store i32 3, ptr %2, align 8
@@ -353,7 +353,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
 declare noundef i64 @_ZN2os15physical_memoryEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger17print_large_pagesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger17print_large_pagesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   store i32 3, ptr %2, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -369,7 +369,7 @@ define hidden void @_ZN12GCInitLogger17print_large_pagesEv(ptr nocapture nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN12GCInitLogger19large_pages_supportEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN12GCInitLogger19large_pages_supportEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @UseLargePages, align 1
   %3 = trunc i8 %2 to i1
   %4 = load i8, ptr @UseTransparentHugePages, align 1
@@ -380,7 +380,7 @@ define hidden noundef nonnull ptr @_ZN12GCInitLogger19large_pages_supportEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger10print_numaEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger10print_numaEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8
@@ -414,7 +414,7 @@ define hidden void @_ZN12GCInitLogger10print_numaEv(ptr nocapture nonnull readno
 declare noundef i64 @_ZN2os19numa_get_groups_numEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger21print_compressed_oopsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger21print_compressed_oopsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = load i8, ptr @UseCompressedOops, align 1
@@ -446,7 +446,7 @@ declare noundef ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE(i32 noundef) 
 declare noundef i32 @_ZN14CompressedOops4modeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger10print_heapEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger10print_heapEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8
@@ -591,7 +591,7 @@ _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread49, %_Z23byt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GCInitLogger13print_workersEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12GCInitLogger13print_workersEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = load i32, ptr @ParallelGCThreads, align 4
@@ -622,7 +622,7 @@ define hidden void @_ZN12GCInitLogger13print_workersEv(ptr nocapture nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12GCInitLogger17print_gc_specificEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN12GCInitLogger17print_gc_specificEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -659,10 +659,10 @@ declare void @llvm.va_end.p0(ptr) #5
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

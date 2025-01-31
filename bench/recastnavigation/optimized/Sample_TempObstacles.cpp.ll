@@ -285,7 +285,7 @@ define dso_local void @_ZN11MeshProcessD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(92) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.FastLZCompressor, align 8
   %8 = alloca %struct.RasterizationContext, align 8
   %9 = alloca %struct.rcConfig, align 4
@@ -873,7 +873,7 @@ _ZN20RasterizationContextD2Ev.exit:               ; preds = %333
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #8
@@ -888,7 +888,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 declare noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshPfS2_Pii(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef, float noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1370,7 +1370,7 @@ declare noundef i32 @_Z24dtBuildTileCachePolyMeshP16dtTileCacheAllocR21dtTileCac
 declare void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1506,12 +1506,12 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
 declare i32 @gluProject(double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @_Z13imguiDrawTextiiiPKcj(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = alloca [3 x float], align 4
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
@@ -2111,7 +2111,7 @@ declare void @_Z11imguiIndentv() local_unnamed_addr #3
 declare noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.TileCacheSetHeader, align 4
   %4 = alloca %struct.TileCacheTileHeader, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2243,7 +2243,7 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles7loadAllEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles7loadAllEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %struct.TileCacheSetHeader, align 4
   %4 = alloca %struct.TileCacheTileHeader, align 4
   %5 = alloca i32, align 4
@@ -2567,7 +2567,7 @@ declare void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_Z18imguiSeparatorLinev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(276) %0) unnamed_addr #6 align 2 {
   %2 = alloca [8 x i8], align 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2982,7 +2982,7 @@ define dso_local void @_ZN20Sample_TempObstacles16renderCachedTileEiii(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles23renderCachedTileOverlayEiiPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles23renderCachedTileOverlayEiiPdS0_Pi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -3064,7 +3064,7 @@ declare void @_ZN6Sample15resetToolStatesEv(ptr noundef nonnull align 8 derefere
 declare void @_ZN6Sample14initToolStatesEPS_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca [3 x float], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
@@ -3093,7 +3093,7 @@ define dso_local void @_ZN20Sample_TempObstacles15addTempObstacleEPKf(ptr nocapt
 declare noundef i32 @_ZN11dtTileCache11addObstacleEPKfffPj(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3112,7 +3112,7 @@ define dso_local void @_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_(ptr 
 declare noundef i32 @_ZN11dtTileCache14removeObstacleEj(ptr noundef nonnull align 8 dereferenceable(912), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles21clearAllTempObstaclesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3681,7 +3681,7 @@ declare noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 d
 declare noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20Sample_TempObstacles12handleUpdateEf(ptr noundef nonnull align 8 dereferenceable(276) %0, float noundef %1) unnamed_addr #6 align 2 {
@@ -3710,7 +3710,7 @@ declare void @_ZN6Sample12handleUpdateEf(ptr noundef nonnull align 8 dereference
 declare noundef i32 @_ZN11dtTileCache6updateEfP9dtNavMeshPb(ptr noundef nonnull align 8 dereferenceable(912), float noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3748,20 +3748,20 @@ define dso_local void @_ZN20Sample_TempObstacles10getTilePosEPKfRiS2_(ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -4445,10 +4445,10 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

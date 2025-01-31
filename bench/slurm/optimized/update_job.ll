@@ -788,7 +788,7 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = tail call ptr @hostlist_create(ptr noundef %41) #14
+  %45 = tail call ptr @hostlist_create(ptr noundef nonnull %41) #14
   store ptr %45, ptr @_next_job_id.hl, align 8
   %.not41 = icmp eq ptr %45, null
   br i1 %.not41, label %46, label %48
@@ -864,7 +864,7 @@ declare i32 @slurm_update_job2(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_get_errno() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
@@ -906,7 +906,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
   %.035 = phi ptr [ %52, %51 ], [ %8, %7 ]
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %spec.select32 = call i64 @llvm.umax.i64(i64 %9, i64 2)
-  %10 = call i32 @xstrncasecmp(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef %spec.select32) #14
+  %10 = call i32 @xstrncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %spec.select32) #14
   %.not28 = icmp eq i32 %10, 0
   br i1 %.not28, label %11, label %13
 
@@ -1014,7 +1014,7 @@ define dso_local void @scontrol_suspend(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @slurm_suspend2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1290,7 +1290,7 @@ define dso_local void @scontrol_top_job(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @slurm_top_job(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1424,7 +1424,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 106:                                              ; preds = %88
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #16
   %spec.select = call i64 @llvm.umax.i64(i64 %107, i64 2)
-  %108 = call i32 @xstrncasecmp(ptr noundef %91, ptr noundef nonnull @.str.16, i64 noundef %spec.select) #14
+  %108 = call i32 @xstrncasecmp(ptr noundef nonnull %91, ptr noundef nonnull @.str.16, i64 noundef %spec.select) #14
   %.not562 = icmp eq i32 %108, 0
   br i1 %.not562, label %109, label %111
 
@@ -1436,7 +1436,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 111:                                              ; preds = %106
   %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #16
   %spec.select681 = call i64 @llvm.umax.i64(i64 %112, i64 3)
-  %113 = call i32 @xstrncasecmp(ptr noundef %91, ptr noundef nonnull @.str.17, i64 noundef %spec.select681) #14
+  %113 = call i32 @xstrncasecmp(ptr noundef nonnull %91, ptr noundef nonnull @.str.17, i64 noundef %spec.select681) #14
   %.not563 = icmp eq i32 %113, 0
   br i1 %.not563, label %114, label %118
 
@@ -1480,7 +1480,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %.0521 = trunc i64 %134 to i32
   %135 = call i32 @llvm.smax.i32(i32 %.1523, i32 3)
   %136 = zext nneg i32 %135 to i64
-  %137 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.20, i64 noundef %136) #14
+  %137 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.20, i64 noundef %136) #14
   %.not565 = icmp eq i32 %137, 0
   br i1 %.not565, label %138, label %139
 
@@ -1491,7 +1491,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 139:                                              ; preds = %133
   %140 = call i32 @llvm.smax.i32(i32 %.1523, i32 6)
   %141 = zext nneg i32 %140 to i64
-  %142 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.21, i64 noundef %141) #14
+  %142 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.21, i64 noundef %141) #14
   %.not566 = icmp eq i32 %142, 0
   br i1 %.not566, label %143, label %151
 
@@ -1518,12 +1518,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 151:                                              ; preds = %139
   %152 = call i32 @llvm.smax.i32(i32 %.1523, i32 5)
   %153 = zext nneg i32 %152 to i64
-  %154 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.23, i64 noundef %153) #14
+  %154 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.23, i64 noundef %153) #14
   %.not568 = icmp eq i32 %154, 0
   br i1 %.not568, label %155, label %165
 
 155:                                              ; preds = %151
-  %156 = call i64 @strtoll(ptr nocapture noundef nonnull %.sink, ptr noundef null, i32 noundef 10) #14
+  %156 = call i64 @strtoll(ptr noundef nonnull captures(none) %.sink, ptr noundef null, i32 noundef 10) #14
   %157 = call i64 @llvm.abs.i64(i64 %156, i1 true)
   %158 = icmp samesign ugt i64 %157, 2147483645
   br i1 %158, label %159, label %161
@@ -1543,12 +1543,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 165:                                              ; preds = %151
   %166 = call i32 @llvm.smax.i32(i32 %.1523, i32 10)
   %167 = zext nneg i32 %166 to i64
-  %168 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.25, i64 noundef %167) #14
+  %168 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.25, i64 noundef %167) #14
   %.not569 = icmp eq i32 %168, 0
   br i1 %.not569, label %169, label %176
 
 169:                                              ; preds = %165
-  %170 = call i64 @strtoll(ptr nocapture noundef nonnull %.sink, ptr noundef null, i32 noundef 10) #14
+  %170 = call i64 @strtoll(ptr noundef nonnull captures(none) %.sink, ptr noundef null, i32 noundef 10) #14
   %171 = and i64 %170, 2147483648
   %.not570 = icmp eq i64 %171, 0
   br i1 %.not570, label %174, label %172
@@ -1564,7 +1564,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %756
 
 176:                                              ; preds = %165
-  %177 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.27, i64 noundef %136) #14
+  %177 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.27, i64 noundef %136) #14
   %.not571 = icmp eq i32 %177, 0
   br i1 %.not571, label %178, label %180
 
@@ -1576,7 +1576,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
 180:                                              ; preds = %176
   %181 = call i32 @llvm.smax.i32(i32 %.1523, i32 8)
   %182 = zext nneg i32 %181 to i64
-  %183 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.28, i64 noundef %182) #14
+  %183 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.28, i64 noundef %182) #14
   %.not572 = icmp eq i32 %183, 0
   br i1 %.not572, label %184, label %186
 
@@ -1586,7 +1586,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %756
 
 186:                                              ; preds = %180
-  %187 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.29, i64 noundef %182) #14
+  %187 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.29, i64 noundef %182) #14
   %.not573 = icmp eq i32 %187, 0
   br i1 %.not573, label %188, label %190
 
@@ -1596,7 +1596,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %756
 
 190:                                              ; preds = %186
-  %191 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.30, i64 noundef %153) #14
+  %191 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.30, i64 noundef %153) #14
   %.not574 = icmp eq i32 %191, 0
   br i1 %.not574, label %192, label %199
 
@@ -1616,7 +1616,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %756
 
 199:                                              ; preds = %190
-  %200 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.32, i64 noundef %136) #14
+  %200 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.32, i64 noundef %136) #14
   %.not575 = icmp eq i32 %200, 0
   br i1 %.not575, label %201, label %203
 
@@ -1626,7 +1626,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %756
 
 203:                                              ; preds = %199
-  %204 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.33, i64 noundef %153) #14
+  %204 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.33, i64 noundef %153) #14
   %.not576 = icmp eq i32 %204, 0
   br i1 %.not576, label %205, label %319
 
@@ -1888,7 +1888,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %.thread
 
 319:                                              ; preds = %203
-  %320 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.39, i64 noundef %153) #14
+  %320 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.39, i64 noundef %153) #14
   %.not580 = icmp eq i32 %320, 0
   br i1 %.not580, label %321, label %327
 
@@ -1910,7 +1910,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
 327:                                              ; preds = %319
   %328 = call i32 @llvm.smax.i32(i32 %.1523, i32 2)
   %329 = zext nneg i32 %328 to i64
-  %330 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.41, i64 noundef %329) #14
+  %330 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.41, i64 noundef %329) #14
   %.not581 = icmp eq i32 %330, 0
   br i1 %.not581, label %331, label %337
 
@@ -1929,12 +1929,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 337:                                              ; preds = %327
-  %338 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.16, i64 noundef %329) #14
+  %338 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.16, i64 noundef %329) #14
   %.not583 = icmp eq i32 %338, 0
   br i1 %.not583, label %339, label %349
 
 339:                                              ; preds = %337
-  %340 = call i64 @strtoll(ptr nocapture noundef nonnull %.sink, ptr noundef null, i32 noundef 10) #14
+  %340 = call i64 @strtoll(ptr noundef nonnull captures(none) %.sink, ptr noundef null, i32 noundef 10) #14
   %341 = call i64 @llvm.abs.i64(i64 %340, i1 true)
   %342 = icmp samesign ugt i64 %341, 2147483645
   br i1 %342, label %343, label %345
@@ -1954,7 +1954,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
 349:                                              ; preds = %337
   %350 = call i32 @llvm.smax.i32(i32 %.1523, i32 9)
   %351 = zext nneg i32 %350 to i64
-  %352 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.44, i64 noundef %351) #14
+  %352 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.44, i64 noundef %351) #14
   %.not584 = icmp eq i32 %352, 0
   br i1 %.not584, label %353, label %359
 
@@ -1973,7 +1973,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 359:                                              ; preds = %349
-  %360 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.46, i64 noundef %351) #14
+  %360 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.46, i64 noundef %351) #14
   %.not586 = icmp eq i32 %360, 0
   br i1 %.not586, label %361, label %363
 
@@ -1983,7 +1983,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 363:                                              ; preds = %359
-  %364 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.47, i64 noundef %141) #14
+  %364 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.47, i64 noundef %141) #14
   %.not587 = icmp eq i32 %364, 0
   br i1 %.not587, label %365, label %378
 
@@ -2021,12 +2021,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 378:                                              ; preds = %363
-  %379 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.49, i64 noundef %182) #14
+  %379 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.49, i64 noundef %182) #14
   %.not590 = icmp eq i32 %379, 0
   br i1 %.not590, label %382, label %380
 
 380:                                              ; preds = %378
-  %381 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.50, i64 noundef %182) #14
+  %381 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.50, i64 noundef %182) #14
   %.not591 = icmp eq i32 %381, 0
   br i1 %.not591, label %382, label %388
 
@@ -2047,7 +2047,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
 388:                                              ; preds = %380
   %389 = call i32 @llvm.smax.i32(i32 %.1523, i32 4)
   %390 = zext nneg i32 %389 to i64
-  %391 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.52, i64 noundef %390) #14
+  %391 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.52, i64 noundef %390) #14
   %.not593 = icmp eq i32 %391, 0
   br i1 %.not593, label %392, label %398
 
@@ -2066,12 +2066,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 398:                                              ; preds = %388
-  %399 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.54, i64 noundef %182) #14
+  %399 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.54, i64 noundef %182) #14
   %.not595 = icmp eq i32 %399, 0
   br i1 %.not595, label %402, label %400
 
 400:                                              ; preds = %398
-  %401 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.55, i64 noundef %182) #14
+  %401 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.55, i64 noundef %182) #14
   %.not596 = icmp eq i32 %401, 0
   br i1 %.not596, label %402, label %418
 
@@ -2116,7 +2116,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 418:                                              ; preds = %400
-  %419 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.58, i64 noundef %390) #14
+  %419 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.58, i64 noundef %390) #14
   %.not599 = icmp eq i32 %419, 0
   br i1 %.not599, label %420, label %426
 
@@ -2135,7 +2135,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 426:                                              ; preds = %418
-  %427 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.60, i64 noundef %390) #14
+  %427 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.60, i64 noundef %390) #14
   %.not601 = icmp eq i32 %427, 0
   br i1 %.not601, label %428, label %434
 
@@ -2154,7 +2154,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 434:                                              ; preds = %426
-  %435 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.62, i64 noundef %329) #14
+  %435 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.62, i64 noundef %329) #14
   %.not603 = icmp eq i32 %435, 0
   br i1 %.not603, label %436, label %442
 
@@ -2173,7 +2173,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 442:                                              ; preds = %434
-  %443 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.64, i64 noundef %390) #14
+  %443 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.64, i64 noundef %390) #14
   %.not605 = icmp eq i32 %443, 0
   br i1 %.not605, label %444, label %450
 
@@ -2192,7 +2192,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 450:                                              ; preds = %442
-  %451 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.66, i64 noundef %390) #14
+  %451 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.66, i64 noundef %390) #14
   %.not607 = icmp eq i32 %451, 0
   br i1 %.not607, label %452, label %458
 
@@ -2211,7 +2211,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 458:                                              ; preds = %450
-  %459 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.68, i64 noundef %167) #14
+  %459 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.68, i64 noundef %167) #14
   %.not609 = icmp eq i32 %459, 0
   br i1 %.not609, label %460, label %466
 
@@ -2230,7 +2230,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 466:                                              ; preds = %458
-  %467 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.70, i64 noundef %167) #14
+  %467 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.70, i64 noundef %167) #14
   %.not611 = icmp eq i32 %467, 0
   br i1 %.not611, label %468, label %476
 
@@ -2252,7 +2252,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 476:                                              ; preds = %466
-  %477 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.72, i64 noundef %153) #14
+  %477 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.72, i64 noundef %153) #14
   %.not613 = icmp eq i32 %477, 0
   br i1 %.not613, label %478, label %484
 
@@ -2271,7 +2271,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 484:                                              ; preds = %476
-  %485 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.74, i64 noundef %329) #14
+  %485 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.74, i64 noundef %329) #14
   %.not615 = icmp eq i32 %485, 0
   br i1 %.not615, label %486, label %488
 
@@ -2281,7 +2281,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 488:                                              ; preds = %484
-  %489 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.75, i64 noundef %329) #14
+  %489 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.75, i64 noundef %329) #14
   %.not616 = icmp eq i32 %489, 0
   br i1 %.not616, label %490, label %492
 
@@ -2291,7 +2291,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 492:                                              ; preds = %488
-  %493 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.76, i64 noundef %136) #14
+  %493 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.76, i64 noundef %136) #14
   %.not617 = icmp eq i32 %493, 0
   br i1 %.not617, label %494, label %496
 
@@ -2301,12 +2301,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 496:                                              ; preds = %492
-  %497 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.77, i64 noundef %329) #14
+  %497 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.77, i64 noundef %329) #14
   %.not618 = icmp eq i32 %497, 0
   br i1 %.not618, label %500, label %498
 
 498:                                              ; preds = %496
-  %499 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.78, i64 noundef %390) #14
+  %499 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.78, i64 noundef %390) #14
   %.not619 = icmp eq i32 %499, 0
   br i1 %.not619, label %500, label %502
 
@@ -2318,7 +2318,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
 502:                                              ; preds = %498
   %503 = call i32 @llvm.smax.i32(i32 %.1523, i32 1)
   %504 = zext nneg i32 %503 to i64
-  %505 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.79, i64 noundef %504) #14
+  %505 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.79, i64 noundef %504) #14
   %.not620 = icmp eq i32 %505, 0
   br i1 %.not620, label %506, label %508
 
@@ -2328,7 +2328,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 508:                                              ; preds = %502
-  %509 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.80, i64 noundef %141) #14
+  %509 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.80, i64 noundef %141) #14
   %.not621 = icmp eq i32 %509, 0
   br i1 %.not621, label %510, label %512
 
@@ -2338,7 +2338,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 512:                                              ; preds = %508
-  %513 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.81, i64 noundef %153) #14
+  %513 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.81, i64 noundef %153) #14
   %.not622 = icmp eq i32 %513, 0
   br i1 %.not622, label %514, label %516
 
@@ -2348,7 +2348,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 516:                                              ; preds = %512
-  %517 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.82, i64 noundef %141) #14
+  %517 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.82, i64 noundef %141) #14
   %.not623 = icmp eq i32 %517, 0
   br i1 %.not623, label %518, label %520
 
@@ -2358,7 +2358,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 520:                                              ; preds = %516
-  %521 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.83, i64 noundef %153) #14
+  %521 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.83, i64 noundef %153) #14
   %.not624 = icmp eq i32 %521, 0
   br i1 %.not624, label %522, label %534
 
@@ -2384,7 +2384,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 534:                                              ; preds = %520
-  %535 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.84, i64 noundef %153) #14
+  %535 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.84, i64 noundef %153) #14
   %.not626 = icmp eq i32 %535, 0
   br i1 %.not626, label %536, label %542
 
@@ -2403,12 +2403,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 542:                                              ; preds = %534
-  %543 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.86, i64 noundef %329) #14
+  %543 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.86, i64 noundef %329) #14
   %.not628 = icmp eq i32 %543, 0
   br i1 %.not628, label %546, label %544
 
 544:                                              ; preds = %542
-  %545 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.87, i64 noundef %329) #14
+  %545 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.87, i64 noundef %329) #14
   %.not629 = icmp eq i32 %545, 0
   br i1 %.not629, label %546, label %558
 
@@ -2444,7 +2444,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 558:                                              ; preds = %544
-  %559 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.91, i64 noundef %136) #14
+  %559 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.91, i64 noundef %136) #14
   %.not633 = icmp eq i32 %559, 0
   br i1 %.not633, label %560, label %572
 
@@ -2480,7 +2480,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 572:                                              ; preds = %558
-  %573 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.93, i64 noundef %390) #14
+  %573 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.93, i64 noundef %390) #14
   %.not637 = icmp eq i32 %573, 0
   br i1 %.not637, label %574, label %585
 
@@ -2513,7 +2513,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 585:                                              ; preds = %572
-  %586 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.97, i64 noundef %153) #14
+  %586 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.97, i64 noundef %153) #14
   %.not641 = icmp eq i32 %586, 0
   br i1 %.not641, label %587, label %589
 
@@ -2523,7 +2523,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 589:                                              ; preds = %585
-  %590 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.98, i64 noundef %390) #14
+  %590 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.98, i64 noundef %390) #14
   %.not642 = icmp eq i32 %590, 0
   br i1 %.not642, label %591, label %604
 
@@ -2559,7 +2559,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 604:                                              ; preds = %589
-  %605 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.100, i64 noundef %153) #14
+  %605 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.100, i64 noundef %153) #14
   %.not646 = icmp eq i32 %605, 0
   br i1 %.not646, label %606, label %608
 
@@ -2569,7 +2569,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 608:                                              ; preds = %604
-  %609 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.101, i64 noundef %153) #14
+  %609 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.101, i64 noundef %153) #14
   %.not647 = icmp eq i32 %609, 0
   br i1 %.not647, label %610, label %612
 
@@ -2579,7 +2579,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 612:                                              ; preds = %608
-  %613 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.102, i64 noundef %182) #14
+  %613 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.102, i64 noundef %182) #14
   %.not648 = icmp eq i32 %613, 0
   br i1 %.not648, label %614, label %616
 
@@ -2589,7 +2589,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 616:                                              ; preds = %612
-  %617 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.103, i64 noundef %182) #14
+  %617 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.103, i64 noundef %182) #14
   %.not649 = icmp eq i32 %617, 0
   br i1 %.not649, label %618, label %625
 
@@ -2612,7 +2612,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 625:                                              ; preds = %616
-  %626 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.105, i64 noundef %182) #14
+  %626 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.105, i64 noundef %182) #14
   %.not651 = icmp eq i32 %626, 0
   br i1 %.not651, label %627, label %629
 
@@ -2622,7 +2622,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 629:                                              ; preds = %625
-  %630 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.106, i64 noundef %182) #14
+  %630 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.106, i64 noundef %182) #14
   %.not652 = icmp eq i32 %630, 0
   br i1 %.not652, label %631, label %633
 
@@ -2632,7 +2632,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 633:                                              ; preds = %629
-  %634 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.107, i64 noundef %136) #14
+  %634 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.107, i64 noundef %136) #14
   %.not653 = icmp eq i32 %634, 0
   br i1 %.not653, label %635, label %637
 
@@ -2642,12 +2642,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 637:                                              ; preds = %633
-  %638 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.108, i64 noundef %182) #14
+  %638 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.108, i64 noundef %182) #14
   %.not654 = icmp eq i32 %638, 0
   br i1 %.not654, label %641, label %639
 
 639:                                              ; preds = %637
-  %640 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.109, i64 noundef %182) #14
+  %640 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.109, i64 noundef %182) #14
   %.not655 = icmp eq i32 %640, 0
   br i1 %.not655, label %641, label %643
 
@@ -2657,7 +2657,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 643:                                              ; preds = %639
-  %644 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.110, i64 noundef %504) #14
+  %644 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.110, i64 noundef %504) #14
   %.not656 = icmp eq i32 %644, 0
   br i1 %.not656, label %645, label %647
 
@@ -2667,7 +2667,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 647:                                              ; preds = %643
-  %648 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.111, i64 noundef %136) #14
+  %648 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.111, i64 noundef %136) #14
   %.not657 = icmp eq i32 %648, 0
   br i1 %.not657, label %649, label %651
 
@@ -2677,7 +2677,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 651:                                              ; preds = %647
-  %652 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.112, i64 noundef %329) #14
+  %652 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.112, i64 noundef %329) #14
   %.not658 = icmp eq i32 %652, 0
   br i1 %.not658, label %653, label %665
 
@@ -2716,7 +2716,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 665:                                              ; preds = %651
-  %666 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.115, i64 noundef %504) #14
+  %666 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.115, i64 noundef %504) #14
   %.not662 = icmp eq i32 %666, 0
   br i1 %.not662, label %667, label %669
 
@@ -2726,7 +2726,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 669:                                              ; preds = %665
-  %670 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.116, i64 noundef %504) #14
+  %670 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.116, i64 noundef %504) #14
   %.not663 = icmp eq i32 %670, 0
   br i1 %.not663, label %671, label %673
 
@@ -2736,7 +2736,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 673:                                              ; preds = %669
-  %674 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.117, i64 noundef %504) #14
+  %674 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.117, i64 noundef %504) #14
   %.not664 = icmp eq i32 %674, 0
   br i1 %.not664, label %675, label %677
 
@@ -2746,7 +2746,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 677:                                              ; preds = %673
-  %678 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.118, i64 noundef %504) #14
+  %678 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.118, i64 noundef %504) #14
   %.not665 = icmp eq i32 %678, 0
   br i1 %.not665, label %679, label %681
 
@@ -2756,12 +2756,12 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 681:                                              ; preds = %677
-  %682 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.119, i64 noundef %329) #14
+  %682 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.119, i64 noundef %329) #14
   %.not666 = icmp eq i32 %682, 0
   br i1 %.not666, label %685, label %683
 
 683:                                              ; preds = %681
-  %684 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.120, i64 noundef %329) #14
+  %684 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.120, i64 noundef %329) #14
   %.not667 = icmp eq i32 %684, 0
   br i1 %.not667, label %685, label %694
 
@@ -2786,7 +2786,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 694:                                              ; preds = %683
-  %695 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.121, i64 noundef %329) #14
+  %695 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.121, i64 noundef %329) #14
   %.not669 = icmp eq i32 %695, 0
   br i1 %.not669, label %696, label %699
 
@@ -2797,7 +2797,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 699:                                              ; preds = %694
-  %700 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.122, i64 noundef %136) #14
+  %700 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.122, i64 noundef %136) #14
   %.not670 = icmp eq i32 %700, 0
   br i1 %.not670, label %701, label %713
 
@@ -2833,7 +2833,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 713:                                              ; preds = %699
-  %714 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.124, i64 noundef %136) #14
+  %714 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.124, i64 noundef %136) #14
   %.not674 = icmp eq i32 %714, 0
   br i1 %.not674, label %715, label %725
 
@@ -2856,7 +2856,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 725:                                              ; preds = %713
-  %726 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.126, i64 noundef %136) #14
+  %726 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.126, i64 noundef %136) #14
   %.not675 = icmp eq i32 %726, 0
   br i1 %.not675, label %727, label %730
 
@@ -2869,7 +2869,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 730:                                              ; preds = %725
-  %731 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.127, i64 noundef %329) #14
+  %731 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.127, i64 noundef %329) #14
   %.not677 = icmp eq i32 %731, 0
   br i1 %.not677, label %732, label %734
 
@@ -2879,7 +2879,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 734:                                              ; preds = %730
-  %735 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.128, i64 noundef %153) #14
+  %735 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.128, i64 noundef %153) #14
   %.not678 = icmp eq i32 %735, 0
   br i1 %.not678, label %736, label %744
 
@@ -2900,7 +2900,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br label %756
 
 744:                                              ; preds = %734
-  %745 = call i32 @xstrncasecmp(ptr noundef %.0513, ptr noundef nonnull @.str.130, i64 noundef %153) #14
+  %745 = call i32 @xstrncasecmp(ptr noundef nonnull %.0513, ptr noundef nonnull @.str.130, i64 noundef %153) #14
   %.not679 = icmp eq i32 %745, 0
   br i1 %.not679, label %746, label %748
 
@@ -2928,7 +2928,7 @@ _get_job_time.exit:                               ; preds = %296, %274, %split.i
   br i1 %.not680, label %.thread, label %757
 
 757:                                              ; preds = %756
-  %758 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.132, ptr noundef %.0513) #14
+  %758 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.132, ptr noundef nonnull %.0513) #14
   store i32 1, ptr @exit_code, align 4
   br label %.loopexit
 
@@ -3240,7 +3240,7 @@ _is_single_job.exit:                              ; preds = %870
 
 888:                                              ; preds = %885
   %889 = load ptr, ptr %769, align 8
-  %890 = call i64 @strtoul(ptr nocapture noundef %889, ptr noundef null, i32 noundef 10) #14
+  %890 = call i64 @strtoul(ptr noundef captures(none) %889, ptr noundef null, i32 noundef 10) #14
   %891 = trunc i64 %890 to i32
   store i32 %891, ptr %884, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -3615,7 +3615,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #5
@@ -3637,7 +3637,7 @@ declare zeroext i1 @verify_node_count(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @parse_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -3655,10 +3655,10 @@ declare i32 @uid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @parse_mail_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
@@ -3721,23 +3721,23 @@ define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @slurm_notify_job(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parse_requeue_flags(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_requeue_flags(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
-  %5 = tail call i32 @xstrncasecmp(ptr noundef %0, ptr noundef nonnull @.str.140, i64 noundef %4) #14
+  %5 = tail call i32 @xstrncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.140, i64 noundef %4) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.sink.split, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @xstrncasecmp(ptr noundef %0, ptr noundef nonnull @.str.141, i64 noundef 6) #14
+  %7 = tail call i32 @xstrncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.141, i64 noundef 6) #14
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %8, label %15
 
@@ -3771,27 +3771,27 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @slurm_allocation_lookup(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -3800,17 +3800,17 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 declare ptr @uint32_compressed_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @slurm_free_resource_allocation_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @slurm_load_job(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -3824,22 +3824,22 @@ declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

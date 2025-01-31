@@ -2968,7 +2968,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ir_const(ptr noundef, i64, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %7
@@ -3282,7 +3282,7 @@ define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr nocapture 
 declare i32 @ir_const_ex(ptr noundef, i64, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_d2f(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @ir_may_promote_d2f(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4
@@ -3450,7 +3450,7 @@ common.ret49:                                     ; preds = %13, %43, %25, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_sccp_replace_insn2(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @ir_sccp_replace_insn2(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw %struct._ir_insn, ptr %5, i64 %6
@@ -3695,7 +3695,7 @@ define internal fastcc void @ir_sccp_replace_insn2(ptr noundef %0, i32 noundef r
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_f2d(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @ir_may_promote_f2d(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4
@@ -3873,7 +3873,7 @@ common.ret51:                                     ; preds = %13, %45, %28, %25, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
@@ -4070,7 +4070,7 @@ declare i32 @ir_const_float(ptr noundef, float noundef) local_unnamed_addr #2
 declare i32 @ir_const_double(ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6

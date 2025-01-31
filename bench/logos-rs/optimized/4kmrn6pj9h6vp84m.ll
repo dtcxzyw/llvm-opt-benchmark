@@ -25,7 +25,7 @@ define zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h856181ffc2aa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h4014146eac0c0511E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h4014146eac0c0511E(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = invoke align 8 ptr @"_ZN96_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..adapters..SourceIter$GT$8as_inner17h2a98daa61d78e18dE"(ptr align 8 %1)
           to label %8 unwind label %6
@@ -98,7 +98,7 @@ define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h4014146eac0c0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h5ee18b2dbc94bbc6E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h5ee18b2dbc94bbc6E(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = invoke align 8 ptr @"_ZN96_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..adapters..SourceIter$GT$8as_inner17ha683fdfd7d5321b7E"(ptr align 8 %1)
           to label %8 unwind label %6
@@ -171,7 +171,7 @@ define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h5ee18b2dbc94b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h6cc510d94bc80d2dE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h6cc510d94bc80d2dE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = invoke align 8 ptr @"_ZN100_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..adapters..SourceIter$GT$8as_inner17h79c99b0305e48b8cE"(ptr align 8 %1)
@@ -269,7 +269,7 @@ _ZN5alloc3vec16in_place_collect13needs_realloc17h856181ffc2aaea32E.exit.thread: 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17hce61629c9925f7a7E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 40)) %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
+define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17hce61629c9925f7a7E"(ptr readnone align 8 captures(none) %0, ptr %1, ptr initializes((0, 40)) %2, ptr readonly align 8 captures(none) %3) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = insertvalue { ptr, ptr } poison, ptr %1, 0
@@ -335,7 +335,7 @@ declare void @"_ZN4core3ptr356drop_in_place$LT$core..iter..adapters..GenericShun
 declare void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$logos_codegen..mir..Mir$GT$$GT$17h39cc5022ab146892E"(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

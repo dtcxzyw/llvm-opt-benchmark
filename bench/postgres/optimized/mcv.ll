@@ -535,7 +535,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 thread-pre-split.thread:                          ; preds = %build_distinct_groups.exit, %._crit_edge111, %thread-pre-split
   %.083 = phi ptr [ %185, %._crit_edge111 ], [ null, %thread-pre-split ], [ null, %build_distinct_groups.exit ]
   call void @pfree(ptr noundef nonnull %33) #12
-  call void @pfree(ptr noundef %44) #12
+  call void @pfree(ptr noundef nonnull %44) #12
   br label %245
 
 245:                                              ; preds = %build_mss.exit, %thread-pre-split.thread
@@ -550,7 +550,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @bsearch_arg(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1312,7 +1312,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @statext_mcv_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i16, ptr %4, align 4
@@ -1900,7 +1900,7 @@ store_att_byval.exit:                             ; preds = %277, %279, %281, %2
   store i32 %332, ptr %.1310355, align 1
   %333 = getelementptr i8, ptr %.1310355, i64 4
   %334 = zext i32 %332 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %333, ptr align 1 %329, i64 %334, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %333, ptr nonnull align 1 %329, i64 %334, i1 false)
   %335 = getelementptr i8, ptr %333, i64 %334
   br label %336
 
@@ -1956,7 +1956,7 @@ declare i32 @compare_scalars_simple(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @compare_datums_simple(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2178,14 +2178,14 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 declare i64 @makeArrayResult(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @pg_mcv_list_in(ptr nocapture noundef readnone %0) local_unnamed_addr #6 {
+define dso_local noundef i64 @pg_mcv_list_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -2203,7 +2203,7 @@ define dso_local i64 @pg_mcv_list_out(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @byteaout(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @pg_mcv_list_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #6 {
+define dso_local noundef i64 @pg_mcv_list_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #12
@@ -2255,7 +2255,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_clauselist_selectivity(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -3003,7 +3003,7 @@ is_orclause.exit249:                              ; preds = %is_orclause.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_clause_selectivity_or(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local double @mcv_clause_selectivity_or(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef captures(none) initializes((0, 8)) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
@@ -3112,7 +3112,7 @@ declare ptr @multi_sort_init(i32 noundef) local_unnamed_addr #1
 declare void @multi_sort_add_dimension(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_sort_item_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #9 {
+define internal range(i32 -1, 2) i32 @compare_sort_item_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3122,7 +3122,7 @@ define internal range(i32 -1, 2) i32 @compare_sort_item_count(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sort_item_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @sort_item_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

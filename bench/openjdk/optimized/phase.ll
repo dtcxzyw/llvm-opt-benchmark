@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5PhaseC1ENS_11PhaseNumberE = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN5PhaseC2ENS_11PhaseNumberE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %11, label %4

@@ -349,7 +349,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cmp_ctx_set_md(ptr nocapture noundef nonnull readonly %ctx, ptr nocapture noundef nonnull %pmd, i32 noundef range(i32 -1, -2147483648) %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cmp_ctx_set_md(ptr noundef nonnull readonly captures(none) %ctx, ptr noundef nonnull captures(none) %pmd, i32 noundef range(i32 -1, -2147483648) %nid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #3
@@ -612,7 +612,7 @@ return:                                           ; preds = %OSSL_CMP_CTX_set1_t
 declare i32 @OSSL_HTTP_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_print_log(i32 noundef %level, ptr noundef readonly %ctx, ptr noundef %func, ptr noundef %file, i32 noundef %line, ptr nocapture readnone %level_str, ptr noundef %format, ...) local_unnamed_addr #0 {
+define i32 @ossl_cmp_print_log(i32 noundef %level, ptr noundef readonly %ctx, ptr noundef %func, ptr noundef %file, i32 noundef %line, ptr readnone captures(none) %level_str, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %hugebuf = alloca [2048 x i8], align 16

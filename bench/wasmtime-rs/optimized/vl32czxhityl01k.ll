@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e2bdb67530b1810651fe7f9ceb2ed41b.48 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"let" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr writeonly sret({ i64, [9 x i64] }) align 8 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   %3 = alloca { { { [4 x i64], i64, [3 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull readonly align 16 dereferenceable(192) %1, i64 192, i1 false)
   call fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias align 8 %0, ptr align 16 %3)
@@ -60,7 +60,7 @@ define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14cranelift_isle6parser11IfLetOrExpr4Expr17hb011df575d39f30aE(ptr nocapture writeonly sret({ i64, [35 x i64] }) align 16 initializes((0, 8), (16, 144)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #1 {
+define hidden void @_ZN14cranelift_isle6parser11IfLetOrExpr4Expr17hb011df575d39f30aE(ptr writeonly sret({ i64, [35 x i64] }) align 16 captures(none) initializes((0, 8), (16, 144)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) %1, i64 128, i1 false)
   store i64 5, ptr %0, align 16
@@ -68,7 +68,7 @@ define hidden void @_ZN14cranelift_isle6parser11IfLetOrExpr4Expr17hb011df575d39f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) %0, ptr align 16 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, align 8
@@ -188,7 +188,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser11eat_sym_str17h2e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he5731ed33c5076eeE(ptr noalias nonnull writeonly align 16 captures(none) %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 16
   %4 = alloca { i64, [3 x i64] }, align 16
   call void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %3, ptr nonnull align 16 %1)
@@ -246,7 +246,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10expect_int17he57
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5dbee841f22589a7E(ptr noalias writeonly align 8 captures(none) %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [15 x i64] }, align 16
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { i64, [9 x i64] }, align 16
@@ -4707,7 +4707,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_ident17hc7cbf895ef52149aE(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   %4 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -4987,7 +4987,7 @@ switch.early.test.i:                              ; preds = %.noexc23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser11parse_const17h39b4227fb0338933E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -5666,7 +5666,7 @@ _ZN14cranelift_isle6parser6Parser5is_at17hb25754fbfb5b8d28E.exit: ; preds = %140
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7293b11975a5f8E(ptr noalias nonnull writeonly align 16 captures(none) %0, ptr nonnull align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [9 x i64] }, align 16
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = alloca { ptr, i64 }, align 8
@@ -5969,7 +5969,7 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_expr17h7a7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nocapture nonnull writeonly align 16 %0, ptr nonnull align 16 %1, ptr nocapture nonnull readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle6parser6Parser23parse_expr_inner_parens17hb44928070b90abcfE(ptr noalias nonnull writeonly align 16 captures(none) %0, ptr nonnull align 16 %1, ptr nonnull readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = alloca { i64, [9 x i64] }, align 16
   %6 = alloca { i64, [9 x i64] }, align 16
@@ -6540,7 +6540,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17h449635dedb28fafeE(i64, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..ast..Pattern$GT$17h342abc0b07ed4668E"(ptr align 16) unnamed_addr #0
@@ -6765,10 +6765,10 @@ declare void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$cranelift_isl
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

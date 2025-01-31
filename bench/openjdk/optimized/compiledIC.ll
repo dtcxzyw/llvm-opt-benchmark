@@ -91,7 +91,7 @@ $_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto = comdat any
 @_ZN10CompiledICC1EP13RelocIterator = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN10CompiledICC2EP13RelocIterator
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16CompiledICLockerC2EP7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16CompiledICLockerC2EP7nmethod(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr @_ZN29CompiledICProtectionBehaviour8_currentE, align 8
@@ -106,7 +106,7 @@ define hidden void @_ZN16CompiledICLockerC2EP7nmethod(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16CompiledICLockerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16CompiledICLockerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -407,7 +407,7 @@ _ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK10CompiledIC4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK10CompiledIC4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -453,7 +453,7 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %1, %4, %6
 declare noundef ptr @_ZN23virtual_call_Relocation12cached_valueEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledICC2EP13RelocIterator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledICC2EP13RelocIterator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -663,7 +663,7 @@ _ZN10CompiledICC2EP13RelocIterator.exit:          ; preds = %1, %7, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %class.RelocIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -727,7 +727,7 @@ _Z13CompiledIC_atP7nmethodPh.exit:                ; preds = %23, %.sink.split.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -790,7 +790,7 @@ _ZN14CompiledICData10initializeEP8CallInfoP5Klass.exit: ; preds = %24, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC12set_to_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -826,7 +826,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0
 declare void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC18set_to_monomorphicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC18set_to_monomorphicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load volatile ptr, ptr %3, align 8
@@ -899,7 +899,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0
 declare noundef ptr @_ZNK8Metadata18print_value_stringEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC18set_to_megamorphicEP8CallInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC18set_to_megamorphicEP8CallInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %10 [
@@ -948,7 +948,7 @@ define hidden void @_ZN10CompiledIC18set_to_megamorphicEP8CallInfo(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC6updateEP8CallInfoP5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC6updateEP8CallInfoP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1115,7 +1115,7 @@ _ZN10CompiledIC18set_to_monomorphicEv.exit:       ; preds = %88, %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_megamorphicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_megamorphicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1125,7 +1125,7 @@ define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_megamorphicEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_ZN10CompiledIC19is_speculated_klassEP5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN10CompiledIC19is_speculated_klassEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1168,7 +1168,7 @@ _ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICDat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10CompiledIC8is_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10CompiledIC8is_cleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1182,7 +1182,7 @@ define hidden noundef zeroext i1 @_ZNK10CompiledIC8is_cleanEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_monomorphicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_monomorphicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1209,7 +1209,7 @@ define hidden noundef zeroext i1 @_ZNK10CompiledIC14is_monomorphicEv(ptr nocaptu
 declare noundef ptr @_ZN11VtableStubs11entry_pointEPh(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC14clean_metadataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC14clean_metadataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1260,7 +1260,7 @@ _ZN14CompiledICData14clean_metadataEv.exit:       ; preds = %1, %_ZNK14CompiledI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledIC11metadata_doEP15MetadataClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledIC11metadata_doEP15MetadataClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1345,7 +1345,7 @@ _ZN14CompiledICData11metadata_doEP15MetadataClosure.exit: ; preds = %2, %41, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.RelocIterator, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -1538,7 +1538,7 @@ declare noundef ptr @_ZN6Method13get_c2i_entryEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall8is_cleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall8is_cleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
   %4 = load ptr, ptr @_ZN13SharedRuntime25_resolve_static_call_blobE, align 8
@@ -1566,7 +1566,7 @@ define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall8is_cleanEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall22is_call_to_interpretedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall22is_call_to_interpretedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef %2) #14
   %4 = load ptr, ptr %0, align 8
@@ -1586,7 +1586,7 @@ define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall22is_call_to_interpret
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall19is_call_to_compiledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall19is_call_to_compiledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef %2) #14
   %4 = load ptr, ptr %0, align 8
@@ -1752,7 +1752,7 @@ declare noundef ptr @_ZN22static_call_Relocation11static_stubEv(ptr noundef nonn
 declare noundef ptr @_ZN27opt_virtual_call_Relocation11static_stubEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN18CompiledDirectCall9find_stubEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN18CompiledDirectCall9find_stubEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef %2)
   ret ptr %3
@@ -1897,16 +1897,16 @@ declare void @llvm.va_end.p0(ptr) #10
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53,7 +53,7 @@ define void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN2cv8saliency8SaliencyD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv8saliency8SaliencyD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }
@@ -62,19 +62,19 @@ define void @_ZN2cv8saliency8SaliencyD1Ev(ptr nocapture nonnull readnone align 8
 declare void @llvm.trap() #5
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N2cv8saliency8SaliencyD1Ev(ptr nocapture noundef readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n24_N2cv8saliency8SaliencyD1Ev(ptr noundef readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN2cv8saliency8SaliencyD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv8saliency8SaliencyD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N2cv8saliency8SaliencyD0Ev(ptr nocapture noundef readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n24_N2cv8saliency8SaliencyD0Ev(ptr noundef readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }

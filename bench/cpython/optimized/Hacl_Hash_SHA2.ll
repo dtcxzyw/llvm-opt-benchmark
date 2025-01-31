@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_init(ptr nocapture noundef writeonly initializes((0, 32)) %hash) local_unnamed_addr #0 {
+define hidden void @Hacl_SHA2_Scalar32_sha256_init(ptr noundef writeonly captures(none) initializes((0, 32)) %hash) local_unnamed_addr #0 {
 entry:
   store i32 1779033703, ptr %hash, align 4
   %arrayidx8 = getelementptr i8, ptr %hash, i64 4
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
+define hidden void @Hacl_SHA2_Scalar32_sha256_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not = icmp ult i32 %len, 64
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -49,7 +49,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
+define internal fastcc void @sha256_update(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i32, ptr %hash, align 4
   %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 4
@@ -2357,7 +2357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_update_last(i64 noundef %totlen, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha256_update_last(i64 noundef %totlen, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) local_unnamed_addr #2 {
 entry:
   %last = alloca [128 x i8], align 16
   %0 = add i32 %len, -56
@@ -2385,13 +2385,13 @@ if.end13:                                         ; preds = %if.then12, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha256_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly initializes((0, 32)) %h) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha256_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 32)) %h) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %st, align 4
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
@@ -2435,7 +2435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_init(ptr nocapture noundef writeonly initializes((0, 32)) %hash) local_unnamed_addr #0 {
+define hidden void @Hacl_SHA2_Scalar32_sha224_init(ptr noundef writeonly captures(none) initializes((0, 32)) %hash) local_unnamed_addr #0 {
 entry:
   store i32 -1056596264, ptr %hash, align 4
   %arrayidx8 = getelementptr i8, ptr %hash, i64 4
@@ -2456,7 +2456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_update_last(i64 noundef %totlen, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha224_update_last(i64 noundef %totlen, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #2 {
 entry:
   %last.i = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
@@ -2486,7 +2486,7 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha224_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly initializes((0, 28)) %h) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha224_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 28)) %h) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %st, align 4
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
@@ -2525,7 +2525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @python_hashlib_Hacl_SHA2_Scalar32_sha512_init(ptr nocapture noundef writeonly initializes((0, 64)) %hash) local_unnamed_addr #0 {
+define hidden void @python_hashlib_Hacl_SHA2_Scalar32_sha512_init(ptr noundef writeonly captures(none) initializes((0, 64)) %hash) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %hash, align 8
   %arrayidx8 = getelementptr i8, ptr %hash, i64 8
@@ -2546,7 +2546,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
+define hidden void @Hacl_SHA2_Scalar32_sha512_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not = icmp ult i32 %len, 128
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -2570,7 +2570,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sha512_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
+define internal fastcc void @sha512_update(ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i64, ptr %hash, align 8
   %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 8
@@ -5486,7 +5486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha512_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %hash) local_unnamed_addr #2 {
 entry:
   %last = alloca [256 x i8], align 16
   %0 = add i32 %len, -112
@@ -5519,7 +5519,7 @@ if.end13:                                         ; preds = %if.then12, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha512_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly initializes((0, 64)) %h) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha512_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 64)) %h) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %st, align 8
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
@@ -5563,7 +5563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_init(ptr nocapture noundef writeonly initializes((0, 64)) %hash) local_unnamed_addr #0 {
+define hidden void @Hacl_SHA2_Scalar32_sha384_init(ptr noundef writeonly captures(none) initializes((0, 64)) %hash) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %hash, align 8
   %arrayidx8 = getelementptr i8, ptr %hash, i64 8
@@ -5584,7 +5584,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
+define hidden void @Hacl_SHA2_Scalar32_sha384_update_nblocks(i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not.i = icmp ult i32 %len, 128
   br i1 %cmp4.not.i, label %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, label %for.body.preheader.i
@@ -5608,7 +5608,7 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha384_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr noundef readonly captures(none) %b, ptr noundef captures(none) %st) local_unnamed_addr #2 {
 entry:
   %last.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
@@ -5643,7 +5643,7 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_SHA2_Scalar32_sha384_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly initializes((0, 48)) %h) local_unnamed_addr #2 {
+define hidden void @Hacl_SHA2_Scalar32_sha384_finish(ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) initializes((0, 48)) %h) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %st, align 8
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
@@ -5712,7 +5712,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr noundef readonly captures(none) %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
@@ -5733,7 +5733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_256(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_256(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -5761,14 +5761,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -5918,7 +5918,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 32)) %dst) local_unnamed_addr #11 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 32)) %dst) local_unnamed_addr #11 {
 entry:
   %last.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [8 x i32], align 16
@@ -6008,7 +6008,7 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_256(ptr nocapture noundef %s) local_unnamed_addr #12 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_256(ptr noundef captures(none) %s) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -6020,10 +6020,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_256(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Streaming_SHA2_hash_256(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
 entry:
   %last.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
@@ -6152,7 +6152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_224(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_224(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -6180,14 +6180,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_224(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 28)) %dst) local_unnamed_addr #11 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_224(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 28)) %dst) local_unnamed_addr #11 {
 entry:
   %last.i.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [8 x i32], align 16
@@ -6272,7 +6272,7 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_224(ptr nocapture noundef %p) local_unnamed_addr #12 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_224(ptr noundef captures(none) %p) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
   %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -6284,7 +6284,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_224(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Streaming_SHA2_hash_224(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
 entry:
   %last.i.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
@@ -6409,7 +6409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef readonly captures(none) %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
@@ -6430,7 +6430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_512(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_512(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -6458,14 +6458,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -6615,7 +6615,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 64)) %dst) local_unnamed_addr #11 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 64)) %dst) local_unnamed_addr #11 {
 entry:
   %last.i = alloca [256 x i8], align 16
   %tmp_block_state = alloca [8 x i64], align 16
@@ -6714,7 +6714,7 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr nocapture noundef %s) local_unnamed_addr #12 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr noundef captures(none) %s) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -6726,7 +6726,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_512(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Streaming_SHA2_hash_512(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
 entry:
   %last.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
@@ -6858,7 +6858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_384(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_384(ptr noundef captures(none) initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -6886,14 +6886,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr noundef captures(none) %p, ptr noundef readonly captures(none) %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_384(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 48)) %dst) local_unnamed_addr #11 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_384(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) initializes((0, 48)) %dst) local_unnamed_addr #11 {
 entry:
   %last.i.i = alloca [256 x i8], align 16
   %tmp_block_state = alloca [8 x i64], align 16
@@ -6982,7 +6982,7 @@ Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_384(ptr nocapture noundef %p) local_unnamed_addr #12 {
+define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_384(ptr noundef captures(none) %p) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
   %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -6994,7 +6994,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_SHA2_hash_384(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Streaming_SHA2_hash_384(ptr noundef readonly captures(none) %input, i32 noundef %input_len, ptr noundef writeonly captures(none) %dst) local_unnamed_addr #1 {
 entry:
   %last.i.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
@@ -7101,10 +7101,10 @@ declare i32 @llvm.bswap.i32(i32) #14
 declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

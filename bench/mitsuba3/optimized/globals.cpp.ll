@@ -20,17 +20,17 @@ define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1010DebugUtils13errorAsS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold minsize mustprogress nofree nounwind uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1010DebugUtils11debugOutputEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6asmjit9_abi_1_1010DebugUtils11debugOutputEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !7
   %3 = tail call i32 @fputs(ptr noundef %0, ptr noundef %2) #7
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -45,7 +45,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1010DebugUtils15assertionFailedEPKciS3_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5

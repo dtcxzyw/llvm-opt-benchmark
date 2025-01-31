@@ -90,7 +90,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cipher_hw_des_copyctx(ptr noundef initializes((0, 328)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @cipher_hw_des_copyctx(ptr noundef initializes((0, 328)) %dst, ptr noundef readonly captures(none) %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %dst, ptr noundef nonnull align 8 dereferenceable(328) %src, i64 328, i1 false)
   %dks = getelementptr inbounds nuw i8, ptr %dst, i64 192
@@ -104,7 +104,7 @@ declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_des_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
@@ -260,7 +260,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 declare void @DES_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inl) #1 {
+define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %ctx, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inl) #1 {
 entry:
   %c = alloca [1 x i8], align 1
   %d = alloca [1 x i8], align 1

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_noCompressLiterals(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
+define i64 @ZSTD_noCompressLiterals(ptr noundef writeonly captures(none) %dst, i64 noundef %dstCapacity, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, 31
   %add = select i1 %cmp, i32 2, i32 1
@@ -57,10 +57,10 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %dst, i64 %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
+define range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr noundef writeonly captures(none) %dst, i64 %dstCapacity, ptr noundef readonly captures(none) %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, 31
   %add = select i1 %cmp, i32 2, i32 1
@@ -108,7 +108,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr nocapture noundef readonly %prevHuf, ptr noundef initializes((0, 2064)) %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
+define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr noundef readonly captures(none) %prevHuf, ptr noundef initializes((0, 2064)) %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
 entry:
   %repeat = alloca i32, align 4
   %cmp = icmp ugt i64 %srcSize, 1023

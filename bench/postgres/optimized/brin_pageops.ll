@@ -496,7 +496,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @brinRevmapExtend(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 0, 8153) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 0, 8153) %2, ptr noundef nonnull captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   %5 = icmp ne i32 %1, 0
   br i1 %5, label %6, label %8
 
@@ -924,7 +924,7 @@ declare void @RecordPageWithFreeSpace(ptr noundef, i32 noundef, i64 noundef) loc
 declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 0) i16 @brin_doinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca %struct.xl_brin_insert, align 4
   %10 = icmp ugt i64 %6, 8152
@@ -1228,7 +1228,7 @@ define dso_local void @brin_metapage_init(ptr noundef %0, i32 noundef %1, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @brin_start_evacuating_page(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @brin_start_evacuating_page(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %10
 

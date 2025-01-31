@@ -194,7 +194,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_spawn(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %process, ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define i32 @uv_spawn(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %process, ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %signewset.i.i = alloca %struct.__sigset_t, align 8
   %sigoldset.i.i = alloca %struct.__sigset_t, align 8
@@ -648,7 +648,7 @@ declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @uv_signal_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__chld(ptr nocapture noundef readonly %handle, i32 %signum) #0 {
+define internal void @uv__chld(ptr noundef readonly captures(none) %handle, i32 %signum) #0 {
 entry:
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
@@ -661,7 +661,7 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #1
 declare i32 @uv__close_nocheckstdio(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_process_kill(ptr nocapture noundef readonly %process, i32 noundef %signum) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_process_kill(ptr noundef readonly captures(none) %process, i32 noundef %signum) local_unnamed_addr #0 {
 entry:
   %pid = getelementptr inbounds nuw i8, ptr %process, i64 104
   %0 = load i32, ptr %pid, align 8
@@ -702,7 +702,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__process_close(ptr nocapture noundef %handle) local_unnamed_addr #0 {
+define hidden void @uv__process_close(ptr noundef captures(none) %handle) local_unnamed_addr #0 {
 entry:
   %queue = getelementptr inbounds nuw i8, ptr %handle, i64 112
   %0 = load ptr, ptr %queue, align 8
@@ -764,7 +764,7 @@ declare void @uv_rwlock_wrunlock(ptr noundef) local_unnamed_addr #1
 declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
@@ -779,7 +779,7 @@ declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @fork() local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @uv__process_child_init(ptr nocapture noundef readonly %options, i32 noundef %stdio_count, ptr nocapture noundef nonnull %pipes, i32 noundef %error_fd) unnamed_addr #7 {
+define internal fastcc void @uv__process_child_init(ptr noundef readonly captures(none) %options, i32 noundef %stdio_count, ptr noundef nonnull captures(none) %pipes, i32 noundef %error_fd) unnamed_addr #7 {
 entry:
   %val.addr.i.i124 = alloca i32, align 4
   %val.addr.i.i114 = alloca i32, align 4
@@ -1202,7 +1202,7 @@ declare i32 @setsid() local_unnamed_addr #4
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 declare i32 @uv__cloexec(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1233,7 +1233,7 @@ declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
 declare void @_exit(i32 noundef) local_unnamed_addr #8
@@ -1248,13 +1248,13 @@ declare void @uv__stream_close(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

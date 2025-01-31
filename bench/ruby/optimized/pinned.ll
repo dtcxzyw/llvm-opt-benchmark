@@ -128,7 +128,7 @@ define internal range(i64 0, 21) i64 @cleared_p(i64 noundef %0) #0 {
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @pinned_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @pinned_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %4, label %3
@@ -144,7 +144,7 @@ define internal void @pinned_mark(ptr nocapture noundef readonly %0) #0 {
 declare void @ruby_xfree(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @pinned_memsize(ptr nocapture readnone %0) #2 {
+define internal noundef i64 @pinned_memsize(ptr readnone captures(none) %0) #2 {
   ret i64 8
 }
 

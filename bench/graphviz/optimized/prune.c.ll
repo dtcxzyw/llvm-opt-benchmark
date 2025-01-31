@@ -78,13 +78,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef %17) #17
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef nonnull %17) #17
   tail call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
 23:                                               ; preds = %16
   store i8 0, ptr %18, align 1
-  %24 = tail call noalias ptr @strdup(ptr noundef readonly %17) #16
+  %24 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %17) #16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %gv_strdup.exit.i
 
@@ -215,7 +215,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br label %.outer236
 
 92:                                               ; preds = %14
-  tail call fastcc void @help_message(ptr noundef %.0)
+  tail call fastcc void @help_message(ptr noundef nonnull %.0)
   tail call fastcc void @graphviz_exit(i32 noundef 0) #18
   unreachable
 
@@ -229,7 +229,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %94
-  tail call fastcc void @help_message(ptr noundef %.0)
+  tail call fastcc void @help_message(ptr noundef nonnull %.0)
   tail call fastcc void @graphviz_exit(i32 noundef 0) #18
   unreachable
 
@@ -248,7 +248,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   unreachable
 
 107:                                              ; preds = %14
-  tail call fastcc void @help_message(ptr noundef %.0)
+  tail call fastcc void @help_message(ptr noundef nonnull %.0)
   tail call fastcc void @graphviz_exit(i32 noundef 1) #18
   unreachable
 
@@ -436,7 +436,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -458,7 +458,7 @@ define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnam
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @newIngraph(ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -553,7 +553,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %39, %15
-  %40 = tail call i32 @agdelnode(ptr noundef nonnull %0, ptr noundef %1) #16
+  %40 = tail call i32 @agdelnode(ptr noundef nonnull %0, ptr noundef nonnull %1) #16
   br label %41
 
 41:                                               ; preds = %2, %._crit_edge, %12
@@ -572,7 +572,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @agclose(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attrs_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
+define internal fastcc void @attrs_free(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -601,7 +601,7 @@ attrs_clear.exit:                                 ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nodes_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
+define internal fastcc void @nodes_free(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -630,7 +630,7 @@ nodes_clear.exit:                                 ; preds = %.lr.ph.i, %1
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @agfstin(ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -644,19 +644,19 @@ declare i32 @agdelnode(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

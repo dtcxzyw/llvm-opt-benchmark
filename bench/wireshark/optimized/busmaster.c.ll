@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @busmaster_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @busmaster_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @busmaster_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.busmaster_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 0, i64 232, i1 false)
   %5 = load ptr, ptr %0, align 8
@@ -77,7 +77,7 @@ define hidden range(i32 -1, 2) i32 @busmaster_open(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -131,7 +131,7 @@ define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef nonnull 
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @busmaster_close(ptr nocapture noundef %0) #0 {
+define internal void @busmaster_close(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @g_free) #8
@@ -140,7 +140,7 @@ define internal void @busmaster_close(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @busmaster_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
+define internal range(i32 0, 2) i32 @busmaster_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca %struct.busmaster_state_t, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -329,7 +329,7 @@ busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.busmaster_state_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %7, i8 0, i64 232, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -432,7 +432,7 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #3
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @g_slist_last(ptr noundef) local_unnamed_addr #2
 
@@ -442,7 +442,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @busmaster_gen_packet(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @busmaster_gen_packet(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
 switch.edge:
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
@@ -676,7 +676,7 @@ declare void @ws_buffer_remove_start(ptr noundef, i64 noundef) local_unnamed_add
 declare void @ws_buffer_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 

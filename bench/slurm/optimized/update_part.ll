@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [29 x i8] c"Error creating the partition\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -180,7 +180,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   %57 = trunc i64 %56 to i32
   %58 = call i32 @llvm.smax.i32(i32 %.0417, i32 2)
   %59 = zext nneg i32 %58 to i64
-  %60 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.3, i64 noundef %59) #5
+  %60 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.3, i64 noundef %59) #5
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %66, label %67
 
@@ -198,7 +198,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 67:                                               ; preds = %54
   %68 = call i32 @llvm.smax.i32(i32 %.0417, i32 4)
   %69 = zext nneg i32 %68 to i64
-  %70 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.4, i64 noundef %69) #5
+  %70 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.4, i64 noundef %69) #5
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %79
 
@@ -221,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 79:                                               ; preds = %67
   %80 = call i32 @llvm.smax.i32(i32 %.0417, i32 7)
   %81 = zext nneg i32 %80 to i64
-  %82 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.6, i64 noundef %81) #5
+  %82 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.6, i64 noundef %81) #5
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %90
 
@@ -240,7 +240,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 90:                                               ; preds = %79
   %91 = call i32 @llvm.smax.i32(i32 %.0417, i32 8)
   %92 = zext nneg i32 %91 to i64
-  %93 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.7, i64 noundef %92) #5
+  %93 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.7, i64 noundef %92) #5
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %102
 
@@ -261,7 +261,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 102:                                              ; preds = %90
-  %103 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.8, i64 noundef %69) #5
+  %103 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.8, i64 noundef %69) #5
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %116
 
@@ -289,7 +289,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 116:                                              ; preds = %102
-  %117 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.12, i64 noundef %69) #5
+  %117 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.12, i64 noundef %69) #5
   %.not427 = icmp eq i32 %117, 0
   br i1 %.not427, label %118, label %127
 
@@ -317,7 +317,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 127:                                              ; preds = %116
-  %128 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.14, i64 noundef %69) #5
+  %128 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.14, i64 noundef %69) #5
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %142
 
@@ -350,7 +350,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 142:                                              ; preds = %127
-  %143 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.15, i64 noundef %59) #5
+  %143 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.15, i64 noundef %59) #5
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %148
 
@@ -362,7 +362,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 148:                                              ; preds = %142
-  %149 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.16, i64 noundef %81) #5
+  %149 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.16, i64 noundef %81) #5
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %167
 
@@ -396,7 +396,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 167:                                              ; preds = %148
   %168 = call i32 @llvm.smax.i32(i32 %.0417, i32 1)
   %169 = zext nneg i32 %168 to i64
-  %170 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.21, i64 noundef %169) #5
+  %170 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.21, i64 noundef %169) #5
   %.not431 = icmp eq i32 %170, 0
   br i1 %.not431, label %171, label %187
 
@@ -428,7 +428,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 187:                                              ; preds = %167
-  %188 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.23, i64 noundef %169) #5
+  %188 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.23, i64 noundef %169) #5
   %.not432 = icmp eq i32 %188, 0
   br i1 %.not432, label %189, label %205
 
@@ -460,7 +460,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 205:                                              ; preds = %187
-  %206 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.25, i64 noundef %169) #5
+  %206 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.25, i64 noundef %169) #5
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %208, label %224
 
@@ -492,7 +492,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 224:                                              ; preds = %205
-  %225 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.27, i64 noundef %169) #5
+  %225 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.27, i64 noundef %169) #5
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %227, label %243
 
@@ -526,7 +526,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 243:                                              ; preds = %224
   %244 = call i32 @llvm.smax.i32(i32 %.0417, i32 3)
   %245 = zext nneg i32 %244 to i64
-  %246 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.29, i64 noundef %245) #5
+  %246 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.29, i64 noundef %245) #5
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %264
 
@@ -558,7 +558,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 264:                                              ; preds = %243
-  %265 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.31, i64 noundef %245) #5
+  %265 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.31, i64 noundef %245) #5
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %283
 
@@ -592,12 +592,12 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 283:                                              ; preds = %264
   %284 = call i32 @llvm.smax.i32(i32 %.0417, i32 5)
   %285 = zext nneg i32 %284 to i64
-  %286 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.33, i64 noundef %285) #5
+  %286 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.33, i64 noundef %285) #5
   %.not433 = icmp eq i32 %286, 0
   br i1 %.not433, label %289, label %287
 
 287:                                              ; preds = %283
-  %288 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.34, i64 noundef %59) #5
+  %288 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.34, i64 noundef %59) #5
   %.not434 = icmp eq i32 %288, 0
   br i1 %.not434, label %289, label %325
 
@@ -635,7 +635,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 
 306:                                              ; preds = %305
   %307 = getelementptr inbounds nuw i8, ptr %290, i64 1
-  %308 = call i64 @strtol(ptr nocapture noundef nonnull %307, ptr noundef null, i32 noundef 10) #5
+  %308 = call i64 @strtol(ptr noundef nonnull captures(none) %307, ptr noundef null, i32 noundef 10) #5
   %309 = trunc i64 %308 to i16
   br label %324
 
@@ -649,7 +649,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 
 314:                                              ; preds = %313
   %315 = getelementptr inbounds nuw i8, ptr %290, i64 1
-  %316 = call i64 @strtol(ptr nocapture noundef nonnull %315, ptr noundef null, i32 noundef 10) #5
+  %316 = call i64 @strtol(ptr noundef nonnull captures(none) %315, ptr noundef null, i32 noundef 10) #5
   %317 = trunc i64 %316 to i16
   %318 = or i16 %317, -32768
   br label %324
@@ -668,7 +668,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 325:                                              ; preds = %287
-  %326 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.38, i64 noundef %285) #5
+  %326 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.38, i64 noundef %285) #5
   %327 = icmp eq i32 %326, 0
   br i1 %327, label %328, label %339
 
@@ -696,7 +696,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 339:                                              ; preds = %325
-  %340 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.40, i64 noundef %169) #5
+  %340 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.40, i64 noundef %169) #5
   %.not436 = icmp eq i32 %340, 0
   br i1 %.not436, label %341, label %355
 
@@ -728,7 +728,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 355:                                              ; preds = %339
-  %356 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.42, i64 noundef %245) #5
+  %356 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.42, i64 noundef %245) #5
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %358, label %365
 
@@ -748,7 +748,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 365:                                              ; preds = %355
-  %366 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.43, i64 noundef %245) #5
+  %366 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.43, i64 noundef %245) #5
   %.not439 = icmp eq i32 %366, 0
   br i1 %.not439, label %367, label %373
 
@@ -767,7 +767,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 373:                                              ; preds = %365
-  %374 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.45, i64 noundef %245) #5
+  %374 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.45, i64 noundef %245) #5
   %.not441 = icmp eq i32 %374, 0
   br i1 %.not441, label %375, label %379
 
@@ -781,7 +781,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 379:                                              ; preds = %373
-  %380 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.47, i64 noundef %245) #5
+  %380 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.47, i64 noundef %245) #5
   %.not443 = icmp eq i32 %380, 0
   br i1 %.not443, label %381, label %385
 
@@ -795,7 +795,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 385:                                              ; preds = %379
-  %386 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.49, i64 noundef %59) #5
+  %386 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.49, i64 noundef %59) #5
   %.not445 = icmp eq i32 %386, 0
   br i1 %.not445, label %387, label %403
 
@@ -835,7 +835,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 403:                                              ; preds = %385
-  %404 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.55, i64 noundef %169) #5
+  %404 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.55, i64 noundef %169) #5
   %.not450 = icmp eq i32 %404, 0
   br i1 %.not450, label %405, label %409
 
@@ -855,7 +855,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 409:                                              ; preds = %403
   %410 = call i32 @llvm.smax.i32(i32 %.0417, i32 6)
   %411 = zext nneg i32 %410 to i64
-  %412 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.56, i64 noundef %411) #5
+  %412 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.56, i64 noundef %411) #5
   %.not452 = icmp eq i32 %412, 0
   br i1 %.not452, label %413, label %414
 
@@ -864,7 +864,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 414:                                              ; preds = %409
-  %415 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.57, i64 noundef %411) #5
+  %415 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.57, i64 noundef %411) #5
   %.not453 = icmp eq i32 %415, 0
   br i1 %.not453, label %416, label %417
 
@@ -873,7 +873,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 417:                                              ; preds = %414
-  %418 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.58, i64 noundef %411) #5
+  %418 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.58, i64 noundef %411) #5
   %.not454 = icmp eq i32 %418, 0
   br i1 %.not454, label %419, label %420
 
@@ -882,7 +882,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 420:                                              ; preds = %417
-  %421 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.59, i64 noundef %285) #5
+  %421 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.59, i64 noundef %285) #5
   %.not455 = icmp eq i32 %421, 0
   br i1 %.not455, label %422, label %423
 
@@ -891,7 +891,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 423:                                              ; preds = %420
-  %424 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.60, i64 noundef %285) #5
+  %424 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.60, i64 noundef %285) #5
   %.not456 = icmp eq i32 %424, 0
   br i1 %.not456, label %425, label %426
 
@@ -900,7 +900,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 426:                                              ; preds = %423
-  %427 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.61, i64 noundef %411) #5
+  %427 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.61, i64 noundef %411) #5
   %.not457 = icmp eq i32 %427, 0
   br i1 %.not457, label %428, label %429
 
@@ -909,7 +909,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 429:                                              ; preds = %426
-  %430 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.62, i64 noundef %245) #5
+  %430 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.62, i64 noundef %245) #5
   %.not458 = icmp eq i32 %430, 0
   br i1 %.not458, label %431, label %432
 
@@ -918,7 +918,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 432:                                              ; preds = %429
-  %433 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.63, i64 noundef %285) #5
+  %433 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.63, i64 noundef %285) #5
   %.not459 = icmp eq i32 %433, 0
   br i1 %.not459, label %434, label %438
 
@@ -934,7 +934,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 438:                                              ; preds = %432
   %439 = call i32 @llvm.smax.i32(i32 %.0417, i32 10)
   %440 = zext nneg i32 %439 to i64
-  %441 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.65, i64 noundef %440) #5
+  %441 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.65, i64 noundef %440) #5
   %.not461 = icmp eq i32 %441, 0
   br i1 %.not461, label %442, label %449
 
@@ -954,7 +954,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 449:                                              ; preds = %438
-  %450 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.67, i64 noundef %440) #5
+  %450 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.67, i64 noundef %440) #5
   %.not463 = icmp eq i32 %450, 0
   br i1 %.not463, label %451, label %455
 
@@ -968,7 +968,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 455:                                              ; preds = %449
-  %456 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.69, i64 noundef %440) #5
+  %456 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.69, i64 noundef %440) #5
   %.not465 = icmp eq i32 %456, 0
   br i1 %.not465, label %457, label %464
 
@@ -988,7 +988,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 464:                                              ; preds = %455
-  %465 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.71, i64 noundef %440) #5
+  %465 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.71, i64 noundef %440) #5
   %.not467 = icmp eq i32 %465, 0
   br i1 %.not467, label %466, label %470
 
@@ -1002,7 +1002,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.loopexit
 
 470:                                              ; preds = %464
-  %471 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.73, i64 noundef %245) #5
+  %471 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.73, i64 noundef %245) #5
   %.not469 = icmp eq i32 %471, 0
   br i1 %.not469, label %472, label %473
 
@@ -1011,7 +1011,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 473:                                              ; preds = %470
-  %474 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.74, i64 noundef %69) #5
+  %474 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.74, i64 noundef %69) #5
   %.not470 = icmp eq i32 %474, 0
   br i1 %.not470, label %475, label %476
 
@@ -1020,7 +1020,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %484
 
 476:                                              ; preds = %473
-  %477 = call i32 @xstrncasecmp(ptr noundef %43, ptr noundef nonnull @.str.75, i64 noundef %169) #5
+  %477 = call i32 @xstrncasecmp(ptr noundef nonnull %43, ptr noundef nonnull @.str.75, i64 noundef %169) #5
   %.not471 = icmp eq i32 %477, 0
   br i1 %.not471, label %478, label %479
 
@@ -1055,7 +1055,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1072,7 +1072,7 @@ declare zeroext i1 @get_resource_arg_range(ptr noundef, ptr noundef, ptr noundef
 declare zeroext i1 @verify_node_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @parse_uint16(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1083,7 +1083,7 @@ declare ptr @scontrol_process_plus_minus(i8 noundef signext, ptr noundef, i1 nou
 declare i32 @parse_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_part(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_update_part(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.partition_info, align 8
   store i32 0, ptr %3, align 4
@@ -1135,7 +1135,7 @@ declare i32 @slurm_update_partition(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_get_errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_create_part(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_create_part(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.partition_info, align 8
   store i32 0, ptr %3, align 4

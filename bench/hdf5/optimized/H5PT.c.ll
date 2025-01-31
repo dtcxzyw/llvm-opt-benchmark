@@ -155,7 +155,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
 declare i32 @H5Iregister_type(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @H5PT_free_id(ptr nocapture noundef %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @H5PT_free_id(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #2 {
   tail call void @free(ptr noundef %0) #6
   ret i32 0
 }
@@ -184,7 +184,7 @@ declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Iregister(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %union.anon.0, align 8
   %4 = alloca ptr, align 8
@@ -254,7 +254,7 @@ declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @H5PTcreate_fl(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -896,7 +896,7 @@ define i64 @H5PTget_type(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

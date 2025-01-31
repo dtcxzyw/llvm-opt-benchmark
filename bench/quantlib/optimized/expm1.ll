@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { double, double } @_ZN8QuantLib5expm1ERKSt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z) local_unnamed_addr #0 {
+define { double, double } @_ZN8QuantLib5expm1ERKSt7complexIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z) local_unnamed_addr #0 {
 entry:
   %_M_value.real.i.i = load double, ptr %z, align 8
   %_M_value.imagp.i.i = getelementptr inbounds nuw i8, ptr %z, i64 8
@@ -56,7 +56,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare double @exp(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { double, double } @_ZN8QuantLib5log1pERKSt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z) local_unnamed_addr #0 {
+define { double, double } @_ZN8QuantLib5log1pERKSt7complexIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z) local_unnamed_addr #0 {
 entry:
   %0 = load double, ptr %z, align 8, !tbaa !7
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %z, i64 8

@@ -13,16 +13,16 @@ target triple = "x86_64-pc-linux-gnu"
 @lxb_dom_document_type_name.lxb_empty = internal constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_libxml2_bridge_parse_context_init(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
+define hidden void @lexbor_libxml2_bridge_parse_context_init(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -30,7 +30,7 @@ define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_document(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca %struct.lexbor_array_obj_t, align 8
   %6 = tail call ptr @htmlNewDocNoDtD(ptr noundef null, ptr noundef null) #8
   %.not = icmp eq ptr %6, null
@@ -439,7 +439,7 @@ declare ptr @xmlDictCreate() local_unnamed_addr #3
 declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_libxml2_bridge_report_errors(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #2 {
+define hidden void @lexbor_libxml2_bridge_report_errors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #2 {
   %.val = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %8 = load ptr, ptr %7, align 8
@@ -547,7 +547,7 @@ lexbor_array_obj_get.exit39.thread:               ; preds = %lexbor_array_obj_ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @lexbor_libxml2_bridge_copy_observations(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 3)) %1) local_unnamed_addr #4 {
+define hidden void @lexbor_libxml2_bridge_copy_observations(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 3)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
@@ -594,7 +594,7 @@ declare ptr @lexbor_array_obj_push_wo_cls(ptr noundef) local_unnamed_addr #3
 declare ptr @lxb_dom_attr_data_by_id(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -602,10 +602,10 @@ declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

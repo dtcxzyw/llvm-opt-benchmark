@@ -298,7 +298,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter13onFrameHeaderEmhmmt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HTTPCodecPrinter13onFrameHeaderEmhmmt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -369,7 +369,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onFrameHeaderEmhmmt(ptr nocapture noundef readonly %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onFrameHeaderEmhmmt(ptr noundef readonly captures(none) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8proxygen16HTTPCodecPrinter13onFrameHeaderEmhmmt(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version)
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter7onErrorEmRKNS_13HTTPExceptionEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter7onErrorEmRKNS_13HTTPExceptionEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.4)
   %vtable = load ptr, ptr %error, align 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter7onErrorEmRKNS_13HTTPExceptionEb(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter7onErrorEmRKNS_13HTTPExceptionEb(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.4)
   %vtable.i = load ptr, ptr %error, align 8
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr nocapture noundef %chain, i16 noundef zeroext %padding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HTTPCodecPrinter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef captures(none) %chain, i16 noundef zeroext %padding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.5)
@@ -480,7 +480,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr nocapture noundef %chain, i16 noundef zeroext %padding) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef captures(none) %chain, i16 noundef zeroext %padding) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8proxygen16HTTPCodecPrinter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %stream, ptr noundef %chain, i16 noundef zeroext %padding)
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter17onMessageCompleteEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter17onMessageCompleteEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.7)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %stream)
@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter17onMessageCompleteEmb(ptr nocapture noundef readonly %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter17onMessageCompleteEmb(ptr noundef readonly captures(none) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.7)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %stream)
@@ -518,7 +518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr nocapture noundef %msg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HTTPCodecPrinter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef captures(none) %msg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp34 = alloca %"class.std::unique_ptr.5", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.8)
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr nocapture noundef %msg) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef captures(none) %msg) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8proxygen16HTTPCodecPrinter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %stream, ptr noundef %msg)
@@ -681,7 +681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter7onAbortEmNS_9ErrorCodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter7onAbortEmNS_9ErrorCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.14)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %stream)
@@ -701,7 +701,7 @@ entry:
 declare noundef ptr @_ZN8proxygen18getErrorCodeStringENS_9ErrorCodeE(i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter7onAbortEmNS_9ErrorCodeE(ptr nocapture noundef readonly %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter7onAbortEmNS_9ErrorCodeE(ptr noundef readonly captures(none) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.14)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %stream)
@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %lastGoodStream, i8 noundef zeroext %code, ptr nocapture noundef %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HTTPCodecPrinter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %lastGoodStream, i8 noundef zeroext %code, ptr noundef captures(none) %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %debugInfo = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -882,7 +882,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef readonly %this, i64 noundef %lastGoodStream, i8 noundef zeroext %code, ptr nocapture noundef %debugData) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef readonly captures(none) %this, i64 noundef %lastGoodStream, i8 noundef zeroext %code, ptr noundef captures(none) %debugData) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8proxygen16HTTPCodecPrinter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %lastGoodStream, i8 noundef zeroext %code, ptr noundef %debugData)
@@ -890,7 +890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter14onWindowUpdateEmj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter14onWindowUpdateEmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %stream)
@@ -907,7 +907,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter14onWindowUpdateEmj(ptr nocapture noundef readonly %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter14onWindowUpdateEmj(ptr noundef readonly captures(none) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %stream)
@@ -924,7 +924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HTTPCodecPrinter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.folly::ConversionError", align 8
   %ref.tmp1.i.i = alloca %class.anon.84, align 8
@@ -1005,7 +1005,7 @@ for.end:                                          ; preds = %_ZN5folly2toItN8pro
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8proxygen16HTTPCodecPrinter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %settings)
@@ -1013,7 +1013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter13onSettingsAckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter13onSettingsAckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.24)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -1027,7 +1027,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onSettingsAckEv(ptr nocapture noundef readonly %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onSettingsAckEv(ptr noundef readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.24)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -1041,7 +1041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter13onPingRequestEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %unique_id) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter13onPingRequestEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %unique_id) unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.25)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %unique_id)
@@ -1056,7 +1056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter9printPingEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, i64 noundef %unique_id) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter9printPingEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %this, i64 noundef %unique_id) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.25)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %unique_id)
@@ -1065,7 +1065,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onPingRequestEm(ptr nocapture noundef readonly %this, i64 noundef %unique_id) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter13onPingRequestEm(ptr noundef readonly captures(none) %this, i64 noundef %unique_id) unnamed_addr #4 align 2 {
 entry:
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.25)
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef %unique_id)
@@ -1080,7 +1080,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HTTPCodecPrinter11onPingReplyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %unique_id) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HTTPCodecPrinter11onPingReplyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %unique_id) unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.25)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %unique_id)
@@ -1095,7 +1095,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen16HTTPCodecPrinter11onPingReplyEm(ptr nocapture noundef readonly %this, i64 noundef %unique_id) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen16HTTPCodecPrinter11onPingReplyEm(ptr noundef readonly captures(none) %this, i64 noundef %unique_id) unnamed_addr #4 align 2 {
 entry:
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.25)
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef %unique_id)
@@ -1477,7 +1477,7 @@ _ZN8proxygen16HTTPCodecPrinterD0Ev.exit:          ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1536,7 +1536,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -2159,7 +2159,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2468,10 +2468,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

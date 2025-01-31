@@ -116,7 +116,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.rlimit, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = load i32, ptr %1, align 8
@@ -247,7 +247,7 @@ define dso_local i64 @uv_thread_self() local_unnamed_addr #4 {
 declare i64 @pthread_self() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call i32 @pthread_join(i64 noundef %2, ptr noundef null) #10
   %4 = sub nsw i32 0, %3
@@ -257,7 +257,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr noc
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_thread_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define dso_local i32 @uv_thread_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = tail call i32 @pthread_equal(i64 noundef %3, i64 noundef %4) #12
@@ -1085,7 +1085,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_key_create(ptr noun
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_key_delete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @uv_key_delete(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call i32 @pthread_key_delete(i32 noundef %2) #10
   %.not = icmp eq i32 %3, 0
@@ -1103,7 +1103,7 @@ define dso_local void @uv_key_delete(ptr nocapture noundef readonly %0) local_un
 declare i32 @pthread_key_delete(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_key_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @uv_key_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call ptr @pthread_getspecific(i32 noundef %2) #10
   ret ptr %3
@@ -1113,7 +1113,7 @@ define dso_local ptr @uv_key_get(ptr nocapture noundef readonly %0) local_unname
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_key_set(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @uv_key_set(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = tail call i32 @pthread_setspecific(i32 noundef %3, ptr noundef %1) #10
   %.not = icmp eq i32 %4, 0
@@ -1137,7 +1137,7 @@ declare i64 @__sysconf(i32 noundef) local_unnamed_addr #1
 declare ptr @gnu_get_libc_version() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #5
 
@@ -1161,10 +1161,10 @@ declare i32 @sem_wait(ptr noundef) local_unnamed_addr #5
 declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

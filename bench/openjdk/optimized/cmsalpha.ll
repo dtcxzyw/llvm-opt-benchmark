@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [33 x i8] c"Unrecognized alpha channel width\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsHandleExtraChannels(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden void @_cmsHandleExtraChannels(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i32], align 16
   %8 = alloca [16 x i32], align 16
   %9 = alloca [16 x i32], align 16
@@ -333,7 +333,7 @@ _cmsGetFormatterAlpha.exit:                       ; preds = %FormatterPos.exit22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #1 {
   %5 = alloca [16 x i32], align 16
   %6 = alloca [16 x i32], align 16
   %7 = and i32 %0, 4096
@@ -562,17 +562,17 @@ ComputeIncrementsForChunky.exit:                  ; preds = %42, %.loopexit54.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @copy8(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @copy8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i8, ptr %1, align 1
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from8to16(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from8to16(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i16
   %5 = shl nuw i16 %4, 8
@@ -582,7 +582,7 @@ define internal void @from8to16(ptr nocapture noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from8to16SE(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from8to16SE(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i16
   %5 = shl nuw i16 %4, 8
@@ -592,12 +592,12 @@ define internal void @from8to16SE(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @from8toHLF(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @from8toHLF(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from8toFLT(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from8toFLT(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i8, ptr %1, align 1
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -606,7 +606,7 @@ define internal void @from8toFLT(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from8toDBL(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from8toDBL(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i8, ptr %1, align 1
   %4 = uitofp i8 %3 to double
   %5 = fdiv double %4, 2.550000e+02
@@ -615,7 +615,7 @@ define internal void @from8toDBL(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16to8(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16to8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i32
   %5 = mul nuw i32 %4, 65281
@@ -627,14 +627,14 @@ define internal void @from16to8(ptr nocapture noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @copy16(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @copy16(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 1
   store i16 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16to16(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16to16(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
   store i16 %rev, ptr %0, align 2
@@ -642,12 +642,12 @@ define internal void @from16to16(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @from16toHLF(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @from16toHLF(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16toFLT(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16toFLT(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -656,7 +656,7 @@ define internal void @from16toFLT(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16toDBL(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16toDBL(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %4 = uitofp i16 %3 to double
   %5 = fdiv double %4, 6.553500e+04
@@ -665,7 +665,7 @@ define internal void @from16toDBL(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16SEto8(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16SEto8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
   %4 = zext i16 %rev to i32
@@ -678,12 +678,12 @@ define internal void @from16SEto8(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @from16SEtoHLF(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @from16SEtoHLF(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16SEtoFLT(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16SEtoFLT(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
   %4 = uitofp i16 %rev to float
@@ -693,7 +693,7 @@ define internal void @from16SEtoFLT(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @from16SEtoDBL(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @from16SEtoDBL(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
   %4 = uitofp i16 %rev to double
@@ -703,32 +703,32 @@ define internal void @from16SEtoDBL(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromHLFto8(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromHLFto8(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromHLFto16(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromHLFto16(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromHLFto16SE(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromHLFto16SE(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromHLFtoFLT(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromHLFtoFLT(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromHLFtoDBL(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromHLFtoDBL(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromFLTto8(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromFLTto8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.550000e+02
@@ -755,7 +755,7 @@ _cmsQuickSaturateByte.exit:                       ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromFLTto16(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromFLTto16(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 6.553500e+04
@@ -782,7 +782,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromFLTto16SE(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromFLTto16SE(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 6.553500e+04
@@ -810,19 +810,19 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromFLTtoHLF(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromFLTtoHLF(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @copy32(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @copy32(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 1
   store i32 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromFLTtoDBL(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromFLTtoDBL(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   store double %4, ptr %0, align 8
@@ -830,7 +830,7 @@ define internal void @fromFLTtoDBL(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromDBLto8(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromDBLto8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = fmul double %3, 2.550000e+02
   %5 = fadd double %4, 5.000000e-01
@@ -856,7 +856,7 @@ _cmsQuickSaturateByte.exit:                       ; preds = %2, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromDBLto16(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromDBLto16(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = fmul double %3, 6.553500e+04
   %5 = fadd double %4, 5.000000e-01
@@ -882,7 +882,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromDBLto16SE(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromDBLto16SE(ptr noundef writeonly captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = fmul double %3, 6.553500e+04
   %5 = fadd double %4, 5.000000e-01
@@ -909,12 +909,12 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @fromDBLtoHLF(ptr nocapture readnone %0, ptr nocapture readnone %1) #4 {
+define internal void @fromDBLtoHLF(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromDBLtoFLT(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @fromDBLtoFLT(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = fptrunc double %3 to float
   store float %4, ptr %0, align 4
@@ -922,7 +922,7 @@ define internal void @fromDBLtoFLT(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @copy64(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @copy64(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i64, ptr %1, align 1
   store i64 %3, ptr %0, align 1
   ret void
@@ -931,7 +931,7 @@ define internal void @copy64(ptr nocapture noundef writeonly initializes((0, 8))
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #7
@@ -940,13 +940,13 @@ declare double @llvm.floor.f64(double) #7
 declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

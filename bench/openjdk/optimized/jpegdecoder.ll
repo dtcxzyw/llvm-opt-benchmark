@@ -33,13 +33,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store ptr %0, ptr @the_jvm, align 8
   ret i32 65538
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @sun_jpeg_init_source(ptr nocapture noundef readonly %0) #1 {
+define hidden void @sun_jpeg_init_source(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -237,7 +237,7 @@ GET_ARRAYS.exit:                                  ; preds = %92, %87, %72, %GET_
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -689,7 +689,7 @@ GET_ARRAYS.exit86:                                ; preds = %163, %158, %143, %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @sun_jpeg_skip_input_data(ptr noundef %0, i64 noundef %1) #2 {
@@ -935,7 +935,7 @@ GET_ARRAYS.exit:                                  ; preds = %117, %112, %97, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @sun_jpeg_term_source(ptr nocapture readnone %0) #5 {
+define hidden void @sun_jpeg_term_source(ptr readnone captures(none) %0) #5 {
   ret void
 }
 
@@ -1570,7 +1570,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare ptr @jStdError(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @sun_jpeg_error_exit(ptr nocapture noundef readonly %0) #6 {
+define internal void @sun_jpeg_error_exit(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %3, i32 noundef 1) #15
@@ -1620,10 +1620,10 @@ declare i32 @jFinDecompress(ptr noundef) local_unnamed_addr #3
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

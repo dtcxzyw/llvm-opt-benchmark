@@ -77,7 +77,7 @@ declare void @_ZNK12LogSelection24suggest_similar_matchingEP12outputStream(ptr n
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream(ptr nocapture noundef nonnull align 8 dereferenceable(15368) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream(ptr noundef nonnull align 8 captures(none) dereferenceable(15368) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogSelection, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %8, label %6
@@ -159,7 +159,7 @@ declare void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwind writ
 declare noundef zeroext i1 @_ZNK12LogSelectioneqERKS_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 

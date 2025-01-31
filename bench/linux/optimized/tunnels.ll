@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [22 x i8] c"include/net/netlink.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.ethnl_req_info, align 8
@@ -212,10 +212,10 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ethnl_parse_header_dev_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
@@ -227,7 +227,7 @@ declare dso_local void @rtnl_lock() local_unnamed_addr #3
 declare dso_local ptr @ethnl_reply_init(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
@@ -483,7 +483,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
 declare dso_local void @rtnl_unlock() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ethnl_tunnel_info_start(ptr noundef initializes((80, 104)) %0) local_unnamed_addr #0 align 16 {

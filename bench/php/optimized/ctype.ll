@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [64 x i8] c"Argument of type %s will be interpreted as string in the future\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_info_ctype(ptr nocapture readnone %0) #0 {
+define internal void @zm_info_ctype(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #4
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #4
   tail call void @php_info_print_table_end() #4
@@ -39,7 +39,7 @@ define internal void @zm_info_ctype(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -166,7 +166,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -278,7 +278,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @isalpha(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -390,7 +390,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @iscntrl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -501,7 +501,7 @@ ctype_fallback.exit:                              ; preds = %52, %51, %50, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -613,7 +613,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @islower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -724,7 +724,7 @@ ctype_fallback.exit:                              ; preds = %51, %53, %45, %39, 
 declare i32 @isgraph(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -836,7 +836,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @isprint(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -948,7 +948,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @ispunct(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -1060,7 +1060,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @isspace(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -1172,7 +1172,7 @@ ctype_fallback.exit:                              ; preds = %52, %54, %46, %40, 
 declare i32 @isupper(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1

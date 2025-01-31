@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @key_table = internal unnamed_addr constant [256 x i8] c"\D9x\F9\C4\19\DD\B5\ED(\E9\FDyJ\A0\D8\9D\C6~7\83+vS\8EbLd\88D\8B\FB\A2\17\9AY\F5\87\B3O\13aEm\8D\09\81}2\BD\8F@\EB\86\B7{\0B\F0\95!\22\\kN\82T\D6e\93\CE`\B2\1CsV\C0\14\A7\8C\F1\DC\12u\CA\1F;\BE\E4\D1B=\D40\A3<\B6&o\BF\0E\DAFi\07W'\F2\1D\9B\BC\94C\03\F8\11\C7\F6\90\EF>\E7\06\C3\D5/\C8f\1E\D7\08\E8\EA\DE\80R\EE\F7\84\AAr\AC5Mj*\96\1A\D2qZ\15ItK\9F\D0^\04\18\A4\EC\C2\E0An\0FQ\CB\CC$\91\AFP\A1\F4p9\99|:\85#\B8\B4z\FC\026[%U\971-]\FA\98\E3\8A\92\AE\05\DF)\10gl\BA\C9\D3\00\E6\CF\E1\9E\A8,c\16\01?X\E2\89\A9\0D84\1B\AB3\FF\B0\BBH\0C_\B9\B1\CD.\C5\F3\DBG\E5\A5\9Cw\0A\A6 h\FE\7F\C1\AD", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @RC2_set_key(ptr nocapture noundef initializes((0, 1)) %key, i32 noundef %len, ptr nocapture noundef readonly %data, i32 noundef %bits) local_unnamed_addr #0 {
+define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %key, i32 noundef %len, ptr noundef readonly captures(none) %data, i32 noundef %bits) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %key, align 1
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %len, i32 128)

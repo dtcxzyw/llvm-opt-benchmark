@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_filter = type { i64, ptr }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr %0, align 8
   %4 = icmp ugt i32 %3, 1
@@ -213,7 +213,7 @@ declare i32 @lzma_vli_encode(i64 noundef, ptr noundef, ptr noundef, ptr noundef,
 declare i32 @lzma_filter_flags_encode(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1

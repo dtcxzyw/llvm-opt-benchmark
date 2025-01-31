@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @_ZN6b2RopeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6b2RopeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6b2RopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 20), (24, 127)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6b2RopeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((0, 20), (24, 127)) %this) unnamed_addr #0 align 2 {
 entry:
   %m_tuning = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 0, ptr %m_tuning, align 8
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6b2RopeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6b2RopeD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_stretchConstraints = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_stretchConstraints, align 8
@@ -110,7 +110,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Rope6CreateERK9b2RopeDef(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (40, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %def) local_unnamed_addr #4 align 2 {
+define void @_ZN6b2Rope6CreateERK9b2RopeDef(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 12), (40, 80)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %def) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %def, align 8
   store i64 %0, ptr %this, align 8
@@ -411,13 +411,13 @@ for.end177:                                       ; preds = %for.inc175, %for.co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((88, 127)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(39) %tuning) local_unnamed_addr #7 align 2 {
+define void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((88, 127)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(39) %tuning) local_unnamed_addr #7 align 2 {
 entry:
   %m_tuning = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(39) %m_tuning, ptr noundef nonnull align 4 dereferenceable(39) %tuning, i64 39, i1 false)
@@ -552,7 +552,7 @@ for.end59:                                        ; preds = %for.inc57, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6b2Rope4StepEfiRK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt, i32 noundef %iterations, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position) local_unnamed_addr #8 align 2 {
+define void @_ZN6b2Rope4StepEfiRK6b2Vec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, float noundef %dt, i32 noundef %iterations, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %position) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = fcmp oeq float %dt, 0.000000e+00
   br i1 %cmp, label %for.end135, label %if.end
@@ -844,7 +844,7 @@ for.end135:                                       ; preds = %for.body113, %for.c
 declare float @expf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6b2Rope15ApplyBendForcesEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #8 align 2 {
+define void @_ZN6b2Rope15ApplyBendForcesEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #8 align 2 {
 entry:
   %bendHertz = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load float, ptr %bendHertz, align 4
@@ -1065,7 +1065,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6b2Rope19SolveBend_PBD_AngleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN6b2Rope19SolveBend_PBD_AngleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_bendCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
@@ -1252,7 +1252,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6b2Rope20SolveBend_XPBD_AngleEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #8 align 2 {
+define void @_ZN6b2Rope20SolveBend_XPBD_AngleEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #8 align 2 {
 entry:
   %m_bendCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
@@ -1480,7 +1480,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope22SolveBend_PBD_DistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope22SolveBend_PBD_DistanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
 entry:
   %bendStiffness = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load float, ptr %bendStiffness, align 8
@@ -1587,7 +1587,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope20SolveBend_PBD_HeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope20SolveBend_PBD_HeightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_bendCount = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_bendCount, align 8
@@ -1717,7 +1717,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope22SolveBend_PBD_TriangleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope22SolveBend_PBD_TriangleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
 entry:
   %bendStiffness = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load float, ptr %bendStiffness, align 8
@@ -1818,7 +1818,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope16SolveStretch_PBDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope16SolveStretch_PBDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
 entry:
   %stretchStiffness = getelementptr inbounds nuw i8, ptr %this, i64 100
   %0 = load float, ptr %stretchStiffness, align 4
@@ -1924,7 +1924,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope17SolveStretch_XPBDEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope17SolveStretch_XPBDEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, float noundef %dt) local_unnamed_addr #10 align 2 {
 entry:
   %m_stretchCount = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_stretchCount, align 4
@@ -2067,7 +2067,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope5ResetERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope5ResetERK6b2Vec2(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %position) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %position, align 4
   store i64 %0, ptr %this, align 8
@@ -2175,7 +2175,7 @@ for.end33:                                        ; preds = %for.body27, %for.co
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6b2Rope4DrawEP6b2Draw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %draw) local_unnamed_addr #11 align 2 {
+define void @_ZNK6b2Rope4DrawEP6b2Draw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %draw) local_unnamed_addr #11 align 2 {
 entry:
   %c = alloca %struct.b2Color, align 4
   %pg = alloca %struct.b2Color, align 4
@@ -2266,7 +2266,7 @@ declare void @_Z14b2Free_DefaultPv(ptr noundef) local_unnamed_addr #12
 declare noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #14

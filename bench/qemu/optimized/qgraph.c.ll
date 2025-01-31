@@ -360,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_graph_foreach_test_path(ptr nocapture noundef readonly %fn) local_unnamed_addr #0 {
+define dso_local void @qos_graph_foreach_test_path(ptr noundef readonly captures(none) %fn) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @node_table, align 8
   %call.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef nonnull @.str) #14
@@ -558,7 +558,7 @@ qos_traverse_graph.exit:                          ; preds = %while.condthread-pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qos_print_cb(ptr nocapture readnone %path, i32 %length) #2 {
+define internal void @qos_print_cb(ptr readnone captures(none) %path, i32 %length) #2 {
 entry:
   ret void
 }
@@ -796,7 +796,7 @@ if.end12:                                         ; preds = %if.end7
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -1307,7 +1307,7 @@ for.end:                                          ; preds = %for.inc, %if.end6, 
 declare void @g_list_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qos_machine_new(ptr nocapture noundef readonly %node, ptr noundef %qts) local_unnamed_addr #0 {
+define dso_local ptr @qos_machine_new(ptr noundef readonly captures(none) %node, ptr noundef %qts) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %node, align 8
   %cmp = icmp eq i32 %0, 0
@@ -1330,7 +1330,7 @@ do.end:                                           ; preds = %entry
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qos_driver_new(ptr nocapture noundef readonly %node, ptr noundef %parent, ptr noundef %alloc, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local ptr @qos_driver_new(ptr noundef readonly captures(none) %node, ptr noundef %parent, ptr noundef %alloc, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %node, align 8
   %cmp = icmp eq i32 %0, 1
@@ -1438,7 +1438,7 @@ if.end:                                           ; preds = %lor.lhs.false
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #9
@@ -1555,7 +1555,7 @@ for.end35:                                        ; preds = %if.end29, %for.end1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1576,10 +1576,10 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13

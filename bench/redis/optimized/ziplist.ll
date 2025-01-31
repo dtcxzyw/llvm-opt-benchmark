@@ -63,7 +63,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 4294967296) i64 @ziplistBlobLen(ptr nocapture noundef readonly %zl) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @ziplistBlobLen(ptr noundef readonly captures(none) %zl) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %zl, align 4
   %conv = zext i32 %0 to i64
@@ -151,7 +151,7 @@ return:                                           ; preds = %if.else50, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly %p, i32 noundef %len) local_unnamed_addr #3 {
@@ -200,7 +200,7 @@ return:                                           ; preds = %zipStorePrevEntryLe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -4, 5) i32 @zipPrevLenByteDiff(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 5) i32 @zipPrevLenByteDiff(ptr noundef readonly captures(none) %p, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp ult i8 %0, -2
@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %entry1, i32 noundef %entrylen, ptr nocapture noundef writeonly %v, ptr nocapture noundef writeonly %encoding) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %entry1, i32 noundef %entrylen, ptr noundef writeonly captures(none) %v, ptr noundef writeonly captures(none) %encoding) local_unnamed_addr #4 {
 entry:
   %value = alloca i64, align 8
   %0 = add i32 %entrylen, -32
@@ -270,7 +270,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zipSaveInteger(ptr nocapture noundef writeonly %p, i64 noundef %value, i8 noundef zeroext %encoding) local_unnamed_addr #4 {
+define dso_local void @zipSaveInteger(ptr noundef writeonly captures(none) %p, i64 noundef %value, i8 noundef zeroext %encoding) local_unnamed_addr #4 {
 entry:
   switch i8 %encoding, label %if.else25 [
     i8 -2, label %if.then
@@ -324,7 +324,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @zipLoadInteger(ptr nocapture noundef readonly %p, i8 noundef zeroext %encoding) local_unnamed_addr #4 {
+define dso_local i64 @zipLoadInteger(ptr noundef readonly captures(none) %p, i8 noundef zeroext %encoding) local_unnamed_addr #4 {
 entry:
   switch i8 %encoding, label %if.else25 [
     i8 -2, label %if.then
@@ -712,7 +712,7 @@ return:                                           ; preds = %if.end135, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zipEntry(ptr noundef %p, ptr nocapture noundef nonnull writeonly initializes((0, 8), (20, 21)) %e) unnamed_addr #4 {
+define internal fastcc void @zipEntry(ptr noundef %p, ptr noundef nonnull writeonly captures(none) initializes((0, 8), (20, 21)) %e) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp ult i8 %0, -2
@@ -862,7 +862,7 @@ cond.end:                                         ; preds = %cond.end.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef range(i64 -2147483646, 10737418248) %zlbytes, ptr noundef %p, ptr nocapture noundef nonnull writeonly %e, i32 noundef range(i32 0, 2) %validate_prevlen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef range(i64 -2147483646, 10737418248) %zlbytes, ptr noundef %p, ptr noundef nonnull writeonly captures(none) %e, i32 noundef range(i32 0, 2) %validate_prevlen) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %zl, i64 10
   %add.ptr1 = getelementptr inbounds i8, ptr %zl, i64 %zlbytes
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %do.end182, %zipEnco
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @__ziplistDelete(ptr noundef %zl, ptr noundef %p, i32 noundef %num) local_unnamed_addr #4 {
@@ -2333,7 +2333,7 @@ return:                                           ; preds = %if.else, %zipAssert
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %p, ptr noundef writeonly %sstr, ptr nocapture noundef writeonly %slen, ptr noundef writeonly %sval) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %p, ptr noundef writeonly %sstr, ptr noundef writeonly captures(none) %slen, ptr noundef writeonly %sval) local_unnamed_addr #4 {
 entry:
   %entry1 = alloca %struct.zlentry, align 8
   %cmp = icmp eq ptr %p, null
@@ -2450,7 +2450,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistDelete(ptr noundef %zl, ptr nocapture noundef %p) local_unnamed_addr #4 {
+define dso_local noundef ptr @ziplistDelete(ptr noundef %zl, ptr noundef captures(none) %p) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
@@ -3256,13 +3256,13 @@ while.end:                                        ; preds = %if.end52, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %zl, i64 noundef %size, i32 noundef %deep, ptr noundef readonly %entry_cb, ptr noundef %cb_userdata) local_unnamed_addr #4 {
@@ -3488,7 +3488,7 @@ cond.end33:                                       ; preds = %ziplistNext.exit, %
 declare i32 @rand() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uintCompare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define dso_local i32 @uintCompare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 4
   %1 = load i32, ptr %b, align 4
@@ -3497,7 +3497,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPairs(ptr noundef %zl, i32 noundef %count, ptr nocapture noundef writeonly %keys, ptr noundef writeonly %vals) local_unnamed_addr #4 {
+define dso_local void @ziplistRandomPairs(ptr noundef %zl, i32 noundef %count, ptr noundef writeonly captures(none) %keys, ptr noundef writeonly %vals) local_unnamed_addr #4 {
 entry:
   %e.i7.i43 = alloca %struct.zlentry, align 8
   %e.i.i44 = alloca %struct.zlentry, align 8
@@ -3792,10 +3792,10 @@ while.end51:                                      ; preds = %ziplistNext.exit60,
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %zl, i32 noundef %count, ptr nocapture noundef writeonly %keys, ptr noundef writeonly %vals) local_unnamed_addr #4 {
+define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %zl, i32 noundef %count, ptr noundef writeonly captures(none) %keys, ptr noundef writeonly %vals) local_unnamed_addr #4 {
 entry:
   %e.i7.i101 = alloca %struct.zlentry, align 8
   %e.i.i102 = alloca %struct.zlentry, align 8
@@ -4222,19 +4222,19 @@ while.end:                                        ; preds = %if.end.i105, %if.en
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_net_stream_listen = alias i32 (ptr, ptr), ptr @net_stream_listen
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @net_stream_listen(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef writeonly %1) #0 {
+define range(i32 -1, 2) i32 @net_stream_listen(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_ad
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @net_stream_listen_ports(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef initializes((0, 2)) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @net_stream_listen_ports(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
@@ -488,7 +488,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @addrinfo_to_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @addrinfo_to_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -501,13 +501,13 @@ define ptr @addrinfo_to_string(ptr nocapture noundef readonly %0) local_unnamed_
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

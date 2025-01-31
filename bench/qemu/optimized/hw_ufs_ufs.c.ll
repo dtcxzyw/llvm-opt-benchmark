@@ -164,7 +164,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_ufs_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ufs_build_upiu_header(ptr nocapture noundef %req, i8 noundef zeroext %trans_type, i8 noundef zeroext %flags, i8 noundef zeroext %response, i8 noundef zeroext %scsi_status, i16 noundef zeroext %data_segment_length) local_unnamed_addr #0 {
+define dso_local void @ufs_build_upiu_header(ptr noundef captures(none) %req, i8 noundef zeroext %trans_type, i8 noundef zeroext %flags, i8 noundef zeroext %response, i8 noundef zeroext %scsi_status, i16 noundef zeroext %data_segment_length) local_unnamed_addr #0 {
 entry:
   %rsp_upiu = getelementptr inbounds nuw i8, ptr %req, i64 336
   %req_upiu = getelementptr inbounds nuw i8, ptr %req, i64 48
@@ -183,10 +183,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ufs_complete_req(ptr nocapture noundef %req, i32 noundef %req_result) local_unnamed_addr #2 {
+define dso_local void @ufs_complete_req(ptr noundef captures(none) %req, i32 noundef %req_result) local_unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
@@ -273,7 +273,7 @@ entry:
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
 
@@ -282,7 +282,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #4
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ufs_class_init(ptr noundef %oc, ptr nocapture readnone %data) #2 {
+define internal void @ufs_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
@@ -563,7 +563,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ufs_process_req(ptr nocapture noundef readonly %opaque) #2 {
+define internal void @ufs_process_req(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i9.i.i = alloca %struct.timeval, align 8
@@ -2021,7 +2021,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 254) i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef range(i32 1, 3) %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 254) i32 @ufs_exec_query_attr(ptr noundef captures(none) %req, i32 noundef range(i32 1, 3) %op) unnamed_addr #2 {
 entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %entry, %trace_ufs_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 255) i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef range(i32 1, 9) %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 255) i32 @ufs_exec_query_flag(ptr noundef captures(none) %req, i32 noundef range(i32 1, 9) %op) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i5.i = alloca %struct.timeval, align 8
@@ -2616,7 +2616,7 @@ return:                                           ; preds = %entry, %trace_ufs_e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
@@ -2727,7 +2727,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @pci_allocate_irq(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @ufs_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, 4294967296) i64 @ufs_mmio_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3387,7 +3387,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ufs_bus_class_init(ptr noundef %class, ptr nocapture readnone %data) #2 {
+define internal void @ufs_bus_class_init(ptr noundef %class, ptr readnone captures(none) %data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #14
   %get_dev_path = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -3408,7 +3408,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @ufs_bus_check_address(ptr nocapture readnone %qbus, ptr noundef %qdev, ptr noundef %errp) #2 {
+define internal noundef zeroext i1 @ufs_bus_check_address(ptr readnone captures(none) %qbus, ptr noundef %qdev, ptr noundef %errp) #2 {
 entry:
   %call = tail call ptr @object_get_typename(ptr noundef %qdev) #14
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(7) @.str.95) #17
@@ -3429,7 +3429,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #4
 declare ptr @qdev_get_dev_path(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #4
 
@@ -3440,10 +3440,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

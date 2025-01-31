@@ -200,7 +200,7 @@ define dso_local void @tty_port_init(ptr noundef initializes((0, 376)) %0) #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @tty_buffer_init(ptr noundef) local_unnamed_addr #2
@@ -212,7 +212,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_port_link_device(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local void @tty_port_link_device(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, %2
@@ -237,10 +237,10 @@ define dso_local void @tty_port_link_device(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @tty_port_register_device(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
@@ -298,7 +298,7 @@ define dso_local ptr @tty_port_register_device_attr(ptr noundef %0, ptr noundef 
 declare dso_local ptr @tty_register_device_attr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tty_port_register_device_attr_serdev(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 align 16 {
+define dso_local ptr @tty_port_register_device_attr_serdev(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, %2
@@ -324,7 +324,7 @@ define dso_local ptr @tty_port_register_device_attr_serdev(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tty_port_register_device_serdev(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @tty_port_register_device_serdev(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, %2
@@ -350,7 +350,7 @@ define dso_local ptr @tty_port_register_device_serdev(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_port_unregister_device(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @tty_port_unregister_device(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   tail call void @tty_unregister_device(ptr noundef %1, i32 noundef %2) #6
   ret void
 }

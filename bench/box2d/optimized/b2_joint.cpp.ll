@@ -22,7 +22,7 @@ $_ZN7b2JointD0Ev = comdat any
 @switch.table._ZN7b2Joint7DestroyEPS_P16b2BlockAllocator = private unnamed_addr constant [10 x i32] [i32 272, i32 304, i32 264, i32 256, i32 232, i32 360, i32 312, i32 272, i32 240, i32 256], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z17b2LinearStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #0 {
+define void @_Z17b2LinearStiffnessRfS_ffPK6b2BodyS2_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %stiffness, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr noundef readonly captures(none) %bodyA, ptr noundef readonly captures(none) %bodyB) local_unnamed_addr #0 {
 entry:
   %m_mass.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 144
   %0 = load float, ptr %m_mass.i, align 8
@@ -57,7 +57,7 @@ if.end6:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z18b2AngularStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #0 {
+define void @_Z18b2AngularStiffnessRfS_ffPK6b2BodyS2_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %stiffness, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr noundef readonly captures(none) %bodyA, ptr noundef readonly captures(none) %bodyB) local_unnamed_addr #0 {
 entry:
   %m_I.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 152
   %0 = load float, ptr %m_I.i, align 8
@@ -230,7 +230,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7b2JointC2EPK10b2JointDef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 12), (16, 118), (120, 128)) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
+define void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((0, 12), (16, 118), (120, 128)) %this, ptr noundef readonly captures(none) %def) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7b2Joint, i64 16), ptr %this, align 8
   %m_userData = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7b2Joint9IsEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7b2Joint9IsEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -447,7 +447,7 @@ declare void @_Z6b2DumpPKcz(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.trap() #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

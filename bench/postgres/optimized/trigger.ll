@@ -1931,7 +1931,7 @@ list_length.exit539.thread:                       ; preds = %720, %688, %.lr.ph7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1979,7 +1979,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 declare zeroext i1 @has_superclass(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #2
 
@@ -2030,14 +2030,14 @@ declare i32 @CreateConstraintEntry(ptr noundef, i32 noundef, i8 noundef signext,
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @namein(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
@@ -2297,7 +2297,7 @@ define dso_local i32 @get_trigger_oid(i32 noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @renametrig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @renametrig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x %struct.ScanKeyData], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2404,7 +2404,7 @@ define dso_local { i64, i32 } @renametrig(ptr nocapture noundef readonly %0) loc
 .loopexit:                                        ; preds = %55, %50, %42
   call void @systable_endscan(ptr noundef %21) #15
   call void @table_close(ptr noundef %15, i32 noundef 3) #15
-  call void @relation_close(ptr noundef %6, i32 noundef 0) #15
+  call void @relation_close(ptr noundef nonnull %6, i32 noundef 0) #15
   %.sroa.238.0.insert.ext = zext i32 %30 to i64
   %.sroa.238.0.insert.shift = shl nuw i64 %.sroa.238.0.insert.ext, 32
   %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.238.0.insert.shift, 2620
@@ -2414,7 +2414,7 @@ define dso_local { i64, i32 } @renametrig(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForRenameTrigger(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @RangeVarCallbackForRenameTrigger(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #15
   %.not = icmp eq ptr %6, null
@@ -2495,7 +2495,7 @@ declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @get_partition_parent(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [2 x %struct.ScanKeyData], align 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2528,7 +2528,7 @@ define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1,
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef %3, ptr noundef nonnull %29) #15
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %3, ptr noundef nonnull %29) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1616, ptr noundef nonnull @__func__.renametrig_internal) #15
   unreachable
 
@@ -2559,7 +2559,7 @@ define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1,
   br label %48
 
 48:                                               ; preds = %43, %41, %31
-  call void @namestrcpy(ptr noundef nonnull %39, ptr noundef %3) #15
+  call void @namestrcpy(ptr noundef nonnull %39, ptr noundef nonnull %3) #15
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 4
   call void @CatalogTupleUpdate(ptr noundef %0, ptr noundef nonnull %49, ptr noundef nonnull %32) #15
   %50 = load ptr, ptr @object_access_hook, align 8
@@ -2580,7 +2580,7 @@ define internal fastcc void @renametrig_internal(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @renametrig_partition(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @renametrig_partition(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.ScanKeyData, align 8
   %7 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #15
@@ -2899,7 +2899,7 @@ declare zeroext i1 @superuser() local_unnamed_addr #2
 declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @RelationBuildTriggers(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca i8, align 1
   %4 = tail call ptr @palloc(i64 noundef 1408) #15
@@ -3410,7 +3410,7 @@ declare i64 @nameout(ptr noundef) #2
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3812,7 +3812,7 @@ define dso_local ptr @FindTriggerIncompatibleWithInheritance(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TriggerData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
@@ -4042,7 +4042,7 @@ GetAfterTriggersTableData.exit:                   ; preds = %53, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = load i32, ptr @SessionReplicationRole, align 4
   %10 = icmp eq i32 %9, 1
@@ -5231,7 +5231,7 @@ define dso_local void @ExecARInsertTriggers(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.TriggerData, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5344,7 +5344,7 @@ define dso_local noundef zeroext i1 @ExecIRInsertTriggers(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecBSDeleteTriggers(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecBSDeleteTriggers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TriggerData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
@@ -5594,7 +5594,7 @@ define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr no
 declare ptr @ExecGetTriggerOldSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @GetTupleForTrigger(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @GetTupleForTrigger(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca %struct.TM_FailureData, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -5992,7 +5992,7 @@ define dso_local void @ExecBSUpdateTriggers(ptr noundef %0, ptr noundef %1) loca
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %20, align 4
-  %40 = call fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %39, ptr noundef %19, ptr noundef null, ptr noundef null)
+  %40 = call fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %33, i32 noundef %39, ptr noundef %19, ptr noundef null, ptr noundef null)
   br i1 %40, label %41, label %57
 
 41:                                               ; preds = %38
@@ -6157,7 +6157,7 @@ define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr no
 
 64:                                               ; preds = %57
   %65 = load i32, ptr %39, align 4
-  %66 = call fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef %2, ptr noundef %59, i32 noundef %65, ptr noundef %43, ptr noundef %15, ptr noundef %5)
+  %66 = call fastcc zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %59, i32 noundef %65, ptr noundef %43, ptr noundef %15, ptr noundef %5)
   br i1 %66, label %67, label %103
 
 67:                                               ; preds = %64
@@ -6474,7 +6474,7 @@ define dso_local noundef zeroext i1 @ExecIRUpdateTriggers(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecBSTruncateTriggers(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecBSTruncateTriggers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TriggerData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 64, i1 false)
@@ -7007,7 +7007,7 @@ afterTriggerDeleteHeadEventChunk.exit:            ; preds = %42, %22, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @afterTriggerMarkEvents(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.02653 = load ptr, ptr %0, align 8
   %.not54 = icmp eq ptr %.02653, null
   br i1 %.not54, label %._crit_edge.thread, label %.lr.ph58
@@ -7403,7 +7403,7 @@ afterTriggerCheckState.exit.thread:               ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @afterTriggerInvokeEvents(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.TriggerData, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -8120,7 +8120,7 @@ AfterTriggerExecute.exit:                         ; preds = %300, %301
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AfterTriggerFreeQuery(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @AfterTriggerFreeQuery(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not6.i = icmp eq ptr %2, null
   br i1 %.not6.i, label %afterTriggerFreeEventList.exit, label %.lr.ph.i
@@ -8624,7 +8624,7 @@ afterTriggerRestoreEventList.exit:                ; preds = %afterTriggerFreeEve
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x %struct.ScanKeyData], align 16
   %3 = alloca %struct.ScanKeyData, align 8
   %4 = alloca %struct.ScanKeyData, align 8
@@ -9274,7 +9274,7 @@ define dso_local noundef zeroext i1 @AfterTriggerPendingOnRel(i32 noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_session_replication_role(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_session_replication_role(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @SessionReplicationRole, align 4
   %.not = icmp eq i32 %3, %0
   br i1 %.not, label %5, label %4
@@ -9290,7 +9290,7 @@ define dso_local void @assign_session_replication_role(i32 noundef %0, ptr nocap
 declare void @ResetPlanCache() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_trigger_depth(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_trigger_depth(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @MyTriggerDepth, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3
@@ -9339,7 +9339,7 @@ declare ptr @ExecPrepareQual(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @afterTriggerAddEvent(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @afterTriggerAddEvent(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 939524096
   switch i32 %5, label %6 [
@@ -9734,10 +9734,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

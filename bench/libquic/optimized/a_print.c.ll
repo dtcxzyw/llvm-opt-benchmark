@@ -82,7 +82,7 @@ return:                                           ; preds = %while.end, %while.c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr nocapture noundef %s) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(none) %s) local_unnamed_addr #1 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %s, i64 4
   %0 = load i32, ptr %type, align 4

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_rsa_sp800_56b_pairwise_test = private unnamed_addr constant [33 x i8] c"ossl_rsa_sp800_56b_pairwise_test\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr nocapture noundef %rsa, ptr nocapture readnone %test, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captures(none) %rsa, ptr readnone captures(none) %test, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %nbits, 2048
   br i1 %cmp, label %if.then, label %if.end
@@ -93,7 +93,7 @@ for.cond.preheader:                               ; preds = %if.end34
   br i1 %tobool44.not51, label %if.then64, label %if.end46
 
 if.end46:                                         ; preds = %for.cond.preheader, %for.cond.backedge
-  %call47 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef %call3, ptr noundef %call5, ptr noundef %call9, i32 noundef %nbits) #2
+  %call47 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef %call3, ptr noundef nonnull %call5, ptr noundef nonnull %call9, i32 noundef %nbits) #2
   %cmp48 = icmp slt i32 %call47, 0
   br i1 %cmp48, label %err, label %if.end50
 
@@ -103,7 +103,7 @@ if.end50:                                         ; preds = %if.end46
 
 for.cond.backedge:                                ; preds = %if.end50, %if.end59
   %8 = load ptr, ptr %q, align 8
-  %call43 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %8, ptr noundef %call9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) #2
+  %call43 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %8, ptr noundef nonnull %call9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) #2
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %if.end46
 
@@ -200,7 +200,7 @@ return:                                           ; preds = %entry, %if.then
 declare zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef captures(none) %rsa, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
@@ -402,7 +402,7 @@ declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %efixed, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures(none) %rsa, i32 noundef %nbits, ptr noundef %efixed, ptr noundef %cb) local_unnamed_addr #0 {
 if.end:
   %call.i = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %nbits) #2
   %libctx = getelementptr inbounds nuw i8, ptr %rsa, i64 8
@@ -498,7 +498,7 @@ declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_pairwise_test(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef readonly captures(none) %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2

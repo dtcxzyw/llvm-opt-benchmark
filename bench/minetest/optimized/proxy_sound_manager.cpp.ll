@@ -177,7 +177,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN5sound17ProxySoundManager9handleMsgEOSt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %msg) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN5sound17ProxySoundManager9handleMsgEOSt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %msg) local_unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %msg, i64 4
   %msg.val2 = load i8, ptr %0, align 4
@@ -204,10 +204,10 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5sound17ProxySoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -712,7 +712,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound17ProxySoundManager14updateListenerERKN3irr4core8vector3dIfEES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos_, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vel_, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %at_, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %up_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17ProxySoundManager14updateListenerERKN3irr4core8vector3dIfEES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos_, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vel_, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %at_, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %up_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.191, align 1
   %agg.tmp = alloca %"class.std::variant.107", align 8
@@ -769,7 +769,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5sound17ProxySoundManager15setListenerGainEf(ptr noundef nonnull align 8 dereferenceable(1000) %this, float noundef %gain) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1394,7 +1394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound17ProxySoundManager15addSoundToGroupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %sound_name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %group_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17ProxySoundManager15addSoundToGroupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %sound_name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %group_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.191, align 1
   %__dnew.i.i8 = alloca i64, align 8
@@ -1682,7 +1682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound17ProxySoundManager9playSoundEiRK9SoundSpec(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %spec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17ProxySoundManager9playSoundEiRK9SoundSpec(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %spec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.191, align 1
   %__dnew.i.i.i = alloca i64, align 8
@@ -1853,7 +1853,7 @@ _ZN5sound29sound_manager_messages_to_mgr9PlaySoundD2Ev.exit14: ; preds = %if.the
 declare noundef i32 @_ZN13ISoundManager10allocateIdEj(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound17ProxySoundManager11playSoundAtEiRK9SoundSpecRKN3irr4core8vector3dIfEES9_(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos_, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vel_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17ProxySoundManager11playSoundAtEiRK9SoundSpecRKN3irr4core8vector3dIfEES9_(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos_, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vel_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.191, align 1
   %__dnew.i.i.i = alloca i64, align 8
@@ -2124,7 +2124,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound17ProxySoundManager17updateSoundPosVelEiRKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %sound, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos_, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vel_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound17ProxySoundManager17updateSoundPosVelEiRKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %sound, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %pos_, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %vel_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.191, align 1
   %agg.tmp = alloca %"class.std::variant.107", align 8
@@ -2846,7 +2846,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPSt7vari
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
@@ -3088,7 +3088,7 @@ entry:
 declare void @_ZN9Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3827,7 +3827,7 @@ declare void @llvm.assume(i1 noundef) #17
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

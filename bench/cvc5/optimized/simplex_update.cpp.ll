@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %m) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoRKSt8optionalIiE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %m) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.20)
   %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %m, i64 4
@@ -107,7 +107,7 @@ _ZN4cvc58internallsIiEERSoS2_RKSt8optionalIT_E.exit: ; preds = %if.then.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
   store i32 %0, ptr %this, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Eji(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this, i32 noundef %nb, i32 noundef %dir) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Eji(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this, i32 noundef %nb, i32 noundef %dir) unnamed_addr #4 align 2 {
 entry:
   store i32 %nb, ptr %this, align 8
   %d_nonbasicDirection = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -411,7 +411,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %r, ptr noundef %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %r, ptr noundef %c) local_unnamed_addr #3 align 2 {
 entry:
   %d_limiting = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8
@@ -736,7 +736,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14describesPivotEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14describesPivotEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(204) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_limiting.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %d_limiting.i, align 8
@@ -879,7 +879,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo7leavingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo7leavingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(204) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_limiting = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %d_limiting, align 8

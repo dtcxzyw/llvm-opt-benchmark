@@ -445,7 +445,7 @@ return:                                           ; preds = %land.lhs.true110, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinityOrNanEPKcS2_PNS_16strings_internal11ParsedFloatE(ptr noundef %begin, ptr noundef %end, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_118ParseInfinityOrNanEPKcS2_PNS_16strings_internal11ParsedFloatE(ptr noundef %begin, ptr noundef %end, ptr noundef writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %begin37 = ptrtoint ptr %begin to i64
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -554,7 +554,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %out) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef %begin, ptr noundef %end, ptr noundef captures(none) %out) unnamed_addr #1 {
 entry:
   %begin22 = ptrtoint ptr %begin to i64
   %end21 = ptrtoint ptr %end to i64
@@ -1097,7 +1097,7 @@ return:                                           ; preds = %land.lhs.true110, %
 declare noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

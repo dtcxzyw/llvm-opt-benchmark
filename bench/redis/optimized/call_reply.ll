@@ -60,7 +60,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeCallReplyInternal(ptr nocapture noundef readonly %rep) unnamed_addr #0 {
+define internal fastcc void @freeCallReplyInternal(ptr noundef readonly captures(none) %rep) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %rep, i64 32
   %0 = load i32, ptr %type, align 8
@@ -606,7 +606,7 @@ callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyGetAttribute(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
+define dso_local ptr @callReplyGetAttribute(ptr noundef readonly captures(none) %rep) local_unnamed_addr #3 {
 entry:
   %attribute = getelementptr inbounds nuw i8, ptr %rep, i64 72
   %0 = load ptr, ptr %attribute, align 8
@@ -699,7 +699,7 @@ callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetBigNumber(ptr noundef %rep, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetBigNumber(ptr noundef %rep, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
@@ -742,7 +742,7 @@ return:                                           ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @callReplyGetVerbatim(ptr noundef %rep, ptr nocapture noundef writeonly %len, ptr noundef writeonly %format) local_unnamed_addr #0 {
+define dso_local ptr @callReplyGetVerbatim(ptr noundef %rep, ptr noundef writeonly captures(none) %len, ptr noundef writeonly %format) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
@@ -795,7 +795,7 @@ return:                                           ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @callReplyGetProto(ptr nocapture noundef readonly %rep, ptr nocapture noundef writeonly initializes((0, 8)) %proto_len) local_unnamed_addr #4 {
+define dso_local ptr @callReplyGetProto(ptr noundef readonly captures(none) %rep, ptr noundef writeonly captures(none) initializes((0, 8)) %proto_len) local_unnamed_addr #4 {
 entry:
   %proto_len1 = getelementptr inbounds nuw i8, ptr %rep, i64 24
   %0 = load i64, ptr %proto_len1, align 8
@@ -806,14 +806,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyGetPrivateData(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
+define dso_local ptr @callReplyGetPrivateData(ptr noundef readonly captures(none) %rep) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %rep, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
+define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr noundef readonly captures(none) %rep) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags, align 4
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @callReplyDeferredErrorList(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
+define dso_local ptr @callReplyDeferredErrorList(ptr noundef readonly captures(none) %rep) local_unnamed_addr #3 {
 entry:
   %deferred_error_list = getelementptr inbounds nuw i8, ptr %rep, i64 64
   %0 = load ptr, ptr %deferred_error_list, align 8
@@ -981,12 +981,12 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @parseReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullArray(ptr nocapture noundef writeonly initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyNullArray(ptr noundef writeonly captures(none) initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -998,7 +998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullBulkString(ptr nocapture noundef writeonly initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyNullBulkString(ptr noundef writeonly captures(none) initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -1010,7 +1010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyBulkString(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyBulkString(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyError(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyError(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 1, ptr %type1.i, align 8
@@ -1042,7 +1042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplySimpleStr(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplySimpleStr(ptr noundef writeonly captures(none) initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
@@ -1058,7 +1058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyLong(ptr nocapture noundef writeonly initializes((16, 36), (48, 56)) %ctx, i64 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyLong(ptr noundef writeonly captures(none) initializes((16, 36), (48, 56)) %ctx, i64 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 2, ptr %type1.i, align 8
@@ -1072,7 +1072,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplyArray(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplyArray(ptr noundef %parser, ptr noundef captures(none) initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 3, ptr %type, align 8
@@ -1134,7 +1134,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplySet(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplySet(ptr noundef %parser, ptr noundef captures(none) initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 6, ptr %type, align 8
@@ -1200,7 +1200,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplyMap(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplyMap(ptr noundef %parser, ptr noundef captures(none) initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 5, ptr %type, align 8
@@ -1279,7 +1279,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBool(ptr nocapture noundef initializes((16, 36), (48, 56)) %ctx, i32 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyBool(ptr noundef captures(none) initializes((16, 36), (48, 56)) %ctx, i32 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 7, ptr %type1.i, align 8
@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyDouble(ptr nocapture noundef initializes((16, 36), (48, 56)) %ctx, double noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyDouble(ptr noundef captures(none) initializes((16, 36), (48, 56)) %ctx, double noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 8, ptr %type1.i, align 8
@@ -1316,7 +1316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBigNumber(ptr nocapture noundef initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyBigNumber(ptr noundef captures(none) initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 9, ptr %type1.i, align 8
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyVerbatimString(ptr nocapture noundef initializes((16, 36), (40, 64)) %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyVerbatimString(ptr noundef captures(none) initializes((16, 36), (40, 64)) %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 10, ptr %type1.i, align 8
@@ -1456,7 +1456,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyNull(ptr nocapture noundef initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyNull(ptr noundef captures(none) initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -1472,7 +1472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyParseError(ptr nocapture noundef writeonly initializes((32, 36)) %ctx) #6 {
+define internal void @callReplyParseError(ptr noundef writeonly captures(none) initializes((32, 36)) %ctx) #6 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 -1, ptr %type, align 8
@@ -1483,10 +1483,10 @@ entry:
 declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

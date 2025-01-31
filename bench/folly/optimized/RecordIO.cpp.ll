@@ -169,13 +169,13 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt11unique_lockIN5folly4FileEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -274,7 +274,7 @@ entry:
 declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #9
@@ -330,7 +330,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !45
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #20, !noalias !46
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -500,7 +500,7 @@ declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_trait
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
@@ -520,7 +520,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 declare void @_ZN5folly4File6unlockEv(ptr noundef nonnull align 4 dereferenceable(5)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RecordIOWriter5writeESt10unique_ptrINS_5IOBufESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %buf) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RecordIOWriter5writeESt10unique_ptrINS_5IOBufESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull %buf) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iov = alloca %"class.folly::fbvector", align 8
   %fileId_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -873,7 +873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14RecordIOReaderC2ENS_4FileEj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %file, i32 noundef %fileId) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -907,7 +907,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN5folly13MemoryMappingC1ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%"struct.folly::MemoryMapping::Options") align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId, i64 noundef %pos) unnamed_addr #0 align 2 {
+define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 20), (24, 48)) %this, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId, i64 noundef %pos) unnamed_addr #0 align 2 {
 entry:
   %range.sroa.2.0.range_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %range.coerce1, ptr %range.sroa.2.0.range_.sroa_idx, align 8, !tbaa !33
@@ -939,7 +939,7 @@ if.end:                                           ; preds = %_ZN5folly5RangeIPKh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RecordIOReader8Iterator14advanceToValidEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RecordIOReader8Iterator14advanceToValidEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::recordio_helpers::RecordInfo", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #20
@@ -1112,7 +1112,7 @@ entry:
 declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j(ptr dead_on_unwind noalias nocapture writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %agg.result, ptr %searchRange.coerce0, ptr %searchRange.coerce1, ptr nocapture readnone %wholeRange.coerce0, ptr %wholeRange.coerce1, i32 noundef %fileId) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16recordio_helpers10findRecordENS_5RangeIPKhEES4_j(ptr dead_on_unwind noalias writable sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 captures(none) %agg.result, ptr %searchRange.coerce0, ptr %searchRange.coerce1, ptr readnone captures(none) %wholeRange.coerce0, ptr %wholeRange.coerce1, i32 noundef %fileId) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %wholeRange.coerce1, i64 -28
   %cmp.i = icmp ult ptr %add.ptr, %searchRange.coerce1
@@ -1225,7 +1225,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr noundef nonnull align 8 dereferenceable(297), i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end16, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 {
+define void @_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 captures(none) initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 {
 entry:
   %seed.addr.i.i = alloca i64, align 8
   %hash1.i.i = alloca i64, align 8
@@ -1382,7 +1382,7 @@ return:                                           ; preds = %if.end17, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId) local_unnamed_addr #0 {
+define void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind noalias writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 captures(none) initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId) local_unnamed_addr #0 {
 entry:
   %seed.addr.i.i.i = alloca i64, align 8
   %hash1.i.i.i3 = alloca i64, align 8

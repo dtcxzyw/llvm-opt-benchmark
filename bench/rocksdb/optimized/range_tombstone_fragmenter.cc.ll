@@ -332,7 +332,7 @@ if.end19:                                         ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb28FragmentedRangeTombstoneListC2ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 76), (88, 92), (96, 104)) %this, ptr nocapture noundef %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28FragmentedRangeTombstoneListC2ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 76), (88, 92), (96, 104)) %this, ptr noundef captures(none) %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i71 = alloca %"class.std::allocator.23", align 1
   %ref.tmp.i.i.i = alloca %"class.std::allocator.23", align 1
@@ -1020,10 +1020,10 @@ _ZNSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef captures(none) %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp.i.i.i.i30 = alloca %"class.std::allocator.23", align 1
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.23", align 1
@@ -1592,7 +1592,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7rocksdb28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %next_start_key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7rocksdb28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %next_start_key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2.i.i172 = alloca %"class.rocksdb::autovector<rocksdb::Slice>::iterator_impl", align 8
   %agg.tmp3.i.i173 = alloca %"class.rocksdb::autovector<rocksdb::Slice>::iterator_impl", align 8
@@ -2983,7 +2983,7 @@ invoke.cont11:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC2ERKSt10shared_ptrINS_28FragmentedRangeTombstoneListEERKNS_21InternalKeyComparatorEmPKNS_5SliceEm(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i64 noundef %_upper_bound, ptr noundef %ts_upper_bound, i64 noundef %_lower_bound) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC2ERKSt10shared_ptrINS_28FragmentedRangeTombstoneListEERKNS_21InternalKeyComparatorEmPKNS_5SliceEm(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i64 noundef %_upper_bound, ptr noundef %ts_upper_bound, i64 noundef %_lower_bound) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3059,7 +3059,7 @@ invoke.cont13:                                    ; preds = %if.else.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC2ERKSt10shared_ptrINS_33FragmentedRangeTombstoneListCacheEERKNS_21InternalKeyComparatorEmPKNS_5SliceEm(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tombstones_cache, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i64 noundef %_upper_bound, ptr noundef %ts_upper_bound, i64 noundef %_lower_bound) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC2ERKSt10shared_ptrINS_33FragmentedRangeTombstoneListCacheEERKNS_21InternalKeyComparatorEmPKNS_5SliceEm(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %tombstones_cache, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i64 noundef %_upper_bound, ptr noundef %ts_upper_bound, i64 noundef %_lower_bound) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3149,7 +3149,7 @@ invoke.cont17:                                    ; preds = %lor.lhs.false, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekToFirstEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekToFirstEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -3453,7 +3453,7 @@ while.end:                                        ; preds = %lor.rhs, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator10SeekToLastEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator10SeekToLastEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -4108,7 +4108,7 @@ return:                                           ; preds = %if.end21, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator4NextEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator4NextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this) unnamed_addr #4 align 2 {
 entry:
   %seq_pos_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %seq_pos_, align 8
@@ -4216,7 +4216,7 @@ return:                                           ; preds = %if.end.i, %lor.rhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator4PrevEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator4PrevEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this) unnamed_addr #4 align 2 {
 entry:
   %seq_pos_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %tombstones_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4365,7 +4365,7 @@ return:                                           ; preds = %if.end.i, %lor.rhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb32FragmentedRangeTombstoneIterator5ValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb32FragmentedRangeTombstoneIterator5ValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) unnamed_addr #5 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -4497,7 +4497,7 @@ cond.end:                                         ; preds = %_ZN7rocksdb32Fragme
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i.i = alloca %class.anon.126, align 8
   %ref.tmp.i = alloca %class.anon.53, align 8
@@ -6974,7 +6974,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit, i64 %__comp.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_T1_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef %__depth_limit, i64 %__comp.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i22.i = alloca %"class.rocksdb::Slice", align 8
   %__tmp.i.i147.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -7488,7 +7488,7 @@ while.end:                                        ; preds = %invoke.cont9, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_T0_SU_T1_T2_"(ptr noundef nonnull readonly captures(none) %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, i64 %__value.coerce1, ptr noundef nonnull readonly captures(none) %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__value.i = alloca %"class.rocksdb::Slice", align 8
   %sub = add nsw i64 %__len, -1
@@ -7664,7 +7664,7 @@ invoke.cont39:                                    ; preds = %invoke.cont10.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_5SliceELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_28FragmentedRangeTombstoneList18FragmentTombstonesESt10unique_ptrINS0_20InternalIteratorBaseIS2_EESt14default_deleteISC_EERKNS0_21InternalKeyComparatorEbRKSt6vectorImSaImEEENK3$_0clERKS2_EUlSQ_SQ_E_EEEvT_ST_T0_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__last, ptr noundef nonnull readonly captures(none) %__comp) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i = alloca %"class.rocksdb::Slice", align 8
   %__val = alloca %"class.rocksdb::Slice", align 8
@@ -7853,7 +7853,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorImSaImEE15_M_range_insertIN7rocksdb10autovectorImLm8EE13iterator_implIS5_mEEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EET_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8462,7 +8462,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20SetRangeDelReadSeqnoEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %0) unnamed_addr #3 comdat align 2 {
@@ -10508,10 +10508,10 @@ declare extern_weak void @_ZTHN7rocksdb10perf_levelE() #8
 declare extern_weak void @_ZTHN7rocksdb12perf_contextE() #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

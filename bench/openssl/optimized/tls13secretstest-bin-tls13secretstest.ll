@@ -80,13 +80,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [13 x i8] c"s ap traffic\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssl3_digest_cached_records(ptr nocapture noundef readnone %s, i32 noundef %keep) local_unnamed_addr #0 {
+define dso_local noundef i32 @ssl3_digest_cached_records(ptr noundef readnone captures(none) %s, i32 noundef %keep) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @ssl_handshake_hash(ptr nocapture noundef readnone %s, ptr nocapture noundef writeonly %out, i64 noundef %outlen, ptr nocapture noundef writeonly %hashlen) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @ssl_handshake_hash(ptr noundef readnone captures(none) %s, ptr noundef writeonly captures(none) %out, i64 noundef %outlen, ptr noundef writeonly captures(none) %hashlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %outlen, 32
   br i1 %cmp, label %return, label %if.end
@@ -113,10 +113,10 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ssl_handshake_md(ptr nocapture noundef readnone %s) local_unnamed_addr #3 {
+define dso_local ptr @ssl_handshake_md(ptr noundef readnone captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @EVP_sha256() #5
   ret ptr %call
@@ -125,13 +125,13 @@ entry:
 declare ptr @EVP_sha256() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssl_cipher_get_evp_cipher(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %sslc, ptr nocapture noundef readnone %enc) local_unnamed_addr #0 {
+define dso_local noundef i32 @ssl_cipher_get_evp_cipher(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %sslc, ptr noundef readnone captures(none) %enc) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssl_cipher_get_evp(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %enc, ptr nocapture noundef readnone %md, ptr nocapture noundef readnone %mac_pkey_type, ptr nocapture noundef readnone %mac_secret_size, ptr nocapture noundef readnone %comp, i32 noundef %use_etm) local_unnamed_addr #0 {
+define dso_local noundef i32 @ssl_cipher_get_evp(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %s, ptr noundef readnone captures(none) %enc, ptr noundef readnone captures(none) %md, ptr noundef readnone captures(none) %mac_pkey_type, ptr noundef readnone captures(none) %mac_secret_size, ptr noundef readnone captures(none) %comp, i32 noundef %use_etm) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -143,56 +143,56 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssl_log_secret(ptr nocapture noundef readnone %sc, ptr nocapture noundef readnone %label, ptr nocapture noundef readnone %secret, i64 noundef %secret_len) local_unnamed_addr #0 {
+define dso_local noundef i32 @ssl_log_secret(ptr noundef readnone captures(none) %sc, ptr noundef readnone captures(none) %label, ptr noundef readnone captures(none) %secret, i64 noundef %secret_len) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ssl_md(ptr nocapture noundef readnone %ctx, i32 noundef %idx) local_unnamed_addr #3 {
+define dso_local ptr @ssl_md(ptr noundef readnone captures(none) %ctx, i32 noundef %idx) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @EVP_sha256() #5
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @ossl_statem_send_fatal(ptr nocapture noundef readnone %s, i32 noundef %al) local_unnamed_addr #0 {
+define dso_local void @ossl_statem_send_fatal(ptr noundef readnone captures(none) %s, i32 noundef %al) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @ossl_statem_fatal(ptr nocapture noundef readnone %s, i32 noundef %al, i32 noundef %reason, ptr nocapture noundef readnone %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @ossl_statem_fatal(ptr noundef readnone captures(none) %s, i32 noundef %al, i32 noundef %reason, ptr noundef readnone captures(none) %fmt, ...) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ossl_statem_export_allowed(ptr nocapture noundef readnone %s) local_unnamed_addr #0 {
+define dso_local noundef i32 @ossl_statem_export_allowed(ptr noundef readnone captures(none) %s) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ossl_statem_export_early_allowed(ptr nocapture noundef readnone %s) local_unnamed_addr #0 {
+define dso_local noundef i32 @ossl_statem_export_early_allowed(ptr noundef readnone captures(none) %s) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @ssl_evp_cipher_free(ptr nocapture noundef readnone %cipher) local_unnamed_addr #0 {
+define dso_local void @ssl_evp_cipher_free(ptr noundef readnone captures(none) %cipher) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @ssl_evp_md_free(ptr nocapture noundef readnone %md) local_unnamed_addr #0 {
+define dso_local void @ssl_evp_md_free(ptr noundef readnone captures(none) %md) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssl_set_new_record_layer(ptr nocapture noundef readnone %s, i32 noundef %version, i32 noundef %direction, i32 noundef %level, ptr nocapture noundef readnone %secret, i64 noundef %secretlen, ptr nocapture noundef readnone %key, i64 noundef %keylen, ptr nocapture noundef readnone %iv, i64 noundef %ivlen, ptr nocapture noundef readnone %mackey, i64 noundef %mackeylen, ptr nocapture noundef readnone %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr nocapture noundef readnone %md, ptr nocapture noundef readnone %comp, ptr nocapture noundef readnone %kdfdigest) local_unnamed_addr #0 {
+define dso_local noundef i32 @ssl_set_new_record_layer(ptr noundef readnone captures(none) %s, i32 noundef %version, i32 noundef %direction, i32 noundef %level, ptr noundef readnone captures(none) %secret, i64 noundef %secretlen, ptr noundef readnone captures(none) %key, i64 noundef %keylen, ptr noundef readnone captures(none) %iv, i64 noundef %ivlen, ptr noundef readnone captures(none) %mackey, i64 noundef %mackeylen, ptr noundef readnone captures(none) %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef readnone captures(none) %md, ptr noundef readnone captures(none) %comp, ptr noundef readnone captures(none) %kdfdigest) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

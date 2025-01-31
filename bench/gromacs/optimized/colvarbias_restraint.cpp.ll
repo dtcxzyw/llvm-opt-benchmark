@@ -1010,13 +1010,13 @@ define noundef i32 @_ZN20colvarbias_restraint4initERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN20colvarbias_restraintD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define void @_ZN20colvarbias_restraintD1Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN20colvarbias_restraintD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define void @_ZN20colvarbias_restraintD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -1068,13 +1068,13 @@ define noundef i32 @_ZTv0_n144_N20colvarbias_restraint4initERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n184_N20colvarbias_restraintD1Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n184_N20colvarbias_restraintD1Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n184_N20colvarbias_restraintD0Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n184_N20colvarbias_restraintD0Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -1136,37 +1136,37 @@ define noundef nonnull ptr @_ZTv0_n248_N20colvarbias_restraint10write_trajERSo(p
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n72_N20colvarbias_restraintD1Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n72_N20colvarbias_restraintD1Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n72_N20colvarbias_restraintD0Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n72_N20colvarbias_restraintD0Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N20colvarbias_restraintD1Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n24_N20colvarbias_restraintD1Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N20colvarbias_restraintD0Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n24_N20colvarbias_restraintD0Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n48_N20colvarbias_restraintD1Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n48_N20colvarbias_restraintD1Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n48_N20colvarbias_restraintD0Ev(ptr nocapture readonly %0) unnamed_addr #6 align 2 {
+define void @_ZTv0_n48_N20colvarbias_restraintD0Ev(ptr readonly captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -2231,7 +2231,7 @@ define linkonce_odr noundef i32 @_ZN27colvarbias_restraint_moving20change_config
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27colvarbias_restraint_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK27colvarbias_restraint_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = load ptr, ptr %3, align 8
@@ -2922,7 +2922,7 @@ define linkonce_odr noundef i32 @_ZN35colvarbias_restraint_centers_moving20chang
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = load ptr, ptr %3, align 8
@@ -3258,7 +3258,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN35colvarbias_restraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN35colvarbias_restraint_centers_moving10write_trajERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN35colvarbias_restraint_centers_moving10write_trajERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -3710,7 +3710,7 @@ define linkonce_odr void @_ZN35colvarbias_restraint_centers_movingD0Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN35colvarbias_restraint_centers_moving14update_centersEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, double noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN35colvarbias_restraint_centers_moving14update_centersEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, double noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.colvarvalue, align 8
   %4 = alloca %class.colvarvalue, align 8
   %5 = alloca double, align 8
@@ -4051,7 +4051,7 @@ define linkonce_odr void @_ZTv0_n184_N35colvarbias_restraint_centers_movingD0Ev(
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n192_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n192_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -192
   %5 = load i64, ptr %4, align 8
@@ -4134,7 +4134,7 @@ define noundef nonnull ptr @_ZTv0_n240_N35colvarbias_restraint_centers_moving16w
 }
 
 ; Function Attrs: uwtable
-define noundef nonnull ptr @_ZTv0_n248_N35colvarbias_restraint_centers_moving10write_trajERSo(ptr nocapture noundef readonly %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZTv0_n248_N35colvarbias_restraint_centers_moving10write_trajERSo(ptr noundef readonly captures(none) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -248
   %5 = load i64, ptr %4, align 8
@@ -4200,7 +4200,7 @@ define noundef i32 @_ZTv0_n80_N35colvarbias_restraint_centers_moving6updateEv(pt
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n96_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n96_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -96
   %5 = load i64, ptr %4, align 8
@@ -4298,7 +4298,7 @@ define linkonce_odr noundef i32 @_ZTv0_n56_N35colvarbias_restraint_centers_movin
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n64_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -64
   %5 = load i64, ptr %4, align 8
@@ -5407,7 +5407,7 @@ define linkonce_odr noundef i32 @_ZN29colvarbias_restraint_k_moving20change_conf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %4 = load ptr, ptr %3, align 8
@@ -5621,7 +5621,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN29colvarbias_restraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN29colvarbias_restraint_k_moving10write_trajERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN29colvarbias_restraint_k_moving10write_trajERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 -168
   %5 = load i64, ptr %4, align 8
@@ -6083,7 +6083,7 @@ define linkonce_odr void @_ZTv0_n184_N29colvarbias_restraint_k_movingD0Ev(ptr no
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n192_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n192_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -192
   %5 = load i64, ptr %4, align 8
@@ -6212,7 +6212,7 @@ _ZN29colvarbias_restraint_k_moving16write_traj_labelERSo.exit: ; preds = %2, %15
 }
 
 ; Function Attrs: uwtable
-define noundef nonnull ptr @_ZTv0_n248_N29colvarbias_restraint_k_moving10write_trajERSo(ptr nocapture noundef readonly %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZTv0_n248_N29colvarbias_restraint_k_moving10write_trajERSo(ptr noundef readonly captures(none) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -248
   %5 = load i64, ptr %4, align 8
@@ -6315,7 +6315,7 @@ define noundef i32 @_ZTv0_n80_N29colvarbias_restraint_k_moving6updateEv(ptr noun
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n96_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n96_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -96
   %5 = load i64, ptr %4, align 8
@@ -6413,7 +6413,7 @@ define linkonce_odr noundef i32 @_ZTv0_n56_N29colvarbias_restraint_k_moving20cha
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n64_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -64
   %5 = load i64, ptr %4, align 8
@@ -6508,7 +6508,7 @@ define noundef i32 @_ZTv0_n56_N29colvarbias_restraint_k_moving6updateEv(ptr noun
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n80_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n80_NK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -80
   %5 = load i64, ptr %4, align 8
@@ -6637,7 +6637,7 @@ _ZN29colvarbias_restraint_k_moving16write_traj_labelERSo.exit: ; preds = %2, %15
 }
 
 ; Function Attrs: uwtable
-define noundef nonnull ptr @_ZTv0_n104_N29colvarbias_restraint_k_moving10write_trajERSo(ptr nocapture noundef readonly %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZTv0_n104_N29colvarbias_restraint_k_moving10write_trajERSo(ptr noundef readonly captures(none) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -104
   %5 = load i64, ptr %4, align 8
@@ -7695,7 +7695,7 @@ define linkonce_odr void @_ZN29colvarbias_restraint_harmonicD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK29colvarbias_restraint_harmonic19restraint_potentialEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define noundef double @_ZNK29colvarbias_restraint_harmonic19restraint_potentialEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 -176
   %5 = load i64, ptr %4, align 8
@@ -7729,7 +7729,7 @@ define noundef double @_ZNK29colvarbias_restraint_harmonic19restraint_potentialE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK29colvarbias_restraint_harmonic15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK29colvarbias_restraint_harmonic15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca %class.colvarvalue, align 8
   %6 = load ptr, ptr %1, align 8
@@ -7825,7 +7825,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK29colvarbias_restraint_harmonic24d_restraint_potential_dkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define noundef double @_ZNK29colvarbias_restraint_harmonic24d_restraint_potential_dkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -10307,7 +10307,7 @@ define noundef double @_ZNK35colvarbias_restraint_harmonic_walls24d_restraint_po
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK35colvarbias_restraint_harmonic_walls15colvar_distanceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK35colvarbias_restraint_harmonic_walls15colvar_distanceEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.colvarvalue, align 8
   %4 = alloca %class.colvarvalue, align 8
   %5 = alloca %class.colvarvalue, align 8
@@ -11959,7 +11959,7 @@ define linkonce_odr void @_ZN27colvarbias_restraint_linearD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK27colvarbias_restraint_linear19restraint_potentialEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK27colvarbias_restraint_linear19restraint_potentialEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.colvarvalue, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 -176
@@ -12111,7 +12111,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27colvarbias_restraint_linear15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK27colvarbias_restraint_linear15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.colvarvalue, align 8
   %5 = alloca double, align 8
   %6 = load ptr, ptr %1, align 8
@@ -12212,7 +12212,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK27colvarbias_restraint_linear24d_restraint_potential_dkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK27colvarbias_restraint_linear24d_restraint_potential_dkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.colvarvalue, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
@@ -14674,7 +14674,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN30colvarbias_restraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN30colvarbias_restraint_histogram10write_trajERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(425) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN30colvarbias_restraint_histogram10write_trajERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(425) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.44)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i8, ptr %4, align 8
@@ -15026,7 +15026,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20colvarbias_restraintC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define void @_ZN20colvarbias_restraintC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15138,7 +15138,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -15329,7 +15329,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -15519,7 +15519,7 @@ define linkonce_odr noundef i32 @_ZN11colvarvalue18check_types_assignERKNS_4Type
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11colvarvalue4TypeESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15879,7 +15879,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
@@ -15908,12 +15908,12 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capa
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN20colvarbias_restraintD2Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readnone %1) unnamed_addr #17 align 2 {
+define void @_ZN20colvarbias_restraintD2Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1) unnamed_addr #17 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN28colvarbias_restraint_centersC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN28colvarbias_restraint_centersC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16477,7 +16477,7 @@ declare void @_ZN11colvarvalueC1ERKS_(ptr noundef nonnull align 8 dereferenceabl
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN22colvarbias_restraint_kC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 17)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN22colvarbias_restraint_kC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 17)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16524,7 +16524,7 @@ define void @_ZN22colvarbias_restraint_kC2EPKc(ptr nocapture noundef nonnull ali
 declare noundef zeroext i1 @_ZN11colvarparse10get_keyvalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRdRKdNS_10Parse_ModeE(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN27colvarbias_restraint_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 10), (12, 20), (24, 56), (64, 72)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN27colvarbias_restraint_movingC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((0, 10), (12, 20), (24, 56), (64, 72)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16581,7 +16581,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef ptr @_ZN12colvarmodule4mainEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN35colvarbias_restraint_centers_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 81)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN35colvarbias_restraint_centers_movingC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(81) initializes((0, 81)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17392,7 +17392,7 @@ define noundef i32 @_ZTv0_n56_N35colvarbias_restraint_centers_moving6updateEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN35colvarbias_restraint_centers_moving15update_acc_workEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN35colvarbias_restraint_centers_moving15update_acc_workEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %3 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1112
@@ -17498,7 +17498,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n80_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZTv0_n80_NK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -80
   %5 = load i64, ptr %4, align 8
@@ -17587,7 +17587,7 @@ define noundef nonnull ptr @_ZTv0_n96_N35colvarbias_restraint_centers_moving16wr
 }
 
 ; Function Attrs: uwtable
-define noundef nonnull ptr @_ZTv0_n104_N35colvarbias_restraint_centers_moving10write_trajERSo(ptr nocapture noundef readonly %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZTv0_n104_N35colvarbias_restraint_centers_moving10write_trajERSo(ptr noundef readonly captures(none) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -104
   %5 = load i64, ptr %4, align 8
@@ -17597,7 +17597,7 @@ define noundef nonnull ptr @_ZTv0_n104_N35colvarbias_restraint_centers_moving10w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN29colvarbias_restraint_k_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN29colvarbias_restraint_k_movingC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17782,7 +17782,7 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving15update_acc_workEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN29colvarbias_restraint_harmonicC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN29colvarbias_restraint_harmonicC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -18133,7 +18133,7 @@ define noundef i32 @_ZTv0_n56_N29colvarbias_restraint_harmonic6updateEv(ptr noun
 declare noundef double @_ZNK6colvar5dist2ERK11colvarvalueS2_(ptr noundef nonnull align 8 dereferenceable(4624), ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef double @_ZTv0_n128_NK29colvarbias_restraint_harmonic19restraint_potentialEm(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define noundef double @_ZTv0_n128_NK29colvarbias_restraint_harmonic19restraint_potentialEm(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -128
   %5 = load i64, ptr %4, align 8
@@ -18173,7 +18173,7 @@ define noundef double @_ZTv0_n128_NK29colvarbias_restraint_harmonic19restraint_p
 declare void @_ZNK6colvar11dist2_lgradERK11colvarvalueS2_(ptr dead_on_unwind writable sret(%class.colvarvalue) align 8, ptr noundef nonnull align 8 dereferenceable(4624), ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n136_NK29colvarbias_restraint_harmonic15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define void @_ZTv0_n136_NK29colvarbias_restraint_harmonic15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -136
   %6 = load i64, ptr %5, align 8
@@ -18183,7 +18183,7 @@ define void @_ZTv0_n136_NK29colvarbias_restraint_harmonic15restraint_forceEm(ptr
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZTv0_n144_NK29colvarbias_restraint_harmonic24d_restraint_potential_dkEm(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define noundef double @_ZTv0_n144_NK29colvarbias_restraint_harmonic24d_restraint_potential_dkEm(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -144
   %5 = load i64, ptr %4, align 8
@@ -18444,7 +18444,7 @@ define noundef double @_ZTv0_n72_N29colvarbias_restraint_harmonic17energy_differ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN35colvarbias_restraint_harmonic_wallsC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN35colvarbias_restraint_harmonic_wallsC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -19108,7 +19108,7 @@ _ZN35colvarbias_restraint_harmonic_walls10write_trajERSo.exit: ; preds = %2, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN27colvarbias_restraint_linearC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN27colvarbias_restraint_linearC2EPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -19483,7 +19483,7 @@ define noundef double @_ZTv0_n72_N27colvarbias_restraint_linear17energy_differen
 declare void @_ZmiRK11colvarvalueS1_(ptr dead_on_unwind writable sret(%class.colvarvalue) align 8, ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef double @_ZTv0_n128_NK27colvarbias_restraint_linear19restraint_potentialEm(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define noundef double @_ZTv0_n128_NK27colvarbias_restraint_linear19restraint_potentialEm(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -128
   %5 = load i64, ptr %4, align 8
@@ -19495,7 +19495,7 @@ define noundef double @_ZTv0_n128_NK27colvarbias_restraint_linear19restraint_pot
 declare void @_ZN11colvarvalue8set_onesEd(ptr noundef nonnull align 8 dereferenceable(168), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n136_NK27colvarbias_restraint_linear15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define void @_ZTv0_n136_NK27colvarbias_restraint_linear15restraint_forceEm(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -136
   %6 = load i64, ptr %5, align 8
@@ -19505,7 +19505,7 @@ define void @_ZTv0_n136_NK27colvarbias_restraint_linear15restraint_forceEm(ptr d
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZTv0_n144_NK27colvarbias_restraint_linear24d_restraint_potential_dkEm(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define noundef double @_ZTv0_n144_NK27colvarbias_restraint_linear24d_restraint_potential_dkEm(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -144
   %5 = load i64, ptr %4, align 8
@@ -20839,13 +20839,13 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

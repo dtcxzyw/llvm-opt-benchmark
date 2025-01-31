@@ -1500,7 +1500,7 @@ declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 declare ptr @cuddCacheLookup2Zdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddZddGetCofactors3(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddGetCofactors3(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %1, align 8
@@ -1672,13 +1672,13 @@ define range(i32 0, 2) i32 @cuddZddGetCofactors3(ptr noundef %0, ptr noundef %1,
 declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, -1) i32 @cuddZddGetPosVarIndex(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef range(i32 0, -1) i32 @cuddZddGetPosVarIndex(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = and i32 %1, -2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 1, 0) i32 @cuddZddGetNegVarIndex(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef range(i32 1, 0) i32 @cuddZddGetNegVarIndex(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = or i32 %1, 1
   ret i32 %3
 }
@@ -1690,7 +1690,7 @@ declare ptr @cuddZddGetNode(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddZddGetCofactors2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddGetCofactors2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @cuddZddSubset1(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %6, null
@@ -1715,7 +1715,7 @@ define range(i32 0, 2) i32 @cuddZddGetCofactors2(ptr noundef %0, ptr noundef %1,
 declare ptr @cuddZddIntersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddZddGetPosVarLevel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @cuddZddGetPosVarLevel(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = and i32 %1, -2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
@@ -1726,7 +1726,7 @@ define i32 @cuddZddGetPosVarLevel(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddZddGetNegVarLevel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @cuddZddGetNegVarLevel(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = or i32 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8

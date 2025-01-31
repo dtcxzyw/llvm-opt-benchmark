@@ -260,7 +260,7 @@ $_ZTIN8QuantLib7VisitorINS_15InflationCouponEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -345,7 +345,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -591,13 +591,13 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setCommonEdd(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((208, 210)) %this, double noundef %cap, double noundef %floor) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setCommonEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(232) initializes((208, 210)) %this, double noundef %cap, double noundef %floor) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -842,7 +842,7 @@ unreachable:                                      ; preds = %invoke.cont53
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC2ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC2ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp16 = alloca %"class.QuantLib::Period", align 8
@@ -1498,7 +1498,7 @@ _ZN5boost10shared_ptrIN8QuantLib17YoYInflationIndexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC1ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) initializes((232, 240), (248, 252), (256, 264)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC1ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) initializes((232, 240), (248, 252), (256, 264)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp26 = alloca %"class.QuantLib::Period", align 8
@@ -2004,7 +2004,7 @@ ehcleanup73:                                      ; preds = %ehcleanup71, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setPricerERKN5boost10shared_ptrINS_24YoYInflationCouponPricerEEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pricer) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setPricerERKN5boost10shared_ptrINS_24YoYInflationCouponPricerEEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pricer) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %ref.tmp4 = alloca %"class.boost::shared_ptr.29", align 8
@@ -2593,7 +2593,7 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon14effectiveFloorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon14effectiveFloorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
 entry:
   %floor_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load double, ptr %floor_, align 8, !tbaa !66
@@ -2607,7 +2607,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon12effectiveCapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon12effectiveCapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
 entry:
   %cap_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load double, ptr %cap_, align 8, !tbaa !65
@@ -2621,7 +2621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon3capEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon3capEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
 entry:
   %gearing_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load double, ptr %gearing_, align 8, !tbaa !64
@@ -2660,7 +2660,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon5floorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib31CappedFlooredYoYInflationCoupon5floorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #13 align 2 {
 entry:
   %gearing_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load double, ptr %gearing_, align 8, !tbaa !64
@@ -4073,7 +4073,7 @@ _ZN8QuantLib18YoYInflationCouponD2Ev.exit:        ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 

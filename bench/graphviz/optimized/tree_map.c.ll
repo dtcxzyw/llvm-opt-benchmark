@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [54 x i8] c"adding %zu items, total area = %f, w = %f, area/w=%f\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @tree_map(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly byval(%struct.rectangle) align 8 %2) local_unnamed_addr #0 {
+define noalias noundef ptr @tree_map(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly byval(%struct.rectangle) align 8 captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -269,7 +269,7 @@ squarify.exit:                                    ; preds = %tailrecurse.outer.i
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #3 {

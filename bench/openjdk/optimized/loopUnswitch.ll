@@ -34,7 +34,7 @@ $_ZN14PhaseIdealLoop18replace_loop_entryEP8LoopNodeP4Node = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13IdealLoopTree18policy_unswitchingEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13IdealLoopTree18policy_unswitchingEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @LoopUnswitching, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN14PhaseIdealLoop17may_require_nodesEjj.exit
@@ -104,7 +104,7 @@ _ZN14PhaseIdealLoop17may_require_nodesEjj.exit:   ; preds = %42, %25, %22, %19, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14PhaseIdealLoop23find_unswitch_candidateEPK13IdealLoopTree(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14PhaseIdealLoop23find_unswitch_candidateEPK13IdealLoopTree(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -506,7 +506,7 @@ _ZN12OriginalLoop16fix_loop_entriesEP10IfProjNodeS1_.exit: ; preds = %_ZNK14Phas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLoopTreeRK9Node_ListRK22UnswitchedLoopSelector(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLoopTreeRK9Node_ListRK22UnswitchedLoopSelector(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -900,7 +900,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %204, %206
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop42add_unswitched_loop_version_bodies_to_igvnEP13IdealLoopTreeRK9Node_List(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop42add_unswitched_loop_version_bodies_to_igvnEP13IdealLoopTreeRK9Node_List(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IdealLoopTree15record_for_igvnEv(ptr noundef nonnull align 8 dereferenceable(113) %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load i32, ptr %4, align 8
@@ -1002,7 +1002,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14PhaseIdealLoop25increment_unswitch_countsEP8LoopNodeS1_(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((64, 65)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14PhaseIdealLoop25increment_unswitch_countsEP8LoopNodeS1_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((64, 65)) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = add i8 %4, 1
@@ -1640,13 +1640,13 @@ declare i32 @llvm.ctpop.i32(i32) #5
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -84,7 +84,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @restrict_link_by_signature(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %49, label %6
 
@@ -178,7 +178,7 @@ declare dso_local i32 @verify_signature(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @key_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef range(i32 -126, 1) i32 @restrict_link_by_ca(ptr nocapture noundef readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -126, 1) i32 @restrict_link_by_ca(ptr noundef readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq ptr %1, @key_type_asymmetric
   br i1 %5, label %6, label %19
 
@@ -207,7 +207,7 @@ define dso_local noundef range(i32 -126, 1) i32 @restrict_link_by_ca(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @restrict_link_by_digsig(ptr nocapture noundef readnone %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @restrict_link_by_digsig(ptr noundef readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %1, @key_type_asymmetric
   br i1 %5, label %6, label %24
 
@@ -245,13 +245,13 @@ define dso_local i32 @restrict_link_by_digsig(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @restrict_link_by_key_or_keyring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @restrict_link_by_key_or_keyring(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = tail call fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread8, label %7
 
@@ -400,13 +400,13 @@ define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @restrict_link_by_key_or_keyring_chain(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @restrict_link_by_key_or_keyring_chain(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = tail call fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
@@ -415,7 +415,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare dso_local i32 @__asymmetric_key_hex_to_key_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -442,7 +442,7 @@ define internal fastcc noundef nonnull ptr @__key_get(ptr noundef nonnull return
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @match_either_id(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @match_either_id(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %3, ptr noundef %1) #7
   br i1 %4, label %9, label %5

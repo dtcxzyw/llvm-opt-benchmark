@@ -97,14 +97,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @intel_hdmi_to_i915(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @intel_hdmi_to_i915(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3848
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
+define dso_local void @hsw_write_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
@@ -329,10 +329,10 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
@@ -341,10 +341,10 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -536870912, 536870912) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -536870912, 536870912) %3) unnamed_addr #1 align 16 {
   switch i32 %2, label %110 [
     i32 10, label %5
     i32 7, label %20
@@ -490,7 +490,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hsw_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
+define dso_local void @hsw_read_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
@@ -807,7 +807,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @hdmi_infoframe_unpack(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -816,7 +816,7 @@ declare dso_local i32 @hdmi_infoframe_unpack(ptr noundef, ptr noundef, i64 nound
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_hdmi_read_gcp_infoframe(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4340
@@ -893,10 +893,10 @@ define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dp_dual_mode_set_tmds_output(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_dp_dual_mode_set_tmds_output(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -3848
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -946,7 +946,7 @@ define dso_local range(i32 -268435456, 268435456) i32 @intel_hdmi_tmds_clock(i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1122,7 +1122,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_hdmi_limited_color_range(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @intel_hdmi_limited_color_range(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %5 = load i32, ptr %4, align 8
@@ -1159,7 +1159,7 @@ define dso_local zeroext i1 @intel_hdmi_limited_color_range(ptr noundef %0, ptr 
 declare dso_local i32 @drm_default_rgb_quant_range(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #8 align 16 {
+define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %9 [
@@ -2051,7 +2051,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_hdmi_encoder_shutdown(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
@@ -2103,7 +2103,7 @@ define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_hdmi_handle_sink_scrambling(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @intel_hdmi_handle_sink_scrambling(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 258
   %7 = load i8, ptr %6, align 1, !range !20, !noundef !21
@@ -2147,7 +2147,7 @@ declare dso_local zeroext i1 @drm_scdc_set_high_tmds_clock_ratio(ptr noundef, i1
 declare dso_local zeroext i1 @drm_scdc_set_scrambling(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4016, 4048)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_infoframe_init(ptr noundef captures(none) initializes((4016, 4048)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7184
   %4 = load i32, ptr %3, align 4
@@ -2241,7 +2241,7 @@ define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
+define internal void @vlv_write_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -2425,7 +2425,7 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
+define internal void @vlv_read_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -2496,7 +2496,7 @@ define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2717,7 +2717,7 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 65011713) i32 @vlv_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 65011713) i32 @vlv_infoframes_enabled(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
@@ -2749,7 +2749,7 @@ define internal range(i32 0, 65011713) i32 @vlv_infoframes_enabled(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
+define internal void @g4x_write_infoframe(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7368
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 7512
@@ -2916,7 +2916,7 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
+define internal void @g4x_read_infoframe(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   switch i32 %2, label %10 [
     i32 10, label %12
@@ -2975,7 +2975,7 @@ define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
@@ -3126,7 +3126,7 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 23068673) i32 @g4x_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 0, 23068673) i32 @g4x_infoframes_enabled(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7512
@@ -3166,7 +3166,7 @@ declare dso_local void @lspcon_set_infoframes(ptr noundef, i1 noundef zeroext, p
 declare dso_local i32 @lspcon_infoframes_enabled(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %7 = load ptr, ptr %6, align 8
@@ -3333,7 +3333,7 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %5 = load ptr, ptr %4, align 8
@@ -3362,7 +3362,7 @@ define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
+define internal void @ibx_write_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -3540,7 +3540,7 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
+define internal void @ibx_read_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -3607,7 +3607,7 @@ define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3826,7 +3826,7 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 65011713) i32 @ibx_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 65011713) i32 @ibx_infoframes_enabled(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
@@ -3856,7 +3856,7 @@ define internal range(i32 0, 65011713) i32 @ibx_infoframes_enabled(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
+define internal void @cpt_write_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -4038,7 +4038,7 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
+define internal void @cpt_read_infoframe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
@@ -4105,7 +4105,7 @@ define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4281,7 +4281,7 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 65011713) i32 @cpt_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 65011713) i32 @cpt_infoframes_enabled(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
@@ -4827,7 +4827,7 @@ define dso_local i32 @intel_hdmi_dsc_get_slice_height(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 16 {
+define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 align 16 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -5135,7 +5135,7 @@ define dso_local i32 @intel_hdmi_dsc_get_bpp(i32 noundef %0, i32 noundef %1, i32
 declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %6 = load i32, ptr %5, align 4
@@ -6349,7 +6349,7 @@ declare dso_local i32 @drm_edid_connector_add_modes(ptr noundef) local_unnamed_a
 declare dso_local i32 @intel_cpu_transcoder_mode_valid(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 600001) %1, i1 noundef zeroext %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483648, 600001) %1, i1 noundef zeroext %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %7 = load ptr, ptr %6, align 8
@@ -6528,7 +6528,7 @@ declare dso_local i32 @drm_connector_attach_hdr_output_metadata_property(ptr nou
 declare dso_local i32 @drm_connector_attach_max_bpc_property(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.i2c_msg, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3864
@@ -6603,7 +6603,7 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_bksv(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_bksv(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
@@ -6656,7 +6656,7 @@ define internal i32 @intel_hdmi_hdcp_read_bksv(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_bstatus(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_bstatus(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
@@ -6709,7 +6709,7 @@ define internal i32 @intel_hdmi_hdcp_read_bstatus(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_repeater_present(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_repeater_present(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
@@ -6773,7 +6773,7 @@ define internal i32 @intel_hdmi_hdcp_repeater_present(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_ri_prime(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_ri_prime(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
@@ -6826,7 +6826,7 @@ define internal i32 @intel_hdmi_hdcp_read_ri_prime(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_ksv_ready(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_ksv_ready(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
@@ -6890,7 +6890,7 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_ready(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_ksv_fifo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_ksv_fifo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = load ptr, ptr %0, align 8
@@ -6945,7 +6945,7 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_fifo(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = load ptr, ptr %0, align 8
@@ -7157,7 +7157,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca %union.anon.86, align 4
@@ -7345,7 +7345,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp2_capable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
@@ -7420,7 +7420,7 @@ define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp2_write_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.i2c_msg, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %6 = load ptr, ptr %5, align 8
@@ -7482,7 +7482,7 @@ define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp2_read_msg(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   %7 = alloca i8, align 1
@@ -7730,7 +7730,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp2_check_link(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp2_check_link(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca [2 x i8], align 2

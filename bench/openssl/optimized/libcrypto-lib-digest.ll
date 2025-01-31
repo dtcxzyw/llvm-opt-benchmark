@@ -365,7 +365,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evp_md_ctx_free_algctx(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_md_ctx_free_algctx(ptr noundef captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %algctx, align 8
@@ -1313,15 +1313,15 @@ return:                                           ; preds = %if.end.i, %land.lhs
 declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MD_CTX_get_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %pctx1 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
@@ -1564,7 +1564,7 @@ return:                                           ; preds = %if.end40, %if.else,
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_CTX_set_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_MD_CTX_set_params(ptr noundef readonly captures(none) %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %pctx1 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx1, align 8
@@ -1620,7 +1620,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestSqueeze(ptr nocapture noundef readonly %ctx, ptr noundef %md, i64 noundef %size) local_unnamed_addr #0 {
+define i32 @EVP_DigestSqueeze(ptr noundef readonly captures(none) %ctx, ptr noundef %md, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %size.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
@@ -2108,7 +2108,7 @@ EVP_MD_CTX_reset.exit:                            ; preds = %entry, %if.end3.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_MD_up_ref(ptr nocapture noundef %md) local_unnamed_addr #5 {
+define noundef i32 @EVP_MD_up_ref(ptr noundef captures(none) %md) local_unnamed_addr #5 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %md, i64 24
   %0 = load i32, ptr %origin, align 8
@@ -3147,7 +3147,7 @@ return:                                           ; preds = %evp_md_cache_consta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @evp_md_up_ref(ptr nocapture noundef %md) #5 {
+define internal noundef i32 @evp_md_up_ref(ptr noundef captures(none) %md) #5 {
 entry:
   %origin.i = getelementptr inbounds nuw i8, ptr %md, i64 24
   %0 = load i32, ptr %origin.i, align 8
@@ -3227,7 +3227,7 @@ declare i32 @EVP_PKEY_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_legacy_nid(ptr noundef %name, ptr nocapture noundef %vlegacy_nid) #0 {
+define internal void @set_legacy_nid(ptr noundef %name, ptr noundef captures(none) %vlegacy_nid) #0 {
 entry:
   %call = tail call ptr @OBJ_NAME_get(ptr noundef %name, i32 noundef 1) #7
   %0 = load i32, ptr %vlegacy_nid, align 4
@@ -3263,10 +3263,10 @@ declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, 
 declare i32 @evp_do_md_getparams(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

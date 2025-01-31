@@ -143,7 +143,7 @@ define { ptr, i64 } @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17heeb
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h411f6187dc60d5f8E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h411f6187dc60d5f8E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -220,7 +220,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h026e9677e9fd73a2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..witx_literal$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h026e9677e9fd73a2E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -297,7 +297,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hb2ad5f5991e3bf2aE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..block_on$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hb2ad5f5991e3bf2aE"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -374,7 +374,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..errors$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hacb2d2746c434185E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..errors$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hacb2d2746c434185E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -451,7 +451,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..target$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h8ff38db4c4a0d136E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..target$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h8ff38db4c4a0d136E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -528,7 +528,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hebbd502eac2460e2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..wasmtime$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hebbd502eac2460e2E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -605,7 +605,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h87b2f4ae2486d0c9E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..mutable$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h87b2f4ae2486d0c9E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -682,7 +682,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17ha4541cea84d73d19E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..tracing$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17ha4541cea84d73d19E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -759,7 +759,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h4a3fecdd4b17dd57E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..disable_for$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h4a3fecdd4b17dd57E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -836,7 +836,7 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..trappable$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf98ca09be4e07332E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse..Parse$u20$for$u20$wiggle_generate..config..kw..trappable$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hf98ca09be4e07332E"(ptr writeonly sret({ i64, [3 x i64] }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -973,7 +973,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr sret({ i64, [5 x i64] }) align 8, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr align 8, ptr align 8) unnamed_addr #0

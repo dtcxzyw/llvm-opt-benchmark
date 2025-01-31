@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9grpc_core13HistogramView5CountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK9grpc_core13HistogramView5CountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %num_buckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %count_below) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, double noundef %count_below) local_unnamed_addr #0 align 2 {
 entry:
   %num_buckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
@@ -134,7 +134,7 @@ return:                                           ; preds = %if.else, %for.end17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK9grpc_core13HistogramView10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %p) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK9grpc_core13HistogramView10PercentileEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, double noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %num_buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets.i, align 8

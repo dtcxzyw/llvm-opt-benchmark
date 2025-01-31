@@ -369,7 +369,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @initHTMLlexer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @initHTMLlexer(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @state, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @state, i64 32), i8 0, i64 32, i1 false)
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @state, i64 8), align 8
@@ -402,10 +402,10 @@ define noundef i32 @initHTMLlexer(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @XML_ParserCreate(ptr noundef) local_unnamed_addr #1
 
@@ -416,7 +416,7 @@ declare void @XML_SetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @startElement(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal void @startElement(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca %struct.textfont_t, align 8
   %5 = alloca %struct.textfont_t, align 8
   %6 = alloca %struct.textfont_t, align 8
@@ -820,7 +820,7 @@ mkFont.exit:                                      ; preds = %92, %75, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @endElement(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @endElement(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.6) #20
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
@@ -1018,7 +1018,7 @@ define internal void @endElement(ptr nocapture readnone %0, ptr noundef %1) #0 {
 declare void @XML_SetCharacterDataHandler(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @characterData(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @characterData(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @state, i64 72), align 8
   %.not = icmp eq i8 %4, 0
   %.not911 = icmp eq i32 %2, 0
@@ -1625,7 +1625,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @XML_Parse(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1634,7 +1634,7 @@ declare ptr @XML_ErrorString(i32 noundef) local_unnamed_addr #1
 declare i32 @XML_GetErrorCode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr noundef captures(none) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1709,7 +1709,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
@@ -1721,19 +1721,19 @@ define internal fastcc void @graphviz_exit() unnamed_addr #6 {
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkBR(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @mkBR(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   store i32 0, ptr @htmllval, align 8
   %2 = load ptr, ptr %0, align 8
   %.not13.i = icmp eq ptr %2, null
@@ -1773,7 +1773,7 @@ doAttrs.exit:                                     ; preds = %16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mkImg(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @mkImg(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 177) 48) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
@@ -1836,14 +1836,14 @@ define internal fastcc void @lexerror(ptr noundef %0) unnamed_addr #0 {
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @icmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal i32 @icmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %3) #20
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @halignfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -1882,7 +1882,7 @@ define internal range(i32 0, 2) i32 @halignfn(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @bgcolorfn(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @bgcolorfn(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
@@ -1890,7 +1890,7 @@ define internal noundef i32 @bgcolorfn(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @borderfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @borderfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -1939,7 +1939,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cellborderfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellborderfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -1984,7 +1984,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cellpaddingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellpaddingfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2033,7 +2033,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cellspacingfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cellspacingfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2082,7 +2082,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @pencolorfn(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @pencolorfn(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
@@ -2090,7 +2090,7 @@ define internal noundef i32 @pencolorfn(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @columnsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @columnsfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 42
   br i1 %.not, label %6, label %4
@@ -2112,7 +2112,7 @@ define internal range(i32 0, 2) i32 @columnsfn(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fixedsizefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @fixedsizefn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.59) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2139,7 +2139,7 @@ define internal range(i32 0, 2) i32 @fixedsizefn(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gradientanglefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @gradientanglefn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2184,7 +2184,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @heightfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @heightfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2229,14 +2229,14 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @hreffn(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @hreffn(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   store ptr %3, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @idfn(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @idfn(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8
@@ -2244,7 +2244,7 @@ define internal noundef i32 @idfn(ptr nocapture noundef writeonly initializes((3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @portfn(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @portfn(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
@@ -2252,7 +2252,7 @@ define internal noundef i32 @portfn(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rowsfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rowsfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %3, 42
   br i1 %.not, label %6, label %4
@@ -2274,7 +2274,7 @@ define internal range(i32 0, 2) i32 @rowsfn(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sidesfn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @sidesfn(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i8, ptr %1, align 1
   %.not14 = icmp eq i8 %3, 0
   br i1 %.not14, label %._crit_edge.thread, label %.lr.ph
@@ -2338,7 +2338,7 @@ define internal noundef i32 @sidesfn(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @stylefn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @stylefn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -2348,20 +2348,20 @@ define internal range(i32 0, 2) i32 @stylefn(ptr nocapture noundef %0, ptr nound
   br label %6
 
 6:                                                ; preds = %tok_next.exit, %.lr.ph
-  %.054 = phi i32 [ 0, %.lr.ph ], [ %.1, %tok_next.exit ]
-  %.sroa.9.051 = phi i64 [ %4, %.lr.ph ], [ %48, %tok_next.exit ]
-  %.sroa.4.049 = phi ptr [ %1, %.lr.ph ], [ %47, %tok_next.exit ]
-  switch i64 %.sroa.9.051, label %strview_case_str_eq.exit40.thread [
+  %.060 = phi i32 [ 0, %.lr.ph ], [ %.1, %tok_next.exit ]
+  %.sroa.9.057 = phi i64 [ %4, %.lr.ph ], [ %48, %tok_next.exit ]
+  %.sroa.4.055 = phi ptr [ %1, %.lr.ph ], [ %47, %tok_next.exit ]
+  switch i64 %.sroa.9.057, label %strview_case_str_eq.exit46.thread [
     i64 7, label %strview_case_str_eq.exit
-    i64 6, label %strview_case_str_eq.exit25
-    i64 5, label %strview_case_str_eq.exit28
-    i64 9, label %strview_case_str_eq.exit31
+    i64 6, label %strview_case_str_eq.exit26
+    i64 5, label %strview_case_str_eq.exit30
+    i64 9, label %strview_case_str_eq.exit34
   ]
 
 strview_case_str_eq.exit:                         ; preds = %6
-  %7 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.67, i64 noundef 7) #20
+  %7 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.67, i64 noundef 7) #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %strview_case_str_eq.exit40.thread
+  br i1 %8, label %9, label %strview_case_str_eq.exit46.thread
 
 9:                                                ; preds = %strview_case_str_eq.exit
   %10 = load i16, ptr %5, align 2
@@ -2369,74 +2369,74 @@ strview_case_str_eq.exit:                         ; preds = %6
   store i16 %11, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit25:                       ; preds = %6
-  %12 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.68, i64 noundef %.sroa.9.051) #20
+strview_case_str_eq.exit26:                       ; preds = %6
+  %12 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.68, i64 noundef %.sroa.9.057) #20
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %strview_case_str_eq.exit37
+  br i1 %13, label %14, label %strview_case_str_eq.exit42
 
-14:                                               ; preds = %strview_case_str_eq.exit25
+14:                                               ; preds = %strview_case_str_eq.exit26
   %15 = load i16, ptr %5, align 2
   %16 = or i16 %15, 2
   store i16 %16, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit28:                       ; preds = %6
-  %17 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.69, i64 noundef %.sroa.9.051) #20
+strview_case_str_eq.exit30:                       ; preds = %6
+  %17 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.69, i64 noundef %.sroa.9.057) #20
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %strview_case_str_eq.exit34
+  br i1 %18, label %19, label %strview_case_str_eq.exit38
 
-19:                                               ; preds = %strview_case_str_eq.exit28
+19:                                               ; preds = %strview_case_str_eq.exit30
   %20 = load i16, ptr %5, align 2
   %21 = and i16 %20, -385
   store i16 %21, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit31:                       ; preds = %6
-  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.70, i64 noundef %.sroa.9.051) #20
+strview_case_str_eq.exit34:                       ; preds = %6
+  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.70, i64 noundef %.sroa.9.057) #20
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %26, label %strview_case_str_eq.exit40.thread
+  br i1 %23, label %26, label %strview_case_str_eq.exit46.thread
 
-strview_case_str_eq.exit34:                       ; preds = %strview_case_str_eq.exit28
-  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.71, i64 noundef %.sroa.9.051) #20
+strview_case_str_eq.exit38:                       ; preds = %strview_case_str_eq.exit30
+  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.71, i64 noundef %.sroa.9.057) #20
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %strview_case_str_eq.exit40.thread
+  br i1 %25, label %26, label %strview_case_str_eq.exit46.thread
 
-26:                                               ; preds = %strview_case_str_eq.exit34, %strview_case_str_eq.exit31
+26:                                               ; preds = %strview_case_str_eq.exit38, %strview_case_str_eq.exit34
   %27 = load i16, ptr %5, align 2
   %28 = or i16 %27, 32
   store i16 %28, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit37:                       ; preds = %strview_case_str_eq.exit25
-  %29 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.72, i64 noundef %.sroa.9.051) #20
+strview_case_str_eq.exit42:                       ; preds = %strview_case_str_eq.exit26
+  %29 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.72, i64 noundef %.sroa.9.057) #20
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %strview_case_str_eq.exit40
+  br i1 %30, label %31, label %strview_case_str_eq.exit46
 
-31:                                               ; preds = %strview_case_str_eq.exit37
+31:                                               ; preds = %strview_case_str_eq.exit42
   %32 = load i16, ptr %5, align 2
   %33 = or i16 %32, 128
   store i16 %33, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit40:                       ; preds = %strview_case_str_eq.exit37
-  %34 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.73, i64 noundef 6) #20
+strview_case_str_eq.exit46:                       ; preds = %strview_case_str_eq.exit42
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.73, i64 noundef 6) #20
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %strview_case_str_eq.exit40.thread
+  br i1 %35, label %36, label %strview_case_str_eq.exit46.thread
 
-36:                                               ; preds = %strview_case_str_eq.exit40
+36:                                               ; preds = %strview_case_str_eq.exit46
   %37 = load i16, ptr %5, align 2
   %38 = or i16 %37, 256
   store i16 %38, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit40.thread:                ; preds = %strview_case_str_eq.exit34, %strview_case_str_eq.exit31, %strview_case_str_eq.exit, %6, %strview_case_str_eq.exit40
-  %39 = trunc i64 %.sroa.9.051 to i32
-  %40 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.74, i32 noundef %39, ptr noundef nonnull %.sroa.4.049) #19
+strview_case_str_eq.exit46.thread:                ; preds = %strview_case_str_eq.exit38, %strview_case_str_eq.exit34, %strview_case_str_eq.exit, %6, %strview_case_str_eq.exit46
+  %39 = trunc i64 %.sroa.9.057 to i32
+  %40 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.74, i32 noundef %39, ptr noundef nonnull %.sroa.4.055) #19
   br label %41
 
-41:                                               ; preds = %9, %19, %31, %strview_case_str_eq.exit40.thread, %36, %26, %14
-  %.1 = phi i32 [ %.054, %9 ], [ %.054, %14 ], [ %.054, %19 ], [ %.054, %26 ], [ %.054, %31 ], [ %.054, %36 ], [ 1, %strview_case_str_eq.exit40.thread ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.4.049, i64 %.sroa.9.051
+41:                                               ; preds = %9, %19, %31, %strview_case_str_eq.exit46.thread, %36, %26, %14
+  %.1 = phi i32 [ %.060, %9 ], [ %.060, %14 ], [ %.060, %19 ], [ %.060, %26 ], [ %.060, %31 ], [ %.060, %36 ], [ 1, %strview_case_str_eq.exit46.thread ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.4.055, i64 %.sroa.9.057
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
   %45 = icmp eq ptr %42, %44
@@ -2454,7 +2454,7 @@ tok_next.exit:                                    ; preds = %41
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @targetfn(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @targetfn(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8
@@ -2462,7 +2462,7 @@ define internal noundef i32 @targetfn(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @titlefn(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @titlefn(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
@@ -2470,7 +2470,7 @@ define internal noundef i32 @titlefn(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @valignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @valignfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.75) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2509,7 +2509,7 @@ define internal range(i32 0, 2) i32 @valignfn(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @widthfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @widthfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2554,25 +2554,25 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cell_halignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @cell_halignfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2623,7 +2623,7 @@ define internal range(i32 0, 2) i32 @cell_halignfn(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @balignfn(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @balignfn(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.47) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -2662,7 +2662,7 @@ define internal range(i32 0, 2) i32 @balignfn(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @colspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @colspanfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2715,7 +2715,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rowspanfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rowspanfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2768,20 +2768,20 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fontcolorfn(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) #16 {
+define internal noundef i32 @fontcolorfn(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @facefn(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #16 {
+define internal noundef i32 @facefn(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) #16 {
   store ptr %1, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ptsizefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ptsizefn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #19
@@ -2826,7 +2826,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @alignfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @alignfn(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.48) #20
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
@@ -2863,7 +2863,7 @@ define internal range(i32 0, 2) i32 @alignfn(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @scalefn(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @scalefn(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
@@ -2871,7 +2871,7 @@ define internal noundef i32 @scalefn(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @srcfn(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @srcfn(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8
@@ -2881,7 +2881,7 @@ define internal noundef i32 @srcfn(ptr nocapture noundef writeonly initializes((
 declare ptr @scanEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbput_move(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @agxbput_move(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef readonly %0) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_strdup.exit
@@ -2953,10 +2953,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

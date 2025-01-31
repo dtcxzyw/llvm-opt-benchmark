@@ -133,7 +133,7 @@ define internal range(i32 -2147483648, 1) i32 @uhci_hcd_init() #0 section ".init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uhci_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i32 @uhci_pci_probe(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @uhci_driver) #12
   ret i32 %3
 }
@@ -142,7 +142,7 @@ define internal i32 @uhci_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #
 declare dso_local void @usb_hcd_pci_remove(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uhci_shutdown(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @uhci_shutdown(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 608
@@ -1122,7 +1122,7 @@ define internal void @uhci_stop(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uhci_hcd_get_frame_number(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @uhci_hcd_get_frame_number(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %4 = load i32, ptr %3, align 8
@@ -2432,7 +2432,7 @@ define internal i32 @uhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uhci_hcd_endpoint_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @uhci_hcd_endpoint_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -2512,7 +2512,7 @@ define internal void @uhci_hcd_endpoint_disable(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @uhci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @uhci_hub_status_data(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #12
@@ -2725,7 +2725,7 @@ thread-pre-split:                                 ; preds = %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -110, 10) i32 @uhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef writeonly %4, i16 noundef zeroext %5) #2 align 16 {
+define internal range(i32 -110, 10) i32 @uhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef writeonly captures(none) %4, i16 noundef zeroext %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %8 = zext i16 %3 to i32
   %9 = add nsw i32 %8, -1
@@ -3105,7 +3105,7 @@ define internal noundef range(i32 -108, 1) i32 @uhci_rh_resume(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -4926,7 +4926,7 @@ uhci_activate_qh.exit.thread:                     ; preds = %841, %uhci_activate
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
@@ -5324,7 +5324,7 @@ define internal fastcc void @uhci_giveback_urb(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_activate_qh(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_activate_qh(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -5494,7 +5494,7 @@ define internal fastcc void @uhci_activate_qh(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_free_td(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_free_td(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -5573,7 +5573,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 declare dso_local void @dma_pool_free(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_free_urb_priv(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_free_urb_priv(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = load volatile ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %19, label %5
@@ -5650,7 +5650,7 @@ declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #1
 declare dso_local void @device_set_wakeup_capable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uhci_pci_reset_hc(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @uhci_pci_reset_hc(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
@@ -5660,7 +5660,7 @@ define internal void @uhci_pci_reset_hc(ptr nocapture noundef readonly %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uhci_pci_check_and_reset_hc(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @uhci_pci_check_and_reset_hc(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
@@ -5670,7 +5670,7 @@ define internal i32 @uhci_pci_check_and_reset_hc(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uhci_pci_configure_hc(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @uhci_pci_configure_hc(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -184
@@ -5689,7 +5689,7 @@ define internal void @uhci_pci_configure_hc(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -608
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -124
@@ -5733,7 +5733,7 @@ define internal noundef range(i32 0, 2) i32 @uhci_pci_resume_detect_interrupts_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @uhci_pci_global_suspend_mode_is_broken(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @uhci_pci_global_suspend_mode_is_broken(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = tail call ptr @dmi_get_system_info(i32 noundef 14) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4
@@ -5792,10 +5792,10 @@ declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 nounde
 declare dso_local ptr @dmi_get_system_info(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5832,7 +5832,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @dma_pool_create(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uhci_free_qh(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @uhci_free_qh(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 16
   %5 = icmp eq i32 %4, 1
@@ -5970,7 +5970,7 @@ declare dso_local i32 @usb_hcd_link_urb_to_ep(ptr noundef, ptr noundef) local_un
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -6315,7 +6315,7 @@ define internal fastcc range(i32 -22, 1) i32 @uhci_submit_common(ptr nocapture n
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @uhci_reserve_bandwidth(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 align 16 {
+define internal fastcc void @uhci_reserve_bandwidth(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i32
@@ -6389,7 +6389,7 @@ define internal fastcc void @uhci_reserve_bandwidth(ptr nocapture noundef %0, pt
 declare dso_local i32 @usb_hcd_check_unlink_urb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -6789,7 +6789,7 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef range(i32 1,
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wait_for_HP(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967295) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @wait_for_HP(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967295) %1) unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %11, %2

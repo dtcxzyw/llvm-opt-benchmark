@@ -176,7 +176,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -394,7 +394,7 @@ entry:
 declare ptr @ssl_handshake_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr nocapture noundef writeonly initializes((0, 8)) %secret_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr noundef writeonly captures(none) initializes((0, 8)) %secret_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ssl_handshake_md(ptr noundef %s) #3
   %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #3
@@ -1007,7 +1007,7 @@ declare i32 @ssl_log_secret(ptr noundef, ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @ssl3_digest_cached_records(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef range(i64 11, 13) %labellen, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr nocapture noundef nonnull %keylen, ptr noundef nonnull %iv, ptr nocapture noundef nonnull %ivlen, ptr nocapture noundef nonnull writeonly %taglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret_key_and_iv(ptr noundef %s, ptr noundef %md, ptr noundef %ciph, ptr noundef %insecret, ptr noundef %hash, ptr noundef %label, i64 noundef range(i64 11, 13) %labellen, ptr noundef nonnull %secret, ptr noundef nonnull %key, ptr noundef nonnull captures(none) %keylen, ptr noundef nonnull %iv, ptr noundef nonnull captures(none) %ivlen, ptr noundef nonnull writeonly captures(none) %taglen) unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %md) #3
   %cmp = icmp sgt i32 %call, -1

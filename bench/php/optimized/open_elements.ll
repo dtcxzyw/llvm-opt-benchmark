@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_remove_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_open_elements_remove_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -42,10 +42,10 @@ define hidden void @lxb_html_tree_open_elements_remove_by_node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -92,7 +92,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_tag_id(ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -137,7 +137,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -183,7 +183,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_td_th(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_pop_until_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_open_elements_pop_until_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -223,7 +223,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until_node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_open_elements_pop_until(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define hidden void @lxb_html_tree_open_elements_pop_until(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -243,7 +243,7 @@ define hidden void @lxb_html_tree_open_elements_pop_until(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -284,7 +284,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_reverse(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -323,7 +323,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_rever
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_open_elements_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define hidden ptr @lxb_html_tree_open_elements_find(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -372,7 +372,7 @@ define hidden ptr @lxb_html_tree_open_elements_find(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8

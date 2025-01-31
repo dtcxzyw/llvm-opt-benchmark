@@ -8494,7 +8494,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6420 = private unnamed_addr constant [31 x i8] c"Pointer to PulFlagsOut (int32)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mapi_deobfuscate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @mapi_deobfuscate(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %spec.select = tail call i32 @llvm.umin.i32(i32 %5, i32 %3)
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %spec.select) #5
@@ -8596,7 +8596,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %44 = add nsw i32 %41, -2
   %45 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %43, ptr noundef nonnull %29, i32 noundef 2, i32 noundef %44, i32 noundef 0) #5
   %46 = load i32, ptr @hf_mapi_mapi_response_rpcResponse, align 4
-  %47 = call i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef nonnull %29, i32 noundef 2, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0)
+  %47 = call i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef nonnull %29, i32 noundef 2, ptr noundef %2, ptr noundef %38, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0)
   %48 = load i32, ptr @hf_mapi_mapi_response_handles, align 4
   %49 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %29, i32 noundef range(i32 0, 65536) %41) #5
   %50 = sdiv i32 %49, 4
@@ -8931,7 +8931,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %85 = zext i16 %84 to i32
   %86 = add nuw nsw i32 %.0176, %85
   %87 = load i32, ptr @hf_mapi_AUX_PERF_CLIENTINFO_ClientIPMask, align 4
-  %88 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %.0150, ptr noundef %4, ptr noundef %5, i32 noundef %87, i32 noundef 0) #5
+  %88 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %.0150, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, i32 noundef 0) #5
   %89 = add nuw nsw i32 %.0176, 1
   %90 = load i16, ptr %14, align 2
   %91 = zext i16 %90 to i32
@@ -9596,7 +9596,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %32
   %61 = add nsw i32 %58, -2
   %62 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef nonnull %46, i32 noundef 2, i32 noundef %61, i32 noundef 0) #5
   %63 = load i32, ptr @hf_mapi_mapi_request_rpcRequest, align 4
-  %64 = call i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef nonnull %46, i32 noundef 2, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef %5, i32 noundef %63, i32 noundef 0)
+  %64 = call i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef nonnull %46, i32 noundef 2, ptr noundef %2, ptr noundef %55, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 noundef 0)
   %65 = load i32, ptr @hf_mapi_mapi_request_handles, align 4
   %66 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %46, i32 noundef range(i32 0, 65536) %58) #5
   %67 = sdiv i32 %66, 4
@@ -9929,24 +9929,24 @@ define hidden i32 @mapi_dissect_struct_Logon_repl(ptr noundef %0, i32 noundef %1
   %.010.i = phi i32 [ %32, %.preheader ], [ 0, %25 ]
   %.089.i = phi i32 [ %31, %.preheader ], [ %27, %25 ]
   %30 = load i32, ptr @hf_mapi_Logon_repl_FolderIds, align 4
-  %31 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null) #5
+  %31 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef null) #5
   %32 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %32, 13
   br i1 %exitcond.not.i, label %mapi_dissect_element_Logon_repl_FolderIds.exit, label %.preheader, !llvm.loop !9
 
 mapi_dissect_element_Logon_repl_FolderIds.exit:   ; preds = %.preheader
   %33 = load i32, ptr @hf_mapi_Logon_repl_ResponseFlags, align 4
-  %34 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = load i32, ptr @hf_mapi_Logon_repl_MailboxGuid, align 4
-  %36 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
+  %36 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
   %37 = load i32, ptr @hf_mapi_Logon_repl_ReplId, align 4
-  %38 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_mapi_Logon_repl_ReplGuid, align 4
-  %40 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
+  %40 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
   %41 = load i32, ptr @hf_mapi_Logon_repl_LogonTime, align 4
-  %42 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
+  %42 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
   %43 = load i32, ptr @hf_mapi_Logon_repl_GwartTime, align 4
-  %44 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #5
+  %44 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #5
   %45 = load i32, ptr @hf_mapi_Logon_repl_StoreState, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %46 = load i32, ptr @ett_mapi_StoreState, align 4
@@ -9955,7 +9955,7 @@ mapi_dissect_element_Logon_repl_FolderIds.exit:   ; preds = %.preheader
   %49 = zext nneg i8 %48 to i32
   %50 = shl nuw i32 %49, 27
   %51 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0123, ptr noundef %0, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef nonnull @mapi_dissect_bitmap_StoreState.mapi_StoreState_fields, i32 noundef %50, i32 noundef 4) #5
-  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #5
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #5
   %53 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %54, label %55
@@ -9984,18 +9984,18 @@ mapi_dissect_element_Logon_repl_StoreState.exit:  ; preds = %55, %58
   %.010.i126 = phi i32 [ %61, %.preheader131 ], [ 0, %25 ]
   %.089.i127 = phi i32 [ %60, %.preheader131 ], [ %27, %25 ]
   %59 = load i32, ptr @hf_mapi_Logon_repl_FolderIds, align 4
-  %60 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i127, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %59, ptr noundef null) #5
+  %60 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.089.i127, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, ptr noundef null) #5
   %61 = add nuw nsw i32 %.010.i126, 1
   %exitcond.not.i128 = icmp eq i32 %61, 13
   br i1 %exitcond.not.i128, label %mapi_dissect_element_Logon_repl_FolderIds.exit129, label %.preheader131, !llvm.loop !9
 
 mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
   %62 = load i32, ptr @hf_mapi_Logon_repl_ReplId, align 4
-  %63 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #5
+  %63 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #5
   %64 = load i32, ptr @hf_mapi_Logon_repl_ReplGuid, align 4
-  %65 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %64, ptr noundef null) #5
+  %65 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef null) #5
   %66 = load i32, ptr @hf_mapi_Logon_repl_PerUserGuid, align 4
-  %67 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %66, ptr noundef null) #5
+  %67 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0123, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef null) #5
   br label %75
 
 68:                                               ; preds = %19
@@ -10043,7 +10043,7 @@ define hidden i32 @mapi_dissect_enum_LogonFlags(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define hidden i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
@@ -10740,7 +10740,7 @@ define hidden i32 @mapi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
@@ -10847,7 +10847,7 @@ define hidden i32 @mapi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
+define hidden i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
@@ -11323,7 +11323,7 @@ define hidden i32 @mapi_dissect_struct_RecipientBlock(ptr noundef %0, i32 nounde
   %.010.i.i.i = phi i32 [ 0, %24 ], [ %28, %25 ]
   %.089.i.i.i = phi i32 [ %17, %24 ], [ %27, %25 ]
   %26 = load i32, ptr @hf_mapi_mapi_SPropValue_array_wrap_wrap, align 4
-  %27 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
+  %27 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
   %28 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %28, 32768
   br i1 %exitcond.not.i.i.i, label %mapi_dissect_element_RecipientBlock_PropertyValue.exit, label %25, !llvm.loop !13
@@ -11499,7 +11499,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
   %.010.i.i.i.i.i = phi i32 [ 0, %55 ], [ %59, %56 ]
   %.089.i.i.i.i.i = phi i32 [ %25, %55 ], [ %58, %56 ]
   %57 = load i32, ptr @hf_mapi_mapi_SPropValue_wrap_wrap, align 4
-  %58 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i.i.i, ptr noundef %2, ptr noundef %.020.i.i.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %57, i32 noundef 0) #5
+  %58 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i.i.i, ptr noundef %2, ptr noundef %.020.i.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, i32 noundef 0) #5
   %59 = add nuw nsw i32 %.010.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %59, 32768
   br i1 %exitcond.not.i.i.i.i.i, label %mapi_dissect_element_ActionData_PropValue.exit.i.i, label %56, !llvm.loop !12
@@ -12404,7 +12404,7 @@ define hidden i32 @mapi_dissect_struct_Release_req(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_Release_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_Release_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -12865,7 +12865,7 @@ define hidden i32 @mapi_dissect_struct_RecipExchange(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_RecipSMTP(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_RecipSMTP(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -14137,7 +14137,7 @@ define hidden i32 @mapi_dissect_struct_RemoveAllRecipients_req(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_RemoveAllRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_RemoveAllRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -14246,7 +14246,7 @@ define hidden i32 @mapi_dissect_struct_ModifyRecipients_req(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_ModifyRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_ModifyRecipients_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -15981,7 +15981,7 @@ define hidden i32 @mapi_dissect_struct_SeekRowApprox_req(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SeekRowApprox_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SeekRowApprox_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -16713,7 +16713,7 @@ mapi_dissect_element_GetAttachmentTable_req_TableFlags.exit: ; preds = %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_GetAttachmentTable_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_GetAttachmentTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -16793,7 +16793,7 @@ define hidden i32 @mapi_dissect_struct_OpenAttach_req(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_OpenAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_OpenAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -16895,7 +16895,7 @@ define hidden i32 @mapi_dissect_struct_DeleteAttach_req(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_DeleteAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_DeleteAttach_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -16949,7 +16949,7 @@ define hidden i32 @mapi_dissect_struct_SaveChangesAttachment_req(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SaveChangesAttachment_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SaveChangesAttachment_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -16999,7 +16999,7 @@ define hidden i32 @mapi_dissect_struct_SetReceiveFolder_req(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SetReceiveFolder_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SetReceiveFolder_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -17154,7 +17154,7 @@ mapi_dissect_element_RegisterNotification_req_u.exit: ; preds = %28, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_RegisterNotification_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_RegisterNotification_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -17240,7 +17240,7 @@ define hidden i32 @mapi_dissect_struct_GID(ptr noundef %0, i32 noundef %1, ptr n
   %.010.i = phi i32 [ 0, %15 ], [ %21, %18 ]
   %.089.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %19 = load i32, ptr @hf_mapi_GID_GlobalCounter, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
   br i1 %exitcond.not.i, label %mapi_dissect_element_GID_GlobalCounter.exit, label %18, !llvm.loop !14
@@ -18680,7 +18680,7 @@ define hidden i32 @mapi_dissect_struct_SetStreamSize_req(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SetStreamSize_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SetStreamSize_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -18776,7 +18776,7 @@ define hidden i32 @mapi_dissect_struct_SetSearchCriteria_req(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SetSearchCriteria_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SetSearchCriteria_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -18917,7 +18917,7 @@ define hidden i32 @mapi_dissect_struct_SubmitMessage_req(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SubmitMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SubmitMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -19024,7 +19024,7 @@ define hidden i32 @mapi_dissect_struct_AbortSubmit_req(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_AbortSubmit_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_AbortSubmit_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -19531,7 +19531,7 @@ define hidden i32 @mapi_dissect_struct_CloneStream_req(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_CloneStream_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_CloneStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -19647,7 +19647,7 @@ mapi_dissect_element_GetPermissionsTable_req_TableFlags.exit: ; preds = %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_GetPermissionsTable_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_GetPermissionsTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -19763,7 +19763,7 @@ mapi_dissect_element_GetRulesTable_req_TableFlags.exit: ; preds = %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_GetRulesTable_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_GetRulesTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -19955,7 +19955,7 @@ define hidden i32 @mapi_dissect_struct_ModifyPermissions_req(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_ModifyPermissions_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_ModifyPermissions_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -20122,7 +20122,7 @@ mapi_dissect_element_ModifyRules_req_ModifyRulesFlags.exit: ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_ModifyRules_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_ModifyRules_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -20251,14 +20251,14 @@ define hidden i32 @mapi_dissect_struct_LongTermId(ptr noundef %0, i32 noundef %1
   %.010.i = phi i32 [ 0, %15 ], [ %21, %18 ]
   %.089.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %19 = load i32, ptr @hf_mapi_LongTermId_GlobalCounter, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
   br i1 %exitcond.not.i, label %mapi_dissect_element_LongTermId_GlobalCounter.exit, label %18, !llvm.loop !15
 
 mapi_dissect_element_LongTermId_GlobalCounter.exit: ; preds = %18
   %22 = load i32, ptr @hf_mapi_LongTermId_padding, align 4
-  %23 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
+  %23 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
   %24 = sub i32 %23, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %24) #5
   store i32 %10, ptr %9, align 8
@@ -20609,7 +20609,7 @@ define hidden i32 @mapi_dissect_struct_SetSpooler_req(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SetSpooler_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SetSpooler_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -20687,7 +20687,7 @@ define hidden i32 @mapi_dissect_struct_SpoolerLockMessage_req(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SpoolerLockMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SpoolerLockMessage_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -21148,7 +21148,7 @@ define hidden i32 @mapi_dissect_struct_TransportNewMail_req(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_TransportNewMail_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_TransportNewMail_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -21517,7 +21517,7 @@ mapi_dissect_element_UpdateDeferredActionMessages_req_ClientEntryId.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_UpdateDeferredActionMessages_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_UpdateDeferredActionMessages_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -21739,7 +21739,7 @@ define hidden i32 @mapi_dissect_struct_LockRegionStream_req(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_LockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_LockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -21791,7 +21791,7 @@ define hidden i32 @mapi_dissect_struct_UnlockRegionStream_req(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_UnlockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_UnlockRegionStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -21837,7 +21837,7 @@ define hidden i32 @mapi_dissect_struct_CommitStream_req(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_CommitStream_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_CommitStream_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -22183,18 +22183,18 @@ define hidden i32 @mapi_dissect_struct_ReadPerUserInformation_req(ptr noundef %0
   %.010.i = phi i32 [ 0, %15 ], [ %23, %20 ]
   %.089.i = phi i32 [ %19, %15 ], [ %22, %20 ]
   %21 = load i32, ptr @hf_mapi_ReadPerUserInformation_req_FolderId, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %23, 24
   br i1 %exitcond.not.i, label %mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit, label %20, !llvm.loop !16
 
 mapi_dissect_element_ReadPerUserInformation_req_FolderId.exit: ; preds = %20
   %24 = load i32, ptr @hf_mapi_ReadPerUserInformation_req_WhatIfChanged, align 4
-  %25 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
+  %25 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
   %26 = load i32, ptr @hf_mapi_ReadPerUserInformation_req_DataOffset, align 4
-  %27 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
+  %27 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
   %28 = load i32, ptr @hf_mapi_ReadPerUserInformation_req_MaxDataSize, align 4
-  %29 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
+  %29 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
   %30 = sub i32 %29, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %30) #5
   store i32 %10, ptr %9, align 8
@@ -23137,7 +23137,7 @@ mapi_dissect_element_SyncConfigure_req_PropertyTags.exit: ; preds = %mapi_dissec
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncConfigure_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncConfigure_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23440,7 +23440,7 @@ mapi_dissect_element_SyncImportDeletes_req_PropertyValues.exit: ; preds = %15, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncImportDeletes_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncImportDeletes_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23518,7 +23518,7 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_req(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23537,7 +23537,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_repl(p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23583,7 +23583,7 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_req(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncUploadStateStreamEnd_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23888,7 +23888,7 @@ define hidden i32 @mapi_dissect_struct_SyncOpenCollector_req(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncOpenCollector_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncOpenCollector_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -23960,7 +23960,7 @@ define hidden i32 @mapi_dissect_struct_GetLocalReplicaIds_repl(ptr noundef %0, i
   %.010.i = phi i32 [ 0, %15 ], [ %21, %18 ]
   %.089.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %19 = load i32, ptr @hf_mapi_GetLocalReplicaIds_repl_GlobalCount, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %21, 6
   br i1 %exitcond.not.i, label %mapi_dissect_element_GetLocalReplicaIds_repl_GlobalCount.exit, label %18, !llvm.loop !17
@@ -24002,7 +24002,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportReadStateChanges_req(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncImportReadStateChanges_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncImportReadStateChanges_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -24048,7 +24048,7 @@ define hidden i32 @mapi_dissect_struct_ResetTable_req(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_ResetTable_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_ResetTable_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -24096,7 +24096,7 @@ define hidden i32 @mapi_dissect_struct_SyncGetTransferState_req(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SyncGetTransferState_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SyncGetTransferState_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -24210,7 +24210,7 @@ define hidden i32 @mapi_dissect_struct_SetSyncNotificationGuid_req(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_SetSyncNotificationGuid_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_SetSyncNotificationGuid_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -24277,7 +24277,7 @@ mapi_dissect_element_FreeBookmark_req_bookmark.exit: ; preds = %15, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mapi_dissect_struct_FreeBookmark_repl(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @mapi_dissect_struct_FreeBookmark_repl(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
@@ -25000,7 +25000,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_DEFGC_SUCCESS(ptr noundef %0, i3
   %.010.i = phi i32 [ 0, %15 ], [ %29, %26 ]
   %.089.i = phi i32 [ %25, %15 ], [ %28, %26 ]
   %27 = load i32, ptr @hf_mapi_AUX_PERF_DEFGC_SUCCESS_Reserved, align 4
-  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %29, 3
   br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_DEFGC_SUCCESS_Reserved.exit, label %26, !llvm.loop !18
@@ -25123,7 +25123,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS(ptr noundef %0, i32 n
   %.010.i = phi i32 [ 0, %15 ], [ %33, %30 ]
   %.089.i = phi i32 [ %29, %15 ], [ %32, %30 ]
   %31 = load i32, ptr @hf_mapi_AUX_PERF_GC_SUCCESS_Reserved_2, align 4
-  %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
+  %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
   %33 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %33, 3
   br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_Reserved_2.exit, label %30, !llvm.loop !19
@@ -25172,7 +25172,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_GC_SUCCESS_V2(ptr noundef %0, i3
   %.010.i = phi i32 [ 0, %15 ], [ %33, %30 ]
   %.089.i = phi i32 [ %29, %15 ], [ %32, %30 ]
   %31 = load i32, ptr @hf_mapi_AUX_PERF_GC_SUCCESS_V2_Reserved, align 4
-  %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
+  %32 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
   %33 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %33, 3
   br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_GC_SUCCESS_V2_Reserved.exit, label %30, !llvm.loop !20
@@ -25227,7 +25227,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE(ptr noundef %0, i32 noun
   %.010.i = phi i32 [ 0, %16 ], [ %36, %33 ]
   %.089.i = phi i32 [ %32, %16 ], [ %35, %33 ]
   %34 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_Reserved, align 4
-  %35 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.068, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %36, 3
   br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_Reserved.exit, label %33, !llvm.loop !21
@@ -25286,7 +25286,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE_V2(ptr noundef %0, i32 n
   %.010.i = phi i32 [ 0, %16 ], [ %40, %37 ]
   %.089.i = phi i32 [ %36, %16 ], [ %39, %37 ]
   %38 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_V2_Reserved_2, align 4
-  %39 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.080, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.080, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %40, 3
   br i1 %exitcond.not.i, label %mapi_dissect_element_AUX_PERF_FAILURE_V2_Reserved_2.exit, label %37, !llvm.loop !22
@@ -25881,14 +25881,14 @@ define internal i32 @mapi_dissect_element_MV_LONG_STRUCT_lpl_(ptr noundef %0, i3
 declare i32 @dissect_null_term_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_element_SLPSTRArray_strings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_element_SLPSTRArray_strings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_mapi_SLPSTRArray_strings, align 4
   %8 = tail call i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7, i32 poison)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_element_SPLSTRArrayW_strings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_element_SPLSTRArrayW_strings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_mapi_SPLSTRArrayW_strings, align 4
   %8 = tail call i32 @mapi_dissect_struct_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7, i32 poison)
   ret i32 %8
@@ -26080,7 +26080,7 @@ define internal i32 @mapi_dissect_element_SPropTagArray_aulPropTag_(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_element_OpenFolder_Replicas_Servers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_element_OpenFolder_Replicas_Servers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_OpenFolder_Replicas_Servers, align 4
   %8 = tail call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %7, i32 noundef 0) #5
   ret i32 %8
@@ -26540,7 +26540,7 @@ define internal i32 @mapi_dissect_element_ModifyRules_req_RulesData_(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_element_GetOwningServers_repl_OwningServers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_element_GetOwningServers_repl_OwningServers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_GetOwningServers_repl_OwningServers, align 4
   %8 = tail call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %7, i32 noundef 0) #5
   ret i32 %8
@@ -26565,7 +26565,7 @@ define internal i32 @mapi_dissect_element_OpenEmbeddedMessage_repl_RecipientRows
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_element_AddressTypes_repl_transport_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_element_AddressTypes_repl_transport_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_AddressTypes_repl_transport, align 4
   %8 = tail call i32 @mapi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7, i32 poison)
   ret i32 %8
@@ -28140,7 +28140,7 @@ define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Release(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Release(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Release, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28241,7 +28241,7 @@ mapi_dissect_struct_DeleteProps_repl.exit:        ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_RemoveAllRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_RemoveAllRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_RemoveAllRecipients, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28261,7 +28261,7 @@ mapi_dissect_struct_RemoveAllRecipients_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRecipients, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28428,7 +28428,7 @@ mapi_dissect_struct_GetStatus_repl.exit:          ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SeekRowApprox(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SeekRowApprox(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SeekRowApprox, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28526,7 +28526,7 @@ mapi_dissect_struct_SetMessageStatus_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetAttachmentTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetAttachmentTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetAttachmentTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28546,7 +28546,7 @@ mapi_dissect_struct_GetAttachmentTable_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_OpenAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_OpenAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_OpenAttach, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28592,7 +28592,7 @@ mapi_dissect_struct_CreateAttach_repl.exit:       ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_DeleteAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_DeleteAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_DeleteAttach, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28612,7 +28612,7 @@ mapi_dissect_struct_DeleteAttach_repl.exit:       ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SaveChangesAttachment(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SaveChangesAttachment(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SaveChangesAttachment, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28632,7 +28632,7 @@ mapi_dissect_struct_SaveChangesAttachment_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetReceiveFolder(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetReceiveFolder(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetReceiveFolder, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28652,7 +28652,7 @@ mapi_dissect_struct_SetReceiveFolder_repl.exit:   ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Advise(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Advise(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Advise, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28750,7 +28750,7 @@ mapi_dissect_struct_SeekStream_repl.exit:         ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetStreamSize(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetStreamSize(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetStreamSize, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28770,7 +28770,7 @@ mapi_dissect_struct_SetStreamSize_repl.exit:      ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSearchCriteria(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSearchCriteria(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSearchCriteria, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28790,7 +28790,7 @@ mapi_dissect_struct_SetSearchCriteria_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SubmitMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SubmitMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SubmitMessage, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28836,7 +28836,7 @@ mapi_dissect_struct_MoveCopyMessages_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_AbortSubmit(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_AbortSubmit(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_AbortSubmit, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28992,7 +28992,7 @@ mapi_dissect_struct_CopyTo_repl.exit:             ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CloneStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CloneStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CloneStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29012,7 +29012,7 @@ mapi_dissect_struct_CloneStream_repl.exit:        ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetPermissionsTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetPermissionsTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetPermissionsTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29032,7 +29032,7 @@ mapi_dissect_struct_GetPermissionsTable_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetRulesTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetRulesTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetRulesTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29052,7 +29052,7 @@ mapi_dissect_struct_GetRulesTable_repl.exit:      ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyPermissions(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyPermissions(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyPermissions, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29072,7 +29072,7 @@ mapi_dissect_struct_ModifyPermissions_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRules(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRules(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRules, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29118,7 +29118,7 @@ mapi_dissect_struct_IdFromLongTermId_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSpooler(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSpooler(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSpooler, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29138,7 +29138,7 @@ mapi_dissect_struct_SetSpooler_repl.exit:         ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SpoolerLockMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SpoolerLockMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SpoolerLockMessage, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29158,7 +29158,7 @@ mapi_dissect_struct_SpoolerLockMessage_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_TransportNewMail(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_TransportNewMail(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_TransportNewMail, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29259,7 +29259,7 @@ mapi_dissect_struct_GetIDsFromNames_repl.exit:    ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UpdateDeferredActionMessages, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29331,7 +29331,7 @@ mapi_dissect_struct_CollapseRow_repl.exit:        ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_LockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_LockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_LockRegionStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29351,7 +29351,7 @@ mapi_dissect_struct_LockRegionStream_repl.exit:   ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UnlockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UnlockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UnlockRegionStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29371,7 +29371,7 @@ mapi_dissect_struct_UnlockRegionStream_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CommitStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CommitStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CommitStream, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29602,7 +29602,7 @@ mapi_dissect_struct_GetTransportFolder_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncConfigure(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncConfigure(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncConfigure, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29674,7 +29674,7 @@ mapi_dissect_struct_SyncImportHierarchyChange_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportDeletes(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportDeletes(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportDeletes, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29694,7 +29694,7 @@ mapi_dissect_struct_SyncImportDeletes_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamBegin, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29714,7 +29714,7 @@ mapi_dissect_struct_SyncUploadStateStreamBegin_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamContinue, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29734,7 +29734,7 @@ mapi_dissect_struct_SyncUploadStateStreamContinue_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamEnd, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29834,7 +29834,7 @@ mapi_dissect_struct_DeletePropertiesNoReplicate_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncOpenCollector(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncOpenCollector(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncOpenCollector, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29854,7 +29854,7 @@ mapi_dissect_struct_SyncOpenCollector_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportReadStateChanges, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29874,7 +29874,7 @@ mapi_dissect_struct_SyncImportReadStateChanges_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ResetTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ResetTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ResetTable, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29894,7 +29894,7 @@ mapi_dissect_struct_ResetTable_repl.exit:         ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncGetTransferState(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncGetTransferState(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncGetTransferState, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29914,7 +29914,7 @@ mapi_dissect_struct_SyncGetTransferState_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSyncNotificationGuid, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29934,7 +29934,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_FreeBookmark(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_FreeBookmark(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_FreeBookmark, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -30460,7 +30460,7 @@ define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.6373, ptr %7, align 8
   ret i32 %1
@@ -31481,10 +31481,10 @@ define internal i32 @mapi_dissect_element_EcDoAsyncConnectEx_pacxh_(ptr noundef 
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

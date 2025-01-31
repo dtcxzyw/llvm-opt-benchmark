@@ -579,7 +579,7 @@ define internal void @mirror_dtr(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 5) i32 @mirror_map(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -774,7 +774,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -893,7 +893,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mirror_presuspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1002,7 +1002,7 @@ define internal void @mirror_presuspend(ptr nocapture noundef readonly %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mirror_postsuspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @mirror_postsuspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1028,7 +1028,7 @@ define internal void @mirror_postsuspend(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mirror_resume(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @mirror_resume(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1058,7 +1058,7 @@ define internal void @mirror_resume(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) #2 align 16 {
+define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) #2 align 16 {
   %6 = alloca [10 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
@@ -1526,7 +1526,7 @@ define internal void @mirror_status(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
+define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 280
@@ -1561,10 +1561,10 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dm_dirty_log_destroy(ptr noundef) local_unnamed_addr #1
@@ -1582,7 +1582,7 @@ declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ..
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @do_mirror(ptr noundef %0) #2 align 16 {
@@ -2455,7 +2455,7 @@ define internal void @delayed_wake_fn(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trigger_event(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @trigger_event(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -248
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2464,7 +2464,7 @@ define internal void @trigger_event(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 4)) %3) unnamed_addr #7 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((0, 4)) %3) unnamed_addr #7 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
@@ -2558,13 +2558,13 @@ define internal void @wakeup_mirrord(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dm_dirty_log_create(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca [9 x %struct.dm_io_region], align 16
   %4 = alloca %struct.dm_io_request, align 8
@@ -2650,7 +2650,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @dm_io(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2768,7 +2768,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @dm_region_hash_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dispatch_bios(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -2822,7 +2822,7 @@ define internal void @dispatch_bios(ptr noundef %0, ptr nocapture noundef %1) #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @wakeup_all_recovery_waiters(ptr nocapture readnone %0) #2 align 16 {
+define internal void @wakeup_all_recovery_waiters(ptr readnone captures(none) %0) #2 align 16 {
   %2 = tail call i32 @__wake_up(ptr noundef nonnull @_kmirrord_recovery_stopped, i32 noundef 3, i32 noundef 0, ptr noundef null) #12
   ret void
 }
@@ -3327,7 +3327,7 @@ define internal fastcc void @hold_bio(ptr noundef %0, ptr noundef nonnull %1) un
 declare dso_local i32 @dm_noflush_suspending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #1

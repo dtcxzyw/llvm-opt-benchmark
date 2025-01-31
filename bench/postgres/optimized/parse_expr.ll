@@ -868,7 +868,7 @@ define internal fastcc nonnull ptr @transformParamRef(ptr noundef %0, ptr nounde
 declare ptr @make_const(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformIndirection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformIndirection(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1024,7 +1024,7 @@ define internal fastcc ptr @transformIndirection(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @palloc0(i64 noundef 32) #9
   store i32 33, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1229,7 +1229,7 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1308,7 +1308,7 @@ define internal fastcc ptr @transformTypeCast(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 24) #9
   store i32 29, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1349,7 +1349,7 @@ define internal fastcc noundef ptr @transformCollateClause(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOp(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOp(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1531,7 +1531,7 @@ exprIsNullConstant.exit67.thread74:               ; preds = %exprIsNullConstant.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1547,7 +1547,7 @@ define internal fastcc ptr @transformAExprOpAny(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1563,7 +1563,7 @@ define internal fastcc ptr @transformAExprOpAll(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1789,7 +1789,7 @@ make_row_distinct_op.exit:                        ; preds = %.thread.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -1847,7 +1847,7 @@ define internal fastcc ptr @transformAExprNullIf(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprIn(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprIn(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
 sub_0:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2066,7 +2066,7 @@ list_length.exit.thread:                          ; preds = %45, %41, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAExprBetween(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformAExprBetween(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2183,7 +2183,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformBoolExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformBoolExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 3
@@ -2322,7 +2322,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformMultiAssignRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -2760,7 +2760,7 @@ list_length.exit82:                               ; preds = %list_length.exit, %
   %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104) #9
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %116 = load i32, ptr %115, align 8
-  %117 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %116) #9
+  %117 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %116) #9
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 1939, ptr noundef nonnull @__func__.transformSubLink) #9
   unreachable
 
@@ -2793,7 +2793,7 @@ list_length.exit86:                               ; preds = %list_length.exit84,
   %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105) #9
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %133 = load i32, ptr %132, align 8
-  %134 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %133) #9
+  %134 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %133) #9
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 1944, ptr noundef nonnull @__func__.transformSubLink) #9
   unreachable
 
@@ -2801,7 +2801,7 @@ list_length.exit86:                               ; preds = %list_length.exit84,
   %136 = load ptr, ptr %47, align 8
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %138 = load i32, ptr %137, align 8
-  %139 = tail call fastcc ptr @make_row_comparison_op(ptr noundef %0, ptr noundef %136, ptr noundef %.070, ptr noundef %.071.lcssa, i32 noundef %138)
+  %139 = tail call fastcc ptr @make_row_comparison_op(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %.070, ptr noundef %.071.lcssa, i32 noundef %138)
   store ptr %139, ptr %54, align 8
   br label %140
 
@@ -2810,7 +2810,7 @@ list_length.exit86:                               ; preds = %list_length.exit84,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 30, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2921,14 +2921,14 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nocapt
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = tail call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.63, ptr noundef nonnull %15, ptr noundef %63, i32 noundef %65) #9
-  %67 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %66)
+  %67 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %66)
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %67, ptr %68, align 8
-  %69 = tail call ptr @coerce_to_boolean(ptr noundef %0, ptr noundef %67, ptr noundef nonnull @.str.107) #9
+  %69 = tail call ptr @coerce_to_boolean(ptr noundef nonnull %0, ptr noundef %67, ptr noundef nonnull @.str.107) #9
   store ptr %69, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %71)
+  %72 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %71)
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %72, ptr %73, align 8
   %74 = load i32, ptr %64, align 8
@@ -3026,7 +3026,7 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformRowExpr(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformRowExpr(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 34, ptr %5, align 4
@@ -3102,7 +3102,7 @@ list_length.exit20:                               ; preds = %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 32) #9
   store i32 36, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3197,7 +3197,7 @@ define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 37, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3371,7 +3371,7 @@ define internal fastcc noundef nonnull ptr @transformSQLValueFunction(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 64) #9
   store i32 39, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3502,7 +3502,7 @@ define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocaptu
   %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %73)
   %74 = tail call i32 @errcode(i32 noundef 16801924) #9
-  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef %.088) #9
+  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %.088) #9
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %77 = load i32, ptr %76, align 8
   %78 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %77) #9
@@ -3618,7 +3618,7 @@ define internal fastcc noundef ptr @transformXmlExpr(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @transformXmlSerialize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @transformXmlSerialize(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call noundef ptr @palloc0(i64 noundef 64) #9
@@ -3787,7 +3787,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3886,7 +3886,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3976,7 +3976,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 20, ptr %3, align 4
   %4 = tail call noundef ptr @palloc0(i64 noundef 160) #9
@@ -4094,7 +4094,7 @@ define internal fastcc ptr @transformJsonArrayQueryConstructor(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonObjectAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonObjectAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4200,7 +4200,7 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonArrayAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonArrayAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef nonnull @.str.153, ptr noundef %4, i32 noundef 0, i32 noundef 0)
@@ -4277,7 +4277,7 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4313,7 +4313,7 @@ define internal fastcc ptr @transformJsonIsPredicate(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4364,7 +4364,7 @@ define internal fastcc noundef ptr @transformJsonParseExpr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
@@ -4389,7 +4389,7 @@ define internal fastcc noundef ptr @transformJsonScalarExpr(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonSerializeExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4450,7 +4450,7 @@ declare ptr @colNameToVar(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noun
 declare ptr @refnameNamespaceItem(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformWholeRowRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformWholeRowRef(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4519,7 +4519,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 declare ptr @makeString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 
@@ -5571,7 +5571,7 @@ declare void @free_parsestate(ptr noundef) local_unnamed_addr #2
 declare ptr @makeJsonValueExpr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 3175, 6291) %4, i32 noundef range(i32 114, 3803) %5, i32 noundef range(i32 3, 5) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 3175, 6291) %4, i32 noundef range(i32 114, 3803) %5, i32 noundef range(i32 3, 5) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -5674,7 +5674,7 @@ declare void @transformWindowFuncCall(ptr noundef, ptr noundef, ptr noundef) loc
 declare void @transformAggregateCall(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %1)
@@ -5783,13 +5783,13 @@ define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef %
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -425,7 +425,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes19SourceMapTranslatorESaIvELN9__gnu_cxx
 @_ZN6hermes3hbc14BCProviderLazyC1EPNS0_16BytecodeFunctionE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6hermes3hbc14BCProviderLazyC2EPNS0_16BytecodeFunctionE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrcC2ESt10unique_ptrINS0_14BytecodeModuleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9), (12, 184), (192, 248)) %this, ptr nocapture noundef %module) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrcC2ESt10unique_ptrINS0_14BytecodeModuleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9), (12, 184), (192, 248)) %this, ptr noundef captures(none) %module) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
   %options_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -631,13 +631,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefERKNS0_12CompileFlagsE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr nocapture noundef %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %compileFlags) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefERKNS0_12CompileFlagsE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr noundef captures(none) %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %compileFlags) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.56", align 8
   %agg.tmp2 = alloca %"class.std::unique_ptr.64", align 8
@@ -672,7 +672,7 @@ _ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr nocapture noundef %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr nocapture noundef %sourceMap, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %compileFlags) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr noundef captures(none) %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr noundef captures(none) %sourceMap, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %compileFlags) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.56", align 8
   %agg.tmp2.i = alloca %"class.std::unique_ptr.64", align 8
@@ -762,7 +762,7 @@ _ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr nocapture noundef %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr nocapture noundef %sourceMap, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %compileFlags, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr noundef %diagHandler, ptr noundef %diagContext, ptr noundef nonnull align 8 dereferenceable(32) %runOptimizationPasses) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr noundef captures(none) %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr noundef captures(none) %sourceMap, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %compileFlags, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr noundef %diagHandler, ptr noundef %diagContext, ptr noundef nonnull align 8 dereferenceable(32) %runOptimizationPasses) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.56", align 8
   %agg.tmp2 = alloca %"class.std::unique_ptr.64", align 8
@@ -799,7 +799,7 @@ _ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr nocapture noundef %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr nocapture noundef %sourceMap, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %compileFlags, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr noundef %diagHandler, ptr noundef %diagContext, ptr noundef nonnull align 8 dereferenceable(32) %runOptimizationPasses) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEE(ptr noalias sret(%"struct.std::pair.46") align 8 %agg.result, ptr noundef captures(none) %buffer, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr noundef captures(none) %sourceMap, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %compileFlags, ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr noundef %diagHandler, ptr noundef %diagContext, ptr noundef nonnull align 8 dereferenceable(32) %runOptimizationPasses) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i218 = alloca %"class.std::allocator", align 1
@@ -3172,7 +3172,7 @@ _ZN4llvh11SmallVectorIN6hermes3sem12FunctionInfo7VarDeclELj4EED2Ev.exit27: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc14BytecodeModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(513) %this) unnamed_addr #0 comdat align 2 {
@@ -5369,7 +5369,7 @@ declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr 
 declare void @_ZN6hermes21SimpleDiagHandlerRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(388)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4llvh12MemoryBuffer4initEPKcS2_b(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
@@ -5624,10 +5624,10 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -296,22 +296,22 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %do.body
-  %call17 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef %range) #4
+  %call17 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %cmp18 = icmp sgt i32 %call17, -1
   br i1 %cmp18, label %if.then19, label %if.end32
 
 if.then19:                                        ; preds = %if.end16
-  %call20 = tail call i32 @BN_sub(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %range) #4
+  %call20 = tail call i32 @BN_sub(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then19
-  %call24 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef %range) #4
+  %call24 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %cmp25 = icmp sgt i32 %call24, -1
   br i1 %cmp25, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.end23
-  %call27 = tail call i32 @BN_sub(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %range) #4
+  %call27 = tail call i32 @BN_sub(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %if.end32
 
@@ -327,7 +327,7 @@ if.then34:                                        ; preds = %if.end32
   br label %return
 
 do.cond:                                          ; preds = %if.end32
-  %call36 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef %range) #4
+  %call36 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %cmp37 = icmp sgt i32 %call36, -1
   br i1 %cmp37, label %do.body, label %return, !llvm.loop !6
 
@@ -349,7 +349,7 @@ if.then46:                                        ; preds = %if.end43
   br label %return
 
 do.cond48:                                        ; preds = %if.end43
-  %call49 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef %range) #4
+  %call49 = tail call i32 @BN_cmp(ptr noundef nonnull %r, ptr noundef nonnull %range) #4
   %cmp50 = icmp sgt i32 %call49, -1
   br i1 %cmp50, label %do.body39, label %return, !llvm.loop !7
 
@@ -541,7 +541,7 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

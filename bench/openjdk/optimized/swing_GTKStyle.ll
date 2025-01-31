@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gtk = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetXThickness(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetXThickness(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -23,7 +23,7 @@ define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetXThickness(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetYThickness(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetYThickness(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -40,7 +40,7 @@ define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetYThickness(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetColorForState(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetColorForState(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @gtk, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %8 = load ptr, ptr %7, align 8
@@ -57,7 +57,7 @@ define i32 @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetColorForState(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetClassValue(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetClassValue(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @gtk, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
@@ -77,7 +77,7 @@ define ptr @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetClassValue(ptr no
 declare ptr @getStrFor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetPangoFontName(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_java_swing_plaf_gtk_GTKStyle_nativeGetPangoFontName(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8

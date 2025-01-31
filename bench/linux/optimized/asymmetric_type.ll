@@ -161,10 +161,10 @@ define dso_local ptr @find_asymmetric_key(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @bin2hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -205,7 +205,7 @@ define dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef readonly %0, ptr
 declare dso_local void @key_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @asymmetric_key_generate_id(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define dso_local ptr @asymmetric_key_generate_id(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 align 16 {
   %5 = add i64 %3, %1
   %6 = add i64 %5, 2
   %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef 3264) #18
@@ -227,7 +227,7 @@ define dso_local ptr @asymmetric_key_generate_id(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, ptr noundef readonly %1) #3 align 16 {
@@ -307,7 +307,7 @@ define dso_local ptr @asymmetric_key_hex_to_key_id(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @asymmetric_key_eds_op(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
@@ -379,7 +379,7 @@ define internal i32 @asymmetric_key_preparse(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @asymmetric_key_free_preparse(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @asymmetric_key_free_preparse(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 32
@@ -427,7 +427,7 @@ define internal void @asymmetric_key_free_preparse(ptr nocapture noundef readonl
 declare dso_local i32 @generic_key_instantiate(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 align 16 {
+define internal i32 @asymmetric_key_match_preparse(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -537,7 +537,7 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @asymmetric_key_match_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @asymmetric_key_match_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #17
@@ -545,7 +545,7 @@ define internal void @asymmetric_key_match_free(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @asymmetric_key_destroy(ptr nocapture noundef %0) #0 align 16 {
+define internal void @asymmetric_key_destroy(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -764,7 +764,7 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @query_asymmetric_key(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @asymmetric_key_verify_signature(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @asymmetric_key_verify_signature(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.public_key_signature, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -841,7 +841,7 @@ define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(p
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
@@ -850,7 +850,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unregister_asymmetric_key_parser(ptr nocapture noundef %0) #8 align 16 {
+define dso_local void @unregister_asymmetric_key_parser(ptr noundef captures(none) %0) #8 align 16 {
   tail call void @down_write(ptr noundef nonnull @asymmetric_key_parsers_sem) #17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -898,7 +898,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal zeroext i1 @asymmetric_key_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 align 16 {
   %3 = getelementptr i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -944,7 +944,7 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal zeroext i1 @asymmetric_key_cmp_partial(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 align 16 {
   %3 = getelementptr i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -993,7 +993,7 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i1 @asymmetric_key_cmp_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 align 16 {
+define internal zeroext i1 @asymmetric_key_cmp_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 align 16 {
   %3 = getelementptr i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1059,7 +1059,7 @@ declare dso_local ptr @key_lookup(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @verify_signature(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1068,7 +1068,7 @@ declare dso_local i32 @verify_signature(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @register_key_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #16

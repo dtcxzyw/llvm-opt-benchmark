@@ -144,7 +144,7 @@ declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, 
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_fmpFHandle, align 4
@@ -159,7 +159,7 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -168,7 +168,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_fmpFHandle, align 4
@@ -183,7 +183,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -192,7 +192,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_fmpFHandle, align 4
@@ -203,7 +203,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -212,7 +212,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_fmpFHandle, align 4
@@ -225,7 +225,7 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -234,7 +234,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   switch i32 %5, label %dissect_fmp_notify_status.exit [
     i32 0, label %8
@@ -299,7 +299,7 @@ dissect_fmp_notify_extentList.exit:               ; preds = %.lr.ph.i, %8, %diss
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -308,7 +308,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_fsID, align 4
@@ -317,7 +317,7 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4
@@ -326,7 +326,7 @@ dissect_fmp_notify_status.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #2
   %7 = load i32, ptr @hf_fmp_revokeHandleListReason, align 4
@@ -370,7 +370,7 @@ dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
 dissect_fmp_notify_status.exit:
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %5 = load i32, ptr @hf_fmp_status, align 4

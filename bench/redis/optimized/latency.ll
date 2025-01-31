@@ -99,7 +99,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.73 = private unnamed_addr constant [36 x i8] c"No samples available for event '%s'\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @dictStringKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #0 {
+define dso_local range(i32 0, 2) i32 @dictStringKeyCompare(ptr readnone captures(none) %d, ptr noundef readonly captures(none) %key1, ptr noundef readonly captures(none) %key2) #0 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #13
   %cmp = icmp eq i32 %call, 0
@@ -108,20 +108,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dictStringHash(ptr noundef %key) #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #13
-  %call1 = tail call i64 @dictGenHashFunction(ptr noundef %key, i64 noundef %call) #14
+  %call1 = tail call i64 @dictGenHashFunction(ptr noundef nonnull %key, i64 noundef %call) #14
   ret i64 %call1
 }
 
 declare i64 @dictGenHashFunction(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @dictVanillaFree(ptr noundef, ptr noundef) #3
 
@@ -230,7 +230,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -293,14 +293,14 @@ declare ptr @dictNext(ptr noundef) local_unnamed_addr #3
 declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @analyzeLatencyForEvent(ptr noundef %event, ptr nocapture noundef initializes((0, 32)) %ls) local_unnamed_addr #2 {
+define dso_local void @analyzeLatencyForEvent(ptr noundef %event, ptr noundef captures(none) initializes((0, 32)) %ls) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %0, ptr noundef %event) #14
@@ -977,7 +977,7 @@ declare zeroext i1 @hdr_iter_next(ptr noundef) local_unnamed_addr #3
 declare void @setDeferredMapLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @latencyAllCommandsFillCDF(ptr noundef %c, ptr noundef %commands, ptr nocapture noundef %command_with_data) local_unnamed_addr #2 {
+define dso_local void @latencyAllCommandsFillCDF(ptr noundef %c, ptr noundef %commands, ptr noundef captures(none) %command_with_data) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @dictGetSafeIterator(ptr noundef %commands) #14
   %call110 = tail call ptr @dictNext(ptr noundef %call) #14
@@ -1298,7 +1298,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare ptr @lookupCommandBySds(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @latencyCommandReplyWithSamples(ptr noundef %c, ptr nocapture noundef readonly %ts) local_unnamed_addr #2 {
+define dso_local void @latencyCommandReplyWithSamples(ptr noundef %c, ptr noundef readonly captures(none) %ts) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #14
   %samples1 = getelementptr inbounds nuw i8, ptr %ts, i64 8
@@ -1395,7 +1395,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %event, ptr nocapture noundef readonly %ts) local_unnamed_addr #2 {
+define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %event, ptr noundef readonly captures(none) %ts) local_unnamed_addr #2 {
 entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call ptr @createSparklineSequence() #14
@@ -1508,7 +1508,7 @@ for.end79:                                        ; preds = %for.body75
 declare ptr @createSparklineSequence() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @sparklineSequenceAddSample(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1569,14 +1569,14 @@ for.body.i:                                       ; preds = %for.inc.i, %if.else
   br i1 %cmp2.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 2) #14
+  tail call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 2) #14
   %9 = load i32, ptr %arrayidx.i, align 4
   %conv.i = sext i32 %9 to i64
-  tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv.i) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %conv.i) #14
   %latency.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %10 = load i32, ptr %latency.i, align 4
   %conv10.i = zext i32 %10 to i64
-  tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv10.i) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %conv10.i) #14
   %inc.i = add nsw i32 %samples.014.i, 1
   br label %for.inc.i
 
@@ -1588,7 +1588,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 
 latencyCommandReplyWithSamples.exit:              ; preds = %for.inc.i
   %conv12.i = sext i32 %samples.1.i to i64
-  tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call.i, i64 noundef %conv12.i) #14
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call.i, i64 noundef %conv12.i) #14
   br label %return
 
 if.else7:                                         ; preds = %land.lhs.true, %entry
@@ -1869,7 +1869,7 @@ declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1910,10 +1910,10 @@ if.end4:                                          ; preds = %entry, %if.then2, %
 declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

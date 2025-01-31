@@ -170,536 +170,532 @@ _ZL13get_user_namej.exit.i.i:                     ; preds = %35
   call void @_Z8FreeHeapPv(ptr noundef %27) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %44 = icmp eq ptr %40, null
-  br i1 %44, label %_ZL20create_shared_memorym.exit.thread, label %45
-
-45:                                               ; preds = %_ZL13get_user_namej.exit.i.i
-  %46 = call noundef ptr @_ZN2os18get_temp_directoryEv() #13
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #14
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @PERFDATA_NAME) #14
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
-  %50 = add i64 %47, 3
-  %51 = add i64 %50, %48
-  %52 = add i64 %51, %49
-  %53 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %52, i8 noundef zeroext 9, i32 noundef 0) #13
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.12, ptr noundef %46, ptr noundef nonnull @PERFDATA_NAME, ptr noundef nonnull %40) #13
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #14
-  %56 = add i64 %55, 12
-  %57 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %56, i8 noundef zeroext 9, i32 noundef 0) #13
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %57, i64 noundef %56, ptr noundef nonnull @.str.13, ptr noundef %53, i32 noundef %23) #13
-  %59 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 47) #14
-  %60 = icmp eq ptr %59, null
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  %.0.i.i = select i1 %60, ptr %57, ptr %61
+  %44 = call noundef ptr @_ZN2os18get_temp_directoryEv() #13
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #14
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @PERFDATA_NAME) #14
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
+  %48 = add i64 %45, 3
+  %49 = add i64 %48, %46
+  %50 = add i64 %49, %47
+  %51 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %50, i8 noundef zeroext 9, i32 noundef 0) #13
+  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %51, i64 noundef %50, ptr noundef nonnull @.str.12, ptr noundef nonnull %44, ptr noundef nonnull @PERFDATA_NAME, ptr noundef nonnull %40) #13
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #14
+  %54 = add i64 %53, 12
+  %55 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %54, i8 noundef zeroext 9, i32 noundef 0) #13
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %54, ptr noundef nonnull @.str.13, ptr noundef nonnull %51, i32 noundef %23) #13
+  %57 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %55, i32 noundef 47) #14
+  %58 = icmp eq ptr %57, null
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %.0.i.i = select i1 %58, ptr %55, ptr %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %62 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef %9)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i, label %64
+  %60 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef nonnull %51, ptr noundef %9)
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i, label %62
 
-64:                                               ; preds = %45
-  %65 = tail call ptr @__errno_location() #15
-  store i32 0, ptr %65, align 4
-  %66 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %62) #13
-  %.not49.i.i.i = icmp eq ptr %66, null
+62:                                               ; preds = %_ZL13get_user_namej.exit.i.i
+  %63 = tail call ptr @__errno_location() #15
+  store i32 0, ptr %63, align 4
+  %64 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %60) #13
+  %.not49.i.i.i = icmp eq ptr %64, null
   br i1 %.not49.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %64, %.backedge.i.i.i
-  %67 = phi ptr [ %87, %.backedge.i.i.i ], [ %66, %64 ]
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 19
+.lr.ph.i.i.i:                                     ; preds = %62, %.backedge.i.i.i
+  %65 = phi ptr [ %85, %.backedge.i.i.i ], [ %64, %62 ]
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %69 = load i8, ptr %68, align 1
-  %70 = sext i8 %69 to i32
-  %isdigittmp.i.i.i.i = add nsw i32 %70, -48
+  %67 = load i8, ptr %66, align 1
+  %68 = sext i8 %67 to i32
+  %isdigittmp.i.i.i.i = add nsw i32 %68, -48
   %isdigit.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i, 10
-  br i1 %isdigit.i.i.i.i, label %71, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
+  br i1 %isdigit.i.i.i.i, label %69, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
 
-71:                                               ; preds = %.lr.ph.i.i.i
+69:                                               ; preds = %.lr.ph.i.i.i
   store ptr null, ptr %8, align 8
-  store i32 0, ptr %65, align 4
-  %72 = call i64 @strtol(ptr noundef nonnull %68, ptr noundef nonnull %8, i32 noundef 10) #13
-  %73 = trunc i64 %72 to i32
-  %74 = load i32, ptr %65, align 4
-  %.not.i.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not.i.i.i.i, label %75, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
+  store i32 0, ptr %63, align 4
+  %70 = call i64 @strtol(ptr noundef nonnull %66, ptr noundef nonnull %8, i32 noundef 10) #13
+  %71 = trunc i64 %70 to i32
+  %72 = load i32, ptr %63, align 4
+  %.not.i.i.i.i = icmp eq i32 %72, 0
+  br i1 %.not.i.i.i.i, label %73, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %8, align 8
-  %.not4.i.i.i.i = icmp eq ptr %76, null
-  br i1 %.not4.i.i.i.i, label %_ZL15filename_to_pidPKc.exit.i.i.i, label %77
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %8, align 8
+  %.not4.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not4.i.i.i.i, label %_ZL15filename_to_pidPKc.exit.i.i.i, label %75
 
-77:                                               ; preds = %75
-  %78 = load i8, ptr %76, align 1
-  %.not5.i.i.i.i = icmp eq i8 %78, 0
+75:                                               ; preds = %73
+  %76 = load i8, ptr %74, align 1
+  %.not5.i.i.i.i = icmp eq i8 %76, 0
   br i1 %.not5.i.i.i.i, label %_ZL15filename_to_pidPKc.exit.i.i.i, label %_ZL15filename_to_pidPKc.exit.thread.i.i.i
 
-_ZL15filename_to_pidPKc.exit.thread.i.i.i:        ; preds = %77, %71, %.lr.ph.i.i.i
+_ZL15filename_to_pidPKc.exit.thread.i.i.i:        ; preds = %75, %69, %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %sub_0.i.i.i
 
-_ZL15filename_to_pidPKc.exit.i.i.i:               ; preds = %77, %75
+_ZL15filename_to_pidPKc.exit.i.i.i:               ; preds = %75, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %79 = icmp eq i32 %73, 0
-  br i1 %79, label %sub_0.i.i.i, label %.preheader.i.i.i
+  %77 = icmp eq i32 %71, 0
+  br i1 %77, label %sub_0.i.i.i, label %.preheader.i.i.i
 
 sub_0.i.i.i:                                      ; preds = %_ZL15filename_to_pidPKc.exit.i.i.i, %_ZL15filename_to_pidPKc.exit.thread.i.i.i
-  %80 = load i8, ptr %68, align 1
-  %.not50.i.i.i = icmp eq i8 %80, 46
+  %78 = load i8, ptr %66, align 1
+  %.not50.i.i.i = icmp eq i8 %78, 46
   br i1 %.not50.i.i.i, label %.tail.i.i.i, label %.tail44.thread.i.i.i
 
 .tail.i.i.i:                                      ; preds = %sub_0.i.i.i
-  %81 = getelementptr inbounds nuw i8, ptr %67, i64 20
-  %82 = load i8, ptr %81, align 1
-  switch i8 %82, label %.tail44.thread.i.i.i [
+  %79 = getelementptr inbounds nuw i8, ptr %65, i64 20
+  %80 = load i8, ptr %79, align 1
+  switch i8 %80, label %.tail44.thread.i.i.i [
     i8 0, label %.backedge.i.i.i
     i8 46, label %.tail44.i.i.i
   ]
 
 .tail44.i.i.i:                                    ; preds = %.tail.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %67, i64 21
-  %84 = load i8, ptr %83, align 1
-  %85 = icmp eq i8 %84, 0
-  br i1 %85, label %.backedge.i.i.i, label %.tail44.thread.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %65, i64 21
+  %82 = load i8, ptr %81, align 1
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %.backedge.i.i.i, label %.tail44.thread.i.i.i
 
 .tail44.thread.i.i.i:                             ; preds = %.tail44.i.i.i, %.tail.i.i.i, %sub_0.i.i.i
-  %86 = call i32 @unlink(ptr noundef nonnull %68) #13
+  %84 = call i32 @unlink(ptr noundef nonnull %66) #13
   br label %.backedge.i.i.i
 
-.backedge.i.i.i:                                  ; preds = %.critedge38.i.i.i, %101, %94, %.critedge.i.i.i, %.tail44.thread.i.i.i, %.tail44.i.i.i, %.tail.i.i.i
-  store i32 0, ptr %65, align 4
-  %87 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %62) #13
-  %.not.i.i.i = icmp eq ptr %87, null
+.backedge.i.i.i:                                  ; preds = %.critedge38.i.i.i, %99, %92, %.critedge.i.i.i, %.tail44.thread.i.i.i, %.tail44.i.i.i, %.tail.i.i.i
+  store i32 0, ptr %63, align 4
+  %85 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %60) #13
+  %.not.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-.preheader.i.i.i:                                 ; preds = %_ZL15filename_to_pidPKc.exit.i.i.i, %90
-  %88 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef nonnull %68, i32 noundef 0, i32 noundef 0) #13
-  %89 = icmp eq i32 %88, -1
-  br i1 %89, label %90, label %.critedge36.i.i.i
+.preheader.i.i.i:                                 ; preds = %_ZL15filename_to_pidPKc.exit.i.i.i, %88
+  %86 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef nonnull %66, i32 noundef 0, i32 noundef 0) #13
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %88, label %.critedge36.i.i.i
 
-90:                                               ; preds = %.preheader.i.i.i
-  %91 = load i32, ptr %65, align 4
-  %92 = icmp eq i32 %91, 4
-  br i1 %92, label %.preheader.i.i.i, label %.critedge.i.i.i, !llvm.loop !8
+88:                                               ; preds = %.preheader.i.i.i
+  %89 = load i32, ptr %63, align 4
+  %90 = icmp eq i32 %89, 4
+  br i1 %90, label %.preheader.i.i.i, label %.critedge.i.i.i, !llvm.loop !8
 
-.critedge.i.i.i:                                  ; preds = %90
-  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not43.i.i.i = icmp eq ptr %93, null
-  br i1 %.not43.i.i.i, label %.backedge.i.i.i, label %94
+.critedge.i.i.i:                                  ; preds = %88
+  %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not43.i.i.i = icmp eq ptr %91, null
+  br i1 %.not43.i.i.i, label %.backedge.i.i.i, label %92
 
-94:                                               ; preds = %.critedge.i.i.i
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %53, ptr noundef nonnull %68)
+92:                                               ; preds = %.critedge.i.i.i
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull %51, ptr noundef nonnull %66)
   br label %.backedge.i.i.i
 
-.critedge36.i.i.i:                                ; preds = %.preheader.i.i.i, %96
-  %95 = call i32 @flock(i32 noundef %88, i32 noundef 6) #13
-  switch i32 %95, label %.critedge2.i.i.i [
-    i32 -1, label %96
-    i32 0, label %103
+.critedge36.i.i.i:                                ; preds = %.preheader.i.i.i, %94
+  %93 = call i32 @flock(i32 noundef %86, i32 noundef 6) #13
+  switch i32 %93, label %.critedge2.i.i.i [
+    i32 -1, label %94
+    i32 0, label %101
   ]
 
-96:                                               ; preds = %.critedge36.i.i.i
-  %97 = load i32, ptr %65, align 4
-  %98 = icmp eq i32 %97, 4
-  br i1 %98, label %.critedge36.i.i.i, label %.critedge2.i.i.i, !llvm.loop !9
+94:                                               ; preds = %.critedge36.i.i.i
+  %95 = load i32, ptr %63, align 4
+  %96 = icmp eq i32 %95, 4
+  br i1 %96, label %.critedge36.i.i.i, label %.critedge2.i.i.i, !llvm.loop !9
 
-.critedge2.i.i.i:                                 ; preds = %96, %.critedge36.i.i.i
-  %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not42.i.i.i = icmp eq ptr %99, null
-  br i1 %.not42.i.i.i, label %101, label %100
+.critedge2.i.i.i:                                 ; preds = %94, %.critedge36.i.i.i
+  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not42.i.i.i = icmp eq ptr %97, null
+  br i1 %.not42.i.i.i, label %99, label %98
 
-100:                                              ; preds = %.critedge2.i.i.i
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %53, ptr noundef nonnull %68)
-  br label %101
+98:                                               ; preds = %.critedge2.i.i.i
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef nonnull %51, ptr noundef nonnull %66)
+  br label %99
 
-101:                                              ; preds = %100, %.critedge2.i.i.i
-  %102 = call i32 @close(i32 noundef %88) #13
+99:                                               ; preds = %98, %.critedge2.i.i.i
+  %100 = call i32 @close(i32 noundef %86) #13
   br label %.backedge.i.i.i
 
-103:                                              ; preds = %.critedge36.i.i.i
-  %104 = call noundef i32 @_ZN2os18current_process_idEv() #13
-  %105 = icmp eq i32 %104, %73
-  br i1 %105, label %111, label %106
+101:                                              ; preds = %.critedge36.i.i.i
+  %102 = call noundef i32 @_ZN2os18current_process_idEv() #13
+  %103 = icmp eq i32 %102, %71
+  br i1 %103, label %109, label %104
 
-106:                                              ; preds = %103
-  %107 = call i32 @kill(i32 noundef %73, i32 noundef 0) #13
-  %108 = icmp eq i32 %107, -1
-  br i1 %108, label %109, label %.critedge38.i.i.i
+104:                                              ; preds = %101
+  %105 = call i32 @kill(i32 noundef %71, i32 noundef 0) #13
+  %106 = icmp eq i32 %105, -1
+  br i1 %106, label %107, label %.critedge38.i.i.i
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr %65, align 4
-  switch i32 %110, label %.critedge38.i.i.i [
-    i32 3, label %111
-    i32 1, label %111
+107:                                              ; preds = %104
+  %108 = load i32, ptr %63, align 4
+  switch i32 %108, label %.critedge38.i.i.i [
+    i32 3, label %109
+    i32 1, label %109
   ]
 
-111:                                              ; preds = %109, %109, %103
-  %112 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not41.i.i.i = icmp eq ptr %112, null
-  br i1 %.not41.i.i.i, label %114, label %113
+109:                                              ; preds = %107, %107, %101
+  %110 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not41.i.i.i = icmp eq ptr %110, null
+  br i1 %.not41.i.i.i, label %112, label %111
 
-113:                                              ; preds = %111
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef %53, ptr noundef nonnull %68)
-  br label %114
+111:                                              ; preds = %109
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull %51, ptr noundef nonnull %66)
+  br label %112
 
-114:                                              ; preds = %113, %111
-  %115 = call i32 @unlink(ptr noundef nonnull %68) #13
+112:                                              ; preds = %111, %109
+  %113 = call i32 @unlink(ptr noundef nonnull %66) #13
   br label %.critedge38.i.i.i
 
-.critedge38.i.i.i:                                ; preds = %114, %109, %106
-  %116 = call i32 @close(i32 noundef %88) #13
+.critedge38.i.i.i:                                ; preds = %112, %107, %104
+  %114 = call i32 @close(i32 noundef %86) #13
   br label %.backedge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.backedge.i.i.i, %64
-  %117 = load i32, ptr %9, align 4
-  %.not.i39.i.i.i = icmp eq i32 %117, -1
-  br i1 %.not.i39.i.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i, label %118
+._crit_edge.i.i.i:                                ; preds = %.backedge.i.i.i, %62
+  %115 = load i32, ptr %9, align 4
+  %.not.i39.i.i.i = icmp eq i32 %115, -1
+  br i1 %.not.i39.i.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i, label %116
 
-118:                                              ; preds = %._crit_edge.i.i.i
-  %119 = call i32 @fchdir(i32 noundef %117) #13
-  %120 = call i32 @close(i32 noundef %117) #13
+116:                                              ; preds = %._crit_edge.i.i.i
+  %117 = call i32 @fchdir(i32 noundef %115) #13
+  %118 = call i32 @close(i32 noundef %115) #13
   br label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i
 
-_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i: ; preds = %118, %._crit_edge.i.i.i
-  %121 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %62) #13
+_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i: ; preds = %116, %._crit_edge.i.i.i
+  %119 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %60) #13
   br label %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
 
-_ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i, %45
+_ZL23cleanup_sharedmem_filesPKc.exit.i.i:         ; preds = %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i.i.i, %_ZL13get_user_namej.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %122 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not.i.i = icmp eq ptr %122, null
-  br i1 %.not.i.i, label %124, label %123
+  %120 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not.i.i = icmp eq ptr %120, null
+  br i1 %.not.i.i, label %122, label %121
 
-123:                                              ; preds = %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, ptr noundef %53, ptr noundef %.0.i.i)
-  br label %124
+121:                                              ; preds = %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull %51, ptr noundef nonnull %.0.i.i)
+  br label %122
 
-124:                                              ; preds = %123, %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
+122:                                              ; preds = %121, %_ZL23cleanup_sharedmem_filesPKc.exit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %125 = call i32 @mkdir(ptr noundef readonly %53, i32 noundef 493) #13
-  %126 = icmp eq i32 %125, -1
-  br i1 %126, label %127, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i
+  %123 = call i32 @mkdir(ptr noundef nonnull readonly %51, i32 noundef 493) #13
+  %124 = icmp eq i32 %123, -1
+  br i1 %124, label %125, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i
 
-127:                                              ; preds = %124
-  %128 = tail call ptr @__errno_location() #15
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp eq i32 %129, 17
-  br i1 %130, label %131, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
+125:                                              ; preds = %122
+  %126 = tail call ptr @__errno_location() #15
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 17
+  br i1 %128, label %129, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-131:                                              ; preds = %127
+129:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  br label %132
+  br label %130
 
-132:                                              ; preds = %135, %131
-  %133 = call i32 @lstat64(ptr noundef readonly %53, ptr noundef nonnull %5) #13
-  %134 = icmp eq i32 %133, -1
-  br i1 %134, label %135, label %.critedge3.i.i.i.i.i
+130:                                              ; preds = %133, %129
+  %131 = call i32 @lstat64(ptr noundef nonnull readonly %51, ptr noundef nonnull %5) #13
+  %132 = icmp eq i32 %131, -1
+  br i1 %132, label %133, label %.critedge3.i.i.i.i.i
 
-135:                                              ; preds = %132
-  %136 = load i32, ptr %128, align 4
-  %137 = icmp eq i32 %136, 4
-  br i1 %137, label %132, label %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, !llvm.loop !10
+133:                                              ; preds = %130
+  %134 = load i32, ptr %126, align 4
+  %135 = icmp eq i32 %134, 4
+  br i1 %135, label %130, label %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, !llvm.loop !10
 
-.critedge3.i.i.i.i.i:                             ; preds = %132
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.val.i.i.i.i.i = load i32, ptr %138, align 8
-  %139 = and i32 %.val.i.i.i.i.i, 61458
-  %or.cond.i.i.i.i.i.i = icmp eq i32 %139, 16384
+.critedge3.i.i.i.i.i:                             ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.val.i.i.i.i.i = load i32, ptr %136, align 8
+  %137 = and i32 %.val.i.i.i.i.i, 61458
+  %or.cond.i.i.i.i.i.i = icmp eq i32 %137, 16384
   br i1 %or.cond.i.i.i.i.i.i, label %_ZL19is_directory_securePKc.exit.i.i.i.i, label %_ZL19is_directory_securePKc.exit.thread.i.i.i.i
 
-_ZL19is_directory_securePKc.exit.thread.i.i.i.i:  ; preds = %135, %.critedge3.i.i.i.i.i
+_ZL19is_directory_securePKc.exit.thread.i.i.i.i:  ; preds = %133, %.critedge3.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 _ZL19is_directory_securePKc.exit.i.i.i.i:         ; preds = %.critedge3.i.i.i.i.i
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %.val4.i.i.i.i.i = load i32, ptr %140, align 4
-  %141 = call i32 @geteuid() #13
-  %.not8.i.i.i.i.i.i = icmp eq i32 %141, 0
-  %.not9.i.i.i.i.i.i = icmp eq i32 %.val4.i.i.i.i.i, %141
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %.val4.i.i.i.i.i = load i32, ptr %138, align 4
+  %139 = call i32 @geteuid() #13
+  %.not8.i.i.i.i.i.i = icmp eq i32 %139, 0
+  %.not9.i.i.i.i.i.i = icmp eq i32 %.val4.i.i.i.i.i, %139
   %or.cond1.i.i.i.i.i.i = select i1 %.not8.i.i.i.i.i.i, i1 true, i1 %.not9.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   br i1 %or.cond1.i.i.i.i.i.i, label %_ZL17make_user_tmp_dirPKc.exit.i.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-_ZL17make_user_tmp_dirPKc.exit.i.i.i:             ; preds = %_ZL19is_directory_securePKc.exit.i.i.i.i, %124
-  %142 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef %53, ptr noundef %6)
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, label %.preheader62.i.i.i
+_ZL17make_user_tmp_dirPKc.exit.i.i.i:             ; preds = %_ZL19is_directory_securePKc.exit.i.i.i.i, %122
+  %140 = call fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef nonnull %51, ptr noundef %6)
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, label %.preheader62.i.i.i
 
-.preheader62.i.i.i:                               ; preds = %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %146
-  %144 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef %.0.i.i, i32 noundef 131138, i32 noundef 384) #13
-  %145 = icmp eq i32 %144, -1
-  br i1 %145, label %146, label %.critedge50.i.i.i
+.preheader62.i.i.i:                               ; preds = %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %144
+  %142 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef nonnull %.0.i.i, i32 noundef 131138, i32 noundef 384) #13
+  %143 = icmp eq i32 %142, -1
+  br i1 %143, label %144, label %.critedge50.i.i.i
 
-146:                                              ; preds = %.preheader62.i.i.i
-  %147 = tail call ptr @__errno_location() #15
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp eq i32 %148, 4
-  br i1 %149, label %.preheader62.i.i.i, label %.critedge.i41.i.i, !llvm.loop !11
+144:                                              ; preds = %.preheader62.i.i.i
+  %145 = tail call ptr @__errno_location() #15
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, 4
+  br i1 %147, label %.preheader62.i.i.i, label %.critedge.i41.i.i, !llvm.loop !11
 
-.critedge.i41.i.i:                                ; preds = %146
-  %150 = load i32, ptr %6, align 4
-  %.not.i.i42.i.i = icmp eq i32 %150, -1
-  br i1 %.not.i.i42.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, label %151
+.critedge.i41.i.i:                                ; preds = %144
+  %148 = load i32, ptr %6, align 4
+  %.not.i.i42.i.i = icmp eq i32 %148, -1
+  br i1 %.not.i.i42.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, label %149
 
-151:                                              ; preds = %.critedge.i41.i.i
-  %152 = call i32 @fchdir(i32 noundef %150) #13
-  %153 = call i32 @close(i32 noundef %150) #13
+149:                                              ; preds = %.critedge.i41.i.i
+  %150 = call i32 @fchdir(i32 noundef %148) #13
+  %151 = call i32 @close(i32 noundef %148) #13
   br label %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i
 
-_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i: ; preds = %151, %.critedge.i41.i.i
-  %154 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %142) #13
+_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i: ; preds = %149, %.critedge.i41.i.i
+  %152 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %140) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
 .critedge50.i.i.i:                                ; preds = %.preheader62.i.i.i
-  %155 = load i32, ptr %6, align 4
-  %.not.i52.i.i.i = icmp eq i32 %155, -1
-  br i1 %.not.i52.i.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i, label %156
+  %153 = load i32, ptr %6, align 4
+  %.not.i52.i.i.i = icmp eq i32 %153, -1
+  br i1 %.not.i52.i.i.i, label %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i, label %154
 
-156:                                              ; preds = %.critedge50.i.i.i
-  %157 = call i32 @fchdir(i32 noundef %155) #13
-  %158 = call i32 @close(i32 noundef %155) #13
+154:                                              ; preds = %.critedge50.i.i.i
+  %155 = call i32 @fchdir(i32 noundef %153) #13
+  %156 = call i32 @close(i32 noundef %153) #13
   br label %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
 
-_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %156, %.critedge50.i.i.i
-  %159 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %142) #13
+_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i: ; preds = %154, %.critedge50.i.i.i
+  %157 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %140) #13
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  br label %160
+  br label %158
 
-160:                                              ; preds = %163, %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
-  %161 = call i32 @fstat64(i32 noundef range(i32 0, -1) %144, ptr noundef nonnull %4) #13
-  %162 = icmp eq i32 %161, -1
-  br i1 %162, label %163, label %_ZL14is_file_secureiPKc.exit.i.i.i
+158:                                              ; preds = %161, %_ZL26close_directory_secure_cwdP11__dirstreami.exit53.i.i.i
+  %159 = call i32 @fstat64(i32 noundef range(i32 0, -1) %142, ptr noundef nonnull %4) #13
+  %160 = icmp eq i32 %159, -1
+  br i1 %160, label %161, label %_ZL14is_file_secureiPKc.exit.i.i.i
 
-163:                                              ; preds = %160
-  %164 = tail call ptr @__errno_location() #15
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %165, 4
-  br i1 %166, label %160, label %_ZL14is_file_secureiPKc.exit.thread.i.i.i, !llvm.loop !12
+161:                                              ; preds = %158
+  %162 = tail call ptr @__errno_location() #15
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 4
+  br i1 %164, label %158, label %_ZL14is_file_secureiPKc.exit.thread.i.i.i, !llvm.loop !12
 
-_ZL14is_file_secureiPKc.exit.thread.i.i.i:        ; preds = %163
+_ZL14is_file_secureiPKc.exit.thread.i.i.i:        ; preds = %161
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br label %170
+  br label %168
 
-_ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %160
-  %167 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %168 = load i64, ptr %167, align 8
-  %169 = icmp ult i64 %168, 2
+_ZL14is_file_secureiPKc.exit.i.i.i:               ; preds = %158
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %166 = load i64, ptr %165, align 8
+  %167 = icmp ult i64 %166, 2
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br i1 %169, label %.preheader61.i.i.i, label %170
+  br i1 %167, label %.preheader61.i.i.i, label %168
 
-170:                                              ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i.i
-  %171 = call i32 @close(i32 noundef %144) #13
+168:                                              ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %_ZL14is_file_secureiPKc.exit.thread.i.i.i
+  %169 = call i32 @close(i32 noundef %142) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-.preheader61.i.i.i:                               ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %173
-  %172 = call i32 @flock(i32 noundef %144, i32 noundef 6) #13
-  switch i32 %172, label %.critedge2.i39.i.i [
-    i32 -1, label %173
+.preheader61.i.i.i:                               ; preds = %_ZL14is_file_secureiPKc.exit.i.i.i, %171
+  %170 = call i32 @flock(i32 noundef %142, i32 noundef 6) #13
+  switch i32 %170, label %.critedge2.i39.i.i [
+    i32 -1, label %171
     i32 0, label %.preheader60.i.i.i
   ]
 
-173:                                              ; preds = %.preheader61.i.i.i
-  %174 = tail call ptr @__errno_location() #15
-  %175 = load i32, ptr %174, align 4
-  %176 = icmp eq i32 %175, 4
-  br i1 %176, label %.preheader61.i.i.i, label %.critedge2.i39.i.i, !llvm.loop !13
+171:                                              ; preds = %.preheader61.i.i.i
+  %172 = tail call ptr @__errno_location() #15
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp eq i32 %173, 4
+  br i1 %174, label %.preheader61.i.i.i, label %.critedge2.i39.i.i, !llvm.loop !13
 
-.critedge2.i39.i.i:                               ; preds = %173, %.preheader61.i.i.i
-  %177 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not.i40.i.i = icmp eq ptr %177, null
-  br i1 %.not.i40.i.i, label %183, label %178
+.critedge2.i39.i.i:                               ; preds = %171, %.preheader61.i.i.i
+  %175 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not.i40.i.i = icmp eq ptr %175, null
+  br i1 %.not.i40.i.i, label %181, label %176
 
-178:                                              ; preds = %.critedge2.i39.i.i
-  %179 = tail call ptr @__errno_location() #15
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp eq i32 %180, 11
-  %182 = select i1 %181, ptr @.str.20, ptr @.str.21
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef %53, ptr noundef %.0.i.i, ptr noundef nonnull %182, i32 noundef %180)
-  br label %183
+176:                                              ; preds = %.critedge2.i39.i.i
+  %177 = tail call ptr @__errno_location() #15
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %178, 11
+  %180 = select i1 %179, ptr @.str.20, ptr @.str.21
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull %51, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %180, i32 noundef %178)
+  br label %181
 
-183:                                              ; preds = %178, %.critedge2.i39.i.i
-  %184 = call i32 @close(i32 noundef %144) #13
+181:                                              ; preds = %176, %.critedge2.i39.i.i
+  %182 = call i32 @close(i32 noundef %142) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-.preheader60.i.i.i:                               ; preds = %.preheader61.i.i.i, %186
-  %185 = call i32 @ftruncate64(i32 noundef %144, i64 noundef 0) #13
-  %cond.i.i.i = icmp eq i32 %185, -1
-  br i1 %cond.i.i.i, label %186, label %.preheader59.i.i.i
+.preheader60.i.i.i:                               ; preds = %.preheader61.i.i.i, %184
+  %183 = call i32 @ftruncate64(i32 noundef %142, i64 noundef 0) #13
+  %cond.i.i.i = icmp eq i32 %183, -1
+  br i1 %cond.i.i.i, label %184, label %.preheader59.i.i.i
 
-186:                                              ; preds = %.preheader60.i.i.i
-  %187 = tail call ptr @__errno_location() #15
-  %188 = load i32, ptr %187, align 4
-  %189 = icmp eq i32 %188, 4
-  br i1 %189, label %.preheader60.i.i.i, label %.critedge4.i.i.i, !llvm.loop !14
+184:                                              ; preds = %.preheader60.i.i.i
+  %185 = tail call ptr @__errno_location() #15
+  %186 = load i32, ptr %185, align 4
+  %187 = icmp eq i32 %186, 4
+  br i1 %187, label %.preheader60.i.i.i, label %.critedge4.i.i.i, !llvm.loop !14
 
-.critedge4.i.i.i:                                 ; preds = %186
-  %190 = call i32 @close(i32 noundef %144) #13
+.critedge4.i.i.i:                                 ; preds = %184
+  %188 = call i32 @close(i32 noundef %142) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-.preheader59.i.i.i:                               ; preds = %.preheader60.i.i.i, %192
-  %191 = call i32 @ftruncate64(i32 noundef %144, i64 noundef %0) #13
-  %cond51.i.i.i = icmp eq i32 %191, -1
-  br i1 %cond51.i.i.i, label %192, label %.preheader.i37.i.i
+.preheader59.i.i.i:                               ; preds = %.preheader60.i.i.i, %190
+  %189 = call i32 @ftruncate64(i32 noundef %142, i64 noundef %0) #13
+  %cond51.i.i.i = icmp eq i32 %189, -1
+  br i1 %cond51.i.i.i, label %190, label %.preheader.i37.i.i
 
 .preheader.i37.i.i:                               ; preds = %.preheader59.i.i.i
   %.not70.i.i.i = icmp eq i64 %0, 0
   br i1 %.not70.i.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, label %.lr.ph.i38.i.i
 
-192:                                              ; preds = %.preheader59.i.i.i
-  %193 = tail call ptr @__errno_location() #15
-  %194 = load i32, ptr %193, align 4
-  %195 = icmp eq i32 %194, 4
-  br i1 %195, label %.preheader59.i.i.i, label %.critedge6.i.i.i, !llvm.loop !15
+190:                                              ; preds = %.preheader59.i.i.i
+  %191 = tail call ptr @__errno_location() #15
+  %192 = load i32, ptr %191, align 4
+  %193 = icmp eq i32 %192, 4
+  br i1 %193, label %.preheader59.i.i.i, label %.critedge6.i.i.i, !llvm.loop !15
 
-.critedge6.i.i.i:                                 ; preds = %192
-  %196 = call i32 @close(i32 noundef %144) #13
+.critedge6.i.i.i:                                 ; preds = %190
+  %194 = call i32 @close(i32 noundef %142) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-.lr.ph.i38.i.i:                                   ; preds = %.preheader.i37.i.i, %206
-  %.069.i.i.i = phi i64 [ %208, %206 ], [ 0, %.preheader.i37.i.i ]
+.lr.ph.i38.i.i:                                   ; preds = %.preheader.i37.i.i, %204
+  %.069.i.i.i = phi i64 [ %206, %204 ], [ 0, %.preheader.i37.i.i ]
   store i32 0, ptr %7, align 4
-  %197 = call noundef i64 @_ZN2os19seek_to_file_offsetEil(i32 noundef %144, i64 noundef %.069.i.i.i) #13
-  %sext.mask.i.i.i = and i64 %197, 4294967295
-  %198 = icmp eq i64 %sext.mask.i.i.i, 4294967295
-  br i1 %198, label %.thread.i.i.i, label %199
+  %195 = call noundef i64 @_ZN2os19seek_to_file_offsetEil(i32 noundef %142, i64 noundef %.069.i.i.i) #13
+  %sext.mask.i.i.i = and i64 %195, 4294967295
+  %196 = icmp eq i64 %sext.mask.i.i.i, 4294967295
+  br i1 %196, label %.thread.i.i.i, label %197
 
-199:                                              ; preds = %.lr.ph.i38.i.i
-  %200 = call noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef %144, ptr noundef nonnull %7, i64 noundef 1) #13
-  br i1 %200, label %206, label %201
+197:                                              ; preds = %.lr.ph.i38.i.i
+  %198 = call noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef %142, ptr noundef nonnull %7, i64 noundef 1) #13
+  br i1 %198, label %204, label %199
 
-201:                                              ; preds = %199
-  %202 = tail call ptr @__errno_location() #15
-  %203 = load i32, ptr %202, align 4
-  %204 = icmp eq i32 %203, 28
-  br i1 %204, label %205, label %.thread.i.i.i
+199:                                              ; preds = %197
+  %200 = tail call ptr @__errno_location() #15
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp eq i32 %201, 28
+  br i1 %202, label %203, label %.thread.i.i.i
 
-205:                                              ; preds = %201
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.22, ptr noundef %.0.i.i) #13
+203:                                              ; preds = %199
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.i) #13
   br label %.thread.i.i.i
 
-206:                                              ; preds = %199
-  %207 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %208 = add i64 %207, %.069.i.i.i
-  %209 = icmp ult i64 %208, %0
-  br i1 %209, label %.lr.ph.i38.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, !llvm.loop !16
+204:                                              ; preds = %197
+  %205 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %206 = add i64 %205, %.069.i.i.i
+  %207 = icmp ult i64 %206, %0
+  br i1 %207, label %.lr.ph.i38.i.i, label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i, !llvm.loop !16
 
-.thread.i.i.i:                                    ; preds = %.lr.ph.i38.i.i, %205, %201
-  %210 = call i32 @close(i32 noundef %144) #13
+.thread.i.i.i:                                    ; preds = %.lr.ph.i38.i.i, %203, %199
+  %208 = call i32 @close(i32 noundef %142) #13
   br label %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
 
-_ZL21create_sharedmem_filePKcS0_m.exit.i.i:       ; preds = %206, %.thread.i.i.i, %.critedge6.i.i.i, %.preheader.i37.i.i, %.critedge4.i.i.i, %183, %170, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %_ZL19is_directory_securePKc.exit.i.i.i.i, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, %127
-  %.044.i.i.i = phi i32 [ -1, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i ], [ -1, %183 ], [ -1, %.critedge4.i.i.i ], [ -1, %.critedge6.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %170 ], [ -1, %_ZL17make_user_tmp_dirPKc.exit.i.i.i ], [ -1, %_ZL19is_directory_securePKc.exit.i.i.i.i ], [ -1, %127 ], [ -1, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i ], [ %144, %.preheader.i37.i.i ], [ %144, %206 ]
+_ZL21create_sharedmem_filePKcS0_m.exit.i.i:       ; preds = %204, %.thread.i.i.i, %.critedge6.i.i.i, %.preheader.i37.i.i, %.critedge4.i.i.i, %181, %168, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i, %_ZL17make_user_tmp_dirPKc.exit.i.i.i, %_ZL19is_directory_securePKc.exit.i.i.i.i, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i, %125
+  %.044.i.i.i = phi i32 [ -1, %_ZL26close_directory_secure_cwdP11__dirstreami.exit.i43.i.i ], [ -1, %181 ], [ -1, %.critedge4.i.i.i ], [ -1, %.critedge6.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %168 ], [ -1, %_ZL17make_user_tmp_dirPKc.exit.i.i.i ], [ -1, %_ZL19is_directory_securePKc.exit.i.i.i.i ], [ -1, %125 ], [ -1, %_ZL19is_directory_securePKc.exit.thread.i.i.i.i ], [ %142, %.preheader.i37.i.i ], [ %142, %204 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @_Z8FreeHeapPv(ptr noundef nonnull %40) #13
-  call void @_Z8FreeHeapPv(ptr noundef %53) #13
-  %211 = icmp eq i32 %.044.i.i.i, -1
-  br i1 %211, label %212, label %213
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %51) #13
+  %209 = icmp eq i32 %.044.i.i.i, -1
+  br i1 %209, label %210, label %211
 
-212:                                              ; preds = %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
-  call void @_Z8FreeHeapPv(ptr noundef %57) #13
+210:                                              ; preds = %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %55) #13
   br label %_ZL20create_shared_memorym.exit.thread
 
-213:                                              ; preds = %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
-  %214 = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %.044.i.i.i, i64 noundef 0) #13
-  %215 = call i32 @close(i32 noundef %.044.i.i.i) #13
-  %216 = icmp eq ptr %214, inttoptr (i64 -1 to ptr)
-  br i1 %216, label %.preheader.i.i, label %223
+211:                                              ; preds = %_ZL21create_sharedmem_filePKcS0_m.exit.i.i
+  %212 = call ptr @mmap64(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %.044.i.i.i, i64 noundef 0) #13
+  %213 = call i32 @close(i32 noundef %.044.i.i.i) #13
+  %214 = icmp eq ptr %212, inttoptr (i64 -1 to ptr)
+  br i1 %214, label %.preheader.i.i, label %221
 
-.preheader.i.i:                                   ; preds = %213, %219
-  %217 = call i32 @unlink(ptr noundef readonly %57) #13
-  %218 = icmp eq i32 %217, -1
-  br i1 %218, label %219, label %_ZL11remove_filePKc.exit.i.i
+.preheader.i.i:                                   ; preds = %211, %217
+  %215 = call i32 @unlink(ptr noundef nonnull readonly %55) #13
+  %216 = icmp eq i32 %215, -1
+  br i1 %216, label %217, label %_ZL11remove_filePKc.exit.i.i
 
-219:                                              ; preds = %.preheader.i.i
-  %220 = tail call ptr @__errno_location() #15
-  %221 = load i32, ptr %220, align 4
-  %222 = icmp eq i32 %221, 4
-  br i1 %222, label %.preheader.i.i, label %_ZL11remove_filePKc.exit.i.i, !llvm.loop !17
+217:                                              ; preds = %.preheader.i.i
+  %218 = tail call ptr @__errno_location() #15
+  %219 = load i32, ptr %218, align 4
+  %220 = icmp eq i32 %219, 4
+  br i1 %220, label %.preheader.i.i, label %_ZL11remove_filePKc.exit.i.i, !llvm.loop !17
 
-_ZL11remove_filePKc.exit.i.i:                     ; preds = %219, %.preheader.i.i
-  call void @_Z8FreeHeapPv(ptr noundef %57) #13
+_ZL11remove_filePKc.exit.i.i:                     ; preds = %217, %.preheader.i.i
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %55) #13
   br label %_ZL20create_shared_memorym.exit.thread
 
-223:                                              ; preds = %213
-  store ptr %57, ptr @_ZL23backing_store_file_name, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %214, i8 0, i64 %0, i1 false)
-  %224 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %225 = icmp eq i32 %224, 3
-  br i1 %225, label %226, label %227
+221:                                              ; preds = %211
+  store ptr %55, ptr @_ZL23backing_store_file_name, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %212, i8 0, i64 %0, i1 false)
+  %222 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %223 = icmp eq i32 %222, 3
+  br i1 %223, label %224, label %225
 
-226:                                              ; preds = %223
+224:                                              ; preds = %221
   call void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 0) #13
   %.pre.i.i = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  br label %227
+  br label %225
 
-227:                                              ; preds = %226, %223
-  %228 = phi i32 [ %224, %223 ], [ %.pre.i.i, %226 ]
+225:                                              ; preds = %224, %221
+  %226 = phi i32 [ %222, %221 ], [ %.pre.i.i, %224 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %229 = icmp sgt i32 %228, 1
-  %230 = icmp ne ptr %214, null
-  %or.cond.i45.i.i = and i1 %230, %229
-  br i1 %or.cond.i45.i.i, label %231, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
+  %227 = icmp sgt i32 %226, 1
+  %228 = icmp ne ptr %212, null
+  %or.cond.i45.i.i = and i1 %228, %227
+  br i1 %or.cond.i45.i.i, label %229, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
 
-231:                                              ; preds = %227
+229:                                              ; preds = %225
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
-  %232 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull %214, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef zeroext 9) #13
-  %233 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull %214, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  %230 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull %212, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef zeroext 9) #13
+  %231 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull %212, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #13
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
 
-_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i: ; preds = %231, %227
+_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i: ; preds = %229, %225
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %234 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not47.i.i = icmp eq ptr %234, null
-  br i1 %.not47.i.i, label %_ZL20create_shared_memorym.exit, label %235
+  %232 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not47.i.i = icmp eq ptr %232, null
+  br i1 %.not47.i.i, label %_ZL20create_shared_memorym.exit, label %233
 
-235:                                              ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
+233:                                              ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.10)
   br label %_ZL20create_shared_memorym.exit
 
-_ZL20create_shared_memorym.exit.thread:           ; preds = %212, %_ZL11remove_filePKc.exit.i.i, %_ZL13get_user_namej.exit.i.i, %_ZL13get_user_namej.exit.thread.i.i
+_ZL20create_shared_memorym.exit.thread:           ; preds = %210, %_ZL11remove_filePKc.exit.i.i, %_ZL13get_user_namej.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   store ptr null, ptr @_ZN10PerfMemory6_startE, align 8
-  br label %237
+  br label %235
 
-_ZL20create_shared_memorym.exit:                  ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i, %235
+_ZL20create_shared_memorym.exit:                  ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit.i.i, %233
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  store ptr %214, ptr @_ZN10PerfMemory6_startE, align 8
-  %236 = icmp eq ptr %214, null
-  br i1 %236, label %237, label %.thread
+  store ptr %212, ptr @_ZN10PerfMemory6_startE, align 8
+  %234 = icmp eq ptr %212, null
+  br i1 %234, label %235, label %.thread
 
-237:                                              ; preds = %_ZL20create_shared_memorym.exit.thread, %_ZL20create_shared_memorym.exit
+235:                                              ; preds = %_ZL20create_shared_memorym.exit.thread, %_ZL20create_shared_memorym.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 1, ptr %2, align 1
-  %238 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 858, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 5) #13
+  %236 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 858, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 5) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %239 = call noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %0, i1 noundef zeroext false, i8 noundef zeroext 27) #13
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %_ZL22create_standard_memorym.exit.thread, label %241
+  %237 = call noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %0, i1 noundef zeroext false, i8 noundef zeroext 27) #13
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %_ZL22create_standard_memorym.exit.thread, label %239
 
-241:                                              ; preds = %237
-  %242 = call noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef nonnull %239, i64 noundef %0, i1 noundef zeroext false) #13
-  br i1 %242, label %_ZL22create_standard_memorym.exit, label %243
+239:                                              ; preds = %235
+  %240 = call noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef nonnull %237, i64 noundef %0, i1 noundef zeroext false) #13
+  br i1 %240, label %_ZL22create_standard_memorym.exit, label %241
 
-243:                                              ; preds = %241
-  %244 = call noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef nonnull %239, i64 noundef %0) #13
+241:                                              ; preds = %239
+  %242 = call noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef nonnull %237, i64 noundef %0) #13
   br label %_ZL22create_standard_memorym.exit.thread
 
-_ZL22create_standard_memorym.exit.thread:         ; preds = %20, %15, %243, %237
+_ZL22create_standard_memorym.exit.thread:         ; preds = %20, %15, %241, %235
   store ptr null, ptr @_ZN10PerfMemory6_startE, align 8
-  br label %246
+  br label %244
 
-_ZL22create_standard_memorym.exit:                ; preds = %241, %18
-  %245 = phi ptr [ %16, %18 ], [ %239, %241 ]
-  store ptr %245, ptr @_ZN10PerfMemory6_startE, align 8
+_ZL22create_standard_memorym.exit:                ; preds = %239, %18
+  %243 = phi ptr [ %16, %18 ], [ %237, %239 ]
+  store ptr %243, ptr @_ZN10PerfMemory6_startE, align 8
   br label %.thread
 
 .thread:                                          ; preds = %_ZL22create_standard_memorym.exit, %_ZL20create_shared_memorym.exit
   store i64 %0, ptr @_ZN10PerfMemory9_capacityE, align 8
-  br label %246
+  br label %244
 
-246:                                              ; preds = %_ZL22create_standard_memorym.exit.thread, %.thread
+244:                                              ; preds = %_ZL22create_standard_memorym.exit.thread, %.thread
   ret void
 }
 
@@ -791,7 +787,7 @@ _ZL20delete_shared_memoryPcm.exit:                ; preds = %_ZL11remove_filePKc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PerfMemory6attachEiPPcPmP10JavaThread(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.stat, align 8
@@ -864,7 +860,7 @@ _ZL16get_user_tmp_dirPKcii.exit.i:                ; preds = %33, %31
   %39 = add i64 %38, %36
   %40 = add i64 %39, %37
   %41 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %40, i8 noundef zeroext 9, i32 noundef 0) #13
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %40, ptr noundef nonnull @.str.12, ptr noundef %.0.i.i, ptr noundef nonnull @PERFDATA_NAME, ptr noundef nonnull %.013.i.ph.i) #13
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef %40, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @PERFDATA_NAME, ptr noundef nonnull %.013.i.ph.i) #13
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
   br label %43
@@ -913,7 +909,7 @@ _ZL19is_directory_securePKc.exit.i:               ; preds = %.critedge3.i.i
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #14
   %59 = add i64 %58, 12
   %60 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %59, i8 noundef zeroext 9, i32 noundef 0) #13
-  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %59, ptr noundef nonnull @.str.13, ptr noundef %41, i32 noundef %57) #13
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %59, ptr noundef nonnull @.str.13, ptr noundef nonnull %41, i32 noundef %57) #13
   br label %62
 
 62:                                               ; preds = %65, %56
@@ -979,7 +975,7 @@ _ZL14is_file_secureiPKc.exit.i.i:                 ; preds = %75
 _ZL19open_sharedmem_filePKciP10JavaThread.exit.i: ; preds = %85, %_ZL14is_file_secureiPKc.exit.i.i, %72, %70, %68
   %.0.i47.i = phi i32 [ -1, %68 ], [ -1, %70 ], [ -1, %72 ], [ -1, %85 ], [ %63, %_ZL14is_file_secureiPKc.exit.i.i ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.013.i.ph.i) #13
-  call void @_Z8FreeHeapPv(ptr noundef %41) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %41) #13
   call void @_Z8FreeHeapPv(ptr noundef %60) #13
   %87 = icmp eq i32 %.0.i47.i, -1
   br i1 %87, label %_ZL18mmap_attach_sharediPPcPmP10JavaThread.exit, label %88
@@ -1323,7 +1319,7 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #1
 
@@ -1335,20 +1331,20 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 declare noundef ptr @_ZN2os18get_temp_directoryEv() local_unnamed_addr #1
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25open_directory_secure_cwdPKcPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %22, label %5
@@ -1399,7 +1395,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare noundef i32 @_ZN2os4openEPKcii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1419,7 +1415,7 @@ declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL21open_directory_securePKc(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
@@ -1549,7 +1545,7 @@ _ZL15is_dirfd_securei.exit:                       ; preds = %.critedge3.i
 declare i32 @dirfd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @fchdir(i32 noundef) local_unnamed_addr #3
@@ -1557,13 +1553,13 @@ declare i32 @fchdir(i32 noundef) local_unnamed_addr #3
 declare noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #11
@@ -1592,10 +1588,10 @@ declare noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef, ptr noundef, i64 nou
 declare void @_Z7warningPKcz(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -1699,7 +1695,7 @@ define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 n
   %endptr = getelementptr inbounds i8, ptr %46, i64 %strlen
   store i16 47, ptr %endptr, align 1
   %48 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %38) #13
-  %49 = call fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef %46)
+  %49 = call fastcc noundef ptr @_ZL21open_directory_securePKc(ptr noundef nonnull %46)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %53
 
@@ -1717,7 +1713,7 @@ define internal fastcc noundef ptr @_ZL18get_user_name_slowiiP10JavaThread(i32 n
   br label %54
 
 54:                                               ; preds = %57, %53
-  %55 = call i32 @lstat64(ptr noundef readonly %46, ptr noundef nonnull %5) #13
+  %55 = call i32 @lstat64(ptr noundef nonnull readonly %46, ptr noundef nonnull %5) #13
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %57, label %.critedge3.i
 
@@ -1746,7 +1742,7 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
   br i1 %or.cond1.i.i, label %64, label %62
 
 62:                                               ; preds = %_ZL19is_directory_securePKc.exit.thread, %_ZL19is_directory_securePKc.exit
-  call void @_Z8FreeHeapPv(ptr noundef %46) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %46) #13
   %63 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %49) #13
   br label %.backedge72
 
@@ -1814,7 +1810,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br label %90
 
 90:                                               ; preds = %93, %82
-  %91 = call i32 @lstat64(ptr noundef %87, ptr noundef nonnull %7) #13
+  %91 = call i32 @lstat64(ptr noundef nonnull %87, ptr noundef nonnull %7) #13
   %92 = icmp eq i32 %91, -1
   br i1 %92, label %93, label %.critedge68
 
@@ -1824,7 +1820,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   br i1 %95, label %90, label %.backedge, !llvm.loop !26
 
 .backedge:                                        ; preds = %93, %.critedge68
-  call void @_Z8FreeHeapPv(ptr noundef %87) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %87) #13
   %96 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %49) #13
   %.not65 = icmp eq ptr %96, null
   br i1 %.not65, label %.outer71, label %67, !llvm.loop !27
@@ -1857,7 +1853,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
 113:                                              ; preds = %105, %100
   %.356 = phi i64 [ %112, %105 ], [ %.154.ph86, %100 ]
   %.3 = phi ptr [ %110, %105 ], [ %.1.ph87, %100 ]
-  call void @_Z8FreeHeapPv(ptr noundef %87) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %87) #13
   br label %.outer
 
 .outer:                                           ; preds = %_ZL15filename_to_pidPKc.exit, %113
@@ -1871,7 +1867,7 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
   %.154.ph.lcssa = phi i64 [ %.053.ph91, %64 ], [ %.154.ph86, %.backedge ], [ %.255, %.outer ]
   %.1.ph.lcssa = phi ptr [ %.052.ph92, %64 ], [ %.1.ph87, %.backedge ], [ %.2, %.outer ]
   %115 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %49) #13
-  call void @_Z8FreeHeapPv(ptr noundef %46) #13
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %46) #13
   %116 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %25) #13
   %.not76 = icmp eq ptr %116, null
   br i1 %.not76, label %.outer71._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -1889,10 +1885,10 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %67, %72, %78, %80
 declare noundef ptr @_ZN2os7opendirEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -1914,10 +1910,10 @@ declare noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEPh
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

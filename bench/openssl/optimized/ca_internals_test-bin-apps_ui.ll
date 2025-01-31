@@ -399,7 +399,7 @@ declare i32 @UI_process(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 

@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @host_memory_backend_set_mapped(ptr nocapture noundef writeonly initializes((52, 53)) %backend, i1 noundef zeroext %mapped) local_unnamed_addr #2 {
+define dso_local void @host_memory_backend_set_mapped(ptr noundef writeonly captures(none) initializes((52, 53)) %backend, i1 noundef zeroext %mapped) local_unnamed_addr #2 {
 entry:
   %frombool = zext i1 %mapped to i8
   %is_mapped = getelementptr inbounds nuw i8, ptr %backend, i64 52
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @host_memory_backend_is_mapped(ptr nocapture noundef readonly %backend) local_unnamed_addr #3 {
+define dso_local zeroext i1 @host_memory_backend_is_mapped(ptr noundef readonly captures(none) %backend) local_unnamed_addr #3 {
 entry:
   %is_mapped = getelementptr inbounds nuw i8, ptr %backend, i64 52
   %0 = load i8, ptr %is_mapped, align 4
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @host_memory_backend_pagesize(ptr nocapture noundef readonly %memdev) local_unnamed_addr #0 {
+define dso_local i64 @host_memory_backend_pagesize(ptr noundef readonly captures(none) %memdev) local_unnamed_addr #0 {
 entry:
   %ram_block = getelementptr inbounds nuw i8, ptr %memdev, i64 168
   %0 = load ptr, ptr %ram_block, align 8
@@ -209,7 +209,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @host_memory_backend_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.32, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -379,7 +379,7 @@ entry:
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_merge(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_merge(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %merge = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -389,7 +389,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_merge(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @host_memory_backend_set_merge(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -423,7 +423,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 declare void @object_class_property_set_description(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_dump(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_dump(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %dump = getelementptr inbounds nuw i8, ptr %call.i, i64 49
@@ -433,7 +433,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_dump(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @host_memory_backend_set_dump(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -465,7 +465,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_prealloc(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_prealloc(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %prealloc = getelementptr inbounds nuw i8, ptr %call.i, i64 51
@@ -540,7 +540,7 @@ if.end21:                                         ; preds = %if.end19, %if.then1
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_get_prealloc_threads(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_get_prealloc_threads(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %prealloc_threads = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -549,7 +549,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_prealloc_threads(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_set_prealloc_threads(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -581,7 +581,7 @@ declare ptr @object_class_property_add_link(ptr noundef, ptr noundef, ptr nounde
 declare void @object_property_allow_set_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_get_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_get_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -593,7 +593,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_set_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end, %if.end8, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_get_host_nodes(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_get_host_nodes(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %host_nodes = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -690,7 +690,7 @@ ret:                                              ; preds = %for.inc.i, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_host_nodes(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @host_memory_backend_set_host_nodes(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %host_nodes = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
@@ -743,7 +743,7 @@ out:                                              ; preds = %for.body7, %for.con
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @host_memory_backend_get_policy(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal i32 @host_memory_backend_get_policy(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %policy = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_policy(ptr noundef %obj, i32 noundef %policy, ptr nocapture readnone %errp) #0 {
+define internal void @host_memory_backend_set_policy(ptr noundef %obj, i32 noundef %policy, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %policy1 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -761,7 +761,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_share(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_share(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %share = getelementptr inbounds nuw i8, ptr %call.i, i64 53
@@ -794,7 +794,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_reserve(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_reserve(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %reserve = getelementptr inbounds nuw i8, ptr %call.i, i64 54
@@ -839,7 +839,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @host_memory_backend_get_use_canonical_path(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @host_memory_backend_get_use_canonical_path(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8
   %use_canonical_path = getelementptr inbounds nuw i8, ptr %call.i, i64 50
@@ -849,7 +849,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_memory_backend_set_use_canonical_path(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @host_memory_backend_set_use_canonical_path(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #8

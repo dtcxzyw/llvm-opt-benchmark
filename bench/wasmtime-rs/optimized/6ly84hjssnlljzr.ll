@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN4core3ptr19swap_nonoverlapping17h147197e4434a14a0E(ptr nocapture %0, ptr nocapture %1, i64 %2) unnamed_addr #0 {
+define void @_ZN4core3ptr19swap_nonoverlapping17h147197e4434a14a0E(ptr captures(none) %0, ptr captures(none) %1, i64 %2) unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -31,7 +31,7 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h147197e4434a14a0E(ptr nocapture
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN4core3ptr19swap_nonoverlapping17h8a209995bac202feE(ptr nocapture %0, ptr nocapture %1, i64 %2) unnamed_addr #0 {
+define void @_ZN4core3ptr19swap_nonoverlapping17h8a209995bac202feE(ptr captures(none) %0, ptr captures(none) %1, i64 %2) unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -58,7 +58,7 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h8a209995bac202feE(ptr nocapture
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN4core3ptr19swap_nonoverlapping17h99f21a770acb397bE(ptr nocapture %0, ptr nocapture %1, i64 %2) unnamed_addr #0 {
+define void @_ZN4core3ptr19swap_nonoverlapping17h99f21a770acb397bE(ptr captures(none) %0, ptr captures(none) %1, i64 %2) unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 

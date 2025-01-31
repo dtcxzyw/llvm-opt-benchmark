@@ -1150,7 +1150,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -1563,7 +1563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState18AugmentCheckerMoveEPNS0_11CheckerMoveEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState18AugmentCheckerMoveEPNS0_11CheckerMoveEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, -1
@@ -1602,13 +1602,13 @@ define noundef range(i32 -2, -2147483648) i32 @_ZNK10open_spiel10backgammon15Bac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483646, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState8OpponentEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483646, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState8OpponentEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = sub nsw i32 1, %1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [7 x %"class.absl::debian2::string_view"], align 8
   %6 = alloca [6 x %"class.absl::debian2::string_view"], align 8
   %7 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -2802,7 +2802,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit45:           ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMovesEil(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMovesEil(ptr dead_on_unwind noalias writable sret(%"class.std::vector.34") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3625,7 +3625,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN4absl7debian24SpanIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState17ObservationTensorEiN4absl7debian24SpanIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4010,7 +4010,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10backgammon15BackgammonStateC2ESt10shared_ptrIKNS_4GameEENS0_11ScoringTypeEb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10backgammon15BackgammonStateC2ESt10shared_ptrIKNS_4GameEENS0_11ScoringTypeEb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca [2 x %"class.std::vector.6"], align 8
   %7 = load ptr, ptr %1, align 8
@@ -4516,7 +4516,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel10backgammon15BackgammonState17SetupInitialBoardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel10backgammon15BackgammonState17SetupInitialBoardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -4678,7 +4678,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt6vectorIN10ope
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4894,7 +4894,7 @@ define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState13CurrentPlayer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10backgammon15BackgammonState8RollDiceEi(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel10backgammon15BackgammonState8RollDiceEi(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr @_ZN10open_spiel10backgammon12_GLOBAL__N_120kChanceOutcomeValuesE, align 8
@@ -5037,7 +5037,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit9:         ; preds = %43, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonState9DiceValueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5929,7 +5929,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN10open_spiel10backgammon15BackgammonState16ApplyCheckerMoveEiRKNS0_11CheckerMoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN10open_spiel10backgammon15BackgammonState16ApplyCheckerMoveEiRKNS0_11CheckerMoveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -6691,7 +6691,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10backgammon15BackgammonState15UndoCheckerMoveEiRKNS0_11CheckerMoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10backgammon15BackgammonState15UndoCheckerMoveEiRKNS0_11CheckerMoveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -6875,7 +6875,7 @@ _ZNK10open_spiel10backgammon15BackgammonState15PositionFromBarEii.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsHitEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsHitEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %11, label %5
 
@@ -6896,7 +6896,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsHitEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState12PositionFromEiii(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState12PositionFromEiii(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
   %7 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -7153,7 +7153,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit32: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 1352) i64 @_ZNK10open_spiel10backgammon15BackgammonState23CheckerMovesToSpielMoveERKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 1352) i64 @_ZNK10open_spiel10backgammon15BackgammonState23CheckerMovesToSpielMoveERKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7299,12 +7299,12 @@ define noundef range(i64 0, 1352) i64 @_ZNK10open_spiel10backgammon15BackgammonS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK10open_spiel10backgammon15BackgammonState14EncodedBarMoveEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK10open_spiel10backgammon15BackgammonState14EncodedBarMoveEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
   ret i64 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK10open_spiel10backgammon15BackgammonState15EncodedPassMoveEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK10open_spiel10backgammon15BackgammonState15EncodedPassMoveEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
   ret i64 25
 }
 
@@ -7675,7 +7675,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState18AugmentWithHitInfoEiRKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.34") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState18AugmentWithHitInfoEiRKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.34") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
@@ -7786,7 +7786,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState11IsPosInHomeEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState11IsPosInHomeEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -7839,7 +7839,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.split.us, label %.split
 
@@ -7868,7 +7868,7 @@ define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHom
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHomeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHomeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7957,7 +7957,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonState24HighestUsableDiceOutcomeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonState24HighestUsableDiceOutcomeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -7979,14 +7979,14 @@ define noundef range(i32 -1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonSta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState17UsableDiceOutcomeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState17UsableDiceOutcomeEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = add i32 %1, -1
   %4 = icmp ult i32 %3, 6
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, i64 23, i64 0
   %5 = select i1 %3, i32 17, i32 6
@@ -8027,7 +8027,7 @@ define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheck
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState15PositionFromBarEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState15PositionFromBarEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -8083,7 +8083,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14NumOppCheckersEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14NumOppCheckersEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = sub nsw i32 1, %1
   %6 = sext i32 %5 to i64
@@ -8097,7 +8097,7 @@ define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState14NumOppChecker
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState11GetDistanceEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK10open_spiel10backgammon15BackgammonState11GetDistanceEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8290,7 +8290,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsOffEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsOffEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp sgt i32 %2, 23
   %or.cond = and i1 %4, %5
@@ -8308,7 +8308,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState5IsOffEi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9IsFurtherEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9IsFurtherEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %14, label %6
 
@@ -8345,7 +8345,7 @@ switch.early.test:                                ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState8GetToPosEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState8GetToPosEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
   %7 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -8411,7 +8411,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState13IsLegalFromToEiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState13IsLegalFromToEiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = icmp eq i32 %4, 0
   %8 = icmp sgt i32 %5, 1
   %or.cond34 = or i1 %7, %8
@@ -8508,7 +8508,7 @@ _ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState12DiceToStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState12DiceToStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = icmp sgt i32 %2, 6
   br i1 %5, label %6, label %12
@@ -8679,7 +8679,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState18CountTotalCheckersEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState18CountTotalCheckersEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8973,7 +8973,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -8995,7 +8995,7 @@ define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonStat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -9046,7 +9046,7 @@ define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonStat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -9597,7 +9597,7 @@ _ZNSt8_Rb_treeIN10open_spiel10backgammon11CheckerMoveES2_St9_IdentityIS2_ESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10open_spiel10backgammon15BackgammonState13RecLegalMovesESt6vectorINS0_11CheckerMoveESaIS3_EEPSt3setIS5_St4lessIS5_ESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN10open_spiel10backgammon15BackgammonState13RecLegalMovesESt6vectorINS0_11CheckerMoveESaIS3_EEPSt3setIS5_St4lessIS5_ESaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::set", align 8
   %5 = alloca %"class.std::vector.34", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9869,7 +9869,7 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState17ProcessLegalMovesEiRKSt3setISt6vectorINS0_11CheckerMoveESaIS4_EESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.41") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState17ProcessLegalMovesEiRKSt3setISt6vectorINS0_11CheckerMoveESaIS4_EESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10681,7 +10681,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit20: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN10open_spiel8internal11SpielStrCatIJRA140_KcRA2_S2_iS6_RA68_S2_RA32_S2_RA4_S2_RiRA39_S2_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(140) %1, ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(2) %4, ptr noundef nonnull align 1 dereferenceable(68) %5, ptr noundef nonnull align 1 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 1 dereferenceable(39) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -10827,7 +10827,7 @@ _ZNSt8_Rb_treeISt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS3_EES5_St9_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState14ChanceOutcomesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
@@ -11086,7 +11086,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector.67", align 8
@@ -12358,7 +12358,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState10IsTerminalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState10IsTerminalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -12383,7 +12383,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState10IsTerm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.73") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState7ReturnsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.73") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -12507,7 +12507,7 @@ _ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState5CloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #33
   invoke void @_ZN10open_spiel10backgammon15BackgammonStateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(216) %1)
           to label %4 unwind label %5
@@ -13154,7 +13154,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10backgammon14BackgammonGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(285) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10backgammon14BackgammonGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(285) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"struct.open_spiel::GameType", align 8
@@ -14748,7 +14748,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK10open_spiel10backgammon14BackgammonGame10MaxUtilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(285) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK10open_spiel10backgammon14BackgammonGame10MaxUtilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(285) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.12", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -14802,7 +14802,7 @@ switch.lookup:                                    ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 3, 16) i32 @_ZNK10open_spiel10backgammon14BackgammonGame20NumCheckersPerPlayerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(285) %0) local_unnamed_addr #15 align 2 {
+define noundef range(i32 3, 16) i32 @_ZNK10open_spiel10backgammon14BackgammonGame20NumCheckersPerPlayerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(285) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -16673,7 +16673,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -16932,7 +16932,7 @@ _ZNSt8_Rb_treeISt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS3_EES5_St9_I
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN10open_spiel5StateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17039,7 +17039,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEEPS4_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -22260,10 +22260,10 @@ __cxx_global_var_init.8.exit:                     ; preds = %325, %327
 declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
@@ -22278,7 +22278,7 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24

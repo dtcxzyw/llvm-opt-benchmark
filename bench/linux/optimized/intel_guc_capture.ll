@@ -135,13 +135,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.104 = private unnamed_addr constant [76 x i8] c"GT%u: GUC: Error state capture buffer lacks spare size: %d < %d (min = %d)\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_capture_getlistsize(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_capture_getlistsize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call fastcc i32 @guc_capture_getlistsize(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false)
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @guc_capture_getlistsize(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @guc_capture_getlistsize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -415,7 +415,7 @@ define internal fastcc i32 @guc_capture_getlistsize(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1000
@@ -1097,16 +1097,16 @@ define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_getnullheader(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_getnullheader(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3088
@@ -1218,10 +1218,10 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %40 = phi i64 [ 0, %27 ], [ %200, %.loopexit28 ]
   %41 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %42) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %42) #13
   %43 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %33, i64 0, i64 %40
   %44 = load i32, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %44) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %44) #13
   %45 = trunc nuw nsw i64 %40 to i32
   switch i32 %45, label %76 [
     i32 2, label %54
@@ -1230,14 +1230,14 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
 
 46:                                               ; preds = %39
   %47 = load i32, ptr %34, align 4
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %47) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef %47) #13
   %48 = load i32, ptr %34, align 4
   %49 = and i32 %48, 255
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr [6 x i8], ptr @guc_class_engine_class_map, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %53) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %53) #13
   br label %76
 
 54:                                               ; preds = %39
@@ -1251,37 +1251,37 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %62) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %62) #13
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %64 = load i8, ptr %63, align 8
   %65 = zext i8 %64 to i32
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %65) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i32 noundef %65) #13
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 57
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %68) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %68) #13
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 52
   %70 = load i32, ptr %69, align 4
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %70) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, i32 noundef %70) #13
   br label %72
 
 71:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #13
   br label %72
 
 72:                                               ; preds = %71, %61
   %73 = load i32, ptr %35, align 8
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %73) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, i32 noundef %73) #13
   %74 = load i32, ptr %36, align 4
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %74) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %74) #13
   %75 = load i32, ptr %37, align 8
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %75) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %75) #13
   br label %76
 
 76:                                               ; preds = %72, %46, %39
   %77 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %78 = load i32, ptr %77, align 4
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %78) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %78) #13
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.loopexit28, label %80
 
@@ -1431,7 +1431,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   br i1 %177, label %.thread22, label %170
 
 .thread21:                                        ; preds = %115, %157, %170, %136, %95, %166, %164, %.loopexit, %121, %82
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
   br label %195
 
 178:                                              ; preds = %.preheader61
@@ -1441,7 +1441,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   br i1 %181, label %.thread24, label %185
 
 .thread24:                                        ; preds = %178
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
   br label %195
 
 .thread22:                                        ; preds = %.preheader59
@@ -1451,15 +1451,15 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   br i1 %184, label %186, label %.thread23
 
 .thread23:                                        ; preds = %.thread22
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %183) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %183) #13
   br label %187
 
 185:                                              ; preds = %178
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %180) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %180) #13
   br label %195
 
 186:                                              ; preds = %.thread22
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %89) #13
   br label %187
 
 187:                                              ; preds = %186, %.thread23
@@ -1470,13 +1470,13 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %192 = and i64 %191, 15
   %193 = lshr i64 %190, 20
   %194 = and i64 %193, 15
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef %192, i64 noundef %194) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, i64 noundef %192, i64 noundef %194) #13
   br label %195
 
 195:                                              ; preds = %.thread24, %185, %.thread21, %187
   %196 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %197 = load i32, ptr %196, align 1
-  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %197) #13
+  tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %197) #13
   %198 = add nuw i32 %84, 1
   %199 = icmp eq i32 %85, 0
   br i1 %199, label %.loopexit28, label %82, !llvm.loop !25
@@ -2731,7 +2731,7 @@ default.unreachable:                              ; preds = %388
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_capture_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_capture_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3435,13 +3435,13 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @intel_guc_get_log_buffer_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_guc_get_log_buffer_size(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3453,7 +3453,7 @@ declare dso_local zeroext i1 @intel_guc_check_log_buf_overflow(ptr noundef, i32 
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3844,7 +3844,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc ptr @guc_capture_clone_node(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #3 align 16 {
   %4 = alloca [3 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %6 = load ptr, ptr %5, align 8

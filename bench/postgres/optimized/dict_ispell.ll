@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [27 x i8] c"missing DictFile parameter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc0(i64 noundef 152) #6
@@ -175,7 +175,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @NIStartBuild(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -205,7 +205,7 @@ declare void @NISortAffixes(ptr noundef) local_unnamed_addr #1
 declare void @NIFinishBuild(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dispell_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dispell_lexize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -286,7 +286,7 @@ declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5

@@ -268,7 +268,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -663,7 +663,7 @@ return:                                           ; preds = %if.then3, %if.else,
 declare ptr @uhash_get_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7515RBBISymbolTable13lookupMatcherEi(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %ch) unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK6icu_7515RBBISymbolTable13lookupMatcherEi(ptr noundef nonnull align 8 captures(none) dereferenceable(108) %this, i32 noundef %ch) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq i32 %ch, 65535
   br i1 %cmp, label %if.then, label %if.end
@@ -680,7 +680,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7515RBBISymbolTable14parseReferenceERKNS_13UnicodeStringERNS_13ParsePositionEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %limit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7515RBBISymbolTable14parseReferenceERKNS_13UnicodeStringERNS_13ParsePositionEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i32 noundef %limit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   %0 = load i32, ptr %index.i, align 8
@@ -784,7 +784,7 @@ declare signext i8 @u_isIDStart_75(i32 noundef) local_unnamed_addr #6
 declare signext i8 @u_isIDPart_75(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7515RBBISymbolTable10lookupNodeERKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %key) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7515RBBISymbolTable10lookupNodeERKNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %key) unnamed_addr #1 align 2 {
 entry:
   %fHashTable = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fHashTable, align 8
@@ -803,7 +803,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBISymbolTable8addEntryERKNS_13UnicodeStringEPNS_8RBBINodeER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %key, ptr noundef %val, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBISymbolTable8addEntryERKNS_13UnicodeStringEPNS_8RBBINodeER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %key, ptr noundef %val, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -860,7 +860,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520RBBISymbolTableEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 18), (72, 80)) %this) unnamed_addr #9 align 2 {
+define void @_ZN6icu_7520RBBISymbolTableEntryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((8, 18), (72, 80)) %this) unnamed_addr #9 align 2 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8

@@ -95,7 +95,7 @@ entry:
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i64 16), ptr %this, align 8
   %timeoutSet_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -321,7 +321,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
@@ -331,7 +331,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15AsyncTimeoutSet8Callback12setScheduledEPS0_PS1_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((24, 56)) %this, ptr noundef %timeoutSet, ptr noundef %prev) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15AsyncTimeoutSet8Callback12setScheduledEPS0_PS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((24, 56)) %this, ptr noundef %timeoutSet, ptr noundef %prev) local_unnamed_addr #7 align 2 {
 entry:
   %timeoutSet_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %timeoutSet, ptr %timeoutSet_, align 8
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((48, 56)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_, align 8
@@ -1631,7 +1631,7 @@ declare void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr sre
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

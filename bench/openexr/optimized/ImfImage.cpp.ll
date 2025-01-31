@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -303,7 +303,7 @@ terminate.lpad:                                   ; preds = %for.end16.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_25Image11clearLevelsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN7Imf_3_25Image11clearLevelsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((8, 24)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %_dataWindow, align 8
@@ -488,7 +488,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7Imf_3_25Image11C
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7Imf_3_25ImageD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN7Imf_3_25ImageD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -498,7 +498,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
 entry:
   %_levelMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_levelMode, align 8
@@ -506,7 +506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_25Image17levelRoundingModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK7Imf_3_25Image17levelRoundingModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
 entry:
   %_levelRoundingMode = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_levelRoundingMode, align 4
@@ -514,7 +514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_25Image9numLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK7Imf_3_25Image9numLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_levelMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_levelMode, align 8
@@ -544,7 +544,7 @@ lpad:                                             ; preds = %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_25Image10numXLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK7Imf_3_25Image10numXLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
 entry:
   %_sizeY.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %_sizeY.i, align 8
@@ -565,7 +565,7 @@ declare void @_ZN7Iex_3_28LogicExcD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_25Image10numYLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK7Imf_3_25Image10numYLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #11 align 2 {
 entry:
   %_levels = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i64, ptr %_levels, align 8
@@ -581,14 +581,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image18dataWindowForLevelEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %l) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image18dataWindowForLevelEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %l) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image18dataWindowForLevelEii(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %l, i32 noundef %l)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image18dataWindowForLevelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image18dataWindowForLevelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp.i = icmp sgt i32 %lx, -1
@@ -677,7 +677,7 @@ unreachable:                                      ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7Imf_3_25Image18levelNumberIsValidEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK7Imf_3_25Image18levelNumberIsValidEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp sgt i32 %lx, -1
   br i1 %cmp, label %land.lhs.true, label %land.end
@@ -730,7 +730,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image10levelWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image10levelWidthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %lx) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp = icmp sgt i32 %lx, -1
@@ -814,7 +814,7 @@ unreachable:                                      ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image11levelHeightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image11levelHeightEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp = icmp sgt i32 %ly, -1
@@ -912,7 +912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %levelDataWindow = alloca %"class.Imath_3_2::Box", align 4
   %_dataWindow.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1877,7 +1877,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_25Image12eraseChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -2006,7 +2006,7 @@ if.end29:                                         ; preds = %for.end18, %_ZNSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %channel) local_unnamed_addr #6 align 2 {
+define void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(13) %channel) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %channel, align 4
   %xSampling = getelementptr inbounds nuw i8, ptr %channel, i64 4
@@ -2894,7 +2894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN7Imf_3_25Image5levelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN7Imf_3_25Image5levelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp.i = icmp sgt i32 %lx, -1
@@ -2982,7 +2982,7 @@ unreachable:                                      ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7Imf_3_25Image5levelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7Imf_3_25Image5levelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i32 noundef %lx, i32 noundef %ly) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp.i = icmp sgt i32 %lx, -1
@@ -3070,7 +3070,7 @@ unreachable:                                      ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_25Image11ChannelInfoC2ENS_9PixelTypeEiib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) initializes((0, 13)) %this, i32 noundef %type, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_25Image11ChannelInfoC2ENS_9PixelTypeEiib(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(13) initializes((0, 13)) %this, i32 noundef %type, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %pLinear to i8
   store i32 %type, ptr %this, align 4
@@ -4134,7 +4134,7 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

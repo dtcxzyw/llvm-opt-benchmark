@@ -95,7 +95,7 @@ $_ZplRK7QStringPKc = comdat any
 @_ZN16TransferFunctionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN16TransferFunctionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z13TfKeyPCompareP6TF_KEYS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define noundef zeroext i1 @_Z13TfKeyPCompareP6TF_KEYS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fcmp olt float %3, %4
@@ -103,14 +103,14 @@ define noundef zeroext i1 @_Z13TfKeyPCompareP6TF_KEYS0_(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9TfChannelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %0) unnamed_addr #1 align 2 {
+define void @_ZN9TfChannelC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 32)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9TfChannelC2E11TF_CHANNELS(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN9TfChannelC2E11TF_CHANNELS(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -118,7 +118,7 @@ define void @_ZN9TfChannelC2E11TF_CHANNELS(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9TfChannelD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9TfChannelD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -167,7 +167,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6TF_K
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
@@ -187,13 +187,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9TfChannel7setTypeE11TF_CHANNELS(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN9TfChannel7setTypeE11TF_CHANNELS(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN9TfChannel7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN9TfChannel7getTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -424,13 +424,13 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9TfChannel9removeKeyEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9TfChannel9removeKeyEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i32 %1, -1
@@ -492,7 +492,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9TfChannel9removeKeyEP6TF_KEY(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -551,7 +551,7 @@ _ZNSt6vectorIP6TF_KEYSaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZN9TfChannel16getChannelValuefEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #10 align 2 {
+define noundef float @_ZN9TfChannel16getChannelValuefEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -610,7 +610,7 @@ define noundef float @_ZN9TfChannel16getChannelValuefEf(ptr nocapture noundef no
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN9TfChannel16getChannelValuebEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i8 @_ZN9TfChannel16getChannelValuebEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -670,21 +670,21 @@ _ZN9TfChannel16getChannelValuefEf.exit:           ; preds = %31, %2, %12, %15, %
 declare noundef i32 @_Z21relative2AbsoluteValiff(float noundef, float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9TfChannel6isHeadEP6TF_KEY(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN9TfChannel6isHeadEP6TF_KEY(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fcmp oeq float %3, 0.000000e+00
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9TfChannel6isTailEP6TF_KEY(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN9TfChannel6isTailEP6TF_KEY(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fcmp oeq float %3, 1.000000e+00
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9TfChannel4flipEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN9TfChannel4flipEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -709,7 +709,7 @@ define void @_ZN9TfChannel4flipEv(ptr nocapture noundef nonnull readonly align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9TfChannel15updateKeysOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN9TfChannel15updateKeysOrderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1442,7 +1442,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_E
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN9TfChannelixEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN9TfChannelixEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, float noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1468,7 +1468,7 @@ define noundef ptr @_ZN9TfChannelixEf(ptr nocapture noundef nonnull readonly ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN9TfChannelixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN9TfChannelixEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1491,7 +1491,7 @@ define noundef ptr @_ZN9TfChannelixEm(ptr nocapture noundef nonnull readonly ali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZN7QStringD2Ev.exit, %1
@@ -1625,7 +1625,7 @@ define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16TransferFunction6initTFEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16492) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16TransferFunction6initTFEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16492) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -3787,7 +3787,7 @@ declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unn
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #12
 
@@ -3810,12 +3810,12 @@ define void @_ZN16TransferFunctionD2Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN16TransferFunction4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN16TransferFunction4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -4020,7 +4020,7 @@ declare noundef float @_Z21absolute2RelativeValfff(float noundef, float noundef)
 declare void @_ZN6QColor7setRgbFEdddd(ptr noundef nonnull align 4 dereferenceable(14), double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -16777216, 0) i32 @_ZN16TransferFunction17getColorByQualityEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0, float noundef %1) local_unnamed_addr #7 align 2 {
+define range(i32 -16777216, 0) i32 @_ZN16TransferFunction17getColorByQualityEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %0, float noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4188,7 +4188,7 @@ _ZN9TfChannel16getChannelValuebEf.exit17:         ; preds = %93, %_ZN9TfChannel1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 align 2 {
+define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 align 2 {
   %7 = alloca %"class.vcg::Color4", align 4
   %8 = fcmp olt float %1, %2
   br i1 %8, label %17, label %9
@@ -4259,7 +4259,7 @@ define i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr nocapture noundef
 declare float @powf(float noundef, float noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16TransferFunction8flipRampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN16TransferFunction8flipRampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %0) local_unnamed_addr #7 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %_ZN9TfChannel4flipEv.exit
@@ -4294,7 +4294,7 @@ _ZN9TfChannel4flipEv.exit:                        ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16TransferFunction13saveColorBandE7QStringR14EQUALIZER_INFO(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16TransferFunction13saveColorBandE7QStringR14EQUALIZER_INFO(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16492) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -4858,7 +4858,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN16TransferFunction16moveChannelAheadE11TF_CHANNELS(ptr nocapture noundef nonnull align 8 dereferenceable(16492) %0, i32 noundef %1) local_unnamed_addr #19 align 2 {
+define void @_ZN16TransferFunction16moveChannelAheadE11TF_CHANNELS(ptr noundef nonnull align 8 captures(none) dereferenceable(16492) %0, i32 noundef %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
@@ -4912,10 +4912,10 @@ declare void @llvm.assume(i1 noundef) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -19,7 +19,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork3new17h4732e8fb093
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %4 = insertvalue { ptr, i64 } %3, i64 0, 1
@@ -27,7 +27,7 @@ define { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nocapture align 8 %0) unnamed_addr #0 {
+define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr align 8 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [4 x i8], align 4
   %4 = alloca [24 x i8], align 8
@@ -93,7 +93,7 @@ define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..For
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..fork..Fork$GT$3fmt17h8f0694bbda75a6d4E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..fork..Fork$GT$3fmt17h8f0694bbda75a6d4E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 4
   %4 = alloca [8 x i8], align 4
   %5 = alloca [16 x i8], align 8
@@ -170,7 +170,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64, ptr align 4, i64, ptr align 8) unnamed_addr #2

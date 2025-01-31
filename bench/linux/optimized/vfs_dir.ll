@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__tracepoint_9p_fid_ref = external dso_local global %struct.tracepoint, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @v9fs_dir_release(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @v9fs_dir_release(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -111,13 +111,13 @@ define dso_local i32 @v9fs_dir_release(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @filemap_fdatawrite(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @generic_file_llseek(ptr noundef, i64 noundef, i32 noundef) #2
@@ -126,7 +126,7 @@ declare dso_local i64 @generic_file_llseek(ptr noundef, i64 noundef, i32 noundef
 declare dso_local i64 @generic_read_dir(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_dir_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @v9fs_dir_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.p9_wstat, align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.kvec, align 8
@@ -265,7 +265,7 @@ define internal i32 @v9fs_dir_readdir(ptr nocapture noundef readonly %0, ptr nou
 declare dso_local i32 @v9fs_file_open(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @v9fs_dir_readdir_dotl(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.p9_dirent, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %3, i8 0, i64 288, i1 false), !annotation !9
@@ -385,7 +385,7 @@ declare dso_local i32 @p9_client_clunk(ptr noundef) local_unnamed_addr #2
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iov_iter_kvec(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -397,7 +397,7 @@ declare dso_local i32 @p9_client_read(ptr noundef, i64 noundef, ptr noundef, ptr
 declare dso_local i32 @p9stat_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @v9fs_qid2ino(ptr noundef) local_unnamed_addr #2

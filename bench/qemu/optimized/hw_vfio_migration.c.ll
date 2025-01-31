@@ -476,7 +476,7 @@ declare void @error_free(ptr noundef) local_unnamed_addr #3
 declare i32 @migrate_add_blocker(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -492,7 +492,7 @@ declare void @strpadcpy(ptr noundef, i32 noundef, ptr noundef, i8 noundef signex
 declare i32 @register_savevm_live(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_vmstate_change_prepare(ptr nocapture noundef readonly %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
+define internal void @vfio_vmstate_change_prepare(ptr noundef readonly captures(none) %opaque, i1 noundef zeroext %running, i32 noundef %state) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %migration1 = getelementptr inbounds nuw i8, ptr %opaque, i64 128
@@ -648,7 +648,7 @@ trace_vfio_vmstate_change.exit:                   ; preds = %if.end11, %land.lhs
 declare void @migration_add_notifier(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_migration_state_notifier(ptr nocapture noundef readonly %notifier, ptr nocapture noundef readonly %data) #2 {
+define internal void @vfio_migration_state_notifier(ptr noundef readonly captures(none) %notifier, ptr noundef readonly captures(none) %data) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %notifier, i64 -16
@@ -792,7 +792,7 @@ if.end:                                           ; preds = %if.then, %vfio_save
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @vfio_save_prepare(ptr nocapture noundef readonly %opaque, ptr noundef %errp) #2 {
+define internal range(i32 -95, 1) i32 @vfio_save_prepare(ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #2 {
 entry:
   %call = tail call zeroext i1 @runstate_check(i32 noundef 10) #16
   br i1 %call, label %return, label %if.end
@@ -823,7 +823,7 @@ return:                                           ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_save_setup(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
+define internal i32 @vfio_save_setup(ptr noundef %f, ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %precopy.i = alloca %struct.vfio_precopy_info, align 8
@@ -953,7 +953,7 @@ return:                                           ; preds = %if.then6, %sw.bb, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_save_cleanup(ptr nocapture noundef readonly %opaque) #2 {
+define internal void @vfio_save_cleanup(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %migration1 = getelementptr inbounds nuw i8, ptr %opaque, i64 128
@@ -1019,7 +1019,7 @@ trace_vfio_save_cleanup.exit:                     ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_save_complete_precopy(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
+define internal i32 @vfio_save_complete_precopy(ptr noundef %f, ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call fastcc i32 @vfio_migration_set_state(ptr noundef %opaque, i32 noundef 3, i32 noundef 1)
@@ -1102,7 +1102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 2) i32 @vfio_save_iterate(ptr noundef %f, ptr nocapture noundef readonly %opaque) #2 {
+define internal range(i32 -2147483648, 2) i32 @vfio_save_iterate(ptr noundef %f, ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %migration1 = getelementptr inbounds nuw i8, ptr %opaque, i64 128
@@ -1216,7 +1216,7 @@ return:                                           ; preds = %trace_vfio_save_ite
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_state_pending_estimate(ptr noundef %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef readonly %can_postcopy) #2 {
+define internal void @vfio_state_pending_estimate(ptr noundef %opaque, ptr noundef captures(none) %must_precopy, ptr noundef readonly captures(none) %can_postcopy) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %migration1 = getelementptr inbounds nuw i8, ptr %opaque, i64 128
@@ -1279,7 +1279,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_state_pending_exact(ptr noundef %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef readonly %can_postcopy) #2 {
+define internal void @vfio_state_pending_exact(ptr noundef %opaque, ptr noundef captures(none) %must_precopy, ptr noundef readonly captures(none) %can_postcopy) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %precopy.i = alloca %struct.vfio_precopy_info, align 8
@@ -1625,7 +1625,7 @@ return:                                           ; preds = %while.cond, %sw.epi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_load_setup(ptr nocapture readnone %f, ptr nocapture noundef readonly %opaque) #2 {
+define internal i32 @vfio_load_setup(ptr readnone captures(none) %f, ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %migration = getelementptr inbounds nuw i8, ptr %opaque, i64 128
   %0 = load ptr, ptr %migration, align 8
@@ -1636,7 +1636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vfio_load_cleanup(ptr nocapture noundef readonly %opaque) #2 {
+define internal noundef i32 @vfio_load_cleanup(ptr noundef readonly captures(none) %opaque) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %opaque, i64 128
@@ -1685,7 +1685,7 @@ trace_vfio_load_cleanup.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @vfio_switchover_ack_needed(ptr nocapture noundef readonly %opaque) #8 {
+define internal zeroext i1 @vfio_switchover_ack_needed(ptr noundef readonly captures(none) %opaque) #8 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 128
   %opaque.val = load ptr, ptr %0, align 8
@@ -1705,7 +1705,7 @@ declare void @qemu_put_be64(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1721,7 +1721,7 @@ declare zeroext i1 @migrate_background_snapshot() local_unnamed_addr #3
 declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vfio_migration_set_state(ptr nocapture noundef readonly %vbasedev, i32 noundef range(i32 1, 8) %new_state, i32 noundef %recover_state) unnamed_addr #2 {
+define internal fastcc i32 @vfio_migration_set_state(ptr noundef readonly captures(none) %vbasedev, i32 noundef range(i32 1, 8) %new_state, i32 noundef %recover_state) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [2 x i64], align 16
@@ -1894,10 +1894,10 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare void @hw_error(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @vfio_save_block(ptr noundef %f, ptr nocapture noundef readonly %migration) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @vfio_save_block(ptr noundef %f, ptr noundef readonly captures(none) %migration) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %data_fd = getelementptr inbounds nuw i8, ptr %migration, i64 44
@@ -1983,7 +1983,7 @@ return:                                           ; preds = %if.end5, %if.then, 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2016,10 +2016,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

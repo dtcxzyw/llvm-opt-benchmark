@@ -193,7 +193,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @parse_env(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @parse_env(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   ret i32 0
 }
 
@@ -323,28 +323,28 @@ sub_09:                                           ; preds = %.tail
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_default_rto(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal i32 @set_default_rto(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef null) #8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @setup_fork(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal noundef i32 @setup_fork(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @job_info(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @job_info(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_sanity(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @check_sanity(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @prte_util_make_version_string(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -355,20 +355,20 @@ declare i32 @prte_pmix_convert_status(i32 noundef) local_unnamed_addr #3
 declare void @prte_schizo_base_expose(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @prte_schizo_base_root_error_msg() local_unnamed_addr #3
 

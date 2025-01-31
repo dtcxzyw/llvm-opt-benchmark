@@ -220,7 +220,7 @@ declare i32 @vbe_ioport_read_data(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @vbe_ioport_write_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3200171711) i64 @pci_vga_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 3200171711) i64 @pci_vga_qext_read(ptr noundef readonly captures(none) %ptr, i64 noundef %addr, i32 %size) #2 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return
@@ -243,7 +243,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @pci_vga_qext_write(ptr nocapture noundef writeonly %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #3 {
+define internal void @pci_vga_qext_write(ptr noundef writeonly captures(none) %ptr, i64 noundef %addr, i64 noundef %val, i32 %size) #3 {
 entry:
   %cond = icmp eq i64 %addr, 4
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -270,7 +270,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vga_pci_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vga_pci_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
@@ -295,7 +295,7 @@ declare void @build_vga_aml(ptr noundef, ptr noundef) #1
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vga_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vga_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
@@ -372,7 +372,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vga_get_big_endian_fb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @vga_get_big_endian_fb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vga_set_big_endian_fb(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @vga_set_big_endian_fb(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @secondary_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @secondary_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4

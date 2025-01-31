@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN5boost4urls12default_portENS0_6schemeE = private unnamed_addr constant [6 x i16] [i16 21, i16 0, i16 80, i16 443, i16 80, i16 443], align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i16 0, 8) i16 @_ZN5boost4urls16string_to_schemeENS_4core17basic_string_viewIcEE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define noundef zeroext range(i16 0, 8) i16 @_ZN5boost4urls16string_to_schemeENS_4core17basic_string_viewIcEE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %130 [
     i64 0, label %131
     i64 2, label %3

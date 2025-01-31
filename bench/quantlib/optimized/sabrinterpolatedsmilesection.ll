@@ -719,7 +719,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib17SABRInterpolationEEE = comdat
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -804,7 +804,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1222,7 +1222,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC2ERKNS_4DateENS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEEbS6_RKS7_IS6_SaIS6_EEddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSH_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr nocapture noundef %forward, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr nocapture noundef %atmVolatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr nocapture noundef %endCriteria, ptr nocapture noundef %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC2ERKNS_4DateENS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEEbS6_RKS7_IS6_SaIS6_EEddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSH_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr noundef captures(none) %forward, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr noundef captures(none) %atmVolatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr noundef captures(none) %endCriteria, ptr noundef captures(none) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -2853,7 +2853,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC1ERKNS_4DateENS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEEbS6_RKS7_IS6_SaIS6_EEddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSH_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) initializes((328, 336), (344, 348), (352, 360)) %this, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr nocapture noundef %forward, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr nocapture noundef %atmVolatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr nocapture noundef %endCriteria, ptr nocapture noundef %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC1ERKNS_4DateENS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEEbS6_RKS7_IS6_SaIS6_EEddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSH_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) initializes((328, 336), (344, 348), (352, 360)) %this, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr noundef captures(none) %forward, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr noundef captures(none) %atmVolatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr noundef captures(none) %endCriteria, ptr noundef captures(none) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -4069,7 +4069,7 @@ ehcleanup100:                                     ; preds = %ehcleanup95, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC2ERKNS_4DateERKdRKSt6vectorIdSaIdEEbS5_SA_ddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSC_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %forward, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %atmVolatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr nocapture noundef %endCriteria, ptr nocapture noundef %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC2ERKNS_4DateERKdRKSt6vectorIdSaIdEEbS5_SA_ddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSC_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %forward, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %atmVolatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr noundef captures(none) %endCriteria, ptr noundef captures(none) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -5188,7 +5188,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC1ERKNS_4DateERKdRKSt6vectorIdSaIdEEbS5_SA_ddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSC_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) initializes((328, 336), (344, 348), (352, 360)) %this, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %forward, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %atmVolatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr nocapture noundef %endCriteria, ptr nocapture noundef %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28SabrInterpolatedSmileSectionC1ERKNS_4DateERKdRKSt6vectorIdSaIdEEbS5_SA_ddddbbbbbN5boost10shared_ptrINS_11EndCriteriaEEENSC_INS_18OptimizationMethodEEERKNS_10DayCounterEd(ptr noundef nonnull align 8 dereferenceable(328) initializes((328, 336), (344, 348), (352, 360)) %this, ptr noundef nonnull align 8 dereferenceable(8) %optionDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %forward, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %strikes, i1 noundef zeroext %hasFloatingStrikes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %atmVolatility, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volHandles, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, i1 noundef zeroext %isAlphaFixed, i1 noundef zeroext %isBetaFixed, i1 noundef zeroext %isNuFixed, i1 noundef zeroext %isRhoFixed, i1 noundef zeroext %vegaWeighted, ptr noundef captures(none) %endCriteria, ptr noundef captures(none) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dc, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -8627,7 +8627,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
@@ -9201,7 +9201,7 @@ _ZN8QuantLib12SmileSectionD2Ev.exit:              ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #18
@@ -9271,7 +9271,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib6HandleINS2_5QuoteEEEEEvT_S7_.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
@@ -15097,7 +15097,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -15517,7 +15517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @_ZN8QuantLib22validateSabrParametersEdddd(double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #7
 

@@ -326,7 +326,7 @@ define void @packets_bar_update() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar23updateCaptureStatisticsEP16_capture_session(ptr noundef nonnull align 8 dereferenceable(512) initializes((504, 505)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13MainStatusBar23updateCaptureStatisticsEP16_capture_session(ptr noundef nonnull align 8 dereferenceable(512) initializes((504, 505)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i8 0, ptr %3, align 8
   tail call void @_ZN13MainStatusBar21showCaptureStatisticsEv(ptr noundef nonnull align 8 dereferenceable(512) %0)
@@ -3015,13 +3015,13 @@ declare void @_ZN13ProgressFrameD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN10QStatusBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar10showExpertEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13MainStatusBar10showExpertEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13MainStatusBar12expertUpdateEv(ptr noundef nonnull align 8 dereferenceable(512) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar12expertUpdateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13MainStatusBar12expertUpdateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -4512,7 +4512,7 @@ _ZN7QStringD2Ev.exit40:                           ; preds = %_ZN5QListIiED2Ev.ex
 declare void @_ZN7QWidget11changeEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar14setCaptureFileEP13_capture_file(ptr nocapture noundef nonnull align 8 dereferenceable(512) initializes((472, 480)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13MainStatusBar14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 captures(none) dereferenceable(512) initializes((472, 480)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5648,7 +5648,7 @@ declare ptr @get_profile_name() local_unnamed_addr #1
 declare noundef ptr @_ZN15MainApplication10mainWindowEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13MainStatusBar20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13MainStatusBar21showCaptureStatisticsEv(ptr noundef nonnull align 8 dereferenceable(512) %0)
   ret void
 }
@@ -5658,7 +5658,7 @@ declare void @_ZN10MainWindow12selectedRowsEb(ptr dead_on_unwind writable sret(%
 declare zeroext i1 @is_packet_configuration_namespace() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13MainStatusBar28updateCaptureFixedStatisticsEP16_capture_session(ptr noundef nonnull align 8 dereferenceable(512) initializes((504, 505)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13MainStatusBar28updateCaptureFixedStatisticsEP16_capture_session(ptr noundef nonnull align 8 dereferenceable(512) initializes((504, 505)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i8 1, ptr %3, align 8
   tail call void @_ZN13MainStatusBar21showCaptureStatisticsEv(ptr noundef nonnull align 8 dereferenceable(512) %0)
@@ -6093,7 +6093,7 @@ declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%cla
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZN5QIconD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
@@ -6609,13 +6609,13 @@ declare void @llvm.va_end.p0(ptr) #8
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

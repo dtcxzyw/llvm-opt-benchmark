@@ -99,7 +99,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @anetSetError(ptr noundef %err, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #4 {
+define internal void @anetSetError(ptr noundef %err, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #4 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %err, null
@@ -416,7 +416,7 @@ return:                                           ; preds = %if.end3, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -953,7 +953,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %0, i8 0, i64 108, i1 false)
   store i16 1, ptr %sa, align 2
   %sun_path = getelementptr inbounds nuw i8, ptr %sa, i64 2
-  %call6 = call i64 @redis_strlcpy(ptr noundef nonnull %sun_path, ptr noundef %path, i64 noundef 108) #10
+  %call6 = call i64 @redis_strlcpy(ptr noundef nonnull %sun_path, ptr noundef nonnull %path, i64 noundef 108) #10
   %call.i = call i32 @bind(i32 noundef range(i32 0, -1) %call2, ptr nonnull %sa, i32 noundef 110) #10
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %2, label %if.end.i
@@ -989,7 +989,7 @@ return:                                           ; preds = %2, %if.end8.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @anetTcpAccept(ptr noundef %err, i32 noundef %serversock, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly %port) local_unnamed_addr #0 {
@@ -1222,7 +1222,7 @@ declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @anetPipe(ptr noundef %fds, i32 noundef %read_flags, i32 noundef %write_flags) local_unnamed_addr #0 {
@@ -1347,7 +1347,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @anetIsFifo(ptr nocapture noundef readonly %filepath) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @anetIsFifo(ptr noundef readonly captures(none) %filepath) local_unnamed_addr #4 {
 entry:
   %sb = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filepath, ptr noundef nonnull %sb) #10
@@ -1362,13 +1362,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #8
@@ -1380,10 +1380,10 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1391,10 +1391,10 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

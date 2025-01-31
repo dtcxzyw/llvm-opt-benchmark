@@ -4030,7 +4030,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_121StandardLevelComputerEEC2IRA4_KcS8_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -4296,7 +4296,7 @@ define internal void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK23cmStandardLevelResolver19GetCompileOptionDefEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK23cmStandardLevelResolver19GetCompileOptionDefEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [6 x %"struct.std::pair.659"], align 8
   %7 = alloca %class.cmAlphaNum, align 8
   %8 = alloca [5 x %"struct.std::pair.659"], align 8
@@ -5861,7 +5861,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK23cmStandardLevelResolver20GetEffectiveStandardEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK23cmStandardLevelResolver20GetEffectiveStandardEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [6 x %"struct.std::pair.659"], align 8
   %7 = alloca %class.cmAlphaNum, align 8
   %8 = alloca [3 x %"struct.std::pair.659"], align 8
@@ -6548,7 +6548,7 @@ _ZNK12_GLOBAL__N_121StandardLevelComputer20GetEffectiveStandardEP10cmMakefilePK1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver24AddRequiredTargetFeatureEP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver24AddRequiredTargetFeatureEP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x %"struct.std::pair.659"], align 8
   %6 = alloca [2 x %"struct.std::pair.659"], align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7311,7 +7311,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver29CheckCompileFeaturesAvailableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_PS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver29CheckCompileFeaturesAvailableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_PS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [3 x %"struct.std::pair.659"], align 8
   %7 = alloca [3 x %"struct.std::pair.659"], align 8
   %8 = alloca %class.cmList, align 8
@@ -7573,7 +7573,7 @@ _ZN6cmListD2Ev.exit:                              ; preds = %99, %_ZSt8_DestroyI
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8cmTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver22GetNewRequiredStandardERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_7cmValueRSt8optionalI15cmStandardLevelERS5_PS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver22GetNewRequiredStandardERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_7cmValueRSt8optionalI15cmStandardLevelERS5_PS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %3, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [7 x %"struct.std::pair.659"], align 8
   %9 = alloca [3 x %"struct.std::pair.659"], align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7924,7 +7924,7 @@ declare ptr @_ZNK8cmTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_tr
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver19CompileFeatureKnownERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_PS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver19CompileFeatureKnownERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_PS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.cmStrCmp, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %struct.cmStrCmp, align 8
@@ -8110,7 +8110,7 @@ declare noundef ptr @_ZNK10cmMakefile18GetGlobalGeneratorEv(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZNK17cmGlobalGenerator18GetLanguageEnabledERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1778), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @_ZNK23cmStandardLevelResolver24CompileFeaturesAvailableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local ptr @_ZNK23cmStandardLevelResolver24CompileFeaturesAvailableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.659"], align 8
   %5 = alloca [3 x %"struct.std::pair.659"], align 8
   %6 = alloca [3 x %"struct.std::pair.659"], align 8
@@ -8510,7 +8510,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt7find_ifIPKPKc8cmStrCmpET_S5_S5_T
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i8 } @_ZNK23cmStandardLevelResolver27CompileFeatureStandardLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
+define dso_local { i64, i8 } @_ZNK23cmStandardLevelResolver27CompileFeatureStandardLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
   %4 = tail call fastcc ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_121StandardLevelComputerESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -8715,7 +8715,7 @@ _ZN6cmListD2Ev.exit:                              ; preds = %59, %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i8 } @_ZNK23cmStandardLevelResolver21LanguageStandardLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i8 } @_ZNK23cmStandardLevelResolver21LanguageStandardLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call fastcc ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_121StandardLevelComputerESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %58, label %6
@@ -8846,7 +8846,7 @@ _ZNK12_GLOBAL__N_121StandardLevelComputer21LanguageStandardLevelERKNSt7__cxx1112
 declare ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver21HaveStandardAvailableEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver21HaveStandardAvailableEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [7 x %"struct.std::pair.659"], align 8
   %7 = alloca [5 x %"struct.std::pair.659"], align 8
   %8 = alloca [3 x %"struct.std::pair.659"], align 8
@@ -9306,7 +9306,7 @@ _ZNK12_GLOBAL__N_121StandardLevelComputer21HaveStandardAvailableEP10cmMakefilePK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver15IsLaterStandardERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK23cmStandardLevelResolver15IsLaterStandardERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call fastcc ptr @_ZNKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_121StandardLevelComputerESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -9722,7 +9722,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
@@ -9925,7 +9925,7 @@ declare noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt11char_tra
 declare void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -10028,7 +10028,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -10319,7 +10319,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #0
 
@@ -10517,7 +10517,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops
   br i1 %17, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %16
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %14, ptr %10, i64 %11)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %14, ptr nonnull %10, i64 %11)
   %18 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %18, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %19
 
@@ -10536,7 +10536,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %16
   br i1 %28, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30: ; preds = %27
-  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr %25, ptr %21, i64 %22)
+  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr %25, ptr nonnull %21, i64 %22)
   %29 = icmp eq i32 %bcmp.i.i.i31, 0
   br i1 %29, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit86, label %30
 
@@ -10555,7 +10555,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i30: ; preds = %27
   br i1 %39, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit88, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i34
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i34: ; preds = %38
-  %bcmp.i.i.i35 = tail call i32 @bcmp(ptr %36, ptr %32, i64 %33)
+  %bcmp.i.i.i35 = tail call i32 @bcmp(ptr %36, ptr nonnull %32, i64 %33)
   %40 = icmp eq i32 %bcmp.i.i.i35, 0
   br i1 %40, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit90, label %41
 
@@ -10574,7 +10574,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i34: ; preds = %38
   br i1 %50, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit92, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38: ; preds = %49
-  %bcmp.i.i.i39 = tail call i32 @bcmp(ptr %47, ptr %43, i64 %44)
+  %bcmp.i.i.i39 = tail call i32 @bcmp(ptr %47, ptr nonnull %43, i64 %44)
   %51 = icmp eq i32 %bcmp.i.i.i39, 0
   br i1 %51, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit.loopexit.split.loop.exit94, label %52
 
@@ -10613,7 +10613,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i38: ; preds = %49
   br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42: ; preds = %64
-  %bcmp.i.i.i43 = tail call i32 @bcmp(ptr %62, ptr %58, i64 %59)
+  %bcmp.i.i.i43 = tail call i32 @bcmp(ptr %62, ptr nonnull %58, i64 %59)
   %66 = icmp eq i32 %bcmp.i.i.i43, 0
   br i1 %66, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %67
 
@@ -10636,7 +10636,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i42: ; preds = %64
   br i1 %77, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46: ; preds = %76
-  %bcmp.i.i.i47 = tail call i32 @bcmp(ptr %74, ptr %70, i64 %71)
+  %bcmp.i.i.i47 = tail call i32 @bcmp(ptr %74, ptr nonnull %70, i64 %71)
   %78 = icmp eq i32 %bcmp.i.i.i47, 0
   br i1 %78, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %79
 
@@ -10659,7 +10659,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46: ; preds = %76
   br i1 %89, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50: ; preds = %88
-  %bcmp.i.i.i51 = tail call i32 @bcmp(ptr %86, ptr %82, i64 %83)
+  %bcmp.i.i.i51 = tail call i32 @bcmp(ptr %86, ptr nonnull %82, i64 %83)
   %90 = icmp eq i32 %bcmp.i.i.i51, 0
   br i1 %90, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predI8cmStrCmpEclIPKPKcEEbT_.exit53.thread
 
@@ -10709,16 +10709,16 @@ define internal void @_GLOBAL__sub_I_cmStandardLevelResolver.cxx() #3 section ".
 declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(ptr noundef %tid, ptr nocapture noundef readonly %params, ptr noundef %entry1, ptr noundef %arg) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(ptr noundef %tid, ptr noundef readonly captures(none) %params, ptr noundef %entry1, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %lim.i = alloca %struct.rlimit, align 8
   %attr_storage = alloca %union.pthread_attr_t, align 8
@@ -195,7 +195,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_thread_setaffinity(ptr nocapture noundef readonly %tid, ptr nocapture noundef readonly %cpumask, ptr noundef writeonly %oldmask, i64 noundef %mask_size) local_unnamed_addr #0 {
+define i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) %tid, ptr noundef readonly captures(none) %cpumask, ptr noundef writeonly %oldmask, i64 noundef %mask_size) local_unnamed_addr #0 {
 entry:
   %cpuset.i = alloca %struct.cpu_set_t, align 8
   %cpuset = alloca %struct.cpu_set_t, align 8
@@ -320,7 +320,7 @@ return:                                           ; preds = %uv_thread_getaffini
 declare i32 @uv_cpumask_size() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_thread_getaffinity(ptr nocapture noundef readonly %tid, ptr nocapture noundef writeonly %cpumask, i64 noundef %mask_size) local_unnamed_addr #0 {
+define i32 @uv_thread_getaffinity(ptr noundef readonly captures(none) %tid, ptr noundef writeonly captures(none) %cpumask, i64 noundef %mask_size) local_unnamed_addr #0 {
 entry:
   %cpuset = alloca %struct.cpu_set_t, align 8
   %call = tail call i32 @uv_cpumask_size() #11
@@ -376,7 +376,7 @@ return:                                           ; preds = %cond.end, %for.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -419,7 +419,7 @@ entry:
 declare i64 @pthread_self() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr nocapture noundef readonly %tid) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr noundef readonly captures(none) %tid) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %tid, align 8
   %call = tail call i32 @pthread_join(i64 noundef %0, ptr noundef null) #11
@@ -430,7 +430,7 @@ entry:
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uv_thread_equal(ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #7 {
+define i32 @uv_thread_equal(ptr noundef readonly captures(none) %t1, ptr noundef readonly captures(none) %t2) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %t1, align 8
   %1 = load i64, ptr %t2, align 8
@@ -1287,7 +1287,7 @@ entry:
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @uv_key_delete(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define void @uv_key_delete(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %call = tail call i32 @pthread_key_delete(i32 noundef %0) #11
@@ -1306,7 +1306,7 @@ if.end:                                           ; preds = %entry
 declare i32 @pthread_key_delete(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @uv_key_get(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define ptr @uv_key_get(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %call = tail call ptr @pthread_getspecific(i32 noundef %0) #11
@@ -1317,7 +1317,7 @@ entry:
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @uv_key_set(ptr nocapture noundef readonly %key, ptr noundef %value) local_unnamed_addr #0 {
+define void @uv_key_set(ptr noundef readonly captures(none) %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %call = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %value) #11
@@ -1342,7 +1342,7 @@ declare i64 @__sysconf(i32 noundef) local_unnamed_addr #1
 declare ptr @gnu_get_libc_version() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #4
 
@@ -1363,10 +1363,10 @@ declare i32 @sem_wait(ptr noundef) local_unnamed_addr #4
 declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

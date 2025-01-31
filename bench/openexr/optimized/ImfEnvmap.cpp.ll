@@ -22,7 +22,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %dir) local_unnamed_addr #3 {
+define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %dir) local_unnamed_addr #3 {
 entry:
   %z = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %0 = load float, ptr %z, align 4
@@ -153,7 +153,7 @@ cond.end22:                                       ; preds = %cond.end, %cond.fal
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pixelPosition) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pixelPosition) local_unnamed_addr #5 {
 entry:
   %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
@@ -202,7 +202,7 @@ if.end32:                                         ; preds = %if.end, %if.then16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %latLong) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %latLong) local_unnamed_addr #5 {
 entry:
   %y = getelementptr inbounds nuw i8, ptr %latLong, i64 4
   %0 = load float, ptr %y, align 4
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS1_4Vec3IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %direction) local_unnamed_addr #6 {
+define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS1_4Vec3IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %direction) local_unnamed_addr #6 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   call void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr nonnull sret(%"class.Imath_3_2::Vec2") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %direction)
@@ -267,7 +267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210LatLongMap9directionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pixelPosition) local_unnamed_addr #3 {
+define void @_ZN7Imf_3_210LatLongMap9directionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec3") align 4 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pixelPosition) local_unnamed_addr #3 {
 entry:
   %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %y.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
@@ -325,7 +325,7 @@ _ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -2147483647, 357913942) i32 @_ZN7Imf_3_27CubeMap10sizeOfFaceERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #7 {
+define noundef range(i32 -2147483647, 357913942) i32 @_ZN7Imf_3_27CubeMap10sizeOfFaceERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #7 {
 entry:
   %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_27CubeMap17dataWindowForFaceENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Box") align 4 initializes((0, 16)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_27CubeMap17dataWindowForFaceENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEE(ptr noalias writeonly sret(%"class.Imath_3_2::Box") align 4 captures(none) initializes((0, 16)) %agg.result, i32 noundef %face, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #5 {
 entry:
   %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4
@@ -373,7 +373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_27CubeMap13pixelPositionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEENS4_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef readonly %positionInFace) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_27CubeMap13pixelPositionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEENS4_IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2") align 4 captures(none) initializes((0, 8)) %agg.result, i32 noundef %face, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef readonly captures(none) %positionInFace) local_unnamed_addr #5 {
 entry:
   %max.i.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i.i, align 4, !noalias !10
@@ -475,7 +475,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_27CubeMap20faceAndPixelPositionERKN9Imath_3_24Vec3IfEERKNS1_3BoxINS1_4Vec2IiEEEERNS_11CubeMapFaceERNS7_IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %direction, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %face, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %pif) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_27CubeMap20faceAndPixelPositionERKN9Imath_3_24Vec3IfEERKNS1_3BoxINS1_4Vec2IiEEEERNS_11CubeMapFaceERNS7_IfEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %direction, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %face, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %pif) local_unnamed_addr #5 {
 entry:
   %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4
@@ -601,7 +601,7 @@ if.end70:                                         ; preds = %if.else45, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_27CubeMap9directionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEERKNS4_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %positionInFace) local_unnamed_addr #5 {
+define void @_ZN7Imf_3_27CubeMap9directionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEERKNS4_IfEE(ptr noalias writeonly sret(%"class.Imath_3_2::Vec3") align 4 captures(none) initializes((0, 12)) %agg.result, i32 noundef %face, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %positionInFace) local_unnamed_addr #5 {
 entry:
   %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4

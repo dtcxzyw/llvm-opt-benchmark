@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr nocapture noundef readonly %szComment, ptr nocapture noundef %szBuffer, i8 noundef signext %chReplacement) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef readonly captures(none) %szComment, ptr noundef captures(none) %szBuffer, i8 noundef signext %chReplacement) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szComment) #3
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szBuffer) #3
@@ -48,7 +48,7 @@ if.end15:                                         ; preds = %land.lhs.true, %lan
 
 if.end18:                                         ; preds = %if.end15
   %add.ptr = getelementptr inbounds i8, ptr %szBuffer, i64 %i.1
-  %call19 = tail call i32 @strncmp(ptr noundef %add.ptr, ptr noundef %szComment, i64 noundef %spec.select) #3
+  %call19 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull %szComment, i64 noundef %spec.select) #3
   %tobool.not = icmp eq i32 %call19, 0
   %cmp2227 = icmp ult i64 %i.1, %call1
   %or.cond = and i1 %tobool.not, %cmp2227
@@ -82,13 +82,13 @@ for.end:                                          ; preds = %for.inc, %if.end15,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr nocapture noundef readonly %szCommentStart, ptr nocapture noundef readonly %szCommentEnd, ptr nocapture noundef %szBuffer, i8 noundef signext %chReplacement) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp14CommentRemover23RemoveMultiLineCommentsEPKcS2_Pcc(ptr noundef readonly captures(none) %szCommentStart, ptr noundef readonly captures(none) %szCommentEnd, ptr noundef captures(none) %szBuffer, i8 noundef signext %chReplacement) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %szCommentEnd) #3
   %call.fr = freeze i64 %call
@@ -124,7 +124,7 @@ land.lhs.true.us:                                 ; preds = %while.cond4.us
 
 if.end.us:                                        ; preds = %while.cond4.us, %land.lhs.true.us, %land.lhs.true.us, %while.cond.us
   %szBuffer.addr.1.us = phi ptr [ %szBuffer.addr.0.us, %while.cond.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %while.cond4.us ]
-  %call11.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.1.us, ptr noundef %szCommentStart, i64 noundef %call1) #3
+  %call11.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.1.us, ptr noundef nonnull %szCommentStart, i64 noundef %call1) #3
   %tobool12.not.us = icmp eq i32 %call11.us, 0
   br i1 %tobool12.not.us, label %while.cond14.preheader.us, label %if.end26.us
 
@@ -134,7 +134,7 @@ if.end26.us:                                      ; preds = %if.end.us
 
 while.body16.us:                                  ; preds = %while.cond14.preheader.us, %if.end23.us
   %szBuffer.addr.320.us = phi ptr [ %incdec.ptr24.us, %if.end23.us ], [ %szBuffer.addr.1.us, %while.cond14.preheader.us ]
-  %call17.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.320.us, ptr noundef %szCommentEnd, i64 noundef %call.fr) #3
+  %call17.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.320.us, ptr noundef nonnull %szCommentEnd, i64 noundef %call.fr) #3
   %tobool18.not.us = icmp eq i32 %call17.us, 0
   br i1 %tobool18.not.us, label %for.body.us, label %if.end23.us
 

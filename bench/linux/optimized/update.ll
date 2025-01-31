@@ -968,7 +968,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_get_rcu_task
 declare dso_local i32 @__SCT__tp_func_rcu_utilization(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_utilization(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_utilization(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_utilization, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -989,21 +989,21 @@ define dso_local noundef i32 @__traceiter_rcu_utilization(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_utilization(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_rcu_utilization(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_rcu_grace_period(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_grace_period(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_grace_period, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1024,7 +1024,7 @@ define dso_local noundef i32 @__traceiter_rcu_grace_period(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_grace_period(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_rcu_grace_period(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -1032,7 +1032,7 @@ define dso_local void @__probestub_rcu_grace_period(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_rcu_future_grace_period(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_future_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_future_grace_period(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #1 align 16 {
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_future_grace_period, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -1053,7 +1053,7 @@ define dso_local noundef i32 @__traceiter_rcu_future_grace_period(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_future_grace_period(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3, i8 zeroext %4, i32 %5, i32 %6, ptr nocapture readnone %7) #2 align 16 {
+define dso_local void @__probestub_rcu_future_grace_period(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i8 zeroext %4, i32 %5, i32 %6, ptr readnone captures(none) %7) #2 align 16 {
   ret void
 }
 
@@ -1061,7 +1061,7 @@ define dso_local void @__probestub_rcu_future_grace_period(ptr nocapture readnon
 declare dso_local i32 @__SCT__tp_func_rcu_grace_period_init(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_grace_period_init(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_grace_period_init(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_grace_period_init, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -1082,7 +1082,7 @@ define dso_local noundef i32 @__traceiter_rcu_grace_period_init(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_grace_period_init(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i8 zeroext %3, i32 %4, i32 %5, i64 %6) #2 align 16 {
+define dso_local void @__probestub_rcu_grace_period_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i8 zeroext %3, i32 %4, i32 %5, i64 %6) #2 align 16 {
   ret void
 }
 
@@ -1090,7 +1090,7 @@ define dso_local void @__probestub_rcu_grace_period_init(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_rcu_exp_grace_period(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_exp_grace_period(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_exp_grace_period(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_exp_grace_period, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1111,7 +1111,7 @@ define dso_local noundef i32 @__traceiter_rcu_exp_grace_period(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_exp_grace_period(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_rcu_exp_grace_period(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -1119,7 +1119,7 @@ define dso_local void @__probestub_rcu_exp_grace_period(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_rcu_exp_funnel_lock(ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_exp_funnel_lock(ptr nocapture readnone %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_exp_funnel_lock(ptr readnone captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #1 align 16 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_exp_funnel_lock, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -1140,7 +1140,7 @@ define dso_local noundef i32 @__traceiter_rcu_exp_funnel_lock(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_exp_funnel_lock(ptr nocapture readnone %0, ptr nocapture readnone %1, i8 zeroext %2, i32 %3, i32 %4, ptr nocapture readnone %5) #2 align 16 {
+define dso_local void @__probestub_rcu_exp_funnel_lock(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i8 zeroext %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #2 align 16 {
   ret void
 }
 
@@ -1148,7 +1148,7 @@ define dso_local void @__probestub_rcu_exp_funnel_lock(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_rcu_preempt_task(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_preempt_task(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_preempt_task(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_preempt_task, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1169,7 +1169,7 @@ define dso_local noundef i32 @__traceiter_rcu_preempt_task(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_preempt_task(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_rcu_preempt_task(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1177,7 +1177,7 @@ define dso_local void @__probestub_rcu_preempt_task(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_rcu_unlock_preempted_task(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_unlock_preempted_task(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_unlock_preempted_task(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_unlock_preempted_task, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1198,7 +1198,7 @@ define dso_local noundef i32 @__traceiter_rcu_unlock_preempted_task(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_unlock_preempted_task(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_rcu_unlock_preempted_task(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -1206,7 +1206,7 @@ define dso_local void @__probestub_rcu_unlock_preempted_task(ptr nocapture readn
 declare dso_local i32 @__SCT__tp_func_rcu_quiescent_state_report(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_quiescent_state_report(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_quiescent_state_report(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_quiescent_state_report, i64 72), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -1227,7 +1227,7 @@ define dso_local noundef i32 @__traceiter_rcu_quiescent_state_report(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_quiescent_state_report(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3, i64 %4, i8 zeroext %5, i32 %6, i32 %7, i32 %8) #2 align 16 {
+define dso_local void @__probestub_rcu_quiescent_state_report(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, i8 zeroext %5, i32 %6, i32 %7, i32 %8) #2 align 16 {
   ret void
 }
 
@@ -1235,7 +1235,7 @@ define dso_local void @__probestub_rcu_quiescent_state_report(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_rcu_fqs(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_fqs(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_fqs(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_fqs, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1256,7 +1256,7 @@ define dso_local noundef i32 @__traceiter_rcu_fqs(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_fqs(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i32 %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_rcu_fqs(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
@@ -1264,7 +1264,7 @@ define dso_local void @__probestub_rcu_fqs(ptr nocapture readnone %0, ptr nocapt
 declare dso_local i32 @__SCT__tp_func_rcu_stall_warning(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_stall_warning(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_stall_warning(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_stall_warning, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1285,7 +1285,7 @@ define dso_local noundef i32 @__traceiter_rcu_stall_warning(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_stall_warning(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_rcu_stall_warning(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1293,7 +1293,7 @@ define dso_local void @__probestub_rcu_stall_warning(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_rcu_dyntick(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_dyntick(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_dyntick(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_dyntick, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1314,7 +1314,7 @@ define dso_local noundef i32 @__traceiter_rcu_dyntick(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_dyntick(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3, i32 %4) #2 align 16 {
+define dso_local void @__probestub_rcu_dyntick(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -1322,7 +1322,7 @@ define dso_local void @__probestub_rcu_dyntick(ptr nocapture readnone %0, ptr no
 declare dso_local i32 @__SCT__tp_func_rcu_callback(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1343,7 +1343,7 @@ define dso_local noundef i32 @__traceiter_rcu_callback(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_rcu_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1351,7 +1351,7 @@ define dso_local void @__probestub_rcu_callback(ptr nocapture readnone %0, ptr n
 declare dso_local i32 @__SCT__tp_func_rcu_segcb_stats(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_segcb_stats(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_segcb_stats(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_segcb_stats, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1372,7 +1372,7 @@ define dso_local noundef i32 @__traceiter_rcu_segcb_stats(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_segcb_stats(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_rcu_segcb_stats(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1380,7 +1380,7 @@ define dso_local void @__probestub_rcu_segcb_stats(ptr nocapture readnone %0, pt
 declare dso_local i32 @__SCT__tp_func_rcu_kvfree_callback(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_kvfree_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_kvfree_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_kvfree_callback, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1401,7 +1401,7 @@ define dso_local noundef i32 @__traceiter_rcu_kvfree_callback(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_kvfree_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, i64 %4) #2 align 16 {
+define dso_local void @__probestub_rcu_kvfree_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, i64 %4) #2 align 16 {
   ret void
 }
 
@@ -1409,7 +1409,7 @@ define dso_local void @__probestub_rcu_kvfree_callback(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_rcu_batch_start(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_batch_start(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_batch_start(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_batch_start, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1430,7 +1430,7 @@ define dso_local noundef i32 @__traceiter_rcu_batch_start(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_batch_start(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_rcu_batch_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1438,7 +1438,7 @@ define dso_local void @__probestub_rcu_batch_start(ptr nocapture readnone %0, pt
 declare dso_local i32 @__SCT__tp_func_rcu_invoke_callback(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_invoke_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_invoke_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_invoke_callback, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1459,7 +1459,7 @@ define dso_local noundef i32 @__traceiter_rcu_invoke_callback(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_invoke_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_rcu_invoke_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1467,7 +1467,7 @@ define dso_local void @__probestub_rcu_invoke_callback(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_rcu_invoke_kvfree_callback(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_invoke_kvfree_callback(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_invoke_kvfree_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_invoke_kvfree_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1488,7 +1488,7 @@ define dso_local noundef i32 @__traceiter_rcu_invoke_kvfree_callback(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_invoke_kvfree_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_rcu_invoke_kvfree_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1496,7 +1496,7 @@ define dso_local void @__probestub_rcu_invoke_kvfree_callback(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_rcu_invoke_kfree_bulk_callback(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_invoke_kfree_bulk_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_invoke_kfree_bulk_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_invoke_kfree_bulk_callback, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1517,7 +1517,7 @@ define dso_local noundef i32 @__traceiter_rcu_invoke_kfree_bulk_callback(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_invoke_kfree_bulk_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_rcu_invoke_kfree_bulk_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -1525,7 +1525,7 @@ define dso_local void @__probestub_rcu_invoke_kfree_bulk_callback(ptr nocapture 
 declare dso_local i32 @__SCT__tp_func_rcu_batch_end(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_batch_end(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_batch_end(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_batch_end, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -1546,7 +1546,7 @@ define dso_local noundef i32 @__traceiter_rcu_batch_end(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_batch_end(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i8 zeroext %3, i8 zeroext %4, i8 zeroext %5, i8 zeroext %6) #2 align 16 {
+define dso_local void @__probestub_rcu_batch_end(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i8 zeroext %3, i8 zeroext %4, i8 zeroext %5, i8 zeroext %6) #2 align 16 {
   ret void
 }
 
@@ -1554,7 +1554,7 @@ define dso_local void @__probestub_rcu_batch_end(ptr nocapture readnone %0, ptr 
 declare dso_local i32 @__SCT__tp_func_rcu_torture_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_torture_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_torture_read(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #1 align 16 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_torture_read, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -1575,7 +1575,7 @@ define dso_local noundef i32 @__traceiter_rcu_torture_read(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_torture_read(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, i64 %4, i64 %5) #2 align 16 {
+define dso_local void @__probestub_rcu_torture_read(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, i64 %4, i64 %5) #2 align 16 {
   ret void
 }
 
@@ -1583,7 +1583,7 @@ define dso_local void @__probestub_rcu_torture_read(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_rcu_barrier(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_rcu_barrier(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #1 align 16 {
+define dso_local noundef i32 @__traceiter_rcu_barrier(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #1 align 16 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_barrier, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -1604,7 +1604,7 @@ define dso_local noundef i32 @__traceiter_rcu_barrier(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_rcu_barrier(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i32 %4, i64 %5) #2 align 16 {
+define dso_local void @__probestub_rcu_barrier(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i64 %5) #2 align 16 {
   ret void
 }
 
@@ -2938,7 +2938,7 @@ define internal void @perf_trace_rcu_callback(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_rcu_segcb_stats(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal void @trace_event_raw_event_rcu_segcb_stats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2980,7 +2980,7 @@ define internal void @trace_event_raw_event_rcu_segcb_stats(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_rcu_segcb_stats(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal void @perf_trace_rcu_segcb_stats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -3949,7 +3949,7 @@ define dso_local void @wakeme_after_rcu(ptr noundef %0) #1 align 16 {
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #1 align 16 {
+define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #1 align 16 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %.critedge
 
@@ -4975,7 +4975,7 @@ define internal fastcc void @rcu_tasks_bootup_oddness() unnamed_addr #6 section 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -5355,7 +5355,7 @@ define internal i32 @trace_raw_output_rcu_callback(ptr noundef %0, i32 %1, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_rcu_segcb_stats(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
@@ -5871,7 +5871,7 @@ define internal void @rcu_tasks_wait_gp(ptr noundef initializes((48, 52), (64, 7
 declare dso_local i64 @schedule_timeout_idle(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_rcu_tasks_iw_wakeup(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @call_rcu_tasks_iw_wakeup(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @rcuwait_wake_up(ptr noundef %3) #16
@@ -6371,7 +6371,7 @@ declare dso_local void @__local_bh_enable_ip(i64 noundef, i32 noundef) local_unn
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rcu_barrier_tasks_generic_cb(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @rcu_barrier_tasks_generic_cb(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -6397,7 +6397,7 @@ declare dso_local zeroext i1 @rcu_segcblist_entrain(ptr noundef, ptr noundef) lo
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rcu_tasks_pregp_step(ptr nocapture readnone %0) #1 align 16 {
+define internal void @rcu_tasks_pregp_step(ptr readnone captures(none) %0) #1 align 16 {
   tail call void @synchronize_rcu() #16
   ret void
 }
@@ -6472,7 +6472,7 @@ define internal void @rcu_tasks_pertask(ptr noundef %0, ptr noundef %1) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rcu_tasks_postscan(ptr nocapture readnone %0) #1 align 16 {
+define internal void @rcu_tasks_postscan(ptr readnone captures(none) %0) #1 align 16 {
   %2 = load volatile i32, ptr @rcu_task_stall_info, align 4
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = sext i32 %2 to i64
@@ -6485,7 +6485,7 @@ define internal void @rcu_tasks_postscan(ptr nocapture readnone %0) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @check_all_holdout_tasks(ptr noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef %2) #1 align 16 {
+define internal void @check_all_holdout_tasks(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %.preheader
@@ -6602,7 +6602,7 @@ define internal void @check_all_holdout_tasks(ptr noundef readonly %0, i1 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rcu_tasks_postgp(ptr nocapture readnone %0) #1 align 16 {
+define internal void @rcu_tasks_postgp(ptr readnone captures(none) %0) #1 align 16 {
   tail call void @synchronize_rcu() #16
   ret void
 }
@@ -6669,7 +6669,7 @@ declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #0
 declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tasks_rcu_exit_srcu_stall(ptr nocapture readnone %0) #1 align 16 {
+define internal void @tasks_rcu_exit_srcu_stall(ptr readnone captures(none) %0) #1 align 16 {
   %2 = alloca i32, align 4
   %3 = load volatile i32, ptr @rcu_task_stall_info, align 4
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 296), align 8

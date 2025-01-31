@@ -102,7 +102,7 @@ define dso_local void @tuplehash_destroy(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_reset(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
+define dso_local void @tuplehash_reset(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -114,10 +114,10 @@ define dso_local void @tuplehash_reset(ptr nocapture noundef initializes((8, 12)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplehash_grow(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @tuplehash_grow(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -250,10 +250,10 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplehash_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @tuplehash_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc i32 @TupleHashTableHash_internal(ptr %.val, ptr noundef %1)
@@ -262,7 +262,7 @@ define dso_local ptr @tuplehash_insert(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TupleHashTableHash_internal(ptr nocapture readonly %.40.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @TupleHashTableHash_internal(ptr readonly captures(none) %.40.val, ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.40.val, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.40.val, i64 16
@@ -356,7 +356,7 @@ slot_getattr.exit:                                ; preds = %23, %slot_getsomeat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tuplehash_insert_hash_internal(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -588,13 +588,13 @@ tuplehash_distance.exit:                          ; preds = %61, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplehash_insert_hash(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @tuplehash_insert_hash(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplehash_lookup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @tuplehash_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8
   %4 = tail call fastcc i32 @TupleHashTableHash_internal(ptr %.val, ptr noundef %1)
@@ -603,7 +603,7 @@ define dso_local ptr @tuplehash_lookup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tuplehash_lookup_hash_internal(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %4, align 4
@@ -696,13 +696,13 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplehash_lookup_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @tuplehash_lookup_hash(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @tuplehash_lookup_hash_internal(ptr noundef %0, i32 noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @tuplehash_delete(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @tuplehash_delete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 40
   %.val44 = load ptr, ptr %4, align 8
@@ -845,7 +845,7 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_delete_item(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -900,7 +900,7 @@ define dso_local void @tuplehash_delete_item(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_start_iterate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %.not16 = icmp eq i64 %3, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -935,7 +935,7 @@ define dso_local void @tuplehash_start_iterate(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @tuplehash_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #7 {
+define dso_local void @tuplehash_start_iterate_at(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2
@@ -948,7 +948,7 @@ define dso_local void @tuplehash_start_iterate_at(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @tuplehash_iterate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
+define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i8, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -994,7 +994,7 @@ define dso_local ptr @tuplehash_iterate(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplehash_stat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @tuplehash_stat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 2
   %4 = tail call ptr @palloc0(i64 noundef %3) #14
@@ -1125,7 +1125,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = sext i32 %1 to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call ptr @palloc(i64 noundef %8) #14
@@ -1167,7 +1167,7 @@ declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 declare ptr @ExecBuildGroupingEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = sext i32 %0 to i64
@@ -1295,7 +1295,7 @@ define dso_local ptr @BuildTupleHashTable(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ResetTupleHashTable(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local void @ResetTupleHashTable(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1308,7 +1308,7 @@ define dso_local void @ResetTupleHashTable(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1455,7 +1455,7 @@ LookupTupleHashEntry_internal.exit:               ; preds = %70, %71, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @TupleHashTableHash(ptr nocapture noundef initializes((80, 96)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @TupleHashTableHash(ptr noundef captures(none) initializes((80, 96)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1548,7 +1548,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %50, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1606,7 +1606,7 @@ LookupTupleHashEntry_internal.exit:               ; preds = %21, %22, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @FindTupleHashEntry(ptr noundef captures(none) initializes((80, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1725,10 +1725,10 @@ declare i64 @llvm.ctpop.i64(i64) #12
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

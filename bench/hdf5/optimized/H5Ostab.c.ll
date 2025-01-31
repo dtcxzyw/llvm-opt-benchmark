@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [19 x i8] c"Name heap address:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__stab_decode(ptr noundef %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal ptr @H5O__stab_decode(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr %5, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %4
@@ -130,7 +130,7 @@ define internal ptr @H5O__stab_decode(ptr noundef %0, ptr nocapture readnone %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__stab_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal noundef i32 @H5O__stab_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   store ptr %3, ptr %6, align 8
   %7 = load i64, ptr %4, align 8
@@ -142,7 +142,7 @@ define internal noundef i32 @H5O__stab_encode(ptr noundef %0, i1 zeroext %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__stab_copy(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define internal noundef ptr @H5O__stab_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -168,7 +168,7 @@ define internal noundef ptr @H5O__stab_copy(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, 511) i64 @H5O__stab_size(ptr noundef %0, i1 zeroext %1, ptr nocapture readnone %2) #0 {
+define internal range(i64 0, 511) i64 @H5O__stab_size(ptr noundef %0, i1 zeroext %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #5
   %5 = zext i8 %4 to i64
   %6 = shl nuw nsw i64 %5, 1
@@ -182,7 +182,7 @@ define internal noundef i32 @H5O__stab_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__stab_delete(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5O__stab_delete(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call i32 @H5G__stab_delete(ptr noundef %0, ptr noundef %2) #5
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -199,7 +199,7 @@ define internal range(i32 -1, 1) i32 @H5O__stab_delete(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef writeonly %6) #0 {
+define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef writeonly captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_stab_t_reg_free_list) #5
@@ -263,7 +263,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.H5G_bt_it_cpy_t, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4
@@ -334,7 +334,7 @@ define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5O__stab_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal noundef i32 @H5O__stab_debug(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = load i64, ptr %1, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13, i64 noundef %6) #5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -358,7 +358,7 @@ declare void @H5F_addr_encode(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @H5G__stab_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -379,7 +379,7 @@ declare i32 @H5G__node_copy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 declare i32 @H5HL_unprotect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

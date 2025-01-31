@@ -746,7 +746,7 @@ _ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter26copy_source_objs_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter26copy_source_objs_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   tail call void @_ZN17ArchiveHeapWriter16sort_source_objsEv()
   %3 = load ptr, ptr @_ZN17ArchiveHeapWriter18_source_objs_orderE, align 8
@@ -950,7 +950,7 @@ _ZN27ResizeableResourceHashtableImP7oopDescLN6AnyObj15allocation_typeE2EL8MEMFLA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter21set_requested_addressEP15ArchiveHeapInfo(ptr nocapture noundef writeonly initializes((0, 16), (64, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter21set_requested_addressEP15ArchiveHeapInfo(ptr noundef writeonly captures(none) initializes((0, 16), (64, 72)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %4 = load i64, ptr %3, align 8
@@ -1955,7 +1955,7 @@ _ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE4growEi.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter20copy_roots_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter20copy_roots_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = load ptr, ptr @_ZN8Universe17_objectArrayKlassE, align 8
   %4 = load i32, ptr %0, align 4
@@ -2338,7 +2338,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
@@ -2350,7 +2350,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN17ArchiveHeapWriter26compare_objs_by_oop_fieldsEPNS_12HeapObjOrderES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 2 {
+define hidden noundef i32 @_ZN17ArchiveHeapWriter26compare_objs_by_oop_fieldsEPNS_12HeapObjOrderES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2909,18 +2909,18 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj127EmmEmmLN6AnyObj
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare noundef zeroext i1 @_ZN21java_lang_ClassLoader11is_instanceEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN17ArchiveHeapWriter20load_oop_from_bufferEPP7oopDesc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN17ArchiveHeapWriter20load_oop_from_bufferEPP7oopDesc(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN17ArchiveHeapWriter20load_oop_from_bufferEP9narrowOop(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN17ArchiveHeapWriter20load_oop_from_bufferEP9narrowOop(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -3367,7 +3367,7 @@ _ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter17NativePointerInfoE18Growab
 declare void @_ZN10HeapShared23set_has_native_pointersEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter27is_marked_as_native_pointerEP15ArchiveHeapInfoP7oopDesci(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter27is_marked_as_native_pointerEP15ArchiveHeapInfoP7oopDesci(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
@@ -4933,7 +4933,7 @@ declare void @llvm.va_end.p0(ptr) #13
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
@@ -9392,10 +9392,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15

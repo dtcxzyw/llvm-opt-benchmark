@@ -64,7 +64,7 @@ define hidden void @_ZN12ZJNICritical10initializeEv() local_unnamed_addr #1 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZJNICritical5blockEv() local_unnamed_addr #1 align 2 {
@@ -385,7 +385,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %3, %14, %_ZN7ZLocke
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ZJNICritical4exitEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12ZJNICritical4exitEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -561,10 +561,10 @@ define internal void @_GLOBAL__sub_I_zJNICritical.cpp() #3 section ".text.startu
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

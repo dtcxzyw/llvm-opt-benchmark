@@ -891,7 +891,7 @@ return:                                           ; preds = %do.end306, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal14ConnectLibHdfsEPPNS1_11LibHdfsShimE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef writeonly %driver) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io8internal14ConnectLibHdfsEPPNS1_11LibHdfsShimE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef writeonly captures(none) %driver) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i401 = alloca %struct._Guard, align 8
   %__guard.i391 = alloca %struct._Guard, align 8
@@ -3908,7 +3908,7 @@ ehcleanup82:                                      ; preds = %lpad, %ehcleanup257
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %potential_paths, ptr noundef %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_110try_dlopenERKSt6vectorINS_8internal16PlatformFilenameESaIS5_EEPKc(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %potential_paths, ptr noundef %name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %name.addr = alloca ptr, align 8
@@ -4363,7 +4363,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim10NewBuilderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim10NewBuilderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsNewBuilder = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %hdfsNewBuilder, align 8
@@ -4372,7 +4372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim18BuilderSetNameNodeEP11hdfsBuilderPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld, ptr noundef %nn) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim18BuilderSetNameNodeEP11hdfsBuilderPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld, ptr noundef %nn) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderSetNameNode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %hdfsBuilderSetNameNode, align 8
@@ -4381,7 +4381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim22BuilderSetNameNodePortEP11hdfsBuildert(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim22BuilderSetNameNodePortEP11hdfsBuildert(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld, i16 noundef zeroext %port) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderSetNameNodePort = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %hdfsBuilderSetNameNodePort, align 8
@@ -4390,7 +4390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim18BuilderSetUserNameEP11hdfsBuilderPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld, ptr noundef %userName) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim18BuilderSetUserNameEP11hdfsBuilderPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld, ptr noundef %userName) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderSetUserName = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hdfsBuilderSetUserName, align 8
@@ -4399,7 +4399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim29BuilderSetKerbTicketCachePathEP11hdfsBuilderPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld, ptr noundef %kerbTicketCachePath) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim29BuilderSetKerbTicketCachePathEP11hdfsBuilderPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld, ptr noundef %kerbTicketCachePath) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderSetKerbTicketCachePath = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %hdfsBuilderSetKerbTicketCachePath, align 8
@@ -4408,7 +4408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim26BuilderSetForceNewInstanceEP11hdfsBuilder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim26BuilderSetForceNewInstanceEP11hdfsBuilder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderSetForceNewInstance = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %hdfsBuilderSetForceNewInstance, align 8
@@ -4417,7 +4417,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim14BuilderConnectEP11hdfsBuilder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim14BuilderConnectEP11hdfsBuilder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderConnect = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %hdfsBuilderConnect, align 8
@@ -4426,7 +4426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim17BuilderConfSetStrEP11hdfsBuilderPKcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %bld, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim17BuilderConfSetStrEP11hdfsBuilderPKcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %bld, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsBuilderConfSetStr = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %hdfsBuilderConfSetStr, align 8
@@ -4435,7 +4435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim10DisconnectEP13hdfs_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim10DisconnectEP13hdfs_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsDisconnect = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %hdfsDisconnect, align 8
@@ -4444,7 +4444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim8OpenFileEP13hdfs_internalPKciisi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i32 noundef %flags, i32 noundef %bufferSize, i16 noundef signext %replication, i32 noundef %blocksize) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim8OpenFileEP13hdfs_internalPKciisi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i32 noundef %flags, i32 noundef %bufferSize, i16 noundef signext %replication, i32 noundef %blocksize) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsOpenFile = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %hdfsOpenFile, align 8
@@ -4453,7 +4453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim9CloseFileEP13hdfs_internalP17hdfsFile_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim9CloseFileEP13hdfs_internalP17hdfsFile_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsCloseFile = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %hdfsCloseFile, align 8
@@ -4462,7 +4462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6ExistsEP13hdfs_internalPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6ExistsEP13hdfs_internalPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsExists = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %hdfsExists, align 8
@@ -4471,7 +4471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4SeekEP13hdfs_internalP17hdfsFile_internall(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, i64 noundef %desiredPos) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4SeekEP13hdfs_internalP17hdfsFile_internall(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, i64 noundef %desiredPos) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsSeek = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %hdfsSeek, align 8
@@ -4480,7 +4480,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim4TellEP13hdfs_internalP17hdfsFile_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim4TellEP13hdfs_internalP17hdfsFile_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsTell = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %hdfsTell, align 8
@@ -4489,7 +4489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4ReadEP13hdfs_internalP17hdfsFile_internalPvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4ReadEP13hdfs_internalP17hdfsFile_internalPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsRead = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %hdfsRead, align 8
@@ -4498,7 +4498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN5arrow2io8internal11LibHdfsShim8HasPreadEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN5arrow2io8internal11LibHdfsShim8HasPreadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this) local_unnamed_addr #1 align 2 {
 entry:
   %hdfsPread = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %hdfsPread, align 8
@@ -4526,7 +4526,7 @@ if.end:                                           ; preds = %_ZN5arrow2io8intern
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5PreadEP13hdfs_internalP17hdfsFile_internallPvi(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, i64 noundef %position, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5PreadEP13hdfs_internalP17hdfsFile_internallPvi(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, i64 noundef %position, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsPread = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %hdfsPread, align 8
@@ -4554,7 +4554,7 @@ while.end6:                                       ; preds = %_ZN5arrow2io8intern
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5WriteEP13hdfs_internalP17hdfsFile_internalPKvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5WriteEP13hdfs_internalP17hdfsFile_internalPKvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsWrite = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %hdfsWrite, align 8
@@ -4563,7 +4563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5FlushEP13hdfs_internalP17hdfsFile_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5FlushEP13hdfs_internalP17hdfsFile_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsFlush = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %hdfsFlush, align 8
@@ -4572,7 +4572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim9AvailableEP13hdfs_internalP17hdfsFile_internal(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim9AvailableEP13hdfs_internalP17hdfsFile_internal(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsAvailable = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %hdfsAvailable, align 8
@@ -4605,7 +4605,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4CopyEP13hdfs_internalPKcS4_S6_(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %srcFS, ptr noundef %src, ptr noundef %dstFS, ptr noundef %dst) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4CopyEP13hdfs_internalPKcS4_S6_(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %srcFS, ptr noundef %src, ptr noundef %dstFS, ptr noundef %dst) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsCopy = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %hdfsCopy, align 8
@@ -4638,7 +4638,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4MoveEP13hdfs_internalPKcS4_S6_(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %srcFS, ptr noundef %src, ptr noundef %dstFS, ptr noundef %dst) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim4MoveEP13hdfs_internalPKcS4_S6_(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %srcFS, ptr noundef %src, ptr noundef %dstFS, ptr noundef %dst) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsMove = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %hdfsMove, align 8
@@ -4671,7 +4671,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6DeleteEP13hdfs_internalPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i32 noundef %recursive) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6DeleteEP13hdfs_internalPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i32 noundef %recursive) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsDelete = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %hdfsDelete, align 8
@@ -4680,7 +4680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6RenameEP13hdfs_internalPKcS6_(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %oldPath, ptr noundef %newPath) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6RenameEP13hdfs_internalPKcS6_(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %oldPath, ptr noundef %newPath) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsRename = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %hdfsRename, align 8
@@ -4713,7 +4713,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim19GetWorkingDirectoryEP13hdfs_internalPcm(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %buffer, i64 noundef %bufferSize) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim19GetWorkingDirectoryEP13hdfs_internalPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %buffer, i64 noundef %bufferSize) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetWorkingDirectory = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %hdfsGetWorkingDirectory, align 8
@@ -4746,7 +4746,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim19SetWorkingDirectoryEP13hdfs_internalPKc(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim19SetWorkingDirectoryEP13hdfs_internalPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsSetWorkingDirectory = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %hdfsSetWorkingDirectory, align 8
@@ -4779,7 +4779,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim13MakeDirectoryEP13hdfs_internalPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim13MakeDirectoryEP13hdfs_internalPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsCreateDirectory = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %hdfsCreateDirectory, align 8
@@ -4788,7 +4788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim14SetReplicationEP13hdfs_internalPKcs(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i16 noundef signext %replication) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim14SetReplicationEP13hdfs_internalPKcs(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i16 noundef signext %replication) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsSetReplication = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %hdfsSetReplication, align 8
@@ -4821,7 +4821,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim13ListDirectoryEP13hdfs_internalPKcPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, ptr noundef %numEntries) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim13ListDirectoryEP13hdfs_internalPKcPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, ptr noundef %numEntries) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsListDirectory = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %hdfsListDirectory, align 8
@@ -4830,7 +4830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim11GetPathInfoEP13hdfs_internalPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim11GetPathInfoEP13hdfs_internalPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetPathInfo = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %hdfsGetPathInfo, align 8
@@ -4839,7 +4839,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim12FreeFileInfoEP12hdfsFileInfoi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %hdfsFileInfo, i32 noundef %numEntries) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim12FreeFileInfoEP12hdfsFileInfoi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %hdfsFileInfo, i32 noundef %numEntries) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsFreeFileInfo = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %hdfsFreeFileInfo, align 8
@@ -4848,7 +4848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim8GetHostsEP13hdfs_internalPKcll(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5arrow2io8internal11LibHdfsShim8GetHostsEP13hdfs_internalPKcll(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetHosts = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %hdfsGetHosts, align 8
@@ -4881,7 +4881,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io8internal11LibHdfsShim9FreeHostsEPPPc(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %blockHosts) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io8internal11LibHdfsShim9FreeHostsEPPPc(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %blockHosts) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsFreeHosts = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %hdfsFreeHosts, align 8
@@ -4913,7 +4913,7 @@ if.end7:                                          ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim19GetDefaultBlockSizeEP13hdfs_internal(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim19GetDefaultBlockSizeEP13hdfs_internal(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetDefaultBlockSize = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load ptr, ptr %hdfsGetDefaultBlockSize, align 8
@@ -4946,7 +4946,7 @@ return:                                           ; preds = %if.end.thread2, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim11GetCapacityEP13hdfs_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim11GetCapacityEP13hdfs_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetCapacity = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %hdfsGetCapacity, align 8
@@ -4955,7 +4955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim7GetUsedEP13hdfs_internal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN5arrow2io8internal11LibHdfsShim7GetUsedEP13hdfs_internal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsGetUsed = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %hdfsGetUsed, align 8
@@ -4964,7 +4964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5ChownEP13hdfs_internalPKcS6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, ptr noundef %owner, ptr noundef %group) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5ChownEP13hdfs_internalPKcS6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, ptr noundef %owner, ptr noundef %group) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsChown = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %hdfsChown, align 8
@@ -4973,7 +4973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5ChmodEP13hdfs_internalPKcs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i16 noundef signext %mode) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5ChmodEP13hdfs_internalPKcs(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i16 noundef signext %mode) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsChmod = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %hdfsChmod, align 8
@@ -4982,7 +4982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5UtimeEP13hdfs_internalPKcll(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i64 noundef %mtime, i64 noundef %atime) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5UtimeEP13hdfs_internalPKcll(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %this, ptr noundef %fs, ptr noundef %path, i64 noundef %mtime, i64 noundef %atime) local_unnamed_addr #0 align 2 {
 entry:
   %hdfsUtime = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load ptr, ptr %hdfsUtime, align 8
@@ -5027,7 +5027,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %names) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %filenames = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -5179,7 +5179,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -5537,7 +5537,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -7325,13 +7325,13 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

@@ -311,7 +311,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_usbll_packet.6 = private unnamed_addr constant [4 x i32] [i32 25, i32 94, i32 53, i32 74], align 4
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @usb_lpm_besl_str(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define hidden void @usb_lpm_besl_str(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = trunc i32 %1 to i8
   %4 = and i32 %1, 255
   switch i8 %3, label %6 [
@@ -342,7 +342,7 @@ besl_to_us.exit:                                  ; preds = %2, %5, %8, %10
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_usbll() local_unnamed_addr #2 {
@@ -380,7 +380,7 @@ define hidden void @proto_register_usbll() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @lpm_link_state_str(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #3 {
+define internal void @lpm_link_state_str(ptr noundef writeonly captures(none) initializes((0, 11)) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %5
 
@@ -425,26 +425,26 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usbll_unknown_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal i32 @dissect_usbll_unknown_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = load i32, ptr @global_dissect_unknown_speed_as, align 4
   %6 = tail call fastcc i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usbll_low_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal i32 @dissect_usbll_low_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call fastcc i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usbll_full_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal i32 @dissect_usbll_full_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call fastcc i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usbll_high_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal i32 @dissect_usbll_high_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call fastcc i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3)
   ret i32 %5
 }
@@ -464,7 +464,7 @@ define internal void @usbll_cleanup_data() #6 {
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @usbll_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal i32 @usbll_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -516,7 +516,7 @@ define internal i32 @usbll_addr_to_str(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @usbll_addr_str_len(ptr nocapture readnone %0) #7 {
+define internal noundef i32 @usbll_addr_str_len(ptr readnone captures(none) %0) #7 {
   ret i32 50
 }
 
@@ -2627,7 +2627,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 112) i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) unnamed_addr #2 {
@@ -3415,7 +3415,7 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef range(i32 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @packet_ends_transfer(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @packet_ends_transfer(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6
@@ -3488,7 +3488,7 @@ define internal fastcc range(i32 0, 2) i32 @packet_ends_transfer(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @usbll_get_data_transaction_speed(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc i32 @usbll_get_data_transaction_speed(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %23 [
     i32 3, label %3
@@ -3806,7 +3806,7 @@ declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #4
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @usbll_fragment_key_hash(ptr noundef %0) #7 {
@@ -3827,25 +3827,25 @@ define internal range(i32 0, 2) i32 @usbll_fragment_key_equal(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @usbll_fragment_key(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #7 {
+define internal noundef ptr @usbll_fragment_key(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #7 {
   %4 = zext i32 %1 to i64
   %5 = inttoptr i64 %4 to ptr
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @usbll_fragment_free_key(ptr nocapture readnone %0) #7 {
+define internal void @usbll_fragment_free_key(ptr readnone captures(none) %0) #7 {
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.79fddc410019ed2c53b457c2d17796ca.17 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.79fddc410019ed2c53b457c2d17796ca.0, [16 x i8] c"\1F\00\00\00\00\00\00\00\AA\00\00\00%\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN85_$LT$wasmtime_wit_bindgen..types..TypeInfo$u20$as$u20$core..ops..bit..BitOrAssign$GT$12bitor_assign17h8c66bbfd67495e62E"(ptr nocapture align 1 %0, i40 %1) unnamed_addr #0 {
+define void @"_ZN85_$LT$wasmtime_wit_bindgen..types..TypeInfo$u20$as$u20$core..ops..bit..BitOrAssign$GT$12bitor_assign17h8c66bbfd67495e62E"(ptr align 1 captures(none) %0, i40 %1) unnamed_addr #0 {
   %3 = trunc i40 %1 to i8
   %4 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %.masked = and i8 %3, 1
@@ -1391,7 +1391,7 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8, !range !8, !noundef !4
   switch i64 %4, label %5 [
     i64 12, label %6
@@ -1441,7 +1441,7 @@ define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo7is_copy17h25f2564a8164a300E(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
+define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo7is_copy17h25f2564a8164a300E(ptr readonly align 1 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %3 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %4 = trunc nuw i8 %3 to i1
@@ -1460,7 +1460,7 @@ define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo7is_copy17h25f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo8is_clone17hf3505ba99ef88448E(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
+define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo8is_clone17hf3505ba99ef88448E(ptr readonly align 1 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %4 = trunc nuw i8 %3 to i1
@@ -1469,7 +1469,7 @@ define hidden zeroext i1 @_ZN20wasmtime_wit_bindgen5types8TypeInfo8is_clone17hf3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN94_$LT$$RF$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17heb510767553226f8E"(ptr sret({ { { ptr, ptr, {} }, i64 }, i32, {}, [4 x i8] }) align 8, ptr align 8) unnamed_addr #4
@@ -1586,7 +1586,7 @@ declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1, i64, ptr
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

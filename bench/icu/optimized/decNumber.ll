@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_decNumberToInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #2 {
+define i32 @uprv_decNumberToInt32_75(ptr noundef readonly captures(none) %dn, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -260,7 +260,7 @@ return:                                           ; preds = %if.else23, %if.then
 declare ptr @uprv_decContextSetStatus_75(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_decNumberToUInt32_75(ptr nocapture noundef readonly %dn, ptr noundef %set) local_unnamed_addr #2 {
+define i32 @uprv_decNumberToUInt32_75(ptr noundef readonly captures(none) %dn, ptr noundef %set) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -344,14 +344,14 @@ return:                                           ; preds = %if.end36, %if.else3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @uprv_decNumberToString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #4 {
+define noundef ptr @uprv_decNumberToString_75(ptr noundef readonly captures(none) %dn, ptr noundef returned writeonly %string) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZL11decToStringPK9decNumberPch(ptr noundef %dn, ptr noundef %string, i8 noundef zeroext 0)
   ret ptr %string
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr nocapture noundef readonly %dn, ptr nocapture noundef writeonly %string, i8 noundef zeroext range(i8 0, 2) %eng) unnamed_addr #4 {
+define internal fastcc void @_ZL11decToStringPK9decNumberPch(ptr noundef readonly captures(none) %dn, ptr noundef writeonly captures(none) %string, i8 noundef zeroext range(i8 0, 2) %eng) unnamed_addr #4 {
 entry:
   %exponent = getelementptr inbounds nuw i8, ptr %dn, i64 4
   %0 = load i32, ptr %exponent, align 4
@@ -1011,7 +1011,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @uprv_decNumberToEngString_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %string) local_unnamed_addr #4 {
+define noundef ptr @uprv_decNumberToEngString_75(ptr noundef readonly captures(none) %dn, ptr noundef returned writeonly %string) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZL11decToStringPK9decNumberPch(ptr noundef %dn, ptr noundef %string, i8 noundef zeroext 1)
   ret ptr %string
@@ -1522,7 +1522,7 @@ if.end278:                                        ; preds = %for.cond83, %if.the
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr noundef readonly %lsu, i32 noundef %len, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
+define internal fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef %dn, ptr noundef readonly captures(none) %set, ptr noundef readonly %lsu, i32 noundef %len, ptr noundef nonnull captures(none) %residue, ptr noundef nonnull captures(none) %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %set, align 4
   %sub = sub nsw i32 %len, %0
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.end169, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef %dn, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %residue, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %nmin = alloca %struct.decNumber, align 4
   %emin = getelementptr inbounds nuw i8, ptr %set, i64 8
@@ -2142,7 +2142,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, -127) %negate, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL8decAddOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef readonly captures(none) %set, i8 noundef zeroext range(i8 0, -127) %negate, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [92 x i8], align 16
@@ -3458,7 +3458,7 @@ if.end:                                           ; preds = %if.then184.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 1, 9) %op, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL12decCompareOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef readonly captures(none) %set, i8 noundef zeroext range(i8 1, 9) %op, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %cmp = icmp eq i8 %op, 4
@@ -4274,7 +4274,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 16, -127) %op, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL11decDivideOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef readonly captures(none) %set, i8 noundef zeroext range(i8 16, -127) %op, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %accbuff = alloca [47 x i8], align 16
   %varbuff = alloca [73 x i8], align 16
@@ -5528,7 +5528,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL8decExpOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -6421,10 +6421,10 @@ if.end55:                                         ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %accbuff = alloca [145 x i8], align 16
@@ -7271,7 +7271,7 @@ if.end3:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL7decLnOpP9decNumberPKS_P10decContextPj(ptr noundef returned %res, ptr noundef %rhs, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %ignore = alloca i32, align 4
   %residue = alloca i32, align 4
@@ -8231,7 +8231,7 @@ if.end26:                                         ; preds = %uprv_decNumberCopyA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly %rhs, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %status) unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -9585,7 +9585,7 @@ if.else.i:                                        ; preds = %if.else, %if.then.i
 
 _ZL9decStatusP9decNumberjP10decContext.exit:      ; preds = %if.then39, %if.then3.i, %if.else.i
   %status.addr.0.i = phi i32 [ %and4.i, %if.then3.i ], [ %42, %if.else.i ], [ %.pr, %if.then39 ]
-  %call6.i = call ptr @uprv_decContextSetStatus_75(ptr noundef %set, i32 noundef %status.addr.0.i)
+  %call6.i = call ptr @uprv_decContextSetStatus_75(ptr noundef nonnull %set, i32 noundef %status.addr.0.i)
   br label %return
 
 return:                                           ; preds = %uprv_decNumberIsNormal_75.exit, %if.end37, %_ZL9decStatusP9decNumberjP10decContext.exit, %_ZL14decSetMaxValueP9decNumberP10decContext.exit42, %_ZL14decSetMaxValueP9decNumberP10decContext.exit
@@ -9775,7 +9775,7 @@ return:                                           ; preds = %if.then73, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberCopySign_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #0 {
+define noundef ptr @uprv_decNumberCopySign_75(ptr noundef returned %res, ptr noundef readonly %lhs, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #0 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -9847,7 +9847,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uprv_decNumberIsNormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @uprv_decNumberIsNormal_75(ptr noundef readonly captures(none) %dn, ptr noundef readonly captures(none) %set) local_unnamed_addr #8 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -11155,7 +11155,7 @@ if.end:                                           ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %quant, ptr nocapture noundef nonnull %status) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL13decQuantizeOpP9decNumberPKS_S2_P10decContexthPj(ptr noundef returned %res, ptr noundef %lhs, ptr noundef %rhs, ptr noundef readonly captures(none) %set, i8 noundef zeroext range(i8 0, 2) %quant, ptr noundef nonnull captures(none) %status) unnamed_addr #2 {
 entry:
   %residue = alloca i32, align 4
   %workset = alloca %struct.decContext, align 4
@@ -11610,7 +11610,7 @@ if.end4:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %all, i8 noundef zeroext range(i8 0, 2) %noclamp, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %dropped) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr noundef readonly captures(none) %set, i8 noundef zeroext range(i8 0, 2) %all, i8 noundef zeroext range(i8 0, 2) %noclamp, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %dropped) unnamed_addr #0 {
 entry:
   store i32 0, ptr %dropped, align 4
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
@@ -12492,7 +12492,7 @@ return:                                           ; preds = %entry, %for.end82, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly initializes((0, 10)) %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #10 {
+define noundef ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly initializes((0, 10)) %res, ptr noundef readonly captures(none) %lhs, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -14224,7 +14224,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uprv_decNumberToIntegralValue_75(ptr noundef returned %res, ptr noundef %rhs, ptr nocapture noundef %set) local_unnamed_addr #2 {
+define noundef ptr @uprv_decNumberToIntegralValue_75(ptr noundef returned %res, ptr noundef %rhs, ptr noundef captures(none) %set) local_unnamed_addr #2 {
 entry:
   %workset = alloca %struct.decContext, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %workset, ptr noundef nonnull align 4 dereferenceable(28) %set, i64 28, i1 false)
@@ -14462,7 +14462,7 @@ return:                                           ; preds = %_ZL12decGetDigitsPh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 10) i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define noundef range(i32 0, 10) i32 @_Z22uprv_decNumberClass_75PK9decNumberP10decContext(ptr noundef readonly captures(none) %dn, ptr noundef readonly captures(none) %set) local_unnamed_addr #8 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -14625,7 +14625,7 @@ uprv_decNumberCopy_75.exit:                       ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberGetBCD_75(ptr nocapture noundef readonly %dn, ptr noundef returned writeonly %bcd) local_unnamed_addr #0 {
+define noundef ptr @uprv_decNumberGetBCD_75(ptr noundef readonly captures(none) %dn, ptr noundef returned writeonly %bcd) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %dn, align 4
   %idx.ext = sext i32 %0 to i64
@@ -14695,7 +14695,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uprv_decNumberIsSubnormal_75(ptr nocapture noundef readonly %dn, ptr nocapture noundef readonly %set) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @uprv_decNumberIsSubnormal_75(ptr noundef readonly captures(none) %dn, ptr noundef readonly captures(none) %set) local_unnamed_addr #8 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -14744,7 +14744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef readonly %a, i32 noundef %alength, ptr noundef readonly captures(none) %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %bshift, ptr noundef %c, i32 noundef %m) unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %alength to i64
   %add.ptr = getelementptr inbounds i8, ptr %c, i64 %idx.ext
@@ -14995,7 +14995,7 @@ return:                                           ; preds = %for.end125, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr nocapture noundef readonly %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %exp) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -2147483648, 2) i32 @_ZL14decUnitComparePKhiS0_ii(ptr noundef %a, i32 noundef %alength, ptr noundef readonly captures(none) %b, i32 noundef range(i32 0, -2147483648) %blength, i32 noundef %exp) unnamed_addr #2 {
 entry:
   %accbuff = alloca [73 x i8], align 16
   %cmp = icmp eq i32 %exp, 0
@@ -15120,7 +15120,7 @@ return:                                           ; preds = %for.cond, %if.end14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, i32 noundef %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
+define internal fastcc void @_ZL13decApplyRoundP9decNumberP10decContextiPj(ptr noundef %dn, ptr noundef readonly captures(none) %set, i32 noundef %residue, ptr noundef nonnull captures(none) %status) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %residue, 0
   br i1 %cmp, label %return, label %if.end
@@ -15412,7 +15412,7 @@ return:                                           ; preds = %if.else, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr nocapture noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %status) unnamed_addr #10 {
+define internal fastcc void @_ZL14decSetOverflowP9decNumberP10decContextPj(ptr noundef captures(none) %dn, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %status) unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %0 = load i8, ptr %bits, align 4
@@ -15532,7 +15532,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef %dn, ptr nocapture noundef readonly %set, ptr nocapture noundef nonnull %residue, ptr nocapture noundef nonnull %status) unnamed_addr #0 {
+define internal fastcc void @_ZL15decSetSubnormalP9decNumberP10decContextPiPj(ptr noundef %dn, ptr noundef readonly captures(none) %set, ptr noundef nonnull captures(none) %residue, ptr noundef nonnull captures(none) %status) unnamed_addr #0 {
 entry:
   %workset = alloca %struct.decContext, align 4
   %emin = getelementptr inbounds nuw i8, ptr %set, i64 8
@@ -15692,13 +15692,13 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
@@ -15707,10 +15707,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

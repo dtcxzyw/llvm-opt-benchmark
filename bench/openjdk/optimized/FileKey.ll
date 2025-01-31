@@ -81,7 +81,7 @@ define void @Java_sun_nio_ch_FileKey_init(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #2
 

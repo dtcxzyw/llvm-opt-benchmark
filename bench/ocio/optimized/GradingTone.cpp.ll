@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %rhs) local_unnamed_addr #3 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -110,7 +110,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_13GradingRGBMSWES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_13GradingRGBMSWES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %rhs) local_unnamed_addr #3 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -163,7 +163,7 @@ _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit: ; preds = %entry, %lan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingToneES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %rhs) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingToneES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %rhs) local_unnamed_addr #3 {
 entry:
   %0 = load double, ptr %lhs, align 8
   %1 = load double, ptr %rhs, align 8
@@ -416,7 +416,7 @@ land.end:                                         ; preds = %land.lhs.true10, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingToneES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %rhs) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingToneES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %rhs) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingToneES2_(ptr noundef nonnull align 8 dereferenceable(248) %lhs, ptr noundef nonnull align 8 dereferenceable(248) %rhs)
   %lnot = xor i1 %call, true
@@ -1800,7 +1800,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %value, i32 noundef %channel) local_unnamed_addr #3 {
+define hidden noundef float @_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %value, i32 noundef %channel) local_unnamed_addr #3 {
 entry:
   switch i32 %channel, label %return [
     i32 0, label %if.then
@@ -1838,7 +1838,7 @@ return:                                           ; preds = %entry, %if.then11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %value) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %value) local_unnamed_addr #3 {
 entry:
   %0 = load double, ptr %value, align 8
   %cmp.i = fcmp oeq double %0, 1.000000e+00
@@ -1940,7 +1940,7 @@ land.end:                                         ; preds = %land.lhs.true6, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((0, 929), (932, 936)) %this, i32 noundef %style) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(936) initializes((0, 929), (932, 936)) %this, i32 noundef %style) unnamed_addr #6 align 2 {
 entry:
   %m_top = getelementptr inbounds nuw i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 0, i64 912, i1 false)
@@ -1984,10 +1984,10 @@ _ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, i32 noundef %style) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) %this, i32 noundef %style) local_unnamed_addr #8 align 2 {
 entry:
   %m_style = getelementptr inbounds nuw i8, ptr %this, i64 932
   %0 = load i32, ptr %m_style, align 4
@@ -2027,7 +2027,7 @@ if.end:                                           ; preds = %if.then, %switch.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_(i32 noundef %style, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %top, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %topSC, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %bottom, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pivot) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_(i32 noundef %style, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %top, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %topSC, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %bottom, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %pivot) local_unnamed_addr #6 align 2 {
 entry:
   %0 = icmp ult i32 %style, 3
   br i1 %0, label %switch.lookup, label %sw.epilog
@@ -2056,7 +2056,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) initializes((928, 929)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) initializes((928, 929)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %v)
   %m_localBypass = getelementptr inbounds nuw i8, ptr %this, i64 928
@@ -2399,7 +2399,7 @@ return:                                           ; preds = %cond.false52.i, %co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %top, float noundef %bottom) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(936) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %v, float noundef %top, float noundef %bottom) local_unnamed_addr #11 align 2 {
 entry:
   %ref.tmp2 = alloca [4 x i32], align 4
   store i32 0, ptr %ref.tmp2, align 4
@@ -2627,7 +2627,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 4
@@ -2861,7 +2861,7 @@ for.end170:                                       ; preds = %for.inc168
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 captures(none) dereferenceable(936) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 4
@@ -3068,7 +3068,7 @@ for.end135:                                       ; preds = %for.inc133
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(936) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #8 align 2 {
 entry:
   %m_scontrast = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load double, ptr %m_scontrast, align 8

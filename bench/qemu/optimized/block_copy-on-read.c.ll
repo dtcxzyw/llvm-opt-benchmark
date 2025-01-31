@@ -225,7 +225,7 @@ if.end3:                                          ; preds = %if.then1, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @cor_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr nocapture noundef initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #3 {
+define internal void @cor_child_perm(ptr noundef readonly captures(none) %bs, ptr readnone captures(none) %c, i32 %role, ptr readnone captures(none) %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef captures(none) initializes((0, 8)) %nperm, ptr noundef writeonly captures(none) initializes((0, 8)) %nshared) #3 {
 entry:
   %and = and i64 %perm, 11
   store i64 %and, ptr %nperm, align 8
@@ -248,7 +248,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cor_co_preadv_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal i32 @cor_co_preadv_part(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %n = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -331,7 +331,7 @@ return:                                           ; preds = %if.then21, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cor_co_pwritev_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal i32 @cor_co_pwritev_part(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cor_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define internal i32 @cor_co_pwrite_zeroes(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cor_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @cor_co_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cor_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @cor_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cor_co_pwritev_compressed(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
+define internal i32 @cor_co_pwritev_compressed(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cor_co_eject(ptr nocapture noundef readonly %bs, i1 noundef zeroext %eject_flag) #0 {
+define internal void @cor_co_eject(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %eject_flag) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -387,7 +387,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cor_co_lock_medium(ptr nocapture noundef readonly %bs, i1 noundef zeroext %locked) #0 {
+define internal void @cor_co_lock_medium(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %locked) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8

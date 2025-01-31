@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef range(i32 0, 2) %cleanse) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr noundef captures(none) %r, i64 noundef %num_bytes, i32 noundef range(i32 0, 2) %cleanse) unnamed_addr #0 {
 entry:
   %alloc = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
@@ -214,7 +214,7 @@ return:                                           ; preds = %entry, %ring_buf_de
 declare void @ossl_uint_set_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_get_stream_frame(ptr nocapture noundef readonly %qss, i64 noundef %skip, ptr nocapture noundef %hdr, ptr nocapture noundef writeonly %iov, ptr nocapture noundef %num_iov) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_get_stream_frame(ptr noundef readonly captures(none) %qss, i64 noundef %skip, ptr noundef captures(none) %hdr, ptr noundef writeonly captures(none) %iov, ptr noundef captures(none) %num_iov) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %num_iov, align 8
   %cmp = icmp ult i64 %0, 2
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end23, %lor.lhs.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_has_pending(ptr nocapture noundef readonly %qss) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_has_pending(ptr noundef readonly captures(none) %qss) local_unnamed_addr #2 {
 entry:
   %shdr = alloca %struct.ossl_quic_frame_stream_st, align 8
   %iov = alloca [2 x %struct.ossl_qtx_iovec_st], align 16
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_sstream_get_cur_size(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
+define i64 @ossl_quic_sstream_get_cur_size(ptr noundef readonly captures(none) %qss) local_unnamed_addr #3 {
 entry:
   %head_offset = getelementptr inbounds nuw i8, ptr %qss, i64 16
   %0 = load i64, ptr %head_offset, align 8
@@ -401,7 +401,7 @@ entry:
 declare i32 @ossl_uint_set_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_mark_transmitted_fin(ptr nocapture noundef %qss, i64 noundef %final_size) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_mark_transmitted_fin(ptr noundef captures(none) %qss, i64 noundef %final_size) local_unnamed_addr #4 {
 entry:
   %have_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
@@ -442,7 +442,7 @@ entry:
 declare i32 @ossl_uint_set_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_mark_lost_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_mark_lost_fin(ptr noundef captures(none) %qss) local_unnamed_addr #4 {
 entry:
   %acked_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %acked_final_size, align 8
@@ -555,7 +555,7 @@ return:                                           ; preds = %if.then36.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_mark_acked_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_mark_acked_fin(ptr noundef captures(none) %qss) local_unnamed_addr #4 {
 entry:
   %have_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
@@ -574,7 +574,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_sstream_fin(ptr nocapture noundef %qss) local_unnamed_addr #4 {
+define void @ossl_quic_sstream_fin(ptr noundef captures(none) %qss) local_unnamed_addr #4 {
 entry:
   %have_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
@@ -592,7 +592,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_get_final_size(ptr nocapture noundef readonly %qss, ptr noundef writeonly %final_size) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_get_final_size(ptr noundef readonly captures(none) %qss, ptr noundef writeonly %final_size) local_unnamed_addr #4 {
 entry:
   %have_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
@@ -616,7 +616,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_append(ptr noundef %qss, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef writeonly %consumed) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_append(ptr noundef %qss, ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef writeonly captures(none) %consumed) local_unnamed_addr #0 {
 entry:
   %r = alloca %struct.uint_range_st, align 8
   %old_ring_buf.sroa.0 = alloca { ptr, i64 }, align 8
@@ -724,10 +724,10 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_set_buffer_size(ptr nocapture noundef %qss, i64 noundef %num_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_set_buffer_size(ptr noundef captures(none) %qss, i64 noundef %num_bytes) local_unnamed_addr #0 {
 entry:
   %cleanse = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %cleanse, align 8
@@ -739,7 +739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_sstream_get_buffer_size(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
+define i64 @ossl_quic_sstream_get_buffer_size(ptr noundef readonly captures(none) %qss) local_unnamed_addr #3 {
 entry:
   %alloc = getelementptr inbounds nuw i8, ptr %qss, i64 8
   %0 = load i64, ptr %alloc, align 8
@@ -747,7 +747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_sstream_get_buffer_used(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
+define i64 @ossl_quic_sstream_get_buffer_used(ptr noundef readonly captures(none) %qss) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %qss, i64 16
   %qss.val = load i64, ptr %0, align 8
@@ -758,7 +758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_sstream_get_buffer_avail(ptr nocapture noundef readonly %qss) local_unnamed_addr #3 {
+define i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef readonly captures(none) %qss) local_unnamed_addr #3 {
 entry:
   %alloc.i = getelementptr inbounds nuw i8, ptr %qss, i64 8
   %0 = load i64, ptr %alloc.i, align 8
@@ -772,7 +772,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_quic_sstream_is_totally_acked(ptr nocapture noundef readonly %qss) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_quic_sstream_is_totally_acked(ptr noundef readonly captures(none) %qss) local_unnamed_addr #6 {
 entry:
   %have_final_size = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %bf.load = load i8, ptr %have_final_size, align 8
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ossl_quic_sstream_adjust_iov(i64 noundef %len, ptr nocapture noundef %iov, i64 noundef %num_iov) local_unnamed_addr #7 {
+define void @ossl_quic_sstream_adjust_iov(i64 noundef %len, ptr noundef captures(none) %iov, i64 noundef %num_iov) local_unnamed_addr #7 {
 entry:
   %cmp13.not = icmp eq i64 %num_iov, 0
   br i1 %cmp13.not, label %for.end, label %for.body
@@ -851,7 +851,7 @@ for.end:                                          ; preds = %if.end8, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_sstream_set_cleanse(ptr nocapture noundef %qss, i32 noundef %cleanse) local_unnamed_addr #4 {
+define void @ossl_quic_sstream_set_cleanse(ptr noundef captures(none) %qss, i32 noundef %cleanse) local_unnamed_addr #4 {
 entry:
   %cleanse1 = getelementptr inbounds nuw i8, ptr %qss, i64 80
   %0 = trunc i32 %cleanse to i8
@@ -865,7 +865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

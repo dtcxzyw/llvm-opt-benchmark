@@ -127,7 +127,7 @@ define internal void @cleanup_netconsole() #0 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @unregister_console(ptr noundef) local_unnamed_addr #3
@@ -136,7 +136,7 @@ declare dso_local i32 @unregister_console(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @unregister_netdevice_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
@@ -321,7 +321,7 @@ declare dso_local void @console_list_lock() local_unnamed_addr #3
 declare dso_local void @console_list_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
+define internal void @write_ext_msg(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
   %4 = load i8, ptr @oops_only, align 1, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   %6 = load i32, ptr @oops_in_progress, align 4
@@ -481,7 +481,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -493,13 +493,13 @@ declare dso_local void @netpoll_send_udp(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @write_msg(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
+define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #4 align 16 {
   %4 = load i8, ptr @oops_only, align 1, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   %6 = load i32, ptr @oops_in_progress, align 4
@@ -594,7 +594,7 @@ define internal void @write_msg(ptr nocapture readnone %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = load ptr, ptr %2, align 8
   switch i64 %1, label %51 [
     i64 21, label %5
@@ -751,7 +751,7 @@ declare dso_local i32 @netpoll_setup(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

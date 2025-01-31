@@ -43,7 +43,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBufferD2Ev(ptr nound
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7HdBprimD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBufferD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBufferD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #8
   unreachable
 }
@@ -52,12 +52,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBufferD0Ev(ptr nocap
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer23GetInitialDirtyBitsMaskEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer23GetInitialDirtyBitsMaskEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer4SyncEPNS_15HdSceneDelegateEPNS_13HdRenderParamEPj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer4SyncEPNS_15HdSceneDelegateEPNS_13HdRenderParamEPj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdRenderBufferDescriptor", align 4
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = load i32, ptr %3, align 4
@@ -125,7 +125,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13T
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer8FinalizeEPNS_13HdRenderParamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer8FinalizeEPNS_13HdRenderParamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8

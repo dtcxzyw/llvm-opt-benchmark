@@ -246,7 +246,7 @@ define dso_local ptr @snd_pcm_format_silence_64(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = icmp ult i32 %0, 53
   br i1 %4, label %5, label %.loopexit
 
@@ -343,13 +343,13 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_format_set_silence(i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr nocapture noundef %0) #4 align 16 {
+define dso_local noundef i32 @snd_pcm_hw_limit_rates(ptr noundef captures(none) %0) #4 align 16 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @snd_pcm_known_rates, i64 8), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %.loopexit3

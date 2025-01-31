@@ -135,7 +135,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ch_tick = private unnamed_addr constant [5 x i32] [i32 0, i32 2, i32 1, i32 4, i32 3], align 4
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_channel_new(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define ptr @ossl_quic_channel_new(ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %txp_args.i = alloca %struct.ossl_quic_tx_packetiser_args_st, align 8
   %qtx_args.i = alloca %struct.ossl_qtx_args_st, align 8
@@ -772,7 +772,7 @@ for.end34:                                        ; preds = %ossl_list_stateless
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_set_mutator(ptr nocapture noundef readonly %ch, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_set_mutator(ptr noundef readonly captures(none) %ch, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
   %qtx = getelementptr inbounds nuw i8, ptr %ch, i64 1096
   %0 = load ptr, ptr %qtx, align 8
@@ -791,7 +791,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_qtx_set_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_get_peer_addr(ptr nocapture noundef readonly %ch, ptr nocapture noundef writeonly %peer_addr) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_quic_channel_get_peer_addr(ptr noundef readonly captures(none) %ch, ptr noundef writeonly captures(none) %peer_addr) local_unnamed_addr #2 {
 entry:
   %addressed_mode = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %addressed_mode, align 8
@@ -810,7 +810,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_channel_set_peer_addr(ptr noundef %ch, ptr noundef %peer_addr) local_unnamed_addr #0 {
@@ -909,7 +909,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_closing(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_closing(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %state, align 8
@@ -920,7 +920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_terminated(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_terminated(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %state, align 8
@@ -931,7 +931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_term_any(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_term_any(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %ch, i64 1616
   %ch.val = load i64, ptr %0, align 8
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_complete(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_complete(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %handshake_complete = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_complete, align 8
@@ -971,7 +971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_confirmed(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_handshake_confirmed(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %handshake_confirmed = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_confirmed, align 8
@@ -982,7 +982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get0_demux(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get0_demux(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %demux = getelementptr inbounds nuw i8, ptr %ch, i64 1088
   %0 = load ptr, ptr %demux, align 8
@@ -990,7 +990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get_mutex(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get_mutex(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %mutex = getelementptr inbounds nuw i8, ptr %ch, i64 16
   %0 = load ptr, ptr %mutex, align 8
@@ -998,7 +998,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_has_pending(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_has_pending(ptr noundef readonly captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %demux = getelementptr inbounds nuw i8, ptr %ch, i64 1088
   %0 = load ptr, ptr %demux, align 8
@@ -1024,7 +1024,7 @@ declare i32 @ossl_quic_demux_has_pending(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_qrx_processed_read_pending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get_net_rbio(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get_net_rbio(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %net_rbio = getelementptr inbounds nuw i8, ptr %ch, i64 240
   %0 = load ptr, ptr %net_rbio, align 8
@@ -1032,7 +1032,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get_net_wbio(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get_net_wbio(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %net_wbio = getelementptr inbounds nuw i8, ptr %ch, i64 248
   %0 = load ptr, ptr %net_wbio, align 8
@@ -1328,7 +1328,7 @@ declare i32 @ossl_quic_provide_initial_secret(ptr noundef, ptr noundef, ptr noun
 declare i32 @ossl_quic_reactor_tick(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_local_close(ptr nocapture noundef %ch, i64 noundef %app_error_code, ptr noundef %app_reason) local_unnamed_addr #0 {
+define void @ossl_quic_channel_local_close(ptr noundef captures(none) %ch, i64 noundef %app_error_code, ptr noundef %app_reason) local_unnamed_addr #0 {
 entry:
   %tcause = alloca %struct.quic_terminate_cause_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %tcause, i64 8
@@ -1367,13 +1367,13 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ch_start_terminating(ptr nocapture noundef %ch, ptr nocapture noundef nonnull readonly %tcause, i32 noundef range(i32 0, 2) %force_immediate) unnamed_addr #0 {
+define internal fastcc void @ch_start_terminating(ptr noundef captures(none) %ch, ptr noundef nonnull readonly captures(none) %tcause, i32 noundef range(i32 0, 2) %force_immediate) unnamed_addr #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   %have_sent_any_pkt = getelementptr inbounds nuw i8, ptr %ch, i64 1616
@@ -1619,7 +1619,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr nocapture noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %handshake_confirmed = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %handshake_confirmed, align 8
@@ -1652,7 +1652,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_raise_protocol_error_loc(ptr nocapture noundef %ch, i64 noundef %error_code, i64 noundef %frame_type, ptr noundef %reason, ptr noundef %err_state, ptr noundef %src_file, i32 noundef %src_line, ptr noundef %src_func) local_unnamed_addr #0 {
+define void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef captures(none) %ch, i64 noundef %error_code, i64 noundef %frame_type, ptr noundef %reason, ptr noundef %err_state, ptr noundef %src_file, i32 noundef %src_line, ptr noundef %src_func) local_unnamed_addr #0 {
 entry:
   %tcause = alloca %struct.quic_terminate_cause_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tcause, i8 0, i64 40, i1 false)
@@ -1743,7 +1743,7 @@ return:                                           ; preds = %entry, %ch_save_err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ch_discard_el(ptr nocapture noundef %ch, i32 noundef range(i32 0, 2) %enc_level) unnamed_addr #0 {
+define internal fastcc void @ch_discard_el(ptr noundef captures(none) %ch, i32 noundef range(i32 0, 2) %enc_level) unnamed_addr #0 {
 entry:
   %el_discarded = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %el_discarded, align 8
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.end8, %lor.lhs.f
 declare i32 @ossl_ackm_on_handshake_confirmed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_on_remote_conn_close(ptr noundef %ch, ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
+define void @ossl_quic_channel_on_remote_conn_close(ptr noundef %ch, ptr noundef readonly captures(none) %f) local_unnamed_addr #0 {
 entry:
   %tcause = alloca %struct.quic_terminate_cause_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %tcause, i64 32
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %entry, %ossl_quic_c
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_on_new_conn_id(ptr noundef %ch, ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
+define void @ossl_quic_channel_on_new_conn_id(ptr noundef %ch, ptr noundef readonly captures(none) %f) local_unnamed_addr #0 {
 ossl_quic_channel_is_active.exit:
   %wpkt.i = alloca %struct.wpacket_st, align 8
   %l.i = alloca i64, align 8
@@ -2063,7 +2063,7 @@ while.end:                                        ; preds = %if.end44, %if.end36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @chan_add_reset_token(ptr nocapture noundef %ch, ptr nocapture noundef readonly %new, i64 noundef %seq_num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chan_add_reset_token(ptr noundef captures(none) %ch, ptr noundef readonly captures(none) %new, i64 noundef %seq_num) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 171) #14
   %cmp = icmp eq ptr %call, null
@@ -2167,7 +2167,7 @@ return:                                           ; preds = %ossl_list_stateless
 declare i32 @ossl_quic_tx_packetiser_set_cur_dcid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_net_error(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_channel_net_error(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %net_error = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %net_error, align 8
@@ -2206,7 +2206,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get0_ssl(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define ptr @ossl_quic_channel_get0_ssl(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %tls = getelementptr inbounds nuw i8, ptr %ch, i64 48
   %0 = load ptr, ptr %tls, align 8
@@ -2450,7 +2450,7 @@ entry:
 declare void @ossl_quic_stream_map_push_accept_queue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_channel_set_incoming_stream_auto_reject(ptr nocapture noundef initializes((1496, 1504)) %ch, i32 noundef %enable, i64 noundef %aec) local_unnamed_addr #2 {
+define void @ossl_quic_channel_set_incoming_stream_auto_reject(ptr noundef captures(none) initializes((1496, 1504)) %ch, i32 noundef %enable, i64 noundef %aec) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %enable, 0
   %incoming_stream_auto_reject = getelementptr inbounds nuw i8, ptr %ch, i64 1616
@@ -2471,7 +2471,7 @@ declare i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef, ptr nounde
 declare void @ossl_quic_stream_map_update_state(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_replace_local_cid(ptr noundef %ch, ptr nocapture noundef readonly %conn_id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_replace_local_cid(ptr noundef %ch, ptr noundef readonly captures(none) %conn_id) local_unnamed_addr #0 {
 entry:
   %qrx = getelementptr inbounds nuw i8, ptr %ch, i64 1104
   %0 = load ptr, ptr %qrx, align 8
@@ -2507,7 +2507,7 @@ declare i32 @ossl_quic_tx_packetiser_set_cur_scid(ptr noundef, ptr noundef) loca
 declare i32 @ossl_qrx_add_dst_conn_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_set_msg_callback(ptr nocapture noundef initializes((1112, 1120), (1128, 1136)) %ch, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #0 {
+define void @ossl_quic_channel_set_msg_callback(ptr noundef captures(none) initializes((1112, 1120), (1128, 1136)) %ch, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #0 {
 entry:
   %msg_callback1 = getelementptr inbounds nuw i8, ptr %ch, i64 1112
   store ptr %msg_callback, ptr %msg_callback1, align 8
@@ -2532,7 +2532,7 @@ declare void @ossl_quic_tx_packetiser_set_msg_callback(ptr noundef, ptr noundef,
 declare void @ossl_qrx_set_msg_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_set_msg_callback_arg(ptr nocapture noundef initializes((1120, 1128)) %ch, ptr noundef %msg_callback_arg) local_unnamed_addr #0 {
+define void @ossl_quic_channel_set_msg_callback_arg(ptr noundef captures(none) initializes((1120, 1128)) %ch, ptr noundef %msg_callback_arg) local_unnamed_addr #0 {
 entry:
   %msg_callback_arg1 = getelementptr inbounds nuw i8, ptr %ch, i64 1120
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8
@@ -2555,7 +2555,7 @@ declare void @ossl_quic_tx_packetiser_set_msg_callback_arg(ptr noundef, ptr noun
 declare void @ossl_qrx_set_msg_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_channel_set_txku_threshold_override(ptr nocapture noundef writeonly initializes((1504, 1512)) %ch, i64 noundef %tx_pkt_threshold) local_unnamed_addr #8 {
+define void @ossl_quic_channel_set_txku_threshold_override(ptr noundef writeonly captures(none) initializes((1504, 1512)) %ch, i64 noundef %tx_pkt_threshold) local_unnamed_addr #8 {
 entry:
   %txku_threshold_override = getelementptr inbounds nuw i8, ptr %ch, i64 1504
   store i64 %tx_pkt_threshold, ptr %txku_threshold_override, align 8
@@ -2563,7 +2563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_quic_channel_get_tx_key_epoch(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
+define i64 @ossl_quic_channel_get_tx_key_epoch(ptr noundef readonly captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %qtx = getelementptr inbounds nuw i8, ptr %ch, i64 1096
   %0 = load ptr, ptr %qtx, align 8
@@ -2574,7 +2574,7 @@ entry:
 declare i64 @ossl_qtx_get_key_epoch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_quic_channel_get_rx_key_epoch(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
+define i64 @ossl_quic_channel_get_rx_key_epoch(ptr noundef readonly captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %qrx = getelementptr inbounds nuw i8, ptr %ch, i64 1104
   %0 = load ptr, ptr %qrx, align 8
@@ -2585,7 +2585,7 @@ entry:
 declare i64 @ossl_qrx_get_key_epoch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_trigger_txku(ptr nocapture noundef %ch) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_channel_trigger_txku(ptr noundef captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %tx_enc_level.i = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load.i = load i64, ptr %tx_enc_level.i, align 8
@@ -2683,7 +2683,7 @@ return:                                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_channel_ping(ptr nocapture noundef readonly %ch) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_channel_ping(ptr noundef readonly captures(none) %ch) local_unnamed_addr #0 {
 entry:
   %tx_enc_level = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %tx_enc_level, align 8
@@ -2703,7 +2703,7 @@ entry:
 declare void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_channel_set_inhibit_tick(ptr nocapture noundef %ch, i32 noundef %inhibit) local_unnamed_addr #2 {
+define void @ossl_quic_channel_set_inhibit_tick(ptr noundef captures(none) %ch, i32 noundef %inhibit) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %inhibit, 0
   %inhibit_tick = getelementptr inbounds nuw i8, ptr %ch, i64 1616
@@ -2716,7 +2716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @ossl_quic_channel_get_diag_num_rx_ack(ptr nocapture noundef readonly %ch) local_unnamed_addr #5 {
+define zeroext i16 @ossl_quic_channel_get_diag_num_rx_ack(ptr noundef readonly captures(none) %ch) local_unnamed_addr #5 {
 entry:
   %diag_num_rx_ack = getelementptr inbounds nuw i8, ptr %ch, i64 1512
   %0 = load i16, ptr %diag_num_rx_ack, align 8
@@ -2724,7 +2724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_channel_get_diag_local_cid(ptr nocapture noundef readonly %ch, ptr nocapture noundef writeonly initializes((0, 21)) %cid) local_unnamed_addr #2 {
+define void @ossl_quic_channel_get_diag_local_cid(ptr noundef readonly captures(none) %ch, ptr noundef writeonly captures(none) initializes((0, 21)) %cid) local_unnamed_addr #2 {
 entry:
   %cur_local_cid = getelementptr inbounds nuw i8, ptr %ch, i64 1288
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cid, ptr noundef nonnull align 8 dereferenceable(21) %cur_local_cid, i64 21, i1 false)
@@ -2732,7 +2732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @chan_reset_token_hash(ptr nocapture noundef readonly %a) #5 {
+define internal i64 @chan_reset_token_hash(ptr noundef readonly captures(none) %a) #5 {
 entry:
   %token = getelementptr inbounds nuw i8, ptr %a, i64 16
   %h.0.copyload = load i64, ptr %token, align 8
@@ -2759,7 +2759,7 @@ declare i32 @ossl_quic_txfc_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_quic_rxfc_init(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @get_time(ptr nocapture noundef readonly %arg) #0 {
+define internal i64 @get_time(ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %now_cb = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %0 = load ptr, ptr %now_cb, align 8
@@ -2790,7 +2790,7 @@ declare ptr @ossl_ackm_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @ossl_quic_stream_map_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @get_stream_limit(i32 noundef %uni, ptr nocapture noundef readonly %arg) #5 {
+define internal i64 @get_stream_limit(i32 noundef %uni, ptr noundef readonly captures(none) %arg) #5 {
 entry:
   %tobool.not = icmp eq i32 %uni, 0
   %cond.in.v = select i1 %tobool.not, i64 1424, i64 1432
@@ -2806,7 +2806,7 @@ declare ptr @ossl_quic_tx_packetiser_new(ptr noundef) local_unnamed_addr #1
 declare void @ossl_quic_tx_packetiser_set_ack_tx_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ch_on_txp_ack_tx(ptr noundef %ack, i32 noundef %pn_space, ptr nocapture noundef %arg) #0 {
+define internal void @ch_on_txp_ack_tx(ptr noundef %ack, i32 noundef %pn_space, ptr noundef captures(none) %arg) #0 {
 entry:
   %cmp.not = icmp eq i32 %pn_space, 2
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -2840,7 +2840,7 @@ declare ptr @ossl_quic_demux_new(ptr noundef, i64 noundef, ptr noundef, ptr noun
 declare void @ossl_quic_demux_set_stateless_reset_handler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ch_stateless_reset_token_handler(ptr nocapture noundef readonly %data, i64 noundef %datalen, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_stateless_reset_token_handler(ptr noundef readonly captures(none) %data, i64 noundef %datalen, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %srte = alloca %struct.quic_srt_elem_st, align 8
   %cmp = icmp ult i64 %datalen, 21
@@ -3008,7 +3008,7 @@ declare ptr @ossl_qrx_new(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_qrx_set_late_validation_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rx_late_validate(i64 noundef %pn, i32 noundef %pn_space, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @rx_late_validate(i64 noundef %pn, i32 noundef %pn_space, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %ackm = getelementptr inbounds nuw i8, ptr %arg, i64 1080
   %0 = load ptr, ptr %ackm, align 8
@@ -3021,7 +3021,7 @@ entry:
 declare i32 @ossl_qrx_set_key_update_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rxku_detected(i64 noundef %pn, ptr nocapture noundef %arg) #0 {
+define internal void @rxku_detected(i64 noundef %pn, ptr noundef captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 1616
   %arg.val = load i64, ptr %0, align 8
@@ -3113,7 +3113,7 @@ return:                                           ; preds = %if.end29, %if.then5
 declare ptr @ossl_quic_rstream_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ch_on_crypto_send(ptr noundef %buf, i64 noundef %buf_len, ptr noundef %consumed, ptr nocapture noundef readonly %arg) #0 {
+define internal i32 @ch_on_crypto_send(ptr noundef %buf, i64 noundef %buf_len, ptr noundef %consumed, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %tx_enc_level = getelementptr inbounds nuw i8, ptr %arg, i64 1616
   %bf.load = load i64, ptr %tx_enc_level, align 8
@@ -3140,7 +3140,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ch_on_crypto_recv_record(ptr noundef %buf, ptr noundef %bytes_read, ptr nocapture noundef %arg) #0 {
+define internal i32 @ch_on_crypto_recv_record(ptr noundef %buf, ptr noundef %bytes_read, ptr noundef captures(none) %arg) #0 {
 entry:
   %avail.i = alloca i64, align 8
   %is_fin.i = alloca i32, align 4
@@ -3276,7 +3276,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ch_on_handshake_yield_secret(i32 noundef %enc_level, i32 noundef %direction, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_on_handshake_yield_secret(i32 noundef %enc_level, i32 noundef %direction, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, ptr noundef captures(none) %arg) #0 {
 entry:
   %avail.i = alloca i64, align 8
   %is_fin.i = alloca i32, align 4
@@ -3952,7 +3952,7 @@ return:                                           ; preds = %if.end287, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef captures(none) %arg) #0 {
 entry:
   %handshake_complete = getelementptr inbounds nuw i8, ptr %arg, i64 1616
   %bf.load = load i64, ptr %handshake_complete, align 8
@@ -4013,7 +4013,7 @@ return:                                           ; preds = %if.end28, %ossl_qui
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ch_on_handshake_alert(ptr nocapture noundef %arg, i8 noundef zeroext %alert_code) #0 {
+define internal noundef i32 @ch_on_handshake_alert(ptr noundef captures(none) %arg, i8 noundef zeroext %alert_code) #0 {
 entry:
   %conv = zext i8 %alert_code to i64
   switch i8 %alert_code, label %if.else19 [
@@ -4228,7 +4228,7 @@ if.end88:                                         ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ch_update_idle(ptr nocapture noundef initializes((1568, 1576)) %ch) unnamed_addr #0 {
+define internal fastcc void @ch_update_idle(ptr noundef captures(none) initializes((1568, 1576)) %ch) unnamed_addr #0 {
 entry:
   %now_cb.i = getelementptr inbounds nuw i8, ptr %ch, i64 24
   %0 = load ptr, ptr %now_cb.i, align 8
@@ -4276,7 +4276,7 @@ ch_get_effective_idle_timeout_duration.exit:      ; preds = %get_time.exit, %if.
 declare void @ossl_quic_reactor_init(ptr noundef, ptr noundef, ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ch_tick(ptr nocapture noundef writeonly %res, ptr noundef %arg, i32 noundef %flags) #0 {
+define internal void @ch_tick(ptr noundef writeonly captures(none) %res, ptr noundef %arg, i32 noundef %flags) #0 {
 entry:
   %status.i = alloca %struct.quic_txp_status_st, align 8
   %error_code.i = alloca i64, align 8
@@ -5583,7 +5583,7 @@ return:                                           ; preds = %land.end, %if.end62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ch_determine_next_tick_deadline(ptr nocapture noundef readonly %ch) unnamed_addr #0 {
+define internal fastcc i64 @ch_determine_next_tick_deadline(ptr noundef readonly captures(none) %ch) unnamed_addr #0 {
 entry:
   %state.i = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load.i = load i64, ptr %state.i, align 8
@@ -5723,7 +5723,7 @@ declare i32 @ossl_quic_txfc_bump_cwm(ptr noundef, i64 noundef) local_unnamed_add
 declare void @ossl_quic_stream_map_visit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @txfc_bump_cwm_bidi(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
+define internal void @txfc_bump_cwm_bidi(ptr noundef %s, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 256
   %s.val = load i64, ptr %0, align 8
@@ -5742,7 +5742,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @txfc_bump_cwm_uni(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
+define internal void @txfc_bump_cwm_uni(ptr noundef %s, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 256
   %s.val = load i64, ptr %0, align 8
@@ -5820,7 +5820,7 @@ declare i32 @ossl_qrx_key_update_timeout(ptr noundef, i32 noundef) local_unnamed
 declare i32 @ossl_quic_demux_pump(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ch_raise_net_error(ptr nocapture noundef %ch) unnamed_addr #0 {
+define internal fastcc void @ch_raise_net_error(ptr noundef captures(none) %ch) unnamed_addr #0 {
 entry:
   %tcause = alloca %struct.quic_terminate_cause_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %tcause, i64 8
@@ -5869,7 +5869,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_token(ptr noundef %buf, i64 %buf_len, ptr nocapture readnone %arg) #0 {
+define internal void @free_token(ptr noundef %buf, i64 %buf_len, ptr readnone captures(none) %arg) #0 {
 entry:
   tail call void @CRYPTO_free(ptr noundef %buf, ptr noundef nonnull @.str, i32 noundef 2811) #14
   ret void
@@ -5958,7 +5958,7 @@ declare i32 @ossl_quic_wire_encode_frame_retire_conn_id(ptr noundef, i64 noundef
 declare ptr @ossl_quic_cfq_add_frame(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_frame_data(ptr noundef %buf, i64 %buf_len, ptr nocapture readnone %arg) #0 {
+define internal void @free_frame_data(ptr noundef %buf, i64 %buf_len, ptr readnone captures(none) %arg) #0 {
 entry:
   tail call void @CRYPTO_free(ptr noundef %buf, ptr noundef nonnull @.str, i32 noundef 3127) #14
   ret void
@@ -5975,7 +5975,7 @@ declare i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef, i32 noundef) local
 declare i32 @ossl_qtx_trigger_key_update(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
@@ -5987,13 +5987,13 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

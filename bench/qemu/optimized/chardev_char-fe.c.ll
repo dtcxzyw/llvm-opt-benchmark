@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.MUX_CHARDEV = private unnamed_addr constant [12 x i8] c"MUX_CHARDEV\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_write(ptr nocapture noundef readonly %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_write(ptr noundef readonly captures(none) %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -42,7 +42,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @qemu_chr_write(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_write_all(ptr nocapture noundef readonly %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_write_all(ptr noundef readonly captures(none) %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -58,7 +58,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_read_all(ptr nocapture noundef readonly %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_read_all(ptr noundef readonly captures(none) %be, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -166,7 +166,7 @@ declare void @replay_char_read_all_save_error(i32 noundef) local_unnamed_addr #1
 declare void @replay_char_read_all_save_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_ioctl(ptr nocapture noundef readonly %be, i32 noundef %cmd, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_ioctl(ptr noundef readonly captures(none) %be, i32 noundef %cmd, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -198,7 +198,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_get_msgfd(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_get_msgfd(ptr noundef readonly captures(none) %be) local_unnamed_addr #0 {
 entry:
   %fd = alloca i32, align 4
   %0 = load ptr, ptr %be, align 8
@@ -241,7 +241,7 @@ if.end.thread:                                    ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_get_msgfds(ptr nocapture noundef readonly %be, ptr noundef %fds, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_get_msgfds(ptr noundef readonly captures(none) %be, ptr noundef %fds, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -274,7 +274,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_set_msgfds(ptr nocapture noundef readonly %be, ptr noundef %fds, i32 noundef %num) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_set_msgfds(ptr noundef readonly captures(none) %be, ptr noundef %fds, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -302,7 +302,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_accept_input(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_accept_input(ptr noundef readonly captures(none) %be) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -335,7 +335,7 @@ return:                                           ; preds = %entry, %if.end5
 declare void @qemu_notify_event() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_printf(ptr nocapture noundef readonly %be, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_printf(ptr noundef readonly captures(none) %be, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -357,13 +357,13 @@ qemu_chr_fe_write_all.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_chr_fe_get_driver(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
+define dso_local ptr @qemu_chr_fe_get_driver(ptr noundef readonly captures(none) %be) local_unnamed_addr #0 {
 entry:
   %chr_be_change = getelementptr inbounds nuw i8, ptr %be, i64 32
   %0 = load ptr, ptr %chr_be_change, align 8
@@ -383,7 +383,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_chr_fe_backend_connected(ptr nocapture noundef readonly %be) local_unnamed_addr #7 {
+define dso_local zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef readonly captures(none) %be) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool = icmp ne ptr %0, null
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_chr_fe_backend_open(ptr nocapture noundef readonly %be) local_unnamed_addr #8 {
+define dso_local zeroext i1 @qemu_chr_fe_backend_open(ptr noundef readonly captures(none) %be) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -542,7 +542,7 @@ if.end23:                                         ; preds = %if.end21, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_set_handlers(ptr nocapture noundef %b, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %fd_event, ptr noundef %be_change, ptr noundef %opaque, ptr noundef %context, i1 noundef zeroext %set_open) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_set_handlers(ptr noundef captures(none) %b, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %fd_event, ptr noundef %be_change, ptr noundef %opaque, ptr noundef %context, i1 noundef zeroext %set_open) local_unnamed_addr #0 {
 entry:
   tail call void @qemu_chr_fe_set_handlers_full(ptr noundef %b, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %fd_event, ptr noundef %be_change, ptr noundef %opaque, ptr noundef %context, i1 noundef zeroext %set_open, i1 noundef zeroext true)
   ret void
@@ -553,7 +553,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_set_handlers_full(ptr nocapture noundef %b, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %fd_event, ptr noundef %be_change, ptr noundef %opaque, ptr noundef %context, i1 noundef zeroext %set_open, i1 noundef zeroext %sync_state) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_set_handlers_full(ptr noundef captures(none) %b, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %fd_event, ptr noundef %be_change, ptr noundef %opaque, ptr noundef %context, i1 noundef zeroext %set_open, i1 noundef zeroext %sync_state) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %b, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -658,7 +658,7 @@ declare void @remove_fd_in_watch(ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_be_update_read_handlers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_set_open(ptr nocapture noundef %be, i32 noundef %fe_open) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_set_open(ptr noundef captures(none) %be, i32 noundef %fe_open) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -692,7 +692,7 @@ if.end10:                                         ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_take_focus(ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_take_focus(ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %b, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -719,7 +719,7 @@ declare void @qemu_chr_be_event(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @mux_set_focus(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_wait_connected(ptr nocapture noundef readonly %be, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_wait_connected(ptr noundef readonly captures(none) %be, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -741,7 +741,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @qemu_chr_wait_connected(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_set_echo(ptr nocapture noundef readonly %be, i1 noundef zeroext %echo) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_set_echo(ptr noundef readonly captures(none) %be, i1 noundef zeroext %echo) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -768,7 +768,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_fe_add_watch(ptr nocapture noundef readonly %be, i32 noundef %cond, ptr noundef %func, ptr noundef %user_data) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_fe_add_watch(ptr noundef readonly captures(none) %be, i32 noundef %cond, ptr noundef %func, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -811,7 +811,7 @@ declare i32 @g_source_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_fe_disconnect(ptr nocapture noundef readonly %be) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_fe_disconnect(ptr noundef readonly captures(none) %be) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -1619,7 +1619,7 @@ _forward_signal.exit:                             ; preds = %switch.lookup, %676
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #2
@@ -1711,7 +1711,7 @@ declare void @print_db_notok(ptr noundef, i1 noundef zeroext) local_unnamed_addr
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_set_cluster_name(ptr nocapture noundef writeonly initializes((464, 472)) %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_set_cluster_name(ptr noundef writeonly captures(none) initializes((464, 472)) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %4 = tail call ptr @xstrdup(ptr noundef %3) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -1909,7 +1909,7 @@ _forward_signal.exit:                             ; preds = %69, %66, %71, %74, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_job_suspend_handler(ptr nocapture noundef readonly %0) #0 {
+define internal void @_job_suspend_handler(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i16, ptr %0, align 8
   switch i16 %2, label %9 [
     i16 0, label %3
@@ -1936,7 +1936,7 @@ define internal void @_job_suspend_handler(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_user_msg_handler(ptr nocapture noundef readonly %0) #0 {
+define internal void @_user_msg_handler(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @get_log_level() #16
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %4, label %7
@@ -1952,7 +1952,7 @@ define internal void @_user_msg_handler(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_node_fail_handler(ptr nocapture noundef readonly %0) #0 {
+define internal void @_node_fail_handler(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.71, ptr noundef %2) #16
   ret void
@@ -1961,7 +1961,7 @@ define internal void @_node_fail_handler(ptr nocapture noundef readonly %0) #0 {
 declare ptr @slurm_allocation_msg_thr_create(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly initializes((472, 474)) %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef i32 @_copy_other_port(ptr noundef writeonly captures(none) initializes((472, 474)) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i16, ptr %1, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i16 %3, ptr %4, align 8
@@ -2311,10 +2311,10 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #3
 declare i32 @slurm_job_node_ready(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @setenvfs(ptr noundef, ...) local_unnamed_addr #3
 
@@ -2330,7 +2330,7 @@ declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @isatty(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #6
@@ -2353,10 +2353,10 @@ declare ptr @slurm_ctime2(ptr noundef) local_unnamed_addr #3
 declare ptr @get_slurm_rlimits_info() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 declare ptr @getenvp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2366,19 +2366,19 @@ declare void @unsetenvp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare i32 @setrlimit(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

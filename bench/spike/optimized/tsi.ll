@@ -364,7 +364,7 @@ _ZNSt5dequeIjSaIjEE9push_backEOj.exit:            ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5tsi_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferenceable(896) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5tsi_t10read_chunkEmmPv(ptr noundef nonnull align 8 dereferenceable(896) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -521,7 +521,7 @@ _ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %60, %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5tsi_t16switch_to_targetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN5tsi_t16switch_to_targetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -669,7 +669,7 @@ _ZNSt5dequeIjSaIjEE9push_backERKj.exit:           ; preds = %9, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5tsi_t9recv_wordEv(ptr nocapture noundef nonnull align 8 dereferenceable(896) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5tsi_t9recv_wordEv(ptr noundef nonnull align 8 captures(none) dereferenceable(896) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8, !noalias !21
   %4 = load i32, ptr %3, align 4
@@ -704,7 +704,7 @@ _ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5tsi_t14data_availableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN5tsi_t14data_availableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %4 = load ptr, ptr %2, align 8
@@ -1172,7 +1172,7 @@ _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIjSaIjEE19_M_range_insert_auxIPKjEEvSt15_Deque_iteratorIjRjPjET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3873,7 +3873,7 @@ _ZNSt5dequeIjSaIjEE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -3885,10 +3885,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

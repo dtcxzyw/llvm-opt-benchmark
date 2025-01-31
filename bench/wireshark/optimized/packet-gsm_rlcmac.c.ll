@@ -6260,7 +6260,7 @@ dissect_ec_egprs_dl_header_block.exit:            ; preds = %340, %363
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_ec_rlcmac_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_ec_rlcmac_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.RlcMacPrivateData_t, align 4
   store i32 1735422579, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -6272,7 +6272,7 @@ define internal i32 @dissect_gsm_ec_rlcmac_uplink(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_ec_rlcmac_downlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gsm_ec_rlcmac_downlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.RlcMacPrivateData_t, align 4
   store i32 1735422579, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -6303,7 +6303,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.1532.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.1532.val, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [20 x %struct.length_indicator_t], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6435,7 +6435,7 @@ declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare void @col_append_str_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @construct_gprs_data_segment_li_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc i32 @construct_gprs_data_segment_li_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = zext i8 %3 to i32
   %9 = load i8, ptr %4, align 1
   store i8 0, ptr %4, align 1
@@ -6494,7 +6494,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef returned zeroext %4, i32 noundef range(i32 0, 2) %5, i8 noundef zeroext range(i8 0, 16) %6, i8 noundef zeroext %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef returned zeroext %4, i32 noundef range(i32 0, 2) %5, i8 noundef zeroext range(i8 0, 16) %6, i8 noundef zeroext %7, ptr noundef nonnull readonly captures(none) %8) unnamed_addr #0 {
   %10 = zext nneg i8 %6 to i64
   %11 = add nsw i64 %10, -1
   %12 = getelementptr [4 x i8], ptr @gsm_rlcmac_gprs_cs_to_block_length, i64 0, i64 %11
@@ -6655,7 +6655,7 @@ define internal signext i16 @Egprs_Ack_Nack_Desc_w_len_Dissector(ptr noundef %0,
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %.not = icmp eq i8 %5, 0
   %.pre = zext i8 %4 to i32
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -6791,7 +6791,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.123688.val, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.123688.val, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [20 x %struct.length_indicator_t], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6861,7 +6861,7 @@ define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_init_Cell_Sel_Param_2_FREQUENCY_DIFF(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 %4, i32 %5, ptr nocapture readnone %6) #2 {
+define internal noundef signext i16 @callback_init_Cell_Sel_Param_2_FREQUENCY_DIFF(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 %4, i32 %5, ptr readnone captures(none) %6) #2 {
   %8 = load i8, ptr %2, align 1
   br label %9
 
@@ -6879,7 +6879,7 @@ define internal noundef signext i16 @callback_init_Cell_Sel_Param_2_FREQUENCY_DI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i32 %4, i32 %5, ptr nocapture readnone %6) #3 {
+define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, i32 %4, i32 %5, ptr readnone captures(none) %6) #3 {
   %8 = load i8, ptr %2, align 1
   %9 = icmp ult i8 %8, 32
   br i1 %9, label %10, label %14
@@ -6897,7 +6897,7 @@ define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6) #0 {
+define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca [64 x i32], align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %10 = load i8, ptr %9, align 2
@@ -7004,7 +7004,7 @@ declare i32 @tvb_get_bits(ptr noundef, i32 noundef, i32 noundef, i32 noundef) lo
 declare i32 @f_k(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_init_luMode_Cell_Sel_Param_FREQUENCY_DIFF(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 %4, i32 %5, ptr nocapture readnone %6) #2 {
+define internal noundef signext i16 @callback_init_luMode_Cell_Sel_Param_FREQUENCY_DIFF(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 %4, i32 %5, ptr readnone captures(none) %6) #2 {
   %8 = load i8, ptr %2, align 1
   br label %9
 
@@ -7022,7 +7022,7 @@ define internal noundef signext i16 @callback_init_luMode_Cell_Sel_Param_FREQUEN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i16 0, 2041) i16 @cb_parse_mi(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @cb_parse_mi(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7047,7 +7047,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i16 0, 2041) i16 @callback_call_handover_to_utran_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @callback_call_handover_to_utran_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7074,7 +7074,7 @@ define internal signext range(i16 0, 2041) i16 @callback_call_handover_to_utran_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i16 0, 2041) i16 @callback_call_eutran_dl_dcch(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
+define internal signext range(i16 0, 2041) i16 @callback_call_eutran_dl_dcch(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, i32 %5, ptr noundef %6) #0 {
   %8 = load i8, ptr %2, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -7099,7 +7099,7 @@ define internal signext range(i16 0, 2041) i16 @callback_call_eutran_dl_dcch(ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_init_Cell_Selection_Params_FREQUENCY_DIFF(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 %4, i32 %5, ptr nocapture readnone %6) #2 {
+define internal noundef signext i16 @callback_init_Cell_Selection_Params_FREQUENCY_DIFF(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 %4, i32 %5, ptr readnone captures(none) %6) #2 {
   %8 = load i8, ptr %2, align 1
   br label %9
 
@@ -7117,7 +7117,7 @@ define internal noundef signext i16 @callback_init_Cell_Selection_Params_FREQUEN
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_init_COMP_Ncell_Param_FREQUENCY_DIFF(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 %4, i32 %5, ptr nocapture readnone %6) #2 {
+define internal noundef signext i16 @callback_init_COMP_Ncell_Param_FREQUENCY_DIFF(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 %4, i32 %5, ptr readnone captures(none) %6) #2 {
   %8 = load i8, ptr %2, align 1
   br label %9
 
@@ -7140,10 +7140,10 @@ declare ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef, i32 noundef, pt
 declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

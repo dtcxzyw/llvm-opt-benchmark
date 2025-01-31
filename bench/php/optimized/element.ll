@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [9 x i8] c"afterend\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement___construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement___construct(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -266,7 +266,7 @@ declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr
 declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -305,14 +305,14 @@ define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, pt
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %17, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %17, i64 %18, i1 false)
   %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1
   store ptr %21, ptr %1, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %27, align 8
   %28 = load ptr, ptr @xmlFree, align 8
-  tail call void %28(ptr noundef %17) #8
+  tail call void %28(ptr noundef nonnull %17) #8
   br label %42
 
 29:                                               ; preds = %6, %9
@@ -330,7 +330,7 @@ define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, pt
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %31, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %31, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1
   store ptr %35, ptr %1, align 8
@@ -348,10 +348,10 @@ declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_element_class_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_class_name_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -401,7 +401,7 @@ dom_element_reflected_attribute_read.exit:        ; preds = %5, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_element_class_name_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_class_name_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -424,7 +424,7 @@ dom_element_reflected_attribute_write.exit:       ; preds = %5, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_element_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_id_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -474,7 +474,7 @@ dom_element_reflected_attribute_read.exit:        ; preds = %5, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_element_id_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_element_id_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dom_element_reflected_attribute_write.exit.thread, label %dom_element_reflected_attribute_write.exit
@@ -518,14 +518,14 @@ php_set_attribute_id.exit:                        ; preds = %17, %11, %8, %dom_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @dom_element_schema_type_info_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #4 {
+define hidden noundef i32 @dom_element_schema_type_info_read(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -726,7 +726,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
 declare ptr @xmlNodeListGetString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getAttributeNames(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -775,7 +775,7 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   %25 = getelementptr inbounds nuw i8, ptr %.041, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
-  %28 = call ptr @dom_node_concatenated_name_helper(i64 noundef %27, ptr noundef %26, i64 noundef 5, ptr noundef nonnull @.str.6) #8
+  %28 = call ptr @dom_node_concatenated_name_helper(i64 noundef %27, ptr noundef nonnull %26, i64 noundef 5, ptr noundef nonnull @.str.6) #8
   store ptr %28, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
@@ -837,7 +837,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare ptr @dom_node_get_node_name_attribute_or_element(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setAttribute(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setAttribute(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -978,7 +978,7 @@ declare void @node_list_unlink(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_removeAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1253,7 +1253,7 @@ dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getAttributeNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1324,7 +1324,7 @@ define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readon
 declare ptr @php_dom_create_fake_namespace_decl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setAttributeNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1501,7 +1501,7 @@ declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_removeAttributeNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1587,7 +1587,7 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getElementsByTagName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getElementsByTagName(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1640,7 +1640,7 @@ declare void @php_dom_create_iterator(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @dom_namednode_iter(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1737,7 +1737,7 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 %54, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 1 %53, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %53, i64 %54, i1 false)
   %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %54
   store i8 0, ptr %62, align 1
   store ptr %57, ptr %1, align 8
@@ -1770,7 +1770,7 @@ declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dom_get_nsdecl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2085,7 +2085,7 @@ declare ptr @xmlSetNsProp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @xmlSetProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_removeAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2351,7 +2351,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %do
 declare void @xmlFreeProp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getAttributeNodeNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2434,7 +2434,7 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setAttributeNodeNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2613,7 +2613,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2668,7 +2668,7 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_hasAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2724,7 +2724,7 @@ define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_hasAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2803,7 +2803,7 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setIdAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -2906,7 +2906,7 @@ php_set_attribute_id.exit:                        ; preds = %56, %.critedge.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setIdAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3012,7 +3012,7 @@ php_set_attribute_id.exit:                        ; preds = %59, %.critedge.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_setIdAttributeNode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3130,7 +3130,7 @@ php_set_attribute_id.exit:                        ; preds = %66, %.critedge.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_remove(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3174,7 +3174,7 @@ define hidden void @zim_DOMElement_remove(ptr nocapture noundef readonly %0, ptr
 declare void @dom_child_node_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_after(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_after(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3223,7 +3223,7 @@ define hidden void @zim_DOMElement_after(ptr nocapture noundef readonly %0, ptr 
 declare void @dom_parent_node_after(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_before(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_before(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3272,7 +3272,7 @@ define hidden void @zim_DOMElement_before(ptr nocapture noundef readonly %0, ptr
 declare void @dom_parent_node_before(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_append(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_append(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3321,7 +3321,7 @@ define hidden void @zim_DOMElement_append(ptr nocapture noundef readonly %0, ptr
 declare void @dom_parent_node_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_prepend(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_prepend(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3370,7 +3370,7 @@ define hidden void @zim_DOMElement_prepend(ptr nocapture noundef readonly %0, pt
 declare void @dom_parent_node_prepend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_replaceWith(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_replaceWith(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3419,7 +3419,7 @@ define hidden void @zim_DOMElement_replaceWith(ptr nocapture noundef readonly %0
 declare void @dom_child_replace_with(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_replaceChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_replaceChildren(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -3468,7 +3468,7 @@ define hidden void @zim_DOMElement_replaceChildren(ptr nocapture noundef readonl
 declare void @dom_parent_node_replace_children(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_insertAdjacentElement(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3742,7 +3742,7 @@ thread-pre-split65:                               ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_insertAdjacentText(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3817,7 +3817,7 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
 declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMElement_toggleAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -3993,12 +3993,12 @@ declare ptr @zend_str_tolower_dup_ex(ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @xmlSplitQName3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @_emalloc_2048() local_unnamed_addr #1
 

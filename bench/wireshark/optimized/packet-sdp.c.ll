@@ -761,7 +761,7 @@ define hidden void @setup_sdp_transport(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -786,7 +786,7 @@ declare i32 @tvb_find_line_end_unquoted(ptr noundef, i32 noundef, i32 noundef, p
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sdp_new_media_description(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @sdp_new_media_description(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.media_description_t, align 8
   %4 = tail call i32 @wmem_array_get_count(ptr noundef %0) #9
   %5 = icmp ugt i32 %4, 3
@@ -840,7 +840,7 @@ copy_address_wmem.exit:                           ; preds = %20, %11, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc void @call_sdp_subdissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -1238,7 +1238,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare void @rtp_dyn_payload_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @complete_descriptions(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @complete_descriptions(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1450,7 +1450,7 @@ free_address_wmem.exit:                           ; preds = %79, %83, %87, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @global_sdp_establish_conversation, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %6
@@ -2956,7 +2956,7 @@ parse_sdp_media_protocol.exit:                    ; preds = %129, %134
   br i1 %.not100.us, label %172, label %157
 
 157:                                              ; preds = %147
-  %158 = call i64 @strtoul(ptr nocapture noundef nonnull %150, ptr noundef null, i32 noundef 10) #9
+  %158 = call i64 @strtoul(ptr noundef nonnull captures(none) %150, ptr noundef null, i32 noundef 10) #9
   %159 = trunc i64 %158 to i32
   %160 = call ptr @val_to_str_ext(i32 noundef %159, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.230) #9
   %161 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %156, ptr noundef %0, i32 noundef %149, i32 noundef %145, ptr noundef %160) #9
@@ -2964,7 +2964,7 @@ parse_sdp_media_protocol.exit:                    ; preds = %129, %134
 
 162:                                              ; preds = %157
   %163 = load i8, ptr %142, align 8
-  %164 = call i64 @strtol(ptr nocapture noundef nonnull %150, ptr noundef null, i32 noundef 10) #9
+  %164 = call i64 @strtol(ptr noundef nonnull captures(none) %150, ptr noundef null, i32 noundef 10) #9
   %165 = trunc i64 %164 to i32
   %166 = sext i8 %163 to i64
   %167 = getelementptr [20 x i32], ptr %141, i64 0, i64 %166
@@ -3009,7 +3009,7 @@ parse_sdp_media_protocol.exit:                    ; preds = %129, %134
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sdp_media_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_sdp_media_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef nonnull writeonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
@@ -3045,7 +3045,7 @@ define internal fastcc void @dissect_sdp_media_attribute(ptr noundef %0, ptr nou
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef %33, i64 noundef %30) #9
+  %37 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %33, i64 noundef %30) #9
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.split.loop.exit14.i, label %39
 
@@ -3879,7 +3879,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %6) #9
   %.not = icmp eq i32 %7, 0
@@ -3942,7 +3942,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_sdp_connection_address(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @parse_sdp_connection_address(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.216) #10
@@ -3992,7 +3992,7 @@ define internal fastcc void @parse_sdp_connection_address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @str_to_ip(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4027,15 +4027,15 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare i32 @tvb_skip_wsp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @tvb_strncaseeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4052,7 +4052,7 @@ declare ptr @try_str_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_sdp_fmtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @decode_sdp_fmtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -4115,7 +4115,7 @@ define internal fastcc void @decode_sdp_fmtp(ptr noundef %0, ptr noundef %1, ptr
 
 48:                                               ; preds = %45
   %49 = load i32, ptr @hf_sdp_fmtp_mpeg4_profile_level_id, align 4
-  %50 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #9
+  %50 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #9
   %51 = trunc i64 %50 to i32
   %52 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %49, ptr noundef %1, i32 noundef %.0, i32 noundef %35, i32 noundef %51) #9
   %.not.i = icmp eq ptr %52, null
@@ -4188,7 +4188,7 @@ proto_item_set_generated.exit:                    ; preds = %42, %60, %71, %70, 
 
 80:                                               ; preds = %77
   %81 = load i32, ptr @hf_sdp_fmtp_h263_profile, align 4
-  %82 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #9
+  %82 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #9
   %83 = trunc i64 %82 to i32
   %84 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %.0, i32 noundef %35, i32 noundef %83) #9
   %.not.i190 = icmp eq ptr %84, null
@@ -4207,7 +4207,7 @@ proto_item_set_generated.exit:                    ; preds = %42, %60, %71, %70, 
 
 91:                                               ; preds = %88
   %92 = load i32, ptr @hf_sdp_fmtp_h263_level, align 4
-  %93 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #9
+  %93 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #9
   %94 = trunc i64 %93 to i32
   %95 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %92, ptr noundef %1, i32 noundef %.0, i32 noundef %35, i32 noundef %94) #9
   %.not.i193 = icmp eq ptr %95, null
@@ -4314,7 +4314,7 @@ ascii_bytes_to_tvb.exit198:                       ; preds = %110, %112
 
 137:                                              ; preds = %134
   %138 = load i32, ptr @hf_sdp_h264_packetization_mode, align 4
-  %139 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #9
+  %139 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #9
   %140 = trunc i64 %139 to i32
   %141 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %138, ptr noundef %1, i32 noundef %.0, i32 noundef %35, i32 noundef %140) #9
   %.not.i202 = icmp eq ptr %141, null
@@ -4512,7 +4512,7 @@ ascii_bytes_to_tvb.exit198:                       ; preds = %110, %112
   %228 = call ptr @base64_to_tvb(ptr noundef %1, ptr noundef %38) #9
   store volatile ptr %228, ptr %11, align 8
   %.0..0..0..0.43 = load volatile ptr, ptr %11, align 8
-  call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %.0..0..0..0.43, ptr noundef %.0164) #9
+  call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %.0..0..0..0.43, ptr noundef nonnull %.0164) #9
   %229 = load ptr, ptr @h265_handle, align 8
   %.not173 = icmp eq ptr %229, null
   br i1 %.not173, label %.critedge188, label %230
@@ -4570,7 +4570,7 @@ declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -4612,7 +4612,7 @@ declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @rtp_dyn_payload_get_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4621,10 +4621,10 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

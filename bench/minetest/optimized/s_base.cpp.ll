@@ -250,15 +250,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -877,7 +877,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase14clientOpenLibsEP9lua_State(ptr nocapture nonnull readnone align 8 %this, ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase14clientOpenLibsEP9lua_State(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %L) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [6 x %"struct.std::pair"], align 8
   %ref.tmp12 = alloca %"class.std::allocator.6", align 1
@@ -1691,7 +1691,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase17checkSetByBuiltinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN13ScriptApiBase17checkSetByBuiltinEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_luastack.i, align 8, !tbaa !30
@@ -1928,10 +1928,10 @@ declare i32 @lua_getstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @lua_getinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase7loadModERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %script_path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %mod_name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase7loadModERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %script_path, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %mod_name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mod_name_storer = alloca %class.ModNameStorer, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mod_name_storer) #30
@@ -1972,7 +1972,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN13ScriptApiBase10loadScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %script_path) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase10loadScriptERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %script_path) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2267,7 +2267,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !19
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !4
@@ -2325,7 +2325,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %invoke.cont4
-  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -2438,7 +2438,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN13ScriptApiBase17loadModFromMemoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %mod_name) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase17loadModFromMemoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(32) %mod_name) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -3132,7 +3132,7 @@ unreachable:                                      ; preds = %invoke.cont65, %inv
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef ptr @_ZN13ScriptApiBase9getClientEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef ptr @_ZN13ScriptApiBase9getClientEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #16 align 2 {
 entry:
   %m_gamedef = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gamedef, align 8, !tbaa !53
@@ -3153,7 +3153,7 @@ declare noundef ptr @_ZN6Client10getModFileENSt7__cxx1112basic_stringIcSt11char_
 declare noundef zeroext i1 @_ZN17ScriptApiSecurity14safeLoadStringEP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase15runCallbacksRawEi16RunCallbacksModePKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, i32 noundef %nargs, i32 noundef %mode, ptr noundef %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase15runCallbacksRawEi16RunCallbacksModePKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, i32 noundef %nargs, i32 noundef %mode, ptr noundef %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i8, ptr %m_type, align 8, !tbaa !28
@@ -3225,7 +3225,7 @@ declare void @lua_remove(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase11scriptErrorEiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, i32 noundef %result, ptr noundef %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase11scriptErrorEiPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, i32 noundef %result, ptr noundef %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_luastack.i, align 8, !tbaa !30
@@ -3236,7 +3236,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN13ScriptApiBase12realityCheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase12realityCheckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %traceback = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3375,7 +3375,7 @@ _ZN11StreamProxylsIRA18_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase9stackDumpERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase9stackDumpERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %buf = alloca [10 x i8], align 1
@@ -3653,7 +3653,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase21setOriginFromTableRawEiPKc(ptr noundef nonnull align 8 dereferenceable(137) %this, i32 noundef %index, ptr nocapture noundef readnone %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase21setOriginFromTableRawEiPKc(ptr noundef nonnull align 8 dereferenceable(137) %this, i32 noundef %index, ptr noundef readnone captures(none) %fxn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4013,7 +4013,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase21removeObjectReferenceEP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr nocapture noundef readonly %cobj) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase21removeObjectReferenceEP18ServerActiveObject(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef readonly captures(none) %cobj) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %m_luastackmutex = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4167,7 +4167,7 @@ declare void @_ZN9ObjectRef8set_nullEP9lua_State(ptr noundef) local_unnamed_addr
 declare void @lua_pushnil(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nocapture nonnull readnone align 8 %this, ptr noundef %L, ptr noundef %cobj) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %L, ptr noundef %cobj) local_unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp eq ptr %cobj, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4277,7 +4277,7 @@ if.end10:                                         ; preds = %_ZSt4endlIcSt11char
 declare void @_Z14push_objectRefP9lua_Statet(ptr noundef, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBase24pushPlayerHPChangeReasonEP9lua_StateRK20PlayerHPChangeReason(ptr nocapture noundef nonnull readnone align 8 dereferenceable(137) %this, ptr noundef %L, ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %reason) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBase24pushPlayerHPChangeReasonEP9lua_StateRK20PlayerHPChangeReason(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(137) %this, ptr noundef %L, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(54) %reason) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %lua_reference.i = getelementptr inbounds nuw i8, ptr %reason, i64 4
@@ -4456,10 +4456,10 @@ if.end16:                                         ; preds = %if.then13, %if.end1
 declare void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef, i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef ptr @_ZN13ScriptApiBase9getServerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #16 align 2 {
+define dso_local noundef ptr @_ZN13ScriptApiBase9getServerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #16 align 2 {
 entry:
   %m_gamedef = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gamedef, align 8, !tbaa !53
@@ -4549,7 +4549,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal noundef i32 @"_ZZN13ScriptApiBaseC1E13ScriptingTypeEN3$_08__invokeEP9lua_State"(ptr noundef %L) #14 align 2 {
@@ -4677,7 +4677,7 @@ declare i64 @pthread_self() local_unnamed_addr #22
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6

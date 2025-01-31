@@ -100,7 +100,7 @@ declare hidden void @luaC_fix(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden ptr @luaS_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaX_token2str(ptr nocapture noundef readonly %ls, i32 noundef %token) local_unnamed_addr #0 {
+define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %ls, i32 noundef %token) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %token, 256
   br i1 %cmp, label %if.then, label %if.else4
@@ -146,7 +146,7 @@ return:                                           ; preds = %if.else4, %if.then9
 declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @luaX_syntaxerror(ptr nocapture noundef readonly %ls, ptr noundef %msg) local_unnamed_addr #2 {
+define hidden void @luaX_syntaxerror(ptr noundef readonly captures(none) %ls, ptr noundef %msg) local_unnamed_addr #2 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %ls, i64 16
   %0 = load i32, ptr %t, align 8
@@ -155,7 +155,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @lexerror(ptr nocapture noundef readonly %ls, ptr noundef %msg, i32 noundef %token) unnamed_addr #2 {
+define internal fastcc void @lexerror(ptr noundef readonly captures(none) %ls, ptr noundef %msg, i32 noundef %token) unnamed_addr #2 {
 entry:
   %L = getelementptr inbounds nuw i8, ptr %ls, i64 56
   %0 = load ptr, ptr %L, align 8
@@ -264,7 +264,7 @@ if.end:                                           ; preds = %txtToken.exit, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaX_newstring(ptr nocapture noundef readonly %ls, ptr noundef %str, i64 noundef %l) local_unnamed_addr #0 {
+define hidden ptr @luaX_newstring(ptr noundef readonly captures(none) %ls, ptr noundef %str, i64 noundef %l) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds nuw i8, ptr %ls, i64 56
   %0 = load ptr, ptr %L1, align 8
@@ -325,7 +325,7 @@ declare hidden void @luaH_finishset(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaX_setinput(ptr noundef %L, ptr nocapture noundef initializes((0, 12), (16, 20), (32, 36), (48, 72), (96, 112)) %ls, ptr noundef %z, ptr noundef %source, i32 noundef %firstchar) local_unnamed_addr #0 {
+define hidden void @luaX_setinput(ptr noundef %L, ptr noundef captures(none) initializes((0, 12), (16, 20), (32, 36), (48, 72), (96, 112)) %ls, ptr noundef %z, ptr noundef %source, i32 noundef %firstchar) local_unnamed_addr #0 {
 entry:
   %t = getelementptr inbounds nuw i8, ptr %ls, i64 16
   store i32 0, ptr %t, align 8
@@ -393,7 +393,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo) unnamed_addr #0 {
@@ -2401,7 +2401,7 @@ declare hidden ptr @luaG_addinfo(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save(ptr nocapture noundef readonly %ls, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc void @save(ptr noundef readonly captures(none) %ls, i32 noundef %c) unnamed_addr #0 {
 entry:
   %buff = getelementptr inbounds nuw i8, ptr %ls, i64 72
   %0 = load ptr, ptr %buff, align 8
@@ -2449,7 +2449,7 @@ if.end10:                                         ; preds = %entry.if.end10_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inclinenumber(ptr nocapture noundef %ls) unnamed_addr #0 {
+define internal fastcc void @inclinenumber(ptr noundef captures(none) %ls) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %z = getelementptr inbounds nuw i8, ptr %ls, i64 64
@@ -2532,7 +2532,7 @@ if.end32:                                         ; preds = %if.end
 declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @skip_sep(ptr nocapture noundef %ls) unnamed_addr #0 {
+define internal fastcc i64 @skip_sep(ptr noundef captures(none) %ls) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %buff.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
@@ -2690,7 +2690,7 @@ while.end:                                        ; preds = %cond.end22, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr nocapture noundef %ls, ptr noundef writeonly %seminfo, i64 noundef range(i64 2, 0) %sep) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr noundef captures(none) %ls, ptr noundef writeonly %seminfo, i64 noundef range(i64 2, 0) %sep) unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 4
   %0 = load i32, ptr %linenumber, align 4
@@ -3150,7 +3150,7 @@ if.end83:                                         ; preds = %luaX_newstring.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_next1(ptr nocapture noundef %ls, i32 noundef range(i32 46, 63) %c) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_next1(ptr noundef captures(none) %ls, i32 noundef range(i32 46, 63) %c) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %cmp = icmp eq i32 %0, %c
@@ -3190,7 +3190,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 289, 291) i32 @read_numeral(ptr nocapture noundef %ls, ptr nocapture noundef writeonly %seminfo) unnamed_addr #0 {
+define internal fastcc range(i32 289, 291) i32 @read_numeral(ptr noundef captures(none) %ls, ptr noundef writeonly captures(none) %seminfo) unnamed_addr #0 {
 entry:
   %obj = alloca %struct.TValue, align 8
   %0 = load i32, ptr %ls, align 8
@@ -3572,7 +3572,7 @@ if.end69:                                         ; preds = %save.exit91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gethexa(ptr nocapture noundef %ls) unnamed_addr #0 {
+define internal fastcc i32 @gethexa(ptr noundef captures(none) %ls) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %buff.i = getelementptr inbounds nuw i8, ptr %ls, i64 72
@@ -3696,7 +3696,7 @@ declare hidden i32 @luaO_hexavalue(i32 noundef) local_unnamed_addr #1
 declare hidden i32 @luaO_utf8esc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_next2(ptr nocapture noundef %ls, ptr nocapture noundef readonly %set) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_next2(ptr noundef captures(none) %ls, ptr noundef readonly captures(none) %set) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %1 = load i8, ptr %set, align 1
@@ -3789,10 +3789,10 @@ return:                                           ; preds = %lor.lhs.false, %con
 declare hidden i64 @luaO_str2num(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

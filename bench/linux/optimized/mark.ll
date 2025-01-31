@@ -82,13 +82,13 @@ define dso_local void @fsnotify_get_mark(ptr noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fsnotify_conn_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @fsnotify_conn_mask(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = icmp ult i16 %3, 3
@@ -595,7 +595,7 @@ fsnotify_detach_connector_from_object.exit:       ; preds = %.thread.i, %87
 declare dso_local zeroext i1 @refcount_dec_and_lock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   br label %2
 
 2:                                                ; preds = %40, %1
@@ -731,7 +731,7 @@ define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fsnotify_finish_user_wait(ptr nocapture noundef initializes((52, 56)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @fsnotify_finish_user_wait(ptr noundef captures(none) initializes((52, 56)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @fsnotify_mark_srcu) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %2, ptr %3, align 4
@@ -1769,7 +1769,7 @@ define dso_local void @fsnotify_clear_marks_by_group(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @fsnotify_destroy_marks(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -2031,7 +2031,7 @@ declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @fsnotify_connector_destroy_workfn(ptr nocapture readnone %0) #0 align 16 {
+define internal void @fsnotify_connector_destroy_workfn(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @destroy_lock) #6
   %2 = load ptr, ptr @connector_destroy_list, align 8
   store ptr null, ptr @connector_destroy_list, align 8
@@ -2063,7 +2063,7 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @fsnotify_mark_destroy_workfn(ptr nocapture readnone %0) #0 align 16 {
+define internal void @fsnotify_mark_destroy_workfn(ptr readnone captures(none) %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   tail call void @_raw_spin_lock(ptr noundef nonnull @destroy_lock) #6

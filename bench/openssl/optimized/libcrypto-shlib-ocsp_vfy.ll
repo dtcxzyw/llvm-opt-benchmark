@@ -370,7 +370,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 8)) %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) initializes((0, 8)) %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
 entry:
   %responderId.i = getelementptr inbounds nuw i8, ptr %bs, i64 8
   %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull readonly %responderId.i)
@@ -524,7 +524,7 @@ declare ptr @X509_STORE_CTX_get1_chain(ptr noundef) local_unnamed_addr #1
 declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr nocapture noundef readonly %id) unnamed_addr #0 {
+define internal fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef readonly captures(none) %id) unnamed_addr #0 {
 entry:
   %tmphash = alloca [20 x i8], align 16
   %0 = load i32, ptr %id, align 8
@@ -735,7 +735,7 @@ declare i32 @X509_get_extension_flags(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_extended_key_usage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

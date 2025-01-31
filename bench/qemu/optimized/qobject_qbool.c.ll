@@ -29,7 +29,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qbool_get_bool(ptr nocapture noundef readonly %qb) local_unnamed_addr #2 {
+define dso_local zeroext i1 @qbool_get_bool(ptr noundef readonly captures(none) %qb) local_unnamed_addr #2 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %qb, i64 16
   %0 = load i8, ptr %value, align 8

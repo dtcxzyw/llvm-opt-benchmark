@@ -44,7 +44,7 @@ define internal i32 @mca_osc_monitoring_component_init(i1 zeroext %0, i1 zeroext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @mca_osc_monitoring_component_query(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i32 %6) #2 {
+define internal i32 @mca_osc_monitoring_component_query(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i32 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i32 %6) #2 {
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_osc_monitoring_component, i64 296), align 8
   ret i32 %8
 }
@@ -164,10 +164,10 @@ define internal noundef ptr @ompi_osc_monitoring_portals4_set_template(ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
@@ -4493,10 +4493,10 @@ define internal i32 @ompi_osc_monitoring_sm_flush_local_all(ptr noundef %0) #1 {
 declare void @mca_common_monitoring_finalize() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

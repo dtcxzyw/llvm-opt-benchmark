@@ -493,12 +493,12 @@ $_ZTIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE = comdat any
 @_ZN5ceres8internal19SchurEliminatorBaseD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal19SchurEliminatorBaseD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #13
   unreachable
 }
@@ -507,7 +507,7 @@ define hidden void @_ZN5ceres8internal19SchurEliminatorBaseD0Ev(ptr nocapture no
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.43", align 8
   %4 = alloca %"class.std::unique_ptr.51", align 8
   %5 = alloca %"class.std::unique_ptr.59", align 8
@@ -1646,7 +1646,7 @@ declare void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE9EliminateERKNS0_
 declare void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS7_S7_Pd(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {

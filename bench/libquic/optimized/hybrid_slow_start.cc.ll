@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net15HybridSlowStartC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net15HybridSlowStartC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15HybridSlowStartC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 28), (32, 48)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net15HybridSlowStartC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (4, 28), (32, 48)) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %hystart_found_ = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net15HybridSlowStart13OnPacketAckedEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %acked_packet_number) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net15HybridSlowStart13OnPacketAckedEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %acked_packet_number) local_unnamed_addr #1 align 2 {
 entry:
   %end_packet_number_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_packet_number_.i, align 8
@@ -33,7 +33,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net15HybridSlowStart12IsEndOfRoundEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %ack) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net15HybridSlowStart12IsEndOfRoundEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %ack) local_unnamed_addr #2 align 2 {
 entry:
   %end_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_packet_number_, align 8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((8, 16)) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 {
 entry:
   %last_sent_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %packet_number, ptr %last_sent_packet_number_, align 8
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15HybridSlowStart7RestartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 8)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net15HybridSlowStart7RestartEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (4, 8)) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %hystart_found_ = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15HybridSlowStart17StartReceiveRoundEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (16, 28), (32, 48)) %this, i64 noundef %last_sent) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net15HybridSlowStart17StartReceiveRoundEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (16, 28), (32, 48)) %this, i64 noundef %last_sent) local_unnamed_addr #0 align 2 {
 entry:
   %end_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %last_sent, ptr %end_packet_number_, align 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8QuicTime5DeltaES2_m(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 %latest_rtt.coerce0, i64 %latest_rtt.coerce1, i64 %min_rtt.coerce0, i64 %min_rtt.coerce1, i64 noundef %congestion_window) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8QuicTime5DeltaES2_m(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 %latest_rtt.coerce0, i64 %latest_rtt.coerce1, i64 %min_rtt.coerce0, i64 %min_rtt.coerce1, i64 noundef %congestion_window) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -147,7 +147,7 @@ return:                                           ; preds = %if.end, %if.end32
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4

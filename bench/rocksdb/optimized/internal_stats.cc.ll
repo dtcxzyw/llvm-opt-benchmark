@@ -2620,7 +2620,7 @@ _ZNSt8_Rb_treeIN7rocksdb13InternalStats19InternalDBStatsTypeESt4pairIKS2_NS0_10D
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleNumFilesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleNumFilesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
 entry:
   %suffix = alloca %"class.rocksdb::Slice", align 8
   %level = alloca i64, align 8
@@ -2670,7 +2670,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats35HandleCompressionRatioAtLevelPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats35HandleCompressionRatioAtLevelPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
 entry:
   %suffix = alloca %"class.rocksdb::Slice", align 8
   %level = alloca i64, align 8
@@ -2711,7 +2711,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleLevelStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef nonnull %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleLevelStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef nonnull %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %buf = alloca [1000 x i8], align 16
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
@@ -2759,7 +2759,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats11HandleStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats11HandleStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats26DumpCFStatsNoFileHistogramEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, i1 noundef zeroext false, ptr noundef %value)
   tail call void @_ZN7rocksdb13InternalStats19DumpCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
@@ -2768,7 +2768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats13HandleCFStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats13HandleCFStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats26DumpCFStatsNoFileHistogramEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, i1 noundef zeroext false, ptr noundef %value)
   tail call void @_ZN7rocksdb13InternalStats19DumpCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
@@ -2776,14 +2776,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %cf_stats, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %cf_stats, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats14DumpCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %cf_stats)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %has_cf_change_since_dump_ = getelementptr inbounds nuw i8, ptr %this, i64 1544
   %0 = load i8, ptr %has_cf_change_since_dump_, align 8
@@ -2871,91 +2871,91 @@ return:                                           ; preds = %if.then16, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleCFStatsNoFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleCFStatsNoFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats26DumpCFStatsNoFileHistogramEbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, i1 noundef zeroext false, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats19DumpCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleCFWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleCFWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats21DumpCFStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr noundef null)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleCFWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleCFWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats24DumpCFMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats13HandleDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats13HandleDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats11DumpDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %db_stats, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats16HandleDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %db_stats, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats14DumpDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %db_stats)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleDBWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleDBWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats21DumpDBStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleDBWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleDBWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb13InternalStats24DumpDBMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleBlockCacheEntryStatsInternalEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, i1 noundef zeroext false)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb13InternalStats37HandleBlockCacheEntryStatsMapInternalEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %values, i1 noundef zeroext false)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleFastBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleFastBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleBlockCacheEntryStatsInternalEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value, i1 noundef zeroext true)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats33HandleFastBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats33HandleFastBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb13InternalStats37HandleBlockCacheEntryStatsMapInternalEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %values, i1 noundef zeroext true)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats14HandleSsTablesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats14HandleSsTablesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
@@ -2969,7 +2969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats31HandleAggregatedTablePropertiesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats31HandleAggregatedTablePropertiesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp = alloca %"class.std::shared_ptr.571", align 8
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
@@ -3241,7 +3241,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit25:              ; preds = %ehcleanup24, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleAggregatedTablePropertiesMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleAggregatedTablePropertiesMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp = alloca %"class.std::shared_ptr.571", align 8
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
@@ -3528,7 +3528,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit19:              ; preds = %ehcleanup15, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats38HandleAggregatedTablePropertiesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats38HandleAggregatedTablePropertiesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suffix = alloca %"class.rocksdb::Slice", align 8
   %level = alloca i64, align 8
@@ -3821,7 +3821,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats41HandleAggregatedTablePropertiesAtLevelMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats41HandleAggregatedTablePropertiesAtLevelMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suffix = alloca %"class.rocksdb::Slice", align 8
   %level = alloca i64, align 8
@@ -4129,7 +4129,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleNumImmutableMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleNumImmutableMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4141,7 +4141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats33HandleNumImmutableMemTableFlushedEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats33HandleNumImmutableMemTableFlushedEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4153,7 +4153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleMemTableFlushPendingEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleMemTableFlushPendingEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4165,7 +4165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleCompactionPendingEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleCompactionPendingEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4184,7 +4184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleBackgroundErrorsEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #6 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleBackgroundErrorsEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 align 2 {
 entry:
   %bg_error_count_.i = getelementptr inbounds nuw i8, ptr %this, i64 1904
   %2 = load i64, ptr %bg_error_count_.i, align 8
@@ -4193,7 +4193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleCurSizeActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleCurSizeActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4206,7 +4206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats25HandleCurSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats25HandleCurSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4222,7 +4222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4238,7 +4238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleNumEntriesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleNumEntriesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4251,7 +4251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleNumEntriesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleNumEntriesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4263,7 +4263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleNumDeletesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats30HandleNumDeletesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4276,7 +4276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleNumDeletesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleNumDeletesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4288,7 +4288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleEstimateNumKeysEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleEstimateNumKeysEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4321,7 +4321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleEstimateTableReadersMemEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr noundef %version) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleEstimateTableReadersMemEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr noundef %version) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
   %rate_limiter_priority.i = getelementptr inbounds nuw i8, ptr %read_options, i64 44
@@ -4405,7 +4405,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit8:               ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleIsFileDeletionsEnabledEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleIsFileDeletionsEnabledEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %vtable = load ptr, ptr %db, align 64
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 1208
@@ -4417,7 +4417,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats18HandleNumSnapshotsEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture noundef readonly %db, ptr nocapture readnone %0) #6 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats18HandleNumSnapshotsEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef readonly captures(none) %db, ptr readnone captures(none) %0) #6 align 2 {
 entry:
   %count_.i = getelementptr inbounds nuw i8, ptr %db, i64 4856
   %1 = load i64, ptr %count_.i, align 8
@@ -4426,7 +4426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleOldestSnapshotTimeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef readonly %db, ptr nocapture readnone %0) #8 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleOldestSnapshotTimeEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef readonly %db, ptr readnone captures(none) %0) #8 align 2 {
 entry:
   %snapshots_.i = getelementptr inbounds nuw i8, ptr %db, i64 4784
   %next_.i.i = getelementptr inbounds nuw i8, ptr %db, i64 4816
@@ -4446,7 +4446,7 @@ _ZNK7rocksdb12SnapshotList21GetOldestSnapshotTimeEv.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleOldestSnapshotSequenceEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef readonly %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleOldestSnapshotSequenceEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef readonly %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %snapshots_.i = getelementptr inbounds nuw i8, ptr %db, i64 4784
   %next_.i.i = getelementptr inbounds nuw i8, ptr %db, i64 4816
@@ -4467,7 +4467,7 @@ _ZNK7rocksdb12SnapshotList25GetOldestSnapshotSequenceEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleNumLiveVersionsEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleNumLiveVersionsEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4477,7 +4477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats31HandleCurrentSuperVersionNumberEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #7 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats31HandleCurrentSuperVersionNumberEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4488,7 +4488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleEstimateLiveDataSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr noundef %version) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleEstimateLiveDataSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr noundef %version) #4 align 2 {
 entry:
   %storage_info_.i = getelementptr inbounds nuw i8, ptr %version, i64 64
   %call2 = tail call noundef i64 @_ZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEv(ptr noundef nonnull align 16 dereferenceable(4112) %storage_info_.i)
@@ -4497,7 +4497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleMinLogNumberToKeepEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef nonnull %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleMinLogNumberToKeepEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef nonnull %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb6DBImpl18MinLogNumberToKeepEv(ptr noundef nonnull align 64 dereferenceable(6660) %db)
   store i64 %call, ptr %value, align 8
@@ -4505,7 +4505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats32HandleMinObsoleteSstNumberToKeepEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef nonnull %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats32HandleMinObsoleteSstNumberToKeepEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef nonnull %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb6DBImpl26MinObsoleteSstNumberToKeepEv(ptr noundef nonnull align 64 dereferenceable(6660) %db)
   store i64 %call, ptr %value, align 8
@@ -4513,7 +4513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats15HandleBaseLevelEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats15HandleBaseLevelEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4527,7 +4527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleTotalSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleTotalSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4537,7 +4537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleLiveSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleLiveSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4547,7 +4547,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats35HandleLiveSstFilesSizeAtTemperatureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats35HandleLiveSstFilesSizeAtTemperatureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr %suffix.coerce0, i64 %suffix.coerce1) #4 align 2 {
 entry:
   %suffix = alloca %"class.rocksdb::Slice", align 8
   %temperature = alloca i64, align 8
@@ -4628,7 +4628,7 @@ return:                                           ; preds = %entry, %for.end21
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleObsoleteSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef nonnull %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleObsoleteSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef nonnull %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb6DBImpl23GetObsoleteSstFilesSizeEv(ptr noundef nonnull align 64 dereferenceable(6660) %db)
   store i64 %call, ptr %value, align 8
@@ -4636,7 +4636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats36HandleEstimatePendingCompactionBytesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats36HandleEstimatePendingCompactionBytesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4649,7 +4649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleNumRunningFlushesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleNumRunningFlushesEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %mutex_.i = getelementptr inbounds nuw i8, ptr %db, i64 1856
   tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_.i)
@@ -4661,7 +4661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleNumRunningCompactionsEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture noundef readonly %db, ptr nocapture readnone %0) #6 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleNumRunningCompactionsEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef readonly captures(none) %db, ptr readnone captures(none) %0) #6 align 2 {
 entry:
   %num_running_compactions_ = getelementptr inbounds nuw i8, ptr %db, i64 5384
   %1 = load i32, ptr %num_running_compactions_, align 8
@@ -4671,7 +4671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleActualDelayedWriteRateEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture noundef readonly %db, ptr nocapture readnone %0) #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats28HandleActualDelayedWriteRateEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef readonly captures(none) %db, ptr readnone captures(none) %0) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %total_delayed_.i = getelementptr inbounds nuw i8, ptr %db, i64 4564
   %1 = load atomic i32, ptr %total_delayed_.i seq_cst, align 4
@@ -4690,7 +4690,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats20HandleIsWriteStoppedEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr noundef %db, ptr nocapture readnone %0) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats20HandleIsWriteStoppedEPmPNS_6DBImplEPNS_7VersionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr noundef %db, ptr readnone captures(none) %0) #4 align 2 {
 entry:
   %write_controller_.i = getelementptr inbounds nuw i8, ptr %db, i64 4560
   %call2 = tail call noundef zeroext i1 @_ZNK7rocksdb15WriteController9IsStoppedEv(ptr noundef nonnull align 8 dereferenceable(56) %write_controller_.i)
@@ -4700,7 +4700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleEstimateOldestKeyTimeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleEstimateOldestKeyTimeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
   %collection = alloca %"class.std::unordered_map.714", align 8
@@ -4917,7 +4917,7 @@ return:                                           ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleBlockCacheCapacityEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats24HandleBlockCacheCapacityEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb13InternalStats21GetBlockCacheForStatsEv(ptr noundef nonnull align 8 dereferenceable(1944) %this)
   %tobool.not = icmp ne ptr %call, null
@@ -4936,7 +4936,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleBlockCacheUsageEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats21HandleBlockCacheUsageEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb13InternalStats21GetBlockCacheForStatsEv(ptr noundef nonnull align 8 dereferenceable(1944) %this)
   %tobool.not = icmp ne ptr %call, null
@@ -4955,7 +4955,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleBlockCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats27HandleBlockCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb13InternalStats21GetBlockCacheForStatsEv(ptr noundef nonnull align 8 dereferenceable(1944) %this)
   %tobool.not = icmp ne ptr %call, null
@@ -4976,7 +4976,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef zeroext i1 @_ZN7rocksdb6DBImpl34GetPropertyHandleOptionsStatisticsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 64 dereferenceable(6660), ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats18HandleNumBlobFilesEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #8 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats18HandleNumBlobFilesEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -4995,7 +4995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats15HandleBlobStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr nocapture readnone %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats15HandleBlobStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr readnone captures(none) %.coerce0, i64 %.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5108,7 +5108,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleTotalBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly initializes((0, 8)) %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleTotalBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -5118,7 +5118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleLiveBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats22HandleLiveBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -5149,7 +5149,7 @@ _ZNK7rocksdb18VersionStorageInfo12GetBlobStatsEv.exit: ; preds = %for.body.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleLiveBlobFileGarbageSizeEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats29HandleLiveBlobFileGarbageSizeEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_, align 8
@@ -5183,7 +5183,7 @@ _ZNK7rocksdb18VersionStorageInfo12GetBlobStatsEv.exit: ; preds = %for.body.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleBlobCacheCapacityEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats23HandleBlobCacheCapacityEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_.i = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_.i, align 8
@@ -5205,7 +5205,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats20HandleBlobCacheUsageEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats20HandleBlobCacheUsageEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_.i = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_.i, align 8
@@ -5227,7 +5227,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleBlobCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr nocapture noundef writeonly %value, ptr nocapture readnone %0, ptr nocapture readnone %1) #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats26HandleBlobCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef writeonly captures(none) %value, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 align 2 {
 entry:
   %cfd_.i = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %2 = load ptr, ptr %cfd_.i, align 8
@@ -5514,10 +5514,10 @@ ehcleanup34:                                      ; preds = %if.then.i.i.i44, %e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb13InternalStats21GetBlockCacheForStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb13InternalStats21GetBlockCacheForStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.3", align 1
@@ -6017,7 +6017,7 @@ _ZNSt12__shared_ptrIN7rocksdb24CacheEntryStatsCollectorINS0_13InternalStats19Cac
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats27TEST_GetCacheEntryRoleStatsEPNS0_19CacheEntryRoleStatsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %stats, i1 noundef zeroext %foreground) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats27TEST_GetCacheEntryRoleStatsEPNS0_19CacheEntryRoleStatsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %stats, i1 noundef zeroext %foreground) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cache_entry_stats_collector_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %cache_entry_stats_collector_.i, align 8
@@ -6067,7 +6067,7 @@ if.end:                                           ; preds = %entry, %_ZN7rocksdb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats22CollectCacheEntryStatsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, i1 noundef zeroext %foreground) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb13InternalStats22CollectCacheEntryStatsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, i1 noundef zeroext %foreground) local_unnamed_addr #4 align 2 {
 entry:
   %cache_entry_stats_collector_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %cache_entry_stats_collector_, align 8
@@ -6261,7 +6261,7 @@ ehcleanup:                                        ; preds = %if.then.i.i13, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(316) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats16GetEntryCallbackEv(ptr noalias writeonly sret(%"class.std::function") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(316) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -6275,7 +6275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats15BeginCollectionEPNS_5CacheEPNS_11SystemClockEm(ptr noundef nonnull align 8 dereferenceable(316) initializes((0, 32)) %this, ptr noundef %cache, ptr nocapture readnone %0, i64 noundef %start_time_micros) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats15BeginCollectionEPNS_5CacheEPNS_11SystemClockEm(ptr noundef nonnull align 8 dereferenceable(316) initializes((0, 32)) %this, ptr noundef %cache, ptr readnone captures(none) %0, i64 noundef %start_time_micros) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::InternalStats::CacheEntryRoleStats", align 8
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -6411,7 +6411,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats13EndCollectionEPNS_5CacheEPNS_11SystemClockEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((304, 312)) %this, ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %end_time_micros) local_unnamed_addr #11 align 2 {
+define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats13EndCollectionEPNS_5CacheEPNS_11SystemClockEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((304, 312)) %this, ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %end_time_micros) local_unnamed_addr #11 align 2 {
 entry:
   %last_end_time_micros_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   store i64 %end_time_micros, ptr %last_end_time_micros_, align 8
@@ -6419,7 +6419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats17SkippedCollectionEv(ptr nocapture noundef nonnull align 8 dereferenceable(316) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN7rocksdb13InternalStats19CacheEntryRoleStats17SkippedCollectionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(316) %this) local_unnamed_addr #6 align 2 {
 entry:
   %copies_of_last_collection = getelementptr inbounds nuw i8, ptr %this, i64 292
   %0 = load i32, ptr %copies_of_last_collection, align 4
@@ -6429,7 +6429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7rocksdb13InternalStats19CacheEntryRoleStats21GetLastDurationMicrosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK7rocksdb13InternalStats19CacheEntryRoleStats21GetLastDurationMicrosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %this) local_unnamed_addr #12 align 2 {
 entry:
   %last_end_time_micros_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i64, ptr %last_end_time_micros_, align 8
@@ -7199,7 +7199,7 @@ declare void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys9UsedBytesB5cxx11ENS_14Cac
 declare void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys11UsedPercentB5cxx11ENS_14CacheEntryRoleE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleBlockCacheEntryStatsInternalEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, i1 noundef zeroext %fast) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats34HandleBlockCacheEntryStatsInternalEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, i1 noundef zeroext %fast) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats = alloca %"struct.rocksdb::InternalStats::CacheEntryRoleStats", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7273,7 +7273,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats37HandleBlockCacheEntryStatsMapInternalEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %values, i1 noundef zeroext %fast) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats37HandleBlockCacheEntryStatsMapInternalEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %values, i1 noundef zeroext %fast) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats = alloca %"struct.rocksdb::InternalStats::CacheEntryRoleStats", align 8
   %cache_entry_stats_collector_ = getelementptr inbounds nuw i8, ptr %this, i64 296
@@ -7352,7 +7352,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNK7rocksdb16ColumnFamilyData20GetTotalBlobFileSizeEv(ptr noundef nonnull align 8 dereferenceable(2656)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7rocksdb13InternalStats20GetBlobCacheForStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN7rocksdb13InternalStats20GetBlobCacheForStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this) local_unnamed_addr #13 align 2 {
 entry:
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   %0 = load ptr, ptr %cfd_, align 8
@@ -7362,7 +7362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb15GetPropertyInfoERKNS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %property) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb15GetPropertyInfoERKNS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %property) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ppt_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"struct.std::pair.310", align 8
@@ -7424,7 +7424,7 @@ lpad:                                             ; preds = %_ZN7rocksdb12_GLOBA
 declare void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats17GetStringPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %property_info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %property, ptr noundef %value) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats17GetStringPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %property_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %property, ptr noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %name.sroa.0.0.copyload.i = load ptr, ptr %property, align 8, !noalias !47
   %name.sroa.2.0.property.sroa_idx.i = getelementptr inbounds nuw i8, ptr %property, i64 8
@@ -7482,10 +7482,10 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats14GetMapPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %property_info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %property, ptr noundef %value) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats14GetMapPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %property_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %property, ptr noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %name.sroa.0.0.copyload.i = load ptr, ptr %property, align 8, !noalias !51
   %name.sroa.2.0.property.sroa_idx.i = getelementptr inbounds nuw i8, ptr %property, i64 8
@@ -7543,7 +7543,7 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats14GetIntPropertyERKNS_14DBPropertyInfoEPmPNS_6DBImplE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %property_info, ptr noundef %value, ptr noundef %db) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats14GetIntPropertyERKNS_14DBPropertyInfoEPmPNS_6DBImplE(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %property_info, ptr noundef %value, ptr noundef %db) local_unnamed_addr #4 align 2 {
 entry:
   %mutex_ = getelementptr inbounds nuw i8, ptr %db, i64 1856
   tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_)
@@ -7574,7 +7574,7 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb13InternalStats24GetIntPropertyOutOfMutexERKNS_14DBPropertyInfoEPNS_7VersionEPm(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %property_info, ptr noundef %version, ptr noundef %value) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb13InternalStats24GetIntPropertyOutOfMutexERKNS_14DBPropertyInfoEPNS_7VersionEPm(ptr noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %property_info, ptr noundef %version, ptr noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %handle_int = getelementptr inbounds nuw i8, ptr %property_info, i64 24
   %.unpack = load i64, ptr %handle_int, align 8
@@ -7603,7 +7603,7 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -7614,7 +7614,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNK7rocksdb18VersionStorageInfo13NumLevelBytesEi(ptr noundef nonnull align 16 dereferenceable(4112), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats14DumpCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %cf_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats14DumpCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %cf_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %ref.tmp.i = alloca %"class.std::allocator.3", align 1
@@ -9321,7 +9321,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats21DumpCFStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value, ptr noundef %total_stall_count) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats21DumpCFStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value, ptr noundef %total_stall_count) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_stall_stats_map = alloca %"class.std::map.58", align 8
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -9478,7 +9478,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats24DumpCFMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats24DumpCFMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9778,7 +9778,7 @@ eh.resume:                                        ; preds = %lpad, %lpad6.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats14DumpDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %db_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats14DumpDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %db_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9915,7 +9915,7 @@ eh.resume:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats11DumpDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats11DumpDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [1000 x i8], align 16
   %human_micros = alloca [32 x i8], align 16
@@ -10175,7 +10175,7 @@ eh.resume:                                        ; preds = %lpad98, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats21DumpDBStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats21DumpDBStatsWriteStallEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_stall_stats_map = alloca %"class.std::map.58", align 8
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10282,7 +10282,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats24DumpDBMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats24DumpDBMapStatsWriteStallEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %value) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10589,7 +10589,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef i32 @_ZN7rocksdb14InternalDBStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats14DumpCFMapStatsEPKNS_18VersionStorageInfoEPSt3mapIiS4_INS_13LevelStatTypeEdSt4lessIS5_ESaISt4pairIKS5_dEEES6_IiESaIS8_IKiSC_EEEPNS0_15CompactionStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %vstorage, ptr noundef %levels_stats, ptr noundef %compaction_stats_sum) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats14DumpCFMapStatsEPKNS_18VersionStorageInfoEPSt3mapIiS4_INS_13LevelStatTypeEdSt4lessIS5_ESaISt4pairIKS5_dEEES6_IiESaIS8_IKiSC_EEEPNS0_15CompactionStatsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %vstorage, ptr noundef %levels_stats, ptr noundef %compaction_stats_sum) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i76 = alloca %"class.std::tuple.839", align 8
   %ref.tmp10.i77 = alloca %"class.std::tuple.790", align 1
@@ -11348,7 +11348,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats, i32 noundef %num_files, i32 noundef %being_compacted, double noundef %total_file_size, double noundef %score, double noundef %w_amp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %stats) unnamed_addr #4 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats, i32 noundef %num_files, i32 noundef %being_compacted, double noundef %total_file_size, double noundef %score, double noundef %w_amp, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %stats) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp9 = alloca i32, align 4
@@ -11535,7 +11535,7 @@ _ZNSt8_Rb_treeIN7rocksdb13LevelStatTypeESt4pairIKS1_dESt10_Select1stIS4_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InternalStats24DumpCFMapStatsByPriorityEPSt3mapIiS1_INS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEES3_IiESaIS5_IKiS9_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1944) %this, ptr noundef %priorities_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InternalStats24DumpCFMapStatsByPriorityEPSt3mapIiS1_INS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEES3_IiESaIS5_IKiS9_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1944) %this, ptr noundef %priorities_stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.839", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.790", align 1
@@ -11673,7 +11673,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb22WriteStall
 declare noundef i64 @_ZN7rocksdb11ParseUint64ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull writeonly captures(none) %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::allocator.3", align 1
@@ -12408,7 +12408,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull writeonly captures(none) %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13430,7 +13430,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #15
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15607,7 +15607,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #22 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr nonnull readnone align 8 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5) #22 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args3.val = load i64, ptr %__args3, align 8
@@ -15637,7 +15637,7 @@ cond.true.i.i.i:                                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -21098,10 +21098,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #24
 declare i32 @llvm.abs.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
@@ -21119,7 +21119,7 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

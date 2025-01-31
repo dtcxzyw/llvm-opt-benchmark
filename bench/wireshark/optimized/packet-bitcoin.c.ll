@@ -580,7 +580,7 @@ define hidden void @proto_register_bitcoin() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_feefilter_value(ptr nocapture noundef writeonly %0, i64 noundef %1) #1 {
+define internal void @format_feefilter_value(ptr noundef writeonly captures(none) %0, i64 noundef %1) #1 {
   %3 = sitofp i64 %1 to double
   %4 = fdiv double %3, 1.000000e+03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.310, double noundef %4) #4
@@ -733,7 +733,7 @@ define internal range(i32 0, 2) i32 @dissect_bitcoin_heur(ptr noundef %0, ptr no
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_msg_version(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bitcoin_msg_version(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_bitcoin_msg_version, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
@@ -803,7 +803,7 @@ define internal i32 @dissect_bitcoin_msg_version(ptr noundef %0, ptr nocapture r
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_addr, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -880,7 +880,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_addrv2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_addrv2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_addrv2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1059,7 +1059,7 @@ get_varint.exit67:                                ; preds = %61, %65, %68, %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_inv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_inv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_inv, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1127,7 +1127,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_getdata(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_getdata(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_getdata, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1195,7 +1195,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_getblocks(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_getblocks(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_getblocks, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1263,7 +1263,7 @@ add_varint_item.exit:                             ; preds = %14, %18, %23, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_getheaders(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_getheaders(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_getheaders, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1331,13 +1331,13 @@ add_varint_item.exit:                             ; preds = %14, %18, %23, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_tx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_tx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_block, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1414,7 +1414,7 @@ add_varint_item.exit:                             ; preds = %24, %28, %33, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_ping(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_ping(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_ping, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1425,7 +1425,7 @@ define internal noundef i32 @dissect_bitcoin_msg_ping(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_pong(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_pong(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_pong, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1436,7 +1436,7 @@ define internal noundef i32 @dissect_bitcoin_msg_pong(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_notfound(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_notfound(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_notfound, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1504,7 +1504,7 @@ add_varint_item.exit:                             ; preds = %12, %16, %21, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_msg_reject(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bitcoin_msg_reject(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_bitcoin_msg_reject, align 4
@@ -1537,7 +1537,7 @@ define internal i32 @dissect_bitcoin_msg_reject(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_headers(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_headers(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_headers, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1650,7 +1650,7 @@ get_varint.exit45:                                ; preds = %.lr.ph, %54, %56, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_feefilter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_feefilter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_feefilter, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1661,7 +1661,7 @@ define internal noundef i32 @dissect_bitcoin_msg_feefilter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_filterload(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_filterload(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_bitcoin_msg_filterload, align 4
@@ -1684,7 +1684,7 @@ define internal noundef i32 @dissect_bitcoin_msg_filterload(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_msg_filteradd(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bitcoin_msg_filteradd(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @hf_bitcoin_msg_filteradd, align 4
@@ -1698,7 +1698,7 @@ define internal i32 @dissect_bitcoin_msg_filteradd(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_merkleblock(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_merkleblock(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_merkleblock, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1828,7 +1828,7 @@ get_varint.exit59:                                ; preds = %59, %63, %66, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bitcoin_msg_sendcmpct(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_sendcmpct(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_sendcmpct, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1841,20 +1841,20 @@ define internal noundef i32 @dissect_bitcoin_msg_sendcmpct(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_msg_empty(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bitcoin_msg_empty(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_bitcoin_pdu_length(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_bitcoin_pdu_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 16
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #4
   %7 = add i32 %6, 24
@@ -1862,7 +1862,7 @@ define internal i32 @get_bitcoin_pdu_length(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bitcoin_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1938,7 +1938,7 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_string_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @create_string_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = icmp ult i8 %6, -3
@@ -2458,7 +2458,7 @@ add_varint_item.exit:                             ; preds = %179, %188, %199, %2
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_data_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @create_data_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = icmp ult i8 %6, -3

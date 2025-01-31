@@ -89,7 +89,7 @@ return:                                           ; preds = %do.end, %if.end9, %
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @uriEmulateReallocarray(ptr noundef %memory, ptr noundef %ptr, i64 noundef %nmemb, i64 noundef %size) #1 {
@@ -523,28 +523,28 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @uriDefaultMalloc(ptr nocapture readnone %unused_memory, i64 noundef %size) #5 {
+define internal noalias noundef ptr @uriDefaultMalloc(ptr readnone captures(none) %unused_memory, i64 noundef %size) #5 {
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %size) #16
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @uriDefaultCalloc(ptr nocapture readnone %unused_memory, i64 noundef %nmemb, i64 noundef %size) #5 {
+define internal noalias noundef ptr @uriDefaultCalloc(ptr readnone captures(none) %unused_memory, i64 noundef %nmemb, i64 noundef %size) #5 {
 entry:
   %call = tail call noalias ptr @calloc(i64 noundef %nmemb, i64 noundef %size) #17
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @uriDefaultRealloc(ptr nocapture readnone %unused_memory, ptr nocapture noundef %ptr, i64 noundef %size) #6 {
+define internal noalias noundef ptr @uriDefaultRealloc(ptr readnone captures(none) %unused_memory, ptr noundef captures(none) %ptr, i64 noundef %size) #6 {
 entry:
   %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #18
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @uriDefaultReallocarray(ptr nocapture readnone %unused_memory, ptr nocapture noundef %ptr, i64 noundef %nmemb, i64 noundef %size) #7 {
+define internal noalias noundef ptr @uriDefaultReallocarray(ptr readnone captures(none) %unused_memory, ptr noundef captures(none) %ptr, i64 noundef %nmemb, i64 noundef %size) #7 {
 entry:
   %mul5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %nmemb, i64 %size)
   %mul.val = extractvalue { i64, i1 } %mul5, 0
@@ -570,14 +570,14 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @uriDefaultFree(ptr nocapture readnone %unused_memory, ptr nocapture noundef %ptr) #6 {
+define internal void @uriDefaultFree(ptr readnone captures(none) %unused_memory, ptr noundef captures(none) %ptr) #6 {
 entry:
   tail call void @free(ptr noundef %ptr) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -586,10 +586,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13

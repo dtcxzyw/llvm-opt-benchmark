@@ -2854,7 +2854,7 @@ declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local
 declare i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z14_register_zlibv() local_unnamed_addr #3 {
@@ -4176,7 +4176,7 @@ _ZN4node12_GLOBAL__N_126RegisterExternalReferencesEPNS_25ExternalReferenceRegist
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110InitializeEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPv(ptr %target.coerce, ptr nocapture readnone %unused.coerce, ptr %context.coerce, ptr nocapture readnone %priv) #3 {
+define internal void @_ZN4node12_GLOBAL__N_110InitializeEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPv(ptr %target.coerce, ptr readnone captures(none) %unused.coerce, ptr %context.coerce, ptr readnone captures(none) %priv) #3 {
 entry:
   %cmp.i.i.i = icmp eq ptr %context.coerce, null
   br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %if.end.i.i
@@ -4312,7 +4312,7 @@ declare noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef
 declare ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef, ptr noundef, ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4451,7 +4451,7 @@ _ZN4node12_GLOBAL__N_110ZlibStreamC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @_ZN2v816FunctionTemplate16InstanceTemplateEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
@@ -4462,7 +4462,7 @@ declare void @_ZN2v816FunctionTemplate7InheritENS_5LocalIS0_EE(ptr noundef nonnu
 declare void @_ZN4node14SetProtoMethodEPN2v87IsolateENS0_5LocalINS0_16FunctionTemplateEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr noundef, ptr, i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4979,7 +4979,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5537,7 +5537,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %1 = load i64, ptr %0, align 8
@@ -5578,7 +5578,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %ref.tmp170 = alloca %"class.std::vector.273", align 8
   %ref.tmp180 = alloca %"class.std::allocator.275", align 1
@@ -6111,7 +6111,7 @@ return:                                           ; preds = %_ZN4node12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %length_.i190 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -6367,7 +6367,7 @@ return:                                           ; preds = %do.end9.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -6675,13 +6675,13 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZN4node13M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_110ZlibStream14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_110ZlibStream14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.165
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_110ZlibStream8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_110ZlibStream8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 464
 }
@@ -7197,7 +7197,7 @@ _ZN4node12_GLOBAL__N_111ZlibContextD2Ev.exit:     ; preds = %do.end30, %if.then.
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -7216,7 +7216,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEED0Ev(ptr nocapture readnone %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEED0Ev(ptr readnone captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -7284,13 +7284,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_111ZlibContext14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_111ZlibContext14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.133
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_111ZlibContext8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_111ZlibContext8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 224
 }
@@ -7855,7 +7855,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
@@ -8831,7 +8831,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @inflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 20)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 20)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN4node12_GLOBAL__N_111ZlibContext8InitZlibEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %err_ = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -9110,7 +9110,7 @@ declare ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_I
 declare void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %err) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %err) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %args = alloca [3 x %"class.v8::Local.8"], align 16
@@ -9738,7 +9738,7 @@ _ZNSt6vectorIhSaIhEE19_M_range_initializeIPhEEvT_S4_St20forward_iterator_tag.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE12AllocForZlibEPvjj(ptr nocapture noundef %data, i32 noundef %items, i32 noundef %size) #3 align 2 {
+define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE12AllocForZlibEPvjj(ptr noundef captures(none) %data, i32 noundef %items, i32 noundef %size) #3 align 2 {
 entry:
   %conv = zext i32 %items to i64
   %conv1 = zext i32 %size to i64
@@ -9768,7 +9768,7 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE14AllocForBrotliEPv
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE11FreeForZlibEPvS4_(ptr nocapture noundef %data, ptr noundef %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end
@@ -9788,14 +9788,14 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 
 declare i32 @deflateParams(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9926,7 +9926,7 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEC2EP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10441,7 +10441,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err.i.i = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -11014,7 +11014,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %1 = load i64, ptr %0, align 8
@@ -11055,7 +11055,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -11395,13 +11395,13 @@ cleanup.cont:                                     ; preds = %do.end9.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture nonnull readnone align 8 %args) #8 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nonnull readnone align 8 captures(none) %args) #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -11718,13 +11718,13 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZN4node13M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.268
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 336
 }
@@ -12096,7 +12096,7 @@ _ZN4node12_GLOBAL__N_120BrotliEncoderContextD2Ev.exit: ; preds = %do.end30, %if.
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -12111,14 +12111,14 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEED0Ev(ptr nocapture readnone %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEED0Ev(ptr readnone captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_120BrotliEncoderContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_120BrotliEncoderContextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
   %state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %state_, align 8
@@ -12152,19 +12152,19 @@ _ZN4node12_GLOBAL__N_120BrotliEncoderContextD2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext10MemoryInfoEPNS_13MemoryTrackerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %tracker) unnamed_addr #8 align 2 {
+define internal void @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext10MemoryInfoEPNS_13MemoryTrackerE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %tracker) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.264
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_120BrotliEncoderContext8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 96
 }
@@ -12172,7 +12172,7 @@ entry:
 declare void @BrotliEncoderDestroyInstance(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((210, 211)) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(336) initializes((210, 211)) %this) unnamed_addr #3 align 2 {
 entry:
   %write_in_progress_ = getelementptr inbounds nuw i8, ptr %this, i64 209
   %0 = load i8, ptr %write_in_progress_, align 1
@@ -12250,7 +12250,7 @@ return:                                           ; preds = %do.end9.i.i, %_ZN4n
 declare i32 @BrotliEncoderCompressStream(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %err) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %err) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %args = alloca [3 x %"class.v8::Local.8"], align 16
@@ -12391,7 +12391,7 @@ if.end60:                                         ; preds = %if.then59, %_ZN4nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm(ptr nocapture noundef %data, i64 noundef %size) #3 align 2 {
+define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm(ptr noundef captures(none) %data, i64 noundef %size) #3 align 2 {
 entry:
   %add = add i64 %size, 8
   %cmp.i.i.i = icmp eq i64 %add, 0
@@ -12422,7 +12422,7 @@ return:                                           ; preds = %entry, %_ZN4node15U
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_(ptr nocapture noundef %data, ptr noundef %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end
@@ -12446,7 +12446,7 @@ declare ptr @BrotliEncoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @BrotliEncoderSetParameter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12581,7 +12581,7 @@ _ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEC2EP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13096,7 +13096,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err.i.i = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -13694,7 +13694,7 @@ return:                                           ; preds = %do.end9.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %1 = load i64, ptr %0, align 8
@@ -13735,7 +13735,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -14075,13 +14075,13 @@ cleanup.cont:                                     ; preds = %do.end9.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture nonnull readnone align 8 %args) #8 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nonnull readnone align 8 captures(none) %args) #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args) #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %0 = load ptr, ptr %args, align 8
@@ -14398,13 +14398,13 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZN4node13M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.268
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 368
 }
@@ -14793,7 +14793,7 @@ _ZN4node12_GLOBAL__N_120BrotliDecoderContextD2Ev.exit: ; preds = %do.end30, %if.
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -14808,7 +14808,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEED0Ev(ptr nocapture readnone %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn56_N4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEED0Ev(ptr readnone captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.trap() #23
   unreachable
@@ -14857,19 +14857,19 @@ _ZN4node12_GLOBAL__N_120BrotliDecoderContextD2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext10MemoryInfoEPNS_13MemoryTrackerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %tracker) unnamed_addr #8 align 2 {
+define internal void @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext10MemoryInfoEPNS_13MemoryTrackerE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %tracker) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext14MemoryInfoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext14MemoryInfoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.298
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext8SelfSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK4node12_GLOBAL__N_120BrotliDecoderContext8SelfSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 128
 }
@@ -14880,7 +14880,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(368) initializes((210, 211)) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(368) initializes((210, 211)) %this) unnamed_addr #3 align 2 {
 entry:
   %write_in_progress_ = getelementptr inbounds nuw i8, ptr %this, i64 209
   %0 = load i8, ptr %write_in_progress_, align 1
@@ -14987,7 +14987,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %err) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %err) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %args = alloca [3 x %"class.v8::Local.8"], align 16
@@ -15131,7 +15131,7 @@ if.end60:                                         ; preds = %if.then59, %_ZN4nod
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm(ptr nocapture noundef %data, i64 noundef %size) #3 align 2 {
+define internal noalias noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm(ptr noundef captures(none) %data, i64 noundef %size) #3 align 2 {
 entry:
   %add = add i64 %size, 8
   %cmp.i.i.i = icmp eq i64 %add, 0
@@ -15162,7 +15162,7 @@ return:                                           ; preds = %entry, %_ZN4node15U
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_(ptr nocapture noundef %data, ptr noundef %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end
@@ -15196,7 +15196,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -15208,10 +15208,10 @@ declare void @llvm.assume(i1 noundef) #18
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

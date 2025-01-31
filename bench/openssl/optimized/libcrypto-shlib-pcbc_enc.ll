@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @DES_pcbc_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output, i64 noundef %length, ptr noundef %schedule, ptr nocapture noundef readonly %ivec, i32 noundef %enc) local_unnamed_addr #0 {
+define void @DES_pcbc_encrypt(ptr noundef readonly captures(none) %input, ptr noundef writeonly captures(none) %output, i64 noundef %length, ptr noundef %schedule, ptr noundef readonly captures(none) %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %enc, 0

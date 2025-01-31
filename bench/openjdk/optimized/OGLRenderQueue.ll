@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @j2d_glBegin = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %7
 
@@ -1617,7 +1617,7 @@ declare ptr @OGLSD_SetScratchSurface(ptr noundef, i64 noundef) local_unnamed_add
 declare void @OGLSD_Delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @OGLGC_DestroyOGLGraphicsConfig(i64 noundef) local_unnamed_addr #1
 

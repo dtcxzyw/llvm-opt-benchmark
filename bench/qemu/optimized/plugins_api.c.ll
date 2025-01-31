@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qemu_plugin_tb_n_insns(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
+define dso_local i64 @qemu_plugin_tb_n_insns(ptr noundef readonly captures(none) %tb) local_unnamed_addr #2 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qemu_plugin_tb_vaddr(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
+define dso_local i64 @qemu_plugin_tb_vaddr(ptr noundef readonly captures(none) %tb) local_unnamed_addr #2 {
 entry:
   %vaddr = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %0 = load i64, ptr %vaddr, align 8
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_plugin_tb_get_insn(ptr nocapture noundef readonly %tb, i64 noundef %idx) local_unnamed_addr #3 {
+define dso_local ptr @qemu_plugin_tb_get_insn(ptr noundef readonly captures(none) %tb, i64 noundef %idx) local_unnamed_addr #3 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
@@ -193,7 +193,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_plugin_insn_data(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
+define dso_local ptr @qemu_plugin_insn_data(ptr noundef readonly captures(none) %insn) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %insn, align 8
   %1 = load ptr, ptr %0, align 8
@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 4294967296) i64 @qemu_plugin_insn_size(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
+define dso_local range(i64 0, 4294967296) i64 @qemu_plugin_insn_size(ptr noundef readonly captures(none) %insn) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %insn, align 8
   %len = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -211,7 +211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qemu_plugin_insn_vaddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
+define dso_local i64 @qemu_plugin_insn_vaddr(ptr noundef readonly captures(none) %insn) local_unnamed_addr #2 {
 entry:
   %vaddr = getelementptr inbounds nuw i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_plugin_insn_haddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
+define dso_local ptr @qemu_plugin_insn_haddr(ptr noundef readonly captures(none) %insn) local_unnamed_addr #2 {
 entry:
   %haddr = getelementptr inbounds nuw i8, ptr %insn, i64 16
   %0 = load ptr, ptr %haddr, align 8
@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_plugin_insn_disas(ptr nocapture noundef readonly %insn) local_unnamed_addr #0 {
+define dso_local ptr @qemu_plugin_insn_disas(ptr noundef readonly captures(none) %insn) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -247,7 +247,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare ptr @plugin_disas(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_plugin_insn_symbol(ptr nocapture noundef readonly %insn) local_unnamed_addr #0 {
+define dso_local ptr @qemu_plugin_insn_symbol(ptr noundef readonly captures(none) %insn) local_unnamed_addr #0 {
 entry:
   %vaddr = getelementptr inbounds nuw i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
@@ -299,19 +299,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @qemu_plugin_hwaddr_is_io(ptr nocapture noundef readnone %haddr) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @qemu_plugin_hwaddr_is_io(ptr noundef readnone captures(none) %haddr) local_unnamed_addr #6 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @qemu_plugin_hwaddr_phys_addr(ptr nocapture noundef readnone %haddr) local_unnamed_addr #6 {
+define dso_local noundef i64 @qemu_plugin_hwaddr_phys_addr(ptr noundef readnone captures(none) %haddr) local_unnamed_addr #6 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_plugin_hwaddr_device_name(ptr nocapture noundef readnone %h) local_unnamed_addr #0 {
+define dso_local ptr @qemu_plugin_hwaddr_device_name(ptr noundef readnone captures(none) %h) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_intern_static_string(ptr noundef nonnull @.str) #7
   ret ptr %call

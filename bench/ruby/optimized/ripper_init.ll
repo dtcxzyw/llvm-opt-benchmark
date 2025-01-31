@@ -626,7 +626,7 @@ declare ptr @rb_ruby_ripper_parser_allocate() local_unnamed_addr #1
 declare void @rb_ruby_parser_set_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ripper_parser_mark2(ptr nocapture noundef readonly %0) #0 {
+define internal void @ripper_parser_mark2(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -655,7 +655,7 @@ define internal void @ripper_parser_free2(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ripper_parser_memsize2(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @ripper_parser_memsize2(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -680,7 +680,7 @@ declare i64 @ripper_parser_memsize(ptr noundef) local_unnamed_addr #1
 declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ripper_lex_io_get(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @ripper_lex_io_get(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_io_gets(i64 noundef %1) #4
   ret i64 %3
 }
@@ -688,7 +688,7 @@ define internal i64 @ripper_lex_io_get(ptr nocapture readnone %0, i64 noundef %1
 declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, -7) i64 @ripper_lex_get_generic(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 1, -7) i64 @ripper_lex_get_generic(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @id_gets, align 8
   %4 = tail call i64 @rb_funcallv_public(i64 noundef %1, i64 noundef %3, i32 noundef 0, ptr noundef null) #4
   %5 = icmp eq i64 %4, 4

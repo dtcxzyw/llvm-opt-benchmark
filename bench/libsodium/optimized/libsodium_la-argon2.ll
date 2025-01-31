@@ -199,12 +199,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @_sodium_argon2_encode_string(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind ssp uwtable
 define hidden i32 @_sodium_argon2i_hash_encoded(i32 noundef %t_cost, i32 noundef %m_cost, i32 noundef %parallelism, ptr noundef %pwd, i64 noundef %pwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %hashlen, ptr noundef %encoded, i64 noundef %encodedlen) local_unnamed_addr #0 {
@@ -285,7 +285,7 @@ if.then30:                                        ; preds = %if.end25
   br label %return
 
 if.end34:                                         ; preds = %if.end25
-  %call35 = call i32 @_sodium_argon2_decode_string(ptr noundef nonnull %ctx, ptr noundef %encoded, i32 noundef %type) #8
+  %call35 = call i32 @_sodium_argon2_decode_string(ptr noundef nonnull %ctx, ptr noundef nonnull %encoded, i32 noundef %type) #8
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end42, label %if.then38
 
@@ -341,10 +341,10 @@ return:                                           ; preds = %entry, %if.end60, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @_sodium_argon2_decode_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

@@ -83,7 +83,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @geoArrayAppend(ptr nocapture noundef %ga, ptr nocapture noundef readonly %xy, double noundef %dist, double noundef %score, ptr noundef %member) local_unnamed_addr #0 {
+define dso_local noundef ptr @geoArrayAppend(ptr noundef captures(none) %ga, ptr noundef readonly captures(none) %xy, double noundef %dist, double noundef %score, ptr noundef %member) local_unnamed_addr #0 {
 entry:
   %used = getelementptr inbounds nuw i8, ptr %ga, i64 16
   %0 = load i64, ptr %used, align 8
@@ -170,7 +170,7 @@ entry:
 declare i32 @geohashDecodeToLongLatWGS84(i64, i8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef %xy) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef %xy) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -212,7 +212,7 @@ declare i32 @getDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, p
 declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %zobj, ptr nocapture noundef readonly %member, ptr noundef %xy) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %zobj, ptr noundef readonly captures(none) %member, ptr noundef %xy) local_unnamed_addr #0 {
 entry:
   %score = alloca double, align 8
   store double 0.000000e+00, ptr %score, align 8
@@ -238,7 +238,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef double @extractUnitOrReply(ptr noundef %c, ptr nocapture noundef readonly %unit) local_unnamed_addr #0 {
+define dso_local noundef double @extractUnitOrReply(ptr noundef %c, ptr noundef readonly captures(none) %unit) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %unit, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -271,12 +271,12 @@ return:                                           ; preds = %if.else8, %if.else4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %radius) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %radius) local_unnamed_addr #0 {
 entry:
   %distance = alloca double, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -344,7 +344,7 @@ return:                                           ; preds = %extractUnitOrReply.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %c, ptr nocapture noundef readonly %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %width, ptr noundef writeonly %height) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %width, ptr noundef writeonly %height) local_unnamed_addr #0 {
 entry:
   %h = alloca double, align 8
   %w = alloca double, align 8
@@ -445,7 +445,7 @@ declare i32 @fixedpoint_d2string(ptr noundef, i64 noundef, double noundef, i32 n
 declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr nocapture noundef readonly %shape, double noundef %score, ptr noundef %xy, ptr noundef %distance) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captures(none) %shape, double noundef %score, ptr noundef %xy, ptr noundef %distance) local_unnamed_addr #0 {
 entry:
   %conv.i = fptoui double %score to i64
   %call.i = tail call i32 @geohashDecodeToLongLatWGS84(i64 %conv.i, i8 26, ptr noundef %xy) #14
@@ -509,7 +509,7 @@ declare i32 @geohashGetDistanceIfInRadiusWGS84(double noundef, double noundef, d
 declare i32 @geohashGetDistanceIfInRectangle(double noundef, double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geoGetPointsInRange(ptr nocapture noundef readonly %zobj, double noundef %min, double noundef %max, ptr nocapture noundef readonly %shape, ptr nocapture noundef %ga, i64 noundef %limit) local_unnamed_addr #0 {
+define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %zobj, double noundef %min, double noundef %max, ptr noundef readonly captures(none) %shape, ptr noundef captures(none) %ga, i64 noundef %limit) local_unnamed_addr #0 {
 entry:
   %range = alloca %struct.zrangespec, align 8
   %eptr = alloca ptr, align 8
@@ -759,7 +759,7 @@ declare ptr @zslNthInRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @sdsdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scoresOfGeoHashBox(i64 %hash.coerce0, i8 %hash.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %min, ptr nocapture noundef writeonly initializes((0, 8)) %max) local_unnamed_addr #0 {
+define dso_local void @scoresOfGeoHashBox(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %min, ptr noundef writeonly captures(none) initializes((0, 8)) %max) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @geohashAlign52Bits(i64 %hash.coerce0, i8 %hash.coerce1) #14
   store i64 %call, ptr %min, align 8
@@ -772,7 +772,7 @@ entry:
 declare i64 @geohashAlign52Bits(i64, i8) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @membersOfGeoHashBox(ptr nocapture noundef readonly %zobj, i64 %hash.coerce0, i8 %hash.coerce1, ptr nocapture noundef %ga, ptr nocapture noundef readonly %shape, i64 noundef %limit) local_unnamed_addr #0 {
+define dso_local i32 @membersOfGeoHashBox(ptr noundef readonly captures(none) %zobj, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef captures(none) %ga, ptr noundef readonly captures(none) %shape, i64 noundef %limit) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @geohashAlign52Bits(i64 %hash.coerce0, i8 %hash.coerce1) #14
   %inc.i = add i64 %hash.coerce0, 1
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @membersOfAllNeighbors(ptr nocapture noundef readonly %zobj, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %shape, ptr nocapture noundef %ga, i64 noundef %limit) local_unnamed_addr #0 {
+define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) %zobj, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %shape, ptr noundef captures(none) %ga, i64 noundef %limit) local_unnamed_addr #0 {
 entry:
   %neighbors = alloca [9 x %struct.GeoHashBits], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %neighbors, ptr noundef nonnull align 8 dereferenceable(16) %n, i64 16, i1 false)
@@ -881,10 +881,10 @@ for.end:                                          ; preds = %if.end120, %for.inc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geoaddCommand(ptr noundef %c) local_unnamed_addr #0 {
@@ -1636,7 +1636,7 @@ if.end328:                                        ; preds = %if.end313
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i240, i8 0, i64 24, i1 false)
   %54 = load i64, ptr %count, align 8
   %cond338 = select i1 %tobool333, i64 %54, i64 0
-  %call339 = call i32 @membersOfAllNeighbors(ptr noundef nonnull %call, ptr noundef nonnull %georadius, ptr noundef nonnull %shape, ptr noundef %call.i240, i64 noundef %cond338)
+  %call339 = call i32 @membersOfAllNeighbors(ptr noundef nonnull %call, ptr noundef nonnull %georadius, ptr noundef nonnull %shape, ptr noundef nonnull %call.i240, i64 noundef %cond338)
   %used = getelementptr inbounds nuw i8, ptr %call.i240, i64 16
   %55 = load i64, ptr %used, align 8
   %cmp340 = icmp eq i64 %55, 0
@@ -1933,7 +1933,7 @@ declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %dist = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load double, ptr %dist, align 8
@@ -1947,7 +1947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %dist.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load double, ptr %dist.i, align 8
@@ -1961,7 +1961,7 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @pqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2131,7 +2131,7 @@ for.body29:                                       ; preds = %if.end14, %for.body
 
 for.end:                                          ; preds = %for.body29
   store i8 0, ptr %arrayidx41, align 1
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %buf, i64 noundef 11) #14
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %buf, i64 noundef 11) #14
   br label %for.inc44
 
 for.inc44:                                        ; preds = %if.then10, %for.end, %if.then13
@@ -2382,10 +2382,10 @@ declare double @llvm.fabs.f64(double) #10
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10

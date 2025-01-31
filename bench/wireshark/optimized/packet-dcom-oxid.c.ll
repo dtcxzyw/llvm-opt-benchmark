@@ -161,7 +161,7 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %.166 = phi i32 [ %33, %.lr.ph ], [ %29, %28 ]
   %32 = load i32, ptr @hf_oxid_oid, align 4
-  %33 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.166, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #2
+  %33 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.166, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #2
   %34 = load i16, ptr %8, align 2
   %35 = add i16 %34, -1
   store i16 %35, ptr %8, align 2

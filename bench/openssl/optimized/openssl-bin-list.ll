@@ -1653,7 +1653,7 @@ if.then34.i172:                                   ; preds = %lor.lhs.false.i, %i
 
 if.else.i168:                                     ; preds = %lor.lhs.false.i
   %176 = load ptr, ptr @bio_out, align 8
-  %call36.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %176, ptr noundef nonnull @.str.161, ptr noundef %call2.i160, ptr noundef nonnull %call3.i161, ptr noundef %oid_buf.3.i) #6
+  %call36.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %176, ptr noundef nonnull @.str.161, ptr noundef nonnull %call2.i160, ptr noundef nonnull %call3.i161, ptr noundef %oid_buf.3.i) #6
   br label %for.inc.i169
 
 for.inc.i169:                                     ; preds = %if.else.i168, %if.then34.i172, %if.then8.i, %for.body.i158
@@ -1677,7 +1677,7 @@ return:                                           ; preds = %sw.bb104, %if.end42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3040,7 +3040,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @calculate_columns(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3065,7 +3065,7 @@ declare void @EVP_MD_free(ptr noundef) #2
 declare ptr @get_digest_from_engine(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @md_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @md_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_MD_get0_provider(ptr noundef %0) #6
@@ -3173,7 +3173,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cipher_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @cipher_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %0) #6
@@ -3273,7 +3273,7 @@ declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @kdf_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_KDF_get0_provider(ptr noundef %0) #6
@@ -3336,7 +3336,7 @@ declare ptr @EVP_KDF_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_KDF_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @mac_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_MAC_get0_provider(ptr noundef %0) #6
@@ -3399,7 +3399,7 @@ declare ptr @EVP_MAC_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_MAC_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @asymcipher_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @asymcipher_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef %0) #6
@@ -3460,7 +3460,7 @@ declare ptr @EVP_ASYM_CIPHER_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_ASYM_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kex_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @kex_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_KEYEXCH_get0_provider(ptr noundef %0) #6
@@ -3521,7 +3521,7 @@ declare ptr @EVP_KEYEXCH_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_KEYEXCH_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @signature_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @signature_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef %0) #6
@@ -3582,7 +3582,7 @@ declare ptr @EVP_SIGNATURE_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_SIGNATURE_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kem_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @kem_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_KEM_get0_provider(ptr noundef %0) #6
@@ -3643,7 +3643,7 @@ declare ptr @EVP_KEM_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_KEM_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @keymanager_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @keymanager_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %0) #6
@@ -3706,7 +3706,7 @@ declare ptr @EVP_KEYMGMT_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_KEYMGMT_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encoder_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @encoder_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef %0) #6
@@ -3767,7 +3767,7 @@ declare ptr @OSSL_ENCODER_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @OSSL_ENCODER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decoder_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @decoder_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @OSSL_DECODER_get0_provider(ptr noundef %0) #6
@@ -3828,7 +3828,7 @@ declare ptr @OSSL_DECODER_get0_name(ptr noundef) local_unnamed_addr #2
 declare ptr @OSSL_DECODER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @store_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @store_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef %0) #6
@@ -3999,7 +3999,7 @@ declare i32 @EVP_RAND_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_add
 declare void @print_param_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rand_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @rand_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_RAND_get0_name(ptr noundef %0) #6
@@ -4079,7 +4079,7 @@ declare ptr @EVP_PKEY_meth_get0(i64 noundef) local_unnamed_addr #2
 declare void @EVP_PKEY_meth_get0_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @provider_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @provider_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %0) #6
@@ -4103,7 +4103,7 @@ entry:
 declare void @OSSL_PARAM_construct_utf8_ptr(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4142,10 +4142,10 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

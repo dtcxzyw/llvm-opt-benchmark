@@ -12,13 +12,13 @@ target triple = "x86_64-pc-linux-gnu"
 @g_nullstring = internal constant [7 x i8] c"(null)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_vsprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @lib_vsprintf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca %union.anon, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_sprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define i32 @lib_sprintf_internal(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
@@ -1424,7 +1424,7 @@ define i32 @lib_sprintf_internal(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_vsprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @lib_vsprintf_internal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
@@ -1434,7 +1434,7 @@ declare i32 @__dtoa_engine(double noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @__ultoa_invert(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #3

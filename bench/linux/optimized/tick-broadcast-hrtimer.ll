@@ -27,7 +27,7 @@ define dso_local void @tick_setup_hrtimer_broadcast() local_unnamed_addr #0 alig
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bc_handler(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef i32 @bc_handler(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr @ce_broadcast_hrtimer, align 64
   tail call void %2(ptr noundef nonnull @ce_broadcast_hrtimer) #2
   ret i32 0
@@ -37,7 +37,7 @@ define internal noundef i32 @bc_handler(ptr nocapture readnone %0) #0 align 16 {
 declare dso_local void @clockevents_register_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef writeonly initializes((168, 172)) %1) #0 align 16 {
+define internal noundef i32 @bc_set_next(i64 noundef %0, ptr noundef writeonly captures(none) initializes((168, 172)) %1) #0 align 16 {
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull @bctimer, i64 noundef %0, i64 noundef 0, i32 noundef 10) #2
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bctimer, i64 48), align 8
   %4 = load ptr, ptr %3, align 64
@@ -49,7 +49,7 @@ define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bc_shutdown(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef i32 @bc_shutdown(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call i32 @hrtimer_try_to_cancel(ptr noundef nonnull @bctimer) #2
   ret i32 0
 }

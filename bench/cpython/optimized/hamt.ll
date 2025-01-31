@@ -993,7 +993,7 @@ return:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_assoc(ptr noundef %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef nonnull writeonly %added_leaf) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_assoc(ptr noundef %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull writeonly captures(none) %added_leaf) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %node, i64 8
   %node.val = load ptr, ptr %0, align 8
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr nocapture noundef readonly %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr nocapture noundef nonnull writeonly %new_node) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr noundef readonly captures(none) %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef nonnull writeonly captures(none) %new_node) unnamed_addr #0 {
 entry:
   %sub_node.i17 = alloca ptr, align 8
   %sub_node.i = alloca ptr, align 8
@@ -2633,7 +2633,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyHamt_Find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @_PyHamt_Find(ptr noundef readonly captures(none) %o, ptr noundef %key, ptr noundef writeonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @hamt_find(ptr noundef %o, ptr noundef %key, ptr noundef %val)
   %switch.offset = add nsw i32 %call, -1
@@ -2641,7 +2641,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @hamt_find(ptr nocapture noundef readonly %o, ptr noundef %key, ptr nocapture noundef writeonly %val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @hamt_find(ptr noundef readonly captures(none) %o, ptr noundef %key, ptr noundef writeonly captures(none) %val) unnamed_addr #0 {
 entry:
   %h_count = getelementptr inbounds nuw i8, ptr %o, i64 32
   %0 = load i64, ptr %h_count, align 8
@@ -2831,7 +2831,7 @@ return:                                           ; preds = %do.body, %if.end14,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef nonnull writeonly %key, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr noundef captures(none) %iter, ptr noundef nonnull writeonly captures(none) %key, ptr noundef nonnull writeonly captures(none) %val) unnamed_addr #2 {
 entry:
   %i_level = getelementptr inbounds nuw i8, ptr %iter, i64 128
   %0 = load i8, ptr %i_level, align 8
@@ -2985,7 +2985,7 @@ return:                                           ; preds = %tailrecurse.backedg
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_PyHamt_Len(ptr nocapture noundef readonly %o) local_unnamed_addr #4 {
+define hidden i64 @_PyHamt_Len(ptr noundef readonly captures(none) %o) local_unnamed_addr #4 {
 entry:
   %h_count = getelementptr inbounds nuw i8, ptr %o, i64 32
   %0 = load i64, ptr %h_count, align 8
@@ -3026,7 +3026,7 @@ hamt_baseiter_tp_clear.exit:                      ; preds = %entry, %if.then.i, 
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_baseiter_tp_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hamt_baseiter_tp_traverse(ptr noundef readonly captures(none) %it, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %hi_obj = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
@@ -3047,7 +3047,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hamt_baseiter_tp_clear(ptr nocapture noundef %it) #0 {
+define internal noundef i32 @hamt_baseiter_tp_clear(ptr noundef captures(none) %it) #0 {
 entry:
   %hi_obj = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
@@ -3078,7 +3078,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 declare ptr @PyObject_SelfIter(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_baseiter_tp_iternext(ptr nocapture noundef %it) #0 {
+define internal ptr @hamt_baseiter_tp_iternext(ptr noundef captures(none) %it) #0 {
 entry:
   %key = alloca ptr, align 8
   %val = alloca ptr, align 8
@@ -3181,7 +3181,7 @@ hamt_baseiter_new.exit:                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned %key, ptr nocapture readnone %val) #5 {
+define internal noundef ptr @hamt_iter_yield_keys(ptr noundef returned %key, ptr readnone captures(none) %val) #5 {
 entry:
   %0 = load i32, ptr %key, align 8
   %add.i.i = add i32 %0, 1
@@ -3231,7 +3231,7 @@ hamt_baseiter_new.exit:                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @hamt_iter_yield_values(ptr nocapture readnone %key, ptr noundef returned %val) #5 {
+define internal noundef ptr @hamt_iter_yield_values(ptr readnone captures(none) %key, ptr noundef returned %val) #5 {
 entry:
   %0 = load i32, ptr %val, align 8
   %add.i.i = add i32 %0, 1
@@ -3306,7 +3306,7 @@ return:                                           ; preds = %entry, %hamt_tp_cle
 declare i64 @PyObject_HashNotImplemented(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_tp_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hamt_tp_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %h_root = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %h_root, align 8
@@ -3327,7 +3327,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hamt_tp_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @hamt_tp_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %h_root = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %h_root, align 8
@@ -3488,7 +3488,7 @@ _PyHamt_NewIterKeys.exit:                         ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @hamt_tp_new(ptr nocapture readnone %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #1 {
+define internal noundef nonnull ptr @hamt_tp_new(ptr readnone captures(none) %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3573,7 +3573,7 @@ do.end:                                           ; preds = %for.end, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_node_array_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hamt_node_array_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %a_array = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %do.body
@@ -3677,7 +3677,7 @@ do.end:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_node_bitmap_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hamt_node_bitmap_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
@@ -3782,7 +3782,7 @@ do.end:                                           ; preds = %if.end9, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hamt_node_collision_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hamt_node_collision_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %0, align 8
@@ -3819,7 +3819,7 @@ return:                                           ; preds = %if.then, %do.end, %
 declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef %self, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef nonnull writeonly %added_leaf) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef %self, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull writeonly captures(none) %added_leaf) unnamed_addr #0 {
 entry:
   %added_leaf.i = alloca i32, align 4
   %shr.i.i = lshr i32 %hash, %shift
@@ -4710,7 +4710,7 @@ return:                                           ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_bitmap_clone(ptr nocapture noundef readonly %node) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_bitmap_clone(ptr noundef readonly captures(none) %node) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %node, i64 16
   %node.val = load i64, ptr %0, align 8
@@ -4891,7 +4891,7 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_array_clone(ptr nocapture noundef readonly %node) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_array_clone(ptr noundef readonly captures(none) %node) unnamed_addr #0 {
 entry:
   %a_count = getelementptr inbounds nuw i8, ptr %node, i64 272
   %0 = load i64, ptr %a_count, align 8
@@ -4965,7 +4965,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @hamt_baseiter_tp_len(ptr nocapture noundef readonly %it) #7 {
+define internal i64 @hamt_baseiter_tp_len(ptr noundef readonly captures(none) %it) #7 {
 entry:
   %hi_obj = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %hi_obj, align 8
@@ -4981,7 +4981,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #3
 declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
+define internal range(i32 -1, 2) i32 @hamt_tp_contains(ptr noundef readonly captures(none) %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
   %call.i = call fastcc i32 @hamt_find(ptr noundef readonly %self, ptr noundef %key, ptr noundef nonnull %val)
@@ -4990,7 +4990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hamt_tp_len(ptr nocapture noundef readonly %self) #4 {
+define internal i64 @hamt_tp_len(ptr noundef readonly captures(none) %self) #4 {
 entry:
   %h_count.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load i64, ptr %h_count.i, align 8
@@ -4998,7 +4998,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @hamt_tp_subscript(ptr nocapture noundef readonly %self, ptr noundef %key) #0 {
+define internal noundef ptr @hamt_tp_subscript(ptr noundef readonly captures(none) %self, ptr noundef %key) #0 {
 entry:
   %val = alloca ptr, align 8
   %call = call fastcc i32 @hamt_find(ptr noundef %self, ptr noundef %key, ptr noundef nonnull %val)
@@ -5055,7 +5055,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_get(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @hamt_py_get(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %key = alloca ptr, align 8
   %def = alloca ptr, align 8
@@ -5117,7 +5117,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_items(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal ptr @hamt_py_items(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call.i.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtItems_Type) #11
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -5151,7 +5151,7 @@ _PyHamt_NewIterItems.exit:                        ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_keys(ptr noundef %self, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @hamt_py_keys(ptr noundef %self, ptr readnone captures(none) %_unused_args) #0 {
 entry:
   %call.i.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtKeys_Type) #11
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -5185,7 +5185,7 @@ _PyHamt_NewIterKeys.exit:                         ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hamt_py_values(ptr noundef %self, ptr nocapture readnone %args) #0 {
+define internal ptr @hamt_py_values(ptr noundef %self, ptr readnone captures(none) %args) #0 {
 entry:
   %call.i.i = tail call ptr @_PyObject_GC_New(ptr noundef nonnull @_PyHamtValues_Type) #11
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -5232,13 +5232,13 @@ declare void @_PyTrash_end(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

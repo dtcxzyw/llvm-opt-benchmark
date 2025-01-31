@@ -85,16 +85,16 @@ define dso_local i32 @__trace_bprintk(i64 noundef %0, ptr noundef %1, ...) #1 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @trace_vbprintk(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__ftrace_vbprintk(i64 noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
@@ -211,7 +211,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #4
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ftrace_formats_open(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal i32 @ftrace_formats_open(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i32 @security_locked_down(i32 noundef 26) #13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -235,7 +235,7 @@ declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #4
 declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @t_start(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @t_start(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @btrace_mutex) #13
   %3 = load i64, ptr %1, align 8
   %4 = shl i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 29
@@ -290,13 +290,13 @@ define internal ptr @t_start(ptr nocapture readnone %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @t_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @t_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   tail call void @mutex_unlock(ptr noundef nonnull @btrace_mutex) #13
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal ptr @t_next(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2) #7 align 16 {
+define internal ptr @t_next(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #7 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -366,7 +366,7 @@ define internal ptr @t_next(ptr nocapture readnone %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @t_show(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef i32 @t_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %20, label %5
@@ -440,7 +440,7 @@ declare dso_local void @seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_
 declare dso_local i32 @register_module_notifier(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal noundef i32 @module_trace_bprintk_format_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1020
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
@@ -538,16 +538,16 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
 declare dso_local void @trace_printk_init_buffers() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10

@@ -28,13 +28,13 @@ define hidden range(i32 0, 2) i32 @aom_reader_init(ptr noundef %0, ptr noundef %
 declare void @od_ec_dec_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @aom_reader_find_begin(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @aom_reader_find_begin(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @aom_reader_find_end(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @aom_reader_find_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3

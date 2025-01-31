@@ -165,7 +165,7 @@ mkTreeNode.exit:                                  ; preds = %37
   %.258 = phi ptr [ %.15786, %.lr.ph90 ], [ %38, %53 ]
   %.254 = phi double [ %.15387, %.lr.ph90 ], [ %50, %53 ]
   %.2 = phi i64 [ %.188, %.lr.ph90 ], [ %49, %53 ]
-  %58 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06284) #14
+  %58 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.06284) #14
   %.not63 = icmp eq ptr %58, null
   br i1 %.not63, label %._crit_edge91, label %.lr.ph90
 
@@ -189,7 +189,7 @@ mkTreeNode.exit:                                  ; preds = %37
   br label %72
 
 67:                                               ; preds = %._crit_edge91
-  %68 = tail call double @late_double(ptr noundef %0, ptr noundef %1, double noundef 1.000000e+00, double noundef 0.000000e+00) #14
+  %68 = tail call double @late_double(ptr noundef nonnull %0, ptr noundef %1, double noundef 1.000000e+00, double noundef 0.000000e+00) #14
   %69 = fcmp oeq double %68, 0.000000e+00
   %70 = fmul double %68, 1.000000e+03
   %71 = select i1 %69, double 1.000000e+03, double %70
@@ -207,10 +207,10 @@ mkTreeNode.exit:                                  ; preds = %37
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @layoutTree(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @layoutTree(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.rectangle, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
@@ -417,7 +417,7 @@ gv_calloc.exit103:                                ; preds = %22, %gv_calloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @walkTree(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @walkTree(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [40 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
@@ -551,7 +551,7 @@ finishNode.exit:                                  ; preds = %28, %49, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeTree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @freeTree(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -582,7 +582,7 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {
@@ -602,10 +602,10 @@ declare double @late_double(ptr noundef, ptr noundef, double noundef, double nou
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @nodecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @nodecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -620,7 +620,7 @@ define internal range(i32 -1, 2) i32 @nodecmp(ptr nocapture noundef readonly %0,
 declare ptr @tree_map(i64 noundef, ptr noundef, ptr noundef byval(%struct.rectangle) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @gv_nodesize(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -631,20 +631,20 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @common_init_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

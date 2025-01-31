@@ -1132,7 +1132,7 @@ declare void @_ZN10open_spiel14GameRegistererC1ERKNS_8GameTypeESt8functionIFSt10
 declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducStateC2ESt10shared_ptrIKNS_4GameEEbb(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducStateC2ESt10shared_ptrIKNS_4GameEEbb(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = zext i1 %2 to i8
   %7 = zext i1 %3 to i8
@@ -1860,7 +1860,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3015,7 +3015,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState10SetPrivateEil(ptr nocapture noundef nonnull align 8 dereferenceable(330) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducState10SetPrivateEil(ptr noundef nonnull align 8 captures(none) dereferenceable(330) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 329
@@ -3120,7 +3120,7 @@ define void @_ZN10open_spiel11leduc_poker10LeducState10SetPrivateEil(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2147483647) i32 @_ZNK10open_spiel11leduc_poker10LeducState10NextPlayerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2147483647) i32 @_ZNK10open_spiel11leduc_poker10LeducState10NextPlayerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3274,7 +3274,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState18SequenceAppendMoveEi(ptr nocapture noundef nonnull align 8 dereferenceable(330) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducState18SequenceAppendMoveEi(ptr noundef nonnull align 8 captures(none) dereferenceable(330) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3438,7 +3438,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState13ResolveWinnerEv(ptr nocapture noundef nonnull align 8 dereferenceable(330) initializes((80, 84)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducState13ResolveWinnerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(330) initializes((80, 84)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3792,7 +3792,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit80:  ; preds = %_ZSt4fillISt13_Bit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel11leduc_poker10LeducState17ReadyForNextRoundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel11leduc_poker10LeducState17ReadyForNextRoundEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3825,7 +3825,7 @@ define noundef zeroext i1 @_ZNK10open_spiel11leduc_poker10LeducState17ReadyForNe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState8NewRoundEv(ptr nocapture noundef nonnull align 8 dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducState8NewRoundEv(ptr noundef nonnull align 8 captures(none) dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3925,7 +3925,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState4AnteEii(ptr nocapture noundef nonnull align 8 dereferenceable(330) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel11leduc_poker10LeducState4AnteEii(ptr noundef nonnull align 8 captures(none) dereferenceable(330) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, %2
@@ -4072,7 +4072,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.26") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState12LegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.26") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -4534,7 +4534,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit58:         ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4656,7 +4656,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %23, %41, %54, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl7debian28AlphaNumC2EPKc.exit:
   %2 = alloca [7 x %"class.absl::debian2::string_view"], align 8
   %3 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -5258,7 +5258,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel11leduc_poker10LeducState10IsTerminalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel11leduc_poker10LeducState10IsTerminalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -5299,7 +5299,7 @@ _ZNK10open_spiel11leduc_poker10LeducState17ReadyForNextRoundEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState7ReturnsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.18") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -5454,7 +5454,7 @@ _ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10open_spiel11leduc_poker10LeducState17ObservationTensorEiN4absl7debian24SpanIfEE(ptr noundef nonnull align 8 dereferenceable(330) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -5486,7 +5486,7 @@ _ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState5CloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #30
   invoke void @_ZN10open_spiel11leduc_poker10LeducStateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(330) %3, ptr noundef nonnull align 8 dereferenceable(330) %1)
           to label %4 unwind label %5
@@ -5956,7 +5956,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit67:                  ; preds = %194, %_ZNSt6vectorI
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState14ChanceOutcomesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
@@ -6423,7 +6423,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState8RankHandEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState8RankHandEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6654,7 +6654,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState23padded_betting_sequenceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState23padded_betting_sequenceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -6820,7 +6820,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit8:           ; preds = %78, %76, %74, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState21ResampleFromInfostateEiSt8functionIFdvEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState21ResampleFromInfostateEiSt8functionIFdvEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::vector.36", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7199,7 +7199,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
 declare { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaIS2_EEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState18NumObservableCardsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState18NumObservableCardsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 329
   %3 = load i8, ptr %2, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -7218,7 +7218,7 @@ define noundef i32 @_ZNK10open_spiel11leduc_poker10LeducState18NumObservableCard
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -2147483648, 2147483646) i32 @_ZNK10open_spiel11leduc_poker10LeducState15MaxBetsPerRoundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -2147483648, 2147483646) i32 @_ZNK10open_spiel11leduc_poker10LeducState15MaxBetsPerRoundEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(330) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = mul nsw i32 %3, 3
@@ -7440,7 +7440,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker9LeducGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(322) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker9LeducGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(322) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"struct.open_spiel::GameType", align 8
   %5 = alloca %"class.std::map", align 8
@@ -9389,7 +9389,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame15NewInitialStateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame15NewInitialStateEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.52", align 8
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9623,7 +9623,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %15, %33, %46, %_ZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel11leduc_poker9LeducGame17MaxChanceOutcomesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(322) %0) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK10open_spiel11leduc_poker9LeducGame17MaxChanceOutcomesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(322) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 321
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -9635,7 +9635,7 @@ define noundef i32 @_ZNK10open_spiel11leduc_poker9LeducGame17MaxChanceOutcomesEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.13") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 321
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -9676,7 +9676,7 @@ define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.13") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 321
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -9702,7 +9702,7 @@ define void @_ZNK10open_spiel11leduc_poker9LeducGame22ObservationTensorShapeEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK10open_spiel11leduc_poker9LeducGame10MaxUtilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(322) %0) unnamed_addr #7 align 2 {
+define noundef double @_ZNK10open_spiel11leduc_poker9LeducGame10MaxUtilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(322) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
   %4 = mul i32 %3, 13
@@ -9712,7 +9712,7 @@ define noundef double @_ZNK10open_spiel11leduc_poker9LeducGame10MaxUtilityEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK10open_spiel11leduc_poker9LeducGame10MinUtilityEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
+define noundef double @_ZNK10open_spiel11leduc_poker9LeducGame10MinUtilityEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #13 align 2 {
   ret double -1.300000e+01
 }
 
@@ -9762,7 +9762,7 @@ _ZNSt10shared_ptrIN10open_spiel11leduc_poker13LeducObserverEED2Ev.exit: ; preds 
 declare void @_ZNK10open_spiel4Game22MakeRegisteredObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessISC_ESaISt4pairIKSC_SD_EEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.66") align 8, ptr noundef nonnull align 8 dereferenceable(280), i64, i32, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
   %7 = icmp eq i32 %2, -1
@@ -11904,7 +11904,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN10open_spiel11leduc_po
 declare void @llvm.trap() #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -12145,7 +12145,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16703,7 +16703,7 @@ _ZN10open_spiel10SpanTensorD2Ev.exit:             ; preds = %._crit_edge, %47
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -17114,10 +17114,10 @@ __cxx_global_var_init.6.exit:                     ; preds = %105, %107
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
@@ -17135,7 +17135,7 @@ declare i32 @llvm.smax.i32(i32, i32) #25
 declare i32 @llvm.smin.i32(i32, i32) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

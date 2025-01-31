@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_part_persist_psend_request_construct(ptr nocapture noundef writeonly initializes((100, 101), (112, 136)) %0) #0 {
+define internal void @mca_part_persist_psend_request_construct(ptr noundef writeonly captures(none) initializes((100, 101), (112, 136)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @mca_part_persist_start, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -32,7 +32,7 @@ define internal void @mca_part_persist_psend_request_construct(ptr nocapture nou
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @mca_part_persist_start(i64 noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
@@ -141,7 +141,7 @@ opal_thread_swap_ptr.exit:                        ; preds = %44, %46
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture noundef %0) #2 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr noundef captures(none) %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %4 = load volatile i32, ptr %3, align 4
@@ -159,7 +159,7 @@ define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

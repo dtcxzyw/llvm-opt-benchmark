@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.sat_solver_setnvars = private unnamed_addr constant [3 x i64] [i64 1024, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @sat_solver_get_var_value(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @sat_solver_get_var_value(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 208
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -44,7 +44,7 @@ define range(i32 -1, 2) i32 @sat_solver_get_var_value(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @sat_solver_set_var_activity(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @sat_solver_set_var_activity(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -308,7 +308,7 @@ order_update.exit57:                              ; preds = %.lr.ph.i51, %122, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_clause_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @sat_solver_clause_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %5, %6
@@ -511,7 +511,7 @@ sat_clause_compute_lbd.exit:                      ; preds = %sat_clause_compute_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @veci_push(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @veci_push(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -574,7 +574,7 @@ define internal fastcc void @veci_push(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Sat_MemAppend(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @Sat_MemAppend(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -725,7 +725,7 @@ define internal fastcc i32 @Sat_MemAppend(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @sat_solver_count_assigned(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @sat_solver_count_assigned(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -754,7 +754,7 @@ define i32 @sat_solver_count_assigned(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_propagate(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i32 @sat_solver_propagate(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1478,7 +1478,7 @@ clause_read.exit:                                 ; preds = %1, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @sat_solver_addvar(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @sat_solver_addvar(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, 1
   tail call void @sat_solver_setnvars(ptr noundef nonnull %0, i32 noundef %3)
@@ -1488,7 +1488,7 @@ define range(i32 -2147483648, 2147483647) i32 @sat_solver_addvar(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_setnvars(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @sat_solver_setnvars(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, %1
@@ -1949,16 +1949,16 @@ order_update.exit:                                ; preds = %.lr.ph.i, %252, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_delete(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @sat_solver_delete(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -2343,10 +2343,10 @@ veci_delete.exit117:                              ; preds = %63, %68
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_store_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @sat_solver_store_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2362,7 +2362,7 @@ define void @sat_solver_store_free(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_restart(ptr nocapture noundef initializes((16, 24), (40, 48), (72, 76)) %0) local_unnamed_addr #2 {
+define void @sat_solver_restart(ptr noundef captures(none) initializes((16, 24), (40, 48), (72, 76)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2472,7 +2472,7 @@ clause_read.exit:                                 ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zsat_solver_restart_seed(ptr nocapture noundef initializes((16, 24), (40, 48), (72, 76)) %0, double noundef %1) local_unnamed_addr #2 {
+define void @zsat_solver_restart_seed(ptr noundef captures(none) initializes((16, 24), (40, 48), (72, 76)) %0, double noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2582,7 +2582,7 @@ clause_read.exit:                                 ; preds = %2, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @sat_solver_memory(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define double @sat_solver_memory(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -2712,7 +2712,7 @@ define double @sat_solver_memory(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @sat_solver_simplify(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_simplify(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i32 @sat_solver_propagate(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   %. = zext i1 %.not to i32
@@ -2720,7 +2720,7 @@ define range(i32 0, 2) i32 @sat_solver_simplify(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_reducedb(ptr nocapture noundef initializes((472, 476)) %0) local_unnamed_addr #2 {
+define void @sat_solver_reducedb(ptr noundef captures(none) initializes((472, 476)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -3208,7 +3208,7 @@ Abc_Clock.exit180:                                ; preds = %._crit_edge223, %23
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Sat_MemCompactLearned(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc void @Sat_MemCompactLearned(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3530,7 +3530,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #31
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #30
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #30
   call void @free(ptr noundef %9) #30
   br label %16
 
@@ -3973,10 +3973,10 @@ order_update.exit:                                ; preds = %.lr.ph.i98, %116, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @sat_solver_addclause(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_addclause(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -4206,7 +4206,7 @@ sat_solver_enqueue.exit:                          ; preds = %48, %52, %45, %92, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare i32 @Sto_ManAddClause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
@@ -6935,10 +6935,10 @@ Abc_Clock.exit62:                                 ; preds = %1330, %1333
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sat_solver_canceluntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @sat_solver_canceluntil(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 316
   %.val42 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %.val42, %1
@@ -7097,7 +7097,7 @@ order_unassigned.exit:                            ; preds = %50, %order_update.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @sat_solver_push(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_push(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -7223,7 +7223,7 @@ sat_solver_enqueue.exit:                          ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sat_solver_analyze_final(ptr nocapture noundef initializes((340, 344)) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @sat_solver_analyze_final(ptr noundef captures(none) initializes((340, 344)) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %clause_read.exit, label %4
 
@@ -7509,7 +7509,7 @@ solver2_clear_tags.exit:                          ; preds = %136, %._crit_edge85
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_pop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @sat_solver_pop(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -7519,7 +7519,7 @@ define void @sat_solver_pop(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @sat_solver_set_resource_limits(ptr nocapture noundef initializes((496, 512), (544, 548)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #16 {
+define void @sat_solver_set_resource_limits(ptr noundef captures(none) initializes((496, 512), (544, 548)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -7716,7 +7716,7 @@ sat_solver_set_resource_limits.exit:              ; preds = %46, %47, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @sat_solver_solve_lexsat(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -128, 128) i32 @sat_solver_solve_lexsat(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %sat_solver_set_literal_polarity.exit.thread
 
@@ -8454,20 +8454,20 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sat_solver_nvars(ptr nocapture noundef readonly %0) local_unnamed_addr #17 {
+define i32 @sat_solver_nvars(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sat_solver_nclauses(ptr nocapture noundef readonly %0) local_unnamed_addr #17 {
+define i32 @sat_solver_nclauses(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sat_solver_nconflicts(ptr nocapture noundef readonly %0) local_unnamed_addr #17 {
+define i32 @sat_solver_nconflicts(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -8475,7 +8475,7 @@ define i32 @sat_solver_nconflicts(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_store_alloc(ptr nocapture noundef writeonly initializes((616, 624)) %0) local_unnamed_addr #2 {
+define void @sat_solver_store_alloc(ptr noundef writeonly captures(none) initializes((616, 624)) %0) local_unnamed_addr #2 {
   %2 = tail call ptr (...) @Sto_ManAlloc() #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store ptr %2, ptr %3, align 8
@@ -8485,7 +8485,7 @@ define void @sat_solver_store_alloc(ptr nocapture noundef writeonly initializes(
 declare ptr @Sto_ManAlloc(...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_store_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @sat_solver_store_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8504,7 +8504,7 @@ declare void @Sto_ManDumpClauses(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Sto_ManFree(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_store_change_last(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @sat_solver_store_change_last(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -8522,7 +8522,7 @@ define i32 @sat_solver_store_change_last(ptr nocapture noundef readonly %0) loca
 declare i32 @Sto_ManChangeLastClause(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_store_mark_roots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @sat_solver_store_mark_roots(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -8539,7 +8539,7 @@ define void @sat_solver_store_mark_roots(ptr nocapture noundef readonly %0) loca
 declare void @Sto_ManMarkRoots(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver_store_mark_clauses_a(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @sat_solver_store_mark_clauses_a(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -8556,7 +8556,7 @@ define void @sat_solver_store_mark_clauses_a(ptr nocapture noundef readonly %0) 
 declare void @Sto_ManMarkClausesA(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @sat_solver_store_release(ptr nocapture noundef %0) local_unnamed_addr #16 {
+define ptr @sat_solver_store_release(ptr noundef captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -8574,7 +8574,7 @@ define ptr @sat_solver_store_release(ptr nocapture noundef %0) local_unnamed_add
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
@@ -8583,13 +8583,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @act_var_rescale(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %57 [
@@ -8697,7 +8697,7 @@ define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_a
 declare double @llvm.fmuladd.f64(double, double, double) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @act_var_bump(ptr nocapture noundef %0, i32 noundef range(i32 -1073741824, 1073741824) %1) unnamed_addr #1 {
+define internal fastcc void @act_var_bump(ptr noundef captures(none) %0, i32 noundef range(i32 -1073741824, 1073741824) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %134 [
@@ -8953,7 +8953,7 @@ declare i32 @llvm.umin.i32(i32, i32) #22
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #23
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #22
@@ -8962,10 +8962,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #25

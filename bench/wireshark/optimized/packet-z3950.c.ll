@@ -4461,7 +4461,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_Explain_Record_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_Explain_Record_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_Explain_Record_PDU, align 4
@@ -4471,7 +4471,7 @@ define internal i32 @dissect_Explain_Record_PDU(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_SutrsRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_SutrsRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_SutrsRecord_PDU, align 4
@@ -4480,7 +4480,7 @@ define internal i32 @dissect_SutrsRecord_PDU(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_OPACRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_OPACRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_OPACRecord_PDU, align 4
@@ -4490,7 +4490,7 @@ define internal i32 @dissect_OPACRecord_PDU(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_BriefBib_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_BriefBib_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_BriefBib_PDU, align 4
@@ -4500,7 +4500,7 @@ define internal i32 @dissect_BriefBib_PDU(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_GenericRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_GenericRecord_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_GenericRecord_PDU, align 4
@@ -4510,7 +4510,7 @@ define internal i32 @dissect_GenericRecord_PDU(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_TaskPackage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_TaskPackage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_TaskPackage_PDU, align 4
@@ -4520,7 +4520,7 @@ define internal i32 @dissect_TaskPackage_PDU(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_DiagnosticFormat_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_DiagnosticFormat_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_DiagnosticFormat_PDU, align 4
@@ -4530,7 +4530,7 @@ define internal i32 @dissect_DiagnosticFormat_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_PromptObject_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_PromptObject_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_PromptObject_PDU, align 4
@@ -4540,7 +4540,7 @@ define internal i32 @dissect_PromptObject_PDU(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_DES_RN_Object_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_DES_RN_Object_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_DES_RN_Object_PDU, align 4
@@ -4550,7 +4550,7 @@ define internal i32 @dissect_DES_RN_Object_PDU(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_KRBObject_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_KRBObject_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_KRBObject_PDU, align 4
@@ -4560,7 +4560,7 @@ define internal i32 @dissect_KRBObject_PDU(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_SearchInfoReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_SearchInfoReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_SearchInfoReport_PDU, align 4
@@ -4570,7 +4570,7 @@ define internal i32 @dissect_SearchInfoReport_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_OCLC_UserInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_OCLC_UserInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_z3950_OCLC_UserInformation_PDU, align 4
@@ -4580,7 +4580,7 @@ define internal i32 @dissect_OCLC_UserInformation_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
@@ -4615,7 +4615,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %26, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = call i64 @strtoul(ptr nocapture noundef %27, ptr noundef null, i32 noundef 10) #8
+  %29 = call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #8
   %30 = trunc i64 %29 to i32
   br label %33
 
@@ -4711,7 +4711,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br label %82
 
 77:                                               ; preds = %73
-  %78 = call i64 @strtoul(ptr nocapture noundef %75, ptr noundef null, i32 noundef 10) #8
+  %78 = call i64 @strtoul(ptr noundef captures(none) %75, ptr noundef null, i32 noundef 10) #8
   %79 = trunc i64 %78 to i32
   %80 = icmp ult i32 %79, 24
   %81 = icmp ult i32 %.0, %79
@@ -4824,7 +4824,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %140, label %142, label %145
 
 142:                                              ; preds = %139
-  %143 = call i64 @strtoul(ptr nocapture noundef %141, ptr noundef null, i32 noundef 10) #8
+  %143 = call i64 @strtoul(ptr noundef captures(none) %141, ptr noundef null, i32 noundef 10) #8
   %144 = trunc i64 %143 to i32
   br label %147
 
@@ -4849,7 +4849,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %154, label %156, label %159
 
 156:                                              ; preds = %153
-  %157 = call i64 @strtoul(ptr nocapture noundef %155, ptr noundef null, i32 noundef 10) #8
+  %157 = call i64 @strtoul(ptr noundef captures(none) %155, ptr noundef null, i32 noundef 10) #8
   %158 = trunc i64 %157 to i32
   br label %161
 
@@ -4874,7 +4874,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %168, label %170, label %173
 
 170:                                              ; preds = %167
-  %171 = call i64 @strtoul(ptr nocapture noundef %169, ptr noundef null, i32 noundef 10) #8
+  %171 = call i64 @strtoul(ptr noundef captures(none) %169, ptr noundef null, i32 noundef 10) #8
   %172 = trunc i64 %171 to i32
   br label %175
 
@@ -5036,7 +5036,7 @@ declare void @oid_add_from_string(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_z3950_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_z3950_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5133,7 +5133,7 @@ define internal i32 @get_z3950_pdu_len(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
@@ -5611,7 +5611,7 @@ define internal i32 @dissect_z3950_ElementSetName(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_z3950_T_type_0(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #4 {
+define internal noundef i32 @dissect_z3950_T_type_0(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #4 {
   ret i32 %2
 }
 
@@ -7907,7 +7907,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare zeroext i1 @isdigit_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7916,10 +7916,10 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

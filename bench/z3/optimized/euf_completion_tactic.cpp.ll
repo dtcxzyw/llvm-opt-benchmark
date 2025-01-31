@@ -436,7 +436,7 @@ ehcleanup26:                                      ; preds = %lpad2.i.i, %ehclean
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZZ24mk_euf_completion_tacticR11ast_managerRK10params_refEN3$_08__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierRT_RT0_RT1_"(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture nonnull readnone align 8 %p, ptr noundef nonnull align 8 dereferenceable(160) %s) #3 align 2 {
+define internal noundef ptr @"_ZZ24mk_euf_completion_tacticR11ast_managerRK10params_refEN3$_08__invokeIS_S2_20dependent_expr_stateEEP25dependent_expr_simplifierRT_RT0_RT1_"(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nonnull readnone align 8 captures(none) %p, ptr noundef nonnull align 8 dereferenceable(160) %s) #3 align 2 {
 entry:
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 704)
   tail call void @_ZN3euf10completionC1ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(701) %call.i, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(160) %s)
@@ -2969,7 +2969,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3294,7 +3294,7 @@ entry:
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
@@ -6741,10 +6741,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18

@@ -200,7 +200,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_fill_rwb
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable___blk_trace_note_message782, ptr @__UNIQUE_ID___addressable_blk_add_driver_data808, ptr @__UNIQUE_ID___addressable_blk_fill_rwbs849, ptr @__UNIQUE_ID___addressable_blk_trace_remove786, ptr @__UNIQUE_ID___addressable_blk_trace_setup790, ptr @__UNIQUE_ID___addressable_blk_trace_startstop791, ptr @__UNIQUE_ID___addressable_init_blk_tracer842, ptr @relay_reserve.__UNIQUE_ID___addressable___SCK__preempt_schedule418], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__blk_trace_note_message(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ...) #0 align 16 {
+define dso_local void @__blk_trace_note_message(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ...) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
@@ -271,19 +271,19 @@ define dso_local void @__blk_trace_note_message(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 67108864, 67108867) %2, ptr nocapture noundef readonly %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @trace_note(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 67108864, 67108867) %2, ptr noundef readonly captures(none) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i64 noundef %5) unnamed_addr #0 align 16 {
   %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !13
   %8 = load i1, ptr @blk_tracer_enabled, align 1
   %9 = icmp eq i64 %5, 0
@@ -512,7 +512,7 @@ define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.blk_user_trace_setup, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 840
   tail call void @mutex_lock(ptr noundef nonnull %7) #21
@@ -868,7 +868,7 @@ __blk_trace_startstop.exit:                       ; preds = %91, %76, %16, %13, 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_trace_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -912,7 +912,7 @@ __blk_trace_remove.exit:                          ; preds = %5, %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_add_driver_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local void @blk_add_driver_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #21
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 600
@@ -949,7 +949,7 @@ define dso_local void @blk_add_driver_data(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 13, 1073741842) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i64 noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc void @__blk_add_trace(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 13, 1073741842) %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i64 noundef %8) unnamed_addr #0 align 16 {
   %10 = alloca i64, align 8
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !11
   %12 = inttoptr i64 %11 to ptr
@@ -1218,7 +1218,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @blk_trace_request_get_cgid(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc i64 @blk_trace_request_get_cgid(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1281,7 +1281,7 @@ define internal noundef range(i32 0, 2) i32 @init_blk_tracer() #5 section ".init
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blk_fill_rwbs(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 align 16 {
+define dso_local void @blk_fill_rwbs(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 align 16 {
   %3 = and i32 %1, 262144
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5
@@ -1415,7 +1415,7 @@ declare dso_local ptr @ring_buffer_event_data(ptr noundef) local_unnamed_addr #3
 declare dso_local i64 @ktime_get() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @tracing_gen_ctx_irq_test(i32 noundef) local_unnamed_addr #3
@@ -1439,7 +1439,7 @@ declare dso_local void @trace_buffer_unlock_commit_regs(ptr noundef, ptr noundef
 declare dso_local void @synchronize_rcu() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_trace_free(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_trace_free(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @relay_close(ptr noundef %4) #21
@@ -1531,7 +1531,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #3
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_remap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal void @blk_add_trace_rq_remap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.blk_io_trace_remap, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   tail call void @__rcu_read_lock() #21
@@ -1574,7 +1574,7 @@ define internal void @blk_add_trace_rq_remap(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_remap(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal void @blk_add_trace_bio_remap(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.blk_io_trace_remap, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1627,7 +1627,7 @@ define internal void @blk_add_trace_bio_remap(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_split(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal void @blk_add_trace_split(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1690,7 +1690,7 @@ define internal void @blk_add_trace_split(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_unplug(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define internal void @blk_add_trace_unplug(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca i64, align 8
   tail call void @__rcu_read_lock() #21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 600
@@ -1714,7 +1714,7 @@ define internal void @blk_add_trace_unplug(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_plug(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_plug(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @__rcu_read_lock() #21
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %4 = load volatile ptr, ptr %3, align 8
@@ -1731,7 +1731,7 @@ define internal void @blk_add_trace_plug(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_getrq(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_getrq(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1761,7 +1761,7 @@ define internal void @blk_add_trace_getrq(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_queue(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_bio_queue(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1791,7 +1791,7 @@ define internal void @blk_add_trace_bio_queue(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_frontmerge(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_bio_frontmerge(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1821,7 +1821,7 @@ define internal void @blk_add_trace_bio_frontmerge(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_backmerge(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_bio_backmerge(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1851,7 +1851,7 @@ define internal void @blk_add_trace_bio_backmerge(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_complete(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @blk_add_trace_bio_complete(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = tail call i32 @blk_status_to_errno(i8 noundef zeroext %5) #21
@@ -1878,7 +1878,7 @@ define internal void @blk_add_trace_bio_complete(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_bio_bounce(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @blk_add_trace_bio_bounce(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1908,7 +1908,7 @@ define internal void @blk_add_trace_bio_bounce(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_complete(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define internal void @blk_add_trace_rq_complete(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1976,7 +1976,7 @@ define internal void @blk_add_trace_rq_complete(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_requeue(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @blk_add_trace_rq_requeue(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2046,7 +2046,7 @@ define internal void @blk_add_trace_rq_requeue(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_merge(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @blk_add_trace_rq_merge(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2116,7 +2116,7 @@ define internal void @blk_add_trace_rq_merge(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_issue(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @blk_add_trace_rq_issue(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2186,7 +2186,7 @@ define internal void @blk_add_trace_rq_issue(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_add_trace_rq_insert(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @blk_add_trace_rq_insert(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2303,7 +2303,7 @@ declare dso_local ptr @bio_blkcg_css(ptr noundef) local_unnamed_addr #3
 declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @do_blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_blk_trace_setup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -2470,7 +2470,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @do_blk_trace_setup(ptr nou
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strreplace(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
@@ -2687,7 +2687,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @blk_dropped_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @blk_dropped_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -2709,13 +2709,13 @@ declare dso_local i32 @simple_open(ptr noundef, ptr noundef) #3
 declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @blk_msg_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i64 @blk_msg_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = icmp ugt i64 %2, 127
   br i1 %5, label %14, label %6
 
@@ -2744,7 +2744,7 @@ define internal i64 @blk_msg_write(ptr nocapture noundef readonly %0, ptr nounde
 declare dso_local ptr @memdup_user_nul(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @blk_subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @blk_subbuf_start_callback(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3) #0 align 16 {
   %5 = tail call i32 @relay_buf_full(ptr noundef %0) #21
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
@@ -2764,7 +2764,7 @@ define internal noundef range(i32 0, 2) i32 @blk_subbuf_start_callback(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @blk_create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture readnone %4) #0 align 16 {
+define internal ptr @blk_create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr readnone captures(none) %4) #0 align 16 {
   %6 = tail call ptr @debugfs_create_file(ptr noundef %0, i16 noundef zeroext %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull @relay_file_operations) #21
   ret ptr %6
 }
@@ -2797,7 +2797,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 declare dso_local void @tracing_record_cmdline(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @trace_note_tsk(ptr nocapture noundef initializes((960, 964)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @trace_note_tsk(ptr noundef captures(none) initializes((960, 964)) %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr @blktrace_seq, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
   store i32 %2, ptr %3, align 64
@@ -2841,13 +2841,13 @@ declare dso_local i32 @register_tracer(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @unregister_trace_event(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @blk_trace_event_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @blk_trace_event_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext false)
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @blk_trace_event_print_binary(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @blk_trace_event_print_binary(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.blk_io_trace, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16544
@@ -3271,7 +3271,7 @@ declare dso_local void @trace_seq_putmem(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local void @trace_seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_generic(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define internal void @blk_log_generic(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
@@ -3313,7 +3313,7 @@ define internal void @blk_log_generic(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_with_error(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define internal void @blk_log_with_error(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 33554432
@@ -3358,7 +3358,7 @@ define internal void @blk_log_with_error(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_plug(ptr noundef %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 align 16 {
+define internal void @blk_log_plug(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 zeroext %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
@@ -3371,7 +3371,7 @@ define internal void @blk_log_plug(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_unplug(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define internal void @blk_log_unplug(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
@@ -3389,7 +3389,7 @@ define internal void @blk_log_unplug(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_split(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define internal void @blk_log_split(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
@@ -3409,7 +3409,7 @@ define internal void @blk_log_split(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_log_remap(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define internal void @blk_log_remap(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 48
   %5 = select i1 %2, i64 8, i64 0
   %6 = getelementptr i8, ptr %4, i64 %5
@@ -3433,7 +3433,7 @@ define internal void @blk_log_remap(ptr noundef %0, ptr nocapture noundef readon
 declare dso_local void @trace_find_cmdline(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 48
   %5 = select i1 %2, i64 8, i64 0
   %6 = getelementptr i8, ptr %4, i64 %5
@@ -3525,19 +3525,19 @@ define internal noundef i32 @blk_tracer_init(ptr noundef %0) #17 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_reset(ptr nocapture readnone %0) #17 align 16 {
+define internal void @blk_tracer_reset(ptr readnone captures(none) %0) #17 align 16 {
   store i1 false, ptr @blk_tracer_enabled, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_start(ptr nocapture readnone %0) #17 align 16 {
+define internal void @blk_tracer_start(ptr readnone captures(none) %0) #17 align 16 {
   store i1 true, ptr @blk_tracer_enabled, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_stop(ptr nocapture readnone %0) #17 align 16 {
+define internal void @blk_tracer_stop(ptr readnone captures(none) %0) #17 align 16 {
   store i1 false, ptr @blk_tracer_enabled, align 1
   ret void
 }
@@ -3581,7 +3581,7 @@ define internal i32 @blk_tracer_print_line(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @blk_tracer_set_flag(ptr nocapture noundef %0, i32 %1, i32 noundef %2, i32 noundef %3) #18 align 16 {
+define internal noundef i32 @blk_tracer_set_flag(ptr noundef captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3) #18 align 16 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %13
 
@@ -3603,7 +3603,7 @@ define internal noundef i32 @blk_tracer_set_flag(ptr nocapture noundef %0, i32 %
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sysfs_blk_trace_attr_show(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) #0 align 16 {
+define internal i64 @sysfs_blk_trace_attr_show(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -176
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 840
@@ -4021,7 +4021,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -4033,7 +4033,7 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #3

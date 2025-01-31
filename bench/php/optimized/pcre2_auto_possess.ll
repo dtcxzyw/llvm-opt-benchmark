@@ -280,7 +280,7 @@ switch.lookup140:                                 ; preds = %60
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @get_chr_property_list(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #1 {
+define internal fastcc ptr @get_chr_property_list(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #1 {
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i32
   store i32 %7, ptr %4, align 4

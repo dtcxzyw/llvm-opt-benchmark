@@ -116,7 +116,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN31cmGeneratorExpressionDAGCheckerC2E19cmListFileBacktracePK17cmGeneratorTargetNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK26GeneratorExpressionContentPS_(ptr noundef nonnull align 8 dereferenceable(126) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31cmGeneratorExpressionDAGCheckerC2E19cmListFileBacktracePK17cmGeneratorTargetNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK26GeneratorExpressionContentPS_(ptr noundef nonnull align 8 dereferenceable(126) initializes((0, 16)) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %5, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -227,7 +227,7 @@ _ZNK31cmGeneratorExpressionDAGChecker34EvaluatingSystemIncludeDirectoriesEv.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %28
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 20)
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr readonly %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %22, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i.i)
   %31 = icmp eq i32 %bcmp.i.i.i.i, 0
   %32 = icmp ugt i64 %29, 19
   %or.cond = and i1 %32, %31
@@ -586,7 +586,7 @@ _ZN19cmListFileBacktraceC2Ev.exit:                ; preds = %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull ptr @_ZNK31cmGeneratorExpressionDAGChecker3TopEv(ptr noundef nonnull readonly align 8 dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
@@ -712,7 +712,7 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker28Eval
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %9
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 20)
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %3, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i.i)
   %12 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %12, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_Z14additionalTestIL18TransitiveProperty2EEbPKc.exit
 
@@ -888,14 +888,14 @@ define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker27Eval
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK31cmGeneratorExpressionDAGChecker5CheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(126) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK31cmGeneratorExpressionDAGChecker5CheckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGeneratorExpressionContextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(126) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31cmGeneratorExpressionDAGChecker11ReportErrorEP28cmGeneratorExpressionContextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1158,7 +1158,7 @@ declare void @_ZNK26GeneratorExpressionContent21GetOriginalExpressionB5cxx11Ev(p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker27GetTransitivePropertiesOnlyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker27GetTransitivePropertiesOnlyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1175,7 +1175,7 @@ _ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker34GetTransitivePropertiesOnlyCMP0131Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker34GetTransitivePropertiesOnlyCMP0131Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1517,7 +1517,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK31cmGeneratorExpressionDAGChecker9TopTargetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZNK31cmGeneratorExpressionDAGChecker9TopTargetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(126) %0) local_unnamed_addr #6 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1533,14 +1533,14 @@ _ZNK31cmGeneratorExpressionDAGChecker3TopEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_Z14additionalTestIL18TransitiveProperty2EEbPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_Z14additionalTestIL18TransitiveProperty2EEbPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %1
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 20)
-  %bcmp.i.i = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.28, i64 %.sroa.speculated.i.i.i.i)
   %4 = icmp eq i32 %bcmp.i.i, 0
   br i1 %4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_Z18cmHasLiteralPrefixILm21EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
 
@@ -1557,7 +1557,7 @@ _Z18cmHasLiteralPrefixILm21EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -1633,7 +1633,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 declare void @_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceEC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -2138,16 +2138,16 @@ define internal void @_GLOBAL__sub_I_cmGeneratorExpressionDAGChecker.cxx() #15 s
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

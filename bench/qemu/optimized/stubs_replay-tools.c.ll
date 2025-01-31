@@ -71,13 +71,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @replay_register_char_driver(ptr nocapture noundef readnone %chr) local_unnamed_addr #0 {
+define dso_local void @replay_register_char_driver(ptr noundef readnone captures(none) %chr) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @replay_chr_be_write(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local void @replay_chr_be_write(ptr noundef readnone captures(none) %s, ptr noundef readnone captures(none) %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
@@ -91,14 +91,14 @@ entry:
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @replay_char_write_event_load(ptr nocapture noundef readnone %res, ptr nocapture noundef readnone %offset) local_unnamed_addr #1 {
+define dso_local void @replay_char_write_event_load(ptr noundef readnone captures(none) %res, ptr noundef readnone captures(none) %offset) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local noundef i32 @replay_char_read_all_load(ptr nocapture noundef readnone %buf) local_unnamed_addr #1 {
+define dso_local noundef i32 @replay_char_read_all_load(ptr noundef readnone captures(none) %buf) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @replay_char_read_all_save_buf(ptr nocapture noundef readnone %buf, i32 noundef %offset) local_unnamed_addr #1 {
+define dso_local void @replay_char_read_all_save_buf(ptr noundef readnone captures(none) %buf, i32 noundef %offset) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable

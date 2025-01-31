@@ -184,7 +184,7 @@ return:                                           ; preds = %lor.lhs.false1, %en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__format_seektable_is_legal(ptr nocapture noundef readonly %seek_table) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @FLAC__format_seektable_is_legal(ptr noundef readonly captures(none) %seek_table) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %seek_table, align 8
   %cmp = icmp ugt i32 %0, 932067
@@ -225,7 +225,7 @@ return:                                           ; preds = %if.then5, %if.end16
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define i32 @FLAC__format_seektable_sort(ptr nocapture noundef readonly %seek_table) local_unnamed_addr #2 {
+define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %seek_table) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %seek_table, align 8
   %cmp = icmp eq i32 %0, 0
@@ -307,10 +307,10 @@ return:                                           ; preds = %for.body35, %if.end
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @seekpoint_compare_(ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #4 {
+define internal range(i32 -1, 2) i32 @seekpoint_compare_(ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #4 {
 entry:
   %0 = load i64, ptr %l, align 8
   %1 = load i64, ptr %r, align 8
@@ -319,10 +319,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr nocapture noundef readonly %name) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef readonly captures(none) %name) local_unnamed_addr #6 {
 entry:
   %c.06 = load i8, ptr %name, align 1
   %tobool.not7 = icmp eq i8 %c.06, 0
@@ -404,7 +404,7 @@ return:                                           ; preds = %while.body7, %while
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr nocapture noundef readonly %utf8) unnamed_addr #4 {
+define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr noundef readonly captures(none) %utf8) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %utf8, align 1
   %conv = zext i8 %0 to i32
@@ -655,7 +655,7 @@ return:                                           ; preds = %for.body, %while.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr nocapture noundef readonly %cue_sheet, i32 noundef %check_cd_da_subset, ptr noundef writeonly %violation) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly captures(none) %cue_sheet, i32 noundef %check_cd_da_subset, ptr noundef writeonly %violation) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq i32 %check_cd_da_subset, 0
   br i1 %tobool.not, label %if.end12, label %if.then
@@ -908,7 +908,7 @@ return:                                           ; preds = %for.inc176, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr nocapture noundef readonly %picture, ptr noundef writeonly %violation) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly captures(none) %picture, ptr noundef writeonly %violation) local_unnamed_addr #7 {
 entry:
   %mime_type = getelementptr inbounds nuw i8, ptr %picture, i64 8
   %0 = load ptr, ptr %mime_type, align 8
@@ -1008,14 +1008,14 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr nocapture noundef writeonly initializes((0, 20)) %object) local_unnamed_addr #9 {
+define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr noundef writeonly captures(none) initializes((0, 20)) %object) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %object, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr nocapture noundef initializes((16, 20)) %object) local_unnamed_addr #10 {
+define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef captures(none) initializes((16, 20)) %object) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %object, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1041,10 +1041,10 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr nocapture noundef %object, i32 noundef %max_partition_order) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef captures(none) %object, i32 noundef %max_partition_order) local_unnamed_addr #10 {
 entry:
   %capacity_by_order = getelementptr inbounds nuw i8, ptr %object, i64 16
   %0 = load i32, ptr %capacity_by_order, align 8
@@ -1098,10 +1098,10 @@ return:                                           ; preds = %safe_realloc_.exit1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

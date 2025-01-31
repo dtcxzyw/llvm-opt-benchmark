@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_gem_simp
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable___drm_gem_destroy_shadow_plane_state392, ptr @__UNIQUE_ID___addressable___drm_gem_duplicate_shadow_plane_state390, ptr @__UNIQUE_ID___addressable___drm_gem_reset_shadow_plane394, ptr @__UNIQUE_ID___addressable_drm_gem_begin_shadow_fb_access396, ptr @__UNIQUE_ID___addressable_drm_gem_destroy_shadow_plane_state393, ptr @__UNIQUE_ID___addressable_drm_gem_duplicate_shadow_plane_state391, ptr @__UNIQUE_ID___addressable_drm_gem_end_shadow_fb_access397, ptr @__UNIQUE_ID___addressable_drm_gem_plane_helper_prepare_fb389, ptr @__UNIQUE_ID___addressable_drm_gem_reset_shadow_plane395, ptr @__UNIQUE_ID___addressable_drm_gem_simple_kms_begin_shadow_fb_access398, ptr @__UNIQUE_ID___addressable_drm_gem_simple_kms_destroy_shadow_plane_state402, ptr @__UNIQUE_ID___addressable_drm_gem_simple_kms_duplicate_shadow_plane_state401, ptr @__UNIQUE_ID___addressable_drm_gem_simple_kms_end_shadow_fb_access399, ptr @__UNIQUE_ID___addressable_drm_gem_simple_kms_reset_shadow_plane400], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -193,7 +193,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @drm_gem_fb_get_obj(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -205,7 +205,7 @@ declare dso_local i32 @dma_resv_get_singleton(ptr noundef, i32 noundef, ptr noun
 declare dso_local void @dma_fence_chain_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_gem_duplicate_shadow_plane_state(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -265,7 +265,7 @@ declare dso_local void @drm_format_conv_state_release(ptr noundef) local_unnamed
 declare dso_local void @__drm_atomic_helper_plane_destroy_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_destroy_shadow_plane_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_gem_destroy_shadow_plane_state(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   tail call void @drm_format_conv_state_release(ptr noundef nonnull %3) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef %1) #4
@@ -322,7 +322,7 @@ define dso_local void @drm_gem_reset_shadow_plane(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_begin_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @drm_gem_begin_shadow_fb_access(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -343,7 +343,7 @@ define dso_local i32 @drm_gem_begin_shadow_fb_access(ptr nocapture readnone %0, 
 declare dso_local i32 @drm_gem_fb_vmap(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_end_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_gem_end_shadow_fb_access(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -362,7 +362,7 @@ define dso_local void @drm_gem_end_shadow_fb_access(ptr nocapture readnone %0, p
 declare dso_local void @drm_gem_fb_vunmap(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_simple_kms_begin_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @drm_gem_simple_kms_begin_shadow_fb_access(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -380,7 +380,7 @@ define dso_local i32 @drm_gem_simple_kms_begin_shadow_fb_access(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_simple_kms_end_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_gem_simple_kms_end_shadow_fb_access(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -455,7 +455,7 @@ define dso_local noundef ptr @drm_gem_simple_kms_duplicate_shadow_plane_state(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_simple_kms_destroy_shadow_plane_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_gem_simple_kms_destroy_shadow_plane_state(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   tail call void @drm_format_conv_state_release(ptr noundef nonnull %3) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef %1) #4

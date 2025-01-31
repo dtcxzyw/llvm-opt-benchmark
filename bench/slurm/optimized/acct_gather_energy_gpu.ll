@@ -239,7 +239,7 @@ define noundef i32 @acct_gather_energy_p_update_node_energy() local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   switch i32 %0, label %195 [
     i32 7, label %3
     i32 6, label %100
@@ -303,7 +303,7 @@ _thread_init.exit:                                ; preds = %9
   %24 = trunc nuw i64 %indvars.iv.i to i32
   %25 = load ptr, ptr @gpus, align 8
   %26 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %25, i64 %indvars.iv.i, i32 3
-  tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %26, i32 noundef %24)
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %26, i32 noundef %24)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i16, ptr @gpus_len, align 2
   %28 = zext i16 %27 to i64
@@ -392,7 +392,7 @@ _thread_init.exit:                                ; preds = %9
 65:                                               ; preds = %.lr.ph.split.us.i
   %66 = load ptr, ptr @gpus, align 8
   %67 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %66, i64 %indvars.iv27.i, i32 3
-  tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %67, i32 noundef %indvars105)
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %67, i32 noundef %indvars105)
   br label %75
 
 68:                                               ; preds = %.lr.ph.split.us.i
@@ -422,7 +422,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars104 = trunc i64 %indvars.iv.i74 to i32
   %79 = load ptr, ptr @gpus, align 8
   %80 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %79, i64 %indvars.iv.i74, i32 3
-  tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %80, i32 noundef %indvars104)
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %80, i32 noundef %indvars104)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %81 = load i16, ptr @gpus_len, align 2
   %82 = zext i16 %81 to i64
@@ -484,7 +484,7 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
   %106 = trunc nuw i64 %indvars.iv.i79 to i32
   %107 = load ptr, ptr @gpus, align 8
   %108 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %107, i64 %indvars.iv.i79, i32 3
-  tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %108, i32 noundef %106)
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %108, i32 noundef %106)
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %109 = load i16, ptr @gpus_len, align 2
   %110 = zext i16 %109 to i64
@@ -1002,7 +1002,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1280,12 +1280,12 @@ declare i64 @slurm_bit_size(ptr noundef) local_unnamed_addr #2
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @acct_gather_energy_p_conf_options(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @acct_gather_energy_p_conf_options(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %union.pthread_attr_t, align 8
   store i32 %0, ptr @context_id, align 4
   %4 = tail call zeroext i1 @slurm_running_in_slurmd_stepd() #10
@@ -1413,7 +1413,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_thread_launcher(ptr nocapture readnone %0) #1 {
+define internal noalias noundef ptr @_thread_launcher(ptr readnone captures(none) %0) #1 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %union.pthread_attr_t, align 8
@@ -1542,7 +1542,7 @@ define internal noalias noundef ptr @_thread_launcher(ptr nocapture readnone %0)
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @acct_gather_energy_p_conf_values(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @acct_gather_energy_p_conf_values(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -1552,10 +1552,10 @@ declare i32 @gpu_g_energy_read(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2) unnamed_addr #1 {
+define internal fastcc void @_add_energy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65535) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -2
@@ -1652,7 +1652,7 @@ declare i32 @acct_gather_profile_g_add_sample_data(i32 noundef, ptr noundef, i64
 declare i32 @acct_gather_profile_g_get(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) #1 {
+define internal noalias noundef ptr @_thread_gpu_run(ptr readnone captures(none) %0) #1 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
   store i1 false, ptr @flag_energy_accounting_shutdown, align 1
@@ -1886,7 +1886,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 

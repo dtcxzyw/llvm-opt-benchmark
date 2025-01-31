@@ -118,18 +118,18 @@ onas_ddd_init_wdlt.exit.thread:                   ; preds = %14, %11, %17, %7, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 10) i32 @onas_enable_inotif_ddd(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -455,7 +455,7 @@ sub_0280:                                         ; preds = %110
   %150 = load ptr, ptr %149, align 8
   %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %150) #18
   %152 = load ptr, ptr @ddd_ht, align 8
-  %153 = call i32 @onas_ht_get(ptr noundef %152, ptr noundef %150, i64 noundef %151, ptr noundef null) #16
+  %153 = call i32 @onas_ht_get(ptr noundef %152, ptr noundef nonnull %150, i64 noundef %151, ptr noundef null) #16
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %164
 
@@ -523,7 +523,7 @@ sub_0280:                                         ; preds = %110
   %188 = load ptr, ptr @ddd_ht, align 8
   %189 = load ptr, ptr %187, align 8
   %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #18
-  %191 = call i32 @onas_ht_rm_hierarchy(ptr noundef %188, ptr noundef %189, i64 noundef %190, i32 noundef 0) #16
+  %191 = call i32 @onas_ht_rm_hierarchy(ptr noundef %188, ptr noundef nonnull %189, i64 noundef %190, i32 noundef 0) #16
   %.not249 = icmp eq i32 %191, 0
   %192 = load ptr, ptr %187, align 8
   br i1 %.not249, label %195, label %193
@@ -547,16 +547,16 @@ sub_0280:                                         ; preds = %110
   %200 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef %.0197) #16
   %201 = load ptr, ptr @ddd_ht, align 8
   %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0197) #18
-  %203 = call i32 @onas_ht_rm_hierarchy(ptr noundef %201, ptr noundef %.0197, i64 noundef %202, i32 noundef 0) #16
+  %203 = call i32 @onas_ht_rm_hierarchy(ptr noundef %201, ptr noundef nonnull %.0197, i64 noundef %202, i32 noundef 0) #16
   %.not231 = icmp eq i32 %203, 0
   br i1 %.not231, label %206, label %204
 
 204:                                              ; preds = %.loopexit288
-  %205 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %.0197) #16
+  %205 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0197) #16
   br label %208
 
 206:                                              ; preds = %.loopexit288
-  %207 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %.0197) #16
+  %207 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0197) #16
   br label %208
 
 208:                                              ; preds = %206, %204
@@ -582,7 +582,7 @@ sub_0280:                                         ; preds = %110
   %220 = load ptr, ptr %219, align 8
   %221 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %220) #18
   %222 = load ptr, ptr @ddd_ht, align 8
-  %223 = call i32 @onas_ht_get(ptr noundef %222, ptr noundef %220, i64 noundef %221, ptr noundef null) #16
+  %223 = call i32 @onas_ht_get(ptr noundef %222, ptr noundef nonnull %220, i64 noundef %221, ptr noundef null) #16
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %266
 
@@ -692,7 +692,7 @@ thread-pre-split:                                 ; preds = %249, %254
   %275 = load ptr, ptr %274, align 8
   %276 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #18
   %277 = load ptr, ptr @ddd_ht, align 8
-  %278 = call i32 @onas_ht_get(ptr noundef %277, ptr noundef %275, i64 noundef %276, ptr noundef null) #16
+  %278 = call i32 @onas_ht_get(ptr noundef %277, ptr noundef nonnull %275, i64 noundef %276, ptr noundef null) #16
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %321
 
@@ -1233,7 +1233,7 @@ onas_ddd_handle_in_create.exit:                   ; preds = %482, %479, %471, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #5
@@ -1255,12 +1255,12 @@ declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @cli_gettmpdir() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @onas_ht_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @onas_ht_add_hierarchy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1335,10 +1335,10 @@ declare void @pthread_testcancel() local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
@@ -1473,11 +1473,11 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
 
 75:                                               ; preds = %70
   %.reass66 = add i64 %64, %invariant.op65
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass66, ptr noundef nonnull @.str.39, ptr noundef nonnull %67, ptr noundef %63) #16
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass66, ptr noundef nonnull @.str.39, ptr noundef nonnull %67, ptr noundef nonnull %63) #16
   br label %79
 
 77:                                               ; preds = %70
-  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %67, ptr noundef %63) #16
+  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %67, ptr noundef nonnull %63) #16
   br label %79
 
 79:                                               ; preds = %77, %75
@@ -1512,7 +1512,7 @@ declare i32 @fanotify_mark(i32 noundef, i32 noundef, i64 noundef, i32 noundef, p
 declare ptr @cli_safer_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
@@ -1596,11 +1596,11 @@ define internal fastcc range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(ptr noun
 
 50:                                               ; preds = %44
   %.reass52 = add i64 %41, %invariant.op51
-  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass52, ptr noundef nonnull @.str.39, ptr noundef nonnull %45, ptr noundef %40) #16
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass52, ptr noundef nonnull @.str.39, ptr noundef nonnull %45, ptr noundef nonnull %40) #16
   br label %54
 
 52:                                               ; preds = %44
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %45, ptr noundef %40) #16
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %45, ptr noundef nonnull %40) #16
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -1668,10 +1668,10 @@ declare i32 @onas_queue_event(ptr noundef) local_unnamed_addr #3
 declare void @onas_free_ht(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

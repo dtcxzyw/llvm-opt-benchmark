@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returned writeonly %hex, i64 noundef %hex_maxlen, ptr nocapture noundef readonly %bin, i64 noundef %bin_len) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returned writeonly %hex, i64 noundef %hex_maxlen, ptr noundef readonly captures(none) %bin, i64 noundef %bin_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %bin_len, 9223372036854775807
   %mul = shl nuw i64 %bin_len, 1
@@ -65,7 +65,7 @@ while.end:                                        ; preds = %while.cond.preheade
 declare void @sodium_misuse() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind ssp memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %hex, i64 noundef %hex_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %hex_end) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeonly captures(none) %bin, i64 noundef %bin_maxlen, ptr noundef %hex, i64 noundef %hex_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %hex_end) local_unnamed_addr #2 {
 entry:
   %cmp5479.not = icmp eq i64 %hex_len, 0
   br i1 %cmp5479.not, label %if.end63.thread.thread, label %while.body.lr.ph.lr.ph
@@ -315,7 +315,7 @@ sodium_base64_check_variant.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef nonnull ptr @sodium_bin2base64(ptr noundef nonnull returned writeonly %b64, i64 noundef %b64_maxlen, ptr nocapture noundef readonly %bin, i64 noundef %bin_len, i32 noundef %variant) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @sodium_bin2base64(ptr noundef nonnull returned writeonly %b64, i64 noundef %b64_maxlen, ptr noundef readonly captures(none) %bin, i64 noundef %bin_len, i32 noundef %variant) local_unnamed_addr #0 {
 entry:
   %and.i = and i32 %variant, -7
   %cmp.not.i = icmp eq i32 %and.i, 1
@@ -566,7 +566,7 @@ do.body.preheader:                                ; preds = %while.body80.prehea
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %b64, i64 noundef %b64_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %b64_end, i32 noundef %variant) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr noundef nonnull writeonly captures(none) %bin, i64 noundef %bin_maxlen, ptr noundef %b64, i64 noundef %b64_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %b64_end, i32 noundef %variant) local_unnamed_addr #0 {
 entry:
   %and.i = and i32 %variant, -7
   %cmp.not.i = icmp eq i32 %and.i, 1
@@ -974,7 +974,7 @@ if.end84:                                         ; preds = %if.then83, %if.end8
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

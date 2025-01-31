@@ -169,7 +169,7 @@ define dso_local i32 @raw_pci_write(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
+define internal i32 @pci_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
@@ -201,7 +201,7 @@ define internal i32 @pci_read(ptr nocapture noundef readonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define internal i32 @pci_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
@@ -379,13 +379,13 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @pci_read_bridge_bases(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_add_bus(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -452,7 +452,7 @@ define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #4 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
@@ -820,10 +820,10 @@ define dso_local noundef ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtol(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -840,7 +840,7 @@ define dso_local range(i32 0, 2) i32 @pcibios_assign_all_busses() local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit3, label %4
@@ -1035,7 +1035,7 @@ define dso_local range(i32 0, 2) i32 @pci_ext_cfg_avail() local_unnamed_addr #8 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @can_skip_ioresource_align(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef i32 @can_skip_ioresource_align(ptr noundef readonly captures(none) %0) #1 section ".init.text" align 16 {
   %2 = load i32, ptr @pci_probe, align 4
   %3 = or i32 %2, 32768
   store i32 %3, ptr @pci_probe, align 4
@@ -1046,7 +1046,7 @@ define internal noundef i32 @can_skip_ioresource_align(ptr nocapture noundef rea
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_bf_sort(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef i32 @set_bf_sort(ptr noundef readonly captures(none) %0) #1 section ".init.text" align 16 {
   %2 = load i32, ptr @pci_bf_sort, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %8
@@ -1069,7 +1069,7 @@ define internal noundef i32 @find_sort_method(ptr noundef %0) #1 section ".init.
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_scan_all(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
+define internal noundef i32 @set_scan_all(ptr noundef readonly captures(none) %0) #1 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, ptr noundef %3) #12
@@ -1083,7 +1083,7 @@ define internal noundef i32 @set_scan_all(ptr nocapture noundef readonly %0) #1 
 declare dso_local i32 @dmi_walk(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @read_dmi_type_b1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 section ".init.text" align 16 {
+define internal void @read_dmi_type_b1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 section ".init.text" align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -79
   br i1 %4, label %5, label %17

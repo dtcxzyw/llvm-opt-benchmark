@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
@@ -60,7 +60,7 @@ define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_vertical_band_5_4_scale_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_vertical_band_5_4_scale_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0
@@ -131,7 +131,7 @@ define hidden void @aom_vertical_band_5_4_scale_c(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
@@ -180,7 +180,7 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_vertical_band_5_3_scale_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_vertical_band_5_3_scale_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0
@@ -242,7 +242,7 @@ define hidden void @aom_vertical_band_5_3_scale_c(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
@@ -263,17 +263,17 @@ define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @aom_vertical_band_2_1_scale_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @aom_vertical_band_2_1_scale_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = zext i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %0, i64 %6, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_vertical_band_2_1_scale_i_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @aom_vertical_band_2_1_scale_i_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Kit_SopFactorVerify.dd = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %0) #5
   tail call void @Cudd_Ref(ptr noundef %4) #5
   %5 = getelementptr i8, ptr %1, i64 8
@@ -129,7 +129,7 @@ declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
   %3 = getelementptr i8, ptr %1, i64 24
@@ -357,7 +357,7 @@ define ptr @Kit_TruthToBdd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Kit_SopFactorVerify(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_SopFactorVerify(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Kit_Sop_t_, align 8
   %5 = load ptr, ptr @Kit_SopFactorVerify.dd, align 8
   %6 = icmp eq ptr %5, null
@@ -439,7 +439,7 @@ declare void @Extra_bddPrint(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4

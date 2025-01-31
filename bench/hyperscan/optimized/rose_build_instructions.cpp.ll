@@ -2117,7 +2117,7 @@ $_ZN3ue213RoseInstrBaseIL19RoseInstructionCode60E37ROSE_STRUCT_CHECK_MULTIPATH_S
 @_ZN3ue229RoseInstrLastFlushCombinationD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue229RoseInstrLastFlushCombinationD2Ev
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue215RoseInstructionD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue215RoseInstructionD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -2127,7 +2127,7 @@ entry:
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue216RoseInstrCatchUpD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue216RoseInstrCatchUpD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2143,7 +2143,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue219RoseInstrCatchUpMpvD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue219RoseInstrCatchUpMpvD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2156,7 +2156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue216RoseInstrSomZeroD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue216RoseInstrSomZeroD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2169,7 +2169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue220RoseInstrSuffixesEodD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue220RoseInstrSuffixesEodD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2182,7 +2182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue219RoseInstrMatcherEodD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue219RoseInstrMatcherEodD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2195,7 +2195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue212RoseInstrEndD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue212RoseInstrEndD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2208,7 +2208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue222RoseInstrClearWorkDoneD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue222RoseInstrClearWorkDoneD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2221,7 +2221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue225RoseInstrFlushCombinationD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue225RoseInstrFlushCombinationD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2234,7 +2234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue229RoseInstrLastFlushCombinationD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue229RoseInstrLastFlushCombinationD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -2247,7 +2247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue222RoseInstrAnchoredDelay5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 24)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrAnchoredDelay5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 24)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 1, ptr %dest, align 8
@@ -2268,10 +2268,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map, ptr noundef nonnull %from, ptr noundef %to) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN3ue2L9calc_jumpERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEES3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map, ptr noundef nonnull %from, ptr noundef %to) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %offset_map, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -2417,10 +2417,10 @@ _ZNKSt13unordered_mapIPKN3ue215RoseInstructionEjSt4hashIS3_ESt8equal_toIS3_ESaIS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue222RoseInstrCheckLitEarly5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrCheckLitEarly5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 2, ptr %dest, align 4
@@ -2437,7 +2437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 3, ptr %dest, align 8
@@ -2449,7 +2449,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue221RoseInstrCheckOnlyEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrCheckOnlyEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 4, ptr %dest, align 4
   %target = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2461,7 +2461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckBounds5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 32)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckBounds5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 32)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dest, i8 0, i64 32, i1 false)
   store i8 5, ptr %dest, align 8
@@ -2482,7 +2482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrCheckNotHandled5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrCheckNotHandled5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 6, ptr %dest, align 4
@@ -2499,7 +2499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue230RoseInstrCheckSingleLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue230RoseInstrCheckSingleLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.108", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
@@ -2561,12 +2561,12 @@ ehcleanup:                                        ; preds = %if.then.i.i.i23, %l
 declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorINS_9CharReachESaIS2_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrCheckLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef writeonly initializes((0, 20)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrCheckLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %look_offsets = alloca %"class.std::vector.120", align 8
   %reaches = alloca %"class.std::vector.108", align 8
@@ -2857,7 +2857,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit58:                  ; preds = %if.then.i.i.i57, %_
 declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIaSaIaEERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue218RoseInstrCheckMask5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 40)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrCheckMask5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 40)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dest, i8 0, i64 40, i1 false)
   store i8 9, ptr %dest, align 8
@@ -2886,7 +2886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckMask325writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 80)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckMask325writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef writeonly captures(none) initializes((0, 80)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %dest, i8 0, i64 80, i1 false)
   store i8 10, ptr %dest, align 4
@@ -2913,7 +2913,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckMask645writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef writeonly initializes((0, 152)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckMask645writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef writeonly captures(none) initializes((0, 152)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %dest, i8 0, i64 152, i1 false)
   store i8 69, ptr %dest, align 8
@@ -2940,7 +2940,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue218RoseInstrCheckByte5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrCheckByte5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 11, ptr %dest, align 4
@@ -2969,7 +2969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrCheckShufti16x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly initializes((0, 64)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrCheckShufti16x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef writeonly captures(none) initializes((0, 64)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %dest, i8 0, i64 64, i1 false)
   store i8 12, ptr %dest, align 4
@@ -2996,7 +2996,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrCheckShufti32x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 80)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrCheckShufti32x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef writeonly captures(none) initializes((0, 80)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %dest, i8 0, i64 80, i1 false)
   store i8 13, ptr %dest, align 4
@@ -3026,7 +3026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue225RoseInstrCheckShufti16x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef writeonly initializes((0, 112)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue225RoseInstrCheckShufti16x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef writeonly captures(none) initializes((0, 112)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %dest, i8 0, i64 112, i1 false)
   store i8 14, ptr %dest, align 4
@@ -3056,7 +3056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue225RoseInstrCheckShufti32x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef writeonly initializes((0, 144)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue225RoseInstrCheckShufti32x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef writeonly captures(none) initializes((0, 144)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %dest, i8 0, i64 144, i1 false)
   store i8 15, ptr %dest, align 4
@@ -3089,7 +3089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrCheckShufti64x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef writeonly initializes((0, 216)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrCheckShufti64x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef writeonly captures(none) initializes((0, 216)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %dest, i8 0, i64 216, i1 false)
   store i8 67, ptr %dest, align 8
@@ -3119,7 +3119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue225RoseInstrCheckShufti64x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture noundef writeonly initializes((0, 408)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue225RoseInstrCheckShufti64x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef writeonly captures(none) initializes((0, 408)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %dest, i8 0, i64 408, i1 false)
   store i8 68, ptr %dest, align 8
@@ -3158,7 +3158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue219RoseInstrCheckInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 20)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrCheckInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 16, ptr %dest, align 4
@@ -3183,7 +3183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckPrefix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 20)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckPrefix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 17, ptr %dest, align 4
@@ -3208,7 +3208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrPushDelayed5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 18, ptr %dest, align 4
   %delay = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3223,7 +3223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrSomAdjust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 22, ptr %dest, align 4
   %distance = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3234,7 +3234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSomLeftfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 23, ptr %dest, align 4
@@ -3250,7 +3250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 24)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrSomFromReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 24)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 24, ptr %dest, align 8
@@ -3261,7 +3261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrTriggerInfix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 26, ptr %dest, align 4
@@ -3281,7 +3281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrTriggerSuffix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrTriggerSuffix5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 27, ptr %dest, align 4
@@ -3297,7 +3297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue215RoseInstrDedupe5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue215RoseInstrDedupe5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 28, ptr %dest, align 4
@@ -3322,7 +3322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue218RoseInstrDedupeSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrDedupeSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 29, ptr %dest, align 4
@@ -3347,7 +3347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrReportChain5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 30, ptr %dest, align 8
@@ -3363,7 +3363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 24)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrReportSomInt5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 24)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 31, ptr %dest, align 8
@@ -3374,7 +3374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 24)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrReportSomAware5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 24)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 32, ptr %dest, align 8
@@ -3385,7 +3385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue215RoseInstrReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 33, ptr %dest, align 4
@@ -3401,7 +3401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrReportExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 34, ptr %dest, align 4
@@ -3421,7 +3421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrReportSom5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 35, ptr %dest, align 4
@@ -3437,7 +3437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue225RoseInstrReportSomExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue225RoseInstrReportSomExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 36, ptr %dest, align 4
@@ -3457,7 +3457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrDedupeAndReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 20)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrDedupeAndReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 37, ptr %dest, align 4
@@ -3486,7 +3486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue220RoseInstrFinalReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrFinalReport5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 38, ptr %dest, align 4
@@ -3502,7 +3502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue223RoseInstrCheckExhausted5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrCheckExhausted5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 39, ptr %dest, align 4
@@ -3519,7 +3519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue223RoseInstrCheckMinLength5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 24)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrCheckMinLength5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 24)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dest, i8 0, i64 24, i1 false)
   store i8 40, ptr %dest, align 8
@@ -3540,7 +3540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217RoseInstrSetState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 41, ptr %dest, align 4
   %index = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3551,7 +3551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218RoseInstrSetGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 42, ptr %dest, align 8
@@ -3563,7 +3563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrSquashGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrSquashGroups5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 43, ptr %dest, align 8
@@ -3575,7 +3575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue219RoseInstrCheckState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrCheckState5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 44, ptr %dest, align 4
@@ -3592,7 +3592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue224RoseInstrSparseIterBegin5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef captures(none) initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %offset9.i = alloca i32, align 4
   %keys = alloca %"class.std::vector.204", align 8
@@ -4099,7 +4099,7 @@ _ZNKSt8__detail9_Map_baseIPKN3ue215RoseInstructionESt4pairIKS4_jESaIS7_ENS_10_Se
 declare void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr sret(%"class.std::vector.210") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue223RoseInstrSparseIterNext5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 20)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrSparseIterNext5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef writeonly captures(none) initializes((0, 20)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %dest, i8 0, i64 20, i1 false)
   store i8 46, ptr %dest, align 4
@@ -4127,7 +4127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue222RoseInstrSparseIterAny5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue222RoseInstrSparseIterAny5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %offset9.i = alloca i32, align 4
   %iter = alloca %"class.std::vector.210", align 8
@@ -4236,7 +4236,7 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit14: ; preds = %if.then.i.i.i13,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrEnginesEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrEnginesEod5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 48, ptr %dest, align 4
   %iter_offset = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4247,7 +4247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue221RoseInstrCheckLongLit5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrCheckLongLit5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 51, ptr %dest, align 4
@@ -4452,7 +4452,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue227RoseInstrCheckLongLitNocase5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue227RoseInstrCheckLongLitNocase5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 52, ptr %dest, align 4
@@ -4555,7 +4555,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngine
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue220RoseInstrCheckMedLit5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue220RoseInstrCheckMedLit5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 53, ptr %dest, align 4
@@ -4658,7 +4658,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngine
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue226RoseInstrCheckMedLitNocase5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue226RoseInstrCheckMedLitNocase5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dest, i8 0, i64 16, i1 false)
   store i8 54, ptr %dest, align 4
@@ -4761,7 +4761,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZN3ue214RoseEngine
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue228RoseInstrMultipathLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly initializes((0, 40)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue228RoseInstrMultipathLookaround5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly captures(none) initializes((0, 40)) %dest, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %look_offsets = alloca %"class.std::vector.120", align 8
   %reaches = alloca %"class.std::vector.240", align 8
@@ -5214,7 +5214,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit109:                 ; preds = %if.then.i.i.i108, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef i32 @_ZN3ue215lookaround_info13get_offset_ofERKSt6vectorIS1_INS_9CharReachESaIS2_EESaIS4_EERNS_14RoseEngineBlobE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #8
 
@@ -5260,7 +5260,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti16x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef writeonly initializes((0, 92)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti16x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef writeonly captures(none) initializes((0, 92)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %dest, i8 0, i64 92, i1 false)
   store i8 57, ptr %dest, align 4
@@ -5305,7 +5305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti32x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef writeonly initializes((0, 124)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue233RoseInstrCheckMultipathShufti32x85writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef writeonly captures(none) initializes((0, 124)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %dest, i8 0, i64 124, i1 false)
   store i8 58, ptr %dest, align 4
@@ -5350,7 +5350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue234RoseInstrCheckMultipathShufti32x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef writeonly initializes((0, 188)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue234RoseInstrCheckMultipathShufti32x165writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef writeonly captures(none) initializes((0, 188)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %dest, i8 0, i64 188, i1 false)
   store i8 59, ptr %dest, align 4
@@ -5398,7 +5398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue231RoseInstrCheckMultipathShufti645writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef writeonly initializes((0, 208)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue231RoseInstrCheckMultipathShufti645writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef writeonly captures(none) initializes((0, 208)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %offset_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %dest, i8 0, i64 208, i1 false)
   store i8 60, ptr %dest, align 8
@@ -5443,7 +5443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue221RoseInstrIncludedJump5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 61, ptr %dest, align 4
   %child_offset = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5458,7 +5458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 12)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSetLogical5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dest, i8 0, i64 12, i1 false)
   store i8 62, ptr %dest, align 4
@@ -5474,7 +5474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue223RoseInstrSetCombination5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 63, ptr %dest, align 4
   %ckey = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5485,7 +5485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture nonnull readnone align 8 %blob, ptr nocapture nonnull readnone align 8 %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219RoseInstrSetExhaust5writeEPvRNS_14RoseEngineBlobERKSt13unordered_mapIPKNS_15RoseInstructionEjSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_jEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr nonnull readnone align 8 captures(none) %blob, ptr nonnull readnone align 8 captures(none) %offset_map) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 65, ptr %dest, align 4
   %ekey = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -10875,7 +10875,7 @@ cleanup:                                          ; preds = %dynamic_cast.notnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue215RoseInstructionD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue215RoseInstructionD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -12054,7 +12054,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
@@ -19769,7 +19769,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

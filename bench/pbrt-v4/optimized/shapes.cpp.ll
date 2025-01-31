@@ -786,7 +786,7 @@ $_ZTSN4pbrt18SurfaceInteractionE = comdat any
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Sphere6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt6Sphere6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Bounds3", align 8
   %renderFromObject = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -823,10 +823,10 @@ entry:
 declare void @_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE(ptr sret(%"class.pbrt::Bounds3") align 4, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef nonnull align 4 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Sphere6SampleENS_6Point2IfEE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 initializes((0, 60), (64, 84), (88, 89)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %this, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt6Sphere6SampleENS_6Point2IfEE(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) initializes((0, 60), (64, 84), (88, 89)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %this, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp53 = alloca %"class.pbrt::Point3fi", align 8
   %ref.tmp56.sroa.0 = alloca { %"class.pbrt::Point3fi", float, %"class.pbrt::Vector3" }, align 8
@@ -2020,7 +2020,7 @@ _ZN4pbrt12StringPrintfIJRKNS_9TransformES3_RKbS5_RKfS7_S7_S7_S7_S7_EEENSt7__cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt6Sphere6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt6Sphere6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2284,7 +2284,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt4Disk6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt4Disk6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Bounds3", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2313,7 +2313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4Disk12NormalBoundsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt4Disk12NormalBoundsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Normal3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %0, <2 x float> zeroinitializer, float 1.000000e+00)
@@ -2376,7 +2376,7 @@ _ZN4pbrt12StringPrintfIJRKNS_9TransformES3_RKbS5_RKfS7_S7_S7_EEENSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt4Disk6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt4Disk6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2567,7 +2567,7 @@ eh.resume:                                        ; preds = %lpad26, %lpad.i31, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt8Cylinder6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt8Cylinder6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Bounds3", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2628,7 +2628,7 @@ _ZN4pbrt12StringPrintfIJRKNS_9TransformES3_RKbS5_RKfS7_S7_S7_EEENSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt8Cylinder6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt8Cylinder6CreateEPKNS_9TransformES3_bRKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2858,7 +2858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt17IntersectTriangleERKNS_3RayEfNS_6Point3IfEES4_S4_(ptr noalias nocapture writeonly sret(%"class.pstd::optional.15") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax, <2 x float> %p0.coerce0, float %p0.coerce1, <2 x float> %p1.coerce0, float %p1.coerce1, <2 x float> %p2.coerce0, float %p2.coerce1) local_unnamed_addr #5 {
+define dso_local void @_ZN4pbrt17IntersectTriangleERKNS_3RayEfNS_6Point3IfEES4_S4_(ptr noalias writeonly sret(%"class.pstd::optional.15") align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax, <2 x float> %p0.coerce0, float %p0.coerce1, <2 x float> %p1.coerce0, float %p1.coerce1, <2 x float> %p2.coerce0, float %p2.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i397 = alloca [3 x float], align 4
   %ref.tmp.i375 = alloca [3 x float], align 4
@@ -3392,7 +3392,7 @@ return:                                           ; preds = %if.end300, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt8Triangle15CreateTrianglesEPKNS_12TriangleMeshEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias sret(%"class.pstd::vector") align 8 %agg.result, ptr noundef %mesh, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3663,7 +3663,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4pbrt8Triangle6BoundsEv(ptr noalias nocapture writeonly sret(%"class.pbrt::Bounds3") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4pbrt8Triangle6BoundsEv(ptr noalias writeonly sret(%"class.pbrt::Bounds3") align 4 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN4pbrt8Triangle9allMeshesE, align 8
   %1 = load i32, ptr %this, align 4
@@ -3748,7 +3748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8Triangle12NormalBoundsEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN4pbrt8Triangle9allMeshesE, align 8
   %1 = load i32, ptr %this, align 4
@@ -3915,7 +3915,7 @@ if.end61:                                         ; preds = %if.else, %if.then59
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt8Triangle9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional.22") align 8 initializes((0, 252), (256, 257)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt8Triangle9IntersectERKNS_3RayEf(ptr noalias writeonly sret(%"class.pstd::optional.22") align 8 captures(none) initializes((0, 252), (256, 257)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %triIsect = alloca %"class.pstd::optional.15", align 8
   %intr = alloca %"class.pbrt::SurfaceInteraction", align 8
@@ -5146,7 +5146,7 @@ if.end543:                                        ; preds = %lor.rhs.i, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt8Triangle10IntersectPERKNS_3RayEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt8Triangle10IntersectPERKNS_3RayEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isect = alloca %"class.pstd::optional.15", align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL9nTriTestsE)
@@ -6168,7 +6168,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad.i13, %
 declare void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS_9CurveTypeENS2_IKNS_7Normal3IfEEEEPKNS_9TransformESE_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) initializes((0, 84), (96, 114)) %this, ptr nocapture readonly %c.coerce0, i64 %c.coerce1, float noundef %width0, float noundef %width1, i32 noundef %type, ptr nocapture readonly %norm.coerce0, i64 %norm.coerce1, ptr noundef nonnull %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt11CurveCommonC2EN4pstd4spanIKNS_6Point3IfEEEEffNS_9CurveTypeENS2_IKNS_7Normal3IfEEEEPKNS_9TransformESE_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(114) initializes((0, 84), (96, 114)) %this, ptr readonly captures(none) %c.coerce0, i64 %c.coerce1, float noundef %width0, float noundef %width1, i32 noundef %type, ptr readonly captures(none) %norm.coerce0, i64 %norm.coerce1, ptr noundef nonnull %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation) unnamed_addr #1 align 2 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -6398,7 +6398,7 @@ _ZN4pbrt12StringPrintfIJRKNS_9CurveTypeEN4pstd4spanIKNS_6Point3IfEEEENS5_IKfEENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11CreateCurveEPKNS_9TransformES2_bN4pstd4spanIKNS_6Point3IfEEEEffNS_9CurveTypeENS4_IKNS_7Normal3IfEEEEiNS3_3pmr21polymorphic_allocatorISt4byteEE(ptr noalias sret(%"class.pstd::vector") align 8 initializes((0, 32)) %agg.result, ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr nocapture readonly %c.coerce0, i64 %c.coerce1, float noundef %w0, float noundef %w1, i32 noundef %type, ptr nocapture noundef readonly byval(%"class.pstd::span.62") align 8 %norm, i32 noundef %splitDepth, i64 %alloc.coerce) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11CreateCurveEPKNS_9TransformES2_bN4pstd4spanIKNS_6Point3IfEEEEffNS_9CurveTypeENS4_IKNS_7Normal3IfEEEEiNS3_3pmr21polymorphic_allocatorISt4byteEE(ptr noalias sret(%"class.pstd::vector") align 8 initializes((0, 32)) %agg.result, ptr noundef %renderFromObject, ptr noundef %objectFromRender, i1 noundef zeroext %reverseOrientation, ptr readonly captures(none) %c.coerce0, i64 %c.coerce1, float noundef %w0, float noundef %w1, i32 noundef %type, ptr noundef readonly byval(%"class.pstd::span.62") align 8 captures(none) %norm, i32 noundef %splitDepth, i64 %alloc.coerce) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i.i:
   %coerce.val.ip = inttoptr i64 %alloc.coerce to ptr
   %vtable.i.i.i.i = load ptr, ptr %coerce.val.ip, align 8
@@ -6498,7 +6498,7 @@ for.end:                                          ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Curve6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Curve6BoundsEv(ptr noalias sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cpSeg.i = alloca %"class.pstd::array.64", align 4
   %objBounds = alloca %"class.pbrt::Bounds3", align 8
@@ -6629,7 +6629,7 @@ _ZN4pbrt16BoundCubicBezierEN4pstd4spanIKNS_6Point3IfEEEEff.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt5Curve4AreaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZNK4pbrt5Curve4AreaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cpObj = alloca %"class.pstd::array.64", align 8
   %0 = load ptr, ptr %this, align 8
@@ -6890,7 +6890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Curve9IntersectERKNS_3RayEf(ptr noalias sret(%"class.pstd::optional.22") align 8 initializes((256, 257)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Curve9IntersectERKNS_3RayEf(ptr noalias sret(%"class.pstd::optional.22") align 8 initializes((256, 257)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   store i8 0, ptr %set.i, align 8
@@ -6916,7 +6916,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve12IntersectRayERKNS_3RayEfPN4pstd8optionalINS_17ShapeIntersectionEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, float noundef %tMax, ptr noundef %si) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve12IntersectRayERKNS_3RayEfPN4pstd8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, float noundef %tMax, ptr noundef %si) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %o.i = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 8
@@ -7329,7 +7329,7 @@ return:                                           ; preds = %if.end, %_ZN4pbrt8O
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve10IntersectPERKNS_3RayEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve10IntersectPERKNS_3RayEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK4pbrt5Curve12IntersectRayERKNS_3RayEfPN4pstd8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax, ptr noundef null)
   ret i1 %call
@@ -7468,7 +7468,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3RayEfN4pstd4spanIKNS_6Point3IfEEEERKNS_9TransformEffiPNS4_8optionalINS_17ShapeIntersectionEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, float noundef %tMax, ptr nocapture readonly %cp.coerce0, i64 %cp.coerce1, ptr noundef nonnull align 4 dereferenceable(128) %objectFromRay, float noundef %u0, float noundef %u1, i32 noundef %depth, ptr noundef %si) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3RayEfN4pstd4spanIKNS_6Point3IfEEEERKNS_9TransformEffiPNS4_8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, float noundef %tMax, ptr readonly captures(none) %cp.coerce0, i64 %cp.coerce1, ptr noundef nonnull align 4 dereferenceable(128) %objectFromRay, float noundef %u0, float noundef %u1, i32 noundef %depth, ptr noundef %si) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cpSplit = alloca %"class.pstd::array.66", align 4
   %u = alloca [3 x float], align 4
@@ -8680,28 +8680,28 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr sret(%"class.pbrt::SurfaceInteraction") align 8, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZNK4pbrt5Curve6SampleENS_6Point2IfEE(ptr noalias nocapture readnone sret(%"class.pstd::optional") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, <2 x float> %u.coerce) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK4pbrt5Curve6SampleENS_6Point2IfEE(ptr noalias readnone sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, <2 x float> %u.coerce) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 741, ptr noundef nonnull @.str.49) #28
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local noundef float @_ZNK4pbrt5Curve3PDFERKNS_11InteractionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef float @_ZNK4pbrt5Curve3PDFERKNS_11InteractionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 746, ptr noundef nonnull @.str.50) #28
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZNK4pbrt5Curve6SampleERKNS_18ShapeSampleContextENS_6Point2IfEE(ptr noalias nocapture readnone sret(%"class.pstd::optional") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(52) %ctx, <2 x float> %u.coerce) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK4pbrt5Curve6SampleERKNS_18ShapeSampleContextENS_6Point2IfEE(ptr noalias readnone sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(52) %ctx, <2 x float> %u.coerce) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 752, ptr noundef nonnull @.str.49) #28
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local noundef float @_ZNK4pbrt5Curve3PDFERKNS_18ShapeSampleContextENS_7Vector3IfEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(52) %ctx, <2 x float> %wi.coerce0, float %wi.coerce1) local_unnamed_addr #14 align 2 {
+define dso_local noundef float @_ZNK4pbrt5Curve3PDFERKNS_18ShapeSampleContextENS_7Vector3IfEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(52) %ctx, <2 x float> %wi.coerce0, float %wi.coerce1) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef 757, ptr noundef nonnull @.str.50) #28
   unreachable
@@ -11790,7 +11790,7 @@ return:                                           ; preds = %for.body, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4pbrt13BilinearPatch6BoundsEv(ptr noalias nocapture writeonly sret(%"class.pbrt::Bounds3") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4pbrt13BilinearPatch6BoundsEv(ptr noalias writeonly sret(%"class.pbrt::Bounds3") align 4 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN4pbrt13BilinearPatch9allMeshesE, align 8
   %1 = load i32, ptr %this, align 4
@@ -11898,7 +11898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13BilinearPatch12NormalBoundsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #11 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt13BilinearPatch12NormalBoundsEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #11 align 2 {
 entry:
   %ref.tmp290 = alloca [4 x float], align 4
   %0 = load ptr, ptr @_ZN4pbrt13BilinearPatch9allMeshesE, align 8
@@ -12544,7 +12544,7 @@ return:                                           ; preds = %_ZSt3minIfET_St16in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt13BilinearPatch9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional.22") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt13BilinearPatch9IntersectERKNS_3RayEf(ptr noalias writeonly sret(%"class.pstd::optional.22") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blpIsect = alloca %"class.pstd::optional.117", align 8
   %agg.tmp19 = alloca %"class.pbrt::Point3", align 8
@@ -14187,7 +14187,7 @@ if.end518:                                        ; preds = %lor.rhs.i1027, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4pbrt13BilinearPatch10IntersectPERKNS_3RayEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4pbrt13BilinearPatch10IntersectPERKNS_3RayEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.pstd::optional.117", align 4
   %agg.tmp19 = alloca %"class.pbrt::Point3", align 8
@@ -14240,7 +14240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt13BilinearPatch6SampleENS_6Point2IfEE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 initializes((0, 60), (64, 84), (88, 89)) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt13BilinearPatch6SampleENS_6Point2IfEE(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) initializes((0, 60), (64, 84), (88, 89)) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pdf = alloca float, align 4
   %0 = load ptr, ptr @_ZN4pbrt13BilinearPatch9allMeshesE, align 8
@@ -15170,7 +15170,7 @@ if.end14:                                         ; preds = %if.then13, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_11InteractionE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %intr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZNK4pbrt13BilinearPatch3PDFERKNS_11InteractionE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %intr) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37 = alloca [4 x %"class.pbrt::Point2"], align 8
   %0 = load ptr, ptr @_ZN4pbrt13BilinearPatch9allMeshesE, align 8
@@ -15704,7 +15704,7 @@ return:                                           ; preds = %if.end3.i, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt13BilinearPatch6SampleERKNS_18ShapeSampleContextENS_6Point2IfEE(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(52) %ctx, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt13BilinearPatch6SampleERKNS_18ShapeSampleContextENS_6Point2IfEE(ptr noalias writeonly sret(%"class.pstd::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(52) %ctx, <2 x float> %u.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.pstd::optional", align 8
   %quadPDF = alloca float, align 4
@@ -18262,7 +18262,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr nocapture readonly %displace.0.val, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr readonly captures(none) %displace.0.val, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::function", align 8
   %agg.tmp.i = alloca %"class.std::function.191", align 8
@@ -18932,7 +18932,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Shape8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Shape8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
@@ -19923,7 +19923,7 @@ ehcleanup48:                                      ; preds = %lpad39, %ehcleanup3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -22540,7 +22540,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -26526,7 +26526,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIiJiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef %s, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %v, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -37787,7 +37787,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS1_9TransformESD_bRKNS1_19ParameterDictionaryERKSt3mapIS8_NS1_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS1_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clEPNS1_6Point3IfEEPKNS1_7Normal3IfEEPKNS1_6Point2IfEEiEUliE_E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS1_9TransformESD_bRKNS1_19ParameterDictionaryERKSt3mapIS8_NS1_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS1_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clEPNS1_6Point3IfEEPKNS1_7Normal3IfEEPKNS1_6Point2IfEEiEUliE_E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #1 align 2 {
 entry:
   %ctx.sroa.0.i.i.i = alloca { %"class.pbrt::Point3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3" }, align 8
   %ref.tmp.i.i.i = alloca %"class.pbrt::UniversalTextureEvaluator", align 1
@@ -37851,7 +37851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS1_9TransformESD_bRKNS1_19ParameterDictionaryERKSt3mapIS8_NS1_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS1_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clEPNS1_6Point3IfEEPKNS1_7Normal3IfEEPKNS1_6Point2IfEEiEUliE_E10_M_managerERSt9_Any_dataRKS1D_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS1_9TransformESD_bRKNS1_19ParameterDictionaryERKSt3mapIS8_NS1_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS1_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clEPNS1_6Point3IfEEPKNS1_7Normal3IfEEPKNS1_6Point2IfEEiEUliE_E10_M_managerERSt9_Any_dataRKS1D_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -39586,10 +39586,10 @@ entry:
 declare float @llvm.sqrt.f32(float) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

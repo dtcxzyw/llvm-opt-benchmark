@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_rsa_init(ptr nocapture noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_init(ptr noundef captures(none) %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 64) #8
   %cmp = icmp eq ptr %call, null
@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 64) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -180,7 +180,7 @@ return:                                           ; preds = %entry, %if.end12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pkey_rsa_cleanup(ptr nocapture noundef readonly %ctx) #1 {
+define internal void @pkey_rsa_cleanup(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -318,7 +318,7 @@ return:                                           ; preds = %if.then27, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @pkey_rsa_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_sign(ptr noundef readonly captures(none) %ctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %sltmp = alloca i32, align 4
   %sltmp48 = alloca i32, align 4
@@ -481,7 +481,7 @@ return:                                           ; preds = %if.end84, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_verify(ptr nocapture noundef readonly %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal i32 @pkey_rsa_verify(ptr noundef readonly captures(none) %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %rslen = alloca i64, align 8
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
@@ -615,7 +615,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @pkey_rsa_verifyrecover(ptr nocapture noundef readonly %ctx, ptr noundef %rout, ptr nocapture noundef writeonly %routlen, ptr noundef %sig, i64 noundef %siglen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_verifyrecover(ptr noundef readonly captures(none) %ctx, ptr noundef %rout, ptr noundef writeonly captures(none) %routlen, ptr noundef %sig, i64 noundef %siglen) #1 {
 entry:
   %sltmp = alloca i64, align 8
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.end49, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @pkey_rsa_encrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_rsa_encrypt(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -808,7 +808,7 @@ return:                                           ; preds = %if.end14, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_decrypt(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
+define internal i32 @pkey_rsa_decrypt(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef captures(none) %outlen, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -901,7 +901,7 @@ return:                                           ; preds = %if.end, %setup_tbuf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
+define internal i32 @pkey_rsa_ctrl(ptr noundef readonly captures(none) %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %sw.bb183, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_rsa_ctrl_str(ptr noundef %ctx, ptr nocapture noundef readonly %type, ptr noundef %value) #1 {
+define internal i32 @pkey_rsa_ctrl_str(ptr noundef %ctx, ptr noundef readonly captures(none) %type, ptr noundef %value) #1 {
 entry:
   %pubexp = alloca ptr, align 8
   %lablen = alloca i64, align 8
@@ -1608,7 +1608,7 @@ declare i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef, ptr noundef, i32 noundef, p
 declare i32 @RSA_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr noundef captures(none) %ctx, ptr noundef readonly captures(none) %pk) unnamed_addr #1 {
 entry:
   %tbuf = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %tbuf, align 8
@@ -1633,7 +1633,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @RSA_X931_hash_id(i32 noundef) local_unnamed_addr #2
 
@@ -1720,12 +1720,12 @@ declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1746,7 +1746,7 @@ declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_pss_init(ptr nocapture noundef readonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_pss_init(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %md = alloca ptr, align 8
   %mgf1md = alloca ptr, align 8
@@ -1816,10 +1816,10 @@ declare i32 @ossl_rsa_pss_get_param(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @RSA_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

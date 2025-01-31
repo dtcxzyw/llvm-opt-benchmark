@@ -1061,7 +1061,7 @@ define dso_local i32 @intel_engine_emit_ctx_wa(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @intel_ring_begin(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1076,7 +1076,7 @@ declare dso_local void @intel_uncore_forcewake_get__locked(ptr noundef, i32 noun
 declare dso_local i32 @intel_gt_mcr_read_any_fw(ptr noundef, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_uncore_forcewake_put__locked(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2527,14 +2527,14 @@ wa_init_finish.exit:                              ; preds = %684, %694
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_apply_workarounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_apply_workarounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   tail call fastcc void @wa_list_apply(ptr noundef nonnull %2)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wa_list_apply(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @wa_list_apply(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3067,7 +3067,7 @@ wa_init_finish.exit:                              ; preds = %114, %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tgl_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @tgl_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3127,7 +3127,7 @@ define internal fastcc void @tgl_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @icl_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3237,7 +3237,7 @@ define internal fastcc void @icl_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cml_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cml_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
@@ -3264,7 +3264,7 @@ define internal fastcc void @cml_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3314,7 +3314,7 @@ define internal fastcc void @cfl_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @glk_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @glk_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3364,7 +3364,7 @@ define internal fastcc void @glk_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kbl_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @kbl_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3422,7 +3422,7 @@ define internal fastcc void @kbl_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bxt_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @bxt_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3465,7 +3465,7 @@ define internal fastcc void @bxt_whitelist_build(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @skl_whitelist_build(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @skl_whitelist_build(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3526,7 +3526,7 @@ define internal fastcc void @skl_whitelist_build(ptr nocapture noundef %0) unnam
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_apply_whitelist(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_apply_whitelist(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6249,14 +6249,14 @@ wa_init_finish.exit:                              ; preds = %1342, %1352
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_apply_workarounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_apply_workarounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
   tail call fastcc void @wa_list_apply(ptr noundef nonnull %2)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_engine_verify_workarounds(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -6921,7 +6921,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dg1_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @dg1_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen12_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
@@ -6957,7 +6957,7 @@ define internal fastcc void @dg1_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen12_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen12_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7045,7 +7045,7 @@ define internal fastcc void @gen12_ctx_workarounds_init(ptr nocapture readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @icl_ctx_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @icl_ctx_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7164,7 +7164,7 @@ define internal fastcc void @icl_ctx_workarounds_init(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
@@ -7200,7 +7200,7 @@ define internal fastcc void @cfl_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @glk_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @glk_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
@@ -7221,7 +7221,7 @@ define internal fastcc void @glk_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @kbl_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
@@ -7304,7 +7304,7 @@ define internal fastcc void @kbl_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bxt_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @bxt_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_ctx_workarounds_init(ptr %.0.val, ptr noundef %0)
@@ -7340,7 +7340,7 @@ define internal fastcc void @bxt_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @skl_ctx_workarounds_init(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca [3 x i8], align 1
   %.val = load ptr, ptr %0, align 8
@@ -7418,7 +7418,7 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @chv_ctx_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @chv_ctx_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen8_ctx_workarounds_init(ptr noundef %0)
@@ -7454,7 +7454,7 @@ define internal fastcc void @chv_ctx_workarounds_init(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bdw_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @bdw_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7538,13 +7538,13 @@ define internal fastcc void @bdw_ctx_workarounds_init(ptr nocapture readonly %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_wa_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = load i32, ptr %1, align 4
   %5 = load ptr, ptr %0, align 8
@@ -7747,7 +7747,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen9_ctx_workarounds_init(ptr readonly captures(none) %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -7986,7 +7986,7 @@ define internal fastcc void @gen9_ctx_workarounds_init(ptr nocapture readonly %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen8_ctx_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen8_ctx_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8105,7 +8105,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr noundef %1)
@@ -8139,7 +8139,7 @@ define internal fastcc void @dg1_gt_workarounds_init(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @gen12_gt_workarounds_init(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
@@ -8276,7 +8276,7 @@ icl_wa_init_mcr.exit:                             ; preds = %21, %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @icl_gt_workarounds_init(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
@@ -8514,7 +8514,7 @@ icl_wa_init_mcr.exit:                             ; preds = %28, %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cfl_gt_workarounds_init(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @cfl_gt_workarounds_init(ptr %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   tail call fastcc void @gen9_gt_workarounds_init(ptr %.0.val, ptr noundef %0)
@@ -8546,7 +8546,7 @@ define internal fastcc void @cfl_gt_workarounds_init(ptr %.0.val, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @kbl_gt_workarounds_init(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4
@@ -8644,7 +8644,7 @@ define internal fastcc void @kbl_gt_workarounds_init(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8748,7 +8748,7 @@ define internal fastcc void @gen9_gt_workarounds_init(ptr readonly %.0.val, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @skl_gt_workarounds_init(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %.val = load ptr, ptr %0, align 8
@@ -8834,7 +8834,7 @@ define internal fastcc void @skl_gt_workarounds_init(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hsw_gt_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @hsw_gt_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8880,7 +8880,7 @@ define internal fastcc void @hsw_gt_workarounds_init(ptr nocapture noundef %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vlv_gt_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @vlv_gt_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
@@ -8911,7 +8911,7 @@ define internal fastcc void @vlv_gt_workarounds_init(ptr nocapture noundef %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ivb_gt_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ivb_gt_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -8970,7 +8970,7 @@ define internal fastcc void @ivb_gt_workarounds_init(ptr nocapture noundef %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_gt_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_gt_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -9020,7 +9020,7 @@ define internal fastcc void @ilk_gt_workarounds_init(ptr nocapture noundef %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @g4x_gt_workarounds_init(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @g4x_gt_workarounds_init(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
@@ -9061,7 +9061,7 @@ declare dso_local void @intel_gt_mcr_report_steering(ptr noundef, ptr noundef, i
 declare dso_local void @__drm_printfn_debug(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @xehp_init_mcr(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
   %5 = alloca %struct.i915_wa, align 4

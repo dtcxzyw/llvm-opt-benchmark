@@ -89,7 +89,7 @@ define internal noundef i32 @mca_vprotocol_pessimist_component_register() #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #1 {
+define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #1 {
   %4 = load i32, ptr @_priority, align 4
   store i32 %4, ptr %0, align 4
   %5 = load i32, ptr @ompi_vprotocol_pessimist_allow_thread_multiple, align 4
@@ -308,7 +308,7 @@ declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noun
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -203,7 +203,7 @@ $_ZN4llvm3rdf13DataFlowGraph9linkRefUpIPNS0_7DefNodeEEEvNS0_8NodeAddrIPNS0_9Inst
 @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC1ERKS2_b = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_11RegisterRefEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_11RegisterRefEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -218,10 +218,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdfls
 declare void @_ZNK4llvm3rdf20PhysicalRegisterInfo5printERNS_11raw_ostreamENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(48), i32, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintIjEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintIjEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -607,7 +607,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %198, %196, %17, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7DefNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7DefNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.llvm::rdf::Print.57", align 8
   %5 = alloca i32, align 4
@@ -884,7 +884,7 @@ _ZN4llvm11raw_ostreamlsEc.exit12:                 ; preds = %56, %54, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7UseNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7UseNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.llvm::rdf::Print.57", align 8
   %5 = alloca i32, align 4
@@ -972,7 +972,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_10PhiUseNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_10PhiUseNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.llvm::rdf::Print.57", align 8
   %5 = alloca i32, align 4
@@ -1095,7 +1095,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7RefNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7RefNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::PrintNode", align 8
   %4 = alloca %"struct.llvm::rdf::NodeAddr.65", align 8
   %5 = alloca %"struct.llvm::rdf::PrintNode.74", align 8
@@ -1161,7 +1161,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdfls
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::NodeAddr.58", align 8
   %4 = alloca %"struct.llvm::rdf::Print.57", align 8
   %5 = load ptr, ptr %1, align 8
@@ -1222,7 +1222,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %26, %24, %17
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintISt3setIjSt4lessIjESaIjEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintISt3setIjSt4lessIjESaIjEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.llvm::rdf::Print.57", align 8
   %5 = load ptr, ptr %1, align 8
@@ -1282,7 +1282,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %27, %25, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7PhiNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_7PhiNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::Print.57", align 8
   %4 = alloca %"class.llvm::SmallVector.77", align 8
   %5 = load ptr, ptr %1, align 8
@@ -1470,7 +1470,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %43, %_ZN4llvm3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4, i64 noundef 4) #22
@@ -1551,7 +1551,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_8StmtNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_8StmtNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::Print.57", align 8
   %4 = alloca %"class.llvm::Printable", align 8
   %5 = alloca %"class.llvm::SmallVector.77", align 8
@@ -1993,7 +1993,7 @@ declare void @_ZN4llvm17printMBBReferenceERKNS_17MachineBasicBlockE(ptr dead_on_
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9InstrNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9InstrNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::PrintNode.135", align 8
   %4 = alloca %"struct.llvm::rdf::NodeAddr.84", align 8
   %5 = alloca %"struct.llvm::rdf::PrintNode.136", align 8
@@ -2075,7 +2075,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_9BlockNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::Print.57", align 8
   %4 = alloca %"class.llvm::Printable", align 8
   %5 = alloca %"class.llvm::SmallVector.77", align 8
@@ -2616,7 +2616,7 @@ _ZN4llvm11raw_ostreamlsEc.exit85:                 ; preds = %249, %251
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_8FuncNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_8NodeAddrIPNS0_8FuncNodeEEEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::Print.57", align 8
   %4 = alloca %"class.llvm::SmallVector.77", align 8
   %5 = alloca %"struct.llvm::rdf::PrintNode.229", align 8
@@ -2813,7 +2813,7 @@ _ZN4llvm11raw_ostreamlsEc.exit26:                 ; preds = %97, %99
 declare { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintISt3setINS0_11RegisterRefESt4lessIS5_ESaIS5_EEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintISt3setINS0_11RegisterRefESt4lessIS5_ESaIS5_EEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2898,7 +2898,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_12RegisterAggrEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_12RegisterAggrEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_12RegisterAggrE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   ret ptr %0
@@ -2907,7 +2907,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdfls
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_12RegisterAggrE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_13DataFlowGraph8DefStackEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11raw_ostreamERKNS0_5PrintINS0_13DataFlowGraph8DefStackEEE(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %4 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %5 = alloca %"struct.llvm::rdf::Print.57", align 8
@@ -3074,7 +3074,7 @@ _ZN4llvm11raw_ostreamlsEc.exit24.backedge:        ; preds = %72, %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, i64 } @_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define dso_local { i32, i64 } @_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = and i16 %3, 128
   %.not = icmp eq i16 %4, 0
@@ -3221,7 +3221,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %26, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3rdf13NodeAllocator12needNewBlockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3rdf13NodeAllocator12needNewBlockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3312,7 +3312,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread: ; preds = %1, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3474,7 +3474,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit: ; preds = %_ZN4llvm20BumpPtrA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture writeonly %1, i32 %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr writeonly captures(none) %1, i32 %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
@@ -3491,7 +3491,7 @@ define dso_local void @_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefERKNS_14MachineOperandE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefERKNS_14MachineOperandE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 255
   %5 = icmp eq i32 %4, 0
@@ -3641,7 +3641,7 @@ _ZNK4llvm3rdf20PhysicalRegisterInfo12getRegMaskIdEPKj.exit: ; preds = %30, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, i32 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(736) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0, i32 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(736) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %2, -1
   br i1 %5, label %_ZN4llvm3rdf13DataFlowGraph4packENS0_11RegisterRefE.exit, label %6
 
@@ -3662,14 +3662,14 @@ _ZN4llvm3rdf13DataFlowGraph4packENS0_11RegisterRefE.exit: ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_13DataFlowGraphE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #4 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #4 align 2 {
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
@@ -3728,7 +3728,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr captures(none) %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3740,7 +3740,7 @@ define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNodeEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr captures(none) %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3752,7 +3752,7 @@ define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -3784,10 +3784,10 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode13getLastMemberERKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode13getLastMemberERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -3819,7 +3819,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture writeonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr writeonly captures(none) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -3907,7 +3907,7 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit: ; preds = %_ZN4llvm3rdf8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %36, label %4
 
@@ -3960,7 +3960,7 @@ _ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE.exit: ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture %1, i32 %2, ptr nocapture writeonly %3, i32 %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %5) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr captures(none) %1, i32 %2, ptr writeonly captures(none) %3, i32 %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(736) %5) local_unnamed_addr #5 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %8, %4
@@ -3987,7 +3987,7 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit: ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(none) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -4091,7 +4091,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #4 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #4 align 2 {
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
@@ -4150,7 +4150,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNodeEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture writeonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNodeEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr writeonly captures(none) %1, i32 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -4315,7 +4315,7 @@ _ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.77", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4433,7 +4433,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
@@ -4443,7 +4443,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13Data
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isPreservingERKNS_12MachineInstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isPreservingERKNS_12MachineInstrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -4454,7 +4454,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isPreserv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isClobberingERKNS_12MachineInstrEj(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isClobberingERKNS_12MachineInstrEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
@@ -4506,7 +4506,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo10isFixedRegERKNS_12MachineInstrEj(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo10isFixedRegERKNS_12MachineInstrEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 12
@@ -4979,7 +4979,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
   store ptr %1, ptr %0, align 8
   br i1 %2, label %6, label %4
 
@@ -5124,7 +5124,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph8DefStack8nextDownEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph8DefStack8nextDownEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
 _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit:
   %2 = load ptr, ptr %0, align 8
   br label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7
@@ -5148,7 +5148,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack11start_blockEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack11start_blockEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5302,7 +5302,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph8DefStack6nextUpEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph8DefStack6nextUpEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5411,7 +5411,7 @@ declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterA
 declare noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %20, label %4
 
@@ -5505,7 +5505,7 @@ _ZN4llvm3rdf13NodeAllocator3NewEv.exit:           ; preds = %_ZN4llvm3rdf13NodeA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
@@ -5593,7 +5593,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
@@ -5662,7 +5662,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11RegisterRefENS2_IPNS0_9BlockNodeEEEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, i32 %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.llvm::rdf::NodeAddr.138") align 8 %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11RegisterRefENS2_IPNS0_9BlockNodeEEEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i64 %4, ptr noundef readonly byval(%"struct.llvm::rdf::NodeAddr.138") align 8 captures(none) %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = or i16 %6, 10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -5749,7 +5749,7 @@ _ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
@@ -5818,7 +5818,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, i32 %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = or i16 %5, 6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -14122,7 +14122,7 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %._crit_edge369, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SetVector.419", align 8
   %3 = alloca %"class.llvm::SmallVector.77", align 8
   %4 = alloca %"class.llvm::SmallVector.77", align 8
@@ -15560,7 +15560,7 @@ _ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %4
 
@@ -15582,7 +15582,7 @@ define dso_local { i32, i64 } @_ZNK4llvm3rdf13DataFlowGraph10makeRegRefEjj(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph9markBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph9markBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.04.07 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %.sroa.04.07, null
@@ -15673,7 +15673,7 @@ _ZN4llvm3rdf13DataFlowGraph8DefStack11start_blockEj.exit: ; preds = %10, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph12releaseBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph12releaseBlockEjRSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %5 = alloca %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -17322,7 +17322,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3rdf13DataFlowGraph14getRelatedRefsENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull align 8 dereferenceable(736) %1, ptr nocapture readonly %2, i32 %3, ptr %4, i32 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3rdf13DataFlowGraph14getRelatedRefsENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull align 8 dereferenceable(736) %1, ptr readonly captures(none) %2, i32 %3, ptr %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %7, i64 noundef 4) #22
   br label %8
@@ -17365,7 +17365,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 declare void @_ZNK4llvm3rdf20PhysicalRegisterInfo11getAliasSetEj(ptr dead_on_unwind writable sret(%"class.std::set") align 8, ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2, ptr %3, i32 %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2, ptr %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.anon.399, align 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -17609,7 +17609,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i55: ; preds = %109,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture %1, i32 %2, ptr %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEb(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr captures(none) %1, i32 %2, ptr %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = load i16, ptr %3, align 8
   %8 = and i16 %7, 4032
   %9 = or disjoint i16 %8, 32
@@ -18306,7 +18306,7 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %6, %100, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -18392,7 +18392,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.77", align 8
   %5 = alloca %"class.llvm::SmallVector.77", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18614,7 +18614,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit75: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %3, i64 noundef 4) #22
   %.not3 = icmp eq i32 %1, 0
@@ -19008,7 +19008,7 @@ define linkonce_odr hidden void @_ZN4llvm3rdf17TargetOperandInfoD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #1
 
@@ -19316,7 +19316,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -20044,7 +20044,7 @@ declare noundef zeroext i1 @_ZNK4llvm3rdf20PhysicalRegisterInfo5aliasENS0_11Regi
 declare noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -20745,7 +20745,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN4llvm17MachineBasicBlockESt4pairIKS2_
 declare noundef zeroext i1 @_ZNK4llvm3rdf20PhysicalRegisterInfo8equal_toENS0_11RegisterRefES2_(ptr noundef nonnull align 8 dereferenceable(128), i32, i64, i32, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i16, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21876,10 +21876,10 @@ declare void @llvm.assume(i1 noundef) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

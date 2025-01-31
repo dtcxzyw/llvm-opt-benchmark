@@ -215,7 +215,7 @@ $_ZTI13b3OpenCLArrayIjE = comdat any
 @_ZN8b3SolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN8b3SolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z13b3PlaneSpace1RK9b3Vector3PS_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef initializes((0, 12)) %p, ptr nocapture noundef writeonly initializes((0, 12)) %q) local_unnamed_addr #0 {
+define dso_local void @_Z13b3PlaneSpace1RK9b3Vector3PS_S2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %n, ptr noundef captures(none) initializes((0, 12)) %p, ptr noundef writeonly captures(none) initializes((0, 12)) %q) local_unnamed_addr #0 {
 entry:
   %z = getelementptr inbounds nuw i8, ptr %n, i64 8
   %0 = load float, ptr %z, align 8
@@ -292,7 +292,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z19setLinearAndAngularRK9b3Vector3S1_S1_PS_S2_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r1, ptr nocapture noundef writeonly initializes((0, 16)) %linear, ptr nocapture noundef writeonly initializes((0, 16)) %angular0, ptr nocapture noundef writeonly initializes((0, 16)) %angular1) local_unnamed_addr #2 {
+define dso_local void @_Z19setLinearAndAngularRK9b3Vector3S1_S1_PS_S2_S2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %n, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %r0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %r1, ptr noundef writeonly captures(none) initializes((0, 16)) %linear, ptr noundef writeonly captures(none) initializes((0, 16)) %angular0, ptr noundef writeonly captures(none) initializes((0, 16)) %angular1) local_unnamed_addr #2 {
 entry:
   %0 = load <4 x float>, ptr %n, align 16
   %y = getelementptr inbounds nuw i8, ptr %n, i64 4
@@ -356,10 +356,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z10calcRelVelRK9b3Vector3S1_S1_S1_S1_S1_S1_S1_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %l0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %l1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %a0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %a1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVel0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVel0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVel1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVel1) local_unnamed_addr #4 {
+define dso_local noundef float @_Z10calcRelVelRK9b3Vector3S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %l0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %l1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %a0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %a1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %linVel0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angVel0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %linVel1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angVel1) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %l0, align 16
   %1 = load float, ptr %linVel0, align 16
@@ -420,7 +420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z12calcJacCoeffRK9b3Vector3S1_S1_S1_fPK11b3Matrix3x3fS4_(ptr nocapture noundef nonnull readnone align 16 dereferenceable(16) %linear0, ptr nocapture noundef nonnull readnone align 16 dereferenceable(16) %linear1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angular0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angular1, float noundef %invMass0, ptr nocapture noundef readonly %invInertia0, float noundef %invMass1, ptr nocapture noundef readonly %invInertia1) local_unnamed_addr #5 {
+define dso_local noundef float @_Z12calcJacCoeffRK9b3Vector3S1_S1_S1_fPK11b3Matrix3x3fS4_(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(16) %linear0, ptr noundef nonnull readnone align 16 captures(none) dereferenceable(16) %linear1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angular0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angular1, float noundef %invMass0, ptr noundef readonly captures(none) %invInertia0, float noundef %invMass1, ptr noundef readonly captures(none) %invInertia1) local_unnamed_addr #5 {
 entry:
   %0 = load float, ptr %invInertia0, align 16
   %1 = load float, ptr %angular0, align 16
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelA, float noundef %invMassA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelB, float noundef %invMassB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaB, ptr nocapture noundef readonly %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, ptr nocapture noundef writeonly initializes((0, 16), (128, 152), (160, 168)) %dstC) local_unnamed_addr #6 {
+define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angVelA, float noundef %invMassA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %invInertiaA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %angVelB, float noundef %invMassB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %invInertiaB, ptr noundef readonly captures(none) %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, ptr noundef writeonly captures(none) initializes((0, 16), (128, 152), (160, 168)) %dstC) local_unnamed_addr #6 {
 entry:
   %tangent = alloca [2 x %class.b3Vector3], align 16
   %m_bodyAPtrAndSignBit = getelementptr inbounds nuw i8, ptr %src, i64 88
@@ -1282,7 +1282,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8b3SolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3SolverD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8b3Solver, i64 16), ptr %this, align 8
   %m_offsets = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1491,7 +1491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8b3Solver26solveContactConstraintHostEP13b3OpenCLArrayI15b3RigidBodyDataEPS0_I13b3InertiaDataEPS0_I16b3GpuConstraint4EPviiP20b3AlignedObjectArrayIiE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull %bodyBuf, ptr noundef %shapeBuf, ptr noundef %constraint, ptr nocapture noundef readnone %additionalData, i32 noundef %n, i32 noundef %maxNumBatches, ptr noundef %batchSizes) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3Solver26solveContactConstraintHostEP13b3OpenCLArrayI15b3RigidBodyDataEPS0_I13b3InertiaDataEPS0_I16b3GpuConstraint4EPviiP20b3AlignedObjectArrayIiE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef nonnull %bodyBuf, ptr noundef %shapeBuf, ptr noundef %constraint, ptr noundef readnone captures(none) %additionalData, i32 noundef %n, i32 noundef %maxNumBatches, ptr noundef %batchSizes) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bodyNative = alloca %class.b3AlignedObjectArray, align 8
   %shapeNative = alloca %class.b3AlignedObjectArray.8, align 8
@@ -3758,7 +3758,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20checkConstraintBatchPK13b3OpenCLArrayI15b3RigidBodyDataEPKS_I13b3InertiaDataEPS_I16b3GpuConstraint4EPS_IjESC_i(ptr nocapture noundef readnone %bodyBuf, ptr nocapture noundef readnone %shapeBuf, ptr noundef %constraint, ptr noundef nonnull %m_numConstraints, ptr noundef %m_offsets, i32 noundef %batchId) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z20checkConstraintBatchPK13b3OpenCLArrayI15b3RigidBodyDataEPKS_I13b3InertiaDataEPS_I16b3GpuConstraint4EPS_IjESC_i(ptr noundef readnone captures(none) %bodyBuf, ptr noundef readnone captures(none) %shapeBuf, ptr noundef %constraint, ptr noundef nonnull %m_numConstraints, ptr noundef %m_offsets, i32 noundef %batchId) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %gN = alloca %class.b3AlignedObjectArray.20, align 8
   %gOffsets = alloca %class.b3AlignedObjectArray.20, align 8
@@ -4272,10 +4272,10 @@ ehcleanup86:                                      ; preds = %ehcleanup85, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8b3Solver22solveContactConstraintEPK13b3OpenCLArrayI15b3RigidBodyDataEPKS0_I13b3InertiaDataEPS0_I16b3GpuConstraint4EPvii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %bodyBuf, ptr nocapture noundef readonly %shapeBuf, ptr nocapture noundef readonly %constraint, ptr nocapture noundef readnone %additionalData, i32 noundef %n, i32 noundef %maxNumBatches) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3Solver22solveContactConstraintEPK13b3OpenCLArrayI15b3RigidBodyDataEPKS0_I13b3InertiaDataEPS0_I16b3GpuConstraint4EPvii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef readonly captures(none) %bodyBuf, ptr noundef readonly captures(none) %shapeBuf, ptr noundef readonly captures(none) %constraint, ptr noundef readnone captures(none) %additionalData, i32 noundef %n, i32 noundef %maxNumBatches) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i189 = alloca [3 x i64], align 16
   %lRange.i.i190 = alloca [3 x i64], align 16
@@ -5336,7 +5336,7 @@ declare void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noundef nonnu
 declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8b3Solver20convertToConstraintsEPK13b3OpenCLArrayI15b3RigidBodyDataEPKS0_I13b3InertiaDataEPS0_I10b3Contact4EPS0_I16b3GpuConstraint4EPviRKN12b3SolverBase13ConstraintCfgE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef %bodyBuf, ptr noundef %shapeBuf, ptr noundef %contactsIn, ptr noundef %contactCOut, ptr nocapture noundef readnone %additionalData, i32 noundef %nContacts, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %cfg) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3Solver20convertToConstraintsEPK13b3OpenCLArrayI15b3RigidBodyDataEPKS0_I13b3InertiaDataEPS0_I10b3Contact4EPS0_I16b3GpuConstraint4EPviRKN12b3SolverBase13ConstraintCfgE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr noundef %bodyBuf, ptr noundef %shapeBuf, ptr noundef %contactsIn, ptr noundef %contactCOut, ptr noundef readnone captures(none) %additionalData, i32 noundef %nContacts, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %cfg) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i = alloca [3 x i64], align 16
   %lRange.i.i = alloca [3 x i64], align 16
@@ -6423,7 +6423,7 @@ if.end:                                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3Contact4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6462,7 +6462,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8b3Solver13batchContactsEP13b3OpenCLArrayI10b3Contact4EiPS0_IjES5_i(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %contacts, i32 noundef %nContacts, ptr nocapture noundef readonly %nNative, ptr nocapture noundef readonly %offsetsNative, i32 noundef %staticIdx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3Solver13batchContactsEP13b3OpenCLArrayI10b3Contact4EiPS0_IjES5_i(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef readonly captures(none) %contacts, i32 noundef %nContacts, ptr noundef readonly captures(none) %nNative, ptr noundef readonly captures(none) %offsetsNative, i32 noundef %staticIdx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i = alloca [3 x i64], align 16
   %lRange.i.i = alloca [3 x i64], align 16
@@ -7801,16 +7801,16 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

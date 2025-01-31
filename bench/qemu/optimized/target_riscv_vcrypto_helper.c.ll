@@ -21,7 +21,7 @@ entry:
 declare void @do_vext_vv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @do_vclmul_vv(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #2 {
+define internal void @do_vclmul_vv(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #2 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -59,7 +59,7 @@ entry:
 declare void @do_vext_vx(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @do_vclmul_vx(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #2 {
+define internal void @do_vclmul_vx(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #2 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @do_vclmulh_vv(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #2 {
+define internal void @do_vclmulh_vv(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #2 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @do_vclmulh_vx(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #2 {
+define internal void @do_vclmulh_vx(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #2 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vv_b(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vv_h(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -207,7 +207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vv_w(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vv_d(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vx_b(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -269,7 +269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vx_h(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vx_w(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vror_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vror_vx_d(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -328,7 +328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vv_b(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vv_h(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -370,7 +370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vv_w(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vv_d(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vx_b(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vx_h(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vx_w(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -472,7 +472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vrol_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vrol_vx_d(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -484,7 +484,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev8_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -571,7 +571,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 declare void @vext_set_elems_1s(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev8_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -687,7 +687,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev8_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -802,7 +802,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev8_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -917,7 +917,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vrev8_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1000,7 +1000,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vrev8_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1088,7 +1088,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vrev8_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1175,7 +1175,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vrev8_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1269,7 +1269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vv_b(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -1291,7 +1291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vv_h(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vv_w(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -1335,7 +1335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vv_d(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -1357,7 +1357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vx_b(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -1378,7 +1378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vx_h(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -1399,7 +1399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vx_w(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -1420,7 +1420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vandn_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vandn_vx_d(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -1433,7 +1433,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1518,7 +1518,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1606,7 +1606,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1693,7 +1693,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vbrev_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vbrev_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1780,7 +1780,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vclz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vclz_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1865,7 +1865,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vclz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vclz_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -1953,7 +1953,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vclz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vclz_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2040,7 +2040,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vclz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vclz_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2127,7 +2127,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vctz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vctz_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2212,7 +2212,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vctz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vctz_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2300,7 +2300,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vctz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vctz_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2387,7 +2387,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vctz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vctz_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2474,7 +2474,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vcpop_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vcpop_v_b(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2559,7 +2559,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vcpop_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vcpop_v_h(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2647,7 +2647,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vcpop_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vcpop_v_w(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2734,7 +2734,7 @@ for.end:                                          ; preds = %for.body, %for.inc.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vcpop_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vcpop_v_d(ptr noundef %vd, ptr noundef readonly captures(none) %v0, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -2828,7 +2828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vv_b(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -2852,7 +2852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vv_h(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -2876,7 +2876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vv_w(ptr noundef writeonly captures(none) %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -2900,7 +2900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vx_b(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -2922,7 +2922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vx_h(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -2944,7 +2944,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @do_vwsll_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i) #3 {
+define internal void @do_vwsll_vx_w(ptr noundef writeonly captures(none) %vd, i64 noundef %s1, ptr noundef readonly captures(none) %vs2, i32 noundef %i) #3 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -2992,7 +2992,7 @@ declare void @riscv_raise_exception(ptr noundef, i32 noundef, i64 noundef) local
 declare ptr @llvm.returnaddress(i32 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesef_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesef_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3080,7 +3080,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_AK.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesef_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesef_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3167,7 +3167,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_AK.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesdf_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesdf_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3255,7 +3255,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesdf_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesdf_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3342,7 +3342,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesem_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesem_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3430,7 +3430,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesem_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesem_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3517,7 +3517,7 @@ for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesdm_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesdm_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3605,7 +3605,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesdm_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaesdm_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
@@ -3692,7 +3692,7 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #6 {
+define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #6 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -3762,7 +3762,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaeskf1_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaeskf1_vi(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs2_vptr, i32 noundef %uimm, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -3879,7 +3879,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vaeskf2_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vaeskf2_vi(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs2_vptr, i32 noundef %uimm, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
@@ -4071,7 +4071,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsha2ms_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsha2ms_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
@@ -4296,7 +4296,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsha2ch32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsha2ch32_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
@@ -4422,7 +4422,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsha2ch64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsha2ch64_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
@@ -4548,7 +4548,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsha2cl32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsha2cl32_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
@@ -4673,7 +4673,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsha2cl64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsha2cl64_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs1, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
@@ -4798,7 +4798,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsm3me_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs1_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsm3me_vv(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs1_vptr, ptr noundef readonly captures(none) %vs2_vptr, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %w = alloca [24 x i32], align 16
   %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
@@ -4926,7 +4926,7 @@ for.end64:                                        ; preds = %for.inc62, %entry
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsm3c_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsm3c_vi(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs2_vptr, i32 noundef %uimm, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %v1 = alloca [8 x i32], align 16
   %v2 = alloca [8 x i32], align 16
@@ -5154,7 +5154,7 @@ for.end38:                                        ; preds = %for.inc36, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vghsh_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs1_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vghsh_vv(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs1_vptr, ptr noundef readonly captures(none) %vs2_vptr, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %S = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
@@ -5350,10 +5350,10 @@ for.end83:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vgmul_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vgmul_vv(ptr noundef %vd_vptr, ptr noundef readonly captures(none) %vs2_vptr, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %Y = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
@@ -5543,7 +5543,7 @@ for.end65:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsm4k_vi(ptr noundef %vd, ptr nocapture noundef readonly %vs2, i32 noundef %uimm5, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsm4k_vi(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, i32 noundef %uimm5, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
@@ -5698,7 +5698,7 @@ for.end72:                                        ; preds = %for.end72.loopexit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsm4r_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsm4r_vv(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
@@ -5855,7 +5855,7 @@ for.end40:                                        ; preds = %for.end40.loopexit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @helper_vsm4r_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
+define dso_local void @helper_vsm4r_vs(ptr noundef %vd, ptr noundef readonly captures(none) %vs2, ptr noundef captures(none) %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
@@ -6047,7 +6047,7 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull readonly captures(none) %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6062,7 +6062,7 @@ declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_u
 declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull readonly captures(none) %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6077,7 +6077,7 @@ declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local
 declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull readonly captures(none) %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6092,7 +6092,7 @@ declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) loca
 declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %ret, ptr noundef nonnull readonly captures(none) %st, ptr noundef nonnull readonly captures(none) %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6153,7 +6153,7 @@ declare i8 @llvm.ctlz.i8(i8, i1 immarg) #10
 declare i16 @llvm.ctlz.i16(i16, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

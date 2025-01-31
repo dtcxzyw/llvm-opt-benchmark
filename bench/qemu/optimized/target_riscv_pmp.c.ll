@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.pmp_hart_has_privs.2 = private unnamed_addr constant [16 x i32] [i32 0, i32 4, i32 1, i32 3, i32 1, i32 5, i32 3, i32 7, i32 0, i32 0, i32 4, i32 4, i32 0, i32 0, i32 0, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @pmp_get_num_rules(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
+define dso_local i32 @pmp_get_num_rules(ptr noundef readonly captures(none) %env) local_unnamed_addr #0 {
 entry:
   %num_rules = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules, align 16
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @pmp_unlock_entries(ptr nocapture noundef %env) local_unnamed_addr #1 {
+define dso_local void @pmp_unlock_entries(ptr noundef captures(none) %env) local_unnamed_addr #1 {
 entry:
   %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
@@ -75,7 +75,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @pmp_update_rule_addr(ptr nocapture noundef %env, i32 noundef %pmp_index) local_unnamed_addr #2 {
+define dso_local void @pmp_update_rule_addr(ptr noundef captures(none) %env, i32 noundef %pmp_index) local_unnamed_addr #2 {
 entry:
   %pmp_state = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %idxprom = zext i32 %pmp_index to i64
@@ -141,7 +141,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @pmp_update_rule_nums(ptr nocapture noundef initializes((8336, 8340)) %env) local_unnamed_addr #1 {
+define dso_local void @pmp_update_rule_nums(ptr noundef captures(none) initializes((8336, 8340)) %env) local_unnamed_addr #1 {
 entry:
   %num_rules = getelementptr inbounds nuw i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules, align 16
@@ -174,7 +174,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @pmp_hart_has_privs(ptr nocapture noundef readonly %env, i64 noundef %addr, i64 noundef %size, i32 noundef %privs, ptr nocapture noundef writeonly %allowed_privs, i64 noundef %mode) local_unnamed_addr #3 {
+define dso_local zeroext i1 @pmp_hart_has_privs(ptr noundef readonly captures(none) %env, i64 noundef %addr, i64 noundef %size, i32 noundef %privs, ptr noundef writeonly captures(none) %allowed_privs, i64 noundef %mode) local_unnamed_addr #3 {
 entry:
   %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
@@ -681,7 +681,7 @@ if.end:                                           ; preds = %trace_pmpcfg_csr_wr
 declare void @tlb_flush(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @pmpcfg_csr_read(ptr nocapture noundef readonly %env, i32 noundef %reg_index) local_unnamed_addr #3 {
+define dso_local i64 @pmpcfg_csr_read(ptr noundef readonly captures(none) %env, i32 noundef %reg_index) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %env, i64 5008
@@ -996,7 +996,7 @@ if.end62:                                         ; preds = %if.then59, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @pmpaddr_csr_read(ptr nocapture noundef readonly %env, i32 noundef %addr_index) local_unnamed_addr #3 {
+define dso_local i64 @pmpaddr_csr_read(ptr noundef readonly captures(none) %env, i32 noundef %addr_index) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp = icmp ult i32 %addr_index, 16
@@ -1158,7 +1158,7 @@ if.end17:                                         ; preds = %if.then7, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @mseccfg_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #3 {
+define dso_local i64 @mseccfg_csr_read(ptr noundef readonly captures(none) %env) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
@@ -1204,7 +1204,7 @@ trace_mseccfg_csr_read.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local range(i64 1, 4097) i64 @pmp_get_tlb_size(ptr nocapture noundef readonly %env, i64 noundef %addr) local_unnamed_addr #5 {
+define dso_local range(i64 1, 4097) i64 @pmp_get_tlb_size(ptr noundef readonly captures(none) %env, i64 noundef %addr) local_unnamed_addr #5 {
 entry:
   %and = and i64 %addr, -4096
   %sub = or i64 %addr, 4095
@@ -1273,7 +1273,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #4
 
@@ -1281,10 +1281,10 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #4
 declare i3 @llvm.bitreverse.i3(i3) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

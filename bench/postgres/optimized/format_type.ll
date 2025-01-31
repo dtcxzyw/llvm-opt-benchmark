@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @format_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @format_type(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -551,7 +551,7 @@ declare i32 @GetDatabaseEncoding() local_unnamed_addr #1
 declare i32 @numeric_maximum_size(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -586,7 +586,7 @@ define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_un
 
 21:                                               ; preds = %14
   %22 = add i64 %19, %.03033
-  %23 = tail call ptr @repalloc(ptr noundef %.036, i64 noundef %22) #7
+  %23 = tail call ptr @repalloc(ptr noundef nonnull %.036, i64 noundef %22) #7
   %24 = add i64 %19, %.02834
   br label %25
 
@@ -614,7 +614,7 @@ define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_un
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi ptr [ %10, %1 ], [ %.1, %28 ]
-  %31 = tail call ptr @cstring_to_text(ptr noundef %.0.lcssa) #7
+  %31 = tail call ptr @cstring_to_text(ptr noundef nonnull %.0.lcssa) #7
   %32 = ptrtoint ptr %31 to i64
   ret i64 %32
 }
@@ -622,12 +622,12 @@ define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_un
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -635,7 +635,7 @@ declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_u
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

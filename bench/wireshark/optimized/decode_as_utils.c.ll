@@ -115,7 +115,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %.not179, label %31, label %32
 
 31:                                               ; preds = %.thread167, %30
-  tail call void @g_free(ptr noundef %4) #7
+  tail call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 32:                                               ; preds = %30
@@ -189,8 +189,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %or.cond3, label %60, label %61
 
 60:                                               ; preds = %55
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.6, ptr noundef %40) #7
-  call void @g_free(ptr noundef %4) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.6, ptr noundef nonnull %40) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 61:                                               ; preds = %55
@@ -217,8 +217,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %.not157, label %73, label %72
 
 72:                                               ; preds = %70, %64
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %40) #7
-  call void @g_free(ptr noundef %4) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef nonnull %40) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 73:                                               ; preds = %70
@@ -237,8 +237,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %81, label %82, label %.thread170
 
 82:                                               ; preds = %78, %76
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %40) #7
-  call void @g_free(ptr noundef %4) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef nonnull %40) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 83:                                               ; preds = %73
@@ -246,13 +246,13 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %84, label %85, label %.thread170
 
 85:                                               ; preds = %83
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef %40) #7
-  call void @g_free(ptr noundef %4) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.7, ptr noundef nonnull %40) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 86:                                               ; preds = %61
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.6, ptr noundef %40) #7
-  call void @g_free(ptr noundef %4) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.6, ptr noundef nonnull %40) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 87:                                               ; preds = %45
@@ -279,7 +279,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   %90 = load ptr, ptr @stderr, align 8
   store ptr null, ptr @prev_display_dissector_name, align 8
   call void @dissector_table_foreach_handle(ptr noundef nonnull %.0126, ptr noundef nonnull @display_dissector_names, ptr noundef %90) #7
-  call void @g_free(ptr noundef %4) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 .preheader181:                                    ; preds = %.preheader181.preheader, %.preheader181
@@ -371,7 +371,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   %119 = load ptr, ptr @stderr, align 8
   store ptr null, ptr @prev_display_dissector_name, align 8
   call void @dissector_table_foreach_handle(ptr noundef nonnull %.0126, ptr noundef nonnull @display_dissector_names, ptr noundef %119) #7
-  call void @g_free(ptr noundef %4) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 120:                                              ; preds = %118
@@ -443,7 +443,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph193, %.lr.ph197, %123, %130, %122, %136, %135
-  call void @g_free(ptr noundef %4) #7
+  call void @g_free(ptr noundef nonnull %4) #7
   br label %138
 
 138:                                              ; preds = %.loopexit, %.thread176, %89, %86, %85, %82, %72, %60, %31
@@ -459,7 +459,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 
@@ -477,7 +477,7 @@ declare ptr @proto_registrar_get_byalias(ptr noundef) local_unnamed_addr #1
 declare void @dissector_table_foreach_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @find_protocol_name_func(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @find_protocol_name_func(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %1) #7
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %18, label %5
@@ -520,7 +520,7 @@ declare void @dissector_change_payload(ptr noundef, ptr noundef) local_unnamed_a
 declare void @dissector_all_tables_foreach_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @display_dissector_table_names(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #4 {
+define internal void @display_dissector_table_names(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #4 {
   %4 = load ptr, ptr @prev_display_dissector_name, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -540,19 +540,19 @@ define internal void @display_dissector_table_names(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_dissector_key_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @compare_dissector_key_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @display_dissector_names(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @display_dissector_names(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %1) #7
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %14, label %5

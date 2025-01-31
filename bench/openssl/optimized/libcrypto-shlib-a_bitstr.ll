@@ -143,10 +143,10 @@ return:                                           ; preds = %if.end58, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @ossl_c2i_ASN1_BIT_STRING(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %len, 1
   br i1 %cmp, label %if.then38, label %if.end
@@ -370,7 +370,7 @@ return:                                           ; preds = %while.body, %land.r
 declare ptr @CRYPTO_clear_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ASN1_BIT_STRING_get_bit(ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #5 {
@@ -411,7 +411,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly %a, ptr nocapture noundef readonly %flags, i32 noundef %flags_len) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly %a, ptr noundef readonly captures(none) %flags, i32 noundef %flags_len) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %a, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

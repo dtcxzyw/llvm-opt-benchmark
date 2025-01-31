@@ -174,7 +174,7 @@ declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndTableFuncScan(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndTableFuncScan(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -266,7 +266,7 @@ define internal ptr @TableFuncNext(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @TableFuncRecheck(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef zeroext i1 @TableFuncRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i1 true
 }
 
@@ -371,7 +371,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) 
   %73 = load ptr, ptr %67, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = call i64 %75(ptr noundef %72, ptr noundef %1, ptr noundef nonnull %4) #8
+  %76 = call i64 %75(ptr noundef %72, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
   %77 = load i8, ptr %4, align 1
   %78 = trunc i8 %77 to i1
   br i1 %78, label %.split77.i, label %82
@@ -398,7 +398,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) 
 88:                                               ; preds = %85, %82
   %89 = phi ptr [ %87, %85 ], [ null, %82 ]
   %90 = load ptr, ptr %53, align 8
-  call void %90(ptr noundef %0, ptr noundef %89, ptr noundef %84) #8
+  call void %90(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %84) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %.split.split.i, !llvm.loop !7
 
@@ -407,7 +407,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) 
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
-  %95 = call i64 %94(ptr noundef %92, ptr noundef %1, ptr noundef nonnull %4) #8
+  %95 = call i64 %94(ptr noundef %92, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
   %96 = load i8, ptr %4, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %102
@@ -464,7 +464,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %126 = load ptr, ptr %125, align 8
-  %127 = call i64 %126(ptr noundef nonnull %123, ptr noundef %1, ptr noundef nonnull %4) #8
+  %127 = call i64 %126(ptr noundef nonnull %123, ptr noundef nonnull %1, ptr noundef nonnull %4) #8
   %128 = load i8, ptr %4, align 1
   %129 = trunc i8 %128 to i1
   br i1 %129, label %.split85.i, label %135
@@ -492,7 +492,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) 
   %.057.i = phi ptr [ %137, %135 ], [ %139, %138 ]
   %141 = load ptr, ptr %114, align 8
   %142 = trunc nuw nsw i64 %indvars.iv91.i to i32
-  call void %141(ptr noundef %0, ptr noundef %.057.i, i32 noundef %142) #8
+  call void %141(ptr noundef nonnull %0, ptr noundef %.057.i, i32 noundef %142) #8
   %.pre.i = load i32, ptr %111, align 4
   br label %143
 
@@ -594,7 +594,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 80
   %196 = load i32, ptr %195, align 4
   %197 = trunc nuw nsw i64 %indvars.iv.i30 to i32
-  %198 = call i64 %192(ptr noundef %0, i32 noundef %197, i32 noundef %194, i32 noundef %196, ptr noundef nonnull %3) #8
+  %198 = call i64 %192(ptr noundef nonnull %0, i32 noundef %197, i32 noundef %194, i32 noundef %196, ptr noundef nonnull %3) #8
   %199 = getelementptr i64, ptr %153, i64 %indvars.iv.i30
   store i64 %198, ptr %199, align 8
   %200 = load i8, ptr %3, align 1
@@ -611,7 +611,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
 205:                                              ; preds = %203
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %207 = load ptr, ptr %206, align 8
-  %208 = call i64 %207(ptr noundef nonnull %204, ptr noundef %1, ptr noundef nonnull %3) #8
+  %208 = call i64 %207(ptr noundef nonnull %204, ptr noundef nonnull %1, ptr noundef nonnull %3) #8
   store i64 %208, ptr %199, align 8
   %.pre.i32 = load i8, ptr %3, align 1
   br label %209
@@ -792,10 +792,10 @@ declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

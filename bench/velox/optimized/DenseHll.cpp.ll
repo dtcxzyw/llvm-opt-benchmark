@@ -488,7 +488,7 @@ if.end25:                                         ; preds = %entry, %_ZNK8facebo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 16) i8 @_ZNK8facebook5velox6common3hll8DenseHll8getDeltaEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 16) i8 @_ZNK8facebook5velox6common3hll8DenseHll8getDeltaEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %shr = ashr i32 %index, 1
   %conv = sext i32 %shr to i64
@@ -506,7 +506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK8facebook5velox6common3hll8DenseHll11getOverflowEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define noundef signext i8 @_ZNK8facebook5velox6common3hll8DenseHll11getOverflowEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %overflows_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_, align 8
@@ -545,7 +545,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_115getOverflowImplEiiPKtPKa.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 32767) i32 @_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -2147483648, 32767) i32 @_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %overflows_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_, align 8
@@ -672,7 +672,7 @@ _ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE6resizeEm.exit: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll8setDeltaEia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %index, i8 noundef signext %value) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll8setDeltaEia(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, i32 noundef %index, i8 noundef signext %value) local_unnamed_addr #4 align 2 {
 entry:
   %shr = ashr i32 %index, 1
   %index.tr.i = trunc i32 %index to i8
@@ -698,7 +698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll22adjustBaselineIfNeededEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll22adjustBaselineIfNeededEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #5 align 2 {
 entry:
   %baselineCount_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %baselineCount_, align 4
@@ -849,7 +849,7 @@ while.end:                                        ; preds = %for.cond.while.cond
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef i64 @_ZNK8facebook5velox6common3hll8DenseHll11cardinalityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK8facebook5velox6common3hll8DenseHll11cardinalityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
 entry:
   %hll = alloca %"struct.facebook::velox::common::hll::(anonymous namespace)::DenseHllView", align 8
   %0 = load i8, ptr %this, align 8
@@ -879,7 +879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZN8facebook5velox6common3hll12_GLOBAL__N_115cardinalityImplERKNS3_12DenseHllViewE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %hll) unnamed_addr #6 {
+define internal fastcc noundef i64 @_ZN8facebook5velox6common3hll12_GLOBAL__N_115cardinalityImplERKNS3_12DenseHllViewE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %hll) unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %hll, align 8
   %conv19 = zext nneg i8 %0 to i32
@@ -1211,7 +1211,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_111deserializeEPKc.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll13sortOverflowsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll13sortOverflowsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
 entry:
   %overflows_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_, align 8
@@ -1294,10 +1294,10 @@ for.end49:                                        ; preds = %for.inc48, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1073840123, 1073840130) i32 @_ZNK8facebook5velox6common3hll8DenseHll14serializedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1073840123, 1073840130) i32 @_ZNK8facebook5velox6common3hll8DenseHll14serializedSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %conv1 = zext nneg i8 %0 to i32
@@ -1314,7 +1314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox6common3hll8DenseHll14canDeserializeEPKc(ptr nocapture noundef readonly %input) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox6common3hll8DenseHll14canDeserializeEPKc(ptr noundef readonly captures(none) %input) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %input, align 1
   %cmp = icmp eq i8 %0, 3
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox6common3hll8DenseHll14canDeserializeEPKci(ptr nocapture noundef readonly %input, i32 noundef %size) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox6common3hll8DenseHll14canDeserializeEPKci(ptr noundef readonly captures(none) %input, i32 noundef %size) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %size, 5
   br i1 %cmp, label %return, label %if.end
@@ -1449,7 +1449,7 @@ return:                                           ; preds = %for.body, %_ZNK8fac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN8facebook5velox6common3hll8DenseHll25deserializeIndexBitLengthEPKc(ptr nocapture noundef readonly %input) local_unnamed_addr #9 align 2 {
+define noundef signext i8 @_ZN8facebook5velox6common3hll8DenseHll25deserializeIndexBitLengthEPKc(ptr noundef readonly captures(none) %input) local_unnamed_addr #9 align 2 {
 entry:
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %input, i64 1
   %0 = load i8, ptr %add.ptr.i4, align 1
@@ -1467,7 +1467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll9serializeEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef writeonly %output) local_unnamed_addr #7 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll9serializeEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef writeonly captures(none) %output) local_unnamed_addr #7 align 2 {
 entry:
   %overflows_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_.i, align 8
@@ -1599,7 +1599,7 @@ if.end:                                           ; preds = %if.then, %_ZN8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((1, 2)) %this, ptr nocapture noundef readonly %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll8DenseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((1, 2)) %this, ptr noundef readonly captures(none) %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %baseline_ = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 0, ptr %baseline_, align 1
@@ -1846,7 +1846,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithERKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %other) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithERKS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %other) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = load i8, ptr %other, align 8
@@ -1873,7 +1873,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithEaPKasPKtS5_(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i8 noundef signext %otherBaseline, ptr nocapture noundef readonly %otherDeltas, i16 noundef signext %otherOverflows, ptr nocapture noundef readonly %otherOverflowBuckets, ptr nocapture noundef readonly %otherOverflowValues) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithEaPKasPKtS5_(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, i8 noundef signext %otherBaseline, ptr noundef readonly captures(none) %otherDeltas, i16 noundef signext %otherOverflows, ptr noundef readonly captures(none) %otherOverflowBuckets, ptr noundef readonly captures(none) %otherOverflowValues) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %baseline_ = getelementptr inbounds nuw i8, ptr %this, i64 1
   %0 = load i8, ptr %baseline_, align 1
@@ -2386,7 +2386,7 @@ for.end66:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %serialized) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll9mergeWithEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef readonly captures(none) %serialized) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %serialized, align 1
   %cmp.not = icmp eq i8 %0, 3
@@ -2583,7 +2583,7 @@ if.end14:                                         ; preds = %if.then3, %_ZN8face
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHll14removeOverflowEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %overflowEntry) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox6common3hll8DenseHll14removeOverflowEi(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, i32 noundef %overflowEntry) local_unnamed_addr #4 align 2 {
 entry:
   %overflows_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i16, ptr %overflows_, align 8
@@ -2621,7 +2621,7 @@ declare double @llvm.round.f64(double) #11
 declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
@@ -2914,7 +2914,7 @@ declare void @llvm.assume(i1 noundef) #17
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

@@ -180,7 +180,7 @@ declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, 
 declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_ecx_key_dup(ptr nocapture noundef readonly %key, i32 noundef %selection) local_unnamed_addr #0 {
+define ptr @ossl_ecx_key_dup(ptr noundef readonly captures(none) %key, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 104, ptr noundef nonnull @.str, i32 noundef 111) #3
   %cmp = icmp eq ptr %call, null
@@ -274,7 +274,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ossl_ecx_key_allocate_privkey(ptr noundef) local_unnamed_addr #1
 

@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @my_wait_event_info = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = lshr i32 %0, 15
   %7 = zext nneg i32 %6 to i64
   %8 = icmp sgt i32 %1, 0
@@ -271,7 +271,7 @@ set_status_by_pages.exit:                         ; preds = %44, %108, %set_stat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
   %10 = and i64 %5, %9
@@ -514,7 +514,7 @@ TransactionGroupUpdateXidStatus.exit.thread:      ; preds = %.lr.ph.i, %130, %Tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 15
   %4 = zext nneg i32 %3 to i64
   %5 = and i32 %0, 32767
@@ -652,7 +652,7 @@ define internal zeroext i1 @CLOGPagePrecedes(i64 noundef %0, i64 noundef %1) #0 
 declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_transaction_buffers(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_transaction_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.1, ptr noundef %0) #9
   ret i1 %4
 }
@@ -782,7 +782,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
 declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckPointCLOG() local_unnamed_addr #0 {
@@ -867,7 +867,7 @@ declare void @AdvanceOldestClogXid(i32 noundef) local_unnamed_addr #1
 declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clog_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @clog_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -935,7 +935,7 @@ declare i32 @SlruSyncFileTag(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %4, 0
   %8 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %5, i1 noundef zeroext %7, i32 noundef %0) #9
   %.not = icmp eq i32 %0, 0
@@ -1308,7 +1308,7 @@ declare void @XLogFlush(i64 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -1317,10 +1317,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

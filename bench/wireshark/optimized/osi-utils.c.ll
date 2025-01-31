@@ -33,7 +33,7 @@ define hidden ptr @print_nsap_net(ptr noundef %0, ptr noundef %1, i32 noundef %2
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_nsap_net_buf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @print_nsap_net_buf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %1, -31
   %or.cond = icmp ult i32 %5, -30
   br i1 %or.cond, label %6, label %9
@@ -114,14 +114,14 @@ define internal fastcc void @print_nsap_net_buf(ptr nocapture noundef readonly %
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @print_system_id(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @print_system_id(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 50) #6
   tail call void @print_system_id_buf(ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 50)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @print_system_id_buf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @print_system_id_buf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %1, -16
   %or.cond = icmp ult i32 %5, -15
   br i1 %or.cond, label %6, label %9
@@ -289,7 +289,7 @@ define hidden noundef ptr @tvb_print_system_id(ptr noundef %0, ptr noundef %1, i
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @print_area(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -311,7 +311,7 @@ define hidden ptr @print_address_prefix(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_address_prefix_buf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %1, -61
   %or.cond = icmp ult i32 %5, -60
   br i1 %or.cond, label %6, label %9
@@ -564,7 +564,7 @@ define hidden void @register_osi_address_type() local_unnamed_addr #0 {
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @osi_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal i32 @osi_address_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -577,12 +577,12 @@ define internal i32 @osi_address_to_str(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @osi_address_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @osi_address_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 140
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

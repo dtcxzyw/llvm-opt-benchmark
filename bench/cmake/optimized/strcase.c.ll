@@ -159,7 +159,7 @@ ncasecompare.exit:                                ; preds = %12, %26, %.critedge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_strntoupper(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @Curl_strntoupper(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.critedge, label %.preheader
 
@@ -186,7 +186,7 @@ define dso_local void @Curl_strntoupper(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_strntolower(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @Curl_strntolower(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.critedge, label %.preheader
 
@@ -235,7 +235,7 @@ define dso_local zeroext i1 @Curl_safecmp(ptr noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @Curl_timestrcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {

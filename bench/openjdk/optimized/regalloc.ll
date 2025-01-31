@@ -67,7 +67,7 @@ declare void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 derefere
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK13PhaseRegAlloc20reg2offset_uncheckedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK13PhaseRegAlloc20reg2offset_uncheckedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
@@ -85,7 +85,7 @@ define hidden noundef i32 @_ZNK13PhaseRegAlloc20reg2offset_uncheckedEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
@@ -103,7 +103,7 @@ define hidden noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK13PhaseRegAlloc10offset2regEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK13PhaseRegAlloc10offset2regEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sdiv i32 %1, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -129,7 +129,7 @@ define hidden noundef i32 @_ZNK13PhaseRegAlloc10offset2regEi(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PhaseRegAlloc7set_oopEPK4Nodeb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13PhaseRegAlloc7set_oopEPK4Nodeb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %4, label %19
 
 4:                                                ; preds = %3
@@ -162,7 +162,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13PhaseRegAlloc6is_oopEPK4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK13PhaseRegAlloc6is_oopEPK4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
@@ -189,7 +189,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((24, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((24, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ashr i32 %1, 1
   %4 = add i32 %1, 200
   %5 = add i32 %4, %3

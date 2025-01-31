@@ -275,7 +275,7 @@ $_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_access_iterator_tag = comdat any
 @switch.table._ZL32CompareSmallInputSortPerformancev.281 = private unnamed_addr constant [4 x ptr] [ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z10VPCompareCPKvS0_(ptr nocapture noundef readonly %elem1, ptr nocapture noundef readonly %elem2) local_unnamed_addr #0 {
+define dso_local noundef i32 @_Z10VPCompareCPKvS0_(ptr noundef readonly captures(none) %elem1, ptr noundef readonly captures(none) %elem2) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %elem1, align 8
   %1 = load i64, ptr %elem2, align 8
@@ -6786,7 +6786,7 @@ ehcleanup765:                                     ; preds = %ehcleanup763, %_ZN5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
@@ -6954,7 +6954,7 @@ if.end47:                                         ; preds = %_ZN5eastl9allocator
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN2EA4StdC9Stopwatch7RestartEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
@@ -6996,7 +6996,7 @@ _ZN2EA4StdC9Stopwatch5StartEv.exit:               ; preds = %if.then2.i, %_ZN2EA
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeIjiEEvRN5eastl6vectorIT_NS1_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v, ptr nocapture noundef nonnull align 4 dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeIjiEEvRN5eastl6vectorIT_NS1_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #1 {
 entry:
   switch i32 %type, label %sw.bb [
     i32 3, label %for.cond16.preheader
@@ -7395,10 +7395,10 @@ if.end32:                                         ; preds = %if.else24, %for.end
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114CompareIntegerIjEEiPKvS2_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114CompareIntegerIjEEiPKvS2_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load i32, ptr %a, align 4
   %1 = load i32, ptr %b, align 4
@@ -7426,7 +7426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEEC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %x) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEEC2ERKS4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %x) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x.val = load ptr, ptr %x, align 8
   %0 = getelementptr inbounds nuw i8, ptr %x, i64 8
@@ -7469,7 +7469,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeIiiEEvRN5eastl6vectorIT_NS1_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v, ptr nocapture noundef nonnull align 4 dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeIiiEEvRN5eastl6vectorIT_NS1_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #1 {
 entry:
   switch i32 %type, label %sw.bb [
     i32 3, label %for.cond16.preheader
@@ -7745,7 +7745,7 @@ sw.epilog:                                        ; preds = %for.end.i.i21.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl15tim_sort_bufferIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_PT0_T1_(ptr noundef %first, ptr noundef %last, ptr nocapture noundef nonnull %pBuffer) unnamed_addr #9 {
+define internal fastcc void @_ZN5eastl15tim_sort_bufferIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_S5_PT0_T1_(ptr noundef %first, ptr noundef %last, ptr noundef nonnull captures(none) %pBuffer) unnamed_addr #9 {
 entry:
   %run_stack = alloca [64 x %"struct.eastl::Internal::tim_sort_run"], align 16
   %stack_curr = alloca i64, align 8
@@ -7965,7 +7965,7 @@ if.end32:                                         ; preds = %if.else24, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_116SlowCompareInt32EPKvS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_116SlowCompareInt32EPKvS1_(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #10 {
 entry:
   %0 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %inc = add nsw i32 %0, 1
@@ -8005,7 +8005,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeINS_10SlowAssignIjEEiEEvRN5eastl6vectorIT_NS3_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v, ptr nocapture noundef nonnull align 4 dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #11 {
+define internal fastcc void @_ZN12_GLOBAL__N_19RandomizeINS_10SlowAssignIjEEiEEvRN5eastl6vectorIT_NS3_9allocatorEEERN2EA8UnitTest8RandGenTIT0_EENS_17RandomizationTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %rng, i32 noundef range(i32 -2147483648, 4) %type) unnamed_addr #11 {
 entry:
   switch i32 %type, label %sw.bb [
     i32 3, label %for.cond17.preheader
@@ -8328,7 +8328,7 @@ sw.epilog:                                        ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl15tim_sort_bufferIPN12_GLOBAL__N_110SlowAssignIjEES3_NS_4lessIS3_EEEEvT_S7_PT0_T1_(ptr noundef %first, ptr noundef %last, ptr nocapture noundef nonnull %pBuffer) unnamed_addr #9 {
+define internal fastcc void @_ZN5eastl15tim_sort_bufferIPN12_GLOBAL__N_110SlowAssignIjEES3_NS_4lessIS3_EEEEvT_S7_PT0_T1_(ptr noundef %first, ptr noundef %last, ptr noundef nonnull captures(none) %pBuffer) unnamed_addr #9 {
 entry:
   %run_stack = alloca [64 x %"struct.eastl::Internal::tim_sort_run"], align 16
   %stack_curr = alloca i64, align 8
@@ -8654,7 +8654,7 @@ for.body43:                                       ; preds = %invoke.cont39, %for
 lpad33:                                           ; preds = %if.then.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup244
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i417
 
 lpad37:                                           ; preds = %for.body.preheader.i.i
   %3 = landingpad { ptr, i32 }
@@ -8722,7 +8722,7 @@ for.body.preheader.i.i124:                        ; preds = %if.then.i.i.i.i.i10
   %add.ptr.i.i.i109 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i117, i64 40000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call5.i.i.i.i2.i.i117, i8 0, i64 40000, i1 false)
   %call.i.i.i.i.i132 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 40000, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %invoke.cont84 unwind label %ehcleanup239.thread513
+          to label %invoke.cont84 unwind label %lpad82
 
 invoke.cont84:                                    ; preds = %for.body.preheader.i.i124
   store ptr %call.i.i.i.i.i132, ptr %eaVectorInt, align 8
@@ -8749,11 +8749,10 @@ lpad78:                                           ; preds = %if.then.i.i.i.i.i10
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
 
-ehcleanup239.thread513:                           ; preds = %for.body.preheader.i.i124
+lpad82:                                           ; preds = %for.body.preheader.i.i124
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i117) #26
-  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit402
 
 lpad91:                                           ; preds = %.noexc164, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i157, %.noexc144, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i, %invoke.cont122, %invoke.cont120, %if.then117, %invoke.cont114, %invoke.cont110, %invoke.cont108, %if.then105, %invoke.cont102
   %10 = landingpad { ptr, i32 }
@@ -9035,13 +9034,13 @@ lpad128:                                          ; preds = %_ZNSt12_Vector_base
 lpad132:                                          ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEEC2EmRKS2_.exit.i
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup237
+  br label %ehcleanup236
 
 lpad142:                                          ; preds = %.noexc372, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i365, %.noexc351, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i344, %.noexc275, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i268, %.noexc255, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i250, %invoke.cont232, %invoke.cont230, %if.then227, %if.end223, %invoke.cont220, %invoke.cont218, %if.then215, %for.end211, %invoke.cont182, %invoke.cont180, %if.then177, %if.end173, %invoke.cont170, %invoke.cont168, %if.then165, %for.end161
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eaVectorTO) #13
-  br label %ehcleanup237
+  br label %ehcleanup236
 
 for.end161:                                       ; preds = %_ZN10TestObjectD2Ev.exit239
   invoke fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdTOERN2EA4StdC9StopwatchERSt6vectorI10TestObjectSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, ptr noundef nonnull align 8 dereferenceable(24) %stdVectorTO)
@@ -9421,80 +9420,50 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i:     ; preds = %if.then.i.i.i.i.i.i
   %inc3.i.i.i.i.i.i = add nsw i64 %inc3.i.i68.i.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.011.i.i.i.i, i64 24
   %cmp.not.i.i.i.i379 = icmp eq ptr %__first.addr.011.i.i.i.i, %__cur.08.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i379, label %_ZNSt6vectorI10TestObjectSaIS0_EED2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !167
+  br i1 %cmp.not.i.i.i.i379, label %_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !167
 
-_ZNSt6vectorI10TestObjectSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i
+_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i
   store i64 %dec.i.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i183) #26
-  %tobool.not.i.i384 = icmp eq ptr %call.i.i.i.i.i132, null
-  br i1 %tobool.not.i.i384, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i385
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i385:  ; preds = %_ZNSt6vectorI10TestObjectSaIS0_EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i132) #26
-  br label %_ZNSt6vectorIjSaIjEED2Ev.exit
-
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorI10TestObjectSaIS0_EED2Ev.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i385
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i117) #26
-  %tobool.not.i.i390 = icmp eq ptr %call.i.i.i.i.i89, null
-  br i1 %tobool.not.i.i390, label %_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i391
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i391:  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i89) #26
-  br label %_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
-
-_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i391
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i78) #26
-  br i1 %cmp30, label %if.then.i.i.i.i.i, label %for.end243, !llvm.loop !168
+  br i1 %cmp30, label %if.then.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i413, !llvm.loop !168
 
-ehcleanup237:                                     ; preds = %lpad132, %lpad142
+ehcleanup236:                                     ; preds = %lpad142, %lpad132
   %.pn = phi { ptr, i32 } [ %43, %lpad142 ], [ %42, %lpad132 ]
   call void @_ZNSt6vectorI10TestObjectSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorTO) #13
-  %tobool.not.i.i396 = icmp eq ptr %call.i.i.i.i.i132, null
-  br i1 %tobool.not.i.i396, label %ehcleanup239, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i397:  ; preds = %lpad91, %lpad128, %ehcleanup237
-  %.pn.pn509 = phi { ptr, i32 } [ %.pn, %ehcleanup237 ], [ %10, %lpad91 ], [ %41, %lpad128 ]
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i397:  ; preds = %lpad91, %lpad128, %ehcleanup236
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup236 ], [ %41, %lpad128 ], [ %10, %lpad91 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i132) #26
-  br label %ehcleanup239
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit402
 
-ehcleanup239:                                     ; preds = %ehcleanup237, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup237 ], [ %.pn.pn509, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397 ]
+_ZNSt6vectorIjSaIjEED2Ev.exit402:                 ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397, %lpad82
+  %.pn.pn.pn = phi { ptr, i32 } [ %9, %lpad82 ], [ %.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i397 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i117) #26
-  %tobool.not.i.i404 = icmp eq ptr %call.i.i.i.i.i89, null
-  br i1 %tobool.not.i.i404, label %if.then.i.i.i409, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i405:  ; preds = %lpad44, %lpad78, %ehcleanup239.thread513, %ehcleanup239
-  %.pn.pn.pn.pn512 = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup239 ], [ %9, %ehcleanup239.thread513 ], [ %4, %lpad44 ], [ %8, %lpad78 ]
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i405:  ; preds = %lpad44, %lpad78, %_ZNSt6vectorIjSaIjEED2Ev.exit402
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit402 ], [ %8, %lpad78 ], [ %4, %lpad44 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i89) #26
   br label %if.then.i.i.i409
 
-if.then.i.i.i409:                                 ; preds = %lpad37, %ehcleanup239, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad37 ], [ %.pn.pn.pn, %ehcleanup239 ], [ %.pn.pn.pn.pn512, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405 ]
+if.then.i.i.i409:                                 ; preds = %lpad37, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad37 ], [ %.pn.pn.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i405 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i78) #26
-  br label %ehcleanup244
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i417
 
-for.end243:                                       ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
-  %tobool.not.i.i412 = icmp eq ptr %call.i.i.i.i.i76, null
-  br i1 %tobool.not.i.i412, label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit414, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i413
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i413:  ; preds = %for.end243
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i413:  ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i76) #26
-  br label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit414
-
-_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit414:    ; preds = %for.end243, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i413
   ret void
 
-ehcleanup244:                                     ; preds = %if.then.i.i.i409, %lpad33
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i417:  ; preds = %lpad33, %if.then.i.i.i409
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad33 ], [ %.pn.pn.pn.pn.pn, %if.then.i.i.i409 ]
-  %tobool.not.i.i416 = icmp eq ptr %call.i.i.i.i.i76, null
-  br i1 %tobool.not.i.i416, label %ehcleanup246, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i417
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i417:  ; preds = %ehcleanup244
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i76) #26
-  br label %ehcleanup246
-
-ehcleanup246:                                     ; preds = %ehcleanup244, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i417
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -9586,10 +9555,6 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call.i.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(104) @constinit, i64 104, i1 false)
   %call.i.i.i.i.i4.i = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont9 unwind label %ehcleanup65.thread
-
-common.resume:                                    ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i666, %ehcleanup65
-  %common.resume.op = phi { ptr, i32 } [ %.pn9.pn.pn, %ehcleanup65 ], [ %.pn9.pn.pn.pn690, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i666 ]
-  resume { ptr, i32 } %common.resume.op
 
 ehcleanup65.thread:                               ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -16108,11 +16073,11 @@ terminate.lpad.i.i.i593:                          ; preds = %if.then.i.i.i591
 _ZN5eastl8functionIFvR15BenchmarkResultEED2Ev.exit594: ; preds = %_ZN5eastl8functionIFvRNS_12basic_stringIcNS_9allocatorEEEPKcS6_mmRK15BenchmarkResultEED2Ev.exit588, %if.then.i.i.i591
   %649 = load ptr, ptr %mMgrFuncPtr.i.i279, align 8
   %cmp.i.not.i.i.i596 = icmp eq ptr %649, null
-  br i1 %cmp.i.not.i.i.i596, label %_ZN5eastl8functionIFvvEED2Ev.exit600, label %if.then.i.i.i597
+  br i1 %cmp.i.not.i.i.i596, label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit, label %if.then.i.i.i597
 
 if.then.i.i.i597:                                 ; preds = %_ZN5eastl8functionIFvR15BenchmarkResultEED2Ev.exit594
   %call2.i.i.i598 = invoke noundef ptr %649(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef null, i32 noundef 0)
-          to label %_ZN5eastl8functionIFvvEED2Ev.exit600 unwind label %terminate.lpad.i.i.i599
+          to label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit unwind label %terminate.lpad.i.i.i599
 
 terminate.lpad.i.i.i599:                          ; preds = %if.then.i.i.i597
   %650 = landingpad { ptr, i32 }
@@ -16121,22 +16086,15 @@ terminate.lpad.i.i.i599:                          ; preds = %if.then.i.i.i597
   call void @__clang_call_terminate(ptr %651) #29
   unreachable
 
-_ZN5eastl8functionIFvvEED2Ev.exit600:             ; preds = %_ZN5eastl8functionIFvR15BenchmarkResultEED2Ev.exit594, %if.then.i.i.i597
-  %tobool.not.i.i601 = icmp eq ptr %call.i.i.i.i.i4.i, null
-  br i1 %tobool.not.i.i601, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i605, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i602
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i602:  ; preds = %_ZN5eastl8functionIFvvEED2Ev.exit600
+_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl8functionIFvR15BenchmarkResultEED2Ev.exit594, %if.then.i.i.i597
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i4.i) #26
-  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i605
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i605:  ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i602, %_ZN5eastl8functionIFvvEED2Ev.exit600
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i) #26
   ret void
 
 lpad10:                                           ; preds = %_ZN5eastl8functionIFvvEED2Ev.exit278, %_ZN5eastl8functionIFvvEED2Ev.exit, %invoke.cont9
   %652 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup64
+  br label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664
 
 lpad23:                                           ; preds = %.noexc, %call.i.noexc, %invoke.cont22
   %653 = landingpad { ptr, i32 }
@@ -16179,11 +16137,11 @@ terminate.lpad.i.i.i617:                          ; preds = %if.then.i.i.i615
 ehcleanup25:                                      ; preds = %if.then.i.i.i615, %ehcleanup
   %660 = load ptr, ptr %mMgrFuncPtr.i.i, align 8
   %cmp.i.not.i.i.i620 = icmp eq ptr %660, null
-  br i1 %cmp.i.not.i.i.i620, label %ehcleanup64, label %if.then.i.i.i621
+  br i1 %cmp.i.not.i.i.i620, label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664, label %if.then.i.i.i621
 
 if.then.i.i.i621:                                 ; preds = %ehcleanup25
   %call2.i.i.i622 = invoke noundef ptr %660(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef null, i32 noundef 0)
-          to label %ehcleanup64 unwind label %terminate.lpad.i.i.i623
+          to label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664 unwind label %terminate.lpad.i.i.i623
 
 terminate.lpad.i.i.i623:                          ; preds = %if.then.i.i.i621
   %661 = landingpad { ptr, i32 }
@@ -16233,11 +16191,11 @@ terminate.lpad.i.i.i635:                          ; preds = %if.then.i.i.i633
 ehcleanup44:                                      ; preds = %if.then.i.i.i633, %ehcleanup43
   %670 = load ptr, ptr %mMgrFuncPtr.i.i45, align 8
   %cmp.i.not.i.i.i638 = icmp eq ptr %670, null
-  br i1 %cmp.i.not.i.i.i638, label %ehcleanup64, label %if.then.i.i.i639
+  br i1 %cmp.i.not.i.i.i638, label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664, label %if.then.i.i.i639
 
 if.then.i.i.i639:                                 ; preds = %ehcleanup44
   %call2.i.i.i640 = invoke noundef ptr %670(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef null, i32 noundef 0)
-          to label %ehcleanup64 unwind label %terminate.lpad.i.i.i641
+          to label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664 unwind label %terminate.lpad.i.i.i641
 
 terminate.lpad.i.i.i641:                          ; preds = %if.then.i.i.i639
   %671 = landingpad { ptr, i32 }
@@ -16287,11 +16245,11 @@ terminate.lpad.i.i.i653:                          ; preds = %if.then.i.i.i651
 ehcleanup63:                                      ; preds = %if.then.i.i.i651, %ehcleanup62
   %680 = load ptr, ptr %mMgrFuncPtr.i.i279, align 8
   %cmp.i.not.i.i.i656 = icmp eq ptr %680, null
-  br i1 %cmp.i.not.i.i.i656, label %ehcleanup64, label %if.then.i.i.i657
+  br i1 %cmp.i.not.i.i.i656, label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664, label %if.then.i.i.i657
 
 if.then.i.i.i657:                                 ; preds = %ehcleanup63
   %call2.i.i.i658 = invoke noundef ptr %680(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef null, i32 noundef 0)
-          to label %ehcleanup64 unwind label %terminate.lpad.i.i.i659
+          to label %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664 unwind label %terminate.lpad.i.i.i659
 
 terminate.lpad.i.i.i659:                          ; preds = %if.then.i.i.i657
   %681 = landingpad { ptr, i32 }
@@ -16300,27 +16258,19 @@ terminate.lpad.i.i.i659:                          ; preds = %if.then.i.i.i657
   call void @__clang_call_terminate(ptr %682) #29
   unreachable
 
-ehcleanup64:                                      ; preds = %if.then.i.i.i657, %ehcleanup63, %if.then.i.i.i639, %ehcleanup44, %if.then.i.i.i621, %ehcleanup25, %lpad10
+_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664: ; preds = %if.then.i.i.i657, %ehcleanup63, %if.then.i.i.i639, %ehcleanup44, %if.then.i.i.i621, %ehcleanup25, %lpad10
   %.pn9.pn.pn = phi { ptr, i32 } [ %652, %lpad10 ], [ %eh.lpad-body34, %ehcleanup25 ], [ %eh.lpad-body34, %if.then.i.i.i621 ], [ %eh.lpad-body260, %ehcleanup44 ], [ %eh.lpad-body260, %if.then.i.i.i639 ], [ %eh.lpad-body582, %ehcleanup63 ], [ %eh.lpad-body582, %if.then.i.i.i657 ]
-  %tobool.not.i.i661 = icmp eq ptr %call.i.i.i.i.i4.i, null
-  br i1 %tobool.not.i.i661, label %ehcleanup65, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i662
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i662:  ; preds = %ehcleanup64
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i4.i) #26
-  br label %ehcleanup65
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i666
 
-ehcleanup65:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i662, %ehcleanup64
-  %tobool.not.i.i665 = icmp eq ptr %call.i.i.i.i.i1.i, null
-  br i1 %tobool.not.i.i665, label %common.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i666
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i666:  ; preds = %ehcleanup65.thread, %ehcleanup65
-  %.pn9.pn.pn.pn690 = phi { ptr, i32 } [ %0, %ehcleanup65.thread ], [ %.pn9.pn.pn, %ehcleanup65 ]
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i666:  ; preds = %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664, %ehcleanup65.thread
+  %.pn9.pn.pn.pn690 = phi { ptr, i32 } [ %0, %ehcleanup65.thread ], [ %.pn9.pn.pn, %_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEED2Ev.exit664 ]
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i1.i) #26
-  br label %common.resume
+  resume { ptr, i32 } %.pn9.pn.pn.pn690
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdVPERN2EA4StdC9StopwatchERSt6vectorINS_9ValuePairESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorVP) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdVPERN2EA4StdC9StopwatchERSt6vectorINS_9ValuePairESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stdVectorVP) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -16554,7 +16504,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt6vectorIS3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TestQuickSortEaVPERN2EA4StdC9StopwatchERN5eastl6vectorINS_9ValuePairENS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorVP) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TestQuickSortEaVPERN2EA4StdC9StopwatchERN5eastl6vectorINS_9ValuePairENS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %eaVectorVP) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -16744,7 +16694,7 @@ _ZN5eastl10quick_sortIPN12_GLOBAL__N_19ValuePairEEEvT_S4_.exit: ; preds = %for.e
 declare void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortEaIntERN2EA4StdC9StopwatchERN5eastl6vectorIjNS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorInt) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortEaIntERN2EA4StdC9StopwatchERN5eastl6vectorIjNS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %eaVectorInt) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -16901,7 +16851,7 @@ _ZN5eastl10quick_sortIPjEEvT_S2_.exit:            ; preds = %for.end.i.i21.i, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdTOERN2EA4StdC9StopwatchERSt6vectorI10TestObjectSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorTO) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdTOERN2EA4StdC9StopwatchERSt6vectorI10TestObjectSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %stdVectorTO) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %stopwatch, i64 16
@@ -17111,7 +17061,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare noundef i32 @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -18635,7 +18585,7 @@ if.end27:                                         ; preds = %if.else14.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18654,13 +18604,13 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nocapture nonnull readnone align 8 %functor) #19 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_0vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nonnull readnone align 8 captures(none) %functor) #19 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18679,13 +18629,13 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture nonnull readnone align 8 %args, ptr nocapture nonnull readnone align 8 %functor) #19 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_1vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nonnull readnone align 8 captures(none) %args, ptr nonnull readnone align 8 captures(none) %functor) #19 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18704,7 +18654,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args9, ptr nocapture nonnull readnone align 8 %functor) #1 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_2vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args9, ptr nonnull readnone align 8 captures(none) %functor) #1 align 2 {
 entry:
   %call16.val = load i64, ptr %args9, align 8
   %conv.i.i.i = trunc i64 %args5 to i32
@@ -18721,7 +18671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18740,14 +18690,14 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nocapture nonnull readnone align 8 %functor) #20 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_3vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nonnull readnone align 8 captures(none) %functor) #20 align 2 {
 entry:
   store i32 0, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18766,7 +18716,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 16)) %args, ptr nonnull readnone align 8 captures(none) %functor) #21 align 2 {
 entry:
   %0 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %conv.i.i.i = sext i32 %0 to i64
@@ -18776,7 +18726,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -18795,7 +18745,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args9, ptr nocapture nonnull readnone align 8 %functor) #1 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_5vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args9, ptr nonnull readnone align 8 captures(none) %functor) #1 align 2 {
 entry:
   %call16.val = load i64, ptr %args9, align 8
   %0 = getelementptr inbounds nuw i8, ptr %args9, i64 8
@@ -20134,7 +20084,7 @@ if.end27:                                         ; preds = %if.else15.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_110SlowAssignIjEES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_110SlowAssignIjEES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef writeonly captures(none) %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
@@ -20550,7 +20500,7 @@ return:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20569,14 +20519,14 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nocapture nonnull readnone align 8 %functor) #20 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_6vJEE7InvokerERKNS0_15functor_storageILi16EEE"(ptr nonnull readnone align 8 captures(none) %functor) #20 align 2 {
 entry:
   store i32 0, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7ManagerEPvS8_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20595,7 +20545,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 24)) %args, ptr nonnull readnone align 8 captures(none) %functor) #21 align 2 {
 entry:
   %0 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %conv.i.i.i = sext i32 %0 to i64
@@ -20609,7 +20559,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7ManagerEPvSF_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -20628,7 +20578,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args9, ptr nocapture nonnull readnone align 8 %functor) #1 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_8vJRNS_12basic_stringIcNS_9allocatorEEEPKcSA_mmRK15BenchmarkResultEE7InvokerES8_SA_SA_mmSD_RKNS0_15functor_storageILi16EEE"(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %args1, ptr noundef %args3, i64 noundef %args5, i64 noundef %args7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args9, ptr nonnull readnone align 8 captures(none) %functor) #1 align 2 {
 entry:
   %call16.val = load i64, ptr %args9, align 8
   %0 = getelementptr inbounds nuw i8, ptr %args9, i64 16
@@ -20646,7 +20596,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #11 {
@@ -27873,7 +27823,7 @@ if.end:                                           ; preds = %for.body.i.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_(ptr nocapture noundef %first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %topPosition, i64 noundef range(i64 -2305843009213693953, 2305843009213693952) %heapSize, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %value) unnamed_addr #9 {
+define internal fastcc void @_ZN5eastl11adjust_heapIPiliN12_GLOBAL__N_111SlowCompareIiEEEEvT_T0_S6_S6_OT1_T2_(ptr noundef captures(none) %first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %topPosition, i64 noundef range(i64 -2305843009213693953, 2305843009213693952) %heapSize, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %position, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %value) unnamed_addr #9 {
 entry:
   %childPosition.0.in22.i = shl nsw i64 %position, 1
   %childPosition.023.i = add nsw i64 %childPosition.0.in22.i, 2
@@ -28019,7 +27969,7 @@ _ZN5eastl16adjust_heap_implIPilOiN12_GLOBAL__N_111SlowCompareIiEEiEEvT_T0_S7_S7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPiiN12_GLOBAL__N_111SlowCompareIiEEEEbPNS0_12tim_sort_runET_PT0_llRlSB_SB_SB_T1_(ptr nocapture noundef nonnull %run_stack, ptr noundef %first, ptr nocapture noundef nonnull %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr nocapture noundef nonnull align 8 dereferenceable(8) %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %run, ptr nocapture noundef nonnull align 8 dereferenceable(8) %curr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stack_curr) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPiiN12_GLOBAL__N_111SlowCompareIiEEEEbPNS0_12tim_sort_runET_PT0_llRlSB_SB_SB_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %curr, align 8
   %sub.i = sub nsw i64 %size, %0
@@ -28290,7 +28240,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl8Internal14tim_sort_mergeIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr nocapture noundef %first, ptr nocapture noundef nonnull readonly %run_stack, i64 noundef range(i64 2, -9223372036854775808) %stack_curr, ptr nocapture noundef nonnull %pBuffer) unnamed_addr #9 {
+define internal fastcc void @_ZN5eastl8Internal14tim_sort_mergeIPiiN12_GLOBAL__N_111SlowCompareIiEEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef captures(none) %first, ptr noundef nonnull readonly captures(none) %run_stack, i64 noundef range(i64 2, -9223372036854775808) %stack_curr, ptr noundef nonnull captures(none) %pBuffer) unnamed_addr #9 {
 entry:
   %0 = getelementptr %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %stack_curr
   %arrayidx = getelementptr i8, ptr %0, i64 -32
@@ -29378,7 +29328,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_T0_S9_T1_T2_(ptr nocapture noundef %__first, i64 noundef range(i64 0, 1152921504606846975) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value) unnamed_addr #9 {
+define internal fastcc void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_T0_S9_T1_T2_(ptr noundef captures(none) %__first, i64 noundef range(i64 0, 1152921504606846975) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value) unnamed_addr #9 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -30642,7 +30592,7 @@ if.end27:                                         ; preds = %if.then3, %return.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_S8_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef writeonly captures(none) %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
@@ -31466,7 +31416,7 @@ if.end:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEbPNS0_12tim_sort_runET_PT0_llRlSD_SD_SD_T1_(ptr nocapture noundef nonnull %run_stack, ptr noundef %first, ptr nocapture noundef nonnull %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr nocapture noundef nonnull align 8 dereferenceable(8) %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %run, ptr nocapture noundef nonnull align 8 dereferenceable(8) %curr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %stack_curr) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5eastl8Internal16tim_sort_add_runIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEbPNS0_12tim_sort_runET_PT0_llRlSD_SD_SD_T1_(ptr noundef nonnull captures(none) %run_stack, ptr noundef %first, ptr noundef nonnull captures(none) %pBuffer, i64 noundef range(i64 64, 2305843009213693952) %size, i64 noundef range(i64 0, 1152921504606846977) %minrun, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %run, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %curr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %stack_curr) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %curr, align 8
   %sub.i = sub nsw i64 %size, %0
@@ -31664,7 +31614,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5eastl8Internal14tim_sort_mergeIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr nocapture noundef %first, ptr nocapture noundef nonnull readonly %run_stack, i64 noundef range(i64 2, -9223372036854775808) %stack_curr, ptr nocapture noundef nonnull %pBuffer) unnamed_addr #9 {
+define internal fastcc void @_ZN5eastl8Internal14tim_sort_mergeIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef captures(none) %first, ptr noundef nonnull readonly captures(none) %run_stack, i64 noundef range(i64 2, -9223372036854775808) %stack_curr, ptr noundef nonnull captures(none) %pBuffer) unnamed_addr #9 {
 entry:
   %0 = getelementptr %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %stack_curr
   %arrayidx = getelementptr i8, ptr %0, i64 -32
@@ -33573,7 +33523,7 @@ if.end27:                                         ; preds = %if.else15.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_110SlowAssignIjEES3_lN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_SA_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_110SlowAssignIjEES3_lN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_SA_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef writeonly captures(none) %__result, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %__step_size) unnamed_addr #9 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
@@ -33807,10 +33757,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #23
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24

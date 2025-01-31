@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [5 x i8] c"(D)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_management_internal_GcInfoBuilder_getNumGcExtAttributes(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_com_sun_management_internal_GcInfoBuilder_getNumGcExtAttributes(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -57,7 +57,7 @@ define i32 @Java_com_sun_management_internal_GcInfoBuilder_getNumGcExtAttributes
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %2, null
   br i1 %8, label %9, label %10
 
@@ -215,7 +215,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {

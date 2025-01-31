@@ -123,7 +123,7 @@ define dso_local i32 @archive_read_set_filter_option(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -21, -19) i32 @archive_set_filter_option(ptr nocapture readnone %0, ptr noundef readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #2 {
+define internal noundef range(i32 -21, -19) i32 @archive_set_filter_option(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #2 {
   %.not = icmp eq ptr %1, null
   %. = select i1 %.not, i32 -20, i32 -21
   ret i32 %.
@@ -150,7 +150,7 @@ define dso_local i32 @archive_read_set_options(ptr noundef %0, ptr noundef %1) l
 declare i32 @_archive_set_options(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @_archive_set_either_option(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

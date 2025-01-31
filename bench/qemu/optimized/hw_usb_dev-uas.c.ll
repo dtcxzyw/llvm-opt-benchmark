@@ -145,7 +145,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @usb_uas_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i14 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #9
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @usb_uas_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 137, ptr noundef nonnull @__func__.USB_UAS) #9
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
@@ -1233,7 +1233,7 @@ declare void @usb_packet_complete(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_scsi_transfer_data(ptr nocapture noundef readonly %r, i32 noundef %len) #0 {
+define internal void @usb_uas_scsi_transfer_data(ptr noundef readonly captures(none) %r, i32 noundef %len) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hba_private = getelementptr inbounds nuw i8, ptr %r, i64 40
@@ -1303,7 +1303,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_scsi_command_complete(ptr nocapture noundef readonly %r, i64 noundef %resid) #0 {
+define internal void @usb_uas_scsi_command_complete(ptr noundef readonly captures(none) %r, i64 noundef %resid) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1521,7 +1521,7 @@ usb_uas_queue_sense.exit:                         ; preds = %if.then.i15.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_scsi_request_cancelled(ptr nocapture noundef readonly %r) #0 {
+define internal void @usb_uas_scsi_request_cancelled(ptr noundef readonly captures(none) %r) #0 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -1532,7 +1532,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_uas_scsi_free_request(ptr nocapture readnone %bus, ptr noundef %priv) #0 {
+define internal void @usb_uas_scsi_free_request(ptr readnone captures(none) %bus, ptr noundef %priv) #0 {
 entry:
   %uas1 = getelementptr inbounds nuw i8, ptr %priv, i64 16
   %0 = load ptr, ptr %uas1, align 8
@@ -1583,7 +1583,7 @@ if.end16:                                         ; preds = %if.else, %if.then8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_uas_copy_data(ptr nocapture noundef %req) unnamed_addr #0 {
+define internal fastcc void @usb_uas_copy_data(ptr noundef captures(none) %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf_size = getelementptr inbounds nuw i8, ptr %req, i64 56
@@ -1706,7 +1706,7 @@ if.end38:                                         ; preds = %if.then34, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_uas_start_next_transfer(ptr nocapture noundef %uas) unnamed_addr #0 {
+define internal fastcc void @usb_uas_start_next_transfer(ptr noundef captures(none) %uas) unnamed_addr #0 {
 entry:
   %_now.i.i.i17 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1996,7 +1996,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2249,13 +2249,13 @@ declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

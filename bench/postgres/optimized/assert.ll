@@ -41,7 +41,7 @@ declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -49,7 +49,7 @@ declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4

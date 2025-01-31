@@ -405,10 +405,10 @@ $_ZTV9Assembler = comdat any
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -459,7 +459,7 @@ define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7get_oopEiP8JVMCIEnv(p
 declare void @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream7contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.stringStream, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #11
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
@@ -506,7 +506,7 @@ _ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12outputStream.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK25HotSpotCompiledCodeStream6offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK25HotSpotCompiledCodeStream6offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %.011 = load ptr, ptr %0, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %.loopexit, label %.lr.ph
@@ -547,7 +547,7 @@ define hidden noundef i32 @_ZNK25HotSpotCompiledCodeStream6offsetEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK25HotSpotCompiledCodeStream9availableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK25HotSpotCompiledCodeStream9availableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -582,7 +582,7 @@ define hidden noundef zeroext i1 @_ZNK25HotSpotCompiledCodeStream9availableEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK25HotSpotCompiledCodeStream11dump_bufferEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK25HotSpotCompiledCodeStream11dump_bufferEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, ptr noundef %4) #11
@@ -613,7 +613,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK25HotSpotCompiledCodeStream16dump_buffer_tailEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -663,7 +663,7 @@ declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25HotSpotCompiledCodeStream11before_readEh(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN25HotSpotCompiledCodeStream11before_readEh(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = zext i8 %1 to i32
@@ -716,7 +716,7 @@ define hidden void @_ZN25HotSpotCompiledCodeStream11before_readEh(ptr nocapture 
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25HotSpotCompiledCodeStream10check_dataEtPKc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN25HotSpotCompiledCodeStream10check_dataEtPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -815,7 +815,7 @@ _ZN25HotSpotCompiledCodeStream6get_u1Ev.exit22:   ; preds = %_ZN25HotSpotCompile
   br i1 %.not, label %64, label %66
 
 64:                                               ; preds = %_ZN25HotSpotCompiledCodeStream6get_u1Ev.exit22
-  %65 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull %60, i64 noundef %61) #13
+  %65 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef nonnull %60, i64 noundef %61) #13
   %.not20 = icmp eq i32 %65, 0
   br i1 %.not20, label %73, label %66
 
@@ -828,7 +828,7 @@ _ZN25HotSpotCompiledCodeStream6get_u1Ev.exit22:   ; preds = %_ZN25HotSpotCompile
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %60 to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 159, ptr noundef nonnull @.str.18, ptr noundef %71, ptr noundef %2, i64 noundef %72, i32 noundef %67, ptr noundef nonnull %60, i32 noundef %67) #12
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 159, ptr noundef nonnull @.str.18, ptr noundef %71, ptr noundef nonnull %2, i64 noundef %72, i32 noundef %67, ptr noundef nonnull %60, i32 noundef %67) #12
   unreachable
 
 73:                                               ; preds = %64
@@ -845,7 +845,7 @@ _ZN25HotSpotCompiledCodeStream6get_u1Ev.exit22:   ; preds = %_ZN25HotSpotCompile
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %60 to i64
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @.str.19, ptr noundef %80, ptr noundef %2, i64 noundef %81, i32 noundef %75, i32 noundef %74) #12
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @.str.19, ptr noundef %80, ptr noundef nonnull %2, i64 noundef %81, i32 noundef %75, i32 noundef %74) #12
   unreachable
 
 82:                                               ; preds = %73
@@ -853,13 +853,13 @@ _ZN25HotSpotCompiledCodeStream6get_u1Ev.exit22:   ; preds = %_ZN25HotSpotCompile
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream9read_utf8EPKcP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream9read_utf8EPKcP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -954,7 +954,7 @@ _ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit:  ; preds = %8, %34
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream11read_methodEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream11read_methodEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -1017,7 +1017,7 @@ _ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit:  ; preds = %7, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream10read_klassEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN25HotSpotCompiledCodeStream10read_klassEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -1080,7 +1080,7 @@ _ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit:  ; preds = %7, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1119,7 +1119,7 @@ define hidden noundef ptr @_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller20getVMRegFromLocationEP25HotSpotCompiledCodeStreamiP8JVMCIEnv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller20getVMRegFromLocationEP25HotSpotCompiledCodeStreamiP8JVMCIEnv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef captures(none) %1, i32 %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -1360,7 +1360,7 @@ declare noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 noundef
 declare noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller14create_oop_mapEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller14create_oop_mapEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -1889,7 +1889,7 @@ declare void @_ZN6OopMap13set_narrowoopEP9VMRegImpl(ptr noundef nonnull align 8 
 declare void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller25record_metadata_referenceEP11CodeSectionPhP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller25record_metadata_referenceEP11CodeSectionPhP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %class.RelocationHolder, align 8
   %8 = alloca %class.RelocationHolder, align 8
   switch i8 %4, label %141 [
@@ -2137,7 +2137,7 @@ declare void @_ZN5JVMCI6event3EPKcz(ptr noundef, ...) local_unnamed_addr #3
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN13CodeInstaller32record_narrow_metadata_referenceEP11CodeSectionPhP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN13CodeInstaller32record_narrow_metadata_referenceEP11CodeSectionPhP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %class.RelocationHolder, align 8
   %.not = icmp eq i8 %4, 31
   br i1 %.not, label %11, label %8
@@ -2273,7 +2273,7 @@ _ZN11OopRecorder14metadata_countEv.exit:          ; preds = %62, %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr noundef readonly captures(none) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   switch i8 %2, label %23 [
     i8 10, label %6
     i8 6, label %6
@@ -2336,7 +2336,7 @@ define hidden noundef ptr @_ZN13CodeInstaller18to_primitive_valueEP25HotSpotComp
 declare noundef ptr @_Z16basictype_to_str9BasicType(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller8read_oopEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller8read_oopEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   switch i8 %2, label %168 [
     i8 17, label %5
     i8 18, label %67
@@ -2678,7 +2678,7 @@ declare void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr noundef nonnull align 8 
 declare noundef zeroext i1 @_ZN7oopDesc14is_oop_or_nullEPS_b(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller15get_scope_valueEP25HotSpotCompiledCodeStreamh9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller15get_scope_valueEP25HotSpotCompiledCodeStreamh9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   store ptr null, ptr %4, align 8
   switch i8 %2, label %435 [
     i8 0, label %7
@@ -3510,7 +3510,7 @@ declare noundef zeroext i1 @_ZN13CodeInstaller22is_general_purpose_regEP9VMRegIm
 declare noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller19record_object_valueEP11ObjectValueP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller19record_object_valueEP11ObjectValueP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -3868,7 +3868,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca ptr, align 8
   br i1 %3, label %7, label %45
 
@@ -4352,7 +4352,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller19read_monitor_valuesEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller19read_monitor_valuesEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = and i8 %2, 4
   %.not25 = icmp eq i8 %6, 0
@@ -5505,7 +5505,7 @@ declare void @_ZN12Dependencies29assert_call_site_target_valueEP7oopDescS1_(ptr 
 declare void @_ZN12Dependencies18assert_evol_methodEP6Method(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN13CodeInstaller20install_runtime_stubERP8CodeBlobPKcP10CodeBufferiP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN13CodeInstaller20install_runtime_stubERP8CodeBlobPKcP10CodeBufferiP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %9
 
@@ -5537,7 +5537,7 @@ declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext)
 declare noundef ptr @_ZN11RuntimeStub16new_runtime_stubEPKcP10CodeBuffersiP9OopMapSetbb(ptr noundef, ptr noundef, i16 noundef signext, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN13CodeInstaller7installEP13JVMCICompilerlb11JVMCIObject14objArrayHandleRP8CodeBlobR18JVMCINMethodHandleS2_PP17FailedSpeculationPciP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr %4, i8 %5, i64 %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr nocapture noundef readonly byval(%class.JVMCIObject) align 8 %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN13CodeInstaller7installEP13JVMCICompilerlb11JVMCIObject14objArrayHandleRP8CodeBlobR18JVMCINMethodHandleS2_PP17FailedSpeculationPciP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr %4, i8 %5, i64 %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef readonly byval(%class.JVMCIObject) align 8 captures(none) %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13) local_unnamed_addr #2 align 2 {
   %15 = alloca %class.methodHandle, align 8
   %16 = alloca %class.methodHandle, align 8
   %17 = alloca %class.CodeBuffer, align 8
@@ -6250,7 +6250,7 @@ declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller17initialize_fieldsEP25HotSpotCompiledCodeStreamhR12methodHandleR10CodeBufferP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((108, 112)) %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller17initialize_fieldsEP25HotSpotCompiledCodeStreamhR12methodHandleR10CodeBufferP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) initializes((108, 112)) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(448) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = load ptr, ptr %3, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
@@ -7502,7 +7502,7 @@ declare noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull
 declare noundef i32 @_ZNK11CodeSection9alignmentEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 19) i8 @_ZN13CodeInstaller15as_read_oop_tagEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext range(i8 0, 19) i8 @_ZN13CodeInstaller15as_read_oop_tagEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %switch.tableidx = add i8 %1, -24
   %4 = icmp ult i8 %switch.tableidx, 6
   br i1 %4, label %switch.lookup, label %5
@@ -7526,7 +7526,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN13CodeInstaller19estimate_stubs_sizeEP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1, ptr nocapture readnone %2) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN13CodeInstaller19estimate_stubs_sizeEP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -7670,7 +7670,7 @@ declare void @_ZN8JVMCIEnv13copy_bytes_toE19JVMCIPrimitiveArrayPaii(ptr noundef 
 declare { ptr, i8 } @_ZN8JVMCIEnv34get_HotSpotCompiledCode_targetCodeE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller16record_oop_patchEP25HotSpotCompiledCodeStreamPhhbP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr nocapture noundef %1, ptr noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller16record_oop_patchEP25HotSpotCompiledCodeStreamPhhbP8JVMCIEnv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %0, ptr noundef captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %class.RelocationHolder, align 8
   %8 = alloca %class.RelocationHolder, align 8
   %9 = tail call ptr @_ZN13CodeInstaller8read_oopEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %3, ptr noundef %5)
@@ -8097,7 +8097,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %122, %146
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller14site_SafepointER10CodeBufferiP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller14site_SafepointER10CodeBufferiP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
@@ -8256,7 +8256,7 @@ _ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit:  ; preds = %59, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller14site_InfopointER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller14site_InfopointER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -8332,7 +8332,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %10, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller9site_MarkER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller9site_MarkER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -8486,7 +8486,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %10, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller14site_DataPatchER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller14site_DataPatchER10CodeBufferiP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %class.Handle, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i8, ptr %7, align 8
@@ -8687,7 +8687,7 @@ _ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit:  ; preds = %57, %81
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller21site_ExceptionHandlerEiP25HotSpotCompiledCodeStream(ptr noundef nonnull align 8 dereferenceable(225) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller21site_ExceptionHandlerEiP25HotSpotCompiledCodeStream(ptr noundef nonnull align 8 dereferenceable(225) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -8765,7 +8765,7 @@ declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr noundef nonnull align 8 dereferenceable(17), i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller20read_virtual_objectsEP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller20read_virtual_objectsEP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -9051,7 +9051,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %117, %121
 declare void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -6, -2147483648) i32 @_ZN13CodeInstaller13map_jvmci_bciEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(225) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -6, -2147483648) i32 @_ZN13CodeInstaller13map_jvmci_bciEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(225) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %9
 
@@ -9081,7 +9081,7 @@ switch.lookup:                                    ; preds = %4
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #2 align 2 {
   %9 = alloca %class.methodHandle, align 8
   br i1 %4, label %10, label %12
 

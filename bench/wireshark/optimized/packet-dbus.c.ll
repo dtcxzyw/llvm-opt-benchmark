@@ -327,7 +327,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._dbus_type_reader_t, align 8
   %6 = alloca %union.dbus_val_t, align 8
   %7 = alloca %struct._address, align 8
@@ -951,7 +951,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
   %302 = add i32 %301, 1
   %303 = getelementptr inbounds nuw i8, ptr %.val174.i, i64 408
   %304 = load ptr, ptr %303, align 8
-  %305 = call noalias ptr @wmem_strdup(ptr noundef %304, ptr noundef %294) #9
+  %305 = call noalias ptr @wmem_strdup(ptr noundef %304, ptr noundef nonnull %294) #9
   store i32 7, ptr %299, align 8
   %306 = getelementptr inbounds nuw i8, ptr %.val174.i, i64 236
   store i32 %302, ptr %306, align 4
@@ -988,7 +988,7 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
   %321 = add i32 %320, 1
   %322 = getelementptr inbounds nuw i8, ptr %.val176.i, i64 408
   %323 = load ptr, ptr %322, align 8
-  %324 = call noalias ptr @wmem_strdup(ptr noundef %323, ptr noundef %313) #9
+  %324 = call noalias ptr @wmem_strdup(ptr noundef %323, ptr noundef nonnull %313) #9
   store i32 7, ptr %318, align 8
   %325 = getelementptr inbounds nuw i8, ptr %.val176.i, i64 212
   store i32 %321, ptr %325, align 4
@@ -1645,7 +1645,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2539,7 +2539,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reader_cleanup(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @reader_cleanup(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not4 = icmp eq ptr %3, null
@@ -2562,7 +2562,7 @@ define internal fastcc void @reader_cleanup(ptr nocapture noundef readonly %0) u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @is_dbus_bus_name_valid(ptr noundef %0) unnamed_addr #5 {
@@ -2695,14 +2695,14 @@ define internal fastcc range(i32 0, 2) i32 @is_dbus_bus_name_valid(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @proto_item_get_subtree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_unique_name(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @resolve_unique_name(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %3) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2799,7 +2799,7 @@ proto_item_set_generated.exit29:                  ; preds = %49, %46, %34, %31, 
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_padding(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_padding(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %3) #9
   %5 = load ptr, ptr %0, align 8
@@ -2911,7 +2911,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_dbus_string(ptr nocapture noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
+define internal fastcc ptr @add_dbus_string(ptr noundef captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %5) #9
@@ -3174,7 +3174,7 @@ skip_enclosed_container.exit:                     ; preds = %20, %15, %12, %7, %
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3266,7 +3266,7 @@ declare zeroext i1 @wmem_map_contains(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dbus_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_dbus_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
   %cond = icmp eq i8 %5, 108
   %tvb_get_letohl.tvb_get_ntohl = select i1 %cond, ptr @tvb_get_letohl, ptr @tvb_get_ntohl
@@ -3281,7 +3281,7 @@ define internal i32 @get_dbus_message_len(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dbus_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_dbus_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   ret i32 %5
 }
@@ -3293,10 +3293,10 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

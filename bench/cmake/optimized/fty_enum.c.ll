@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dummy = internal unnamed_addr constant [1 x ptr] zeroinitializer, align 8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0 {
+define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %59, label %3
@@ -152,7 +152,7 @@ define internal void @Free_Enum_Type(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i8, ptr %4, align 4
@@ -469,7 +469,7 @@ Compare.exit:                                     ; preds = %.loopexit38.i.loope
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i8, ptr %4, align 4
@@ -672,7 +672,7 @@ Compare.exit39:                                   ; preds = %79, %83, %2, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -889,10 +889,10 @@ Compare.exit41:                                   ; preds = %90, %94, %2, %.thre
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @field_buffer(ptr noundef, i32 noundef) local_unnamed_addr #7
 

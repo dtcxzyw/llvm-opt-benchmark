@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @j2d_glDrawPixels = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, double noundef %12, double noundef %13, double noundef %14, double noundef %15) local_unnamed_addr #0 {
+define hidden void @OGLBlitLoops_IsoBlit(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, double noundef %12, double noundef %13, double noundef %14, double noundef %15) local_unnamed_addr #0 {
   %17 = alloca %struct.SurfaceDataRasInfo, align 8
   %18 = inttoptr i64 %2 to ptr
   %19 = sub nsw i32 %10, %8
@@ -312,7 +312,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13) unnamed_addr #0 {
+define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13) unnamed_addr #0 {
   %15 = icmp eq i32 %5, 2
   %16 = select i1 %15, i32 9729, i32 9728
   %.not = icmp eq ptr %2, null
@@ -598,7 +598,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitSurfaceToSurface(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
+define internal fastcc void @OGLBlitSurfaceToSurface(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) unnamed_addr #0 {
   %11 = sub nsw i32 %4, %2
   %12 = sub nsw i32 %5, %3
   %13 = fsub double %8, %6
@@ -893,10 +893,10 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @OGLBlitSwToTexture(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i8, ptr %8, align 4
   %.not = icmp eq i8 %9, 0
@@ -982,7 +982,7 @@ define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) unnamed_addr #0 {
+define internal fastcc void @OGLBlitSwToSurface(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) unnamed_addr #0 {
   %12 = fsub double %9, %7
   %13 = fptrunc double %12 to float
   %14 = sub nsw i32 %5, %3
@@ -1383,7 +1383,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
@@ -1549,7 +1549,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
 declare void @SurfaceData_IntersectBlitBounds(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLBlitLoops_CopyArea(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @OGLBlitLoops_CopyArea(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.SurfaceDataBounds, align 4
   %11 = alloca %struct.SurfaceDataBounds, align 4
   %12 = icmp eq ptr %1, null

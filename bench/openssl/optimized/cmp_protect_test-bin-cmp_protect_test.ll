@@ -2030,7 +2030,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_CMP_CTX_set1_pkey(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_calc_protection_signature_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_calc_protection_signature_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %prot_part.i = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %fixture, i64 8
@@ -2080,7 +2080,7 @@ declare i32 @ASN1_item_verify_ex(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @OSSL_CMP_PROTECTEDPART_it() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2194,7 +2194,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_cmp_build_cert_chain_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_cmp_build_cert_chain_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -2290,7 +2290,7 @@ declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_X509_STORE_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_X509_STORE_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_new() #5
   %certs = getelementptr inbounds nuw i8, ptr %fixture, i64 64
@@ -2327,10 +2327,10 @@ declare i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef, ptr noundef, i32 nounde
 declare ptr @X509_STORE_get1_all_certs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

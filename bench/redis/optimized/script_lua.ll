@@ -490,7 +490,7 @@ if.end27:                                         ; preds = %for.end, %if.then26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #3 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #3 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -724,7 +724,7 @@ for.end43:                                        ; preds = %for.cond34
   br i1 %cmp47, label %if.end52, label %if.end49
 
 if.end49:                                         ; preds = %for.end43
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.55, ptr noundef %call16) #11
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.55, ptr noundef nonnull %call16) #11
   br label %if.end52
 
 if.else:                                          ; preds = %for.body20
@@ -1376,7 +1376,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaErrorInformationDiscard(ptr nocapture noundef readonly %err_info) local_unnamed_addr #0 {
+define dso_local void @luaErrorInformationDiscard(ptr noundef readonly captures(none) %err_info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %err_info, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1411,7 +1411,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaExtractErrorInformation(ptr noundef %lua, ptr nocapture noundef writeonly %err_info) local_unnamed_addr #0 {
+define dso_local void @luaExtractErrorInformation(ptr noundef %lua, ptr noundef writeonly captures(none) %err_info) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_isstring(ptr noundef %lua, i32 noundef -1) #11
   %tobool.not = icmp eq i32 %call, 0
@@ -1490,7 +1490,7 @@ return:                                           ; preds = %if.end29, %if.then
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaCallFunction(ptr noundef %run_ctx, ptr noundef %lua, ptr nocapture noundef readonly %keys, i64 noundef %nkeys, ptr nocapture noundef readonly %args, i64 noundef %nargs, i32 noundef %debug_enabled) local_unnamed_addr #0 {
+define dso_local void @luaCallFunction(ptr noundef %run_ctx, ptr noundef %lua, ptr noundef readonly captures(none) %keys, i64 noundef %nkeys, ptr noundef readonly captures(none) %args, i64 noundef %nargs, i32 noundef %debug_enabled) local_unnamed_addr #0 {
 luaSaveOnRegistry.exit:
   %err_info = alloca %struct.errorInfo, align 8
   %original_client = getelementptr inbounds nuw i8, ptr %run_ctx, i64 16
@@ -1800,7 +1800,7 @@ if.end63:                                         ; preds = %if.then61, %if.end5
 declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaMaskCountHook(ptr noundef %lua, ptr nocapture readnone %ar) #0 {
+define internal void @luaMaskCountHook(ptr noundef %lua, ptr readnone captures(none) %ar) #0 {
 entry:
   %call = tail call ptr @luaGetFromRegistry(ptr noundef %lua, ptr noundef nonnull @.str.40)
   %tobool.not = icmp eq ptr %call, null
@@ -1845,7 +1845,7 @@ declare i32 @lua_gc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @addReplyErrorSdsEx(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2221,7 +2221,7 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @lua_rawset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2497,7 +2497,7 @@ return:                                           ; preds = %cleanup, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %lua, ptr nocapture noundef initializes((0, 4)) %argc, ptr nocapture noundef writeonly %argv_len) unnamed_addr #0 {
+define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %lua, ptr noundef captures(none) initializes((0, 4)) %argc, ptr noundef writeonly captures(none) %argv_len) unnamed_addr #0 {
 entry:
   %obj_len = alloca i64, align 8
   %dbuf = alloca [64 x i8], align 16
@@ -2685,14 +2685,14 @@ declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @parseReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_NullArray(ptr noundef %ctx, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_NullArray(ptr noundef %ctx, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2716,7 +2716,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_NullBulkString(ptr noundef %ctx, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_NullBulkString(ptr noundef %ctx, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2740,7 +2740,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_BulkString(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_BulkString(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2764,7 +2764,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Error(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Error(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2793,7 +2793,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Status(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Status(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2820,7 +2820,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Int(ptr noundef %ctx, i64 noundef %val, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Int(ptr noundef %ctx, i64 noundef %val, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2845,7 +2845,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Array(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr nocapture readnone %proto) #0 {
+define internal void @redisProtocolToLuaType_Array(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr readnone captures(none) %proto) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -2891,7 +2891,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Set(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr nocapture readnone %proto) #0 {
+define internal void @redisProtocolToLuaType_Set(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr readnone captures(none) %proto) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -2955,7 +2955,7 @@ if.end14:                                         ; preds = %if.then13, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Map(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr nocapture readnone %proto) #0 {
+define internal void @redisProtocolToLuaType_Map(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr readnone captures(none) %proto) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -3010,7 +3010,7 @@ if.end11:                                         ; preds = %if.then10, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Bool(ptr noundef %ctx, i32 noundef %val, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Bool(ptr noundef %ctx, i32 noundef %val, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3034,7 +3034,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Double(ptr noundef %ctx, double noundef %d, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Double(ptr noundef %ctx, double noundef %d, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3061,7 +3061,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_BigNumber(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_BigNumber(ptr noundef %ctx, ptr noundef %str, i64 noundef %len, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3088,7 +3088,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_VerbatimString(ptr noundef %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_VerbatimString(ptr noundef %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3121,7 +3121,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Attribute(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr nocapture readnone %proto) #0 {
+define internal void @redisProtocolToLuaType_Attribute(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr readnone captures(none) %proto) #0 {
 entry:
   %cmp4.not = icmp eq i64 %len, 0
   br i1 %cmp4.not, label %for.end, label %for.body
@@ -3140,7 +3140,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisProtocolToLuaType_Null(ptr noundef %ctx, ptr nocapture readnone %proto, i64 %proto_len) #0 {
+define internal void @redisProtocolToLuaType_Null(ptr noundef %ctx, ptr readnone captures(none) %proto, i64 %proto_len) #0 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3232,10 +3232,10 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr, i32) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

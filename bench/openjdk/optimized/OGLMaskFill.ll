@@ -56,7 +56,7 @@ declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 declare void @OGLVertexCache_AddMaskQuad(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = tail call ptr (...) @OGLRenderQueue_GetCurrentContext() #2
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %12

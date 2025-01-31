@@ -401,7 +401,7 @@ ehcleanup107:                                     ; preds = %lpad61, %lpad16, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen12QPACKDecoder12decodePrefixERNS_17HPACKDecodeBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((16, 17)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen12QPACKDecoder12decodePrefixERNS_17HPACKDecodeBufferE(ptr noundef nonnull align 8 captures(none) dereferenceable(336) initializes((16, 17)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wireRIC = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -820,7 +820,7 @@ declare void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default
 declare void @_ZN5folly10IOBufQueue9trimStartEm(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKDecoder18enqueueHeaderBlockEmjjjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %streamID, i32 noundef %requiredInsertCount, i32 noundef %baseIndex, i32 noundef %consumed, ptr nocapture noundef %block, i64 noundef %length, ptr noundef %streamingCb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKDecoder18enqueueHeaderBlockEmjjjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %streamID, i32 noundef %requiredInsertCount, i32 noundef %baseIndex, i32 noundef %consumed, ptr noundef captures(none) %block, i64 noundef %length, ptr noundef %streamingCb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -2923,7 +2923,7 @@ declare noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef non
 declare noundef zeroext i1 @_ZNK8proxygen16QPACKHeaderTable7isValidEjj(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKDecoder20encodeInsertCountIncEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKDecoder20encodeInsertCountIncEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(336) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
   %ackEncoder = alloca %"class.proxygen::HPACKEncodeBuffer", align 8
@@ -3170,7 +3170,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen12QPACKDecoder15encodeHeaderAckEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(336) %this, i64 noundef %streamId) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen12QPACKDecoder15encodeHeaderAckEm(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %this, i64 noundef %streamId) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ackEncoder = alloca %"class.proxygen::HPACKEncodeBuffer", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
@@ -3333,7 +3333,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKDecoder18encodeCancelStreamEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %streamId) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKDecoder18encodeCancelStreamEm(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %streamId) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessage", align 8
   %ackEncoder = alloca %"class.proxygen::HPACKEncodeBuffer", align 8
@@ -3532,10 +3532,10 @@ eh.resume:                                        ; preds = %lpad, %lpad31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen12QPACKDecoder11decodeBlockEjRKNS0_12PendingBlockE(ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef %requiredInsertCount, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen12QPACKDecoder11decodeBlockEjRKNS0_12PendingBlockE(ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef %requiredInsertCount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %cursor = alloca %"class.folly::io::Cursor", align 8
@@ -3846,7 +3846,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen22QPACKStaticHeaderTable3getEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
@@ -3855,7 +3855,7 @@ declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
@@ -3875,10 +3875,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

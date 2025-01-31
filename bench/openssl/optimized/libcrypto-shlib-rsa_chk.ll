@@ -25,7 +25,7 @@ entry:
 declare i32 @ossl_rsa_sp800_56b_check_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_validate_pairwise(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_validate_pairwise(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef null)
   %cmp = icmp sgt i32 %call, 0
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr nocapture noundef readonly %key, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr noundef readonly captures(none) %key, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %key, i64 64
   %0 = load ptr, ptr %p, align 8
@@ -193,7 +193,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load ptr, ptr %prime_infos58, align 8
   %call.i134 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef range(i32 -2147483648, 2147483647) %idx.0142) #2
   %14 = load ptr, ptr %call.i134, align 8
-  %call60 = tail call i32 @BN_check_prime(ptr noundef %14, ptr noundef %call24, ptr noundef %cb) #2
+  %call60 = tail call i32 @BN_check_prime(ptr noundef %14, ptr noundef nonnull %call24, ptr noundef %cb) #2
   %cmp61.not = icmp eq i32 %call60, 1
   br i1 %cmp61.not, label %for.inc, label %if.then62
 
@@ -213,7 +213,7 @@ for.end:                                          ; preds = %for.inc, %if.end56
   %ret.5.lcssa = phi i32 [ %ret.4, %if.end56 ], [ %ret.6, %for.inc ]
   %15 = load ptr, ptr %p, align 8
   %16 = load ptr, ptr %q, align 8
-  %call66 = tail call i32 @BN_mul(ptr noundef %call19, ptr noundef %15, ptr noundef %16, ptr noundef %call24) #2
+  %call66 = tail call i32 @BN_mul(ptr noundef %call19, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %call24) #2
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %err, label %for.cond70.preheader
 
@@ -234,7 +234,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %17 = load ptr, ptr %prime_infos73, align 8
   %call.i135 = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef range(i32 -2147483648, 2147483647) %idx.1144) #2
   %18 = load ptr, ptr %call.i135, align 8
-  %call76 = tail call i32 @BN_mul(ptr noundef %call19, ptr noundef %call19, ptr noundef %18, ptr noundef %call24) #2
+  %call76 = tail call i32 @BN_mul(ptr noundef %call19, ptr noundef %call19, ptr noundef %18, ptr noundef nonnull %call24) #2
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %for.cond70
 
@@ -269,17 +269,17 @@ if.end96:                                         ; preds = %if.end90
   br i1 %tobool100.not, label %err, label %if.end102
 
 if.end102:                                        ; preds = %if.end96
-  %call103 = tail call i32 @BN_mul(ptr noundef %call22, ptr noundef %call19, ptr noundef %call20, ptr noundef %call24) #2
+  %call103 = tail call i32 @BN_mul(ptr noundef %call22, ptr noundef %call19, ptr noundef %call20, ptr noundef nonnull %call24) #2
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %err, label %if.end106
 
 if.end106:                                        ; preds = %if.end102
-  %call107 = tail call i32 @BN_gcd(ptr noundef %call23, ptr noundef %call19, ptr noundef %call20, ptr noundef %call24) #2
+  %call107 = tail call i32 @BN_gcd(ptr noundef %call23, ptr noundef %call19, ptr noundef %call20, ptr noundef nonnull %call24) #2
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %if.end110
 
 if.end110:                                        ; preds = %if.end106
-  %call111 = tail call i32 @BN_div(ptr noundef %call23, ptr noundef null, ptr noundef %call22, ptr noundef %call23, ptr noundef %call24) #2
+  %call111 = tail call i32 @BN_div(ptr noundef %call23, ptr noundef null, ptr noundef %call22, ptr noundef %call23, ptr noundef nonnull %call24) #2
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %err, label %for.cond115.preheader
 
@@ -306,24 +306,24 @@ for.body117:                                      ; preds = %for.body117.lr.ph, 
   br i1 %tobool123.not, label %err, label %if.end125
 
 if.end125:                                        ; preds = %for.body117
-  %call126 = tail call i32 @BN_mul(ptr noundef %call22, ptr noundef %call23, ptr noundef %call21, ptr noundef %call24) #2
+  %call126 = tail call i32 @BN_mul(ptr noundef %call22, ptr noundef %call23, ptr noundef %call21, ptr noundef nonnull %call24) #2
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %err, label %if.end129
 
 if.end129:                                        ; preds = %if.end125
-  %call130 = tail call i32 @BN_gcd(ptr noundef %call23, ptr noundef %call23, ptr noundef %call21, ptr noundef %call24) #2
+  %call130 = tail call i32 @BN_gcd(ptr noundef %call23, ptr noundef %call23, ptr noundef %call21, ptr noundef nonnull %call24) #2
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %err, label %if.end133
 
 if.end133:                                        ; preds = %if.end129
-  %call134 = tail call i32 @BN_div(ptr noundef %call23, ptr noundef null, ptr noundef %call22, ptr noundef %call23, ptr noundef %call24) #2
+  %call134 = tail call i32 @BN_div(ptr noundef %call23, ptr noundef null, ptr noundef %call22, ptr noundef %call23, ptr noundef nonnull %call24) #2
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %err, label %for.cond115
 
 for.end140:                                       ; preds = %for.cond115, %for.cond115.preheader
   %24 = load ptr, ptr %d, align 8
   %25 = load ptr, ptr %e, align 8
-  %call143 = tail call i32 @BN_mod_mul(ptr noundef %call19, ptr noundef %24, ptr noundef %25, ptr noundef %call23, ptr noundef %call24) #2
+  %call143 = tail call i32 @BN_mod_mul(ptr noundef %call19, ptr noundef %24, ptr noundef %25, ptr noundef %call23, ptr noundef nonnull %call24) #2
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
@@ -366,7 +366,7 @@ if.then155:                                       ; preds = %land.lhs.true153
 
 if.end161:                                        ; preds = %if.then155
   %30 = load ptr, ptr %d, align 8
-  %call163 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %30, ptr noundef %call19, ptr noundef %call24) #2
+  %call163 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %30, ptr noundef %call19, ptr noundef nonnull %call24) #2
   %tobool164.not = icmp eq i32 %call163, 0
   br i1 %tobool164.not, label %err, label %if.end166
 
@@ -392,7 +392,7 @@ if.end171:                                        ; preds = %if.then170, %if.end
 
 if.end177:                                        ; preds = %if.end171
   %33 = load ptr, ptr %d, align 8
-  %call179 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %33, ptr noundef %call19, ptr noundef %call24) #2
+  %call179 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %33, ptr noundef %call19, ptr noundef nonnull %call24) #2
   %tobool180.not = icmp eq i32 %call179, 0
   br i1 %tobool180.not, label %err, label %if.end182
 
@@ -412,7 +412,7 @@ if.end187:                                        ; preds = %if.then186, %if.end
   %ret.11 = phi i32 [ 0, %if.then186 ], [ %ret.10, %if.end182 ]
   %35 = load ptr, ptr %q, align 8
   %36 = load ptr, ptr %p, align 8
-  %call190 = tail call ptr @BN_mod_inverse(ptr noundef %call19, ptr noundef %35, ptr noundef %36, ptr noundef %call24) #2
+  %call190 = tail call ptr @BN_mod_inverse(ptr noundef %call19, ptr noundef %35, ptr noundef %36, ptr noundef nonnull %call24) #2
   %tobool191.not = icmp eq ptr %call190, null
   br i1 %tobool191.not, label %err, label %if.end193
 
@@ -446,7 +446,7 @@ for.body202:                                      ; preds = %if.end199, %for.inc
 
 if.end210:                                        ; preds = %for.body202
   %40 = load ptr, ptr %d, align 8
-  %call212 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %40, ptr noundef %call19, ptr noundef %call24) #2
+  %call212 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call20, ptr noundef %40, ptr noundef %call19, ptr noundef nonnull %call24) #2
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %err, label %if.end215
 
@@ -468,7 +468,7 @@ if.end220:                                        ; preds = %if.then219, %if.end
   %pp = getelementptr inbounds nuw i8, ptr %call.i137, i64 24
   %42 = load ptr, ptr %pp, align 8
   %43 = load ptr, ptr %call.i137, align 8
-  %call222 = tail call ptr @BN_mod_inverse(ptr noundef %call19, ptr noundef %42, ptr noundef %43, ptr noundef %call24) #2
+  %call222 = tail call ptr @BN_mod_inverse(ptr noundef %call19, ptr noundef %42, ptr noundef %43, ptr noundef nonnull %call24) #2
   %tobool223.not = icmp eq ptr %call222, null
   br i1 %tobool223.not, label %err, label %if.end225
 
@@ -507,14 +507,14 @@ return:                                           ; preds = %err, %if.then16, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @RSA_check_key(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr noundef readonly %key, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @RSA_check_key_ex(ptr nocapture noundef readonly %key, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @RSA_check_key_ex(ptr noundef readonly captures(none) %key, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef %cb)
   ret i32 %call

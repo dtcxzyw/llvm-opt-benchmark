@@ -184,10 +184,10 @@ declare void @event_errx(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @event_global_setup_locks_(i32 noundef) local_unnamed_addr #4
 
@@ -431,7 +431,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_lock_lock(i32 noundef %mode, ptr nocapture noundef %lock_) #2 {
+define internal i32 @debug_lock_lock(i32 noundef %mode, ptr noundef captures(none) %lock_) #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 24), align 8
   %tobool3.not = icmp eq ptr %0, null
@@ -465,7 +465,7 @@ if.end9:                                          ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_lock_unlock(i32 noundef %mode, ptr nocapture noundef %lock_) #2 {
+define internal i32 @debug_lock_unlock(i32 noundef %mode, ptr noundef captures(none) %lock_) #2 {
 entry:
   %0 = load ptr, ptr @evthread_id_fn_, align 8
   %tobool5.not.i = icmp eq ptr %0, null
@@ -509,7 +509,7 @@ if.end:                                           ; preds = %if.then, %evthread_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_cond_wait(ptr noundef %cond_, ptr nocapture noundef %lock_, ptr noundef %tv) #2 {
+define internal i32 @debug_cond_wait(ptr noundef %cond_, ptr noundef captures(none) %lock_, ptr noundef %tv) #2 {
 entry:
   %0 = load ptr, ptr @evthread_id_fn_, align 8
   %tobool5.not.i = icmp eq ptr %0, null
@@ -559,7 +559,7 @@ evthread_debug_lock_mark_locked.exit:             ; preds = %evthread_debug_lock
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @evthread_is_debug_lock_held_(ptr noundef readonly captures(none) %lock_) local_unnamed_addr #2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %0 = load i32, ptr %count, align 8
@@ -587,7 +587,7 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @evthread_debug_get_real_lock_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #7 {
+define dso_local ptr @evthread_debug_get_real_lock_(ptr noundef readonly captures(none) %lock_) local_unnamed_addr #7 {
 entry:
   %lock1 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %0 = load ptr, ptr %lock1, align 8

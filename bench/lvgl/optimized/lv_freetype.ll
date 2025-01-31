@@ -62,7 +62,7 @@ define range(i32 0, 2) i32 @lv_freetype_init(i32 noundef %0) local_unnamed_addr 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @lv_freetype_get_context() local_unnamed_addr #3 {
@@ -75,7 +75,7 @@ declare i32 @FT_Init_FreeType(ptr noundef) local_unnamed_addr #1
 declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -117,7 +117,7 @@ define internal signext range(i8 -1, 2) i8 @cache_node_cache_compare_cb(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @cache_node_cache_create_cb(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef zeroext i1 @cache_node_cache_create_cb(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.FT_Matrix_, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 856), align 8, !tbaa !3
@@ -208,7 +208,7 @@ declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef 
 declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_freetype_uninit() local_unnamed_addr #0 {
@@ -594,7 +594,7 @@ lv_freetype_drop_face_id.exit:                    ; preds = %49, %44, %lv_freety
 declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @lv_cache_acquire(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -763,7 +763,7 @@ declare i32 @FT_Done_FreeType(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 

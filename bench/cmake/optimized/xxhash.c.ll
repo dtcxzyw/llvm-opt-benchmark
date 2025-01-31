@@ -133,19 +133,19 @@ define dso_local noalias noundef ptr @ZSTD_XXH32_createState() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @ZSTD_XXH32_freeState(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @ZSTD_XXH32_freeState(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   tail call void @free(ptr noundef %0) #15
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ZSTD_XXH32_copyState(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @ZSTD_XXH32_copyState(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %0, ptr noundef nonnull readonly align 1 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ZSTD_XXH32_reset(ptr nocapture noundef writeonly initializes((0, 48)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef i32 @ZSTD_XXH32_reset(ptr noundef writeonly captures(none) initializes((0, 48)) %0, i32 noundef %1) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %3 = add i32 %1, 606290984
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -162,10 +162,10 @@ define dso_local noundef i32 @ZSTD_XXH32_reset(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @ZSTD_XXH32_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define dso_local noundef i32 @ZSTD_XXH32_update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %102, label %5
 
@@ -328,7 +328,7 @@ define dso_local noundef i32 @ZSTD_XXH32_update(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @ZSTD_XXH32_digest(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i32 @ZSTD_XXH32_digest(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -423,14 +423,14 @@ XXH32_finalize.exit:                              ; preds = %.lr.ph27.i, %.prehe
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ZSTD_XXH32_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local void @ZSTD_XXH32_canonicalFromHash(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @ZSTD_XXH32_hashFromCanonical(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local noundef i32 @ZSTD_XXH32_hashFromCanonical(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %.val = load i32, ptr %0, align 1
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %.val)
   ret i32 %2
@@ -606,19 +606,19 @@ define dso_local noalias noundef ptr @ZSTD_XXH64_createState() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @ZSTD_XXH64_freeState(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @ZSTD_XXH64_freeState(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   tail call void @free(ptr noundef %0) #15
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ZSTD_XXH64_copyState(ptr nocapture noundef writeonly initializes((0, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @ZSTD_XXH64_copyState(ptr noundef writeonly captures(none) initializes((0, 88)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %0, ptr noundef nonnull readonly align 1 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ZSTD_XXH64_reset(ptr nocapture noundef writeonly initializes((0, 88)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef i32 @ZSTD_XXH64_reset(ptr noundef writeonly captures(none) initializes((0, 88)) %0, i64 noundef %1) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %3 = add i64 %1, 6983438078262162902
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -635,7 +635,7 @@ define dso_local noundef i32 @ZSTD_XXH64_reset(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define dso_local noundef i32 @ZSTD_XXH64_update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %97, label %5
 
@@ -791,7 +791,7 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @ZSTD_XXH64_digest(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_XXH64_digest(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp ugt i64 %2, 31
   br i1 %3, label %4, label %44
@@ -927,14 +927,14 @@ XXH64_finalize.exit:                              ; preds = %.lr.ph39.i, %73
 declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ZSTD_XXH64_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local void @ZSTD_XXH64_canonicalFromHash(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
   store i64 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @ZSTD_XXH64_hashFromCanonical(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local noundef i64 @ZSTD_XXH64_hashFromCanonical(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %.val = load i64, ptr %0, align 1
   %2 = tail call noundef i64 @llvm.bswap.i64(i64 %.val)
   ret i64 %2
@@ -944,10 +944,10 @@ define dso_local noundef i64 @ZSTD_XXH64_hashFromCanonical(ptr nocapture noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #13

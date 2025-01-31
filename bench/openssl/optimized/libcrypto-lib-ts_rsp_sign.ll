@@ -82,7 +82,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @def_serial_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %data) #0 {
+define internal ptr @def_serial_cb(ptr noundef readonly captures(none) %ctx, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_new() #9
   %cmp = icmp eq ptr %call, null
@@ -107,7 +107,7 @@ return:                                           ; preds = %if.end, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @def_time_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %data, ptr nocapture noundef writeonly %sec, ptr nocapture noundef writeonly %usec) #0 {
+define internal range(i32 0, 2) i32 @def_time_cb(ptr noundef readonly captures(none) %ctx, ptr readnone captures(none) %data, ptr noundef writeonly captures(none) %sec, ptr noundef writeonly captures(none) %usec) #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #9
   %cmp.i.not = icmp eq i64 %call, 0
@@ -161,7 +161,7 @@ return:                                           ; preds = %err.i, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_extension_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %ext, ptr nocapture readnone %data) #0 {
+define internal noundef i32 @def_extension_cb(ptr noundef readonly captures(none) %ctx, ptr readnone captures(none) %ext, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.5)
   %response.i = getelementptr inbounds nuw i8, ptr %ctx, i64 152
@@ -272,7 +272,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) #1
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_signer_cert(ptr nocapture noundef %ctx, ptr noundef %signer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_signer_cert(ptr noundef captures(none) %ctx, ptr noundef %signer) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %signer, i32 noundef 9, i32 noundef 0) #9
   %cmp.not = icmp eq i32 %call, 1
@@ -307,7 +307,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_signer_key(ptr nocapture noundef %ctx, ptr noundef %key) local_unnamed_addr #0 {
+define noundef i32 @TS_RESP_CTX_set_signer_key(ptr noundef captures(none) %ctx, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %signer_key = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %signer_key, align 8
@@ -320,7 +320,7 @@ entry:
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @TS_RESP_CTX_set_signer_digest(ptr nocapture noundef writeonly initializes((16, 24)) %ctx, ptr noundef %md) local_unnamed_addr #2 {
+define noundef i32 @TS_RESP_CTX_set_signer_digest(ptr noundef writeonly captures(none) initializes((16, 24)) %ctx, ptr noundef %md) local_unnamed_addr #2 {
 entry:
   %signer_md = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %md, ptr %signer_md, align 8
@@ -328,7 +328,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_def_policy(ptr nocapture noundef %ctx, ptr noundef %def_policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_def_policy(ptr noundef captures(none) %ctx, ptr noundef %def_policy) local_unnamed_addr #0 {
 entry:
   %default_policy = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %default_policy, align 8
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %err
 declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_certs(ptr nocapture noundef %ctx, ptr noundef %certs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_certs(ptr noundef captures(none) %ctx, ptr noundef %certs) local_unnamed_addr #0 {
 entry:
   %certs1 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %certs1, align 8
@@ -376,7 +376,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_add_policy(ptr nocapture noundef %ctx, ptr noundef %policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_policy(ptr noundef captures(none) %ctx, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
   %policies = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %policies, align 8
@@ -420,7 +420,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_add_md(ptr nocapture noundef %ctx, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_md(ptr noundef captures(none) %ctx, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %mds = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %mds, align 8
@@ -451,7 +451,7 @@ return:                                           ; preds = %if.end, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_accuracy(ptr nocapture noundef %ctx, i32 noundef %secs, i32 noundef %millis, i32 noundef %micros) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_accuracy(ptr noundef captures(none) %ctx, i32 noundef %secs, i32 noundef %millis, i32 noundef %micros) local_unnamed_addr #0 {
 entry:
   %seconds = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %0 = load ptr, ptr %seconds, align 8
@@ -537,7 +537,7 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @TS_RESP_CTX_add_flags(ptr nocapture noundef %ctx, i32 noundef %flags) local_unnamed_addr #3 {
+define void @TS_RESP_CTX_add_flags(ptr noundef captures(none) %ctx, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 92
   %0 = load i32, ptr %flags1, align 4
@@ -547,7 +547,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @TS_RESP_CTX_set_serial_cb(ptr nocapture noundef writeonly initializes((96, 112)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
+define void @TS_RESP_CTX_set_serial_cb(ptr noundef writeonly captures(none) initializes((96, 112)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %serial_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %cb, ptr %serial_cb, align 8
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @TS_RESP_CTX_set_time_cb(ptr nocapture noundef writeonly initializes((112, 128)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
+define void @TS_RESP_CTX_set_time_cb(ptr noundef writeonly captures(none) initializes((112, 128)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %time_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   store ptr %cb, ptr %time_cb, align 8
@@ -567,7 +567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @TS_RESP_CTX_set_extension_cb(ptr nocapture noundef writeonly initializes((128, 144)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
+define void @TS_RESP_CTX_set_extension_cb(ptr noundef writeonly captures(none) initializes((128, 144)) %ctx, ptr noundef %cb, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %extension_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   store ptr %cb, ptr %extension_cb, align 8
@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info(ptr noundef readonly captures(none) %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @TS_STATUS_INFO_new() #9
   %cmp = icmp eq ptr %call, null
@@ -655,7 +655,7 @@ declare ptr @ASN1_UTF8STRING_new() local_unnamed_addr #1
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @TS_RESP_set_status_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -664,7 +664,7 @@ declare void @TS_STATUS_INFO_free(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_UTF8STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info_cond(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info_cond(ptr noundef readonly captures(none) %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %response = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response, align 8
@@ -686,7 +686,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_add_failure_info(ptr nocapture noundef readonly %ctx, i32 noundef %failure) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_failure_info(ptr noundef readonly captures(none) %ctx, i32 noundef %failure) local_unnamed_addr #0 {
 entry:
   %response = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response, align 8
@@ -724,7 +724,7 @@ declare ptr @ASN1_BIT_STRING_new() local_unnamed_addr #1
 declare i32 @ASN1_BIT_STRING_set_bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @TS_RESP_CTX_get_request(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define ptr @TS_RESP_CTX_get_request(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #5 {
 entry:
   %request = getelementptr inbounds nuw i8, ptr %ctx, i64 144
   %0 = load ptr, ptr %request, align 8
@@ -732,7 +732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @TS_RESP_CTX_get_tst_info(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define ptr @TS_RESP_CTX_get_tst_info(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #5 {
 entry:
   %tst_info = getelementptr inbounds nuw i8, ptr %ctx, i64 160
   %0 = load ptr, ptr %tst_info, align 8
@@ -740,7 +740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @TS_RESP_CTX_set_clock_precision_digits(ptr nocapture noundef writeonly %ctx, i32 noundef %precision) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_clock_precision_digits(ptr noundef writeonly captures(none) %ctx, i32 noundef %precision) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %precision, 6
   br i1 %cmp, label %return, label %if.end
@@ -1445,7 +1445,7 @@ for.body.i113:                                    ; preds = %for.cond.preheader.
   %i.071.i = phi i32 [ %inc.i115, %for.body.i113 ], [ 0, %for.cond.preheader.i ]
   %80 = load ptr, ptr %certs16.i, align 8
   %call25.i114 = call ptr @OPENSSL_sk_value(ptr noundef %80, i32 noundef %i.071.i) #9
-  %call26.i = call i32 @PKCS7_add_certificate(ptr noundef %call1.i73, ptr noundef %call25.i114) #9
+  %call26.i = call i32 @PKCS7_add_certificate(ptr noundef nonnull %call1.i73, ptr noundef %call25.i114) #9
   %inc.i115 = add nuw nsw i32 %i.071.i, 1
   %81 = load ptr, ptr %certs16.i, align 8
   %call21.i = call i32 @OPENSSL_sk_num(ptr noundef %81) #9
@@ -1485,7 +1485,7 @@ if.end47.i:                                       ; preds = %if.else44.i, %if.th
   %signer_md.1.i = phi ptr [ %call34.i, %if.then31.i ], [ %call43.i, %if.then38.i ], [ %88, %if.else44.i ]
   %89 = load ptr, ptr %ctx, align 8
   %90 = load ptr, ptr %signer_key.i, align 8
-  %call50.i = call ptr @PKCS7_add_signature(ptr noundef %call1.i73, ptr noundef %89, ptr noundef %90, ptr noundef %signer_md.1.i) #9
+  %call50.i = call ptr @PKCS7_add_signature(ptr noundef nonnull %call1.i73, ptr noundef %89, ptr noundef %90, ptr noundef %signer_md.1.i) #9
   %cmp51.i = icmp eq ptr %call50.i, null
   br i1 %cmp51.i, label %if.then52.i, label %if.end53.i
 
@@ -1766,7 +1766,7 @@ declare ptr @d2i_TS_REQ_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @TS_RESP_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @TS_RESP_CTX_set_ess_cert_id_digest(ptr nocapture noundef writeonly initializes((24, 32)) %ctx, ptr noundef %md) local_unnamed_addr #2 {
+define noundef i32 @TS_RESP_CTX_set_ess_cert_id_digest(ptr noundef writeonly captures(none) initializes((24, 32)) %ctx, ptr noundef %md) local_unnamed_addr #2 {
 entry:
   %ess_cert_id_digest = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %md, ptr %ess_cert_id_digest, align 8
@@ -1950,13 +1950,13 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.uadd.sat.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -153,7 +153,7 @@ define hidden void @_ZN7ZDriver10initializeEv() local_unnamed_addr #1 align 2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZDriver4lockEv() local_unnamed_addr #1 align 2 {
@@ -194,28 +194,28 @@ define hidden noundef ptr @_ZN7ZDriver5majorEv() local_unnamed_addr #4 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ZDriverLockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ZDriverLockerC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ZDriverLockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ZDriverLockerD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZDriverUnlockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZDriverUnlockerC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZDriverUnlockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15ZDriverUnlockerD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
@@ -231,14 +231,14 @@ define hidden void @_ZN7ZDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7ZDriver12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(924) initializes((920, 924)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7ZDriver12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(924) initializes((920, 924)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN7ZDriver8gc_causeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(924) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN7ZDriver8gc_causeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(924) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -340,14 +340,14 @@ define hidden noundef nonnull ptr @_ZN12ZDriverMinor10jfr_tracerEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZDriverMinor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN12ZDriverMinor17set_used_at_startEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK12ZDriverMinor13used_at_startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1264) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK12ZDriverMinor13used_at_startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -437,7 +437,7 @@ declare void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTimer(ptr
 declare void @_ZN10ZGCIdMinorD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12ZDriverMinor19handle_alloc_stallsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1264) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK12ZDriverMinor19handle_alloc_stallsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1264) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 64 dereferenceable(15937) %2) #13
   ret void
@@ -602,14 +602,14 @@ define hidden noundef nonnull ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZDriverMajor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN12ZDriverMajor17set_used_at_startEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK12ZDriverMajor13used_at_startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1264) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK12ZDriverMajor13used_at_startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1264) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -817,7 +817,7 @@ define linkonce_odr hidden void @_ZN17ZDriverScopeMajorC2ERK14ZDriverRequestP17C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK12ZDriverMajor19handle_alloc_stallsEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1264) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK12ZDriverMajor19handle_alloc_stallsEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1264) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr noundef nonnull align 64 dereferenceable(15937) %3, i1 noundef zeroext %1) #13
   ret void
@@ -1268,10 +1268,10 @@ define internal void @_GLOBAL__sub_I_zDriver.cpp() #10 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

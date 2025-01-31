@@ -361,7 +361,7 @@ H5O__fill_old_encode.exit:                        ; preds = %33, %15, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef ptr @H5O__fill_copy(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -620,7 +620,7 @@ define internal i64 @H5O__fill_shared_size(ptr noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__fill_reset(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @H5O__fill_reset(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @H5O_fill_reset_dyn(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %3, align 8
@@ -682,7 +682,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_link(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__fill_pre_copy_file(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 -1, 1) i32 @H5O__fill_pre_copy_file(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -736,7 +736,7 @@ define internal noundef ptr @H5O__fill_shared_copy_file(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__fill_shared_post_copy_file(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5O__fill_shared_post_copy_file(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
   %9 = icmp slt i32 %8, 0
@@ -754,7 +754,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_post_copy_file(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__fill_shared_debug(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5O__fill_shared_debug(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %1, align 8
   %.off = add i32 %6, -1
   %switch = icmp ult i32 %.off, 2
@@ -1387,7 +1387,7 @@ define internal noundef ptr @H5O__fill_new_shared_copy_file(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_post_copy_file(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_post_copy_file(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %2, align 8
   %8 = tail call i32 @H5O__shared_post_copy_file(ptr noundef %7, ptr noundef nonnull @H5O_MSG_FILL_NEW, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
   %9 = icmp slt i32 %8, 0
@@ -1405,7 +1405,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_post_copy_file(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %1, align 8
   %.off = add i32 %6, -1
   %switch = icmp ult i32 %.off, 2
@@ -1432,7 +1432,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_fill_reset_dyn(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_fill_reset_dyn(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1513,7 +1513,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 declare i32 @H5T_close_real(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_fill_convert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1658,7 +1658,7 @@ declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @H5T_path_bkg(ptr noundef) local_unnamed_addr #1
 
@@ -1670,7 +1670,7 @@ declare i32 @H5T_convert(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64
 declare i32 @H5T_vlen_reclaim_elmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #9
@@ -1736,7 +1736,7 @@ declare i32 @H5O__shared_delete(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @H5O__shared_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @H5O__shared_copy_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1848,7 +1848,7 @@ define internal fastcc void @H5O__fill_debug(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @H5P_is_fill_value_defined(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1865,10 +1865,10 @@ declare ptr @H5FL_blk_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5T_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8

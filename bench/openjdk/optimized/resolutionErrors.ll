@@ -63,7 +63,7 @@ define hidden void @_ZN20ResolutionErrorTable10initializeEv() local_unnamed_addr
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiP6SymbolPKcS4_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiP6SymbolPKcS4_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 1, i32 noundef 0) #7
   store ptr %2, ptr %8, align 8
@@ -205,7 +205,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionErr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ResolutionErrorTable9add_entryERK18constantPoolHandleiPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 1, i32 noundef 0) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -305,7 +305,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionErr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden noundef ptr @_ZN20ResolutionErrorTable10find_entryERK18constantPoolHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN20ResolutionErrorTable10find_entryERK18constantPoolHandlei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr @_ZL23_resolution_error_table, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -372,7 +372,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionEr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ResolutionErrorEntryC2EP6SymbolPKcS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ResolutionErrorEntryC2EP6SymbolPKcS1_S3_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null
@@ -424,7 +424,7 @@ _ZN6Symbol24maybe_increment_refcountEPS_.exit10:  ; preds = %_ZN6Symbol24maybe_i
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ResolutionErrorEntryD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ResolutionErrorEntryD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit, label %3
@@ -804,7 +804,7 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 

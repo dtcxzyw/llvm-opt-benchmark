@@ -213,7 +213,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef readonly captures(none) %mesh, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %max, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %m) local_unnamed_addr #3 {
 entry:
   store float 0x42374876E0000000, ptr %min, align 4
   %ref.tmp.sroa.2.0.min.sroa_idx = getelementptr inbounds nuw i8, ptr %min, i64 4
@@ -315,10 +315,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr noundef readonly captures(none) %mesh, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %max) local_unnamed_addr #3 {
 entry:
   %mVertices = getelementptr inbounds nuw i8, ptr %mesh, i64 16
   %0 = load ptr, ptr %mVertices, align 8
@@ -419,7 +419,7 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %entry._Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef readonly %scene, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) %max) local_unnamed_addr #5 {
+define hidden void @_ZN6Assimp15FindSceneCenterEP7aiSceneR10aiVector3tIfES4_S4_(ptr noundef readonly %scene, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %max) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %scene, null
   br i1 %cmp, label %return, label %if.end
@@ -607,7 +607,7 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr noundef readonly captures(none) %mesh, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %out, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %min, ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((0, 12)) %max, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %m) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max, ptr noundef nonnull align 4 dereferenceable(64) %m)
   %0 = load float, ptr %max, align 4
@@ -638,7 +638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfE(ptr noundef readonly captures(none) %mesh, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out) local_unnamed_addr #3 {
 entry:
   %mVertices.i = getelementptr inbounds nuw i8, ptr %mesh, i64 16
   %0 = load ptr, ptr %mVertices.i, align 8
@@ -712,7 +712,7 @@ _ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_.exit: ; preds = %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfERK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfERK12aiMatrix4x4tIfE(ptr noundef readonly captures(none) %mesh, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %out, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %m) local_unnamed_addr #3 {
 entry:
   %mNumVertices.i = getelementptr inbounds nuw i8, ptr %mesh, i64 4
   %0 = load i32, ptr %mNumVertices.i, align 4
@@ -823,7 +823,7 @@ _ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPK6aiMesh(ptr nocapture noundef readonly %pMesh) local_unnamed_addr #6 {
+define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPK6aiMesh(ptr noundef readonly captures(none) %pMesh) local_unnamed_addr #6 {
 entry:
   %mVertices = getelementptr inbounds nuw i8, ptr %pMesh, i64 16
   %0 = load ptr, ptr %mVertices, align 8
@@ -893,7 +893,7 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr nocapture noundef readonly %pMeshes, i64 noundef %num) local_unnamed_addr #6 {
+define hidden noundef float @_ZN6Assimp22ComputePositionEpsilonEPKPK6aiMeshm(ptr noundef readonly captures(none) %pMeshes, i64 noundef %num) local_unnamed_addr #6 {
 entry:
   %cmp78.not = icmp eq i64 %num, 0
   br i1 %cmp78.not, label %for.end, label %for.body
@@ -1007,7 +1007,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr nocapture noundef readonly %pcMesh) local_unnamed_addr #7 {
+define hidden noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef readonly captures(none) %pcMesh) local_unnamed_addr #7 {
 entry:
   %mNormals.i = getelementptr inbounds nuw i8, ptr %pcMesh, i64 24
   %0 = load ptr, ptr %mNormals.i, align 8
@@ -1260,7 +1260,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef readonly %pMesh, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %subMeshFaces, i32 noundef %subFlags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6Assimp11MakeSubmeshEPK6aiMeshRKSt6vectorIjSaIjEEj(ptr noundef readonly %pMesh, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %subMeshFaces, i32 noundef %subFlags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #19
   store i32 0, ptr %call, align 8
@@ -2123,7 +2123,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i242, %
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -2149,10 +2149,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

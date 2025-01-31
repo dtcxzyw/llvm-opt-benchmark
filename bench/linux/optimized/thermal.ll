@@ -652,10 +652,10 @@ define internal void @acpi_thermal_remove(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
@@ -705,7 +705,7 @@ define internal void @acpi_thermal_check_fn(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @acpi_dev_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @acpi_thermal_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = alloca %struct.adjust_trip_data, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %6 = load ptr, ptr %5, align 8
@@ -780,10 +780,10 @@ define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef
 declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_thermal_unregister_thermal_zone(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
+define internal fastcc void @acpi_thermal_unregister_thermal_zone(ptr noundef nonnull captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @thermal_zone_device_disable(ptr noundef %3) #12
@@ -812,7 +812,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #2 align 16 {
@@ -976,7 +976,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @update_trip_devices(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @update_trip_devices(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.acpi_handle_list, align 8
   %6 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -1118,7 +1118,7 @@ define internal i32 @acpi_thermal_unbind_cooling_device(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
   %5 = icmp eq ptr %4, null
@@ -1160,7 +1160,7 @@ define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
   %5 = icmp ne ptr %4, null
   %6 = icmp ne ptr %1, null
@@ -1286,7 +1286,7 @@ define internal void @acpi_thermal_zone_device_critical(ptr noundef %0) #2 align
 declare dso_local i32 @for_each_thermal_trip(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1392,7 +1392,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local i32 @thermal_zone_for_each_trip(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1549,7 +1549,7 @@ declare dso_local i32 @thermal_zone_device_disable(ptr noundef) local_unnamed_ad
 declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_thermal_suspend(ptr nocapture readnone %0) #2 align 16 {
+define internal noundef i32 @acpi_thermal_suspend(ptr readnone captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr @acpi_thermal_pm_queue, align 8
   tail call void @__flush_workqueue(ptr noundef %2) #12
   ret i32 0
@@ -1638,7 +1638,7 @@ declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ..
 declare dso_local i32 @acpi_bus_register_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_act(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @thermal_act(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load i32, ptr @act, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %8
@@ -1655,7 +1655,7 @@ define internal noundef i32 @thermal_act(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_psv(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @thermal_psv(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load i32, ptr @psv, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %8
@@ -1672,7 +1672,7 @@ define internal noundef i32 @thermal_psv(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_tzp(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @thermal_tzp(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load i32, ptr @tzp, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %8
@@ -1689,7 +1689,7 @@ define internal noundef i32 @thermal_tzp(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_nocrt(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @thermal_nocrt(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef %3) #13
@@ -1698,7 +1698,7 @@ define internal noundef i32 @thermal_nocrt(ptr nocapture noundef readonly %0) #9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

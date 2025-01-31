@@ -46,7 +46,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnpC2ERKNS_3MatES3_S3_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4epnpC2ERKNS_3MatES3_S3_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 128)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1592,7 +1592,7 @@ _ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit27:      ; preds = %177, %184, %190
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv4epnpD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4epnpD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1660,7 +1660,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit8:                   ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((136, 160)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(352) initializes((136, 160)) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [9 x double], align 16
   %4 = alloca [3 x double], align 16
@@ -1844,7 +1844,7 @@ define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef n
 declare ptr @cvCreateMat(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @cvMulTransposed(ptr noundef, ptr noundef, i32 noundef, ptr noundef, double noundef) local_unnamed_addr #0
 
@@ -1859,7 +1859,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #7
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca [9 x double], align 16
   %3 = alloca [9 x double], align 16
   %4 = alloca %struct.CvMat, align 8
@@ -1997,7 +1997,7 @@ define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr nocapture
 declare double @cvInvert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4epnp6fill_MEP5CvMatiPKddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, double noundef %4, double noundef %5) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN2cv4epnp6fill_MEP5CvMatiPKddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, double noundef %4, double noundef %5) local_unnamed_addr #9 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = mul nsw i32 %2, 12
@@ -2050,7 +2050,7 @@ define hidden void @_ZN2cv4epnp6fill_MEP5CvMatiPKddd(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((232, 328)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(352) initializes((232, 328)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 align 2 {
 .preheader23:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
@@ -2098,7 +2098,7 @@ define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4epnp11compute_pcsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv4epnp11compute_pcsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -2162,7 +2162,7 @@ define hidden void @_ZN2cv4epnp11compute_pcsEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp12compute_poseERNS_3MatES2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((136, 160)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4epnp12compute_poseERNS_3MatES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(352) initializes((136, 160)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca [144 x double], align 16
   %6 = alloca [12 x double], align 16
@@ -2478,7 +2478,7 @@ _ZN2cv4epnp6fill_MEP5CvMatiPKddd.exit:            ; preds = %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4epnp14compute_L_6x10EPKdPd(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN2cv4epnp14compute_L_6x10EPKdPd(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 align 2 {
   %4 = alloca [4 x ptr], align 16
   %5 = alloca [4 x [6 x [3 x double]]], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1056
@@ -2643,7 +2643,7 @@ define hidden void @_ZN2cv4epnp14compute_L_6x10EPKdPd(ptr nocapture nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4epnp11compute_rhoEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN2cv4epnp11compute_rhoEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load double, ptr %3, align 8
@@ -2743,7 +2743,7 @@ define hidden void @_ZN2cv4epnp11compute_rhoEPd(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp19find_betas_approx_1EPK5CvMatS3_Pd(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp19find_betas_approx_1EPK5CvMatS3_Pd(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [24 x double], align 16
   %6 = alloca [4 x double], align 16
   %7 = alloca %struct.CvMat, align 8
@@ -3020,7 +3020,7 @@ _ZL6cvmSetP5CvMatiid.exit37:                      ; preds = %127, %133
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp12gauss_newtonEPK5CvMatS3_Pd(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp12gauss_newtonEPK5CvMatS3_Pd(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [24 x double], align 16
   %6 = alloca [6 x double], align 16
   %7 = alloca [4 x double], align 16
@@ -3103,7 +3103,7 @@ define hidden void @_ZN2cv4epnp12gauss_newtonEPK5CvMatS3_Pd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZN2cv4epnp15compute_R_and_tEPKdS2_PA3_dPd(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((232, 328)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZN2cv4epnp15compute_R_and_tEPKdS2_PA3_dPd(ptr noundef nonnull align 8 captures(none) dereferenceable(352) initializes((232, 328)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   br label %7
@@ -3358,7 +3358,7 @@ _ZN2cv4epnp18reprojection_errorEPA3_KdPS1_.exit:  ; preds = %122, %_ZN2cv4epnp14
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp19find_betas_approx_2EPK5CvMatS3_Pd(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp19find_betas_approx_2EPK5CvMatS3_Pd(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [18 x double], align 16
   %6 = alloca [3 x double], align 16
   %7 = alloca %struct.CvMat, align 8
@@ -3594,7 +3594,7 @@ _ZL6cvmSetP5CvMatiid.exit27:                      ; preds = %101, %107
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp19find_betas_approx_3EPK5CvMatS3_Pd(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp19find_betas_approx_3EPK5CvMatS3_Pd(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [30 x double], align 16
   %6 = alloca [5 x double], align 16
   %7 = alloca %struct.CvMat, align 8
@@ -3929,7 +3929,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4epnp12copy_R_and_tEPA3_KdPS1_PA3_dPd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN2cv4epnp12copy_R_and_tEPA3_KdPS1_PA3_dPd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #10 align 2 {
   br label %.preheader
 
 .preheader:                                       ; preds = %5, %10
@@ -3960,7 +3960,7 @@ define hidden void @_ZN2cv4epnp12copy_R_and_tEPA3_KdPS1_PA3_dPd(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv4epnp5dist2EPKdS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #14 align 2 {
+define hidden noundef double @_ZN2cv4epnp5dist2EPKdS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #14 align 2 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = fsub double %4, %5
@@ -3981,7 +3981,7 @@ define hidden noundef double @_ZN2cv4epnp5dist2EPKdS2_(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv4epnp3dotEPKdS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #14 align 2 {
+define hidden noundef double @_ZN2cv4epnp3dotEPKdS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #14 align 2 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3999,7 +3999,7 @@ define hidden noundef double @_ZN2cv4epnp3dotEPKdS2_(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
   %6 = alloca [9 x double], align 16
@@ -4319,7 +4319,7 @@ define hidden void @_ZN2cv4epnp16estimate_R_and_tEPA3_dPd(ptr nocapture noundef 
 declare void @cvSetZero(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4epnp14solve_for_signEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv4epnp14solve_for_signEv(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4387,7 +4387,7 @@ define hidden void @_ZN2cv4epnp14solve_for_signEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #15 align 2 {
+define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -4483,7 +4483,7 @@ define hidden noundef double @_ZN2cv4epnp18reprojection_errorEPA3_KdPS1_(ptr noc
 declare i32 @cvSolve(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4epnp28compute_A_and_b_gauss_newtonEPKdS2_S2_P5CvMatS4_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN2cv4epnp28compute_A_and_b_gauss_newtonEPKdS2_S2_P5CvMatS4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #9 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4638,7 +4638,7 @@ _ZL6cvmSetP5CvMatiid.exit:                        ; preds = %121, %128
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp8qr_solveEP5CvMatS2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(352) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -5089,7 +5089,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_epnp.cpp() #19 section ".text.startup" {

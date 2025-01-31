@@ -817,7 +817,7 @@ define hidden void @_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv() local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef %0) local_unnamed_addr #4 align 2 {
@@ -857,7 +857,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 422, 421) i32 @_ZN12vmIntrinsics7find_idEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 422, 421) i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.preheader, label %.preheader16
@@ -904,7 +904,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef %0) local_unnamed_addr #6 align 2 {
@@ -3685,7 +3685,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20class_has_intrinsicsE10vmSy
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12vmIntrinsics22short_name_as_C_stringE13vmIntrinsicIDPci(i32 noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN12vmIntrinsics22short_name_as_C_stringE13vmIntrinsicIDPci(i32 noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.preheader.i, label %10

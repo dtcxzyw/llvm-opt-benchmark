@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [21 x i8] c"on_update_references\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %128, label %5
@@ -387,19 +387,19 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold
 declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @rb_rjit_cancel_all(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define hidden void @rb_rjit_cancel_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr @rb_rjit_enabled, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
@@ -995,7 +995,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_rjit_iseq_update_references(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @rb_rjit_iseq_update_references(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @rb_rjit_enabled, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %11
@@ -1070,7 +1070,7 @@ define hidden void @rb_rjit_mark() local_unnamed_addr #0 {
 declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @rb_rjit_free_iseq(ptr nocapture noundef readnone %0) local_unnamed_addr #7 {
+define hidden void @rb_rjit_free_iseq(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
   ret void
 }
 
@@ -1585,7 +1585,7 @@ rb_num2ull_inline.exit:                           ; preds = %69, %71
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_rjit_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_rjit_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) @rb_rjit_opts, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 4), align 4
   %3 = icmp eq i32 %2, 0
@@ -1772,7 +1772,7 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i64 @rb_const_get(i64 noundef, i64 noundef) local_unnamed_addr #6
 
@@ -1781,7 +1781,7 @@ declare i32 @rb_const_defined(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @rb_postponed_job_preregister(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rjit_iseq_update_references(ptr nocapture readnone %0) #0 {
+define internal void @rjit_iseq_update_references(ptr readnone captures(none) %0) #0 {
   %2 = load i8, ptr @rb_rjit_enabled, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %46
@@ -1889,7 +1889,7 @@ define hidden void @Init_builtin_rjit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_4(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_4(ptr readnone captures(none) %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -1897,13 +1897,13 @@ define internal range(i64 0, 21) i64 @builtin_inline_class_4(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i64 @builtin_inline_class_9(ptr nocapture readnone %0, i64 %1) #11 {
+define internal noundef i64 @builtin_inline_class_9(ptr readnone captures(none) %0, i64 %1) #11 {
   store i8 1, ptr @rb_rjit_call_p, align 1
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @rjit_stats_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @rjit_stats_enabled_p(ptr readnone captures(none) %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_stats_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -1911,13 +1911,13 @@ define internal range(i64 0, 21) i64 @rjit_stats_enabled_p(ptr nocapture readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i64 @rjit_stop_stats(ptr nocapture readnone %0, i64 %1) #11 {
+define internal noundef i64 @rjit_stop_stats(ptr readnone captures(none) %0, i64 %1) #11 {
   store i8 0, ptr @rb_rjit_call_p, align 1
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @rjit_trace_exits_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @rjit_trace_exits_enabled_p(ptr readnone captures(none) %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_trace_exits_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -1940,7 +1940,7 @@ declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #6
 declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

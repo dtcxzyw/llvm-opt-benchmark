@@ -22,7 +22,7 @@ entry:
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7510AppendableD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7510AppendableD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #9
   unreachable
@@ -124,13 +124,13 @@ return:                                           ; preds = %do.cond, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7510Appendable21reserveAppendCapacityEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #5 align 2 {
+define noundef signext i8 @_ZN6icu_7510Appendable21reserveAppendCapacityEi(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #5 align 2 {
 entry:
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr nocapture noundef writeonly initializes((0, 4)) %resultCapacity) unnamed_addr #6 align 2 {
+define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr noundef writeonly captures(none) initializes((0, 4)) %resultCapacity) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %minCapacity, 1
   %cmp2 = icmp slt i32 %scratchCapacity, %minCapacity

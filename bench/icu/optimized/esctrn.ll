@@ -275,7 +275,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -518,7 +518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7520EscapeTransliterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7520EscapeTransliterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7520EscapeTransliterator16getStaticClassIDEvE7classID
 }
@@ -755,7 +755,7 @@ declare void @_ZN6icu_7514Transliterator16_registerFactoryERKNS_13UnicodeStringE
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L17_createEscUnicodeERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L17_createEscUnicodeERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -810,7 +810,7 @@ cleanup.action25:                                 ; preds = %lpad2, %lpad9
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L14_createEscJavaERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L14_createEscJavaERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -862,7 +862,7 @@ cleanup.action25:                                 ; preds = %lpad2, %lpad9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L11_createEscCERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L11_createEscCERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -982,7 +982,7 @@ cleanup.action79:                                 ; preds = %lpad2, %cleanup.act
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L13_createEscXMLERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L13_createEscXMLERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1044,7 +1044,7 @@ cleanup.action25:                                 ; preds = %lpad2, %cleanup.act
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L15_createEscXML10ERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L15_createEscXML10ERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1106,7 +1106,7 @@ cleanup.action25:                                 ; preds = %lpad2, %cleanup.act
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L14_createEscPerlERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr nocapture readnone %.coerce) #1 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN6icu_75L14_createEscPerlERKNS_13UnicodeStringENS_14Transliterator5TokenE(ptr noundef nonnull align 8 dereferenceable(64) %ID, ptr readnone captures(none) %.coerce) #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1357,7 +1357,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7520EscapeTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(16) %pos, i8 signext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7520EscapeTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %pos, i8 signext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"class.icu_75::UnicodeString", align 8
   %start2 = getelementptr inbounds nuw i8, ptr %pos, i64 8

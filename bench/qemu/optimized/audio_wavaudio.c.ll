@@ -51,7 +51,7 @@ entry:
 declare void @audio_driver_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @wav_audio_init(ptr noundef readonly returned %dev, ptr nocapture readnone %errp) #0 {
+define internal noundef ptr @wav_audio_init(ptr noundef readonly returned %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
@@ -67,7 +67,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @wav_audio_fini(ptr nocapture readnone %opaque) #2 {
+define internal void @wav_audio_fini(ptr readnone captures(none) %opaque) #2 {
 entry:
   ret void
 }
@@ -76,7 +76,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @wav_init_out(ptr noundef %hw, ptr nocapture readnone %as, ptr nocapture noundef readonly %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @wav_init_out(ptr noundef %hw, ptr readnone captures(none) %as, ptr noundef readonly captures(none) %drv_opaque) #0 {
 entry:
   %hdr = alloca [44 x i8], align 16
   %wav_as = alloca %struct.audsettings, align 8
@@ -235,7 +235,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wav_fini_out(ptr nocapture noundef %hw) #0 {
+define internal void @wav_fini_out(ptr noundef captures(none) %hw) #0 {
 entry:
   %rlen = alloca [4 x i8], align 1
   %dlen = alloca [4 x i8], align 1
@@ -329,7 +329,7 @@ return:                                           ; preds = %entry, %if.end37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @wav_write_out(ptr noundef %hw, ptr nocapture noundef %buf, i64 noundef %len) #0 {
+define internal i64 @wav_write_out(ptr noundef %hw, ptr noundef captures(none) %buf, i64 noundef %len) #0 {
 entry:
   %rate = getelementptr inbounds nuw i8, ptr %hw, i64 176
   %info = getelementptr inbounds nuw i8, ptr %hw, i64 20
@@ -394,7 +394,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare { i64, i64 } @audiodev_to_audsettings(ptr noundef) local_unnamed_addr #1
 
@@ -406,7 +406,7 @@ declare void @abort() local_unnamed_addr #5
 declare void @audio_pcm_init_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #7
@@ -415,15 +415,15 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @audio_rate_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @audio_rate_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

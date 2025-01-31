@@ -106,7 +106,7 @@ do_create.exit:                                   ; preds = %for.body, %if.else.
   %ln.0.i = phi ptr [ %call30.i, %if.end34.i ], [ %1, %for.body ], [ %1, %if.else.i ]
   %ostr.0.i = phi ptr [ %ostr.1.i, %if.end34.i ], [ %0, %for.body ], [ %add.ptr.i, %if.else.i ]
   %lntmp.0.i = phi ptr [ %call30.i, %if.end34.i ], [ null, %for.body ], [ null, %if.else.i ]
-  %call43.i = tail call i32 @OBJ_create(ptr noundef %ostr.0.i, ptr noundef %1, ptr noundef %ln.0.i) #5
+  %call43.i = tail call i32 @OBJ_create(ptr noundef nonnull %ostr.0.i, ptr noundef %1, ptr noundef %ln.0.i) #5
   tail call void @CRYPTO_free(ptr noundef %lntmp.0.i, ptr noundef nonnull @.str.1, i32 noundef 99) #5
   %cmp44.i.not = icmp eq i32 %call43.i, 0
   br i1 %cmp44.i.not, label %return.sink.split, label %for.cond
@@ -125,7 +125,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @oid_module_finish(ptr nocapture readnone %md) #2 {
+define internal void @oid_module_finish(ptr readnone captures(none) %md) #2 {
 entry:
   ret void
 }
@@ -152,7 +152,7 @@ declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @OBJ_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

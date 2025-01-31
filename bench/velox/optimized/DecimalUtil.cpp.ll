@@ -30,7 +30,7 @@ $_ZN8facebook5velox11DecimalUtil12kPowersOfTenE = comdat any
 @.str.5 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox11DecimalUtil8toStringB5cxx11EnRKSt10shared_ptrIKNS0_4TypeEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox11DecimalUtil8toStringB5cxx11EnRKSt10shared_ptrIKNS0_4TypeEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i50.i = alloca %"class.fmt::v8::format_arg_store.3", align 16
@@ -308,7 +308,7 @@ if.end12:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 1, 18) i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
+define noundef range(i32 1, 18) i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr noundef writeonly captures(none) %out) local_unnamed_addr #3 align 2 {
 entry:
   %lowBig = alloca i64, align 8
   %highBig = alloca i64, align 8
@@ -388,10 +388,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox11DecimalUtil14computeAverageERnRKnll(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %avg, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %sum, i64 noundef %count, i64 noundef %overflow) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox11DecimalUtil14computeAverageERnRKnll(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) %avg, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %sum, i64 noundef %count, i64 noundef %overflow) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq i64 %overflow, 0
   %cmp.not.i = icmp eq i64 %count, 0
@@ -577,10 +577,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.abs.i128(i128, i1 immarg) #13

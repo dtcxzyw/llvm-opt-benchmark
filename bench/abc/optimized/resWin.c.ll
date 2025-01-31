@@ -215,10 +215,10 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %44
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_WinCollectLeavesAndNodes(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinCollectLeavesAndNodes(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1008,7 +1008,7 @@ Vec_PtrPush.exit113:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef range(i32 -1048575, 1048576) %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Vec_VecPush(ptr noundef captures(none) %0, i32 noundef range(i32 -1048575, 1048576) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %1, 1
@@ -1145,7 +1145,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinComputeRoots_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define void @Res_WinComputeRoots_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %.val2.i = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %5, align 8
@@ -1313,7 +1313,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_WinComputeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinComputeRoots(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1517,7 +1517,7 @@ define range(i32 0, 2) i32 @Res_WinMarkPaths_rec(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinMarkPaths(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Res_WinMarkPaths(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -1694,7 +1694,7 @@ Abc_NtkIncrementTravId.exit33:                    ; preds = %Abc_NtkIncrementTra
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val1925 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val1925, 0
@@ -1876,7 +1876,7 @@ Vec_PtrPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinFinalizeRoots(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %2, i64 16
@@ -1921,7 +1921,7 @@ define range(i32 0, 2) i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinAddMissing_rec(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Res_WinAddMissing_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.val2.i = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 16
   %.val3.i = load i32, ptr %4, align 8
@@ -2144,7 +2144,7 @@ Vec_PtrPush.exit34:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_WinAddMissing(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Res_WinAddMissing(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -2307,7 +2307,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Res_WinIsTrivial(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -2330,7 +2330,7 @@ define range(i32 0, 2) i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 16)) %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 16)) %3) local_unnamed_addr #2 {
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
@@ -2475,10 +2475,10 @@ Res_WinFinalizeRoots.exit.thread:                 ; preds = %71, %49, %52, %Res_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

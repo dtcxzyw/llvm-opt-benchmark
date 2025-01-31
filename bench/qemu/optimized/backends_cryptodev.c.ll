@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cryptodev_backend_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_cryptodev(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_cryptodev(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %list = alloca ptr, align 8
   store ptr null, ptr %list, align 8
@@ -69,7 +69,7 @@ declare ptr @object_get_root() local_unnamed_addr #1
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qmp_query_cryptodev_foreach(ptr noundef %obj, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @qmp_query_cryptodev_foreach(ptr noundef %obj, ptr noundef captures(none) %data) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.1) #7
   %tobool.not = icmp eq ptr %call, null
@@ -326,7 +326,7 @@ declare zeroext i1 @throttle_enabled(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @throttle_schedule_timer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @cryptodev_backend_account(ptr nocapture noundef readonly %backend, ptr nocapture noundef readonly %op_info) unnamed_addr #0 {
+define internal fastcc i32 @cryptodev_backend_account(ptr noundef readonly captures(none) %backend, ptr noundef readonly captures(none) %op_info) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %op_info, align 8
   switch i32 %0, label %if.else73 [
@@ -467,7 +467,7 @@ return:                                           ; preds = %do.body27, %do.body
 declare void @throttle_account(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cryptodev_backend_set_used(ptr nocapture noundef writeonly initializes((41, 42)) %backend, i1 noundef zeroext %used) local_unnamed_addr #3 {
+define dso_local void @cryptodev_backend_set_used(ptr noundef writeonly captures(none) initializes((41, 42)) %backend, i1 noundef zeroext %used) local_unnamed_addr #3 {
 entry:
   %frombool = zext i1 %used to i8
   %is_used = getelementptr inbounds nuw i8, ptr %backend, i64 41
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @cryptodev_backend_is_used(ptr nocapture noundef readonly %backend) local_unnamed_addr #4 {
+define dso_local zeroext i1 @cryptodev_backend_is_used(ptr noundef readonly captures(none) %backend) local_unnamed_addr #4 {
 entry:
   %is_used = getelementptr inbounds nuw i8, ptr %backend, i64 41
   %0 = load i8, ptr %is_used, align 1
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cryptodev_backend_set_ready(ptr nocapture noundef writeonly initializes((40, 41)) %backend, i1 noundef zeroext %ready) local_unnamed_addr #3 {
+define dso_local void @cryptodev_backend_set_ready(ptr noundef writeonly captures(none) initializes((40, 41)) %backend, i1 noundef zeroext %ready) local_unnamed_addr #3 {
 entry:
   %frombool = zext i1 %ready to i8
   %ready1 = getelementptr inbounds nuw i8, ptr %backend, i64 40
@@ -494,7 +494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @cryptodev_backend_is_ready(ptr nocapture noundef readonly %backend) local_unnamed_addr #4 {
+define dso_local zeroext i1 @cryptodev_backend_is_ready(ptr noundef readonly captures(none) %backend) local_unnamed_addr #4 {
 entry:
   %ready = getelementptr inbounds nuw i8, ptr %backend, i64 40
   %0 = load i8, ptr %ready, align 8
@@ -583,7 +583,7 @@ if.end:                                           ; preds = %if.then, %cryptodev
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @cryptodev_backend_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -672,7 +672,7 @@ entry:
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_get_queues(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_get_queues(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -684,7 +684,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_set_queues(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_set_queues(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -712,7 +712,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_get_bps(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_get_bps(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -724,7 +724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_set_bps(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_set_bps(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -741,7 +741,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_get_ops(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_get_ops(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -753,7 +753,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_set_ops(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_set_ops(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #7
@@ -772,7 +772,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @add_stats_callbacks(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_stats_cb(ptr noundef %result, i32 noundef %target, ptr noundef %names, ptr nocapture readnone %targets, ptr noundef %errp) #0 {
+define internal void @cryptodev_backend_stats_cb(ptr noundef %result, i32 noundef %target, ptr noundef %names, ptr readnone captures(none) %targets, ptr noundef %errp) #0 {
 entry:
   %stats_args = alloca %struct.StatsArgs, align 8
   %cond = icmp eq i32 %target, 2
@@ -794,7 +794,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cryptodev_backend_schemas_cb(ptr noundef %result, ptr nocapture readnone %errp) #0 {
+define internal void @cryptodev_backend_schemas_cb(ptr noundef %result, ptr readnone captures(none) %errp) #0 {
 entry:
   br label %for.body
 
@@ -990,7 +990,7 @@ declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @visit_type_uint64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cryptodev_backend_stats_query(ptr noundef %obj, ptr nocapture noundef readonly %data) #0 {
+define internal noundef i32 @cryptodev_backend_stats_query(ptr noundef %obj, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.1) #7
@@ -1221,7 +1221,7 @@ declare ptr @object_get_canonical_path(ptr noundef) local_unnamed_addr #1
 declare void @add_stats_schema(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

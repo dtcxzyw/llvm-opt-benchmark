@@ -217,7 +217,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @riscv_cpu_set_rdtime_fn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cpu_riscv_read_rtc(ptr nocapture noundef readonly %opaque) #0 {
+define internal i64 @cpu_riscv_read_rtc(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %timebase_freq = getelementptr inbounds nuw i8, ptr %opaque, i64 1140
   %0 = load i32, ptr %timebase_freq, align 4
@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_mtimer_cb(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @riscv_aclint_mtimer_cb(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %timer_irqs = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -333,7 +333,7 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_mtimer_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @riscv_aclint_mtimer_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_mtimer_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @riscv_aclint_mtimer_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.riscv_aclint_mtimer_realize) #6
   %mmio = getelementptr inbounds nuw i8, ptr %call, i64 848
@@ -442,7 +442,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @riscv_aclint_mtimer_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @riscv_aclint_mtimer_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %timecmp_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
@@ -581,7 +581,7 @@ return:                                           ; preds = %if.then87, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_mtimer_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %value, i32 noundef %size) #0 {
+define internal void @riscv_aclint_mtimer_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %value, i32 noundef %size) #0 {
 entry:
   %timecmp_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
@@ -821,7 +821,7 @@ do.end165:                                        ; preds = %for.inc, %if.end128
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_aclint_mtimer_write_timecmp(ptr nocapture noundef readonly %mtimer, i32 noundef %hartid, i64 noundef %value) unnamed_addr #0 {
+define internal fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef readonly captures(none) %mtimer, i32 noundef %hartid, i64 noundef %value) unnamed_addr #0 {
 entry:
   %timebase_freq1 = getelementptr inbounds nuw i8, ptr %mtimer, i64 1140
   %0 = load i32, ptr %timebase_freq1, align 4
@@ -901,7 +901,7 @@ return:                                           ; preds = %if.end25, %if.then
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_swi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @riscv_aclint_swi_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -914,7 +914,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_swi_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @riscv_aclint_swi_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 474, ptr noundef nonnull @__func__.riscv_aclint_swi_realize) #6
   %mmio = getelementptr inbounds nuw i8, ptr %call, i64 816
@@ -1004,7 +1004,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 2) i64 @riscv_aclint_swi_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 2) i64 @riscv_aclint_swi_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %num_harts, align 4
@@ -1071,7 +1071,7 @@ return:                                           ; preds = %if.then34, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_aclint_swi_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
+define internal void @riscv_aclint_swi_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
 entry:
   %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %num_harts, align 4

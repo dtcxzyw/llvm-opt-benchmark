@@ -803,7 +803,7 @@ define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #4

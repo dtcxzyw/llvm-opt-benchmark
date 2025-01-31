@@ -119,10 +119,10 @@ if.end32:                                         ; preds = %if.else, %for.end29
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_build_unencoding_stack(ptr noundef %data, ptr noundef %enclist, i32 noundef %is_transfer) local_unnamed_addr #0 {
@@ -299,13 +299,13 @@ find_unencode_writer.exit:                        ; preds = %land.lhs.true23.i, 
   %retval.0.i = phi ptr [ @Curl_httpchunk_unencoder, %land.lhs.true10.i ], [ @Curl_httpchunk_unencoder, %land.lhs.true.i ], [ %11, %land.lhs.true34.i ], [ %11, %land.lhs.true23.i ], [ null, %for.inc40.i ]
   %tobool56.not = icmp eq ptr %retval.0.i, null
   %spec.store.select = select i1 %tobool56.not, ptr @error_writer, ptr %retval.0.i
-  %call59 = call i32 @Curl_cwriter_create(ptr noundef nonnull %writer, ptr noundef %data, ptr noundef nonnull %spec.store.select, i32 noundef %cond) #7
+  %call59 = call i32 @Curl_cwriter_create(ptr noundef nonnull %writer, ptr noundef nonnull %data, ptr noundef nonnull %spec.store.select, i32 noundef %cond) #7
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.end62, label %return
 
 if.end62:                                         ; preds = %find_unencode_writer.exit
   %19 = load ptr, ptr %writer, align 8
-  %call63 = call i32 @Curl_cwriter_add(ptr noundef %data, ptr noundef %19) #7
+  %call63 = call i32 @Curl_cwriter_add(ptr noundef nonnull %data, ptr noundef %19) #7
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.end62.do.cond_crit_edge, label %if.then65
 
@@ -315,7 +315,7 @@ if.end62.do.cond_crit_edge:                       ; preds = %if.end62
 
 if.then65:                                        ; preds = %if.end62
   %20 = load ptr, ptr %writer, align 8
-  call void @Curl_cwriter_free(ptr noundef %data, ptr noundef %20) #7
+  call void @Curl_cwriter_free(ptr noundef nonnull %data, ptr noundef %20) #7
   br label %return
 
 do.cond:                                          ; preds = %if.end62.do.cond_crit_edge, %for.end
@@ -469,7 +469,7 @@ exit_zlib.exit:                                   ; preds = %if.end.i, %if.end8.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zalloc_cb(ptr nocapture readnone %opaque, i32 noundef %items, i32 noundef %size) #0 {
+define internal ptr @zalloc_cb(ptr readnone captures(none) %opaque, i32 noundef %items, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %conv = zext i32 %items to i64
@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zfree_cb(ptr nocapture readnone %opaque, ptr noundef %ptr) #0 {
+define internal void @zfree_cb(ptr readnone captures(none) %opaque, ptr noundef %ptr) #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   tail call void %0(ptr noundef %ptr) #7
@@ -832,7 +832,7 @@ return:                                           ; preds = %if.then3.i58, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exit_zlib(ptr noundef %data, ptr noundef %z, ptr nocapture noundef %zlib_init, i32 noundef %result) unnamed_addr #0 {
+define internal fastcc noundef i32 @exit_zlib(ptr noundef %data, ptr noundef %z, ptr noundef captures(none) %zlib_init, i32 noundef %result) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %zlib_init, align 4
   %cmp = icmp eq i32 %0, 4
@@ -1456,17 +1456,17 @@ exit_zlib.exit:                                   ; preds = %if.end.i, %if.end8.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @zlibVersion() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @Curl_saferealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @brotli_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 32)) %writer) #0 {
+define internal range(i32 0, 28) i32 @brotli_do_init(ptr readnone captures(none) %data, ptr noundef writeonly captures(none) initializes((24, 32)) %writer) #0 {
 entry:
   %call = tail call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #7
   %br = getelementptr inbounds nuw i8, ptr %writer, i64 24
@@ -1477,7 +1477,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @brotli_do_write(ptr noundef %data, ptr nocapture noundef %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
+define internal i32 @brotli_do_write(ptr noundef %data, ptr noundef captures(none) %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
 entry:
   %nbytes.addr = alloca i64, align 8
   %src = alloca ptr, align 8
@@ -1574,7 +1574,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @brotli_do_close(ptr nocapture readnone %data, ptr nocapture noundef %writer) #0 {
+define internal void @brotli_do_close(ptr readnone captures(none) %data, ptr noundef captures(none) %writer) #0 {
 entry:
   %br = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %0 = load ptr, ptr %br, align 8
@@ -1599,7 +1599,7 @@ declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #1
 declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @zstd_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 40)) %writer) #0 {
+define internal range(i32 0, 28) i32 @zstd_do_init(ptr readnone captures(none) %data, ptr noundef writeonly captures(none) initializes((24, 40)) %writer) #0 {
 entry:
   %call = tail call ptr @ZSTD_createDStream() #7
   %zds = getelementptr inbounds nuw i8, ptr %writer, i64 24
@@ -1612,7 +1612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zstd_do_write(ptr noundef %data, ptr nocapture noundef %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
+define internal i32 @zstd_do_write(ptr noundef %data, ptr noundef captures(none) %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
 entry:
   %in = alloca %struct.ZSTD_inBuffer_s, align 8
   %out = alloca %struct.ZSTD_outBuffer_s, align 8
@@ -1699,7 +1699,7 @@ return:                                           ; preds = %if.end34, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zstd_do_close(ptr nocapture readnone %data, ptr nocapture noundef %writer) #0 {
+define internal void @zstd_do_close(ptr readnone captures(none) %data, ptr noundef captures(none) %writer) #0 {
 entry:
   %decomp = getelementptr inbounds nuw i8, ptr %writer, i64 32
   %0 = load ptr, ptr %decomp, align 8
@@ -1736,13 +1736,13 @@ declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #1
 declare i64 @ZSTD_freeDStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @error_do_init(ptr nocapture readnone %data, ptr nocapture readnone %writer) #5 {
+define internal noundef i32 @error_do_init(ptr readnone captures(none) %data, ptr readnone captures(none) %writer) #5 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @error_do_write(ptr noundef %data, ptr nocapture noundef readonly %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
+define internal i32 @error_do_write(ptr noundef %data, ptr noundef readonly captures(none) %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
 entry:
   %all = alloca [256 x i8], align 16
   call void @Curl_all_content_encodings(ptr noundef nonnull %all, i64 noundef 256)
@@ -1766,7 +1766,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @error_do_close(ptr nocapture readnone %data, ptr nocapture readnone %writer) #5 {
+define internal void @error_do_close(ptr readnone captures(none) %data, ptr readnone captures(none) %writer) #5 {
 entry:
   ret void
 }

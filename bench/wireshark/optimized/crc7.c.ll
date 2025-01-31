@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc_table = internal unnamed_addr constant [256 x i8] c"\00\8A\9E\14\B6<(\A2\E6lx\F2P\DA\CEDF\CC\D8R\F0zn\E4\A0*>\B4\16\9C\88\02\8C\06\12\98:\B0\A4.j\E0\F4~\DCVB\C8\CA@T\DE|\F6\E2h,\A6\B28\9A\10\04\8E\92\18\0C\86$\AE\BA0t\FE\EA`\C2H\\\D6\D4^J\C0b\E8\FCv2\B8\AC&\84\0E\1A\90\1E\94\80\0A\A8\226\BC\F8rf\ECN\C4\D0ZX\D2\C6L\EEdp\FA\BE4 \AA\08\82\96\1C\AE$0\BA\18\92\86\0CH\C2\D6\\\FEt`\EA\E8bv\FC^\D4\C0J\0E\84\90\1A\B82&\AC\22\A8\BC6\94\1E\0A\80\C4NZ\D0r\F8\ECfd\EE\FAp\D2XL\C6\82\08\1C\964\BE\AA <\B6\A2(\8A\00\14\9E\DAPD\CEl\E6\F2xz\F0\E4n\CCFR\D8\9C\16\02\88*\A0\B4>\B0:.\A4\06\8C\98\12V\DC\C8B\E0j~\F4\F6|h\E2@\CA\DET\10\9A\8E\04\A6,8\B2", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext range(i8 0, -1) i8 @crc7update(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, -1) i8 @crc7update(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not8 = icmp eq i32 %2, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

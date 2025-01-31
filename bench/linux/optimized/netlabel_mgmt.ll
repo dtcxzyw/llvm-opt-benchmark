@@ -33,7 +33,7 @@ define dso_local i32 @netlbl_mgmt_genl_init() local_unnamed_addr #0 section ".in
 declare dso_local i32 @genl_register_family(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_add(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_add(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -112,7 +112,7 @@ define internal i32 @netlbl_mgmt_add(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_remove(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_remove(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -191,7 +191,7 @@ define internal i32 @netlbl_mgmt_listall(ptr noundef %0, ptr noundef %1) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_adddef(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_adddef(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -264,7 +264,7 @@ define internal i32 @netlbl_mgmt_adddef(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_removedef(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_removedef(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -285,7 +285,7 @@ define internal i32 @netlbl_mgmt_removedef(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_listdef(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 88
@@ -361,7 +361,7 @@ define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -583,7 +583,7 @@ netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %2, %.thread, %9, %n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_version(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_version(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #10
   %5 = icmp eq ptr %4, null
@@ -638,13 +638,13 @@ define internal i32 @netlbl_mgmt_version(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 64) #12
   %5 = icmp eq ptr %4, null
@@ -992,13 +992,13 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @security_current_getsecid_subj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @nla_strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1040,7 +1040,7 @@ declare dso_local i32 @netlbl_domhsh_remove(ptr noundef, i16 noundef zeroext, pt
 declare dso_local i32 @netlbl_domhsh_walk(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_mgmt_listall_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 align 16 {
+define internal i32 @netlbl_mgmt_listall_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1115,7 +1115,7 @@ define internal i32 @netlbl_mgmt_listall_cb(ptr nocapture noundef readonly %0, p
 declare dso_local ptr @genlmsg_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1458,7 +1458,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #1

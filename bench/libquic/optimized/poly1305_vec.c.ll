@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @CRYPTO_poly1305_init(ptr noundef %state, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define hidden void @CRYPTO_poly1305_init(ptr noundef %state, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %state to i64
   %add.i = add i64 %0, 63
@@ -419,7 +419,7 @@ if.end56:                                         ; preds = %poly1305_block_copy
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_first_block(ptr nocapture noundef %st, ptr nocapture noundef readonly %m) unnamed_addr #2 {
+define internal fastcc void @poly1305_first_block(ptr noundef captures(none) %st, ptr noundef readonly captures(none) %m) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %st, i64 144
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %st, i64 156
@@ -631,7 +631,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 64, -63) %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %st, ptr noundef readonly captures(none) %m, i64 noundef range(i64 64, -63) %bytes) unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %st, i64 288
   %1 = load <2 x i64>, ptr %0, align 16
@@ -890,7 +890,7 @@ while.end:                                        ; preds = %while.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @CRYPTO_poly1305_finish(ptr noundef %state, ptr nocapture noundef writeonly %mac) local_unnamed_addr #1 {
+define hidden void @CRYPTO_poly1305_finish(ptr noundef %state, ptr noundef writeonly captures(none) %mac) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %state to i64
   %add.i = add i64 %0, 63
@@ -1605,7 +1605,7 @@ declare <2 x i64> @llvm.fshl.v2i64(<2 x i64>, <2 x i64>, <2 x i64>) #3
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

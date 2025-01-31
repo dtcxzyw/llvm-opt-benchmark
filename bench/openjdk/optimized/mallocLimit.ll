@@ -41,7 +41,7 @@ $_ZN12ParserHelper10match_sizeEPm = comdat any
 @_ZN14MallocLimitSetC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14MallocLimitSetC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN14MallocLimitSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14MallocLimitSetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(464) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, i8 0, i64 12, i1 false)
   br label %3
@@ -61,7 +61,7 @@ _ZN14MallocLimitSet5resetEv.exit:                 ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN14MallocLimitSet5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MallocLimitSet5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(464) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, i8 0, i64 12, i1 false)
   br label %3
@@ -81,7 +81,7 @@ define hidden void @_ZN14MallocLimitSet5resetEv(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14MallocLimitSet16set_global_limitEm15MallocLimitMode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) initializes((0, 12)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14MallocLimitSet16set_global_limitEm15MallocLimitMode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(464) initializes((0, 12)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
@@ -89,7 +89,7 @@ define hidden void @_ZN14MallocLimitSet16set_global_limitEm15MallocLimitMode(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14MallocLimitSet18set_category_limitE8MEMFLAGSm15MallocLimitMode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) %0, i8 noundef zeroext %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14MallocLimitSet18set_category_limitE8MEMFLAGSm15MallocLimitMode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(464) %0, i8 noundef zeroext %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i8 %1 to i64
   %7 = getelementptr inbounds nuw [28 x %struct.malloclimit], ptr %5, i64 0, i64 %6
@@ -100,7 +100,7 @@ define hidden void @_ZN14MallocLimitSet18set_category_limitE8MEMFLAGSm15MallocLi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14MallocLimitSet8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK14MallocLimitSet8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.preheader, label %5
@@ -224,7 +224,7 @@ _ZL12mode_to_name15MallocLimitMode.exit20:        ; preds = %_Z25proper_unit_for
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14MallocLimitSet24parse_malloclimit_optionEPKcPS1_(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN14MallocLimitSet24parse_malloclimit_optionEPKcPS1_(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12)) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.stringStream, align 8
   %5 = alloca %class.ParserHelper, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -602,16 +602,16 @@ define hidden void @_ZN18MallocLimitHandler8print_onEP12outputStream(ptr noundef
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -645,13 +645,13 @@ __cxx_global_var_init.4.exit:                     ; preds = %1
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

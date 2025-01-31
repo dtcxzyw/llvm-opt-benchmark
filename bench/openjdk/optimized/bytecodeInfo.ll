@@ -108,7 +108,7 @@ $_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE9expand_toEi 
 @_ZN10InlineTreeC1EP7CompilePKS_P8ciMethodP8JVMStateii = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32, i32), ptr @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 25), (32, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly %4, i32 %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr noundef nonnull align 8 captures(none) dereferenceable(81) initializes((0, 25), (32, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly %4, i32 %5, i32 noundef %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
@@ -218,7 +218,7 @@ declare noundef i32 @_ZN8ciMethod22code_size_for_inliningEv(ptr noundef nonnull 
 declare void @_ZN8JVMStateC1EP8ciMethodPS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree13should_inlineEP8ciMethodS1_iRbR13ciCallProfile(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree13should_inlineEP8ciMethodS1_iRbR13ciCallProfile(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5) local_unnamed_addr #0 align 2 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 360
   %9 = load ptr, ptr %8, align 8
@@ -381,7 +381,7 @@ declare noundef zeroext i1 @_ZN8ciReplay13should_inlineEPvP8ciMethodiiRb(ptr nou
 declare noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160), i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15is_init_with_eaP8ciMethodS0_P7Compile(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15is_init_with_eaP8ciMethodS0_P7Compile(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 21
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -472,7 +472,7 @@ declare noundef zeroext i1 @_ZN8ciMethod17has_compiled_codeEv(ptr noundef nonnul
 declare noundef i32 @_ZN8ciMethod24inline_instructions_sizeEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree17should_not_inlineEP8ciMethodS1_iRbR13ciCallProfile(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree17should_not_inlineEP8ciMethodS1_iRbR13ciCallProfile(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 8
   %8 = and i64 %.sroa.0.0.copyload.i.i, 1024
@@ -810,7 +810,7 @@ declare noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZN8ciMethod22was_executed_more_thanEi(ptr noundef nonnull align 8 dereferenceable(160), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree14is_not_reachedEP8ciMethodS1_iR13ciCallProfile(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree14is_not_reachedEP8ciMethodS1_iR13ciCallProfile(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr @UseInterpreter, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %25
@@ -854,7 +854,7 @@ declare noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align
 declare noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree13try_to_inlineEP8ciMethodS1_iP8JVMStateR13ciCallProfileRb(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree13try_to_inlineEP8ciMethodS1_iP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #0 align 2 {
   %8 = load i8, ptr @ClipInlining, align 1
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1214,7 +1214,7 @@ declare noundef zeroext i1 @_ZNK8ciMethod23is_compiled_lambda_formEv(ptr noundef
 declare noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree19pass_initial_checksEP8ciMethodiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree19pass_initial_checksEP8ciMethodiS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ciBytecodeStream, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %79, label %7
@@ -1421,7 +1421,7 @@ declare noundef zeroext i1 @_ZN8ciMethod21has_balanced_monitorsEv(ptr noundef no
 declare noundef ptr @_ZN8ciMethod17get_flow_analysisEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10InlineTree14print_inliningEP8ciMethodiS1_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK10InlineTree14print_inliningEP8ciMethodiS1_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.stringStream, align 8
   %7 = alloca %class.EventCompilerInlining, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1534,7 +1534,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodP8ciMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1760,7 +1760,7 @@ _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %20, %_ZN26GrowableA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10InlineTree9callee_atEiP8ciMethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK10InlineTree9callee_atEiP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1962,7 +1962,7 @@ _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %36
 declare noundef ptr @_ZNK8JVMState8of_depthEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK10InlineTree5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK10InlineTree5countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1991,7 +1991,7 @@ define hidden noundef i32 @_ZNK10InlineTree5countEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10InlineTree16dump_replay_dataEP12outputStreami(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10InlineTree16dump_replay_dataEP12outputStreami(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -2278,13 +2278,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

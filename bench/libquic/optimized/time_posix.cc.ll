@@ -109,10 +109,10 @@ return:                                           ; preds = %cleanup.action, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #1
 
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %is_local, ptr nocapture noundef writeonly %exploded) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %is_local, ptr noundef writeonly captures(none) %exploded) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.addr.i = alloca i64, align 8
   %timestruct = alloca %struct.tm, align 8
@@ -245,7 +245,7 @@ _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 noundef zeroext %is_local, ptr noundef nonnull align 4 dereferenceable(32) %exploded, ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 noundef zeroext %is_local, ptr noundef nonnull align 4 dereferenceable(32) %exploded, ptr noundef writeonly captures(none) initializes((0, 8)) %time) local_unnamed_addr #0 align 2 {
 entry:
   %timestruct = alloca %struct.tm, align 8
   %timestruct0 = alloca %struct.tm, align 8
@@ -345,7 +345,7 @@ if.end29:                                         ; preds = %if.then21, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end15, %if.end12
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @_ZNK4base4Time9ToTimeValEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
+define dso_local { i64, i64 } @_ZNK4base4Time9ToTimeValEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end7 [
@@ -610,7 +610,7 @@ declare void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dere
 declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i64 @timegm(ptr noundef) local_unnamed_addr #4
@@ -621,10 +621,10 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

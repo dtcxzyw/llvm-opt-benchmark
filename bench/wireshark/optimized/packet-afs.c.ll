@@ -1349,7 +1349,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @afs_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @afs_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1364,7 +1364,7 @@ define internal i32 @afs_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @afs_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @afs_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1483,7 +1483,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   %54 = load ptr, ptr @afs_request_hash, align 8
-  %55 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef %44, ptr noundef nonnull %46) #6
+  %55 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef nonnull %44, ptr noundef nonnull %46) #6
   br label %.thread252
 
 56:                                               ; preds = %41
@@ -1867,14 +1867,14 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_fs_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %71 [
     i8 1, label %5
@@ -2096,7 +2096,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_fs_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit [
     i32 130, label %4
@@ -2870,7 +2870,7 @@ OUT_RXString.exit:                                ; preds = %.lr.ph, %.lr.ph151,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_cb_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_cb_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %39 [
     i8 1, label %5
@@ -2958,7 +2958,7 @@ OUT_CM_INTERFACES.exit:                           ; preds = %.lr.ph34.i, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_cb_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_cb_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %cond = icmp eq i32 %2, 204
   br i1 %cond, label %4, label %.loopexit
@@ -3018,7 +3018,7 @@ define internal void @dissect_cb_request(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_prot_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_prot_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %.loopexit [
     i8 1, label %5
@@ -3104,7 +3104,7 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_prot_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_prot_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit39 [
     i32 500, label %4
@@ -3275,7 +3275,7 @@ OUT_RXString.exit39:                              ; preds = %.lr.ph, %.lr.ph43, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_vldb_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %186 [
     i8 1, label %5
@@ -3601,7 +3601,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_vldb_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_vldb_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit [
     i32 501, label %4
@@ -3695,7 +3695,7 @@ OUT_RXString.exit:                                ; preds = %.lr.ph, %32, %18, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_kauth_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal void @dissect_kauth_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = load i8, ptr %1, align 4
   %cond = icmp eq i8 %4, 4
   br i1 %cond, label %5, label %8
@@ -3710,7 +3710,7 @@ define internal void @dissect_kauth_reply(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_kauth_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_kauth_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_KAUTH_GetTicket.exit [
     i32 1, label %4
@@ -3872,7 +3872,7 @@ OUT_KAUTH_GetTicket.exit:                         ; preds = %81, %74, %53, %OUT_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_vol_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_vol_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %13 [
     i8 1, label %5
@@ -3900,7 +3900,7 @@ define internal void @dissect_vol_reply(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_vol_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_vol_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %cond = icmp eq i32 %2, 121
   br i1 %cond, label %4, label %9
@@ -3917,7 +3917,7 @@ define internal void @dissect_vol_request(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_bos_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @dissect_bos_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = load i8, ptr %1, align 4
   switch i8 %4, label %OUT_RXString.exit [
     i8 1, label %5
@@ -4168,7 +4168,7 @@ OUT_RXString.exit:                                ; preds = %136, %OUT_RXString.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_bos_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_bos_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit58 [
     i32 80, label %4
@@ -4674,7 +4674,7 @@ OUT_RXString.exit58:                              ; preds = %273, %266, %264, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_backup_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal void @dissect_backup_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = load i8, ptr %1, align 4
   %5 = icmp eq i8 %4, 4
   br i1 %5, label %6, label %9
@@ -4689,13 +4689,13 @@ define internal void @dissect_backup_reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_backup_request(ptr noundef %0, ptr nocapture readnone %1, i32 %2) #0 {
+define internal void @dissect_backup_request(ptr noundef %0, ptr readnone captures(none) %1, i32 %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_butc_reply(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal void @dissect_butc_reply(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = load i8, ptr %1, align 4
   %5 = icmp eq i8 %4, 4
   br i1 %5, label %6, label %9
@@ -4710,13 +4710,13 @@ define internal void @dissect_butc_reply(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_butc_request(ptr noundef %0, ptr nocapture readnone %1, i32 %2) #0 {
+define internal void @dissect_butc_request(ptr noundef %0, ptr readnone captures(none) %1, i32 %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_ubik_reply(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_ubik_reply(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   switch i32 %2, label %16 [
     i32 20012, label %15
     i32 10001, label %4
@@ -4773,7 +4773,7 @@ define internal void @dissect_ubik_reply(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_ubik_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @dissect_ubik_request(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %53 [
     i32 10000, label %4
@@ -5444,7 +5444,7 @@ declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
 declare ptr @ptvcursor_tree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5457,7 +5457,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {

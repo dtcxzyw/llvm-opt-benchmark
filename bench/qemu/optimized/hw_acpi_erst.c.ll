@@ -407,7 +407,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -418,7 +418,7 @@ declare void @build_append_gas(ptr noundef, i32 noundef, i8 noundef zeroext, i8 
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @erst_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @erst_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %_now.i.i13 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -912,7 +912,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @erst_reg_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @erst_reg_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 62)
@@ -1582,7 +1582,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 6) i32 @clear_erst_record(ptr nocapture noundef readonly %s) unnamed_addr #4 {
+define internal fastcc range(i32 0, 6) i32 @clear_erst_record(ptr noundef readonly captures(none) %s) unnamed_addr #4 {
 entry:
   %record_identifier = getelementptr inbounds nuw i8, ptr %s, i64 3208
   %0 = load i64, ptr %record_identifier, align 8
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @get_next_record_identifier(ptr nocapture noundef %s, ptr nocapture noundef writeonly initializes((0, 8)) %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
+define internal fastcc void @get_next_record_identifier(ptr noundef captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 8)) %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
 entry:
   br i1 %first, label %if.then, label %entry.if.end_crit_edge
 
@@ -1734,10 +1734,10 @@ if.end20:                                         ; preds = %if.then7, %if.then1
 declare i64 @memory_region_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_nvram_ptr_by_index(ptr nocapture noundef readonly %s, i32 noundef %index) unnamed_addr #0 {
+define internal fastcc ptr @get_nvram_ptr_by_index(ptr noundef readonly captures(none) %s, i32 noundef %index) unnamed_addr #0 {
 entry:
   %header = getelementptr inbounds nuw i8, ptr %s, i64 3216
   %0 = load ptr, ptr %header, align 16
@@ -1763,10 +1763,10 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @erst_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @erst_post_load(ptr noundef captures(none) %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %storage_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
@@ -1830,10 +1830,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

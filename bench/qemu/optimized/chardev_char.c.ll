@@ -254,7 +254,7 @@ return:                                           ; preds = %if.end10, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_chr_has_feature(ptr nocapture noundef readonly %chr, i32 noundef %feature) local_unnamed_addr #2 {
+define dso_local zeroext i1 @qemu_chr_has_feature(ptr noundef readonly captures(none) %chr, i32 noundef %feature) local_unnamed_addr #2 {
 entry:
   %conv = zext i32 %feature to i64
   %features = getelementptr inbounds nuw i8, ptr %chr, i64 144
@@ -274,7 +274,7 @@ declare void @replay_char_write_event_load(ptr noundef, ptr noundef) local_unnam
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_chr_write_buffer(ptr noundef %s, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef nonnull initializes((0, 4)) %offset, i1 noundef zeroext %write_all) unnamed_addr #0 {
+define internal fastcc i32 @qemu_chr_write_buffer(ptr noundef %s, ptr noundef %buf, i32 noundef %len, ptr noundef nonnull captures(none) initializes((0, 4)) %offset, i1 noundef zeroext %write_all) unnamed_addr #0 {
 entry:
   %w.i = alloca %struct.QemuCoSleep, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
@@ -481,7 +481,7 @@ if.end26:                                         ; preds = %if.end7.i32, %land.
 declare void @replay_char_write_event_save(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_chr_be_can_write(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local i32 @qemu_chr_be_can_write(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %be1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %be1, align 8
@@ -506,7 +506,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_be_write_impl(ptr nocapture noundef readonly %s, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_be_write_impl(ptr noundef readonly captures(none) %s, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %be1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %be1, align 8
@@ -775,17 +775,17 @@ if.then71:                                        ; preds = %if.end67
   br label %return
 
 if.end73:                                         ; preds = %if.end67
-  %call74 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.28, ptr noundef null) #13
+  %call74 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.28, ptr noundef null) #13
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %if.end79, label %if.then76
 
 if.then76:                                        ; preds = %if.end73
   %call77 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, ptr noundef nonnull @error_abort) #13
-  %call78 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef %filename.addr.0, ptr noundef nonnull @error_abort) #13
+  %call78 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @error_abort) #13
   br label %return
 
 if.end79:                                         ; preds = %if.end73
-  %call80 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.31, ptr noundef nonnull %p) #13
+  %call80 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.31, ptr noundef nonnull %p) #13
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %if.end85, label %if.then82
 
@@ -796,7 +796,7 @@ if.then82:                                        ; preds = %if.end79
   br label %return
 
 if.end85:                                         ; preds = %if.end79
-  %call86 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.33, ptr noundef nonnull %p) #13
+  %call86 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.33, ptr noundef nonnull %p) #13
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %if.end91, label %if.then88
 
@@ -807,22 +807,22 @@ if.then88:                                        ; preds = %if.end85
   br label %return
 
 if.end91:                                         ; preds = %if.end85
-  %call92 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.35, ptr noundef nonnull %p) #13
+  %call92 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.35, ptr noundef nonnull %p) #13
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %lor.lhs.false94, label %if.then103
 
 lor.lhs.false94:                                  ; preds = %if.end91
-  %call95 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.36, ptr noundef nonnull %p) #13
+  %call95 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.36, ptr noundef nonnull %p) #13
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %lor.lhs.false97, label %if.then103
 
 lor.lhs.false97:                                  ; preds = %lor.lhs.false94
-  %call98 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.37, ptr noundef nonnull %p) #13
+  %call98 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.37, ptr noundef nonnull %p) #13
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %lor.lhs.false100, label %if.then103
 
 lor.lhs.false100:                                 ; preds = %lor.lhs.false97
-  %call101 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.38, ptr noundef nonnull %p) #13
+  %call101 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.38, ptr noundef nonnull %p) #13
   %tobool102.not = icmp eq i32 %call101, 0
   br i1 %tobool102.not, label %if.end150, label %if.then103
 
@@ -862,7 +862,7 @@ if.then130:                                       ; preds = %if.then126
   br label %fail
 
 if.end132:                                        ; preds = %if.then126, %if.end116
-  %call133 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.36, ptr noundef nonnull %p) #13
+  %call133 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.36, ptr noundef nonnull %p) #13
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %if.else137, label %if.then135
 
@@ -871,7 +871,7 @@ if.then135:                                       ; preds = %if.end132
   br label %return
 
 if.else137:                                       ; preds = %if.end132
-  %call138 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.37, ptr noundef nonnull %p) #13
+  %call138 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.37, ptr noundef nonnull %p) #13
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %if.else142, label %if.then140
 
@@ -880,7 +880,7 @@ if.then140:                                       ; preds = %if.else137
   br label %return
 
 if.else142:                                       ; preds = %if.else137
-  %call143 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.38, ptr noundef nonnull %p) #13
+  %call143 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.38, ptr noundef nonnull %p) #13
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %return, label %if.then145
 
@@ -889,7 +889,7 @@ if.then145:                                       ; preds = %if.else142
   br label %return
 
 if.end150:                                        ; preds = %lor.lhs.false100
-  %call151 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.47, ptr noundef nonnull %p) #13
+  %call151 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.47, ptr noundef nonnull %p) #13
   %tobool152.not = icmp eq i32 %call151, 0
   br i1 %tobool152.not, label %if.end200, label %if.then153
 
@@ -940,7 +940,7 @@ if.end194:                                        ; preds = %if.then186, %if.the
   br label %return
 
 if.end200:                                        ; preds = %if.end150
-  %call201 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.53, ptr noundef nonnull %p) #13
+  %call201 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.53, ptr noundef nonnull %p) #13
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %if.end208, label %if.then203
 
@@ -956,32 +956,32 @@ if.then206:                                       ; preds = %if.then203
   br label %fail
 
 if.end208:                                        ; preds = %if.end200
-  %call209 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.54, ptr noundef null) #13
+  %call209 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.54, ptr noundef null) #13
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %lor.lhs.false211, label %if.then214
 
 lor.lhs.false211:                                 ; preds = %if.end208
-  %call212 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.55, ptr noundef null) #13
+  %call212 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.55, ptr noundef null) #13
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %if.end217, label %if.then214
 
 if.then214:                                       ; preds = %lor.lhs.false211, %if.end208
   %call215 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.56, ptr noundef nonnull @error_abort) #13
-  %call216 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef %filename.addr.0, ptr noundef nonnull @error_abort) #13
+  %call216 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @error_abort) #13
   br label %return
 
 if.end217:                                        ; preds = %lor.lhs.false211
-  %call218 = call i32 @strstart(ptr noundef %filename.addr.0, ptr noundef nonnull @.str.57, ptr noundef null) #13
+  %call218 = call i32 @strstart(ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @.str.57, ptr noundef null) #13
   %tobool219.not = icmp eq i32 %call218, 0
   br i1 %tobool219.not, label %if.end223, label %if.then220
 
 if.then220:                                       ; preds = %if.end217
   %call221 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, ptr noundef nonnull @error_abort) #13
-  %call222 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef %filename.addr.0, ptr noundef nonnull @error_abort) #13
+  %call222 = call zeroext i1 @qemu_opt_set(ptr noundef %call1, ptr noundef nonnull @.str.30, ptr noundef nonnull %filename.addr.0, ptr noundef nonnull @error_abort) #13
   br label %return
 
 if.end223:                                        ; preds = %if.end217
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, ptr noundef %filename.addr.0) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, ptr noundef nonnull %filename.addr.0) #13
   br label %fail
 
 fail:                                             ; preds = %if.then186, %if.then160, %if.then109, %if.else, %if.end223, %if.then206, %if.then130
@@ -1006,17 +1006,17 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @qemu_opt_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare zeroext i1 @qemu_opts_do_parse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_parse_common(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 10)) %backend) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef writeonly captures(none) initializes((0, 10)) %backend) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.59) #13
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %call) #13
@@ -1508,7 +1508,7 @@ qemu_chr_new_permit_mux_mon.exit:                 ; preds = %entry, %if.end7.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_chardev(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_chardev(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %chr_list = alloca ptr, align 8
   store ptr null, ptr %chr_list, align 8
@@ -1522,7 +1522,7 @@ entry:
 declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qmp_query_chardev_foreach(ptr noundef %obj, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @qmp_query_chardev_foreach(ptr noundef %obj, ptr noundef captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.104, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #13
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
@@ -1561,7 +1561,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_chardev_backends(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_chardev_backends(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %fe.i = alloca %struct.ChadevClassFE, align 8
   %backend_list = alloca ptr, align 8
@@ -1577,7 +1577,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qmp_prepend_backend(ptr noundef %name, ptr nocapture noundef %opaque) #0 {
+define internal void @qmp_prepend_backend(ptr noundef %name, ptr noundef captures(none) %opaque) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #17
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %name) #13
@@ -1594,7 +1594,7 @@ entry:
 declare ptr @object_resolve_path_component(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @qemu_chr_set_feature(ptr nocapture noundef %chr, i32 noundef %feature) local_unnamed_addr #7 {
+define dso_local void @qemu_chr_set_feature(ptr noundef captures(none) %chr, i32 noundef %feature) local_unnamed_addr #7 {
 entry:
   %conv = zext i32 %feature to i64
   %features = getelementptr inbounds nuw i8, ptr %chr, i64 144
@@ -2128,7 +2128,7 @@ return:                                           ; preds = %qemu_chr_add_client
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_chr_timeout_add_ms(ptr nocapture noundef readonly %chr, i32 noundef %ms, ptr noundef %func, ptr noundef %private) local_unnamed_addr #0 {
+define dso_local ptr @qemu_chr_timeout_add_ms(ptr noundef readonly captures(none) %chr, i32 noundef %ms, ptr noundef %func, ptr noundef %private) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_timeout_source_new(i32 noundef %ms) #13
   %tobool.not = icmp eq ptr %func, null
@@ -2202,7 +2202,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @qemu_co_sleep_ns_wakeable(ptr noundef, i32 noundef, i64 noundef) #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare ptr @module_object_class_by_name(ptr noundef) local_unnamed_addr #1
 
@@ -2213,7 +2213,7 @@ declare zeroext i1 @object_class_is_abstract(ptr noundef) local_unnamed_addr #1
 declare void @object_class_foreach(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @chardev_class_foreach(ptr noundef %klass, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @chardev_class_foreach(ptr noundef %klass, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @object_class_get_name(ptr noundef %klass) #13
   %call1 = tail call i32 @g_str_has_prefix(ptr noundef %call, ptr noundef nonnull @.str.112) #13
@@ -2328,7 +2328,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.104, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #13
   %chr_write = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -2345,13 +2345,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @null_chr_write(ptr nocapture readnone %chr, ptr nocapture readnone %buf, i32 noundef returned %len) #11 {
+define internal noundef i32 @null_chr_write(ptr readnone captures(none) %chr, ptr readnone captures(none) %buf, i32 noundef returned %len) #11 {
 entry:
   ret i32 %len
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @chr_be_event(ptr nocapture noundef readonly %s, i32 noundef %event) #0 {
+define internal void @chr_be_event(ptr noundef readonly captures(none) %s, i32 noundef %event) #0 {
 entry:
   %be1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %be1, align 8
@@ -2375,10 +2375,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

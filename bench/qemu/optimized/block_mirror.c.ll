@@ -481,7 +481,7 @@ for.body:                                         ; preds = %bdrv_filter_or_cow_
   br i1 %cmp157, label %if.then159, label %for.inc
 
 if.then159:                                       ; preds = %for.body
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #12
   br label %if.then176
 
 for.inc:                                          ; preds = %for.body
@@ -504,16 +504,16 @@ for.end:                                          ; preds = %bdrv_filter_or_cow_
   br i1 %cmp163, label %if.then165, label %if.end167
 
 if.then165:                                       ; preds = %for.end
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #12
   br label %if.then176
 
 if.end167:                                        ; preds = %for.end, %if.end133
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #12
   %ops_in_flight = getelementptr inbounds nuw i8, ptr %call45, i64 720
   store ptr null, ptr %ops_in_flight, align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call45, i64 728
   store ptr %ops_in_flight, ptr %tql_prev, align 8
-  tail call fastcc void @trace_mirror_start(ptr noundef %bs, ptr noundef %call45, ptr noundef %opaque)
+  tail call fastcc void @trace_mirror_start(ptr noundef nonnull %bs, ptr noundef %call45, ptr noundef %opaque)
   tail call void @job_start(ptr noundef %call45) #12
   br label %return
 
@@ -774,7 +774,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_mirror_top_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @bdrv_mirror_top_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %backing = getelementptr inbounds nuw i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
@@ -833,7 +833,7 @@ if.end7:                                          ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_mirror_top_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define internal i32 @bdrv_mirror_top_pwrite_zeroes(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -865,7 +865,7 @@ should_copy_to_target.exit:                       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_mirror_top_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @bdrv_mirror_top_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -897,7 +897,7 @@ should_copy_to_target.exit:                       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_mirror_top_flush(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @bdrv_mirror_top_flush(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %backing = getelementptr inbounds nuw i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
@@ -929,7 +929,7 @@ declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_mirror_top_do_write(ptr nocapture noundef readonly %bs, i32 noundef %method, i1 noundef zeroext %copy_to_target, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @bdrv_mirror_top_do_write(ptr noundef readonly captures(none) %bs, i32 noundef %method, i1 noundef zeroext %copy_to_target, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %.compoundliteral.sroa.9.i = alloca [21 x i8], align 1
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1417,17 +1417,17 @@ if.end35:                                         ; preds = %if.else30, %if.then
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_wait_on_conflicts(ptr noundef writeonly %self, ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal void @mirror_wait_on_conflicts(ptr noundef writeonly %self, ptr noundef readonly captures(none) %s, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %granularity = getelementptr inbounds nuw i8, ptr %s, i64 608
   %0 = load i64, ptr %granularity, align 8
@@ -1594,7 +1594,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2355,7 +2355,7 @@ if.end316:                                        ; preds = %if.then314, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_pause(ptr nocapture noundef readonly %job) #0 {
+define internal void @mirror_pause(ptr noundef readonly captures(none) %job) #0 {
 entry:
   %in_flight.i = getelementptr inbounds nuw i8, ptr %job, i64 704
   %0 = load i32, ptr %in_flight.i, align 8
@@ -2561,7 +2561,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_change(ptr nocapture noundef %job, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
+define internal void @mirror_change(ptr noundef captures(none) %job, ptr noundef readonly captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %while.end, label %if.else
@@ -2604,7 +2604,7 @@ if.end26:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly initializes((72, 73)) %info) #8 {
+define internal void @mirror_query(ptr noundef readonly captures(none) %job, ptr noundef writeonly captures(none) initializes((72, 73)) %info) #8 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %info, i64 72
   %actively_synced2 = getelementptr inbounds nuw i8, ptr %job, i64 600
@@ -2974,7 +2974,7 @@ declare void @job_pause_point(ptr noundef) #1
 declare void @job_progress_set_remaining(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_wait_for_free_in_flight_slot(ptr nocapture noundef readonly %s) #0 {
+define internal void @mirror_wait_for_free_in_flight_slot(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %ops_in_flight = getelementptr inbounds nuw i8, ptr %s, i64 720
   %op.07 = load ptr, ptr %ops_in_flight, align 8
@@ -3499,7 +3499,7 @@ declare void @job_sleep_ns(ptr noundef, i64 noundef) #1
 declare void @block_job_ratelimit_sleep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_wait_for_all_io(ptr nocapture noundef readonly %s) #0 {
+define internal void @mirror_wait_for_all_io(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %in_flight = getelementptr inbounds nuw i8, ptr %s, i64 704
   %0 = load i32, ptr %in_flight, align 8
@@ -3653,7 +3653,7 @@ entry:
 declare i32 @bdrv_co_is_allocated_above(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #12
   ret void
@@ -4076,7 +4076,7 @@ mirror_write_complete.exit:                       ; preds = %entry, %if.then.i, 
 declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, -2147483648) i32 @mirror_cow_align(ptr nocapture noundef readonly %s, ptr nocapture noundef %offset, ptr nocapture noundef %bytes) #0 {
+define internal range(i32 0, -2147483648) i32 @mirror_cow_align(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %offset, ptr noundef captures(none) %bytes) #0 {
 entry:
   %align_offset = alloca i64, align 8
   %align_bytes = alloca i64, align 8
@@ -4772,10 +4772,10 @@ declare i64 @llvm.smin.i64(i64, i64) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

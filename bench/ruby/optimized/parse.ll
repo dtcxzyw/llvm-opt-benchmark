@@ -1108,7 +1108,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1061 = private unnamed_addr constant [7 x i8] c"parser\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef nonnull ptr @rb_str_to_parser_string(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @rb_str_to_parser_string(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !7
   %5 = and i64 %4, 8192
@@ -10835,13 +10835,13 @@ parser_yyerror.exit:                              ; preds = %4788, %4792
   %.08.i3267 = phi ptr [ %4833, %.lr.ph.i3266 ], [ %.12667, %4830 ]
   %4831 = load i16, ptr %.08.i3267, align 2
   %4832 = sext i16 %4831 to i32
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.83, i32 noundef %4832)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, i32 noundef %4832)
   %4833 = getelementptr i8, ptr %.08.i3267, i64 2
   %.not.i3268 = icmp ugt ptr %4833, %4824
   br i1 %.not.i3268, label %yy_stack_print.exit3269, label %.lr.ph.i3266, !llvm.loop !10
 
 yy_stack_print.exit3269:                          ; preds = %.lr.ph.i3266, %4830
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.7)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %4834
 
 4834:                                             ; preds = %4819, %yy_stack_print.exit3269
@@ -10970,13 +10970,13 @@ parser_yyerror.exit3270:                          ; preds = %162, %165, %4817, %
   %.08.i3273 = phi ptr [ %4879, %.lr.ph.i3272 ], [ %.426703351, %4876 ]
   %4877 = load i16, ptr %.08.i3273, align 2
   %4878 = sext i16 %4877 to i32
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.83, i32 noundef %4878)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, i32 noundef %4878)
   %4879 = getelementptr i8, ptr %.08.i3273, i64 2
   %.not.i3274 = icmp ugt ptr %4879, %.626793349
   br i1 %.not.i3274, label %yy_stack_print.exit3275, label %.lr.ph.i3272, !llvm.loop !10
 
 yy_stack_print.exit3275:                          ; preds = %.lr.ph.i3272, %4876
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.7)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %4880
 
 4880:                                             ; preds = %4873, %yy_stack_print.exit3275
@@ -11084,10 +11084,10 @@ rb_parser_free.exit3285:                          ; preds = %.lr.ph3455, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_parser_printf(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @rb_parser_printf(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load i64, ptr %4, align 8
@@ -11141,7 +11141,7 @@ end_with_newline_p.exit.thread:                   ; preds = %9, %24, %end_with_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_none(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_none(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -11163,7 +11163,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_none(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_parser_malloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @rb_parser_malloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i64 %1, 3
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %4, i64 noundef 0) #33
@@ -11177,7 +11177,7 @@ define dso_local nonnull ptr @rb_parser_malloc(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @rb_parser_free(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define dso_local void @rb_parser_free(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %.not10 = icmp eq ptr %3, null
   br i1 %.not10, label %.loopexit, label %.lr.ph.preheader
@@ -11218,7 +11218,7 @@ define dso_local void @rb_parser_free(ptr nocapture noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @local_push(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @local_push(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %3
 
@@ -11380,7 +11380,7 @@ vtable_alloc_gen.exit41:                          ; preds = %sub_2.i, %58, %50, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @init_block_exit(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @init_block_exit(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 312
@@ -11396,7 +11396,7 @@ define internal fastcc ptr @init_block_exit(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @void_expr(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @void_expr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_ruby_verbose_ptr() #33
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -5
@@ -11539,7 +11539,7 @@ define internal fastcc void @void_expr(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_scope_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_scope_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -11692,7 +11692,7 @@ local_tbl.exit:                                   ; preds = %vtable_size.exit32.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @block_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %72, label %5
 
@@ -11822,7 +11822,7 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @local_pop(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @local_pop(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -11878,7 +11878,7 @@ define internal fastcc void @local_pop(ptr nocapture noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @void_stmts(ptr nocapture noundef readonly %0, ptr noundef readonly returned %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @void_stmts(ptr noundef readonly captures(none) %0, ptr noundef readonly returned %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_ruby_verbose_ptr() #33
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -5
@@ -11916,7 +11916,7 @@ define internal fastcc noundef ptr @void_stmts(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_begin_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_begin_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 18, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -11942,7 +11942,7 @@ define internal fastcc noundef ptr @rb_node_begin_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @clear_block_exit(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @clear_block_exit(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12041,7 +12041,7 @@ parser_yyerror.exit23:                            ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.534, ptr noundef nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %5 = load i32, ptr %4, align 4
@@ -12062,7 +12062,7 @@ parser_show_error_line.exit:                      ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_bodystmt(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_bodystmt(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %.not29 = icmp eq ptr %3, null
   br i1 %.not, label %32, label %7
@@ -12170,7 +12170,7 @@ fixpos.exit:                                      ; preds = %52, %55
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_alias_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_alias_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 83, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -12198,7 +12198,7 @@ define internal fastcc noundef ptr @rb_node_alias_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_valias_new(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_valias_new(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 84, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -12228,7 +12228,7 @@ define internal fastcc noundef ptr @rb_node_valias_new(ptr nocapture noundef %0,
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_error_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_error_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 109, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -12252,7 +12252,7 @@ define internal fastcc noundef ptr @rb_node_error_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_if(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_if(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %6
 
@@ -12309,7 +12309,7 @@ newline_node.exit:                                ; preds = %.preheader.i, %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_unless(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_unless(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %6
 
@@ -12366,7 +12366,7 @@ newline_node.exit:                                ; preds = %.preheader.i, %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_while_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_while_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 2) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 9, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -12396,7 +12396,7 @@ define internal fastcc noundef ptr @rb_node_while_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_until_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 2) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_until_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 2) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 10, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -12426,7 +12426,7 @@ define internal fastcc noundef ptr @rb_node_until_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_resbody_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_resbody_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 20, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -12456,7 +12456,7 @@ define internal fastcc noundef ptr @rb_node_resbody_new(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_rescue_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_rescue_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 19, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -12488,7 +12488,7 @@ define internal fastcc noundef ptr @rb_node_rescue_new(ptr nocapture noundef %0,
 declare void @rb_compile_warn(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_scope_new2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_scope_new2(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 0, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -12518,7 +12518,7 @@ define internal fastcc noundef ptr @rb_node_scope_new2(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_postexe_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_postexe_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 101, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -12571,7 +12571,7 @@ parser_yyerror.exit:                              ; preds = %10, %4, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @node_assign(ptr noundef %0, ptr noundef returned %1, ptr noundef %2, i32 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @node_assign(ptr noundef %0, ptr noundef returned %1, ptr noundef %2, i32 %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %56, label %7
@@ -12731,7 +12731,7 @@ set_nd_value.exit:                                ; preds = %26, %28, %30, %32, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_op_assign(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_op_assign(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -13286,7 +13286,7 @@ set_nd_value.exit95:                              ; preds = %201, %203, %205, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_ary_op_assign(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %8
 
@@ -13372,7 +13372,7 @@ fixpos.exit:                                      ; preds = %30, %49
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_attr_op_assign(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_attr_op_assign(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = icmp eq i64 %2, 150
   %9 = zext i1 %8 to i8
   %10 = getelementptr i8, ptr %0, i64 312
@@ -13423,7 +13423,7 @@ fixpos.exit:                                      ; preds = %7, %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_const_op_assign(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_const_op_assign(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split15, label %.split
@@ -13529,7 +13529,7 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_colon2_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_colon2_new(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 89, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -13557,7 +13557,7 @@ define internal fastcc noundef ptr @rb_node_colon2_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @endless_method_name(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 146
   br i1 %4, label %10, label %5
 
@@ -13634,7 +13634,7 @@ token_info_drop.exit:                             ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @restore_defun(ptr nocapture noundef initializes((304, 312), (324, 328)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @restore_defun(ptr noundef captures(none) initializes((304, 312), (324, 328)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload = load i16, ptr %4, align 8
@@ -13693,7 +13693,7 @@ numparam_pop.exit:                                ; preds = %23, %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_scope_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_scope_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   br label %6
 
@@ -13754,7 +13754,7 @@ set_line_body.exit:                               ; preds = %remove_begin.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_backref_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @rb_backref_error(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 8
@@ -13782,7 +13782,7 @@ define internal fastcc void @rb_backref_error(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rescued_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @rescued_expr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 %.0.val, i64 %.8.val) unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %9, %4
@@ -13858,7 +13858,7 @@ remove_begin.exit:                                ; preds = %5, %6, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 33, 134) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 33, 134) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %value_expr_gen.exit, label %7
@@ -13917,7 +13917,7 @@ value_expr_gen.exit:                              ; preds = %5, %7, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef range(i64 148, 3522) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef range(i64 148, 3522) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp eq i64 %1, 3505
   %8 = icmp eq i64 %1, 148
   %9 = or i1 %7, %8
@@ -14056,7 +14056,7 @@ value_expr_gen.exit:                              ; preds = %6, %12, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_case3_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_case3_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 6, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14084,7 +14084,7 @@ define internal fastcc noundef ptr @rb_node_case3_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_in_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_in_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 8, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -14114,7 +14114,7 @@ define internal fastcc noundef ptr @rb_node_in_new(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_true_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_true_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 97, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -14138,7 +14138,7 @@ define internal fastcc noundef ptr @rb_node_true_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_false_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_false_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 98, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -14162,7 +14162,7 @@ define internal fastcc noundef ptr @rb_node_false_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @numparam_name(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @numparam_name(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 14
   %4 = icmp ne i64 %3, 0
   %5 = icmp ult i64 %1, 3664
@@ -14184,7 +14184,7 @@ define internal fastcc void @numparam_name(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_defn_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 81, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14212,7 +14212,7 @@ define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_defs_new(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 82, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -14242,7 +14242,7 @@ define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @rb_parser_show_bitstack(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.74, ptr noundef %2) #33
   %7 = icmp eq i64 %1, 0
@@ -14320,7 +14320,7 @@ flush_debug_buffer.exit:                          ; preds = %28, %30, %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_qcall(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = icmp eq i64 %1, 150
   %9 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %9, align 8
@@ -14359,7 +14359,7 @@ define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_fcall_new(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_fcall_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 38, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14387,7 +14387,7 @@ define internal fastcc noundef ptr @rb_node_fcall_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_command_qcall(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_command_qcall(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #0 {
   %.not = icmp ne ptr %5, null
   %9 = icmp ne ptr %4, null
   %or.cond = and i1 %9, %.not
@@ -14468,7 +14468,7 @@ fixpos.exit:                                      ; preds = %40, %41
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_super_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_super_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 41, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -14494,7 +14494,7 @@ define internal fastcc noundef ptr @rb_node_super_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_yield(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_yield(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split7
 
@@ -14535,7 +14535,7 @@ define internal fastcc noundef ptr @new_yield(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_return_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_return_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 46, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -14561,7 +14561,7 @@ define internal fastcc noundef ptr @rb_node_return_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ret_args(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @ret_args(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -14599,7 +14599,7 @@ no_blockarg.exit:                                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @add_block_exit(ptr nocapture noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_block_exit(ptr noundef captures(none) %0, ptr noundef returned %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
 
@@ -14660,7 +14660,7 @@ parser_node_name.exit:                            ; preds = %9, %10, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_break_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_break_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 14, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14688,7 +14688,7 @@ define internal fastcc noundef ptr @rb_node_break_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_next_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_next_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 15, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14716,7 +14716,7 @@ define internal fastcc noundef ptr @rb_node_next_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_masgn_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_masgn_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 24, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -14746,7 +14746,7 @@ define internal fastcc noundef ptr @rb_node_masgn_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_list_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_list_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 43, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -14776,7 +14776,7 @@ define internal fastcc noundef ptr @rb_node_list_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @list_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %23
 
@@ -14869,7 +14869,7 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_postarg_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_postarg_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 76, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -14897,7 +14897,7 @@ define internal fastcc noundef ptr @rb_node_postarg_new(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @assignable(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   switch i64 %1, label %11 [
     i64 0, label %parser_yyerror.exit
     i64 288, label %146
@@ -15221,7 +15221,7 @@ parser_yyerror.exit:                              ; preds = %151, %146, %4, %33,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @aryset(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @aryset(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 104, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -15251,7 +15251,7 @@ define internal fastcc noundef ptr @aryset(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @anddot_multiple_assignment_check(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 150
   br i1 %4, label %5, label %parser_yyerror.exit
 
@@ -15276,7 +15276,7 @@ parser_yyerror.exit:                              ; preds = %10, %5, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @attrset(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @attrset(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp eq i64 %2, 150
   br i1 %6, label %9, label %7
 
@@ -15315,7 +15315,7 @@ define internal fastcc noundef ptr @attrset(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @const_decl(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 8
@@ -15366,7 +15366,7 @@ parser_yyerror.exit:                              ; preds = %12, %7, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_colon3_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_colon3_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 90, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -15392,7 +15392,7 @@ define internal fastcc noundef ptr @rb_node_colon3_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_sym_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_sym_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 102, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -15466,7 +15466,7 @@ rb_str_to_parser_string.exit:                     ; preds = %27, %32
 declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_undef_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_undef_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 85, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -15492,7 +15492,7 @@ define internal fastcc noundef ptr @rb_node_undef_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_dot2_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_dot2_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 91, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -15520,7 +15520,7 @@ define internal fastcc noundef ptr @rb_node_dot2_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_dot3_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 92, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -15548,7 +15548,7 @@ define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_nil_at(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_nil_at(ptr noundef captures(none) %0, i64 %.0.val) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %2, align 8
   %3 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 96, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -15573,7 +15573,7 @@ define internal fastcc noundef ptr @new_nil_at(ptr nocapture noundef %0, i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @call_bin_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @call_bin_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = tail call fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %value_expr_gen.exit, label %8
@@ -15969,7 +15969,7 @@ last_expr_once_body.exit60.thread:                ; preds = %last_expr_once_body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_defined(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_defined(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -16027,7 +16027,7 @@ declare void @rb_compile_warning(ptr noundef, i32 noundef, ptr noundef, ...) loc
 declare ptr @rb_id2name(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @arg_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @arg_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %23
 
@@ -16224,7 +16224,7 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_hash(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_hash(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split7
 
@@ -16285,7 +16285,7 @@ define internal fastcc noundef ptr @new_hash(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @check_forwarding_args(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_forwarding_args(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16383,7 +16383,7 @@ local_id.exit.thread5:                            ; preds = %17, %27, %local_id.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_args_forward_call(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 48, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -16607,7 +16607,7 @@ arg_blk_pass.exit:                                ; preds = %118, %122
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_block_pass_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_block_pass_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 80, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -16635,7 +16635,7 @@ define internal fastcc noundef ptr @rb_node_block_pass_new(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @forwarding_arg_check(ptr nocapture noundef %0, i64 noundef range(i64 38, 135) %1, i64 noundef range(i64 0, 130) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @forwarding_arg_check(ptr noundef captures(none) %0, i64 noundef range(i64 38, 135) %1, i64 noundef range(i64 0, 130) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16834,7 +16834,7 @@ vtable_included.exit62:                           ; preds = %61
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_lvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_lvar_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 48, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -16860,7 +16860,7 @@ define internal fastcc noundef ptr @rb_node_lvar_new(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_splat_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_splat_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 79, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -16886,7 +16886,7 @@ define internal fastcc noundef ptr @rb_node_splat_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @last_arg_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @last_arg_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.val.i = load i64, ptr %1, align 8
   %5 = and i64 %.val.i, 32512
   %6 = icmp eq i64 %5, 20224
@@ -16969,7 +16969,7 @@ list_append.exit:                                 ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rest_arg_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rest_arg_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.val = load i64, ptr %2, align 8
   %5 = and i64 %.val, 32512
   %6 = icmp eq i64 %5, 11008
@@ -17046,7 +17046,7 @@ list_concat.exit:                                 ; preds = %19, %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_block_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_block_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 1, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -17076,7 +17076,7 @@ define internal fastcc noundef ptr @rb_node_block_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_zlist_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_zlist_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 44, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -17100,7 +17100,7 @@ define internal fastcc noundef ptr @rb_node_zlist_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_yield_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_yield_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 47, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -17126,7 +17126,7 @@ define internal fastcc noundef ptr @rb_node_yield_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_nil_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_nil_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 96, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -17150,7 +17150,7 @@ define internal fastcc noundef ptr @rb_node_nil_new(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_nd_args(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @get_nd_args(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 8
@@ -17211,7 +17211,7 @@ parser_node_name.exit:                            ; preds = %2, %19, %20
 declare i64 @rb_hash_clear(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_case_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_case_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 4, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -17239,7 +17239,7 @@ define internal fastcc noundef ptr @rb_node_case_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_case2_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_case2_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 5, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -17267,7 +17267,7 @@ define internal fastcc noundef ptr @rb_node_case2_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_parser_internal_id(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_parser_internal_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -17300,7 +17300,7 @@ vtable_size.exit4:                                ; preds = %vtable_size.exit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_args_aux_new(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef range(i64 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 73, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -17326,7 +17326,7 @@ define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_dvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_dvar_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 49, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -17354,7 +17354,7 @@ define internal fastcc noundef ptr @rb_node_dvar_new(ptr nocapture noundef %0, i
 declare ptr @rb_ast_new_local_table(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @set_nd_value(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_nd_value(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 8
@@ -17423,7 +17423,7 @@ parser_node_name.exit:                            ; preds = %3, %22, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 13, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -17449,7 +17449,7 @@ define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_args(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef returned %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_args(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef returned %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %10 = load i8, ptr %9, align 8
@@ -17569,7 +17569,7 @@ parser_yyerror.exit:                              ; preds = %19, %13, %52
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_args_tail(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_args_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 72, i64 noundef range(i64 32, 113) 112, i64 noundef 8) #33
@@ -17963,7 +17963,7 @@ get_nd_value.exit80:                              ; preds = %get_nd_vid.exit, %g
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_for_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_for_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 12, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -17991,7 +17991,7 @@ define internal fastcc noundef ptr @rb_node_for_new(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_class_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_class_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %4)
   %7 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %7, align 8
@@ -18022,7 +18022,7 @@ define internal fastcc noundef ptr @rb_node_class_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_sclass_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_sclass_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
@@ -18051,7 +18051,7 @@ define internal fastcc noundef ptr @rb_node_sclass_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_module_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_module_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
@@ -18080,7 +18080,7 @@ define internal fastcc noundef ptr @rb_node_module_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @push_end_expect_token_locations(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @push_end_expect_token_locations(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32768
@@ -18103,7 +18103,7 @@ define internal fastcc void @push_end_expect_token_locations(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_redo_new(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_redo_new(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 16, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -18129,7 +18129,7 @@ define internal fastcc noundef ptr @rb_node_redo_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_retry_new(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_retry_new(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 17, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -18153,7 +18153,7 @@ define internal fastcc noundef ptr @rb_node_retry_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @token_info_push(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @token_info_push(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 256
@@ -18225,10 +18225,10 @@ token_info_setup.exit:                            ; preds = %25, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_def_temp_new(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_def_temp_new(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 114, i64 noundef range(i64 32, 113) 80, i64 noundef 8) #33
@@ -18266,7 +18266,7 @@ define internal fastcc noundef ptr @rb_node_def_temp_new(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @token_info_warn(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @token_info_warn(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
@@ -18361,7 +18361,7 @@ token_info_setup.exit:                            ; preds = %token_info_setup.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @token_info_pop(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @token_info_pop(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -18461,7 +18461,7 @@ token_info_warn.exit:                             ; preds = %6, %token_info_setu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pop_end_expect_token_locations(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @pop_end_expect_token_locations(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -18480,7 +18480,7 @@ define internal fastcc void @pop_end_expect_token_locations(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parser_compile_error(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @parser_compile_error(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5
@@ -18537,7 +18537,7 @@ rb_long2int_inline.exit:                          ; preds = %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @mark_lvar_used(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @mark_lvar_used(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -18695,7 +18695,7 @@ local_id_ref.exit.thread:                         ; preds = %37, %51, %vtable_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @new_bv(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @new_bv(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %13, label %3
 
@@ -18725,7 +18725,7 @@ define internal fastcc void @new_bv(ptr nocapture noundef %0, i64 noundef %1) un
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @dyna_push(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @dyna_push(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -18815,7 +18815,7 @@ vtable_alloc_gen.exit14:                          ; preds = %31, %39
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @args_with_numbered(ptr nocapture noundef %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @args_with_numbered(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   %6 = icmp ne i64 %3, 0
   %or.cond = or i1 %5, %6
@@ -18898,7 +18898,7 @@ new_args_tail.exit:                               ; preds = %8, %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_lambda_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_lambda_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
@@ -18925,7 +18925,7 @@ define internal fastcc noundef ptr @rb_node_lambda_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dyna_pop(ptr nocapture noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @dyna_pop(ptr noundef captures(none) %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -18958,7 +18958,7 @@ define internal fastcc void @dyna_pop(ptr nocapture noundef %0, ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @args_info_empty_p(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc zeroext i1 @args_info_empty_p(ptr noundef readonly captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -19006,7 +19006,7 @@ define internal fastcc zeroext i1 @args_info_empty_p(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_zsuper_new(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_zsuper_new(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 42, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -19030,7 +19030,7 @@ define internal fastcc noundef ptr @rb_node_zsuper_new(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_call_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_call_new(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 36, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -19060,7 +19060,7 @@ define internal fastcc noundef ptr @rb_node_call_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_iter_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_iter_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
@@ -19089,7 +19089,7 @@ define internal fastcc noundef ptr @rb_node_iter_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @check_literal_when(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @check_literal_when(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %37, label %3
 
@@ -19162,7 +19162,7 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_when_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_when_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 7, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -19194,7 +19194,7 @@ define internal fastcc noundef ptr @rb_node_when_new(ptr nocapture noundef %0, p
 declare ptr @rb_st_init_numtable() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_array_pattern_tail(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_array_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %.not8 = icmp eq ptr %3, null
   %7 = select i1 %.not8, ptr inttoptr (i64 -1 to ptr), ptr %3
@@ -19230,7 +19230,7 @@ define internal fastcc noundef ptr @new_array_pattern_tail(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_array_pattern(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef returned initializes((32, 40)) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_array_pattern(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef returned initializes((32, 40)) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %6, align 8
   %.not = icmp eq ptr %2, null
@@ -19301,7 +19301,7 @@ list_concat.exit:                                 ; preds = %26, %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_or_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_or_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 23, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -19329,7 +19329,7 @@ define internal fastcc noundef ptr @rb_node_or_new(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_hash_pattern_tail(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   switch i64 %2, label %5 [
     i64 3617, label %8
     i64 0, label %7
@@ -19417,7 +19417,7 @@ define internal fastcc noundef ptr @list_concat(ptr noundef returned %0, ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_find_pattern_tail(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_find_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %6 = select i1 %.not, ptr inttoptr (i64 -1 to ptr), ptr %1
   %.not10 = icmp eq ptr %3, null
@@ -19453,7 +19453,7 @@ define internal fastcc noundef ptr @new_find_pattern_tail(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_variable(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_variable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 3649
   br i1 %4, label %parser_yyerror.exit, label %5
 
@@ -19520,7 +19520,7 @@ parser_yyerror.exit:                              ; preds = %3, %27, %22, %is_pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_unique_key_hash(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_unique_key_hash(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 45, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -19548,7 +19548,7 @@ define internal fastcc noundef ptr @new_unique_key_hash(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_key(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -19594,7 +19594,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @dsym_node(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %9
 
@@ -19699,7 +19699,7 @@ declare i64 @rb_intern_str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @gettable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   switch i64 %1, label %133 [
@@ -20283,7 +20283,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_errinfo_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_errinfo_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 99, i64 noundef range(i64 32, 113) 32, i64 noundef 8) #33
@@ -20307,7 +20307,7 @@ define internal fastcc noundef ptr @rb_node_errinfo_new(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_str_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_str_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 64, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -20333,7 +20333,7 @@ define internal fastcc noundef ptr @rb_node_str_new(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @evstr2dstr(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @evstr2dstr(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %.val = load i64, ptr %1, align 8
   %3 = and i64 %.val, 32512
   %4 = icmp eq i64 %3, 17408
@@ -20414,7 +20414,7 @@ list_append.exit:                                 ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @literal_concat(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @literal_concat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %201, label %5
 
@@ -20805,7 +20805,7 @@ str2dstr.exit121:                                 ; preds = %175, %180
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @heredoc_dedent(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @heredoc_dedent(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
@@ -21015,7 +21015,7 @@ dedent_string.exit._crit_edge:                    ; preds = %dedent_string.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_xstring(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %26
 
@@ -21148,7 +21148,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_regexp(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %29
 
@@ -21554,7 +21554,7 @@ rb_parser_str_resize.exit:                        ; preds = %171, %177
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @symbol_append(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @symbol_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 8
@@ -21596,7 +21596,7 @@ parser_node_name.exit:                            ; preds = %3, %14, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str2dstr(ptr %.312.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @str2dstr(ptr %.312.val, ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = tail call ptr @rb_ast_newnode(ptr noundef %.312.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
   tail call void @rb_node_init(ptr noundef %2, i32 noundef 65) #33
   %3 = load i64, ptr %0, align 8
@@ -21638,7 +21638,7 @@ nd_copy_flag.exit:                                ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_dstr_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_dstr_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef range(i32 0, 116) 65, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -21668,7 +21668,7 @@ define internal fastcc noundef ptr @rb_node_dstr_new(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_evstr_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_evstr_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 68, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -21694,7 +21694,7 @@ define internal fastcc noundef ptr @rb_node_evstr_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_evstr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %18
 
@@ -21804,7 +21804,7 @@ str2dstr.exit:                                    ; preds = %37, %42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_forwarding_args(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @add_forwarding_args(ptr noundef captures(none) %0) unnamed_addr #0 {
   tail call fastcc void @arg_var(ptr noundef %0, i64 noundef 42)
   tail call fastcc void @arg_var(ptr noundef %0, i64 noundef 134)
   tail call fastcc void @arg_var(ptr noundef %0, i64 noundef 38)
@@ -21813,7 +21813,7 @@ define internal fastcc void @add_forwarding_args(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @formal_argument(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @formal_argument(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = alloca %struct.rb_code_location_struct, align 4
   %5 = alloca %struct.rb_code_location_struct, align 4
@@ -22047,7 +22047,7 @@ parser_yyerror0.exit12:                           ; preds = %116, %137
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @arg_var(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @arg_var(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 14
   %4 = icmp ne i64 %3, 0
   %5 = icmp ult i64 %1, 3664
@@ -22120,7 +22120,7 @@ vtable_add_gen.exit:                              ; preds = %21, %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_kw_arg(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_kw_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %4
 
@@ -22156,7 +22156,7 @@ define internal fastcc noundef ptr @new_kw_arg(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_opt_arg_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_opt_arg_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 74, i64 noundef range(i64 32, 113) 48, i64 noundef 8) #33
@@ -22223,7 +22223,7 @@ define internal fastcc noundef ptr @last_expr_node(ptr noundef readonly %0) unna
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val, ptr nocapture noundef readnone %1) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull captures(none) %0, ptr %.0.val, ptr readonly captures(none) %.0.val1, i32 %.8.val, ptr noundef readnone captures(none) %1) unnamed_addr #9 {
   %3 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %4
@@ -22517,7 +22517,7 @@ yy_syntax_error_arguments.exit.thread8:           ; preds = %rb_yytnamerr.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32
@@ -22553,7 +22553,7 @@ define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_show_error_line(ptr nocapture readnone %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @ruby_show_error_line(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %2, null
@@ -22853,7 +22853,7 @@ declare i32 @rb_stderr_tty_p() local_unnamed_addr #1
 declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @rb_write_error_str(i64 noundef) local_unnamed_addr #1
 
@@ -22999,7 +22999,7 @@ yycompile.exit:                                   ; preds = %.lr.ph.i, %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lex_io_gets(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @lex_io_gets(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_io_gets_internal(i64 noundef %1) #33
   ret i64 %3
 }
@@ -23063,7 +23063,7 @@ yycompile.exit:                                   ; preds = %.lr.ph.i, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lex_generic_gets(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define internal i64 @lex_generic_gets(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -23073,7 +23073,7 @@ define internal i64 @lex_generic_gets(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_parser_node_case_when_optimizable_literal(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_parser_node_case_when_optimizable_literal(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_node_case_when_optimizable_literal(ptr noundef %1) #33
   ret i64 %3
 }
@@ -23081,7 +23081,7 @@ define dso_local i64 @rb_parser_node_case_when_optimizable_literal(ptr nocapture
 declare i64 @rb_node_case_when_optimizable_literal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0, i32 noundef %1, i32 noundef returned %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @rb_parser_trace_lex_state(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef returned %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.71, i64 noundef 11) #33
   br label %.outer.i
@@ -23217,7 +23217,7 @@ flush_debug_buffer.exit:                          ; preds = %46, %48, %52
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_parser_lex_state_name(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #33
   br label %.outer.i
 
@@ -23274,7 +23274,7 @@ declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_parser_fatal(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @rb_parser_fatal(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca i64, align 8
@@ -23487,7 +23487,7 @@ append_bitstack_value.exit27:                     ; preds = %.critedge.i23, %79,
 declare i64 @rb_str_vcatf(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror0(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror0(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %5 = load i32, ptr %4, align 4
@@ -23535,7 +23535,7 @@ declare i64 @rb_ractor_stdout() local_unnamed_addr #1
 declare i64 @rb_ractor_stderr() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly initializes((0, 16)) %2) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly initializes((0, 16)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23567,7 +23567,7 @@ define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -23587,7 +23587,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -23614,7 +23614,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr nocapture noundef readnone %0, ptr noundef returned initializes((8, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr noundef readnone captures(none) %0, ptr noundef returned initializes((8, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 4
@@ -23622,7 +23622,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -23649,7 +23649,7 @@ define dso_local noundef ptr @rb_parser_set_location(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_parser_warn_duplicate_keys(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @rb_parser_warn_duplicate_keys(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
 .lr.ph:
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
@@ -24218,7 +24218,7 @@ declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_parser_local_defined(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_parser_local_defined(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %2) #33
   ret i32 %4
 }
@@ -24226,7 +24226,7 @@ define dso_local i32 @rb_parser_local_defined(ptr nocapture noundef readnone %0,
 declare i32 @rb_local_defined(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_parser_dvar_defined_ref(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_parser_dvar_defined_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -24430,7 +24430,7 @@ vtable_included.exit:                             ; preds = %.split, %42, %.spli
 declare i32 @rb_dvar_defined(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 256) i32 @rb_reg_fragment_setenc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @rb_reg_fragment_setenc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i32 %2, 8
   %5 = and i32 %4, 255
   %trunc = trunc i32 %4 to i8
@@ -24622,7 +24622,7 @@ declare nonnull ptr @rb_ascii8bit_encoding() local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_parser_reg_fragment_check(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_parser_reg_fragment_check(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @rb_reg_fragment_setenc(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %reg_fragment_setenc.exit, label %5
@@ -24658,7 +24658,7 @@ declare i64 @rb_reg_check_preprocess(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_obj_as_string(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_reg_named_capture_assign_iter_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local noundef i32 @rb_reg_named_capture_assign_iter_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %78, label %7
 
@@ -24785,7 +24785,7 @@ declare i32 @rb_enc_symname_type(ptr noundef, i64 noundef, ptr noundef, i32 noun
 declare i64 @rb_intern3(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @lvar_defined(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lvar_defined(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 184
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 8
@@ -24996,7 +24996,7 @@ dvar_defined.exit.thread10:                       ; preds = %14, %24, %60, %74, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_parser_reg_compile(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @rb_parser_reg_compile(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 255
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -25009,7 +25009,7 @@ define dso_local i64 @rb_parser_reg_compile(ptr nocapture noundef readonly %0, i
 declare i64 @rb_reg_compile(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @rb_ruby_parser_set_options(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define hidden void @rb_ruby_parser_set_options(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %1, 11
@@ -25037,7 +25037,7 @@ define hidden void @rb_init_parse() local_unnamed_addr #11 {
 declare i64 @rb_make_temporary_id(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ruby_parser_mark(ptr nocapture noundef readonly %0) #0 {
+define hidden void @rb_ruby_parser_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #33
@@ -25179,7 +25179,7 @@ string_buffer_free.exit:                          ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @local_free(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @local_free(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %switch8.i = icmp ult ptr %4, inttoptr (i64 2 to ptr)
@@ -25297,7 +25297,7 @@ vtable_chain_free.exit22:                         ; preds = %vtable_free_gen.exi
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_ruby_parser_memsize(ptr nocapture noundef readonly %0) #8 {
+define hidden i64 @rb_ruby_parser_memsize(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -25337,7 +25337,7 @@ define hidden i64 @rb_ruby_parser_memsize(ptr nocapture noundef readonly %0) #8 
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @rb_reserved_word(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define dso_local noundef ptr @rb_reserved_word(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = zext i32 %1 to i64
   %4 = add i32 %1, -2
   %or.cond.i = icmp ult i32 %4, 11
@@ -25417,7 +25417,7 @@ define hidden noundef ptr @rb_ruby_parser_set_context(ptr noundef returned write
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ruby_parser_set_script_lines(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @rb_ruby_parser_set_script_lines(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %1, -5
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %14, label %4
@@ -25462,7 +25462,7 @@ declare i64 @rb_ary_new() local_unnamed_addr #1
 declare void @rb_ary_modify(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @rb_ruby_parser_error_tolerant(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @rb_ruby_parser_error_tolerant(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 32768
@@ -25471,7 +25471,7 @@ define hidden void @rb_ruby_parser_error_tolerant(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ruby_parser_keep_tokens(ptr nocapture noundef initializes((408, 416)) %0) local_unnamed_addr #0 {
+define hidden void @rb_ruby_parser_keep_tokens(ptr noundef captures(none) initializes((408, 416)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 65536
@@ -25653,7 +25653,7 @@ define hidden i64 @rb_parser_encoding(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_ruby_parser_encoding(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_ruby_parser_encoding(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #33
@@ -25672,7 +25672,7 @@ define hidden range(i64 0, 21) i64 @rb_parser_end_seen_p(i64 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @rb_ruby_parser_end_seen_p(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @rb_ruby_parser_end_seen_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 4
@@ -25859,7 +25859,7 @@ define hidden noundef i64 @rb_parser_set_yydebug(i64 noundef %0, i64 noundef ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @rb_ruby_parser_set_yydebug(ptr nocapture noundef %0, i32 noundef returned %1) local_unnamed_addr #3 {
+define dso_local noundef i32 @rb_ruby_parser_set_yydebug(ptr noundef captures(none) %0, i32 noundef returned %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %1, 5
@@ -25878,7 +25878,7 @@ declare ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef, ptr noundef, i64 noundef) 
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_parser_calloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @rb_parser_calloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = mul i64 %2, %1
   %5 = lshr i64 %4, 3
   %6 = load ptr, ptr %0, align 8
@@ -25896,7 +25896,7 @@ define dso_local nonnull ptr @rb_parser_calloc(ptr nocapture noundef %0, i64 nou
 declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_parser_realloc(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local nonnull ptr @rb_parser_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i64 %2, 3
   %.not = icmp eq ptr %1, null
   %.pre = load ptr, ptr %0, align 8
@@ -25951,7 +25951,7 @@ declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @rb_io_write(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @rb_yytnamerr(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 {
+define dso_local i64 @rb_yytnamerr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
   %4 = load i8, ptr %2, align 1
   %5 = icmp eq i8 %4, 34
   br i1 %5, label %.preheader, label %.loopexit
@@ -26119,10 +26119,10 @@ ruby_nonempty_memcpy.exit74:                      ; preds = %27
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
+declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: cold noreturn
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #19
@@ -32760,7 +32760,7 @@ declare ptr @rb_ast_newnode(ptr noundef, i32 noundef, i64 noundef, i64 noundef) 
 declare void @rb_node_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reduce_nodes(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @reduce_nodes(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.lr.ph
@@ -32954,7 +32954,7 @@ define internal fastcc void @reduce_nodes(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @debug_end_expect_token_locations(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load i32, ptr %4, align 8
@@ -33041,7 +33041,7 @@ flush_debug_buffer.exit:                          ; preds = %33, %35, %39
 declare void @rb_ast_delete_node(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_show_error_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @parser_show_error_line(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq ptr %1, null
@@ -33078,7 +33078,7 @@ declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #20
 declare i32 @rb_enc_dummy_p(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lex_get_str(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal i64 @lex_get_str(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !84
   %5 = and i64 %4, 8192
@@ -34289,7 +34289,7 @@ declare ptr @rb_ruby_verbose_ptr() local_unnamed_addr #1
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pushback(ptr nocapture noundef %0, i32 noundef range(i32 -1, 256) %1) unnamed_addr #22 {
+define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef range(i32 -1, 256) %1) unnamed_addr #22 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %22, label %4
 
@@ -34329,7 +34329,7 @@ define internal fastcc void @pushback(ptr nocapture noundef %0, i32 noundef rang
 declare i64 @rb_enc_associate(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_delayed_token(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 7894, 8852) %3) unnamed_addr #0 {
+define internal fastcc void @add_delayed_token(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 7894, 8852) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32
@@ -34559,7 +34559,7 @@ rb_long2int_inline.exit53:                        ; preds = %125
 declare i64 @rb_str_buf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_append_tokens(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 7838, 11452) %3) unnamed_addr #0 {
+define internal fastcc void @parser_append_tokens(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef range(i32 7838, 11452) %3) unnamed_addr #0 {
   %5 = tail call i64 @rb_ary_new_capa(i64 noundef 4) #33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %7 = load i32, ptr %6, align 8
@@ -35409,7 +35409,7 @@ declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #23 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #23 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -35434,7 +35434,7 @@ declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #19
 declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_gvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_gvar_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 50, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -35460,7 +35460,7 @@ define internal fastcc noundef ptr @rb_node_gvar_new(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %rb_parser_str_resize.exit22, label %4
 
@@ -35759,10 +35759,10 @@ rb_parser_str_resize.exit22:                      ; preds = %64, %58, %3, %rb_pa
 declare i64 @rb_node_set_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange(ptr noundef captures(none) %0) unnamed_addr #0 {
   %.val8 = load i32, ptr %0, align 8
   %2 = icmp eq i32 %.val8, 0
   br i1 %2, label %3, label %30
@@ -41420,7 +41420,7 @@ pushback.exit974:                                 ; preds = %2432, %2432, %2432,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_dispatch_scan_event(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 8008, 11452) %2) unnamed_addr #0 {
+define internal fastcc void @parser_dispatch_scan_event(ptr noundef captures(none) %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 8008, 11452) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -44931,7 +44931,7 @@ tokenize_ident.exit:                              ; preds = %168, %166, %parser_
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96.val, ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef range(i32 0, 33) %2) unnamed_addr #25 {
+define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96.val, ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef range(i32 0, 33) %2) unnamed_addr #25 {
   %4 = ptrtoint ptr %.96.val to i64
   %5 = ptrtoint ptr %.80.val to i64
   %6 = sub i64 %4, %5
@@ -45007,7 +45007,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @newtok(ptr nocapture noundef initializes((152, 156)) %0) unnamed_addr #0 {
+define internal fastcc void @newtok(ptr noundef captures(none) initializes((152, 156)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -45760,7 +45760,7 @@ parser_set_lex_state.exit221:                     ; preds = %390, %393
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_dispatch_heredoc_end(ptr nocapture noundef %0, i32 noundef range(i32 9304, 9397) %1) unnamed_addr #0 {
+define internal fastcc void @parser_dispatch_heredoc_end(ptr noundef captures(none) %0, i32 noundef range(i32 9304, 9397) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
@@ -45915,7 +45915,7 @@ parser_dispatch_delayed_token.exit:               ; preds = %46, %10, %2
 declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokadd(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @tokadd(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -45946,7 +45946,7 @@ define internal fastcc void @tokadd(ptr nocapture noundef %0, i32 noundef %1) un
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 256) i32 @tokadd_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @tokadd_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.rb_code_location_struct, align 4
   %9 = alloca %struct.rb_code_location_struct, align 4
   %10 = alloca %struct.rb_code_location_struct, align 4
@@ -46969,7 +46969,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %8, %11, %19, %17, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flush_string_content(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @flush_string_content(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
@@ -47086,7 +47086,7 @@ parser_dispatch_delayed_token.exit:               ; preds = %50, %71
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokadd_utf8(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
+define internal fastcc void @tokadd_utf8(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_code_location_struct, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %tokadd.exit109, label %6
@@ -47343,7 +47343,7 @@ tokadd.exit115:                                   ; preds = %93, %101
 .split.us:                                        ; preds = %.lr.ph140.split.us
   %134 = icmp eq ptr %.084137.us, @tokadd_utf8.multiple_codepoints
   %spec.select = select i1 %134, ptr %132, ptr %.084137.us
-  %135 = tail call fastcc i32 @tokadd_codepoint(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1)
+  %135 = tail call fastcc i32 @tokadd_codepoint(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, i32 noundef 1)
   %.not101.us = icmp eq i32 %135, 0
   br i1 %.not101.us, label %.loopexit, label %.preheader.us
 
@@ -47895,7 +47895,7 @@ define internal fastcc range(i32 0, 2) i32 @simple_re_meta(i32 noundef range(i32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_mixed_escape(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @parser_mixed_escape(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_code_location_struct, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
@@ -47945,7 +47945,7 @@ parser_mixed_error.exit:                          ; preds = %4, %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -128, 256) i32 @tokadd_mbchar(ptr nocapture noundef %0, i32 noundef range(i32 -128, 256) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 256) i32 @tokadd_mbchar(ptr noundef captures(none) %0, i32 noundef range(i32 -128, 256) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -1
@@ -48045,7 +48045,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %44, %tokspace.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 5) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 5) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.rb_code_location_struct, align 4
   %6 = alloca %struct.rb_code_location_struct, align 4
   %7 = alloca %struct.rb_code_location_struct, align 4
@@ -48410,7 +48410,7 @@ declare i32 @rb_enc_codelen(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @ruby_scan_oct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @tok_hex(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @tok_hex(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -48508,7 +48508,7 @@ define internal fastcc range(i32 0, 119) i32 @escaped_control_code(i32 noundef r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokskip_mbchar(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @tokskip_mbchar(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -1
@@ -48641,7 +48641,7 @@ tokadd.exit:                                      ; preds = %.lr.ph, %34, %char_
   %.132 = phi i32 [ %.03160, %20 ], [ %.03160, %24 ], [ 16, %.thread54 ], [ %.03160, %char_to_option_kcode.exit ], [ %.03160, %34 ], [ 32, %.lr.ph ]
   %.130 = phi i32 [ %21, %20 ], [ %25, %24 ], [ %.02961, %.thread54 ], [ %.02961, %char_to_option_kcode.exit ], [ %.02961, %34 ], [ %.02961, %.lr.ph ]
   %.1 = phi i32 [ %.062, %20 ], [ %.062, %24 ], [ %19, %.thread54 ], [ %.062, %char_to_option_kcode.exit ], [ %.062, %34 ], [ %.062, %.lr.ph ]
-  %39 = tail call fastcc i32 @nextc0(ptr noundef %0, i32 noundef 1)
+  %39 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %40 = and i32 %39, -33
   %41 = add i32 %40, -91
   %narrow.i = icmp ult i32 %41, -26
@@ -48748,7 +48748,7 @@ parser_show_error_line.exit:                      ; preds = %92, %64, %pushback.
 declare i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @magic_comment_encoding(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @magic_comment_encoding(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 128
@@ -48773,7 +48773,7 @@ comment_at_top.exit.thread:                       ; preds = %3, %comment_at_top.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @parser_encode_length(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp sgt i64 %2, 5
   br i1 %4, label %5, label %14
 
@@ -48830,7 +48830,7 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parser_set_frozen_string_literal(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @parser_set_frozen_string_literal(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 128
@@ -48884,7 +48884,7 @@ parser_get_bool.exit:                             ; preds = %12, %14, %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parser_set_shareable_constant_value(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @parser_set_shareable_constant_value(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -48988,7 +48988,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parser_set_token_info(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @parser_set_token_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i8, ptr %2, align 1
   switch i8 %4, label %parser_get_bool.exit [
     i8 116, label %5
@@ -49029,7 +49029,7 @@ parser_get_bool.exit:                             ; preds = %3, %5, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_set_encode(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @parser_set_encode(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca %struct.rb_code_location_struct, align 4
   %5 = load i8, ptr %1, align 1
@@ -49208,7 +49208,7 @@ declare i32 @rb_memcicmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef range(i32 314, 318) i32 @no_digits(ptr noundef %0) unnamed_addr #0 {
@@ -49364,7 +49364,7 @@ pushback.exit:                                    ; preds = %.backedge, %2, %44,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef range(i32 314, 318) i32 @set_number_literal(ptr nocapture noundef %0, i32 noundef range(i32 314, 317) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 0, 17) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 314, 318) i32 @set_number_literal(ptr noundef captures(none) %0, i32 noundef range(i32 314, 317) %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 0, 17) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = and i32 %2, 1
   %.not = icmp eq i32 %6, 0
   %spec.select = select i1 %.not, i32 %1, i32 316
@@ -49710,7 +49710,7 @@ pushback.exit:                                    ; preds = %.critedge.backedge,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tokenize_ident(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @tokenize_ident(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -49750,7 +49750,7 @@ define internal fastcc void @rb_parser_string_free(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_list_new2(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_list_new2(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
   %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 43, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -49780,7 +49780,7 @@ define internal fastcc noundef ptr @rb_node_list_new2(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_match2_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_match2_new(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
   %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 57, i64 noundef range(i64 32, 113) 56, i64 noundef 8) #33
@@ -49814,7 +49814,7 @@ declare i64 @rb_node_regx_string_val(ptr noundef) local_unnamed_addr #1
 declare i32 @onig_foreach_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @reg_named_capture_assign_iter(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef %5) #0 {
+define internal noundef i32 @reg_named_capture_assign_iter(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef captures(none) %5) #0 {
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -49829,7 +49829,7 @@ define internal noundef i32 @reg_named_capture_assign_iter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @numparam_nested_p(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @numparam_nested_p(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -49871,7 +49871,7 @@ parser_show_error_line.exit:                      ; preds = %23, %10, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @it_used_p(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @it_used_p(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -49907,7 +49907,7 @@ parser_show_error_line.exit:                      ; preds = %17, %6, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local_id_ref(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @local_id_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -50028,7 +50028,7 @@ vtable_included.exit:                             ; preds = %29, %43, %vtable_in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parser_numbered_param(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parser_numbered_param(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -50124,7 +50124,7 @@ vtable_add_gen.exit:                              ; preds = %38, %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @numparam_used_p(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @numparam_used_p(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -50160,7 +50160,7 @@ parser_show_error_line.exit:                      ; preds = %17, %6, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vtable_add_gen(ptr nocapture noundef %0, i32 noundef range(i32 10524, 15433) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @vtable_add_gen(ptr noundef captures(none) %0, i32 noundef range(i32 10524, 15433) %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32
@@ -50213,7 +50213,7 @@ define internal fastcc void @vtable_add_gen(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_node_vcall_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_node_vcall_new(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
   %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef range(i32 0, 116) 39, i64 noundef range(i64 32, 113) 40, i64 noundef 8) #33
@@ -50239,7 +50239,7 @@ define internal fastcc noundef ptr @rb_node_vcall_new(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str_to_sym_node(ptr nocapture noundef %0, ptr %.32.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %0, ptr %.32.val, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef %.32.val)
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %18
@@ -50277,7 +50277,7 @@ parser_yyerror.exit:                              ; preds = %5, %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reg_compile(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @reg_compile(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @rb_errinfo() #33
   %5 = tail call i32 @rb_reg_fragment_setenc(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not.i.i = icmp eq i32 %5, 0
@@ -50332,7 +50332,7 @@ declare i64 @rb_str_cat_cstr(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_io_puts(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @dvar_curr(ptr nocapture readonly %.184.val, i64 noundef %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @dvar_curr(ptr readonly captures(none) %.184.val, i64 noundef %0) unnamed_addr #8 {
   %2 = load ptr, ptr %.184.val, align 8
   %switch.i = icmp ult ptr %2, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %vtable_included.exit.thread, label %.preheader.i
@@ -50395,7 +50395,7 @@ vtable_included.exit:                             ; preds = %8, %24, %20, %.preh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @dvar_defined(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @dvar_defined(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -50495,7 +50495,7 @@ rb_parser_dvar_defined_ref.exit:                  ; preds = %.split.us.i, %12, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local_id(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @local_id(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -50588,7 +50588,7 @@ local_id_ref.exit:                                ; preds = %22, %32, %36, %13, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @local_var(ptr nocapture noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
+define internal fastcc void @local_var(ptr noundef captures(none) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = and i64 %1, 14
   %4 = icmp ne i64 %3, 0
   %5 = icmp ult i64 %1, 3664
@@ -50719,7 +50719,7 @@ vtable_add_gen.exit12:                            ; preds = %62, %51, %vtable_ad
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @shadowing_lvar_0(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @shadowing_lvar_0(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = alloca %struct.rb_code_location_struct, align 4
   %5 = getelementptr i8, ptr %0, i64 184
@@ -51332,7 +51332,7 @@ vtable_add_gen.exit39:                            ; preds = %131, %216, %local_i
 declare i64 @rb_id_attrset(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @arg_concat(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @arg_concat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %114, label %5
 
@@ -51539,7 +51539,7 @@ list_concat.exit43:                               ; preds = %81, %90
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i32 noundef range(i32 0, 4) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i32 noundef range(i32 0, 4) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load i64, ptr %3, align 8
   %8 = trunc i64 %7 to i32
   %9 = lshr i32 %8, 8
@@ -52101,7 +52101,7 @@ rb_obj_write.exit:                                ; preds = %.loopexit, %296, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_shareable_node(ptr noundef captures(none) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %6, align 8
@@ -52481,7 +52481,7 @@ define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @cond0(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @cond0(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %common.ret128, label %7
 
@@ -52861,7 +52861,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @range_op(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @range_op(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %77, label %5
 
@@ -53073,7 +53073,7 @@ define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
+define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -53105,7 +53105,7 @@ define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
+define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -53137,7 +53137,7 @@ define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
+define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -53177,7 +53177,7 @@ define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
+define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -53225,7 +53225,7 @@ define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rb_parser_regx_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
+define internal fastcc range(i32 0, 2) i32 @rb_parser_regx_hash_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -53279,7 +53279,7 @@ declare i64 @rb_complex_hash(i64 noundef) local_unnamed_addr #1
 declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @warn_unused_var(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @warn_unused_var(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53378,7 +53378,7 @@ is_private_local_id.exit.thread29:                ; preds = %is_private_local_id
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dyna_pop_1(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @dyna_pop_1(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -53517,16 +53517,16 @@ declare i32 @llvm.smin.i32(i32, i32) #30
 declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #30

@@ -66,7 +66,7 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InstrInit(ptr nocapture noundef writeonly initializes((0, 400)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @InstrInit(ptr noundef writeonly captures(none) initializes((0, 400)) %0, i32 noundef %1) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = trunc i32 %1 to i8
@@ -83,10 +83,10 @@ define dso_local void @InstrInit(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
@@ -144,7 +144,7 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -154,7 +154,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
+define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8
@@ -272,7 +272,7 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @BufferUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define dso_local void @BufferUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
   %6 = sub i64 %4, %5
@@ -418,7 +418,7 @@ define dso_local void @BufferUsageAccumDiff(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define dso_local void @WalUsageAccumDiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -447,7 +447,7 @@ define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #6 {
+define dso_local void @InstrUpdateTupleCount(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
   %5 = fadd double %1, %4
@@ -456,7 +456,7 @@ define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -509,7 +509,7 @@ define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -742,9 +742,9 @@ define dso_local void @InstrStartParallelQuery() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @InstrEndParallelQuery(ptr nocapture noundef initializes((0, 128)) %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #8 {
+define dso_local void @InstrEndParallelQuery(ptr noundef captures(none) initializes((0, 128)) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
-  tail call void @BufferUsageAccumDiff(ptr noundef %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
+  tail call void @BufferUsageAccumDiff(ptr noundef nonnull %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @save_pgWalUsage, i64 16), align 8
@@ -764,7 +764,7 @@ define dso_local void @InstrEndParallelQuery(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @InstrAccumParallelQuery(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define dso_local void @InstrAccumParallelQuery(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr @pgBufferUsage, align 8
   %5 = add i64 %4, %3
@@ -868,10 +868,10 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -198,7 +198,7 @@ declare i64 @zmalloc_get_private_dirty(i64 noundef) local_unnamed_addr #1
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
@@ -256,7 +256,7 @@ if.end17:                                         ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @readChildInfo(ptr nocapture noundef writeonly %information_type, ptr nocapture noundef writeonly %cow, ptr nocapture noundef writeonly %cow_updated, ptr nocapture noundef writeonly %keys, ptr nocapture noundef writeonly %progress) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @readChildInfo(ptr noundef writeonly captures(none) %information_type, ptr noundef writeonly captures(none) %cow, ptr noundef writeonly captures(none) %cow_updated, ptr noundef writeonly captures(none) %keys, ptr noundef writeonly captures(none) %progress) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4276), align 4
   %cmp = icmp eq i32 %0, 40
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end7, %if.then11
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @receiveChildInfo() local_unnamed_addr #6 {

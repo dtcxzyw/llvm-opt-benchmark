@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ossl_quic_vlint_encode_n(ptr nocapture noundef writeonly initializes((0, 1)) %buf, i64 noundef %v, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @ossl_quic_vlint_encode_n(ptr noundef writeonly captures(none) initializes((0, 1)) %buf, i64 noundef %v, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   switch i32 %n, label %if.else25 [
     i32 1, label %if.then
@@ -86,7 +86,7 @@ if.end52:                                         ; preds = %if.then3, %if.else2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ossl_quic_vlint_encode(ptr nocapture noundef writeonly initializes((0, 1)) %buf, i64 noundef %v) local_unnamed_addr #0 {
+define dso_local void @ossl_quic_vlint_encode(ptr noundef writeonly captures(none) initializes((0, 1)) %buf, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i64 %v, 64
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -169,7 +169,7 @@ ossl_quic_vlint_encode_n.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 4611686018427387904) i64 @ossl_quic_vlint_decode_unchecked(ptr nocapture noundef readonly %buf) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4611686018427387904) i64 @ossl_quic_vlint_decode_unchecked(ptr noundef readonly captures(none) %buf) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %1 = lshr i8 %0, 6
@@ -250,7 +250,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 9) i32 @ossl_quic_vlint_decode(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef writeonly %v) local_unnamed_addr #2 {
+define dso_local range(i32 0, 9) i32 @ossl_quic_vlint_decode(ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef writeonly captures(none) %v) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %buf_len, 0
   br i1 %cmp, label %return, label %if.end

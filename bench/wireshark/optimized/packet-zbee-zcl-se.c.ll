@@ -4970,7 +4970,7 @@ define hidden void @proto_register_zbee_zcl_keep_alive() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4981,7 +4981,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_keep_alive(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_keep_alive(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
@@ -5071,7 +5071,7 @@ define internal void @decode_zcl_se_utc_time(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_price(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_price(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %79, label %7
@@ -5335,7 +5335,7 @@ define hidden void @proto_register_zbee_zcl_drlc() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_zcl_drlc_temp_offset(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #3 {
+define internal void @decode_zcl_drlc_temp_offset(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #3 {
   %3 = icmp eq i8 %1, -1
   br i1 %3, label %4, label %5
 
@@ -5356,7 +5356,7 @@ define internal void @decode_zcl_drlc_temp_offset(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_zcl_drlc_temp_set_point(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #3 {
+define internal void @decode_zcl_drlc_temp_set_point(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #3 {
   %.not = icmp sgt i16 %1, -1
   br i1 %.not, label %4, label %3
 
@@ -5377,7 +5377,7 @@ define internal void @decode_zcl_drlc_temp_set_point(ptr nocapture noundef write
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_zcl_drlc_average_load_adjustment_percentage(ptr nocapture noundef writeonly %0, i8 noundef signext %1) #3 {
+define internal void @decode_zcl_drlc_average_load_adjustment_percentage(ptr noundef writeonly captures(none) %0, i8 noundef signext %1) #3 {
   %.not = icmp sgt i8 %1, -1
   br i1 %.not, label %4, label %3
 
@@ -5395,7 +5395,7 @@ define internal void @decode_zcl_drlc_average_load_adjustment_percentage(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_drlc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_drlc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %125, label %7
@@ -5608,7 +5608,7 @@ define hidden void @proto_register_zbee_zcl_met() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_met(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_met(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %79, label %7
@@ -5946,7 +5946,7 @@ define hidden void @proto_register_zbee_zcl_msg() local_unnamed_addr #0 {
 declare void @decode_zcl_utc_time(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_zcl_msg_duration(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #3 {
+define internal void @decode_zcl_msg_duration(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #3 {
   %3 = icmp eq i16 %1, -1
   br i1 %3, label %4, label %5
 
@@ -6414,7 +6414,7 @@ define hidden void @proto_register_zbee_zcl_pp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -6756,7 +6756,7 @@ define hidden void @proto_register_zbee_zcl_energy_management() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_energy_management(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_energy_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %76, label %7
@@ -6906,7 +6906,7 @@ define hidden void @proto_register_zbee_zcl_calendar() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -7333,7 +7333,7 @@ define hidden void @proto_register_zbee_zcl_daily_schedule() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -7556,7 +7556,7 @@ define hidden void @proto_register_zbee_zcl_device_management() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -7918,7 +7918,7 @@ define hidden void @proto_register_zbee_zcl_events() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_events(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_events(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -8158,7 +8158,7 @@ define hidden void @proto_register_zbee_zcl_mdu_pairing() local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %67, label %6
 
@@ -8278,7 +8278,7 @@ define hidden void @proto_register_zbee_zcl_sub_ghz() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_sub_ghz(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_sub_ghz(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %45, label %6
 
@@ -8393,7 +8393,7 @@ define hidden void @proto_register_zbee_zcl_ke() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_ke(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_ke(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %66, label %7
@@ -8538,7 +8538,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_scheduled_prices(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_scheduled_prices(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8554,7 +8554,7 @@ define internal fastcc void @dissect_zcl_price_get_scheduled_prices(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_price_acknowledgement(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_price_acknowledgement(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8580,7 +8580,7 @@ define internal fastcc void @dissect_zcl_price_get_price_acknowledgement(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_block_period(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_block_period(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8610,7 +8610,7 @@ define internal fastcc void @dissect_zcl_price_get_block_period(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_conversion_factor(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_conversion_factor(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8631,7 +8631,7 @@ define internal fastcc void @dissect_zcl_price_get_conversion_factor(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_calorific_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_calorific_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8652,7 +8652,7 @@ define internal fastcc void @dissect_zcl_price_get_calorific_value(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_tariff_information(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_tariff_information(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8678,7 +8678,7 @@ define internal fastcc void @dissect_zcl_price_get_tariff_information(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_co2_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_co2_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8713,7 +8713,7 @@ define internal fastcc void @dissect_zcl_price_get_co2_value(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_billing_period(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_billing_period(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8748,7 +8748,7 @@ define internal fastcc void @dissect_zcl_price_get_billing_period(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_consolidated_bill(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_consolidated_bill(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_earliest_start_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8783,7 +8783,7 @@ define internal fastcc void @dissect_zcl_price_get_consolidated_bill(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_cpp_event(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_cpp_event(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8799,7 +8799,7 @@ define internal fastcc void @dissect_zcl_price_get_cpp_event(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_get_credit_payment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_get_credit_payment(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_latest_end_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -8815,7 +8815,7 @@ define internal fastcc void @dissect_zcl_price_get_credit_payment(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_price(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_price(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -9027,7 +9027,7 @@ define internal fastcc void @dissect_zcl_price_publish_price(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_block_period(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_block_period(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9076,7 +9076,7 @@ define internal fastcc void @dissect_zcl_price_publish_block_period(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_conversion_factor(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_conversion_factor(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9103,7 +9103,7 @@ define internal fastcc void @dissect_zcl_price_publish_conversion_factor(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_calorific_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_calorific_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9135,7 +9135,7 @@ define internal fastcc void @dissect_zcl_price_publish_calorific_value(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_tariff_information(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_tariff_information(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -9220,7 +9220,7 @@ define internal fastcc void @dissect_zcl_price_publish_tariff_information(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_price_matrix(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_price_matrix(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9305,7 +9305,7 @@ define internal fastcc void @dissect_zcl_price_publish_price_matrix(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_block_thresholds(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_block_thresholds(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9424,7 +9424,7 @@ define internal fastcc void @dissect_zcl_price_publish_block_thresholds(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_co2_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_co2_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9467,7 +9467,7 @@ define internal fastcc void @dissect_zcl_price_publish_co2_value(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_tier_labels(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_tier_labels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -9535,7 +9535,7 @@ define internal fastcc void @dissect_zcl_price_publish_tier_labels(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_billing_period(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_billing_period(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9573,7 +9573,7 @@ define internal fastcc void @dissect_zcl_price_publish_billing_period(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_consolidated_bill(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_consolidated_bill(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9627,7 +9627,7 @@ define internal fastcc void @dissect_zcl_price_publish_consolidated_bill(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_cpp_event(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_cpp_event(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9669,7 +9669,7 @@ define internal fastcc void @dissect_zcl_price_publish_cpp_event(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_credit_payment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_credit_payment(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
@@ -9733,7 +9733,7 @@ define internal fastcc void @dissect_zcl_price_publish_credit_payment(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_currency_conversion(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_currency_conversion(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9780,7 +9780,7 @@ define internal fastcc void @dissect_zcl_price_publish_currency_conversion(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_price_publish_cancel_tariff(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_price_publish_cancel_tariff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_price_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -9812,10 +9812,10 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_profile(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_profile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_get_profile_interval_channel, align 4
   %6 = load i32, ptr %2, align 4
@@ -9844,7 +9844,7 @@ define internal fastcc void @dissect_zcl_met_get_profile(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_request_fast_poll_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_request_fast_poll_mode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_request_fast_poll_mode_fast_poll_update_period, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #6
@@ -9860,7 +9860,7 @@ define internal fastcc void @dissect_zcl_met_request_fast_poll_mode(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_schedule_snapshot(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_schedule_snapshot(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_schedule_snapshot_issuer_event_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -9919,7 +9919,7 @@ define internal fastcc void @dissect_zcl_met_schedule_snapshot(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_snapshot(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_snapshot(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr %2, align 4
@@ -9971,7 +9971,7 @@ define internal fastcc void @dissect_zcl_met_get_snapshot(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_start_sampling(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_start_sampling(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_start_sampling_issuer_event_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10010,7 +10010,7 @@ define internal fastcc void @dissect_zcl_met_start_sampling(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_sampled_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_sampled_data(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_get_sampled_data_sample_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10044,7 +10044,7 @@ define internal fastcc void @dissect_zcl_met_get_sampled_data(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #6
   %6 = load i32, ptr @hf_zbee_zcl_met_mirror_report_attribute_response_notification_scheme, align 4
@@ -10097,7 +10097,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_reset_load_limit_counter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_reset_load_limit_counter(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_reset_load_limit_counter_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10113,7 +10113,7 @@ define internal fastcc void @dissect_zcl_met_reset_load_limit_counter(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_change_supply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_change_supply(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr @hf_zbee_zcl_met_change_supply_provider_id, align 4
@@ -10165,7 +10165,7 @@ define internal fastcc void @dissect_zcl_met_change_supply(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_set_supply_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_set_supply_status(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_set_supply_status_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10196,7 +10196,7 @@ define internal fastcc void @dissect_zcl_met_set_supply_status(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_set_uncontrolled_flow_threshold(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_set_uncontrolled_flow_threshold(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_set_uncontrolled_flow_threshold_provider_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10242,7 +10242,7 @@ define internal fastcc void @dissect_zcl_met_set_uncontrolled_flow_threshold(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_profile_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_profile_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_get_profile_response_end_time, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10284,7 +10284,7 @@ define internal fastcc void @dissect_zcl_met_get_profile_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_request_fast_poll_mode_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_request_fast_poll_mode_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_request_fast_poll_mode_response_applied_update_period, align 4
   %6 = load i32, ptr %2, align 4
@@ -10310,7 +10310,7 @@ define internal fastcc void @dissect_zcl_met_request_fast_poll_mode_response(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_schedule_snapshot_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_schedule_snapshot_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_schedule_snapshot_response_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10345,7 +10345,7 @@ define internal fastcc void @dissect_zcl_met_schedule_snapshot_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_take_snapshot_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_take_snapshot_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_take_snapshot_response_snapshot_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10361,7 +10361,7 @@ define internal fastcc void @dissect_zcl_met_take_snapshot_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_publish_snapshot(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_publish_snapshot(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_publish_snapshot_snapshot_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10418,7 +10418,7 @@ define internal fastcc void @dissect_zcl_met_publish_snapshot(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_sampled_data_rsp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_sampled_data_rsp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_get_sampled_data_rsp_sample_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10480,7 +10480,7 @@ define internal fastcc void @dissect_zcl_met_get_sampled_data_rsp(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_configure_mirror(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_configure_mirror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_configure_mirror_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10506,7 +10506,7 @@ define internal fastcc void @dissect_zcl_met_configure_mirror(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_configure_notification_scheme(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_configure_notification_scheme(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_configure_notification_scheme_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10527,7 +10527,7 @@ define internal fastcc void @dissect_zcl_met_configure_notification_scheme(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_configure_notification_flags(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_configure_notification_flags(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_configure_notification_flags_issuer_event_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #6
@@ -10587,7 +10587,7 @@ define internal fastcc void @dissect_zcl_met_configure_notification_flags(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_get_notified_msg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_get_notified_msg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_met_get_notified_msg_notification_scheme, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #6
@@ -10606,7 +10606,7 @@ define internal fastcc void @dissect_zcl_met_get_notified_msg(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_supply_status_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_supply_status_response(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_met_supply_status_response_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10640,7 +10640,7 @@ define internal fastcc void @dissect_zcl_met_supply_status_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_met_notification_flags(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_met_notification_flags(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3) unnamed_addr #0 {
   switch i16 %3, label %30 [
     i16 0, label %5
     i16 1, label %10
@@ -10710,7 +10710,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_msg_display(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_msg_display(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_zbee_zcl_msg_message_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10761,7 +10761,7 @@ define internal fastcc void @dissect_zcl_msg_display(ptr noundef %0, ptr noundef
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_tun_request_tunnel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_tun_request_tunnel(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_tun_protocol_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #6
@@ -10787,7 +10787,7 @@ define internal fastcc void @dissect_zcl_tun_request_tunnel(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_tun_transfer_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_tun_transfer_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @proto_tree_get_root(ptr noundef %2) #6
   %7 = load i32, ptr @hf_zbee_zcl_tun_tunnel_id, align 4
@@ -10816,7 +10816,7 @@ define internal fastcc void @dissect_zcl_tun_transfer_data(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_tun_transfer_data_error(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_tun_transfer_data_error(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_tun_tunnel_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #6
@@ -10832,7 +10832,7 @@ define internal fastcc void @dissect_zcl_tun_transfer_data_error(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_tun_ack_transfer_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_tun_ack_transfer_data(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_tun_tunnel_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #6
@@ -10848,7 +10848,7 @@ define internal fastcc void @dissect_zcl_tun_ack_transfer_data(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_tun_ready_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_tun_ready_data(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_tun_tunnel_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #6
@@ -10876,7 +10876,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_select_available_emergency_credit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_select_available_emergency_credit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %5) #6
@@ -10900,7 +10900,7 @@ define internal fastcc void @dissect_zcl_pp_select_available_emergency_credit(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_change_debt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_change_debt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_change_debt_issuer_event_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -10968,7 +10968,7 @@ define internal fastcc void @dissect_zcl_pp_change_debt(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_emergency_credit_setup(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_emergency_credit_setup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_emergency_credit_setup_issuer_event_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -11002,7 +11002,7 @@ define internal fastcc void @dissect_zcl_pp_emergency_credit_setup(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_consumer_top_up(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_consumer_top_up(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_zbee_zcl_pp_consumer_top_up_originating_device, align 4
   %6 = load i32, ptr %2, align 4
@@ -11020,7 +11020,7 @@ define internal fastcc void @dissect_zcl_pp_consumer_top_up(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_credit_adjustment(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_credit_adjustment(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_credit_adjustment_issuer_event_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -11054,7 +11054,7 @@ define internal fastcc void @dissect_zcl_pp_credit_adjustment(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_change_payment_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_change_payment_mode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_change_payment_mode_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -11094,7 +11094,7 @@ define internal fastcc void @dissect_zcl_pp_change_payment_mode(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_get_prepay_snapshot(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_get_prepay_snapshot(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr %2, align 4
@@ -11137,7 +11137,7 @@ define internal fastcc void @dissect_zcl_pp_get_prepay_snapshot(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_get_top_up_log(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_get_top_up_log(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %5) #6
@@ -11161,7 +11161,7 @@ define internal fastcc void @dissect_zcl_pp_get_top_up_log(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_get_debt_repayment_log(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_get_debt_repayment_log(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %5) #6
@@ -11190,7 +11190,7 @@ define internal fastcc void @dissect_zcl_pp_get_debt_repayment_log(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_set_maximum_credit_limit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_set_maximum_credit_limit(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_set_maximum_credit_limit_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -11229,7 +11229,7 @@ define internal fastcc void @dissect_zcl_pp_set_maximum_credit_limit(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pp_set_overall_debt_cap(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pp_set_overall_debt_cap(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = load i32, ptr @hf_zbee_zcl_pp_set_overall_debt_cap_limit_provider_id, align 4
   %6 = load i32, ptr %2, align 4
@@ -11269,7 +11269,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_ke_initiate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_ke_initiate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr %2, align 4
@@ -11425,10 +11425,10 @@ declare i64 @tvb_get_ntoh40(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -106,7 +106,7 @@ declare void @disas_initialize_debug_target(ptr noundef, ptr noundef) local_unna
 declare i32 @disas_gstring_printf(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 6) i32 @physical_read_memory(i64 noundef %memaddr, ptr noundef %myaddr, i32 noundef %length, ptr nocapture noundef readonly %info) #0 {
+define internal range(i32 0, 6) i32 @physical_read_memory(i64 noundef %memaddr, ptr noundef %myaddr, i32 noundef %length, ptr noundef readonly captures(none) %info) #0 {
 entry:
   %conv = sext i32 %length to i64
   %cpu = getelementptr inbounds nuw i8, ptr %info, i64 208

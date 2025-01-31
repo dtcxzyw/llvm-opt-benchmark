@@ -526,7 +526,7 @@ return:                                           ; preds = %entry, %if.end3.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_KEYMGMT_up_ref(ptr nocapture noundef %keymgmt) #2 {
+define noundef i32 @EVP_KEYMGMT_up_ref(ptr noundef captures(none) %keymgmt) #2 {
 entry:
   %refcnt = getelementptr inbounds nuw i8, ptr %keymgmt, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -581,7 +581,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_provider(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
+define ptr @EVP_KEYMGMT_get0_provider(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #3 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov, align 8
@@ -589,7 +589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_keymgmt_get_number(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
+define i32 @evp_keymgmt_get_number(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #3 {
 entry:
   %name_id = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %0 = load i32, ptr %name_id, align 4
@@ -597,7 +597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_description(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
+define ptr @EVP_KEYMGMT_get0_description(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %keymgmt, i64 16
   %0 = load ptr, ptr %description, align 8
@@ -605,7 +605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEYMGMT_get0_name(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
+define ptr @EVP_KEYMGMT_get0_name(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #3 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %keymgmt, i64 8
   %0 = load ptr, ptr %type_name, align 8
@@ -645,7 +645,7 @@ entry:
 declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KEYMGMT_names_do_all(ptr nocapture noundef readonly %keymgmt, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_KEYMGMT_names_do_all(ptr noundef readonly captures(none) %keymgmt, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov, align 8
@@ -666,7 +666,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_newdata(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_newdata(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -688,7 +688,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @evp_keymgmt_freedata(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata) local_unnamed_addr #0 {
+define void @evp_keymgmt_freedata(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata) local_unnamed_addr #0 {
 entry:
   %free = getelementptr inbounds nuw i8, ptr %keymgmt, i64 48
   %0 = load ptr, ptr %free, align 8
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_gen_init(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_gen_init(ptr noundef readonly captures(none) %keymgmt, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -717,7 +717,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_gen_set_template(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %templ) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_gen_set_template(ptr noundef readonly captures(none) %keymgmt, ptr noundef %genctx, ptr noundef %templ) local_unnamed_addr #0 {
 entry:
   %gen_set_template = getelementptr inbounds nuw i8, ptr %keymgmt, i64 96
   %0 = load ptr, ptr %gen_set_template, align 8
@@ -734,7 +734,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_gen_set_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_gen_set_params(ptr noundef readonly captures(none) %keymgmt, ptr noundef %genctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %gen_set_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 104
   %0 = load ptr, ptr %gen_set_params, align 8
@@ -751,7 +751,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEYMGMT_gen_settable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
+define ptr @EVP_KEYMGMT_gen_settable_params(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -771,7 +771,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_gen(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_gen(ptr noundef readonly captures(none) %keymgmt, ptr noundef %genctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %gen = getelementptr inbounds nuw i8, ptr %keymgmt, i64 120
   %0 = load ptr, ptr %gen, align 8
@@ -788,7 +788,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evp_keymgmt_gen_cleanup(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx) local_unnamed_addr #0 {
+define void @evp_keymgmt_gen_cleanup(ptr noundef readonly captures(none) %keymgmt, ptr noundef %genctx) local_unnamed_addr #0 {
 entry:
   %gen_cleanup = getelementptr inbounds nuw i8, ptr %keymgmt, i64 128
   %0 = load ptr, ptr %gen_cleanup, align 8
@@ -843,7 +843,7 @@ return:                                           ; preds = %entry, %evp_keymgmt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_get_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_get_params(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %get_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 56
   %0 = load ptr, ptr %get_params, align 8
@@ -860,7 +860,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEYMGMT_gettable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
+define ptr @EVP_KEYMGMT_gettable_params(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -880,7 +880,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_set_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_set_params(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %set_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 72
   %0 = load ptr, ptr %set_params, align 8
@@ -897,7 +897,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEYMGMT_settable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
+define ptr @EVP_KEYMGMT_settable_params(ptr noundef readonly captures(none) %keymgmt) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -917,7 +917,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_has(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_has(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %has = getelementptr inbounds nuw i8, ptr %keymgmt, i64 152
   %0 = load ptr, ptr %has, align 8
@@ -926,7 +926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_validate(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_validate(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) local_unnamed_addr #0 {
 entry:
   %validate = getelementptr inbounds nuw i8, ptr %keymgmt, i64 160
   %0 = load ptr, ptr %validate, align 8
@@ -943,7 +943,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_match(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_match(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %match = getelementptr inbounds nuw i8, ptr %keymgmt, i64 168
   %0 = load ptr, ptr %match, align 8
@@ -960,7 +960,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_import(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_import(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %import = getelementptr inbounds nuw i8, ptr %keymgmt, i64 176
   %0 = load ptr, ptr %import, align 8
@@ -977,7 +977,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_import_types(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_import_types(ptr noundef readonly captures(none) %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -1007,7 +1007,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_export(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %param_cb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_export(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %param_cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %export = getelementptr inbounds nuw i8, ptr %keymgmt, i64 200
   %0 = load ptr, ptr %export, align 8
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_export_types(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_export_types(ptr noundef readonly captures(none) %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
@@ -1054,7 +1054,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_dup(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata_from, i32 noundef %selection) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_dup(ptr noundef readonly captures(none) %keymgmt, ptr noundef %keydata_from, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %dup = getelementptr inbounds nuw i8, ptr %keymgmt, i64 224
   %0 = load ptr, ptr %dup, align 8

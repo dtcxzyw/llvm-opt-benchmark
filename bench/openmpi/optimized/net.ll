@@ -40,7 +40,7 @@ define noundef zeroext i1 @opal_net_isaddr(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -171,7 +171,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #6
@@ -197,7 +197,7 @@ define i32 @opal_net_prefix2netmask(i32 noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @opal_net_islocalhost(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @opal_net_islocalhost(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %3, label %9
@@ -224,7 +224,7 @@ define zeroext i1 @opal_net_islocalhost(ptr nocapture noundef readonly %0) local
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @opal_net_samenetwork(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext i1 @opal_net_samenetwork(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i32
   %6 = load i16, ptr %1, align 2
@@ -262,7 +262,7 @@ define zeroext i1 @opal_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @opal_net_addr_isipv4public(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @opal_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %3, label %21
@@ -314,7 +314,7 @@ define noundef zeroext i1 @opal_net_addr_isipv4public(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @opal_net_addr_isipv6linklocal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @opal_net_addr_isipv6linklocal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %5, label %3
@@ -329,7 +329,7 @@ define noundef zeroext i1 @opal_net_addr_isipv6linklocal(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @opal_net_get_hostname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @opal_net_get_hostname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @inet_ntoa(i32 %3) #11
@@ -340,7 +340,7 @@ define ptr @opal_net_get_hostname(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @inet_ntoa(i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 65536) i32 @opal_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 -1, 65536) i32 @opal_net_get_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %3, label %8
@@ -361,7 +361,7 @@ define range(i32 -1, 65536) i32 @opal_net_get_port(ptr nocapture noundef readonl
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

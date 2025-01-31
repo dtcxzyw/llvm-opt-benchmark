@@ -230,7 +230,7 @@ entry:
 declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp17ValidateDSProcess8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp17ValidateDSProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
 entry:
   %and = and i32 %pFlags, 1024
   %cmp = icmp ne i32 %and, 0
@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %msg, ...) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %args = alloca [1 x %struct.__va_list_tag], align 16
@@ -309,7 +309,7 @@ unreachable:                                      ; preds = %invoke.cont8
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -339,7 +339,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %msg, ...) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %msg, ...) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %szBuffer = alloca [3000 x i8], align 16
@@ -679,7 +679,7 @@ if.end56:                                         ; preds = %if.end7.i68, %if.el
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pNode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %pNode) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abHadMesh = alloca %"class.std::vector", align 8
   %tobool.not = icmp eq ptr %pNode, null
@@ -1134,7 +1134,7 @@ eh.resume:                                        ; preds = %lpad21, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK7aiLight(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pLight) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK7aiLight(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pLight) local_unnamed_addr #7 align 2 {
 entry:
   %mType = getelementptr inbounds nuw i8, ptr %pLight, i64 1028
   %0 = load i32, ptr %mType, align 4
@@ -1251,7 +1251,7 @@ if.end15:                                         ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pCamera) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %pCamera) local_unnamed_addr #7 align 2 {
 entry:
   %mClipPlaneFar = getelementptr inbounds nuw i8, ptr %pCamera, i64 1072
   %0 = load float, ptr %mClipPlaneFar, align 4
@@ -1282,7 +1282,7 @@ if.end6:                                          ; preds = %if.end, %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMesh) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMesh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %pMesh) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abRefList = alloca %"class.std::vector", align 8
   %mScene = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1979,7 +1979,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit194:                 ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pString) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %pString) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pString, align 4
   %cmp = icmp ugt i32 %0, 1024
@@ -2033,7 +2033,7 @@ while.end:                                        ; preds = %if.then5
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pMesh, ptr nocapture noundef readonly %pBone, ptr nocapture noundef %afSum) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pMesh, ptr noundef readonly captures(none) %pBone, ptr noundef captures(none) %afSum) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pBone, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2147,7 +2147,7 @@ for.end:                                          ; preds = %if.end16, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimation(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pAnimation) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimation(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %pAnimation) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pAnimation, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2320,7 +2320,7 @@ if.end42:                                         ; preds = %if.end35, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK10aiNodeAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pNodeAnim) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK10aiNodeAnim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pAnimation, ptr noundef readonly captures(none) %pNodeAnim) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pNodeAnim, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2641,7 +2641,7 @@ if.end179:                                        ; preds = %land.lhs.true175, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK15aiMeshMorphAnim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pAnimation, ptr nocapture noundef readonly %pMeshMorphAnim) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK15aiMeshMorphAnim(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pAnimation, ptr noundef readonly captures(none) %pMeshMorphAnim) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %pMeshMorphAnim, align 4
   %cmp.i = icmp ugt i32 %0, 1024
@@ -2773,7 +2773,7 @@ if.end45:                                         ; preds = %if.end40, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10aiMaterial13aiTextureType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %pMaterial, i32 noundef %type) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10aiMaterial13aiTextureType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %pMaterial, i32 noundef %type) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @aiTextureTypeToString(i32 noundef %type)
   %mNumProperties = getelementptr inbounds nuw i8, ptr %pMaterial, i64 8
@@ -3130,10 +3130,10 @@ return:                                           ; preds = %entry, %if.end14, %
 declare ptr @aiTextureTypeToString(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK10aiMaterial(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %pMaterial) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK10aiMaterial(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %pMaterial) local_unnamed_addr #7 align 2 {
 entry:
   %fTemp = alloca float, align 4
   %iShading = alloca i32, align 4
@@ -3308,7 +3308,7 @@ if.end67:                                         ; preds = %land.lhs.true61, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK9aiTexture(ptr nocapture nonnull readnone align 8 %this, ptr noundef %pTexture) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK9aiTexture(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %pTexture) local_unnamed_addr #7 align 2 {
 entry:
   %pcData = getelementptr inbounds nuw i8, ptr %pTexture, i64 24
   %0 = load ptr, ptr %pcData, align 8
@@ -3435,7 +3435,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare i32 @aiGetMaterialIntegerArray(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -3858,7 +3858,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -4466,7 +4466,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
@@ -4481,16 +4481,16 @@ declare void @llvm.va_end.p0(ptr) #17
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

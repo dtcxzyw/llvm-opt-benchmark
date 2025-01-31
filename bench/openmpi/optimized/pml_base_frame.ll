@@ -60,7 +60,7 @@ define noundef i32 @mca_pml_base_progress() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_pml_base_revoke_comm(ptr nocapture readnone %0, i1 zeroext %1) #0 {
+define noundef i32 @mca_pml_base_revoke_comm(ptr readnone captures(none) %0, i1 zeroext %1) #0 {
   ret i32 -7
 }
 
@@ -330,12 +330,12 @@ declare i32 @mca_base_var_get_value(i32 noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @opal_progress_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @mca_base_framework_components_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 

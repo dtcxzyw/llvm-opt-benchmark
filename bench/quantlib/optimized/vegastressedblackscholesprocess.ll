@@ -123,7 +123,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib31VegaStressedBlackScholesProcessC1ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEEdddddRKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, double, double, double, double, double, ptr), ptr @_ZN8QuantLib31VegaStressedBlackScholesProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEEdddddRKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -221,7 +221,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEEdddddRKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dividendTS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %riskFreeTS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %blackVolTS, double noundef %lowerTimeBorderForStressTest, double noundef %upperTimeBorderForStressTest, double noundef %lowerAssetBorderForStressTest, double noundef %upperAssetBorderForStressTest, double noundef %stressLevel, ptr noundef nonnull align 8 dereferenceable(16) %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEEdddddRKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dividendTS, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %riskFreeTS, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %blackVolTS, double noundef %lowerTimeBorderForStressTest, double noundef %upperTimeBorderForStressTest, double noundef %lowerAssetBorderForStressTest, double noundef %upperAssetBorderForStressTest, double noundef %stressLevel, ptr noundef nonnull align 8 dereferenceable(16) %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle.17", align 8
@@ -606,7 +606,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess31getLowerTimeBorderForStressTestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess31getLowerTimeBorderForStressTestEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %lowerTimeBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load double, ptr %lowerTimeBorderForStressTest_, align 8, !tbaa !38
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess31getUpperTimeBorderForStressTestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess31getUpperTimeBorderForStressTestEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %upperTimeBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load double, ptr %upperTimeBorderForStressTest_, align 8, !tbaa !59
@@ -622,7 +622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess32getLowerAssetBorderForStressTestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess32getLowerAssetBorderForStressTestEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %lowerAssetBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load double, ptr %lowerAssetBorderForStressTest_, align 8, !tbaa !60
@@ -630,7 +630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess32getUpperAssetBorderForStressTestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess32getUpperAssetBorderForStressTestEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %upperAssetBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load double, ptr %upperAssetBorderForStressTest_, align 8, !tbaa !61
@@ -638,7 +638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess14getStressLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib31VegaStressedBlackScholesProcess14getStressLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #8 align 2 {
 entry:
   %stressLevel_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load double, ptr %stressLevel_, align 8, !tbaa !62

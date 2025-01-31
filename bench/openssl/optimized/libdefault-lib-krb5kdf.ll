@@ -387,7 +387,7 @@ if.end28.i:                                       ; preds = %for.body.lr.ph.i, %
   %osize.070.i12 = phi i64 [ %add.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %16 = load i32, ptr %olen.i, align 4
   %conv29.i = sext i32 %16 to i64
-  %call30.i = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %call7.i, ptr noundef %cipherblock.069.i13, ptr noundef nonnull %olen.i) #7
+  %call30.i = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %call7.i, ptr noundef nonnull %cipherblock.069.i13, ptr noundef nonnull %olen.i) #7
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %out.i, label %if.end33.i
 
@@ -406,7 +406,7 @@ if.end37.i:                                       ; preds = %if.end33.i
   %sub.i = sub i64 %keylen, %osize.070.i12
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv29.i)
   %add.ptr43.i = getelementptr inbounds i8, ptr %key, i64 %osize.070.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr43.i, ptr align 1 %cipherblock.069.i13, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr43.i, ptr nonnull align 1 %cipherblock.069.i13, i64 %spec.select.i, i1 false)
   %add.i = add i64 %spec.select.i, %osize.070.i12
   %cmp44.i = icmp ugt i64 %keylen, %add.i
   br i1 %cmp44.i, label %if.then46.i, label %for.end.i
@@ -441,7 +441,7 @@ for.inc.i:                                        ; preds = %cipher_init.exit62.
   %cmp56.i = icmp eq ptr %cipherblock.069.i13, %block.i
   %add.ptr59.i = getelementptr inbounds nuw i8, ptr %cipherblock.069.i13, i64 32
   %spec.select46.i = select i1 %cmp56.i, ptr %add.ptr59.i, ptr %block.i
-  %call25.i = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %call7.i, ptr noundef nonnull %spec.select46.i, ptr noundef nonnull %olen.i, ptr noundef %cipherblock.069.i13, i32 noundef %call14.i) #7
+  %call25.i = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %call7.i, ptr noundef nonnull %spec.select46.i, ptr noundef nonnull %olen.i, ptr noundef nonnull %cipherblock.069.i13, i32 noundef %call14.i) #7
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %out.i, label %if.end28.i
 
@@ -480,7 +480,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @krb5kdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @krb5kdf_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @krb5kdf_settable_ctx_params.known_settable_ctx_params
 }
@@ -540,7 +540,7 @@ return:                                           ; preds = %if.then15, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @krb5kdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @krb5kdf_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @krb5kdf_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -588,7 +588,7 @@ declare void @ossl_prov_cipher_reset(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @ossl_prov_cipher_cipher(ptr noundef) local_unnamed_addr #2
 
@@ -611,7 +611,7 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #2
 
@@ -684,7 +684,7 @@ declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnam
 declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare void @DES_set_odd_parity(ptr noundef) local_unnamed_addr #2
 
@@ -708,10 +708,10 @@ declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

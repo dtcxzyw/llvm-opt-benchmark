@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [5 x i8] c"(I)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_LinuxNativeDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_LinuxNativeDispatcher_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -79,7 +79,7 @@ define void @Java_sun_nio_fs_LinuxNativeDispatcher_init(ptr noundef %0, ptr noca
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_fs_LinuxNativeDispatcher_setmntent0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_fs_LinuxNativeDispatcher_setmntent0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = inttoptr i64 %3 to ptr
   br label %7
@@ -123,7 +123,7 @@ declare ptr @setmntent(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mntent, align 8
   %8 = inttoptr i64 %4 to ptr
   %9 = inttoptr i64 %2 to ptr
@@ -152,7 +152,7 @@ define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(pt
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1664
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %25, i32 noundef 0, i32 noundef %21, ptr noundef %13) #5
+  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %25, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %13) #5
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 832
   %33 = load ptr, ptr %32, align 8
@@ -171,7 +171,7 @@ define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(pt
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1664
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull %0, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %36, ptr noundef %15) #5
+  call void %45(ptr noundef nonnull %0, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %36, ptr noundef nonnull %15) #5
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 832
   %48 = load ptr, ptr %47, align 8
@@ -190,7 +190,7 @@ define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(pt
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1664
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull %0, ptr noundef nonnull %55, i32 noundef 0, i32 noundef %51, ptr noundef %17) #5
+  call void %60(ptr noundef nonnull %0, ptr noundef nonnull %55, i32 noundef 0, i32 noundef %51, ptr noundef nonnull %17) #5
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 832
   %63 = load ptr, ptr %62, align 8
@@ -209,7 +209,7 @@ define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(pt
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1664
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef 0, i32 noundef %66, ptr noundef %19) #5
+  call void %75(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef 0, i32 noundef %66, ptr noundef nonnull %19) #5
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 832
   %78 = load ptr, ptr %77, align 8
@@ -226,10 +226,10 @@ define range(i32 -1, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_getmntent0(pt
 declare ptr @getmntent_r(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_LinuxNativeDispatcher_endmntent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_fs_LinuxNativeDispatcher_endmntent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @endmntent(ptr noundef %4) #5
   ret void
@@ -239,7 +239,7 @@ define void @Java_sun_nio_fs_LinuxNativeDispatcher_endmntent(ptr nocapture nound
 declare i32 @endmntent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_LinuxNativeDispatcher_posix_1fadvise(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_fs_LinuxNativeDispatcher_posix_1fadvise(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @posix_fadvise64(i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #5
   ret i32 %7
 }
@@ -248,7 +248,7 @@ define i32 @Java_sun_nio_fs_LinuxNativeDispatcher_posix_1fadvise(ptr nocapture n
 declare i32 @posix_fadvise64(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @Java_sun_nio_fs_LinuxNativeDispatcher_directCopy0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %4 to ptr
   %.not = icmp eq i64 %4, 0
   %7 = select i1 %.not, i64 2147479552, i64 1048576

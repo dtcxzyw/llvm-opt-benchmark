@@ -71,7 +71,7 @@ $_ZNSt6vectorIN5Nbnxm4GridESaIS1_EE17_M_realloc_insertIJRK12PairlistTypeRbRN3gmx
 @_ZN5Nbnxm7GridSetC1E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12PairlistTypebiN3gmx13PinningPolicyE = unnamed_addr alias void (ptr, i32, i1, ptr, ptr, i32, i1, i32, i32), ptr @_ZN5Nbnxm7GridSetC2E7PbcTypebPA3_KiPK18gmx_domdec_zones_t12PairlistTypebiN3gmx13PinningPolicyE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5Nbnxm7GridSet11DomainSetupC2E7PbcTypebPA3_KiPK18gmx_domdec_zones_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 6), (16, 24)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define void @_ZN5Nbnxm7GridSet11DomainSetupC2E7PbcTypebPA3_KiPK18gmx_domdec_zones_t(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 6), (16, 24)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -541,7 +541,7 @@ _ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) unnamed_addr #4
 
@@ -576,7 +576,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare void @_ZN3gmx20HostAllocationPolicyC1ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEC2EOS4_RKS3_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1054,7 +1054,7 @@ _ZNSt12_Vector_baseIN5Nbnxm4GridESaIS1_EE13_M_deallocateEPS1_m.exit30: ; preds =
 declare void @_ZN5Nbnxm4GridC1E12PairlistTypeRKbN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(372), i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Nbnxm7GridSet17setLocalAtomOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #13 align 2 {
+define void @_ZN5Nbnxm7GridSet17setLocalAtomOrderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1133,7 +1133,7 @@ define void @_ZN5Nbnxm7GridSet17setLocalAtomOrderEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, float noundef %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.34") align 8 %9, i32 noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #1 align 2 {
+define void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, float noundef %7, ptr noundef readonly byval(%"class.gmx::ArrayRef.31") align 8 captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.34") align 8 captures(none) %9, i32 noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #1 align 2 {
   %14 = alloca float, align 4
   %15 = alloca %"class.gmx::ArrayRef.34", align 8
   %16 = alloca %"class.gmx::ArrayRef.31", align 8
@@ -1362,7 +1362,7 @@ define void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 declare noundef float @_ZN5Nbnxm21generateAndFill2DGridEPNS_4GridEN3gmx8ArrayRefINS_8GridWorkEEEPSt6vectorIiNS2_9AllocatorIiNS2_20HostAllocationPolicyEEEEPKfSD_PKNS2_15UpdateGroupsCogENS2_5RangeIiEEPffNS3_IKNS2_11BasicVectorIfEEEEiPKiib(ptr noundef, ptr, ptr, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64, ptr noundef, float noundef, ptr noundef byval(%"class.gmx::ArrayRef.34") align 8, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
@@ -1374,10 +1374,10 @@ declare void @_ZN16nbnxn_atomdata_t18resizeForceBuffersEv(ptr noundef nonnull al
 declare float @powf(float noundef, float noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [7 x i8] c"1.2.13\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define i32 @unzStringFileNameCompare(ptr nocapture noundef readonly %fileName1, ptr nocapture noundef readonly %fileName2, i32 noundef %iCaseSensitivity) local_unnamed_addr #0 {
+define i32 @unzStringFileNameCompare(ptr noundef readonly captures(none) %fileName1, ptr noundef readonly captures(none) %fileName2, i32 noundef %iCaseSensitivity) local_unnamed_addr #0 {
 entry:
   %cmp1 = icmp ult i32 %iCaseSensitivity, 2
   br i1 %cmp1, label %if.then2, label %for.cond.i
@@ -65,7 +65,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @unzOpen2(ptr noundef %path, ptr noundef %pzlib_filefunc32_def) local_unnamed_addr #2 {
@@ -964,7 +964,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @unzOpen(ptr noundef %path) local_unnamed_addr #2 {
@@ -1086,10 +1086,10 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetGlobalInfo64(ptr noundef readonly %file, ptr nocapture noundef writeonly %pglobal_info) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetGlobalInfo64(ptr noundef readonly %file, ptr noundef writeonly captures(none) %pglobal_info) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -1105,7 +1105,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetGlobalInfo(ptr noundef readonly %file, ptr nocapture noundef writeonly %pglobal_info32) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetGlobalInfo(ptr noundef readonly %file, ptr noundef writeonly captures(none) %pglobal_info32) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -2392,7 +2392,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -103, 1) i32 @unzLocateFile(ptr noundef %file, ptr nocapture noundef readonly %szFileName, i32 noundef %iCaseSensitivity) local_unnamed_addr #2 {
+define range(i32 -103, 1) i32 @unzLocateFile(ptr noundef %file, ptr noundef readonly captures(none) %szFileName, i32 noundef %iCaseSensitivity) local_unnamed_addr #2 {
 entry:
   %cur_file_infoSaved = alloca %struct.unz_file_info64_s, align 8
   %szCurrentFileName = alloca [257 x i8], align 16
@@ -2527,7 +2527,7 @@ return:                                           ; preds = %unzStringFileNameCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -102, 1) i32 @unzGetFilePos64(ptr noundef readonly %file, ptr noundef writeonly %file_pos) local_unnamed_addr #6 {
@@ -2559,7 +2559,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -102, 1) i32 @unzGetFilePos(ptr noundef readonly %file, ptr nocapture noundef writeonly %file_pos) local_unnamed_addr #6 {
+define range(i32 -102, 1) i32 @unzGetFilePos(ptr noundef readonly %file, ptr noundef writeonly captures(none) %file_pos) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq ptr %file, null
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -3923,7 +3923,7 @@ declare void @fill_fopen64_filefunc(ptr noundef) local_unnamed_addr #3
 declare ptr @call_zopen64(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr noundef nonnull readonly captures(none) %pzlib_filefunc_def, ptr noundef %filestream, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %pX) unnamed_addr #2 {
 entry:
   %c.i43 = alloca i8, align 1
   %c.i29 = alloca i8, align 1
@@ -4059,7 +4059,7 @@ if.end16.thread:                                  ; preds = %if.end16, %unz64loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr noundef nonnull readonly captures(none) %pzlib_filefunc_def, ptr noundef %filestream, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %pX) unnamed_addr #2 {
 entry:
   %c.i115 = alloca i8, align 1
   %c.i101 = alloca i8, align 1
@@ -4324,13 +4324,13 @@ declare i64 @call_ztell64(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

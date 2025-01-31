@@ -93,10 +93,10 @@ return:                                           ; preds = %for.body, %if.end13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef %sv) local_unnamed_addr #0 {
@@ -482,7 +482,7 @@ if.end:                                           ; preds = %if.end9.i17, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_string_vector_add_entry_with_length(ptr noundef %ctxt, ptr noundef %sv, ptr noundef %s, i32 noundef %len) local_unnamed_addr #0 {

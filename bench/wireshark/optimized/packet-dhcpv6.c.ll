@@ -1226,7 +1226,7 @@ define hidden void @proto_register_dhcpv6() local_unnamed_addr #0 {
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @cablelabs_fmt_docsis_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @cablelabs_fmt_docsis_version(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %3, 255
   %5 = and i32 %1, 255
@@ -1235,7 +1235,7 @@ define internal void @cablelabs_fmt_docsis_version(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @cablelabs_fmt_dpoe_server_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @cablelabs_fmt_dpoe_server_version(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %3, 255
   %5 = and i32 %1, 255
@@ -1264,7 +1264,7 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.hopcount_info_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1285,7 +1285,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %6 = load i32, ptr @hf_vendoropts_enterprise, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
@@ -1989,12 +1989,12 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 65538) i32 @get_dhcpv6_bulk_leasequery_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_dhcpv6_bulk_leasequery_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #6
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
@@ -2002,7 +2002,7 @@ define internal range(i32 2, 65538) i32 @get_dhcpv6_bulk_leasequery_pdu_len(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.hopcount_info_t, align 8
   store i32 0, ptr %5, align 4
@@ -2087,7 +2087,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr nocapture noundef readonly byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef readonly byval(%struct.hopcount_info_t) align 8 captures(none) %7, i8 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -4157,7 +4157,7 @@ proto_item_set_url.exit:                          ; preds = %.lr.ph, %854, %.lr.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -4438,7 +4438,7 @@ declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %5) unnamed_addr #0 {
+define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef byval(%struct.hopcount_info_t) align 8 captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8

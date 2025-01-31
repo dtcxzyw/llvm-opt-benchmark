@@ -81,13 +81,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false), !range !5
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !annotation !6
@@ -286,13 +286,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cg
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup_rsvd(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup_rsvd(i32 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true), !range !5
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_cgroup_commit_charge(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_cgroup_commit_charge(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_cgrp_subsys_enabled_key, i32 3) #9
           to label %5 [label %.thread], !srcloc !7
 
@@ -320,7 +320,7 @@ define dso_local void @hugetlb_cgroup_commit_charge(i32 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_cgroup_commit_charge_rsvd(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_cgroup_commit_charge_rsvd(i32 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_cgrp_subsys_enabled_key, i32 3) #9
           to label %5 [label %.thread], !srcloc !7
 
@@ -338,7 +338,7 @@ define dso_local void @hugetlb_cgroup_commit_charge_rsvd(i32 noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_cgroup_uncharge_folio(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_cgroup_uncharge_folio(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_cgrp_subsys_enabled_key, i32 3) #9
           to label %4 [label %20], !srcloc !7
 
@@ -370,7 +370,7 @@ define dso_local void @hugetlb_cgroup_uncharge_folio(i32 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hugetlb_cgroup_uncharge_folio_rsvd(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @hugetlb_cgroup_uncharge_folio_rsvd(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_cgrp_subsys_enabled_key, i32 3) #9
           to label %4 [label %34], !srcloc !7
 
@@ -690,10 +690,10 @@ define dso_local void @hugetlb_cgroup_file_init() local_unnamed_addr #2 section 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @hugetlb_cgroup_migrate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -1368,13 +1368,13 @@ define internal fastcc void @__hugetlb_cgroup_file_legacy_init(i32 noundef %0) u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1446,7 +1446,7 @@ define internal i64 @hugetlb_cgroup_write_dfl(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hugetlb_events_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @hugetlb_events_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1465,7 +1465,7 @@ define internal noundef i32 @hugetlb_events_show(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hugetlb_events_local_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @hugetlb_events_local_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1484,7 +1484,7 @@ define internal noundef i32 @hugetlb_events_local_show(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1766,7 +1766,7 @@ declare dso_local void @seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_
 declare dso_local ptr @css_next_descendant_pre(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hugetlb_cgroup_read_u64(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i64 @hugetlb_cgroup_read_u64(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
@@ -1848,7 +1848,7 @@ define internal i64 @hugetlb_cgroup_write_legacy(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @hugetlb_cgroup_reset(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 %3) #0 align 16 {
+define internal noundef i64 @hugetlb_cgroup_reset(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 %3) #0 align 16 {
   %5 = tail call ptr @of_css(ptr noundef %0) #9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load ptr, ptr %0, align 8

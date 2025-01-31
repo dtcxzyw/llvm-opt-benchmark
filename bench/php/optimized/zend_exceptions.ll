@@ -162,7 +162,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_observer_errors_observed = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_get_exception_base(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @zend_get_exception_base(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
   %3 = load ptr, ptr @zend_ce_exception, align 8
@@ -369,7 +369,7 @@ i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @zend_is_unwind_exit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @zend_is_unwind_exit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @zend_ce_unwind_exit
@@ -377,7 +377,7 @@ define zeroext i1 @zend_is_unwind_exit(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @zend_is_graceful_exit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @zend_is_graceful_exit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @zend_ce_graceful_exit
@@ -1275,7 +1275,7 @@ define void @zend_clear_exception() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception___clone(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Exception___clone(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
 zend_throw_exception_zstr.exit:
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
@@ -1397,7 +1397,7 @@ define ptr @zend_throw_exception(ptr noundef %0, ptr noundef readonly %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Exception___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -1495,7 +1495,7 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Exception___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1632,7 +1632,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare void @zend_unset_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ErrorException___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ErrorException___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1804,7 +1804,7 @@ define hidden void @zim_ErrorException___construct(ptr nocapture noundef readonl
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1878,7 +1878,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1938,7 +1938,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getMessage(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getMessage(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2013,7 +2013,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getCode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2081,7 +2081,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getTrace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getTrace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2149,7 +2149,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ErrorException_getSeverity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ErrorException_getSeverity(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2217,7 +2217,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define ptr @zend_trace_to_string(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
@@ -3573,12 +3573,12 @@ _build_trace_string.exit:                         ; preds = %.thread.i, %563
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getTraceAsString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getTraceAsString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3630,7 +3630,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception_getPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception_getPrevious(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3686,7 +3686,7 @@ i_get_exception_base.exit:                        ; preds = %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Exception___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_fcall_info, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -4279,7 +4279,7 @@ i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
 declare i32 @zend_call_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @zend_strpprintf_unchecked(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -5367,7 +5367,7 @@ register_class_Error.exit:                        ; preds = %378, %396, %403, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_implement_throwable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @zend_implement_throwable(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -5420,7 +5420,7 @@ define internal noundef i32 @zend_implement_throwable(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @zend_exception_get_default() local_unnamed_addr #8 {
@@ -5435,7 +5435,7 @@ define ptr @zend_get_error_exception() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_throw_exception_zstr(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -5737,7 +5737,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #2
 
@@ -5823,7 +5823,7 @@ i_get_exception_base.exit:                        ; preds = %14, %20
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %28, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 1 %27, i64 %28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 1 %27, i64 %28, i1 false)
   %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 %28
   store i8 0, ptr %36, align 1
   store ptr %31, ptr %2, align 8
@@ -5896,13 +5896,13 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

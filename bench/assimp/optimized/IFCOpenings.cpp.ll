@@ -1418,7 +1418,7 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRKdS6_EEERS1_DpOT_.exit123: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC26ExtractVerticesFromClipperERKSt6vectorIN10ClipperLib8IntPointESaIS3_EERS1_I10aiVector2tIdESaIS9_EEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %poly, ptr nocapture noundef nonnull align 8 dereferenceable(24) %temp_contour, i1 noundef zeroext %filter_duplicates) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC26ExtractVerticesFromClipperERKSt6vectorIN10ClipperLib8IntPointESaIS3_EERS1_I10aiVector2tIdESaIS9_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %poly, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %temp_contour, i1 noundef zeroext %filter_duplicates) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %temp_contour, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %temp_contour, i64 8
@@ -1561,10 +1561,10 @@ for.end:                                          ; preds = %for.inc, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3IFC14GetBoundingBoxERKSt6vectorIN10ClipperLib8IntPointESaIS3_EE(ptr noalias nocapture writeonly sret(%"struct.std::pair.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %poly) local_unnamed_addr #2 {
+define hidden void @_ZN6Assimp3IFC14GetBoundingBoxERKSt6vectorIN10ClipperLib8IntPointESaIS3_EE(ptr noalias writeonly sret(%"struct.std::pair.3") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %poly) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %poly, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %poly, i64 8
@@ -1622,7 +1622,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC20InsertWindowContoursERKSt6vectorINS0_22ProjectedWindowContourESaIS2_EERKS1_INS0_11TempOpeningESaIS7_EERNS0_8TempMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC20InsertWindowContoursERKSt6vectorINS0_22ProjectedWindowContourESaIS2_EERKS1_INS0_11TempOpeningESaIS7_EERNS0_8TempMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i = alloca %class.aiVector3t, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -2457,7 +2457,7 @@ _ZNSt8_Rb_treeI10aiVector2tIdES1_St9_IdentityIS1_EN6Assimp3IFC8XYSorterESaIS1_EE
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC19MergeWindowContoursERKSt6vectorI10aiVector2tIdESaIS3_EES7_RS1_IS1_IN10ClipperLib8IntPointESaIS9_EESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %b, ptr noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC19MergeWindowContoursERKSt6vectorI10aiVector2tIdESaIS3_EES7_RS1_IS1_IN10ClipperLib8IntPointESaIS9_EESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %b, ptr noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i69 = alloca %"struct.ClipperLib::IntPoint", align 8
   %__tmp.i.i.i.i = alloca %"struct.ClipperLib::IntPoint", align 8
@@ -2941,7 +2941,7 @@ _ZN10ClipperLib7ClipperD2Ev.exit:                 ; preds = %_ZNSt6vectorIPN10Cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC26MakeDisjunctWindowContoursERKSt6vectorI10aiVector2tIdESaIS3_EES7_RS1_IS1_IN10ClipperLib8IntPointESaIS9_EESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %b, ptr noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC26MakeDisjunctWindowContoursERKSt6vectorI10aiVector2tIdESaIS3_EES7_RS1_IS1_IN10ClipperLib8IntPointESaIS9_EESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %b, ptr noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i69 = alloca %"struct.ClipperLib::IntPoint", align 8
   %__tmp.i.i.i.i = alloca %"struct.ClipperLib::IntPoint", align 8
@@ -3359,7 +3359,7 @@ _ZN10ClipperLib7ClipperD1Ev.exit:                 ; preds = %_ZNSt6vectorIPN10Cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC20CleanupWindowContourERNS0_22ProjectedWindowContourE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %window) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC20CleanupWindowContourERNS0_22ProjectedWindowContourE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %window) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i17 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -3759,7 +3759,7 @@ _ZNSt12_Vector_baseISt6vectorIN10ClipperLib8IntPointESaIS2_EESaIS4_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC21CleanupWindowContoursERSt6vectorINS0_22ProjectedWindowContourESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC21CleanupWindowContoursERSt6vectorINS0_22ProjectedWindowContourESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3926,7 +3926,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC19CleanupOuterContourERKSt6vectorI10aiVector2tIdESaIS3_EERNS0_8TempMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contour_flat, ptr nocapture noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC19CleanupOuterContourERKSt6vectorI10aiVector2tIdESaIS3_EERNS0_8TempMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contour_flat, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i169 = alloca %"struct.ClipperLib::IntPoint", align 8
   %__tmp.i.i.i.i = alloca %"struct.ClipperLib::IntPoint", align 8
@@ -4953,7 +4953,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit283: ; preds = %_ZNSt6vectorIjSaIjE
 declare void @_ZN10ClipperLib11ClipperBase5ClearEv(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3IFC21BoundingBoxesAdjacentERKSt4pairI10aiVector2tIdES3_ES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %bb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %ibb) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN6Assimp3IFC21BoundingBoxesAdjacentERKSt4pairI10aiVector2tIdES3_ES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %bb, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ibb) local_unnamed_addr #7 {
 entry:
   %second = getelementptr inbounds nuw i8, ptr %bb, i64 16
   %0 = load double, ptr %second, align 8
@@ -5043,7 +5043,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3IFC24IntersectingLineSegmentsERK10aiVector2tIdES4_S4_S4_RS2_S5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %m0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %m1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %out0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %out1) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6Assimp3IFC24IntersectingLineSegmentsERK10aiVector2tIdES4_S4_S4_RS2_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %m0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %m1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %out0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %out1) local_unnamed_addr #8 {
 entry:
   %0 = load double, ptr %n1, align 8
   %1 = load double, ptr %n0, align 8
@@ -5190,7 +5190,7 @@ return:                                           ; preds = %if.end57, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC20FindAdjacentContoursEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEERKS7_(ptr %current.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC20FindAdjacentContoursEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEERKS7_(ptr %current.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %bb2 = getelementptr inbounds nuw i8, ptr %current.coerce, i64 24
   %skiplist4 = getelementptr inbounds nuw i8, ptr %current.coerce, i64 56
@@ -5885,7 +5885,7 @@ for.end97:                                        ; preds = %for.inc95, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3IFC18FindBorderContoursEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEE(ptr nocapture readonly %current.coerce) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC18FindBorderContoursEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEE(ptr readonly captures(none) %current.coerce) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %skiplist1 = getelementptr inbounds nuw i8, ptr %current.coerce, i64 56
   %0 = load ptr, ptr %current.coerce, align 8
@@ -6011,7 +6011,7 @@ if.end53:                                         ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3IFC23FindLikelyCrossingLinesEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEE(ptr nocapture readonly %current.coerce) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC23FindLikelyCrossingLinesEN9__gnu_cxx17__normal_iteratorIPNS0_22ProjectedWindowContourESt6vectorIS3_SaIS3_EEEE(ptr readonly captures(none) %current.coerce) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %skiplist1 = getelementptr inbounds nuw i8, ptr %current.coerce, i64 56
   %0 = load ptr, ptr %current.coerce, align 8
@@ -6121,7 +6121,7 @@ if.end36:                                         ; preds = %if.then30, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp3IFC12CloseWindowsERSt6vectorINS0_22ProjectedWindowContourESaIS2_EERK12aiMatrix4x4tIdERS1_IS1_IPNS0_11TempOpeningESaISB_EESaISD_EERNS0_8TempMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %minv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours_to_openings, ptr nocapture noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZN6Assimp3IFC12CloseWindowsERSt6vectorINS0_22ProjectedWindowContourESaIS2_EERK12aiMatrix4x4tIdERS1_IS1_IPNS0_11TempOpeningESaISB_EESaISD_EERNS0_8TempMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %minv, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours_to_openings, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %basePolyNormal = alloca %class.aiVector3t, align 8
   %contourNormal = alloca %class.aiVector3t, align 8
@@ -7841,7 +7841,7 @@ _ZNSt8_Rb_treeI10aiVector2tIdESt4pairIKS1_mESt10_Select1stIS4_EN6Assimp3IFC8XYSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC8QuadrifyERKSt6vectorINS0_22ProjectedWindowContourESaIS2_EERNS0_8TempMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %contours, ptr noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC8QuadrifyERKSt6vectorINS0_22ProjectedWindowContourESaIS2_EERNS0_8TempMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %contours, ptr noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %bbs = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bbs, i8 0, i64 24, i1 false)
@@ -8018,7 +8018,7 @@ _ZNSt6vectorISt4pairI10aiVector2tIdES2_ESaIS3_EED2Ev.exit16: ; preds = %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC16ProjectOntoPlaneERSt6vectorI10aiVector2tIdESaIS3_EERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out_contour, ptr noundef nonnull align 8 dereferenceable(48) %in_mesh, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %ok, ptr noundef nonnull align 8 dereferenceable(24) %nor_out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC16ProjectOntoPlaneERSt6vectorI10aiVector2tIdESaIS3_EERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias writeonly sret(%class.aiMatrix4x4t) align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out_contour, ptr noundef nonnull align 8 dereferenceable(48) %in_mesh, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %ok, ptr noundef nonnull align 8 dereferenceable(24) %nor_out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.aiMatrix3x3t, align 8
   %0 = load ptr, ptr %in_mesh, align 8
@@ -8412,7 +8412,7 @@ return:                                           ; preds = %for.end47, %if.then
 declare void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshERbR10aiVector3tIdE(ptr sret(%class.aiMatrix3x3t) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3IFC16GenerateOpeningsERSt6vectorINS0_11TempOpeningESaIS2_EERNS0_8TempMeshEbbRK10aiVector3tIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %openings, ptr noundef nonnull align 8 dereferenceable(48) %curmesh, i1 noundef zeroext %check_intersection, i1 noundef zeroext %generate_connection_geometry, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %wall_extrusion_axis) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3IFC16GenerateOpeningsERSt6vectorINS0_11TempOpeningESaIS2_EERNS0_8TempMeshEbbRK10aiVector3tIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %openings, ptr noundef nonnull align 8 dereferenceable(48) %curmesh, i1 noundef zeroext %check_intersection, i1 noundef zeroext %generate_connection_geometry, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %wall_extrusion_axis) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i277 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -10301,7 +10301,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3IFC23TryAddOpenings_Poly2TriERKSt6vectorINS0_11TempOpeningESaIS2_EERNS0_8TempMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %openings, ptr noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3IFC23TryAddOpenings_Poly2TriERKSt6vectorINS0_11TempOpeningESaIS2_EERNS0_8TempMeshE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %openings, ptr noundef nonnull align 8 dereferenceable(48) %curmesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i504 = alloca ptr, align 8
   %ref.tmp.i284 = alloca ptr, align 8
@@ -12641,7 +12641,7 @@ _ZNSt12_Vector_baseISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EESaIS6_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC19GetContourInPlane2DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_RbSB_(ptr noalias nocapture sret(%"class.std::vector.5") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesh, ptr nocapture noundef readonly byval(%class.aiMatrix3x3t) align 8 %planeSpace, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %planeNor, double noundef %planeOffset, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %extrusionDir, ptr nocapture noundef nonnull align 8 dereferenceable(24) %wall_extrusion, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %ok) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC19GetContourInPlane2DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_RbSB_(ptr noalias sret(%"class.std::vector.5") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %mesh, ptr noundef readonly byval(%class.aiMatrix3x3t) align 8 captures(none) %planeSpace, ptr noundef readonly byval(%class.aiVector3t) align 8 captures(none) %planeNor, double noundef %planeOffset, ptr noundef readonly byval(%class.aiVector3t) align 8 captures(none) %extrusionDir, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %wall_extrusion, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %first, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %ok) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont14:
   %ref.tmp.i51 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -13155,7 +13155,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC20GetContoursInPlane3DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdEd(ptr noalias sret(%"class.std::vector.119") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesh, ptr nocapture noundef readonly byval(%class.aiMatrix3x3t) align 8 %planeSpace, double noundef %planeOffset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC20GetContoursInPlane3DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdEd(ptr noalias sret(%"class.std::vector.119") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %mesh, ptr noundef readonly byval(%class.aiMatrix3x3t) align 8 captures(none) %planeSpace, double noundef %planeOffset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i494 = alloca ptr, align 8
   %ref.tmp.i406 = alloca ptr, align 8
@@ -15553,7 +15553,7 @@ eh.resume:                                        ; preds = %_ZNSt11_Deque_baseI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp3IFCL10logSegmentESt4pairI10aiVector2tIdES3_E(ptr nocapture noundef readonly byval(%"struct.std::pair.3") align 8 %segment) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp3IFCL10logSegmentESt4pairI10aiVector2tIdES3_E(ptr noundef readonly byval(%"struct.std::pair.3") align 8 captures(none) %segment) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %msg2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -15662,10 +15662,10 @@ ehcleanup:                                        ; preds = %lpad30, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC18GetContoursInPlaneERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_Rb(ptr noalias sret(%"class.std::vector.119") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesh, ptr nocapture noundef readonly byval(%class.aiMatrix3x3t) align 8 %planeSpace, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %planeNor, double noundef %planeOffset, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %extrusionDir, ptr nocapture noundef nonnull align 8 dereferenceable(24) %wall_extrusion, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC18GetContoursInPlaneERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_Rb(ptr noalias sret(%"class.std::vector.119") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %mesh, ptr noundef readonly byval(%class.aiMatrix3x3t) align 8 captures(none) %planeSpace, ptr noundef readonly byval(%class.aiVector3t) align 8 captures(none) %planeNor, double noundef %planeOffset, ptr noundef readonly byval(%class.aiVector3t) align 8 captures(none) %extrusionDir, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %wall_extrusion, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %first) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ok = alloca i8, align 1
   %contour = alloca %"class.std::vector.5", align 8
@@ -16350,7 +16350,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeI10aiVector2tIdESt4pairIKS1_mESt10_Select1stIS4_EN6Assimp3IFC8XYSorterESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16568,7 +16568,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -22381,10 +22381,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 declare double @llvm.sqrt.f64(double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

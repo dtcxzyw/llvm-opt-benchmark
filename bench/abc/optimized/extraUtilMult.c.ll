@@ -102,7 +102,7 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BddManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Abc_BddManFree(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -180,10 +180,10 @@ define void @Abc_BddManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_BddAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -386,7 +386,7 @@ define i32 @Abc_BddOr(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unna
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_BddCount_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define i32 @Abc_BddCount_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 56
   %4 = icmp slt i32 %1, 2
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -432,7 +432,7 @@ tailrecurse:                                      ; preds = %6
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_BddUnmark_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Abc_BddUnmark_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 56
   %4 = icmp slt i32 %1, 2
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -474,14 +474,14 @@ tailrecurse:                                      ; preds = %6
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_BddCountNodes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define i32 @Abc_BddCountNodes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = tail call i32 @Abc_BddCount_rec(ptr noundef %0, i32 noundef %1)
   tail call void @Abc_BddUnmark_rec(ptr noundef %0, i32 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_BddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define i32 @Abc_BddCountNodesArray(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val21 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val21, 0
@@ -531,7 +531,7 @@ define i32 @Abc_BddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_BddCountNodesArray2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define i32 @Abc_BddCountNodesArray2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val12 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val12, 0
@@ -668,7 +668,7 @@ define void @Abc_BddPrint(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_BddPrintTest(ptr noundef %0) local_unnamed_addr #2 {
@@ -701,7 +701,7 @@ Abc_BddPrint.exit:                                ; preds = %1, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BddGiaTest2(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_BddGiaTest2(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_BddManAlloc(i32 noundef 10, i32 noundef 100)
   tail call void @Abc_BddPrintTest(ptr noundef %3)
   tail call void @Abc_BddManFree(ptr noundef %3)
@@ -1054,7 +1054,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_BddCountNodesAr
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @Abc_BddUniqueCreateInt(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @Abc_BddUniqueCreateInt(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = mul nsw i32 %1, 12582917
@@ -1166,10 +1166,10 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @Abc_BddUniqueCrea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10

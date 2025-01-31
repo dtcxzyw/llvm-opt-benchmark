@@ -27,7 +27,7 @@ define void @geominit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @dist_2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define double @dist_2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -45,7 +45,7 @@ define double @dist_2(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @subpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
+define void @subpt(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
   %6 = fsub double %1, %3
   store double %6, ptr %0, align 8
   %7 = fsub double %2, %4
@@ -55,7 +55,7 @@ define void @subpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, doub
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @addpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
+define void @addpt(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
   %6 = fadd double %1, %3
   store double %6, ptr %0, align 8
   %7 = fadd double %2, %4
@@ -91,7 +91,7 @@ define range(i32 0, 2) i32 @leftOf(double %0, double %1, double %2, double %3, d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #3 {
   %10 = fsub double %7, %5
   %11 = fsub double %5, %7
   %12 = fmul double %2, %11

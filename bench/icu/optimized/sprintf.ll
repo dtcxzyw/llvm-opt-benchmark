@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %entry, %if.then
   %pattern.0 = phi ptr [ %call2, %if.then ], [ %patBuffer, %entry ]
-  call void @u_charsToUChars_75(ptr noundef %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %add)
+  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %add)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %outStr.i)
   store i32 0, ptr %written.i, align 4
@@ -254,7 +254,7 @@ u_vsnprintf_u_75.exit:                            ; preds = %entry, %if.end11.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
@@ -316,7 +316,7 @@ declare i32 @u_printf_parse_75(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @u_locbund_close_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15u_sprintf_writePvPKDsi(ptr nocapture noundef %context, ptr noundef %str, i32 noundef %count) #0 {
+define internal noundef i32 @_ZL15u_sprintf_writePvPKDsi(ptr noundef captures(none) %context, ptr noundef %str, i32 noundef %count) #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %cmp = icmp eq ptr %0, null
@@ -343,7 +343,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi(ptr nocapture noundef %context, ptr nocapture noundef readonly %info, ptr noundef %result, i32 noundef %resultLen) #0 {
+define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi(ptr noundef captures(none) %context, ptr noundef readonly captures(none) %info, ptr noundef %result, i32 noundef %resultLen) #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %cmp = icmp eq ptr %0, null
@@ -493,10 +493,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

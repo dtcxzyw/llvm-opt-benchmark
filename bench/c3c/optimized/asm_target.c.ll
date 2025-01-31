@@ -2014,7 +2014,7 @@ reg_instr.exit771.i:                              ; preds = %382
 
 fnv1a.exit.i:                                     ; preds = %.lr.ph.i.i, %.preheader906.i
   %.06.lcssa.i.i = phi i32 [ -2128831035, %.preheader906.i ], [ %399, %.lr.ph.i.i ]
-  %400 = call ptr @symtab_add(ptr noundef %392, i32 noundef %394, i32 noundef %.06.lcssa.i.i, ptr noundef nonnull %39) #11
+  %400 = call ptr @symtab_add(ptr noundef nonnull %392, i32 noundef %394, i32 noundef %.06.lcssa.i.i, ptr noundef nonnull %39) #11
   %401 = ptrtoint ptr %400 to i64
   %402 = mul i64 %401, 31
   %403 = lshr i64 %401, 15
@@ -2077,7 +2077,7 @@ fnv1a.exit.i:                                     ; preds = %.lr.ph.i.i, %.prehe
 
 fnv1a.exit782.i:                                  ; preds = %.lr.ph.i776.i, %.preheader905.i
   %.06.lcssa.i781.i = phi i32 [ -2128831035, %.preheader905.i ], [ %424, %.lr.ph.i776.i ]
-  %425 = call ptr @symtab_add(ptr noundef %417, i32 noundef %419, i32 noundef %.06.lcssa.i781.i, ptr noundef nonnull %38) #11
+  %425 = call ptr @symtab_add(ptr noundef nonnull %417, i32 noundef %419, i32 noundef %.06.lcssa.i781.i, ptr noundef nonnull %38) #11
   %426 = ptrtoint ptr %425 to i64
   %427 = mul i64 %426, 31
   %428 = lshr i64 %426, 15
@@ -2140,7 +2140,7 @@ fnv1a.exit782.i:                                  ; preds = %.lr.ph.i776.i, %.pr
 
 fnv1a.exit792.i:                                  ; preds = %.lr.ph.i786.i, %.preheader904.i
   %.06.lcssa.i791.i = phi i32 [ -2128831035, %.preheader904.i ], [ %449, %.lr.ph.i786.i ]
-  %450 = call ptr @symtab_add(ptr noundef %442, i32 noundef %444, i32 noundef %.06.lcssa.i791.i, ptr noundef nonnull %37) #11
+  %450 = call ptr @symtab_add(ptr noundef nonnull %442, i32 noundef %444, i32 noundef %.06.lcssa.i791.i, ptr noundef nonnull %37) #11
   %451 = ptrtoint ptr %450 to i64
   %452 = mul i64 %451, 31
   %453 = lshr i64 %451, 15
@@ -2203,7 +2203,7 @@ fnv1a.exit792.i:                                  ; preds = %.lr.ph.i786.i, %.pr
 
 fnv1a.exit802.i:                                  ; preds = %.lr.ph.i796.i, %.preheader903.i
   %.06.lcssa.i801.i = phi i32 [ -2128831035, %.preheader903.i ], [ %474, %.lr.ph.i796.i ]
-  %475 = call ptr @symtab_add(ptr noundef %467, i32 noundef %469, i32 noundef %.06.lcssa.i801.i, ptr noundef nonnull %36) #11
+  %475 = call ptr @symtab_add(ptr noundef nonnull %467, i32 noundef %469, i32 noundef %.06.lcssa.i801.i, ptr noundef nonnull %36) #11
   %476 = ptrtoint ptr %475 to i64
   %477 = mul i64 %476, 31
   %478 = lshr i64 %476, 15
@@ -2266,7 +2266,7 @@ fnv1a.exit802.i:                                  ; preds = %.lr.ph.i796.i, %.pr
 
 fnv1a.exit812.i:                                  ; preds = %.lr.ph.i806.i, %.preheader.i
   %.06.lcssa.i811.i = phi i32 [ -2128831035, %.preheader.i ], [ %499, %.lr.ph.i806.i ]
-  %500 = call ptr @symtab_add(ptr noundef %492, i32 noundef %494, i32 noundef %.06.lcssa.i811.i, ptr noundef nonnull %35) #11
+  %500 = call ptr @symtab_add(ptr noundef nonnull %492, i32 noundef %494, i32 noundef %.06.lcssa.i811.i, ptr noundef nonnull %35) #11
   %501 = ptrtoint ptr %500 to i64
   %502 = mul i64 %501, 31
   %503 = lshr i64 %501, 15
@@ -2329,7 +2329,7 @@ fnv1a.exit812.i:                                  ; preds = %.lr.ph.i806.i, %.pr
 
 fnv1a.exit822.i:                                  ; preds = %.lr.ph.i816.i, %.preheader915.i
   %.06.lcssa.i821.i = phi i32 [ -2128831035, %.preheader915.i ], [ %524, %.lr.ph.i816.i ]
-  %525 = call ptr @symtab_add(ptr noundef %517, i32 noundef %519, i32 noundef %.06.lcssa.i821.i, ptr noundef nonnull %34) #11
+  %525 = call ptr @symtab_add(ptr noundef nonnull %517, i32 noundef %519, i32 noundef %.06.lcssa.i821.i, ptr noundef nonnull %34) #11
   %526 = ptrtoint ptr %525 to i64
   %527 = mul i64 %526, 31
   %528 = lshr i64 %526, 15
@@ -2392,7 +2392,7 @@ fnv1a.exit822.i:                                  ; preds = %.lr.ph.i816.i, %.pr
 
 fnv1a.exit832.i:                                  ; preds = %.lr.ph.i826.i, %.preheader914.i
   %.06.lcssa.i831.i = phi i32 [ -2128831035, %.preheader914.i ], [ %549, %.lr.ph.i826.i ]
-  %550 = call ptr @symtab_add(ptr noundef %542, i32 noundef %544, i32 noundef %.06.lcssa.i831.i, ptr noundef nonnull %33) #11
+  %550 = call ptr @symtab_add(ptr noundef nonnull %542, i32 noundef %544, i32 noundef %.06.lcssa.i831.i, ptr noundef nonnull %33) #11
   %551 = ptrtoint ptr %550 to i64
   %552 = mul i64 %551, 31
   %553 = lshr i64 %551, 15
@@ -2455,7 +2455,7 @@ fnv1a.exit832.i:                                  ; preds = %.lr.ph.i826.i, %.pr
 
 fnv1a.exit842.i:                                  ; preds = %.lr.ph.i836.i, %.preheader913.i
   %.06.lcssa.i841.i = phi i32 [ -2128831035, %.preheader913.i ], [ %574, %.lr.ph.i836.i ]
-  %575 = call ptr @symtab_add(ptr noundef %567, i32 noundef %569, i32 noundef %.06.lcssa.i841.i, ptr noundef nonnull %32) #11
+  %575 = call ptr @symtab_add(ptr noundef nonnull %567, i32 noundef %569, i32 noundef %.06.lcssa.i841.i, ptr noundef nonnull %32) #11
   %576 = ptrtoint ptr %575 to i64
   %577 = mul i64 %576, 31
   %578 = lshr i64 %576, 15
@@ -2518,7 +2518,7 @@ fnv1a.exit842.i:                                  ; preds = %.lr.ph.i836.i, %.pr
 
 fnv1a.exit852.i:                                  ; preds = %.lr.ph.i846.i, %.preheader912.i
   %.06.lcssa.i851.i = phi i32 [ -2128831035, %.preheader912.i ], [ %599, %.lr.ph.i846.i ]
-  %600 = call ptr @symtab_add(ptr noundef %592, i32 noundef %594, i32 noundef %.06.lcssa.i851.i, ptr noundef nonnull %31) #11
+  %600 = call ptr @symtab_add(ptr noundef nonnull %592, i32 noundef %594, i32 noundef %.06.lcssa.i851.i, ptr noundef nonnull %31) #11
   %601 = ptrtoint ptr %600 to i64
   %602 = mul i64 %601, 31
   %603 = lshr i64 %601, 15
@@ -2581,7 +2581,7 @@ fnv1a.exit852.i:                                  ; preds = %.lr.ph.i846.i, %.pr
 
 fnv1a.exit862.i:                                  ; preds = %.lr.ph.i856.i, %.preheader911.i
   %.06.lcssa.i861.i = phi i32 [ -2128831035, %.preheader911.i ], [ %624, %.lr.ph.i856.i ]
-  %625 = call ptr @symtab_add(ptr noundef %617, i32 noundef %619, i32 noundef %.06.lcssa.i861.i, ptr noundef nonnull %30) #11
+  %625 = call ptr @symtab_add(ptr noundef nonnull %617, i32 noundef %619, i32 noundef %.06.lcssa.i861.i, ptr noundef nonnull %30) #11
   %626 = ptrtoint ptr %625 to i64
   %627 = mul i64 %626, 31
   %628 = lshr i64 %626, 15
@@ -2644,7 +2644,7 @@ fnv1a.exit862.i:                                  ; preds = %.lr.ph.i856.i, %.pr
 
 fnv1a.exit872.i:                                  ; preds = %.lr.ph.i866.i, %.preheader910.i
   %.06.lcssa.i871.i = phi i32 [ -2128831035, %.preheader910.i ], [ %649, %.lr.ph.i866.i ]
-  %650 = call ptr @symtab_add(ptr noundef %642, i32 noundef %644, i32 noundef %.06.lcssa.i871.i, ptr noundef nonnull %29) #11
+  %650 = call ptr @symtab_add(ptr noundef nonnull %642, i32 noundef %644, i32 noundef %.06.lcssa.i871.i, ptr noundef nonnull %29) #11
   %651 = ptrtoint ptr %650 to i64
   %652 = mul i64 %651, 31
   %653 = lshr i64 %651, 15
@@ -2707,7 +2707,7 @@ fnv1a.exit872.i:                                  ; preds = %.lr.ph.i866.i, %.pr
 
 fnv1a.exit882.i:                                  ; preds = %.lr.ph.i876.i, %.preheader909.i
   %.06.lcssa.i881.i = phi i32 [ -2128831035, %.preheader909.i ], [ %674, %.lr.ph.i876.i ]
-  %675 = call ptr @symtab_add(ptr noundef %667, i32 noundef %669, i32 noundef %.06.lcssa.i881.i, ptr noundef nonnull %28) #11
+  %675 = call ptr @symtab_add(ptr noundef nonnull %667, i32 noundef %669, i32 noundef %.06.lcssa.i881.i, ptr noundef nonnull %28) #11
   %676 = ptrtoint ptr %675 to i64
   %677 = mul i64 %676, 31
   %678 = lshr i64 %676, 15
@@ -2770,7 +2770,7 @@ fnv1a.exit882.i:                                  ; preds = %.lr.ph.i876.i, %.pr
 
 fnv1a.exit892.i:                                  ; preds = %.lr.ph.i886.i, %.preheader907.i
   %.06.lcssa.i891.i = phi i32 [ -2128831035, %.preheader907.i ], [ %699, %.lr.ph.i886.i ]
-  %700 = call ptr @symtab_add(ptr noundef %692, i32 noundef %694, i32 noundef %.06.lcssa.i891.i, ptr noundef nonnull %27) #11
+  %700 = call ptr @symtab_add(ptr noundef nonnull %692, i32 noundef %694, i32 noundef %.06.lcssa.i891.i, ptr noundef nonnull %27) #11
   %701 = ptrtoint ptr %700 to i64
   %702 = mul i64 %701, 31
   %703 = lshr i64 %701, 15
@@ -2921,7 +2921,7 @@ define internal fastcc void @init_asm_aarch64() unnamed_addr #1 {
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %17
   %.06.lcssa.i = phi i32 [ -2128831035, %17 ], [ %26, %.lr.ph.i ]
-  %27 = call ptr @symtab_add(ptr noundef %19, i32 noundef %21, i32 noundef %.06.lcssa.i, ptr noundef nonnull %16) #11
+  %27 = call ptr @symtab_add(ptr noundef nonnull %19, i32 noundef %21, i32 noundef %.06.lcssa.i, ptr noundef nonnull %16) #11
   %28 = ptrtoint ptr %27 to i64
   %29 = mul i64 %28, 31
   %30 = lshr i64 %28, 15
@@ -2983,7 +2983,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %17
 
 fnv1a.exit519:                                    ; preds = %.lr.ph.i513, %.preheader670
   %.06.lcssa.i518 = phi i32 [ -2128831035, %.preheader670 ], [ %50, %.lr.ph.i513 ]
-  %51 = call ptr @symtab_add(ptr noundef %43, i32 noundef %45, i32 noundef %.06.lcssa.i518, ptr noundef nonnull %15) #11
+  %51 = call ptr @symtab_add(ptr noundef nonnull %43, i32 noundef %45, i32 noundef %.06.lcssa.i518, ptr noundef nonnull %15) #11
   %52 = ptrtoint ptr %51 to i64
   %53 = mul i64 %52, 31
   %54 = lshr i64 %52, 15
@@ -3044,7 +3044,7 @@ fnv1a.exit519:                                    ; preds = %.lr.ph.i513, %.preh
 
 fnv1a.exit529:                                    ; preds = %.lr.ph.i523, %.preheader669
   %.06.lcssa.i528 = phi i32 [ -2128831035, %.preheader669 ], [ %74, %.lr.ph.i523 ]
-  %75 = call ptr @symtab_add(ptr noundef %67, i32 noundef %69, i32 noundef %.06.lcssa.i528, ptr noundef nonnull %14) #11
+  %75 = call ptr @symtab_add(ptr noundef nonnull %67, i32 noundef %69, i32 noundef %.06.lcssa.i528, ptr noundef nonnull %14) #11
   %76 = ptrtoint ptr %75 to i64
   %77 = mul i64 %76, 31
   %78 = lshr i64 %76, 15
@@ -3107,7 +3107,7 @@ fnv1a.exit529:                                    ; preds = %.lr.ph.i523, %.preh
 
 fnv1a.exit539:                                    ; preds = %.lr.ph.i533, %.preheader668
   %.06.lcssa.i538 = phi i32 [ -2128831035, %.preheader668 ], [ %99, %.lr.ph.i533 ]
-  %100 = call ptr @symtab_add(ptr noundef %92, i32 noundef %94, i32 noundef %.06.lcssa.i538, ptr noundef nonnull %13) #11
+  %100 = call ptr @symtab_add(ptr noundef nonnull %92, i32 noundef %94, i32 noundef %.06.lcssa.i538, ptr noundef nonnull %13) #11
   %101 = ptrtoint ptr %100 to i64
   %102 = mul i64 %101, 31
   %103 = lshr i64 %101, 15
@@ -3170,7 +3170,7 @@ fnv1a.exit539:                                    ; preds = %.lr.ph.i533, %.preh
 
 fnv1a.exit549:                                    ; preds = %.lr.ph.i543, %.preheader667
   %.06.lcssa.i548 = phi i32 [ -2128831035, %.preheader667 ], [ %124, %.lr.ph.i543 ]
-  %125 = call ptr @symtab_add(ptr noundef %117, i32 noundef %119, i32 noundef %.06.lcssa.i548, ptr noundef nonnull %12) #11
+  %125 = call ptr @symtab_add(ptr noundef nonnull %117, i32 noundef %119, i32 noundef %.06.lcssa.i548, ptr noundef nonnull %12) #11
   %126 = ptrtoint ptr %125 to i64
   %127 = mul i64 %126, 31
   %128 = lshr i64 %126, 15
@@ -3233,7 +3233,7 @@ fnv1a.exit549:                                    ; preds = %.lr.ph.i543, %.preh
 
 fnv1a.exit559:                                    ; preds = %.lr.ph.i553, %.preheader666
   %.06.lcssa.i558 = phi i32 [ -2128831035, %.preheader666 ], [ %149, %.lr.ph.i553 ]
-  %150 = call ptr @symtab_add(ptr noundef %142, i32 noundef %144, i32 noundef %.06.lcssa.i558, ptr noundef nonnull %11) #11
+  %150 = call ptr @symtab_add(ptr noundef nonnull %142, i32 noundef %144, i32 noundef %.06.lcssa.i558, ptr noundef nonnull %11) #11
   %151 = ptrtoint ptr %150 to i64
   %152 = mul i64 %151, 31
   %153 = lshr i64 %151, 15
@@ -3296,7 +3296,7 @@ fnv1a.exit559:                                    ; preds = %.lr.ph.i553, %.preh
 
 fnv1a.exit569:                                    ; preds = %.lr.ph.i563, %.preheader665
   %.06.lcssa.i568 = phi i32 [ -2128831035, %.preheader665 ], [ %174, %.lr.ph.i563 ]
-  %175 = call ptr @symtab_add(ptr noundef %167, i32 noundef %169, i32 noundef %.06.lcssa.i568, ptr noundef nonnull %10) #11
+  %175 = call ptr @symtab_add(ptr noundef nonnull %167, i32 noundef %169, i32 noundef %.06.lcssa.i568, ptr noundef nonnull %10) #11
   %176 = ptrtoint ptr %175 to i64
   %177 = mul i64 %176, 31
   %178 = lshr i64 %176, 15
@@ -3359,7 +3359,7 @@ fnv1a.exit569:                                    ; preds = %.lr.ph.i563, %.preh
 
 fnv1a.exit579:                                    ; preds = %.lr.ph.i573, %.preheader664
   %.06.lcssa.i578 = phi i32 [ -2128831035, %.preheader664 ], [ %199, %.lr.ph.i573 ]
-  %200 = call ptr @symtab_add(ptr noundef %192, i32 noundef %194, i32 noundef %.06.lcssa.i578, ptr noundef nonnull %9) #11
+  %200 = call ptr @symtab_add(ptr noundef nonnull %192, i32 noundef %194, i32 noundef %.06.lcssa.i578, ptr noundef nonnull %9) #11
   %201 = ptrtoint ptr %200 to i64
   %202 = mul i64 %201, 31
   %203 = lshr i64 %201, 15
@@ -3422,7 +3422,7 @@ fnv1a.exit579:                                    ; preds = %.lr.ph.i573, %.preh
 
 fnv1a.exit589:                                    ; preds = %.lr.ph.i583, %.preheader663
   %.06.lcssa.i588 = phi i32 [ -2128831035, %.preheader663 ], [ %224, %.lr.ph.i583 ]
-  %225 = call ptr @symtab_add(ptr noundef %217, i32 noundef %219, i32 noundef %.06.lcssa.i588, ptr noundef nonnull %8) #11
+  %225 = call ptr @symtab_add(ptr noundef nonnull %217, i32 noundef %219, i32 noundef %.06.lcssa.i588, ptr noundef nonnull %8) #11
   %226 = ptrtoint ptr %225 to i64
   %227 = mul i64 %226, 31
   %228 = lshr i64 %226, 15
@@ -3485,7 +3485,7 @@ fnv1a.exit589:                                    ; preds = %.lr.ph.i583, %.preh
 
 fnv1a.exit599:                                    ; preds = %.lr.ph.i593, %.preheader662
   %.06.lcssa.i598 = phi i32 [ -2128831035, %.preheader662 ], [ %249, %.lr.ph.i593 ]
-  %250 = call ptr @symtab_add(ptr noundef %242, i32 noundef %244, i32 noundef %.06.lcssa.i598, ptr noundef nonnull %7) #11
+  %250 = call ptr @symtab_add(ptr noundef nonnull %242, i32 noundef %244, i32 noundef %.06.lcssa.i598, ptr noundef nonnull %7) #11
   %251 = ptrtoint ptr %250 to i64
   %252 = mul i64 %251, 31
   %253 = lshr i64 %251, 15
@@ -3548,7 +3548,7 @@ fnv1a.exit599:                                    ; preds = %.lr.ph.i593, %.preh
 
 fnv1a.exit609:                                    ; preds = %.lr.ph.i603, %.preheader661
   %.06.lcssa.i608 = phi i32 [ -2128831035, %.preheader661 ], [ %274, %.lr.ph.i603 ]
-  %275 = call ptr @symtab_add(ptr noundef %267, i32 noundef %269, i32 noundef %.06.lcssa.i608, ptr noundef nonnull %6) #11
+  %275 = call ptr @symtab_add(ptr noundef nonnull %267, i32 noundef %269, i32 noundef %.06.lcssa.i608, ptr noundef nonnull %6) #11
   %276 = ptrtoint ptr %275 to i64
   %277 = mul i64 %276, 31
   %278 = lshr i64 %276, 15
@@ -3611,7 +3611,7 @@ fnv1a.exit609:                                    ; preds = %.lr.ph.i603, %.preh
 
 fnv1a.exit619:                                    ; preds = %.lr.ph.i613, %.preheader660
   %.06.lcssa.i618 = phi i32 [ -2128831035, %.preheader660 ], [ %299, %.lr.ph.i613 ]
-  %300 = call ptr @symtab_add(ptr noundef %292, i32 noundef %294, i32 noundef %.06.lcssa.i618, ptr noundef nonnull %5) #11
+  %300 = call ptr @symtab_add(ptr noundef nonnull %292, i32 noundef %294, i32 noundef %.06.lcssa.i618, ptr noundef nonnull %5) #11
   %301 = ptrtoint ptr %300 to i64
   %302 = mul i64 %301, 31
   %303 = lshr i64 %301, 15
@@ -3674,7 +3674,7 @@ fnv1a.exit619:                                    ; preds = %.lr.ph.i613, %.preh
 
 fnv1a.exit629:                                    ; preds = %.lr.ph.i623, %.preheader659
   %.06.lcssa.i628 = phi i32 [ -2128831035, %.preheader659 ], [ %324, %.lr.ph.i623 ]
-  %325 = call ptr @symtab_add(ptr noundef %317, i32 noundef %319, i32 noundef %.06.lcssa.i628, ptr noundef nonnull %4) #11
+  %325 = call ptr @symtab_add(ptr noundef nonnull %317, i32 noundef %319, i32 noundef %.06.lcssa.i628, ptr noundef nonnull %4) #11
   %326 = ptrtoint ptr %325 to i64
   %327 = mul i64 %326, 31
   %328 = lshr i64 %326, 15
@@ -3737,7 +3737,7 @@ fnv1a.exit629:                                    ; preds = %.lr.ph.i623, %.preh
 
 fnv1a.exit639:                                    ; preds = %.lr.ph.i633, %.preheader658
   %.06.lcssa.i638 = phi i32 [ -2128831035, %.preheader658 ], [ %349, %.lr.ph.i633 ]
-  %350 = call ptr @symtab_add(ptr noundef %342, i32 noundef %344, i32 noundef %.06.lcssa.i638, ptr noundef nonnull %3) #11
+  %350 = call ptr @symtab_add(ptr noundef nonnull %342, i32 noundef %344, i32 noundef %.06.lcssa.i638, ptr noundef nonnull %3) #11
   %351 = ptrtoint ptr %350 to i64
   %352 = mul i64 %351, 31
   %353 = lshr i64 %351, 15
@@ -3800,7 +3800,7 @@ fnv1a.exit639:                                    ; preds = %.lr.ph.i633, %.preh
 
 fnv1a.exit649:                                    ; preds = %.lr.ph.i643, %.preheader
   %.06.lcssa.i648 = phi i32 [ -2128831035, %.preheader ], [ %374, %.lr.ph.i643 ]
-  %375 = call ptr @symtab_add(ptr noundef %367, i32 noundef %369, i32 noundef %.06.lcssa.i648, ptr noundef nonnull %2) #11
+  %375 = call ptr @symtab_add(ptr noundef nonnull %367, i32 noundef %369, i32 noundef %.06.lcssa.i648, ptr noundef nonnull %2) #11
   %376 = ptrtoint ptr %375 to i64
   %377 = mul i64 %376, 31
   %378 = lshr i64 %376, 15
@@ -3873,7 +3873,7 @@ fnv1a.exit657:                                    ; preds = %386
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture nonnull writable sret(%struct.Clobbers) align 8 initializes((0, 32)) %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
+define internal void @clobbers_make(ptr dead_on_unwind noalias nonnull writable sret(%struct.Clobbers) align 8 captures(none) initializes((0, 32)) %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
@@ -3932,7 +3932,7 @@ define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture nonnull
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @clobbers_make_from(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%struct.Clobbers) align 8 %0, ptr nocapture noundef byval(%struct.Clobbers) align 8 %1, ...) unnamed_addr #3 {
+define internal void @clobbers_make_from(ptr dead_on_unwind noalias nonnull writable writeonly sret(%struct.Clobbers) align 8 captures(none) %0, ptr noundef byval(%struct.Clobbers) align 8 captures(none) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16
@@ -3987,7 +3987,7 @@ define internal void @clobbers_make_from(ptr dead_on_unwind noalias nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reg_instr_clob(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.Clobbers) align 8 %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @reg_instr_clob(ptr noundef %0, ptr noundef readonly byval(%struct.Clobbers) align 8 captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
@@ -4015,7 +4015,7 @@ define internal fastcc void @reg_instr_clob(ptr noundef %0, ptr nocapture nounde
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %.06.lcssa.i = phi i32 [ -2128831035, %3 ], [ %12, %.lr.ph.i ]
-  %13 = call ptr @symtab_add(ptr noundef %0, i32 noundef %7, i32 noundef %.06.lcssa.i, ptr noundef nonnull %4) #11
+  %13 = call ptr @symtab_add(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %.06.lcssa.i, ptr noundef nonnull %4) #11
   %14 = ptrtoint ptr %13 to i64
   %15 = mul i64 %14, 31
   %16 = lshr i64 %14, 15
@@ -4479,7 +4479,7 @@ define internal fastcc void @reg_instr(ptr noundef %0, ptr noundef %1) unnamed_a
 
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   %.06.lcssa.i = phi i32 [ -2128831035, %2 ], [ %11, %.lr.ph.i ]
-  %12 = call ptr @symtab_add(ptr noundef %0, i32 noundef %6, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3) #11
+  %12 = call ptr @symtab_add(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3) #11
   %13 = ptrtoint ptr %12 to i64
   %14 = mul i64 %13, 31
   %15 = lshr i64 %13, 15
@@ -4919,7 +4919,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #5
@@ -4928,21 +4928,21 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

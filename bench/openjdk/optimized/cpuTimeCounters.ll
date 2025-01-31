@@ -60,7 +60,7 @@ define hidden void @_ZN15CPUTimeCountersC2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15CPUTimeCounters21inc_gc_total_cpu_timeEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
@@ -181,7 +181,7 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
@@ -211,7 +211,7 @@ _ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTimeTypeEl.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZN2os15thread_cpu_timeEP6Thread(ptr noundef %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

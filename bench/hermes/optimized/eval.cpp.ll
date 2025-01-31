@@ -34,7 +34,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN6hermes2vm
 @_ZN6hermes2vm15HandleRootOwner12nullPointer_E = external global %"class.hermes::vm::PinnedHermesValue", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm17evalInEnvironmentERNS0_7RuntimeEN4llvh9StringRefENS0_6HandleINS0_11EnvironmentEEERKNS_10ScopeChainENS5_INS0_11HermesValueEEEbb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %utf8code.coerce0, i64 %utf8code.coerce1, ptr nocapture readnone %environment.coerce, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %scopeChain, ptr nocapture readnone %thisArg.coerce, i1 noundef zeroext %isStrict, i1 noundef zeroext %singleFunction) local_unnamed_addr #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm17evalInEnvironmentERNS0_7RuntimeEN4llvh9StringRefENS0_6HandleINS0_11EnvironmentEEERKNS_10ScopeChainENS5_INS0_11HermesValueEEEbb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %utf8code.coerce0, i64 %utf8code.coerce1, ptr readnone captures(none) %environment.coerce, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %scopeChain, ptr readnone captures(none) %thisArg.coerce, i1 noundef zeroext %isStrict, i1 noundef zeroext %singleFunction) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %utf8code.coerce0, i64 %utf8code.coerce1) #4
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %call, 0
@@ -45,7 +45,7 @@ entry:
 declare noundef i32 @_ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm10directEvalERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEERKNS_10ScopeChainEbb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce, ptr nocapture nonnull readnone align 8 %scopeChain, i1 zeroext %isStrict, i1 zeroext %singleFunction) local_unnamed_addr #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm10directEvalERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEERKNS_10ScopeChainEbb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce, ptr nonnull readnone align 8 captures(none) %scopeChain, i1 zeroext %isStrict, i1 zeroext %singleFunction) local_unnamed_addr #0 {
 entry:
   %code = alloca %"class.std::__cxx11::basic_string", align 8
   %view = alloca %"class.hermes::vm::StringView", align 8
@@ -220,7 +220,7 @@ declare noundef zeroext i1 @_ZN6hermes34convertUTF16ToUTF8WithReplacementsERNSt7
 declare ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm4evalEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define hidden { i32, i64 } @_ZN6hermes2vm4evalEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
   store ptr %runtime, ptr %gcScope, align 8
@@ -287,7 +287,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare { ptr, i64 } @_ZNK6hermes2vm10StringView11getUTF16RefERN4llvh15SmallVectorImplIDsEEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2

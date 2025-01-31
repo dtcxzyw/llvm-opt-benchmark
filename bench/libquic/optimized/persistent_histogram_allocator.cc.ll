@@ -682,7 +682,7 @@ _ZN4base8AutoLockD2Ev.exit68:                     ; preds = %for.end
 declare noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef %data_manager, i64 noundef %sample_map_id) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 80)) %this, ptr noundef %data_manager, i64 noundef %sample_map_id) unnamed_addr #3 align 2 {
 entry:
   store ptr %data_manager, ptr %this, align 8
   %sample_map_id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -693,7 +693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecordsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base26PersistentSampleMapRecordsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %found_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %found_, align 8
@@ -719,7 +719,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 24)) %this, ptr nocapture noundef readnone %user) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((16, 24)) %this, ptr noundef readnone captures(none) %user) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %user_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %user_, align 8
@@ -770,7 +770,7 @@ return:                                           ; preds = %if.then, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base26PersistentSampleMapRecords9CreateNewEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4base26PersistentSampleMapRecords9CreateNewEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -883,7 +883,7 @@ return:                                           ; preds = %if.end, %_ZN4base28
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 24)) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 24)) %this, ptr noundef captures(none) %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1571,7 +1571,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %histogram_type, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %minimum, i32 noundef %maximum, ptr nocapture noundef readonly %bucket_ranges, i32 noundef %flags, ptr noundef writeonly %ref_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13HistogramTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEiPj(ptr noalias sret(%"class.std::unique_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %histogram_type, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %minimum, i32 noundef %maximum, ptr noundef readonly captures(none) %bucket_ranges, i32 noundef %flags, ptr noundef writeonly %ref_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_allocator_, align 8
@@ -1818,12 +1818,12 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %ref, i1 noundef zeroext %registered) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, i32 noundef %ref, i1 noundef zeroext %registered) local_unnamed_addr #0 align 2 {
 entry:
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_allocator_, align 8
@@ -1846,7 +1846,7 @@ declare void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef no
 declare noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator39MergeHistogramDeltaToStatisticsRecorderEPNS_13HistogramBaseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator39MergeHistogramDeltaToStatisticsRecorderEPNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.32", align 8
   %call = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %histogram)
@@ -1899,7 +1899,7 @@ _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit7: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %pickle = alloca %"class.base::Pickle", align 8
@@ -1954,7 +1954,7 @@ return:                                           ; preds = %if.end, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator44MergeHistogramFinalDeltaToStatisticsRecorderEPKNS_13HistogramBaseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator44MergeHistogramFinalDeltaToStatisticsRecorderEPKNS_13HistogramBaseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(132) %this, ptr noundef %histogram) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.32", align 8
   %call = tail call noundef ptr @_ZN4base28PersistentHistogramAllocator38GetOrCreateStatisticsRecorderHistogramEPKNS_13HistogramBaseE(ptr nonnull align 8 poison, ptr noundef %histogram)
@@ -2051,7 +2051,7 @@ _ZN4base36PersistentSparseHistogramDataManager19UseSampleMapRecordsEmPKv.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_allocator_, align 8
@@ -2062,7 +2062,7 @@ entry:
 declare void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator24UpdateTrackingHistogramsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
 entry:
   %memory_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_allocator_, align 8
@@ -2410,7 +2410,7 @@ eh.resume:                                        ; preds = %ehcleanup7, %cleanu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator3SetESt10unique_ptrIS0_St14default_deleteIS0_EE(ptr nocapture noundef %allocator) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocator3SetESt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noundef captures(none) %allocator) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.logging::LogMessage", align 8
   %0 = load ptr, ptr @_ZN4base12_GLOBAL__N_111g_allocatorE, align 8
@@ -2555,7 +2555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocator17ReleaseForTestingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.56") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocator17ReleaseForTestingEv(ptr noalias writeonly sret(%"class.std::unique_ptr.56") align 8 captures(none) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.base::PersistentMemoryAllocator::Iterator", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -2618,13 +2618,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base24GlobalHistogramAllocator25WriteToPersistentLocationEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base24GlobalHistogramAllocator25WriteToPersistentLocationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef captures(none) %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %memory, align 8
   store ptr null, ptr %memory, align 8
@@ -2858,7 +2858,7 @@ declare void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dere
 declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZN4base12BucketRangesC1Em(ptr noundef nonnull align 8 dereferenceable(28), i64 noundef) unnamed_addr #1
 
@@ -3232,7 +3232,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3453,7 +3453,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -3500,10 +3500,10 @@ declare void @_ZN4base25PersistentMemoryAllocatorC1EPvmmmNS_16BasicStringPieceIN
 declare void @_ZN4base30LocalPersistentMemoryAllocatorC1EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef, ptr, i64) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

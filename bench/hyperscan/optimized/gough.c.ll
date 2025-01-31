@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mq_item = type { i32, i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -366,7 +366,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %cond.end.i30, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
@@ -723,7 +723,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %cond.end.i28, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -1106,7 +1106,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %cond.end.i30, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
@@ -2143,7 +2143,7 @@ return:                                           ; preds = %land.lhs.true, %con
 declare signext i8 @nfaExecMcClellan16_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr noundef readonly captures(none) %nfa, i64 noundef %offset, ptr noundef writeonly captures(none) %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
   %streamStateSize = getelementptr inbounds nuw i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
@@ -2167,10 +2167,10 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr noundef readonly captures(none) %nfa, i64 noundef %offset, ptr noundef writeonly captures(none) %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
   %streamStateSize = getelementptr inbounds nuw i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
@@ -2193,7 +2193,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %cb1 = getelementptr inbounds nuw i8, ptr %q, i64 88
@@ -2299,7 +2299,7 @@ if.end:                                           ; preds = %cond.end63.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %cb1 = getelementptr inbounds nuw i8, ptr %q, i64 88
@@ -2434,7 +2434,7 @@ entry:
 declare signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %state, ptr noundef readnone captures(none) %streamState, i64 noundef %offset, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %0 = load i8, ptr %state, align 1
@@ -2494,7 +2494,7 @@ goughCheckEOD.exit:                               ; preds = %for.cond.i.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %state, ptr noundef readnone captures(none) %streamState, i64 noundef %offset, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %0 = load i16, ptr %state, align 2
@@ -2554,7 +2554,7 @@ goughCheckEOD.exit:                               ; preds = %for.cond.i.i, %cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %q) local_unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2566,7 +2566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %q) local_unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -2578,7 +2578,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough8_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecGough8_queueCompressState(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #5 {
 entry:
   %streamState = getelementptr inbounds nuw i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
@@ -2675,7 +2675,7 @@ compSomSpace.exit:                                ; preds = %for.body.i.us36, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough8_expandState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef writeonly initializes((0, 1)) %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly captures(none) %nfa, ptr noundef writeonly captures(none) initializes((0, 1)) %dest, ptr noundef readonly captures(none) %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %src, align 1
   store i8 %0, ptr %dest, align 1
@@ -2764,7 +2764,7 @@ expandSomSpace.exit:                              ; preds = %for.body.i.us32, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough16_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecGough16_queueCompressState(ptr noundef readonly captures(none) %nfa, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #5 {
 entry:
   %streamState = getelementptr inbounds nuw i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
@@ -2861,7 +2861,7 @@ compSomSpace.exit:                                ; preds = %for.body.i.us36, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough16_expandState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef writeonly initializes((0, 2)) %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonly captures(none) %nfa, ptr noundef writeonly captures(none) initializes((0, 2)) %dest, ptr noundef readonly captures(none) %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %src, align 1
   store i16 %0, ptr %dest, align 2
@@ -2950,7 +2950,7 @@ expandSomSpace.exit:                              ; preds = %for.body.i.us32, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef nonnull %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef nonnull writeonly %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %m, ptr noundef captures(none) %som, ptr noundef nonnull captures(none) %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr noundef readonly captures(none) %cb, ptr noundef %ctxt, ptr noundef nonnull writeonly captures(none) %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %state, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
@@ -3662,7 +3662,7 @@ goughExec8_i.exit:                                ; preds = %cond.end.i229.i, %d
 declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @run_accel_prog(ptr nocapture noundef readonly %nfa, i8 %gacc.80.val, i32 %gacc.84.val, ptr noundef %buf, i64 noundef %offAdj, ptr noundef %c, ptr noundef %c2, ptr nocapture noundef %som) unnamed_addr #6 {
+define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) %nfa, i8 %gacc.80.val, i32 %gacc.84.val, ptr noundef %buf, i64 noundef %offAdj, ptr noundef %c, ptr noundef %c2, ptr noundef captures(none) %som) unnamed_addr #6 {
 entry:
   %idx.ext = zext i32 %gacc.84.val to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %nfa, i64 %idx.ext
@@ -3906,7 +3906,7 @@ if.end:                                           ; preds = %run_prog_i.exit140,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef nonnull %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef nonnull writeonly %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #7 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %m, ptr noundef captures(none) %som, ptr noundef nonnull captures(none) %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr noundef readonly captures(none) %cb, ptr noundef %ctxt, ptr noundef nonnull writeonly captures(none) %final_point, i32 noundef range(i32 0, 3) %mode) unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %state, align 2
   %add.ptr.i = getelementptr inbounds i8, ptr %m, i64 -64

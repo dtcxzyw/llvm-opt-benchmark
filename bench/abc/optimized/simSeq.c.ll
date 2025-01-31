@@ -136,7 +136,7 @@ declare void @Sim_UtilSetConst(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare void @Sim_UtilSetRandom(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
@@ -255,7 +255,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val50 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val50, i64 4

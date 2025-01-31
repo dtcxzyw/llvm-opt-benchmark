@@ -193,7 +193,7 @@ define noundef i32 @H5AC_term_package() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @H5AC_cache_image_pending(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @H5AC_cache_image_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -341,7 +341,7 @@ define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef %0) local_unnamed_addr #1 {
@@ -546,7 +546,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_cache_image_config(ptr noundef readon
 declare ptr @H5C_create(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5AC__check_if_write_permitted(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #4 {
+define internal noundef i32 @H5AC__check_if_write_permitted(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #4 {
   store i8 1, ptr %1, align 1
   ret i32 0
 }
@@ -1417,7 +1417,7 @@ declare i32 @H5C_mark_entry_serialized(ptr noundef) local_unnamed_addr #2
 declare i32 @H5C_log_write_mark_serialized_entry_msg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_move_entry(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_move_entry(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -1535,7 +1535,7 @@ define range(i32 -1, 1) i32 @H5AC_prep_for_file_close(ptr noundef %0) local_unna
 declare i32 @H5C_prep_for_file_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_prep_for_file_flush(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_prep_for_file_flush(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -1558,7 +1558,7 @@ define range(i32 -1, 1) i32 @H5AC_prep_for_file_flush(ptr nocapture noundef read
 declare i32 @H5C_set_slist_enabled(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_secure_from_file_flush(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_secure_from_file_flush(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -1841,7 +1841,7 @@ declare i32 @H5C_destroy_flush_dependency(ptr noundef, ptr noundef) local_unname
 declare i32 @H5C_log_write_destroy_fd_msg(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = and i32 %4, 2
   %.not = icmp eq i32 %7, 0
@@ -2176,7 +2176,7 @@ define range(i32 -1, 1) i32 @H5AC_reset_cache_hit_rate_stats(ptr noundef %0) loc
 declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5AC__ext_config_2_int_config(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2305,14 +2305,14 @@ declare i32 @H5C_set_evictions_enabled(ptr noundef, i1 noundef zeroext) local_un
 declare i32 @H5C_log_write_set_cache_config_msg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @H5C_validate_resize_config(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @H5C_validate_cache_image_config(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_ignore_tags(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_ignore_tags(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -2354,7 +2354,7 @@ declare i64 @H5CX_get_tag() local_unnamed_addr #2
 declare void @H5CX_set_tag(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_retag_copied_metadata(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_retag_copied_metadata(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -2453,7 +2453,7 @@ define range(i32 -1, 1) i32 @H5AC_get_tag(ptr noundef %0, ptr noundef %1) local_
 declare i32 @H5C_get_tag(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5AC_cork(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5AC_cork(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq i32 %2, 4
   br i1 %5, label %6, label %14
 

@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN17btCollisionObjectD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN17btCollisionObjectD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17btCollisionObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(372) initializes((0, 276), (280, 316), (324, 332), (336, 345), (352, 356)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(372) initializes((0, 276), (280, 316), (324, 332), (336, 345), (352, 356)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btCollisionObject, i64 16), ptr %this, align 8
   %m_worldTransform = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -126,7 +126,7 @@ invoke.cont13:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17btCollisionObjectD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(372) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(372) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btCollisionObject, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 336
@@ -211,7 +211,7 @@ _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %_ZN17btCollisionObj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK17btCollisionObject18setActivationStateEi(ptr nocapture noundef nonnull align 8 dereferenceable(372) %this, i32 noundef %newState) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 captures(none) dereferenceable(372) %this, i32 noundef %newState) local_unnamed_addr #2 align 2 {
 entry:
   %m_activationState1 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load i32, ptr %m_activationState1, align 8
@@ -228,7 +228,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK17btCollisionObject20forceActivationStateEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(372) initializes((240, 244)) %this, i32 noundef %newState) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK17btCollisionObject20forceActivationStateEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(372) initializes((240, 244)) %this, i32 noundef %newState) local_unnamed_addr #0 align 2 {
 entry:
   %m_activationState1 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 %newState, ptr %m_activationState1, align 8
@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK17btCollisionObject8activateEb(ptr nocapture noundef nonnull align 8 dereferenceable(372) %this, i1 noundef zeroext %forceActivation) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 captures(none) dereferenceable(372) %this, i1 noundef zeroext %forceActivation) local_unnamed_addr #2 align 2 {
 entry:
   br i1 %forceActivation, label %if.then, label %lor.lhs.false
 
@@ -268,7 +268,7 @@ if.end:                                           ; preds = %_ZNK17btCollisionOb
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %this, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK17btCollisionObject9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(372) %this, ptr noundef writeonly captures(none) %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
 entry:
   %m_worldTransform = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_worldTransform2 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 32
@@ -627,7 +627,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

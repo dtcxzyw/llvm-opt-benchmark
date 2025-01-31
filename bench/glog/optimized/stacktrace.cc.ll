@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [22 x i8] c"unw_init_local failed\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.unw_cursor, align 8
   %6 = alloca %struct.ucontext_t, align 8

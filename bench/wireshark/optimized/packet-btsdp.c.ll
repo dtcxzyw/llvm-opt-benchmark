@@ -2527,7 +2527,7 @@ get_uuids.exit.i85:                               ; preds = %384
   br i1 %or.cond.i84, label %409, label %407
 
 407:                                              ; preds = %403
-  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, ptr noundef %26, ptr noundef nonnull readonly %3)
+  %408 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef nonnull %1, ptr noundef %26, ptr noundef nonnull readonly %3)
   br label %412
 
 409:                                              ; preds = %403, %.thread.i76
@@ -2546,7 +2546,7 @@ get_uuids.exit.i85:                               ; preds = %384
   br label %416
 
 416:                                              ; preds = %414, %412
-  %417 = call fastcc i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %339)
+  %417 = call fastcc i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i32 noundef %339)
   %418 = load i32, ptr %22, align 4
   %419 = icmp eq i32 %418, 0
   %420 = load ptr, ptr %24, align 8
@@ -2558,7 +2558,7 @@ get_uuids.exit.i85:                               ; preds = %384
   %423 = load i32, ptr %23, align 4
   %.not44.i77 = icmp eq i32 %423, 0
   %424 = select i1 %.not44.i77, ptr @.str.1087, ptr @.str.1086
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %420, ptr noundef nonnull %424) #7
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %420, ptr noundef nonnull %424) #7
   %425 = load i32, ptr %23, align 4
   %.not45.i = icmp eq i32 %425, 0
   %426 = load i32, ptr @hf_partial_attribute_list, align 4
@@ -2592,7 +2592,7 @@ proto_item_set_generated.exit.i79:                ; preds = %437, %434, %422
 
 442:                                              ; preds = %proto_item_set_generated.exit.i79
   %443 = load ptr, ptr %24, align 8
-  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull readonly %3)
+  %444 = call fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %433, ptr noundef %443, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %26, ptr noundef nonnull readonly %3)
   br label %dissect_sdp_service_attribute_response.exit
 
 dissect_sdp_service_attribute_response.exit:      ; preds = %416, %proto_item_set_generated.exit.i79, %442
@@ -2823,11 +2823,11 @@ get_type_length.exit55.i:                         ; preds = %506, %502, %498, %4
 
 dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %._crit_edge.thread.i.i117
   %531 = add i32 %.0.lcssa.i104, 2
-  %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef %1, ptr noundef %14)
+  %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef nonnull %1, ptr noundef %14)
   %533 = add i32 %532, %531
   %534 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull readonly %3)
-  %535 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %533)
+  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull readonly %3)
+  %535 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i32 noundef %533)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -2907,7 +2907,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br i1 %or.cond.i128, label %562, label %561
 
 561:                                              ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef nonnull %1, i32 noundef %540, ptr noundef %9, ptr noundef nonnull readonly %3)
   br label %565
 
 562:                                              ; preds = %get_specified_uuid.exit.i
@@ -2926,7 +2926,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br label %569
 
 569:                                              ; preds = %567, %565
-  %570 = call fastcc i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %541)
+  %570 = call fastcc i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i32 noundef %541)
   %571 = load i32, ptr %5, align 4
   %572 = icmp eq i32 %571, 0
   %573 = load ptr, ptr %7, align 8
@@ -2938,7 +2938,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   %576 = load i32, ptr %6, align 4
   %.not41.i = icmp eq i32 %576, 0
   %577 = select i1 %.not41.i, ptr @.str.1087, ptr @.str.1086
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %573, ptr noundef nonnull %577) #7
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %573, ptr noundef nonnull %577) #7
   %578 = load i32, ptr %6, align 4
   %.not42.i = icmp eq i32 %578, 0
   %579 = load i32, ptr @hf_partial_attribute_list, align 4
@@ -2973,7 +2973,7 @@ proto_item_set_generated.exit.i132:               ; preds = %590, %587, %575
 595:                                              ; preds = %proto_item_set_generated.exit.i132
   %596 = load ptr, ptr %7, align 8
   %597 = call i32 @tvb_reported_length(ptr noundef %596) #7
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef nonnull readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %597, ptr noundef %9, ptr noundef nonnull readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %569, %proto_item_set_generated.exit.i132, %595
@@ -3037,12 +3037,12 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #7
   %7 = add i32 %4, 1
   %8 = and i8 %6, 7
@@ -3158,7 +3158,7 @@ get_type_length.exit:                             ; preds = %5, %9, %12, %13, %1
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -6905,7 +6905,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull initializes((0, 3)) %5) unnamed_addr #1 {
+define internal fastcc void @dissect_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull initializes((0, 3)) %5) unnamed_addr #1 {
   %7 = alloca %struct._uuid_t, align 2
   %8 = alloca %struct._uuid_t, align 2
   switch i32 %4, label %39 [
@@ -7005,7 +7005,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef nonnull readonly %13) unnamed_addr #1 {
+define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly captures(none) %13) unnamed_addr #1 {
   %15 = alloca [12 x %struct._wmem_tree_key_t], align 16
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -8017,7 +8017,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_channel(ptr nocapture noundef readonly %0, i32 noundef range(i32 3, 257) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_channel(ptr noundef readonly captures(none) %0, i32 noundef range(i32 3, 257) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca [10 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -8141,7 +8141,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @print_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_protocol_descriptor_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #1 {
+define internal fastcc void @dissect_protocol_descriptor_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull captures(none) %7) unnamed_addr #1 {
   %9 = alloca [10 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -8986,7 +8986,7 @@ declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #0
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -9011,7 +9011,7 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_attribute_id_list, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0) #7
@@ -9607,7 +9607,7 @@ get_type_length.exit22:                           ; preds = %get_type_length.exi
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct._uuid_t, align 8
   %9 = alloca [10 x %struct._wmem_tree_key_t], align 16
@@ -9852,7 +9852,7 @@ get_type_length.exit113:                          ; preds = %get_type_length.exi
 get_type_length.exit118:                          ; preds = %101, %104, %107, %108, %109, %110, %113, %116
   %.022.i116 = phi i32 [ %97, %101 ], [ %97, %104 ], [ %97, %107 ], [ %97, %108 ], [ %97, %109 ], [ %100, %110 ], [ %99, %113 ], [ %98, %116 ]
   %118 = phi i32 [ 2, %101 ], [ %106, %104 ], [ 4, %107 ], [ 8, %108 ], [ 16, %109 ], [ %112, %110 ], [ %115, %113 ], [ %spec.select.i115, %116 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef %8)
+  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef %8)
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %8, i32 noundef 1) #7
   %119 = add i32 %118, %.022.i116
   %.not103 = icmp sgt i32 %119, %.022.i111
@@ -9994,7 +9994,7 @@ get_specified_uuid.exit:                          ; preds = %.thread.i, %._crit_
 177:                                              ; preds = %.lr.ph135, %177
   %.0133 = phi i32 [ %.022.i, %.lr.ph135 ], [ %178, %177 ]
   %.val = load i16, ptr %8, align 8
-  %178 = call fastcc i32 @dissect_sdp_service_attribute(ptr noundef %176, ptr noundef %1, i32 noundef %.0133, ptr noundef %3, i16 %.val, i32 noundef %.022.i, ptr noundef %.094, i32 noundef %.097.lcssa, i32 noundef 0)
+  %178 = call fastcc i32 @dissect_sdp_service_attribute(ptr noundef %176, ptr noundef %1, i32 noundef %.0133, ptr noundef nonnull %3, i16 %.val, i32 noundef %.022.i, ptr noundef %.094, i32 noundef %.097.lcssa, i32 noundef 0)
   %179 = sub i32 %178, %2
   %180 = icmp slt i32 %179, %43
   br i1 %180, label %177, label %._crit_edge136, !llvm.loop !38
@@ -10108,7 +10108,7 @@ get_specified_uuid.exit:                          ; preds = %.thread.i, %._crit_
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   %10 = add nuw nsw i32 %2, 1
@@ -10176,10 +10176,10 @@ get_type_length.exit:                             ; preds = %7, %7, %7, %7, %7, 
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

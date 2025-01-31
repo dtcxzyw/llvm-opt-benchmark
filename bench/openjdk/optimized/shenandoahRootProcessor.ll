@@ -283,7 +283,7 @@ declare void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5Ph
 declare void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahThreadRootsC2EN22ShenandoahPhaseTimings5PhaseEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahThreadRootsC2EN22ShenandoahPhaseTimings5PhaseEb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -295,7 +295,7 @@ define hidden void @_ZN21ShenandoahThreadRootsC2EN22ShenandoahPhaseTimings5Phase
 declare void @_ZN7Threads25change_thread_claim_tokenEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
   %6 = load i32, ptr %0, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %6, i32 noundef 1, i32 noundef %3) #12
@@ -343,7 +343,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
 declare void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
   %5 = load i32, ptr %0, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %5, i32 noundef 1, i32 noundef %2) #12
@@ -391,7 +391,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
 declare void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN21ShenandoahThreadRootsD2Ev(ptr nocapture nonnull readnone align 4 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN21ShenandoahThreadRootsD2Ev(ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -488,7 +488,7 @@ define hidden void @_ZN24ShenandoahSTWRootScannerC2EN22ShenandoahPhaseTimings5Ph
 declare noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef nonnull align 8 dereferenceable(2657)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -496,7 +496,7 @@ define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosure9do_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosure9do_threadEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef %1, ptr noundef %4, i32 noundef 0) #12
@@ -588,7 +588,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %43, %_ZN11MutexLock
 declare noundef ptr @_ZN22ShenandoahNMethodTable22snapshot_for_iterationEv(ptr noundef nonnull align 8 dereferenceable(236)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31ShenandoahConcurrentRootScanner17update_tlab_statsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN31ShenandoahConcurrentRootScanner17update_tlab_statsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadLocalAllocStats, align 8
   %3 = load i8, ptr @UseTLAB, align 1
   %4 = trunc i8 %3 to i1
@@ -1617,7 +1617,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2776,10 +2776,10 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

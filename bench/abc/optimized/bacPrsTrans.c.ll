@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Psr_CatSignals.V = internal global %struct.Vec_Int_t_ zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Psr_ManRangeSizeArray(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, %3
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -102,7 +102,7 @@ Psr_ManRangeSizeSignal.exit:                      ; preds = %29, %16, %11, %33, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @Abc_NamStr(ptr noundef, i32 noundef) local_unnamed_addr #2
 

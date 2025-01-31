@@ -99,7 +99,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7Imf_3_27IStreamD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_27IStreamD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -109,13 +109,13 @@ entry:
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_27IStream14isMemoryMappedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_27IStream14isMemoryMappedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull ptr @_ZN7Imf_3_27IStream16readMemoryMappedEi(ptr nocapture nonnull readnone align 8 %this, i32 %n) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull ptr @_ZN7Imf_3_27IStream16readMemoryMappedEi(ptr nonnull readnone align 8 captures(none) %this, i32 %n) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 72) #13
   invoke void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str)
@@ -145,7 +145,7 @@ declare void @_ZN7Iex_3_28InputExcD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7Imf_3_27IStream5clearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN7Imf_3_27IStream5clearEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -223,7 +223,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7Imf_3_27OStreamD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_27OStreamD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -299,7 +299,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 

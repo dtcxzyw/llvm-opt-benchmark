@@ -119,7 +119,7 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 declare void @exitExecutionUnit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expireScanCallback(ptr nocapture noundef %privdata, ptr noundef %const_de) #0 {
+define dso_local void @expireScanCallback(ptr noundef captures(none) %privdata, ptr noundef %const_de) #0 {
 entry:
   %call = tail call i64 @dictGetSignedIntegerVal(ptr noundef %const_de) #9
   %now = getelementptr inbounds nuw i8, ptr %privdata, i64 8
@@ -445,7 +445,7 @@ declare i64 @mstime() local_unnamed_addr #1
 declare i64 @dbScan(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 1) i32 @isExpiryDictValidForSamplingCb(ptr nocapture noundef readonly %d) #3 {
+define internal range(i32 -1, 1) i32 @isExpiryDictValidForSamplingCb(ptr noundef readonly captures(none) %d) #3 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -622,7 +622,7 @@ declare void @dictSetUnsignedIntegerVal(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rememberSlaveKeyWithExpire(ptr nocapture noundef readonly %db, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local void @rememberSlaveKeyWithExpire(ptr noundef readonly captures(none) %db, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @slaveKeysWithExpire, align 8
   %cmp = icmp eq ptr %0, null
@@ -747,7 +747,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i64 @commandTimeSnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr nocapture noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr noundef captures(none) %flags) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
@@ -835,7 +835,7 @@ return:                                           ; preds = %entry, %if.end29, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1410,7 +1410,7 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

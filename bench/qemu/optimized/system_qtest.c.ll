@@ -133,7 +133,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qtest_send_prefix(ptr nocapture readnone %chr) local_unnamed_addr #0 {
+define dso_local void @qtest_send_prefix(ptr readnone captures(none) %chr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @qtest_log_fp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -154,12 +154,12 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare double @g_timer_elapsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qtest_sendf(ptr nocapture readnone %chr, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @qtest_sendf(ptr readnone captures(none) %chr, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -305,7 +305,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qtest_server_inproc_recv(ptr nocapture noundef readnone %dummy, ptr noundef %buf) local_unnamed_addr #0 {
+define dso_local void @qtest_server_inproc_recv(ptr noundef readnone captures(none) %dummy, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @qtest_server_inproc_recv.gstr, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -396,7 +396,7 @@ while.body:                                       ; preds = %entry, %qtest_proce
   %sub.ptr.lhs.cast = ptrtoint ptr %call20 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call3 = call ptr @g_string_new_len(ptr noundef %1, i64 noundef %sub.ptr.sub) #18
+  %call3 = call ptr @g_string_new_len(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #18
   %add = add i64 %sub.ptr.sub, 1
   %call4 = call ptr @g_string_erase(ptr noundef nonnull %inbuf, i64 noundef 0, i64 noundef %add) #18
   %2 = load ptr, ptr %call3, align 8
@@ -1938,7 +1938,7 @@ if.then1209.i:                                    ; preds = %do.end1204.i
   br label %qtest_process_command.exit
 
 if.end1210.i:                                     ; preds = %do.end1204.i
-  %call1212.i = call ptr @g_base64_decode_inplace(ptr noundef %252, ptr noundef nonnull %out_len.i) #18
+  %call1212.i = call ptr @g_base64_decode_inplace(ptr noundef nonnull %252, ptr noundef nonnull %out_len.i) #18
   %255 = load i64, ptr %out_len.i, align 8
   %256 = load i64, ptr %len1170.i, align 8
   %cmp1213.not.i = icmp eq i64 %255, %256
@@ -2212,7 +2212,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @object_resolve_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2221,7 +2221,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @qemu_irq_intercept_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qtest_irq_handler(ptr nocapture noundef readonly %opaque, i32 noundef %n, i32 noundef %level) #0 {
+define internal void @qtest_irq_handler(ptr noundef readonly captures(none) %opaque, i32 noundef %n, i32 noundef %level) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef %level) #18
@@ -2285,20 +2285,20 @@ declare i32 @address_space_write(ptr noundef, i64 noundef, i32, ptr noundef, i64
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @g_base64_decode_inplace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qtest_log_send(ptr nocapture readnone %fmt, ...) unnamed_addr #0 {
+define internal void @qtest_log_send(ptr readnone captures(none) %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load ptr, ptr @qtest_log_fp, align 8
@@ -2471,7 +2471,7 @@ declare void @qemu_event_set(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @memory_region_is_ram_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 declare ptr @qemu_get_aio_context() local_unnamed_addr #2
 
@@ -2484,7 +2484,7 @@ declare void @qemu_clock_notify(i32 noundef) local_unnamed_addr #2
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qtest_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @qtest_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.76, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #18
   %unparent = getelementptr inbounds nuw i8, ptr %oc, i64 80
@@ -2637,7 +2637,7 @@ return:                                           ; preds = %if.end15.i, %if.end
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qtest_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qtest_get_chardev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
   %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -2692,7 +2692,7 @@ return:                                           ; preds = %if.end10, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qtest_get_log(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qtest_get_log(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
   %log = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -2732,21 +2732,21 @@ declare void @qemu_chr_fe_disconnect(ptr noundef) local_unnamed_addr #2
 declare void @qemu_chr_fe_deinit(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @object_property_del(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @object_property_add_const_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare zeroext i1 @qemu_chr_fe_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qtest_can_read(ptr nocapture readnone %opaque) #13 {
+define internal noundef i32 @qtest_can_read(ptr readnone captures(none) %opaque) #13 {
 entry:
   ret i32 1024
 }
@@ -2763,7 +2763,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qtest_event(ptr nocapture readnone %opaque, i32 noundef %event) #0 {
+define internal void @qtest_event(ptr readnone captures(none) %opaque, i32 noundef %event) #0 {
 entry:
   switch i32 %event, label %sw.epilog [
     i32 1, label %for.body.preheader
@@ -2827,7 +2827,7 @@ define internal void @qtest_server_char_be_send(ptr noundef %opaque, ptr noundef
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #20
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @qemu_chr_fe_write_all(ptr noundef %opaque, ptr noundef %str, i32 noundef %conv) #18
+  %call1 = tail call i32 @qemu_chr_fe_write_all(ptr noundef %opaque, ptr noundef nonnull %str, i32 noundef %conv) #18
   %0 = load ptr, ptr @qtest_log_fp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2837,7 +2837,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %.b3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %fputs = tail call i32 @fputs(ptr %str, ptr nonnull %0)
+  %fputs = tail call i32 @fputs(ptr nonnull %str, ptr nonnull %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -2865,19 +2865,19 @@ declare void @llvm.va_start.p0(ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

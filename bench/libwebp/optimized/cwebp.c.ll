@@ -257,7 +257,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.65 = private unnamed_addr constant [49 x i8] c"  -pre <int> ............. pre-processing filter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
@@ -773,7 +773,7 @@ sub_1764:                                         ; preds = %163, %.tail757, %su
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr @stderr, align 8
-  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.25, ptr noundef %232) #15
+  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.25, ptr noundef nonnull %232) #15
   br label %1205
 
 244:                                              ; preds = %226, %224
@@ -851,7 +851,7 @@ sub_1764:                                         ; preds = %163, %.tail757, %su
 
 276:                                              ; preds = %273
   %277 = load ptr, ptr @stderr, align 8
-  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %277, ptr noundef nonnull @.str.33, ptr noundef %267) #15
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %277, ptr noundef nonnull @.str.33, ptr noundef nonnull %267) #15
   br label %1205
 
 279:                                              ; preds = %261, %259
@@ -1266,7 +1266,7 @@ sub_1769:                                         ; preds = %sub_0768
 
 487:                                              ; preds = %485
   %488 = load ptr, ptr @stderr, align 8
-  %489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef nonnull @.str.65, ptr noundef %475) #15
+  %489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef nonnull @.str.65, ptr noundef nonnull %475) #15
   br label %1205
 
 490:                                              ; preds = %485, %483, %481, %479, %477, %472
@@ -1320,7 +1320,7 @@ sub_1769:                                         ; preds = %sub_0768
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %513
-  %519 = call i32 @strncmp(ptr noundef %.04771088, ptr noundef %515, i64 noundef %512) #14
+  %519 = call i32 @strncmp(ptr noundef nonnull %.04771088, ptr noundef nonnull %515, i64 noundef %512) #14
   %.not621 = icmp eq i32 %519, 0
   br i1 %.not621, label %526, label %520
 
@@ -1332,7 +1332,7 @@ sub_1769:                                         ; preds = %sub_0768
 522:                                              ; preds = %520
   %523 = load ptr, ptr @stderr, align 8
   %524 = trunc i64 %512 to i32
-  %525 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %523, ptr noundef nonnull @.str.72, i32 noundef %524, ptr noundef %.04771088) #15
+  %525 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %523, ptr noundef nonnull @.str.72, i32 noundef %524, ptr noundef nonnull %.04771088) #15
   br label %1211
 
 526:                                              ; preds = %518
@@ -2794,7 +2794,7 @@ declare void @MetadataInit(ptr noundef) local_unnamed_addr #1
 declare void @WebPMemoryWriterInit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @HelpShort() unnamed_addr #3 {
@@ -2807,7 +2807,7 @@ define internal fastcc void @HelpShort() unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @HelpLong() unnamed_addr #0 {
@@ -2893,23 +2893,23 @@ declare i32 @WebPGetEncoderVersion() local_unnamed_addr #1
 declare i32 @SharpYuvGetVersion() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @WebPConfigLosslessPreset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal noundef i32 @ProgressReport(i32 noundef %0, ptr nocapture noundef readonly %1) #5 {
+define internal noundef i32 @ProgressReport(i32 noundef %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -2920,7 +2920,7 @@ define internal noundef i32 @ProgressReport(i32 noundef %0, ptr nocapture nounde
 declare void @WebPBlendAlpha(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @StopwatchReadAndReset(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
+define internal fastcc double @StopwatchReadAndReset(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2941,12 +2941,12 @@ define internal fastcc double @StopwatchReadAndReset(ptr nocapture noundef nonnu
 declare ptr @ImgIoUtilSetBinaryMode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare i32 @WebPMemoryWrite(ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @MyWriter(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #3 {
+define internal range(i32 0, 2) i32 @MyWriter(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #3 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %10, label %4
 
@@ -2974,14 +2974,14 @@ declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #1
 declare i32 @WebPEncode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @ReadWebP(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @WebPPictureHasTransparency(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintExtraInfoLossless(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc void @PrintExtraInfoLossless(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq i32 %1, 0
@@ -3024,7 +3024,7 @@ define internal fastcc void @PrintExtraInfoLossless(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintExtraInfoLossy(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #5 {
+define internal fastcc void @PrintExtraInfoLossy(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -3197,7 +3197,7 @@ define internal fastcc void @PrintExtraInfoLossy(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintMapInfo(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
+define internal fastcc void @PrintMapInfo(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3388,7 +3388,7 @@ define internal fastcc void @PrintMapInfo(ptr nocapture noundef nonnull readonly
 declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @PrintMetadataInfo(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @PrintMetadataInfo(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %30, label %4
 
@@ -3444,7 +3444,7 @@ declare void @WebPFree(ptr noundef) local_unnamed_addr #1
 declare void @MetadataFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3453,7 +3453,7 @@ declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32
 declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3466,15 +3466,15 @@ declare void @ImgIoUtilCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @WebPPictureYUVAToARGB(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteLE24(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483648, 2147483647) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @WriteLE24(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483648, 2147483647) %1) unnamed_addr #3 {
   %3 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   br label %4
@@ -3499,7 +3499,7 @@ WriteLE.exit:                                     ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteMetadataChunk(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @WriteMetadataChunk(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
@@ -3552,7 +3552,7 @@ WriteLE32.exit:                                   ; preds = %14
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintFullLosslessInfo(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i32, ptr %4, align 4
@@ -3673,10 +3673,10 @@ define internal fastcc void @PrintFullLosslessInfo(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintByteCount(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split.us, label %.split
 
@@ -3723,7 +3723,7 @@ define internal fastcc void @PrintByteCount(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintPercents(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc void @PrintPercents(ptr noundef readonly captures(none) %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3759,7 +3759,7 @@ define internal fastcc void @PrintPercents(ptr nocapture noundef readonly %0) un
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintValues(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc void @PrintValues(ptr noundef readonly captures(none) %0) unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -3779,22 +3779,22 @@ define internal fastcc void @PrintValues(ptr nocapture noundef readonly %0) unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

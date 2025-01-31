@@ -6,17 +6,17 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN21ZVirtualMemoryManager28pd_initialize_before_reserveEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZVirtualMemoryManager28pd_initialize_before_reserveEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121) %0) local_unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN21ZVirtualMemoryManager27pd_initialize_after_reserveEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZVirtualMemoryManager27pd_initialize_after_reserveEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121) %0) local_unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager10pd_reserveE15zaddress_unsafem(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager10pd_reserveE15zaddress_unsafem(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = inttoptr i64 %1 to ptr
   %5 = tail call ptr @mmap64(ptr noundef %4, i64 noundef %2, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #3
   %6 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
@@ -42,7 +42,7 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZVirtualMemoryManager12pd_unreserveE15zaddress_unsafem(ptr nocapture noundef nonnull readnone align 8 dereferenceable(121) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21ZVirtualMemoryManager12pd_unreserveE15zaddress_unsafem(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(121) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = inttoptr i64 %1 to ptr
   %5 = tail call i32 @munmap(ptr noundef %4, i64 noundef %2) #3
   ret void

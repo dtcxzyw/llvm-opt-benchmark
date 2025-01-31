@@ -324,7 +324,7 @@ declare i32 @snd_pcm_close(ptr noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_info_get_card(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @snd_ctl_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -364,7 +364,7 @@ define hidden i32 @getAudioDeviceCount() local_unnamed_addr #0 {
 declare void @initAlsaSupport(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca [300 x i8], align 16
   tail call void (...) @initAlsaSupport() #5
   %6 = load i32, ptr %3, align 8
@@ -492,13 +492,13 @@ define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr nounde
 declare void @getDeviceStringFromDeviceID(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @snd_ctl_card_info_get_id(ptr noundef) local_unnamed_addr #1
 
@@ -542,7 +542,7 @@ define hidden range(i32 0, 2) i32 @getAudioDeviceDescriptionByIndex(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @getFormatFromAlsaFormat(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @getFormatFromAlsaFormat(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @snd_pcm_format_physical_width(i32 noundef %0) #5
   %8 = add nsw i32 %7, 7
   %9 = sdiv i32 %8, 8
@@ -608,7 +608,7 @@ declare i32 @snd_pcm_format_big_endian(i32 noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_format_linear(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @getAlsaFormatFromFormat(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @getAlsaFormatFromFormat(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   store i32 -1, ptr %0, align 4
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %8, label %15

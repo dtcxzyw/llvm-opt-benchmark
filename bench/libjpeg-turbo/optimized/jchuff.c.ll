@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jpeg_nbits_table = external local_unnamed_addr constant [65536 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [257 x i8], align 16
   %6 = alloca [257 x i32], align 16
   %or.cond = icmp ugt i32 %2, 3
@@ -243,10 +243,10 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((2048, 2056)) %2) local_unnamed_addr #0 {
+define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) initializes((2048, 2056)) %2) local_unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
   %5 = alloca [33 x i32], align 16
   %6 = alloca [257 x i32], align 16
@@ -530,7 +530,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @jinit_huff_encoder(ptr noundef %0) local_unnamed_addr #0 {
@@ -710,7 +710,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1035,7 +1035,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [512 x i8], align 16
   %5 = alloca %struct.working_state, align 8
@@ -1653,7 +1653,7 @@ declare i32 @jsimd_can_huff_encode_one_block() local_unnamed_addr #3
 declare ptr @jpeg_alloc_huff_table(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [512 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -21932,10 +21932,10 @@ declare i64 @llvm.smax.i64(i64, i64) #4
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4

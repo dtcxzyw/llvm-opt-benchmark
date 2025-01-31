@@ -623,7 +623,7 @@ define dso_local i32 @xfrm_count_pfkey_enc_supported() #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_has_aead(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_management_ClassLoadingImpl_setVerboseClass(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_management_ClassLoadingImpl_setVerboseClass(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8

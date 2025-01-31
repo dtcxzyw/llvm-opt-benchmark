@@ -28,7 +28,7 @@ declare i32 @ec_GFp_mont_group_copy(ptr noundef, ptr noundef) #1
 declare i32 @ec_GFp_mont_group_set_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr readnone captures(none) %ctx) #2 {
 entry:
   %p2.i = alloca [4 x i64], align 16
   %p4.i = alloca [4 x i64], align 16
@@ -257,7 +257,7 @@ return:                                           ; preds = %if.end25, %if.end34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr nocapture noundef readonly %p_, ptr noundef %p_scalar, ptr noundef %ctx) #2 {
+define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %group, ptr noundef %r, ptr noundef %g_scalar, ptr noundef readonly captures(none) %p_, ptr noundef %p_scalar, ptr noundef %ctx) #2 {
 entry:
   %table.i = alloca [16 x %struct.P256_POINT], align 64
   %p_str.i = alloca [33 x i8], align 16
@@ -953,10 +953,10 @@ declare void @ecp_nistz256_mul_mont(ptr noundef, ptr noundef, ptr noundef) local
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
@@ -989,10 +989,10 @@ declare void @ecp_nistz256_point_double(ptr noundef, ptr noundef) local_unnamed_
 declare void @ecp_nistz256_select_w5(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

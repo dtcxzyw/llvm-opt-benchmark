@@ -86,7 +86,7 @@ define dso_local range(i32 -4095, 1) i32 @errseq_check(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -4095, 1) i32 @errseq_check_and_advance(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local range(i32 -4095, 1) i32 @errseq_check_and_advance(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load volatile i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4

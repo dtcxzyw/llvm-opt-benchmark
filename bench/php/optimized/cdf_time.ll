@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_timestamp_to_timespec(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @cdf_timestamp_to_timespec(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tm, align 8
   %4 = srem i64 %1, 10000000
   %5 = mul nsw i64 %4, 100
@@ -209,13 +209,13 @@ cdf_getmonth.exit:                                ; preds = %.split.us.i19, %70,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @cdf_timespec_to_timestamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define hidden noundef i32 @cdf_timespec_to_timestamp(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret i32 0
 }
 

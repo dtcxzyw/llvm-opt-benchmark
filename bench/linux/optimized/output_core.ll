@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip6_local_ou
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable___ip6_local_out765, ptr @__UNIQUE_ID___addressable_ip6_dst_hoplimit764, ptr @__UNIQUE_ID___addressable_ip6_find_1stfragopt763, ptr @__UNIQUE_ID___addressable_ip6_local_out766, ptr @__UNIQUE_ID___addressable_ipv6_proxy_select_ident761, ptr @__UNIQUE_ID___addressable_ipv6_select_ident762], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_proxy_select_ident(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @ipv6_proxy_select_ident(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [2 x %struct.in6_addr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
@@ -94,19 +94,19 @@ define dso_local i32 @ipv6_proxy_select_ident(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_select_ident(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
+define dso_local i32 @ipv6_select_ident(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -126,7 +126,7 @@ define dso_local i32 @ipv6_select_ident(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 align 16 {
+define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -195,7 +195,7 @@ define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip6_dst_hoplimit(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i32 @ip6_dst_hoplimit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4

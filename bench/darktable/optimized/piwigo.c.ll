@@ -151,7 +151,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #13
   ret ptr %2
 }
@@ -575,7 +575,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -588,10 +588,10 @@ declare ptr @dt_bauhaus_widget_set_label(ptr noundef, ptr noundef, ptr noundef) 
 declare void @dt_bauhaus_combobox_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @gtk_widget_set_hexpand(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -600,7 +600,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_account_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_piwigo_account_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %4) #13
@@ -659,7 +659,7 @@ declare i64 @gtk_box_get_type() local_unnamed_addr #7
 declare ptr @dt_action_entry_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_server_entry_changed(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
+define internal void @_piwigo_server_entry_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca [512 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !34
@@ -698,7 +698,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #7
 declare void @g_free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_entry_changed(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
+define internal void @_piwigo_entry_changed(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca [512 x i8], align 16
   %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #13
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #13
@@ -735,7 +735,7 @@ declare ptr @gtk_button_new_with_label(ptr noundef) local_unnamed_addr #5
 declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_login_clicked(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
+define internal void @_piwigo_login_clicked(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call fastcc void @_piwigo_ctx_destroy(ptr noundef nonnull %3)
   %4 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.56) #13
@@ -758,7 +758,7 @@ declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_album_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_piwigo_album_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %4) #13
@@ -825,8 +825,8 @@ define internal void @_piwigo_album_changed(ptr nocapture readnone %0, ptr nocap
   br label %41
 
 41:                                               ; preds = %40, %.loopexit4, %.loopexit, %18
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.56, ptr noundef %21) #13
-  tail call void @g_free(ptr noundef %21) #13
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.56, ptr noundef nonnull %21) #13
+  tail call void @g_free(ptr noundef nonnull %21) #13
   br label %42
 
 42:                                               ; preds = %41, %15, %2
@@ -840,7 +840,7 @@ declare ptr @dtgtk_button_new(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @dtgtk_cairo_paint_refresh(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_refresh_clicked(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
+define internal void @_piwigo_refresh_clicked(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.56) #13
   tail call fastcc void @_piwigo_refresh_albums(ptr noundef %1, ptr noundef %3)
   tail call void @g_free(ptr noundef %3) #13
@@ -860,7 +860,7 @@ declare void @gtk_entry_set_width_chars(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @dt_bauhaus_combobox_new(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_conflict_changed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @_piwigo_conflict_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #13
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.32, i32 noundef %3) #13
   ret void
@@ -869,7 +869,7 @@ define internal void @_piwigo_conflict_changed(ptr noundef %0, ptr nocapture rea
 declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #13
@@ -877,12 +877,12 @@ define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @gui_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @finalize_store(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @finalize_store(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_finalize_store, ptr noundef %4) #13
@@ -892,7 +892,7 @@ define void @finalize_store(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare void @g_main_context_invoke(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_finalize_store(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @_finalize_store(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1547,7 +1547,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 declare ptr @dt_image_cache_get(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_filename(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @_get_filename(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
@@ -1599,7 +1599,7 @@ declare ptr @dt_tag_get_list_export(i32 noundef, i32 noundef) local_unnamed_addr
 declare ptr @dt_util_glist_to_str(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @_piwigo_api_get_image_id(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca [10 x i8], align 1
   %7 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #13
@@ -1735,7 +1735,7 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %93
-  call void @g_free(ptr noundef %49) #13
+  call void @g_free(ptr noundef nonnull %49) #13
   %98 = call i64 @json_object_get_int_member(ptr noundef %90, ptr noundef nonnull @.str.76) #13
   %99 = trunc i64 %98 to i32
   br label %107
@@ -1764,7 +1764,7 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_piwigo_refresh_albums(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [512 x i8], align 16
   %5 = alloca [512 x i8], align 16
@@ -2156,17 +2156,17 @@ declare i32 @g_unlink(ptr noundef) local_unnamed_addr #5
 declare ptr @dcngettext(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @params_size(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @params_size(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef ptr @get_params(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = icmp eq ptr %3, null
@@ -2359,7 +2359,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef initializes((40, 48)) %0) unnamed_addr #1 {
+define internal fastcc void @_piwigo_api_authenticate(ptr noundef captures(none) initializes((40, 48)) %0) unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %3 = tail call i64 @g_strlcpy(ptr noundef %2, ptr noundef nonnull @.str.59, i64 noundef 100) #13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 100
@@ -2397,11 +2397,11 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.116, ptr noundef %22) #13
+  %33 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.116, ptr noundef nonnull %22) #13
   br label %36
 
 34:                                               ; preds = %29
-  %35 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.117, ptr noundef %22) #13
+  %35 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.117, ptr noundef nonnull %22) #13
   br label %36
 
 36:                                               ; preds = %34, %32, %26
@@ -2505,7 +2505,7 @@ declare ptr @dt_bauhaus_combobox_get_text(ptr noundef) local_unnamed_addr #5
 declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !87
@@ -2516,7 +2516,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @supported(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = tail call ptr %4(ptr noundef null) #13
@@ -2538,7 +2538,7 @@ define range(i32 0, 2) i32 @supported(ptr nocapture noundef readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_params(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -2558,7 +2558,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_piwigo_ctx_destroy(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @_piwigo_ctx_destroy(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %36, label %4
@@ -2616,10 +2616,10 @@ define internal fastcc void @_piwigo_ctx_destroy(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @_piwigo_free_account(ptr nocapture noundef readonly %0) #1 {
+define internal void @_piwigo_free_account(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2642,7 +2642,7 @@ declare ptr @json_parser_new() local_unnamed_addr #5
 declare i32 @json_parser_load_from_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @json_parser_get_root(ptr noundef) local_unnamed_addr #5
 
@@ -2672,10 +2672,10 @@ declare ptr @g_strchug(ptr noundef) local_unnamed_addr #5
 declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @gtk_label_set_markup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -2688,7 +2688,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #5
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = alloca ptr, align 8
@@ -2918,7 +2918,7 @@ declare i32 @json_node_get_node_type(ptr noundef) local_unnamed_addr #5
 declare ptr @g_string_append_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @dt_filename_change_extension(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -2977,7 +2977,7 @@ declare i32 @dt_pwstorage_set(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @strncmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }

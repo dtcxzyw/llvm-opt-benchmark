@@ -46,7 +46,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -65,7 +65,7 @@ entry:
 declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN6Assimp15DefaultIOStream4ReadEPvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN6Assimp15DefaultIOStream4ReadEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i64 %pCount, 0
   br i1 %cmp, label %return, label %if.end
@@ -86,10 +86,10 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #3 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -106,10 +106,10 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #3 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -128,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZNK6Assimp15DefaultIOStream4TellEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK6Assimp15DefaultIOStream4TellEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -185,13 +185,13 @@ return:                                           ; preds = %if.end, %if.end8, %
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6Assimp15DefaultIOStream5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp15DefaultIOStream5FlushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
@@ -207,13 +207,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -253,7 +253,7 @@ pmix_obj_run_destructors.exit193:                 ; preds = %.lr.ph.i190, %73
 .lr.ph.i196:                                      ; preds = %103, %.lr.ph.i196
   %109 = phi ptr [ %111, %.lr.ph.i196 ], [ %108, %103 ]
   %.07.i197 = phi ptr [ %110, %.lr.ph.i196 ], [ %107, %103 ]
-  tail call void %109(ptr noundef %.lcssa255) #7
+  tail call void %109(ptr noundef nonnull %.lcssa255) #7
   %110 = getelementptr inbounds nuw i8, ptr %.07.i197, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not.i198 = icmp eq ptr %111, null
@@ -591,7 +591,7 @@ pmix_obj_run_destructors.exit226:                 ; preds = %.lr.ph.i223, %243
 .lr.ph.i229:                                      ; preds = %273, %.lr.ph.i229
   %279 = phi ptr [ %281, %.lr.ph.i229 ], [ %278, %273 ]
   %.07.i230 = phi ptr [ %280, %.lr.ph.i229 ], [ %277, %273 ]
-  tail call void %279(ptr noundef %.lcssa251) #7
+  tail call void %279(ptr noundef nonnull %.lcssa251) #7
   %280 = getelementptr inbounds nuw i8, ptr %.07.i230, i64 8
   %281 = load ptr, ptr %280, align 8
   %.not.i231 = icmp eq ptr %281, null
@@ -734,7 +734,7 @@ pmix_obj_run_destructors.exit241:                 ; preds = %.lr.ph.i238, %314
 .lr.ph.i244:                                      ; preds = %344, %.lr.ph.i244
   %350 = phi ptr [ %352, %.lr.ph.i244 ], [ %349, %344 ]
   %.07.i245 = phi ptr [ %351, %.lr.ph.i244 ], [ %348, %344 ]
-  tail call void %350(ptr noundef %.lcssa) #7
+  tail call void %350(ptr noundef nonnull %.lcssa) #7
   %351 = getelementptr inbounds nuw i8, ptr %.07.i245, i64 8
   %352 = load ptr, ptr %351, align 8
   %.not.i246 = icmp eq ptr %352, null
@@ -781,7 +781,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @pmix_mca_base_framework_close(ptr noundef) local_unnamed_addr #1
 
@@ -810,7 +810,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6

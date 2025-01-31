@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [52 x i8] c"unterminated f-string literal (detected at line %d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyLexer_update_fstring_expr(ptr noundef captures(none) %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
 entry:
   %cur1 = getelementptr inbounds nuw i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8
@@ -157,14 +157,14 @@ return:                                           ; preds = %if.end9, %if.end30,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 
@@ -1195,7 +1195,7 @@ if.end:                                           ; preds = %if.then, %tok_get.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tok_get_normal_mode(ptr noundef initializes((56, 64), (520, 524)) %tok, ptr nocapture noundef %current_tok, ptr noundef %token) unnamed_addr #0 {
+define internal fastcc i32 @tok_get_normal_mode(ptr noundef initializes((56, 64), (520, 524)) %tok, ptr noundef captures(none) %current_tok, ptr noundef %token) unnamed_addr #0 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %tok, i64 56
   %starting_col_offset = getelementptr inbounds nuw i8, ptr %tok, i64 520
@@ -5006,7 +5006,7 @@ return:                                           ; preds = %tok_backup.exit, %i
 declare i32 @_PyLexer_token_setup(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tok_backup(ptr nocapture noundef %tok, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc void @tok_backup(ptr noundef captures(none) %tok, i32 noundef %c) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %c, -1
   br i1 %cmp.not, label %if.end10, label %if.then
@@ -5563,7 +5563,7 @@ return:                                           ; preds = %do.end, %tok_backup
 declare i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readonly captures(none) %tok, ptr noundef captures(none) %token) unnamed_addr #0 {
 entry:
   %tok_mode_stack = getelementptr inbounds nuw i8, ptr %tok, i64 2856
   %tok_mode_stack_index = getelementptr inbounds nuw i8, ptr %tok, i64 17256
@@ -5906,10 +5906,10 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #2
 declare i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

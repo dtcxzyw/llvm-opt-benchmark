@@ -666,21 +666,21 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_again(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @uv_timer_set_repeat(ptr nocapture noundef writeonly initializes((136, 144)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @uv_timer_set_repeat(ptr noundef writeonly captures(none) initializes((136, 144)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @uv_timer_get_repeat(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @uv_timer_get_repeat(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @uv_timer_get_due_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
@@ -692,7 +692,7 @@ define dso_local i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
@@ -718,7 +718,7 @@ define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv__run_timers(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local void @uv__run_timers(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.val9 = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val9, null
@@ -770,7 +770,7 @@ define dso_local void @uv__timer_close(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #7
@@ -779,13 +779,13 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7

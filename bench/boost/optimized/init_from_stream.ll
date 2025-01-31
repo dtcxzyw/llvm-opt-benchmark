@@ -53,7 +53,7 @@ _ZN5boost3log11v2_mt_posix14basic_settingsIcED2Ev.exit: ; preds = %3, %6
 declare void @_ZN5boost3log11v2_mt_posix18init_from_settingsIcEEvRKNS1_22basic_settings_sectionIT_EE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN5boost3log11v2_mt_posix14parse_settingsIcEENS1_14basic_settingsIT_EERSt13basic_istreamIS4_St11char_traitsIS4_EE(ptr dead_on_unwind writable sret(%"class.boost::log::v2_mt_posix::basic_settings") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -75,7 +75,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix14basic_settingsIcED2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost3log11v2_mt_posix16init_from_streamIwEEvRSt13basic_istreamIT_St11char_traitsIS4_EE(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {

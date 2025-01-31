@@ -58,7 +58,7 @@ $_ZN26ZIndexDistributorClaimTree16claim_level_sizeEi = comdat any
 @_ZN24ZGenerationPagesIteratorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24ZGenerationPagesIteratorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ZPageTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @ZAddressOffsetMax, align 8
   %3 = lshr i64 %2, 21
   store i64 %3, ptr %0, align 8
@@ -84,7 +84,7 @@ _ZN11ZGranuleMapIP5ZPageEC2Em.exit:               ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -128,7 +128,7 @@ _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
 declare void @_ZN16ZGenerationYoung20register_with_remsetEP5ZPage(ptr noundef nonnull align 64 dereferenceable(6720), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -158,7 +158,7 @@ _ZN11ZGranuleMapIP5ZPageE3putE7zoffsetmS1_.exit:  ; preds = %12, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -200,7 +200,7 @@ _ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit: ; preds = %13, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 16)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = load i64, ptr @ZAddressOffsetMax, align 8
@@ -251,7 +251,7 @@ declare void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull al
 declare void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32ZGenerationPagesParallelIteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN32ZGenerationPagesParallelIteratorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
@@ -300,7 +300,7 @@ declare void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull a
 declare void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 49), (56, 64)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 49), (56, 64)) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -323,7 +323,7 @@ define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ZGenerationPagesIteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ZGenerationPagesIteratorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #7
@@ -482,7 +482,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN26ZIndexDistributorClaimTree11levels_sizeEi(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {

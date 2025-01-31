@@ -564,7 +564,7 @@ define internal void @_job_complete_handler(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_user_msg_handler(ptr nocapture noundef readonly %0) #0 {
+define internal void @_user_msg_handler(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @get_log_level() #9
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %4, label %7
@@ -580,7 +580,7 @@ define internal void @_user_msg_handler(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_node_fail_handler(ptr nocapture noundef readonly %0) #0 {
+define internal void @_node_fail_handler(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14, ptr noundef %2) #9
   ret void
@@ -797,7 +797,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @slurm_setup_remote_working_cluster(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr @pending_job_id, align 4
@@ -1150,7 +1150,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %83 = load i32, ptr %82, align 8
   %84 = load ptr, ptr @opt_list, align 8
   %85 = call i32 @list_count(ptr noundef %84) #9
-  %86 = call i32 @list_count(ptr noundef %.183) #9
+  %86 = call i32 @list_count(ptr noundef nonnull %.183) #9
   %.not113 = icmp eq i32 %85, %86
   br i1 %.not113, label %89, label %87
 
@@ -1284,7 +1284,7 @@ declare i32 @slurmdb_get_first_het_job_cluster(ptr noundef, ptr noundef, ptr nou
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly initializes((472, 474)) %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @_copy_other_port(ptr noundef writeonly captures(none) initializes((472, 474)) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i16, ptr %1, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i16 %3, ptr %4, align 8
@@ -1473,10 +1473,10 @@ declare i32 @slurm_job_node_ready(i32 noundef) local_unnamed_addr #1
 declare ptr @slurm_opt_create_job_desc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

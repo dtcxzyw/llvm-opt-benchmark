@@ -721,7 +721,7 @@ declare i32 @H5P__encode_unsigned(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_unsigned(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = tail call fastcc i32 @H5P__copy_merge_comm_dt_list(ptr noundef %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -738,7 +738,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_set(i64 %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef captures(none) %3) #0 {
   %5 = tail call fastcc i32 @H5P__copy_merge_comm_dt_list(ptr noundef %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -755,7 +755,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_get(i64 %0, p
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %.020 = load ptr, ptr %0, align 8
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -770,7 +770,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noun
   br i1 %.not19, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %4, i64 %6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %4, i64 %6, i1 false)
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %6
   store ptr %10, ptr %1, align 8
@@ -804,7 +804,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
@@ -892,7 +892,7 @@ H5P__free_merge_comm_dtype_list.exit:             ; preds = %.lr.ph.i, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8
   %.not5.i = icmp eq ptr %5, null
   br i1 %.not5.i, label %H5P__free_merge_comm_dtype_list.exit, label %.lr.ph.i
@@ -912,7 +912,7 @@ H5P__free_merge_comm_dtype_list.exit:             ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_copy(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(none) %2) #0 {
   %4 = tail call fastcc i32 @H5P__copy_merge_comm_dt_list(ptr noundef %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -929,7 +929,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_copy(ptr noca
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #3 {
+define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #3 {
   %.01221 = load ptr, ptr %1, align 8
   %.01322 = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %.01322, null
@@ -969,7 +969,7 @@ define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr readnone captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %.not5.i = icmp eq ptr %4, null
   br i1 %.not5.i, label %H5P__free_merge_comm_dtype_list.exit, label %.lr.ph.i
@@ -989,7 +989,7 @@ H5P__free_merge_comm_dtype_list.exit:             ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr noundef captures(none) %0) unnamed_addr #0 {
   %.02639 = load ptr, ptr %0, align 8
   %.not.not40 = icmp eq ptr %.02639, null
   br i1 %.not.not40, label %._crit_edge, label %.lr.ph
@@ -1065,13 +1065,13 @@ H5P__free_merge_comm_dtype_list.exit:             ; preds = %.lr.ph.i, %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

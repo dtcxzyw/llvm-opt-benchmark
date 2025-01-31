@@ -933,7 +933,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib18PlainVanillaPayoffEEE = comda
 @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC1ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEESt6vectorINS2_INS_8DividendEEESaISB_EEdmmmmmbRKNS_13FdmSchemeDescE = unnamed_addr alias void (ptr, ptr, ptr, ptr, double, i64, i64, i64, i64, i64, i1, ptr), ptr @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEESt6vectorINS2_INS_8DividendEEESaISB_EEdmmmmmbRKNS_13FdmSchemeDescE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1018,7 +1018,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1031,7 +1031,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib10LazyObject6updateEv(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1560,7 +1560,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEEdmmmmmbRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr nocapture noundef %hwProcess, double noundef %corrEquityShortRate, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %vGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, i1 noundef zeroext %controlVariate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEEdmmmmmbRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr noundef captures(none) %hwProcess, double noundef %corrEquityShortRate, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %vGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, i1 noundef zeroext %controlVariate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %schemeDesc) unnamed_addr #9 align 2 {
 entry:
   %storedv = zext i1 %controlVariate to i8
   tail call void @_ZN8QuantLib18GenericModelEngineINS_11HestonModelENS_6Option9argumentsENS_14OneAssetOption7resultsEEC2ERKN5boost10shared_ptrIS1_EE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel)
@@ -1888,10 +1888,10 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEESt6vectorINS2_INS_8DividendEEESaISB_EEdmmmmmbRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr nocapture noundef %hwProcess, ptr nocapture noundef %dividends, double noundef %corrEquityShortRate, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %vGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, i1 noundef zeroext %controlVariate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib30FdHestonHullWhiteVanillaEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEENS2_INS_16HullWhiteProcessEEESt6vectorINS2_INS_8DividendEEESaISB_EEdmmmmmbRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr noundef captures(none) %hwProcess, ptr noundef captures(none) %dividends, double noundef %corrEquityShortRate, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %vGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, i1 noundef zeroext %controlVariate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %schemeDesc) unnamed_addr #9 align 2 {
 entry:
   %storedv = zext i1 %controlVariate to i8
   tail call void @_ZN8QuantLib18GenericModelEngineINS_11HestonModelENS_6Option9argumentsENS_14OneAssetOption7resultsEEC2ERKN5boost10shared_ptrIS1_EE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel)
@@ -11578,7 +11578,7 @@ declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
@@ -13022,7 +13022,7 @@ entry:
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -16116,7 +16116,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEEE7destroyIS6_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16325,7 +16325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib20AnalyticHestonEngineEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {

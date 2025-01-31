@@ -234,7 +234,7 @@ define void @lv_mem_monitor_core(ptr noundef %0) local_unnamed_addr #0 {
 declare void @lv_tlsf_walk_pool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @lv_mem_walker(ptr nocapture readnone %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #2 {
+define internal void @lv_mem_walker(ptr readnone captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #2 {
   %5 = load i64, ptr %3, align 8, !tbaa !27
   %6 = add i64 %5, %1
   store i64 %6, ptr %3, align 8, !tbaa !27

@@ -409,7 +409,7 @@ define hidden void @zend_weakrefs_shutdown() local_unnamed_addr #0 {
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakReference___construct(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_WeakReference___construct(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #8
   ret void
 }
@@ -530,7 +530,7 @@ declare void @llvm.assume(i1 noundef) #2
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakReference_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_WeakReference_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -564,7 +564,7 @@ define hidden void @zim_WeakReference_get(ptr nocapture noundef readonly %0, ptr
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @zend_weakmap_get_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define hidden noalias noundef ptr @zend_weakmap_get_gc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #8
   %5 = getelementptr inbounds i8, ptr %0, i64 -40
   %6 = load ptr, ptr %5, align 8
@@ -642,7 +642,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_gc(ptr nocapture noundef rea
 declare ptr @zend_get_gc_buffer_create() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @zend_weakmap_get_key_entry_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @zend_weakmap_get_key_entry_gc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #8
   %5 = getelementptr inbounds i8, ptr %0, i64 -40
   %6 = load ptr, ptr %5, align 8
@@ -732,7 +732,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_key_entry_gc(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @zend_weakmap_get_entry_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @zend_weakmap_get_entry_gc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #8
   %5 = getelementptr inbounds i8, ptr %0, i64 -40
   %6 = load ptr, ptr %5, align 8
@@ -801,7 +801,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_entry_gc(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #8
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 7
@@ -965,7 +965,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @zend_weakmap_get_object_entry_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @zend_weakmap_get_object_entry_gc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #8
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 7
@@ -1093,7 +1093,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_entry_gc(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakMap_offsetGet(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_WeakMap_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1182,7 +1182,7 @@ zend_weakmap_read_dimension.exit.thread:          ; preds = %33, %23, %13, %zend
 declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_weakmap_read_dimension(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal ptr @zend_weakmap_read_dimension(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1274,7 +1274,7 @@ define internal ptr @zend_weakmap_read_dimension(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakMap_offsetSet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_WeakMap_offsetSet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1381,7 +1381,7 @@ define internal void @zend_weakmap_write_dimension(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakMap_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_WeakMap_offsetExists(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1445,7 +1445,7 @@ zend_weakmap_has_dimension.exit:                  ; preds = %20, %21, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 10
@@ -1580,7 +1580,7 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakMap_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_WeakMap_offsetUnset(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1638,7 +1638,7 @@ zend_weakmap_unset_dimension.exit:                ; preds = %29, %21, %20, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_unset_dimension(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @zend_weakmap_unset_dimension(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 10
@@ -1685,7 +1685,7 @@ define internal void @zend_weakmap_unset_dimension(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_WeakMap_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_WeakMap_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1711,7 +1711,7 @@ define hidden void @zim_WeakMap_count(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zend_weakmap_count_elements(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
+define internal noundef i32 @zend_weakmap_count_elements(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -28
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -1812,7 +1812,7 @@ define hidden void @zend_register_weakref_ce() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @zend_weakref_new(ptr nocapture readnone %0) #0 {
+define internal noundef nonnull ptr @zend_weakref_new(ptr readnone captures(none) %0) #0 {
   %2 = load ptr, ptr @zend_ce_weakref, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
@@ -1834,7 +1834,7 @@ define internal noundef nonnull ptr @zend_weakref_new(ptr nocapture readnone %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_weakref_free(ptr noundef %0) #0 {
@@ -1869,12 +1869,12 @@ define internal noundef nonnull ptr @zend_weakmap_create_object(ptr noundef %0) 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #8
-  tail call void @_zend_hash_init(ptr noundef %12, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #8
+  tail call void @_zend_hash_init(ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #8
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_weakmap_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal noundef ptr @zend_weakmap_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @_emalloc_96() #8
   tail call void @zend_iterator_init(ptr noundef %5) #8
@@ -1955,7 +1955,7 @@ define internal void @zend_weakmap_free_obj(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_weakmap_get_properties_for(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal noundef ptr @zend_weakmap_get_properties_for(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %.loopexit
@@ -2047,7 +2047,7 @@ define internal noundef nonnull ptr @zend_weakmap_clone_obj(ptr noundef %0) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %13, i8 0, i64 56, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   tail call void @zend_object_std_init(ptr noundef nonnull %14, ptr noundef %2) #8
-  tail call void @_zend_hash_init(ptr noundef %13, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #8
+  tail call void @_zend_hash_init(ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext false) #8
   %15 = getelementptr inbounds i8, ptr %0, i64 -56
   tail call void @zend_hash_copy(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef null) #8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2118,7 +2118,7 @@ declare i32 @zend_std_cast_object_tostring(ptr noundef, ptr noundef, i32 noundef
 declare zeroext i1 @zend_object_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2148,7 +2148,7 @@ define internal void @zend_weakmap_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
@@ -2166,7 +2166,7 @@ define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_weakmap_iterator_get_current_data(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @zend_weakmap_iterator_get_current_data(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
@@ -2182,7 +2182,7 @@ define internal ptr @zend_weakmap_iterator_get_current_data(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_iterator_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
+define internal void @zend_weakmap_iterator_get_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2211,7 +2211,7 @@ define internal void @zend_weakmap_iterator_get_current_key(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_iterator_move_forward(ptr nocapture noundef readonly %0) #0 {
+define internal void @zend_weakmap_iterator_move_forward(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
@@ -2227,7 +2227,7 @@ define internal void @zend_weakmap_iterator_move_forward(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_iterator_rewind(ptr nocapture noundef readonly %0) #0 {
+define internal void @zend_weakmap_iterator_rewind(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
@@ -2267,10 +2267,10 @@ declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @zval_add_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

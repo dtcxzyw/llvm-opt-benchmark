@@ -3603,7 +3603,7 @@ declare void @ApplyLauncherForgetWorkerStartTime(i32 noundef) local_unnamed_addr
 declare void @proc_exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3630,7 +3630,7 @@ define dso_local void @stream_cleanup_files(i32 noundef %0, i32 noundef %1) loca
 declare void @BufFileDeleteFileSet(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_stream_options(ptr nocapture noundef writeonly initializes((0, 1), (8, 28), (32, 41), (48, 57), (64, 72)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @set_stream_options(ptr noundef writeonly captures(none) initializes((0, 1), (8, 28), (32, 41), (48, 57), (64, 72)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   store i8 1, ptr %0, align 8
   %4 = load i64, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4378,7 +4378,7 @@ am_parallel_apply_worker.exit:                    ; preds = %6, %2, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
+define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   %2 = load i32, ptr @apply_error_callback_arg, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %71, label %4
@@ -4606,7 +4606,7 @@ declare void @logicalrep_read_begin(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @logicalrep_read_commit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_commit_internal(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @apply_handle_commit_internal(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i64, ptr @skip_xact_finish_lsn, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %13, label %3
@@ -4841,7 +4841,7 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5080,7 +5080,7 @@ declare i32 @logicalrep_read_insert(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @logicalrep_rel_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @MyLogicalRepWorker, align 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %34 [
@@ -5210,7 +5210,7 @@ declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -5341,7 +5341,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef initializes((24, 40)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 {
+define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(none) initializes((24, 40)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.EPQState, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5680,7 +5680,7 @@ default.unreachable150:                           ; preds = %69
 declare void @RestoreUserContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5745,7 +5745,7 @@ declare ptr @execute_attr_map_slot(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @logicalrep_partition_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_updatable(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_relation_updatable(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -5788,7 +5788,7 @@ define internal fastcc void @check_relation_updatable(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_delete_internal(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @apply_handle_delete_internal(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.EPQState, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5837,7 +5837,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @slot_modify_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5992,7 +5992,7 @@ declare void @EvalPlanQualInit(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @ExecOpenIndices(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TargetPrivilegesCheck(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, 17) %1) unnamed_addr #0 {
+define internal fastcc void @TargetPrivilegesCheck(ptr noundef readonly captures(none) %0, i64 noundef range(i64 1, 17) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @GetUserId() #17
@@ -6125,7 +6125,7 @@ declare void @logicalrep_read_stream_abort(ptr noundef, ptr noundef, i1 noundef 
 declare void @pa_xact_finish(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 noundef signext range(i8 65, 113) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 noundef signext range(i8 65, 113) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @stream_fd, align 8
@@ -6194,7 +6194,7 @@ declare void @logicalrep_read_begin_prepare(ptr noundef, ptr noundef) local_unna
 declare void @logicalrep_read_prepare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_prepare_internal(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @apply_handle_prepare_internal(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [200 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -6742,10 +6742,10 @@ declare void @UpdateTwoPhaseState(i32 noundef, i8 noundef signext) local_unnamed
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

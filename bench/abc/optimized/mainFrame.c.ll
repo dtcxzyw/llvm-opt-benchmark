@@ -170,7 +170,7 @@ define ptr @Abc_FrameReadSpecName() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadBmcFrames(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadBmcFrames(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 404
   %4 = load i32, ptr %3, align 4
@@ -178,7 +178,7 @@ define i32 @Abc_FrameReadBmcFrames(ptr nocapture noundef readnone %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadProbStatus(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadProbStatus(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %4 = load i32, ptr %3, align 8
@@ -186,7 +186,7 @@ define i32 @Abc_FrameReadProbStatus(ptr nocapture noundef readnone %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadCex(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadCex(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -194,7 +194,7 @@ define ptr @Abc_FrameReadCex(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadCexVec(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadCexVec(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %4 = load ptr, ptr %3, align 8
@@ -202,7 +202,7 @@ define ptr @Abc_FrameReadCexVec(ptr nocapture noundef readnone %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadStatusVec(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadStatusVec(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %4 = load ptr, ptr %3, align 8
@@ -210,7 +210,7 @@ define ptr @Abc_FrameReadStatusVec(ptr nocapture noundef readnone %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadPoEquivs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadPoEquivs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %4 = load ptr, ptr %3, align 8
@@ -218,7 +218,7 @@ define ptr @Abc_FrameReadPoEquivs(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadPoStatuses(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadPoStatuses(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %4 = load ptr, ptr %3, align 8
@@ -226,7 +226,7 @@ define ptr @Abc_FrameReadPoStatuses(ptr nocapture noundef readnone %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadObjIds(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadObjIds(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %4 = load ptr, ptr %3, align 8
@@ -234,7 +234,7 @@ define ptr @Abc_FrameReadObjIds(ptr nocapture noundef readnone %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadJsonStrs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadJsonStrs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %4 = load ptr, ptr %3, align 8
@@ -242,7 +242,7 @@ define ptr @Abc_FrameReadJsonStrs(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameReadJsonObjs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameReadJsonObjs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %4 = load ptr, ptr %3, align 8
@@ -250,7 +250,7 @@ define ptr @Abc_FrameReadJsonObjs(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadCexPiNum(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadCexPiNum(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -260,7 +260,7 @@ define i32 @Abc_FrameReadCexPiNum(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadCexRegNum(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadCexRegNum(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -270,7 +270,7 @@ define i32 @Abc_FrameReadCexRegNum(ptr nocapture noundef readnone %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadCexPo(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadCexPo(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -279,7 +279,7 @@ define i32 @Abc_FrameReadCexPo(ptr nocapture noundef readnone %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_FrameReadCexFrame(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define i32 @Abc_FrameReadCexFrame(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -289,7 +289,7 @@ define i32 @Abc_FrameReadCexFrame(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_FrameInputNdr(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @Abc_FrameInputNdr(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @s_GlobalFrame, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 624
   %5 = load ptr, ptr %4, align 8
@@ -312,7 +312,7 @@ Ndr_Delete.exit:                                  ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameOutputNdr(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define ptr @Abc_FrameOutputNdr(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 624
   %4 = load ptr, ptr %3, align 8
@@ -321,7 +321,7 @@ define ptr @Abc_FrameOutputNdr(ptr nocapture noundef readnone %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @Abc_FrameOutputNdrArray(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define ptr @Abc_FrameOutputNdrArray(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %4 = load ptr, ptr %3, align 8
@@ -396,7 +396,7 @@ define void @Abc_FrameSetCex(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Abc_FrameSetNFrames(i32 noundef %0) local_unnamed_addr #3 {
@@ -768,7 +768,7 @@ define void @Abc_FrameSetMaxLoad(float noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadArrayMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadArrayMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -792,7 +792,7 @@ define void @Abc_FrameSetArrayMapping(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadBoxes(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -1623,12 +1623,12 @@ define void @Abc_FrameDeleteAllNetworks(ptr noundef %0) local_unnamed_addr #1 {
 declare void @Gia_ManStopP(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Abc_FrameRestart(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define void @Abc_FrameRestart(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_FrameClearVerifStatus(ptr nocapture noundef initializes((400, 408)) %0) local_unnamed_addr #3 {
+define void @Abc_FrameClearVerifStatus(ptr noundef captures(none) initializes((400, 408)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -1648,7 +1648,7 @@ define void @Abc_FrameClearVerifStatus(ptr nocapture noundef initializes((400, 4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_FrameShowProgress(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_FrameShowProgress(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @s_GlobalFrame, align 8
   %3 = tail call ptr @Cmd_FlagReadByName(ptr noundef %2, ptr noundef nonnull @.str.2) #18
   %4 = icmp eq ptr %3, null
@@ -1676,28 +1676,28 @@ Abc_FrameIsFlagEnabled.exit:                      ; preds = %1, %5, %.tail.i, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadNtk(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadNtk(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadGia(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadGia(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadOut(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadOut(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Abc_FrameReadErr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @Abc_FrameReadErr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -1719,7 +1719,7 @@ define i32 @Abc_FrameReadMode(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define i32 @Abc_FrameSetMode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -1802,7 +1802,7 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_FrameSwapCurrentAndBackup(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Abc_FrameSwapCurrentAndBackup(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 160
@@ -1829,7 +1829,7 @@ define void @Abc_FrameSwapCurrentAndBackup(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameReplaceCurrentNetwork(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Abc_FrameReplaceCurrentNetwork(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %34, label %4
 
@@ -1911,7 +1911,7 @@ Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_addr #1 {
+define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -1954,7 +1954,7 @@ Abc_FrameIsBridgeMode.exit11:                     ; preds = %13
   %19 = load ptr, ptr @stdout, align 8
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #21
   %21 = trunc i64 %20 to i32
-  %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef %18) #18
+  %22 = call i32 @Gia_ManToBridgeText(ptr noundef %19, i32 noundef %21, ptr noundef nonnull %18) #18
   call void @free(ptr noundef %18) #18
   br label %24
 
@@ -1971,7 +1971,7 @@ Abc_FrameIsBridgeMode.exit11.thread:              ; preds = %13, %Abc_FrameIsBri
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameUnmapAllNetworks(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @Abc_FrameUnmapAllNetworks(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.08 = load ptr, ptr %2, align 8
   %.not9 = icmp eq ptr %.08, null
@@ -2128,7 +2128,7 @@ define ptr @Abc_FrameReadSave2() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2189,7 +2189,7 @@ define range(i32 -1, 2) i32 @Abc_FrameCheckPoConst(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_FrameCheckPoConstTest(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define void @Abc_FrameCheckPoConstTest(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
@@ -2259,7 +2259,7 @@ Abc_FrameCheckPoConst.exit:                       ; preds = %.lr.ph, %8, %24
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
@@ -2269,10 +2269,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17

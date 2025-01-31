@@ -136,7 +136,7 @@ define void @png_set_sig_bytes(ptr noalias noundef %0, i32 noundef %1) local_unn
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @png_sig_cmp(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ugt i64 %2, 8
   br i1 %4, label %7, label %5
 
@@ -165,7 +165,7 @@ define i32 @png_sig_cmp(ptr nocapture noundef readonly %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -197,7 +197,7 @@ define void @png_zfree(ptr noundef %0, ptr noundef %1) #0 {
 declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_reset_crc(ptr noalias nocapture noundef writeonly initializes((588, 592)) %0) local_unnamed_addr #0 {
+define void @png_reset_crc(ptr noalias noundef writeonly captures(none) initializes((588, 592)) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #29
   %3 = trunc i64 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 588
@@ -208,7 +208,7 @@ define void @png_reset_crc(ptr noalias nocapture noundef writeonly initializes((
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_calculate_crc(ptr noalias nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @png_calculate_crc(ptr noalias noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 536870912
@@ -369,7 +369,7 @@ define noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @png_set_mem_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -382,7 +382,7 @@ declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 declare void @longjmp(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @png_create_info_struct(ptr noalias noundef %0) local_unnamed_addr #0 {
@@ -885,7 +885,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_info_init_3(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @png_info_init_3(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -915,7 +915,7 @@ define void @png_info_init_3(ptr nocapture noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @png_data_freer(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -991,7 +991,7 @@ define void @png_save_int_32(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 declare void @png_save_uint_32(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [5 x i8], align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %80, label %5
@@ -1126,7 +1126,7 @@ define range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0, ptr no
 declare ptr @png_format_number(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1146,22 +1146,22 @@ define noundef ptr @png_convert_to_rfc1123(ptr noalias noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_copyright(ptr noalias nocapture noundef readnone %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_copyright(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
   ret ptr @.str.8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_libpng_ver(ptr noalias nocapture noundef readnone %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_libpng_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_header_ver(ptr noalias nocapture noundef readnone %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_header_ver(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @png_get_header_version(ptr noalias nocapture noundef readnone %0) local_unnamed_addr #12 {
+define noundef nonnull ptr @png_get_header_version(ptr noalias noundef readnone captures(none) %0) local_unnamed_addr #12 {
   ret ptr @.str.9
 }
 
@@ -1331,7 +1331,7 @@ define noundef i32 @png_access_version_number() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_zstream_error(ptr noalias nocapture noundef %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @png_zstream_error(ptr noalias noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1358,7 +1358,7 @@ switch.lookup:                                    ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, -625000001
   %or.cond = icmp ult i32 %4, -624999985
   br i1 %or.cond, label %._crit_edge21, label %5
@@ -1449,7 +1449,7 @@ png_colorspace_check_gamma.exit:                  ; preds = %png_muldiv.exit.i
 declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @png_colorspace_sync_info(ptr noalias noundef %0, ptr noalias nocapture noundef %1) local_unnamed_addr #0 {
+define void @png_colorspace_sync_info(ptr noalias noundef %0, ptr noalias noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %4 = load i16, ptr %3, align 2
   %.not = icmp sgt i16 %4, -1
@@ -1585,7 +1585,7 @@ png_colorspace_sync_info.exit:                    ; preds = %35, %33, %21, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias noundef %0, ptr noalias nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.png_XYZ, align 4
   %6 = call fastcc i32 @png_colorspace_check_xy(ptr noundef %5, ptr noundef %2)
   switch i32 %6, label %32 [
@@ -1628,7 +1628,7 @@ define range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias nounde
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false), !noalias !40
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %23, ptr noundef nonnull readonly align 4 dereferenceable(36) %5, i64 36, i1 false), !noalias !40
-  %24 = tail call fastcc i32 @png_colorspace_endpoints_match(ptr noundef readonly %2, ptr noundef nonnull @sRGB_xy, i32 noundef 1000), !noalias !42
+  %24 = tail call fastcc i32 @png_colorspace_endpoints_match(ptr noundef nonnull readonly %2, ptr noundef nonnull @sRGB_xy, i32 noundef 1000), !noalias !42
   %.not18.i = icmp eq i32 %24, 0
   %25 = and i16 %9, 32701
   %26 = or disjoint i16 %25, 2
@@ -1659,7 +1659,7 @@ png_colorspace_set_xy_and_XYZ.exit:               ; preds = %21, %19, %17, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @png_colorspace_check_xy(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 3) i32 @png_colorspace_check_xy(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #15 {
   %3 = alloca %struct.png_xy, align 4
   %4 = load i32, ptr %1, align 4
   %or.cond.i = icmp ugt i32 %4, 100000
@@ -2273,7 +2273,7 @@ png_XYZ_from_xy.exit.thread:                      ; preds = %286, %271, %256, %2
 declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @png_colorspace_set_endpoints(ptr noalias noundef %0, ptr noalias nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @png_colorspace_set_endpoints(ptr noalias noundef %0, ptr noalias noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.png_XYZ, align 4
   %6 = alloca %struct.png_XYZ, align 4
   %7 = alloca %struct.png_xy, align 4
@@ -3033,7 +3033,7 @@ is_ICC_signature.exit.thread:                     ; preds = %12, %23, %31, %is_I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 5, 1001) %2) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 5, 1001) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3164,7 +3164,7 @@ icc_check_length.exit:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i8, ptr %4, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw i32 %8, 24
@@ -3438,7 +3438,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @png_icc_check_tag_table(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
@@ -4008,7 +4008,7 @@ png_muldiv.exit.thread:                           ; preds = %52, %37, %22, %png_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @png_muldiv(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %20, label %5
 
@@ -4221,7 +4221,7 @@ define void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @png_check_fp_number(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #16 {
   %5 = load i32, ptr %2, align 4
   %6 = load i64, ptr %3, align 8
   %7 = icmp ult i64 %6, %1
@@ -4375,7 +4375,7 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @png_check_fp_string(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #16 {
+define i32 @png_check_fp_string(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   store i32 0, ptr %3, align 4
@@ -4405,7 +4405,7 @@ define i32 @png_check_fp_string(ptr nocapture noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_ascii_from_fp(ptr noalias noundef %0, ptr nocapture noundef %1, i64 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none) %1, i64 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [10 x i8], align 1
   %8 = alloca double, align 8
@@ -4933,16 +4933,16 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #18
 
 ; Function Attrs: nounwind uwtable
-define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [10 x i8], align 1
   %6 = icmp ugt i64 %2, 12
   br i1 %6, label %7, label %40
@@ -5230,7 +5230,7 @@ define zeroext i16 @png_gamma_16bit_correct(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define zeroext i16 @png_gamma_correct(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
+define zeroext i16 @png_gamma_correct(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 8
@@ -5740,7 +5740,7 @@ png_gamma_8bit_correct.exit.i96:                  ; preds = %113, %106
 
 168:                                              ; preds = %168, %159
   %indvars.iv.i107 = phi i64 [ 0, %159 ], [ %indvars.iv.next.i108, %168 ]
-  %169 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #29
+  %169 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 512) #29
   %170 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i107
   store ptr %169, ptr %170, align 8
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -5892,7 +5892,7 @@ png_build_8bit_table.exit104:                     ; preds = %png_gamma_8bit_corr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef range(i32 0, 16) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i32 noundef range(i32 0, 16) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sub nsw i32 8, %2
   %6 = shl nuw nsw i32 1, %5
   %7 = sub nuw nsw i32 16, %2
@@ -6118,7 +6118,7 @@ define noundef i32 @png_image_error(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @png_xy_from_XYZ(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 {
+define internal fastcc range(i32 0, 2) i32 @png_xy_from_XYZ(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #15 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -6370,14 +6370,14 @@ declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #22
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare void @png_destroy_read_struct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24
@@ -6395,10 +6395,10 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

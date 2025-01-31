@@ -251,7 +251,7 @@ declare void @_ZN17EpsilonMemoryPoolC1EP11EpsilonHeap(ptr noundef nonnull align 
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap15memory_managersEv(ptr dead_on_unwind noalias writable writeonly sret(%class.GrowableArray) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -267,7 +267,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.1) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap12memory_poolsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.GrowableArray.1) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -285,7 +285,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, -7) i64 @_ZNK11EpsilonHeap21unsafe_max_tlab_allocEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK11EpsilonHeap21unsafe_max_tlab_allocEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 3
@@ -559,7 +559,7 @@ _Z25proper_unit_for_byte_sizem.exit23:            ; preds = %.thread36, %_Z24byt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11EpsilonHeap20print_metaspace_infoEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11EpsilonHeap20print_metaspace_infoEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceCombinedStats, align 8
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %2) #8
   %3 = load i64, ptr %2, align 8
@@ -673,7 +673,7 @@ _Z25proper_unit_for_byte_sizem.exit23:            ; preds = %.thread36, %_Z24byt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr @EpsilonElasticTLAB, align 1
@@ -843,7 +843,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11EpsilonHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11EpsilonHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) unnamed_addr #0 align 2 {
   store i8 0, ptr %2, align 1
   %4 = tail call noundef ptr @_ZN11EpsilonHeap13allocate_workEmb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i1 noundef zeroext true)
   ret ptr %4
@@ -856,7 +856,7 @@ define hidden noundef ptr @_ZN11EpsilonHeap29allocate_loaded_archive_spaceEm(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap7collectEN7GCCause5CauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap7collectEN7GCCause5CauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = and i32 %1, -2
   %switch = icmp eq i32 %3, 16
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -916,7 +916,7 @@ define hidden void @_ZN11EpsilonHeap18do_full_collectionEb(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap14object_iterateEP13ObjectClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap14object_iterateEP13ObjectClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %1) #8
@@ -926,7 +926,7 @@ define hidden void @_ZN11EpsilonHeap14object_iterateEP13ObjectClosure(ptr nocapt
 declare void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11EpsilonHeap8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK11EpsilonHeap8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
@@ -951,7 +951,7 @@ declare void @_ZNK15ContiguousSpace8print_onEP12outputStream(ptr noundef nonnull
 declare void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK11EpsilonHeap14print_locationEP12outputStreamPv(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK11EpsilonHeap14print_locationEP12outputStreamPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN20BlockLocationPrinterI11EpsilonHeapE14print_locationEP12outputStreamPv(ptr noundef %1, ptr noundef %2)
   ret i1 %4
 }

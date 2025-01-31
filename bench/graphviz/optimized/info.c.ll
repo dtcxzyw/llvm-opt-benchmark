@@ -21,7 +21,7 @@ define void @infoinit() local_unnamed_addr #0 {
 declare void @freeinit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @nodeInfo, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8

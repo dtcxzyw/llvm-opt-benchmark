@@ -284,7 +284,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -352,10 +352,10 @@ define internal void @fq_flush_timeout(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -17, 1) i32 @iommu_get_dma_cookie(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @iommu_get_dma_cookie(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -391,7 +391,7 @@ define dso_local noundef range(i32 -17, 1) i32 @iommu_get_dma_cookie(ptr nocaptu
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @iommu_get_msi_cookie(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @iommu_get_msi_cookie(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %17
@@ -425,7 +425,7 @@ define dso_local noundef range(i32 -22, 1) i32 @iommu_get_msi_cookie(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iommu_put_dma_cookie(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @iommu_put_dma_cookie(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -588,7 +588,7 @@ declare dso_local void @put_iova_domain(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @iommu_dma_get_resv_regions(ptr nocapture readonly %0, ptr nocapture readnone %1) #5 align 16 {
+define dso_local void @iommu_dma_get_resv_regions(ptr readonly captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret void
 }
 
@@ -977,7 +977,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
 declare dso_local ptr @iommu_get_domain_for_dev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @iommu_dma_prepare_msi(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @iommu_dma_prepare_msi(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @iommu_get_domain_for_dev(ptr noundef %4) #15
@@ -1119,7 +1119,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iommu_dma_compose_msi_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @iommu_dma_compose_msi_msg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @iommu_get_domain_for_dev(ptr noundef %4) #15
@@ -1302,7 +1302,7 @@ declare dso_local i32 @iova_domain_init_rcaches(ptr noundef) local_unnamed_addr 
 declare dso_local zeroext i1 @device_iommu_capable(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iommu_get_resv_regions(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1320,7 +1320,7 @@ declare dso_local ptr @pci_find_host_bridge(ptr noundef) local_unnamed_addr #4
 declare dso_local void @list_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @iommu_dma_ranges_sort(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #11 align 16 {
+define internal range(i32 0, 2) i32 @iommu_dma_ranges_sort(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #11 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
@@ -1336,7 +1336,7 @@ define internal range(i32 0, 2) i32 @iommu_dma_ranges_sort(ptr nocapture readnon
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @iommu_dma_alloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i64 noundef %4) #1 align 16 {
+define internal ptr @iommu_dma_alloc(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.sg_table, align 8
   %8 = trunc i64 %4 to i32
@@ -1623,7 +1623,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @iommu_dma_get_sgtable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 noundef %4, i64 %5) #1 align 16 {
+define internal i32 @iommu_dma_get_sgtable(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 noundef %4, i64 %5) #1 align 16 {
   %7 = tail call zeroext i1 @is_vmalloc_addr(ptr noundef %2) #15
   br i1 %7, label %8, label %17
 
@@ -3389,7 +3389,7 @@ declare dso_local ptr @iommu_get_dma_domain(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @iommu_deferred_attach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @iommu_dma_alloc_iova(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i64 @iommu_dma_alloc_iova(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [32 x i8] c"sysinfo failed to get swap size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_management_internal_OperatingSystemImpl_initialize0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_com_sun_management_internal_OperatingSystemImpl_initialize0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 30) #6
   store i64 %3, ptr @page_size, align 8
   ret void
@@ -25,7 +25,7 @@ define void @Java_com_sun_management_internal_OperatingSystemImpl_initialize0(pt
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalSwapSpaceSize0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalSwapSpaceSize0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sysinfo, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %4 = call i32 @sysinfo(ptr noundef nonnull %3) #6
@@ -48,7 +48,7 @@ get_total_or_available_swap_space_size.exit:      ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeSwapSpaceSize0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeSwapSpaceSize0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sysinfo, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %4 = call i32 @sysinfo(ptr noundef nonnull %3) #6
@@ -71,7 +71,7 @@ get_total_or_available_swap_space_size.exit:      ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuTime0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuTime0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tms, align 8
   %4 = tail call i64 @sysconf(i32 noundef 2) #6
   %5 = icmp eq i64 %4, -1
@@ -99,10 +99,10 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuTi
 declare void @throw_internal_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeMemorySize0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeMemorySize0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 86) #6
   %4 = load i64, ptr @page_size, align 8
   %5 = mul nsw i64 %4, %3
@@ -110,7 +110,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeMemorySi
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalMemorySize0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalMemorySize0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 85) #6
   %4 = load i64, ptr @page_size, align 8
   %5 = mul nsw i64 %4, %3
@@ -118,7 +118,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalMemoryS
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_management_internal_OperatingSystemImpl_getOpenFileDescriptorCount0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_management_internal_OperatingSystemImpl_getOpenFileDescriptorCount0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @opendir(ptr noundef nonnull @.str.1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %.preheader
@@ -168,7 +168,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_ma
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #2
 
@@ -176,10 +176,10 @@ declare ptr @readdir64(ptr noundef) local_unnamed_addr #2
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getMaxFileDescriptorCount0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getMaxFileDescriptorCount0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = call i32 @getrlimit64(i32 noundef 7, ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, -1
@@ -205,10 +205,10 @@ declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sysinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

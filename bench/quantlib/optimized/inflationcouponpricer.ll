@@ -283,7 +283,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_29YoYOptionletVolat
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -368,7 +368,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -505,10 +505,10 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15setCouponPricerERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_21InflationCouponPricerEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15setCouponPricerERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_21InflationCouponPricerEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.boost::shared_ptr.33", align 8
   %0 = load ptr, ptr %leg, align 8, !tbaa !3
@@ -653,7 +653,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef captures(none) %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.40", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1124,7 +1124,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_29YoYOptionletVolatilitySurfaceEE4Li
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr noundef captures(none) %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.40", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1467,7 +1467,7 @@ ehcleanup14:                                      ; preds = %lpad9, %lpad.i, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef captures(none) %capletVol, ptr noundef captures(none) %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp18 = alloca %"class.boost::shared_ptr", align 8
@@ -1950,7 +1950,7 @@ ehcleanup28:                                      ; preds = %lpad22, %lpad12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr noundef captures(none) %capletVol, ptr noundef captures(none) %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp13 = alloca %"class.boost::shared_ptr", align 8
@@ -2444,7 +2444,7 @@ ehcleanup26:                                      ; preds = %ehcleanup23, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricer19setCapletVolatilityERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capletVol) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricer19setCapletVolatilityERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %capletVol) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2957,7 +2957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef double @_ZNK8QuantLib24YoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nocapture nonnull readnone align 8 %this, i32 %0, double %1, double %2, double %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib24YoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nonnull readnone align 8 captures(none) %this, i32 %0, double %1, double %2, double %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i8 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4055,7 +4055,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare double @sqrt(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib24YoYInflationCouponPricer14adjustedFixingEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %fixing) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib24YoYInflationCouponPricer14adjustedFixingEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, double noundef %fixing) unnamed_addr #8 align 2 {
 entry:
   %cmp = fcmp oeq double %fixing, 0x47EFFFFFE0000000
   br i1 %cmp, label %if.then, label %if.end
@@ -4725,7 +4725,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #14
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib29BlackYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nocapture nonnull readnone align 8 %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib29BlackYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev, double noundef 1.000000e+00, double noundef 0.000000e+00)
   ret double %call
@@ -4734,7 +4734,7 @@ entry:
 declare noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef, double noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib42UnitDisplacedBlackYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nocapture nonnull readnone align 8 %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib42UnitDisplacedBlackYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
 entry:
   %add = fadd double %effStrike, 1.000000e+00
   %add2 = fadd double %forward, 1.000000e+00
@@ -4743,7 +4743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib33BachelierYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nocapture nonnull readnone align 8 %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib33BachelierYoYInflationCouponPricer17optionletPriceImpENS_6Option4TypeEddd(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev) unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef double @_ZN8QuantLib21bachelierBlackFormulaENS_6Option4TypeEdddd(i32 noundef %optionType, double noundef %effStrike, double noundef %forward, double noundef %stdDev, double noundef 1.000000e+00)
   ret double %call
@@ -6361,7 +6361,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -7346,7 +7346,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

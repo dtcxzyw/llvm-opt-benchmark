@@ -12,17 +12,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @normal_url_char = internal unnamed_addr constant <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\00\00\00\00\F6\FF\FF\7F\FF\FF\FF\FF\FF\FF\FF\7F", [16 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @http_parser_url_init(ptr nocapture noundef writeonly initializes((0, 32)) %u) local_unnamed_addr #0 {
+define void @http_parser_url_init(ptr noundef writeonly captures(none) initializes((0, 32)) %u) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %u, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @http_parser_parse_url(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @http_parser_parse_url(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef captures(none) %u) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %buflen, 0
   br i1 %cmp, label %return, label %if.end

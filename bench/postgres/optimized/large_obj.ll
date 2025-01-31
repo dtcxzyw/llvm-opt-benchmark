@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [6 x i8] c"</p>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @do_lo_export(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str, ptr noundef %3)
   br i1 %4, label %5, label %fail_lo_xact.exit
@@ -38,7 +38,7 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
 5:                                                ; preds = %2
   tail call void @SetCancelConn(ptr noundef null) #7
   %6 = load ptr, ptr @pset, align 8
-  %7 = tail call i64 @strtoul(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #7
+  %7 = tail call i64 @strtoul(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 10) #7
   %8 = trunc i64 %7 to i32
   %9 = tail call i32 @lo_export(ptr noundef %6, i32 noundef %8, ptr noundef %1) #7
   tail call void @ResetCancelConn() #7
@@ -97,7 +97,7 @@ fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %1) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr @pset, align 8
   %.not = icmp eq ptr %3, null
@@ -143,7 +143,7 @@ declare void @SetCancelConn(ptr noundef) local_unnamed_addr #1
 declare i32 @lo_export(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare void @ResetCancelConn() local_unnamed_addr #1
 
@@ -336,7 +336,7 @@ fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit
 declare i32 @lo_import(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @pg_malloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -347,16 +347,16 @@ declare i64 @PQescapeStringConn(ptr noundef, ptr noundef, ptr noundef, i64 nound
 declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @SetVariable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @do_lo_unlink(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  %3 = tail call i64 @strtoul(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #7
+  %3 = tail call i64 @strtoul(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 10) #7
   %4 = trunc i64 %3 to i32
   %5 = call fastcc zeroext i1 @start_lo_xact(ptr noundef nonnull @.str.9, ptr noundef %2)
   br i1 %5, label %6, label %fail_lo_xact.exit
@@ -433,10 +433,10 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

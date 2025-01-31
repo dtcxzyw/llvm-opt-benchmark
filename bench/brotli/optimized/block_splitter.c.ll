@@ -11,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BrotliInitBlockSplit(ptr nocapture noundef writeonly initializes((0, 48)) %self) local_unnamed_addr #0 {
+define hidden void @BrotliInitBlockSplit(ptr noundef writeonly captures(none) initializes((0, 48)) %self) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %self, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliDestroyBlockSplit(ptr noundef %m, ptr nocapture noundef %self) local_unnamed_addr #1 {
+define hidden void @BrotliDestroyBlockSplit(ptr noundef %m, ptr noundef captures(none) %self) local_unnamed_addr #1 {
 entry:
   %types = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %types, align 8
@@ -34,7 +34,7 @@ entry:
 declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliSplitBlock(ptr noundef %m, ptr nocapture noundef readonly %cmds, i64 noundef %num_commands, ptr nocapture noundef readonly %data, i64 noundef %pos, i64 noundef %mask, ptr nocapture noundef readonly %params, ptr nocapture noundef %literal_split, ptr nocapture noundef %insert_and_copy_split, ptr nocapture noundef %dist_split) local_unnamed_addr #1 {
+define hidden void @BrotliSplitBlock(ptr noundef %m, ptr noundef readonly captures(none) %cmds, i64 noundef %num_commands, ptr noundef readonly captures(none) %data, i64 noundef %pos, i64 noundef %mask, ptr noundef readonly captures(none) %params, ptr noundef captures(none) %literal_split, ptr noundef captures(none) %insert_and_copy_split, ptr noundef captures(none) %dist_split) local_unnamed_addr #1 {
 entry:
   %cmp4.not.i = icmp eq i64 %num_commands, 0
   br i1 %cmp4.not.i, label %if.then2.i, label %for.body.i
@@ -1098,7 +1098,7 @@ for.body284.i.i:                                  ; preds = %for.end267.i.i, %fo
   %77 = load i32, ptr %arrayidx285.i.i, align 4
   %idxprom286.i.i = zext i32 %77 to i64
   %arrayidx287.i.i = getelementptr inbounds nuw %struct.HistogramLiteral, ptr %all_histograms.0.lcssa.i.i, i64 %idxprom286.i.i
-  %call289.i.i = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef %call46.i.i, ptr noundef %arrayidx287.i.i, ptr noundef nonnull %add.ptr279.i.i) #7
+  %call289.i.i = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef nonnull %call46.i.i, ptr noundef %arrayidx287.i.i, ptr noundef nonnull %add.ptr279.i.i) #7
   %cmp290.i.i = fcmp olt double %call289.i.i, %best_bits.0383.i.i
   br i1 %cmp290.i.i, label %if.then292.i.i, label %for.inc295.i.i
 
@@ -2295,7 +2295,7 @@ for.body284.i.i506:                               ; preds = %for.end267.i.i497, 
   %172 = load i32, ptr %arrayidx285.i.i507, align 4
   %idxprom286.i.i508 = zext i32 %172 to i64
   %arrayidx287.i.i509 = getelementptr inbounds nuw %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i459, i64 %idxprom286.i.i508
-  %call289.i.i510 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef %call46.i.i370, ptr noundef %arrayidx287.i.i509, ptr noundef nonnull %add.ptr279.i.i485) #7
+  %call289.i.i510 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %call46.i.i370, ptr noundef %arrayidx287.i.i509, ptr noundef nonnull %add.ptr279.i.i485) #7
   %cmp290.i.i511 = fcmp olt double %call289.i.i510, %best_bits.0382.i.i
   br i1 %cmp290.i.i511, label %if.then292.i.i597, label %for.inc295.i.i512
 
@@ -3512,7 +3512,7 @@ for.body284.i.i1185:                              ; preds = %for.end267.i.i1176,
   %270 = load i32, ptr %arrayidx285.i.i1189, align 4
   %idxprom286.i.i1190 = zext i32 %270 to i64
   %arrayidx287.i.i1191 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1127, i64 %idxprom286.i.i1190
-  %call289.i.i1192 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef %call46.i.i1010, ptr noundef %arrayidx287.i.i1191, ptr noundef nonnull %add.ptr279.i.i1156) #7
+  %call289.i.i1192 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %call46.i.i1010, ptr noundef %arrayidx287.i.i1191, ptr noundef nonnull %add.ptr279.i.i1156) #7
   %cmp290.i.i1193 = fcmp olt double %call289.i.i1192, %best_bits.0382.i.i1186
   br i1 %cmp290.i.i1193, label %if.then292.i.i1285, label %for.inc295.i.i1194
 
@@ -3708,10 +3708,10 @@ SplitByteVectorDistance.exit:                     ; preds = %if.then2.i1379, %if
 declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log2(double noundef) local_unnamed_addr #5

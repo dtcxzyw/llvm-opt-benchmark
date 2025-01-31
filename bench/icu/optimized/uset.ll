@@ -93,7 +93,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uset_isFrozen_75(ptr nocapture noundef readonly %set) local_unnamed_addr #4 {
+define signext range(i8 0, 2) i8 @uset_isFrozen_75(ptr noundef readonly captures(none) %set) local_unnamed_addr #4 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %set, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -811,7 +811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uset_getItem_75(ptr noundef %uset, i32 noundef %itemIndex, ptr nocapture noundef writeonly %start, ptr nocapture noundef writeonly %end, ptr noundef %str, i32 noundef %strCapacity, ptr noundef %ec) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uset_getItem_75(ptr noundef %uset, i32 noundef %itemIndex, ptr noundef writeonly captures(none) %start, ptr noundef writeonly captures(none) %end, ptr noundef %str, i32 noundef %strCapacity, ptr noundef %ec) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
   %0 = load i32, ptr %ec, align 4

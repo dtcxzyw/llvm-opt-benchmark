@@ -1676,10 +1676,10 @@ return:                                           ; preds = %entry, %if.end934
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @uri_clean(ptr noundef %uri) unnamed_addr #0 {
@@ -1887,7 +1887,7 @@ return:                                           ; preds = %if.end3, %entry, %w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @uri_string_escape(ptr noundef %str, ptr noundef readonly %list) local_unnamed_addr #0 {
@@ -3002,13 +3002,9 @@ if.end275:                                        ; preds = %for.cond253
   %23 = trunc i64 %call272 to i32
   %conv274 = add i32 %23, 1
   %cmp276 = icmp eq i32 %nbslash.4, 0
-  br i1 %cmp276, label %if.then278, label %if.end284
+  br i1 %cmp276, label %if.then281, label %if.end284
 
-if.then278:                                       ; preds = %if.end275
-  %cmp279.not = icmp eq ptr %uptr.2, null
-  br i1 %cmp279.not, label %done, label %if.then281
-
-if.then281:                                       ; preds = %if.then278
+if.then281:                                       ; preds = %if.end275
   %call282 = tail call ptr @uri_string_escape(ptr noundef nonnull %uptr.2, ptr noundef nonnull @.str.4)
   br label %done
 
@@ -3018,7 +3014,7 @@ if.end284:                                        ; preds = %if.end275
   %conv286 = sext i32 %add285 to i64
   %call287 = tail call noalias ptr @g_malloc(i64 noundef %conv286) #15
   %cmp289173 = icmp sgt i32 %nbslash.4, 0
-  br i1 %cmp289173, label %for.body291, label %for.end297
+  br i1 %cmp289173, label %for.body291, label %if.then300
 
 for.body291:                                      ; preds = %if.end284, %for.body291
   %vptr.0175 = phi ptr [ %incdec.ptr294, %for.body291 ], [ %call287, %if.end284 ]
@@ -3031,14 +3027,10 @@ for.body291:                                      ; preds = %if.end284, %for.bod
   store i8 47, ptr %incdec.ptr293, align 1
   %dec296 = add nsw i32 %nbslash.6174, -1
   %cmp289 = icmp samesign ugt i32 %nbslash.6174, 1
-  br i1 %cmp289, label %for.body291, label %for.end297, !llvm.loop !38
+  br i1 %cmp289, label %for.body291, label %if.then300, !llvm.loop !38
 
-for.end297:                                       ; preds = %for.body291, %if.end284
+if.then300:                                       ; preds = %for.body291, %if.end284
   %vptr.0.lcssa = phi ptr [ %call287, %if.end284 ], [ %incdec.ptr294, %for.body291 ]
-  %cmp298.not = icmp eq ptr %uptr.2, null
-  br i1 %cmp298.not, label %if.else329, label %if.then300
-
-if.then300:                                       ; preds = %for.end297
   %cmp301 = icmp ugt ptr %vptr.0.lcssa, %call287
   %cmp304 = icmp ult i32 %23, 2147483647
   %or.cond2 = and i1 %cmp304, %cmp301
@@ -3074,20 +3066,13 @@ if.else323:                                       ; preds = %land.lhs.true311, %
   store i8 0, ptr %arrayidx327, align 1
   br label %if.end333
 
-if.else329:                                       ; preds = %for.end297
-  %sext186 = shl i64 %call272, 32
-  %idxprom331 = ashr exact i64 %sext186, 32
-  %arrayidx332 = getelementptr i8, ptr %vptr.0.lcssa, i64 %idxprom331
-  store i8 0, ptr %arrayidx332, align 1
-  br label %if.end333
-
-if.end333:                                        ; preds = %if.then316, %if.else323, %if.else329
+if.end333:                                        ; preds = %if.then316, %if.else323
   %call334 = tail call ptr @uri_string_escape(ptr noundef %call287, ptr noundef nonnull @.str.4)
   tail call void @g_free(ptr noundef %call287) #14
   br label %done
 
-done:                                             ; preds = %if.then278, %if.then281, %if.end333, %if.then184
-  %val.0 = phi ptr [ %call282, %if.then281 ], [ null, %if.then278 ], [ %call334, %if.end333 ], [ %call185, %if.then184 ]
+done:                                             ; preds = %if.then281, %if.end333, %if.then184
+  %val.0 = phi ptr [ %call282, %if.then281 ], [ %call334, %if.end333 ], [ %call185, %if.then184 ]
   br i1 %cmp335.not, label %if.end339, label %if.then337
 
 if.then337:                                       ; preds = %done
@@ -3109,7 +3094,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @query_params_new(i32 noundef %init_alloc) local_unnamed_addr #0 {
@@ -3299,7 +3284,7 @@ return:                                           ; preds = %next, %entry, %lor.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp160.not = icmp eq ptr %uri, null
@@ -3521,7 +3506,7 @@ if.end203:                                        ; preds = %lor.lhs.false21.us,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp168.not = icmp eq ptr %uri, null
@@ -3762,7 +3747,7 @@ if.end222:                                        ; preds = %lor.lhs.false21.us,
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %cur.i = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8
@@ -4229,7 +4214,7 @@ return:                                           ; preds = %while.body.i20, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef nonnull captures(none) %str) unnamed_addr #0 {
 entry:
   %cur = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8
@@ -4310,7 +4295,7 @@ return:                                           ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_dec_octet(ptr nocapture noundef nonnull %str) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_dec_octet(ptr noundef nonnull captures(none) %str) unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %1 = load i8, ptr %0, align 1
@@ -4373,7 +4358,7 @@ return:                                           ; preds = %if.else39, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_segment(ptr nocapture noundef nonnull %str, i8 noundef signext range(i8 0, 59) %forbid, i32 noundef range(i32 0, 2) %empty) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_segment(ptr noundef nonnull captures(none) %str, i8 noundef signext range(i8 0, 59) %forbid, i32 noundef range(i32 0, 2) %empty) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %1 = load i8, ptr %0, align 1
@@ -4567,10 +4552,10 @@ declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

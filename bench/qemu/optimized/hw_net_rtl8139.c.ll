@@ -155,7 +155,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @rtl8139_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @rtl8139_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #12
@@ -190,7 +190,7 @@ declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_rtl8139_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @pci_rtl8139_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @__func__.RTL8139) #12
   %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #12
@@ -414,7 +414,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -1, 4294967296) i64 @rtl8139_ioport_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -1, 4294967296) i64 @rtl8139_ioport_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   switch i32 %size, label %return [
     i32 1, label %sw.bb
@@ -1318,7 +1318,7 @@ sw.epilog:                                        ; preds = %sw.default.i18, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 256) i32 @rtl8139_io_readb(ptr nocapture noundef readonly %opaque, i8 noundef zeroext %addr) unnamed_addr #2 {
+define internal fastcc range(i32 0, 256) i32 @rtl8139_io_readb(ptr noundef readonly captures(none) %opaque, i8 noundef zeroext %addr) unnamed_addr #2 {
 entry:
   %conv = zext i8 %addr to i32
   switch i8 %addr, label %sw.epilog [
@@ -2267,7 +2267,7 @@ if.end261.i:                                      ; preds = %if.then254.i, %if.e
   %call291.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr129.i, i64 noundef %conv146.i)
   store i16 %call291.i, ptr %ip_sum289.i, align 2
   %add299.i = add nuw nsw i32 %add297.i, %chunk_size.0.in.i
-  call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
+  call fastcc void @rtl8139_transfer_frame(ptr noundef nonnull %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
   %th_seq.val221.i = load i32, ptr %th_seq.i, align 1
   %43 = call i32 @llvm.bswap.i32(i32 %th_seq.val221.i)
   %add305.i = add i32 %43, %chunk_size.0.in.i
@@ -2341,7 +2341,7 @@ skip_offload.i:                                   ; preds = %if.end261.i, %if.en
   %47 = load i64, ptr %tally_counters.i, align 16
   %inc380.i = add i64 %47, 1
   store i64 %inc380.i, ptr %tally_counters.i, align 16
-  call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef %16, i32 noundef %saved_size.0.i, ptr noundef %dot1q_buffer.0.i)
+  call fastcc void @rtl8139_transfer_frame(ptr noundef nonnull %s, ptr noundef %16, i32 noundef %saved_size.0.i, ptr noundef %dot1q_buffer.0.i)
   %48 = load ptr, ptr %cplus_txbuffer.i, align 16
   %tobool383.not.i = icmp eq ptr %48, null
   br i1 %tobool383.not.i, label %if.then384.i, label %if.else388.i
@@ -2414,7 +2414,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc zeroext i16 @ip_checksum(ptr nocapture noundef readonly %data, i64 noundef range(i64 12, 0) %len) unnamed_addr #5 {
+define internal fastcc zeroext i16 @ip_checksum(ptr noundef readonly captures(none) %data, i64 noundef range(i64 12, 0) %len) unnamed_addr #5 {
 entry:
   br label %for.body.i
 
@@ -2461,10 +2461,10 @@ ones_complement_sum.exit:                         ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rtl8139_transfer_frame(ptr nocapture noundef readonly %s, ptr noundef %buf, i32 noundef %size, ptr noundef %dot1q_buf) unnamed_addr #0 {
+define internal fastcc void @rtl8139_transfer_frame(ptr noundef readonly captures(none) %s, ptr noundef %buf, i32 noundef %size, ptr noundef %dot1q_buf) unnamed_addr #0 {
 entry:
   %vlan_iov = alloca [3 x %struct.iovec], align 16
   %tobool.not = icmp eq i32 %size, 0
@@ -2561,7 +2561,7 @@ declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef,
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rtl8139_set_next_tctr_time(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @rtl8139_set_next_tctr_time(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %TCTR_base = getelementptr inbounds nuw i8, ptr %s, i64 11128
   %0 = load i64, ptr %TCTR_base, align 8
@@ -3271,7 +3271,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @qemu_del_nic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @rtl8139_post_load(ptr nocapture noundef %opaque, i32 noundef %version_id) #0 {
+define internal noundef i32 @rtl8139_post_load(ptr noundef captures(none) %opaque, i32 noundef %version_id) #0 {
 entry:
   tail call fastcc void @rtl8139_set_next_tctr_time(ptr noundef %opaque)
   %cmp = icmp slt i32 %version_id, 4
@@ -3301,7 +3301,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @rtl8139_pre_save(ptr nocapture noundef initializes((11116, 11120), (11776, 11780)) %opaque) #0 {
+define internal noundef i32 @rtl8139_pre_save(ptr noundef captures(none) initializes((11116, 11120), (11776, 11780)) %opaque) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
   %TCTR_base = getelementptr inbounds nuw i8, ptr %opaque, i64 11128
@@ -3317,7 +3317,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @rtl8139_hotplug_ready_needed(ptr nocapture readnone %opaque) #0 {
+define internal zeroext i1 @rtl8139_hotplug_ready_needed(ptr readnone captures(none) %opaque) #0 {
 entry:
   %call = tail call zeroext i1 @qdev_machine_modified() #12
   ret i1 %call
@@ -3326,19 +3326,19 @@ entry:
 declare zeroext i1 @qdev_machine_modified() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

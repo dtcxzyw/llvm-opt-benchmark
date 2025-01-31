@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr nocapture noundef %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr noundef captures(none) %r, i64 noundef %num_bytes, i32 noundef %cleanse) unnamed_addr #0 {
 entry:
   %alloc = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load i64, ptr %alloc, align 8
@@ -253,7 +253,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_sframe_list_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_read(ptr noundef %qrs, ptr noundef writeonly captures(none) %buf, i64 noundef %size, ptr noundef captures(none) %readbytes, ptr noundef writeonly captures(none) %fin) local_unnamed_addr #0 {
 entry:
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
   %0 = getelementptr i8, ptr %qrs, i64 56
@@ -295,7 +295,7 @@ return:                                           ; preds = %land.lhs.true, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_internal(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef writeonly %readbytes, ptr nocapture noundef writeonly %fin, i32 noundef range(i32 0, 2) %drop) unnamed_addr #0 {
+define internal fastcc i32 @read_internal(ptr noundef %qrs, ptr noundef writeonly captures(none) %buf, i64 noundef %size, ptr noundef writeonly captures(none) %readbytes, ptr noundef writeonly captures(none) %fin, i32 noundef range(i32 0, 2) %drop) unnamed_addr #0 {
 entry:
   %iter = alloca ptr, align 8
   %range = alloca %struct.uint_range_st, align 8
@@ -506,14 +506,14 @@ return:                                           ; preds = %ring_buf_get_ptr.ex
 declare i32 @ossl_quic_rxfc_on_retire(ptr noundef, i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_rstream_peek(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef writeonly %readbytes, ptr nocapture noundef writeonly %fin) local_unnamed_addr #0 {
+define i32 @ossl_quic_rstream_peek(ptr noundef %qrs, ptr noundef writeonly captures(none) %buf, i64 noundef %size, ptr noundef writeonly captures(none) %readbytes, ptr noundef writeonly captures(none) %fin) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @read_internal(ptr noundef %qrs, ptr noundef %buf, i64 noundef %size, ptr noundef %readbytes, ptr noundef %fin, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_rstream_available(ptr noundef %qrs, ptr nocapture noundef writeonly %avail, ptr noundef %fin) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_rstream_available(ptr noundef %qrs, ptr noundef writeonly captures(none) %avail, ptr noundef %fin) local_unnamed_addr #0 {
 entry:
   %iter = alloca ptr, align 8
   %range = alloca %struct.uint_range_st, align 8
@@ -546,7 +546,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @ossl_sframe_list_peek(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %qrs, ptr nocapture noundef writeonly %record, ptr nocapture noundef writeonly %rec_len, ptr noundef %fin) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rstream_get_record(ptr noundef %qrs, ptr noundef writeonly captures(none) %record, ptr noundef writeonly captures(none) %rec_len, ptr noundef %fin) local_unnamed_addr #0 {
 entry:
   %record_ = alloca ptr, align 8
   store ptr null, ptr %record_, align 8
@@ -804,7 +804,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_sframe_list_move_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @write_at_ring_buf_cb(i64 noundef %logical_offset, ptr nocapture noundef readonly %buf, i64 noundef %buf_len, ptr nocapture noundef %cb_arg) #2 {
+define internal range(i32 0, 2) i32 @write_at_ring_buf_cb(i64 noundef %logical_offset, ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, ptr noundef captures(none) %cb_arg) #2 {
 entry:
   %0 = load ptr, ptr %cb_arg, align 8
   %alloc.i.i = getelementptr inbounds nuw i8, ptr %cb_arg, i64 8
@@ -898,7 +898,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_rstream_set_cleanse(ptr nocapture noundef writeonly initializes((44, 48)) %qrs, i32 noundef %cleanse) local_unnamed_addr #3 {
+define void @ossl_quic_rstream_set_cleanse(ptr noundef writeonly captures(none) initializes((44, 48)) %qrs, i32 noundef %cleanse) local_unnamed_addr #3 {
 entry:
   %cleanse1 = getelementptr inbounds nuw i8, ptr %qrs, i64 44
   store i32 %cleanse, ptr %cleanse1, align 4
@@ -906,12 +906,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -926,10 +926,10 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #6
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -31,7 +31,7 @@ define hidden i64 @crc16_plain_reflect(i64 noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_plain_update(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define zeroext i16 @crc16_plain_update(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not8 = icmp eq i64 %2, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -58,7 +58,7 @@ define zeroext i16 @crc16_plain_update(i16 noundef zeroext %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i16 @crc16_8005_noreflect_noxor(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define zeroext i16 @crc16_8005_noreflect_noxor(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

@@ -291,7 +291,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN12EmergeThreadC1EP6Serveri = dso_local unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN12EmergeThreadC2EP6Serveri
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -350,10 +350,10 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #2 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #2 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -562,7 +562,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #2 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.20(ptr readnone captures(none) %0) #2 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 128), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 144)
@@ -825,7 +825,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12EmergeParamsC2EP13EmergeManagerPK8BiomeGenPK12BiomeManagerPK10OreManagerPK17DecorationManagerPK16SchematicManager(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (12, 72)) %this, ptr noundef %parent, ptr noundef %biomegen, ptr noundef nonnull %biomemgr, ptr noundef %oremgr, ptr noundef %decomgr, ptr noundef %schemmgr) unnamed_addr #1 align 2 {
+define dso_local void @_ZN12EmergeParamsC2EP13EmergeManagerPK8BiomeGenPK12BiomeManagerPK10OreManagerPK17DecorationManagerPK16SchematicManager(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((0, 9), (12, 72)) %this, ptr noundef %parent, ptr noundef %biomegen, ptr noundef nonnull %biomemgr, ptr noundef %oremgr, ptr noundef %decomgr, ptr noundef %schemmgr) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %parent, align 8, !tbaa !45
   store ptr %0, ptr %this, align 8, !tbaa !80
@@ -2793,7 +2793,7 @@ entry:
 declare noundef zeroext i1 @_ZN6Thread4waitEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13EmergeManager23getWritableBiomeManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN13EmergeManager23getWritableBiomeManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_mapgens = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_mapgens, align 8, !tbaa !103
@@ -2816,7 +2816,7 @@ cond.end:                                         ; preds = %entry
 declare void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13EmergeManager21getWritableOreManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN13EmergeManager21getWritableOreManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_mapgens = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_mapgens, align 8, !tbaa !103
@@ -2836,7 +2836,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13EmergeManager28getWritableDecorationManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN13EmergeManager28getWritableDecorationManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_mapgens = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_mapgens, align 8, !tbaa !103
@@ -2856,7 +2856,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13EmergeManager27getWritableSchematicManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN13EmergeManager27getWritableSchematicManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_mapgens = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_mapgens, align 8, !tbaa !103
@@ -3163,12 +3163,12 @@ lpad:                                             ; preds = %call13.i.noexc, %ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare noundef ptr @_ZN6Mapgen12createMapgenE10MapgenTypeP12MapgenParamsP12EmergeParams(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN13EmergeManager16getCurrentMapgenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN13EmergeManager16getCurrentMapgenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_threads_active = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i8, ptr %m_threads_active, align 8, !tbaa !126, !range !82, !noundef !83
@@ -3226,7 +3226,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13EmergeManager12startThreadsEv(ptr nocapture noundef nonnull align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN13EmergeManager12startThreadsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_threads_active = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i8, ptr %m_threads_active, align 8, !tbaa !126, !range !82, !noundef !83
@@ -3270,7 +3270,7 @@ return:                                           ; preds = %for.cond.cleanup, %
 declare noundef zeroext i1 @_ZN6Thread5startEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13EmergeManager11stopThreadsEv(ptr nocapture noundef nonnull align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN13EmergeManager11stopThreadsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_threads_active = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i8, ptr %m_threads_active, align 8, !tbaa !126, !range !82, !noundef !83
@@ -3339,7 +3339,7 @@ return:                                           ; preds = %for.cond.cleanup15,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN13EmergeManager9isRunningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #18 align 2 {
+define dso_local noundef zeroext i1 @_ZN13EmergeManager9isRunningEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #18 align 2 {
 entry:
   %m_threads_active = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i8, ptr %m_threads_active, align 8, !tbaa !126, !range !82, !noundef !83
@@ -3433,7 +3433,7 @@ cleanup9:                                         ; preds = %cleanup.cont, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN13EmergeManager19pushBlockEmergeDataEN3irr4core8vector3dIsEEttPFvS3_12EmergeActionPvES5_Pb(ptr noundef nonnull align 8 dereferenceable(464) %this, i48 %pos.coerce, i16 noundef zeroext %peer_requested, i16 noundef zeroext %flags, ptr noundef %callback, ptr noundef %callback_param, ptr nocapture noundef %entry_already_exists) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN13EmergeManager19pushBlockEmergeDataEN3irr4core8vector3dIsEEttPFvS3_12EmergeActionPvES5_Pb(ptr noundef nonnull align 8 dereferenceable(464) %this, i48 %pos.coerce, i16 noundef zeroext %peer_requested, i16 noundef zeroext %flags, ptr noundef %callback, ptr noundef %callback_param, ptr noundef captures(none) %entry_already_exists) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp21 = alloca %"struct.std::pair.283", align 8
   %m_peer_queue_count = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -3756,7 +3756,7 @@ cleanup50:                                        ; preds = %if.else43, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN13EmergeManager16getOptimalThreadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN13EmergeManager16getOptimalThreadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_threads = getelementptr inbounds nuw i8, ptr %this, i64 152
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -4045,7 +4045,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN13EmergeManager20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, i32 %p.coerce) local_unnamed_addr #10 align 2 {
+define dso_local noundef i32 @_ZN13EmergeManager20getSpawnLevelAtPointEN3irr4core8vector2dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this, i32 %p.coerce) local_unnamed_addr #10 align 2 {
 entry:
   %m_mapgens = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_mapgens, align 8, !tbaa !103
@@ -4137,7 +4137,7 @@ return:                                           ; preds = %if.end, %_ZSt4endlI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN13EmergeManager18isBlockUndergroundEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, i48 %blockpos.coerce) local_unnamed_addr #20 align 2 {
+define dso_local noundef zeroext i1 @_ZN13EmergeManager18isBlockUndergroundEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this, i48 %blockpos.coerce) local_unnamed_addr #20 align 2 {
 entry:
   %0 = trunc i48 %blockpos.coerce to i32
   %conv = ashr i32 %0, 16
@@ -4152,7 +4152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN13EmergeManager18popBlockEmergeDataEN3irr4core8vector3dIsEEP15BlockEmergeData(ptr noundef nonnull align 8 dereferenceable(464) %this, i48 %pos.coerce, ptr noundef %bedata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -4333,7 +4333,7 @@ cleanup25:                                        ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13EmergeManager21reportCompletedEmergeE12EmergeAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this, i32 noundef %action) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN13EmergeManager21reportCompletedEmergeE12EmergeAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %this, i32 noundef %action) local_unnamed_addr #1 align 2 {
 entry:
   %m_completed_emerge_counter = getelementptr inbounds nuw i8, ptr %this, i64 344
   %idxprom = sext i32 %action to i64
@@ -4786,7 +4786,7 @@ declare void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) u
 declare void @_ZN5Event6signalEv(ptr noundef nonnull align 8 dereferenceable(89)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12EmergeThread18cancelPendingItemsEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12EmergeThread18cancelPendingItemsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(376) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bedata = alloca %struct.BlockEmergeData, align 8
   %m_emerge = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -4939,7 +4939,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit33:          ; preds = %_ZN15BlockEmergeDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12EmergeThread22runCompletionCallbacksERKN3irr4core8vector3dIsEE12EmergeActionRKSt6vectorISt4pairIPFvS3_S6_PvES9_ESaISC_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos, i32 noundef %action, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %callbacks) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN12EmergeThread22runCompletionCallbacksERKN3irr4core8vector3dIsEE12EmergeActionRKSt6vectorISt4pairIPFvS3_S6_PvES9_ESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %pos, i32 noundef %action, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %callbacks) local_unnamed_addr #1 align 2 {
 entry:
   %m_emerge = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_emerge, align 8, !tbaa !224
@@ -4981,7 +4981,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12EmergeThread14popBlockEmergeEPN3irr4core8vector3dIsEEP15BlockEmergeData(ptr nocapture noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef %pos, ptr noundef %bedata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN12EmergeThread14popBlockEmergeEPN3irr4core8vector3dIsEEP15BlockEmergeData(ptr noundef nonnull align 8 captures(none) dereferenceable(376) %this, ptr noundef captures(none) %pos, ptr noundef %bedata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_emerge = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_emerge, align 8, !tbaa !224
@@ -5049,7 +5049,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit23:          ; preds = %_ZNSt5queueIN3irr4c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 5) i32 @_ZN12EmergeThread18getBlockOrStartGenERKN3irr4core8vector3dIsEEbPP8MapBlockP13BlockMakeData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos, i1 noundef zeroext %allow_gen, ptr nocapture noundef writeonly %block, ptr noundef %bmdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN12EmergeThread18getBlockOrStartGenERKN3irr4core8vector3dIsEEbPP8MapBlockP13BlockMakeData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %pos, i1 noundef zeroext %allow_gen, ptr noundef writeonly captures(none) %block, ptr noundef %bmdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_server = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_server, align 8, !tbaa !207
@@ -5131,7 +5131,7 @@ declare noundef ptr @_ZN9ServerMap9loadBlockEN3irr4core8vector3dIsEE(ptr noundef
 declare noundef zeroext i1 @_ZN9ServerMap13initBlockMakeEN3irr4core8vector3dIsEEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(560), i48, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN12EmergeThread9finishGenEN3irr4core8vector3dIsEEP13BlockMakeDataPSt3mapIS3_P8MapBlockSt4lessIS3_ESaISt4pairIKS3_S8_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, i48 %pos.coerce, ptr noundef %bmdata, ptr noundef %modified_blocks) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN12EmergeThread9finishGenEN3irr4core8vector3dIsEEP13BlockMakeDataPSt3mapIS3_P8MapBlockSt4lessIS3_ESaISt4pairIKS3_S8_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %this, i48 %pos.coerce, ptr noundef %bmdata, ptr noundef %modified_blocks) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %pos = alloca %"class.irr::core::vector3d", align 8
@@ -5766,7 +5766,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %entry
-  %call2.i.i18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef %call, i64 noundef %call.i.i.i)
+  %call2.i.i18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %call, i64 noundef %call.i.i.i)
           to label %call2.i.i.noexc unwind label %lpad4
 
 call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -9254,7 +9254,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -9340,7 +9340,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 

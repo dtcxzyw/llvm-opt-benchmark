@@ -123,7 +123,7 @@ define hidden noundef ptr @_ZN15objArrayOopDesc15replace_if_nullEiP7oopDesc(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15objArrayOopDesc13element_klassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

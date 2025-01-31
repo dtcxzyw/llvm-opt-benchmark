@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.find_placeholders_recurse = private unnamed_addr constant [26 x i8] c"find_placeholders_recurse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @make_placeholder_expr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @make_placeholder_expr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 303, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -193,7 +193,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %.lr.ph69
-  %92 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %88)
+  %92 = tail call ptr @find_placeholder_info(ptr noundef nonnull %0, ptr noundef nonnull %88)
   %.pre72 = load i32, ptr %81, align 4
   br label %93
 
@@ -505,7 +505,7 @@ declare zeroext i1 @bms_nonempty_difference(ptr noundef, ptr noundef) local_unna
 declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.QualCost, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -626,7 +626,7 @@ declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @clamp_width_est(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @contain_placeholder_references_to(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @contain_placeholder_references_to(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.contain_placeholder_references_context, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

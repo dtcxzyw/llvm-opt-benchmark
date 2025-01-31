@@ -210,7 +210,7 @@ for.body.preheader:                               ; preds = %if.end104
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %tt.084 = phi ptr [ %14, %for.body.preheader ], [ %incdec.ptr, %for.inc ]
-  %call109 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef %pval, ptr noundef %tt.084) #3
+  %call109 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef %tt.084) #3
   %call110 = tail call fastcc i32 @asn1_template_new(ptr noundef %call109, ptr noundef %tt.084, ptr noundef %libctx, ptr noundef %propq)
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %asn1err2, label %for.inc
@@ -226,12 +226,12 @@ for.end:                                          ; preds = %for.inc, %if.end104
   br i1 %tobool75.not, label %return, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %for.end
-  %call116 = tail call i32 %asn1_cb.0(i32 noundef 1, ptr noundef %pval, ptr noundef nonnull %it, ptr noundef null) #3
+  %call116 = tail call i32 %asn1_cb.0(i32 noundef 1, ptr noundef nonnull %pval, ptr noundef nonnull %it, ptr noundef null) #3
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %auxerr2, label %return
 
 asn1err2:                                         ; preds = %for.body
-  tail call void @ossl_asn1_item_embed_free(ptr noundef %pval, ptr noundef nonnull %it, i32 noundef %embed) #3
+  tail call void @ossl_asn1_item_embed_free(ptr noundef nonnull %pval, ptr noundef nonnull %it, i32 noundef %embed) #3
   br label %return.sink.split
 
 auxerr2:                                          ; preds = %land.lhs.true115, %land.lhs.true69
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_template_new(ptr noundef %pval, ptr noundef readonly captures(none) %tt, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %tval = alloca ptr, align 8
   %item = getelementptr inbounds nuw i8, ptr %tt, i64 32
@@ -562,7 +562,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

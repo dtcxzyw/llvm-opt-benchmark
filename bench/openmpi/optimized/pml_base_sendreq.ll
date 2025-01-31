@@ -48,7 +48,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @mca_pml_base_send_request_destruct(ptr nocapture readnone %0) #1 {
+define internal void @mca_pml_base_send_request_destruct(ptr readnone captures(none) %0) #1 {
   ret void
 }
 

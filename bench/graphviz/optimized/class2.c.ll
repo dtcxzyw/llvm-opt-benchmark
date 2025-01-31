@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @merge_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @merge_chain(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3
   %7 = icmp eq i32 %6, 3
@@ -275,7 +275,7 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph252:                                        ; preds = %._crit_edge, %._crit_edge248
   %.0202250 = phi ptr [ %48, %._crit_edge248 ], [ %19, %._crit_edge ]
-  %20 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0202250) #9
+  %20 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.0202250) #9
   %.not233244 = icmp eq ptr %20, null
   br i1 %.not233244, label %._crit_edge248, label %.lr.ph247
 
@@ -322,17 +322,17 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   br label %46
 
 46:                                               ; preds = %34, %44
-  %47 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0199245) #9
+  %47 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0199245) #9
   %.not233 = icmp eq ptr %47, null
   br i1 %.not233, label %._crit_edge248, label %.lr.ph247
 
 ._crit_edge248:                                   ; preds = %46, %.lr.ph252
-  %48 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0202250) #9
+  %48 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0202250) #9
   %.not213 = icmp eq ptr %48, null
   br i1 %.not213, label %._crit_edge253, label %.lr.ph252
 
 ._crit_edge253:                                   ; preds = %._crit_edge248, %._crit_edge
-  %49 = tail call ptr @agfstnode(ptr noundef %0) #9
+  %49 = tail call ptr @agfstnode(ptr noundef nonnull %0) #9
   %.not214265 = icmp eq ptr %49, null
   br i1 %.not214265, label %._crit_edge269, label %.lr.ph268
 
@@ -351,7 +351,7 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %55
-  tail call void @fast_node(ptr noundef %0, ptr noundef nonnull %.1203266) #9
+  tail call void @fast_node(ptr noundef nonnull %0, ptr noundef nonnull %.1203266) #9
   %59 = load ptr, ptr %2, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 336
   %61 = load i64, ptr %60, align 8
@@ -360,7 +360,7 @@ define void @class2(ptr noundef %0) local_unnamed_addr #1 {
   br label %63
 
 63:                                               ; preds = %58, %55, %.lr.ph268
-  %64 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1203266) #9
+  %64 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.1203266) #9
   %.not216259 = icmp eq ptr %64, null
   br i1 %.not216259, label %._crit_edge264, label %.lr.ph263
 
@@ -657,7 +657,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %.not38.i, label %258, label %257
 
 257:                                              ; preds = %255
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef nonnull %256, i1 noundef zeroext true)
+  tail call void @merge_chain(ptr noundef nonnull %0, ptr noundef nonnull %.1200260, ptr noundef nonnull %256, i1 noundef zeroext true)
   br label %interclrep.exit
 
 258:                                              ; preds = %255
@@ -671,7 +671,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %265, label %interclrep.exit, label %266
 
 266:                                              ; preds = %258
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200260)
+  tail call fastcc void @make_chain(ptr noundef nonnull %0, ptr noundef nonnull %spec.select41.i, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1200260)
   %267 = load ptr, ptr %65, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 232
   %.03445.i = load ptr, ptr %268, align 8
@@ -792,7 +792,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %338 = load ptr, ptr %324, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 232
   %340 = load ptr, ptr %339, align 8
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef %340, i1 noundef zeroext true)
+  tail call void @merge_chain(ptr noundef nonnull %0, ptr noundef nonnull %.1200260, ptr noundef %340, i1 noundef zeroext true)
   tail call void @other_edge(ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
@@ -854,7 +854,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %383, label %384, label %385
 
 384:                                              ; preds = %374
-  tail call void @flat_edge(ptr noundef %0, ptr noundef nonnull %.1200260) #9
+  tail call void @flat_edge(ptr noundef nonnull %0, ptr noundef nonnull %.1200260) #9
   br label %interclrep.exit
 
 385:                                              ; preds = %374
@@ -862,11 +862,11 @@ leader_of.exit44.i:                               ; preds = %226, %224
   br i1 %386, label %387, label %388
 
 387:                                              ; preds = %385
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef nonnull %368, ptr noundef nonnull %373, ptr noundef %.1200260)
+  tail call fastcc void @make_chain(ptr noundef nonnull %0, ptr noundef nonnull %368, ptr noundef nonnull %373, ptr noundef %.1200260)
   br label %interclrep.exit
 
 388:                                              ; preds = %385
-  %389 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %373) #9
+  %389 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %373) #9
   %.not225254 = icmp eq ptr %389, null
   br i1 %.not225254, label %.critedge, label %.lr.ph258
 
@@ -916,7 +916,7 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %420 = getelementptr inbounds nuw i8, ptr %.0255, i64 %.idx228
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 56
   %422 = load ptr, ptr %421, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %422, ptr noundef %395, ptr noundef %.0255)
+  tail call fastcc void @make_chain(ptr noundef nonnull %0, ptr noundef %422, ptr noundef %395, ptr noundef %.0255)
   br label %423
 
 423:                                              ; preds = %418, %414
@@ -957,11 +957,11 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %444 = load ptr, ptr %409, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 232
   %446 = load ptr, ptr %445, align 8
-  tail call void @merge_chain(ptr noundef %0, ptr noundef nonnull %.1200260, ptr noundef %446, i1 noundef zeroext true)
+  tail call void @merge_chain(ptr noundef nonnull %0, ptr noundef nonnull %.1200260, ptr noundef %446, i1 noundef zeroext true)
   br label %interclrep.exit
 
 447:                                              ; preds = %423, %428, %433, %.lr.ph258, %402, %408
-  %448 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0255) #9
+  %448 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0255) #9
   %.not225 = icmp eq ptr %448, null
   br i1 %.not225, label %.critedge, label %.lr.ph258
 
@@ -976,22 +976,22 @@ leader_of.exit44.i:                               ; preds = %226, %224
   %456 = select i1 %455, ptr %.1200260, ptr %343
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 56
   %458 = load ptr, ptr %457, align 8
-  tail call fastcc void @make_chain(ptr noundef %0, ptr noundef %454, ptr noundef %458, ptr noundef %.1200260)
+  tail call fastcc void @make_chain(ptr noundef nonnull %0, ptr noundef %454, ptr noundef %458, ptr noundef %.1200260)
   br label %interclrep.exit
 
 interclrep.exit:                                  ; preds = %283, %.lr.ph.i, %443, %438, %266, %258, %257, %leader_of.exit44.i, %.lr.ph263, %354, %369, %334, %337, %merge_chain.exit, %193, %191, %.critedge, %387, %384, %353, %318
   %.1 = phi ptr [ %.0198261, %merge_chain.exit ], [ %.0198261, %193 ], [ %.0198261, %191 ], [ %.0198261, %318 ], [ %.0198261, %334 ], [ %.0198261, %337 ], [ %.1200260, %353 ], [ %.0198261, %354 ], [ %.0198261, %369 ], [ %.1200260, %384 ], [ %.1200260, %387 ], [ %.1200260, %.critedge ], [ %.1200260, %.lr.ph263 ], [ %.1200260, %leader_of.exit44.i ], [ %.1200260, %257 ], [ %.1200260, %258 ], [ %.1200260, %266 ], [ %.0198261, %438 ], [ %.0198261, %443 ], [ %.1200260, %.lr.ph.i ], [ %.1200260, %283 ]
-  %459 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1200260) #9
+  %459 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.1200260) #9
   %.not216 = icmp eq ptr %459, null
   br i1 %.not216, label %._crit_edge264, label %.lr.ph263
 
 ._crit_edge264:                                   ; preds = %interclrep.exit, %63
-  %460 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1203266) #9
+  %460 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.1203266) #9
   %.not214 = icmp eq ptr %460, null
   br i1 %.not214, label %._crit_edge269, label %.lr.ph268
 
 ._crit_edge269:                                   ; preds = %._crit_edge264, %._crit_edge253
-  %461 = tail call ptr @dot_root(ptr noundef %0) #9
+  %461 = tail call ptr @dot_root(ptr noundef nonnull %0) #9
   %.not215 = icmp eq ptr %0, %461
   br i1 %.not215, label %478, label %462
 
@@ -1186,7 +1186,7 @@ label_vnode.exit:                                 ; preds = %.sink.split.i, %19,
 declare ptr @dot_root(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @find_fast_edge(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1199,7 +1199,7 @@ declare ptr @virtual_node(ptr noundef) local_unnamed_addr #2
 declare ptr @agroot(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {

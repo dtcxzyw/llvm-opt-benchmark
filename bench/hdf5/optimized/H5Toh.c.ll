@@ -46,7 +46,7 @@ define internal range(i32 -1, -2147483648) i32 @H5O__dtype_isa(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dtype_open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal ptr @H5O__dtype_open(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   store i32 3, ptr %1, align 4
   %3 = tail call ptr @H5T_open(ptr noundef %0) #2
   %4 = icmp eq ptr %3, null
@@ -63,7 +63,7 @@ define internal ptr @H5O__dtype_open(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dtype_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @H5O__dtype_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8

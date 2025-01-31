@@ -594,7 +594,7 @@ land.lhs.true13.i:                                ; preds = %for.body.i.i, %for.
   %40 = load i32, ptr %level.i23, align 8
   %dec49.i.i = add i32 %40, -1
   store i32 %dec49.i.i, ptr %level.i23, align 8
-  %call14.i41 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 0) #4
+  %call14.i41 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 0) #4
   %tobool15.not.i42 = icmp eq ptr %call14.i41, null
   br i1 %tobool15.not.i42, label %if.end27.i, label %if.then16.i43
 
@@ -817,7 +817,7 @@ _gather_141_rule.exit.i.i:                        ; preds = %for.body.i.i.i.i, %
   %59 = load i32, ptr %level.i46, align 8
   %dec59.i.i.i.i = add i32 %59, -1
   store i32 %dec59.i.i.i.i, ptr %level.i46, align 8
-  %call14.i.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call44.i.i.i.i) #4
+  %call14.i.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call44.i.i.i.i) #4
   %storemerge.in.i.i.i = load i32, ptr %level.i46, align 8
   %storemerge.i.i.i = add i32 %storemerge.in.i.i.i, -1
   store i32 %storemerge.i.i.i, ptr %level.i46, align 8
@@ -1034,7 +1034,7 @@ _gather_143_rule.exit.i.i:                        ; preds = %for.body.i.i154.i.i
   %71 = load i32, ptr %level.i46, align 8
   %dec59.i.i150.i.i = add i32 %71, -1
   store i32 %dec59.i.i150.i.i, ptr %level.i46, align 8
-  %call14.i151.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i104.i.i, ptr noundef nonnull %call44.i.i145.i.i) #4
+  %call14.i151.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i104.i.i, ptr noundef nonnull %call44.i.i145.i.i) #4
   %storemerge.in.i100.i.i = load i32, ptr %level.i46, align 8
   %storemerge.i101.i.i = add i32 %storemerge.in.i100.i.i, -1
   store i32 %storemerge.i101.i.i, ptr %level.i46, align 8
@@ -1227,7 +1227,7 @@ _gather_145_rule.exit.i.i:                        ; preds = %for.body.i.i233.i.i
   %83 = load i32, ptr %level.i46, align 8
   %dec59.i.i229.i.i = add i32 %83, -1
   store i32 %dec59.i.i229.i.i, ptr %level.i46, align 8
-  %call14.i230.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i183.i.i, ptr noundef nonnull %call44.i.i224.i.i) #4
+  %call14.i230.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i183.i.i, ptr noundef nonnull %call44.i.i224.i.i) #4
   %storemerge.in.i179.i.i = load i32, ptr %level.i46, align 8
   %storemerge.i180.i.i = add i32 %storemerge.in.i179.i.i, -1
   store i32 %storemerge.i180.i.i, ptr %level.i46, align 8
@@ -1512,7 +1512,7 @@ land.lhs.true26.i:                                ; preds = %for.body.i.i98, %fo
   %97 = load i32, ptr %level.i46, align 8
   %dec49.i.i95 = add i32 %97, -1
   store i32 %dec49.i.i95, ptr %level.i46, align 8
-  %call27.i = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 0) #4
+  %call27.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 0) #4
   %tobool28.not.i = icmp eq ptr %call27.i, null
   br i1 %tobool28.not.i, label %if.end40.i, label %if.then29.i
 
@@ -2552,7 +2552,7 @@ _gather_4_rule.exit:                              ; preds = %for.body.i.i, %for.
   %15 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %15, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -3061,7 +3061,7 @@ _gather_209_rule.exit.i:                          ; preds = %for.body.i.i.i, %fo
   %23 = load i32, ptr %level, align 8
   %dec59.i.i.i = add i32 %23, -1
   store i32 %dec59.i.i.i, ptr %level, align 8
-  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
+  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
   %storemerge.in.i.i = load i32, ptr %level, align 8
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
   store i32 %storemerge.i.i, ptr %level, align 8
@@ -3347,7 +3347,7 @@ _gather_51_rule.exit:                             ; preds = %for.body.i.i, %for.
   %44 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %44, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i127, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i127, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -11496,7 +11496,7 @@ if.then34:                                        ; preds = %for.body.i, %for.co
   %25 = load i32, ptr %level, align 8
   %dec56.i = add i32 %25, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call35 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef %p) #4
+  %call35 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %p) #4
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %if.then37, label %if.end40
 
@@ -12979,7 +12979,7 @@ land.lhs.true13:                                  ; preds = %for.body.i, %for.co
   %14 = load i32, ptr %level, align 8
   %dec56.i = add i32 %14, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 12) #4
+  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %15 = load i32, ptr %error_indicator, align 8
   %tobool16.not = icmp eq i32 %15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end28.thread
@@ -13220,7 +13220,7 @@ _gather_135_rule.exit:                            ; preds = %for.body.i, %for.co
   %14 = load i32, ptr %level, align 8
   %dec59.i = add i32 %14, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -13482,7 +13482,7 @@ if.then34:                                        ; preds = %for.body.i, %for.co
   %25 = load i32, ptr %level, align 8
   %dec56.i = add i32 %25, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call35 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef %p) #4
+  %call35 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %p) #4
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %if.then37, label %if.end40
 
@@ -14915,7 +14915,7 @@ land.lhs.true30:                                  ; preds = %for.body.i, %for.co
   %20 = load i32, ptr %level, align 8
   %dec56.i = add i32 %20, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call31 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 12) #4
+  %call31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %21 = load i32, ptr %error_indicator, align 8
   %tobool33.not = icmp eq i32 %21, 0
   br i1 %tobool33.not, label %if.then34, label %if.end57.thread
@@ -16035,7 +16035,7 @@ _gather_123_rule.exit:                            ; preds = %for.body.i, %for.co
   %23 = load i32, ptr %level, align 8
   %dec59.i = add i32 %23, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -17072,7 +17072,7 @@ _gather_126_rule.exit:                            ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %level, align 8
   %dec59.i = add i32 %13, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -17212,7 +17212,7 @@ _gather_128_rule.exit:                            ; preds = %for.body.i132, %for
   %23 = load i32, ptr %level, align 8
   %dec59.i131 = add i32 %23, -1
   store i32 %dec59.i131, ptr %level, align 8
-  %call14.i43 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i37, ptr noundef nonnull %call44.i124) #4
+  %call14.i43 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i37, ptr noundef nonnull %call44.i124) #4
   %storemerge.in.i33 = load i32, ptr %level, align 8
   %storemerge.i34 = add i32 %storemerge.in.i33, -1
   store i32 %storemerge.i34, ptr %level, align 8
@@ -17410,7 +17410,7 @@ _gather_130_rule.exit:                            ; preds = %for.body.i197, %for
   %36 = load i32, ptr %level, align 8
   %dec59.i196 = add i32 %36, -1
   store i32 %dec59.i196, ptr %level, align 8
-  %call14.i63 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i57, ptr noundef nonnull %call44.i189) #4
+  %call14.i63 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i57, ptr noundef nonnull %call44.i189) #4
   %storemerge.in.i53 = load i32, ptr %level, align 8
   %storemerge.i54 = add i32 %storemerge.in.i53, -1
   store i32 %storemerge.i54, ptr %level, align 8
@@ -19301,7 +19301,7 @@ if.then31:                                        ; preds = %for.body.i, %for.co
   %47 = load i32, ptr %level, align 8
   %dec56.i = add i32 %47, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call32 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef %p) #4
+  %call32 = call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %p) #4
   %cmp33 = icmp eq ptr %call32, null
   br i1 %cmp33, label %if.then34, label %if.end37
 
@@ -21652,7 +21652,7 @@ if.then28:                                        ; preds = %for.body.i, %for.co
   %17 = load i32, ptr %level, align 8
   %dec49.i = add i32 %17, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call29 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef %p) #4
+  %call29 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %p) #4
   %cmp30 = icmp eq ptr %call29, null
   br i1 %cmp30, label %return, label %if.end34
 
@@ -24651,7 +24651,7 @@ land.lhs.true42:                                  ; preds = %for.body.i, %for.co
   %21 = load i32, ptr %level, align 8
   %dec49.i = add i32 %21, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call43 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call43 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %if.end65, label %if.then45
 
@@ -25146,7 +25146,7 @@ land.lhs.true16:                                  ; preds = %for.body.i102, %for
   %19 = load i32, ptr %level, align 8
   %dec49.i101 = add i32 %19, -1
   store i32 %dec49.i101, ptr %level, align 8
-  %call17 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef %p)
+  %call17 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef nonnull %p)
   %20 = load i32, ptr %error_indicator, align 8
   %tobool19.not = icmp eq i32 %20, 0
   br i1 %tobool19.not, label %if.then20, label %if.end32.thread
@@ -25311,7 +25311,7 @@ land.lhs.true48:                                  ; preds = %for.body.i168, %for
   %31 = load i32, ptr %level, align 8
   %dec49.i167 = add i32 %31, -1
   store i32 %dec49.i167, ptr %level, align 8
-  %call49 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef %p)
+  %call49 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef nonnull %p)
   %32 = load i32, ptr %error_indicator, align 8
   %tobool51.not = icmp eq i32 %32, 0
   br i1 %tobool51.not, label %if.then53, label %if.end65.thread
@@ -25592,7 +25592,7 @@ land.lhs.true81:                                  ; preds = %for.body.i272, %for
   %50 = load i32, ptr %level, align 8
   %dec49.i271 = add i32 %50, -1
   store i32 %dec49.i271, ptr %level, align 8
-  %call82 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef %p)
+  %call82 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef nonnull %p)
   %51 = load i32, ptr %error_indicator, align 8
   %tobool84.not = icmp eq i32 %51, 0
   br i1 %tobool84.not, label %if.then86, label %if.end97.thread
@@ -25850,7 +25850,7 @@ land.lhs.true:                                    ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %level, align 8
   %dec56.i = add i32 %13, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call11 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call11 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %if.end26, label %land.lhs.true13
 
@@ -25998,7 +25998,7 @@ land.lhs.true38:                                  ; preds = %for.body.i70, %for.
   %25 = load i32, ptr %level, align 8
   %dec56.i32 = add i32 %25, -1
   store i32 %dec56.i32, ptr %level, align 8
-  %call39 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool40.not = icmp eq ptr %call39, null
   br i1 %tobool40.not, label %if.end54, label %land.lhs.true41
 
@@ -26687,7 +26687,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_190_rule.exit.thread, %if.end3
@@ -27447,7 +27447,7 @@ land.lhs.true13:                                  ; preds = %for.body.i63, %for.
   %20 = load i32, ptr %level, align 8
   %dec56.i = add i32 %20, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.end30, label %land.lhs.true16
 
@@ -27710,7 +27710,7 @@ land.lhs.true46:                                  ; preds = %for.body.i187, %for
   %40 = load i32, ptr %level, align 8
   %dec56.i186 = add i32 %40, -1
   store i32 %dec56.i186, ptr %level, align 8
-  %call47 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call47 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool48.not = icmp eq ptr %call47, null
   br i1 %tobool48.not, label %if.end63, label %land.lhs.true49
 
@@ -28604,7 +28604,7 @@ land.lhs.true30:                                  ; preds = %for.body.i, %for.co
   %45 = load i32, ptr %level, align 8
   %dec49.i = add i32 %45, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call31 = tail call fastcc ptr @lambda_kwds_rule(ptr noundef %p)
+  %call31 = tail call fastcc ptr @lambda_kwds_rule(ptr noundef nonnull %p)
   %46 = load i32, ptr %error_indicator, align 8
   %tobool33.not = icmp eq i32 %46, 0
   br i1 %tobool33.not, label %if.then34, label %if.end45.thread
@@ -30282,7 +30282,7 @@ _gather_80_rule.exit.i:                           ; preds = %for.body.i.i.i, %fo
   %14 = load i32, ptr %level, align 8
   %dec59.i.i.i = add i32 %14, -1
   store i32 %dec59.i.i.i, ptr %level, align 8
-  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
+  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
   %storemerge.in.i.i = load i32, ptr %level, align 8
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
   store i32 %storemerge.i.i, ptr %level, align 8
@@ -30570,7 +30570,7 @@ land.lhs.true42.i:                                ; preds = %for.body.i.i, %for.
   %25 = load i32, ptr %level, align 8
   %dec49.i.i = add i32 %25, -1
   store i32 %dec49.i.i, ptr %level, align 8
-  %call43.i = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call43.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool44.not.i = icmp eq ptr %call43.i, null
   br i1 %tobool44.not.i, label %if.end65.i, label %if.then45.i
 
@@ -31052,7 +31052,7 @@ land.lhs.true16.i:                                ; preds = %for.body.i106.i, %f
   %80 = load i32, ptr %level, align 8
   %dec49.i71.i = add i32 %80, -1
   store i32 %dec49.i71.i, ptr %level, align 8
-  %call17.i75 = tail call fastcc ptr @star_etc_rule(ptr noundef %p)
+  %call17.i75 = tail call fastcc ptr @star_etc_rule(ptr noundef nonnull %p)
   %81 = load i32, ptr %error_indicator, align 8
   %tobool19.not.i = icmp eq i32 %81, 0
   br i1 %tobool19.not.i, label %if.then20.i, label %if.end32.thread.i
@@ -31237,7 +31237,7 @@ land.lhs.true48.i:                                ; preds = %for.body.i175.i, %f
   %95 = load i32, ptr %level, align 8
   %dec49.i140.i = add i32 %95, -1
   store i32 %dec49.i140.i, ptr %level, align 8
-  %call49.i = tail call fastcc ptr @star_etc_rule(ptr noundef %p)
+  %call49.i = tail call fastcc ptr @star_etc_rule(ptr noundef nonnull %p)
   %96 = load i32, ptr %error_indicator, align 8
   %tobool51.not.i = icmp eq i32 %96, 0
   br i1 %tobool51.not.i, label %if.then53.i, label %if.end65.thread.i
@@ -31507,7 +31507,7 @@ land.lhs.true81.i:                                ; preds = %for.body.i280.i, %f
   %114 = load i32, ptr %level, align 8
   %dec49.i245.i = add i32 %114, -1
   store i32 %dec49.i245.i, ptr %level, align 8
-  %call82.i = tail call fastcc ptr @star_etc_rule(ptr noundef %p)
+  %call82.i = tail call fastcc ptr @star_etc_rule(ptr noundef nonnull %p)
   %115 = load i32, ptr %error_indicator, align 8
   %tobool84.not.i = icmp eq i32 %115, 0
   br i1 %tobool84.not.i, label %if.then86.i39, label %if.end97.thread.i
@@ -32662,7 +32662,7 @@ land.lhs.true:                                    ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %level, align 8
   %dec56.i = add i32 %13, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call11 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call11 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %if.end26, label %land.lhs.true13
 
@@ -32810,7 +32810,7 @@ land.lhs.true38:                                  ; preds = %for.body.i70, %for.
   %25 = load i32, ptr %level, align 8
   %dec56.i32 = add i32 %25, -1
   store i32 %dec56.i32, ptr %level, align 8
-  %call39 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool40.not = icmp eq ptr %call39, null
   br i1 %tobool40.not, label %if.end54, label %land.lhs.true41
 
@@ -34279,7 +34279,7 @@ land.lhs.true13:                                  ; preds = %for.body.i58, %for.
   %20 = load i32, ptr %level, align 8
   %dec56.i = add i32 %20, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call14 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.end30, label %land.lhs.true16
 
@@ -34542,7 +34542,7 @@ land.lhs.true46:                                  ; preds = %for.body.i179, %for
   %40 = load i32, ptr %level, align 8
   %dec56.i141 = add i32 %40, -1
   store i32 %dec56.i141, ptr %level, align 8
-  %call47 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 17) #4
+  %call47 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool48.not = icmp eq ptr %call47, null
   br i1 %tobool48.not, label %if.end63, label %land.lhs.true49
 
@@ -35398,7 +35398,7 @@ land.lhs.true30:                                  ; preds = %for.body.i, %for.co
   %52 = load i32, ptr %level, align 8
   %dec49.i = add i32 %52, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call31 = tail call fastcc ptr @kwds_rule(ptr noundef %p)
+  %call31 = tail call fastcc ptr @kwds_rule(ptr noundef nonnull %p)
   %53 = load i32, ptr %error_indicator, align 8
   %tobool33.not = icmp eq i32 %53, 0
   br i1 %tobool33.not, label %if.then34, label %if.end45.thread
@@ -37951,7 +37951,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_54_rule.exit.thread, %if.end3
@@ -38117,7 +38117,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_56_rule.exit.thread, %if.end3
@@ -38285,7 +38285,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_58_rule.exit.thread, %if.end3
@@ -38488,7 +38488,7 @@ _gather_205_rule.exit:                            ; preds = %for.body.i.i, %for.
   %15 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %15, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -38736,7 +38736,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_212_rule.exit.thread, %if.end3
@@ -39157,7 +39157,7 @@ land.lhs.true30:                                  ; preds = %for.body.i, %for.co
   %21 = load i32, ptr %level, align 8
   %dec56.i = add i32 %21, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call31 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 12) #4
+  %call31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %22 = load i32, ptr %error_indicator, align 8
   %tobool33.not = icmp eq i32 %22, 0
   br i1 %tobool33.not, label %if.then34, label %if.end57.thread
@@ -39742,7 +39742,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_208_rule.exit.thread, %if.end3
@@ -43371,7 +43371,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %11 = load i32, ptr %level, align 8
   %dec59.i = add i32 %11, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15.sink.split.sink.split.sink.split:        ; preds = %if.then30.i, %while.end.i
@@ -43847,7 +43847,7 @@ _gather_65_rule.exit:                             ; preds = %for.body.i, %for.co
   %23 = load i32, ptr %level, align 8
   %dec59.i = add i32 %23, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -46898,7 +46898,7 @@ _gather_73_rule.exit:                             ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %level, align 8
   %dec59.i = add i32 %13, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   %tobool10.not = icmp eq ptr %call14.i, null
@@ -47602,7 +47602,7 @@ _gather_78_rule.exit:                             ; preds = %for.body.i, %for.co
   %13 = load i32, ptr %level, align 8
   %dec59.i = add i32 %13, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   %tobool10.not = icmp eq ptr %call14.i, null
@@ -49643,7 +49643,7 @@ _gather_203_rule.exit.i:                          ; preds = %for.body.i.i.i, %fo
   %17 = load i32, ptr %level, align 8
   %dec59.i.i.i = add i32 %17, -1
   store i32 %dec59.i.i.i, ptr %level, align 8
-  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
+  %call14.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call44.i.i.i) #4
   %storemerge.in.i.i = load i32, ptr %level, align 8
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
   store i32 %storemerge.i.i, ptr %level, align 8
@@ -49916,7 +49916,7 @@ _gather_29_rule.exit.i.i:                         ; preds = %for.body.i.i.i.i, %
   %43 = load i32, ptr %level, align 8
   %dec59.i.i.i.i = add i32 %43, -1
   store i32 %dec59.i.i.i.i, ptr %level, align 8
-  %call14.i.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i.i37, ptr noundef nonnull %call44.i.i.i.i) #4
+  %call14.i.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i.i.i37, ptr noundef nonnull %call44.i.i.i.i) #4
   %storemerge.in.i.i.i = load i32, ptr %level, align 8
   %tobool10.not.i.i38 = icmp eq ptr %call14.i.i.i, null
   br i1 %tobool10.not.i.i38, label %if.end20.i.i, label %if.then28.i
@@ -50890,7 +50890,7 @@ _gather_18_rule.exit:                             ; preds = %for.body.i.i, %for.
   %20 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %20, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -51157,7 +51157,7 @@ _gather_20_rule.exit:                             ; preds = %for.body.i.i, %for.
   %20 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %20, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -52192,7 +52192,7 @@ land.lhs.true51:                                  ; preds = %for.body.i, %for.co
   %18 = load i32, ptr %level, align 8
   %dec49.i = add i32 %18, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call52 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 11) #4
+  %call52 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
   %tobool53.not = icmp eq ptr %call52, null
   br i1 %tobool53.not, label %if.end77, label %land.lhs.true54
 
@@ -53221,7 +53221,7 @@ land.lhs.true28:                                  ; preds = %for.body.i, %for.co
   %24 = load i32, ptr %level, align 8
   %dec49.i = add i32 %24, -1
   store i32 %dec49.i, ptr %level, align 8
-  %call29 = tail call fastcc ptr @dotted_name_rule(ptr noundef %p)
+  %call29 = tail call fastcc ptr @dotted_name_rule(ptr noundef nonnull %p)
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.end59, label %land.lhs.true31
 
@@ -53437,7 +53437,7 @@ land.lhs.true76:                                  ; preds = %for.body.i77, %for.
   %46 = load i32, ptr %level, align 8
   %dec56.i = add i32 %46, -1
   store i32 %dec56.i, ptr %level, align 8
-  %call77 = tail call ptr @_PyPegen_expect_token(ptr noundef %p, i32 noundef 617) #4
+  %call77 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 617) #4
   %tobool78.not = icmp eq ptr %call77, null
   br i1 %tobool78.not, label %if.end110, label %land.lhs.true79
 
@@ -54153,7 +54153,7 @@ _gather_26_rule.exit:                             ; preds = %for.body.i.i, %for.
   %13 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %13, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   %tobool10.not = icmp eq ptr %call14.i, null
@@ -54569,7 +54569,7 @@ _gather_139_rule.exit:                            ; preds = %for.body.i, %for.co
   %14 = load i32, ptr %level, align 8
   %dec59.i = add i32 %14, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
+  %call14.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call.i, ptr noundef nonnull %call44.i) #4
   %storemerge.in.i = load i32, ptr %level, align 8
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
@@ -55285,7 +55285,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   %12 = load i32, ptr %level, align 8
   %dec59.i = add i32 %12, -1
   store i32 %dec59.i, ptr %level, align 8
-  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
+  %call14 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call, ptr noundef nonnull %call44.i) #4
   br label %return
 
 if.end15:                                         ; preds = %_loop0_148_rule.exit.thread, %if.end3
@@ -55307,10 +55307,10 @@ declare void @llvm.va_start.p0(ptr) #2
 declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [33 x i8] c"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_ntlm_core_lm_resp(ptr nocapture noundef readonly %keys, ptr noundef %plaintext, ptr noundef %results) local_unnamed_addr #0 {
+define hidden void @Curl_ntlm_core_lm_resp(ptr noundef readonly captures(none) %keys, ptr noundef %plaintext, ptr noundef %results) local_unnamed_addr #0 {
 entry:
   %key.i28 = alloca [8 x i8], align 1
   %key.i7 = alloca [8 x i8], align 1
@@ -161,7 +161,7 @@ entry:
   %ks = alloca %struct.DES_ks, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call, i64 14)
-  call void @Curl_strntoupper(ptr noundef nonnull %pw, ptr noundef %password, i64 noundef %spec.select) #8
+  call void @Curl_strntoupper(ptr noundef nonnull %pw, ptr noundef nonnull %password, i64 noundef %spec.select) #8
   %arrayidx = getelementptr inbounds nuw [14 x i8], ptr %pw, i64 0, i64 %spec.select
   %sub = sub nuw nsw i64 14, %spec.select
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx, i8 0, i64 %sub, i1 false)
@@ -253,15 +253,15 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @Curl_strntoupper(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_ntlm_core_mk_nt_hash(ptr nocapture noundef readonly %password, ptr noundef %ntbuffer) local_unnamed_addr #0 {
+define hidden i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef readonly captures(none) %password, ptr noundef %ntbuffer) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #9
   %cmp = icmp slt i64 %call, 0
@@ -323,7 +323,7 @@ return:                                           ; preds = %cond.end.thread, %c
 declare i32 @Curl_md4it(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr nocapture noundef readonly %user, i64 noundef %userlen, ptr nocapture noundef readonly %domain, i64 noundef %domlen, ptr noundef %ntlmhash, ptr noundef %ntlmv2hash) local_unnamed_addr #0 {
+define hidden i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef readonly captures(none) %user, i64 noundef %userlen, ptr noundef readonly captures(none) %domain, i64 noundef %domlen, ptr noundef %ntlmhash, ptr noundef %ntlmv2hash) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %userlen, 8000000
   %cmp1 = icmp ugt i64 %domlen, 8000000
@@ -392,7 +392,7 @@ return:                                           ; preds = %if.end, %entry, %as
 declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %ntlmv2hash, ptr nocapture noundef readonly %challenge_client, ptr nocapture noundef readonly %ntlm, ptr nocapture noundef writeonly %ntresp, ptr nocapture noundef writeonly %ntresp_len) local_unnamed_addr #0 {
+define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %ntlmv2hash, ptr noundef readonly captures(none) %challenge_client, ptr noundef readonly captures(none) %ntlm, ptr noundef writeonly captures(none) %ntresp, ptr noundef writeonly captures(none) %ntresp_len) local_unnamed_addr #0 {
 entry:
   %hmac_output = alloca [16 x i8], align 16
   %call = tail call i64 @time(ptr noundef null) #8
@@ -477,10 +477,10 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %ntlmv2hash, ptr nocapture noundef readonly %challenge_client, ptr nocapture noundef readonly %challenge_server, ptr nocapture noundef writeonly %lmresp) local_unnamed_addr #0 {
+define hidden i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef %ntlmv2hash, ptr noundef readonly captures(none) %challenge_client, ptr noundef readonly captures(none) %challenge_server, ptr noundef writeonly captures(none) %lmresp) local_unnamed_addr #0 {
 entry:
   %data = alloca [16 x i8], align 16
   %hmac_output = alloca [16 x i8], align 16
@@ -514,10 +514,10 @@ declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
 declare i8 @llvm.fshl.i8(i8, i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

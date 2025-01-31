@@ -222,7 +222,7 @@ define void @zend_observer_shutdown() local_unnamed_addr #0 {
 declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @zend_observer_add_begin_handler(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @zend_observer_add_begin_handler(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -270,7 +270,7 @@ define void @zend_observer_add_begin_handler(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -346,7 +346,7 @@ zend_observer_remove_handler.exit:                ; preds = %37, %11, %29, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @zend_observer_add_end_handler(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @zend_observer_add_end_handler(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -388,10 +388,10 @@ define void @zend_observer_add_end_handler(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @zend_observer_remove_end_handler(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define noundef zeroext i1 @zend_observer_remove_end_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8

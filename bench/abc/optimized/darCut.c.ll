@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Dar_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Dar_CutPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %putchar = tail call i32 @putchar(i32 123)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
@@ -38,10 +38,10 @@ define void @Dar_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Dar_ObjCutPrint(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Dar_ObjCutPrint(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %4)
@@ -106,7 +106,7 @@ Dar_CutPrint.exit:                                ; preds = %17, %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Dar_CutSortVars(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define i32 @Dar_CutSortVars(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %Dar_CutTruthSwapPolarity.exit
@@ -268,7 +268,7 @@ Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dar_ManCutsFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Dar_ManCutsFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -286,7 +286,7 @@ define void @Dar_ManCutsFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 declare void @Aig_MmFixedStop(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ObjPrepareCuts(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #3 {
+define ptr @Dar_ObjPrepareCuts(ptr noundef captures(none) %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -469,12 +469,12 @@ Dar_CutFindValue.exit:                            ; preds = %.lr.ph.split.i, %.t
 declare ptr @Aig_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @Aig_MmFixedReadMemUsage(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Dar_ManCutsRestart(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @Dar_ManCutsRestart(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
@@ -533,7 +533,7 @@ define void @Dar_ManCutsRestart(ptr nocapture noundef %0, ptr nocapture noundef 
 declare void @Aig_MmFixedRestart(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1, i32 noundef %2) local_unnamed_addr #3 {
+define ptr @Dar_ObjComputeCuts(ptr noundef captures(none) %0, ptr noundef initializes((40, 48)) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val67 = load ptr, ptr %4, align 8
   %5 = tail call ptr @Aig_ObjReal_rec(ptr noundef %.val67) #12
@@ -1336,7 +1336,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %138, %136, %39, %36
 declare ptr @Aig_ObjReal_rec(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dar_CutFilter(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Dar_CutFilter(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.not60 = icmp ult i64 %4, 72057594037927936
@@ -1537,13 +1537,13 @@ common.ret43:                                     ; preds = %6, %2, %tailrecurse
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, -1610612736
@@ -1791,7 +1791,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr nocapture no
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10

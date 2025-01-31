@@ -59,7 +59,7 @@ declare ptr @__archive_write_allocate_filter(ptr noundef) local_unnamed_addr #1
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr nocapture noundef initializes((80, 92)) %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr noundef captures(none) initializes((80, 92)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -158,10 +158,10 @@ declare i32 @archive_write_get_bytes_per_block(ptr noundef) local_unnamed_addr #
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_compress_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_compress_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 0
@@ -348,7 +348,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_compress_write(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_compressor_compress_close(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @archive_compressor_compress_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 414052
@@ -419,7 +419,7 @@ output_flush.exit:                                ; preds = %32, %1, %38
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @archive_compressor_compress_free(ptr nocapture noundef readonly %0) #5 {
+define internal noundef i32 @archive_compressor_compress_free(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 414072
@@ -430,10 +430,10 @@ define internal noundef i32 @archive_compressor_compress_free(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @output_code(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @output_code(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 256

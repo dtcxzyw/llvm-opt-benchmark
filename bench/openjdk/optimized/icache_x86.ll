@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StubCodeMark, align 8
   %4 = alloca %class.Label, align 8
   %5 = alloca %class.Label, align 8

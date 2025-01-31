@@ -39,10 +39,10 @@ $_ZTSN5boost6detail25thread_exit_function_baseE = comdat any
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v2_mt_posix7sources3aux18get_severity_levelEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -246,7 +246,7 @@ define internal void @"_ZN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_po
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EclEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
+define internal void @"_ZN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EclEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !22
   %3 = icmp eq ptr %.val, null

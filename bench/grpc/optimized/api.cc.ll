@@ -136,7 +136,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28ResourceQuotaFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 {
+define void @_ZN9grpc_core28ResourceQuotaFromChannelArgsEPK17grpc_channel_args(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef %args, ptr noundef nonnull @.str)
   %cmp.i = icmp eq ptr %call.i, null
@@ -162,7 +162,7 @@ _Z30grpc_channel_args_find_pointerIN9grpc_core13ResourceQuotaEEPT_PK17grpc_chann
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core31ResourceQuotaFromEndpointConfigERKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core31ResourceQuotaFromEndpointConfigERKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %config, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -480,7 +480,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @grpc_resource_quota_ref(ptr nocapture noundef %resource_quota) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @grpc_resource_quota_ref(ptr noundef captures(none) %resource_quota) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrINS_13ResourceQuotaEED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %resource_quota, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !16
@@ -507,7 +507,7 @@ _ZNK9grpc_core10RefCountedINS_13ResourceQuotaENS_19PolymorphicRefCountENS_11Unre
 }
 
 ; Function Attrs: uwtable
-define void @grpc_resource_quota_resize(ptr nocapture noundef readonly %resource_quota, i64 noundef %new_size) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @grpc_resource_quota_resize(ptr noundef readonly captures(none) %resource_quota, i64 noundef %new_size) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -903,7 +903,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %2, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_resource_quota_set_max_threads(ptr nocapture noundef readonly %resource_quota, i32 noundef %new_max_threads) local_unnamed_addr #3 {
+define void @grpc_resource_quota_set_max_threads(ptr noundef readonly captures(none) %resource_quota, i32 noundef %new_max_threads) local_unnamed_addr #3 {
 entry:
   %thread_quota_.i = getelementptr inbounds nuw i8, ptr %resource_quota, i64 32
   %0 = load ptr, ptr %thread_quota_.i, align 8
@@ -943,7 +943,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1139,7 +1139,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1249,10 +1249,10 @@ declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

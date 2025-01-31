@@ -1184,7 +1184,7 @@ _qos_alter_job.exit68:                            ; preds = %114, %acct_policy_s
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i64, ptr %150, i64 %indvars.iv95
   %152 = load i64, ptr %151, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, i64 noundef %152, i64 noundef %129, i64 noundef %131) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i32 noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, i64 noundef %152, i64 noundef %129, i64 noundef %131) #12
   br label %153
 
 153:                                              ; preds = %140, %143, %127
@@ -1212,7 +1212,7 @@ _qos_alter_job.exit68:                            ; preds = %114, %acct_policy_s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_valid_job_assoc(ptr noundef %0) unnamed_addr #0 {
@@ -1292,12 +1292,12 @@ define internal fastcc noundef zeroext i1 @_valid_job_assoc(ptr noundef %0) unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @acct_policy_set_qos_order(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
+define dso_local void @acct_policy_set_qos_order(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -1439,7 +1439,7 @@ _list_acct_policy_validate.exit:                  ; preds = %18, %19, %22, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 -1, 2) i32 @_list_acct_policy_validate(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef range(i32 -1, 2) i32 @_list_acct_policy_validate(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2171,7 +2171,7 @@ declare void @slurmdb_init_qos_rec(ptr noundef, i1 noundef zeroext, i32 noundef)
 declare void @assoc_mgr_set_qos_tres_cnt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_pre_select(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_pre_select(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2538,7 +2538,7 @@ _set_time_limit.exit143:                          ; preds = %174, %169, %163
 declare void @slurmdb_free_qos_rec_members(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @acct_policy_job_runnable_post_select(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @acct_policy_job_runnable_post_select(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurmdb_qos_rec_t, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.assoc_mgr_lock_t, align 4
@@ -3676,7 +3676,7 @@ _validate_tres_limits_for_assoc.exit228:          ; preds = %602, %584
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_post_select(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_qos_job_runnable_post_select(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @slurmctld_tres_cnt, align 4
   %8 = zext i32 %7 to i64
@@ -5377,7 +5377,7 @@ define internal fastcc range(i32 40, 198) i32 @_get_tres_state_reason(i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_unique_job_node_cnt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_get_unique_job_node_cnt(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5453,7 +5453,7 @@ define internal fastcc void @_get_unique_job_node_cnt(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #5 {
   %9 = load i32, ptr @g_tres_count, align 4
   %10 = icmp ne i32 %9, 0
   %or.cond46 = select i1 %6, i1 %10, i1 false
@@ -5617,7 +5617,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @acct_policy_get_max_nodes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @acct_policy_get_max_nodes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_get_prio_thresh.locks, i64 28, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6641,7 +6641,7 @@ _validate_tres_usage_limits.exit._crit_edge:      ; preds = %_validate_tres_usag
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_qos_job_time_out(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_qos_job_time_out(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @slurmctld_tres_cnt, align 4
   %6 = zext i32 %5 to i64
   %7 = alloca i64, i64 %6, align 16
@@ -7180,7 +7180,7 @@ define dso_local range(i32 -1, 1) i32 @acct_policy_handle_accrue_time(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @acct_policy_get_acct_used_limits(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @acct_policy_get_acct_used_limits(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -7220,7 +7220,7 @@ define dso_local ptr @acct_policy_get_acct_used_limits(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @acct_policy_get_user_used_limits(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @acct_policy_get_user_used_limits(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
@@ -7430,7 +7430,7 @@ define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_get_accrue_limits(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
+define internal fastcc void @_get_accrue_limits(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -8043,7 +8043,7 @@ _get_prio_thresh.exit16:                          ; preds = %_get_prio_thresh.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @acct_policy_get_preemptable_time(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -8125,7 +8125,7 @@ acct_policy_set_qos_order.exit.thread36:          ; preds = %12, %18, %9, %8, %a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.assoc_mgr_lock_t, align 4
   %3 = tail call i64 @time(ptr noundef null) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_is_job_preempt_exempt.locks, i64 28, i1 false)
@@ -8217,7 +8217,7 @@ declare void @slurmdb_destroy_used_limits(ptr noundef) #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_used_limits_for_acct(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_used_limits_for_acct(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %1, ptr noundef %4) #12
@@ -8229,7 +8229,7 @@ define internal range(i32 0, 2) i32 @_find_used_limits_for_acct(ptr nocapture no
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_used_limits_for_user(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 0, 2) i32 @_find_used_limits_for_user(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
@@ -8241,7 +8241,7 @@ define internal range(i32 0, 2) i32 @_find_used_limits_for_user(ptr nocapture no
 declare void @priority_g_job_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_qos_adjust_limit_usage(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
+define internal fastcc void @_qos_adjust_limit_usage(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_add_usage_node_bitmap.exit172, label %6
 
@@ -8840,7 +8840,7 @@ define internal range(i32 0, 2) i32 @_find_qos_part(ptr noundef readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_rm_usage_node_bitmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @_rm_usage_node_bitmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %7 = load ptr, ptr %6, align 8
@@ -8945,7 +8945,7 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @assoc_mgr_fill_in_assoc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct.slurmdb_qos_rec_t, align 8
   %10 = alloca i32, align 4
   %11 = load i32, ptr @slurmctld_tres_cnt, align 4
@@ -10327,7 +10327,7 @@ _validate_time_limit.exit323:                     ; preds = %689, %691
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_qos_policy_validate(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef nonnull %4, ptr noundef writeonly %5, ptr nocapture noundef %6, i1 noundef zeroext %7, ptr noundef %8, i32 noundef %9, i1 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_qos_policy_validate(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef %8, i32 noundef %9, i1 noundef zeroext %10) unnamed_addr #0 {
   %12 = alloca i32, align 4
   store i32 0, ptr %12, align 4
   %.not = icmp eq ptr %3, null
@@ -11760,7 +11760,7 @@ _validate_tres_limits_for_qos.exit344.thread:     ; preds = %749, %723, %81, %78
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef readonly %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef readonly captures(none) %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #5 {
   %11 = load i32, ptr @g_tres_count, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond121 = select i1 %8, i1 %12, i1 false
@@ -12016,7 +12016,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #5 {
+define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #5 {
   %10 = load i32, ptr @g_tres_count, align 4
   %.not99 = icmp eq i32 %10, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph

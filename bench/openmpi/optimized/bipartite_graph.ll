@@ -221,7 +221,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #2
 declare i32 @pmix_pointer_array_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_bp_graph_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -540,7 +540,7 @@ pmix_obj_run_destructors.exit104:                 ; preds = %.lr.ph.i101, %._cri
 declare i32 @pmix_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_clone(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_clone(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %2, null
@@ -769,7 +769,7 @@ pmix_obj_run_constructors.exit28:                 ; preds = %.lr.ph.i25, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -14, 1) i32 @prte_bp_graph_add_edge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -14, 1) i32 @prte_bp_graph_add_edge(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %pmix_pointer_array_get_item.exit.thread, label %8
 
@@ -963,7 +963,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %14, %pmix_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_indegree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_indegree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %pmix_pointer_array_get_item.exit.thread, label %4
 
@@ -999,7 +999,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %2, %4, %pmix_pointe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i32 @prte_bp_graph_outdegree(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define i32 @prte_bp_graph_outdegree(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %pmix_pointer_array_get_item.exit, label %4
 
@@ -1028,7 +1028,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %2, %4, %7
 declare i32 @pmix_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @prte_bp_graph_order(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @prte_bp_graph_order(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -1475,7 +1475,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %40, %34, %pmix_poin
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_solve_bipartite_assignment(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @prte_bp_graph_solve_bipartite_assignment(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = icmp eq ptr %2, null
@@ -1966,7 +1966,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
@@ -1978,7 +1978,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

@@ -174,7 +174,7 @@ if.end8:                                          ; preds = %if.then5, %do.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @evtag_decode_tag(ptr noundef writeonly %ptag, ptr noundef %evbuf) local_unnamed_addr #1 {
@@ -737,15 +737,15 @@ define void @evtag_marshal_string(ptr noundef %buf, i32 noundef %tag, ptr nounde
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #8
   %conv = trunc i64 %call to i32
-  tail call void @evtag_marshal(ptr noundef %buf, i32 noundef %tag, ptr noundef %string, i32 noundef %conv)
+  tail call void @evtag_marshal(ptr noundef %buf, i32 noundef %tag, ptr noundef nonnull %string, i32 noundef %conv)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @evtag_marshal_timeval(ptr noundef %evbuf, i32 noundef %tag, ptr nocapture noundef readonly %tv) local_unnamed_addr #1 {
+define void @evtag_marshal_timeval(ptr noundef %evbuf, i32 noundef %tag, ptr noundef readonly captures(none) %tv) local_unnamed_addr #1 {
 entry:
   %data = alloca [10 x i8], align 1
   %0 = load i64, ptr %tv, align 8
@@ -867,7 +867,7 @@ encode_int_internal.exit30:                       ; preds = %encode_int_internal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_decode_int(ptr nocapture noundef writeonly %pnumber, ptr noundef %evbuf) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_decode_int(ptr noundef writeonly captures(none) %pnumber, ptr noundef %evbuf) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cmp.i = icmp slt i64 %call.i, 1
@@ -930,7 +930,7 @@ if.end:                                           ; preds = %if.end16.i, %if.end
 declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_decode_int64(ptr nocapture noundef writeonly %pnumber, ptr noundef %evbuf) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_decode_int64(ptr noundef writeonly captures(none) %pnumber, ptr noundef %evbuf) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cmp.i = icmp slt i64 %call.i, 1
@@ -1045,7 +1045,7 @@ decode_tag_internal.exit:                         ; preds = %while.cond.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_peek_length(ptr noundef %evbuf, ptr nocapture noundef writeonly %plength) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_peek_length(ptr noundef %evbuf, ptr noundef writeonly captures(none) %plength) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 5)
@@ -1147,7 +1147,7 @@ return:                                           ; preds = %while.cond.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_payload_length(ptr noundef %evbuf, ptr nocapture noundef writeonly %plength) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_payload_length(ptr noundef %evbuf, ptr noundef writeonly captures(none) %plength) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 5)
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 6) i32 @evtag_unmarshal_int(ptr noundef %evbuf, i32 noundef %need_tag, ptr nocapture noundef writeonly %pinteger) local_unnamed_addr #1 {
+define range(i32 -1, 6) i32 @evtag_unmarshal_int(ptr noundef %evbuf, i32 noundef %need_tag, ptr noundef writeonly captures(none) %pinteger) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
@@ -1481,7 +1481,7 @@ return:                                           ; preds = %while.cond.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 10) i32 @evtag_unmarshal_int64(ptr noundef %evbuf, i32 noundef %need_tag, ptr nocapture noundef writeonly %pinteger) local_unnamed_addr #1 {
+define range(i32 -1, 10) i32 @evtag_unmarshal_int64(ptr noundef %evbuf, i32 noundef %need_tag, ptr noundef writeonly captures(none) %pinteger) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
@@ -1627,7 +1627,7 @@ return:                                           ; preds = %entry, %if.end5
 declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_unmarshal_string(ptr noundef %evbuf, i32 noundef %need_tag, ptr nocapture noundef %pstring) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_unmarshal_string(ptr noundef %evbuf, i32 noundef %need_tag, ptr noundef captures(none) %pstring) local_unnamed_addr #1 {
 entry:
   %tag = alloca i32, align 4
   %call = call i32 @evtag_unmarshal_header(ptr noundef %evbuf, ptr noundef nonnull %tag)
@@ -1667,7 +1667,7 @@ declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
 declare void @event_warn(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evtag_unmarshal_timeval(ptr noundef %evbuf, i32 noundef %need_tag, ptr nocapture noundef writeonly %ptv) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @evtag_unmarshal_timeval(ptr noundef %evbuf, i32 noundef %need_tag, ptr noundef writeonly captures(none) %ptv) local_unnamed_addr #1 {
 entry:
   %tag = alloca i32, align 4
   %call = call i32 @evtag_unmarshal_header(ptr noundef %evbuf, ptr noundef nonnull %tag)
@@ -1809,10 +1809,10 @@ return:                                           ; preds = %entry, %done
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

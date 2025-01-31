@@ -373,12 +373,12 @@ _.exit:                                           ; preds = %if.then140, %if.end
 if.end143:                                        ; preds = %_.exit, %for.body
   %call144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
   %conv145 = trunc i64 %call144 to i32
-  %call146 = call i32 @lstat64(ptr noundef %13, ptr noundef nonnull %st) #11
+  %call146 = call i32 @lstat64(ptr noundef nonnull %13, ptr noundef nonnull %st) #11
   %cmp147 = icmp slt i32 %call146, 0
   br i1 %cmp147, label %if.then149, label %if.end201
 
 if.then149:                                       ; preds = %if.end143
-  %call151 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %13, i32 noundef %conv145) #11
+  %call151 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %13, i32 noundef %conv145) #11
   %cmp152 = icmp slt i32 %call151, 0
   br i1 %cmp152, label %if.then154, label %if.end172
 
@@ -419,7 +419,7 @@ add_slash.exit228:                                ; preds = %if.then154, %land.l
   br i1 %tobool157.not, label %land.lhs.true158, label %if.end164
 
 land.lhs.true158:                                 ; preds = %add_slash.exit228
-  %call159 = call fastcc i32 @empty_dir_has_sparse_contents(ptr noundef %13)
+  %call159 = call fastcc i32 @empty_dir_has_sparse_contents(ptr noundef nonnull %13)
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %if.end164, label %if.then161
 
@@ -464,13 +464,13 @@ if.end179:                                        ; preds = %if.end172
   br i1 %tobool180.not, label %if.then181, label %if.end183
 
 if.then181:                                       ; preds = %if.end179
-  %call182 = call ptr @string_list_append(ptr noundef nonnull %only_match_skip_worktree, ptr noundef %13) #11
+  %call182 = call ptr @string_list_append(ptr noundef nonnull %only_match_skip_worktree, ptr noundef nonnull %13) #11
   br label %for.inc459
 
 if.end183:                                        ; preds = %if.end179
   %call184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #13
   %conv185 = trunc i64 %call184 to i32
-  %call186 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %14, i32 noundef %conv185) #11
+  %call186 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %14, i32 noundef %conv185) #11
   %cmp187 = icmp slt i32 %call186, 0
   br i1 %cmp187, label %if.then189, label %if.end193
 
@@ -501,7 +501,7 @@ if.end197:                                        ; preds = %if.end193
 if.end201:                                        ; preds = %if.end143
   %sext = shl i64 %call144, 32
   %conv202 = ashr exact i64 %sext, 32
-  %call203 = call i32 @strncmp(ptr noundef %13, ptr noundef %14, i64 noundef %conv202) #13
+  %call203 = call i32 @strncmp(ptr noundef nonnull %13, ptr noundef %14, i64 noundef %conv202) #13
   %tobool204.not = icmp eq i32 %call203, 0
   br i1 %tobool204.not, label %land.lhs.true205, label %if.end218
 
@@ -541,7 +541,7 @@ dir_check:                                        ; preds = %if.end218, %land.lh
   br i1 %cmp232, label %if.then234, label %if.end325
 
 if.then234:                                       ; preds = %dir_check
-  %call235 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %13, i32 noundef %conv145) #11
+  %call235 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %13, i32 noundef %conv145) #11
   store i32 %call235, ptr %first, align 4
   %cmp236 = icmp sgt i32 %call235, -1
   br i1 %cmp236, label %if.then238, label %if.else241
@@ -562,7 +562,7 @@ if.then238:                                       ; preds = %if.then234
 
 if.then.i255:                                     ; preds = %if.then238
   %call.i256 = call fastcc ptr @_(ptr noundef nonnull @.str.32)
-  call void (ptr, ...) @die(ptr noundef %call.i256, ptr noundef %13) #12
+  call void (ptr, ...) @die(ptr noundef %call.i256, ptr noundef nonnull %13) #12
   unreachable
 
 if.end.i:                                         ; preds = %if.then238
@@ -576,7 +576,7 @@ if.then2.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %submodule_dotgit.i, ptr noundef nonnull @.str.34, ptr noundef %13) #11
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %submodule_dotgit.i, ptr noundef nonnull @.str.34, ptr noundef nonnull %13) #11
   %39 = load ptr, ptr %buf.i, align 8
   %call5.i = call ptr @read_gitfile_gently(ptr noundef %39, ptr noundef null) #11
   store ptr %call5.i, ptr %add.ptr240, align 8
@@ -595,7 +595,7 @@ prepare_move_submodule.exit:                      ; preds = %if.end4.i, %if.then
   br label %for.inc459
 
 if.else241:                                       ; preds = %if.then234
-  %call242 = call fastcc i32 @index_range_of_same_dir(ptr noundef %13, i32 noundef %conv145, ptr noundef %first, ptr noundef %last)
+  %call242 = call fastcc i32 @index_range_of_same_dir(ptr noundef nonnull %13, i32 noundef %conv145, ptr noundef %first, ptr noundef %last)
   %cmp243 = icmp slt i32 %call242, 1
   br i1 %cmp243, label %if.then245, label %if.end248
 
@@ -717,7 +717,7 @@ for.body292:                                      ; preds = %for.body292.lr.ph, 
   store ptr %name, ptr %arrayidx300, align 8
   %add.ptr302 = getelementptr inbounds i8, ptr %name, i64 %idx.ext301
   %add.ptr303 = getelementptr inbounds nuw i8, ptr %add.ptr302, i64 1
-  %call304 = call ptr @prefix_path(ptr noundef %retval.0.i303, i32 noundef %conv287, ptr noundef nonnull %add.ptr303) #11
+  %call304 = call ptr @prefix_path(ptr noundef nonnull %retval.0.i303, i32 noundef %conv287, ptr noundef nonnull %add.ptr303) #11
   %arrayidx307 = getelementptr inbounds ptr, ptr %call278, i64 %53
   store ptr %call304, ptr %arrayidx307, align 8
   %add.ptr311 = getelementptr inbounds nuw i32, ptr %add.ptr309, i64 %indvars.iv
@@ -742,7 +742,7 @@ for.end:                                          ; preds = %for.body292, %add_s
   br label %for.inc459
 
 if.end325:                                        ; preds = %dir_check
-  %call326 = call ptr @index_file_exists(ptr noundef nonnull @the_index, ptr noundef %13, i32 noundef %conv145, i32 noundef 0) #11
+  %call326 = call ptr @index_file_exists(ptr noundef nonnull @the_index, ptr noundef nonnull %13, i32 noundef %conv145, i32 noundef 0) #11
   %tobool327.not = icmp eq ptr %call326, null
   br i1 %tobool327.not, label %if.then328, label %if.end330
 
@@ -774,7 +774,7 @@ land.lhs.true340:                                 ; preds = %if.end336
   br i1 %tobool341.not, label %if.then345, label %lor.lhs.false342
 
 lor.lhs.false342:                                 ; preds = %land.lhs.true340
-  %call343 = call i32 @strcasecmp(ptr noundef %13, ptr noundef %14) #13
+  %call343 = call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef %14) #13
   %tobool344.not = icmp eq i32 %call343, 0
   br i1 %tobool344.not, label %if.end367, label %if.then345
 
@@ -905,12 +905,12 @@ if.end401:                                        ; preds = %if.end401thread-pre
   br i1 %tobool402.not, label %land.lhs.true403, label %if.end408
 
 land.lhs.true403:                                 ; preds = %if.end401
-  %call404 = call i32 @path_in_sparse_checkout(ptr noundef %13, ptr noundef nonnull @the_index) #11
+  %call404 = call i32 @path_in_sparse_checkout(ptr noundef nonnull %13, ptr noundef nonnull @the_index) #11
   %tobool405.not = icmp eq i32 %call404, 0
   br i1 %tobool405.not, label %if.then406, label %if.end408
 
 if.then406:                                       ; preds = %land.lhs.true403
-  %call407 = call ptr @string_list_append(ptr noundef nonnull %only_match_skip_worktree, ptr noundef %13) #11
+  %call407 = call ptr @string_list_append(ptr noundef nonnull %only_match_skip_worktree, ptr noundef nonnull %13) #11
   br label %if.end408
 
 if.end408:                                        ; preds = %if.then406, %land.lhs.true403, %if.end401
@@ -953,7 +953,7 @@ if.end422:                                        ; preds = %if.then379, %if.the
 
 if.then424:                                       ; preds = %if.end422
   %call425 = call fastcc ptr @_(ptr noundef nonnull @.str.24)
-  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.0414, ptr noundef %13, ptr noundef %14) #12
+  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.0414, ptr noundef nonnull %13, ptr noundef %14) #12
   unreachable
 
 remove_entry:                                     ; preds = %if.end415.thread, %if.end422, %if.end415
@@ -1127,13 +1127,13 @@ if.end526:                                        ; preds = %if.then513, %if.the
 if.end530:                                        ; preds = %if.end526
   %call531 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #13
   %conv532 = trunc i64 %call531 to i32
-  %call533 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %83, i32 noundef %conv532) #11
+  %call533 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %83, i32 noundef %conv532) #11
   %and534 = and i32 %85, 8
   %tobool535.not = icmp eq i32 %and534, 0
   br i1 %tobool535.not, label %land.lhs.true536, label %if.end543
 
 land.lhs.true536:                                 ; preds = %if.end530
-  %call537 = call i32 @lstat64(ptr noundef %83, ptr noundef nonnull %st) #11
+  %call537 = call i32 @lstat64(ptr noundef nonnull %83, ptr noundef nonnull %st) #11
   %tobool538.not = icmp eq i32 %call537, 0
   br i1 %tobool538.not, label %if.then539, label %if.end543
 
@@ -1170,7 +1170,7 @@ land.lhs.true552:                                 ; preds = %if.then549
 if.then555:                                       ; preds = %land.lhs.true552
   %call556 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #13
   %conv557 = trunc i64 %call556 to i32
-  %call558 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %84, i32 noundef %conv557) #11
+  %call558 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %84, i32 noundef %conv557) #11
   %99 = load ptr, ptr @the_index, align 8
   %idxprom559 = sext i32 %call558 to i64
   %arrayidx560 = getelementptr inbounds ptr, ptr %99, i64 %idxprom559
@@ -1200,7 +1200,7 @@ land.lhs.true576:                                 ; preds = %if.else570
 if.then579:                                       ; preds = %land.lhs.true576
   %call581 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #13
   %conv582 = trunc i64 %call581 to i32
-  %call583 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %84, i32 noundef %conv582) #11
+  %call583 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %84, i32 noundef %conv582) #11
   br i1 %sparse_and_dirty.0, label %if.then588, label %if.else592
 
 if.then588:                                       ; preds = %if.then579
@@ -1212,15 +1212,15 @@ if.then588:                                       ; preds = %if.then579
   %104 = load i32, ptr %ce_flags589, align 8
   %or590 = or i32 %104, 1073741824
   store i32 %or590, ptr %ce_flags589, align 8
-  %call591 = call i32 @unlink_or_warn(ptr noundef %83) #11
+  %call591 = call i32 @unlink_or_warn(ptr noundef nonnull %83) #11
   br label %for.inc603
 
 if.else592:                                       ; preds = %if.then579
-  %call593 = call ptr @xstrdup(ptr noundef %84) #11
-  %call594 = call ptr @string_list_append(ptr noundef nonnull %dirty_paths, ptr noundef %84) #11
+  %call593 = call ptr @xstrdup(ptr noundef nonnull %84) #11
+  %call594 = call ptr @string_list_append(ptr noundef nonnull %dirty_paths, ptr noundef nonnull %84) #11
   %call595 = call i32 @safe_create_leading_directories(ptr noundef %call593) #11
   call void @free(ptr noundef %call593) #11
-  %call598 = call i32 @rename(ptr noundef %83, ptr noundef %84) #11
+  %call598 = call i32 @rename(ptr noundef nonnull %83, ptr noundef nonnull %84) #11
   br label %for.inc603
 
 for.inc603:                                       ; preds = %land.lhs.true552, %if.else570, %if.end543, %land.lhs.true576, %if.else592, %if.then588, %if.then555, %if.end526, %if.then504, %if.end491
@@ -1234,7 +1234,7 @@ for.body609:                                      ; preds = %for.body609.lr.ph, 
   %arrayidx611 = getelementptr inbounds nuw ptr, ptr %src_dir.4, i64 %indvars.iv577
   %105 = load ptr, ptr %arrayidx611, align 8
   %call.i399 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #13
-  call void @strbuf_add(ptr noundef nonnull %a_src_dir, ptr noundef %105, i64 noundef %call.i399) #11
+  call void @strbuf_add(ptr noundef nonnull %a_src_dir, ptr noundef nonnull %105, i64 noundef %call.i399) #11
   %106 = load ptr, ptr %buf, align 8
   %107 = load i64, ptr %len, align 8
   %conv612 = trunc i64 %107 to i32
@@ -1303,10 +1303,10 @@ return:                                           ; preds = %if.then463, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1346,7 +1346,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_prefix_pathspec(ptr noundef %prefix, ptr nocapture noundef readonly %pathspec, i32 noundef range(i32 1, 2147483647) %count, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
+define internal fastcc ptr @internal_prefix_pathspec(ptr noundef %prefix, ptr noundef readonly captures(none) %pathspec, i32 noundef range(i32 1, 2147483647) %count, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %st_mult.exit, label %cond.true
@@ -1378,7 +1378,7 @@ for.body.us.us:                                   ; preds = %st_mult.exit.split.
   %call5.us.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %sext85 = shl i64 %call5.us.us, 32
   %conv19.us.us = ashr exact i64 %sext85, 32
-  %call20.us.us = tail call ptr @xmemdupz(ptr noundef %1, i64 noundef %conv19.us.us) #11
+  %call20.us.us = tail call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %conv19.us.us) #11
   %arrayidx28.us.us = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv92
   store ptr %call20.us.us, ptr %arrayidx28.us.us, align 8
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
@@ -1392,7 +1392,7 @@ for.body.us:                                      ; preds = %st_mult.exit.split.
   %call5.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   %sext = shl i64 %call5.us, 32
   %conv19.us = ashr exact i64 %sext, 32
-  %call20.us = tail call ptr @xmemdupz(ptr noundef %2, i64 noundef %conv19.us) #11
+  %call20.us = tail call ptr @xmemdupz(ptr noundef nonnull %2, i64 noundef %conv19.us) #11
   %call23.us = tail call ptr @__xpg_basename(ptr noundef %call20.us) #11
   %call24.us = tail call ptr @xstrdup(ptr noundef %call23.us) #11
   %arrayidx26.us = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv
@@ -1426,7 +1426,7 @@ land.rhs.us.us:                                   ; preds = %for.body.us39.us, %
 while.end.us48.us:                                ; preds = %land.rhs.us.us, %while.body.us61.us, %for.body.us39.us
   %to_copy.0.lcssa.us49.us = phi i32 [ %conv6.us44.us, %for.body.us39.us ], [ 0, %while.body.us61.us ], [ %to_copy.034.us.us, %land.rhs.us.us ]
   %conv19.us50.us = sext i32 %to_copy.0.lcssa.us49.us to i64
-  %call20.us51.us = tail call ptr @xmemdupz(ptr noundef %3, i64 noundef %conv19.us50.us) #11
+  %call20.us51.us = tail call ptr @xmemdupz(ptr noundef nonnull %3, i64 noundef %conv19.us50.us) #11
   %arrayidx28.us57.us = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv102
   store ptr %call20.us51.us, ptr %arrayidx28.us57.us, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
@@ -1459,7 +1459,7 @@ land.rhs.us:                                      ; preds = %for.body.us39, %whi
 while.end.us48:                                   ; preds = %land.rhs.us, %while.body.us61, %for.body.us39
   %to_copy.0.lcssa.us49 = phi i32 [ %conv6.us44, %for.body.us39 ], [ 0, %while.body.us61 ], [ %to_copy.034.us, %land.rhs.us ]
   %conv19.us50 = sext i32 %to_copy.0.lcssa.us49 to i64
-  %call20.us51 = tail call ptr @xmemdupz(ptr noundef %6, i64 noundef %conv19.us50) #11
+  %call20.us51 = tail call ptr @xmemdupz(ptr noundef nonnull %6, i64 noundef %conv19.us50) #11
   %call23.us53 = tail call ptr @__xpg_basename(ptr noundef %call20.us51) #11
   %call24.us54 = tail call ptr @xstrdup(ptr noundef %call23.us53) #11
   %arrayidx26.us55 = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv97
@@ -1501,7 +1501,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @path_in_sparse_checkout(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1541,7 +1541,7 @@ add_slash.exit:                                   ; preds = %entry, %land.lhs.tr
   %retval.0.i = phi ptr [ %call3.i, %st_add.exit.i ], [ %name, %land.lhs.true.i ], [ %name, %entry ]
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   %conv = trunc i64 %call1 to i32
-  %call2 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %retval.0.i, i32 noundef %conv) #11
+  %call2 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %retval.0.i, i32 noundef %conv) #11
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %free_return
 
@@ -1559,7 +1559,7 @@ if.end:                                           ; preds = %if.then
   %name8 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %sext = shl i64 %call1, 32
   %conv9 = ashr exact i64 %sext, 32
-  %call10 = tail call i32 @strncmp(ptr noundef %retval.0.i, ptr noundef nonnull %name8, i64 noundef %conv9) #13
+  %call10 = tail call i32 @strncmp(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %name8, i64 noundef %conv9) #13
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.end12, label %free_return
 
@@ -1586,23 +1586,23 @@ if.end20:                                         ; preds = %if.then19, %free_re
 declare i32 @path_in_cone_mode_sparse_checkout(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @index_range_of_same_dir(ptr noundef %src, i32 noundef %length, ptr nocapture noundef nonnull writeonly %first_p, ptr nocapture noundef nonnull writeonly %last_p) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @index_range_of_same_dir(ptr noundef %src, i32 noundef %length, ptr noundef nonnull writeonly captures(none) %first_p, ptr noundef nonnull writeonly captures(none) %last_p) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %src) #13
   %tobool.not.i = icmp eq i64 %call.i, 0
@@ -1699,7 +1699,7 @@ declare ptr @prefix_path(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 declare ptr @index_file_exists(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @warning(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1712,7 +1712,7 @@ declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @advise_on_updating_sparse_paths(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
@@ -1760,17 +1760,17 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @checkout_entry_ca(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

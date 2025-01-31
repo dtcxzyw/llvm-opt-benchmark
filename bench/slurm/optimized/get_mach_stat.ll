@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @conf = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @get_memory(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @get_memory(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   store i64 1, ptr %0, align 8
   %2 = tail call i64 @sysconf(i32 noundef 85) #5
   %3 = icmp slt i64 %2, 1
@@ -44,7 +44,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 3, 2) i32 @get_tmp_disk(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 3, 2) i32 @get_tmp_disk(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.statvfs, align 8
   store i32 0, ptr %0, align 4
   %4 = icmp eq ptr %1, null
@@ -83,13 +83,13 @@ define dso_local range(i32 3, 2) i32 @get_tmp_disk(ptr nocapture noundef initial
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @statvfs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_up_time(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local i32 @get_up_time(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = load ptr, ptr @conf, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4416
@@ -136,7 +136,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare i32 @sysinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_cpu_load(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local i32 @get_cpu_load(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = call i32 @sysinfo(ptr noundef nonnull %2) #5
   %4 = icmp slt i32 %3, 0
@@ -165,7 +165,7 @@ define dso_local i32 @get_cpu_load(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_free_mem(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local i32 @get_free_mem(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = call i32 @sysinfo(ptr noundef nonnull %2) #5
   %4 = icmp slt i32 %3, 0

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleRowUp2_Linear_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Linear_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -50,7 +50,7 @@ define hidden void @ScaleRowUp2_Linear_C(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleRowUp2_Bilinear_C(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Bilinear_C(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
   %7 = getelementptr inbounds i8, ptr %2, i64 %3
   %8 = ashr i32 %4, 1
@@ -150,7 +150,7 @@ define hidden void @ScaleRowUp2_Bilinear_C(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleRowUp2_Linear_16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Linear_16_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = ashr i32 %2, 1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -196,7 +196,7 @@ define hidden void @ScaleRowUp2_Linear_16_C(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleRowUp2_Bilinear_16_C(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i16, ptr %0, i64 %1
   %7 = getelementptr inbounds i16, ptr %2, i64 %3
   %8 = ashr i32 %4, 1
@@ -296,7 +296,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleCols_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleCols_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %invariant.op = shl i32 %4, 1
   %7 = icmp sgt i32 %2, 1
@@ -344,7 +344,7 @@ define hidden void @ScaleCols_C(ptr nocapture noundef writeonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleCols_16_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %invariant.op = shl i32 %4, 1
   %7 = icmp sgt i32 %2, 1
@@ -392,7 +392,7 @@ define hidden void @ScaleCols_16_C(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleColsUp2_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleColsUp2_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -428,7 +428,7 @@ define hidden void @ScaleColsUp2_C(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleColsUp2_16_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleColsUp2_16_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -464,7 +464,7 @@ define hidden void @ScaleColsUp2_16_C(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleFilterCols_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleFilterCols_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -547,7 +547,7 @@ define hidden void @ScaleFilterCols_C(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleFilterCols64_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleFilterCols64_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = sext i32 %3 to i64
   %7 = add nsw i32 %2, -1
   %8 = icmp sgt i32 %2, 1
@@ -635,7 +635,7 @@ define hidden void @ScaleFilterCols64_C(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleFilterCols_16_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -718,7 +718,7 @@ define hidden void @ScaleFilterCols_16_C(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleFilterCols64_16_C(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleFilterCols64_16_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = sext i32 %3 to i64
   %7 = add nsw i32 %2, -1
   %8 = icmp sgt i32 %2, 1
@@ -800,7 +800,7 @@ define hidden void @ScaleFilterCols64_16_C(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleAddRow_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleAddRow_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = icmp sgt i32 %2, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -847,7 +847,7 @@ define hidden void @ScaleAddRow_C(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @ScaleAddRow_16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleAddRow_16_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = icmp sgt i32 %2, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1084,7 +1084,7 @@ define hidden i32 @FixedDiv1_C(i32 noundef %0, i32 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
+define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #4 {
   %10 = icmp eq i32 %2, 1
   %11 = icmp sgt i32 %0, 32767
   %or.cond = and i1 %11, %10

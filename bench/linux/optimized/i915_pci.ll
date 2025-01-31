@@ -97,7 +97,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.67 = private unnamed_addr constant [2 x i8] c",\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @i915_pci_resource_valid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @i915_pci_resource_valid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
@@ -245,7 +245,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
+define internal void @i915_pci_remove(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -261,7 +261,7 @@ define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_pci_shutdown(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @i915_pci_shutdown(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   tail call void @i915_driver_shutdown(ptr noundef %3) #5
@@ -269,7 +269,7 @@ define internal void @i915_pci_shutdown(ptr nocapture noundef readonly %0) #1 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -284,7 +284,7 @@ declare dso_local zeroext i1 @intel_display_driver_probe_defer(ptr noundef) loca
 declare dso_local i32 @i915_driver_probe(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @device_id_in_list(i16 noundef zeroext %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {

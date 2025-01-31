@@ -143,7 +143,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_brief(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_brief(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -169,7 +169,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -195,7 +195,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -221,7 +221,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -263,7 +263,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_thread(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_thread(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -305,7 +305,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_threadtime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_threadtime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -331,7 +331,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_logcat_text_long(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_logcat_text_long(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @exported_pdu_tap, align 4
   %6 = tail call i32 @have_tap_listener(i32 noundef %5) #5
   %.not.i = icmp eq i32 %6, 0
@@ -430,7 +430,7 @@ define hidden void @proto_reg_handoff_logcat_text() local_unnamed_addr #0 {
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @get_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = tail call ptr @g_strstr_len(ptr noundef %8, i64 noundef -1, ptr noundef %1) #5
@@ -475,7 +475,7 @@ define internal noundef i32 @get_priority(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef initializes((208, 256)) %5) #0 {
+define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((208, 256)) %5) #0 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = tail call ptr @g_strstr_len(ptr noundef %8, i64 noundef -1, ptr noundef %1) #5
@@ -489,7 +489,7 @@ define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr @hf_logcat_text_tag, align 4
-  %20 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %19, ptr noundef %2, i32 noundef %13, i32 noundef %18, ptr noundef %1) #5
+  %20 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %19, ptr noundef %2, i32 noundef %13, i32 noundef %18, ptr noundef nonnull %1) #5
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %22 = add i32 %18, 1
   store i32 7, ptr %21, align 8
@@ -512,7 +512,7 @@ define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal i32 @get_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_logcat_text_pid, align 4
   %8 = sext i32 %4 to i64
   %9 = getelementptr i8, ptr %0, i64 %8
@@ -523,7 +523,7 @@ define internal i32 @get_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %14 = trunc i64 %13 to i32
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %16 = trunc i64 %15 to i32
-  %17 = tail call i64 @g_ascii_strtoull(ptr noundef %1, ptr noundef null, i32 noundef 10) #5
+  %17 = tail call i64 @g_ascii_strtoull(ptr noundef nonnull %1, ptr noundef null, i32 noundef 10) #5
   %18 = trunc i64 %17 to i32
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %7, ptr noundef %2, i32 noundef %14, i32 noundef %16, i32 noundef %18) #5
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
@@ -533,7 +533,7 @@ define internal i32 @get_pid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = tail call ptr @g_strstr_len(ptr noundef %8, i64 noundef -1, ptr noundef %1) #5
@@ -544,10 +544,10 @@ define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %14 = load i32, ptr @hf_logcat_text_log, align 4
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %16 = trunc i64 %15 to i32
-  %17 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %14, ptr noundef %2, i32 noundef %13, i32 noundef %16, ptr noundef %1) #5
+  %17 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %14, ptr noundef %2, i32 noundef %13, i32 noundef %16, ptr noundef nonnull %1) #5
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @col_add_str(ptr noundef %19, i32 noundef 25, ptr noundef %1) #5
+  tail call void @col_add_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull %1) #5
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, %13
@@ -555,7 +555,7 @@ define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -631,9 +631,9 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   %52 = load i32, ptr @hf_logcat_text_log, align 4
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
   %54 = trunc i64 %53 to i32
-  %55 = tail call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef %54, ptr noundef %46) #5
+  %55 = tail call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef %54, ptr noundef nonnull %46) #5
   %56 = load ptr, ptr %13, align 8
-  tail call void @col_add_str(ptr noundef %56, i32 noundef 25, ptr noundef %46) #5
+  tail call void @col_add_str(ptr noundef %56, i32 noundef 25, ptr noundef nonnull %46) #5
   %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
   %58 = trunc i64 %57 to i32
   %59 = add i32 %58, %51
@@ -657,7 +657,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -747,15 +747,15 @@ define internal i32 @get_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal i32 @get_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_logcat_text_tid, align 4
   %8 = sext i32 %4 to i64
   %9 = getelementptr i8, ptr %0, i64 %8
@@ -766,7 +766,7 @@ define internal i32 @get_tid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %14 = trunc i64 %13 to i32
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %16 = trunc i64 %15 to i32
-  %17 = tail call i64 @g_ascii_strtoull(ptr noundef %1, ptr noundef null, i32 noundef 10) #5
+  %17 = tail call i64 @g_ascii_strtoull(ptr noundef nonnull %1, ptr noundef null, i32 noundef 10) #5
   %18 = trunc i64 %17 to i32
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %7, ptr noundef %2, i32 noundef %14, i32 noundef %16, i32 noundef %18) #5
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6

@@ -223,7 +223,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmdk_reopen_prepare(ptr noundef %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @vmdk_reopen_prepare(ptr noundef %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call, label %do.end, label %if.else
@@ -303,7 +303,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.body, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vmdk_reopen_commit(ptr nocapture noundef %state) #0 {
+define internal void @vmdk_reopen_commit(ptr noundef captures(none) %state) #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -365,7 +365,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vmdk_reopen_abort(ptr nocapture noundef %state) #0 {
+define internal void @vmdk_reopen_abort(ptr noundef captures(none) %state) #0 {
 entry:
   %opaque.i = getelementptr inbounds nuw i8, ptr %state, i64 56
   %0 = load ptr, ptr %opaque.i, align 8
@@ -458,7 +458,7 @@ if.end11.i:                                       ; preds = %if.end8.i
   %auto_backing_file.i = getelementptr inbounds nuw i8, ptr %bs, i64 8241
   %10 = trunc nuw i64 %sub.ptr.sub.i to i32
   %conv.i = add nuw nsw i32 %10, 1
-  tail call void @pstrcpy(ptr noundef nonnull %auto_backing_file.i, i32 noundef %conv.i, ptr noundef %add.ptr.i) #15
+  tail call void @pstrcpy(ptr noundef nonnull %auto_backing_file.i, i32 noundef %conv.i, ptr noundef nonnull %add.ptr.i) #15
   %backing_file.i = getelementptr inbounds nuw i8, ptr %bs, i64 4145
   tail call void @pstrcpy(ptr noundef nonnull %backing_file.i, i32 noundef 4096, ptr noundef nonnull %auto_backing_file.i) #15
   %backing_format.i = getelementptr inbounds nuw i8, ptr %bs, i64 12337
@@ -471,7 +471,7 @@ vmdk_parent_open.exit.thread:                     ; preds = %if.end14, %if.then4
   br label %fail
 
 vmdk_parent_open.exit:                            ; preds = %if.end.i, %if.end11.i
-  tail call void @g_free(ptr noundef %call.i) #15
+  tail call void @g_free(ptr noundef nonnull %call.i) #15
   %tobool16.not = icmp eq i32 %call1.i, 0
   br i1 %tobool16.not, label %if.end18, label %fail
 
@@ -625,7 +625,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vmdk_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %data = alloca %struct.VMDKCreateOptsData, align 8
@@ -704,7 +704,7 @@ if.end18.i:                                       ; preds = %if.else.i, %if.end1
   br i1 %cmp20.i, label %if.then22.i, label %if.else25.i
 
 if.then22.i:                                      ; preds = %if.end18.i
-  tail call void @pstrcpy(ptr noundef %call1, i32 noundef 4096, ptr noundef %p.2.i) #15
+  tail call void @pstrcpy(ptr noundef %call1, i32 noundef 4096, ptr noundef nonnull %p.2.i) #15
   store i8 0, ptr %call2, align 1
   br label %if.end12
 
@@ -718,7 +718,7 @@ if.else25.i:                                      ; preds = %if.end18.i
 if.end32.i:                                       ; preds = %if.else25.i
   %1 = trunc nuw i64 %sub.ptr.sub28.i to i32
   %conv37.i = add nuw nsw i32 %1, 1
-  tail call void @pstrcpy(ptr noundef %call1, i32 noundef %conv37.i, ptr noundef %p.2.i) #15
+  tail call void @pstrcpy(ptr noundef %call1, i32 noundef %conv37.i, ptr noundef nonnull %p.2.i) #15
   tail call void @pstrcpy(ptr noundef %call2, i32 noundef 4096, ptr noundef nonnull %call19.i) #15
   br label %if.end12
 
@@ -736,7 +736,7 @@ if.end12:                                         ; preds = %if.end32.i, %if.the
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end12
-  tail call void @g_free(ptr noundef %call16) #15
+  tail call void @g_free(ptr noundef nonnull %call16) #15
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end12
@@ -808,7 +808,7 @@ exit:                                             ; preds = %if.else25.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vmdk_gather_child_options(ptr nocapture noundef readonly %bs, ptr noundef %target, i1 noundef zeroext %backing_overridden) #0 {
+define internal void @vmdk_gather_child_options(ptr noundef readonly captures(none) %bs, ptr noundef %target, i1 noundef zeroext %backing_overridden) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -862,7 +862,7 @@ if.end42:                                         ; preds = %qobject_ref_impl.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vmdk_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #2 {
+define internal void @vmdk_refresh_limits(ptr noundef captures(none) %bs, ptr readnone captures(none) %errp) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -910,7 +910,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @vmdk_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 0, 2) i32 @vmdk_has_zero_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -959,7 +959,7 @@ return:                                           ; preds = %if.then, %for.inc, 
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @vmdk_probe(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 101) i32 @vmdk_probe(ptr noundef %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #3 {
 entry:
   %cmp = icmp slt i32 %buf_size, 4
   br i1 %cmp, label %return, label %if.end
@@ -1242,7 +1242,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 130) i32 @vmdk_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -5, 130) i32 @vmdk_co_block_status(ptr noundef %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef writeonly captures(none) %pnum, ptr noundef writeonly captures(none) %map, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %cluster_offset = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1339,7 +1339,7 @@ return:                                           ; preds = %if.end5.i, %entry, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vmdk_co_get_allocated_file_size(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @vmdk_co_get_allocated_file_size(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1456,7 +1456,7 @@ return:                                           ; preds = %if.end, %for.cond, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @vmdk_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #0 {
+define internal range(i32 -95, 1) i32 @vmdk_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %bdi) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1571,7 +1571,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @vmdk_get_specific_info(ptr nocapture noundef readonly %bs, ptr nocapture readnone %errp) #0 {
+define internal noalias noundef ptr @vmdk_get_specific_info(ptr noundef readonly captures(none) %bs, ptr readnone captures(none) %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1664,7 +1664,7 @@ for.end:                                          ; preds = %do.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_co_check(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define internal i32 @vmdk_co_check(ptr noundef %bs, ptr noundef captures(none) %result, i32 noundef %fix) #0 {
 entry:
   %cluster_offset = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2881,7 +2881,7 @@ exit:                                             ; preds = %vmdk_parse_extents.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_read_cid(ptr nocapture noundef readonly %bs, i32 noundef range(i32 0, 2) %parent, ptr nocapture noundef writeonly %pcid) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_read_cid(ptr noundef readonly captures(none) %bs, i32 noundef range(i32 0, 2) %parent, ptr noundef writeonly captures(none) %pcid) unnamed_addr #0 {
 entry:
   %cid = alloca i32, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2999,12 +2999,12 @@ declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @bdrv_refresh_filename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmdk_add_extent(ptr nocapture noundef %bs, ptr noundef %file, i1 noundef zeroext %flat, i64 noundef %sectors, i64 noundef %l1_offset, i64 noundef range(i64 0, -511) %l1_backup_offset, i32 noundef %l1_size, i32 noundef %l2_size, i64 noundef %cluster_sectors, ptr nocapture noundef nonnull writeonly %new_extent, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vmdk_add_extent(ptr noundef captures(none) %bs, ptr noundef %file, i1 noundef zeroext %flat, i64 noundef %sectors, i64 noundef %l1_offset, i64 noundef range(i64 0, -511) %l1_backup_offset, i32 noundef %l1_size, i32 noundef %l2_size, i64 noundef %cluster_sectors, ptr noundef nonnull writeonly captures(none) %new_extent, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %flat to i8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end36, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables(ptr nocapture noundef initializes((80, 88)) %extent, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables(ptr noundef captures(none) initializes((80, 88)) %extent, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %l1_size1 = getelementptr inbounds nuw i8, ptr %extent, i64 96
   %0 = load i32, ptr %l1_size1, align 8
@@ -3222,7 +3222,7 @@ return:                                           ; preds = %entry, %fail_l1, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vmdk_free_last_extent(ptr nocapture %bs.24.val) unnamed_addr #0 {
+define internal fastcc void @vmdk_free_last_extent(ptr captures(none) %bs.24.val) unnamed_addr #0 {
 entry:
   %num_extents = getelementptr inbounds nuw i8, ptr %bs.24.val, i64 68
   %0 = load i32, ptr %num_extents, align 4
@@ -3248,7 +3248,7 @@ declare i64 @bdrv_nb_sectors(ptr noundef) #1
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #6
@@ -3256,18 +3256,18 @@ declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #6
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i32 @path_is_absolute(ptr noundef) local_unnamed_addr #1
 
@@ -3278,7 +3278,7 @@ declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare ptr @bdrv_open_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #1
 
@@ -3303,7 +3303,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 declare void @migrate_del_blocker(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vmdk_co_do_create(i64 noundef %size, i32 noundef %subformat, i32 noundef %adapter_type, ptr noundef %backing_file, ptr noundef %hw_version, ptr noundef %toolsversion, i1 noundef zeroext %compat6, i1 noundef zeroext %zeroed_grain, ptr nocapture noundef readonly %extent_fn, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_co_do_create(i64 noundef %size, i32 noundef %subformat, i32 noundef %adapter_type, ptr noundef %backing_file, ptr noundef %hw_version, ptr noundef %toolsversion, i1 noundef zeroext %compat6, i1 noundef zeroext %zeroed_grain, ptr noundef readonly captures(none) %extent_fn, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %parent_cid = alloca i32, align 4
@@ -3494,13 +3494,13 @@ if.end112:                                        ; preds = %while.end
 if.end125:                                        ; preds = %if.end112
   %spec.select97 = select i1 %3, i64 0, i64 512
   %conv127 = and i64 %call119, 4294967295
-  %call128 = call i32 @blk_co_pwrite(ptr noundef nonnull %call50, i64 noundef %spec.select97, i64 noundef %conv127, ptr noundef %call118, i32 noundef 0) #15
+  %call128 = call i32 @blk_co_pwrite(ptr noundef nonnull %call50, i64 noundef %spec.select97, i64 noundef %conv127, ptr noundef nonnull %call118, i32 noundef 0) #15
   %cmp129 = icmp slt i32 %call128, 0
   br i1 %cmp129, label %if.then131, label %if.end133
 
 if.end125.thread:                                 ; preds = %if.end112
   %conv127103 = and i64 %call119, 4294967295
-  %call128104 = call i32 @blk_co_pwrite(ptr noundef nonnull %call50, i64 noundef 0, i64 noundef %conv127103, ptr noundef %call118, i32 noundef 0) #15
+  %call128104 = call i32 @blk_co_pwrite(ptr noundef nonnull %call50, i64 noundef 0, i64 noundef %conv127103, ptr noundef nonnull %call118, i32 noundef 0) #15
   %cmp129105 = icmp slt i32 %call128104, 0
   br i1 %cmp129105, label %if.then131, label %if.then136
 
@@ -3538,7 +3538,7 @@ if.end146:                                        ; preds = %if.end35, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @vmdk_co_create_cb(i64 noundef %size, i32 noundef %idx, i1 noundef zeroext %flat, i1 zeroext %split, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal ptr @vmdk_co_create_cb(i64 noundef %size, i32 noundef %idx, i1 noundef zeroext %flat, i1 zeroext %split, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %cmp = icmp eq i32 %idx, 0
   br i1 %cmp, label %if.end12, label %if.else
@@ -3823,7 +3823,7 @@ declare zeroext i1 @qemu_opt_get_bool_del(ptr noundef, ptr noundef, i1 noundef z
 declare i32 @qapi_enum_parse(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @vmdk_co_create_opts_cb(i64 noundef %size, i32 noundef %idx, i1 noundef zeroext %flat, i1 noundef zeroext %split, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal ptr @vmdk_co_create_opts_cb(i64 noundef %size, i32 noundef %idx, i1 noundef zeroext %flat, i1 noundef zeroext %split, i1 noundef zeroext %compress, i1 noundef zeroext %zeroed_grain, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %cmp = icmp eq i64 %size, -1
   br i1 %cmp, label %if.then, label %if.end6
@@ -3955,14 +3955,14 @@ declare void @qdict_put_null(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_has_zero_init(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -3, 1) i32 @get_cluster_offset(ptr noundef %bs, ptr nocapture noundef %extent, ptr noundef writeonly %m_data, i64 noundef %offset, i1 noundef zeroext %allocate, ptr nocapture noundef writeonly %cluster_offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes) #0 {
+define internal range(i32 -3, 1) i32 @get_cluster_offset(ptr noundef %bs, ptr noundef captures(none) %extent, ptr noundef writeonly %m_data, i64 noundef %offset, i1 noundef zeroext %allocate, ptr noundef writeonly captures(none) %cluster_offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %l2_size = getelementptr inbounds nuw i8, ptr %extent, i64 104
@@ -4311,7 +4311,7 @@ return:                                           ; preds = %if.end17, %if.end18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @vmdk_is_cid_valid(ptr nocapture noundef readonly %bs) #0 {
+define internal range(i32 0, 2) i32 @vmdk_is_cid_valid(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %cid.i = alloca i32, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -4396,7 +4396,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vmdk_read_extent(ptr nocapture noundef readonly %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i32 noundef %bytes) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_read_extent(ptr noundef readonly captures(none) %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i32 noundef %bytes) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %buf_len = alloca i64, align 8
@@ -4536,7 +4536,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @get_whole_cluster(ptr noundef %bs, ptr nocapture noundef readonly %extent, i64 noundef %cluster_offset, i64 noundef %offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes, i1 noundef zeroext %zeroed) #0 {
+define internal range(i32 -1, 1) i32 @get_whole_cluster(ptr noundef %bs, ptr noundef readonly captures(none) %extent, i64 noundef %cluster_offset, i64 noundef %offset, i64 noundef %skip_start_bytes, i64 noundef %skip_end_bytes, i1 noundef zeroext %zeroed) #0 {
 entry:
   %qiov.i63 = alloca %struct.QEMUIOVector, align 8
   %qiov.i58 = alloca %struct.QEMUIOVector, align 8
@@ -4938,7 +4938,7 @@ return:                                           ; preds = %if.end5, %if.end26,
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @vmdk_L2update(ptr nocapture noundef readonly %extent, ptr nocapture noundef %m_data, i32 noundef %offset) #0 {
+define internal range(i32 -1, 1) i32 @vmdk_L2update(ptr noundef readonly captures(none) %extent, ptr noundef captures(none) %m_data, i32 noundef %offset) #0 {
 entry:
   %qiov.i15 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -5042,7 +5042,7 @@ return:                                           ; preds = %if.end33, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vmdk_write_extent(ptr nocapture noundef %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i64 noundef %qiov_offset, i64 noundef %n_bytes, i64 noundef %offset) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_write_extent(ptr noundef captures(none) %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i64 noundef %qiov_offset, i64 noundef %n_bytes, i64 noundef %offset) #0 {
 entry:
   %buf_len = alloca i64, align 8
   %local_qiov = alloca %struct.QEMUIOVector, align 8
@@ -5176,7 +5176,7 @@ if.end61:                                         ; preds = %if.then60, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_write_cid(ptr nocapture noundef readonly %bs, i32 noundef %cid) #0 {
+define internal i32 @vmdk_write_cid(ptr noundef readonly captures(none) %bs, i32 noundef %cid) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -5282,7 +5282,7 @@ declare i32 @bdrv_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 
 declare i64 @bdrv_co_nb_sectors(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12
@@ -5294,7 +5294,7 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
@@ -5303,10 +5303,10 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

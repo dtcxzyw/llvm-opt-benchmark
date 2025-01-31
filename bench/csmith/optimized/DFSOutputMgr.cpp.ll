@@ -177,7 +177,7 @@ declare noundef zeroext i1 @_ZN9CGOptions14compact_outputEv() local_unnamed_addr
 declare void @_ZN9OutputMgr12OutputHeaderEiPPcm(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12DFSOutputMgr18OutputStructUnionsERSo(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12DFSOutputMgr18OutputStructUnionsERSo(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_ofstream", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
@@ -263,12 +263,12 @@ declare void @_ZN9OutputMgr21OutputStepHashFuncDefERSo(ptr noundef nonnull align
 declare void @_ZN9OutputMgr10OutputMainERSo(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN12DFSOutputMgr12get_main_outEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN12DFSOutputMgr12get_main_outEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret ptr @_ZSt4cout
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12DFSOutputMgr8outputlnERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN12DFSOutputMgr8outputlnERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN9CGOptions14compact_outputEv()
   br i1 %3, label %6, label %4
 

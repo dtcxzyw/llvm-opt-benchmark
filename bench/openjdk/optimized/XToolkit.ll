@@ -122,12 +122,12 @@ define void @Java_sun_awt_X11_XToolkit_initIDs(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_sun_awt_X11_XToolkit_getTrayIconDisplayTimeout(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define noundef i64 @Java_sun_awt_X11_XToolkit_getTrayIconDisplayTimeout(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret i64 2000
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11_XToolkit_getDefaultXColormap(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11_XToolkit_getDefaultXColormap(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
@@ -223,7 +223,7 @@ define i64 @Java_sun_awt_X11_XToolkit_getDefaultXColormap(ptr noundef %0, ptr no
 declare ptr @getDefaultConfig(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   store ptr %0, ptr @jvm_xawt, align 8
   %3 = tail call i32 @putenv(ptr noundef nonnull @.str.3) #13
   ret i32 65538
@@ -233,7 +233,7 @@ define noundef i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1
 declare i32 @putenv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XToolkit_nativeLoadSystemColors(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XToolkit_nativeLoadSystemColors(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -470,62 +470,62 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Container_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Container_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Scrollbar_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Scrollbar_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Window_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Window_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Frame_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Frame_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Cursor_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Cursor_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_MenuItem_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_MenuItem_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Menu_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Menu_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_TextArea_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_TextArea_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Checkbox_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Checkbox_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_ScrollPane_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_ScrollPane_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_Dialog_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_Dialog_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
@@ -940,7 +940,7 @@ waitForEvents.exit:                               ; preds = %90, %performPoll.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XToolkit_awt_1toolkit_1init(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XToolkit_awt_1toolkit_1init(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pthread_self() #14
   store i64 %3, ptr @awt_MainThread, align 8
   %.b.i = load i1, ptr @awt_pipe_inited, align 1
@@ -1072,13 +1072,13 @@ readEnv.exit:                                     ; preds = %awt_pipe_init.exit,
 declare i64 @pthread_self() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XToolkit_awt_1output_1flush(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XToolkit_awt_1output_1flush(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @awt_output_flush()
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Java_sun_awt_X11_XToolkit_wakeup_1poll(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define void @Java_sun_awt_X11_XToolkit_wakeup_1poll(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   %3 = load i64, ptr @awt_MainThread, align 8
   %4 = tail call i64 @pthread_self() #14
   %5 = icmp ne i64 %3, %4
@@ -1245,12 +1245,12 @@ wakeUp.exit:                                      ; preds = %82, %78, %69, %70, 
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @XFlush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XToolkit_getEnv(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XToolkit_getEnv(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef null) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -1277,7 +1277,7 @@ define ptr @Java_sun_awt_X11_XToolkit_getEnv(ptr noundef %0, ptr nocapture nound
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1365,12 +1365,12 @@ define hidden i64 @get_xawt_root_shell(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_awt_TrayIcon_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_awt_TrayIcon_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_awt_Cursor_finalizeImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_awt_Cursor_finalizeImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %58, label %4
 
@@ -1466,7 +1466,7 @@ define void @Java_java_awt_Cursor_finalizeImpl(ptr noundef %0, ptr nocapture nou
 declare i32 @XFreeCursor(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32768, 32768) i32 @Java_sun_awt_X11_XToolkit_getNumberOfButtonsImpl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -32768, 32768) i32 @Java_sun_awt_X11_XToolkit_getNumberOfButtonsImpl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @num_buttons, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -1595,7 +1595,7 @@ declare ptr @XListInputDevices(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @XFreeDeviceList(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XWindowPeer_getJvmPID(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XWindowPeer_getJvmPID(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @getpid() #13
   ret i32 %3
 }
@@ -1604,7 +1604,7 @@ define i32 @Java_sun_awt_X11_XWindowPeer_getJvmPID(ptr nocapture noundef readnon
 declare i32 @getpid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11_XWindowPeer_getLocalHostname(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11_XWindowPeer_getLocalHostname(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [65 x i8], align 16
   %4 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 65) #13
   %5 = icmp eq i32 %4, 0
@@ -1632,7 +1632,7 @@ declare zeroext i8 @awtJNI_ThreadYield(ptr noundef) local_unnamed_addr #2
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @pipe(ptr noundef) local_unnamed_addr #3
@@ -1640,16 +1640,16 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #3
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -1658,10 +1658,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

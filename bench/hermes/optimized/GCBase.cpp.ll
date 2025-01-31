@@ -292,7 +292,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN6hermes2vm6GCBase9IDTrackerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm6GCBase9IDTrackerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741) initializes((0, 12), (16, 24), (32, 68), (72, 104)) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr nocapture noundef readonly %crashMgr, i32 noundef %kind) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741) initializes((0, 12), (16, 24), (32, 68), (72, 104)) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr noundef readonly captures(none) %crashMgr, i32 noundef %kind) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i38 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i39 = alloca %"class.std::allocator.2", align 1
@@ -678,7 +678,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @_ZN6hermes8oscompat15thread_cpu_timeEv() local_unnamed_addr #1
 
@@ -813,7 +813,7 @@ declare void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 der
 declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase11getHeapInfoERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((0, 4)) %info) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase11getHeapInfoERNS1_8HeapInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(741) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(384) initializes((0, 4)) %info) unnamed_addr #4 align 2 {
 entry:
   %cumStats_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i32, ptr %cumStats_, align 8
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase25getHeapInfoWithMallocSizeERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((32, 36)) %info) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase25getHeapInfoWithMallocSizeERNS1_8HeapInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(741) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(384) initializes((32, 36)) %info) unnamed_addr #4 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 376
@@ -862,7 +862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6hermes2vm6GCBase4dumpERN4llvh11raw_ostreamEb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase4dumpERN4llvh11raw_ostreamEb(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -1165,7 +1165,7 @@ declare void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef no
 declare void @_ZN6hermes11JSONEmitter10closeArrayEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase13recordGCStatsERKNS0_16GCAnalyticsEventEPNS1_19CumulativeHeapStatsEb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %event, ptr nocapture noundef initializes((88, 92)) %stats, i1 noundef zeroext %onMutator) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase13recordGCStatsERKNS0_16GCAnalyticsEventEPNS1_19CumulativeHeapStatsEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %event, ptr noundef captures(none) initializes((88, 92)) %stats, i1 noundef zeroext %onMutator) local_unnamed_addr #4 align 2 {
 entry:
   br i1 %onMutator, label %if.then, label %if.end
 
@@ -1412,7 +1412,7 @@ declare void @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef, ptr noundef, ...) local_
 declare void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr, i64, i32, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBase9oomDetailEN4llvh15MutableArrayRefIcEESt10error_code(ptr noundef nonnull align 8 dereferenceable(741) %this, ptr nocapture writeonly %detailBuffer.coerce0, i64 %detailBuffer.coerce1, i32 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase9oomDetailEN4llvh15MutableArrayRefIcEESt10error_code(ptr noundef nonnull align 8 dereferenceable(741) %this, ptr writeonly captures(none) %detailBuffer.coerce0, i64 %detailBuffer.coerce1, i32 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #0 align 2 {
 entry:
   %heapInfo = alloca %"struct.hermes::vm::GCBase::HeapInfo", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1476,13 +1476,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBase12buildKeyListERNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEE(ptr noalias nocapture sret(%"class.std::vector.31") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %weakMap) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase12buildKeyListERNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEE(ptr noalias sret(%"class.std::vector.31") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %weakMap) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = tail call { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase10keys_beginEv(ptr noundef nonnull align 8 dereferenceable(61) %weakMap) #27
@@ -2380,7 +2380,7 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6hermes2vm6GCBase8newAllocEPKNS0_6GCCellEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(741) %this, ptr nocapture noundef readnone %ptr, i32 noundef %sz) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase8newAllocEPKNS0_6GCCellEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(741) %this, ptr noundef readnone captures(none) %ptr, i32 noundef %sz) local_unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -2871,7 +2871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_17DurationFormatObjE(ptr noundef nonnull returned align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dfo) local_unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_17DurationFormatObjE(ptr noundef nonnull returned align 8 dereferenceable(36) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %dfo) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.llvh::format_object", align 8
   %ref.tmp6 = alloca %"class.llvh::format_object", align 8
@@ -2977,7 +2977,7 @@ if.end18:                                         ; preds = %if.then4.i.i36, %if
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_13SizeFormatObjE(ptr noundef nonnull returned align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sfo) local_unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_13SizeFormatObjE(ptr noundef nonnull returned align 8 dereferenceable(36) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sfo) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.llvh::format_object", align 8
   %ref.tmp6 = alloca %"class.llvh::format_object", align 8
@@ -3055,13 +3055,13 @@ if.end20:                                         ; preds = %if.then4.i.i, %if.t
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6hermes2vm6GCBase11GCCallbacksD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase11GCCallbacksD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN6hermes2vm6GCBase11GCCallbacksD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) unnamed_addr #9 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase11GCCallbacksD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
@@ -3071,7 +3071,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm6GCBase9IDTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 44), (48, 68), (72, 92), (96, 116), (120, 140), (144, 164), (168, 188)) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase9IDTrackerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) initializes((0, 44), (48, 68), (72, 92), (96, 116), (120, 140), (144, 164), (168, 188)) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %__kind.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3272,7 +3272,7 @@ cleanup:                                          ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNumberIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_.i, align 8
@@ -3517,7 +3517,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, -1) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextObjectIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_, align 8
@@ -3535,7 +3535,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 1, -2) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNativeIDEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, -2) i32 @_ZN6hermes2vm6GCBase9IDTracker12nextNativeIDEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #0 align 2 {
 entry:
   %lastID_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_.i, align 8
@@ -3690,7 +3690,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK6hermes2vm6GCBase9IDTracker6lastIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #12 align 2 {
+define hidden noundef i32 @_ZNK6hermes2vm6GCBase9IDTracker6lastIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #12 align 2 {
 entry:
   %lastID_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %lastID_, align 8
@@ -3975,7 +3975,7 @@ for.end42:                                        ; preds = %for.body31, %_ZNSt8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %diagnostic.val = load ptr, ptr %0, align 8
@@ -3984,7 +3984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -4200,7 +4200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
@@ -4281,7 +4281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define internal { i32, ptr } @_ZZN6hermes2vm6GCBase13checkTripwireEmEN3Ctx20createSnapshotToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %path) unnamed_addr #15 align 2 {
+define internal { i32, ptr } @_ZZN6hermes2vm6GCBase13checkTripwireEmEN3Ctx20createSnapshotToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %path) unnamed_addr #15 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #32
   %.fca.1.insert = insertvalue { i32, ptr } { i32 38, ptr poison }, ptr %call, 1
@@ -4289,7 +4289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define internal { i32, ptr } @_ZZN6hermes2vm6GCBase13checkTripwireEmEN3Ctx14createSnapshotERSo(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %os) unnamed_addr #15 align 2 {
+define internal { i32, ptr } @_ZZN6hermes2vm6GCBase13checkTripwireEmEN3Ctx14createSnapshotERSo(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %os) unnamed_addr #15 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #32
   %.fca.1.insert = insertvalue { i32, ptr } { i32 38, ptr poison }, ptr %call, 1
@@ -4308,7 +4308,7 @@ declare void @_ZN6hermes2vm17GCTripwireContextD2Ev(ptr noundef nonnull align 8 d
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -4327,7 +4327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERPNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture nonnull readnone align 8 %ptr) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERPNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nonnull readnone align 8 captures(none) %ptr) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -4359,7 +4359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17PinnedHermesValueE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17PinnedHermesValueE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.2", align 1
@@ -4383,7 +4383,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor14acceptNullableERNS0_17PinnedHermesValueE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor14acceptNullableERNS0_17PinnedHermesValueE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -4400,14 +4400,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_12RootSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_12RootSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sym) unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture nonnull readnone align 4 %ptr) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nonnull readnone align 4 captures(none) %ptr) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -4439,7 +4439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -4456,7 +4456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %shv) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %shv) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::HermesValue", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4579,14 +4579,14 @@ _ZNK6hermes2vm13HermesValue324toHVERNS0_11PointerBaseE.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #0 align 2 {
+define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sym) unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD1Ev(ptr nocapture noundef readonly %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD1Ev(ptr noundef readonly captures(none) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %diagnostic.val.i = load ptr, ptr %0, align 8
@@ -4606,7 +4606,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef %this, ptr nocapture nonnull readnone align 4 %ptr) unnamed_addr #19 align 2 {
+define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef %this, ptr nonnull readnone align 4 captures(none) %ptr) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull align 4 poison)
@@ -4614,7 +4614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv) unnamed_addr #19 align 2 {
+define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv) unnamed_addr #19 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.2", align 1
@@ -4639,7 +4639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %shv) unnamed_addr #19 align 2 {
+define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %shv) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(4) %shv)
@@ -4647,7 +4647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #19 align 2 {
+define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sym) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %0)
@@ -4962,7 +4962,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %diag, i64 noundef range(i64 4, 9) %hvBytes) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %diag, i64 noundef range(i64 4, 9) %hvBytes) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i81 = alloca %"class.std::allocator.2", align 1
   %ref.tmp.i.i75 = alloca %"class.std::allocator.2", align 1
@@ -5181,7 +5181,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
@@ -5321,7 +5321,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZThn8_N6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorED1Ev(ptr nocapture readnone %this) unnamed_addr #5 align 2 {
+define internal void @_ZThn8_N6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorED1Ev(ptr readnone captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -5650,7 +5650,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN6hermes2vm11WeakRefSlotESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(12) %__args) local_unnamed_addr #0 comdat align 2 {
@@ -7226,7 +7226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERPNS0_6GCCellEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %ptr, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERPNS0_6GCCellEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr nonnull readnone align 8 captures(none) %ptr, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7235,7 +7235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17PinnedHermesValueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17PinnedHermesValueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7244,7 +7244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE14acceptNullableERNS0_17PinnedHermesValueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE14acceptNullableERNS0_17PinnedHermesValueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.2", align 1
@@ -7270,7 +7270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERKNS0_12RootSymbolIDEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERKNS0_12RootSymbolIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sym, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7289,7 +7289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_13GCPointerBaseEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 4 %ptr, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_13GCPointerBaseEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr nonnull readnone align 4 captures(none) %ptr, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7308,7 +7308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17GCHermesValueBaseINS0_11HermesValueEEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %hv, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.2", align 1
@@ -7344,7 +7344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %hv, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERNS0_17GCHermesValueBaseINS0_13HermesValue32EEEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %hv, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7363,7 +7363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERKNS0_10GCSymbolIDEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE6acceptERKNS0_10GCSymbolIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %sym, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %acceptor = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
@@ -7433,7 +7433,7 @@ entry:
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_6GCBase20sizeDiagnosticCensusEmE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_6GCBase20sizeDiagnosticCensusEmE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #0 align 2 {
 entry:
   %__dnew.i2.i.i = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -7829,7 +7829,7 @@ if.then51.i.i.i:                                  ; preds = %cleanup.done42.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_6GCBase20sizeDiagnosticCensusEmE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #4 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_6GCBase20sizeDiagnosticCensusEmE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #4 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -7973,10 +7973,10 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23

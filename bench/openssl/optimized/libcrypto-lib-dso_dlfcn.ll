@@ -229,11 +229,11 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp22, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.then19
-  %call25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %filename) #10
+  %call25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %filename) #10
   br label %return
 
 if.else:                                          ; preds = %if.then19
-  %call26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %filename) #10
+  %call26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %filename) #10
   br label %return
 
 if.else28:                                        ; preds = %if.end17
@@ -245,7 +245,7 @@ return:                                           ; preds = %if.else28, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dlfcn_merger(ptr nocapture readnone %dso, ptr noundef %filespec1, ptr noundef %filespec2) #1 {
+define internal ptr @dlfcn_merger(ptr readnone captures(none) %dso, ptr noundef %filespec1, ptr noundef %filespec2) #1 {
 entry:
   %tobool = icmp ne ptr %filespec1, null
   %tobool1 = icmp ne ptr %filespec2, null
@@ -331,7 +331,7 @@ return:                                           ; preds = %if.end32, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr noundef %addr, ptr nocapture noundef writeonly %path, i32 noundef %sz) #1 {
+define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr noundef %addr, ptr noundef writeonly captures(none) %path, i32 noundef %sz) #1 {
 entry:
   %dli = alloca %struct.Dl_info, align 8
   %cmp = icmp eq ptr %addr, null
@@ -356,7 +356,7 @@ if.end6:                                          ; preds = %if.then1
   %sub = add nsw i32 %sz, -1
   %spec.select9 = select i1 %cmp7.not, i32 %conv, i32 %sub
   %conv12 = sext i32 %spec.select9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %path, ptr align 1 %0, i64 %conv12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %path, ptr nonnull align 1 %0, i64 %conv12, i1 false)
   %inc = add nsw i32 %spec.select9, 1
   %arrayidx = getelementptr inbounds i8, ptr %path, i64 %conv12
   store i8 0, ptr %arrayidx, align 1
@@ -423,22 +423,22 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @DSO_flags(ptr noundef) local_unnamed_addr #2
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #4

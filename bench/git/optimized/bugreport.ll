@@ -177,7 +177,7 @@ if.end:                                           ; preds = %entry
   %cond = select i1 %tobool43.not, ptr @.str.11, ptr %2
   %call44 = call ptr @prefix_filename(ptr noundef %prefix, ptr noundef nonnull %cond) #12
   %call.i8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call44) #14
-  call void @strbuf_add(ptr noundef nonnull %report_path, ptr noundef %call44, i64 noundef %call.i8) #12
+  call void @strbuf_add(ptr noundef nonnull %report_path, ptr noundef nonnull %call44, i64 noundef %call.i8) #12
   %len.i = getelementptr inbounds nuw i8, ptr %report_path, i64 8
   %3 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %3, 0
@@ -286,7 +286,7 @@ if.end3.i.i:                                      ; preds = %if.end58
 get_bug_template.exit:                            ; preds = %if.end58, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ %template_text.i, %if.end58 ]
   %call.i1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i.i, i64 noundef %call.i1.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i.i, i64 noundef %call.i1.i) #12
   call void @llvm.lifetime.end.p0(i64 488, ptr nonnull %template_text.i)
   %22 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %22, 0
@@ -311,7 +311,7 @@ if.end3.i.i15:                                    ; preds = %_.exit
 _.exit.i:                                         ; preds = %if.end3.i.i15, %_.exit
   %retval.0.i.i17 = phi ptr [ %call.i.i16, %if.end3.i.i15 ], [ @.str.24, %_.exit ]
   %call.i11.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i17) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i.i17, i64 noundef %call.i11.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i.i17, i64 noundef %call.i11.i) #12
   call void @get_version_info(ptr noundef nonnull %buffer, i32 noundef 1) #12
   call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.25, i64 noundef 7) #12
   %call1.i = call i32 @uname(ptr noundef nonnull %uname_info.i) #12
@@ -355,7 +355,7 @@ if.end3.i19.i:                                    ; preds = %if.end.i
 _.exit22.i:                                       ; preds = %if.end3.i19.i, %if.end.i
   %retval.0.i21.i = phi ptr [ %call.i20.i, %if.end3.i19.i ], [ @.str.28, %if.end.i ]
   %call.i23.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i21.i) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i21.i, i64 noundef %call.i23.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i21.i, i64 noundef %call.i23.i) #12
   %len1.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %28 = load i64, ptr %len1.i.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #12
@@ -377,7 +377,7 @@ if.end3.i.i.i:                                    ; preds = %if.then.i.i20
 _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.then.i.i20
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.35, %if.then.i.i20 ]
   %call.i4.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i.i) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i.i.i, i64 noundef %call.i4.i.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i.i.i, i64 noundef %call.i4.i.i) #12
   br label %get_compiler_info.exit.i
 
 get_compiler_info.exit.i:                         ; preds = %_.exit.i.i, %_.exit22.i
@@ -392,7 +392,7 @@ if.end3.i25.i:                                    ; preds = %get_compiler_info.e
 _.exit28.i:                                       ; preds = %if.end3.i25.i, %get_compiler_info.exit.i
   %retval.0.i27.i = phi ptr [ %call.i26.i, %if.end3.i25.i ], [ @.str.29, %get_compiler_info.exit.i ]
   %call.i29.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i27.i) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i27.i, i64 noundef %call.i29.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i27.i, i64 noundef %call.i29.i) #12
   %32 = load i64, ptr %len1.i.i, align 8
   %call.i31.i = call ptr @gnu_get_libc_version() #12
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.36, ptr noundef %call.i31.i) #12
@@ -414,7 +414,7 @@ if.end3.i.i37.i:                                  ; preds = %if.then.i35.i
 _.exit.i39.i:                                     ; preds = %if.end3.i.i37.i, %if.then.i35.i
   %retval.0.i.i40.i = phi ptr [ %call.i.i38.i, %if.end3.i.i37.i ], [ @.str.37, %if.then.i35.i ]
   %call.i4.i41.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i40.i) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i.i40.i, i64 noundef %call.i4.i41.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i.i40.i, i64 noundef %call.i4.i41.i) #12
   br label %get_system_info.exit
 
 get_system_info.exit:                             ; preds = %_.exit28.i, %_.exit.i39.i
@@ -451,7 +451,7 @@ if.end3.i.i30:                                    ; preds = %if.then.i28
 _.exit.i32:                                       ; preds = %if.end3.i.i30, %if.then.i28
   %retval.0.i.i33 = phi ptr [ %call.i.i31, %if.end3.i.i30 ], [ @.str.38, %if.then.i28 ]
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i33) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef %retval.0.i.i33, i64 noundef %call.i5.i) #12
+  call void @strbuf_add(ptr noundef nonnull %buffer, ptr noundef nonnull %retval.0.i.i33, i64 noundef %call.i5.i) #12
   br label %get_populated_hooks.exit
 
 for.body.i:                                       ; preds = %_.exit26, %for.inc.i
@@ -532,12 +532,12 @@ _.exit43:                                         ; preds = %if.end79, %if.end3.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @option_parse_diagnose(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -595,21 +595,21 @@ declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @launch_editor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -618,7 +618,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @get_version_info(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
@@ -627,7 +627,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare ptr @gnu_get_libc_version() local_unnamed_addr #5
@@ -635,10 +635,10 @@ declare ptr @gnu_get_libc_version() local_unnamed_addr #5
 declare i32 @hook_exists(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

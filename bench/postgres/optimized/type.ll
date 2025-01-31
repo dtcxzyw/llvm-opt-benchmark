@@ -115,7 +115,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @mmfatal(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @mm_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @mm_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -129,7 +129,7 @@ define dso_local noalias nonnull ptr @mm_strdup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -380,7 +380,7 @@ ECPGmake_struct_member.exit:                      ; preds = %96, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %mm_strdup.exit
@@ -470,7 +470,7 @@ mm_alloc.exit:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ECPGmake_struct_member(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @ECPGmake_struct_member(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %mm_alloc.exit
@@ -522,7 +522,7 @@ mm_strdup.exit:                                   ; preds = %mm_alloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = load i32, ptr %2, align 8
   switch i32 %13, label %14 [
     i32 24, label %68
@@ -1059,15 +1059,15 @@ sub_0270:                                         ; preds = %193
 declare ptr @find_variable(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %10 = icmp eq ptr %6, null
   br i1 %10, label %13, label %11
@@ -1114,7 +1114,7 @@ mm_alloc.exit75:                                  ; preds = %24
   %32 = icmp eq i32 %31, 1
   %33 = select i1 %10, ptr @.str.37, ptr %6
   %.str.79..str.80 = select i1 %32, ptr @.str.79, ptr @.str.80
-  %34 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %17, ptr noundef nonnull %.str.79..str.80, ptr noundef nonnull %33, ptr noundef %1) #11
+  %34 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %17, ptr noundef nonnull %.str.79..str.80, ptr noundef nonnull %33, ptr noundef nonnull %1) #11
   %35 = icmp eq ptr %5, @ecpg_no_indicator
   br i1 %35, label %44, label %36
 
@@ -1127,7 +1127,7 @@ mm_alloc.exit75:                                  ; preds = %24
   %39 = icmp eq i32 %38, 1
   %40 = select i1 %21, ptr @.str.37, ptr %7
   %.str.79..str.8085 = select i1 %39, ptr @.str.79, ptr @.str.80
-  %41 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %28, ptr noundef nonnull %.str.79..str.8085, ptr noundef nonnull %40, ptr noundef %2) #11
+  %41 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %28, ptr noundef nonnull %.str.79..str.8085, ptr noundef nonnull %40, ptr noundef nonnull %2) #11
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %43 = load ptr, ptr %42, align 8
   br label %44
@@ -1182,7 +1182,7 @@ mm_alloc.exit75:                                  ; preds = %24
   br i1 %.not74, label %67, label %66
 
 66:                                               ; preds = %63
-  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.81, ptr noundef %2) #11
+  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.81, ptr noundef nonnull %2) #11
   br label %67
 
 67:                                               ; preds = %.thread77, %53, %66, %63, %59
@@ -1202,7 +1202,7 @@ mm_alloc.exit75:                                  ; preds = %24
   br i1 %or.cond5, label %73, label %74
 
 73:                                               ; preds = %._crit_edge
-  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %2) #11
+  tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef nonnull %2) #11
   br label %74
 
 74:                                               ; preds = %73, %._crit_edge
@@ -1317,7 +1317,7 @@ sub_1:                                            ; preds = %sub_0
 46:                                               ; preds = %44, %.tail, %45
   %.str.38.sink = phi ptr [ @.str.38, %45 ], [ @.str.36, %.tail ], [ @.str.36, %44 ]
   %47 = select i1 %17, ptr @.str.37, ptr %6
-  %48 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink, ptr noundef nonnull %47, ptr noundef %1) #11
+  %48 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink, ptr noundef nonnull %47, ptr noundef nonnull %1) #11
   %49 = icmp eq i32 %2, 14
   %.str.39..str.40 = select i1 %49, ptr @.str.39, ptr @.str.40
   %.not140 = icmp eq i32 %7, 0
@@ -1332,7 +1332,7 @@ sub_1:                                            ; preds = %sub_0
   br label %129
 
 54:                                               ; preds = %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143, %mm_alloc.exit143
-  %55 = tail call i32 @atoi(ptr noundef %3) #12
+  %55 = tail call i32 @atoi(ptr noundef nonnull %3) #12
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.tail146.thread, label %57
 
@@ -1383,7 +1383,7 @@ sub_1152:                                         ; preds = %sub_0151
 
 74:                                               ; preds = %.tail150, %.tail146.thread
   %75 = select i1 %17, ptr @.str.37, ptr %6
-  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %75, ptr noundef %1) #11
+  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %75, ptr noundef nonnull %1) #11
   %77 = add nsw i32 %2, -1
   %or.cond7 = icmp samesign ult i32 %77, 2
   %.pre171 = load i8, ptr %3, align 1
@@ -1402,7 +1402,7 @@ sub_0159.thread:                                  ; preds = %sub_0155
 
 82:                                               ; preds = %.tail146.thread, %.tail150, %66
   %83 = select i1 %17, ptr @.str.37, ptr %6
-  %84 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %83, ptr noundef %1) #11
+  %84 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %83, ptr noundef nonnull %1) #11
   %.pre = load i8, ptr %3, align 1
   br label %sub_0159
 
@@ -1422,36 +1422,36 @@ sub_1160:                                         ; preds = %sub_0159.thread, %s
 .tail158:                                         ; preds = %sub_0155, %sub_0159, %sub_1160
   %.0175 = phi ptr [ @.str.43, %sub_0159 ], [ %.0176, %sub_1160 ], [ @.str.43, %sub_0155 ]
   %90 = phi ptr [ %3, %sub_0159 ], [ %89, %sub_1160 ], [ %3, %sub_0155 ]
-  %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.45, ptr noundef %90, ptr noundef nonnull %.0175) #11
+  %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.45, ptr noundef nonnull %90, ptr noundef nonnull %.0175) #11
   br label %129
 
 92:                                               ; preds = %mm_alloc.exit143
   %93 = select i1 %17, ptr @.str.37, ptr %6
-  %94 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %93, ptr noundef %1) #11
+  %94 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %93, ptr noundef nonnull %1) #11
   %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.46) #11
   br label %129
 
 96:                                               ; preds = %mm_alloc.exit143
   %97 = select i1 %17, ptr @.str.37, ptr %6
-  %98 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %97, ptr noundef %1) #11
+  %98 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %97, ptr noundef nonnull %1) #11
   %99 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.47) #11
   br label %129
 
 100:                                              ; preds = %mm_alloc.exit143
   %101 = select i1 %17, ptr @.str.37, ptr %6
-  %102 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %101, ptr noundef %1) #11
+  %102 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %101, ptr noundef nonnull %1) #11
   %103 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.48) #11
   br label %129
 
 104:                                              ; preds = %mm_alloc.exit143
   %105 = select i1 %17, ptr @.str.37, ptr %6
-  %106 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %105, ptr noundef %1) #11
+  %106 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.38, ptr noundef nonnull %105, ptr noundef nonnull %1) #11
   %107 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.49) #11
   br label %129
 
 108:                                              ; preds = %mm_alloc.exit143
-  %109 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.50, ptr noundef %1) #11
-  %110 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, ptr noundef %1) #11
+  %109 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.50, ptr noundef nonnull %1) #11
+  %110 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, ptr noundef nonnull %1) #11
   br label %129
 
 111:                                              ; preds = %mm_alloc.exit143
@@ -1490,7 +1490,7 @@ sub_1164:                                         ; preds = %sub_0163
 124:                                              ; preds = %122, %.tail162, %123
   %.str.38.sink180 = phi ptr [ @.str.38, %123 ], [ @.str.36, %.tail162 ], [ @.str.36, %122 ]
   %125 = select i1 %17, ptr @.str.37, ptr %6
-  %126 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink180, ptr noundef nonnull %125, ptr noundef %1) #11
+  %126 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull %.str.38.sink180, ptr noundef nonnull %125, ptr noundef nonnull %1) #11
   %127 = tail call ptr @ecpg_type_name(i32 noundef %2) #11
   %128 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.42, ptr noundef %127) #11
   br label %129
@@ -1537,7 +1537,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 get_type.exit:                                    ; preds = %switch.lookup, %139
   %.0.i = phi ptr [ null, %139 ], [ %switch.load, %switch.lookup ]
-  %141 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %30) #11
+  %141 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i, ptr noundef nonnull %24, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %30) #11
   br label %147
 
 142:                                              ; preds = %135
@@ -1562,7 +1562,7 @@ switch.lookup184:                                 ; preds = %switch.hole_check18
 
 get_type.exit145:                                 ; preds = %switch.lookup184, %144
   %.0.i144 = phi ptr [ null, %144 ], [ %switch.load188, %switch.lookup184 ]
-  %146 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #11
+  %146 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %.0.i144, ptr noundef nonnull %24, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5) #11
   br label %147
 
 147:                                              ; preds = %get_type.exit145, %get_type.exit
@@ -1597,7 +1597,7 @@ define dso_local void @ECPGfree_struct_member(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ECPGfree_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ECPGfree_type(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, -1
   %or.cond = icmp ult i32 %3, 20
@@ -1732,17 +1732,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare ptr @ecpg_type_name(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

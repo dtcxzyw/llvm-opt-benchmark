@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [36 x i8] c"sending SASL challenge of length %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = alloca ptr, align 8

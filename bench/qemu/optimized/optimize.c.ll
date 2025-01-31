@@ -5062,10 +5062,10 @@ for.end174:                                       ; preds = %for.inc173, %for.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @init_arguments(ptr nocapture noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %op, i32 noundef range(i32 0, 511) %nb_args) unnamed_addr #0 {
+define internal fastcc void @init_arguments(ptr noundef nonnull captures(none) %ctx, ptr noundef nonnull readonly captures(none) %op, i32 noundef range(i32 0, 511) %nb_args) unnamed_addr #0 {
 entry:
   %cmp3.not = icmp eq i32 %nb_args, 0
   br i1 %cmp3.not, label %for.end, label %for.body.lr.ph
@@ -5181,7 +5181,7 @@ for.end:                                          ; preds = %init_ts_info.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fold_tcg_st(ptr noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %op) unnamed_addr #0 {
+define internal fastcc void @fold_tcg_st(ptr noundef nonnull %ctx, ptr noundef nonnull readonly captures(none) %op) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %op, i64 48
   %0 = load i64, ptr %arrayidx, align 8
@@ -5516,7 +5516,7 @@ return:                                           ; preds = %if.end.i.i, %fold_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @finish_folding(ptr noundef nonnull %ctx, ptr nocapture noundef nonnull readonly %op) unnamed_addr #0 {
+define internal fastcc void @finish_folding(ptr noundef nonnull %ctx, ptr noundef nonnull readonly captures(none) %op) unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %op, align 8
   %bf.clear = and i32 %bf.load, 255
@@ -6400,7 +6400,7 @@ return:                                           ; preds = %if.then7.i, %do.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @arg_new_constant(ptr nocapture noundef nonnull %ctx, i64 noundef %val) unnamed_addr #0 {
+define internal fastcc i64 @arg_new_constant(ptr noundef nonnull captures(none) %ctx, i64 noundef %val) unnamed_addr #0 {
 entry:
   %type1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load i32, ptr %type1, align 8
@@ -7235,7 +7235,7 @@ if.end11:                                         ; preds = %if.else.i, %if.then
   %type15 = getelementptr inbounds nuw i8, ptr %mc.0, i64 64
   store i32 %type, ptr %type15, align 8
   %mem_copy = getelementptr inbounds nuw i8, ptr %ctx, i64 80
-  tail call void @interval_tree_insert(ptr noundef %mc.0, ptr noundef nonnull %mem_copy) #8
+  tail call void @interval_tree_insert(ptr noundef nonnull %mc.0, ptr noundef nonnull %mem_copy) #8
   %ts.val8.i = load i64, ptr %ts, align 8
   %6 = and i64 %ts.val8.i, 30064771072
   %cmp.i.i = icmp samesign ugt i64 %6, 8589934592

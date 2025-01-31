@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @.str.6 = private unnamed_addr constant [19 x i8] c"inVertsCount <= 12\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z9rcAddSpanP9rcContextR13rcHeightfieldiitthi(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z9rcAddSpanP9rcContextR13rcHeightfieldiitthi(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %10 = icmp eq ptr %9, null
   %11 = icmp ne ptr %0, null
@@ -40,7 +40,7 @@ define noundef zeroext i1 @_Z9rcAddSpanP9rcContextR13rcHeightfieldiitthi(ptr nou
 declare noundef ptr @_Z21rcAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -242,7 +242,7 @@ _ZL9allocSpanR13rcHeightfield.exit:               ; preds = %15, %93, %._crit_ed
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z19rcRasterizeTriangleP9rcContextPKfS2_S2_hR13rcHeightfieldi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i8 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z19rcRasterizeTriangleP9rcContextPKfS2_S2_hR13rcHeightfieldi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i8 noundef zeroext %4, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %9 = icmp eq ptr %8, null
   %10 = icmp ne ptr %0, null
@@ -333,7 +333,7 @@ _ZN13rcScopedTimerD2Ev.exit22:                    ; preds = %42, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12rasterizeTriPKfS0_S0_hR13rcHeightfieldS0_S0_fffi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull readonly captures(none) %6, float noundef %7, float noundef %8, float noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = alloca [84 x float], align 16
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -606,7 +606,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %158, %7
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfiPKiPKhiR13rcHeightfieldi(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfiPKiPKhiR13rcHeightfieldi(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %10 = icmp eq ptr %9, null
   %11 = icmp ne ptr %0, null
@@ -740,7 +740,7 @@ _ZN13rcScopedTimerD2Ev.exit36:                    ; preds = %.loopexit, %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfiPKtPKhiR13rcHeightfieldi(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfiPKtPKhiR13rcHeightfieldi(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %6, i32 noundef %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %10 = icmp eq ptr %9, null
   %11 = icmp ne ptr %0, null
@@ -874,7 +874,7 @@ _ZN13rcScopedTimerD2Ev.exit38:                    ; preds = %.loopexit, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfPKhiR13rcHeightfieldi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfPKhiR13rcHeightfieldi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %8 = icmp eq ptr %7, null
   %9 = icmp ne ptr %0, null
@@ -1007,7 +1007,7 @@ declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_un
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef nonnull writeonly %5, float noundef %6, i32 noundef range(i32 0, 3) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, float noundef %6, i32 noundef range(i32 0, 3) %7) unnamed_addr #0 {
   %9 = alloca [12 x float], align 16
   %10 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %11 = icmp eq ptr %10, null

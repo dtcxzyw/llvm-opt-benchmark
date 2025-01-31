@@ -316,7 +316,7 @@ declare void @cmdarg_err_cont(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -327,7 +327,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @proto_disable_all() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -348,12 +348,12 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
   br i1 %4, label %5, label %.preheader.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = tail call i32 @proto_disable_proto_by_name(ptr noundef %2) #5, !callees !6
+  %6 = tail call i32 @proto_disable_proto_by_name(ptr noundef nonnull %2) #5, !callees !6
   %.not36.i = icmp eq i32 %6, 0
   br i1 %.not36.i, label %7, label %.loopexit.i
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %2) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %2) #5
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %14
@@ -371,12 +371,12 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
 
 10:                                               ; preds = %8, %.preheader.i
   %.2.i = phi i8 [ %9, %8 ], [ %.1.i, %.preheader.i ]
-  %11 = tail call i32 @proto_disable_proto_by_name(ptr noundef %.026.i) #5, !callees !6
+  %11 = tail call i32 @proto_disable_proto_by_name(ptr noundef nonnull %.026.i) #5, !callees !6
   %.not35.i = icmp eq i32 %11, 0
   br i1 %.not35.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.026.i) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %.026.i) #5
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -415,12 +415,12 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
   br i1 %23, label %24, label %.preheader.i10
 
 24:                                               ; preds = %.lr.ph.i6
-  %25 = tail call i32 @proto_enable_proto_by_name(ptr noundef %21) #5, !callees !6
+  %25 = tail call i32 @proto_enable_proto_by_name(ptr noundef nonnull %21) #5, !callees !6
   %.not36.i25 = icmp eq i32 %25, 0
   br i1 %.not36.i25, label %26, label %.loopexit.i20
 
 26:                                               ; preds = %24
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %21) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %21) #5
   br label %.loopexit.i20
 
 .preheader.i10:                                   ; preds = %.lr.ph.i6, %33
@@ -438,12 +438,12 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
 
 29:                                               ; preds = %27, %.preheader.i10
   %.2.i16 = phi i8 [ %28, %27 ], [ %.1.i14, %.preheader.i10 ]
-  %30 = tail call i32 @proto_enable_proto_by_name(ptr noundef %.026.i13) #5, !callees !6
+  %30 = tail call i32 @proto_enable_proto_by_name(ptr noundef nonnull %.026.i13) #5, !callees !6
   %.not35.i17 = icmp eq i32 %30, 0
   br i1 %.not35.i17, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.026.i13) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %.026.i13) #5
   br label %32
 
 32:                                               ; preds = %31, %29
@@ -482,12 +482,12 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
   br i1 %42, label %43, label %.preheader.i32
 
 43:                                               ; preds = %.lr.ph.i28
-  %44 = tail call i32 @proto_enable_heuristic_by_name(ptr noundef %40) #5, !callees !6
+  %44 = tail call i32 @proto_enable_heuristic_by_name(ptr noundef nonnull %40) #5, !callees !6
   %.not36.i47 = icmp eq i32 %44, 0
   br i1 %.not36.i47, label %45, label %.loopexit.i42
 
 45:                                               ; preds = %43
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %40) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %40) #5
   br label %.loopexit.i42
 
 .preheader.i32:                                   ; preds = %.lr.ph.i28, %52
@@ -505,12 +505,12 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
 
 48:                                               ; preds = %46, %.preheader.i32
   %.2.i38 = phi i8 [ %47, %46 ], [ %.1.i36, %.preheader.i32 ]
-  %49 = tail call i32 @proto_enable_heuristic_by_name(ptr noundef %.026.i35) #5, !callees !6
+  %49 = tail call i32 @proto_enable_heuristic_by_name(ptr noundef nonnull %.026.i35) #5, !callees !6
   %.not35.i39 = icmp eq i32 %49, 0
   br i1 %.not35.i39, label %50, label %51
 
 50:                                               ; preds = %48
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.026.i35) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %.026.i35) #5
   br label %51
 
 51:                                               ; preds = %50, %48
@@ -549,12 +549,12 @@ process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %pro
   br i1 %61, label %62, label %.preheader.i54
 
 62:                                               ; preds = %.lr.ph.i50
-  %63 = tail call i32 @proto_disable_heuristic_by_name(ptr noundef %59) #5, !callees !6
+  %63 = tail call i32 @proto_disable_heuristic_by_name(ptr noundef nonnull %59) #5, !callees !6
   %.not36.i69 = icmp eq i32 %63, 0
   br i1 %.not36.i69, label %64, label %.loopexit.i64
 
 64:                                               ; preds = %62
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %59) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %59) #5
   br label %.loopexit.i64
 
 .preheader.i54:                                   ; preds = %.lr.ph.i50, %71
@@ -572,12 +572,12 @@ process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %pro
 
 67:                                               ; preds = %65, %.preheader.i54
   %.2.i60 = phi i8 [ %66, %65 ], [ %.1.i58, %.preheader.i54 ]
-  %68 = tail call i32 @proto_disable_heuristic_by_name(ptr noundef %.026.i57) #5, !callees !6
+  %68 = tail call i32 @proto_disable_heuristic_by_name(ptr noundef nonnull %.026.i57) #5, !callees !6
   %.not35.i61 = icmp eq i32 %68, 0
   br i1 %.not35.i61, label %69, label %70
 
 69:                                               ; preds = %67
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %.026.i57) #5
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef nonnull %.026.i57) #5
   br label %70
 
 70:                                               ; preds = %69, %67

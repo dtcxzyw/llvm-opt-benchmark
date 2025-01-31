@@ -44,7 +44,7 @@ define noalias noundef ptr @Kit_GraphCreate(i32 noundef %0) local_unnamed_addr #
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Kit_GraphCreateConst0() local_unnamed_addr #0 {
@@ -91,7 +91,7 @@ define noalias noundef ptr @Kit_GraphCreateLeaf(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Kit_GraphFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Kit_GraphFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -107,10 +107,10 @@ define void @Kit_GraphFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @Kit_GraphAppendNode(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define noundef ptr @Kit_GraphAppendNode(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -158,10 +158,10 @@ define noundef ptr @Kit_GraphAppendNode(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2147483647) i32 @Kit_GraphAddNodeAnd(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
+define range(i32 0, 2147483647) i32 @Kit_GraphAddNodeAnd(ptr noundef captures(none) %0, i32 %1, i32 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -224,7 +224,7 @@ Kit_GraphAppendNode.exit:                         ; preds = %3, %19
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 1, -2147483648) i32 @Kit_GraphAddNodeOr(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
+define range(i32 1, -2147483648) i32 @Kit_GraphAddNodeOr(ptr noundef captures(none) %0, i32 %1, i32 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -291,7 +291,7 @@ Kit_GraphAppendNode.exit:                         ; preds = %3, %19
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeXor(ptr nocapture noundef %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeXor(ptr noundef captures(none) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %99
 
@@ -634,7 +634,7 @@ Kit_GraphAddNodeOr.exit69:                        ; preds = %Kit_GraphAddNodeAnd
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeMux(ptr nocapture noundef %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeMux(ptr noundef captures(none) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %99
 
@@ -977,7 +977,7 @@ Kit_GraphAddNodeOr.exit67:                        ; preds = %Kit_GraphAddNodeAnd
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_GraphToTruth(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %.val = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val, 0
   br i1 %.not, label %5, label %2
@@ -1356,7 +1356,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %37
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @Kit_TruthFindVarNum(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i32 @Kit_TruthFindVarNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
@@ -1390,10 +1390,10 @@ define i32 @Kit_TruthFindVarNum(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Kit_TruthTest(ptr noundef %0) local_unnamed_addr #7 {
@@ -1454,7 +1454,7 @@ Kit_TruthFindVarNum.exit.thread:                  ; preds = %14, %Abc_Clock.exit
   %23 = phi i32 [ %spec.select, %Kit_TruthFindVarNum.exit ], [ 1, %Abc_Clock.exit ], [ 1, %14 ]
   %24 = sdiv i32 %10, 4
   %25 = sdiv i32 %24, %23
-  %26 = call ptr @Extra_FileReadContents(ptr noundef %0) #20
+  %26 = call ptr @Extra_FileReadContents(ptr noundef nonnull %0) #20
   %27 = call ptr @Kit_TruthStatsArray(ptr noundef %26, i32 noundef %.09.i25, i32 noundef %25)
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %25, i32 noundef %.09.i25)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -1510,7 +1510,7 @@ declare i32 @Extra_FileSize(ptr noundef) local_unnamed_addr #8
 declare ptr @Extra_FileReadContents(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @Kit_TruthLitNum(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
@@ -1572,7 +1572,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #7 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #20
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #20
   call void @free(ptr noundef %9) #20
   br label %16
 
@@ -1595,7 +1595,7 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #16
@@ -1607,10 +1607,10 @@ declare void @llvm.va_end.p0(ptr) #16
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

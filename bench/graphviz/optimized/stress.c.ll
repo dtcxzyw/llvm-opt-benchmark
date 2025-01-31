@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @initLayout(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @initLayout(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph, label %.preheader
 
@@ -187,7 +187,7 @@ declare double @drand48() local_unnamed_addr #1
 declare void @orthog1(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @circuitModel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @circuitModel(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, 1
   %4 = mul nsw i32 %3, %1
   %5 = sdiv i32 %4, 2
@@ -406,7 +406,7 @@ declare i32 @solveCircuit(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @free_array(ptr noundef) local_unnamed_addr #2
 
@@ -543,7 +543,7 @@ compute_weighted_apsp_packed.exit:                ; preds = %.lr.ph.i
 declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @compute_apsp_packed(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -861,7 +861,7 @@ declare float @llvm.maxnum.f32(float, float) #4
 declare void @empty_neighbors_vec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -1543,7 +1543,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   store double 1.000000e+00, ptr %282, align 8
   %295 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %296 = load ptr, ptr %295, align 8
-  %297 = call zeroext i1 @iterativePCA_1D(ptr noundef %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %296) #17
+  %297 = call zeroext i1 @iterativePCA_1D(ptr noundef nonnull %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %296) #17
   br i1 %297, label %.lr.ph614.i.preheader, label %.preheader555.preheader.i
 
 .preheader555.preheader.i:                        ; preds = %294
@@ -1561,7 +1561,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv713.i
   %302 = load ptr, ptr %301, align 8
-  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %300, ptr noundef %302) #17
+  call void @right_mult_with_vector_transpose(ptr noundef nonnull %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %300, ptr noundef %302) #17
   %indvars.iv.next714.i = add nuw nsw i64 %indvars.iv713.i, 1
   %exitcond717.not.i = icmp eq i64 %indvars.iv.next714.i, %wide.trip.count703.i
   br i1 %exitcond717.not.i, label %._crit_edge615.i, label %.lr.ph614.i
@@ -1570,9 +1570,9 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   %wide.trip.count726.i.pre-phi = phi i64 [ %.pre719, %.preheader559.i.._crit_edge615.i_crit_edge ], [ %wide.trip.count703.i, %.lr.ph614.i ]
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  call void @mult_sparse_dense_mat_transpose(ptr noundef %230, ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %10) #17
+  call void @mult_sparse_dense_mat_transpose(ptr noundef %230, ptr noundef nonnull %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %10) #17
   %303 = load ptr, ptr %10, align 8
-  call void @mult_dense_mat(ptr noundef %90, ptr noundef %303, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %11) #17
+  call void @mult_dense_mat(ptr noundef nonnull %90, ptr noundef %303, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %11) #17
   %304 = load ptr, ptr %10, align 8
   %305 = load ptr, ptr %304, align 8
   call void @free(ptr noundef %305) #17
@@ -1666,7 +1666,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %exitcond722.not.i, label %354, label %311
 
 354:                                              ; preds = %._crit_edge620.i
-  call void @right_mult_with_vector_d(ptr noundef %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull %307, ptr noundef %308) #17
+  call void @right_mult_with_vector_d(ptr noundef nonnull %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull %307, ptr noundef %308) #17
   %355 = load ptr, ptr %11, align 8
   %356 = getelementptr inbounds nuw ptr, ptr %279, i64 %indvars.iv723.i
   %357 = load ptr, ptr %356, align 8
@@ -1676,7 +1676,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
 
 359:                                              ; preds = %354
   %360 = load ptr, ptr %310, align 8
-  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %357, ptr noundef %360) #17
+  call void @right_mult_with_vector_transpose(ptr noundef nonnull %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %357, ptr noundef %360) #17
   %indvars.iv.next724.i = add nuw nsw i64 %indvars.iv723.i, 1
   %exitcond727.not.i = icmp eq i64 %indvars.iv.next724.i, %wide.trip.count726.i.pre-phi
   br i1 %exitcond727.not.i, label %._crit_edge624.i, label %.preheader.i
@@ -2517,7 +2517,7 @@ declare void @square_vec(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @invert_vec(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @sqrt_vecf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2537,7 +2537,7 @@ declare void @copy_vectorf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @conjugate_gradient_mkernel(ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc double @compute_stressf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 2, 1) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #8 {
+define internal fastcc double @compute_stressf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 2, 1) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #8 {
   %6 = add i32 %3, -1
   %7 = icmp sgt i32 %3, 1
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge
@@ -2831,7 +2831,7 @@ declare void @mult_sparse_dense_mat_transpose(ptr noundef, ptr noundef, i32 noun
 declare void @mult_dense_mat(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc double @compute_stress1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 2, -2147483648) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #8 {
+define internal fastcc double @compute_stress1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 2, -2147483648) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #8 {
   %6 = icmp eq i32 %4, 2
   %7 = icmp sgt i32 %2, 0
   %wide.trip.count151 = zext nneg i32 %3 to i64
@@ -3092,10 +3092,10 @@ declare double @sqrt(double noundef) local_unnamed_addr #12
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
@@ -3104,7 +3104,7 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
@@ -3113,10 +3113,10 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

@@ -154,7 +154,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev23MixingColorSpaceManagerEE = comdat any
 @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC1ERSt10shared_ptrIKNS_6ConfigEE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC2ERNS_23MixingColorSpaceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %mixing) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC2ERNS_23MixingColorSpaceManagerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %mixing) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %this, align 8
   %m_mixing = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl7DeleterEPNS_12MixingSliderE(ptr noundef %slider) local_unnamed_addr #2 align 2 {
@@ -187,7 +187,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZNK19OpenColorIO_v2_4dev16MixingSliderImpl16getSliderMinEdgeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZNK19OpenColorIO_v2_4dev16MixingSliderImpl16getSliderMinEdgeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mixing = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_mixing, align 8
@@ -260,7 +260,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMinEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 20)) %this, float noundef %sliderMixingMinEdge) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMinEdgeEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 20)) %this, float noundef %sliderMixingMinEdge) unnamed_addr #0 align 2 {
 entry:
   %m_sliderMinEdge = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %sliderMixingMinEdge, ptr %m_sliderMinEdge, align 8
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZNK19OpenColorIO_v2_4dev16MixingSliderImpl16getSliderMaxEdgeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZNK19OpenColorIO_v2_4dev16MixingSliderImpl16getSliderMaxEdgeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mixing = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_mixing, align 8
@@ -327,7 +327,7 @@ terminate.lpad:                                   ; preds = %if.else4.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMaxEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((20, 24)) %this, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMaxEdgeEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((20, 24)) %this, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
 entry:
   %m_sliderMaxEdge = getelementptr inbounds nuw i8, ptr %this, i64 20
   store float %sliderMixingMaxEdge, ptr %m_sliderMaxEdge, align 4
@@ -475,7 +475,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8), float noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev23MixingColorSpaceManager6CreateERSt10shared_ptrIKNS_6ConfigEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev23MixingColorSpaceManager6CreateERSt10shared_ptrIKNS_6ConfigEE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
   invoke void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) %call, ptr noundef nonnull align 8 dereferenceable(16) %config)
@@ -564,7 +564,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp2 = alloca %"class.std::allocator.6", align 1
@@ -1302,7 +1302,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev6ConfigELN9__gnu_cxx12_Lock_policyE2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshESt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 16), (96, 104)) %this, ptr nocapture noundef readonly %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshESt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 16), (96, 104)) %this, ptr noundef readonly captures(none) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_config = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %config, align 8
@@ -1428,7 +1428,7 @@ declare void @_ZN19OpenColorIO_v2_4dev14ColorSpaceInfo20CreateFromSingleRoleERKS
 declare noundef ptr @_ZNK19OpenColorIO_v2_4dev14ColorSpaceInfo9getUINameEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl18getNumMixingSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl18getNumMixingSpacesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_mixingSpaces = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1442,7 +1442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl20getMixingSpaceUINameEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl20getMixingSpaceUINameEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1565,7 +1565,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25getSelectedMixingSpaceIdxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25getSelectedMixingSpaceIdxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_selectedMixingSpaceIdx = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %m_selectedMixingSpaceIdx, align 8
@@ -1573,7 +1573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25setSelectedMixingSpaceIdxEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25setSelectedMixingSpaceIdxEm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1672,7 +1672,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl22setSelectedMixingSpaceEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %mixingSpace) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl22setSelectedMixingSpaceEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, ptr noundef %mixingSpace) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1793,7 +1793,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getNumMixingEncodingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getNumMixingEncodingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_mixingEncodings = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1807,7 +1807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getMixingEncodingNameEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getMixingEncodingNameEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1906,7 +1906,7 @@ unreachable:                                      ; preds = %invoke.cont20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl28getSelectedMixingEncodingIdxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl28getSelectedMixingEncodingIdxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_selectedMixingEncodingIdx = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %m_selectedMixingEncodingIdx, align 8
@@ -1914,7 +1914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl28setSelectedMixingEncodingIdxEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl28setSelectedMixingEncodingIdxEm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i64 noundef %idx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2013,7 +2013,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25setSelectedMixingEncodingEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %mixingEncoding) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl25setSelectedMixingEncodingEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, ptr noundef %mixingEncoding) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4215,7 +4215,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #10

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @rlwit_init(ptr nocapture noundef initializes((0, 32)) %it, ptr nocapture noundef readonly %from_ewah) local_unnamed_addr #0 {
+define dso_local void @rlwit_init(ptr noundef captures(none) initializes((0, 32)) %it, ptr noundef readonly captures(none) %from_ewah) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %from_ewah, align 8
   store ptr %0, ptr %it, align 8
@@ -64,7 +64,7 @@ next_word.exit:                                   ; preds = %entry.next_word.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @rlwit_discard_first_words(ptr nocapture noundef %it, i64 noundef %x) local_unnamed_addr #1 {
+define dso_local void @rlwit_discard_first_words(ptr noundef captures(none) %it, i64 noundef %x) local_unnamed_addr #1 {
 entry:
   %cmp.not31 = icmp eq i64 %x, 0
   br i1 %cmp.not31, label %while.end, label %while.body.lr.ph
@@ -150,7 +150,7 @@ while.end:                                        ; preds = %if.end, %if.end39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rlwit_discharge(ptr nocapture noundef %it, ptr noundef %out, i64 noundef %max, i32 noundef %negate) local_unnamed_addr #2 {
+define dso_local i64 @rlwit_discharge(ptr noundef captures(none) %it, ptr noundef %out, i64 noundef %max, i32 noundef %negate) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %it, i64 40
   %cmp31.not = icmp eq i64 %max, 0

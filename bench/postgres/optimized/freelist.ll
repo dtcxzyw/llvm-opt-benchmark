@@ -47,7 +47,7 @@ define dso_local zeroext i1 @have_free_buffer() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #1 {
+define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #1 {
   store i8 0, ptr %2, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %GetBufferFromRing.exit.thread, label %4
@@ -336,7 +336,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StrategyFreeBuffer(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @StrategyControl, align 8
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #8, !srcloc !7
   %.not = icmp eq i8 %3, 0
@@ -629,7 +629,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %4, 1
   %brmerge.not = and i1 %2, %.not

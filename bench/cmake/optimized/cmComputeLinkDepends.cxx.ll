@@ -1515,7 +1515,7 @@ declare noundef ptr @_ZNK17cmGeneratorTarget17GetLocalGeneratorEv(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZNK17cmGeneratorTarget15GetPropertyKeysB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.266") align 8, ptr noundef nonnull align 8 dereferenceable(2728)) local_unnamed_addr #0
 
@@ -2371,7 +2371,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN20cmComputeLinkDepends17SetOldLinkDirModeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(783) initializes((782, 783)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends17SetOldLinkDirModeEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(783) initializes((782, 783)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 782
   store i8 %3, ptr %4, align 2
@@ -4722,7 +4722,7 @@ _ZN20cmComputeLinkDepends14AddLinkObjectsERKSt6vectorI10cmLinkItemSaIS1_EE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends15FollowLinkEntryENS_8BFSEntryE(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr nocapture noundef readonly byval(%"struct.cmComputeLinkDepends::BFSEntry") align 8 %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends15FollowLinkEntryENS_8BFSEntryE(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr noundef readonly byval(%"struct.cmComputeLinkDepends::BFSEntry") align 8 captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr @_ZN23cmComputeComponentGraph17INVALID_COMPONENTE, align 8
@@ -5246,7 +5246,7 @@ _ZN19cmListFileBacktraceD2Ev.exit28:              ; preds = %_ZNSt6vectorI11cmGr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends17InferDependenciesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends17InferDependenciesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Reuse_or_alloc_node", align 8
   %3 = alloca %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Alloc_node", align 8
   %4 = alloca %"struct.cmComputeLinkDepends::DependSet", align 8
@@ -6232,7 +6232,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends20CleanConstraintGraphEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends20CleanConstraintGraphEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -6489,7 +6489,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP11cmGraphEdgeSt6vectorIS2_SaIS2_EEEEEv
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2728)) local_unnamed_addr #0
 
@@ -6497,7 +6497,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends22DisplayConstraintGraphEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends22DisplayConstraintGraphEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x %"struct.std::pair.847"], align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6691,7 +6691,7 @@ define dso_local void @_ZN20cmComputeLinkDepends22DisplayConstraintGraphEv(ptr n
 declare void @_ZN23cmComputeComponentGraph7ComputeEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDependenciesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDependenciesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7146,7 +7146,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %44, %46, %48, %50
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends19DisplayFinalEntriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends19DisplayFinalEntriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x i8], align 1
   %3 = load ptr, ptr @stderr, align 8
   %4 = load ptr, ptr %0, align 8
@@ -11032,7 +11032,7 @@ _ZNSt6vectorImSaImEED2Ev.exit352:                 ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends14AddLinkObjectsERKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends14AddLinkObjectsERKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -11051,7 +11051,7 @@ define dso_local void @_ZN20cmComputeLinkDepends14AddLinkObjectsERKSt6vectorI10c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends16FollowSharedDepsEmPK15cmLinkInterfaceb(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends16FollowSharedDepsEmPK15cmLinkInterfaceb(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %.02022.i.i.i = load ptr, ptr %5, align 8
@@ -11128,7 +11128,7 @@ _ZNSt3setImSt4lessImESaImEE6insertERKm.exit:      ; preds = %15, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends20CheckWrongConfigItemERK10cmLinkItem(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends20CheckWrongConfigItemERK10cmLinkItem(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 782
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -11659,7 +11659,7 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends23QueueSharedDependenciesEmRKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends23QueueSharedDependenciesEmRKSt6vectorI10cmLinkItemSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cmComputeLinkDepends::SharedDepEntry", align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11988,10 +11988,10 @@ _ZN10cmLinkItemD2Ev.exit:                         ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends15ResolveLinkItemEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmLinkItem) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends15ResolveLinkItemEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmLinkItem) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.BT, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %class.cmListFileBacktrace, align 8
@@ -15295,7 +15295,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK2BTINSt7__cxx11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN20cmComputeLinkDepends14VisitComponentEm(ptr nocapture noundef nonnull align 8 dereferenceable(783) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends14VisitComponentEm(ptr noundef nonnull align 8 captures(none) dereferenceable(783) %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 %1
@@ -15340,7 +15340,7 @@ define dso_local void @_ZN20cmComputeLinkDepends14VisitComponentEm(ptr nocapture
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define dso_local void @_ZN20cmComputeLinkDepends17DisplayComponentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(783) %0) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends17DisplayComponentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(783) %0) local_unnamed_addr #11 align 2 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 39, i64 1, ptr %2) #29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -15842,7 +15842,7 @@ _ZN20cmComputeLinkDepends21ComputeComponentCountERK15cmGraphNodeList.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 2, 4294967296) i64 @_ZN20cmComputeLinkDepends21ComputeComponentCountERK15cmGraphNodeList(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 2, 4294967296) i64 @_ZN20cmComputeLinkDepends21ComputeComponentCountERK15cmGraphNodeList(ptr noundef nonnull align 8 dereferenceable(783) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -18708,7 +18708,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -20753,7 +20753,7 @@ _ZSt4copyIPPN20cmComputeLinkDepends8BFSEntryES3_ET0_T_S5_S4_.exit: ; preds = %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118IsFeatureSupportedEP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -26680,10 +26680,10 @@ define internal void @_GLOBAL__sub_I_cmComputeLinkDepends.cxx() #20 section ".te
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
@@ -26692,13 +26692,13 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"%s: unpack_error: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @pack_slurmd_conf_lite(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @pack_slurmd_conf_lite(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @pack16(i16 noundef zeroext 10496, ptr noundef %1) #3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4128
   %4 = load ptr, ptr %3, align 8
@@ -174,7 +174,7 @@ define void @pack_slurmd_conf_lite(ptr nocapture noundef readonly %0, ptr nounde
 declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

@@ -719,7 +719,7 @@ _ZNK6HandleclEv.exit62:                           ; preds = %_ZN15typeArrayHandl
 201:                                              ; preds = %_ZNK6HandleclEv.exit62
   %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %199) #15
   %203 = trunc i64 %202 to i32
-  %204 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %199, i32 noundef %203) #13
+  %204 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %199, i32 noundef %203) #13
   %.not.i63 = icmp eq ptr %204, null
   br i1 %.not.i63, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %205
 
@@ -778,7 +778,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %201, %205, %209
   %237 = inttoptr i64 %236 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %230, ptr align 1 %237, i64 %229, i1 false)
   call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef %230, i32 noundef %228, ptr noundef null, i1 noundef zeroext %142, i1 noundef zeroext false) #13
-  call void @_ZN18LambdaFormInvokers16regenerate_classEPcR15ClassFileStreamP10JavaThread(ptr noundef %199, ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %0)
+  call void @_ZN18LambdaFormInvokers16regenerate_classEPcR15ClassFileStreamP10JavaThread(ptr noundef nonnull %199, ptr noundef nonnull align 8 dereferenceable(42) %4, ptr noundef nonnull %0)
   %238 = load ptr, ptr %39, align 8
   %.not90 = icmp eq ptr %238, null
   %239 = add nuw nsw i32 %.04997, 2
@@ -854,7 +854,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaThread(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -878,7 +878,7 @@ declare noundef ptr @_ZN19java_lang_Throwable7messageEP7oopDesc(ptr noundef) loc
 declare void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -889,7 +889,7 @@ define hidden void @_ZN18LambdaFormInvokers16regenerate_classEPcR15ClassFileStre
   %4 = alloca %class.ClassLoadInfo, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %6 = trunc i64 %5 to i32
-  %7 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %0, i32 noundef %6) #13
+  %7 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %0, i32 noundef %6) #13
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %8
 
@@ -939,7 +939,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %3, %8, %12
 29:                                               ; preds = %27
   %30 = ptrtoint ptr %13 to i64
   %31 = ptrtoint ptr %15 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_70ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %0, i64 noundef %30, i64 noundef %31)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_70ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %0, i64 noundef %30, i64 noundef %31)
   br label %32
 
 32:                                               ; preds = %29, %27, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
@@ -1070,7 +1070,7 @@ _ZL18should_be_archivedPc.exit31:                 ; preds = %28
   %40 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %39, i64 noundef %37) #13
   store i32 %35, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = tail call ptr @strncpy(ptr noundef nonnull %41, ptr noundef %27, i64 noundef %34) #13
+  %42 = tail call ptr @strncpy(ptr noundef nonnull %41, ptr noundef nonnull %27, i64 noundef %34) #13
   %43 = load ptr, ptr @_ZN18LambdaFormInvokers24_static_archive_invokersE, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = sext i32 %.02236 to i64
@@ -1105,10 +1105,10 @@ _ZL18should_be_archivedPc.exit31:                 ; preds = %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
@@ -2753,13 +2753,13 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

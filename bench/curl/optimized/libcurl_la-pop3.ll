@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @pop3_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @pop3_setup_connection(ptr noundef writeonly captures(none) initializes((392, 400)) %data, ptr noundef captures(none) %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 24) #7
@@ -69,7 +69,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @pop3_do(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i.i.i = alloca i8, align 1
   store i8 0, ptr %done, align 1
@@ -242,7 +242,7 @@ return:                                           ; preds = %pop3_perform.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pop3_done(ptr nocapture noundef readonly %data, i32 noundef %status, i1 zeroext %premature) #0 {
+define internal noundef i32 @pop3_done(ptr noundef readonly captures(none) %data, i32 noundef %status, i1 zeroext %premature) #0 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_connect(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @pop3_connect(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -453,7 +453,7 @@ return:                                           ; preds = %pop3_parse_url_opti
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @pop3_multi_statemach(ptr noundef %data, ptr noundef writeonly captures(none) %done) #0 {
 entry:
   %ssldone3 = alloca i8, align 1
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -503,7 +503,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_doing(ptr noundef %data, ptr nocapture noundef writeonly %dophase_done) #0 {
+define internal i32 @pop3_doing(ptr noundef %data, ptr noundef writeonly captures(none) %dophase_done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i)
@@ -1313,7 +1313,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @pop3_endofresp(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef readonly %line, i64 noundef %len, ptr nocapture noundef writeonly %resp) #2 {
+define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef readonly captures(none) %line, i64 noundef %len, ptr noundef writeonly captures(none) %resp) #2 {
 entry:
   %cmp = icmp ugt i64 %len, 3
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1463,7 +1463,7 @@ declare i32 @Curl_ssl_cfilter_add(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @Curl_pp_sendf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1610,12 +1610,12 @@ if.end3:                                          ; preds = %if.end
   %1 = load ptr, ptr %apoptimestamp, align 8
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %call6 = tail call i32 @curlx_uztoui(i64 noundef %call5) #7
-  %call7 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %call, ptr noundef %1, i32 noundef %call6) #7
+  %call7 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %call, ptr noundef nonnull %1, i32 noundef %call6) #7
   %passwd = getelementptr inbounds nuw i8, ptr %conn, i64 312
   %2 = load ptr, ptr %passwd, align 8
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %call10 = tail call i32 @curlx_uztoui(i64 noundef %call9) #7
-  %call11 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %call, ptr noundef %2, i32 noundef %call10) #7
+  %call11 = tail call i32 @Curl_MD5_update(ptr noundef nonnull %call, ptr noundef nonnull %2, i32 noundef %call10) #7
   %call12 = call i32 @Curl_MD5_final(ptr noundef nonnull %call, ptr noundef nonnull %digest) #7
   br label %for.body
 
@@ -1691,7 +1691,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_continue_auth(ptr noundef %data, ptr nocapture readnone %mech, ptr noundef %resp) #0 {
+define internal i32 @pop3_continue_auth(ptr noundef %data, ptr readnone captures(none) %mech, ptr noundef %resp) #0 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -1702,7 +1702,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_cancel_auth(ptr noundef %data, ptr nocapture readnone %mech) #0 {
+define internal i32 @pop3_cancel_auth(ptr noundef %data, ptr readnone captures(none) %mech) #0 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -1712,7 +1712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pop3_get_message(ptr nocapture noundef readonly %data, ptr noundef %out) #0 {
+define internal noundef i32 @pop3_get_message(ptr noundef readonly captures(none) %data, ptr noundef %out) #0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %data, i64 3224
   %0 = load ptr, ptr %buffer, align 8
@@ -1799,16 +1799,16 @@ declare i32 @Curl_pp_disconnect(ptr noundef) local_unnamed_addr #1
 declare void @Curl_sasl_cleanup(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

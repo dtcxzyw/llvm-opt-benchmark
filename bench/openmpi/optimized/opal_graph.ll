@@ -27,14 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_vertex_construct(ptr nocapture noundef writeonly initializes((40, 112)) %0) #0 {
+define internal void @opal_graph_vertex_construct(ptr noundef writeonly captures(none) initializes((40, 112)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_graph_vertex_destruct(ptr nocapture noundef initializes((40, 56), (64, 80), (88, 112)) %0) #1 {
+define internal void @opal_graph_vertex_destruct(ptr noundef captures(none) initializes((40, 56), (64, 80), (88, 112)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -61,7 +61,7 @@ define internal void @opal_graph_vertex_destruct(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_edge_construct(ptr nocapture noundef writeonly initializes((40, 60), (64, 72)) %0) #0 {
+define internal void @opal_graph_edge_construct(ptr noundef writeonly captures(none) initializes((40, 60), (64, 72)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
@@ -70,7 +70,7 @@ define internal void @opal_graph_edge_construct(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly initializes((40, 60), (64, 72)) %0) #0 {
+define internal void @opal_graph_edge_destruct(ptr noundef writeonly captures(none) initializes((40, 60), (64, 72)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
@@ -79,7 +79,7 @@ define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_graph_construct(ptr nocapture noundef writeonly %0) #1 {
+define internal void @opal_graph_construct(ptr noundef writeonly captures(none) %0) #1 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #14
   %4 = load i32, ptr @opal_class_init_epoch, align 4
@@ -124,7 +124,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %7, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_graph_destruct(ptr nocapture noundef %0) #1 {
+define internal void @opal_graph_destruct(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -265,7 +265,7 @@ opal_obj_run_destructors.exit21:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeonly initializes((40, 48)) %0) #1 {
+define internal void @opal_adjacency_list_construct(ptr noundef writeonly captures(none) initializes((40, 48)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 56), align 8
@@ -308,7 +308,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_adjacency_list_destruct(ptr nocapture noundef initializes((40, 48)) %0) #1 {
+define internal void @opal_adjacency_list_destruct(ptr noundef captures(none) initializes((40, 48)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -537,7 +537,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %17, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -606,7 +606,7 @@ define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @opal_graph_remove_edge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @opal_graph_remove_edge(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -634,7 +634,7 @@ define void @opal_graph_remove_edge(ptr nocapture noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @opal_graph_remove_vertex(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @opal_graph_remove_vertex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -862,7 +862,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i21, %103
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define i32 @opal_graph_adjacent(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
@@ -916,21 +916,21 @@ define i32 @opal_graph_adjacent(ptr noundef readnone %0, ptr noundef readonly %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @opal_graph_get_order(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @opal_graph_get_order(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @opal_graph_get_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @opal_graph_get_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @opal_graph_find_vertex(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @opal_graph_find_vertex(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -979,7 +979,7 @@ define ptr @opal_graph_find_vertex(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_graph_get_graph_vertices(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @opal_graph_get_graph_vertices(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -1018,7 +1018,7 @@ define i32 @opal_graph_get_graph_vertices(ptr nocapture noundef readonly %0, ptr
 declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.vertex_distance_from_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1437,10 +1437,10 @@ opal_value_array_append_item.exit:                ; preds = %69, %73
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1450,7 +1450,7 @@ define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @opal_graph_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @opal_graph_duplicate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_graph_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -1753,7 +1753,7 @@ opal_graph_add_edge.exit:                         ; preds = %opal_obj_new.exit67
 }
 
 ; Function Attrs: nounwind uwtable
-define void @opal_graph_print(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @opal_graph_print(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4) #13
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.5) #13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1849,13 +1849,13 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #5
 declare i32 @opal_value_array_set_size(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #11

@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [24 x i8] c"Grain systhesis failed\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @decoder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 3) i32 @decoder_init(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -182,7 +182,7 @@ define internal i32 @decoder_peek_si(ptr noundef %0, i64 noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @decoder_get_si(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) #1 {
+define internal noundef i32 @decoder_get_si(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret i32 0
@@ -1090,7 +1090,7 @@ move_decoder_metadata_to_img.exit136:             ; preds = %71, %66, %207, %10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 9) i32 @decoder_set_fb_fn(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 9) i32 @decoder_set_fb_fn(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -1124,7 +1124,7 @@ define hidden noundef nonnull ptr @aom_codec_av1_dx() local_unnamed_addr #2 {
 declare ptr @aom_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @aom_get_worker_interface() local_unnamed_addr #3
 
@@ -1146,7 +1146,7 @@ declare void @av1_free_internal_frame_buffers(ptr noundef) local_unnamed_addr #3
 declare void @aom_img_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ctrl_copy_reference(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @ctrl_copy_reference(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.yv12_buffer_config, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %4, 41
@@ -1335,7 +1335,7 @@ image2yuvconfig.exit:                             ; preds = %66, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ctrl_set_reference(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @ctrl_set_reference(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.yv12_buffer_config, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %4, 41
@@ -1527,7 +1527,7 @@ image2yuvconfig.exit:                             ; preds = %66, %98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_invert_tile_order(ptr nocapture noundef writeonly initializes((424, 428)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_invert_tile_order(ptr noundef writeonly captures(none) initializes((424, 428)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1557,7 +1557,7 @@ define internal noundef i32 @ctrl_set_invert_tile_order(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_set_byte_alignment(ptr nocapture noundef %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_set_byte_alignment(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1614,7 +1614,7 @@ define internal range(i32 0, 9) i32 @ctrl_set_byte_alignment(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_skip_loop_filter(ptr nocapture noundef initializes((444, 448)) %0, ptr nocapture noundef %1) #7 {
+define internal noundef i32 @ctrl_set_skip_loop_filter(ptr noundef captures(none) initializes((444, 448)) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1658,7 +1658,7 @@ define internal noundef i32 @ctrl_set_skip_loop_filter(ptr nocapture noundef ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_decode_tile_row(ptr nocapture noundef writeonly initializes((452, 456)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_decode_tile_row(ptr noundef writeonly captures(none) initializes((452, 456)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1688,7 +1688,7 @@ define internal noundef i32 @ctrl_set_decode_tile_row(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_decode_tile_col(ptr nocapture noundef writeonly initializes((456, 460)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_decode_tile_col(ptr noundef writeonly captures(none) initializes((456, 460)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1718,7 +1718,7 @@ define internal noundef i32 @ctrl_set_decode_tile_col(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_tile_mode(ptr nocapture noundef writeonly initializes((460, 464)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_tile_mode(ptr noundef writeonly captures(none) initializes((460, 464)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1748,7 +1748,7 @@ define internal noundef i32 @ctrl_set_tile_mode(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_is_annexb(ptr nocapture noundef writeonly initializes((27104, 27108)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_is_annexb(ptr noundef writeonly captures(none) initializes((27104, 27108)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1778,7 +1778,7 @@ define internal noundef i32 @ctrl_set_is_annexb(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_operating_point(ptr nocapture noundef writeonly initializes((27108, 27112)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_operating_point(ptr noundef writeonly captures(none) initializes((27108, 27112)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1808,7 +1808,7 @@ define internal noundef i32 @ctrl_set_operating_point(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_output_all_layers(ptr nocapture noundef writeonly initializes((27112, 27116)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_output_all_layers(ptr noundef writeonly captures(none) initializes((27112, 27116)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1838,12 +1838,12 @@ define internal noundef i32 @ctrl_set_output_all_layers(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ctrl_set_inspection_callback(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @ctrl_set_inspection_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_ext_tile_debug(ptr nocapture noundef writeonly initializes((464, 468)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_ext_tile_debug(ptr noundef writeonly captures(none) initializes((464, 468)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1873,7 +1873,7 @@ define internal noundef i32 @ctrl_ext_tile_debug(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_row_mt(ptr nocapture noundef writeonly initializes((468, 472)) %0, ptr nocapture noundef %1) #6 {
+define internal noundef i32 @ctrl_set_row_mt(ptr noundef writeonly captures(none) initializes((468, 472)) %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1903,7 +1903,7 @@ define internal noundef i32 @ctrl_set_row_mt(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr nocapture noundef %0, ptr nocapture noundef %1) #8 {
+define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #8 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -1958,7 +1958,7 @@ define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ctrl_set_skip_film_grain(ptr nocapture noundef initializes((448, 452)) %0, ptr nocapture noundef %1) #7 {
+define internal noundef i32 @ctrl_set_skip_film_grain(ptr noundef captures(none) initializes((448, 452)) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2002,7 +2002,7 @@ define internal noundef i32 @ctrl_set_skip_film_grain(ptr nocapture noundef init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_frame_corrupted(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_frame_corrupted(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2068,7 +2068,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_corrupted(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_last_quantizer(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_last_quantizer(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2116,7 +2116,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_last_quantizer(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_last_ref_updates(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_last_ref_updates(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2164,7 +2164,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_last_ref_updates(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_bit_depth(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_bit_depth(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2212,7 +2212,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_bit_depth(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_img_format(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_img_format(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2285,7 +2285,7 @@ get_img_format.exit:                              ; preds = %21, %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_tile_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 9) i32 @ctrl_get_tile_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 8
@@ -2340,7 +2340,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_size(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_tile_count(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_tile_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2389,7 +2389,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_count(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_render_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_render_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2441,7 +2441,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_render_size(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_frame_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_frame_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2493,12 +2493,12 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_size(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ctrl_get_accounting(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @ctrl_get_accounting(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_new_frame_image(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 9) i32 @ctrl_get_new_frame_image(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.yv12_buffer_config, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %4, 41
@@ -2685,7 +2685,7 @@ yuvconfig2image.exit:                             ; preds = %._crit_edge, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ctrl_copy_new_frame_image(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @ctrl_copy_new_frame_image(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.yv12_buffer_config, align 8
   %4 = alloca %struct.yv12_buffer_config, align 8
   %5 = load i32, ptr %1, align 8
@@ -2880,7 +2880,7 @@ image2yuvconfig.exit:                             ; preds = %70, %102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_reference(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_reference(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2937,7 +2937,7 @@ get_ref_frame.exit.thread:                        ; preds = %20, %18, %15, %get_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_frame_header_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_frame_header_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -2993,7 +2993,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_header_info(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3060,7 +3060,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_fwd_kf_value(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_fwd_kf_value(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3108,7 +3108,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_fwd_kf_value(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_altref_present(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_altref_present(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3156,7 +3156,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_altref_present(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_frame_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_frame_flags(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3237,7 +3237,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_flags(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #8 {
+define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #8 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3364,7 +3364,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_screen_content_tools_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_screen_content_tools_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3426,7 +3426,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_screen_content_tools_info(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_still_picture(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_still_picture(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3480,7 +3480,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_still_picture(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_sb_size(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_sb_size(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3530,7 +3530,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_sb_size(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_show_existing_frame_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_show_existing_frame_flag(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3578,7 +3578,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_show_existing_frame_flag(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @ctrl_get_s_frame_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
+define internal range(i32 0, 9) i32 @ctrl_get_s_frame_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp ult i32 %3, 41
   br i1 %4, label %5, label %11
@@ -3630,7 +3630,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_s_frame_info(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @image2yuvconfig(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 64), (128, 132), (144, 152), (156, 169), (172, 188), (192, 196), (200, 208)) %1) unnamed_addr #1 {
+define internal fastcc void @image2yuvconfig(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64), (128, 132), (144, 152), (156, 169), (172, 188), (192, 196), (200, 208)) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3790,7 +3790,7 @@ declare void @av1_get_uniform_tile_size(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @av1_get_frame_to_show(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @yuvconfig2image(ptr nocapture noundef writeonly initializes((0, 100), (104, 116), (128, 160)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @yuvconfig2image(ptr noundef writeonly captures(none) initializes((0, 100), (104, 116), (128, 160)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -4326,7 +4326,7 @@ parse_operating_points.exit.thread:               ; preds = %74, %66, %171, %159
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @aom_read_obu_header_and_size(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -4360,7 +4360,7 @@ declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @av1_decoder_create(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @frame_worker_hook(ptr nocapture noundef initializes((16, 24)) %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @frame_worker_hook(ptr noundef captures(none) initializes((16, 24)) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4403,7 +4403,7 @@ declare void @aom_img_remove_metadata(ptr noundef) local_unnamed_addr #3
 declare ptr @aom_img_alloc_with_cb(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @AllocWithGetFrameBufferCb(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define internal ptr @AllocWithGetFrameBufferCb(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -4442,10 +4442,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

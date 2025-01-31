@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag" = type { i8 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector12selectVertexEi(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector12selectVertexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -33,7 +33,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
 declare void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement29initializeSparseSelectionTagsEv(ptr noundef nonnull align 8 dereferenceable(504)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector10selectEdgeEi(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector10selectEdgeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -92,7 +92,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector10selectFaceEi(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector10selectFaceEi(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

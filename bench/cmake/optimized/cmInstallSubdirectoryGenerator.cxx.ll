@@ -63,7 +63,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30cmInstallSubdirectoryGeneratorC2EP10cmMakefileNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30cmInstallSubdirectoryGeneratorC2EP10cmMakefileNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::vector", align 8
@@ -268,7 +268,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_ZN18cmInstallGeneratorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EES5_NS_12MessageLevelEbb19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
@@ -418,7 +418,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGeneratorD0Ev(ptr noundef nonnu
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator11HaveInstallEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator11HaveInstallEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 536
@@ -446,7 +446,7 @@ define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator11HaveIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30cmInstallSubdirectoryGenerator12CheckCMP0082ERbS0_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture nonnull readnone align 1 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN30cmInstallSubdirectoryGenerator12CheckCMP0082ERbS0_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr nonnull readnone align 1 captures(none) %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -462,7 +462,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGenerator12CheckCMP0082ERbS0_(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN30cmInstallSubdirectoryGenerator7ComputeEP16cmLocalGenerator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %1, ptr %3, align 8
   ret i1 true

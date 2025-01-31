@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E" = internal global <{ [48 x i8], [4 x i8], [4 x i8] }> <{ [48 x i8] undef, [4 x i8] zeroinitializer, [4 x i8] undef }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen3mir3Mir4utf817h7123064ffb0f56c6E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen3mir3Mir4utf817h7123064ffb0f56c6E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [128 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [16 x i8], align 4
@@ -87,7 +87,7 @@ define hidden void @_ZN13logos_codegen3mir3Mir4utf817h7123064ffb0f56c6E(ptr noca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen3mir3Mir16utf8_ignore_case17hd1cb13049e40c754E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen3mir3Mir16utf8_ignore_case17hd1cb13049e40c754E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [128 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [16 x i8], align 4
@@ -164,7 +164,7 @@ define hidden void @_ZN13logos_codegen3mir3Mir16utf8_ignore_case17hd1cb13049e40c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen3mir3Mir6binary17h3900393240c4481cE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen3mir3Mir6binary17h3900393240c4481cE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [128 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [16 x i8], align 4
@@ -241,7 +241,7 @@ define hidden void @_ZN13logos_codegen3mir3Mir6binary17h3900393240c4481cE(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen3mir3Mir18binary_ignore_case17h91b368685142d1caE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen3mir3Mir18binary_ignore_case17h91b368685142d1caE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [128 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [16 x i8], align 4
@@ -320,7 +320,7 @@ define hidden void @_ZN13logos_codegen3mir3Mir18binary_ignore_case17h91b36868514
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, -2
@@ -394,7 +394,7 @@ define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from17hf8af6c7ad1cad01dE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from17hf8af6c7ad1cad01dE"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1683,7 +1683,7 @@ define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h27b4f778294dfb06E"(ptr sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h27b4f778294dfb06E"(ptr sret([40 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1854,7 +1854,7 @@ define void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parse
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2ed9caa22858e5baE"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
+define align 8 ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2ed9caa22858e5baE"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %2, align 8
   call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
@@ -1863,7 +1863,7 @@ define align 8 ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h4b11a1be84b948cfE"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
+define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h4b11a1be84b948cfE"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %2, align 8
@@ -1873,7 +1873,7 @@ define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..Laz
 }
 
 ; Function Attrs: nonlazybind uwtable
-define align 8 ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9cb8c63af6460f24E"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
+define align 8 ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9cb8c63af6460f24E"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %2, align 8
   call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
@@ -1882,7 +1882,7 @@ define align 8 ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..op
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h734a4be209f1f3a6E"(ptr nocapture readnone align 1 %0) unnamed_addr #0 {
+define void @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h734a4be209f1f3a6E"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %2, align 8
@@ -1892,7 +1892,7 @@ define void @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$lazy_static..La
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN62_$LT$logos_codegen..mir..Mir$u20$as$u20$core..clone..Clone$GT$5clone17h623a5260b5c5cb70E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN62_$LT$logos_codegen..mir..Mir$u20$as$u20$core..clone..Clone$GT$5clone17h623a5260b5c5cb70E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1977,7 +1977,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr44drop_in_place$LT$logos_codegen..mir..Mir$GT$17h6cee15723dba3ec3E"(ptr align 8) unnamed_addr #0
@@ -2106,13 +2106,13 @@ declare hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone.
 declare { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5bb2d2bb2318459eE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

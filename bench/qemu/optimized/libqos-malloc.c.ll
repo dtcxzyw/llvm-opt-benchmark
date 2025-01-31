@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [22 x i8] c"head && left && right\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_destroy(ptr nocapture noundef readonly %allocator) local_unnamed_addr #0 {
+define dso_local void @alloc_destroy(ptr noundef readonly captures(none) %allocator) local_unnamed_addr #0 {
 entry:
   %used = getelementptr inbounds nuw i8, ptr %allocator, i64 32
   %0 = load ptr, ptr %used, align 8
@@ -129,7 +129,7 @@ for.end28:                                        ; preds = %if.end26, %for.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -137,7 +137,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @guest_alloc(ptr nocapture noundef readonly %allocator, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @guest_alloc(ptr noundef readonly captures(none) %allocator, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %size, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -320,7 +320,7 @@ return:                                           ; preds = %mlist_alloc.exit, %
 declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @mlist_check(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %start, align 8
@@ -424,7 +424,7 @@ for.end63:                                        ; preds = %do.end56, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @guest_free(ptr nocapture noundef readonly %allocator, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @guest_free(ptr noundef readonly captures(none) %allocator, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %addr, 0
   br i1 %tobool.not, label %if.end3, label %if.end
@@ -655,7 +655,7 @@ if.end3:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_init(ptr nocapture noundef initializes((0, 4), (8, 28), (32, 48)) %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) local_unnamed_addr #0 {
+define dso_local void @alloc_init(ptr noundef captures(none) initializes((0, 4), (8, 28), (32, 48)) %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) local_unnamed_addr #0 {
 entry:
   store i32 %opts, ptr %s, align 8
   %start2 = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -717,7 +717,7 @@ mlist_new.exit:                                   ; preds = %entry, %if.end.i
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @alloc_set_flags(ptr nocapture noundef %allocator, i32 noundef %opts) local_unnamed_addr #5 {
+define dso_local void @alloc_set_flags(ptr noundef captures(none) %allocator, i32 noundef %opts) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %allocator, align 8
   %or = or i32 %0, %opts
@@ -726,7 +726,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @migrate_allocator(ptr nocapture noundef %src, ptr nocapture noundef %dst) local_unnamed_addr #0 {
+define dso_local void @migrate_allocator(ptr noundef captures(none) %src, ptr noundef captures(none) %dst) local_unnamed_addr #0 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %start, align 8
@@ -843,10 +843,10 @@ mlist_new.exit:                                   ; preds = %for.end22, %if.end.
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #8

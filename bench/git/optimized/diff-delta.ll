@@ -252,19 +252,19 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @free_delta_index(ptr nocapture noundef %index) local_unnamed_addr #6 {
+define dso_local void @free_delta_index(ptr noundef captures(none) %index) local_unnamed_addr #6 {
 entry:
   tail call void @free(ptr noundef %index) #12
   ret void
@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @create_delta(ptr nocapture noundef readonly %index, ptr noundef %trg_buf, i64 noundef %trg_size, ptr nocapture noundef writeonly initializes((0, 8)) %delta_size, i64 noundef %max_size) local_unnamed_addr #0 {
+define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %index, ptr noundef %trg_buf, i64 noundef %trg_size, ptr noundef writeonly captures(none) initializes((0, 8)) %delta_size, i64 noundef %max_size) local_unnamed_addr #0 {
 entry:
   %trg_buf251 = ptrtoint ptr %trg_buf to i64
   store i64 0, ptr %delta_size, align 8
@@ -814,7 +814,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9

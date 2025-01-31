@@ -158,7 +158,7 @@ is_single_cpu.exit25.i:                           ; preds = %46
 
 .critedge.i:                                      ; preds = %is_single_cpu.exit25.i, %is_single_cpu.exit.i, %30
   %49 = load ptr, ptr @opal_hwloc_topology, align 8
-  %50 = tail call fastcc i32 @cset2str(ptr noundef %2, ptr noundef %49, ptr noundef %26)
+  %50 = tail call fastcc i32 @cset2str(ptr noundef nonnull %2, ptr noundef %49, ptr noundef %26)
   %51 = icmp eq i32 %50, -45
   br i1 %51, label %55, label %get_rsrc_current_binding.exit
 
@@ -169,7 +169,7 @@ is_single_cpu.exit25.thread.i:                    ; preds = %44, %is_single_cpu.
   br label %get_rsrc_current_binding.exit.thread
 
 55:                                               ; preds = %.critedge.i
-  tail call void @opal_string_copy(ptr noundef %2, ptr noundef nonnull @not_bound_str, i64 noundef 1024) #14
+  tail call void @opal_string_copy(ptr noundef nonnull %2, ptr noundef nonnull @not_bound_str, i64 noundef 1024) #14
   br label %get_rsrc_current_binding.exit.thread
 
 get_rsrc_current_binding.exit.thread:             ; preds = %55, %is_single_cpu.exit25.thread.i
@@ -667,7 +667,7 @@ is_single_cpu.exit25.i43:                         ; preds = %263
 
 .critedge.i25:                                    ; preds = %is_single_cpu.exit25.i43, %is_single_cpu.exit.i34, %247
   %266 = load ptr, ptr @opal_hwloc_topology, align 8
-  %267 = tail call fastcc i32 @cset2mapstr(ptr noundef %2, ptr noundef %266, ptr noundef %243)
+  %267 = tail call fastcc i32 @cset2mapstr(ptr noundef nonnull %2, ptr noundef %266, ptr noundef %243)
   %268 = icmp eq i32 %267, -45
   br i1 %268, label %272, label %get_layout_current_binding.exit
 
@@ -678,7 +678,7 @@ is_single_cpu.exit25.thread.i44:                  ; preds = %261, %is_single_cpu
   br label %get_layout_current_binding.exit.thread
 
 272:                                              ; preds = %.critedge.i25
-  tail call void @opal_string_copy(ptr noundef %2, ptr noundef nonnull @not_bound_str, i64 noundef 1024) #14
+  tail call void @opal_string_copy(ptr noundef nonnull %2, ptr noundef nonnull @not_bound_str, i64 noundef 1024) #14
   br label %get_layout_current_binding.exit.thread
 
 get_layout_current_binding.exit.thread:           ; preds = %272, %is_single_cpu.exit25.thread.i44
@@ -966,7 +966,7 @@ get_layout_exists.exit:                           ; preds = %._crit_edge68.i, %h
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1367,16 +1367,16 @@ declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #2
 declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -1614,10 +1614,10 @@ hwloc_get_obj_by_type.exit:                       ; preds = %5
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13

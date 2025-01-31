@@ -217,7 +217,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc6CreateEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
@@ -409,7 +409,7 @@ _ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD2Ev.exit: ; preds = %entry, %dele
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc14getNumUniformsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc14getNumUniformsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -438,7 +438,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc10getUniformEjRNS_13GpuShaderDesc11UniformDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(232) %data) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc10getUniformEjRNS_13GpuShaderDesc11UniformDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(232) %data) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -546,7 +546,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFdvEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFdvEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
 entry:
   %name.addr.i = alloca ptr, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -583,7 +583,7 @@ _ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl10addUniformEPKcRKSt8functio
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFbvEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFbvEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
 entry:
   %name.addr.i = alloca ptr, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -620,7 +620,7 @@ _ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl10addUniformEPKcRKSt8functio
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFRKSt5arrayIfLm3EEvEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFRKSt5arrayIfLm3EEvEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getter) unnamed_addr #3 align 2 {
 entry:
   %name.addr.i = alloca ptr, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -657,7 +657,7 @@ _ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl10addUniformEPKcRKSt8functio
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFivEERKS3_IFPKfvEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getSize, ptr noundef nonnull align 8 dereferenceable(32) %getFloatArray) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFivEERKS3_IFPKfvEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getSize, ptr noundef nonnull align 8 dereferenceable(32) %getFloatArray) unnamed_addr #3 align 2 {
 entry:
   %name.addr.i = alloca ptr, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -694,7 +694,7 @@ _ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl10addUniformEPKcRKSt8functio
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFivEERKS3_IFPKivEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getSize, ptr noundef nonnull align 8 dereferenceable(32) %getVectorInt) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addUniformEPKcRKSt8functionIFivEERKS3_IFPKivEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %getSize, ptr noundef nonnull align 8 dereferenceable(32) %getVectorInt) unnamed_addr #3 align 2 {
 entry:
   %name.addr.i = alloca ptr, align 8
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -731,7 +731,7 @@ _ZN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl10addUniformEPKcRKSt8functio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc18getTextureMaxWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc18getTextureMaxWidthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -741,7 +741,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc18setTextureMaxWidthEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %maxWidth) unnamed_addr #10 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc18setTextureMaxWidthEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %maxWidth) unnamed_addr #10 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -751,7 +751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc17getAllowTexture1DEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc17getAllowTexture1DEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -762,7 +762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc17setAllowTexture1DEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %allowed) unnamed_addr #10 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc17setAllowTexture1DEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i1 noundef zeroext %allowed) unnamed_addr #10 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -773,7 +773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc14getNumTexturesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc14getNumTexturesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -790,7 +790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addTextureEPKcS2_jjNS_16GpuShaderCreator11TextureTypeENS3_17TextureDimensionsENS_13InterpolationEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %textureName, ptr noundef %samplerName, i32 noundef %width, i32 noundef %height, i32 noundef %channel, i8 noundef zeroext %dimensions, i32 noundef %interpolation, ptr noundef %values) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc10addTextureEPKcS2_jjNS_16GpuShaderCreator11TextureTypeENS3_17TextureDimensionsENS_13InterpolationEPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %textureName, ptr noundef %samplerName, i32 noundef %width, i32 noundef %height, i32 noundef %channel, i8 noundef zeroext %dimensions, i32 noundef %interpolation, ptr noundef %values) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -930,7 +930,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc10getTextureEjRPKcS3_RjS4_RNS_16GpuShaderCreator11TextureTypeERNS5_17TextureDimensionsERNS_13InterpolationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %textureName, ptr noundef nonnull align 8 dereferenceable(8) %samplerName, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %height, ptr noundef nonnull align 4 dereferenceable(4) %channel, ptr noundef nonnull align 1 dereferenceable(1) %dimensions, ptr noundef nonnull align 4 dereferenceable(4) %interpolation) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc10getTextureEjRPKcS3_RjS4_RNS_16GpuShaderCreator11TextureTypeERNS5_17TextureDimensionsERNS_13InterpolationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %textureName, ptr noundef nonnull align 8 dereferenceable(8) %samplerName, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef nonnull align 4 dereferenceable(4) %height, ptr noundef nonnull align 4 dereferenceable(4) %channel, ptr noundef nonnull align 1 dereferenceable(1) %dimensions, ptr noundef nonnull align 4 dereferenceable(4) %interpolation) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -1125,7 +1125,7 @@ unreachable:                                      ; preds = %invoke.cont39, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc16getTextureValuesEjRPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %values) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc16getTextureValuesEjRPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %values) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -1230,7 +1230,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc16getNum3DTexturesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc16getNum3DTexturesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -1247,7 +1247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc12add3DTextureEPKcS2_jNS_13InterpolationEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %textureName, ptr noundef %samplerName, i32 noundef %edgelen, i32 noundef %interpolation, ptr noundef %values) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc12add3DTextureEPKcS2_jNS_13InterpolationEPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %textureName, ptr noundef %samplerName, i32 noundef %edgelen, i32 noundef %interpolation, ptr noundef %values) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -1385,7 +1385,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc12get3DTextureEjRPKcS3_RjRNS_13InterpolationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %textureName, ptr noundef nonnull align 8 dereferenceable(8) %samplerName, ptr noundef nonnull align 4 dereferenceable(4) %edgelen, ptr noundef nonnull align 4 dereferenceable(4) %interpolation) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc12get3DTextureEjRPKcS3_RjRNS_13InterpolationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %textureName, ptr noundef nonnull align 8 dereferenceable(8) %samplerName, ptr noundef nonnull align 4 dereferenceable(4) %edgelen, ptr noundef nonnull align 4 dereferenceable(4) %interpolation) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -1499,7 +1499,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc18get3DTextureValuesEjRPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %values) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20GenericGpuShaderDesc18get3DTextureValuesEjRPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %values) unnamed_addr #3 align 2 {
 entry:
   %m_implGeneric.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_implGeneric.i, align 8
@@ -2573,10 +2573,10 @@ _ZNSt8functionIFPKivEEaSERKS3_.exit:              ; preds = %_ZNSt8functionIFPKi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl15uniformNameUsedEPKc(ptr noundef nonnull align 8 dereferenceable(85) %this, ptr noundef %name) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4809,7 +4809,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev13GPUShaderImpl11PrivateImpl7TextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(112) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5154,7 +5154,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_GpuShader.cpp() #16 section ".text.startup" {
@@ -5168,10 +5168,10 @@ entry:
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -5183,7 +5183,7 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

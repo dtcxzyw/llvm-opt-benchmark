@@ -19,14 +19,14 @@ $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 @_ZN6crypto4HKDFD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6crypto4HKDFD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6crypto4HKDFC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_SB_mmm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %secret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %salt, ptr noundef nonnull align 8 dereferenceable(16) %info, i64 noundef %key_bytes_to_generate, i64 noundef %iv_bytes_to_generate, i64 noundef %subkey_secret_bytes_to_generate) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6crypto4HKDFC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_SB_mmm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %secret, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %salt, ptr noundef nonnull align 8 dereferenceable(16) %info, i64 noundef %key_bytes_to_generate, i64 noundef %iv_bytes_to_generate, i64 noundef %subkey_secret_bytes_to_generate) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6crypto4HKDFC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_SB_mmmmm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %secret, ptr noundef nonnull align 8 dereferenceable(16) %salt, ptr noundef nonnull align 8 dereferenceable(16) %info, i64 noundef %key_bytes_to_generate, i64 noundef %key_bytes_to_generate, i64 noundef %iv_bytes_to_generate, i64 noundef %iv_bytes_to_generate, i64 noundef %subkey_secret_bytes_to_generate)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6crypto4HKDFC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_SB_mmmmm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %secret, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %salt, ptr noundef nonnull align 8 dereferenceable(16) %info, i64 noundef %client_key_bytes_to_generate, i64 noundef %server_key_bytes_to_generate, i64 noundef %client_iv_bytes_to_generate, i64 noundef %server_iv_bytes_to_generate, i64 noundef %subkey_secret_bytes_to_generate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6crypto4HKDFC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_SB_mmmmm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %secret, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %salt, ptr noundef nonnull align 8 dereferenceable(16) %info, i64 noundef %client_key_bytes_to_generate, i64 noundef %server_key_bytes_to_generate, i64 noundef %client_iv_bytes_to_generate, i64 noundef %server_iv_bytes_to_generate, i64 noundef %subkey_secret_bytes_to_generate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %actual_salt = alloca %"class.base::BasicStringPiece", align 8
   %zeros = alloca [32 x i8], align 16
@@ -334,12 +334,12 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3setEPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -470,7 +470,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN6crypto4HMACD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6crypto4HKDFD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6crypto4HKDFD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -494,7 +494,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7

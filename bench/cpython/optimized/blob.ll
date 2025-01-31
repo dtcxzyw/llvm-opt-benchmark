@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [36 x i8] c"Blob slice assignment is wrong size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pysqlite_close_all_blobs(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
+define hidden void @pysqlite_close_all_blobs(ptr noundef readonly captures(none) %self) local_unnamed_addr #0 {
 entry:
   %blobs = getelementptr inbounds nuw i8, ptr %self, i64 88
   %0 = load ptr, ptr %blobs, align 8
@@ -218,7 +218,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blob_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @blob_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blob_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @blob_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %connection = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection, align 8
@@ -279,7 +279,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @blob_length(ptr nocapture noundef readonly %self) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @blob_length(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %connection.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection.i, align 8
@@ -319,7 +319,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_subscript(ptr nocapture noundef readonly %self, ptr noundef %item) #0 {
+define internal ptr @blob_subscript(ptr noundef readonly captures(none) %self, ptr noundef %item) #0 {
 entry:
   %start.i = alloca i64, align 8
   %stop.i = alloca i64, align 8
@@ -511,7 +511,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @blob_ass_subscript(ptr nocapture noundef readonly %self, ptr noundef %item, ptr noundef %value) #0 {
+define internal range(i32 -1, 1) i32 @blob_ass_subscript(ptr noundef readonly captures(none) %self, ptr noundef %item, ptr noundef %value) #0 {
 entry:
   %start.i = alloca i64, align 8
   %stop.i = alloca i64, align 8
@@ -858,7 +858,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_close(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @blob_close(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %connection.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection.i, align 8
@@ -891,7 +891,7 @@ blob_close_impl.exit:                             ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_enter(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @blob_enter(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %connection.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection.i.i, align 8
@@ -936,7 +936,7 @@ blob_enter_impl.exit:                             ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_exit(ptr nocapture noundef %self, ptr nocapture readnone %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @blob_exit(ptr noundef captures(none) %self, ptr readnone captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -987,7 +987,7 @@ exit:                                             ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_read(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @blob_read(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1075,7 +1075,7 @@ exit:                                             ; preds = %if.end15.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_seek(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @blob_seek(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -1203,7 +1203,7 @@ exit:                                             ; preds = %overflow.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @blob_tell(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @blob_tell(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %connection.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %connection.i.i, align 8
@@ -1245,7 +1245,7 @@ blob_tell_impl.exit:                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_write(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal noundef ptr @blob_write(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -1357,7 +1357,7 @@ declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_multiple(ptr nocapture noundef readonly %self, i64 noundef %length, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc ptr @read_multiple(ptr noundef readonly captures(none) %self, i64 noundef %length, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %length) #5
   %cmp = icmp eq ptr %call, null
@@ -1413,7 +1413,7 @@ declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1440,10 +1440,10 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

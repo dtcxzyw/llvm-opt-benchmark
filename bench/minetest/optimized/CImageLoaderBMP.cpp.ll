@@ -53,7 +53,7 @@ $_ZTIN3irr5video12IImageLoaderE = comdat any
 @_ZTIN3irr5video15CImageLoaderBMPE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5video15CImageLoaderBMPE, ptr @_ZTIN3irr5video12IImageLoaderE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CImageLoaderBMPC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CImageLoaderBMPC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video15CImageLoaderBMPC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 28)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CImageLoaderBMPC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 28)) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderBMP24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderBMP24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
@@ -177,13 +177,13 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderBMP21isALoadableFileFormatEPNS_2io9IReadFileE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageLoaderBMP21isALoadableFileFormatEPNS_2io9IReadFileE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file) unnamed_addr #2 align 2 {
 entry:
   %headerID = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %headerID) #14
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr5video15CImageLoaderBMP17decompress8BitRLEERPhiiii(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %bmpData, i32 noundef %size, i32 noundef %width, i32 noundef %height, i32 noundef %pitch) local_unnamed_addr #2 align 2 {
+define void @_ZNK3irr5video15CImageLoaderBMP17decompress8BitRLEERPhiiii(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %bmpData, i32 noundef %size, i32 noundef %width, i32 noundef %height, i32 noundef %pitch) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %idx.ext = sext i32 %size to i64
@@ -486,7 +486,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr5video15CImageLoaderBMP17decompress4BitRLEERPhiiii(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %bmpData, i32 noundef %size, i32 noundef %width, i32 noundef %height, i32 noundef %pitch) local_unnamed_addr #2 align 2 {
+define void @_ZNK3irr5video15CImageLoaderBMP17decompress4BitRLEERPhiiii(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %bmpData, i32 noundef %size, i32 noundef %width, i32 noundef %height, i32 noundef %pitch) local_unnamed_addr #2 align 2 {
 entry:
   %add = add nsw i32 %width, 1
   %div = sdiv i32 %add, 2
@@ -715,7 +715,7 @@ delete.end:                                       ; preds = %delete.notnull, %ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK3irr5video15CImageLoaderBMP9loadImageEPNS_2io9IReadFileE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK3irr5video15CImageLoaderBMP9loadImageEPNS_2io9IReadFileE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file) unnamed_addr #2 align 2 {
 entry:
   %header = alloca %"struct.irr::video::SBMPHeader", align 2
   %bmpData = alloca ptr, align 8
@@ -1017,7 +1017,7 @@ cleanup164:                                       ; preds = %cleanup, %if.then8,
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm7msgpack6WriterC1ERNS_11raw_ostreamEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 12), (16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 12), (16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23,7 +23,7 @@ define dso_local void @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer8writeNilEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer8writeNilEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca i8, align 1
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -34,7 +34,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer8writeNilEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i8, align 1
   %4 = select i1 %1, i8 -61, i8 -62
   %5 = load ptr, ptr %0, align 8
@@ -46,7 +46,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -162,7 +162,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -270,7 +270,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -327,7 +327,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEd(ptr nocapture noundef non
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
@@ -442,10 +442,10 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %55, %57, %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
@@ -521,7 +521,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_15MemoryBufferRefE(ptr n
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
@@ -585,7 +585,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
@@ -649,7 +649,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i8 noundef signext %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7msgpack6Writer8writeExtEaNS_15MemoryBufferRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i8 noundef signext %1, ptr noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -792,10 +792,10 @@ declare i64 @llvm.bswap.i64(i64) #2
 declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

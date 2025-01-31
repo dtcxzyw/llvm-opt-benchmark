@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.output_x11.13 = private unnamed_addr constant [3 x ptr] [ptr @str.2, ptr @str.1, ptr @str], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -951,12 +951,12 @@ switch.lookup362:                                 ; preds = %446
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @XOpenDisplay(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @XrmInitialize() local_unnamed_addr #2
 
@@ -967,10 +967,10 @@ declare ptr @XrmGetStringDatabase(ptr noundef) local_unnamed_addr #2
 declare i32 @XrmGetResource(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @XrmDestroyDatabase(ptr noundef) local_unnamed_addr #2
 
@@ -1325,7 +1325,7 @@ declare i32 @XRefreshKeyboardMapping(ptr noundef) local_unnamed_addr #2
 declare i32 @XLookupString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
@@ -1454,7 +1454,7 @@ declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @cairo_surface_write_to_png_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #9 {
+define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #9 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %4, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -1463,7 +1463,7 @@ define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1780,7 +1780,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
 declare ptr @cairo_svg_surface_create_for_stream(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_cairo_box(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, i32 %8) #0 {
+define internal void @topo_cairo_box(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, i32 %8) #0 {
   %10 = alloca double, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %12 = load ptr, ptr %11, align 8
@@ -1859,7 +1859,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_cairo_line(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, i32 %7) #0 {
+define internal void @topo_cairo_line(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6, i32 %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1876,7 +1876,7 @@ define internal void @topo_cairo_line(ptr nocapture noundef readonly %0, i32 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_cairo_text(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 %8) #0 {
+define internal void @topo_cairo_text(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 1304
@@ -1939,7 +1939,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_cairo_textsize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
+define internal void @topo_cairo_textsize(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2, i32 %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #0 {
   %6 = alloca %struct.cairo_text_extents_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %8 = load ptr, ptr %7, align 8
@@ -2000,10 +2000,10 @@ declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 nound
 declare i32 @XFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -2012,10 +2012,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

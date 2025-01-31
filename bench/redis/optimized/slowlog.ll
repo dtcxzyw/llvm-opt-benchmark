@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [44 x i8] c"count should be greater than or equal to -1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %c, ptr noundef readonly captures(none) %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #7
   %cmp = icmp sgt i32 %argc, 32
@@ -316,7 +316,7 @@ entry:
 declare ptr @listCreate() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slowlogPushEntryIfNeeded(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
+define dso_local void @slowlogPushEntryIfNeeded(ptr noundef %c, ptr noundef readonly captures(none) %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2216), align 8
   %cmp = icmp slt i64 %0, 0
@@ -527,20 +527,20 @@ while.body:                                       ; preds = %if.end49, %sdslen.e
   %call51 = call ptr @listNext(ptr noundef nonnull %li) #8
   %value = getelementptr inbounds nuw i8, ptr %call51, i64 16
   %25 = load ptr, ptr %value, align 8
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef 6) #8
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 6) #8
   %id = getelementptr inbounds nuw i8, ptr %25, i64 16
   %26 = load i64, ptr %id, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %26) #8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %26) #8
   %time = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i64, ptr %time, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %27) #8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %27) #8
   %duration = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load i64, ptr %duration, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %28) #8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %28) #8
   %argc52 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %argc52, align 8
   %conv = sext i32 %29 to i64
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv) #8
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #8
   %30 = load i32, ptr %argc52, align 8
   %cmp5458 = icmp sgt i32 %30, 0
   br i1 %cmp5458, label %for.body, label %for.end
@@ -550,7 +550,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %31 = load ptr, ptr %25, align 8
   %arrayidx57 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx57, align 8
-  call void @addReplyBulk(ptr noundef %c, ptr noundef %32) #8
+  call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef %32) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %argc52, align 8
   %34 = sext i32 %33 to i64
@@ -602,7 +602,7 @@ sw.bb13.i:                                        ; preds = %for.end
 
 sdslen.exit:                                      ; preds = %for.end, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %40, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.end ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %35, i64 noundef %retval.0.i) #8
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %35, i64 noundef %retval.0.i) #8
   %cname = getelementptr inbounds nuw i8, ptr %25, i64 40
   %41 = load ptr, ptr %cname, align 8
   %arrayidx.i37 = getelementptr inbounds i8, ptr %41, i64 -1
@@ -647,7 +647,7 @@ sw.bb13.i40:                                      ; preds = %sdslen.exit
 
 sdslen.exit55:                                    ; preds = %sdslen.exit, %sw.bb.i52, %sw.bb3.i49, %sw.bb5.i46, %sw.bb9.i43, %sw.bb13.i40
   %retval.0.i42 = phi i64 [ %46, %sw.bb13.i40 ], [ %conv12.i45, %sw.bb9.i43 ], [ %conv8.i48, %sw.bb5.i46 ], [ %conv4.i51, %sw.bb3.i49 ], [ %conv2.i54, %sw.bb.i52 ], [ 0, %sdslen.exit ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %41, i64 noundef %retval.0.i42) #8
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %41, i64 noundef %retval.0.i42) #8
   %47 = load i64, ptr %count, align 8
   %dec = add nsw i64 %47, -1
   store i64 %dec, ptr %count, align 8
@@ -663,10 +663,10 @@ if.end66:                                         ; preds = %sdslen.exit55, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #2
 

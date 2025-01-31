@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"dup2 failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_DatagramDispatcher_read0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_DatagramDispatcher_read0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %7 = inttoptr i64 %3 to ptr
   %8 = sext i32 %4 to i64
@@ -49,7 +49,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @convertReturnVal(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_ch_DatagramDispatcher_readv0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_ch_DatagramDispatcher_readv0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.msghdr, align 8
   %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %8 = inttoptr i64 %3 to ptr
@@ -84,14 +84,14 @@ define i64 @Java_sun_nio_ch_DatagramDispatcher_readv0(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i64 @convertLongReturnVal(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_DatagramDispatcher_write0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_DatagramDispatcher_write0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %7 = inttoptr i64 %3 to ptr
   %8 = sext i32 %4 to i64
@@ -122,7 +122,7 @@ define i32 @Java_sun_nio_ch_DatagramDispatcher_write0(ptr noundef %0, ptr nocapt
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_ch_DatagramDispatcher_writev0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_ch_DatagramDispatcher_writev0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.msghdr, align 8
   %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %8 = inttoptr i64 %3 to ptr
@@ -159,7 +159,7 @@ define i64 @Java_sun_nio_ch_DatagramDispatcher_writev0(ptr noundef %0, ptr nocap
 declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_DatagramDispatcher_dup0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_DatagramDispatcher_dup0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #6
   %7 = tail call i32 @dup2(i32 noundef %5, i32 noundef %6) #6

@@ -166,7 +166,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %2, %_ZN26Grow
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
   %39 = load ptr, ptr %35, align 8
-  %40 = call noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES1_(ptr noundef nonnull align 8 dereferenceable(68) %38, ptr noundef %39, ptr noundef %36) #12
+  %40 = call noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES1_(ptr noundef nonnull align 8 dereferenceable(68) %38, ptr noundef %39, ptr noundef nonnull %36) #12
   store i32 %40, ptr %0, align 8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.sink.split, label %42
@@ -190,12 +190,12 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN18constantPoolHandle
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES1_(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter17write_field_infosEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter17write_field_infosEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca %class.JavaFieldStream, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -713,7 +713,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %264, %268
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter8write_u2Et(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter8write_u2Et(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -764,12 +764,12 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %24, %25
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %6 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %1, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3) #12
+  %6 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %7
@@ -886,7 +886,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %72, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter8write_u4Ej(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter8write_u4Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -934,7 +934,7 @@ _ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %24, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter25write_signature_attributeEt(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter25write_signature_attributeEt(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.16)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -1022,12 +1022,12 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %43, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attributeEPKcS1_P5ArrayIhE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attributeEPKcS1_P5ArrayIhE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %7 = trunc i64 %6 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %8 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %5) #12
+  %8 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %9
@@ -1115,7 +1115,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %52, %53
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter20write_code_attributeERK12methodHandle(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter20write_code_attributeERK12methodHandle(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CompressedLineNumberReadStream, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1754,7 +1754,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit130: ; preds = %313, %314
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CompressedLineNumberReadStream, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2038,7 +2038,7 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %116, %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN27JvmtiClassFileReconstituter17writeable_addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN27JvmtiClassFileReconstituter17writeable_addressEm(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2071,7 +2071,7 @@ define hidden noundef ptr @_ZN27JvmtiClassFileReconstituter17writeable_addressEm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter33write_line_number_table_attributeERK12methodHandlet(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter33write_line_number_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.CompressedLineNumberReadStream, align 8
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.26)
   %5 = zext i16 %2 to i32
@@ -2266,7 +2266,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit16: ; preds = %101, %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter30write_stackmap_table_attributeERK12methodHandlei(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter30write_stackmap_table_attributeERK12methodHandlei(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.29)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -2348,7 +2348,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter36write_local_variable_table_attributeERK12methodHandlet(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter36write_local_variable_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.27)
   %4 = zext i16 %2 to i32
   %5 = mul nuw nsw i32 %4, 10
@@ -2674,7 +2674,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %165, %166
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_table_attributeERK12methodHandlet(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.28)
   %4 = zext i16 %2 to i32
   %5 = mul nuw nsw i32 %4, 10
@@ -3005,7 +3005,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %168, %167, %.lr.p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter26write_exceptions_attributeEP11ConstMethod(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter26write_exceptions_attributeEP11ConstMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
   %4 = tail call noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
   %5 = zext i16 %4 to i32
@@ -3159,7 +3159,7 @@ declare noundef ptr @_ZNK11ConstMethod24checked_exceptions_startEv(ptr noundef n
 declare noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter32write_method_parameter_attributeEPK11ConstMethod(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter32write_method_parameter_attributeEPK11ConstMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
   %4 = tail call noundef i32 @_ZNK11ConstMethod24method_parameters_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #12
   %5 = shl nsw i32 %4, 2
@@ -3340,7 +3340,7 @@ declare noundef ptr @_ZNK11ConstMethod23method_parameters_startEv(ptr noundef no
 declare noundef i32 @_ZNK11ConstMethod24method_parameters_lengthEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter8write_u1Eh(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter8write_u1Eh(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3373,7 +3373,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %2, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter27write_source_file_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter27write_source_file_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.14)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -3519,7 +3519,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %84, %85
 declare noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter38write_source_debug_extension_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter38write_source_debug_extension_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.15)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -3618,10 +3618,10 @@ _ZN27JvmtiClassFileReconstituter8write_u1Eh.exit: ; preds = %.lr.ph, %44
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -3644,7 +3644,7 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %6, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attributeEPKcP5ArrayIhE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attributeEPKcP5ArrayIhE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 4
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3722,7 +3722,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27JvmtiClassFileReconstituter31write_bootstrapmethod_attributeEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
@@ -4080,7 +4080,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit46: ; preds = %195, %196
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter25write_nest_host_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter25write_nest_host_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -4172,7 +4172,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %46, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter28write_nest_members_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter28write_nest_members_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -4326,7 +4326,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %76, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter36write_permitted_subclasses_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter36write_permitted_subclasses_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -4480,7 +4480,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %76, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter22write_record_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter22write_record_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -4806,7 +4806,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit63: ; preds = %150, %151
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter29write_inner_classes_attributeEi(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter29write_inner_classes_attributeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
@@ -5108,7 +5108,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit28: ; preds = %150, %151
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter25write_synthetic_attributeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter25write_synthetic_attributeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.25)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -5160,7 +5160,7 @@ declare void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZN30CompressedLineNumberReadStream9read_pairEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter17write_method_infoERK12methodHandle(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter17write_method_infoERK12methodHandle(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -5831,7 +5831,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
 declare noundef ptr @_ZNK13InstanceKlass17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca %class.methodHandle, align 8
   %4 = alloca %class.methodHandle, align 8
@@ -6715,7 +6715,7 @@ declare noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef no
 declare noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiClassFileReconstituter8write_u8Em(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiClassFileReconstituter8write_u8Em(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -7835,10 +7835,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

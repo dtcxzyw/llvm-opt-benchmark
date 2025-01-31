@@ -368,7 +368,7 @@ define dso_local i64 @table_list_add(i64 noundef %0, i64 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare i32 @H5Iinc_ref(i64 noundef) local_unnamed_addr #2
 
@@ -1340,7 +1340,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %330 = tail call ptr @__errno_location() #25
   store i32 0, ptr %330, align 4
   %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vfd_info_g, i64 8), align 8
-  %332 = tail call i64 @strtoull(ptr nocapture noundef %331, ptr noundef null, i32 noundef 10) #22
+  %332 = tail call i64 @strtoull(ptr noundef captures(none) %331, ptr noundef null, i32 noundef 10) #22
   store i64 %332, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_g, i64 24), align 8
   %333 = load i32, ptr %330, align 4
   %334 = icmp eq i32 %333, 34
@@ -1743,7 +1743,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 497:                                              ; preds = %495
   %498 = load ptr, ptr @xmlnsprefix, align 8
-  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %496, ptr noundef nonnull @.str.25, ptr noundef %498, ptr noundef %492) #22
+  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %496, ptr noundef nonnull @.str.25, ptr noundef %498, ptr noundef nonnull %492) #22
   br label %500
 
 500:                                              ; preds = %497, %495
@@ -3150,7 +3150,7 @@ declare void @h5trav_set_index(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @h5tools_get_fapl(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare i64 @H5FDperform_init(ptr noundef) local_unnamed_addr #2
 
@@ -3161,7 +3161,7 @@ declare i64 @H5Pget_driver(i64 noundef) local_unnamed_addr #2
 declare i32 @H5FDonion_get_revision_count(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3172,23 +3172,23 @@ declare i32 @H5open() local_unnamed_addr #2
 declare i32 @fill_ref_path_table(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @H5Oget_info_by_name3(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @dump_fcontents(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @dump_fcpl(i64 noundef) local_unnamed_addr #2
 
@@ -3344,7 +3344,7 @@ declare i32 @h5tools_getstatus() local_unnamed_addr #2
 declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @add_prefix(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 {
+define dso_local void @add_prefix(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #24
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
@@ -3372,7 +3372,7 @@ define dso_local void @add_prefix(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 declare void @dump_group(i64 noundef, ptr noundef) #2
 
@@ -3396,7 +3396,7 @@ declare i32 @H5_get_option(i32 noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare void @h5trav_set_verbose(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @print_version(ptr noundef) local_unnamed_addr #2
 
@@ -3421,7 +3421,7 @@ declare i32 @h5tools_set_data_output_file(ptr noundef, i32 noundef) local_unname
 declare i32 @h5tools_set_attr_output_file(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr nocapture noundef nonnull readonly %0) unnamed_addr #14 {
+define internal fastcc range(i32 -1, 4) i32 @set_binary_form(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #14 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.93) #24
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.tail5, label %4
@@ -3474,10 +3474,10 @@ declare void @parse_hsize_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #15
@@ -3497,7 +3497,7 @@ declare i32 @xml_dump_attr(i64 noundef, ptr noundef, ptr noundef, ptr noundef) #
 declare void @xml_dump_data(i64 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @free_table(ptr noundef) local_unnamed_addr #2
 
@@ -3513,16 +3513,16 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

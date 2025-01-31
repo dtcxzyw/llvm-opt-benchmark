@@ -122,25 +122,25 @@ declare void @nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @nstime_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @malloc_mutex_prof_data_reset(ptr nocapture noundef readnone %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
+define hidden void @malloc_mutex_prof_data_reset(ptr noundef readnone captures(none) %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex, i8 0, i64 64, i1 false)
   %max_wait_time.i = getelementptr inbounds nuw i8, ptr %mutex, i64 8
   tail call void @nstime_copy(ptr noundef nonnull %max_wait_time.i, ptr noundef nonnull @nstime_zero) #7
-  tail call void @nstime_copy(ptr noundef %mutex, ptr noundef nonnull @nstime_zero) #7
+  tail call void @nstime_copy(ptr noundef nonnull %mutex, ptr noundef nonnull @nstime_zero) #7
   %prev_owner.i = getelementptr inbounds nuw i8, ptr %mutex, i64 48
   store ptr null, ptr %prev_owner.i, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @malloc_mutex_init(ptr noundef initializes((0, 64)) %mutex, ptr nocapture noundef readnone %name, i32 noundef %rank, i32 noundef %lock_order) local_unnamed_addr #0 {
+define hidden zeroext i1 @malloc_mutex_init(ptr noundef initializes((0, 64)) %mutex, ptr noundef readnone captures(none) %name, i32 noundef %rank, i32 noundef %lock_order) local_unnamed_addr #0 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex, i8 0, i64 64, i1 false)
   %max_wait_time.i = getelementptr inbounds nuw i8, ptr %mutex, i64 8
   tail call void @nstime_copy(ptr noundef nonnull %max_wait_time.i, ptr noundef nonnull @nstime_zero) #7
-  tail call void @nstime_copy(ptr noundef %mutex, ptr noundef nonnull @nstime_zero) #7
+  tail call void @nstime_copy(ptr noundef nonnull %mutex, ptr noundef nonnull @nstime_zero) #7
   %prev_owner.i = getelementptr inbounds nuw i8, ptr %mutex, i64 48
   store ptr null, ptr %prev_owner.i, align 8
   %call = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr) #7
@@ -209,7 +209,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @malloc_mutex_postfork_parent(ptr nocapture noundef readnone %tsdn, ptr noundef %mutex) local_unnamed_addr #0 {
+define hidden void @malloc_mutex_postfork_parent(ptr noundef readnone captures(none) %tsdn, ptr noundef %mutex) local_unnamed_addr #0 {
 entry:
   %locked.i = getelementptr inbounds nuw i8, ptr %mutex, i64 64
   store atomic i8 0, ptr %locked.i monotonic, align 1
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @malloc_mutex_postfork_child(ptr nocapture noundef readnone %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
+define hidden void @malloc_mutex_postfork_child(ptr noundef readnone captures(none) %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
 entry:
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
   %rank = getelementptr inbounds nuw i8, ptr %mutex, i64 8
@@ -278,16 +278,16 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

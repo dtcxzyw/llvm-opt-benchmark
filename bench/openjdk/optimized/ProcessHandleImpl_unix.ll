@@ -104,7 +104,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 declare void @os_initNative(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.siginfo_t, align 8
   %7 = trunc i64 %2 to i32
@@ -200,12 +200,12 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @waitid(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_getCurrentPid0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_getCurrentPid0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @getpid() #11
   %4 = sext i32 %3 to i64
   ret i64 %4
@@ -215,7 +215,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_
 declare i32 @getpid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_lang_ProcessHandleImpl_destroy0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_lang_ProcessHandleImpl_destroy0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -250,7 +250,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_lang_ProcessHandleImpl_destroy0(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_lang_ProcessHandleImpl_isAlive0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_java_lang_ProcessHandleImpl_isAlive0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = trunc i64 %2 to i32
@@ -267,7 +267,7 @@ define i64 @Java_java_lang_ProcessHandleImpl_isAlive0(ptr noundef %0, ptr nocapt
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_lang_ProcessHandleImpl_getProcessPids0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @Java_java_lang_ProcessHandleImpl_getProcessPids0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @os_getChildren(ptr noundef %0, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #11
   ret i32 %7
 }
@@ -326,7 +326,7 @@ declare i32 @os_getParentPidAndTimings(ptr noundef, i32 noundef, ptr noundef, pt
 declare void @os_getCmdlineAndUserInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_parent0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @Java_java_lang_ProcessHandleImpl_parent0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = trunc i64 %2 to i32
@@ -475,7 +475,7 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
 declare ptr @JNU_ClassString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -555,7 +555,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -910,23 +910,23 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 declare void @JNU_ThrowIllegalArgumentException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @JNU_ThrowByNameWithLastError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

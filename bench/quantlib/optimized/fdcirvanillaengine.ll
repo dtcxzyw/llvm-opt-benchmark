@@ -575,7 +575,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib18FdCIRVanillaEngineEEE = comdat an
 @_ZN8QuantLib22MakeFdCIRVanillaEngineC1EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd = unnamed_addr alias void (ptr, ptr, ptr, double), ptr @_ZN8QuantLib22MakeFdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -673,7 +673,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
@@ -808,7 +808,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %cirProcess, ptr noundef captures(none) %bsProcess, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %schemeDesc, ptr noundef captures(none) %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8
@@ -911,10 +911,10 @@ _ZN8QuantLib14OneAssetOption6engineC2Ev.exit:     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS9_EEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS9_EEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %cirProcess, ptr noundef captures(none) %bsProcess, ptr noundef captures(none) %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %schemeDesc, ptr noundef captures(none) %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8
@@ -1027,7 +1027,7 @@ _ZN8QuantLib14OneAssetOption6engineC2Ev.exit:     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdCIRVanillaEngine13getSolverDescEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.QuantLib::FdmSolverDesc") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(472) %this, double %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18FdCIRVanillaEngine13getSolverDescEd(ptr dead_on_unwind noalias writable writeonly sret(%"struct.QuantLib::FdmSolverDesc") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(472) %this, double %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payoff = alloca %"class.boost::shared_ptr.48", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
@@ -3421,7 +3421,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22MakeFdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 96)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, double noundef %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22MakeFdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 96)) %this, ptr noundef captures(none) %cirProcess, ptr noundef captures(none) %bsProcess, double noundef %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.QuantLib::FdmSchemeDesc", align 8
   %0 = load ptr, ptr %cirProcess, align 8, !tbaa !41
@@ -3728,7 +3728,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((112, 120)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((112, 120)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %quantoHelper_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %quantoHelper, align 8, !tbaa !43
@@ -4152,7 +4152,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8DividendEEESaIS4_EED2Ev.exit: ; pred
 declare void @_ZN8QuantLib14DividendVectorERKSt6vectorINS_4DateESaIS1_EERKS0_IdSaIdEE(ptr dead_on_unwind writable sret(%"class.std::vector.35") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22MakeFdCIRVanillaEnginecvN5boost10shared_ptrINS_13PricingEngineEEEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.15") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22MakeFdCIRVanillaEnginecvN5boost10shared_ptrINS_13PricingEngineEEEEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.15") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.82", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
@@ -6653,7 +6653,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -8561,7 +8561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib18FdCIRVanillaEngineENS0_13sp_ms_deleterIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #4 comdat align 2 {
@@ -8682,7 +8682,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

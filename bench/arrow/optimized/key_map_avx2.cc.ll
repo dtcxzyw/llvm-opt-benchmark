@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_hashes, ptr noundef readonly captures(none) %hashes, ptr noundef writeonly captures(none) %out_match_bitvector, ptr noundef writeonly captures(none) %out_local_slots) local_unnamed_addr #0 align 2 {
 entry:
   %log_blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %cmp200 = icmp sgt i32 %num_hashes, 7
@@ -139,7 +139,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64>, ptr, <4 x i64>, <4 x i64>, i8 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5arrow7compute10SwissTable25early_filter_imp_avx2_x32EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK5arrow7compute10SwissTable25early_filter_imp_avx2_x32EiPKjPhS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_hashes, ptr noundef readonly captures(none) %hashes, ptr noundef writeonly captures(none) %out_match_bitvector, ptr noundef writeonly captures(none) %out_local_slots) local_unnamed_addr #2 align 2 {
 entry:
   %block_bytes = alloca [16 x i64], align 16
   %log_blocks_5 = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -372,7 +372,7 @@ for.end192:                                       ; preds = %for.body68, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @_ZNK5arrow7compute10SwissTable22extract_group_ids_avx2EiPKjPKhPjiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_keys, ptr nocapture noundef readonly %hashes, ptr nocapture noundef readonly %local_slots, ptr nocapture noundef writeonly %out_group_ids, i32 noundef %byte_offset, i32 noundef %byte_multiplier, i32 noundef %byte_size) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK5arrow7compute10SwissTable22extract_group_ids_avx2EiPKjPKhPjiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %num_keys, ptr noundef readonly captures(none) %hashes, ptr noundef readonly captures(none) %local_slots, ptr noundef writeonly captures(none) %out_group_ids, i32 noundef %byte_offset, i32 noundef %byte_multiplier, i32 noundef %byte_size) local_unnamed_addr #0 align 2 {
 entry:
   %cmp7 = icmp eq i32 %byte_size, 1
   %cmp8 = icmp eq i32 %byte_size, 2

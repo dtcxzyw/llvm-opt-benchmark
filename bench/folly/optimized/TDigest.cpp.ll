@@ -37,7 +37,7 @@ $_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8Centroi
 @_ZN5folly7TDigestC1ESt6vectorINS0_8CentroidESaIS2_EEddddm = unnamed_addr alias void (ptr, ptr, double, double, double, double, i64), ptr @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %centroids, double noundef %sum, double noundef %count, double noundef %max_val, double noundef %min_val, i64 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 64)) %this, ptr noundef captures(none) %centroids, double noundef %sum, double noundef %count, double noundef %max_val, double noundef %min_val, i64 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %digests = alloca %"struct.std::array", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -200,12 +200,12 @@ if.end:                                           ; preds = %_ZNSt5arrayIN5folly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TDigest5mergeENS_5RangeIPKS0_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.folly::TDigest") align 8 %agg.result, ptr %digests.coerce0, ptr %digests.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TDigest5mergeENS_5RangeIPKS0_EE(ptr dead_on_unwind noalias writable sret(%"class.folly::TDigest") align 8 captures(none) %agg.result, ptr %digests.coerce0, ptr %digests.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %centroids = alloca %"class.std::vector", align 8
   %cmp.not700 = icmp eq ptr %digests.coerce0, %digests.coerce1
@@ -1056,7 +1056,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIN5foll
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5arrayIN5folly7TDigestELm2EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1099,10 +1099,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly7TDigest5mergeENS_5RangeIPKdEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.folly::TDigest") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr %unsortedValues.coerce0, ptr %unsortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TDigest5mergeENS_5RangeIPKdEE(ptr dead_on_unwind noalias writable sret(%"class.folly::TDigest") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr %unsortedValues.coerce0, ptr %unsortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %unsortedValues.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %unsortedValues.coerce0 to i64
@@ -1161,7 +1161,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 declare void @_ZN5folly6detail17double_radix_sortEmPmPdS2_(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly7TDigest5mergeENS_19sorted_equivalent_tENS_5RangeIPKdEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.folly::TDigest") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr %sortedValues.coerce0, ptr %sortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TDigest5mergeENS_19sorted_equivalent_tENS_5RangeIPKdEE(ptr dead_on_unwind noalias writable sret(%"class.folly::TDigest") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr %sortedValues.coerce0, ptr %sortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %sortedValues.coerce0, %sortedValues.coerce1
   br i1 %cmp.i, label %if.then, label %if.end
@@ -1726,7 +1726,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
@@ -3245,7 +3245,7 @@ cleanup:                                          ; preds = %for.cond.cleanup49.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %q) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, double noundef %q) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !26
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3414,7 +3414,7 @@ return:                                           ; preds = %if.end115, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

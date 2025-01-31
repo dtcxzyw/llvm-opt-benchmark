@@ -141,10 +141,10 @@ declare void @_ZN3zmq7epoll_tC1ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8
 declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -227,10 +227,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
@@ -253,7 +253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq11io_thread_t8get_loadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK3zmq11io_thread_t8get_loadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
@@ -323,7 +323,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
+define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74) #15
@@ -334,14 +334,14 @@ entry:
 }
 
 ; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr nocapture noundef readnone %this) unnamed_addr #13 align 2 {
+define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr noundef readnone captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull align 8 poison)
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #12 align 2 {
+define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #12 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 80) #15
@@ -352,14 +352,14 @@ entry:
 }
 
 ; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr nocapture noundef readnone %this, i32 %0) unnamed_addr #13 align 2 {
+define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr noundef readnone captures(none) %this, i32 %0) unnamed_addr #13 align 2 {
 entry:
   tail call void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull align 8 poison, i32 poison)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
@@ -381,7 +381,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11io_thread_t12process_stopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq11io_thread_t12process_stopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
   %_mailbox_handle = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %_mailbox_handle, align 8

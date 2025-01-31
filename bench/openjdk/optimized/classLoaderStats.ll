@@ -155,7 +155,7 @@ $_ZTV17ClassStatsClosure = comdat any
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ClassLoaderStatsClosure6do_cldEP15ClassLoaderData(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ClassLoaderStatsClosure6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ClassStatsClosure, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -346,7 +346,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EP7oopDesc16Clas
 declare noundef ptr @_ZN21java_lang_ClassLoader19parent_no_keepaliveEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ClassLoaderStatsClosure15addEmptyParentsEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23ClassLoaderStatsClosure15addEmptyParentsEP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not8 = icmp eq ptr %1, null
   br i1 %.not8, label %.critedge, label %.lr.ph
 
@@ -450,7 +450,7 @@ declare void @_ZN15ClassLoaderData10classes_doEP12KlassClosure(ptr noundef nonnu
 declare void @_ZNK20ClassLoaderMetaspace13usage_numbersEPmS0_S0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23ClassLoaderStatsClosure8do_entryERKP7oopDescRK16ClassLoaderStats(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23ClassLoaderStatsClosure8do_entryERKP7oopDescRK16ClassLoaderStats(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -634,7 +634,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EP7oopDesc16Cla
 declare noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ClassLoaderStatsVMOperation4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27ClassLoaderStatsVMOperation4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ClassLoaderStatsClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -692,7 +692,7 @@ _ZN23ClassLoaderStatsClosureD2Ev.exit:            ; preds = %_ZN23ClassLoaderSta
 declare void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ClassLoaderStatsDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ClassLoaderStatsDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 %1, ptr readnone captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.ClassLoaderStatsVMOperation, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1518,7 +1518,7 @@ define linkonce_odr hidden void @_ZN17ClassStatsClosure8do_klassEP5Klass(ptr nou
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #5

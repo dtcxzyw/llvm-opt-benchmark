@@ -70,10 +70,10 @@ define dso_local void @folio_invalidate(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @truncate_inode_folio(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -926,13 +926,13 @@ truncate_cleanup_folio.exit7:                     ; preds = %201, %205
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @find_lock_entries(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -1698,7 +1698,7 @@ define dso_local range(i32 -2147483648, 1) i32 @invalidate_inode_pages2(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @truncate_pagecache(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local void @truncate_pagecache(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = add i64 %1, -1
@@ -1714,7 +1714,7 @@ define dso_local void @truncate_pagecache(ptr nocapture noundef readonly %0, i64
 declare dso_local void @unmap_mapping_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @truncate_setsize(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local void @truncate_setsize(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   store i64 %1, ptr %3, align 8
@@ -1738,7 +1738,7 @@ define dso_local void @truncate_setsize(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pagecache_isize_extended(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @pagecache_isize_extended(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %5 = load i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32
@@ -1894,7 +1894,7 @@ declare dso_local zeroext i1 @set_page_dirty(ptr noundef) local_unnamed_addr #2
 declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @truncate_pagecache_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @truncate_pagecache_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = add i64 %1, -1

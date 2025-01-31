@@ -879,7 +879,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_jbd2_checkpoint(ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_checkpoint(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_checkpoint(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_checkpoint, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -900,21 +900,21 @@ define dso_local noundef i32 @__traceiter_jbd2_checkpoint(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_checkpoint(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_checkpoint(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_jbd2_start_commit(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_start_commit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_start_commit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_start_commit, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -935,7 +935,7 @@ define dso_local noundef i32 @__traceiter_jbd2_start_commit(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_start_commit(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_start_commit(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -943,7 +943,7 @@ define dso_local void @__probestub_jbd2_start_commit(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_jbd2_commit_locking(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_commit_locking(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_commit_locking(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_commit_locking, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -964,7 +964,7 @@ define dso_local noundef i32 @__traceiter_jbd2_commit_locking(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_commit_locking(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_commit_locking(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -972,7 +972,7 @@ define dso_local void @__probestub_jbd2_commit_locking(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_jbd2_commit_flushing(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_commit_flushing(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_commit_flushing(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_commit_flushing, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -993,7 +993,7 @@ define dso_local noundef i32 @__traceiter_jbd2_commit_flushing(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_commit_flushing(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_commit_flushing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1001,7 +1001,7 @@ define dso_local void @__probestub_jbd2_commit_flushing(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_jbd2_commit_logging(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_commit_logging(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_commit_logging(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_commit_logging, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1022,7 +1022,7 @@ define dso_local noundef i32 @__traceiter_jbd2_commit_logging(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_commit_logging(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_commit_logging(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1030,7 +1030,7 @@ define dso_local void @__probestub_jbd2_commit_logging(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_jbd2_drop_transaction(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_drop_transaction(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_drop_transaction(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_drop_transaction, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1051,7 +1051,7 @@ define dso_local noundef i32 @__traceiter_jbd2_drop_transaction(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_drop_transaction(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_drop_transaction(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1059,7 +1059,7 @@ define dso_local void @__probestub_jbd2_drop_transaction(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_jbd2_end_commit(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_end_commit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_end_commit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_end_commit, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1080,7 +1080,7 @@ define dso_local noundef i32 @__traceiter_jbd2_end_commit(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_end_commit(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_end_commit(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -1088,7 +1088,7 @@ define dso_local void @__probestub_jbd2_end_commit(ptr nocapture readnone %0, pt
 declare dso_local i32 @__SCT__tp_func_jbd2_submit_inode_data(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_submit_inode_data(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_submit_inode_data(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_submit_inode_data, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1109,7 +1109,7 @@ define dso_local noundef i32 @__traceiter_jbd2_submit_inode_data(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_submit_inode_data(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_jbd2_submit_inode_data(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -1117,7 +1117,7 @@ define dso_local void @__probestub_jbd2_submit_inode_data(ptr nocapture readnone
 declare dso_local i32 @__SCT__tp_func_jbd2_handle_start(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_handle_start(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_handle_start(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_handle_start, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -1138,7 +1138,7 @@ define dso_local noundef i32 @__traceiter_jbd2_handle_start(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_handle_start(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #2 align 16 {
+define dso_local void @__probestub_jbd2_handle_start(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #2 align 16 {
   ret void
 }
 
@@ -1146,7 +1146,7 @@ define dso_local void @__probestub_jbd2_handle_start(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_jbd2_handle_restart(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_handle_restart(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_handle_restart(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 align 16 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_handle_restart, i64 72), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -1167,7 +1167,7 @@ define dso_local noundef i32 @__traceiter_jbd2_handle_restart(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_handle_restart(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #2 align 16 {
+define dso_local void @__probestub_jbd2_handle_restart(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #2 align 16 {
   ret void
 }
 
@@ -1175,7 +1175,7 @@ define dso_local void @__probestub_jbd2_handle_restart(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_jbd2_handle_extend(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_handle_extend(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_handle_extend(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_handle_extend, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -1196,7 +1196,7 @@ define dso_local noundef i32 @__traceiter_jbd2_handle_extend(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_handle_extend(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) #2 align 16 {
+define dso_local void @__probestub_jbd2_handle_extend(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) #2 align 16 {
   ret void
 }
 
@@ -1204,7 +1204,7 @@ define dso_local void @__probestub_jbd2_handle_extend(ptr nocapture readnone %0,
 declare dso_local i32 @__SCT__tp_func_jbd2_handle_stats(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_handle_stats(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_handle_stats(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #1 align 16 {
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_handle_stats, i64 72), align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -1225,7 +1225,7 @@ define dso_local noundef i32 @__traceiter_jbd2_handle_stats(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_handle_stats(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) #2 align 16 {
+define dso_local void @__probestub_jbd2_handle_stats(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) #2 align 16 {
   ret void
 }
 
@@ -1233,7 +1233,7 @@ define dso_local void @__probestub_jbd2_handle_stats(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_jbd2_run_stats(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_run_stats(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_run_stats(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_run_stats, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1254,7 +1254,7 @@ define dso_local noundef i32 @__traceiter_jbd2_run_stats(ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_run_stats(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_jbd2_run_stats(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -1262,7 +1262,7 @@ define dso_local void @__probestub_jbd2_run_stats(ptr nocapture readnone %0, i32
 declare dso_local i32 @__SCT__tp_func_jbd2_checkpoint_stats(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_checkpoint_stats(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_checkpoint_stats(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_checkpoint_stats, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1283,7 +1283,7 @@ define dso_local noundef i32 @__traceiter_jbd2_checkpoint_stats(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_checkpoint_stats(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_jbd2_checkpoint_stats(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -1291,7 +1291,7 @@ define dso_local void @__probestub_jbd2_checkpoint_stats(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_jbd2_update_log_tail(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_update_log_tail(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_update_log_tail(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_update_log_tail, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1312,7 +1312,7 @@ define dso_local noundef i32 @__traceiter_jbd2_update_log_tail(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_update_log_tail(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i64 %3, i64 %4) #2 align 16 {
+define dso_local void @__probestub_jbd2_update_log_tail(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i64 %3, i64 %4) #2 align 16 {
   ret void
 }
 
@@ -1320,7 +1320,7 @@ define dso_local void @__probestub_jbd2_update_log_tail(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_jbd2_write_superblock(ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_write_superblock(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_write_superblock(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_write_superblock, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1341,7 +1341,7 @@ define dso_local noundef i32 @__traceiter_jbd2_write_superblock(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_write_superblock(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_write_superblock(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #2 align 16 {
   ret void
 }
 
@@ -1349,7 +1349,7 @@ define dso_local void @__probestub_jbd2_write_superblock(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_jbd2_lock_buffer_stall(ptr noundef, i32 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_lock_buffer_stall(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_lock_buffer_stall(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_lock_buffer_stall, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1370,7 +1370,7 @@ define dso_local noundef i32 @__traceiter_jbd2_lock_buffer_stall(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_lock_buffer_stall(ptr nocapture readnone %0, i32 %1, i64 %2) #2 align 16 {
+define dso_local void @__probestub_jbd2_lock_buffer_stall(ptr readnone captures(none) %0, i32 %1, i64 %2) #2 align 16 {
   ret void
 }
 
@@ -1378,7 +1378,7 @@ define dso_local void @__probestub_jbd2_lock_buffer_stall(ptr nocapture readnone
 declare dso_local i32 @__SCT__tp_func_jbd2_shrink_count(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_shrink_count(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_shrink_count(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_shrink_count, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1399,7 +1399,7 @@ define dso_local noundef i32 @__traceiter_jbd2_shrink_count(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_jbd2_shrink_count(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1407,7 +1407,7 @@ define dso_local void @__probestub_jbd2_shrink_count(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_jbd2_shrink_scan_enter(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_enter(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_enter(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_shrink_scan_enter, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1428,7 +1428,7 @@ define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_enter(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_shrink_scan_enter(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_jbd2_shrink_scan_enter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -1436,7 +1436,7 @@ define dso_local void @__probestub_jbd2_shrink_scan_enter(ptr nocapture readnone
 declare dso_local i32 @__SCT__tp_func_jbd2_shrink_scan_exit(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_exit(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_exit(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_shrink_scan_exit, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1457,7 +1457,7 @@ define dso_local noundef i32 @__traceiter_jbd2_shrink_scan_exit(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_shrink_scan_exit(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3, i64 %4) #2 align 16 {
+define dso_local void @__probestub_jbd2_shrink_scan_exit(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4) #2 align 16 {
   ret void
 }
 
@@ -1465,7 +1465,7 @@ define dso_local void @__probestub_jbd2_shrink_scan_exit(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_jbd2_shrink_checkpoint_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_jbd2_shrink_checkpoint_list(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_jbd2_shrink_checkpoint_list(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_jbd2_shrink_checkpoint_list, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -1486,12 +1486,12 @@ define dso_local noundef i32 @__traceiter_jbd2_shrink_checkpoint_list(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_jbd2_shrink_checkpoint_list(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, i32 %4, i64 %5, i32 %6) #2 align 16 {
+define dso_local void @__probestub_jbd2_shrink_checkpoint_list(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4, i64 %5, i32 %6) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_checkpoint(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_checkpoint(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1533,7 +1533,7 @@ define internal void @trace_event_raw_event_jbd2_checkpoint(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_checkpoint(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @perf_trace_jbd2_checkpoint(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -1598,7 +1598,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_commit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1647,7 +1647,7 @@ define internal void @trace_event_raw_event_jbd2_commit(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_commit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_jbd2_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -1713,7 +1713,7 @@ define internal void @perf_trace_jbd2_commit(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_end_commit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_end_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1766,7 +1766,7 @@ define internal void @trace_event_raw_event_jbd2_end_commit(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_end_commit(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_jbd2_end_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -1836,7 +1836,7 @@ define internal void @perf_trace_jbd2_end_commit(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_submit_inode_data(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_submit_inode_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1880,7 +1880,7 @@ define internal void @trace_event_raw_event_jbd2_submit_inode_data(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_submit_inode_data(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @perf_trace_jbd2_submit_inode_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
@@ -2272,7 +2272,7 @@ define internal void @perf_trace_jbd2_handle_stats(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_run_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_run_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2345,7 +2345,7 @@ define internal void @trace_event_raw_event_jbd2_run_stats(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_run_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define internal void @perf_trace_jbd2_run_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
@@ -2435,7 +2435,7 @@ define internal void @perf_trace_jbd2_run_stats(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_checkpoint_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_checkpoint_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2488,7 +2488,7 @@ define internal void @trace_event_raw_event_jbd2_checkpoint_stats(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_checkpoint_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define internal void @perf_trace_jbd2_checkpoint_stats(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
@@ -2558,7 +2558,7 @@ define internal void @perf_trace_jbd2_checkpoint_stats(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_update_log_tail(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_update_log_tail(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2608,7 +2608,7 @@ define internal void @trace_event_raw_event_jbd2_update_log_tail(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_update_log_tail(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define internal void @perf_trace_jbd2_update_log_tail(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
@@ -2675,7 +2675,7 @@ define internal void @perf_trace_jbd2_update_log_tail(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_write_superblock(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_write_superblock(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2717,7 +2717,7 @@ define internal void @trace_event_raw_event_jbd2_write_superblock(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_write_superblock(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @perf_trace_jbd2_write_superblock(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
@@ -2869,7 +2869,7 @@ define internal void @perf_trace_jbd2_lock_buffer_stall(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_journal_shrink(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_journal_shrink(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2913,7 +2913,7 @@ define internal void @trace_event_raw_event_jbd2_journal_shrink(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_journal_shrink(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define internal void @perf_trace_jbd2_journal_shrink(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
@@ -2974,7 +2974,7 @@ define internal void @perf_trace_jbd2_journal_shrink(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_shrink_scan_exit(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_shrink_scan_exit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3020,7 +3020,7 @@ define internal void @trace_event_raw_event_jbd2_shrink_scan_exit(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_shrink_scan_exit(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
+define internal void @perf_trace_jbd2_shrink_scan_exit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
@@ -3083,7 +3083,7 @@ define internal void @perf_trace_jbd2_shrink_scan_exit(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_jbd2_shrink_checkpoint_list(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
+define internal void @trace_event_raw_event_jbd2_shrink_checkpoint_list(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3133,7 +3133,7 @@ define internal void @trace_event_raw_event_jbd2_shrink_checkpoint_list(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_jbd2_shrink_checkpoint_list(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
+define internal void @perf_trace_jbd2_shrink_checkpoint_list(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
@@ -3650,7 +3650,7 @@ define dso_local ptr @jbd2_journal_init_inode(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 align 16 {
   %5 = or i64 %2, %1
   %6 = or i64 %5, %3
   %7 = icmp eq i64 %6, 0
@@ -3700,7 +3700,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_used_features(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_available_features(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_available_features(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #4 align 16 {
   %5 = or i64 %2, %1
   %6 = or i64 %5, %3
   %7 = icmp eq i64 %6, 0
@@ -3729,7 +3729,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_check_available_featu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.anon.47, align 8
   %6 = or i64 %2, %1
   %7 = or i64 %6, %3
@@ -4841,7 +4841,7 @@ define dso_local i32 @jbd2_journal_wipe(ptr noundef %0, i32 noundef %1) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 1, 1073741825) i32 @jbd2_journal_blocks_per_page(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local range(i32 1, 1073741825) i32 @jbd2_journal_blocks_per_page(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -4979,7 +4979,7 @@ define dso_local void @jbd2_journal_release_jbd_inode(ptr noundef %0, ptr nounde
 declare dso_local i32 @jbd2_journal_begin_ordered_truncate(ptr noundef, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 4) i32 @jbd2_journal_write_metadata_buffer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 4) i32 @jbd2_journal_write_metadata_buffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load volatile i64, ptr %5, align 8
@@ -5755,7 +5755,7 @@ declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #0 sect
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -5998,7 +5998,7 @@ define dso_local noundef range(i32 -5, 1) i32 @jbd2_complete_transaction(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_journal_next_log_block(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @jbd2_journal_next_log_block(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_raw_write_lock(ptr noundef nonnull %4) #20
@@ -6084,7 +6084,7 @@ define dso_local i32 @jbd2_journal_next_log_block(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_journal_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local i32 @jbd2_journal_bmap(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   store i64 %1, ptr %4, align 8
@@ -6138,7 +6138,7 @@ define dso_local i32 @jbd2_journal_bmap(ptr noundef %0, i64 noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 align 16 {
+define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 align 16 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -6229,7 +6229,7 @@ define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -5, 1) i32 @jbd2_fc_wait_bufs(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @jbd2_fc_wait_bufs(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -6287,7 +6287,7 @@ define dso_local noundef range(i32 -5, 1) i32 @jbd2_fc_wait_bufs(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_fc_release_bufs(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef i32 @jbd2_fc_release_bufs(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -6409,7 +6409,7 @@ declare i32 @llvm.bswap.i32(i32) #8
 declare dso_local void @unlock_buffer(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_descriptor_block_csum_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @jbd2_descriptor_block_csum_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.anon.47, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -6494,7 +6494,7 @@ define dso_local void @jbd2_descriptor_block_csum_set(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @jbd2_journal_get_log_tail(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @jbd2_journal_get_log_tail(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_raw_read_lock(ptr noundef nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1044
@@ -7353,7 +7353,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @strreplace(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #0
@@ -7709,7 +7709,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 declare dso_local ptr @crypto_alloc_shash(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_clear_features(ptr nocapture noundef initializes((1100, 1104)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local void @jbd2_journal_clear_features(ptr noundef captures(none) initializes((1100, 1104)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = trunc i64 %1 to i32
@@ -7786,7 +7786,7 @@ declare dso_local i32 @jbd2_journal_skip_recovery(ptr noundef) local_unnamed_add
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i64 8, 17) i64 @journal_tag_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 8, 17) i64 @journal_tag_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8995,7 +8995,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #0 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #0
@@ -9037,7 +9037,7 @@ declare dso_local i32 @__percpu_counter_init_many(ptr noundef, i64 noundef, i32 
 declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @jbd2_journal_shrink_scan(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal i64 @jbd2_journal_shrink_scan(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -9137,7 +9137,7 @@ define internal i64 @jbd2_journal_shrink_scan(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, -9223372036854775808) i64 @jbd2_journal_shrink_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i64 0, -9223372036854775808) i64 @jbd2_journal_shrink_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 840
@@ -9216,7 +9216,7 @@ declare dso_local ptr @proc_mkdir(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local ptr @proc_create_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @jbd2_seq_info_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @jbd2_seq_info_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -9290,7 +9290,7 @@ define internal i32 @jbd2_seq_info_release(ptr noundef %0, ptr noundef %1) #1 al
 declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @jbd2_seq_info_start(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #18 align 16 {
+define internal ptr @jbd2_seq_info_start(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #18 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %4, ptr inttoptr (i64 1 to ptr), ptr null
@@ -9298,12 +9298,12 @@ define internal ptr @jbd2_seq_info_start(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @jbd2_seq_info_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @jbd2_seq_info_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noalias noundef ptr @jbd2_seq_info_next(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #19 align 16 {
+define internal noalias noundef ptr @jbd2_seq_info_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #19 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -9591,7 +9591,7 @@ declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #0
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @commit_timeout(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @commit_timeout(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wake_up_process(ptr noundef %3) #20

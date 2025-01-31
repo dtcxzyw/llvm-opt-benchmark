@@ -1791,14 +1791,14 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare void @isis_dissect_clvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_area_address_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_area_address_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_area_address, align 4
   tail call void @isis_dissect_area_address_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %7, i32 noundef %3, i32 noundef %5) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_l1_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_l1_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -1807,7 +1807,7 @@ define internal void @dissect_lsp_l1_is_neighbors_clv(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_l1_es_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_l1_es_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -1816,7 +1816,7 @@ define internal void @dissect_lsp_l1_es_neighbors_clv(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_instance_identifier, align 4
   %8 = load i32, ptr @hf_isis_lsp_supported_itid, align 4
   tail call void @isis_dissect_instance_identifier_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %5) #3
@@ -1824,7 +1824,7 @@ define internal void @dissect_lsp_instance_identifier_clv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ori_buffersize_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ori_buffersize_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 2
   br i1 %.not, label %12, label %7
 
@@ -1845,7 +1845,7 @@ define internal void @dissect_lsp_ori_buffersize_clv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ext_is_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ext_is_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1899,7 +1899,7 @@ define internal void @dissect_lsp_ext_is_reachability_clv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -2016,7 +2016,7 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ext_ip_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ext_ip_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -2150,7 +2150,7 @@ define internal void @dissect_lsp_ext_ip_reachability_clv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ipv6_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ipv6_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.e_in6_addr, align 1
@@ -2297,7 +2297,7 @@ define internal void @dissect_lsp_ipv6_reachability_clv(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_nlpid_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_nlpid_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_isis_lsp_clv_nlpid_nlpid, align 4
   %8 = load i32, ptr @hf_isis_lsp_clv_nlpid_nlpid, align 4
   tail call void @isis_dissect_nlpid_clv(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %5) #3
@@ -2305,14 +2305,14 @@ define internal void @dissect_lsp_nlpid_clv(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_hostname_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_hostname_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_hostname, align 4
   tail call void @isis_dissect_hostname_clv(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_srlg_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_srlg_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_srlg_system_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 6, i32 noundef 0) #3
   %9 = add i32 %3, 6
@@ -2350,28 +2350,28 @@ define internal void @dissect_lsp_srlg_clv(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_te_router_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_te_router_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_clv_te_router_id, align 4
   tail call void @isis_dissect_te_router_id_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ip_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ip_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_clv_ipv4_int_addr, align 4
   tail call void @isis_dissect_ip_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ipv6_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ipv6_int_addr_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_clv_ipv6_int_addr, align 4
   tail call void @isis_dissect_ipv6_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 1
   br i1 %7, label %8, label %.loopexit
 
@@ -2629,7 +2629,7 @@ dissect_isis_lsp_clv_mt_cap_spb_instance.exit:    ; preds = %136, %111, %134, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_isis_lsp_clv_sid_label_binding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_isis_lsp_clv_sid_label_binding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 1
   br i1 %7, label %.loopexit, label %8
 
@@ -2773,7 +2773,7 @@ define internal void @dissect_isis_lsp_clv_sid_label_binding(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_authentication, align 4
   %8 = load i32, ptr @hf_isis_clv_key_id, align 4
   tail call void @isis_dissect_authentication_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @ei_isis_lsp_authentication, i32 noundef %3, i32 noundef %5) #3
@@ -2781,7 +2781,7 @@ define internal void @dissect_lsp_authentication_clv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ip_authentication_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ip_authentication_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 
@@ -2795,14 +2795,14 @@ define internal void @dissect_lsp_ip_authentication_clv(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_clv_mt, align 4
   tail call void @isis_dissect_mt_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %7, ptr noundef nonnull @ei_isis_lsp_clv_mt) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_mt_is_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_mt_is_reachability_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 2
   br i1 %7, label %8, label %10
 
@@ -2825,7 +2825,7 @@ define internal void @dissect_lsp_mt_is_reachability_clv(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_mt_reachable_IPv4_prefx_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_mt_reachable_IPv4_prefx_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 2
   br i1 %7, label %8, label %10
 
@@ -2848,7 +2848,7 @@ define internal void @dissect_lsp_mt_reachable_IPv4_prefx_clv(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_mt_reachable_IPv6_prefx_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_mt_reachable_IPv6_prefx_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 2
   br i1 %7, label %8, label %10
 
@@ -2871,7 +2871,7 @@ define internal void @dissect_lsp_mt_reachable_IPv6_prefx_clv(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_isis_rt_capable_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_isis_rt_capable_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_rt_capable_router_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #3
   %9 = add i32 %3, 4
@@ -2925,7 +2925,7 @@ define internal void @dissect_isis_rt_capable_clv(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph287, label %._crit_edge
 
@@ -3211,14 +3211,14 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_ipv6_te_router_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_ipv6_te_router_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_clv_ipv6_te_router_id, align 4
   tail call void @isis_dissect_ipv6_int_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_lsp_short_clv, i32 noundef %3, i32 noundef %5, i32 noundef %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.e_in6_addr, align 1
@@ -3507,7 +3507,7 @@ dissect_lsp_srv6_locator_entry.exit.thread:       ; preds = %27, %34, %41, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_purge_orig_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_purge_orig_id_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 7
   br i1 %7, label %8, label %10
 
@@ -3554,7 +3554,7 @@ define internal void @dissect_lsp_purge_orig_id_clv(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_mac_reachability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_mac_reachability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = add i32 %5, -5
   %8 = srem i32 %7, 6
   %.not = icmp eq i32 %8, 0
@@ -3618,7 +3618,7 @@ define internal void @dissect_lsp_mac_reachability(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = icmp slt i32 %5, 15
@@ -3775,14 +3775,14 @@ define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_avaya_ipvpn_mc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_avaya_ipvpn_mc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_avaya_185_unknown, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %5, i32 noundef 0) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_avaya_ip_grt_mc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_avaya_ip_grt_mc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_lsp_avaya_186_unknown, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %5, i32 noundef 0) #3
   ret void
@@ -5330,7 +5330,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_l2_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_l2_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -5339,7 +5339,7 @@ define internal void @dissect_lsp_l2_is_neighbors_clv(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -5369,7 +5369,7 @@ define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lsp_prefix_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_lsp_prefix_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -5511,10 +5511,10 @@ declare ptr @print_address_prefix(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

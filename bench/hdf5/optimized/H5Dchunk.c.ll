@@ -338,7 +338,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.180 = private unnamed_addr constant [26 x i8] c"iteration operator failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_construct(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_construct(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
@@ -465,7 +465,7 @@ H5D_chunk_idx_reset.exit:                         ; preds = %._crit_edge, %69, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_init(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_init(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.H5D_chk_idx_info_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -874,7 +874,7 @@ define zeroext i1 @H5D__chunk_is_space_alloc(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @H5D__chunk_is_data_cached(ptr nocapture noundef readonly %0) #1 {
+define zeroext i1 @H5D__chunk_is_data_cached(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -2741,7 +2741,7 @@ H5D__chunk_io_init_selections.exit.thread155:     ; preds = %831, %H5D__create_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_mdio_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_mdio_init(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_chunk_ud_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %5 = load ptr, ptr %4, align 8
@@ -2848,7 +2848,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_mdio_init(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_read(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_read(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_io_info_t, align 8
   %4 = alloca %struct.H5D_dset_io_info_t, align 8
   %5 = alloca %struct.H5D_dset_io_info_t, align 8
@@ -3581,7 +3581,7 @@ H5D__chunk_unlock.exit:                           ; preds = %405, %.thread.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_io_info_t, align 8
   %4 = alloca %struct.H5D_dset_io_info_t, align 8
   %5 = alloca %union.H5D_storage_t, align 8
@@ -3790,7 +3790,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr nocapture noundef %0,
   %143 = load ptr, ptr %97, align 8
   store ptr %135, ptr %143, align 8
   %144 = load i64, ptr %98, align 8
-  %145 = call i32 @H5D__chunk_cacheable(ptr poison, ptr noundef nonnull %1, i64 noundef %144, i1 noundef zeroext true)
+  %145 = call i32 @H5D__chunk_cacheable(ptr nonnull poison, ptr noundef nonnull %1, i64 noundef %144, i1 noundef zeroext true)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %151
 
@@ -4187,7 +4187,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_write(ptr nocapture noundef %0,
   %390 = load ptr, ptr %357, align 8
   store ptr %382, ptr %390, align 8
   %391 = load i64, ptr %358, align 8
-  %392 = call i32 @H5D__chunk_cacheable(ptr poison, ptr noundef nonnull %1, i64 noundef %391, i1 noundef zeroext true)
+  %392 = call i32 @H5D__chunk_cacheable(ptr nonnull poison, ptr noundef nonnull %1, i64 noundef %391, i1 noundef zeroext true)
   %393 = icmp slt i32 %392, 0
   br i1 %393, label %394, label %398
 
@@ -4477,7 +4477,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_flush(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_io_term(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_io_term(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3216
@@ -4880,7 +4880,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare void @H5VM_chunk_scaled(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 24), (32, 53)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 24), (32, 53)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5D_chk_idx_info_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -5091,7 +5091,7 @@ H5D__chunk_cinfo_cache_found.exit:                ; preds = %62, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_file_alloc(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_file_alloc(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5D_chunk_ud_t, align 8
   store i8 0, ptr %3, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5516,7 +5516,7 @@ declare i32 @H5F_shared_block_write(ptr noundef, i32 noundef, i64 noundef, i64 n
 declare ptr @H5F_get_shared(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_direct_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_direct_read(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5D_chunk_ud_t, align 8
   %6 = alloca [32 x i64], align 16
   %7 = alloca i64, align 8
@@ -5657,7 +5657,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_direct_read(ptr noundef %0, ptr noundef 
 declare i32 @H5F_shared_block_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__get_chunk_storage_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__get_chunk_storage_size(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i64], align 16
   %5 = alloca %struct.H5D_chunk_ud_t, align 8
   %6 = alloca i64, align 8
@@ -5798,7 +5798,7 @@ define range(i32 -1, 1) i32 @H5D__get_chunk_storage_size(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_set_info(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_set_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -5843,7 +5843,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_set_info(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_set_info_real(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_set_info_real(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %10
 
@@ -5924,7 +5924,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_set_info_real(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_set_sizes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_set_sizes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 272
@@ -6151,7 +6151,7 @@ H5D__chunk_mem_xfree.exit:                        ; preds = %2, %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5D__chunk_mem_realloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @H5D__chunk_mem_realloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -6175,7 +6175,7 @@ declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @H5FL_blk_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5D__free_piece_info(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define noundef i32 @H5D__free_piece_info(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -6219,7 +6219,7 @@ declare i32 @H5S_select_all(ptr noundef, i1 noundef zeroext) local_unnamed_addr 
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5D__chunk_cacheable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5D__chunk_cacheable(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -6319,7 +6319,7 @@ define range(i32 -1, 2) i32 @H5D__chunk_cacheable(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @H5D__chunk_is_partial_edge_chunk(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 {
+define noundef zeroext i1 @H5D__chunk_is_partial_edge_chunk(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -6373,7 +6373,7 @@ define range(i32 -1, 1) i32 @H5D_chunk_idx_reset(ptr noundef %0, i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H5D_chk_idx_info_t, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -6408,7 +6408,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_create(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_allocated(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_allocated(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5D_chk_idx_info_t, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6840,7 +6840,7 @@ H5D__chunk_mem_xfree.exit77:                      ; preds = %201, %.thread84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__chunk_allocated_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal noundef i32 @H5D__chunk_allocated_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -6851,7 +6851,7 @@ define internal noundef i32 @H5D__chunk_allocated_cb(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_allocate(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_allocate(ptr noundef %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5D_chk_idx_info_t, align 8
   %5 = alloca [33 x i64], align 16
   %6 = alloca [33 x i64], align 16
@@ -7644,12 +7644,12 @@ H5D__chunk_mem_xfree.exit:                        ; preds = %46, %52, %88, %110,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @H5D__fill_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @H5CX_get_err_detect(ptr noundef) local_unnamed_addr #2
 
@@ -7662,7 +7662,7 @@ declare i32 @H5D__fill_refill_vl(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @H5D__fill_term(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_update_old_edge_chunks(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_update_old_edge_chunks(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [33 x i64], align 16
   %4 = alloca [33 x i64], align 16
   %5 = alloca [33 x i8], align 16
@@ -7937,7 +7937,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_update_old_edge_chunks(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5D__chunk_lock(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @H5D__chunk_lock(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.sroa.07 = alloca ptr, align 16
   %.sroa.8 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
@@ -9007,7 +9007,7 @@ H5D__chunk_mem_xfree.exit245:                     ; preds = %.thread75, %529, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_unlock(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_unlock(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.H5D_rdcc_ent_t, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -9179,7 +9179,7 @@ H5D__chunk_mem_xfree.exit:                        ; preds = %.thread, %76, %94, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_prune_by_extent(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_prune_by_extent(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [33 x i64], align 16
   %4 = alloca %struct.H5D_chunk_ud_t, align 8
   %5 = alloca [33 x i64], align 16
@@ -10788,7 +10788,7 @@ declare ptr @H5T_path_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5T_get_class(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_copy_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_copy_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.H5D_chunk_ud_t, align 8
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -11516,7 +11516,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_bh_info(ptr noundef %0, ptr noundef %1, 
 declare ptr @H5S_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_dump_index(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_dump_index(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5D_chk_idx_info_t, align 8
   %4 = alloca %struct.H5D_chunk_it_ud4_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11581,7 +11581,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_dump_index(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5D__chunk_dump_index_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #8 {
+define internal noundef i32 @H5D__chunk_dump_index_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #8 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %40, label %4
@@ -11653,7 +11653,7 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_format_convert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_format_convert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5D_chunk_it_ud5_t, align 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11687,7 +11687,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_format_convert(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__chunk_format_convert_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__chunk_format_convert_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_chunk_ud_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -11958,13 +11958,13 @@ define range(i32 -1, 1) i32 @H5D__chunk_index_empty(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__chunk_index_empty_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #9 {
+define internal noundef i32 @H5D__chunk_index_empty_cb(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #9 {
   store i8 0, ptr %1, align 1
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__get_num_chunks(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__get_num_chunks(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5D_chk_idx_info_t, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -12052,7 +12052,7 @@ define range(i32 -1, 1) i32 @H5D__get_num_chunks(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__get_num_chunks_cb(ptr nocapture readnone %0, ptr nocapture noundef %1) #5 {
+define internal noundef i32 @H5D__get_num_chunks_cb(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %1, align 8
@@ -12060,7 +12060,7 @@ define internal noundef i32 @H5D__get_num_chunks_cb(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__get_chunk_info(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__get_chunk_info(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5D_chk_idx_info_t, align 8
   %9 = alloca i64, align 8
   %10 = alloca %struct.H5D_chunk_info_iter_ud_t, align 8
@@ -12231,7 +12231,7 @@ define range(i32 -1, 1) i32 @H5D__get_chunk_info(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @H5D__get_chunk_info_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #10 {
+define internal range(i32 0, 2) i32 @H5D__get_chunk_info_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -12432,7 +12432,7 @@ define range(i32 -1, 1) i32 @H5D__get_chunk_info_by_coord(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @H5D__get_chunk_info_by_coord_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #10 {
+define internal range(i32 0, 2) i32 @H5D__get_chunk_info_by_coord_cb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -12563,7 +12563,7 @@ define i32 @H5D__chunk_iter(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5D__chunk_iter_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @H5D__chunk_iter_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [33 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -12620,7 +12620,7 @@ define internal i32 @H5D__chunk_iter_cb(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__chunk_get_offset_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 264)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__chunk_get_offset_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 264)) %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 264, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -12718,7 +12718,7 @@ declare i32 @H5S_set_extent_real(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__piece_file_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 -1, 1) i32 @H5D__piece_file_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [33 x i64], align 16
   %7 = alloca i64, align 8
   %8 = alloca [32 x i64], align 16
@@ -12914,7 +12914,7 @@ declare i32 @H5S_select_is_regular(ptr noundef) local_unnamed_addr #2
 declare i32 @H5S_select_is_single(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__create_piece_mem_map_1d(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__create_piece_mem_map_1d(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [32 x i64], align 16
   %3 = alloca [32 x i64], align 16
   %4 = alloca i64, align 8
@@ -13010,7 +13010,7 @@ declare i32 @H5S_select_none(ptr noundef) local_unnamed_addr #2
 declare i32 @H5S_select_iter_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__piece_mem_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 -1, 1) i32 @H5D__piece_mem_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13179,7 +13179,7 @@ declare i32 @H5PB_enabled(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @H5F_shared_select_read(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, -9223372036854775808) i64 @H5D__nonexistent_readvv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
+define internal range(i64 -1, -9223372036854775808) i64 @H5D__nonexistent_readvv(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = alloca %struct.H5D_chunk_readvv_ud_t, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = load ptr, ptr %12, align 8
@@ -13205,7 +13205,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__nonexistent_readvv
 declare i64 @H5VM_opvv(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__nonexistent_readvv_cb(i64 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5D__nonexistent_readvv_cb(i64 %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.H5D_fill_buf_info_t, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 %1
@@ -13281,7 +13281,7 @@ declare i32 @H5O_copy_expand_ref(ptr noundef, ptr noundef, ptr noundef, i64 noun
 declare i32 @H5F_block_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -13290,16 +13290,16 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #12

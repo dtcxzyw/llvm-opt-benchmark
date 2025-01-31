@@ -43,7 +43,7 @@ $_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE9expand_toEi = comdat an
 @_ZN19ciConstantPoolCacheC1EP5Arenai = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN19ciConstantPoolCacheC2EP5Arenai
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ciConstantPoolCacheC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ciConstantPoolCacheC2EP5Arenai(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #10
   %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #10
   store i32 0, ptr %4, align 4
@@ -95,7 +95,7 @@ _ZN13GrowableArrayIiEC2EP5ArenaiiRKi.exit:        ; preds = %_ZN13GrowableArrayI
 declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN19ciConstantPoolCache11key_compareERKiS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN19ciConstantPoolCache11key_compareERKiS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
@@ -103,7 +103,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN19ciConstantPoolCache11key_compar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN19ciConstantPoolCache3getEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN19ciConstantPoolCache3getEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   %.not20.i = icmp slt i32 %4, 1
@@ -159,7 +159,7 @@ _ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ciConstantPoolCache6insertEiPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19ciConstantPoolCache6insertEiPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %.not20.i = icmp slt i32 %5, 1
@@ -325,7 +325,7 @@ _ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.ex
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN19ciConstantPoolCache5printEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19ciConstantPoolCache5printEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 82) #11
@@ -632,7 +632,7 @@ _ZN13GrowableArrayIPvE10deallocateEPS0_.exit:     ; preds = %42, %39, %.preheade
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #8

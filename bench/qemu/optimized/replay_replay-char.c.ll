@@ -52,7 +52,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_chr_be_write(ptr noundef readnone %s, ptr nocapture noundef readonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @replay_chr_be_write(ptr noundef readnone %s, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   %0 = load i32, ptr @drivers_count, align 4
@@ -107,7 +107,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @replay_add_event(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -136,7 +136,7 @@ declare void @qemu_chr_be_write_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_event_char_read_save(ptr nocapture noundef readonly %opaque) local_unnamed_addr #0 {
+define dso_local void @replay_event_char_read_save(ptr noundef readonly captures(none) %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opaque, align 8
   %conv = trunc i32 %0 to i8
@@ -200,7 +200,7 @@ declare void @replay_put_event(i8 noundef zeroext) local_unnamed_addr #1
 declare void @replay_put_dword(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_char_write_event_load(ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %offset) local_unnamed_addr #0 {
+define dso_local void @replay_char_write_event_load(ptr noundef writeonly captures(none) %res, ptr noundef writeonly captures(none) %offset) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
@@ -333,7 +333,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

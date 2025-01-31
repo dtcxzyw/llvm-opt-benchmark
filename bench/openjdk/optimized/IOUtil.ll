@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [13 x i8] c"Write failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_IOUtil_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_IOUtil_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -40,7 +40,7 @@ define void @Java_sun_nio_ch_IOUtil_initIDs(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_IOUtil_randomBytes(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define noundef zeroext i8 @Java_sun_nio_ch_IOUtil_randomBytes(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   tail call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef null) #7
   ret i8 0
 }
@@ -48,7 +48,7 @@ define noundef zeroext i8 @Java_sun_nio_ch_IOUtil_randomBytes(ptr noundef %0, pt
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_IOUtil_fdVal(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_IOUtil_fdVal(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
@@ -58,7 +58,7 @@ define i32 @Java_sun_nio_ch_IOUtil_fdVal(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_IOUtil_setfdVal(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_IOUtil_setfdVal(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
@@ -78,7 +78,7 @@ define hidden void @setfdval(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_IOUtil_configureBlocking(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_IOUtil_configureBlocking(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %7 = load ptr, ptr %6, align 8
@@ -118,7 +118,7 @@ define hidden i32 @fdval(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_nio_ch_IOUtil_makePipe(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define i64 @Java_sun_nio_ch_IOUtil_makePipe(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i32], align 4
   %5 = call i32 @pipe(ptr noundef nonnull %4) #7
   %6 = icmp slt i32 %5, 0
@@ -187,7 +187,7 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_IOUtil_write1(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_IOUtil_write1(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 %3, ptr %5, align 1
   %6 = call i64 @write(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 1) #7
@@ -256,10 +256,10 @@ define hidden range(i32 -5, -2147483648) i32 @convertReturnVal(ptr noundef %0, i
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_IOUtil_drain(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_IOUtil_drain(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   br label %5
 
@@ -292,13 +292,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_IOUtil_drain(ptr noundef %0, p
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_IOUtil_drain1(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_IOUtil_drain1(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i8], align 1
   %5 = call i64 @read(i32 noundef %2, ptr noundef nonnull %4, i64 noundef 1) #7
   %6 = trunc i64 %5 to i32
@@ -326,7 +326,7 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_IOUtil_drain1(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @Java_sun_nio_ch_IOUtil_fdLimit(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @Java_sun_nio_ch_IOUtil_fdLimit(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = call i32 @getrlimit64(i32 noundef 7, ptr noundef nonnull %3) #7
   %5 = icmp slt i32 %4, 0
@@ -352,7 +352,7 @@ define range(i32 -1, -2147483648) i32 @Java_sun_nio_ch_IOUtil_fdLimit(ptr nounde
 declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_IOUtil_iovMax(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_IOUtil_iovMax(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 60) #7
   %4 = icmp eq i64 %3, -1
   %5 = trunc i64 %3 to i32
@@ -364,7 +364,7 @@ define i32 @Java_sun_nio_ch_IOUtil_iovMax(ptr nocapture noundef readnone %0, ptr
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_sun_nio_ch_IOUtil_writevMax(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define noundef i64 @Java_sun_nio_ch_IOUtil_writevMax(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   ret i64 2147483647
 }
 

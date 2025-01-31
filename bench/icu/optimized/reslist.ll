@@ -332,7 +332,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7SRBRoot6addTagEPKcR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly %tag, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN7SRBRoot6addTagEPKcR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly %tag, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -618,7 +618,7 @@ _ZN13TableResourceD2Ev.exit:                      ; preds = %while.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TableResource3addEP9SResourceiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %res, i32 noundef %linenumber, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN13TableResource3addEP9SResourceiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef %res, i32 noundef %linenumber, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -708,7 +708,7 @@ if.end32:                                         ; preds = %if.else30, %if.then
 if.else34:                                        ; preds = %if.else24
   %line35 = getelementptr inbounds nuw i8, ptr %current.026.lcssa, i64 28
   %9 = load i32, ptr %line35, align 4
-  tail call void (i32, ptr, ...) @error(i32 noundef %linenumber, ptr noundef nonnull @.str, ptr noundef %add.ptr14.lcssa, i32 noundef %9)
+  tail call void (i32, ptr, ...) @error(i32 noundef %linenumber, ptr noundef nonnull @.str, ptr noundef nonnull %add.ptr14.lcssa, i32 noundef %9)
   store i32 16, ptr %errorCode, align 4
   br label %return
 
@@ -724,7 +724,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -804,7 +804,7 @@ _ZN13ArrayResourceD2Ev.exit:                      ; preds = %while.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN13ArrayResource3addEP9SResource(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %res) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN13ArrayResource3addEP9SResource(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef %res) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp ne ptr %res, null
   %cmp2 = icmp ne ptr %res, @_ZL11kNoResource
@@ -917,7 +917,7 @@ _ZN18PseudoListResourceD2Ev.exit:                 ; preds = %while.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18PseudoListResource3addEP9SResource(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %res) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN18PseudoListResource3addEP9SResource(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef %res) local_unnamed_addr #13 align 2 {
 entry:
   %cmp = icmp ne ptr %res, null
   %cmp2 = icmp ne ptr %res, @_ZL11kNoResource
@@ -1026,7 +1026,7 @@ declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr nounde
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr nocapture readnone %bundle, i8 noundef signext %type, ptr noundef nonnull align 8 dereferenceable(64) %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr readnone captures(none) %bundle, i8 noundef signext %type, ptr noundef nonnull align 8 dereferenceable(64) %value, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1105,7 +1105,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr nocapture nonnull readnone align 4 %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr nonnull readnone align 4 captures(none) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
@@ -1425,7 +1425,7 @@ _ZN17IntVectorResourceD2Ev.exit:                  ; preds = %delete.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17IntVectorResource3addEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %value, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17IntVectorResource3addEiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %value, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
 entry:
   %fCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %fCount, align 8
@@ -1479,10 +1479,10 @@ if.end16:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr nocapture noundef readonly %data, ptr noundef readonly %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr noundef readonly captures(none) %data, ptr noundef readonly %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 1, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
@@ -1552,10 +1552,10 @@ if.end30:                                         ; preds = %if.else, %if.then28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14BinaryResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1639,7 +1639,7 @@ _ZN14BinaryResourceD2Ev.exit:                     ; preds = %delete.end4.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14StringResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef %bundle, ptr noundef %stringSet, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
+define dso_local void @_ZN14StringResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr noundef captures(none) %bundle, ptr noundef %stringSet, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   %call = tail call ptr @uhash_get_75(ptr noundef %stringSet, ptr noundef nonnull %this)
   %fSame = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1759,7 +1759,7 @@ declare ptr @uhash_get_75(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ContainerResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %bundle, ptr noundef %stringSet, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ContainerResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %bundle, ptr noundef %stringSet, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03 = load ptr, ptr %fFirst, align 8
@@ -1816,13 +1816,13 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9SResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 4 %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SResource22handlePreflightStringsEP7SRBRootP10UHashtableR10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 4 captures(none) %2) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -2147483648, 268435456) i32 @_ZNK7SRBRoot9makeRes16Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %resWord) local_unnamed_addr #17 align 2 {
+define dso_local noundef range(i32 -2147483648, 268435456) i32 @_ZNK7SRBRoot9makeRes16Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %resWord) local_unnamed_addr #17 align 2 {
 entry:
   %cmp = icmp eq i32 %resWord, 0
   br i1 %cmp, label %return, label %if.end
@@ -1862,7 +1862,7 @@ return:                                           ; preds = %if.else, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK7SRBRoot6mapKeyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %oldpos) local_unnamed_addr #18 align 2 {
+define dso_local noundef i32 @_ZNK7SRBRoot6mapKeyEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %oldpos) local_unnamed_addr #18 align 2 {
 entry:
   %fKeyMap = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %fKeyMap, align 8
@@ -1909,7 +1909,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14StringResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture readnone %0) unnamed_addr #19 align 2 {
+define dso_local void @_ZN14StringResource13handleWrite16EP7SRBRoot(ptr noundef nonnull align 8 captures(none) dereferenceable(141) %this, ptr readnone captures(none) %0) unnamed_addr #19 align 2 {
 entry:
   %fSame = getelementptr inbounds nuw i8, ptr %this, i64 120
   %1 = load ptr, ptr %fSame, align 8
@@ -1932,7 +1932,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ContainerResource13writeAllRes16EP7SRBRoot(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %bundle) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ContainerResource13writeAllRes16EP7SRBRoot(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, ptr noundef %bundle) local_unnamed_addr #7 align 2 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1965,7 +1965,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ArrayResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %bundle) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13ArrayResource13handleWrite16EP7SRBRoot(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef %bundle) unnamed_addr #7 align 2 {
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
@@ -2192,7 +2192,7 @@ _ZNK7SRBRoot9makeRes16Ej.exit:                    ; preds = %if.end24, %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TableResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %bundle) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13TableResource13handleWrite16EP7SRBRoot(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef %bundle) unnamed_addr #7 align 2 {
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %srcChar.addr.i17 = alloca i16, align 2
@@ -2341,7 +2341,7 @@ if.end40:                                         ; preds = %_ZN17ContainerResou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18PseudoListResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((9, 10), (12, 16)) %this, ptr nocapture readnone %0) unnamed_addr #20 align 2 {
+define dso_local void @_ZN18PseudoListResource13handleWrite16EP7SRBRoot(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((9, 10), (12, 16)) %this, ptr readnone captures(none) %0) unnamed_addr #20 align 2 {
 entry:
   %fRes = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 536870912, ptr %fRes, align 4
@@ -2351,13 +2351,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9SResource13handleWrite16EP7SRBRoot(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SResource13handleWrite16EP7SRBRoot(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18StringBaseResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
+define dso_local void @_ZN18StringBaseResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((12, 16)) %this, ptr noundef captures(none) %byteOffset) unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %fType, align 8
@@ -2385,7 +2385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17IntVectorResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #19 align 2 {
+define dso_local void @_ZN17IntVectorResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((12, 16)) %this, ptr noundef captures(none) %byteOffset) unnamed_addr #19 align 2 {
 entry:
   %fCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %fCount, align 8
@@ -2421,7 +2421,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
+define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((12, 16)) %this, ptr noundef captures(none) %byteOffset) unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %byteOffset, align 4
   %1 = and i32 %0, 15
@@ -2452,7 +2452,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ContainerResource14preWriteAllResEPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %byteOffset) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ContainerResource14preWriteAllResEPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %byteOffset) local_unnamed_addr #7 align 2 {
 entry:
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03 = load ptr, ptr %fFirst, align 8
@@ -2517,7 +2517,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ArrayResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13ArrayResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03.i = load ptr, ptr %fFirst.i, align 8
@@ -2568,7 +2568,7 @@ _ZN17ContainerResource14preWriteAllResEPj.exit:   ; preds = %_ZN9SResource8preWr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TableResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13TableResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03.i = load ptr, ptr %fFirst.i, align 8
@@ -2637,13 +2637,13 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9SResource14handlePreWriteEPj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SResource14handlePreWriteEPj(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %mem, ptr nocapture noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN18StringBaseResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %mem, ptr noundef captures(none) %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i16, ptr %fUnion.i.i.i, align 8
@@ -2693,7 +2693,7 @@ declare void @udata_write32(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @udata_writeUString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ContainerResource11writeAllResEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %mem, ptr noundef %byteOffset) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ContainerResource11writeAllResEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %mem, ptr noundef %byteOffset) local_unnamed_addr #7 align 2 {
 entry:
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03 = load ptr, ptr %fFirst, align 8
@@ -2774,7 +2774,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ContainerResource13writeAllRes32EP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %mem, ptr nocapture noundef %byteOffset) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ContainerResource13writeAllRes32EP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %mem, ptr noundef captures(none) %byteOffset) local_unnamed_addr #7 align 2 {
 entry:
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03 = load ptr, ptr %fFirst, align 8
@@ -2802,7 +2802,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ArrayResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %mem, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13ArrayResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %mem, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03.i = load ptr, ptr %fFirst.i, align 8
@@ -2879,7 +2879,7 @@ _ZN17ContainerResource13writeAllRes32EP14UNewDataMemoryPj.exit: ; preds = %_ZN17
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17IntVectorResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %mem, ptr nocapture noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN17IntVectorResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %mem, ptr noundef captures(none) %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %fCount, align 8
@@ -2921,7 +2921,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14BinaryResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %mem, ptr nocapture noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN14BinaryResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef %mem, ptr noundef captures(none) %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %byteOffset, align 4
   %1 = and i32 %0, 15
@@ -2967,7 +2967,7 @@ declare void @udata_writePadding(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TableResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef %mem, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13TableResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef %mem, ptr noundef %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %current.03.i = load ptr, ptr %fFirst.i, align 8
@@ -3115,7 +3115,7 @@ _ZN17ContainerResource13writeAllRes32EP14UNewDataMemoryPj.exit: ; preds = %_ZN17
 declare void @udata_write16(ptr noundef, i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9SResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture readnone %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SResource11handleWriteEP14UNewDataMemoryPj(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -3431,7 +3431,7 @@ if.end114:                                        ; preds = %if.then106, %if.the
   %add.ptr121 = getelementptr inbounds i8, ptr %writtenFilename, i64 %idx.ext120
   %sub123 = sub nsw i32 %dec, %off.0
   %conv124 = sext i32 %sub123 to i64
-  %call125 = call ptr @strncpy(ptr noundef nonnull %add.ptr121, ptr noundef %35, i64 noundef %conv124) #33
+  %call125 = call ptr @strncpy(ptr noundef nonnull %add.ptr121, ptr noundef nonnull %35, i64 noundef %conv124) #33
   %tobool127.not157 = icmp eq i32 %dec, %conv116
   %tobool127.not = or i1 %cmp117.not, %tobool127.not157
   br i1 %tobool127.not, label %if.end138, label %if.then128
@@ -5020,15 +5020,15 @@ _ZN6icu_7510LocalArrayIP14StringResourceED2Ev.exit148: ; preds = %lpad.loopexit,
 declare void @uhash_close_75(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 declare i32 @computeCRC(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -5039,7 +5039,7 @@ declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull ali
 declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @table_open(ptr noundef %bundle, ptr noundef %tag, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
@@ -5343,7 +5343,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @bin_open(ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr nocapture noundef readonly %data, ptr noundef %fileName, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @bin_open(ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr noundef readonly captures(none) %data, ptr noundef %fileName, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #35
   invoke void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr noundef %data, ptr noundef %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -5658,7 +5658,7 @@ terminate.lpad:                                   ; preds = %invoke.cont2, %invo
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7SRBRoot9setLocaleEPDsR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %locale, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7SRBRoot9setLocaleEPDsR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef %locale, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5695,7 +5695,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #0
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK7SRBRoot12getKeyStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %key) local_unnamed_addr #18 align 2 {
+define dso_local noundef ptr @_ZNK7SRBRoot12getKeyStringEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %key) local_unnamed_addr #18 align 2 {
 entry:
   %cmp = icmp slt i32 %key, 0
   %fKeys2 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -5711,7 +5711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %bundle) local_unnamed_addr #18 align 2 {
+define dso_local noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %bundle) local_unnamed_addr #18 align 2 {
 entry:
   %fKey = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %fKey, align 4
@@ -5747,7 +5747,7 @@ return:                                           ; preds = %entry, %_ZNK7SRBRoo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK7SRBRoot11getKeyBytesEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly initializes((0, 4)) %pLength) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK7SRBRoot11getKeyBytesEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef writeonly captures(none) initializes((0, 4)) %pLength) local_unnamed_addr #13 align 2 {
 entry:
   %fKeysTop = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %fKeysTop, align 4
@@ -5764,7 +5764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly %keyBytes, i32 noundef %length, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly %keyBytes, i32 noundef %length, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5835,7 +5835,7 @@ return:                                           ; preds = %if.end5, %entry, %d
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK9SResource11collectKeysESt8functionIFviEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %collector) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK9SResource11collectKeysESt8functionIFviEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %collector) unnamed_addr #7 align 2 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %fKey = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -5860,7 +5860,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK17ContainerResource11collectKeysESt8functionIFviEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %collector) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK17ContainerResource11collectKeysESt8functionIFviEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %collector) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %agg.tmp = alloca %"class.std::function", align 8
@@ -5986,7 +5986,7 @@ for.end:                                          ; preds = %_ZNSt8functionIFviE
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL18compareKeySuffixesPKvS0_S0_(ptr nocapture noundef readonly %context, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #18 {
+define internal noundef i32 @_ZL18compareKeySuffixesPKvS0_S0_(ptr noundef readonly captures(none) %context, ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #18 {
 entry:
   %0 = load i32, ptr %l, align 4
   %1 = load i32, ptr %r, align 4
@@ -6091,7 +6091,7 @@ return:                                           ; preds = %while.body12, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL16compareKeyNewposPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #17 {
+define internal noundef range(i32 -1, 2) i32 @_ZL16compareKeyNewposPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #17 {
 entry:
   %newpos = getelementptr inbounds nuw i8, ptr %l, i64 4
   %1 = load i32, ptr %newpos, align 4
@@ -6102,7 +6102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL16compareKeyOldposPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #17 {
+define internal noundef range(i32 -1, 2) i32 @_ZL16compareKeyOldposPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #17 {
 entry:
   %1 = load i32, ptr %l, align 4
   %2 = load i32, ptr %r, align 4
@@ -6232,7 +6232,7 @@ declare i32 @uhash_count_75(ptr noundef) local_unnamed_addr #0
 declare ptr @uhash_nextElement_75(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21compareStringSuffixesPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #7 {
+define internal noundef i32 @_ZL21compareStringSuffixesPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #7 {
 entry:
   %1 = load ptr, ptr %l, align 8
   %2 = load ptr, ptr %r, align 8
@@ -6337,7 +6337,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20compareStringLengthsPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #7 {
+define internal noundef i32 @_ZL20compareStringLengthsPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %l, ptr noundef readonly captures(none) %r) #7 {
 entry:
   %1 = load ptr, ptr %l, align 8
   %2 = load ptr, ptr %r, align 8
@@ -6420,16 +6420,16 @@ return:                                           ; preds = %if.end9, %if.end, %
 declare signext i8 @getShowWarning() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN9SResource11applyFilterERK10PathFilterR10ResKeyPathPK7SRBRoot(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SResource11applyFilterERK10PathFilterR10ResKeyPathPK7SRBRoot(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TableResource11applyFilterERK10PathFilterR10ResKeyPathPK7SRBRoot(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %filter, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %bundle) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TableResource11applyFilterERK10PathFilterR10ResKeyPathPK7SRBRoot(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %filter, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef %bundle) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.11", align 1
@@ -6687,7 +6687,7 @@ declare noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr no
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #7 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args) #7 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4
@@ -6762,7 +6762,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviEZN7SRBRoot11compactKeysER10UErrorCodeE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -6914,10 +6914,10 @@ entry:
 declare i16 @llvm.bswap.i16(i16) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #28

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15G1SurvRateGroupC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15G1SurvRateGroupC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroupC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroupC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
 ._crit_edge.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39,7 +39,7 @@ _ZN15G1SurvRateGroup5resetEv.exit:                ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((4, 8), (24, 32)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((4, 8), (24, 32)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -93,7 +93,7 @@ define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15G1SurvRateGroup20start_adding_regionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((4, 8)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15G1SurvRateGroup20start_adding_regionsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((4, 8)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   ret void
@@ -103,7 +103,7 @@ define hidden void @_ZN15G1SurvRateGroup20start_adding_regionsEv(ptr nocapture n
 declare void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup19stop_adding_regionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup19stop_adding_regionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -192,7 +192,7 @@ declare noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFa
 declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, double noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup22record_surviving_wordsEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup22record_surviving_wordsEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = uitofp i64 %2 to double
   %5 = load i64, ptr @_ZN12G1HeapRegion10GrainWordsE, align 8
   %6 = uitofp i64 %5 to double
@@ -210,7 +210,7 @@ define hidden void @_ZN15G1SurvRateGroup22record_surviving_wordsEjm(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup28all_surviving_words_recordedERK13G1Predictionsb(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup28all_surviving_words_recordedERK13G1Predictionsb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %4, label %_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv.exitthread-pre-split
 
 4:                                                ; preds = %3
@@ -317,7 +317,7 @@ _ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -363,7 +363,7 @@ define hidden void @_ZN15G1SurvRateGroup23fill_in_last_surv_ratesEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup20finalize_predictionsERK13G1Predictions(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -422,7 +422,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZNK15G1SurvRateGroup20accum_surv_rate_predEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef double @_ZNK15G1SurvRateGroup20accum_surv_rate_predEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ult i32 %1, %3
   br i1 %4, label %5, label %11
@@ -467,7 +467,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #4
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

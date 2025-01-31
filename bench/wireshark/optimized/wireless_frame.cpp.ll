@@ -2052,7 +2052,7 @@ _ZN7QStringD2Ev.exit75:                           ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN15MainApplication19localInterfaceEventEPKcii(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame20handleInterfaceEventEPKcii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3) #0 align 2 {
+define void @_ZN13WirelessFrame20handleInterfaceEventEPKcii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 %3) #0 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %10
 
@@ -2158,7 +2158,7 @@ define void @_ZThn16_N13WirelessFrameD0Ev(ptr noundef %0) unnamed_addr #8 align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame20setCaptureInProgressEb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame20setCaptureInProgressEb(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %3, ptr %4, align 8
@@ -2167,7 +2167,7 @@ define void @_ZN13WirelessFrame20setCaptureInProgressEb(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame13updateWidgetsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame13updateWidgetsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -2287,7 +2287,7 @@ declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) 
 declare void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QIcon, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QIcon, align 8
@@ -3365,7 +3365,7 @@ _ZN7QStringD2Ev.exit200:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame27on_helperToolButton_clickedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13WirelessFrame27on_helperToolButton_clickedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -3616,7 +3616,7 @@ declare void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%cla
 declare noundef zeroext i1 @_ZN8QProcess13startDetachedERK7QStringRK5QListIS0_ES2_Px(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3741,7 +3741,7 @@ declare void @_ZN8QVariantC1Ej(ptr noundef nonnull align 8 dereferenceable(32), 
 declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame16setInterfaceInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13WirelessFrame16setInterfaceInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QByteArray, align 8
@@ -4002,7 +4002,7 @@ declare i32 @ws80211_set_fcs_validation(ptr noundef, i32 noundef) local_unnamed_
 declare void @_ZN15MainApplication10pushStatusENS_10StatusInfoERK7QStringS3_(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, -1073741835) i32 @_ZN13WirelessFrame18getCenterFrequencyEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, -1073741835) i32 @_ZN13WirelessFrame18getCenterFrequencyEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp slt i32 %2, 80
   %5 = icmp slt i32 %1, 5180
   %or.cond = or i1 %5, %4
@@ -4023,7 +4023,7 @@ define noundef range(i32 -1, -1073741835) i32 @_ZN13WirelessFrame18getCenterFreq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 161) i32 @_ZN13WirelessFrame24getBandwidthFromChanTypeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -1, 161) i32 @_ZN13WirelessFrame24getBandwidthFromChanTypeEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %switch.selectcmp = icmp eq i32 %1, 6
   %switch.select = select i1 %switch.selectcmp, i32 160, i32 -1
   %switch.selectcmp2 = icmp eq i32 %1, 4
@@ -4032,25 +4032,25 @@ define noundef range(i32 -1, 161) i32 @_ZN13WirelessFrame24getBandwidthFromChanT
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame30on_interfaceComboBox_activatedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame30on_interfaceComboBox_activatedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13WirelessFrame16getInterfaceInfoEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame28on_channelComboBox_activatedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame28on_channelComboBox_activatedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13WirelessFrame16setInterfaceInfoEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame32on_channelTypeComboBox_activatedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame32on_channelTypeComboBox_activatedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13WirelessFrame16setInterfaceInfoEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13WirelessFrame24on_fcsComboBox_activatedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13WirelessFrame24on_fcsComboBox_activatedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13WirelessFrame16setInterfaceInfoEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   ret void
 }
@@ -4570,7 +4570,7 @@ declare void @_ZN9QComboBox11setItemTextEiRK7QString(ptr noundef nonnull align 8
 declare void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -4664,10 +4664,10 @@ _ZN9QtPrivate15FunctionPointerIM13WirelessFrameFvPKciiEE4callINS_4ListIJS3_iiEEE
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

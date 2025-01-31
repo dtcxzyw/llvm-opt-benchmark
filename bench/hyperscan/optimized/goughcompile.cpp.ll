@@ -641,7 +641,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211raw_som_dfa20stripExtraEodReportsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(644) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211raw_som_dfa20stripExtraEodReportsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(644) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_som = getelementptr inbounds nuw i8, ptr %this, i64 560
   %0 = load ptr, ptr %state_som, align 8
@@ -1103,7 +1103,7 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue211GoughSSAVarD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3ue211GoughSSAVarD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
@@ -1609,7 +1609,7 @@ return:                                           ; preds = %lor.rhs, %_ZN5boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue214GoughSSAVarNew8generateEPSt6vectorI9gough_insSaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef %out) unnamed_addr #2 align 2 {
+define hidden void @_ZNK3ue214GoughSSAVarNew8generateEPSt6vectorI9gough_insSaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef captures(none) %out) unnamed_addr #2 align 2 {
 entry:
   %slot = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %slot, align 4
@@ -1689,10 +1689,10 @@ _ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit: ; preds = %if.then.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue214GoughSSAVarMin8generateEPSt6vectorI9gough_insSaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef %out) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue214GoughSSAVarMin8generateEPSt6vectorI9gough_insSaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef captures(none) %out) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %inputs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %inputs, align 8, !noalias !167
@@ -1995,7 +1995,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit57:                  ; preds = %for.end44, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue214GoughSSAVarMin16remove_input_rawEPNS_11GoughSSAVarE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readnone %v) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214GoughSSAVarMin16remove_input_rawEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef readnone %v) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inputs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %inputs, align 8, !noalias !181
@@ -2054,13 +2054,13 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK3ue215GoughSSAVarJoin8generateEPSt6vectorI9gough_insSaIS2_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %out) unnamed_addr #8 align 2 {
+define hidden void @_ZNK3ue215GoughSSAVarJoin8generateEPSt6vectorI9gough_insSaIS2_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %out) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZNK3ue215GoughSSAVarJoin9get_inputERKN5boost6detail14edge_desc_implINS1_17bidirectional_tagEmEE(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %prev) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK3ue215GoughSSAVarJoin9get_inputERKN5boost6detail14edge_desc_implINS1_17bidirectional_tagEmEE(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %prev) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -2901,7 +2901,7 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(i64 noundef %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %g, ptr nocapture noundef writeonly %out) local_unnamed_addr #10 {
+define hidden noundef zeroext i1 @_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(i64 noundef %v, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %g, ptr noundef writeonly captures(none) %out) local_unnamed_addr #10 {
 entry:
   %m_vertices.i.i.i = getelementptr inbounds nuw i8, ptr %g, i64 24
   %0 = load ptr, ptr %m_vertices.i.i.i, align 8, !noalias !330
@@ -12855,7 +12855,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i32 @_ZN3ue212assign_slotsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(292)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZN3ue225find_allowed_accel_statesERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKSt3mapINS_13gough_edge_idESt6vectorI9gough_insSaISE_EESt4lessISC_ESaISt4pairIKSC_SG_EEEPSB_ItNS_22gough_accel_state_infoESH_ItESaISJ_IKtSQ_EEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #12
 
@@ -14028,7 +14028,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSEN3ue216GoughVertexPropsENS4_14GoughEdgePropsENS4_15GoughGraphPropsENS_5listSEEENS_6detail12adj_list_genIS9_S2_S2_S3_S5_S6_S7_S8_E6configENS_40bidirectional_graph_helper_with_propertyISD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15399,7 +15399,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeItSt4pairIKtN5boost6detail14edge_desc_implINS2_17bidirectional_tagEmEEESt10_Select1stIS7_ESt4lessItESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16833,7 +16833,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports_in, ptr nocapture noundef nonnull %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports_in, ptr noundef nonnull captures(none) %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %reports_in, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -18320,7 +18320,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %eji, ptr nocapture noundef nonnull %out) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %eji, ptr noundef nonnull captures(none) %out) unnamed_addr #2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %eji, i64 72
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %eji, i64 56
@@ -19569,7 +19569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3ue212_GLOBAL__N_117gough_build_strat13gatherReportsERSt6vectorIjSaIjEES5_PhPj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.588") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %reports, ptr nocapture noundef nonnull align 8 dereferenceable(24) %reports_eod, ptr nocapture noundef writeonly %isSingleReport, ptr nocapture noundef writeonly %arbReport) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3ue212_GLOBAL__N_117gough_build_strat13gatherReportsERSt6vectorIjSaIjEES5_PhPj(ptr noalias writeonly sret(%"class.std::unique_ptr.588") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %reports, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %reports_eod, ptr noundef writeonly captures(none) %isSingleReport, ptr noundef writeonly captures(none) %arbReport) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rev = alloca %"class.std::map.630", align 8
   %rrl = alloca %"struct.ue2::(anonymous namespace)::raw_gough_report_list", align 8
@@ -20516,13 +20516,13 @@ _ZN3ue211AccelSchemeD2Ev.exit34:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZNK3ue212_GLOBAL__N_117gough_build_strat9accelSizeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i64 @_ZNK3ue212_GLOBAL__N_117gough_build_strat9accelSizeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i64 96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_117gough_build_strat24max_allowed_offset_accelEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_117gough_build_strat24max_allowed_offset_accelEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i32 0
 }
@@ -20612,7 +20612,7 @@ do.end7:                                          ; preds = %entry, %_ZN3ue29ver
 declare void @_ZN3ue221accel_dfa_build_strat12getAccelInfoERKNS_4GreyE() unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_117gough_build_strat7getTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_117gough_build_strat7getTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i32 2
 }
@@ -20757,7 +20757,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_121raw_gough_report_listC2ERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS6_EERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %raw_reports, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %do_remap) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_121raw_gough_report_listC2ERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS6_EERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %raw_reports, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %do_remap) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca i32, align 4
   %impl_slot = alloca i32, align 4
@@ -21764,7 +21764,7 @@ if.end:                                           ; preds = %_ZNK9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE9push_backERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %__x) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %__x) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Alloc_node", align 8
   %__an.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Alloc_node", align 8
@@ -22125,7 +22125,7 @@ _ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev.exit: ; preds = %invoke.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl17getReportListSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #24 align 2 {
+define internal noundef i32 @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl17getReportListSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #24 align 2 {
 entry:
   %rl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rl.val = load ptr, ptr %rl, align 8
@@ -22153,7 +22153,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #25 align 2 {
+define internal noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #25 align 2 {
 entry:
   %rl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rl.val = load ptr, ptr %rl, align 8
@@ -22167,7 +22167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl15fillReportListsEP3NFAmRSt6vectorIjSaIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly %n, i64 noundef %base_offset, ptr nocapture noundef nonnull align 8 dereferenceable(24) %ro) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3ue212_GLOBAL__N_126raw_gough_report_info_impl15fillReportListsEP3NFAmRSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef writeonly captures(none) %n, i64 noundef %base_offset, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %ro) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rl.val = load ptr, ptr %rl, align 8
@@ -26919,10 +26919,10 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

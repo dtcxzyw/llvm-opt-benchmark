@@ -22,12 +22,12 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.exp_pdu_data_port_type_populate_data = private unnamed_addr constant [14 x i8] c"\00\01\02\03\04\05\08\0A\0C\0D\0E\0F\11\12", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @exp_pdu_data_dissector_table_num_value_size(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @exp_pdu_data_dissector_table_num_value_size(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   store i8 0, ptr %2, align 1
   %6 = getelementptr i8, ptr %2, i64 1
@@ -55,7 +55,7 @@ define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
@@ -66,7 +66,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %22 [
@@ -109,7 +109,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
@@ -120,7 +120,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
+define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %22 [
@@ -163,12 +163,12 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @exp_pdu_data_port_type_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @exp_pdu_data_port_type_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #4 {
+define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #4 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 24, ptr %5, align 1
@@ -201,12 +201,12 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @exp_pdu_data_port_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @exp_pdu_data_port_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %6 = load i32, ptr %5, align 4
   store i8 0, ptr %2, align 1
@@ -235,7 +235,7 @@ define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   store i8 0, ptr %2, align 1
@@ -264,12 +264,12 @@ define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @exp_pdu_data_orig_frame_num_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @exp_pdu_data_orig_frame_num_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 %3) #5 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 30, ptr %5, align 1
@@ -304,10 +304,10 @@ define ptr @export_pdu_create_common_tags(ptr noundef %0, ptr noundef %1, i16 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 {
+define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 
@@ -413,7 +413,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #8
 

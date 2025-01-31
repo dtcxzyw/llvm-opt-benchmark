@@ -1520,7 +1520,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1075 = private unnamed_addr constant [20 x i8] c"Subtuple: %s (0x%x)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -1, 2) i32 @dvbci_set_addrs(i8 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @dvbci_set_addrs(i8 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %or.cond = icmp ugt i8 %0, -3
   br i1 %or.cond, label %.sink.split, label %12
 
@@ -1702,7 +1702,7 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   %29 = getelementptr i8, ptr %17, i64 %28
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %24, align 1
-  %31 = call i64 @strtoul(ptr nocapture noundef nonnull %2, ptr noundef null, i32 noundef 16) #15
+  %31 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #15
   %32 = trunc i64 %31 to i8
   %33 = load ptr, ptr @dvbci_sek_bin, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1743,7 +1743,7 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   %47 = getelementptr i8, ptr %35, i64 %46
   %48 = load i8, ptr %47, align 1
   store i8 %48, ptr %42, align 1
-  %49 = call i64 @strtoul(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 16) #15
+  %49 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #15
   %50 = trunc i64 %49 to i8
   %51 = load ptr, ptr @dvbci_siv_bin, align 8
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
@@ -1778,7 +1778,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dvbci_exported_sac_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_dvbci_exported_sac_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call fastcc zeroext i8 @dvbci_get_evt_from_addrs(ptr noundef %1)
   %or.cond = icmp ugt i8 %5, -3
   br i1 %or.cond, label %6, label %14
@@ -1833,7 +1833,7 @@ define internal void @dvbci_shutdown() #1 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65540) i32 @dissect_dvbci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 65540) i32 @dissect_dvbci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %76, label %7
@@ -1986,7 +1986,7 @@ declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_rm(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_rm(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = icmp eq i32 %0, 10453009
   br i1 %8, label %9, label %.loopexit
 
@@ -2033,7 +2033,7 @@ dissect_res_id.exit:                              ; preds = %.lr.ph, %dissect_re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_ap(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_ap(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) #1 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   switch i32 %0, label %50 [
@@ -2096,7 +2096,7 @@ define internal void @dissect_dvbci_payload_ap(i32 noundef %0, i32 %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca ptr, align 8
   switch i32 %0, label %.loopexit [
     i32 10453041, label %9
@@ -2334,7 +2334,7 @@ dissect_ca_enable.exit127:                        ; preds = %.lr.ph, %124
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_aut(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_aut(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6) #1 {
   %8 = load i32, ptr @hf_dvbci_auth_proto_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #15
   %10 = add i32 %3, 2
@@ -2362,7 +2362,7 @@ define internal void @dissect_dvbci_payload_aut(i32 noundef %0, i32 %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   switch i32 %0, label %107 [
     i32 10454016, label %8
     i32 10454017, label %33
@@ -2524,7 +2524,7 @@ dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca %struct.nstime_t, align 8
   %9 = alloca %struct.nstime_t, align 8
   switch i32 %0, label %52 [
@@ -2606,7 +2606,7 @@ define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i32, align 4
   switch i32 %0, label %.loopexit [
     i32 10455040, label %9
@@ -2832,7 +2832,7 @@ define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_hlc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_hlc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) #1 {
   switch i32 %0, label %12 [
     i32 10453249, label %.sink.split
     i32 10453265, label %8
@@ -2867,7 +2867,7 @@ define internal void @dissect_dvbci_payload_hlc(i32 noundef %0, i32 %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   switch i32 %0, label %48 [
     i32 10460417, label %8
     i32 10460418, label %26
@@ -2939,7 +2939,7 @@ define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca %struct.nstime_t, align 8
   switch i32 %0, label %dissect_rating.exit [
     i32 10457090, label %9
@@ -3126,7 +3126,7 @@ dissect_rating.exit:                              ; preds = %48, %45, %7, %108, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_ami(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_ami(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca ptr, align 8
   switch i32 %0, label %56 [
     i32 10452992, label %9
@@ -3706,7 +3706,7 @@ dissect_conn_desc.exit:                           ; preds = %73, %79, %store_lsc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca ptr, align 8
   switch i32 %0, label %23 [
     i32 10458112, label %9
@@ -3748,7 +3748,7 @@ define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
+define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i32, align 4
   switch i32 %0, label %dissect_opp_cap_loop.exit199 [
     i32 10460161, label %9
@@ -4280,7 +4280,7 @@ declare ptr @abs_time_to_str_ex(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_int_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_si_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
+define internal fastcc void @dissect_si_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca i32, align 4
   %10 = icmp eq ptr %6, null
   %11 = icmp slt i32 %2, 1
@@ -5026,12 +5026,12 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @exp_pdu_data_dvbci_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 {
+define internal noundef i32 @exp_pdu_data_dvbci_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 5)) %2, i32 %3) #6 {
+define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 5)) %2, i32 %3) #6 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 31, ptr %5, align 1
@@ -5046,7 +5046,7 @@ define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 -2, 1) i8 @dvbci_get_evt_from_addrs(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc zeroext range(i8 -2, 1) i8 @dvbci_get_evt_from_addrs(ptr noundef readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
@@ -5124,7 +5124,7 @@ addresses_equal.exit9:                            ; preds = %5, %.thread.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dvbci_ami_file_req(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_dvbci_ami_file_req(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #15
   %7 = load i32, ptr @hf_dvbci_req_type, align 4
@@ -5314,7 +5314,7 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -6416,22 +6416,22 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

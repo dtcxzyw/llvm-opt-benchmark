@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14PairlistParamsC1EN5Nbnxm10KernelTypeEbfb = unnamed_addr alias void (ptr, i32, i1, float, i1), ptr @_ZN14PairlistParamsC2EN5Nbnxm10KernelTypeEbfb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14PairlistParamsC2EN5Nbnxm10KernelTypeEbfb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 5), (8, 18), (20, 36)) %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define void @_ZN14PairlistParamsC2EN5Nbnxm10KernelTypeEbfb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(36) initializes((0, 5), (8, 18), (20, 36)) %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4

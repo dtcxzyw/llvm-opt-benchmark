@@ -36,7 +36,7 @@ define dso_local noundef ptr @makeParamList(i32 noundef %0) local_unnamed_addr #
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @paramlist_parser_setup(ptr nocapture noundef writeonly initializes((200, 208), (216, 224)) %0, ptr noundef %1) #2 {
+define internal void @paramlist_parser_setup(ptr noundef writeonly captures(none) initializes((200, 208), (216, 224)) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @paramlist_param_ref, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -136,7 +136,7 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -378,7 +378,7 @@ define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_add
 declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -572,7 +572,7 @@ declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.ParamExternData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -641,7 +641,7 @@ declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

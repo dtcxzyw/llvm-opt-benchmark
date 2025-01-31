@@ -48,7 +48,7 @@ declare void @_ZN3zmq14unblock_socketEi(i32 noundef) local_unnamed_addr #1
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq10signaler_tD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq10signaler_tD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
@@ -151,15 +151,15 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_r = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_r, align 4
@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_t4sendEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
   %inc = alloca i64, align 8
   %pid = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -199,10 +199,10 @@ do.end:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, i32 noundef %timeout_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, i32 noundef %timeout_) local_unnamed_addr #0 align 2 {
 entry:
   %pfd = alloca %struct.pollfd, align 4
   %pid = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -296,7 +296,7 @@ return:                                           ; preds = %if.then36, %do.body
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_t4recvEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
   %dummy = alloca i64, align 8
   %inc = alloca i64, align 8
@@ -359,10 +359,10 @@ do.end28:                                         ; preds = %do.end28.sink.split
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #0 align 2 {
 entry:
   %dummy = alloca i64, align 8
   %inc = alloca i64, align 8
@@ -441,7 +441,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3zmq10signaler_t5validEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK3zmq10signaler_t5validEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp ne i32 %0, -1

@@ -64,7 +64,7 @@ define dso_local void @mdinit() local_unnamed_addr #0 {
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @mdexists(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @mdexists(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @InRecovery, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %5
@@ -80,7 +80,7 @@ define dso_local zeroext i1 @mdexists(ptr nocapture noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdclose(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @mdclose(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = sext i32 %1 to i64
   %5 = getelementptr [4 x i32], ptr %3, i64 0, i64 %4
@@ -158,7 +158,7 @@ _fdvec_resize.exit:                               ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
+define internal fastcc ptr @mdopenfork(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
@@ -250,7 +250,7 @@ _fdvec_resize.exit:                               ; preds = %40, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @mdcreate(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %4, label %10
 
 4:                                                ; preds = %3
@@ -373,7 +373,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_dirty_segment(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @register_dirty_segment(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.FileTag, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %4, align 8
@@ -604,7 +604,7 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 
 .thread92.split.us:                               ; preds = %.thread92, %do_truncate.exit86.us
   %.0.us = phi i32 [ %84, %do_truncate.exit86.us ], [ 1, %.thread92 ]
-  %68 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef %8, i32 noundef %.0.us) #14
+  %68 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef nonnull %8, i32 noundef %.0.us) #14
   %69 = call i32 @pg_truncate(ptr noundef %63, i64 noundef 0) #14
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %do_truncate.exit86.us
@@ -646,7 +646,7 @@ do_truncate.exit86.us:                            ; preds = %79, %.thread92.spli
 
 .thread92.split:                                  ; preds = %.thread92, %.thread92.split
   %.0 = phi i32 [ %88, %.thread92.split ], [ 1, %.thread92 ]
-  %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef %8, i32 noundef %.0) #14
+  %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef nonnull %8, i32 noundef %.0) #14
   %86 = call i32 @unlink(ptr noundef %63) #14
   %87 = icmp slt i32 %86, 0
   %88 = add i32 %.0, 1
@@ -678,7 +678,7 @@ do_truncate.exit86.us:                            ; preds = %79, %.thread92.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @mdextend(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.iovec, align 8
   %7 = icmp eq i32 %2, -1
   br i1 %7, label %8, label %20
@@ -759,7 +759,7 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 33) %4) unnamed_addr #0 {
+define internal fastcc ptr @_mdfd_getseg(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 33) %4) unnamed_addr #0 {
   %6 = lshr i32 %2, 17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
@@ -1070,7 +1070,7 @@ declare ptr @FilePathName(i32 noundef) local_unnamed_addr #1
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @mdzeroextend(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i32 %2 to i64
   %7 = sext i32 %3 to i64
   %8 = add nsw i64 %7, %6
@@ -1209,7 +1209,7 @@ declare i32 @FileFallocate(i32 noundef, i64 noundef, i64 noundef, i32 noundef) l
 declare i32 @FileZero(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @mdopen(ptr nocapture noundef writeonly initializes((40, 56)) %0) local_unnamed_addr #4 {
+define dso_local void @mdopen(ptr noundef writeonly captures(none) initializes((40, 56)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -1218,7 +1218,7 @@ define dso_local void @mdopen(ptr nocapture noundef writeonly initializes((40, 5
 declare void @FileClose(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @mdprefetch(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @mdprefetch(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %2 to i64
   %6 = sext i32 %3 to i64
   %7 = add nsw i64 %6, %5
@@ -1262,7 +1262,7 @@ define dso_local noundef zeroext i1 @mdprefetch(ptr nocapture noundef %0, i32 no
 declare i32 @FilePrefetch(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @mdreadv(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x %struct.iovec], align 16
   %.not77 = icmp eq i32 %4, 0
   br i1 %.not77, label %._crit_edge84, label %.lr.ph83
@@ -1429,12 +1429,12 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
 declare i64 @FileReadV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @compute_remaining_iovec(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local void @mdwritev(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [32 x %struct.iovec], align 16
   %.not62 = icmp eq i32 %4, 0
   br i1 %.not62, label %._crit_edge68, label %.lr.ph67
@@ -1577,7 +1577,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
 declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdwriteback(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @mdwriteback(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
   %7 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %6
@@ -1631,7 +1631,7 @@ _mdfd_getseg.exit.thread:                         ; preds = %17, %_mdfd_getseg.e
 declare void @FileWriteback(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @mdnblocks(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @mdopenfork(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
@@ -1703,7 +1703,7 @@ _mdnblocks.exit:                                  ; preds = %14
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_mdfd_openseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_mdfd_openseg(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -1795,7 +1795,7 @@ _fdvec_resize.exit:                               ; preds = %27, %29, %35, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @mdtruncate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
   %5 = icmp ugt i32 %2, %4
   br i1 %5, label %6, label %20
@@ -1958,7 +1958,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 declare i32 @FileTruncate(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdregistersync(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @mdregistersync(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
@@ -2043,7 +2043,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @mdimmedsync(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
@@ -2166,12 +2166,12 @@ define dso_local void @ForgetDatabaseSyncRequests(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare zeroext i1 @RegisterSyncRequest(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropRelationFiles(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @DropRelationFiles(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call ptr @palloc(i64 noundef %5) #14
@@ -2254,7 +2254,7 @@ declare void @smgrdounlinkall(ptr noundef, i32 noundef, i1 noundef zeroext) loca
 declare void @smgrclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @mdsyncfiletag(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @mdsyncfiletag(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.09.0.copyload = load i64, ptr %3, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2304,12 +2304,12 @@ define dso_local i32 @mdsyncfiletag(ptr nocapture noundef readonly %0, ptr nound
 _mdfd_segpath.exit:                               ; preds = %22, %33
   %.0.i = phi ptr [ %34, %33 ], [ %32, %22 ]
   %35 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %.0.i, i64 noundef 1024) #14
-  tail call void @pfree(ptr noundef %.0.i) #14
+  tail call void @pfree(ptr noundef nonnull %.0.i) #14
   %36 = load i32, ptr @io_direct_flags, align 4
   %37 = and i32 %36, 1
   %.not.i28 = icmp eq i32 %37, 0
   %spec.select.i = select i1 %.not.i28, i32 2, i32 16386
-  %38 = tail call i32 @PathNameOpenFile(ptr noundef %1, i32 noundef %spec.select.i) #14
+  %38 = tail call i32 @PathNameOpenFile(ptr noundef nonnull %1, i32 noundef %spec.select.i) #14
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %49, label %40
 
@@ -2341,7 +2341,7 @@ _mdfd_segpath.exit:                               ; preds = %22, %33
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mdfd_segpath(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @_mdfd_segpath(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -2368,7 +2368,7 @@ declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #1
 declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @mdunlinkfiletag(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @mdunlinkfiletag(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
@@ -2377,16 +2377,16 @@ define dso_local noundef i32 @mdunlinkfiletag(ptr nocapture noundef readonly %0,
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @GetRelationPath(i32 noundef %5, i32 noundef %6, i32 noundef %8, i32 noundef -1, i32 noundef 0) #14
   %10 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024) #14
-  tail call void @pfree(ptr noundef %9) #14
-  %11 = tail call i32 @unlink(ptr noundef %1) #14
+  tail call void @pfree(ptr noundef nonnull %9) #14
+  %11 = tail call i32 @unlink(ptr noundef nonnull %1) #14
   ret i32 %11
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @mdfiletagmatches(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define dso_local zeroext i1 @mdfiletagmatches(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2396,7 +2396,7 @@ define dso_local zeroext i1 @mdfiletagmatches(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2419,10 +2419,10 @@ declare void @llvm.assume(i1 noundef) #11
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

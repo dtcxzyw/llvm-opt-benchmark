@@ -155,7 +155,7 @@ declare i64 @Extra_CpuTime(...) local_unnamed_addr #1
 declare i32 @cuddZddTreeSifting(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zddReorderPostprocess(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -341,7 +341,7 @@ define internal fastcc void @zddReorderPostprocess(ptr nocapture noundef %0) unn
 declare i32 @cuddBddAlignToZdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_zddShuffleHeap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @empty, align 8
@@ -507,7 +507,7 @@ define range(i32 0, 2) i32 @cuddZddAlignToBdd(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
   %indvars = trunc i64 %indvars.iv.next59 to i32
   %54 = trunc nsw i64 %indvars.iv58 to i32
-  %55 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %indvars, i32 noundef %54)
+  %55 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %54)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %zddShuffle.exit, label %52, !llvm.loop !10
 
@@ -521,7 +521,7 @@ zddShuffle.exit:                                  ; preds = %zddSiftUp.exit.i, %
   tail call void @free(ptr noundef %15) #11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @zddFixTree(ptr noundef %0, ptr noundef %58)
+  tail call fastcc void @zddFixTree(ptr noundef nonnull %0, ptr noundef %58)
   br label %59
 
 59:                                               ; preds = %5, %1, %zddShuffle.exit, %38
@@ -535,7 +535,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @cuddGarbageCollect(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @zddFixTree(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
@@ -607,19 +607,19 @@ define internal fastcc void @zddFixTree(ptr noundef %0, ptr noundef %1) unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @cuddZddNextHigh(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @cuddZddNextHigh(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = add nsw i32 %1, 1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @cuddZddNextLow(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 2147483647) i32 @cuddZddNextLow(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = add nsw i32 %1, -1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddZddUniqueCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define i32 @cuddZddUniqueCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr @zdd_entry, align 8
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
@@ -1692,7 +1692,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   %75 = load i32, ptr %.139.us.i.i, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.139.us.i.i, i64 4
   %77 = load i32, ptr %76, align 4
-  %78 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %75, i32 noundef %77)
+  %78 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %75, i32 noundef %77)
   %.not31.us.i.i = icmp eq i32 %78, 0
   br i1 %.not31.us.i.i, label %.lr.ph306.i, label %79
 
@@ -1727,7 +1727,7 @@ cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSifting
   %90 = load i32, ptr %.139.i.i, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.139.i.i, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %90, i32 noundef %92)
+  %93 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %92)
   %.not31.i.i = icmp eq i32 %93, 0
   br i1 %.not31.i.i, label %.lr.ph306.i, label %94
 
@@ -1809,7 +1809,7 @@ cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSifting
   %122 = load i32, ptr %.139.us.i144.i, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.139.us.i144.i, i64 4
   %124 = load i32, ptr %123, align 4
-  %125 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %122, i32 noundef %124)
+  %125 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %122, i32 noundef %124)
   %.not31.us.i146.i = icmp eq i32 %125, 0
   br i1 %.not31.us.i146.i, label %.preheader.i, label %126
 
@@ -1844,7 +1844,7 @@ cuddZddSiftingUp.exit.i:                          ; preds = %107, %cuddZddSiftin
   %137 = load i32, ptr %.139.i139.i, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.139.i139.i, i64 4
   %139 = load i32, ptr %138, align 4
-  %140 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %137, i32 noundef %139)
+  %140 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %137, i32 noundef %139)
   %.not31.i140.i = icmp eq i32 %140, 0
   br i1 %.not31.i140.i, label %.preheader.i, label %141
 
@@ -1982,7 +1982,7 @@ cuddZddSiftingDown.exit164.i:                     ; preds = %156
   %191 = load i32, ptr %.139.us.i195.i, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.139.us.i195.i, i64 4
   %193 = load i32, ptr %192, align 4
-  %194 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %191, i32 noundef %193)
+  %194 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %191, i32 noundef %193)
   %.not31.us.i197.i = icmp eq i32 %194, 0
   br i1 %.not31.us.i197.i, label %.lr.ph306.i, label %195
 
@@ -2017,7 +2017,7 @@ cuddZddSiftingUp.exit179.i:                       ; preds = %176, %cuddZddSiftin
   %206 = load i32, ptr %.139.i190.i, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.139.i190.i, i64 4
   %208 = load i32, ptr %207, align 4
-  %209 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %206, i32 noundef %208)
+  %209 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %206, i32 noundef %208)
   %.not31.i191.i = icmp eq i32 %209, 0
   br i1 %.not31.i191.i, label %.lr.ph306.i, label %210
 
@@ -2149,7 +2149,7 @@ cuddZddSiftingUp.exit215.i:                       ; preds = %221
   %256 = load i32, ptr %.139.us.i246.i, align 8
   %257 = getelementptr inbounds nuw i8, ptr %.139.us.i246.i, i64 4
   %258 = load i32, ptr %257, align 4
-  %259 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %256, i32 noundef %258)
+  %259 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %256, i32 noundef %258)
   %.not31.us.i248.i = icmp eq i32 %259, 0
   br i1 %.not31.us.i248.i, label %.lr.ph306.i, label %260
 
@@ -2184,7 +2184,7 @@ cuddZddSiftingDown.exit230.i:                     ; preds = %241, %cuddZddSiftin
   %271 = load i32, ptr %.139.i241.i, align 8
   %272 = getelementptr inbounds nuw i8, ptr %.139.i241.i, i64 4
   %273 = load i32, ptr %272, align 4
-  %274 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %271, i32 noundef %273)
+  %274 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %271, i32 noundef %273)
   %.not31.i242.i = icmp eq i32 %274, 0
   br i1 %.not31.i242.i, label %.lr.ph306.i, label %275
 
@@ -2316,18 +2316,18 @@ cuddZddSiftingAux.exit.thread:                    ; preds = %54, %101, %150, %21
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @cuddCacheFlush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

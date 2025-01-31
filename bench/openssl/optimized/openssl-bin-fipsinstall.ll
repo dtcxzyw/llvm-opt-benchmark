@@ -683,12 +683,12 @@ declare void @opt_help(ptr noundef) local_unnamed_addr #1
 declare ptr @opt_arg() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 
@@ -703,7 +703,7 @@ declare i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef, ptr noundef) loc
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr nocapture readnone %arg) #0 {
+define internal range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.108) #5
   %cmp = icmp eq ptr %call, null
@@ -769,7 +769,7 @@ lor.lhs.false25:                                  ; preds = %if.else
 
 if.then28:                                        ; preds = %lor.lhs.false25, %if.else
   %7 = load ptr, ptr @bio_err, align 8
-  %call29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.115, ptr noundef %1) #5
+  %call29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.115, ptr noundef nonnull %1) #5
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then21, %if.then28, %lor.lhs.false25, %if.end16
@@ -804,7 +804,7 @@ land.lhs.true46:                                  ; preds = %if.end44
 
 if.end50:                                         ; preds = %land.lhs.true46, %if.end44
   %10 = load ptr, ptr @bio_err, align 8
-  %call51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.117, ptr noundef %1) #5
+  %call51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.117, ptr noundef nonnull %1) #5
   br label %err
 
 err:                                              ; preds = %land.lhs.true40, %land.lhs.true46, %land.lhs.true, %if.end32, %if.end8, %lor.lhs.false12, %if.end, %lor.lhs.false4, %entry, %lor.lhs.false, %if.end50
@@ -878,7 +878,7 @@ err:                                              ; preds = %while.body, %lor.lh
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef nonnull readonly %module_mac, i64 noundef %module_mac_len, ptr nocapture noundef nonnull readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr noundef nonnull readonly captures(none) %module_mac, i64 noundef %module_mac_len, ptr noundef nonnull readonly captures(none) %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = tail call ptr @app_load_config_internal(ptr noundef %infile, i32 noundef 0) #5
@@ -1258,7 +1258,7 @@ declare ptr @app_load_config_internal(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @NCONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1308,7 +1308,7 @@ declare void @CONF_modules_unload(i32 noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

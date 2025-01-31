@@ -401,7 +401,7 @@ qobject_unref_impl.exit58:                        ; preds = %if.then79, %land.lh
 
 if.end90:                                         ; preds = %lor.lhs.false76
   %9 = load ptr, ptr @stderr, align 8
-  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.16, ptr noundef %call58) #15
+  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.16, ptr noundef nonnull %call58) #15
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 134, ptr noundef nonnull @__func__.migrate, ptr noundef null) #13
   unreachable
 
@@ -427,12 +427,12 @@ declare void @migrate_allocator(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @qdict_get_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_usleep(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mkqcow2(ptr noundef %file, i32 noundef %size_mb) local_unnamed_addr #0 {
@@ -453,7 +453,7 @@ declare zeroext i1 @mkimg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @prepare_blkdebug_script(ptr nocapture noundef readonly %debug_fn, ptr noundef %event) local_unnamed_addr #0 {
+define dso_local void @prepare_blkdebug_script(ptr noundef readonly captures(none) %debug_fn, ptr noundef %event) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen64(ptr noundef %debug_fn, ptr noundef nonnull @.str.19)
   %0 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 15, i64 1, ptr %call)
@@ -488,19 +488,19 @@ do.end17:                                         ; preds = %do.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @generate_pattern(ptr nocapture noundef writeonly %buffer, i64 noundef %len, i64 noundef %cycle_len) local_unnamed_addr #0 {
+define dso_local void @generate_pattern(ptr noundef writeonly captures(none) %buffer, i64 noundef %len, i64 noundef %cycle_len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @rand() #12
   %cmp14.not = icmp eq i64 %len, 0
@@ -581,7 +581,7 @@ declare void @llvm.va_start.p0(ptr) #9
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

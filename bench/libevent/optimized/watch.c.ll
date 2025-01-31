@@ -102,7 +102,7 @@ evwatch_new.exit:                                 ; preds = %entry, %do.body12.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @evwatch_base(ptr nocapture noundef readonly %watcher) local_unnamed_addr #1 {
+define dso_local ptr @evwatch_base(ptr noundef readonly captures(none) %watcher) local_unnamed_addr #1 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %watcher, i64 16
   %0 = load ptr, ptr %base, align 8
@@ -169,7 +169,7 @@ do.end32:                                         ; preds = %if.then26, %if.end1
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @evwatch_prepare_get_timeout(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %timeout) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @evwatch_prepare_get_timeout(ptr noundef readonly captures(none) %info, ptr noundef writeonly captures(none) %timeout) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -185,7 +185,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
 

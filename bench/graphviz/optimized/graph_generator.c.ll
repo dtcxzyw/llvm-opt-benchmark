@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makePath(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makePath(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %0, 1
   br i1 %3, label %4, label %.preheader
 
@@ -42,7 +42,7 @@ define dso_local void @makePath(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeComplete(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeComplete(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %0, 1
   br i1 %3, label %5, label %.preheader
 
@@ -75,7 +75,7 @@ define dso_local void @makeComplete(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeCircle(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeCircle(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 3
   br i1 %3, label %4, label %.preheader
 
@@ -107,10 +107,10 @@ makePath.exit:                                    ; preds = %makePath.exit.sink.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeStar(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeStar(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 3
   br i1 %3, label %4, label %.preheader
 
@@ -142,7 +142,7 @@ makePath.exit:                                    ; preds = %.preheader, %makePa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeWheel(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeWheel(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 4
   br i1 %3, label %4, label %.preheader.i14
 
@@ -199,7 +199,7 @@ makeComplete.exit:                                ; preds = %.loopexit.i, %9, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeCompleteB(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeCompleteB(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not14 = icmp slt i32 %0, 1
   %.not1112 = icmp slt i32 %1, 1
   %or.cond = or i1 %.not14, %.not1112
@@ -227,7 +227,7 @@ define dso_local void @makeCompleteB(i32 noundef %0, i32 noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not44 = icmp slt i32 %0, 1
   br i1 %.not44, label %.preheader41, label %.preheader42.lr.ph
 
@@ -313,7 +313,7 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeTwistedTorus(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @makeTwistedTorus(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %0, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -357,7 +357,7 @@ define dso_local void @makeTwistedTorus(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not39 = icmp slt i32 %0, 1
   br i1 %.not39, label %.preheader36, label %.preheader37.lr.ph
 
@@ -429,7 +429,7 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge132
 
@@ -568,7 +568,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeTree(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeTree(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   switch i32 %0, label %.lr.ph.preheader.i [
     i32 0, label %ipow.exit
     i32 1, label %4
@@ -622,7 +622,7 @@ ipow.exit:                                        ; preds = %.lr.ph.i, %3, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeBinaryTree(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeBinaryTree(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not.not10.not = icmp eq i32 %0, 0
   br i1 %.not.not10.not, label %._crit_edge, label %.lr.ph
 
@@ -642,7 +642,7 @@ define dso_local void @makeBinaryTree(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeSierpinski(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %0, -1
   %4 = sitofp i32 %3 to double
   %5 = tail call double @pow(double noundef 3.000000e+00, double noundef %4) #14
@@ -844,10 +844,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeTetrix(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %0, -1
   %4 = sitofp i32 %3 to double
   %mul = fmul double %4, 2.000000e+00
@@ -1044,7 +1044,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeHypercube(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeHypercube(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp ne i32 %0, 31
   %3 = icmp sgt i32 %0, 0
   %or.cond = and i1 %.not, %3
@@ -1086,7 +1086,7 @@ define dso_local void @makeHypercube(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeTriMesh(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %0, 1
   br i1 %3, label %4, label %5
 
@@ -1150,7 +1150,7 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not39.i = icmp slt i32 %0, 1
   br i1 %.not39.i, label %makeCylinder.exit, label %.preheader37.lr.ph.i
 
@@ -1247,7 +1247,7 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @time(ptr noundef null) #14
   %5 = trunc i64 %4 to i32
   tail call void @srand(i32 noundef %5) #14
@@ -1393,7 +1393,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #6
 declare i32 @rand() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %5, label %11
 
@@ -1617,10 +1617,10 @@ mkTree.exit:                                      ; preds = %genCnt.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %4, align 8
@@ -1957,7 +1957,7 @@ writeTree.exit:                                   ; preds = %169, %genTree.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @freeTreeGen(ptr nocapture noundef initializes((24, 40)) %0) local_unnamed_addr #8 {
+define dso_local void @freeTreeGen(ptr noundef captures(none) initializes((24, 40)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
@@ -1990,7 +1990,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @int_stack_push(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2051,7 +2051,7 @@ int_stack_append.exit:                            ; preds = %._crit_edge.i.i, %1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13

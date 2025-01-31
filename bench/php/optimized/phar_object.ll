@@ -568,7 +568,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.411 = private unnamed_addr constant [6 x i8] c"perms\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_running(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_running(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -693,7 +693,7 @@ declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_mount(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_mount(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -755,7 +755,7 @@ define hidden void @zim_Phar_mount(ptr nocapture noundef readonly %0, ptr nocapt
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @phar_ce_PharException, align 8
-  %38 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %37, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %35) #19
+  %38 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %37, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %35) #19
   %39 = load ptr, ptr %3, align 8
   call void @_efree(ptr noundef %39) #19
   br label %110
@@ -921,7 +921,7 @@ declare i32 @phar_copy_on_write(ptr noundef) local_unnamed_addr #1
 declare i32 @phar_mount_entry(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_webPhar(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_webPhar(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info, align 8
   %5 = alloca %struct._zend_fcall_info_cache, align 8
@@ -1174,7 +1174,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not238, label %137, label %138
 
 137:                                              ; preds = %134
-  call void @_efree(ptr noundef %135) #19
+  call void @_efree(ptr noundef nonnull %135) #19
   br label %338
 
 138:                                              ; preds = %134
@@ -1186,7 +1186,7 @@ sub_1:                                            ; preds = %sub_0
 140:                                              ; preds = %138
   store ptr %139, ptr %16, align 8
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %139) #21
-  %142 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %14, i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %135, ptr noundef nonnull %139) #19
+  %142 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %14, i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %135, ptr noundef nonnull %139) #19
   br label %145
 
 143:                                              ; preds = %138
@@ -1207,7 +1207,7 @@ sub_1:                                            ; preds = %sub_0
   %152 = add i64 %149, %148
   %153 = sub i64 %151, %152
   %154 = add i64 %153, %147
-  %155 = call noalias ptr @_estrndup(ptr noundef %135, i64 noundef %154) #19
+  %155 = call noalias ptr @_estrndup(ptr noundef nonnull %135, i64 noundef %154) #19
   br label %173
 
 .critedge.thread:                                 ; preds = %sub_1, %sub_0, %61, %70, %.tail, %79
@@ -1604,25 +1604,25 @@ thread-pre-split:                                 ; preds = %173, %201
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @phar_request_initialize() local_unnamed_addr #1
 
 declare i32 @phar_open_executed_filename(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1638,7 +1638,7 @@ declare noalias ptr @_emalloc_160() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @sapi_getenv(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1667,7 +1667,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1
   %7 = load i64, ptr %2, align 8
   %8 = add i64 %7, -1
@@ -1798,7 +1798,7 @@ declare i32 @sapi_header_op(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sapi_send_headers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -2354,7 +2354,7 @@ phar_mung_server_vars.exit:                       ; preds = %66, %109, %192, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_mungServer(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_mungServer(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2470,7 +2470,7 @@ define hidden void @zim_Phar_mungServer(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_interceptFileFuncs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_interceptFileFuncs(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2496,7 +2496,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @phar_intercept_functions() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_createDefaultStub(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_createDefaultStub(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2549,7 +2549,7 @@ define hidden void @zim_Phar_createDefaultStub(ptr nocapture noundef readonly %0
 declare ptr @phar_create_default_stub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_mapPhar(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_mapPhar(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2594,7 +2594,7 @@ define hidden void @zim_Phar_mapPhar(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_loadPhar(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_loadPhar(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2643,7 +2643,7 @@ define hidden void @zim_Phar_loadPhar(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @phar_open_from_filename(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_apiVersion(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_apiVersion(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2679,7 +2679,7 @@ define hidden void @zim_Phar_apiVersion(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_canCompress(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_canCompress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2752,7 +2752,7 @@ define hidden void @zim_Phar_canCompress(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_canWrite(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_canWrite(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2778,7 +2778,7 @@ define hidden void @zim_Phar_canWrite(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_isValidPharFilename(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_isValidPharFilename(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2817,7 +2817,7 @@ define hidden void @zim_Phar_isValidPharFilename(ptr nocapture noundef readonly 
 declare i32 @phar_detect_phar_fname_ext(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3150,7 +3150,7 @@ declare i32 @phar_open_or_create_filename(ptr noundef, i64 noundef, ptr noundef,
 declare void @zend_call_known_instance_method_with_2_params(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getSupportedSignatures(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_getSupportedSignatures(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3191,7 +3191,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getSupportedCompression(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_getSupportedCompression(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3232,7 +3232,7 @@ define hidden void @zim_Phar_getSupportedCompression(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_unlinkArchive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_unlinkArchive(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3407,10 +3407,10 @@ define hidden void @zim_Phar_unlinkArchive(ptr nocapture noundef readonly %0, pt
 declare i32 @phar_archive_delref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar___destruct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar___destruct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3454,7 +3454,7 @@ define hidden void @zim_Phar___destruct(ptr nocapture noundef readonly %0, ptr n
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_buildFromDirectory(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_buildFromDirectory(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -3771,7 +3771,7 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @spl_iterator_apply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4471,7 +4471,7 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %372 = load ptr, ptr %371, align 8
   %373 = load ptr, ptr %6, align 8
   %374 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0243) #21
-  call void @add_assoc_str_ex(ptr noundef %372, ptr noundef %.0243, i64 noundef %374, ptr noundef %373) #19
+  call void @add_assoc_str_ex(ptr noundef %372, ptr noundef nonnull %.0243, i64 noundef %374, ptr noundef %373) #19
   %.not303 = icmp eq ptr %.0247, null
   br i1 %.not303, label %376, label %375
 
@@ -4506,7 +4506,7 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
 declare i32 @phar_flush(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_buildFromIterator(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_buildFromIterator(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4653,7 +4653,7 @@ define hidden void @zim_Phar_buildFromIterator(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4702,7 +4702,7 @@ define hidden void @zim_Phar_count(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_isFileFormat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_isFileFormat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4785,7 +4785,7 @@ define hidden void @zim_Phar_isFileFormat(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_convertToExecutable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -5430,7 +5430,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 1
   %.0224.i = select i1 %.not243.i, ptr %224, ptr %228
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0224.i) #21
-  %230 = call noalias ptr @_estrndup(ptr noundef %.0224.i, i64 noundef %229) #19
+  %230 = call noalias ptr @_estrndup(ptr noundef nonnull %.0224.i, i64 noundef %229) #19
   br label %231
 
 231:                                              ; preds = %240, %219
@@ -5446,7 +5446,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
 236:                                              ; preds = %231
   %237 = sub nuw i64 %229, %234
   %238 = getelementptr inbounds i8, ptr %230, i64 %237
-  %bcmp.i = call i32 @bcmp(ptr %233, ptr %238, i64 %234)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %233, ptr %238, i64 %234)
   %239 = icmp eq i32 %bcmp.i, 0
   br i1 %239, label %.sink.split272.i, label %240
 
@@ -5482,7 +5482,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   call void @_efree(ptr noundef %230) #19
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %223) #21
   %252 = sub i64 %251, %229
-  %253 = call noalias ptr @_estrndup(ptr noundef %223, i64 noundef %252) #19
+  %253 = call noalias ptr @_estrndup(ptr noundef nonnull %223, i64 noundef %252) #19
   %254 = load ptr, ptr %8, align 8
   %255 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %9, i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %253, ptr noundef %254) #19
   %256 = trunc i64 %255 to i32
@@ -5514,7 +5514,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   br i1 %.not248.i, label %277, label %273
 
 273:                                              ; preds = %268
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   %274 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %275 = load ptr, ptr %20, align 8
   %276 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %274, i64 noundef 0, ptr noundef nonnull @.str.259, ptr noundef %275) #19
@@ -5588,7 +5588,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   br label %.thread265.i
 
 316:                                              ; preds = %292, %288, %282
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   %317 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %318 = load ptr, ptr %20, align 8
   %319 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %317, i64 noundef 0, ptr noundef nonnull @.str.260, ptr noundef %318) #19
@@ -5607,7 +5607,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   %324 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %325 = load ptr, ptr %9, align 8
   %326 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %324, i64 noundef 0, ptr noundef nonnull @.str.261, ptr noundef %325) #19
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   br label %phar_rename_archive.exit.thread
 
 327:                                              ; preds = %.thread265.i
@@ -5628,7 +5628,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   br i1 %.not256.i, label %343, label %338
 
 338:                                              ; preds = %336
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   %339 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %340 = load ptr, ptr %.0225.i, align 8
   %341 = load ptr, ptr %7, align 8
@@ -5660,7 +5660,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
 354:                                              ; preds = %349
   %355 = load ptr, ptr %9, align 8
   %356 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %355) #21
-  %357 = call noalias ptr @_estrndup(ptr noundef %355, i64 noundef %356) #19
+  %357 = call noalias ptr @_estrndup(ptr noundef nonnull %355, i64 noundef %356) #19
   store ptr %357, ptr %347, align 8
   %358 = load ptr, ptr %9, align 8
   %359 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %358) #21
@@ -5675,7 +5675,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   store ptr %.0225.i, ptr %5, align 8
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 13, ptr %366, align 8
-  %367 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %358, i64 noundef %365, ptr noundef nonnull %5) #19
+  %367 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef nonnull %358, i64 noundef %365, ptr noundef nonnull %5) #19
   %368 = load ptr, ptr %367, align 8
   %369 = icmp ne ptr %368, null
   call void @llvm.assume(i1 %369)
@@ -5687,7 +5687,7 @@ phar_set_inode.exit:                              ; preds = %155, %165
   br i1 %.not259.i, label %377, label %372
 
 372:                                              ; preds = %370
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   %373 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %374 = load ptr, ptr %.0225.i, align 8
   %375 = load ptr, ptr %7, align 8
@@ -5739,11 +5739,11 @@ phar_set_inode.exit:                              ; preds = %155, %165
   %403 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %401, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %402) #19
   %404 = load ptr, ptr %12, align 8
   call void @_efree(ptr noundef %404) #19
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   br label %phar_rename_archive.exit.thread
 
 405:                                              ; preds = %393
-  call void @_efree(ptr noundef %223) #19
+  call void @_efree(ptr noundef nonnull %223) #19
   %406 = load i16, ptr %328, align 4
   %407 = and i16 %406, 128
   %.not261.i = icmp eq i16 %407, 0
@@ -5854,7 +5854,7 @@ phar_rename_archive.exit.thread:                  ; preds = %273, %316, %323, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_convertToData(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -6077,7 +6077,7 @@ define hidden void @zim_Phar_convertToData(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_isCompressed(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_isCompressed(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6145,7 +6145,7 @@ define hidden void @zim_Phar_isCompressed(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_isWritable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_isWritable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._php_stream_statbuf, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -6231,7 +6231,7 @@ define hidden void @zim_Phar_isWritable(ptr nocapture noundef readonly %0, ptr n
 declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_delete(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_delete(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -6372,7 +6372,7 @@ define hidden void @zim_Phar_delete(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getAlias(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_getAlias(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6445,7 +6445,7 @@ define hidden void @zim_Phar_getAlias(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getPath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_getPath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6508,7 +6508,7 @@ define hidden void @zim_Phar_getPath(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_setAlias(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_setAlias(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -6863,7 +6863,7 @@ phar_validate_alias.exit.thread:                  ; preds = %.thread, %87, %89, 
 declare i32 @phar_free_alias(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getVersion(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_getVersion(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6924,7 +6924,7 @@ define hidden void @zim_Phar_getVersion(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_startBuffering(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_startBuffering(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -6970,7 +6970,7 @@ define hidden void @zim_Phar_startBuffering(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_isBuffering(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_isBuffering(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7019,7 +7019,7 @@ define hidden void @zim_Phar_isBuffering(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_stopBuffering(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_stopBuffering(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -7094,7 +7094,7 @@ define hidden void @zim_Phar_stopBuffering(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_setStub(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_setStub(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7341,7 +7341,7 @@ declare i32 @php_file_le_stream() local_unnamed_addr #1
 declare i32 @php_file_le_pstream() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_setDefaultStub(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_setDefaultStub(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7571,7 +7571,7 @@ define hidden void @zim_Phar_setDefaultStub(ptr nocapture noundef readonly %0, p
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_setSignatureAlgorithm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_setSignatureAlgorithm(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7708,7 +7708,7 @@ define hidden void @zim_Phar_setSignatureAlgorithm(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getSignature(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_getSignature(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7818,7 +7818,7 @@ define hidden void @zim_Phar_getSignature(ptr nocapture noundef readonly %0, ptr
 declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getModified(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_getModified(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7867,7 +7867,7 @@ define hidden void @zim_Phar_getModified(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_compress(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -8002,7 +8002,7 @@ define hidden void @zim_Phar_compress(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_decompress(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_decompress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
@@ -8096,7 +8096,7 @@ define hidden void @zim_Phar_decompress(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_compressFiles(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -8283,7 +8283,7 @@ define hidden void @zim_Phar_compressFiles(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_decompressFiles(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_decompressFiles(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -8426,7 +8426,7 @@ define hidden void @zim_Phar_decompressFiles(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8506,7 +8506,7 @@ define hidden void @zim_Phar_copy(ptr nocapture noundef readonly %0, ptr nocaptu
   %53 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load ptr, ptr %28, align 8
-  %56 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %53, i64 noundef 0, ptr noundef nonnull @.str.129, ptr noundef %51, ptr noundef %54, ptr noundef %55) #19
+  %56 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %53, i64 noundef 0, ptr noundef nonnull @.str.129, ptr noundef nonnull %51, ptr noundef %54, ptr noundef %55) #19
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
@@ -8531,7 +8531,7 @@ define hidden void @zim_Phar_copy(ptr nocapture noundef readonly %0, ptr nocaptu
 64:                                               ; preds = %62
   %65 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %66 = load ptr, ptr %28, align 8
-  %67 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef %.pre121, ptr noundef %63, ptr noundef %66) #19
+  %67 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef %.pre121, ptr noundef nonnull %63, ptr noundef %66) #19
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %69 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %69)
@@ -8769,7 +8769,7 @@ declare void @phar_metadata_tracker_clone(ptr noundef) local_unnamed_addr #1
 declare i32 @phar_copy_entry_fp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_offsetExists(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -8878,7 +8878,7 @@ define hidden void @zim_Phar_offsetExists(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_offsetGet(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Phar_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9035,7 +9035,7 @@ define hidden void @zim_Phar_offsetGet(ptr nocapture noundef readonly %0, ptr no
 declare ptr @phar_get_entry_info_dir(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_offsetSet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_offsetSet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9171,7 +9171,7 @@ define hidden void @zim_Phar_offsetSet(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_add_file(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @phar_add_file(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct._php_stream_statbuf, align 8
@@ -9347,7 +9347,7 @@ define internal fastcc void @phar_add_file(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_offsetUnset(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9493,7 +9493,7 @@ define hidden void @zim_Phar_offsetUnset(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_addEmptyDir(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_addEmptyDir(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9616,7 +9616,7 @@ phar_mkdir.exit:                                  ; preds = %46, %49, %57, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_addFile(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_addFile(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9664,7 +9664,7 @@ define hidden void @zim_Phar_addFile(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not11, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = call i32 @php_check_open_basedir(ptr noundef %31) #19
+  %34 = call i32 @php_check_open_basedir(ptr noundef nonnull %31) #19
   %.not12 = icmp eq i32 %34, 0
   %.pre = load ptr, ptr %3, align 8
   br i1 %.not12, label %40, label %35
@@ -9733,7 +9733,7 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #1
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_addFromString(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_addFromString(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9784,7 +9784,7 @@ define hidden void @zim_Phar_addFromString(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_getStub(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -10062,7 +10062,7 @@ declare i32 @_php_stream_filter_flush(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @php_stream_filter_remove(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_hasMetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_hasMetadata(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -10202,7 +10202,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_setMetadata(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_Phar_setMetadata(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -10440,7 +10440,7 @@ define internal fastcc range(i32 -1, 1) i32 @serialize_metadata_or_throw(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_delMetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_delMetadata(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -10548,7 +10548,7 @@ define hidden void @zim_Phar_delMetadata(ptr nocapture noundef readonly %0, ptr 
 declare void @phar_metadata_tracker_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Phar_extractTo(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_Phar_extractTo(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._php_stream_statbuf, align 8
   %5 = alloca ptr, align 8
@@ -11047,7 +11047,7 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PharFileInfo___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -11102,7 +11102,7 @@ define hidden void @zim_PharFileInfo___construct(ptr nocapture noundef readonly 
   br i1 %.not77, label %38, label %41
 
 38:                                               ; preds = %37
-  %39 = call i32 @phar_split_fname(ptr noundef %.pre80, i64 noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 0) #19
+  %39 = call i32 @phar_split_fname(ptr noundef nonnull %.pre80, i64 noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 0) #19
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %._crit_edge, label %47
 
@@ -11219,7 +11219,7 @@ define hidden void @zim_PharFileInfo___construct(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo___destruct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PharFileInfo___destruct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11277,7 +11277,7 @@ define hidden void @zim_PharFileInfo___destruct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_getCompressedSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_getCompressedSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11325,7 +11325,7 @@ define hidden void @zim_PharFileInfo_getCompressedSize(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_isCompressed(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
@@ -11428,7 +11428,7 @@ define hidden void @zim_PharFileInfo_isCompressed(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_getCRC32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_getCRC32(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11504,7 +11504,7 @@ define hidden void @zim_PharFileInfo_getCRC32(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_isCRCChecked(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_isCRCChecked(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11553,7 +11553,7 @@ define hidden void @zim_PharFileInfo_isCRCChecked(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_getPharFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_getPharFlags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11602,7 +11602,7 @@ define hidden void @zim_PharFileInfo_getPharFlags(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_chmod(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PharFileInfo_chmod(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -11847,7 +11847,7 @@ define hidden void @zim_PharFileInfo_chmod(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_hasMetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_hasMetadata(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11979,7 +11979,7 @@ define hidden void @zim_PharFileInfo_getMetadata(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_setMetadata(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PharFileInfo_setMetadata(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -12148,7 +12148,7 @@ define hidden void @zim_PharFileInfo_setMetadata(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_delMetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_delMetadata(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -12326,7 +12326,7 @@ define hidden void @zim_PharFileInfo_delMetadata(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_getContent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_getContent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -12473,7 +12473,7 @@ declare i32 @phar_seek_efp(ptr noundef, i64 noundef, i32 noundef, i64 noundef, i
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_compress(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_compress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -12821,7 +12821,7 @@ define hidden void @zim_PharFileInfo_compress(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PharFileInfo_decompress(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PharFileInfo_decompress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -13893,7 +13893,7 @@ declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @phar_spl_foreign_dtor(ptr nocapture noundef %0) #0 {
+define internal void @phar_spl_foreign_dtor(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 324
   %4 = load i16, ptr %3, align 4
@@ -13911,7 +13911,7 @@ define internal void @phar_spl_foreign_dtor(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @phar_spl_foreign_clone(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #10 {
+define internal void @phar_spl_foreign_clone(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 324
   %5 = load i16, ptr %4, align 4
@@ -13972,7 +13972,7 @@ declare void @phar_destroy_phar_data(ptr noundef) local_unnamed_addr #1
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -13983,7 +13983,7 @@ declare void @add_assoc_str_ex(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @phar_test_compression(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 {
+define internal noundef i32 @phar_test_compression(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #14 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 154
   %5 = load i16, ptr %4, align 2
@@ -14028,7 +14028,7 @@ define internal noundef i32 @phar_test_compression(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @phar_set_compression(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal noundef i32 @phar_set_compression(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 154
   %5 = load i16, ptr %4, align 2
@@ -14455,7 +14455,7 @@ declare i32 @virtual_file_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef)
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14466,13 +14466,13 @@ declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18

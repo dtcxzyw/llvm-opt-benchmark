@@ -17,7 +17,7 @@ define dso_local noundef range(i32 1, 3) i32 @acpi_ps_get_opcode_size(i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext range(i16 0, 23552) i16 @acpi_ps_peek_opcode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext range(i16 0, 23552) i16 @acpi_ps_peek_opcode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -226,7 +226,7 @@ define dso_local range(i32 0, 5) i32 @acpi_ps_complete_this_op(ptr noundef %0, p
 
 .loopexit:                                        ; preds = %111, %.thread, %94, %83, %18, %15
   %113 = phi i32 [ %73, %83 ], [ %73, %94 ], [ 0, %18 ], [ 0, %15 ], [ %73, %.thread ], [ %73, %111 ]
-  tail call void @acpi_ps_delete_parse_tree(ptr noundef %1) #4
+  tail call void @acpi_ps_delete_parse_tree(ptr noundef nonnull %1) #4
   br label %114
 
 114:                                              ; preds = %.loopexit, %9, %4, %2

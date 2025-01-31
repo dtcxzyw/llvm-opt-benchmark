@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr nocapture noundef writeonly %algorithm) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @grpc_compression_algorithm_parse(ptr noundef byval(%struct.grpc_slice) align 8 %name, ptr noundef writeonly captures(none) %algorithm) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %name, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -114,7 +114,7 @@ declare i8 @_ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej(i32 noundef) lo
 declare noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorithmForLevelE22grpc_compression_level(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_compression_options_init(ptr nocapture noundef writeonly initializes((0, 20)) %opts) local_unnamed_addr #5 {
+define void @grpc_compression_options_init(ptr noundef writeonly captures(none) initializes((0, 20)) %opts) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %opts, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
@@ -123,10 +123,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @grpc_compression_options_enable_algorithm(ptr nocapture noundef %opts, i32 noundef %algorithm) local_unnamed_addr #7 {
+define void @grpc_compression_options_enable_algorithm(ptr noundef captures(none) %opts, i32 noundef %algorithm) local_unnamed_addr #7 {
 entry:
   %shl.i = shl nuw i32 1, %algorithm
   %0 = load i32, ptr %opts, align 4
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @grpc_compression_options_disable_algorithm(ptr nocapture noundef %opts, i32 noundef %algorithm) local_unnamed_addr #7 {
+define void @grpc_compression_options_disable_algorithm(ptr noundef captures(none) %opts, i32 noundef %algorithm) local_unnamed_addr #7 {
 entry:
   %shl.i = shl nuw i32 1, %algorithm
   %not.i = xor i32 %shl.i, -1
@@ -147,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @grpc_compression_options_is_algorithm_enabled(ptr nocapture noundef readonly %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @grpc_compression_options_is_algorithm_enabled(ptr noundef readonly captures(none) %opts, i32 noundef %algorithm) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::CompressionAlgorithmSet", align 1
   %0 = load i32, ptr %opts, align 4

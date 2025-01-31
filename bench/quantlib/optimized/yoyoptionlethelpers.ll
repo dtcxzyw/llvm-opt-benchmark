@@ -286,7 +286,7 @@ $_ZTIN8QuantLib7VisitorINS_15BootstrapHelperINS_29YoYOptionletVolatilitySurfaceE
 @_ZN8QuantLib18YoYOptionletHelperC1ERKNS_6HandleINS_5QuoteEEEdNS_20YoYInflationCapFloor4TypeERNS_6PeriodENS_10DayCounterENS_8CalendarEjN5boost10shared_ptrINS_17YoYInflationIndexEEEdmNSD_INS_26YoYInflationCapFloorEngineEEE = unnamed_addr alias void (ptr, ptr, double, i32, ptr, ptr, ptr, i32, ptr, double, i64, ptr), ptr @_ZN8QuantLib18YoYOptionletHelperC2ERKNS_6HandleINS_5QuoteEEEdNS_20YoYInflationCapFloor4TypeERNS_6PeriodENS_10DayCounterENS_8CalendarEjN5boost10shared_ptrINS_17YoYInflationIndexEEEdmNSD_INS_26YoYInflationCapFloorEngineEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -371,7 +371,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -384,7 +384,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #7
 
@@ -511,7 +511,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18YoYOptionletHelperC2ERKNS_6HandleINS_5QuoteEEEdNS_20YoYInflationCapFloor4TypeERNS_6PeriodENS_10DayCounterENS_8CalendarEjN5boost10shared_ptrINS_17YoYInflationIndexEEEdmNSD_INS_26YoYInflationCapFloorEngineEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %price, double noundef %notional, i32 noundef %capFloorType, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %lag, ptr nocapture noundef %yoyDayCounter, ptr nocapture noundef %paymentCalendar, i32 noundef %fixingDays, ptr nocapture noundef %index, double noundef %strike, i64 noundef %n, ptr nocapture noundef %pricer) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18YoYOptionletHelperC2ERKNS_6HandleINS_5QuoteEEEdNS_20YoYInflationCapFloor4TypeERNS_6PeriodENS_10DayCounterENS_8CalendarEjN5boost10shared_ptrINS_17YoYInflationIndexEEEdmNSD_INS_26YoYInflationCapFloorEngineEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %price, double noundef %notional, i32 noundef %capFloorType, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %lag, ptr noundef captures(none) %yoyDayCounter, ptr noundef captures(none) %paymentCalendar, i32 noundef %fixingDays, ptr noundef captures(none) %index, double noundef %strike, i64 noundef %n, ptr noundef captures(none) %pricer) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.32", align 8
@@ -2053,7 +2053,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib18YoYOptionletHelper12impliedQuoteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib18YoYOptionletHelper12impliedQuoteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) unnamed_addr #8 align 2 {
 entry:
   %yoyCapFloor_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %yoyCapFloor_, align 8, !tbaa !73
@@ -3902,7 +3902,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -3981,7 +3981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib6HandleINS_29YoYOptionletVolatilitySurfaceEE4LinkC2EON5boost10shared_ptrIS1_EEb(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %h, i1 noundef zeroext %registerAsObserver) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4829,7 +4829,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

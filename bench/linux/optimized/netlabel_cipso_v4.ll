@@ -34,7 +34,7 @@ define dso_local i32 @netlbl_cipsov4_genl_init() local_unnamed_addr #0 section "
 declare dso_local i32 @genl_register_family(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -947,7 +947,7 @@ netlbl_cipsov4_add_common.exit64:                 ; preds = %552, %512, %568
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_cipsov4_remove(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_cipsov4_remove(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.netlbl_domhsh_walk_arg, align 8
   %4 = alloca %struct.netlbl_audit, align 4
   %5 = alloca i32, align 4
@@ -1014,7 +1014,7 @@ define internal i32 @netlbl_cipsov4_remove(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_cipsov4_list(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1394,13 +1394,13 @@ define internal i32 @netlbl_cipsov4_listall(ptr noundef %0, ptr noundef %1) #2 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @security_current_getsecid_subj(ptr noundef) local_unnamed_addr #1
@@ -1409,7 +1409,7 @@ declare dso_local void @security_current_getsecid_subj(ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -1528,7 +1528,7 @@ declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare dso_local i32 @netlbl_domhsh_walk(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_cipsov4_remove_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_cipsov4_remove_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
@@ -1590,7 +1590,7 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @cipso_v4_doi_walk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlbl_cipsov4_listall_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @netlbl_cipsov4_listall_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

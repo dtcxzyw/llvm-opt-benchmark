@@ -80,7 +80,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ZPageCacheFlushClosureC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN22ZPageCacheFlushClosureC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZPageCacheFlushClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -155,7 +155,7 @@ _ZN6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEC2Ev.exit: ; preds = %.lr.ph.i, %_ZN1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ZPageCache16alloc_small_pageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache16alloc_small_pageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i32 @_ZN5ZNUMA2idEv() #9
   %3 = tail call noundef i32 @_ZN5ZNUMA5countEv() #9
   %4 = load i64, ptr %0, align 8
@@ -258,7 +258,7 @@ declare noundef i32 @_ZN5ZNUMA5countEv() local_unnamed_addr #0
 declare void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ZPageCache17alloc_medium_pageEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache17alloc_medium_pageEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -351,7 +351,7 @@ _ZN17ZListIteratorImplI5ZPageLb1EE4nextEPPS0_.exit: ; preds = %select.unfold, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN10ZPageCache27alloc_oversized_medium_pageEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache27alloc_oversized_medium_pageEm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr @ZPageSizeMedium, align 8
   %.not = icmp ugt i64 %1, %3
   br i1 %.not, label %_ZN5ZListI5ZPageE12remove_firstEv.exit, label %4
@@ -914,7 +914,7 @@ _ZN5ZPage7numa_idEv.exit:                         ; preds = %4, %8
 declare noundef ptr @_ZN5ZPage6retypeE9ZPageType(ptr noundef nonnull align 8 dereferenceable(192), i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10ZPageCache16flush_list_innerEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN10ZPageCache16flush_list_innerEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -969,7 +969,7 @@ define hidden noundef zeroext i1 @_ZN10ZPageCache16flush_list_innerEP22ZPageCach
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache10flush_listEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache10flush_listEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %5, align 8
@@ -1034,7 +1034,7 @@ _ZN10ZPageCache16flush_list_innerEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef i32 @_ZN5ZNUMA5countEv() #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1115,7 +1115,7 @@ _ZN10ZPageCache16flush_list_innerEP22ZPageCacheFlushClosureP5ZListI5ZPageES5_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache5flushEP22ZPageCacheFlushClosureP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache5flushEP22ZPageCacheFlushClosureP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1420,7 +1420,7 @@ _ZN10ZPageCache9free_pageEP5ZPage.exit:           ; preds = %_ZN5ZPage7numa_idEv
 declare noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 dereferenceable(192), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.ZPageCacheFlushForAllocationClosure, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8
@@ -1432,7 +1432,7 @@ define hidden void @_ZN10ZPageCache20flush_for_allocationEmP5ZListI5ZPageE(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEPm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEPm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.ZPageCacheFlushForUncommitClosure, align 8
   %6 = tail call noundef double @_ZN2os11elapsedTimeEv() #9
   %7 = fptoui double %6 to i64
@@ -1479,7 +1479,7 @@ define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEP
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache15set_last_commitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache15set_last_commitEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((56, 64)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #9
   %3 = tail call double @llvm.ceil.f64(double %2)
   %4 = fptoui double %3 to i64
@@ -1664,7 +1664,7 @@ define internal void @_GLOBAL__sub_I_zPageCache.cpp() #6 section ".text.startup"
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

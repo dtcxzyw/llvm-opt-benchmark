@@ -51,7 +51,7 @@ define hidden void @_ZN26ShenandoahSATBMarkQueueSetC2EPN10BufferNode9AllocatorE(
 declare void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(393), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK26ShenandoahSATBMarkQueueSet21satb_queue_for_threadEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef readnone %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK26ShenandoahSATBMarkQueueSet21satb_queue_for_threadEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   ret ptr %3
 }

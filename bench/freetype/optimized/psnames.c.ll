@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"postscript-cmaps\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @psnames_get_service(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal ptr @psnames_get_service(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @pscmaps_services, ptr noundef %1) #10
   ret ptr %3
 }
@@ -288,7 +288,7 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %70, %94, %97, %112,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef initializes((24, 28), (32, 40)) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none) initializes((24, 28), (32, 40)) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca [10 x i32], align 16
   %9 = alloca [10 x i32], align 16
@@ -471,7 +471,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not51 = icmp eq i32 %4, 0
@@ -534,7 +534,7 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
+define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = add i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -650,17 +650,17 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 2147483647
   %5 = load i32, ptr %1, align 4
@@ -692,7 +692,7 @@ define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #6
 

@@ -70,7 +70,7 @@ define noundef nonnull ptr @Pa_GetVersionInfo() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   store i32 %0, ptr @lastHostErrorInfo_, align 8
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @lastHostErrorInfo_, i64 8), align 8
   %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @lastHostErrorText_, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #12
@@ -78,7 +78,7 @@ define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_Initialize() local_unnamed_addr #3 {
@@ -580,7 +580,7 @@ define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @initializationCount_, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -619,7 +619,7 @@ define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
+define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = load i64, ptr %2, align 8
   %5 = trunc i64 %4 to i32
   %6 = sub i32 %1, %5
@@ -933,7 +933,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef %0, ptr noundef %1, double noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #6 {
+define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly %0, ptr noundef readonly %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = and i1 %10, %11

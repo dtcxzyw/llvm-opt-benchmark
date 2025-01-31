@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net12PacingSenderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net12PacingSenderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net12PacingSenderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 20), (24, 41)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net12PacingSenderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 20), (24, 41)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %max_pacing_rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -27,20 +27,20 @@ entry:
 declare i64 @_ZN3net13QuicBandwidth4ZeroEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net12PacingSenderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net12PacingSenderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net12PacingSender10set_senderEPNS_22SendAlgorithmInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 8)) %this, ptr noundef %sender) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net12PacingSender10set_senderEPNS_22SendAlgorithmInterfaceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 8)) %this, ptr noundef %sender) local_unnamed_addr #3 align 2 {
 entry:
   store ptr %sender, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net12PacingSender17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr noundef nonnull align 8 dereferenceable(24) %acked_packets, ptr noundef nonnull align 8 dereferenceable(24) %lost_packets) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net12PacingSender17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr noundef nonnull align 8 dereferenceable(24) %acked_packets, ptr noundef nonnull align 8 dereferenceable(24) %lost_packets) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %lost_packets, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %lost_packets, i64 8
@@ -223,7 +223,7 @@ return:                                           ; preds = %if.end, %if.then
 declare { i64, i64 } @_ZNK3net13QuicBandwidth12TransferTimeEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZNK3net12PacingSender13TimeUntilSendENS_8QuicTimeEm(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, i64 %now.coerce, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
+define dso_local { i64, i64 } @_ZNK3net12PacingSender13TimeUntilSendENS_8QuicTimeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this, i64 %now.coerce, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -266,16 +266,16 @@ declare i64 @_ZN3net13QuicBandwidth17FromBitsPerSecondEl(i64 noundef) local_unna
 declare noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5

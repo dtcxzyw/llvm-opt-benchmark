@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN79_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..hash..Hash$GT$4hash17h6210835567e1146aE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN79_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..hash..Hash$GT$4hash17h6210835567e1146aE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   tail call void @_ZN4core4hash6Hasher11write_usize17hd726467fb4daa0a4E(ptr align 8 %1, i64 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

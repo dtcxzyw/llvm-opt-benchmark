@@ -15,7 +15,7 @@ define noundef i32 @mca_coll_self_init_query(i1 noundef zeroext %0, i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @mca_coll_self_comm_query(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -111,7 +111,7 @@ opal_obj_new.exit.thread:                         ; preds = %17, %2, %6, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_coll_self_module_enable(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define noundef i32 @mca_coll_self_module_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   ret i32 0
 }
 

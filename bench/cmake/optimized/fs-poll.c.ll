@@ -33,7 +33,7 @@ define dso_local noundef i32 @uv_fs_poll_init(ptr noundef %0, ptr noundef initia
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uv_is_active(ptr noundef %0) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %62
@@ -61,7 +61,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %0,
   store ptr %0, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 800
   %21 = add i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %2, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %2, i64 %21, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = tail call i32 @uv_timer_init(ptr noundef %8, ptr noundef nonnull %22) #7
   %24 = icmp slt i32 %23, 0
@@ -145,14 +145,14 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %0,
 declare i32 @uv_is_active(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @uv__calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @uv_now(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @uv_timer_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -473,7 +473,7 @@ define internal void @timer_close_cb(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @uv_is_active(ptr noundef %0) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6

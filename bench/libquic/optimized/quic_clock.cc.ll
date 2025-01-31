@@ -16,14 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net9QuicClockD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9QuicClockD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net9QuicClockC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net9QuicClockC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net9QuicClockE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net9QuicClockD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net9QuicClockD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3net9QuicClock3NowEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local i64 @_ZNK3net9QuicClock3NowEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %call = tail call i64 @_ZN4base9TimeTicks3NowEv()
   ret i64 %call
@@ -58,7 +58,7 @@ entry:
 declare i64 @_ZN4base9TimeTicks3NowEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK3net9QuicClock7WallNowEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local i64 @_ZNK3net9QuicClock7WallNowEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::Time", align 8
   %call = tail call i64 @_ZN4base4Time3NowEv()

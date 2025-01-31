@@ -60,16 +60,16 @@ define dso_local noundef i32 @sidtab_init(ptr noundef initializes((0, 32)) %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @sidtab_set_initial(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 16 {
@@ -609,7 +609,7 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 align 16 {
+define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #4 align 16 {
   %4 = tail call i32 @context_compute_hash(ptr noundef %1) #13
   %5 = tail call fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   store i32 %5, ptr %2, align 4
@@ -825,7 +825,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc ptr @sidtab_do_lookup(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = udiv i32 %1, 39
   %4 = urem i32 %1, 39
   %5 = add i32 %1, 1
@@ -1030,7 +1030,7 @@ define dso_local i32 @sidtab_convert(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sidtab_convert_tree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #4 align 16 {
+define internal fastcc i32 @sidtab_convert_tree(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #4 align 16 {
   %7 = icmp eq i32 %4, 0
   %8 = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %8, null
@@ -1235,7 +1235,7 @@ define dso_local void @sidtab_cancel_convert(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sidtab_freeze_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 align 16 {
+define dso_local void @sidtab_freeze_begin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #13
   store i64 %4, ptr %1, align 8
@@ -1247,7 +1247,7 @@ define dso_local void @sidtab_freeze_begin(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sidtab_freeze_end(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 16 {
+define dso_local void @sidtab_freeze_end(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i64, ptr %1, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #13
@@ -1381,7 +1381,7 @@ define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sidtab_sid2str_put(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local void @sidtab_sid2str_put(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -1487,7 +1487,7 @@ define dso_local void @sidtab_sid2str_put(ptr noundef %0, ptr noundef %1, ptr no
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @sidtab_sid2str_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -12, 1) i32 @sidtab_sid2str_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
@@ -1548,7 +1548,7 @@ declare dso_local i32 @ebitmap_cpy(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @ebitmap_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ebitmap_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5

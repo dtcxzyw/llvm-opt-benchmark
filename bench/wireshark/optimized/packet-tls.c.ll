@@ -1601,7 +1601,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare i32 @ssl_get_cipher_algo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @tls13_get_quic_secret(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden i32 @tls13_get_quic_secret(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %44, label %8
@@ -1715,7 +1715,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ssl_print_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @tls_get_alpn(ptr noundef %0) local_unnamed_addr #0 {
@@ -1961,7 +1961,7 @@ define internal ptr @ssl_dst_value(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_src_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @ssl_src_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @wmem_file_scope() #11
@@ -1985,7 +1985,7 @@ define internal void @ssl_src_prompt(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_dst_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @ssl_dst_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
   %5 = tail call ptr @wmem_file_scope() #11
@@ -2009,7 +2009,7 @@ define internal void @ssl_dst_prompt(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_both_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @ssl_both_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -2177,7 +2177,7 @@ ssl_parse_old_keys.exit:                          ; preds = %0, %6, %._crit_edge
 declare zeroext i1 @ssldecrypt_uat_fld_ip_chk_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_ipaddr_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_ipaddr_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = load ptr, ptr %0, align 8
@@ -2187,7 +2187,7 @@ define internal void @sslkeylist_uats_ipaddr_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_ipaddr_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2214,7 +2214,7 @@ define internal void @sslkeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef read
 declare zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_port_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2225,7 +2225,7 @@ define internal void @sslkeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_port_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2251,7 +2251,7 @@ define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ssldecrypt_uat_fld_protocol_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @ssldecrypt_uat_fld_protocol_chk_cb(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -2296,7 +2296,7 @@ define internal noundef zeroext i1 @ssldecrypt_uat_fld_protocol_chk_cb(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_protocol_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_protocol_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2307,7 +2307,7 @@ define internal void @sslkeylist_uats_protocol_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_protocol_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_protocol_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2335,7 +2335,7 @@ define internal void @sslkeylist_uats_protocol_tostr_cb(ptr nocapture noundef re
 declare zeroext i1 @ssldecrypt_uat_fld_fileopen_chk_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_keyfile_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2346,7 +2346,7 @@ define internal void @sslkeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2374,7 +2374,7 @@ define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr nocapture noundef rea
 declare zeroext i1 @ssldecrypt_uat_fld_password_chk_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_password_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_password_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2385,7 +2385,7 @@ define internal void @sslkeylist_uats_password_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_password_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2413,7 +2413,7 @@ define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef re
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ssldecrypt_copy_cb(ptr noundef returned writeonly initializes((0, 40)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @ssldecrypt_copy_cb(ptr noundef returned writeonly initializes((0, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -2441,7 +2441,7 @@ define internal noundef ptr @ssldecrypt_copy_cb(ptr noundef returned writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssldecrypt_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @ssldecrypt_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2730,7 +2730,7 @@ define internal i32 @dissect_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 84:                                               ; preds = %81
-  %85 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
+  %85 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
   br label %128
 
 86:                                               ; preds = %81, %81, %81, %81, %81
@@ -2764,11 +2764,11 @@ ssl_is_v2_client_hello.exit:                      ; preds = %95
   br i1 %.not6.i.not, label %99, label %ssl_is_v2_client_hello.exit.thread
 
 99:                                               ; preds = %ssl_is_v2_client_hello.exit
-  %100 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
+  %100 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
   br label %128
 
 ssl_is_v2_client_hello.exit.thread:               ; preds = %95, %ssl_is_v2_client_hello.exit
-  %101 = call fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, i32 noundef %54, ptr noundef %5, ptr noundef %spec.select, i8 noundef zeroext %8, ptr noundef %6)
+  %101 = call fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, i32 noundef %54, ptr noundef %5, ptr noundef %spec.select, i8 noundef zeroext %8, ptr noundef %6)
   br label %128
 
 102:                                              ; preds = %81
@@ -2806,7 +2806,7 @@ ssl_is_v2_client_hello.exit.thread:               ; preds = %95, %ssl_is_v2_clie
   ]
 
 ssl_looks_like_sslv2.exit:                        ; preds = %114, %114, %114, %114
-  %117 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
+  %117 = call fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, ptr noundef %5, ptr noundef %spec.select)
   br label %128
 
 118:                                              ; preds = %114, %111
@@ -2828,7 +2828,7 @@ ssl_looks_like_sslv2.exit:                        ; preds = %114, %114, %114, %1
   ]
 
 ssl_looks_like_sslv3.exit:                        ; preds = %121, %121, %121, %121, %121, %121
-  %124 = call fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, i32 noundef %54, ptr noundef %5, ptr noundef %spec.select, i8 noundef zeroext %8, ptr noundef %6)
+  %124 = call fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0145, i32 noundef %.0148, ptr noundef nonnull %52, i32 noundef %54, ptr noundef %5, ptr noundef %spec.select, i8 noundef zeroext %8, ptr noundef %6)
   br label %128
 
 125:                                              ; preds = %121, %118
@@ -2858,8 +2858,8 @@ ssl_looks_like_sslv3.exit:                        ; preds = %121, %121, %121, %1
   %133 = call ptr @wmem_file_scope() #11
   %134 = load i32, ptr @proto_tls, align 4
   %135 = zext i8 %8 to i32
-  %136 = call ptr @p_get_proto_data(ptr noundef %133, ptr noundef %1, i32 noundef %134, i32 noundef %135) #11
-  call void @tap_queue_packet(i32 noundef %132, ptr noundef %1, ptr noundef %136) #11
+  %136 = call ptr @p_get_proto_data(ptr noundef %133, ptr noundef nonnull %1, i32 noundef %134, i32 noundef %135) #11
+  call void @tap_queue_packet(i32 noundef %132, ptr noundef nonnull %1, ptr noundef %136) #11
   %137 = call i32 @tvb_captured_length(ptr noundef %0) #11
   br label %195
 
@@ -2935,7 +2935,7 @@ ssl_looks_like_sslv3.exit:                        ; preds = %121, %121, %121, %1
   %171 = load i32, ptr %170, align 8
   %172 = load i32, ptr %167, align 8
   %173 = sub i32 %171, %172
-  %174 = call ptr @fragment_add(ptr noundef nonnull @ssl_reassembly_table, ptr noundef %0, i32 noundef %.0148, ptr noundef %1, i32 noundef %.val, ptr noundef nonnull %167, i32 noundef %173, i32 noundef 0, i32 noundef 0) #11
+  %174 = call ptr @fragment_add(ptr noundef nonnull @ssl_reassembly_table, ptr noundef %0, i32 noundef %.0148, ptr noundef nonnull %1, i32 noundef %.val, ptr noundef nonnull %167, i32 noundef %173, i32 noundef 0, i32 noundef 0) #11
   %.not173 = icmp eq ptr %174, null
   br i1 %.not173, label %188, label %175
 
@@ -2971,8 +2971,8 @@ ssl_looks_like_sslv3.exit:                        ; preds = %121, %121, %121, %1
   %191 = call ptr @wmem_file_scope() #11
   %192 = load i32, ptr @proto_tls, align 4
   %193 = zext i8 %8 to i32
-  %194 = call ptr @p_get_proto_data(ptr noundef %191, ptr noundef %1, i32 noundef %192, i32 noundef %193) #11
-  call void @tap_queue_packet(i32 noundef %190, ptr noundef %1, ptr noundef %194) #11
+  %194 = call ptr @p_get_proto_data(ptr noundef %191, ptr noundef nonnull %1, i32 noundef %192, i32 noundef %193) #11
+  call void @tap_queue_packet(i32 noundef %190, ptr noundef nonnull %1, ptr noundef %194) #11
   br label %195
 
 195:                                              ; preds = %57, %33, %188, %.thread
@@ -3035,7 +3035,7 @@ define internal i32 @dissect_tls13_handshake(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tls_echconfig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tls_echconfig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #11
   %6 = tail call i32 @ssl_dissect_ext_ech_echconfiglist(ptr noundef nonnull @dissect_ssl3_hf, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %5) #11
   ret i32 %6
@@ -3101,7 +3101,7 @@ declare ptr @tcp_follow_address_filter(ptr noundef, ptr noundef, i32 noundef, i3
 declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_follow_tap_listener(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @ssl_follow_tap_listener(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -3291,7 +3291,7 @@ declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #1
 declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tls_sct_ber(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tls_sct_ber(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_ber_identifier(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %6 = tail call i32 @dissect_ber_length(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef %5, ptr noundef null, ptr noundef null) #11
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
@@ -3398,7 +3398,7 @@ define void @ssl_dissector_delete(i32 noundef %0, ptr noundef %1) local_unnamed_
 declare void @ssl_association_remove(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @gcry_md_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3419,7 +3419,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3428,7 +3428,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @ssl_find_appdata_dissector(ptr noundef) local_unnamed_addr #1
 
@@ -3481,7 +3481,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #11
   %10 = zext i8 %9 to i32
@@ -4035,7 +4035,7 @@ dissect_ssl2_hnd_client_hello.exit:               ; preds = %257, %256, %228, %2
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7, i8 noundef zeroext %8, ptr noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef %7, i8 noundef zeroext %8, ptr noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   store ptr null, ptr %11, align 8
   %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #11
@@ -4996,7 +4996,7 @@ declare void @ssl_dissect_change_cipher_spec(ptr noundef, ptr noundef, ptr nound
 declare void @ssl_finalize_decryption(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl3_alert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_ssl3_alert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %8
 
@@ -5170,7 +5170,7 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
   %59 = icmp eq i32 %58, %.0175
   %60 = zext i1 %59 to i32
   %61 = load i32, ptr %14, align 4
-  %62 = tail call fastcc ptr @save_tls_handshake_fragment(ptr noundef %1, i8 noundef zeroext %7, i32 noundef %6, i32 noundef %61, ptr noundef %0, i32 noundef %3, i32 noundef %.0173, i32 noundef %.0181.lcssa242, i8 noundef zeroext %57, i32 noundef %60)
+  %62 = tail call fastcc ptr @save_tls_handshake_fragment(ptr noundef nonnull %1, i8 noundef zeroext %7, i32 noundef %6, i32 noundef %61, ptr noundef %0, i32 noundef %3, i32 noundef %.0173, i32 noundef %.0181.lcssa242, i8 noundef zeroext %57, i32 noundef %60)
   br i1 %59, label %63, label %75
 
 63:                                               ; preds = %56
@@ -5439,7 +5439,7 @@ declare ptr @dissector_handle_get_protocol_long_name(ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_ssl_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
@@ -6028,7 +6028,7 @@ desegment_ssl.exit:                               ; preds = %.thread333.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl3_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_ssl3_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %8
 
@@ -6562,7 +6562,7 @@ select.unfold:                                    ; preds = %27, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @tls_show_handshake_details(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc noundef ptr @tls_show_handshake_details(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %.not32 = icmp eq i32 %4, 0
   br i1 %.not32, label %11, label %14
 
@@ -6780,13 +6780,13 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

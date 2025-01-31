@@ -36162,7 +36162,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.10823) #3
@@ -36742,7 +36742,7 @@ asterix_field_offset.exit.thread:                 ; preds = %.lr.ph.i.i, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load i8, ptr %2, align 8
   switch i8 %4, label %.loopexit [
     i8 1, label %9
@@ -36905,7 +36905,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null

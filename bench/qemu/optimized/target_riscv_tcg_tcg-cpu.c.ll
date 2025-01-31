@@ -215,11 +215,11 @@ cpu_cfg_ext_get_min_version.exit.i:               ; preds = %for.body.i.i
   br i1 %cmp17.i, label %cpu_cfg_ext_auto_update.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %cpu_cfg_ext_get_min_version.exit.i, %land.lhs.true.i
-  tail call void @isa_ext_update_enabled(ptr noundef %cpu, i32 noundef 26, i1 noundef zeroext true) #11
+  tail call void @isa_ext_update_enabled(ptr noundef nonnull %cpu, i32 noundef 26, i1 noundef zeroext true) #11
   br label %cpu_cfg_ext_auto_update.exit
 
 cpu_cfg_ext_auto_update.exit:                     ; preds = %if.end33, %if.end.i, %cpu_cfg_ext_get_min_version.exit.i, %if.end21.i
-  %call.i254 = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef %cpu, i32 noundef 24) #11
+  %call.i254 = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef nonnull %cpu, i32 noundef 24) #11
   br i1 %call.i254, label %cpu_cfg_ext_auto_update.exit276, label %if.end.i255
 
 if.end.i255:                                      ; preds = %cpu_cfg_ext_auto_update.exit
@@ -263,7 +263,7 @@ cpu_cfg_ext_get_min_version.exit.i271:            ; preds = %for.body.i.i264
   br i1 %cmp17.i274, label %cpu_cfg_ext_auto_update.exit276, label %if.end21.i275
 
 if.end21.i275:                                    ; preds = %cpu_cfg_ext_get_min_version.exit.i271, %land.lhs.true.i258
-  tail call void @isa_ext_update_enabled(ptr noundef %cpu, i32 noundef 24, i1 noundef zeroext true) #11
+  tail call void @isa_ext_update_enabled(ptr noundef nonnull %cpu, i32 noundef 24, i1 noundef zeroext true) #11
   br label %cpu_cfg_ext_auto_update.exit276
 
 cpu_cfg_ext_auto_update.exit276:                  ; preds = %cpu_cfg_ext_auto_update.exit, %if.end.i255, %cpu_cfg_ext_get_min_version.exit.i271, %if.end21.i275
@@ -418,7 +418,7 @@ cpu_cfg_ext_get_min_version.exit.i346:            ; preds = %for.body.i.i339
   br i1 %cmp17.i349, label %if.end101, label %if.end21.i350
 
 if.end21.i350:                                    ; preds = %cpu_cfg_ext_get_min_version.exit.i346, %land.lhs.true.i333
-  tail call void @isa_ext_update_enabled(ptr noundef %cpu, i32 noundef 44, i1 noundef zeroext true) #11
+  tail call void @isa_ext_update_enabled(ptr noundef nonnull %cpu, i32 noundef 44, i1 noundef zeroext true) #11
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end21.i350, %cpu_cfg_ext_get_min_version.exit.i346, %if.end.i330, %if.then100, %if.end97
@@ -1444,14 +1444,14 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_cpu_accel_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @tcg_cpu_accel_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 26, ptr noundef nonnull @__func__.ACCEL_CPU_CLASS) #11
   %cpu_class_init = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -1464,7 +1464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @tcg_cpu_class_init(ptr nocapture noundef writeonly initializes((336, 344)) %cc) #4 {
+define internal void @tcg_cpu_class_init(ptr noundef writeonly captures(none) initializes((336, 344)) %cc) #4 {
 entry:
   %init_accel_cpu = getelementptr inbounds nuw i8, ptr %cc, i64 336
   store ptr @tcg_cpu_init_ops, ptr %init_accel_cpu, align 8
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %switch.lookup, %ris
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @tcg_cpu_init_ops(ptr nocapture readnone %accel_cpu, ptr nocapture noundef writeonly initializes((328, 336)) %cc) #4 {
+define internal void @tcg_cpu_init_ops(ptr readnone captures(none) %accel_cpu, ptr noundef writeonly captures(none) initializes((328, 336)) %cc) #4 {
 entry:
   %tcg_ops = getelementptr inbounds nuw i8, ptr %cc, i64 328
   store ptr @riscv_tcg_ops, ptr %tcg_ops, align 8
@@ -1670,7 +1670,7 @@ entry:
 declare void @riscv_translate_init() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_cpu_synchronize_from_tb(ptr noundef %cs, ptr nocapture noundef readonly %tb) #0 {
+define internal void @riscv_cpu_synchronize_from_tb(ptr noundef %cs, ptr noundef readonly captures(none) %tb) #0 {
 entry:
   %cflags.i = getelementptr inbounds nuw i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -1702,7 +1702,7 @@ if.end13:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_restore_state_to_opc(ptr noundef %cs, ptr nocapture noundef readonly %tb, ptr nocapture noundef readonly %data) #0 {
+define internal void @riscv_restore_state_to_opc(ptr noundef %cs, ptr noundef readonly captures(none) %tb, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
   %flags = getelementptr inbounds nuw i8, ptr %tb, i64 16
@@ -1810,7 +1810,7 @@ declare ptr @object_property_find(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_get_misa_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @cpu_get_misa_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %0 = load i64, ptr %opaque, align 8
@@ -1827,7 +1827,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_set_misa_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @cpu_set_misa_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %0 = load i64, ptr %opaque, align 8
@@ -1896,7 +1896,7 @@ declare ptr @riscv_cpu_get_name(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_get_multi_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @cpu_get_multi_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
@@ -1910,7 +1910,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_set_multi_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @cpu_set_multi_ext_cfg(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
@@ -1992,10 +1992,10 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #8

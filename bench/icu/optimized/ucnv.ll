@@ -400,13 +400,13 @@ return:                                           ; preds = %if.then5, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #1
 
@@ -559,7 +559,7 @@ entry:
 declare zeroext i16 @ucnv_bld_countAvailableConverters_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_getSubstChars_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly %mySubChar, ptr nocapture noundef %len, ptr nocapture noundef %err) local_unnamed_addr #5 {
+define void @ucnv_getSubstChars_75(ptr noundef readonly captures(none) %converter, ptr noundef writeonly captures(none) %mySubChar, ptr noundef captures(none) %len, ptr noundef captures(none) %err) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -598,7 +598,7 @@ return:                                           ; preds = %entry, %do.body, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_setSubstChars_75(ptr nocapture noundef %converter, ptr nocapture noundef readonly %mySubChar, i8 noundef signext %len, ptr nocapture noundef %err) local_unnamed_addr #5 {
+define void @ucnv_setSubstChars_75(ptr noundef captures(none) %converter, ptr noundef readonly captures(none) %mySubChar, i8 noundef signext %len, ptr noundef captures(none) %err) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -775,7 +775,7 @@ return:                                           ; preds = %ucnv_setFromUCallBa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_setFromUCallBack_75(ptr nocapture noundef %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
+define void @ucnv_setFromUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1227,7 +1227,7 @@ _ZL6_resetP10UConverter21UConverterResetChoicea.exit: ; preds = %entry, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ucnv_getMaxCharSize_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #7 {
+define signext i8 @ucnv_getMaxCharSize_75(ptr noundef readonly captures(none) %converter) local_unnamed_addr #7 {
 entry:
   %maxBytesPerUChar = getelementptr inbounds nuw i8, ptr %converter, i64 88
   %0 = load i8, ptr %maxBytesPerUChar, align 8
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext i8 @ucnv_getMinCharSize_75(ptr nocapture noundef readonly %converter) local_unnamed_addr #8 {
+define signext i8 @ucnv_getMinCharSize_75(ptr noundef readonly captures(none) %converter) local_unnamed_addr #8 {
 entry:
   %sharedData = getelementptr inbounds nuw i8, ptr %converter, i64 48
   %0 = load ptr, ptr %sharedData, align 8
@@ -1247,7 +1247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getName_75(ptr noundef %converter, ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
+define ptr @ucnv_getName_75(ptr noundef %converter, ptr noundef readonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1356,10 +1356,10 @@ declare ptr @ucnv_getStandardName_75(ptr noundef, ptr noundef, ptr noundef) loca
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -128, 128) i32 @ucnv_getPlatform_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef readonly %err) local_unnamed_addr #8 {
+define range(i32 -128, 128) i32 @ucnv_getPlatform_75(ptr noundef readonly captures(none) %converter, ptr noundef readonly captures(none) %err) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_getToUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly initializes((0, 8)) %action, ptr nocapture noundef writeonly initializes((0, 8)) %context) local_unnamed_addr #6 {
+define void @ucnv_getToUCallBack_75(ptr noundef readonly captures(none) %converter, ptr noundef writeonly captures(none) initializes((0, 8)) %action, ptr noundef writeonly captures(none) initializes((0, 8)) %context) local_unnamed_addr #6 {
 entry:
   %fromCharErrorBehaviour = getelementptr inbounds nuw i8, ptr %converter, i64 8
   %0 = load ptr, ptr %fromCharErrorBehaviour, align 8
@@ -1393,7 +1393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_getFromUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly initializes((0, 8)) %action, ptr nocapture noundef writeonly initializes((0, 8)) %context) local_unnamed_addr #6 {
+define void @ucnv_getFromUCallBack_75(ptr noundef readonly captures(none) %converter, ptr noundef writeonly captures(none) initializes((0, 8)) %action, ptr noundef writeonly captures(none) initializes((0, 8)) %context) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %converter, align 8
   store ptr %0, ptr %action, align 8
@@ -1404,7 +1404,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_setToUCallBack_75(ptr nocapture noundef %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
+define void @ucnv_setToUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr nocapture noundef nonnull %cnv, ptr nocapture noundef nonnull %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -2137,7 +2137,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr nocapture noundef nonnull %cnv, ptr nocapture noundef nonnull %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -2769,7 +2769,7 @@ do.body:                                          ; preds = %do.body, %if.then26
   %destLength.0 = phi i32 [ %conv24, %if.then26 ], [ %add, %do.body ]
   store ptr %buffer, ptr %dest.addr, align 8
   store i32 0, ptr %pErrorCode, align 4
-  call void @ucnv_toUnicode_75(ptr noundef %cnv, ptr noundef nonnull %dest.addr, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %src.addr, ptr noundef nonnull %add.ptr, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
+  call void @ucnv_toUnicode_75(ptr noundef nonnull %cnv, ptr noundef nonnull %dest.addr, ptr noundef nonnull %add.ptr27, ptr noundef nonnull %src.addr, ptr noundef nonnull %add.ptr, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
   %10 = load ptr, ptr %dest.addr, align 8
   %sub.ptr.lhs.cast30 = ptrtoint ptr %10 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
@@ -2792,7 +2792,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3136,7 +3136,7 @@ return:                                           ; preds = %if.else, %if.end47,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @ucnv_convertEx_75(ptr noundef %targetCnv, ptr noundef %sourceCnv, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %pivotStart, ptr noundef %pivotSource, ptr noundef %pivotTarget, ptr noundef %pivotLimit, i8 noundef signext %reset, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
@@ -4092,7 +4092,7 @@ _ZL17ucnv_getAmbiguousPK10UConverter.exit:        ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ucnv_setFallback_75(ptr nocapture noundef writeonly initializes((63, 64)) %cnv, i8 noundef signext %usesFallback) local_unnamed_addr #12 {
+define void @ucnv_setFallback_75(ptr noundef writeonly captures(none) initializes((63, 64)) %cnv, i8 noundef signext %usesFallback) local_unnamed_addr #12 {
 entry:
   %useFallback = getelementptr inbounds nuw i8, ptr %cnv, i64 63
   store i8 %usesFallback, ptr %useFallback, align 1
@@ -4100,7 +4100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ucnv_usesFallback_75(ptr nocapture noundef readonly %cnv) local_unnamed_addr #7 {
+define signext i8 @ucnv_usesFallback_75(ptr noundef readonly captures(none) %cnv) local_unnamed_addr #7 {
 entry:
   %useFallback = getelementptr inbounds nuw i8, ptr %cnv, i64 63
   %0 = load i8, ptr %useFallback, align 1
@@ -4539,7 +4539,7 @@ return:                                           ; preds = %if.else14, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucnv_isFixedWidth_75(ptr noundef %cnv, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucnv_isFixedWidth_75(ptr noundef %cnv, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -4593,7 +4593,7 @@ return:                                           ; preds = %ucnv_getType_75.exi
 declare ptr @ucnv_createAlgorithmicConverter_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
@@ -4602,10 +4602,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

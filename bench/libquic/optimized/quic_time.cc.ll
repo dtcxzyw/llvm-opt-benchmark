@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [6 x i8] c"%ldus\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net8QuicTime5Delta12ToDebugValueB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK3net8QuicTime5Delta12ToDebugValueB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %time_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %time_offset_, align 8
@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end11, %if.then8
 declare void @_ZN4base12StringPrintfB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 18446744073710) i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 0, 18446744073710) i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = udiv i64 %0, 1000000
@@ -59,14 +59,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net12QuicWallTime18ToUNIXMicrosecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef i64 @_ZNK3net12QuicWallTime18ToUNIXMicrosecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime7IsAfterES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime7IsAfterES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp ugt i64 %0, %other.coerce
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime8IsBeforeES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime8IsBeforeES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp ult i64 %0, %other.coerce
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime6IsZeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net12QuicWallTime6IsZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp eq i64 %0, 0
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @_ZNK3net12QuicWallTime18AbsoluteDifferenceES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
+define dso_local { i64, i64 } @_ZNK3net12QuicWallTime18AbsoluteDifferenceES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %other.coerce) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp ugt i64 %0, %other.coerce
@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK3net12QuicWallTime3AddENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #2 align 2 {
+define dso_local i64 @_ZNK3net12QuicWallTime3AddENS_8QuicTime5DeltaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %spec.select = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 %delta.coerce1)
@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK3net12QuicWallTime8SubtractENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #2 align 2 {
+define dso_local i64 @_ZNK3net12QuicWallTime8SubtractENS_8QuicTime5DeltaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %delta.coerce0, i64 %delta.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %spec.store.select = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %delta.coerce1)

@@ -74,7 +74,7 @@ define hidden void @_ZN31VM_ParallelCollectForAllocationC2Embj(ptr noundef nonnu
 declare void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31VM_ParallelCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31VM_ParallelCollectForAllocation4doitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -115,7 +115,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %15, %20, %_ZN8GCL
 declare noundef ptr @_ZN20ParallelScavengeHeap25satisfy_failed_allocationEmb(ptr noundef nonnull align 8 dereferenceable(264), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 26), (28, 33)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 26), (28, 33)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = icmp ne i32 %3, 5
   %6 = icmp ne i32 %3, 8
   %7 = and i1 %5, %6
@@ -139,7 +139,7 @@ define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_ParallelGCCollect4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VM_ParallelGCCollect4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4

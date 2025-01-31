@@ -34,7 +34,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517CharsetRecog_UTF87getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517CharsetRecog_UTF87getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret ptr @.str
 }

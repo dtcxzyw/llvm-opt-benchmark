@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.0, [16 x i8] c"P\00\00\00\00\00\00\00\A6\00\00\00\05\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d0fd4af455b4dccE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d0fd4af455b4dccE"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -88,7 +88,7 @@ define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7404737c45688686E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7404737c45688686E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -152,7 +152,7 @@ define void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5cd6bc3d7e035b9fE"(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5cd6bc3d7e035b9fE"(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -187,7 +187,7 @@ define void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha20cb6b959dd5c7bE"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha20cb6b959dd5c7bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -197,7 +197,7 @@ define void @"_ZN125_$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e20ed7be56a1185E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1e20ed7be56a1185E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -228,7 +228,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6fdb13f98b81447dE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6fdb13f98b81447dE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -259,7 +259,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h73ff02dd9f76382eE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h73ff02dd9f76382eE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -290,7 +290,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h897dfc746c6fae33E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h897dfc746c6fae33E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [16 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -304,7 +304,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha43dcee3cd28b974E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha43dcee3cd28b974E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -335,7 +335,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbbbed4ab23dbb7cE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbbbed4ab23dbb7cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -366,7 +366,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd6a0fe242ec6a128E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd6a0fe242ec6a128E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -397,7 +397,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he2f6b6cdfb4370f7E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he2f6b6cdfb4370f7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -428,7 +428,7 @@ define void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1f49425d4e6993ffE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1f49425d4e6993ffE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -451,7 +451,7 @@ define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h288943684f9b41daE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h288943684f9b41daE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -474,7 +474,7 @@ define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96811e6e7604e399E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96811e6e7604e399E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %0, align 8
@@ -497,37 +497,37 @@ define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17h1e9e2e000276415fE(ptr nocapture readnone align 1 %0, i32 %1, i32 %2) unnamed_addr #0 {
+define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17h1e9e2e000276415fE(ptr readnone align 1 captures(none) %0, i32 %1, i32 %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1bf1b4ea4c7d66f1E"(i32 %1, i32 %2, ptr nonnull align 8 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1)
   ret { i8, i8 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @_ZN4core3ops8function5FnMut8call_mut17h3b2b10770e7f4aacE(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden i64 @_ZN4core3ops8function5FnMut8call_mut17h3b2b10770e7f4aacE(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr align 8 %1)
   ret i64 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17h6a264f5017fd15b7E(ptr nocapture readnone align 1 %0, i8 %1) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17h6a264f5017fd15b7E(ptr readnone align 1 captures(none) %0, i8 %1) unnamed_addr #0 {
   tail call void @_ZN4core3mem4drop17hbea74e2d9159e772E(i8 %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17h6fc18edb580e85d2E(ptr sret([24 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, i8 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17h6fc18edb580e85d2E(ptr sret([24 x i8]) align 8 %0, ptr readnone align 1 captures(none) %1, i8 %2) unnamed_addr #0 {
   tail call void @_ZN11proc_macro27Literal13u8_unsuffixed17h1ed8c660a757c56bE(ptr sret([24 x i8]) align 8 %0, i8 %2)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17h790883d2c27f2b54E(ptr nocapture readnone align 1 %0, i8 %1, i8 %2) unnamed_addr #0 {
+define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17h790883d2c27f2b54E(ptr readnone align 1 captures(none) %0, i8 %1, i8 %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h562b10219772b6aaE"(i8 %1, i8 %2, ptr nonnull align 8 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1)
   ret { i8, i8 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17haaef61d67cec5b74E(ptr sret([20 x i8]) align 4 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17haaef61d67cec5b74E(ptr sret([20 x i8]) align 4 %0, ptr readnone align 1 captures(none) %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @_ZN11proc_macro23imp19into_compiler_token17h594ec218005e3ceeE(ptr sret([20 x i8]) align 4 %0, ptr nonnull align 8 %4)
@@ -535,25 +535,25 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17haaef61d67cec5b74E(ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hb7b8031f891e637fE(ptr nocapture readnone align 1 %0, i8 %1, i8 %2) unnamed_addr #0 {
+define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hb7b8031f891e637fE(ptr readnone align 1 captures(none) %0, i8 %1, i8 %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he0d69670de5ffc26E"(i8 %1, i8 %2, ptr nonnull align 8 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1)
   ret { i8, i8 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hd346262d492c1a7dE(ptr nocapture readnone align 1 %0, i8 %1, i8 %2) unnamed_addr #0 {
+define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hd346262d492c1a7dE(ptr readnone align 1 captures(none) %0, i8 %1, i8 %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8bb22f44fbb60feaE"(i8 %1, i8 %2, ptr nonnull align 8 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1)
   ret { i8, i8 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hdfec0ba931c0ba0bE(ptr nocapture readnone align 1 %0, i8 %1) unnamed_addr #0 {
+define hidden { i8, i8 } @_ZN4core3ops8function5FnMut8call_mut17hdfec0ba931c0ba0bE(ptr readnone align 1 captures(none) %0, i8 %1) unnamed_addr #0 {
   %3 = tail call { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdac91e9a526946e1E"(i8 %1, ptr nonnull align 8 @anon.bbe2ebc2bf25e6a4de6f514c91143e3b.1)
   ret { i8, i8 } %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17he419602d1add1013E(ptr sret([40 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17he419602d1add1013E(ptr sret([40 x i8]) align 8 %0, ptr readnone align 1 captures(none) %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from17hf8af6c7ad1cad01dE"(ptr sret([40 x i8]) align 8 %0, ptr nonnull align 8 %4)
@@ -561,19 +561,19 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17he419602d1add1013E(ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 4 ptr @_ZN4core3ops8function5FnMut8call_mut17hf65bf45ecebc29cfE(ptr nocapture readnone align 1 %0, ptr align 4 %1, ptr align 4 %2) unnamed_addr #0 {
+define hidden align 4 ptr @_ZN4core3ops8function5FnMut8call_mut17hf65bf45ecebc29cfE(ptr readnone align 1 captures(none) %0, ptr align 4 %1, ptr align 4 %2) unnamed_addr #0 {
   %4 = tail call align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4last4some17haaac19e1cb093c2dE(ptr align 4 %1, ptr align 4 %2)
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17hfb9b1b64e9ee0fe0E(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17hfb9b1b64e9ee0fe0E(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @_ZN13logos_codegen6parser11type_params16replace_lifetime17h8f3716d4e2f67d0bE(ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h09e26b8f35acc89aE"(ptr nocapture readonly %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h09e26b8f35acc89aE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -584,7 +584,7 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h0adde59b5f83383aE"(ptr nocapture readonly %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h0adde59b5f83383aE"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -595,7 +595,7 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h2594bf8ca92030d9E"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h2594bf8ca92030d9E"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -610,7 +610,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h2da99b45f18f9fd7E"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h2da99b45f18f9fd7E"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -625,7 +625,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h8c1e5e63bc984d74E"(ptr nocapture readonly %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h8c1e5e63bc984d74E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -636,7 +636,7 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h99dcb18afb1021c8E"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h99dcb18afb1021c8E"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -651,7 +651,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h9e9f94ceaa37da4fE"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17h9e9f94ceaa37da4fE"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -666,7 +666,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17ha62c61683f495875E"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17ha62c61683f495875E"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -681,7 +681,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbb0004ba6b838afdE"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbb0004ba6b838afdE"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -696,7 +696,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbcf2247211af9d6eE"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hbcf2247211af9d6eE"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -711,7 +711,7 @@ define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtab
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcf9ceb3a1a14a578E"(ptr nocapture readonly %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hcf9ceb3a1a14a578E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -722,7 +722,7 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17he129b4705769db45E"(ptr nocapture readonly %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17he129b4705769db45E"(ptr readonly captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -733,7 +733,7 @@ define hidden i64 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hfcbf8faae25944f2E"(ptr nocapture readonly %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shim$u7d$$u7d$17hfcbf8faae25944f2E"(ptr readonly captures(none) %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -754,7 +754,7 @@ define hidden align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h06048d9cd617
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h124ff9ea07aed45eE(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h124ff9ea07aed45eE(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -773,7 +773,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h1726ebdc0283868eE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h20573d3f1ab95adaE(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h20573d3f1ab95adaE(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -822,7 +822,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h71424f0232b47b77E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h743217d95e0ba19bE(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h743217d95e0ba19bE(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -835,7 +835,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h743217d95e0ba19bE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h79adc09c881628ccE(ptr sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h79adc09c881628ccE(ptr sret([40 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   call void @"_ZN117_$LT$logos_codegen..mir..Mir$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h27b4f778294dfb06E"(ptr sret([40 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -849,7 +849,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h7e5da8253bdbc5deE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h81406d1357ac4575E(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h81406d1357ac4575E(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -892,7 +892,7 @@ define hidden align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17ha9764fdae916
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17hae6689316740eb44E(ptr sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17hae6689316740eb44E(ptr sret([32 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -900,7 +900,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hae6689316740eb44E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17hb0c422bf9f1d2b00E(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17hb0c422bf9f1d2b00E(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -919,7 +919,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hbbbc1400fcfdec43E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17hc1d5c8e4d0f21856E(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17hc1d5c8e4d0f21856E(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -950,7 +950,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hc8e27816e041121bE(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17hd701e6f55cf41291E(ptr align 8 %0, i32 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17hd701e6f55cf41291E(ptr align 8 %0, i32 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [72 x i8], align 8
   store ptr %0, ptr %5, align 8
@@ -1092,7 +1092,7 @@ define void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$logos_code
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr103drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$logos_codegen..graph..NodeId$GT$$GT$17h9743563632cfa440E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr103drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$logos_codegen..graph..NodeId$GT$$GT$17h9743563632cfa440E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50563f2a8e923798E"(ptr align 8 %0)
   ret void
 }
@@ -1145,7 +1145,7 @@ define void @"_ZN4core3ptr103drop_in_place$LT$alloc..collections..btree..map..In
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr103drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$char$C$logos_codegen..graph..NodeId$GT$$GT$17ha6e2e9abcced8947E"(ptr nocapture readnone align 4 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr103drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$char$C$logos_codegen..graph..NodeId$GT$$GT$17ha6e2e9abcced8947E"(ptr readnone align 4 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -1164,7 +1164,7 @@ define void @"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$$LP$syn..g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$17ha848683f0254fea1E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$17ha848683f0254fea1E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1208,7 +1208,7 @@ define void @"_ZN4core3ptr105drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$proc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr106drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h29a74fe420b2b4c7E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr106drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h29a74fe420b2b4c7E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -1257,7 +1257,7 @@ define void @"_ZN4core3ptr107drop_in_place$LT$$LP$alloc..vec..Vec$LT$logos_codeg
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr107drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$char$C$logos_codegen..graph..rope..Miss$GT$$GT$17h6529d1fd543d17cdE"(ptr nocapture readnone align 4 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr107drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$char$C$logos_codegen..graph..rope..Miss$GT$$GT$17h6529d1fd543d17cdE"(ptr readnone align 4 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -1276,7 +1276,7 @@ define void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$logos_code
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr108drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..generics..TypeParamBound$C$syn..token..Plus$GT$$GT$17hbd7f366415b78f6fE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr108drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..generics..TypeParamBound$C$syn..token..Plus$GT$$GT$17hbd7f366415b78f6fE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -1676,7 +1676,7 @@ define void @"_ZN4core3ptr125drop_in_place$LT$alloc..boxed..Box$LT$$u5b$core..op
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr127drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$logos_codegen..graph..Merge$C$logos_codegen..graph..NodeId$GT$$GT$17h9b0286d18e7fb8c1E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr127drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$logos_codegen..graph..Merge$C$logos_codegen..graph..NodeId$GT$$GT$17h9b0286d18e7fb8c1E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf84d1d7b613e4d72E"(ptr align 8 %0)
   ret void
 }
@@ -1729,7 +1729,7 @@ define void @"_ZN4core3ptr127drop_in_place$LT$alloc..collections..btree..map..In
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$logos_codegen..mir..Mir$GT$$GT$17h39cc5022ab146892E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$regex_syntax..hir..Hir$C$logos_codegen..mir..Mir$GT$$GT$17h39cc5022ab146892E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8
@@ -1803,7 +1803,7 @@ define void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$alloc..collec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$syn..attr..Attribute$C$alloc..alloc..Global$GT$$GT$17h23eb44011c72c754E"(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$syn..attr..Attribute$C$alloc..alloc..Global$GT$$GT$17h23eb44011c72c754E"(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -1838,7 +1838,7 @@ define void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..reta
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$logos_codegen..mir..Mir$C$logos_codegen..mir..Mir$GT$$GT$17h304198210eb55526E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$logos_codegen..mir..Mir$C$logos_codegen..mir..Mir$GT$$GT$17h304198210eb55526E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   tail call void @"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d0fd4af455b4dccE"(ptr align 8 %0)
   ret void
 }
@@ -1965,7 +1965,7 @@ define void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..option..Option$LT$proc_m
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$$GT$17h23fe6beabcb71717E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$$GT$17h23fe6beabcb71717E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
@@ -2063,7 +2063,7 @@ define void @"_ZN4core3ptr133drop_in_place$LT$core..iter..adapters..rev..Rev$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr133drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$logos_codegen..graph..range..Range$C$logos_codegen..graph..NodeId$GT$$GT$17h14da186b57c4fc7cE"(ptr nocapture readnone align 4 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr133drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$logos_codegen..graph..range..Range$C$logos_codegen..graph..NodeId$GT$$GT$17h14da186b57c4fc7cE"(ptr readnone align 4 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -2080,7 +2080,7 @@ define void @"_ZN4core3ptr134drop_in_place$LT$core..iter..adapters..map..Map$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr136drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$logos_codegen..graph..NodeId$C$logos_codegen..graph..meta..MetaItem$GT$$GT$17h5c57fa5add844152E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr136drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$logos_codegen..graph..NodeId$C$logos_codegen..graph..meta..MetaItem$GT$$GT$17h5c57fa5add844152E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a1d03fbf4cf4c9bE"(ptr align 8 %0)
   ret void
 }
@@ -2196,7 +2196,7 @@ define void @"_ZN4core3ptr141drop_in_place$LT$hashbrown..map..IntoIter$LT$logos_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
+define void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr readonly align 8 captures(none) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -2308,7 +2308,7 @@ define void @"_ZN4core3ptr157drop_in_place$LT$alloc..boxed..Box$LT$alloc..collec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr158drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$bool$C$alloc..alloc..Global$GT$$GT$17h81feefb5fbcb0ed3E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr158drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$bool$C$alloc..alloc..Global$GT$$GT$17h81feefb5fbcb0ed3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2385,7 +2385,7 @@ define void @"_ZN4core3ptr169drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2446,7 +2446,7 @@ define void @"_ZN4core3ptr179drop_in_place$LT$alloc..boxed..Box$LT$syn..drops..N
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2492,7 +2492,7 @@ define void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17h25ed5b3656c140eeE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17h25ed5b3656c140eeE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2566,7 +2566,7 @@ define void @"_ZN4core3ptr185drop_in_place$LT$hashbrown..map..HashMap$LT$alloc..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2599,7 +2599,7 @@ define void @"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr188drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..range..Range$C$alloc..alloc..Global$GT$$GT$17h6184b13bfbce38eeE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr188drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..range..Range$C$alloc..alloc..Global$GT$$GT$17h6184b13bfbce38eeE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2663,7 +2663,7 @@ define void @"_ZN4core3ptr188drop_in_place$LT$hashbrown..set..HashSet$LT$$LP$log
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..DeferredMerge$C$alloc..alloc..Global$GT$$GT$17hd94807528d553760E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr189drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..DeferredMerge$C$alloc..alloc..Global$GT$$GT$17hd94807528d553760E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2810,7 +2810,7 @@ define void @"_ZN4core3ptr199drop_in_place$LT$hashbrown..map..HashMap$LT$$LP$log
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u64$C$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17h7c7c4bb6b2e667c3E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u64$C$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17h7c7c4bb6b2e667c3E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -2899,7 +2899,7 @@ define void @"_ZN4core3ptr208drop_in_place$LT$std..collections..hash..map..HashM
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17ha454c964e1f63a37E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17ha454c964e1f63a37E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8
@@ -3128,7 +3128,7 @@ define void @"_ZN4core3ptr222drop_in_place$LT$std..collections..hash..map..HashM
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr225drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..Merge$C$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17hd7a0b548548dc17cE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr225drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..Merge$C$logos_codegen..graph..NodeId$C$alloc..alloc..Global$GT$$GT$17hd7a0b548548dc17cE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -3174,7 +3174,7 @@ define void @"_ZN4core3ptr229drop_in_place$LT$core..iter..traits..iterator..Iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr234drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..NodeId$C$logos_codegen..graph..meta..MetaItem$C$alloc..alloc..Global$GT$$GT$17h7bea7e4ce9869552E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr234drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..NodeId$C$logos_codegen..graph..meta..MetaItem$C$alloc..alloc..Global$GT$$GT$17h7bea7e4ce9869552E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -3201,12 +3201,12 @@ define void @"_ZN4core3ptr234drop_in_place$LT$$LT$alloc..collections..btree..map
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr26drop_in_place$LT$$u21$$GT$17hecef49234a127981E"(ptr nocapture readnone align 1 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr26drop_in_place$LT$$u21$$GT$17hecef49234a127981E"(ptr readnone align 1 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17he19ff4d6cea03509E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17he19ff4d6cea03509E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3471,12 +3471,12 @@ define void @"_ZN4core3ptr384drop_in_place$LT$core..iter..adapters..map..Map$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr387drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5acd97c5dbf3f2e0E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr387drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5acd97c5dbf3f2e0E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr389drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h140af1bb46f6e8d5E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr389drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h140af1bb46f6e8d5E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3499,12 +3499,12 @@ define void @"_ZN4core3ptr402drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr409drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95b92a78389ba4eaE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr409drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95b92a78389ba4eaE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr417drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a8204de6b833153E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr417drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a8204de6b833153E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3515,12 +3515,12 @@ define void @"_ZN4core3ptr430drop_in_place$LT$core..iter..traits..iterator..Iter
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr437drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17had644f2565e58464E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr437drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17had644f2565e58464E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr439drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdeac0e9e79197dc3E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr439drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdeac0e9e79197dc3E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3531,12 +3531,12 @@ define void @"_ZN4core3ptr442drop_in_place$LT$alloc..vec..Vec$LT$syn..generics..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr449drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66b03e779f371ec9E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr449drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..reserve_rehash$LT$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66b03e779f371ec9E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr449drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$..find$LT$hashbrown..rustc_entry..$LT$impl$u20$hashbrown..map..HashMap$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$..rustc_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4c905784a233690dE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr449drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$..find$LT$hashbrown..rustc_entry..$LT$impl$u20$hashbrown..map..HashMap$LT$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$..rustc_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4c905784a233690dE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3828,7 +3828,7 @@ define void @"_ZN4core3ptr46drop_in_place$LT$logos_codegen..leaf..Leaf$GT$17h5d7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr471drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7913ecb1dbabc242E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr471drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..find$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7913ecb1dbabc242E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3839,7 +3839,7 @@ define void @"_ZN4core3ptr474drop_in_place$LT$core..iter..adapters..map..Map$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr477drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$RP$$GT$..find$LT$hashbrown..rustc_entry..$LT$impl$u20$hashbrown..map..HashMap$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$..rustc_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f004f42d20d98b4E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr477drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$RP$$GT$..find$LT$hashbrown..rustc_entry..$LT$impl$u20$hashbrown..map..HashMap$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$$GT$..rustc_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7f004f42d20d98b4E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -3892,12 +3892,12 @@ define void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$bool$GT$$GT$17he
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Error$GT$17h5b5feb1cc814cb8eE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Error$GT$17h5b5feb1cc814cb8eE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4033,7 +4033,7 @@ define void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..meta..Meta$GT$17h0417398bb034f2eaE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..meta..Meta$GT$17h0417398bb034f2eaE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   tail call void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a1d03fbf4cf4c9bE"(ptr readonly align 8 %0)
   ret void
 }
@@ -4129,7 +4129,7 @@ define void @"_ZN4core3ptr54drop_in_place$LT$regex_syntax..utf8..Utf8Sequences$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17hdac44105d9259f98E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17hdac44105d9259f98E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -4201,7 +4201,7 @@ define void @"_ZN4core3ptr55drop_in_place$LT$alloc..raw_vec..RawVec$LT$bool$GT$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr55drop_in_place$LT$logos_codegen..error..SpannedError$GT$17hee293c4fbfcac59fE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr55drop_in_place$LT$logos_codegen..error..SpannedError$GT$17hee293c4fbfcac59fE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4502,12 +4502,12 @@ define void @"_ZN4core3ptr58drop_in_place$LT$logos_codegen..parser..nested..Nest
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr59drop_in_place$LT$$RF$logos_codegen..graph..range..Range$GT$17he8febc834d54947cE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr59drop_in_place$LT$$RF$logos_codegen..graph..range..Range$GT$17he8febc834d54947cE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr607drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h419ec69c8305ea31E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr607drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$C$proc_macro2..Ident$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h419ec69c8305ea31E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -4797,7 +4797,7 @@ define void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr65drop_in_place$LT$$u5b$logos_codegen..error..SpannedError$u5d$$GT$17hb4ceb0eed2c7d545E"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ptr65drop_in_place$LT$$u5b$logos_codegen..error..SpannedError$u5d$$GT$17hb4ceb0eed2c7d545E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -4954,7 +4954,7 @@ define void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr673drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd494f638db9cb8c6E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr673drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$$RP$$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd494f638db9cb8c6E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -5372,7 +5372,7 @@ define void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr721drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9bdd99165d02df2E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr721drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$RP$$GT$..find_or_find_insert_slot$LT$hashbrown..map..equivalent_key$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$hashbrown..map..make_hasher$LT$$LP$logos_codegen..graph..NodeId$C$logos_codegen..generator..context..Context$RP$$C$proc_macro2..TokenStream$C$core..hash..BuildHasherDefault$LT$fnv..FnvHasher$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9bdd99165d02df2E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -5966,7 +5966,7 @@ define void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr79drop_in_place$LT$beef..generic..Cow$LT$str$C$beef..lean..internal..Lean$GT$$GT$17h39eaaa00f39a8429E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define void @"_ZN4core3ptr79drop_in_place$LT$beef..generic..Cow$LT$str$C$beef..lean..internal..Lean$GT$$GT$17h39eaaa00f39a8429E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 {
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6801,7 +6801,7 @@ define void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$logos_codegen..mir..Mir$GT$$GT$17h338b50a627c408f7E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$logos_codegen..mir..Mir$GT$$GT$17h338b50a627c408f7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6946,7 +6946,7 @@ define void @"_ZN4core3ptr93drop_in_place$LT$alloc..raw_vec..RawVec$LT$logos_cod
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr93drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..ty..Type$C$syn..token..Comma$GT$$GT$17h4ddb2f824f3809bcE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr93drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..ty..Type$C$syn..token..Comma$GT$$GT$17h4ddb2f824f3809bcE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -7285,22 +7285,22 @@ define void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$$LP$proc_macro2.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17he873abc0b39ac61eE"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17he873abc0b39ac61eE"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..ty..BareFnArg$C$syn..token..Comma$GT$$GT$17h954fb97cc1a9b2b8E"(ptr nocapture readnone align 8 %0) unnamed_addr #4 {
+define hidden void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..PrivateIterMut$LT$syn..ty..BareFnArg$C$syn..token..Comma$GT$$GT$17h954fb97cc1a9b2b8E"(ptr readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h122ff2f3166fe158E"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h122ff2f3166fe158E"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21ff32d88cd4bc72E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h21ff32d88cd4bc72E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7348,17 +7348,17 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c1b94447c66bc5fE"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c1b94447c66bc5fE"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49895cb98643007fE"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49895cb98643007fE"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4eab135d8fd5b76dE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4eab135d8fd5b76dE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7417,7 +7417,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5f4edd4b2b4d74bfE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5f4edd4b2b4d74bfE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7465,7 +7465,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h804074afd1950697E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h804074afd1950697E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7513,7 +7513,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h971877881f71fa30E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h971877881f71fa30E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7583,12 +7583,12 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h97f7a41060d2b46eE"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h97f7a41060d2b46eE"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98dc65c8178e4a5bE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98dc65c8178e4a5bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7648,7 +7648,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbd302d393aa2a24dE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbd302d393aa2a24dE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -7717,7 +7717,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb6b3017f34db3d7E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb6b3017f34db3d7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7787,7 +7787,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd25c97c4a47a8c1bE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd25c97c4a47a8c1bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7835,7 +7835,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd91234bcfb52ccdcE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd91234bcfb52ccdcE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7883,17 +7883,17 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he06937072aabdb02E"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he06937072aabdb02E"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5b7524389c289d8E"(ptr nocapture readnone align 8 %0) unnamed_addr #6 {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf5b7524389c289d8E"(ptr readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf6824e90c18a2a0fE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf6824e90c18a2a0fE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -8248,7 +8248,7 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN73_$LT$beef..generic..Cow$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95932a4771fa9aa4E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define void @"_ZN73_$LT$beef..generic..Cow$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95932a4771fa9aa4E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -9344,7 +9344,7 @@ define void @"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4fd1f22e52fb99cbE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4fd1f22e52fb99cbE"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -9392,7 +9392,7 @@ define void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a1d03fbf4cf4c9bE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a1d03fbf4cf4c9bE"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -9443,7 +9443,7 @@ define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50563f2a8e923798E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h50563f2a8e923798E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -9494,7 +9494,7 @@ define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf84d1d7b613e4d72E"(ptr nocapture readonly align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf84d1d7b613e4d72E"(ptr readonly align 8 captures(none) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -9677,7 +9677,7 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() unnamed
 declare void @"_ZN4core3ptr73drop_in_place$LT$alloc..raw_vec..RawVec$LT$regex_syntax..hir..Hir$GT$$GT$17he8e57ef744094246E"(ptr align 8) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$$GT$17h2862ebde167b30dcE"(ptr align 8) unnamed_addr #3
@@ -9686,7 +9686,7 @@ declare void @"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$syn
 declare void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hb1972b66c04d6a89E"(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h2011df5f06418994E"(ptr align 8) unnamed_addr #0
@@ -10094,10 +10094,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

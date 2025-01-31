@@ -148,7 +148,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_stack_effect(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_stack_effect(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -268,7 +268,7 @@ exit:                                             ; preds = %land.lhs.true29, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_is_valid(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_is_valid(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -317,7 +317,7 @@ exit:                                             ; preds = %land.lhs.true15, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_arg(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_arg(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -372,7 +372,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_const(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_const(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -427,7 +427,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_name(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_name(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -482,7 +482,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_jump(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_jump(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -537,7 +537,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_free(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_free(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -592,7 +592,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_local(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_local(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -647,7 +647,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_has_exc(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_opcode_has_exc(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -702,13 +702,13 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_opcode_get_specialization_stats(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @_opcode_get_specialization_stats(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_get_nb_ops(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_opcode_get_nb_ops(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 26) #3
   %cmp.i = icmp eq ptr %call.i, null
@@ -1382,7 +1382,7 @@ _opcode_get_nb_ops_impl.exit:                     ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_get_intrinsic1_descs(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_opcode_get_intrinsic1_descs(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 12) #3
   %cmp.i = icmp eq ptr %call.i, null
@@ -1429,7 +1429,7 @@ _opcode_get_intrinsic1_descs_impl.exit:           ; preds = %if.end5.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_opcode_get_intrinsic2_descs(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_opcode_get_intrinsic2_descs(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyList_New(i64 noundef 5) #3
   %cmp.i = icmp eq ptr %call.i, null

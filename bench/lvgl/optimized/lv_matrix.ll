@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_matrix_t = type { [3 x [3 x float]] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_matrix_identity(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
+define void @lv_matrix_identity(ptr noundef writeonly captures(none) initializes((0, 36)) %0) local_unnamed_addr #0 {
   store float 1.000000e+00, ptr %0, align 4, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4, !tbaa !3
@@ -147,7 +147,7 @@ lv_matrix_multiply.exit:                          ; preds = %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_matrix_is_identity_or_translation(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_matrix_is_identity_or_translation(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load float, ptr %0, align 4, !tbaa !3
   %3 = fcmp oeq float %2, 1.000000e+00
   br i1 %3, label %4, label %28
@@ -194,10 +194,10 @@ define zeroext i1 @lv_matrix_is_identity_or_translation(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define void @lv_matrix_multiply(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._lv_matrix_t, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -243,7 +243,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #1 {
@@ -463,7 +463,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @lv_matrix_inverse(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @lv_matrix_inverse(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %12
 
@@ -614,7 +614,7 @@ define noundef zeroext i1 @lv_matrix_inverse(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @lv_matrix_transform_precise_point(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define <2 x float> @lv_matrix_transform_precise_point(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = load float, ptr %1, align 4, !tbaa !12
   %4 = load float, ptr %0, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -646,7 +646,7 @@ define <2 x float> @lv_matrix_transform_precise_point(ptr nocapture noundef read
 declare float @llvm.round.f32(float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @lv_matrix_transform_area(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %1, align 4, !tbaa !15
   %4 = sitofp i32 %3 to float
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4

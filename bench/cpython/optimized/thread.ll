@@ -974,7 +974,7 @@ declare i64 @_PyTime_Add(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @_PyTime_AsTimespec_clamp(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyThread_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %ident, ptr nocapture noundef writeonly %handle) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef writeonly captures(none) %ident, ptr noundef writeonly captures(none) %handle) local_unnamed_addr #0 {
 entry:
   %th = alloca i64, align 8
   store i64 0, ptr %th, align 8
@@ -994,7 +994,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef nonnull writeonly %out_id) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull writeonly captures(none) %out_id) unnamed_addr #0 {
 entry:
   %th = alloca i64, align 8
   %attrs = alloca %union.pthread_attr_t, align 8
@@ -1117,7 +1117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PyThread_update_thread_after_fork(ptr nocapture noundef writeonly initializes((0, 8)) %ident, ptr nocapture noundef writeonly initializes((0, 8)) %handle) local_unnamed_addr #3 {
+define dso_local void @PyThread_update_thread_after_fork(ptr noundef writeonly captures(none) initializes((0, 8)) %ident, ptr noundef writeonly captures(none) initializes((0, 8)) %handle) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @pthread_self() #15
   store i64 %call, ptr %ident, align 8
@@ -1308,7 +1308,7 @@ declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #2
 declare i32 @sem_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #2
 
@@ -1516,7 +1516,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyThread_at_fork_reinit(ptr nocapture noundef writeonly %lock) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyThread_at_fork_reinit(ptr noundef writeonly captures(none) %lock) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyThread_allocate_lock()
   %cmp = icmp eq ptr %call, null
@@ -1638,7 +1638,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyThread_tss_delete(ptr nocapture noundef %key) local_unnamed_addr #0 {
+define dso_local void @PyThread_tss_delete(ptr noundef captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyThread_tss_set(ptr nocapture noundef readonly %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_tss_set(ptr noundef readonly captures(none) %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %key, i64 4
   %0 = load i32, ptr %_key, align 4
@@ -1667,7 +1667,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyThread_tss_get(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @PyThread_tss_get(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %key, i64 4
   %0 = load i32, ptr %_key, align 4
@@ -1744,7 +1744,7 @@ _pythread_pthread_set_stacksize.exit:             ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %arg, i32 noundef %blocking, ptr nocapture noundef writeonly %timeout_p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %arg, i32 noundef %blocking, ptr noundef writeonly captures(none) %timeout_p) local_unnamed_addr #0 {
 entry:
   %timeout = alloca i64, align 8
   %cmp = icmp eq ptr %arg, null
@@ -1917,7 +1917,7 @@ if.end:                                           ; preds = %PyThread_tss_delete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @PyThread_tss_is_created(ptr nocapture noundef readonly %key) local_unnamed_addr #11 {
+define dso_local i32 @PyThread_tss_is_created(ptr noundef readonly captures(none) %key) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %key, align 4
   ret i32 %0
@@ -2087,10 +2087,10 @@ declare i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef, ptr noundef, pt
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pr_manager_helper_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @pr_manager_helper_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.PR_MANAGER_CLASS) #7
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
@@ -105,7 +105,7 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @get_path(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @get_path(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
   %path = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_path(ptr noundef %obj, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @set_path(ptr noundef %obj, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
   %path = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -107, 1) i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr nocapture noundef %io_hdr) #0 {
+define internal range(i32 -107, 1) i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr noundef captures(none) %io_hdr) #0 {
 entry:
   %resp = alloca %struct.PRHelperResponse, align 4
   %cdb = alloca [16 x i8], align 16
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.then.i21, %if.en
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @qio_channel_socket_new() local_unnamed_addr #1
 
@@ -591,7 +591,7 @@ declare ptr @object_get_canonical_path_component(ptr noundef) local_unnamed_addr
 declare void @qapi_event_send_pr_manager_status_changed(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @scsi_cdb_xfer(ptr noundef) local_unnamed_addr #1
 

@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @avifDiagnosticsClearError(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
+define hidden void @avifDiagnosticsClearError(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @avifDiagnosticsPrintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #1 {
+define hidden void @avifDiagnosticsPrintf(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
@@ -38,7 +38,7 @@ define hidden void @avifDiagnosticsPrintf(ptr noundef %0, ptr nocapture noundef 
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #2

@@ -72,7 +72,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -125,7 +125,7 @@ define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -25, 1) i32 @archive_filter_uuencode_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -25, 1) i32 @archive_filter_uuencode_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.4) #8
@@ -205,7 +205,7 @@ atol8.exit:                                       ; preds = %atol8.exit.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 0
@@ -321,7 +321,7 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_filter_uuencode_close(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @archive_filter_uuencode_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -351,7 +351,7 @@ define internal i32 @archive_filter_uuencode_close(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_filter_uuencode_free(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @archive_filter_uuencode_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -363,10 +363,10 @@ define internal noundef i32 @archive_filter_uuencode_free(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @archive_write_get_bytes_per_block(ptr noundef) local_unnamed_addr #1
 
@@ -375,7 +375,7 @@ declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
+define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 0
   %5 = trunc i64 %2 to i8
@@ -482,12 +482,12 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__archive_write_filter(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
@@ -496,7 +496,7 @@ declare i32 @archive_write_set_bytes_in_last_block(ptr noundef, i32 noundef) loc
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

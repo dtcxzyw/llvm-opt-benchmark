@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCreate(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Kit_SopCreate(ptr noundef captures(none) initializes((4, 16)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 4
@@ -66,7 +66,7 @@ Vec_IntFetch.exit:                                ; preds = %4, %8, %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCreateInverse(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Kit_SopCreateInverse(ptr noundef captures(none) initializes((4, 16)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -136,7 +136,7 @@ Vec_IntFetch.exit:                                ; preds = %9, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDup(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Kit_SopDup(ptr noundef captures(none) initializes((4, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -199,7 +199,7 @@ Vec_IntFetch.exit:                                ; preds = %3, %7, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivideByLiteralQuo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Kit_SopDivideByLiteralQuo(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = getelementptr i8, ptr %0, i64 4
   %.val17 = load i32, ptr %4, align 4
@@ -250,7 +250,7 @@ define void @Kit_SopDivideByLiteralQuo(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivideByCube(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 16)) %2, ptr nocapture noundef initializes((4, 16)) %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Kit_SopDivideByCube(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 16)) %2, ptr noundef captures(none) initializes((4, 16)) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val25 = load ptr, ptr %6, align 8
   %7 = load i32, ptr %.val25, align 4
@@ -368,7 +368,7 @@ Vec_IntFetch.exit27:                              ; preds = %Vec_IntFetch.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivideInternal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 16)) %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Kit_SopDivideInternal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 16)) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 4
   %.val152 = load i32, ptr %6, align 4
   %7 = icmp eq i32 %.val152, 1
@@ -887,7 +887,7 @@ Vec_IntFetch.exit164:                             ; preds = %.critedge, %175, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopMakeCubeFree(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Kit_SopMakeCubeFree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val.i, 0
@@ -945,7 +945,7 @@ Kit_SopCommonCube.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_SopIsCubeFree(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Kit_SopIsCubeFree(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val.i, 0
@@ -983,7 +983,7 @@ Kit_SopCommonCube.exit:                           ; preds = %Kit_SopCommonCube.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCommonCubeCover(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Kit_SopCommonCubeCover(ptr noundef captures(none) initializes((4, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1043,7 +1043,7 @@ Kit_SopCommonCube.exit:                           ; preds = %19, %22, %Vec_IntFe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_SopAnyLiteral(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define i32 @Kit_SopAnyLiteral(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge
 
@@ -1095,7 +1095,7 @@ define i32 @Kit_SopAnyLiteral(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_SopWorstLiteral(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define i32 @Kit_SopWorstLiteral(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge
 
@@ -1155,7 +1155,7 @@ define i32 @Kit_SopWorstLiteral(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_SopBestLiteral(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @Kit_SopBestLiteral(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph45, label %._crit_edge
 
@@ -1226,7 +1226,7 @@ define i32 @Kit_SopBestLiteral(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivisorZeroKernel_rec(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Kit_SopDivisorZeroKernel_rec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader.lr.ph.i.lr.ph, label %Kit_SopWorstLiteral.exit.thread
@@ -1385,7 +1385,7 @@ Kit_SopWorstLiteral.exit.thread:                  ; preds = %Kit_SopMakeCubeFree
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_SopDivisor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_SopDivisor(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val, 1
@@ -1495,7 +1495,7 @@ Kit_SopAnyLiteral.exit.thread:                    ; preds = %16, %4, %Kit_SopDup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @Kit_SopBestLiteralCover(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
+define void @Kit_SopBestLiteralCover(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph45.i, label %Kit_SopBestLiteral.exit
 

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [13 x i8] c"JNI_OnUnload\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_NativeLibraries_load(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_NativeLibraries_load(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [256 x i8], align 16
   %9 = load ptr, ptr @handleID, align 8
@@ -221,7 +221,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_internal_loader_NativeLibraries_unload(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @Java_jdk_internal_loader_NativeLibraries_unload(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr @handleID, align 8
   %8 = icmp eq ptr %7, null
@@ -317,7 +317,7 @@ initIDs.exit.thread:                              ; preds = %21, %15, %9, %initI
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_internal_loader_NativeLibrary_findEntry0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @Java_jdk_internal_loader_NativeLibrary_findEntry0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %7 = load ptr, ptr %6, align 8
@@ -343,7 +343,7 @@ define i64 @Java_jdk_internal_loader_NativeLibrary_findEntry0(ptr noundef %0, pt
 declare ptr @JVM_FindLibraryEntry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_loader_NativeLibraries_findBuiltinLib(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_loader_NativeLibraries_findBuiltinLib(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -427,7 +427,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @getProcessHandle(...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -435,12 +435,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @buildJniFunctionName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

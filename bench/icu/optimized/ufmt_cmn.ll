@@ -62,7 +62,7 @@ _Z18ufmt_digitvalue_75Ds.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef %buffer, ptr nocapture noundef %len, i64 noundef %value, i8 noundef zeroext %radix, i8 noundef signext %uselower, i32 noundef %minDigits) local_unnamed_addr #1 {
+define void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef %buffer, ptr noundef captures(none) %len, i64 noundef %value, i8 noundef zeroext %radix, i8 noundef signext %uselower, i32 noundef %minDigits) local_unnamed_addr #1 {
 entry:
   %conv = zext i8 %radix to i64
   %tobool.not = icmp eq i8 %uselower, 0
@@ -151,7 +151,7 @@ while.end28:                                      ; preds = %while.body26, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z12ufmt_ptou_75PDsPiPva(ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %len, ptr noundef %value, i8 noundef signext %uselower) local_unnamed_addr #2 {
+define void @_Z12ufmt_ptou_75PDsPiPva(ptr noundef writeonly captures(none) %buffer, ptr noundef writeonly captures(none) %len, ptr noundef %value, i8 noundef signext %uselower) local_unnamed_addr #2 {
 entry:
   %value.addr = alloca ptr, align 8
   store ptr %value, ptr %value.addr, align 8
@@ -216,7 +216,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_Z13ufmt_uto64_75PKDsPia(ptr noundef readonly %buffer, ptr nocapture noundef %len, i8 noundef signext %radix) local_unnamed_addr #1 {
+define noundef i64 @_Z13ufmt_uto64_75PKDsPia(ptr noundef readonly %buffer, ptr noundef captures(none) %len, i8 noundef signext %radix) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %len, align 4
   %idx.ext = sext i32 %0 to i64
@@ -281,7 +281,7 @@ while.end:                                        ; preds = %_Z15ufmt_isdigit_75
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z12ufmt_utop_75PKDsPi(ptr nocapture noundef readonly %buffer, ptr nocapture noundef %len) local_unnamed_addr #3 {
+define noundef ptr @_Z12ufmt_utop_75PKDsPi(ptr noundef readonly captures(none) %buffer, ptr noundef captures(none) %len) local_unnamed_addr #3 {
 entry:
   %result = alloca %union.anon, align 8
   store ptr null, ptr %result, align 8
@@ -484,7 +484,7 @@ return:                                           ; preds = %entry, %if.end11
 declare ptr @u_getDefaultConverter_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @ucnv_toUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #4
 

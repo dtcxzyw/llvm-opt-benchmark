@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [47 x i8] c"unrecognized simple dictionary parameter: \22%s\22\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dsimple_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc0(i64 noundef 24) #5
@@ -109,7 +109,7 @@ define dso_local i64 @dsimple_init(ptr nocapture noundef readonly %0) local_unna
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -129,7 +129,7 @@ declare ptr @lowerstr(ptr noundef) #1
 declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dsimple_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dsimple_lexize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

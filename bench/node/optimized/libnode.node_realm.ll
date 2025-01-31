@@ -459,7 +459,7 @@ declare noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 de
 declare void @_ZN4node11Environment15AssignToContextEN2v85LocalINS1_7ContextEEEPNS_5RealmERKNS_11ContextInfoE(ptr noundef nonnull align 8 dereferenceable(2872), ptr, ptr noundef, ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -1308,7 +1308,7 @@ _ZNSt13unordered_setIN4node12CleanupQueue19CleanupHookCallbackENS2_4HashENS2_5Eq
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4node5RealmD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4node5RealmD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
@@ -5001,7 +5001,7 @@ declare noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1
 declare ptr @_ZN4node19CreateProcessObjectEPNS_5RealmE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -10568,10 +10568,10 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5Realm17DoneBootstrappingEv(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node5Realm17DoneBootstrappingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this) local_unnamed_addr #3 align 2 {
 entry:
   %kind_ = getelementptr inbounds nuw i8, ptr %this, i64 680
   %0 = load i32, ptr %kind_, align 8
@@ -11217,7 +11217,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node5Realm7contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node5Realm7contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %retval.sroa.0.0.copyload.i = load ptr, ptr %context_, align 8
@@ -11225,7 +11225,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm26async_hooks_after_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm26async_hooks_after_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_after_function_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_after_function_, align 8
@@ -11233,7 +11233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm30set_async_hooks_after_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm30set_async_hooks_after_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_after_function_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11262,7 +11262,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm27async_hooks_before_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm27async_hooks_before_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_before_function_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_before_function_, align 8
@@ -11270,7 +11270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm31set_async_hooks_before_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm31set_async_hooks_before_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_before_function_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11299,7 +11299,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm31async_hooks_callback_trampolineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm31async_hooks_callback_trampolineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_callback_trampoline_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_callback_trampoline_, align 8
@@ -11307,7 +11307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm35set_async_hooks_callback_trampolineEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm35set_async_hooks_callback_trampolineEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_callback_trampoline_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11336,7 +11336,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm19async_hooks_bindingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm19async_hooks_bindingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_binding_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_binding_, align 8
@@ -11344,7 +11344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm23set_async_hooks_bindingEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm23set_async_hooks_bindingEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_binding_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11373,7 +11373,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm28async_hooks_destroy_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm28async_hooks_destroy_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_destroy_function_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_destroy_function_, align 8
@@ -11381,7 +11381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm32set_async_hooks_destroy_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm32set_async_hooks_destroy_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_destroy_function_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11410,7 +11410,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm25async_hooks_init_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm25async_hooks_init_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_init_function_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_init_function_, align 8
@@ -11418,7 +11418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm29set_async_hooks_init_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm29set_async_hooks_init_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_init_function_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11447,7 +11447,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36async_hooks_promise_resolve_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36async_hooks_promise_resolve_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %async_hooks_promise_resolve_function_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %retval.sroa.0.0.copyload.i = load ptr, ptr %async_hooks_promise_resolve_function_, align 8
@@ -11455,7 +11455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_async_hooks_promise_resolve_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_async_hooks_promise_resolve_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_promise_resolve_function_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11484,7 +11484,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm23buffer_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm23buffer_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %buffer_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %retval.sroa.0.0.copyload.i = load ptr, ptr %buffer_prototype_object_, align 8
@@ -11492,7 +11492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm27set_buffer_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm27set_buffer_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %buffer_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11521,7 +11521,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29crypto_key_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29crypto_key_object_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %crypto_key_object_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %retval.sroa.0.0.copyload.i = load ptr, ptr %crypto_key_object_constructor_, align 8
@@ -11529,7 +11529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_crypto_key_object_constructorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_crypto_key_object_constructorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %crypto_key_object_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11558,7 +11558,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm37crypto_key_object_private_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm37crypto_key_object_private_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %crypto_key_object_private_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %retval.sroa.0.0.copyload.i = load ptr, ptr %crypto_key_object_private_constructor_, align 8
@@ -11566,7 +11566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm41set_crypto_key_object_private_constructorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm41set_crypto_key_object_private_constructorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %crypto_key_object_private_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11595,7 +11595,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36crypto_key_object_public_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36crypto_key_object_public_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %crypto_key_object_public_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %retval.sroa.0.0.copyload.i = load ptr, ptr %crypto_key_object_public_constructor_, align 8
@@ -11603,7 +11603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_crypto_key_object_public_constructorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_crypto_key_object_public_constructorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %crypto_key_object_public_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11632,7 +11632,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36crypto_key_object_secret_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36crypto_key_object_secret_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %crypto_key_object_secret_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %retval.sroa.0.0.copyload.i = load ptr, ptr %crypto_key_object_secret_constructor_, align 8
@@ -11640,7 +11640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_crypto_key_object_secret_constructorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_crypto_key_object_secret_constructorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %crypto_key_object_secret_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11669,7 +11669,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm21domexception_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm21domexception_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %domexception_function_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %retval.sroa.0.0.copyload.i = load ptr, ptr %domexception_function_, align 8
@@ -11677,7 +11677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm25set_domexception_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm25set_domexception_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %domexception_function_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11706,7 +11706,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm35enhance_fatal_stack_after_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm35enhance_fatal_stack_after_inspectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %enhance_fatal_stack_after_inspector_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %retval.sroa.0.0.copyload.i = load ptr, ptr %enhance_fatal_stack_after_inspector_, align 8
@@ -11714,7 +11714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm39set_enhance_fatal_stack_after_inspectorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm39set_enhance_fatal_stack_after_inspectorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %enhance_fatal_stack_after_inspector_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11743,7 +11743,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36enhance_fatal_stack_before_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36enhance_fatal_stack_before_inspectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %enhance_fatal_stack_before_inspector_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %retval.sroa.0.0.copyload.i = load ptr, ptr %enhance_fatal_stack_before_inspector_, align 8
@@ -11751,7 +11751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_enhance_fatal_stack_before_inspectorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_enhance_fatal_stack_before_inspectorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %enhance_fatal_stack_before_inspector_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11780,7 +11780,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm27get_source_map_error_sourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm27get_source_map_error_sourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %get_source_map_error_source_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %retval.sroa.0.0.copyload.i = load ptr, ptr %get_source_map_error_source_, align 8
@@ -11788,7 +11788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm31set_get_source_map_error_sourceEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm31set_get_source_map_error_sourceEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %get_source_map_error_source_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11817,7 +11817,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm39host_import_module_dynamically_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm39host_import_module_dynamically_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %host_import_module_dynamically_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %retval.sroa.0.0.copyload.i = load ptr, ptr %host_import_module_dynamically_callback_, align 8
@@ -11825,7 +11825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm43set_host_import_module_dynamically_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm43set_host_import_module_dynamically_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %host_import_module_dynamically_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11854,7 +11854,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm43host_initialize_import_meta_object_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm43host_initialize_import_meta_object_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %host_initialize_import_meta_object_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %retval.sroa.0.0.copyload.i = load ptr, ptr %host_initialize_import_meta_object_callback_, align 8
@@ -11862,7 +11862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm47set_host_initialize_import_meta_object_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm47set_host_initialize_import_meta_object_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %host_initialize_import_meta_object_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11891,7 +11891,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm31http2session_on_altsvc_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm31http2session_on_altsvc_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_altsvc_function_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_altsvc_function_, align 8
@@ -11899,7 +11899,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm35set_http2session_on_altsvc_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm35set_http2session_on_altsvc_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_altsvc_function_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11928,7 +11928,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm30http2session_on_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm30http2session_on_error_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_error_function_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_error_function_, align 8
@@ -11936,7 +11936,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm34set_http2session_on_error_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm34set_http2session_on_error_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_error_function_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -11965,7 +11965,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36http2session_on_frame_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36http2session_on_frame_error_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_frame_error_function_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_frame_error_function_, align 8
@@ -11973,7 +11973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_http2session_on_frame_error_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_http2session_on_frame_error_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_frame_error_function_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12002,7 +12002,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm36http2session_on_goaway_data_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm36http2session_on_goaway_data_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_goaway_data_function_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_goaway_data_function_, align 8
@@ -12010,7 +12010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm40set_http2session_on_goaway_data_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm40set_http2session_on_goaway_data_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_goaway_data_function_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12039,7 +12039,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm32http2session_on_headers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm32http2session_on_headers_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_headers_function_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_headers_function_, align 8
@@ -12047,7 +12047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm36set_http2session_on_headers_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm36set_http2session_on_headers_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_headers_function_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12076,7 +12076,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm31http2session_on_origin_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm31http2session_on_origin_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_origin_function_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_origin_function_, align 8
@@ -12084,7 +12084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm35set_http2session_on_origin_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm35set_http2session_on_origin_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_origin_function_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12113,7 +12113,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29http2session_on_ping_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29http2session_on_ping_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_ping_function_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_ping_function_, align 8
@@ -12121,7 +12121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_http2session_on_ping_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_http2session_on_ping_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_ping_function_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12150,7 +12150,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm33http2session_on_priority_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm33http2session_on_priority_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_priority_function_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_priority_function_, align 8
@@ -12158,7 +12158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm37set_http2session_on_priority_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm37set_http2session_on_priority_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_priority_function_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12187,7 +12187,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm33http2session_on_settings_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm33http2session_on_settings_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_settings_function_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_settings_function_, align 8
@@ -12195,7 +12195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm37set_http2session_on_settings_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm37set_http2session_on_settings_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_settings_function_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12224,7 +12224,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm37http2session_on_stream_close_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm37http2session_on_stream_close_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_stream_close_function_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_stream_close_function_, align 8
@@ -12232,7 +12232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm41set_http2session_on_stream_close_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm41set_http2session_on_stream_close_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_stream_close_function_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12261,7 +12261,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm40http2session_on_stream_trailers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm40http2session_on_stream_trailers_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %http2session_on_stream_trailers_function_ = getelementptr inbounds nuw i8, ptr %this, i64 424
   %retval.sroa.0.0.copyload.i = load ptr, ptr %http2session_on_stream_trailers_function_, align 8
@@ -12269,7 +12269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm44set_http2session_on_stream_trailers_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm44set_http2session_on_stream_trailers_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %http2session_on_stream_trailers_function_ = getelementptr inbounds nuw i8, ptr %this, i64 424
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12298,7 +12298,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm23internal_binding_loaderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm23internal_binding_loaderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %internal_binding_loader_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %retval.sroa.0.0.copyload.i = load ptr, ptr %internal_binding_loader_, align 8
@@ -12306,7 +12306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm27set_internal_binding_loaderEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm27set_internal_binding_loaderEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %internal_binding_loader_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12335,7 +12335,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm27immediate_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm27immediate_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %immediate_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   %retval.sroa.0.0.copyload.i = load ptr, ptr %immediate_callback_function_, align 8
@@ -12343,7 +12343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm31set_immediate_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm31set_immediate_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %immediate_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12372,7 +12372,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm37inspector_console_extension_installerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm37inspector_console_extension_installerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %inspector_console_extension_installer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %retval.sroa.0.0.copyload.i = load ptr, ptr %inspector_console_extension_installer_, align 8
@@ -12380,7 +12380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm41set_inspector_console_extension_installerEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm41set_inspector_console_extension_installerEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %inspector_console_extension_installer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12409,7 +12409,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29inspector_disable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29inspector_disable_async_hooksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %inspector_disable_async_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 456
   %retval.sroa.0.0.copyload.i = load ptr, ptr %inspector_disable_async_hooks_, align 8
@@ -12417,7 +12417,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_inspector_disable_async_hooksEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_inspector_disable_async_hooksEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %inspector_disable_async_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 456
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12446,7 +12446,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm28inspector_enable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm28inspector_enable_async_hooksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %inspector_enable_async_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %retval.sroa.0.0.copyload.i = load ptr, ptr %inspector_enable_async_hooks_, align 8
@@ -12454,7 +12454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm32set_inspector_enable_async_hooksEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm32set_inspector_enable_async_hooksEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %inspector_enable_async_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12483,7 +12483,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm32maybe_cache_generated_source_mapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm32maybe_cache_generated_source_mapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %maybe_cache_generated_source_map_ = getelementptr inbounds nuw i8, ptr %this, i64 472
   %retval.sroa.0.0.copyload.i = load ptr, ptr %maybe_cache_generated_source_map_, align 8
@@ -12491,7 +12491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm36set_maybe_cache_generated_source_mapEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm36set_maybe_cache_generated_source_mapEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %maybe_cache_generated_source_map_ = getelementptr inbounds nuw i8, ptr %this, i64 472
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12520,7 +12520,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm35messaging_deserialize_create_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm35messaging_deserialize_create_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %messaging_deserialize_create_object_ = getelementptr inbounds nuw i8, ptr %this, i64 480
   %retval.sroa.0.0.copyload.i = load ptr, ptr %messaging_deserialize_create_object_, align 8
@@ -12528,7 +12528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm39set_messaging_deserialize_create_objectEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm39set_messaging_deserialize_create_objectEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %messaging_deserialize_create_object_ = getelementptr inbounds nuw i8, ptr %this, i64 480
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12557,7 +12557,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm12message_portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm12message_portEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %message_port_ = getelementptr inbounds nuw i8, ptr %this, i64 488
   %retval.sroa.0.0.copyload.i = load ptr, ptr %message_port_, align 8
@@ -12565,7 +12565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm16set_message_portEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm16set_message_portEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %message_port_ = getelementptr inbounds nuw i8, ptr %this, i64 488
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12594,7 +12594,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm22builtin_module_requireEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm22builtin_module_requireEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %builtin_module_require_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   %retval.sroa.0.0.copyload.i = load ptr, ptr %builtin_module_require_, align 8
@@ -12602,7 +12602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm26set_builtin_module_requireEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm26set_builtin_module_requireEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %builtin_module_require_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12631,7 +12631,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm26performance_entry_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm26performance_entry_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %performance_entry_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 504
   %retval.sroa.0.0.copyload.i = load ptr, ptr %performance_entry_callback_, align 8
@@ -12639,7 +12639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm30set_performance_entry_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm30set_performance_entry_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %performance_entry_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 504
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12668,7 +12668,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm28prepare_stack_trace_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm28prepare_stack_trace_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %prepare_stack_trace_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 512
   %retval.sroa.0.0.copyload.i = load ptr, ptr %prepare_stack_trace_callback_, align 8
@@ -12676,7 +12676,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm32set_prepare_stack_trace_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm32set_prepare_stack_trace_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %prepare_stack_trace_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 512
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12705,7 +12705,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm14process_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm14process_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %process_object_ = getelementptr inbounds nuw i8, ptr %this, i64 520
   %retval.sroa.0.0.copyload.i = load ptr, ptr %process_object_, align 8
@@ -12713,7 +12713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm18set_process_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm18set_process_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %process_object_ = getelementptr inbounds nuw i8, ptr %this, i64 520
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12742,7 +12742,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm11primordialsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm11primordialsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %primordials_ = getelementptr inbounds nuw i8, ptr %this, i64 528
   %retval.sroa.0.0.copyload.i = load ptr, ptr %primordials_, align 8
@@ -12750,7 +12750,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm15set_primordialsEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm15set_primordialsEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %primordials_ = getelementptr inbounds nuw i8, ptr %this, i64 528
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12779,7 +12779,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm37primordials_safe_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm37primordials_safe_map_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %primordials_safe_map_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 536
   %retval.sroa.0.0.copyload.i = load ptr, ptr %primordials_safe_map_prototype_object_, align 8
@@ -12787,7 +12787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm41set_primordials_safe_map_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm41set_primordials_safe_map_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %primordials_safe_map_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 536
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12816,7 +12816,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm37primordials_safe_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm37primordials_safe_set_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %primordials_safe_set_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 544
   %retval.sroa.0.0.copyload.i = load ptr, ptr %primordials_safe_set_prototype_object_, align 8
@@ -12824,7 +12824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm41set_primordials_safe_set_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm41set_primordials_safe_set_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %primordials_safe_set_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 544
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12853,7 +12853,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm42primordials_safe_weak_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm42primordials_safe_weak_map_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %retval.sroa.0.0.copyload.i = load ptr, ptr %primordials_safe_weak_map_prototype_object_, align 8
@@ -12861,7 +12861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm46set_primordials_safe_weak_map_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm46set_primordials_safe_weak_map_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %primordials_safe_weak_map_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12890,7 +12890,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm42primordials_safe_weak_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm42primordials_safe_weak_set_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 560
   %retval.sroa.0.0.copyload.i = load ptr, ptr %primordials_safe_weak_set_prototype_object_, align 8
@@ -12898,7 +12898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm46set_primordials_safe_weak_set_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm46set_primordials_safe_weak_set_prototype_objectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %primordials_safe_weak_set_prototype_object_ = getelementptr inbounds nuw i8, ptr %this, i64 560
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12927,7 +12927,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm20promise_hook_handlerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm20promise_hook_handlerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %promise_hook_handler_ = getelementptr inbounds nuw i8, ptr %this, i64 568
   %retval.sroa.0.0.copyload.i = load ptr, ptr %promise_hook_handler_, align 8
@@ -12935,7 +12935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm24set_promise_hook_handlerEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm24set_promise_hook_handlerEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %promise_hook_handler_ = getelementptr inbounds nuw i8, ptr %this, i64 568
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -12964,7 +12964,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm23promise_reject_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm23promise_reject_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %promise_reject_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 576
   %retval.sroa.0.0.copyload.i = load ptr, ptr %promise_reject_callback_, align 8
@@ -12972,7 +12972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm27set_promise_reject_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm27set_promise_reject_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %promise_reject_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 576
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13001,7 +13001,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm27snapshot_serialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm27snapshot_serialize_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %snapshot_serialize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   %retval.sroa.0.0.copyload.i = load ptr, ptr %snapshot_serialize_callback_, align 8
@@ -13009,7 +13009,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm31set_snapshot_serialize_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm31set_snapshot_serialize_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %snapshot_serialize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13038,7 +13038,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29snapshot_deserialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29snapshot_deserialize_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %snapshot_deserialize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %retval.sroa.0.0.copyload.i = load ptr, ptr %snapshot_deserialize_callback_, align 8
@@ -13046,7 +13046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_snapshot_deserialize_callbackEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_snapshot_deserialize_callbackEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %snapshot_deserialize_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13075,7 +13075,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm25snapshot_deserialize_mainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm25snapshot_deserialize_mainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %snapshot_deserialize_main_ = getelementptr inbounds nuw i8, ptr %this, i64 600
   %retval.sroa.0.0.copyload.i = load ptr, ptr %snapshot_deserialize_main_, align 8
@@ -13083,7 +13083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm29set_snapshot_deserialize_mainEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm29set_snapshot_deserialize_mainEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %snapshot_deserialize_main_ = getelementptr inbounds nuw i8, ptr %this, i64 600
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13112,7 +13112,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm23source_map_cache_getterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm23source_map_cache_getterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %source_map_cache_getter_ = getelementptr inbounds nuw i8, ptr %this, i64 608
   %retval.sroa.0.0.copyload.i = load ptr, ptr %source_map_cache_getter_, align 8
@@ -13120,7 +13120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm27set_source_map_cache_getterEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm27set_source_map_cache_getterEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %source_map_cache_getter_ = getelementptr inbounds nuw i8, ptr %this, i64 608
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13149,7 +13149,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm22tick_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm22tick_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %tick_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 616
   %retval.sroa.0.0.copyload.i = load ptr, ptr %tick_callback_function_, align 8
@@ -13157,7 +13157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm26set_tick_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm26set_tick_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %tick_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 616
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13186,7 +13186,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm24timers_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm24timers_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %timers_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 624
   %retval.sroa.0.0.copyload.i = load ptr, ptr %timers_callback_function_, align 8
@@ -13194,7 +13194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm28set_timers_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm28set_timers_callback_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %timers_callback_function_ = getelementptr inbounds nuw i8, ptr %this, i64 624
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13223,7 +13223,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29tls_wrap_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29tls_wrap_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %tls_wrap_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 632
   %retval.sroa.0.0.copyload.i = load ptr, ptr %tls_wrap_constructor_function_, align 8
@@ -13231,7 +13231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_tls_wrap_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_tls_wrap_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %tls_wrap_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 632
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13260,7 +13260,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm29trace_category_state_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm29trace_category_state_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %trace_category_state_function_ = getelementptr inbounds nuw i8, ptr %this, i64 640
   %retval.sroa.0.0.copyload.i = load ptr, ptr %trace_category_state_function_, align 8
@@ -13268,7 +13268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm33set_trace_category_state_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm33set_trace_category_state_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %trace_category_state_function_ = getelementptr inbounds nuw i8, ptr %this, i64 640
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13297,7 +13297,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm24udp_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm24udp_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %udp_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 648
   %retval.sroa.0.0.copyload.i = load ptr, ptr %udp_constructor_function_, align 8
@@ -13305,7 +13305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm28set_udp_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm28set_udp_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %udp_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 648
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13334,7 +13334,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm24url_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm24url_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %url_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 656
   %retval.sroa.0.0.copyload.i = load ptr, ptr %url_constructor_function_, align 8
@@ -13342,7 +13342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm28set_url_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm28set_url_constructor_functionEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %url_constructor_function_ = getelementptr inbounds nuw i8, ptr %this, i64 656
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13371,7 +13371,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm31wasm_streaming_compilation_implEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm31wasm_streaming_compilation_implEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %wasm_streaming_compilation_impl_ = getelementptr inbounds nuw i8, ptr %this, i64 664
   %retval.sroa.0.0.copyload.i = load ptr, ptr %wasm_streaming_compilation_impl_, align 8
@@ -13379,7 +13379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm35set_wasm_streaming_compilation_implEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm35set_wasm_streaming_compilation_implEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %wasm_streaming_compilation_impl_ = getelementptr inbounds nuw i8, ptr %this, i64 664
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -13408,7 +13408,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @_ZNK4node14PrincipalRealm33wasm_streaming_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #11 align 2 {
+define dso_local ptr @_ZNK4node14PrincipalRealm33wasm_streaming_object_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #11 align 2 {
 entry:
   %wasm_streaming_object_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 672
   %retval.sroa.0.0.copyload.i = load ptr, ptr %wasm_streaming_object_constructor_, align 8
@@ -13416,7 +13416,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealm37set_wasm_streaming_object_constructorEN2v85LocalINS1_8FunctionEEE(ptr nocapture noundef nonnull align 8 dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealm37set_wasm_streaming_object_constructorEN2v85LocalINS1_8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(872) %this, ptr readonly %value.coerce) unnamed_addr #3 align 2 {
 entry:
   %wasm_streaming_object_constructor_ = getelementptr inbounds nuw i8, ptr %this, i64 672
   %isolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -14857,7 +14857,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -15272,7 +15272,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef 
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
@@ -15287,16 +15287,16 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

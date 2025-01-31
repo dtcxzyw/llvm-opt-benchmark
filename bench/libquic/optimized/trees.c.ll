@@ -81,7 +81,7 @@ init_block.exit:                                  ; preds = %for.body12.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MOZ_Z__tr_stored_block(ptr nocapture noundef %s, ptr nocapture noundef readonly %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #1 {
+define dso_local void @MOZ_Z__tr_stored_block(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #1 {
 entry:
   %bi_valid = getelementptr inbounds nuw i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid, align 4
@@ -249,7 +249,7 @@ copy_block.exit:                                  ; preds = %while.body.i, %bi_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MOZ_Z__tr_flush_bits(ptr nocapture noundef %s) local_unnamed_addr #2 {
+define dso_local void @MOZ_Z__tr_flush_bits(ptr noundef captures(none) %s) local_unnamed_addr #2 {
 entry:
   %bi_valid.i = getelementptr inbounds nuw i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid.i, align 4
@@ -316,7 +316,7 @@ bi_flush.exit:                                    ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MOZ_Z__tr_align(ptr nocapture noundef %s) local_unnamed_addr #2 {
+define dso_local void @MOZ_Z__tr_align(ptr noundef captures(none) %s) local_unnamed_addr #2 {
 entry:
   %bi_valid = getelementptr inbounds nuw i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid, align 4
@@ -1282,7 +1282,7 @@ if.end133:                                        ; preds = %bi_windup.exit, %in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @build_tree(ptr noundef initializes((6412, 6420)) %s, ptr nocapture noundef %desc) unnamed_addr #3 {
+define internal fastcc void @build_tree(ptr noundef initializes((6412, 6420)) %s, ptr noundef captures(none) %desc) unnamed_addr #3 {
 entry:
   %next_code.i = alloca [16 x i16], align 16
   %0 = load ptr, ptr %desc, align 8
@@ -2027,7 +2027,7 @@ gen_codes.exit:                                   ; preds = %for.inc21.i, %for.c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @compress_block(ptr nocapture noundef %s, ptr nocapture noundef readonly %ltree, ptr nocapture noundef readonly %dtree) unnamed_addr #3 {
+define internal fastcc void @compress_block(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %ltree, ptr noundef readonly captures(none) %dtree) unnamed_addr #3 {
 entry:
   %last_lit = getelementptr inbounds nuw i8, ptr %s, i64 7012
   %0 = load i32, ptr %last_lit, align 4
@@ -2418,7 +2418,7 @@ if.end400:                                        ; preds = %if.else388, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @MOZ_Z__tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @MOZ_Z__tr_tally(ptr noundef captures(none) %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #2 {
 entry:
   %conv = trunc i32 %dist to i16
   %d_buf = getelementptr inbounds nuw i8, ptr %s, i64 7016
@@ -2491,7 +2491,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @send_tree(ptr noundef %s, ptr nocapture noundef readonly %tree, i32 noundef range(i32 -2147483648, 2147483647) %max_code) unnamed_addr #1 {
+define internal fastcc void @send_tree(ptr noundef %s, ptr noundef readonly captures(none) %tree, i32 noundef range(i32 -2147483648, 2147483647) %max_code) unnamed_addr #1 {
 entry:
   %cmp2.not206 = icmp slt i32 %max_code, 0
   br i1 %cmp2.not206, label %for.end, label %for.body.lr.ph
@@ -2975,13 +2975,13 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #6

@@ -1906,7 +1906,7 @@ ehcleanup92:                                      ; preds = %ehcleanup91, %ehcle
 declare void @_ZN6duckdb17ScalarFunctionSetC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24), i8 noundef zeroext) unnamed_addr #1
 
@@ -1988,7 +1988,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14ScalarFunction14BinaryFunctionIfffNS_17NextAfterOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 comdat align 2 {
@@ -4063,7 +4063,7 @@ unreachable:                                      ; preds = %invoke.cont35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23FunctionStatisticsInputE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %input) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL17PropagateAbsStatsERNS_13ClientContextERNS_23FunctionStatisticsInputE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.11") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %input) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -9630,7 +9630,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit:             ; preds = %if.end9.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25BindDecimalRoundPrecisionERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(264) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25BindDecimalRoundPrecisionERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(264) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i239 = alloca { i64, i64 }, align 8
   %ref.tmp.i240 = alloca %"class.std::function", align 8
@@ -10625,7 +10625,7 @@ declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE
 declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %ref.tmp = alloca %"class.duckdb::Value", align 8
@@ -11434,7 +11434,7 @@ cleanup:                                          ; preds = %cleanup.i.i.i, %cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %ref.tmp = alloca %"class.duckdb::Value", align 8
@@ -12238,7 +12238,7 @@ cleanup:                                          ; preds = %cleanup.i.i.i, %cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %ref.tmp = alloca %"class.duckdb::Value", align 8
@@ -13040,7 +13040,7 @@ cleanup:                                          ; preds = %cleanup.i.i.i, %cle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %input.i.i56.i.i.i = alloca %"struct.duckdb::hugeint_t", align 16
   %ref.tmp.i.i57.i.i.i = alloca %"struct.duckdb::hugeint_t", align 8
@@ -13914,7 +13914,7 @@ cleanup:                                          ; preds = %_ZN6duckdb13UnaryEx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %expr = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -14701,7 +14701,7 @@ _ZN6duckdb13UnaryExecutor7ExecuteIssZNS_L37DecimalRoundPositivePrecisionFunction
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %expr = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -15456,7 +15456,7 @@ _ZN6duckdb13UnaryExecutor7ExecuteIiiZNS_L37DecimalRoundPositivePrecisionFunction
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %expr = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -16210,7 +16210,7 @@ _ZN6duckdb13UnaryExecutor7ExecuteIllZNS_L37DecimalRoundPositivePrecisionFunction
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %input.i.i56.i.i.i = alloca %"struct.duckdb::hugeint_t", align 16
   %ref.tmp.i.i57.i.i.i = alloca %"struct.duckdb::hugeint_t", align 8
@@ -20450,10 +20450,10 @@ ehcleanup9:                                       ; preds = %_ZNSt14_Function_ba
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL10PiFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr nocapture nonnull readnone align 8 %args, ptr nocapture nonnull readnone align 8 %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL10PiFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr nonnull readnone align 8 captures(none) %args, ptr nonnull readnone align 8 captures(none) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pi_value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %pi_value) #22
@@ -21982,7 +21982,7 @@ entry:
 declare noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteINS_6date_tEEEbT_(i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6duckdb18IsInfiniteOperator9OperationINS_11timestamp_tEbEET0_T_(i64 %input.coerce) local_unnamed_addr #0 align 2 {
@@ -30875,7 +30875,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_17NextAfterOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %ldata, ptr noalias noundef %rdata, ptr noalias noundef %result_data, i64 noundef %count, ptr noundef nonnull align 8 dereferenceable(32) %mask, i1 noundef zeroext %fun) local_unnamed_addr #0 comdat align 2 {
@@ -67163,7 +67163,7 @@ if.end22:                                         ; preds = %if.end, %if.end.us,
 declare double @llvm.ceil.f64(double) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon, align 8
   %power_of_ten.i = alloca i16, align 2
@@ -67193,7 +67193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.192, align 8
   %power_of_ten.i = alloca i32, align 4
@@ -67223,7 +67223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.193, align 8
   %power_of_ten.i = alloca i64, align 8
@@ -67252,7 +67252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.194, align 8
   %power_of_ten.i = alloca %"struct.duckdb::hugeint_t", align 8
@@ -71994,7 +71994,7 @@ if.end22:                                         ; preds = %if.end, %if.end.us,
 declare double @llvm.floor.f64(double) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.195, align 8
   %power_of_ten.i = alloca i16, align 2
@@ -72024,7 +72024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.196, align 8
   %power_of_ten.i = alloca i32, align 4
@@ -72054,7 +72054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.197, align 8
   %power_of_ten.i = alloca i64, align 8
@@ -72083,7 +72083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.198, align 8
   %power_of_ten.i = alloca %"struct.duckdb::hugeint_t", align 8
@@ -76669,7 +76669,7 @@ if.end22:                                         ; preds = %if.end, %if.end.us,
 declare double @llvm.trunc.f64(double) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.199, align 8
   %power_of_ten.i = alloca i16, align 2
@@ -76699,7 +76699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.200, align 8
   %power_of_ten.i = alloca i32, align 4
@@ -76729,7 +76729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.201, align 8
   %power_of_ten.i = alloca i64, align 8
@@ -76758,7 +76758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.202, align 8
   %power_of_ten.i = alloca %"struct.duckdb::hugeint_t", align 8
@@ -84489,7 +84489,7 @@ if.end28:                                         ; preds = %if.end, %_ZN6duckdb
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.211, align 8
   %power_of_ten.i = alloca i16, align 2
@@ -84526,7 +84526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.212, align 8
   %power_of_ten.i = alloca i32, align 4
@@ -84563,7 +84563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.213, align 8
   %power_of_ten.i = alloca i64, align 8
@@ -84599,7 +84599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
+define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %state, ptr noundef nonnull align 8 dereferenceable(104) %result) #0 {
 entry:
   %fun.i.i = alloca %class.anon.214, align 8
   %power_of_ten.i = alloca %"struct.duckdb::hugeint_t", align 8

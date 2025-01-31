@@ -227,7 +227,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i16 @_ZN6icu_75L10getAlgNameEPNS_16AlgorithmicRangeEj15UCharNameChoicePct(ptr nocapture noundef readonly %range, i32 noundef %code, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr nocapture noundef writeonly %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
+define internal fastcc noundef zeroext i16 @_ZN6icu_75L10getAlgNameEPNS_16AlgorithmicRangeEj15UCharNameChoicePct(ptr noundef readonly captures(none) %range, i32 noundef %code, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr noundef writeonly captures(none) %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
 entry:
   %indexes = alloca [8 x i16], align 16
   %0 = and i32 %nameChoice, -3
@@ -534,7 +534,7 @@ return:                                           ; preds = %for.end, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i16 @_ZN6icu_75L7getNameEPNS_10UCharNamesEj15UCharNameChoicePct(ptr nocapture noundef readonly %names, i32 noundef range(i32 0, 1114112) %code, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr nocapture noundef writeonly %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
+define internal fastcc noundef zeroext i16 @_ZN6icu_75L7getNameEPNS_10UCharNamesEj15UCharNameChoicePct(ptr noundef readonly captures(none) %names, i32 noundef range(i32 0, 1114112) %code, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr noundef writeonly captures(none) %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
 entry:
   %offsets.i = alloca [34 x i16], align 16
   %lengths.i = alloca [34 x i16], align 16
@@ -712,7 +712,7 @@ return:                                           ; preds = %if.else, %if.then8,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i16 @_ZN6icu_75L10getExtNameEjPct(i32 noundef range(i32 -2147483648, 2147483647) %code, ptr nocapture noundef writeonly %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @_ZN6icu_75L10getExtNameEjPct(i32 noundef range(i32 -2147483648, 2147483647) %code, ptr noundef writeonly captures(none) %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp sgt i32 %code, 64975
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -1498,7 +1498,7 @@ return:                                           ; preds = %_ZN6icu_75L11findAl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare signext i8 @uprv_toupper_75(i8 noundef signext) local_unnamed_addr #1
 
@@ -1536,7 +1536,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L9enumNamesEPNS_10UCharNamesEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef readonly %names, i32 noundef %start, i32 noundef %limit, ptr noundef %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
@@ -2033,7 +2033,7 @@ return:                                           ; preds = %if.end39, %if.end25
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L12enumAlgNamesEPNS_16AlgorithmicRangeEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef %range, i32 noundef %start, i32 noundef %limit, ptr nocapture noundef nonnull readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L12enumAlgNamesEPNS_16AlgorithmicRangeEiiPFaPvi15UCharNameChoicePKciES2_S3_(ptr noundef %range, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull readonly captures(none) %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
 entry:
   %buffer = alloca [200 x i8], align 16
   %indexes = alloca [8 x i16], align 16
@@ -3300,7 +3300,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uprv_getCharNameCharacters_75(ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define void @uprv_getCharNameCharacters_75(ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
 entry:
   %us.i = alloca [256 x i16], align 16
   %cs.i = alloca [256 x i8], align 16
@@ -3570,7 +3570,7 @@ for.body96:                                       ; preds = %for.body96.preheade
   %indvars.iv = phi i64 [ 0, %for.body96.preheader ], [ %indvars.iv.next, %for.body96 ]
   %arrayidx97 = getelementptr inbounds nuw i16, ptr %incdec.ptr, i64 %indvars.iv
   %32 = load i16, ptr %arrayidx97, align 2
-  %call98 = tail call signext i16 @udata_readInt16_75(ptr noundef %ds, i16 noundef signext %32)
+  %call98 = tail call signext i16 @udata_readInt16_75(ptr noundef nonnull %ds, i16 noundef signext %32)
   %arrayidx100 = getelementptr inbounds nuw [512 x i16], ptr %tokens, i64 0, i64 %indvars.iv
   store i16 %call98, ptr %arrayidx100, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3578,10 +3578,10 @@ for.body96:                                       ; preds = %for.body96.preheade
   br i1 %exitcond.not, label %for.cond104.preheader, label %for.body96, !llvm.loop !58
 
 for.end111:                                       ; preds = %for.body106.preheader, %for.cond104.preheader
-  call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr noundef %tokens, i16 noundef zeroext %call85, ptr noundef %map, ptr noundef %pErrorCode)
+  call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef nonnull %ds, ptr noundef %tokens, i16 noundef zeroext %call85, ptr noundef %map, ptr noundef %pErrorCode)
   %add.ptr114 = getelementptr inbounds nuw i8, ptr %tokens, i64 512
   %conv123 = tail call i16 @llvm.usub.sat.i16(i16 %call85, i16 256)
-  call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr noundef %add.ptr114, i16 noundef zeroext %conv123, ptr noundef %trailMap, ptr noundef %pErrorCode)
+  call fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef nonnull %ds, ptr noundef %add.ptr114, i16 noundef zeroext %conv123, ptr noundef %trailMap, ptr noundef %pErrorCode)
   %33 = load i32, ptr %pErrorCode, align 4
   %cmp.i231 = icmp slt i32 %33, 1
   br i1 %cmp.i231, label %if.end128, label %return
@@ -3603,7 +3603,7 @@ for.body140.preheader:                            ; preds = %for.cond136.prehead
   br label %for.body140
 
 if.then133:                                       ; preds = %if.end128
-  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.2, i32 noundef %conv88)
+  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.2, i32 noundef %conv88)
   store i32 7, ptr %pErrorCode, align 4
   br label %return
 
@@ -3625,7 +3625,7 @@ for.body140:                                      ; preds = %for.body140.prehead
   %36 = load i8, ptr %arrayidx145, align 1
   %idx.ext147 = zext i8 %36 to i64
   %add.ptr148 = getelementptr inbounds nuw i16, ptr %call131, i64 %idx.ext147
-  %call149 = tail call noundef i32 %35(ptr noundef %ds, ptr noundef nonnull %add.ptr143, i32 noundef 2, ptr noundef nonnull %add.ptr148, ptr noundef nonnull %pErrorCode)
+  %call149 = tail call noundef i32 %35(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr143, i32 noundef 2, ptr noundef nonnull %add.ptr148, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count290
   br i1 %exitcond291.not, label %for.cond153.preheader, label %for.body140, !llvm.loop !59
@@ -3641,7 +3641,7 @@ for.body156:                                      ; preds = %for.body156.prehead
   %38 = load i8, ptr %arrayidx164, align 1
   %idx.ext166 = zext i8 %38 to i64
   %add.ptr167 = getelementptr inbounds nuw i16, ptr %add.ptr161, i64 %idx.ext166
-  %call168 = tail call noundef i32 %37(ptr noundef %ds, ptr noundef nonnull %add.ptr159, i32 noundef 2, ptr noundef nonnull %add.ptr167, ptr noundef nonnull %pErrorCode)
+  %call168 = tail call noundef i32 %37(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr159, i32 noundef 2, ptr noundef nonnull %add.ptr167, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
   br i1 %exitcond296.not, label %do.body172, label %for.body156, !llvm.loop !60
@@ -3653,13 +3653,13 @@ do.body172:                                       ; preds = %for.body156, %for.c
   %add.ptr178 = getelementptr inbounds nuw i8, ptr %add.ptr38, i64 %idx.ext177
   %sub179 = sub i32 %call77, %call74
   %add.ptr181 = getelementptr inbounds nuw i8, ptr %cond, i64 %idx.ext177
-  %call182 = tail call i32 @udata_swapInvStringBlock_75(ptr noundef %ds, ptr noundef nonnull %add.ptr178, i32 noundef %sub179, ptr noundef %add.ptr181, ptr noundef nonnull %pErrorCode)
+  %call182 = tail call i32 @udata_swapInvStringBlock_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr178, i32 noundef %sub179, ptr noundef %add.ptr181, ptr noundef nonnull %pErrorCode)
   %39 = load i32, ptr %pErrorCode, align 4
   %cmp.i233 = icmp slt i32 %39, 1
   br i1 %cmp.i233, label %if.end186, label %if.then185
 
 if.then185:                                       ; preds = %do.body172
-  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.3)
   br label %return
 
 if.end186:                                        ; preds = %do.body172
@@ -3673,7 +3673,7 @@ if.end186:                                        ; preds = %do.body172
   %add196 = mul nuw nsw i32 %conv191, 6
   %mul197 = add nuw nsw i32 %add196, 2
   %add.ptr199 = getelementptr inbounds nuw i8, ptr %cond, i64 %idx.ext188
-  %call200 = tail call noundef i32 %42(ptr noundef %ds, ptr noundef nonnull %add.ptr189, i32 noundef %mul197, ptr noundef %add.ptr199, ptr noundef nonnull %pErrorCode)
+  %call200 = tail call noundef i32 %42(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr189, i32 noundef %mul197, ptr noundef %add.ptr199, ptr noundef nonnull %pErrorCode)
   %inCharset = getelementptr inbounds nuw i8, ptr %ds, i64 1
   %43 = load i8, ptr %inCharset, align 1
   %outCharset = getelementptr inbounds nuw i8, ptr %ds, i64 3
@@ -3762,7 +3762,7 @@ if.end246:                                        ; preds = %while.cond.loopexit
   %call250 = tail call noundef i32 %53(i32 noundef %54)
   %55 = load ptr, ptr %swapArray32, align 8
   %add.ptr255 = getelementptr inbounds nuw i8, ptr %cond, i64 %idx.ext248
-  %call256 = tail call noundef i32 %55(ptr noundef %ds, ptr noundef nonnull %add.ptr249, i32 noundef 4, ptr noundef %add.ptr255, ptr noundef nonnull %pErrorCode)
+  %call256 = tail call noundef i32 %55(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr249, i32 noundef 4, ptr noundef %add.ptr255, ptr noundef nonnull %pErrorCode)
   %add257 = add i32 %call50, 4
   %cmp259267.not = icmp eq i32 %call250, 0
   br i1 %cmp259267.not, label %if.end326, label %for.body260.lr.ph
@@ -3855,7 +3855,7 @@ while.end318.split.loop.exit314:                  ; preds = %land.rhs309
 while.end318:                                     ; preds = %while.cond307, %while.end318.split.loop.exit314
   %stringsCount.1.lcssa = phi i32 [ %70, %while.end318.split.loop.exit314 ], [ 0, %while.cond307 ]
   %71 = load ptr, ptr %swapInvChars319, align 8
-  %call320 = tail call noundef i32 %71(ptr noundef %ds, ptr noundef nonnull %add.ptr298, i32 noundef %stringsCount.1.lcssa, ptr noundef nonnull %add.ptr300, ptr noundef nonnull %pErrorCode)
+  %call320 = tail call noundef i32 %71(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr298, i32 noundef %stringsCount.1.lcssa, ptr noundef nonnull %add.ptr300, ptr noundef nonnull %pErrorCode)
   br label %for.inc323
 
 sw.default:                                       ; preds = %if.end263
@@ -3884,12 +3884,12 @@ declare i32 @udata_swapDataHeader_75(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare signext i16 @udata_readInt16_75(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr nocapture noundef nonnull readonly %tokens, i16 noundef zeroext %tokenCount, ptr nocapture noundef nonnull %map, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc void @_ZL12makeTokenMapPK12UDataSwapperPstPhP10UErrorCode(ptr noundef %ds, ptr noundef nonnull readonly captures(none) %tokens, i16 noundef zeroext %tokenCount, ptr noundef nonnull captures(none) %map, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
 entry:
   %usedOutChar = alloca [256 x i8], align 16
   %c1 = alloca i8, align 1
@@ -4011,7 +4011,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #1
 declare i32 @udata_swapInvStringBlock_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZN6icu_75L18expandGroupLengthsEPKhPtS2_(ptr noundef readonly %s, ptr nocapture noundef nonnull writeonly %offsets, ptr nocapture noundef nonnull writeonly %lengths) unnamed_addr #7 {
+define internal fastcc noundef nonnull ptr @_ZN6icu_75L18expandGroupLengthsEPKhPtS2_(ptr noundef readonly %s, ptr noundef nonnull writeonly captures(none) %offsets, ptr noundef nonnull writeonly captures(none) %lengths) unnamed_addr #7 {
 entry:
   br label %while.body
 
@@ -4093,7 +4093,7 @@ while.end:                                        ; preds = %if.end47
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
@@ -4104,7 +4104,7 @@ declare i32 @__gxx_personality_v0(...)
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L12isAcceptableEPvPKcS2_PK9UDataInfo(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %pInfo) #8 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L12isAcceptableEPvPKcS2_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %pInfo) #8 {
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %3, 19
@@ -4192,7 +4192,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 declare void @udata_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr nocapture noundef readonly %names, ptr nocapture noundef readonly %name, i16 noundef zeroext %nameLength, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr nocapture noundef writeonly %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
+define internal fastcc noundef zeroext i16 @_ZN6icu_75L10expandNameEPNS_10UCharNamesEPKht15UCharNameChoicePct(ptr noundef readonly captures(none) %names, ptr noundef readonly captures(none) %name, i16 noundef zeroext %nameLength, i32 noundef range(i32 -2147483648, 4) %nameChoice, ptr noundef writeonly captures(none) %buffer, i16 noundef zeroext %bufferLength) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %names, i64 16
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %names, i64 18
@@ -4524,7 +4524,7 @@ if.end110:                                        ; preds = %if.then109, %while.
 declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr nocapture noundef readonly %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef readonly captures(none) %names, i16 %group.2.val, i16 %group.4.val, i32 noundef %start, i32 noundef range(i32 -2147483648, 2147483647) %end, ptr noundef readonly %fn, ptr noundef %context, i32 noundef range(i32 -2147483648, 4) %nameChoice) unnamed_addr #0 {
 entry:
   %offsets = alloca [34 x i16], align 16
   %lengths = alloca [34 x i16], align 16
@@ -4939,10 +4939,10 @@ declare i16 @llvm.usub.sat.i16(i16, i16) #9
 declare i16 @llvm.umin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

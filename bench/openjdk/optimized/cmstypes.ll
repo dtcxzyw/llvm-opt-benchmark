@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @SupportedTags = internal global <{ { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } }> <{ { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1093812784, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1832993312, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeA2B }, ptr getelementptr (i8, ptr @SupportedTags, i64 112) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1093812785, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1832993312, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeA2B }, ptr getelementptr (i8, ptr @SupportedTags, i64 224) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1093812786, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1832993312, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeA2B }, ptr getelementptr (i8, ptr @SupportedTags, i64 336) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1110589744, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 448) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1110589745, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 560) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1110589746, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 672) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 1918392666, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1482250784, i32 396690872, [18 x i32] zeroinitializer }>, ptr @DecideXYZtype }, ptr getelementptr (i8, ptr @SupportedTags, i64 784) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 1733843290, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1482250784, i32 396690872, [18 x i32] zeroinitializer }>, ptr @DecideXYZtype }, ptr getelementptr (i8, ptr @SupportedTags, i64 896) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 1649957210, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1482250784, i32 396690872, [18 x i32] zeroinitializer }>, ptr @DecideXYZtype }, ptr getelementptr (i8, ptr @SupportedTags, i64 1008) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1918128707, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1668641398, i32 1885434465, i32 -1804014080, [17 x i32] zeroinitializer }>, ptr @DecideCurveType }, ptr getelementptr (i8, ptr @SupportedTags, i64 1120) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1733579331, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1668641398, i32 1885434465, i32 -1804014080, [17 x i32] zeroinitializer }>, ptr @DecideCurveType }, ptr getelementptr (i8, ptr @SupportedTags, i64 1232) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1649693251, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1668641398, i32 1885434465, i32 -1804014080, [17 x i32] zeroinitializer }>, ptr @DecideCurveType }, ptr getelementptr (i8, ptr @SupportedTags, i64 1344) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1667329140, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1685350765, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 1456) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1952543335, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1952807028, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 1568) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1667785060, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 9, i32 1, <{ i32, [19 x i32] }> <{ i32 1936077618, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 1680) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1667789421, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1667789421, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 1792) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1668051567, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1668051567, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 1904) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1668051572, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1668051572, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 2016) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1668050804, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1668051572, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 2128) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1668313716, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1952807028, i32 1835824483, i32 1684370275, [17 x i32] zeroinitializer }>, ptr @DecideTextType }, ptr getelementptr (i8, ptr @SupportedTags, i64 2240) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1685350765, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1685350765, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 2352) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1684893284, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1684370275, i32 1835824483, i32 1952807028, [17 x i32] zeroinitializer }>, ptr @DecideTextDescType }, ptr getelementptr (i8, ptr @SupportedTags, i64 2464) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1684890724, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1684370275, i32 1835824483, i32 1952807028, [17 x i32] zeroinitializer }>, ptr @DecideTextDescType }, ptr getelementptr (i8, ptr @SupportedTags, i64 2576) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1734438260, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 2688) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 1800688195, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1668641398, i32 1885434465, [18 x i32] zeroinitializer }>, ptr @DecideCurveType }, ptr getelementptr (i8, ptr @SupportedTags, i64 2800) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1819635049, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1482250784, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 2912) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 1651208308, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1482250784, i32 396690872, [18 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 3024) }, { i32, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr }, ptr } { i32 2004119668, { i32, i32, <{ i32, i32, [18 x i32] }>, ptr } { i32 1, i32 2, <{ i32, i32, [18 x i32] }> <{ i32 1482250784, i32 396690872, [18 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 3136) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1852009522, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1852009522, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 3248) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1886545200, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 3360) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1886545201, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 3472) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1886545202, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1835430962, i32 1833058592, i32 1835430961, [17 x i32] zeroinitializer }>, ptr @DecideLUTtypeB2A }, ptr getelementptr (i8, ptr @SupportedTags, i64 3584) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1684370275, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1684370275, i32 1835824483, i32 1952807028, [17 x i32] zeroinitializer }>, ptr @DecideTextDescType }, ptr getelementptr (i8, ptr @SupportedTags, i64 3696) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886610801, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1886610801, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 3808) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1952801640, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1936287520, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 3920) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1667852659, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1936287520, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4032) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1919510320, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1936287520, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4144) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1919510322, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1936287520, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4256) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1835360627, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1835360627, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4368) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886610480, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4480) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886610481, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4592) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886610482, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4704) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886610483, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4816) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886597747, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 4928) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886597737, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684108385, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5040) }, { i32, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr }, ptr } { i32 1987405156, { i32, i32, <{ i32, i32, i32, [17 x i32] }>, ptr } { i32 1, i32 3, <{ i32, i32, i32, [17 x i32] }> <{ i32 1684370275, i32 1835824483, i32 1952807028, [17 x i32] zeroinitializer }>, ptr @DecideTextDescType }, ptr getelementptr (i8, ptr @SupportedTags, i64 5152) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1650877472, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1650877472, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5264) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1668441193, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1668441193, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5376) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1144144432, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5488) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1144144433, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5600) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1144144434, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5712) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1144144435, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5824) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1110590512, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 5936) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1110590513, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6048) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1110590514, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6160) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1110590515, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1836082548, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6272) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1935897188, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684370275, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6384) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1986618743, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1986618743, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6496) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1935897198, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1935897198, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6608) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1986226036, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1986226036, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6720) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1835365473, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1684628340, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6832) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1886611812, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1886611812, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 6944) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1685283693, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1835824483, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 7056) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1667851120, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1667851120, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 7168) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1634890867, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 9, i32 1, <{ i32, [19 x i32] }> <{ i32 1936077618, [19 x i32] zeroinitializer }>, ptr null }, ptr getelementptr (i8, ptr @SupportedTags, i64 7280) }, { i32, { i32, i32, <{ i32, [19 x i32] }>, ptr }, ptr } { i32 1296581426, { i32, i32, <{ i32, [19 x i32] }>, ptr } { i32 1, i32 1, <{ i32, [19 x i32] }> <{ i32 1296581426, [19 x i32] zeroinitializer }>, ptr null }, ptr null } }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Type_VideoSignal_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define hidden ptr @Type_VideoSignal_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 4) #13
@@ -78,7 +78,7 @@ define hidden ptr @Type_VideoSignal_Dup(ptr nocapture noundef readonly %0, ptr n
 declare ptr @_cmsDupMem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @IsIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca [3 x [4 x double]], align 16
   store double 1.000000e+00, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -124,7 +124,7 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Type_MHC2_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define hidden noundef ptr @Type_MHC2_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 144) #13
@@ -196,7 +196,7 @@ Type_MHC2_Free.exit:                              ; preds = %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_MHC2_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_MHC2_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -240,7 +240,7 @@ define internal void @Type_MHC2_Free(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTagTypePluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagTypePluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %4
@@ -319,7 +319,7 @@ DupTagTypeList.exit:                              ; preds = %8, %21
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocMPETypePluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagTypePluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %4
@@ -495,7 +495,7 @@ GetHandler.exit:                                  ; preds = %.lr.ph.i, %.lr.ph20
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTagPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTagPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -602,7 +602,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterTagPlugin(ptr noundef %0, ptr nou
 declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsGetTagDescriptor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -657,10 +657,10 @@ declare double @llvm.fabs.f64(double) #4
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Chromaticity_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_Chromaticity_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i32 0, ptr %2, align 4
@@ -760,7 +760,7 @@ define internal ptr @Type_Chromaticity_Read(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_Chromaticity_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_Chromaticity_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext 3) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %SaveOneChromaticity.exit.thread, label %6
@@ -827,7 +827,7 @@ SaveOneChromaticity.exit.thread:                  ; preds = %16, %8, %SaveOneChr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Chromaticity_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Chromaticity_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 72) #13
@@ -835,7 +835,7 @@ define internal ptr @Type_Chromaticity_Dup(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Chromaticity_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_Chromaticity_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -843,7 +843,7 @@ define internal void @Type_Chromaticity_Free(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ColorantOrderType_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_ColorantOrderType_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -885,7 +885,7 @@ define internal ptr @Type_ColorantOrderType_Read(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_ColorantOrderType_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_ColorantOrderType_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   br label %5
 
 5:                                                ; preds = %4, %5
@@ -919,7 +919,7 @@ define internal range(i32 0, 2) i32 @Type_ColorantOrderType_Write(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ColorantOrderType_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ColorantOrderType_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 16) #13
@@ -927,7 +927,7 @@ define internal ptr @Type_ColorantOrderType_Dup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ColorantOrderType_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_ColorantOrderType_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -935,7 +935,7 @@ define internal void @Type_ColorantOrderType_Free(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_S15Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_S15Fixed16_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = lshr i32 %3, 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -979,7 +979,7 @@ define internal ptr @Type_S15Fixed16_Read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_S15Fixed16_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @Type_S15Fixed16_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1006,7 +1006,7 @@ define internal range(i32 0, 2) i32 @Type_S15Fixed16_Write(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_S15Fixed16_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal ptr @Type_S15Fixed16_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %2, 3
@@ -1015,7 +1015,7 @@ define internal ptr @Type_S15Fixed16_Dup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_S15Fixed16_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_S15Fixed16_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -1023,7 +1023,7 @@ define internal void @Type_S15Fixed16_Free(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_U16Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_U16Fixed16_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = lshr i32 %3, 2
@@ -1072,7 +1072,7 @@ define internal ptr @Type_U16Fixed16_Read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_U16Fixed16_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @Type_U16Fixed16_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1102,7 +1102,7 @@ define internal range(i32 0, 2) i32 @Type_U16Fixed16_Write(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_U16Fixed16_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal ptr @Type_U16Fixed16_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %2, 3
@@ -1111,7 +1111,7 @@ define internal ptr @Type_U16Fixed16_Dup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_U16Fixed16_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_U16Fixed16_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -1119,7 +1119,7 @@ define internal void @Type_U16Fixed16_Free(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Text_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_Text_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @cmsMLUalloc(ptr noundef %6, i32 noundef 1) #13
@@ -1175,7 +1175,7 @@ define internal ptr @Type_Text_Read(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Type_Text_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal i32 @Type_Text_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = tail call i32 @cmsMLUgetASCII(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 0) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %18, label %7
@@ -1202,19 +1202,19 @@ define internal i32 @Type_Text_Write(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Text_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Text_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsMLUdup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Text_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_Text_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsMLUfree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_Text_Description_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1376,7 +1376,7 @@ define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_Text_Description_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_Text_Description_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca [68 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   %6 = tail call i32 @cmsMLUgetASCII(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 0) #13
@@ -1389,7 +1389,7 @@ define internal range(i32 0, 2) i32 @Type_Text_Description_Write(ptr nocapture n
   %11 = tail call ptr @_cmsDupMem(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 1) #13
   %12 = load ptr, ptr %8, align 8
   %13 = tail call ptr @_cmsDupMem(ptr noundef %12, ptr noundef nonnull @.str.3, i32 noundef 4) #13
-  br label %25
+  br label %27
 
 14:                                               ; preds = %4
   %15 = tail call ptr @_cmsCalloc(ptr noundef %9, i32 noundef %6, i32 noundef 1) #13
@@ -1400,144 +1400,145 @@ define internal range(i32 0, 2) i32 @Type_Text_Description_Write(ptr nocapture n
   %18 = load ptr, ptr %8, align 8
   %19 = tail call ptr @_cmsCalloc(ptr noundef %18, i32 noundef %6, i32 noundef 4) #13
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %_cmsWriteWCharArray.exit.thread78, label %21
+  br i1 %20, label %_cmsWriteWCharArray.exit.thread78.thread, label %23
 
-21:                                               ; preds = %17
-  %22 = tail call i32 @cmsMLUgetASCII(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef %6) #13
-  %23 = shl i32 %6, 2
-  %24 = tail call i32 @cmsMLUgetWide(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %23) #13
-  br label %25
+_cmsWriteWCharArray.exit.thread78.thread:         ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8
+  tail call void @_cmsFree(ptr noundef %22, ptr noundef nonnull %15) #13
+  br label %.thread
 
-25:                                               ; preds = %21, %10
-  %.050 = phi ptr [ %13, %10 ], [ %19, %21 ]
-  %.049 = phi ptr [ %11, %10 ], [ %15, %21 ]
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.049) #14
-  %27 = trunc i64 %26 to i32
-  %28 = add i32 %27, 1
-  %29 = add i32 %27, 21
-  %30 = shl i32 %28, 1
-  %31 = add i32 %29, %30
-  %32 = add i32 %31, 70
-  %33 = add i32 %31, 73
-  %34 = and i32 %33, -4
-  %35 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %28) #13
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %_cmsWriteWCharArray.exit, label %36
+23:                                               ; preds = %17
+  %24 = tail call i32 @cmsMLUgetASCII(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef %6) #13
+  %25 = shl i32 %6, 2
+  %26 = tail call i32 @cmsMLUgetWide(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %25) #13
+  br label %27
 
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(ptr noundef %1, i32 noundef %28, ptr noundef %.049) #13
-  %.not58 = icmp eq i32 %39, 0
-  br i1 %.not58, label %_cmsWriteWCharArray.exit, label %40
+27:                                               ; preds = %23, %10
+  %.050 = phi ptr [ %13, %10 ], [ %19, %23 ]
+  %.049 = phi ptr [ %11, %10 ], [ %15, %23 ]
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.049) #14
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %29, 1
+  %31 = add i32 %29, 21
+  %32 = shl i32 %30, 1
+  %33 = add i32 %31, %32
+  %34 = add i32 %33, 70
+  %35 = add i32 %33, 73
+  %36 = and i32 %35, -4
+  %37 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %30) #13
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %_cmsWriteWCharArray.exit.thread78, label %38
 
-40:                                               ; preds = %36
-  %41 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
-  %.not59 = icmp eq i32 %41, 0
-  br i1 %.not59, label %_cmsWriteWCharArray.exit, label %42
+38:                                               ; preds = %27
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call i32 %40(ptr noundef %1, i32 noundef %30, ptr noundef nonnull %.049) #13
+  %.not58 = icmp eq i32 %41, 0
+  br i1 %.not58, label %_cmsWriteWCharArray.exit.thread78, label %42
 
-42:                                               ; preds = %40
-  %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %28) #13
-  %.not60 = icmp eq i32 %43, 0
-  br i1 %.not60, label %_cmsWriteWCharArray.exit, label %44
+42:                                               ; preds = %38
+  %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
+  %.not59 = icmp eq i32 %43, 0
+  br i1 %.not59, label %_cmsWriteWCharArray.exit.thread78, label %44
 
 44:                                               ; preds = %42
-  %.not10.i = icmp eq i32 %28, 0
+  %45 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %30) #13
+  %.not60 = icmp eq i32 %45, 0
+  br i1 %.not60, label %_cmsWriteWCharArray.exit.thread78, label %46
+
+46:                                               ; preds = %44
+  %.not10.i = icmp eq i32 %30, 0
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %44
-  %wide.trip.count.i = zext i32 %28 to i64
+.lr.ph.preheader.i:                               ; preds = %46
+  %wide.trip.count.i = zext i32 %30 to i64
   br label %.lr.ph.i
 
-45:                                               ; preds = %.lr.ph.i
+47:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
 
-.lr.ph.i:                                         ; preds = %45, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %.050, i64 %indvars.iv.i
-  %47 = load i32, ptr %46, align 4
-  %48 = trunc i32 %47 to i16
-  %49 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %48) #13
-  %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %_cmsWriteWCharArray.exit, label %45
+.lr.ph.i:                                         ; preds = %47, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %47 ]
+  %48 = getelementptr inbounds nuw i32, ptr %.050, i64 %indvars.iv.i
+  %49 = load i32, ptr %48, align 4
+  %50 = trunc i32 %49 to i16
+  %51 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %50) #13
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %_cmsWriteWCharArray.exit.thread78.thread94, label %47
 
-.loopexit:                                        ; preds = %45, %44
-  %50 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext 0) #13
-  %.not62 = icmp eq i32 %50, 0
-  br i1 %.not62, label %_cmsWriteWCharArray.exit, label %51
+_cmsWriteWCharArray.exit.thread78.thread94:       ; preds = %.lr.ph.i
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %53 = load ptr, ptr %52, align 8
+  tail call void @_cmsFree(ptr noundef %53, ptr noundef nonnull %.049) #13
+  br label %68
 
-51:                                               ; preds = %.loopexit
-  %52 = tail call i32 @_cmsWriteUInt8Number(ptr noundef %1, i8 noundef zeroext 0) #13
-  %.not63 = icmp eq i32 %52, 0
-  br i1 %.not63, label %_cmsWriteWCharArray.exit, label %53
+.loopexit:                                        ; preds = %47, %46
+  %54 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext 0) #13
+  %.not62 = icmp eq i32 %54, 0
+  br i1 %.not62, label %_cmsWriteWCharArray.exit.thread78, label %55
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %37, align 8
-  %55 = call i32 %54(ptr noundef %1, i32 noundef 67, ptr noundef nonnull %5) #13
-  %.not64 = icmp eq i32 %55, 0
-  br i1 %.not64, label %_cmsWriteWCharArray.exit, label %56
+55:                                               ; preds = %.loopexit
+  %56 = tail call i32 @_cmsWriteUInt8Number(ptr noundef nonnull %1, i8 noundef zeroext 0) #13
+  %.not63 = icmp eq i32 %56, 0
+  br i1 %.not63, label %_cmsWriteWCharArray.exit.thread78, label %57
 
-56:                                               ; preds = %53
-  %.not65 = icmp eq i32 %34, %32
-  br i1 %.not65, label %61, label %57
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %39, align 8
+  %59 = call i32 %58(ptr noundef nonnull %1, i32 noundef 67, ptr noundef nonnull %5) #13
+  %.not64 = icmp eq i32 %59, 0
+  br i1 %.not64, label %_cmsWriteWCharArray.exit.thread78, label %60
 
-57:                                               ; preds = %56
-  %58 = sub i32 %34, %32
-  %59 = load ptr, ptr %37, align 8
-  %60 = call i32 %59(ptr noundef nonnull %1, i32 noundef %58, ptr noundef nonnull %5) #13
-  %.not66 = icmp eq i32 %60, 0
-  br i1 %.not66, label %_cmsWriteWCharArray.exit, label %61
+60:                                               ; preds = %57
+  %.not65 = icmp eq i32 %36, %34
+  br i1 %.not65, label %65, label %61
 
-61:                                               ; preds = %57, %56
-  br label %_cmsWriteWCharArray.exit
+61:                                               ; preds = %60
+  %62 = sub i32 %36, %34
+  %63 = load ptr, ptr %39, align 8
+  %64 = call i32 %63(ptr noundef nonnull %1, i32 noundef %62, ptr noundef nonnull %5) #13
+  %.not66 = icmp eq i32 %64, 0
+  br i1 %.not66, label %_cmsWriteWCharArray.exit.thread78, label %65
 
-_cmsWriteWCharArray.exit:                         ; preds = %.lr.ph.i, %57, %53, %51, %.loopexit, %42, %40, %36, %25, %61
-  %.0 = phi i32 [ 1, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.loopexit ], [ 0, %42 ], [ 0, %40 ], [ 0, %36 ], [ 0, %25 ], [ 0, %.lr.ph.i ]
-  %.not67 = icmp eq ptr %.049, null
-  br i1 %.not67, label %64, label %_cmsWriteWCharArray.exit.thread78
+65:                                               ; preds = %61, %60
+  br label %_cmsWriteWCharArray.exit.thread78
 
-_cmsWriteWCharArray.exit.thread78:                ; preds = %17, %_cmsWriteWCharArray.exit
-  %.085 = phi i32 [ %.0, %_cmsWriteWCharArray.exit ], [ 0, %17 ]
-  %.184 = phi ptr [ %.049, %_cmsWriteWCharArray.exit ], [ %15, %17 ]
-  %.15183 = phi ptr [ %.050, %_cmsWriteWCharArray.exit ], [ null, %17 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %63 = load ptr, ptr %62, align 8
-  call void @_cmsFree(ptr noundef %63, ptr noundef nonnull %.184) #13
-  br label %64
-
-64:                                               ; preds = %_cmsWriteWCharArray.exit.thread78, %_cmsWriteWCharArray.exit
-  %.077 = phi i32 [ %.085, %_cmsWriteWCharArray.exit.thread78 ], [ %.0, %_cmsWriteWCharArray.exit ]
-  %.15176 = phi ptr [ %.15183, %_cmsWriteWCharArray.exit.thread78 ], [ %.050, %_cmsWriteWCharArray.exit ]
-  %.not68 = icmp eq ptr %.15176, null
-  br i1 %.not68, label %.thread, label %65
-
-65:                                               ; preds = %64
+_cmsWriteWCharArray.exit.thread78:                ; preds = %65, %27, %38, %42, %44, %.loopexit, %55, %57, %61
+  %.085 = phi i32 [ 1, %65 ], [ 0, %61 ], [ 0, %57 ], [ 0, %55 ], [ 0, %.loopexit ], [ 0, %44 ], [ 0, %42 ], [ 0, %38 ], [ 0, %27 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8
-  call void @_cmsFree(ptr noundef %67, ptr noundef nonnull %.15176) #13
+  call void @_cmsFree(ptr noundef %67, ptr noundef nonnull %.049) #13
+  %.not68 = icmp eq ptr %.050, null
+  br i1 %.not68, label %.thread, label %68
+
+68:                                               ; preds = %_cmsWriteWCharArray.exit.thread78.thread94, %_cmsWriteWCharArray.exit.thread78
+  %69 = phi ptr [ %52, %_cmsWriteWCharArray.exit.thread78.thread94 ], [ %66, %_cmsWriteWCharArray.exit.thread78 ]
+  %.08599 = phi i32 [ 0, %_cmsWriteWCharArray.exit.thread78.thread94 ], [ %.085, %_cmsWriteWCharArray.exit.thread78 ]
+  %70 = load ptr, ptr %69, align 8
+  call void @_cmsFree(ptr noundef %70, ptr noundef nonnull %.050) #13
   br label %.thread
 
-.thread:                                          ; preds = %14, %65, %64
-  %.07789 = phi i32 [ %.077, %65 ], [ %.077, %64 ], [ 0, %14 ]
+.thread:                                          ; preds = %_cmsWriteWCharArray.exit.thread78.thread, %14, %68, %_cmsWriteWCharArray.exit.thread78
+  %.07789 = phi i32 [ %.08599, %68 ], [ %.085, %_cmsWriteWCharArray.exit.thread78 ], [ 0, %14 ], [ 0, %_cmsWriteWCharArray.exit.thread78.thread ]
   ret i32 %.07789
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Text_Description_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Text_Description_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsMLUdup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Text_Description_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_Text_Description_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsMLUfree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Curve_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_Curve_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
   %7 = alloca i16, align 2
@@ -1614,7 +1615,7 @@ define internal ptr @Type_Curve_Read(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Type_Curve_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal i32 @Type_Curve_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -1662,19 +1663,19 @@ define internal i32 @Type_Curve_Write(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Curve_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Curve_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupToneCurve(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Curve_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_Curve_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeToneCurve(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ParametricCurve_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca [10 x double], align 16
   %6 = alloca i16, align 2
   %7 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef nonnull %6) #13
@@ -1735,7 +1736,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1799,19 +1800,19 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ParametricCurve_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ParametricCurve_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupToneCurve(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ParametricCurve_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_ParametricCurve_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeToneCurve(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_DateTime_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_DateTime_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca %struct.cmsDateTimeNumber, align 2
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1838,7 +1839,7 @@ define internal ptr @Type_DateTime_Read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_DateTime_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_DateTime_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca %struct.cmsDateTimeNumber, align 2
   call void @_cmsEncodeDateTimeNumber(ptr noundef nonnull %5, ptr noundef %2) #13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -1850,7 +1851,7 @@ define internal range(i32 0, 2) i32 @Type_DateTime_Write(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_DateTime_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_DateTime_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 56) #13
@@ -1858,7 +1859,7 @@ define internal ptr @Type_DateTime_Dup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_DateTime_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_DateTime_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -1866,7 +1867,7 @@ define internal void @Type_DateTime_Free(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT8_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_LUT8_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -2129,7 +2130,7 @@ uipow.exit.thread100:                             ; preds = %72, %uipow.exit, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
@@ -2451,19 +2452,19 @@ uipow.exit.thread:                                ; preds = %.preheader185, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT8_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_LUT8_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsPipelineDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_LUT8_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_LUT8_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsPipelineFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_LUT16_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -2714,7 +2715,7 @@ uipow.exit.thread88:                              ; preds = %83, %uipow.exit, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread185, label %6
@@ -3094,19 +3095,19 @@ uipow.exit.thread:                                ; preds = %.preheader213, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT16_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_LUT16_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsPipelineDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_LUT16_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_LUT16_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsPipelineFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ColorantTable_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_ColorantTable_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca [34 x i8], align 16
   %7 = alloca [3 x i16], align 2
@@ -3179,7 +3180,7 @@ define internal ptr @Type_ColorantTable_Read(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_ColorantTable_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_ColorantTable_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [3 x i16], align 2
   %7 = tail call i32 @cmsNamedColorCount(ptr noundef %2) #13
@@ -3226,19 +3227,19 @@ define internal range(i32 0, 2) i32 @Type_ColorantTable_Write(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ColorantTable_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ColorantTable_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupNamedColorList(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ColorantTable_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_ColorantTable_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeNamedColorList(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_NamedColor_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_NamedColor_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3358,7 +3359,7 @@ define internal ptr @Type_NamedColor_Read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_NamedColor_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_NamedColor_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca [33 x i8], align 16
   %6 = alloca [33 x i8], align 16
   %7 = alloca [3 x i16], align 2
@@ -3445,19 +3446,19 @@ define internal range(i32 0, 2) i32 @Type_NamedColor_Write(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_NamedColor_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_NamedColor_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupNamedColorList(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_NamedColor_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_NamedColor_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeNamedColorList(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3609,7 +3610,7 @@ define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %10
 
@@ -3721,19 +3722,19 @@ _cmsWriteWCharArray.exit:                         ; preds = %44, %42, %37, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MLU_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_MLU_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsMLUdup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_MLU_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_MLU_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsMLUfree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceDesc_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_ProfileSequenceDesc_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -3832,7 +3833,7 @@ define internal ptr @Type_ProfileSequenceDesc_Read(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_ProfileSequenceDesc_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_ProfileSequenceDesc_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq i32 %6, 0
@@ -3950,19 +3951,19 @@ SaveDescription.exit.thread:                      ; preds = %14, %19, %23, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceDesc_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ProfileSequenceDesc_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ProfileSequenceDesc_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_ProfileSequenceDesc_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeProfileSequenceDescription(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Signature_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_Signature_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @_cmsMalloc(ptr noundef %6, i32 noundef 4) #13
@@ -3984,14 +3985,14 @@ define internal ptr @Type_Signature_Read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Type_Signature_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal i32 @Type_Signature_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %5) #13
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Signature_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal ptr @Type_Signature_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %2, 2
@@ -4000,7 +4001,7 @@ define internal ptr @Type_Signature_Dup(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Signature_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_Signature_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -4008,7 +4009,7 @@ define internal void @Type_Signature_Free(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Measurement_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_Measurement_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca %struct.cmsICCMeasurementConditions, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -4052,7 +4053,7 @@ define internal ptr @Type_Measurement_Read(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_Measurement_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_Measurement_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq i32 %6, 0
@@ -4092,7 +4093,7 @@ define internal range(i32 0, 2) i32 @Type_Measurement_Write(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Measurement_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Measurement_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 56) #13
@@ -4100,7 +4101,7 @@ define internal ptr @Type_Measurement_Dup(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Measurement_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_Measurement_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -4108,7 +4109,7 @@ define internal void @Type_Measurement_Free(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Data_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_Data_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = icmp ult i32 %3, 4
   br i1 %5, label %28, label %6
@@ -4161,7 +4162,7 @@ define internal ptr @Type_Data_Read(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Type_Data_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal i32 @Type_Data_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %6) #13
@@ -4182,7 +4183,7 @@ define internal i32 @Type_Data_Write(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Data_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Data_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %1, align 4
@@ -4192,7 +4193,7 @@ define internal ptr @Type_Data_Dup(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Data_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_Data_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -4200,7 +4201,7 @@ define internal void @Type_Data_Free(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUTA2B_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_LUTA2B_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -4356,7 +4357,7 @@ define internal ptr @Type_LUTA2B_Read(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4575,19 +4576,19 @@ define internal range(i32 0, 2) i32 @Type_LUTA2B_Write(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUTA2B_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_LUTA2B_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsPipelineDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_LUTA2B_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_LUTA2B_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsPipelineFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUTB2A_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_LUTB2A_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -4745,7 +4746,7 @@ define internal ptr @Type_LUTB2A_Read(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4959,19 +4960,19 @@ define internal range(i32 0, 2) i32 @Type_LUTB2A_Write(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUTB2A_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_LUTB2A_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsPipelineDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_LUTB2A_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_LUTB2A_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsPipelineFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_UcrBg_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5127,7 +5128,7 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_UcrBg_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_UcrBg_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8
@@ -5194,7 +5195,7 @@ define internal range(i32 0, 2) i32 @Type_UcrBg_Write(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_UcrBg_Dup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal ptr @Type_UcrBg_Dup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsMallocZero(ptr noundef %5, i32 noundef 24) #13
@@ -5222,7 +5223,7 @@ define internal ptr @Type_UcrBg_Dup(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_UcrBg_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_UcrBg_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -5259,7 +5260,7 @@ define internal void @Type_UcrBg_Free(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @Type_CrdInfo_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal noundef ptr @Type_CrdInfo_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5304,7 +5305,7 @@ define internal noundef ptr @Type_CrdInfo_Read(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_CrdInfo_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_CrdInfo_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = tail call i32 @cmsMLUgetASCII(ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.21, ptr noundef null, i32 noundef 0) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -5420,19 +5421,19 @@ WriteCountAndString.exit.thread:                  ; preds = %62, %59, %53, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_CrdInfo_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_CrdInfo_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsMLUdup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_CrdInfo_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_CrdInfo_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsMLUfree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPE_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_MPE_Read(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
@@ -5576,12 +5577,12 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %33, %36
   %.086127 = phi i32 [ %37, %36 ], [ 0, %33 ]
-  %38 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
+  %38 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
   %.not105 = icmp eq i32 %38, 0
   br i1 %.not105, label %.thread.thread, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
+  %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
   %.not106 = icmp eq i32 %40, 0
   br i1 %.not106, label %.thread.thread, label %36
 
@@ -5589,7 +5590,7 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %71 ]
   %.087128 = phi ptr [ %6, %.lr.ph130 ], [ %77, %71 ]
   %42 = load ptr, ptr %10, align 8
-  %43 = tail call i32 %42(ptr noundef %1) #13
+  %43 = tail call i32 %42(ptr noundef nonnull %1) #13
   %reass.sub = sub i32 %43, %12
   %44 = add i32 %reass.sub, 8
   %45 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
@@ -5635,21 +5636,21 @@ GetHandler.exit:                                  ; preds = %56
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph20.i
   %.012.i.ph = phi ptr [ %.119.i, %.lr.ph20.i ], [ %.017.i, %.lr.ph.i ]
-  %60 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %47) #13
+  %60 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %47) #13
   %.not101 = icmp eq i32 %60, 0
   br i1 %.not101, label %.thread.thread, label %61
 
 61:                                               ; preds = %.loopexit
-  %62 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
+  %62 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
   %.not102 = icmp eq i32 %62, 0
   br i1 %.not102, label %.thread.thread, label %63
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr %10, align 8
-  %65 = tail call i32 %64(ptr noundef %1) #13
+  %65 = tail call i32 %64(ptr noundef nonnull %1) #13
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.ph, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 %67(ptr noundef %0, ptr noundef %1, ptr noundef %.087128, i32 noundef 1) #13
+  %68 = tail call i32 %67(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.087128, i32 noundef 1) #13
   %.not103 = icmp eq i32 %68, 0
   br i1 %.not103, label %.thread.thread, label %69
 
@@ -5695,20 +5696,20 @@ GetHandler.exit:                                  ; preds = %56
   %indvars.iv146 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next147, %83 ]
   %84 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv146
   %85 = load i32, ptr %84, align 4
-  %86 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %85) #13
+  %86 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %85) #13
   %.not99 = icmp eq i32 %86, 0
   br i1 %.not99, label %.thread.thread, label %87
 
 87:                                               ; preds = %.lr.ph132
   %88 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv146
   %89 = load i32, ptr %88, align 4
-  %90 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %89) #13
+  %90 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %89) #13
   %.not100 = icmp eq i32 %90, 0
   br i1 %.not100, label %.thread.thread, label %83
 
 ._crit_edge133:                                   ; preds = %83, %.preheader
   %91 = load ptr, ptr %80, align 8
-  %92 = tail call i32 %91(ptr noundef %1, i32 noundef %79) #13
+  %92 = tail call i32 %91(ptr noundef nonnull %1, i32 noundef %79) #13
   %.not98 = icmp eq i32 %92, 0
   br i1 %.not98, label %.thread.thread, label %93
 
@@ -5732,19 +5733,19 @@ GetHandler.exit:                                  ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPE_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_MPE_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsPipelineDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_MPE_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_MPE_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsPipelineFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Screening_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_Screening_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @_cmsMallocZero(ptr noundef %6, i32 noundef 392) #13
@@ -5821,7 +5822,7 @@ define internal ptr @Type_Screening_Read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq i32 %6, 0
@@ -5875,7 +5876,7 @@ define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Screening_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Screening_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 392) #13
@@ -5883,7 +5884,7 @@ define internal ptr @Type_Screening_Dup(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Screening_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_Screening_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -5891,7 +5892,7 @@ define internal void @Type_Screening_Free(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ViewingConditions_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_ViewingConditions_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @_cmsMallocZero(ptr noundef %6, i32 noundef 56) #13
@@ -5931,7 +5932,7 @@ define internal ptr @Type_ViewingConditions_Read(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_ViewingConditions_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_ViewingConditions_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = tail call i32 @_cmsWriteXYZNumber(ptr noundef %1, ptr noundef %2) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -5956,7 +5957,7 @@ define internal range(i32 0, 2) i32 @Type_ViewingConditions_Write(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ViewingConditions_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ViewingConditions_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 56) #13
@@ -5964,7 +5965,7 @@ define internal ptr @Type_ViewingConditions_Dup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ViewingConditions_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_ViewingConditions_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -5972,7 +5973,7 @@ define internal void @Type_ViewingConditions_Free(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_XYZ_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_XYZ_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -6000,13 +6001,13 @@ define internal ptr @Type_XYZ_Read(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Type_XYZ_Write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal i32 @Type_XYZ_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = tail call i32 @_cmsWriteXYZNumber(ptr noundef %1, ptr noundef %2) #13
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_XYZ_Dup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_XYZ_Dup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsDupMem(ptr noundef %5, ptr noundef %1, i32 noundef 24) #13
@@ -6014,7 +6015,7 @@ define internal ptr @Type_XYZ_Dup(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_XYZ_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_XYZ_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -6022,7 +6023,7 @@ define internal void @Type_XYZ_Free(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceId_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_ProfileSequenceId_Read(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -6082,19 +6083,19 @@ define internal range(i32 0, 2) i32 @Type_ProfileSequenceId_Write(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceId_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_ProfileSequenceId_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_ProfileSequenceId_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_ProfileSequenceId_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeProfileSequenceDescription(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_Dictionary_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6205,13 +6206,13 @@ define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr
 
 66:                                               ; preds = %.lr.ph.split.us.i
   %67 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv67.i
-  %68 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %67) #13
+  %68 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %67) #13
   %.not.i.us.i = icmp eq i32 %68, 0
   br i1 %.not.i.us.i, label %.thread99, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv67.i
-  %71 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %70) #13
+  %71 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %70) #13
   %.not12.i.us.i = icmp eq i32 %71, 0
   br i1 %.not12.i.us.i, label %.thread99, label %72
 
@@ -6227,13 +6228,13 @@ define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr
 
 ReadOneElem.exit.us.i:                            ; preds = %74, %72
   %76 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv67.i
-  %77 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %76) #13
+  %77 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %76) #13
   %.not.i36.us.i = icmp eq i32 %77, 0
   br i1 %.not.i36.us.i, label %.thread99, label %78
 
 78:                                               ; preds = %ReadOneElem.exit.us.i
   %79 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv67.i
-  %80 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %79) #13
+  %80 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %79) #13
   %.not12.i37.us.i = icmp eq i32 %80, 0
   br i1 %.not12.i37.us.i, label %.thread99, label %81
 
@@ -6254,13 +6255,13 @@ ReadOneElem.exit40.us.i:                          ; preds = %83, %81
 86:                                               ; preds = %ReadOneElem.exit40.us.i
   %87 = add nsw i32 %.063.us.i, -24
   %88 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv67.i
-  %89 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %88) #13
+  %89 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %88) #13
   %.not.i41.us.i = icmp eq i32 %89, 0
   br i1 %.not.i41.us.i, label %.thread99, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv67.i
-  %92 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %91) #13
+  %92 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %91) #13
   %.not12.i42.us.i = icmp eq i32 %92, 0
   br i1 %.not12.i42.us.i, label %.thread99, label %93
 
@@ -6284,13 +6285,13 @@ ReadOneElem.exit45.us.i:                          ; preds = %95, %93
 99:                                               ; preds = %97
   %100 = add nsw i32 %.063.us.i, -32
   %101 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv67.i
-  %102 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %101) #13
+  %102 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %101) #13
   %.not.i46.us.i = icmp eq i32 %102, 0
   br i1 %.not.i46.us.i, label %.thread99, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv67.i
-  %105 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %104) #13
+  %105 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %104) #13
   %.not12.i47.us.i = icmp eq i32 %105, 0
   br i1 %.not12.i47.us.i, label %.thread99, label %106
 
@@ -6319,13 +6320,13 @@ ReadOneElem.exit50.us.i:                          ; preds = %108, %106, %ReadOne
 111:                                              ; preds = %.lr.ph.split.i
   %112 = add nsw i32 %.063.i, -16
   %113 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
-  %114 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %113) #13
+  %114 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %113) #13
   %.not.i.i = icmp eq i32 %114, 0
   br i1 %.not.i.i, label %.thread99, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
-  %117 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %116) #13
+  %117 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %116) #13
   %.not12.i.i = icmp eq i32 %117, 0
   br i1 %.not12.i.i, label %.thread99, label %118
 
@@ -6341,13 +6342,13 @@ ReadOneElem.exit50.us.i:                          ; preds = %108, %106, %ReadOne
 
 ReadOneElem.exit.i:                               ; preds = %120, %118
   %122 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
-  %123 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %122) #13
+  %123 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %122) #13
   %.not.i36.i = icmp eq i32 %123, 0
   br i1 %.not.i36.i, label %.thread99, label %124
 
 124:                                              ; preds = %ReadOneElem.exit.i
   %125 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i
-  %126 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef %125) #13
+  %126 = call i32 @_cmsReadUInt32Number(ptr noundef nonnull %1, ptr noundef %125) #13
   %.not12.i37.i = icmp eq i32 %126, 0
   br i1 %.not12.i37.i, label %.thread99, label %127
 
@@ -6392,12 +6393,12 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %.074109 = phi ptr [ null, %.lr.ph ], [ %.1, %137 ]
   %.075108 = phi ptr [ null, %.lr.ph ], [ %.17688, %137 ]
   %142 = trunc nuw i64 %indvars.iv to i32
-  %143 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef %9, i32 noundef %142, ptr noundef %10)
+  %143 = call fastcc i32 @ReadOneWChar(ptr noundef nonnull %1, ptr noundef %9, i32 noundef %142, ptr noundef %10)
   %.not52 = icmp eq i32 %143, 0
   br i1 %.not52, label %.thread99, label %144
 
 144:                                              ; preds = %141
-  %145 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef %131, i32 noundef %142, ptr noundef %11)
+  %145 = call fastcc i32 @ReadOneWChar(ptr noundef nonnull %1, ptr noundef %131, i32 noundef %142, ptr noundef %11)
   %.not53 = icmp eq i32 %145, 0
   br i1 %.not53, label %.thread99, label %146
 
@@ -6423,7 +6424,7 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
 
 157:                                              ; preds = %153
   %158 = load ptr, ptr %134, align 8
-  %159 = call i32 %158(ptr noundef %1, i32 noundef %151) #13
+  %159 = call i32 %158(ptr noundef nonnull %1, i32 noundef %151) #13
   %.not.i65 = icmp eq i32 %159, 0
   br i1 %.not.i65, label %ReadOneMLUC.exit.thread83, label %ReadOneMLUC.exit
 
@@ -6469,7 +6470,7 @@ ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
 
 172:                                              ; preds = %168
   %173 = load ptr, ptr %134, align 8
-  %174 = call i32 %173(ptr noundef %1, i32 noundef %166) #13
+  %174 = call i32 %173(ptr noundef nonnull %1, i32 noundef %166) #13
   %.not.i66 = icmp eq i32 %174, 0
   br i1 %.not.i66, label %ReadOneMLUC.exit68.thread92, label %ReadOneMLUC.exit68
 
@@ -6569,7 +6570,7 @@ ReadOneMLUC.exit68:                               ; preds = %172
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca %struct._cmsDICarray, align 8
   %6 = icmp eq ptr %2, null
   br i1 %6, label %145, label %7
@@ -6713,13 +6714,13 @@ mywcslen.exit.i:                                  ; preds = %.preheader.i
   %67 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
   %68 = load i32, ptr %67, align 4
   %69 = trunc i32 %68 to i16
-  %70 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %69) #13
+  %70 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %69) #13
   %.not.i21.i = icmp eq i32 %70, 0
   br i1 %.not.i21.i, label %WriteOneMLUC.exit, label %66
 
 .loopexit.i:                                      ; preds = %66, %mywcslen.exit.i
   %71 = load ptr, ptr %8, align 8
-  %72 = tail call i32 %71(ptr noundef %1) #13
+  %72 = tail call i32 %71(ptr noundef nonnull %1) #13
   %73 = sub i32 %72, %53
   br label %74
 
@@ -6774,13 +6775,13 @@ mywcslen.exit.i98:                                ; preds = %.preheader.i95
   %93 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i.i103
   %94 = load i32, ptr %93, align 4
   %95 = trunc i32 %94 to i16
-  %96 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %95) #13
+  %96 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %95) #13
   %.not.i21.i104 = icmp eq i32 %96, 0
   br i1 %.not.i21.i104, label %WriteOneMLUC.exit, label %92
 
 .loopexit.i107:                                   ; preds = %92, %mywcslen.exit.i98
   %97 = load ptr, ptr %8, align 8
-  %98 = tail call i32 %97(ptr noundef %1) #13
+  %98 = tail call i32 %97(ptr noundef nonnull %1) #13
   %99 = sub i32 %98, %79
   br label %100
 
@@ -6895,19 +6896,19 @@ WriteOneMLUC.exit:                                ; preds = %126, %110, %.lr.ph.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Dictionary_Dup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @Type_Dictionary_Dup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsDictDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_Dictionary_Free(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @Type_Dictionary_Free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsDictFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_VideoSignal_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_VideoSignal_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 8
   br i1 %.not, label %5, label %26
 
@@ -6961,7 +6962,7 @@ define internal ptr @Type_VideoSignal_Read(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_VideoSignal_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_VideoSignal_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %6
@@ -7000,7 +7001,7 @@ define internal range(i32 0, 2) i32 @Type_VideoSignal_Write(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_VideoSignal_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_VideoSignal_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %4, ptr noundef %1) #13
@@ -7008,7 +7009,7 @@ define internal void @Type_VideoSignal_Free(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_vcgt_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
@@ -7216,7 +7217,7 @@ define internal ptr @Type_vcgt_Read(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = tail call i32 @cmsGetToneCurveParametricType(ptr noundef %5) #13
   %7 = icmp eq i32 %6, 5
@@ -7346,7 +7347,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %49, %59, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_vcgt_Dup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
+define internal ptr @Type_vcgt_Dup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @_cmsCalloc(ptr noundef %5, i32 noundef 3, i32 noundef 8) #13
@@ -7374,7 +7375,7 @@ define internal ptr @Type_vcgt_Dup(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Type_vcgt_Free(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @Type_vcgt_Free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsFreeToneCurveTriple(ptr noundef %1) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -7383,7 +7384,7 @@ define internal void @Type_vcgt_Free(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MHC2_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_MHC2_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7573,7 +7574,7 @@ Type_MHC2_Free.exit:                              ; preds = %99, %102
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = alloca [3 x [4 x double]], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %7 = load ptr, ptr %6, align 8
@@ -7673,7 +7674,7 @@ IsIdentity.exit:                                  ; preds = %48
 49:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   %50 = load ptr, ptr %6, align 8
-  %51 = tail call i32 %50(ptr noundef %1) #13
+  %51 = tail call i32 %50(ptr noundef nonnull %1) #13
   %52 = sub i32 %51, %9
   br label %.lr.ph.i
 
@@ -7681,7 +7682,7 @@ IsIdentity.exit:                                  ; preds = %48
   %.08.i = phi i32 [ %57, %55 ], [ 0, %49 ]
   %.057.i = phi ptr [ %56, %55 ], [ %33, %49 ]
   %53 = load double, ptr %.057.i, align 8
-  %54 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %53) #13
+  %54 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %53) #13
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %WriteDoubles.exit76, label %55
 
@@ -7694,7 +7695,7 @@ IsIdentity.exit:                                  ; preds = %48
 WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exit
   %.051 = phi i32 [ 0, %IsIdentity.exit ], [ %52, %55 ]
   %58 = load ptr, ptr %6, align 8
-  %59 = tail call i32 %58(ptr noundef %1) #13
+  %59 = tail call i32 %58(ptr noundef nonnull %1) #13
   %60 = sub i32 %59, %9
   %61 = load i32, ptr %2, align 8
   %.not11.i = icmp eq i32 %61, 0
@@ -7709,7 +7710,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
   %.08.i71 = phi i32 [ %68, %66 ], [ 0, %.lr.ph.i70.preheader ]
   %.057.i72 = phi ptr [ %67, %66 ], [ %63, %.lr.ph.i70.preheader ]
   %64 = load double, ptr %.057.i72, align 8
-  %65 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %64) #13
+  %65 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %64) #13
   %.not.i73 = icmp eq i32 %65, 0
   br i1 %.not.i73, label %WriteDoubles.exit76, label %66
 
@@ -7721,7 +7722,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
 
 .loopexit106:                                     ; preds = %66, %WriteDoubles.exit
   %69 = load ptr, ptr %6, align 8
-  %70 = tail call i32 %69(ptr noundef %1) #13
+  %70 = tail call i32 %69(ptr noundef nonnull %1) #13
   %71 = sub i32 %70, %9
   %72 = load i32, ptr %2, align 8
   %.not11.i77 = icmp eq i32 %72, 0
@@ -7736,7 +7737,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
   %.08.i79 = phi i32 [ %79, %77 ], [ 0, %.lr.ph.i78.preheader ]
   %.057.i80 = phi ptr [ %78, %77 ], [ %74, %.lr.ph.i78.preheader ]
   %75 = load double, ptr %.057.i80, align 8
-  %76 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %75) #13
+  %76 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %75) #13
   %.not.i81 = icmp eq i32 %76, 0
   br i1 %.not.i81, label %WriteDoubles.exit76, label %77
 
@@ -7748,7 +7749,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
 
 .loopexit104:                                     ; preds = %77, %.loopexit106
   %80 = load ptr, ptr %6, align 8
-  %81 = tail call i32 %80(ptr noundef %1) #13
+  %81 = tail call i32 %80(ptr noundef nonnull %1) #13
   %82 = sub i32 %81, %9
   %83 = load i32, ptr %2, align 8
   %.not11.i85 = icmp eq i32 %83, 0
@@ -7763,7 +7764,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
   %.08.i87 = phi i32 [ %90, %88 ], [ 0, %.lr.ph.i86.preheader ]
   %.057.i88 = phi ptr [ %89, %88 ], [ %85, %.lr.ph.i86.preheader ]
   %86 = load double, ptr %.057.i88, align 8
-  %87 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %86) #13
+  %87 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef nonnull %1, double noundef %86) #13
   %.not.i89 = icmp eq i32 %87, 0
   br i1 %.not.i89, label %WriteDoubles.exit76, label %88
 
@@ -7776,7 +7777,7 @@ WriteDoubles.exit:                                ; preds = %55, %IsIdentity.exi
 .loopexit:                                        ; preds = %88, %.loopexit104
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call i32 %92(ptr noundef %1, i32 noundef %24) #13
+  %93 = tail call i32 %92(ptr noundef nonnull %1, i32 noundef %24) #13
   %.not64 = icmp eq i32 %93, 0
   br i1 %.not64, label %WriteDoubles.exit76, label %94
 
@@ -7843,7 +7844,7 @@ declare i32 @cmsMLUgetASCII(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @cmsMLUdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -7917,7 +7918,7 @@ declare i32 @_cmsReadUInt8Number(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cmsMLUgetWide(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @_cmsWriteUInt8Number(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
@@ -8268,7 +8269,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %.not6 = icmp eq i32 %3, 0
   br i1 %.not6, label %.loopexit, label %.lr.ph5
@@ -8343,7 +8344,7 @@ declare ptr @cmsAllocProfileSequenceDescription(ptr noundef, i32 noundef) local_
 declare i32 @_cmsReadUInt64Number(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadEmbeddedText(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadEmbeddedText(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @_cmsReadTypeBase(ptr noundef %1) #13
   switch i32 %6, label %24 [
@@ -8418,7 +8419,7 @@ declare i32 @_cmsReadXYZNumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsWriteXYZNumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadSetOfCurves(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc ptr @ReadSetOfCurves(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [5 x i8], align 1
   %7 = alloca [16 x ptr], align 16
@@ -8521,7 +8522,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i32], align 16
   %8 = alloca i8, align 1
@@ -8555,22 +8556,22 @@ define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noun
   br i1 %exitcond.not, label %23, label %.preheader45, !llvm.loop !74
 
 23:                                               ; preds = %20
-  %24 = call i32 @_cmsReadUInt8Number(ptr noundef %1, ptr noundef nonnull %8) #13
+  %24 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef nonnull %8) #13
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %.loopexit, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @_cmsReadUInt8Number(ptr noundef %1, ptr noundef null) #13
+  %26 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef null) #13
   %.not40 = icmp eq i32 %26, 0
   br i1 %.not40, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 @_cmsReadUInt8Number(ptr noundef %1, ptr noundef null) #13
+  %28 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef null) #13
   %.not41 = icmp eq i32 %28, 0
   br i1 %.not41, label %.loopexit, label %29
 
 29:                                               ; preds = %27
-  %30 = call i32 @_cmsReadUInt8Number(ptr noundef %1, ptr noundef null) #13
+  %30 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef null) #13
   %.not42 = icmp eq i32 %30, 0
   br i1 %.not42, label %.loopexit, label %31
 
@@ -8599,7 +8600,7 @@ define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noun
 .lr.ph:                                           ; preds = %.preheader, %45
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %45 ], [ 0, %.preheader ]
   %42 = load ptr, ptr %14, align 8
-  %43 = call i32 %42(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #13
+  %43 = call i32 %42(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #13
   %.not44 = icmp eq i32 %43, 1
   br i1 %.not44, label %45, label %44
 
@@ -8625,7 +8626,7 @@ define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noun
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = load ptr, ptr %38, align 8
-  %59 = call i32 @_cmsReadUInt16Array(ptr noundef %1, i32 noundef %57, ptr noundef %58) #13
+  %59 = call i32 @_cmsReadUInt16Array(ptr noundef nonnull %1, i32 noundef %57, ptr noundef %58) #13
   %.not43 = icmp eq i32 %59, 0
   br i1 %.not43, label %60, label %.loopexit
 
@@ -8647,7 +8648,7 @@ define internal fastcc ptr @ReadCLUT(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadMatrix(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @ReadMatrix(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [9 x double], align 16
   %5 = alloca [3 x double], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -8748,7 +8749,7 @@ declare void @cmsStageFree(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineCheckAndRetreiveStages(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [5 x i8], align 1
   %5 = tail call i32 @cmsStageOutputChannels(ptr noundef %2) #13
   %6 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %2) #13
@@ -8931,7 +8932,7 @@ Type_Curve_Write.exit.thread:                     ; preds = %23, %Type_Curve_Wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext range(i8 1, 3) %2, ptr nocapture readonly %.48.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef zeroext range(i8 1, 3) %2, ptr readonly captures(none) %.48.val) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %.48.val, i64 20
   %6 = load i32, ptr %5, align 4
@@ -9023,7 +9024,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
   %47 = add nuw i32 %46, 8388608
   %48 = lshr i32 %47, 24
   %49 = trunc nuw i32 %48 to i8
-  %50 = call i32 @_cmsWriteUInt8Number(ptr noundef %1, i8 noundef zeroext %49) #13
+  %50 = call i32 @_cmsWriteUInt8Number(ptr noundef nonnull %1, i8 noundef zeroext %49) #13
   %.not39 = icmp eq i32 %50, 0
   br i1 %.not39, label %.loopexit1, label %38
 
@@ -9034,7 +9035,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
   br i1 %.not37, label %.loopexit1, label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.preheader, %51
-  %54 = call i32 @_cmsWriteAlignment(ptr noundef %1) #13
+  %54 = call i32 @_cmsWriteAlignment(ptr noundef nonnull %1) #13
   %.not38 = icmp ne i32 %54, 0
   %. = zext i1 %.not38 to i32
   br label %.loopexit1
@@ -9045,7 +9046,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9128,7 +9129,7 @@ declare ptr @_cmsStageGetPtrToCurveSet(ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsWriteAlignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
   %8 = icmp ult i32 %7, 4
@@ -9194,7 +9195,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadCountAndString(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %1) #13
@@ -9370,7 +9371,7 @@ GetHandler.exit:                                  ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
+define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i32 0, ptr %2, align 4
@@ -9455,7 +9456,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MPEcurve_Write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MPEcurve_Write(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -9487,19 +9488,19 @@ define internal range(i32 0, 2) i32 @Type_MPEcurve_Write(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @GenericMPEdup(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 {
+define internal ptr @GenericMPEdup(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = tail call ptr @cmsStageDup(ptr noundef %1) #13
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GenericMPEfree(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @GenericMPEfree(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @cmsStageFree(ptr noundef %1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPEmatrix_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca float, align 4
@@ -9627,7 +9628,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9716,7 +9717,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPEclut_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca [16 x i8], align 16
@@ -9826,7 +9827,7 @@ define internal ptr @Type_MPEclut_Read(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -9914,7 +9915,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ReadMPECurve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
@@ -10248,7 +10249,7 @@ declare ptr @cmsBuildSegmentedToneCurve(ptr noundef, i32 noundef, ptr noundef) l
 declare float @cmsEvalToneCurveFloat(ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @_cmsCalloc(ptr noundef %8, i32 noundef %2, i32 noundef 4) #13
@@ -10279,24 +10280,24 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %15, %19
   %.06388 = phi i32 [ %20, %19 ], [ 0, %15 ]
-  %21 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
+  %21 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
   %.not73 = icmp eq i32 %21, 0
   br i1 %.not73, label %.thread82.sink.split.sink.split3, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 0) #13
+  %23 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef 0) #13
   %.not74 = icmp eq i32 %23, 0
   br i1 %.not74, label %.thread82.sink.split.sink.split3, label %19
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next, %30 ]
   %24 = load ptr, ptr %16, align 8
-  %25 = tail call i32 %24(ptr noundef %1) #13
+  %25 = tail call i32 %24(ptr noundef nonnull %1) #13
   %26 = sub i32 %25, %3
   %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = trunc nuw i64 %indvars.iv to i32
-  %29 = tail call i32 %5(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #13, !callees !102
+  %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #13, !callees !102
   %.not72 = icmp eq i32 %29, 0
   br i1 %.not72, label %.thread82.sink.split.sink.split3, label %30
 
@@ -10335,20 +10336,20 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next102, %40 ]
   %41 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv101
   %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %42) #13
+  %43 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %42) #13
   %.not70 = icmp eq i32 %43, 0
   br i1 %.not70, label %.thread82.sink.split.sink.split3, label %44
 
 44:                                               ; preds = %.lr.ph92
   %45 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv101
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %46) #13
+  %47 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %46) #13
   %.not71 = icmp eq i32 %47, 0
   br i1 %.not71, label %.thread.thread, label %40
 
 ._crit_edge93:                                    ; preds = %40, %.preheader
   %48 = load ptr, ptr %37, align 8
-  %49 = tail call i32 %48(ptr noundef %1, i32 noundef %36) #13
+  %49 = tail call i32 %48(ptr noundef nonnull %1, i32 noundef %36) #13
   %.not69 = icmp eq i32 %49, 0
   br i1 %.not69, label %.thread.thread, label %.thread82.sink.split.sink.split3
 
@@ -10374,7 +10375,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @WriteMPECurve(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
@@ -10558,7 +10559,7 @@ declare ptr @cmsStageAllocCLutFloatGranular(ptr noundef, ptr noundef, i32 nounde
 declare i32 @cmsPipelineStageCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ReadSeqID(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal range(i32 0, 2) i32 @ReadSeqID(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %3 to i64
@@ -10581,7 +10582,7 @@ define internal range(i32 0, 2) i32 @ReadSeqID(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @WriteSeqID(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @WriteSeqID(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10636,7 +10637,7 @@ SaveDescription.exit.thread:                      ; preds = %24, %20, %SaveDescr
 declare ptr @cmsDictAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 96)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 96)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
   %5 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 4) #13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10727,7 +10728,7 @@ AllocElem.exit.thread:                            ; preds = %AllocElem.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10850,7 +10851,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr noc
 declare i32 @cmsDictAddEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FreeArray(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @FreeArray(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10956,7 +10957,7 @@ declare ptr @cmsDictGetEntryList(ptr noundef) local_unnamed_addr #1
 declare ptr @cmsDictNextEntry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef range(i32 16, 33) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 16, 33) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11198,7 +11199,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadDoublesAt(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 1832993312, 1835430963) i32 @DecideLUTtypeA2B(double noundef %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 1832993312, 1835430963) i32 @DecideLUTtypeA2B(double noundef %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = fcmp olt double %0, 4.000000e+00
   br i1 %3, label %4, label %7
 
@@ -11215,7 +11216,7 @@ define internal range(i32 1832993312, 1835430963) i32 @DecideLUTtypeA2B(double n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 1833058592, 1835430963) i32 @DecideLUTtypeB2A(double noundef %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 1833058592, 1835430963) i32 @DecideLUTtypeB2A(double noundef %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = fcmp olt double %0, 4.000000e+00
   br i1 %3, label %4, label %7
 
@@ -11232,12 +11233,12 @@ define internal range(i32 1833058592, 1835430963) i32 @DecideLUTtypeB2A(double n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @DecideXYZtype(double %0, ptr nocapture readnone %1) #9 {
+define internal noundef i32 @DecideXYZtype(double %0, ptr readnone captures(none) %1) #9 {
   ret i32 1482250784
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 1668641398, 1885434466) i32 @DecideCurveType(double noundef %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 1668641398, 1885434466) i32 @DecideCurveType(double noundef %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = fcmp olt double %0, 4.000000e+00
   br i1 %3, label %15, label %4
 
@@ -11266,14 +11267,14 @@ define internal range(i32 1668641398, 1885434466) i32 @DecideCurveType(double no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 1835824483, 1952807029) i32 @DecideTextType(double noundef %0, ptr nocapture readnone %1) #9 {
+define internal noundef range(i32 1835824483, 1952807029) i32 @DecideTextType(double noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = fcmp ult double %0, 4.000000e+00
   %. = select i1 %3, i32 1952807028, i32 1835824483
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 1684370275, 1835824484) i32 @DecideTextDescType(double noundef %0, ptr nocapture readnone %1) #9 {
+define internal noundef range(i32 1684370275, 1835824484) i32 @DecideTextDescType(double noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = fcmp ult double %0, 4.000000e+00
   %. = select i1 %3, i32 1684370275, i32 1835824483
   ret i32 %.
@@ -11286,10 +11287,10 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #11
 declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

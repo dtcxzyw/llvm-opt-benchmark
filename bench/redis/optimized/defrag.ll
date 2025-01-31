@@ -104,7 +104,7 @@ declare i64 @je_malloc_usable_size(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @zmalloc_no_tcache(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @zfree_no_tcache(ptr noundef) local_unnamed_addr #1
 
@@ -329,7 +329,7 @@ if.end5:                                          ; preds = %if.then3, %activeDe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictDefragTables(ptr nocapture noundef %d) local_unnamed_addr #0 {
+define dso_local void @dictDefragTables(ptr noundef captures(none) %d) local_unnamed_addr #0 {
 entry:
   %ht_table = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load ptr, ptr %ht_table, align 8
@@ -395,7 +395,7 @@ if.end15:                                         ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zslUpdateNode(ptr nocapture noundef %zsl, ptr noundef readnone %oldnode, ptr noundef %newnode, ptr nocapture noundef readonly %update) local_unnamed_addr #0 {
+define dso_local void @zslUpdateNode(ptr noundef captures(none) %zsl, ptr noundef readnone %oldnode, ptr noundef %newnode, ptr noundef readonly captures(none) %update) local_unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds nuw i8, ptr %zsl, i64 24
   %0 = load i32, ptr %level, align 8
@@ -478,7 +478,7 @@ if.end48:                                         ; preds = %cond.end46, %cond.e
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zslDefrag(ptr nocapture noundef %zsl, double noundef %score, ptr noundef %oldele, ptr noundef %newele) local_unnamed_addr #0 {
+define dso_local ptr @zslDefrag(ptr noundef captures(none) %zsl, double noundef %score, ptr noundef %oldele, ptr noundef %newele) local_unnamed_addr #0 {
 entry:
   %update = alloca [32 x ptr], align 16
   %tobool.not = icmp eq ptr %newele, null
@@ -616,7 +616,7 @@ return:                                           ; preds = %activeDefragAlloc.e
 declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @activeDefragZsetEntry(ptr nocapture noundef readonly %zs, ptr noundef %de) local_unnamed_addr #0 {
+define dso_local void @activeDefragZsetEntry(ptr noundef readonly captures(none) %zs, ptr noundef %de) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %de) #11
   %call.i = tail call ptr @sdsAllocPtr(ptr noundef %call) #11
@@ -678,7 +678,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 declare void @dictSetVal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @activeDefragSdsDictCallback(ptr nocapture readnone %privdata, ptr nocapture readnone %de) #5 {
+define dso_local void @activeDefragSdsDictCallback(ptr readnone captures(none) %privdata, ptr readnone captures(none) %de) #5 {
 entry:
   ret void
 }
@@ -724,7 +724,7 @@ do.end:                                           ; preds = %do.body
 declare i64 @dictScanDefrag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @activeDefragList(ptr nocapture noundef %l, i32 noundef %val_type) local_unnamed_addr #0 {
+define dso_local void @activeDefragList(ptr noundef captures(none) %l, i32 noundef %val_type) local_unnamed_addr #0 {
 entry:
   %ln.040 = load ptr, ptr %l, align 8
   %tobool.not41 = icmp eq ptr %ln.040, null
@@ -876,7 +876,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @activeDefragQuickListNode(ptr nocapture noundef writeonly %ql, ptr nocapture noundef %node_ref) local_unnamed_addr #0 {
+define dso_local void @activeDefragQuickListNode(ptr noundef writeonly captures(none) %ql, ptr noundef captures(none) %node_ref) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node_ref, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
@@ -967,7 +967,7 @@ if.end17:                                         ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @activeDefragQuickListNodes(ptr nocapture noundef %ql) local_unnamed_addr #0 {
+define dso_local void @activeDefragQuickListNodes(ptr noundef captures(none) %ql) local_unnamed_addr #0 {
 entry:
   %node = alloca ptr, align 8
   %storemerge2 = load ptr, ptr %ql, align 8
@@ -989,7 +989,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragLater(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragLater(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1 = tail call ptr @sdsdup(ptr noundef %call) #11
@@ -1004,7 +1004,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @scanLaterList(ptr nocapture noundef %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %ob, ptr noundef captures(none) %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %ql = alloca ptr, align 8
   %node = alloca ptr, align 8
@@ -1115,7 +1115,7 @@ declare i32 @quicklistBookmarkCreate(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @quicklistBookmarkDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanLaterZsetCallback(ptr nocapture noundef readonly %privdata, ptr noundef %_de) #0 {
+define dso_local void @scanLaterZsetCallback(ptr noundef readonly captures(none) %privdata, ptr noundef %_de) #0 {
 entry:
   %0 = load ptr, ptr %privdata, align 8
   tail call void @activeDefragZsetEntry(ptr noundef %0, ptr noundef %_de)
@@ -1126,7 +1126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanLaterZset(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor) local_unnamed_addr #0 {
+define dso_local void @scanLaterZset(ptr noundef readonly captures(none) %ob, ptr noundef captures(none) %cursor) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.scanLaterZsetData, align 8
   %defragfns = alloca %struct.dictDefragFunctions, align 8
@@ -1151,7 +1151,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @scanCallbackCountScanned(ptr nocapture readnone %privdata, ptr nocapture readnone %de) #6 {
+define dso_local void @scanCallbackCountScanned(ptr readnone captures(none) %privdata, ptr readnone captures(none) %de) #6 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2088), align 8
   %inc = add nsw i64 %0, 1
@@ -1160,7 +1160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanLaterSet(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor) local_unnamed_addr #0 {
+define dso_local void @scanLaterSet(ptr noundef readonly captures(none) %ob, ptr noundef captures(none) %cursor) local_unnamed_addr #0 {
 entry:
   %defragfns = alloca %struct.dictDefragFunctions, align 8
   %bf.load = load i32, ptr %ob, align 8
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanLaterHash(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor) local_unnamed_addr #0 {
+define dso_local void @scanLaterHash(ptr noundef readonly captures(none) %ob, ptr noundef captures(none) %cursor) local_unnamed_addr #0 {
 entry:
   %defragfns = alloca %struct.dictDefragFunctions, align 8
   %bf.load = load i32, ptr %ob, align 8
@@ -1204,7 +1204,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragQuicklist(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragQuicklist(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %node.i = alloca ptr, align 8
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
@@ -1287,7 +1287,7 @@ if.end11:                                         ; preds = %activeDefragQuickLi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragZsetSkiplist(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragZsetSkiplist(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
   %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -1462,7 +1462,7 @@ declare ptr @dictNext(ptr noundef) local_unnamed_addr #1
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragHash(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragHash(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %defragfns.i = alloca %struct.dictDefragFunctions, align 8
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
@@ -1549,7 +1549,7 @@ if.end14:                                         ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragSet(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragSet(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %defragfns.i = alloca %struct.dictDefragFunctions, align 8
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
@@ -1636,7 +1636,7 @@ if.end14:                                         ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @defragRaxNode(ptr nocapture noundef %noderef) #0 {
+define dso_local range(i32 0, 2) i32 @defragRaxNode(ptr noundef captures(none) %noderef) #0 {
 entry:
   %0 = load ptr, ptr %noderef, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %activeDefragAlloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @scanLaterStreamListpacks(ptr nocapture noundef readonly %ob, ptr nocapture noundef %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @scanLaterStreamListpacks(ptr noundef readonly captures(none) %ob, ptr noundef captures(none) %cursor, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %bf.load = load i32, ptr %ob, align 8
@@ -1841,7 +1841,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 declare void @raxSetData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragRadixTree(ptr nocapture noundef %raxref, i32 noundef %defrag_data, ptr noundef readonly %element_cb, ptr noundef %element_cb_data) local_unnamed_addr #0 {
+define dso_local void @defragRadixTree(ptr noundef captures(none) %raxref, i32 noundef %defrag_data, ptr noundef readonly %element_cb, ptr noundef %element_cb_data) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %0 = load ptr, ptr %raxref, align 8
@@ -2021,7 +2021,7 @@ while.end:                                        ; preds = %if.end17, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defragStreamConsumerPendingEntry(ptr nocapture noundef readonly %ri, ptr nocapture noundef readonly %privdata) #0 {
+define dso_local ptr @defragStreamConsumerPendingEntry(ptr noundef readonly captures(none) %ri, ptr noundef readonly captures(none) %privdata) #0 {
 entry:
   %prev = alloca ptr, align 8
   %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
@@ -2077,7 +2077,7 @@ if.end:                                           ; preds = %activeDefragAlloc.e
 declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defragStreamConsumer(ptr nocapture noundef readonly %ri, ptr noundef %privdata) #0 {
+define dso_local ptr @defragStreamConsumer(ptr noundef readonly captures(none) %ri, ptr noundef %privdata) #0 {
 entry:
   %pel_ctx = alloca %struct.PendingEntryContext, align 8
   %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
@@ -2156,7 +2156,7 @@ if.end11:                                         ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @defragStreamConsumerGroup(ptr nocapture noundef readonly %ri, ptr nocapture readnone %privdata) #0 {
+define dso_local noalias noundef ptr @defragStreamConsumerGroup(ptr noundef readonly captures(none) %ri, ptr readnone captures(none) %privdata) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -2184,7 +2184,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragStream(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragStream(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
   %bf.load = load i32, ptr %call, align 8
@@ -2289,7 +2289,7 @@ if.end23:                                         ; preds = %if.then21, %if.end1
 declare i64 @raxSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragModule(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
+define dso_local void @defragModule(ptr noundef readonly captures(none) %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
   %bf.load = load i32, ptr %call, align 8
@@ -2325,7 +2325,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 declare i32 @moduleDefragValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragKey(ptr nocapture noundef readonly %ctx, ptr noundef %de) local_unnamed_addr #0 {
+define dso_local void @defragKey(ptr noundef readonly captures(none) %ctx, ptr noundef %de) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %de) #11
   %0 = load ptr, ptr %ctx, align 8
@@ -2620,7 +2620,7 @@ declare i64 @dictGetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictFindEntryByPtrAndHash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @defragScanCallback(ptr nocapture noundef readonly %privdata, ptr noundef %de) #0 {
+define dso_local void @defragScanCallback(ptr noundef readonly captures(none) %privdata, ptr noundef %de) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2056), align 8
   tail call void @defragKey(ptr noundef %privdata, ptr noundef %de)
@@ -2838,7 +2838,7 @@ return:                                           ; preds = %if.else41, %scanLat
 declare i32 @moduleLateDefrag(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr nocapture noundef readonly %db, i32 noundef %slot, i64 noundef %endtime) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captures(none) %db, i32 noundef %slot, i64 noundef %endtime) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2056), align 8
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2088), align 8
@@ -3539,7 +3539,7 @@ declare i32 @hasActiveChildProcess() local_unnamed_addr #1
 declare i64 @mstime() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @findSlotByKeyIndex(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3554,10 +3554,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

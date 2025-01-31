@@ -331,7 +331,7 @@ define hidden noundef ptr @aom_img_alloc_with_border(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = add i32 %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
@@ -456,7 +456,7 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @aom_img_flip(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @aom_img_flip(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -666,10 +666,10 @@ aom_img_metadata_array_free.exit:                 ; preds = %5, %._crit_edge.i
 declare void @aom_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @aom_img_plane_width(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @aom_img_plane_width(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -697,7 +697,7 @@ define hidden i32 @aom_img_plane_width(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @aom_img_plane_height(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @aom_img_plane_height(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -765,7 +765,7 @@ define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @aom_img_metadata_free(ptr noundef %0) local_unnamed_addr #5 {
@@ -976,7 +976,7 @@ aom_img_metadata_alloc.exit.thread:               ; preds = %15, %11, %20, %aom_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @aom_img_get_metadata(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #11 {
@@ -1027,7 +1027,7 @@ define hidden i64 @aom_img_num_metadata(ptr noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare ptr @aom_memalign(i64 noundef, i64 noundef) local_unnamed_addr #2
 

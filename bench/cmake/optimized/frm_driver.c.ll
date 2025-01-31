@@ -578,7 +578,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Synchronize_Buffer(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, 16
   %.not = icmp eq i16 %3, 0
@@ -681,7 +681,7 @@ declare i32 @wattrset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @werase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Undo_Justification(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Undo_Justification(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -740,7 +740,7 @@ After_End_Of_Data.exit:                           ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Buffer_To_Window(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Buffer_To_Window(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.thread
 
@@ -1482,7 +1482,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1557,7 +1557,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Perform_Justification(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Perform_Justification(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1646,7 +1646,7 @@ declare ptr @newpad(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @derwin(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_nc_Internal_Validation(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_nc_Internal_Validation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -1768,7 +1768,7 @@ tailrecurse:                                      ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @_nc_First_Active_Field(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local ptr @_nc_First_Active_Field(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2261,7 +2261,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Page_Navigation(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @Page_Navigation(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %1)
@@ -2378,7 +2378,7 @@ define internal i32 @Page_Navigation(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Inter_Field_Navigation(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @Inter_Field_Navigation(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %1)
@@ -2463,7 +2463,7 @@ _nc_Internal_Validation.exit:                     ; preds = %11, %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Vertical_Scrolling(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @Vertical_Scrolling(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -2493,7 +2493,7 @@ define internal i32 @Vertical_Scrolling(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Horizontal_Scrolling(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @Horizontal_Scrolling(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -3099,7 +3099,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %116, %.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -3449,7 +3449,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %120, %Buffer_To_Win
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef %0) unnamed_addr #0 {
@@ -4141,7 +4141,7 @@ Down_Neighbour_Field.exit:                        ; preds = %19, %.lr.ph.i, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @IFN_Next_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Next_Character(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4213,7 +4213,7 @@ define internal range(i32 -12, 1) i32 @IFN_Next_Character(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @IFN_Previous_Character(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @IFN_Previous_Character(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -4253,7 +4253,7 @@ define internal range(i32 -12, 1) i32 @IFN_Previous_Character(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @IFN_Next_Line(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Next_Line(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4300,7 +4300,7 @@ define internal range(i32 -12, 1) i32 @IFN_Next_Line(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -12, 1) i32 @IFN_Previous_Line(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Previous_Line(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -4323,7 +4323,7 @@ define internal range(i32 -12, 1) i32 @IFN_Previous_Line(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Next_Word(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_Next_Word(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -4425,7 +4425,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %Get_Start_Of_Data.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Previous_Word(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_Previous_Word(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -4556,7 +4556,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_Last_Whitespa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Beginning_Of_Field(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_Beginning_Of_Field(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -4620,7 +4620,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %Get_Start_Of_Data.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_End_Of_Field(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_End_Of_Field(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -4683,7 +4683,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_End_Of_Data.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_Beginning_Of_Line(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_Beginning_Of_Line(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -4746,7 +4746,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %Get_Start_Of_Data.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IFN_End_Of_Line(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @IFN_End_Of_Line(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -4808,7 +4808,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_End_Of_Data.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -12, 1) i32 @IFN_Left_Character(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Left_Character(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -4820,7 +4820,7 @@ define internal range(i32 -12, 1) i32 @IFN_Left_Character(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @IFN_Right_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Right_Character(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -4862,7 +4862,7 @@ define internal range(i32 -12, 1) i32 @IFN_Right_Character(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -12, 1) i32 @IFN_Up_Character(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @IFN_Up_Character(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -4874,7 +4874,7 @@ define internal range(i32 -12, 1) i32 @IFN_Up_Character(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @IFN_Down_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @IFN_Down_Character(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5119,7 +5119,7 @@ After_End_Of_Data.exit:                           ; preds = %101, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -5187,7 +5187,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -5282,7 +5282,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Delete_Character(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @FE_Delete_Character(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wdelch(ptr noundef %3) #13
@@ -5290,7 +5290,7 @@ define internal noundef i32 @FE_Delete_Character(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @FE_Delete_Previous(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Delete_Previous(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5427,7 +5427,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %55, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Delete_Line(ptr nocapture noundef initializes((12, 16)) %0) #0 {
+define internal noundef i32 @FE_Delete_Line(ptr noundef captures(none) initializes((12, 16)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5437,7 +5437,7 @@ define internal noundef i32 @FE_Delete_Line(ptr nocapture noundef initializes((1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @FE_Delete_Word(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @FE_Delete_Word(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -5598,7 +5598,7 @@ After_End_Of_Data.exit:                           ; preds = %87, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Clear_To_End_Of_Line(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @FE_Clear_To_End_Of_Line(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wclrtoeol(ptr noundef %3) #13
@@ -5606,7 +5606,7 @@ define internal noundef i32 @FE_Clear_To_End_Of_Line(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Clear_To_End_Of_Form(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @FE_Clear_To_End_Of_Form(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wclrtobot(ptr noundef %3) #13
@@ -5614,7 +5614,7 @@ define internal noundef i32 @FE_Clear_To_End_Of_Form(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Clear_Field(ptr nocapture noundef initializes((8, 16)) %0) #0 {
+define internal noundef i32 @FE_Clear_Field(ptr noundef captures(none) initializes((8, 16)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5626,7 +5626,7 @@ define internal noundef i32 @FE_Clear_Field(ptr nocapture noundef initializes((8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @EM_Overlay_Mode(ptr nocapture noundef %0) #8 {
+define internal noundef i32 @EM_Overlay_Mode(ptr noundef captures(none) %0) #8 {
   %2 = load i16, ptr %0, align 8
   %3 = or i16 %2, 4
   store i16 %3, ptr %0, align 8
@@ -5634,7 +5634,7 @@ define internal noundef i32 @EM_Overlay_Mode(ptr nocapture noundef %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @EM_Insert_Mode(ptr nocapture noundef %0) #8 {
+define internal noundef i32 @EM_Insert_Mode(ptr noundef captures(none) %0) #8 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, -5
   store i16 %3, ptr %0, align 8
@@ -5642,7 +5642,7 @@ define internal noundef i32 @EM_Insert_Mode(ptr nocapture noundef %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5674,7 +5674,7 @@ VSC_Generic.exit:                                 ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Backward(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Line_Backward(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5695,7 +5695,7 @@ VSC_Generic.exit:                                 ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -5750,7 +5750,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Page_Backward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -5805,7 +5805,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -5862,7 +5862,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @VSC_Scroll_Half_Page_Backward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -5919,7 +5919,7 @@ VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5951,7 +5951,7 @@ HSC_Generic.exit:                                 ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Backward(ptr nocapture noundef %0) #8 {
+define internal range(i32 -12, 1) i32 @HSC_Scroll_Char_Backward(ptr noundef captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -5972,7 +5972,7 @@ HSC_Generic.exit:                                 ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6027,7 +6027,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Line_Backward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6082,7 +6082,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Forward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Forward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6139,7 +6139,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Backward(ptr nocapture noundef %0) #7 {
+define internal range(i32 -12, 1) i32 @HSC_Horizontal_Half_Line_Backward(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6196,7 +6196,7 @@ HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -13, 1) i32 @FV_Validation(ptr nocapture noundef %0) #0 {
+define internal range(i32 -13, 1) i32 @FV_Validation(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6248,7 +6248,7 @@ _nc_Internal_Validation.exit:                     ; preds = %.lr.ph.i.i, %16, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @CR_Next_Choice(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @CR_Next_Choice(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6262,7 +6262,7 @@ define internal range(i32 -12, 1) i32 @CR_Next_Choice(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @CR_Previous_Choice(ptr nocapture noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @CR_Previous_Choice(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @Synchronize_Buffer(ptr noundef %0)
@@ -6282,7 +6282,7 @@ declare i32 @winsdelln(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @winsch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -6549,7 +6549,7 @@ Window_To_Buffer.exit67:                          ; preds = %147, %.critedge.i58
 declare i32 @winch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @Insert_String(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @Insert_String(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -6718,7 +6718,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare i32 @winsnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @wclrtobot(ptr noundef) local_unnamed_addr #1
 
@@ -6815,7 +6815,7 @@ tailrecurse:                                      ; preds = %9
 declare i32 @waddch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12

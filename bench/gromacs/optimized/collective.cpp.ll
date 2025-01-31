@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr noundef captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 304
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -81,7 +81,7 @@ _ZL19tMPI_Coll_envt_initP15coll_env_threadi.exit.thread: ; preds = %29, %14, %21
 declare noundef ptr @_Z11tMPI_Mallocm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -113,10 +113,10 @@ define void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr nocapture noundef initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noundef captures(none) initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -155,7 +155,7 @@ define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noca
 declare void @_Z15tMPI_Event_initP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -189,7 +189,7 @@ define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr nocapture noundef initial
 declare void @_Z18tMPI_Event_destroyP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
+define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -208,7 +208,7 @@ define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone %5, i64 noundef %6, ptr noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone %5, i64 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = load ptr, ptr %1, align 8
@@ -297,10 +297,10 @@ define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(
 declare noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19tMPI_Coll_root_xferP10tmpi_comm_P14tmpi_datatype_S2_mmPvS3_Pi(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define void @_Z19tMPI_Coll_root_xferP10tmpi_comm_P14tmpi_datatype_S2_mmPvS3_Pi(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = icmp ult i64 %4, %3
   br i1 %9, label %10, label %12
 
@@ -337,7 +337,7 @@ define void @_Z19tMPI_Coll_root_xferP10tmpi_comm_P14tmpi_datatype_S2_mmPvS3_Pi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #6 {
+define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #6 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = load ptr, ptr %0, align 8
@@ -420,7 +420,7 @@ define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20tMPI_Wait_for_othersP8coll_envi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @_Z20tMPI_Wait_for_othersP8coll_envi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 1
@@ -445,7 +445,7 @@ define void @_Z20tMPI_Wait_for_othersP8coll_envi(ptr nocapture noundef readonly 
 declare noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18tMPI_Wait_for_dataP11tmpi_threadP8coll_envi(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @_Z18tMPI_Wait_for_dataP11tmpi_threadP8coll_envi(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %struct.coll_env_thread, ptr %4, i64 %5, i32 7
@@ -486,10 +486,10 @@ define noundef i32 @_Z12tMPI_BarrierP10tmpi_comm_(ptr noundef %0) local_unnamed_
 declare noundef i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

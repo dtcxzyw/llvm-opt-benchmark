@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17CHeapStringHolder3setEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN17CHeapStringHolder5clearEv.exit, label %4
@@ -36,7 +36,7 @@ _ZN17CHeapStringHolder5clearEv.exit:              ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17CHeapStringHolder5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17CHeapStringHolder5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -51,12 +51,12 @@ define hidden void @_ZN17CHeapStringHolder5clearEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 

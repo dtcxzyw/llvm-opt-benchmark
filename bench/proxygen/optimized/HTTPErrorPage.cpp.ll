@@ -35,7 +35,7 @@ $_ZTIN8proxygen13HTTPErrorPageE = comdat any
 @_ZN8proxygen19HTTPStaticErrorPageC1ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr nocapture noundef %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef captures(none) %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 16), ptr %this, align 8
   %content_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -78,7 +78,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen19HTTPStaticErrorPage8generateEmjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly5IOBufESt14default_deleteISB_EES8_(ptr noalias sret(%"struct.proxygen::HTTPErrorPage::Page") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, i32 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8proxygen19HTTPStaticErrorPage8generateEmjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly5IOBufESt14default_deleteISB_EES8_(ptr noalias sret(%"struct.proxygen::HTTPErrorPage::Page") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, i32 %1, ptr nonnull readnone align 8 captures(none) %2, ptr readnone captures(none) %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %contentType_ = getelementptr inbounds nuw i8, ptr %this, i64 16

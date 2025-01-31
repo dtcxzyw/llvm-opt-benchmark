@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %10
@@ -155,7 +155,7 @@ onas_free_bucket.exit:                            ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @onas_element_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
@@ -463,7 +463,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #8 {
@@ -795,12 +795,12 @@ onas_free_listnode.exit:                          ; preds = %22, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @onas_ht_rm_child(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -1408,7 +1408,7 @@ onas_hashnode_init.exit.thread:                   ; preds = %33, %onas_free_hash
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1527,7 +1527,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i
 
 onas_get_parent.exit:                             ; preds = %.critedge.i56
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #20
-  %66 = tail call i32 @onas_ht_rm_child(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %65, ptr noundef %1, i64 noundef %2)
+  %66 = tail call i32 @onas_ht_rm_child(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %65, ptr noundef nonnull %1, i64 noundef %2)
   %.not54 = icmp eq i32 %66, 0
   tail call void @free(ptr noundef nonnull %62) #19
   br i1 %.not54, label %67, label %onas_ht_get.exit.thread
@@ -1562,7 +1562,7 @@ onas_get_parent.exit:                             ; preds = %.critedge.i56
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 47
   %.str.2..str.3 = select i1 %87, ptr @.str.2, ptr @.str.3
-  %88 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %.str.2..str.3, ptr noundef nonnull %83, ptr noundef %77) #19
+  %88 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %.str.2..str.3, ptr noundef nonnull %83, ptr noundef nonnull %77) #19
   %89 = tail call i32 @onas_ht_rm_hierarchy(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef %79, i32 noundef %74)
   tail call void @free(ptr noundef nonnull %80) #19
   %90 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -1572,7 +1572,7 @@ onas_get_parent.exit:                             ; preds = %.critedge.i56
   br i1 %.not55, label %._crit_edge, label %75
 
 ._crit_edge:                                      ; preds = %82, %67
-  %93 = tail call i32 @onas_ht_remove(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef null)
+  %93 = tail call i32 @onas_ht_remove(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef null)
   tail call void @onas_free_element(ptr noundef nonnull %.037.i)
   br label %onas_ht_get.exit.thread
 
@@ -1582,10 +1582,10 @@ onas_ht_get.exit.thread:                          ; preds = %42, %75, %onas_get_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #15

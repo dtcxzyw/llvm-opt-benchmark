@@ -228,7 +228,7 @@ define hidden void @proto_reg_handoff_dcp_etsi() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_dcp_etsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dcp_etsi_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 11
   br i1 %6, label %28, label %7
@@ -352,7 +352,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dcp_etsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dcp_etsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 11
   br i1 %6, label %21, label %7
@@ -381,7 +381,7 @@ define internal i32 @dissect_dcp_etsi(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_af(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_af(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.105) #3
@@ -456,7 +456,7 @@ define internal i32 @dissect_af(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.108) #3
@@ -632,7 +632,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %110 = zext nneg i32 %64 to i64
   %111 = tail call noalias ptr @wmem_alloc0(ptr noundef %109, i64 noundef %110) #3
   %112 = tail call ptr @tvb_new_real_data(ptr noundef %111, i32 noundef %64, i32 noundef %64) #3
-  %113 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef range(i32 2, 0) %19, i32 noundef %.0122.i.i, i32 noundef %87) #3
+  %113 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef range(i32 2, 0) %19, i32 noundef %.0122.i.i, i32 noundef %87) #3
   %.not165.i.i = icmp eq i32 %.0122.i.i, 0
   br i1 %.not165.i.i, label %._crit_edge162.thread.i.i, label %.lr.ph161.i.preheader.i
 
@@ -654,7 +654,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %.lr.ph161.i.i
-  %119 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.129, i32 noundef %116) #3
+  %119 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.129, i32 noundef %116) #3
   br label %dissect_pft_fec_detailed.exit.thread.i
 
 120:                                              ; preds = %.lr.ph161.i.i
@@ -667,7 +667,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %123, label %.lr.ph154.i.i, label %._crit_edge.i.i
 
 124:                                              ; preds = %120
-  %125 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.131, i32 noundef %121) #3
+  %125 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.131, i32 noundef %121) #3
   br label %dissect_pft_fec_detailed.exit.thread.i
 
 .lr.ph154.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph154.i.i
@@ -675,7 +675,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %126 = add nuw i32 %.1127153.i.i, 1
   %127 = icmp ne i32 %126, %19
   %128 = zext i1 %127 to i32
-  %129 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %112, i32 noundef 0, ptr noundef %1, i32 noundef %74, ptr noundef null, i32 noundef %.1127153.i.i, i32 noundef %64, i32 noundef %128) #3
+  %129 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %112, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %74, ptr noundef null, i32 noundef %.1127153.i.i, i32 noundef %64, i32 noundef %128) #3
   %exitcond.not.i.i = icmp eq i32 %126, %116
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph154.i.i, !llvm.loop !6
 
@@ -694,7 +694,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 131:                                              ; preds = %._crit_edge162.i.i, %81
   %.1129.lcssa.lcssa.sink.i.i = phi ptr [ %76, %81 ], [ %.1129.lcssa.i.i, %._crit_edge162.i.i ]
-  %132 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1129.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
+  %132 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef nonnull %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1129.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
   %.not139.i.i = icmp eq ptr %132, null
   br i1 %.not139.i.i, label %dissect_pft_fec_detailed.exit.thread.i, label %133
 
@@ -748,7 +748,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.i, %135
   %157 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %141, i32 noundef %137, i32 noundef %137) #3
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %157, ptr noundef nonnull @.str.132) #3
+  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %157, ptr noundef nonnull @.str.132) #3
   %.not.i141.i.i = icmp ult i32 %82, %83
   br i1 %.not.i141.i.i, label %rs_correct_data.exit.i.i, label %.lr.ph.i.i.i
 
@@ -788,7 +788,7 @@ rs_correct_data.exit.i.i:                         ; preds = %171, %160, %rs_dein
   %174 = load i32, ptr @hf_edcp_rs_ok, align 4
   %175 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %174, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, i32 noundef 2, i64 noundef %.0.i.i.i) #3
   %176 = tail call ptr @tvb_new_child_real_data(ptr noundef %157, ptr noundef %144, i32 noundef %82, i32 noundef %82) #3
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %176, ptr noundef nonnull @.str.133) #3
+  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %176, ptr noundef nonnull @.str.133) #3
   br label %dissect_pft_fec_detailed.exit.i
 
 177:                                              ; preds = %70
@@ -860,7 +860,7 @@ dissect_pft_fragmented.exit:                      ; preds = %186, %185, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.111) #3
@@ -965,7 +965,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @eras_dec_rs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

@@ -93,7 +93,7 @@ define dso_local noundef range(i32 0, 909199187) i32 @drm_mode_legacy_fb_format(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 909199187) i32 @drm_driver_legacy_fb_format(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i32 0, 909199187) i32 @drm_driver_legacy_fb_format(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   switch i32 %1, label %28 [
     i32 1, label %4
     i32 2, label %7
@@ -216,7 +216,7 @@ define dso_local noundef ptr @drm_format_info(i32 noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_get_format_info(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define dso_local ptr @drm_get_format_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

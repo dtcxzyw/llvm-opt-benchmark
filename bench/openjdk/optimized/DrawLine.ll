@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { float }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12, ptr nocapture noundef writeonly %13) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly captures(none) %12, ptr noundef writeonly captures(none) %13) local_unnamed_addr #0 {
   %15 = add i32 %0, 16384
   %16 = add i32 %1, 16384
   %17 = or i32 %16, %15

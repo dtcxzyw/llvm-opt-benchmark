@@ -782,7 +782,7 @@ declare hidden ptr @lj_lib_checkfunc(ptr noundef, i32 noundef) local_unnamed_add
 declare hidden i32 @lj_bcwrite(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @writer_buf(ptr nocapture readnone %L, ptr noundef %p, i64 noundef %size, ptr noundef %sb) #0 {
+define internal noundef i32 @writer_buf(ptr readnone captures(none) %L, ptr noundef %p, i64 noundef %size, ptr noundef %sb) #0 {
 entry:
   %conv = trunc i64 %size to i32
   %call = tail call ptr @lj_buf_putmem(ptr noundef %sb, ptr noundef %p, i32 noundef %conv) #7
@@ -950,7 +950,7 @@ if.else82:                                        ; preds = %if.then62
 
 for.body.i50:                                     ; preds = %if.else82, %for.body.i50
   %i.010.i51 = phi i32 [ %inc.i52, %for.body.i50 ], [ 0, %if.else82 ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i51, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi58)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i51, ptr noundef nonnull %.us-phi, ptr noundef nonnull %.us-phi58)
   %inc.i52 = add nuw nsw i32 %i.010.i51, 1
   %exitcond.not.i53 = icmp eq i32 %inc.i52, %spec.select.i
   br i1 %exitcond.not.i53, label %return, label %for.body.i50, !llvm.loop !7
@@ -1994,7 +1994,7 @@ return:                                           ; preds = %if.end22.i, %if.the
 declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @push_onecapture(ptr nocapture noundef nonnull readonly %ms, i32 noundef %i, ptr noundef %s, ptr noundef %e) unnamed_addr #0 {
+define internal fastcc void @push_onecapture(ptr noundef nonnull readonly captures(none) %ms, i32 noundef %i, ptr noundef %s, ptr noundef %e) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds nuw i8, ptr %ms, i64 24
   %0 = load i32, ptr %level, align 8
@@ -2127,7 +2127,7 @@ if.then:                                          ; preds = %for.body
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef %src.019, ptr noundef nonnull %call)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef nonnull %src.019, ptr noundef nonnull %call)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %spec.select.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
@@ -2184,13 +2184,13 @@ declare hidden i32 @lj_strfmt_putarg(ptr noundef, ptr noundef, i32 noundef, i32 
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4

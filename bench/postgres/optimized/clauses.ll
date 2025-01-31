@@ -663,7 +663,7 @@ max_parallel_hazard_test.exit58:                  ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @is_parallel_safe(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @is_parallel_safe(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.max_parallel_hazard_context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3797,7 +3797,7 @@ define dso_local void @convert_saop_to_hashed_saop(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = icmp eq ptr %0, null
@@ -3909,7 +3909,7 @@ define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @estimate_expression_value(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @estimate_expression_value(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.eval_const_expressions_context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4206,7 +4206,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recheck_cast_function_args(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -32768, -2147483648) %3, ptr nocapture readonly %.16.val) unnamed_addr #0 {
+define internal fastcc void @recheck_cast_function_args(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -32768, -2147483648) %3, ptr readonly captures(none) %.16.val) unnamed_addr #0 {
   %5 = alloca [100 x i32], align 16
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %.16.val, i64 22
@@ -4364,7 +4364,7 @@ declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @inline_set_returning_function(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @inline_set_returning_function(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.substitute_actual_srf_parameters_context, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct.inline_error_callback_arg, align 8
@@ -4734,7 +4734,7 @@ declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signex
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sql_inline_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @sql_inline_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @geterrposition() #9
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %10
@@ -4846,7 +4846,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @check_functions_in_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @contain_mutable_functions_checker(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @contain_mutable_functions_checker(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call signext i8 @func_volatile(i32 noundef %0) #9
   %4 = icmp ne i8 %3, 105
   ret i1 %4
@@ -4863,14 +4863,14 @@ declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef
 declare signext i8 @func_volatile(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @contain_volatile_functions_checker(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @contain_volatile_functions_checker(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call signext i8 @func_volatile(i32 noundef %0) #9
   %4 = icmp eq i8 %3, 118
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @contain_volatile_functions_not_nextval_checker(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @contain_volatile_functions_not_nextval_checker(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 1574
   br i1 %.not, label %6, label %3
 
@@ -4885,7 +4885,7 @@ define internal zeroext i1 @contain_volatile_functions_not_nextval_checker(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @max_parallel_hazard_checker(i32 noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i1 @max_parallel_hazard_checker(i32 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call signext i8 @func_parallel(i32 noundef %0) #9
   switch i8 %3, label %9 [
     i8 115, label %13
@@ -4931,7 +4931,7 @@ declare signext i8 @func_parallel(i32 noundef) local_unnamed_addr #1
 declare ptr @getSubscriptingRoutines(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @contain_nonstrict_functions_checker(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @contain_nonstrict_functions_checker(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call zeroext i1 @func_strict(i32 noundef %0) #9
   %4 = xor i1 %3, true
   ret i1 %4
@@ -4940,7 +4940,7 @@ define internal zeroext i1 @contain_nonstrict_functions_checker(i32 noundef %0, 
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @contain_leaked_vars_checker(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal zeroext i1 @contain_leaked_vars_checker(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call zeroext i1 @get_func_leakproof(i32 noundef %0) #9
   %4 = xor i1 %3, true
   ret i1 %4
@@ -4975,7 +4975,7 @@ declare i32 @get_negator(i32 noundef) local_unnamed_addr #1
 declare ptr @expression_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca %struct.substitute_actual_parameters_context, align 8
   %13 = alloca i8, align 1
@@ -5800,7 +5800,7 @@ define internal zeroext i1 @contain_non_const_walker(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_or_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @simplify_or_arguments(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call ptr @list_copy(ptr noundef %0) #9
   %.not3538 = icmp eq ptr %5, null
   br i1 %.not3538, label %.loopexit, label %.lr.ph
@@ -5895,7 +5895,7 @@ is_orclause.exit29:                               ; preds = %20
 declare ptr @make_orclause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @simplify_and_arguments(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @simplify_and_arguments(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call ptr @list_copy(ptr noundef %0) #9
   %.not3538 = icmp eq ptr %5, null
   br i1 %.not3538, label %.loopexit, label %.lr.ph
@@ -6000,7 +6000,7 @@ declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6236,7 +6236,7 @@ declare ptr @lookup_rowtype_tupdesc_domain(i32 noundef, i32 noundef, i1 noundef 
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -6343,10 +6343,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

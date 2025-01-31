@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [42 x i8] c"pdf_decrypt_string: decrypt_any() failed\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @pdf_convert_utf(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias ptr @pdf_convert_utf(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -89,12 +89,12 @@ define noalias ptr @pdf_convert_utf(ptr nocapture noundef readonly %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -110,10 +110,10 @@ declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @iconv_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -323,7 +323,7 @@ define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr nocapture no
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1182,10 +1182,10 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare ptr @find_obj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1194,12 +1194,12 @@ declare void @pdf_parseobj(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pdf_extract_obj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -1207,7 +1207,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
@@ -1841,7 +1841,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2257,7 +2257,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pdf_free_dict(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @pdf_free_dict(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not14 = icmp eq ptr %2, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -2352,7 +2352,7 @@ define void @pdf_free_array(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pdf_print_array(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pdf_print_array(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.0910 = load ptr, ptr %0, align 8
   %.not11 = icmp eq ptr %.0910, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -2390,7 +2390,7 @@ define void @pdf_print_array(ptr nocapture noundef readonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pdf_print_dict(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pdf_print_dict(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.015 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %.015, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -2445,10 +2445,10 @@ declare i32 @get_enc_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @decrypt_any(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

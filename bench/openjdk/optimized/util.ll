@@ -1337,7 +1337,7 @@ getPropertyValue.exit:                            ; preds = %59
   %96 = load ptr, ptr %0, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1360
   %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef %82) #14
+  call void %98(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %82) #14
   br label %99
 
 99:                                               ; preds = %getPropertyValue.exit.thread, %getPropertyValue.exit, %95, %9
@@ -2626,7 +2626,7 @@ declare void @outStream_setError(ptr noundef, i16 noundef zeroext) local_unnamed
 declare i64 @inStream_readValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @invoker_requestInvoke(i8 noundef signext, i8 noundef signext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2896,7 +2896,7 @@ define hidden i32 @uniqueID() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @filterDebugThreads(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @filterDebugThreads(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3178,7 +3178,7 @@ define hidden i32 @methodSignature(ptr noundef %0, ptr noundef writeonly %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @methodReturnType(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i32 @methodReturnType(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3618,7 +3618,7 @@ define hidden i32 @spawnNewThread(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare i32 @threadControl_addDebugThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @jvmtiGetCapabilities(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden i32 @jvmtiGetCapabilities(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load volatile i8, ptr %3, align 8
@@ -4593,7 +4593,7 @@ define hidden i32 @allClassLoaderClasses(ptr noundef %0, ptr noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @allNestedClasses(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden i32 @allNestedClasses(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4694,7 +4694,7 @@ allClassLoaderClasses.exit:                       ; preds = %33, %40
   br label %53
 
 52:                                               ; preds = %allClassLoaderClasses.exit
-  call void @jvmtiDeallocate(ptr noundef %32)
+  call void @jvmtiDeallocate(ptr noundef nonnull %32)
   br label %124
 
 53:                                               ; preds = %.lr.ph, %is_a_nested_class.exit63.thread
@@ -4731,7 +4731,7 @@ classSignature.exit48:                            ; preds = %53, %61
   br i1 %.not39, label %69, label %classSignature.exit48._crit_edge
 
 69:                                               ; preds = %classSignature.exit48
-  %70 = call i32 @strncmp(ptr noundef readonly %68, ptr noundef readonly %32, i64 noundef %50) #15
+  %70 = call i32 @strncmp(ptr noundef readonly %68, ptr noundef nonnull readonly %32, i64 noundef %50) #15
   %.not.i49 = icmp eq i32 %70, 0
   br i1 %.not.i49, label %71, label %is_a_nested_class.exit63.thread
 
@@ -4846,7 +4846,7 @@ is_a_nested_class.exit63.thread:                  ; preds = %71, %69, %.critedge
 classSignature.exit48._crit_edge:                 ; preds = %is_a_nested_class.exit63.thread, %classSignature.exit48, %.preheader
   %.028.lcssa = phi i32 [ 0, %.preheader ], [ %.02885, %classSignature.exit48 ], [ %.1, %is_a_nested_class.exit63.thread ]
   %.130 = phi i32 [ 0, %.preheader ], [ %67, %classSignature.exit48 ], [ 0, %is_a_nested_class.exit63.thread ]
-  call void @jvmtiDeallocate(ptr noundef %32)
+  call void @jvmtiDeallocate(ptr noundef nonnull %32)
   %118 = load i32, ptr %8, align 4
   %119 = icmp ne i32 %118, 0
   %120 = icmp eq i32 %.028.lcssa, 0
@@ -4870,7 +4870,7 @@ classSignature.exit48._crit_edge:                 ; preds = %is_a_nested_class.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i8 @isClass(ptr noundef %0) local_unnamed_addr #0 {
@@ -5110,7 +5110,7 @@ define hidden void @setAgentPropertyValue(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not27, label %52, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call i32 @utf8FromPlatform(ptr noundef %2, i32 noundef %20, ptr noundef nonnull %23, i32 noundef %22) #14
+  %25 = tail call i32 @utf8FromPlatform(ptr noundef nonnull %2, i32 noundef %20, ptr noundef nonnull %23, i32 noundef %22) #14
   %26 = load ptr, ptr @gdata, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 528
   %28 = load i32, ptr %27, align 8
@@ -5304,7 +5304,7 @@ define hidden ptr @getSpecialJvmti() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @writeCodeLocation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -6230,7 +6230,7 @@ define hidden i32 @classInstances(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectTagInstance(i32 %0, ptr nocapture readnone %1, i64 %2, i64 %3, i64 %4, ptr nocapture noundef %5, ptr nocapture readnone %6, i32 %7, ptr noundef %8) #8 {
+define internal range(i32 256, 32769) i32 @cbObjectTagInstance(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef %8) #8 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %23, label %11
 
@@ -6437,7 +6437,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr nocapture readnone %1, i64 noundef %2, i64 %3, i64 %4, ptr nocapture noundef %5, ptr nocapture readnone %6, i32 %7, ptr noundef %8) #9 {
+define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr readnone captures(none) %1, i64 noundef %2, i64 %3, i64 %4, ptr noundef captures(none) %5, ptr readnone captures(none) %6, i32 %7, ptr noundef %8) #9 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %40, label %11
 
@@ -6498,7 +6498,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %1, ptr nocapture readnone %2, i32 %3, ptr noundef %4) #9 {
+define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %1, ptr readnone captures(none) %2, i32 %3, ptr noundef %4) #9 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %26, label %7
 
@@ -6702,7 +6702,7 @@ define hidden i32 @objectReferrers(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr nocapture readnone %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly %5, ptr noundef %6, i32 %7, ptr noundef %8) #8 {
+define internal range(i32 256, 32769) i32 @cbObjectTagReferrer(i32 %0, ptr readnone captures(none) %1, i64 %2, i64 %3, i64 %4, ptr noundef readonly %5, ptr noundef %6, i32 %7, ptr noundef %8) #8 {
   %10 = icmp eq ptr %8, null
   br i1 %10, label %36, label %11
 
@@ -6783,22 +6783,22 @@ declare ptr @threadControl_currentThread() local_unnamed_addr #1
 declare void @threadControl_setPendingInterrupt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

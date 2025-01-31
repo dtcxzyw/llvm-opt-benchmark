@@ -26,7 +26,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @BUF_MEM_free(ptr noundef %buf) local_unnamed_addr #0 {
@@ -59,17 +59,17 @@ return:                                           ; preds = %entry, %if.end5
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @BUF_MEM_grow(ptr nocapture noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define hidden noundef i64 @BUF_MEM_grow(ptr noundef captures(none) %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @buf_mem_grow(ptr noundef %buf, i64 noundef %len, i8 noundef signext 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @buf_mem_grow(ptr nocapture noundef %buf, i64 noundef %len, i8 noundef signext range(i8 0, 2) %clean) unnamed_addr #0 {
+define internal fastcc noundef i64 @buf_mem_grow(ptr noundef captures(none) %buf, i64 noundef %len, i8 noundef signext range(i8 0, 2) %clean) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %buf, align 8
   %cmp.not = icmp ult i64 %0, %len
@@ -160,7 +160,7 @@ return:                                           ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @BUF_MEM_grow_clean(ptr nocapture noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define hidden noundef i64 @BUF_MEM_grow_clean(ptr noundef captures(none) %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @buf_mem_grow(ptr noundef %buf, i64 noundef %len, i8 noundef signext 1)
   ret i64 %call
@@ -274,10 +274,10 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @BUF_strnlen(ptr nocapture noundef readonly %str, i64 noundef %max_len) local_unnamed_addr #6 {
+define hidden i64 @BUF_strnlen(ptr noundef readonly captures(none) %str, i64 noundef %max_len) local_unnamed_addr #6 {
 entry:
   %cmp4.not = icmp eq i64 %max_len, 0
   br i1 %cmp4.not, label %for.end, label %for.body
@@ -300,10 +300,10 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @BUF_strlcpy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %dst_size) local_unnamed_addr #8 {
+define hidden i64 @BUF_strlcpy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %dst_size) local_unnamed_addr #8 {
 entry:
   %cmp17 = icmp ugt i64 %dst_size, 1
   br i1 %cmp17, label %land.rhs.preheader, label %for.end
@@ -348,7 +348,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @BUF_strlcat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %dst_size) local_unnamed_addr #8 {
+define hidden i64 @BUF_strlcat(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %dst_size) local_unnamed_addr #8 {
 entry:
   %cmp.not11 = icmp eq i64 %dst_size, 0
   br i1 %cmp.not11, label %BUF_strlcpy.exit, label %land.rhs
@@ -410,7 +410,7 @@ BUF_strlcpy.exit:                                 ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @BUF_memdup(ptr nocapture noundef readonly %data, i64 noundef %dst_size) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @BUF_memdup(ptr noundef readonly captures(none) %data, i64 noundef %dst_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %dst_size, 0
   br i1 %cmp, label %return, label %if.end
@@ -436,7 +436,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare ptr @OPENSSL_realloc_clean(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

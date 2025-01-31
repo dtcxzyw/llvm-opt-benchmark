@@ -392,7 +392,7 @@ png_warning_parameter.exit:                       ; preds = %4, %9, %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
@@ -455,7 +455,7 @@ png_warning_parameter.exit:                       ; preds = %13, %15, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca [192 x i8], align 16
   %.not37.not = icmp eq ptr %1, null
   br i1 %.not37.not, label %.split.us, label %.split
@@ -971,7 +971,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_format_buffer(i32 %.456.val, ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %32
@@ -1147,7 +1147,7 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
@@ -1338,7 +1338,7 @@ define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unna
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_safe_error(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @png_safe_error(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1441,7 +1441,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @png_safe_warning(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1487,7 +1487,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %8, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 {
+define hidden i32 @png_safe_execute(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1519,10 +1519,10 @@ define hidden i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readon
 declare void @png_image_free(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #18

@@ -219,7 +219,7 @@ if.end14:                                         ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_socket_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_socket_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #10
   %supports_yank = getelementptr inbounds nuw i8, ptr %call.i, i64 97
@@ -381,7 +381,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @tcp_set_msgfds(ptr noundef %chr, ptr nocapture noundef readonly %fds, i32 noundef %num) #0 {
+define internal range(i32 -1, 1) i32 @tcp_set_msgfds(ptr noundef %chr, ptr noundef readonly captures(none) %fds, i32 noundef %num) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %write_msgfds = getelementptr inbounds nuw i8, ptr %call.i, i64 232
@@ -444,7 +444,7 @@ declare zeroext i1 @qio_channel_has_feature(ptr noundef, i32 noundef) local_unna
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -452,7 +452,7 @@ declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_parse_socket(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr noundef %errp) #0 {
+define internal void @qemu_chr_parse_socket(ptr noundef %opts, ptr noundef writeonly captures(none) %backend, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.12) #10
   %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.13) #10
@@ -685,7 +685,7 @@ return:                                           ; preds = %if.end126, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qmp_chardev_open_socket(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
+define internal void @qmp_chardev_open_socket(ptr noundef %chr, ptr noundef readonly captures(none) %backend, ptr noundef writeonly captures(none) %be_opened, ptr noundef %errp) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
@@ -1369,7 +1369,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tcp_get_msgfds(ptr noundef %chr, ptr nocapture noundef writeonly %fds, i32 noundef %num) #0 {
+define internal i32 @tcp_get_msgfds(ptr noundef %chr, ptr noundef writeonly captures(none) %fds, i32 noundef %num) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %read_msgfds_num = getelementptr inbounds nuw i8, ptr %call.i, i64 224
@@ -1541,7 +1541,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_socket_get_addr(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @char_socket_get_addr(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %addr = getelementptr inbounds nuw i8, ptr %call.i, i64 256
@@ -1552,7 +1552,7 @@ entry:
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @char_socket_get_connected(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @char_socket_get_connected(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds nuw i8, ptr %call.i, i64 200
@@ -1779,7 +1779,7 @@ if.end:                                           ; preds = %if.then, %tcp_chr_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcp_chr_accept(ptr nocapture readnone %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
+define internal void @tcp_chr_accept(ptr readnone captures(none) %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
@@ -2362,7 +2362,7 @@ return:                                           ; preds = %end, %if.end12
 declare i64 @qio_channel_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @update_ioc_handlers(ptr noundef %s) unnamed_addr #0 {
@@ -2434,7 +2434,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @tcp_chr_read(ptr readnone captures(none) %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
@@ -2626,7 +2626,7 @@ declare ptr @qio_channel_create_watch(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @g_source_set_callback(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_chr_hup(ptr nocapture readnone %channel, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @tcp_chr_hup(ptr readnone captures(none) %channel, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -3129,13 +3129,13 @@ declare ptr @qio_channel_socket_new_fd(i32 noundef, ptr noundef) local_unnamed_a
 declare zeroext i1 @visit_type_SocketAddress(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

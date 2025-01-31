@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"%p\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PrintfTarget, align 8
   %6 = alloca [1 x i8], align 1
   %7 = icmp eq i64 %1, 0
@@ -51,7 +51,7 @@ define i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dopr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i32, align 4
@@ -1368,7 +1368,7 @@ fmtfloat.exit:                                    ; preds = %536, %539, %541
   %543 = call ptr @pg_strerror_r(i32 noundef %12, ptr noundef nonnull %10, i64 noundef 256) #16
   %544 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %543) #15
   %545 = trunc i64 %544 to i32
-  call fastcc void @dostr(ptr noundef %543, i32 noundef %545, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %543, i32 noundef %545, ptr noundef %0)
   br label %fmtchar.exit
 
 546:                                              ; preds = %66
@@ -1483,7 +1483,7 @@ define i32 @pg_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_vsprintf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @pg_vsprintf(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PrintfTarget, align 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1540,7 +1540,7 @@ define i32 @pg_sprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_vfprintf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @pg_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PrintfTarget, align 8
   %5 = alloca [1024 x i8], align 16
   %6 = icmp eq ptr %0, null
@@ -1676,7 +1676,7 @@ pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_vprintf(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @pg_vprintf(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PrintfTarget, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = load ptr, ptr @stdout, align 8
@@ -1933,10 +1933,10 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @dostr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc void @dostr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %11, label %.preheader
 
@@ -2094,16 +2094,16 @@ dopr_outch.exit:                                  ; preds = %.thread, %.preheade
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 49) %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr nocapture noundef nonnull %8) unnamed_addr #2 {
+define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 49) %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull captures(none) %8) unnamed_addr #2 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca i32, align 4
   switch i8 %1, label %trailing_pad.exit [
@@ -2254,13 +2254,13 @@ trailing_pad.exit:                                ; preds = %60, %53, %9
 declare ptr @pg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @leading_pad(i32 noundef range(i32 0, 49) %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc void @leading_pad(i32 noundef range(i32 0, 49) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #2 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp sgt i32 %5, 0
   %7 = icmp ne i32 %0, 0
@@ -2449,7 +2449,7 @@ dopr_outch.exit41:                                ; preds = %61, %83
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @dopr_outchmulti(i32 noundef range(i32 1, 49) %0, i32 noundef range(i32 0, -2147483647) %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc void @dopr_outchmulti(i32 noundef range(i32 1, 49) %0, i32 noundef range(i32 0, -2147483647) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %12, label %.preheader
 
@@ -2606,13 +2606,13 @@ dopr_outch.exit:                                  ; preds = %.thread, %.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -2624,7 +2624,7 @@ declare void @llvm.va_end.p0(ptr) #10
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -2633,10 +2633,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11

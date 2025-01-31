@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr nocapture noundef initializes((0, 4)) %ntlm) local_unnamed_addr #1 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr noundef captures(none) initializes((0, 4)) %ntlm) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @Curl_bufref_ptr(ptr noundef %type2ref) #7
   %call1 = tail call i64 @Curl_bufref_len(ptr noundef %type2ref) #7
@@ -161,10 +161,10 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef initializes((12, 16)) %ntlm, ptr noundef %out) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr noundef readnone captures(none) %data, ptr noundef readnone captures(none) %userp, ptr noundef readnone captures(none) %passwdp, ptr noundef readnone captures(none) %service, ptr noundef readnone captures(none) %hostname, ptr noundef captures(none) initializes((12, 16)) %ntlm, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %target_info.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
@@ -187,7 +187,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %ntlm) local_unnamed_addr #1 {
+define hidden void @Curl_auth_cleanup_ntlm(ptr noundef captures(none) initializes((12, 16)) %ntlm) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %target_info = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
@@ -263,7 +263,7 @@ if.end19:                                         ; preds = %if.then14
   br i1 %tobool22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end19
-  %call27 = call i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef %user.1, i64 noundef %call8, ptr noundef %domain.0, i64 noundef %domlen.0, ptr noundef nonnull %ntbuffer, ptr noundef nonnull %ntlmv2hash) #7
+  %call27 = call i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef nonnull %user.1, i64 noundef %call8, ptr noundef nonnull %domain.0, i64 noundef %domlen.0, ptr noundef nonnull %ntbuffer, ptr noundef nonnull %ntlmv2hash) #7
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %return
 
@@ -407,10 +407,10 @@ for.body.i:                                       ; preds = %if.then182, %for.bo
   br i1 %exitcond.not.i, label %if.end186, label %for.body.i, !llvm.loop !4
 
 if.end186.thread:                                 ; preds = %do.end180
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx185, ptr align 1 %domain.0, i64 %domlen.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx185, ptr nonnull align 1 %domain.0, i64 %domlen.0, i1 false)
   %add187124 = add i64 %add157, %domlen.0
   %arrayidx195 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187124
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx195, ptr align 1 %user.1, i64 %call8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx195, ptr nonnull align 1 %user.1, i64 %call8, i1 false)
   %add197131 = add i64 %add187124, %call8
   %arrayidx206 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %arrayidx206, ptr noundef nonnull align 16 dereferenceable(11) %host, i64 11, i1 false)
@@ -483,13 +483,13 @@ return:                                           ; preds = %if.end51, %if.else4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -516,7 +516,7 @@ declare zeroext i16 @Curl_read16_le(ptr noundef) local_unnamed_addr #2
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

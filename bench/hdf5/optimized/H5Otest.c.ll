@@ -325,7 +325,7 @@ declare i32 @H5B2_get_nrec(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_ainfo_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -857,7 +857,7 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
 declare i32 @H5AC_expunge_entry(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false) #2
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %8
@@ -888,7 +888,7 @@ define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5O_get_loc(i64 noundef %0) #2
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10

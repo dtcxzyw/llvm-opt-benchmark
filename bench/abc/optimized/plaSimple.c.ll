@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [18 x i8] c"primesmin%02d.pla\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Pla_ManDumpPla(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Pla_ManDumpPla(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %52, label %5
@@ -180,21 +180,21 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %49
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Pla_ManDumpBlif(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Pla_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 140
   %.val102 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %.val102, 0
@@ -246,16 +246,16 @@ Vec_IntCountZero.exit:                            ; preds = %8, %4, %14
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %.0106 = phi i32 [ %27, %.lr.ph ], [ 0, %19 ]
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.0106) #15
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, i32 noundef %.0106) #15
   %27 = add nuw nsw i32 %.0106, 1
   %exitcond.not = icmp eq i32 %27, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %fputc = tail call i32 @fputc(i32 10, ptr %17)
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 10, i64 1, ptr %17)
-  %fputc85 = tail call i32 @fputc(i32 10, ptr %17)
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr %17)
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %17)
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 10, i64 1, ptr nonnull %17)
+  %fputc85 = tail call i32 @fputc(i32 10, ptr nonnull %17)
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr nonnull %17)
   %30 = getelementptr i8, ptr %0, i64 20
   %.val91107 = load i32, ptr %30, align 4
   %31 = icmp sgt i32 %.val91107, 0
@@ -263,14 +263,14 @@ Vec_IntCountZero.exit:                            ; preds = %8, %4, %14
 
 .lr.ph110:                                        ; preds = %._crit_edge, %.lr.ph110
   %.1108 = phi i32 [ %33, %.lr.ph110 ], [ 0, %._crit_edge ]
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.1108) #15
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, i32 noundef %.1108) #15
   %33 = add nuw nsw i32 %.1108, 1
   %.val91 = load i32, ptr %30, align 4
   %34 = icmp slt i32 %33, %.val91
   br i1 %34, label %.lr.ph110, label %._crit_edge111, !llvm.loop !10
 
 ._crit_edge111:                                   ; preds = %.lr.ph110, %._crit_edge
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %17)
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %17)
   %.val90 = load i32, ptr %30, align 4
   %36 = add nsw i32 %.val90, 1
   %or.cond.i.i = icmp ult i32 %.val90, 15
@@ -346,7 +346,7 @@ Vec_StrStart.exit:                                ; preds = %._crit_edge111, %37
   br i1 %64, label %55, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %55, %.preheader
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.8, ptr noundef %40) #15
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.8, ptr noundef %40) #15
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %.val93 = load i32, ptr %42, align 4
   %66 = sext i32 %.val93 to i64
@@ -378,20 +378,20 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
   %74 = load i32, ptr %73, align 4
   %75 = lshr i32 %74, 2
   %76 = lshr i32 %74, 12
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr %17)
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr nonnull %17)
   %78 = lshr i32 %74, 3
   %79 = and i32 %78, 511
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %79) #15
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, i32 noundef %79) #15
   %81 = lshr i32 %74, 13
   %82 = and i32 %81, 511
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %82) #15
+  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, i32 noundef %82) #15
   %84 = and i32 %74, 3
   %85 = icmp eq i32 %84, 3
   br i1 %85, label %97, label %86
 
 86:                                               ; preds = %72
   %87 = trunc nsw i64 %indvars.iv132 to i32
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef %87) #15
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.19, i32 noundef %87) #15
   switch i32 %84, label %105 [
     i32 1, label %89
     i32 2, label %95
@@ -402,21 +402,21 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
   %91 = xor i32 %90, 1
   %92 = and i32 %76, 1
   %93 = xor i32 %92, 1
-  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.20, i32 noundef %91, i32 noundef %93) #15
+  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.20, i32 noundef %91, i32 noundef %93) #15
   br label %105
 
 95:                                               ; preds = %86
-  %96 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 10, i64 1, ptr %17)
+  %96 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 10, i64 1, ptr nonnull %17)
   br label %105
 
 97:                                               ; preds = %72
   %98 = lshr i32 %74, 23
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %98) #15
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.14, i32 noundef %98) #15
   %100 = trunc nsw i64 %indvars.iv132 to i32
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef %100) #15
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.19, i32 noundef %100) #15
   %102 = and i32 %75, 1
   %103 = xor i32 %102, 1
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.22, i32 noundef %103) #15
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.22, i32 noundef %103) #15
   br label %105
 
 105:                                              ; preds = %86, %89, %97, %95
@@ -427,8 +427,8 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
   br i1 %107, label %72, label %.critedge4, !llvm.loop !14
 
 .critedge4:                                       ; preds = %105, %Vec_StrFree.exit
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 6, i64 1, ptr %17)
-  %109 = tail call i32 @fclose(ptr noundef %17)
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 6, i64 1, ptr nonnull %17)
+  %109 = tail call i32 @fclose(ptr noundef nonnull %17)
   br label %110
 
 110:                                              ; preds = %Vec_IntCountZero.exit, %.critedge4
@@ -438,7 +438,7 @@ Vec_StrFree.exit:                                 ; preds = %.critedge, %68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Pla_ManExpendDirNum(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define i32 @Pla_ManExpendDirNum(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -477,7 +477,7 @@ define i32 @Pla_ManExpendDirNum(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Pla_PrintBinary(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Pla_PrintBinary(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -503,7 +503,7 @@ define void @Pla_PrintBinary(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Pla_ManFxMinimize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Pla_ManFxMinimize(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i32], align 16
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x i32], align 16
@@ -1104,10 +1104,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %317
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @Vec_IntPushTwo(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1243,7 +1243,7 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Pla_ManFxPrepare(i32 noundef %0) local_unnamed_addr #0 {
@@ -1741,7 +1741,7 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_BitFree.exit, %
 declare ptr @Pla_ManPrimesTable(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Pla_ManFxPerformSimple(i32 noundef %0) local_unnamed_addr #0 {
@@ -1924,24 +1924,24 @@ Pla_ManFree.exit:                                 ; preds = %54, %57
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare ptr @Extra_FileDesignName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13

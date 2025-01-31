@@ -954,7 +954,7 @@ define dso_local i32 @stack_depot_save(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @stack_depot_fetch(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
+define dso_local i32 @stack_depot_fetch(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #3 align 16 {
   store ptr null, ptr %1, align 8
   %3 = icmp ne i32 %0, 0
   %4 = load i8, ptr @stack_depot_disabled, align 1, !range !13
@@ -1388,7 +1388,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stats_open(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define internal i32 @stats_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @stats_show, ptr noundef %4) #10
@@ -1402,7 +1402,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @stats_show(ptr noundef %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef i32 @stats_show(ptr noundef %0, ptr readnone captures(none) %1) #3 align 16 {
   %3 = load i32, ptr @pools_num, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %3) #10
   br label %5

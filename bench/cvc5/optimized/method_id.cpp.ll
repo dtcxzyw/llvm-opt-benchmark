@@ -236,7 +236,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal11getMethodIdENS0_12NodeTemplateILb0EEERNS0_8MethodIdE(ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %i) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal11getMethodIdENS0_12NodeTemplateILb0EEERNS0_8MethodIdE(ptr noundef readonly captures(none) %n, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %i) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %index = alloca i32, align 4
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
@@ -257,7 +257,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef zeroext i1 @_ZN4cvc58internal16ProofRuleChecker9getUInt32ENS0_12NodeTemplateILb0EEERj(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS3_EERNS0_8MethodIdES9_S9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %ids, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %ida, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %idr, i64 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS3_EERNS0_8MethodIdES9_S9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %ids, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %ida, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %idr, i64 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %index.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
@@ -1160,10 +1160,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

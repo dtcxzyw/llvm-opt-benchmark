@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [8 x i8] c"QUBITS:\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @getQubitBitMask(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @getQubitBitMask(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -49,7 +49,7 @@ define i64 @getQubitBitMask(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @getControlFlipMask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @getControlFlipMask(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -85,7 +85,7 @@ define i64 @getControlFlipMask(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ensureIndsIncrease(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @ensureIndsIncrease(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -101,7 +101,7 @@ define void @ensureIndsIncrease(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @getVectorMagnitude(ptr nocapture noundef readonly byval(%struct.Vector) align 8 %0) local_unnamed_addr #2 {
+define double @getVectorMagnitude(ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -121,7 +121,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @getUnitVector(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Vector) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1) local_unnamed_addr #1 {
+define void @getUnitVector(ptr dead_on_unwind noalias writable writeonly sret(%struct.Vector) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1) local_unnamed_addr #1 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -151,7 +151,7 @@ define { double, double } @getConjugateScalar(double %0, double %1) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @getConjugateMatrix2(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrix2) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1) local_unnamed_addr #6 {
+define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader
@@ -188,7 +188,7 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @getConjugateMatrix4(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrix4) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %1) local_unnamed_addr #6 {
+define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix4) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader
@@ -222,7 +222,7 @@ define void @getConjugateMatrix4(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @setConjugateMatrixN(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0) local_unnamed_addr #7 {
+define void @setConjugateMatrixN(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %._crit_edge18, label %.preheader.lr.ph
@@ -260,7 +260,7 @@ define void @setConjugateMatrixN(ptr nocapture noundef readonly byval(%struct.Co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @getComplexPairFromRotation(double noundef %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) local_unnamed_addr #8 {
+define void @getComplexPairFromRotation(double noundef %0, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) local_unnamed_addr #8 {
   %.sroa.08.0.copyload = load double, ptr %1, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.49.0.copyload = load double, ptr %.sroa.49.0..sroa_idx, align 8
@@ -299,7 +299,7 @@ declare double @cos(double noundef) local_unnamed_addr #3
 declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @getZYZRotAnglesFromComplexPair(double %0, double %1, double %2, double %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #9 {
+define void @getZYZRotAnglesFromComplexPair(double %0, double %1, double %2, double %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6) local_unnamed_addr #9 {
   %8 = fmul double %1, %1
   %9 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %8)
   %sqrt = tail call double @llvm.sqrt.f64(double %9)
@@ -323,7 +323,7 @@ declare double @acos(double noundef) local_unnamed_addr #3
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #8 {
+define void @getComplexPairAndPhaseFromUnitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load double, ptr %5, align 8
   %7 = load double, ptr %0, align 8
@@ -362,7 +362,7 @@ define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly by
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @shiftIndices(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @shiftIndices(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -385,7 +385,7 @@ define void @shiftIndices(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @shiftSubregIndices(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @shiftSubregIndices(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge15
 
@@ -433,7 +433,7 @@ define void @shiftSubregIndices(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #10 {
   %3 = fcmp olt double %0, 1.000000e-13
   %4 = fsub double 1.000000e+00, %0
   br i1 %3, label %.thread, label %5
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr no
 declare double @genrand_real1() local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @hashString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @hashString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -483,7 +483,7 @@ define i64 @hashString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @getQuESTDefaultSeedKey(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #10 {
+define void @getQuESTDefaultSeedKey(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #10 {
   %2 = alloca %struct.timeval, align 8
   %3 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #22
   %4 = load i64, ptr %2, align 8
@@ -503,13 +503,13 @@ define void @getQuESTDefaultSeedKey(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define void @reportState(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #14 {
+define void @reportState(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #14 {
   %2 = alloca [100 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
@@ -552,19 +552,19 @@ define void @reportState(ptr nocapture noundef readonly byval(%struct.Qureg) ali
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind uwtable
-define void @reportQuregParams(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0) local_unnamed_addr #14 {
+define void @reportQuregParams(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -590,10 +590,10 @@ define void @reportQuregParams(ptr nocapture noundef readonly byval(%struct.Qure
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define double @statevec_getProbAmp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1) local_unnamed_addr #10 {
+define double @statevec_getProbAmp(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = tail call double @statevec_getRealAmp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1) #22
   %4 = tail call double @statevec_getImagAmp(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1) #22
   %5 = fmul double %4, %4
@@ -606,7 +606,7 @@ declare double @statevec_getRealAmp(ptr noundef byval(%struct.Qureg) align 8, i6
 declare double @statevec_getImagAmp(ptr noundef byval(%struct.Qureg) align 8, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_phaseShift(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
+define void @statevec_phaseShift(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = tail call double @cos(double noundef %2) #22
   %5 = tail call double @sin(double noundef %2) #22
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double %4, double %5) #22
@@ -616,37 +616,37 @@ define void @statevec_phaseShift(ptr nocapture noundef readonly byval(%struct.Qu
 declare void @statevec_phaseShiftByTerm(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, double, double) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_pauliZ(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @statevec_pauliZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double -1.000000e+00, double 0.000000e+00) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_sGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @statevec_sGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double 0.000000e+00, double 1.000000e+00) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_tGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @statevec_tGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCC) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_sGateConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @statevec_sGateConj(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double 0.000000e+00, double -1.000000e+00) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_tGateConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @statevec_tGateConj(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   tail call void @statevec_phaseShiftByTerm(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, double 0x3FE6A09E667F3BCC, double 0xBFE6A09E667F3BCC) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_rotateX(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
+define void @statevec_rotateX(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = fmul double %2, 5.000000e-01
   %5 = tail call double @cos(double noundef %4) #22
   %6 = tail call double @sin(double noundef %4) #22
@@ -660,10 +660,10 @@ define void @statevec_rotateX(ptr nocapture noundef readonly byval(%struct.Qureg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_rotateAroundAxis(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %3) local_unnamed_addr #10 {
+define void @statevec_rotateAroundAxis(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %3) local_unnamed_addr #10 {
   %.sroa.03.0.copyload = load double, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -691,7 +691,7 @@ define void @statevec_rotateAroundAxis(ptr nocapture noundef readonly byval(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_rotateY(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
+define void @statevec_rotateY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = fmul double %2, 5.000000e-01
   %5 = tail call double @cos(double noundef %4) #22
   %6 = tail call double @sin(double noundef %4) #22
@@ -704,7 +704,7 @@ define void @statevec_rotateY(ptr nocapture noundef readonly byval(%struct.Qureg
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_rotateZ(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
+define void @statevec_rotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #10 {
   %4 = fmul double %2, 5.000000e-01
   %5 = tail call double @cos(double noundef %4) #22
   %6 = tail call double @sin(double noundef %4) #22
@@ -720,7 +720,7 @@ define void @statevec_rotateZ(ptr nocapture noundef readonly byval(%struct.Qureg
 declare void @statevec_compactUnitary(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, double, double, double, double) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_rotateAroundAxisConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %3) local_unnamed_addr #10 {
+define void @statevec_rotateAroundAxisConj(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %3) local_unnamed_addr #10 {
   %.sroa.03.0.copyload = load double, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -746,7 +746,7 @@ define void @statevec_rotateAroundAxisConj(ptr nocapture noundef readonly byval(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledRotateAroundAxis(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %4) local_unnamed_addr #10 {
+define void @statevec_controlledRotateAroundAxis(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %4) local_unnamed_addr #10 {
   %.sroa.04.0.copyload = load double, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -776,7 +776,7 @@ define void @statevec_controlledRotateAroundAxis(ptr nocapture noundef readonly 
 declare void @statevec_controlledCompactUnitary(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double, double, double, double) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledRotateAroundAxisConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %4) local_unnamed_addr #10 {
+define void @statevec_controlledRotateAroundAxisConj(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %4) local_unnamed_addr #10 {
   %.sroa.04.0.copyload = load double, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -802,7 +802,7 @@ define void @statevec_controlledRotateAroundAxisConj(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledRotateX(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
+define void @statevec_controlledRotateX(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
   %5 = fmul double %3, 5.000000e-01
   %6 = tail call double @cos(double noundef %5) #22
   %7 = tail call double @sin(double noundef %5) #22
@@ -816,7 +816,7 @@ define void @statevec_controlledRotateX(ptr nocapture noundef readonly byval(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledRotateY(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
+define void @statevec_controlledRotateY(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
   %5 = fmul double %3, 5.000000e-01
   %6 = tail call double @cos(double noundef %5) #22
   %7 = tail call double @sin(double noundef %5) #22
@@ -829,7 +829,7 @@ define void @statevec_controlledRotateY(ptr nocapture noundef readonly byval(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledRotateZ(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
+define void @statevec_controlledRotateZ(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #10 {
   %5 = fmul double %3, 5.000000e-01
   %6 = tail call double @cos(double noundef %5) #22
   %7 = tail call double @sin(double noundef %5) #22
@@ -843,7 +843,7 @@ define void @statevec_controlledRotateZ(ptr nocapture noundef readonly byval(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @statevec_measureWithStats(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @statevec_measureWithStats(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = tail call double @statevec_calcProbOfOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef 0) #22
   %5 = fcmp olt double %4, 1.000000e-13
   %6 = fsub double 1.000000e+00, %4
@@ -874,7 +874,7 @@ declare double @statevec_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) alig
 declare void @statevec_collapseToKnownProbOutcome(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = tail call double @densmatr_calcProbOfOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef 0) #22
   %5 = fcmp olt double %4, 1.000000e-13
   %6 = fsub double 1.000000e+00, %4
@@ -905,7 +905,7 @@ declare double @densmatr_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) alig
 declare void @densmatr_collapseToKnownProbOutcome(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define double @statevec_calcFidelity(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1) local_unnamed_addr #10 {
+define double @statevec_calcFidelity(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call { double, double } @statevec_calcInnerProduct(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #22
   %4 = extractvalue { double, double } %3, 0
   %5 = extractvalue { double, double } %3, 1
@@ -917,7 +917,7 @@ define double @statevec_calcFidelity(ptr nocapture noundef readonly byval(%struc
 declare { double, double } @statevec_calcInnerProduct(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_sqrtSwapGate(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @statevec_sqrtSwapGate(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca %struct.ComplexMatrix4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
@@ -957,16 +957,16 @@ define void @statevec_sqrtSwapGate(ptr nocapture noundef readonly byval(%struct.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_twoQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %3) local_unnamed_addr #10 {
+define void @statevec_twoQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %3) local_unnamed_addr #10 {
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %3) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_sqrtSwapGateConj(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @statevec_sqrtSwapGateConj(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca %struct.ComplexMatrix4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
@@ -1006,7 +1006,7 @@ define void @statevec_sqrtSwapGateConj(ptr nocapture noundef readonly byval(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiRotatePauli(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #10 {
+define void @statevec_multiRotatePauli(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   %.not = icmp eq i32 %5, 0
   %7 = select i1 %.not, double 0xBFE6A09E667F3BCC, double 0x3FE6A09E667F3BCC
   %8 = icmp sgt i32 %3, 0
@@ -1126,7 +1126,7 @@ thread-pre-split:                                 ; preds = %20, %.lr.ph
 declare void @statevec_multiRotateZ(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiControlledMultiRotatePauli(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #10 {
+define void @statevec_multiControlledMultiRotatePauli(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #10 {
   %8 = alloca %struct.ComplexMatrix2, align 8
   %9 = alloca %struct.ComplexMatrix2, align 8
   %.not = icmp eq i32 %6, 0
@@ -1278,7 +1278,7 @@ declare void @statevec_multiControlledUnitary(ptr noundef byval(%struct.Qureg) a
 declare void @statevec_multiControlledMultiRotateZ(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i64 noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_applyPauliProd(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @statevec_applyPauliProd(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1337,7 +1337,7 @@ declare void @statevec_pauliX(ptr noundef byval(%struct.Qureg) align 8, i32 noun
 declare void @statevec_pauliY(ptr noundef byval(%struct.Qureg) align 8, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define double @statevec_calcExpecPauliProd(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %4) local_unnamed_addr #10 {
+define double @statevec_calcExpecPauliProd(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #10 {
   tail call void @statevec_cloneQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %4, ptr noundef nonnull byval(%struct.Qureg) align 8 %0) #22
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader.i, label %statevec_applyPauliProd.exit
@@ -1412,7 +1412,7 @@ declare void @statevec_cloneQureg(ptr noundef byval(%struct.Qureg) align 8, ptr 
 declare double @densmatr_calcTotalProb(ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define double @statevec_calcExpecPauliSum(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %4) local_unnamed_addr #10 {
+define double @statevec_calcExpecPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1555,7 +1555,7 @@ statevec_calcExpecPauliProd.exit:                 ; preds = %45, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_applyPauliSum(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %4) local_unnamed_addr #10 {
+define void @statevec_applyPauliSum(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = alloca [100 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1715,7 +1715,7 @@ declare void @statevec_setWeightedQureg(double, double, ptr noundef byval(%struc
 declare void @statevec_multiControlledTwoQubitUnitary(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, i32 noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrix4) align 8) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledTwoQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %4) local_unnamed_addr #10 {
+define void @statevec_controlledTwoQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = zext nneg i32 %1 to i64
   %7 = shl nuw i64 1, %6
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, i32 noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4) #22
@@ -1723,7 +1723,7 @@ define void @statevec_controlledTwoQubitUnitary(ptr nocapture noundef readonly b
 }
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_multiQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %3) local_unnamed_addr #10 {
+define void @statevec_multiQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %3) local_unnamed_addr #10 {
   tail call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %3) #22
   ret void
 }
@@ -1731,7 +1731,7 @@ define void @statevec_multiQubitUnitary(ptr nocapture noundef readonly byval(%st
 declare void @statevec_multiControlledMultiQubitUnitary(ptr noundef byval(%struct.Qureg) align 8, i64 noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ComplexMatrixN) align 8) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @statevec_controlledMultiQubitUnitary(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %4) local_unnamed_addr #10 {
+define void @statevec_controlledMultiQubitUnitary(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %4) local_unnamed_addr #10 {
   %6 = zext nneg i32 %1 to i64
   %7 = shl nuw i64 1, %6
   tail call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %7, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %4) #22
@@ -1739,7 +1739,7 @@ define void @statevec_controlledMultiQubitUnitary(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @populateKrausSuperOperator2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader84
 
@@ -1844,7 +1844,7 @@ define void @populateKrausSuperOperator2(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @populateKrausSuperOperator4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.preheader84
@@ -1966,7 +1966,7 @@ define void @populateKrausSuperOperator4(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @populateKrausSuperOperatorN(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @populateKrausSuperOperatorN(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = load i32, ptr %1, align 8
   %5 = shl nuw i32 1, %4
   %6 = shl i32 %5, %4
@@ -2133,7 +2133,7 @@ define void @populateKrausSuperOperatorN(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_applyKrausSuperoperator(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %2) local_unnamed_addr #10 {
+define void @densmatr_applyKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, %1
@@ -2142,7 +2142,7 @@ define void @densmatr_applyKrausSuperoperator(ptr nocapture noundef readonly byv
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_applyTwoQubitKrausSuperoperator(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %3) local_unnamed_addr #10 {
+define void @densmatr_applyTwoQubitKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %3) local_unnamed_addr #10 {
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -2160,7 +2160,7 @@ define void @densmatr_applyTwoQubitKrausSuperoperator(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_applyMultiQubitKrausSuperoperator(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %3) local_unnamed_addr #10 {
+define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %3) local_unnamed_addr #10 {
   %5 = alloca [200 x i32], align 16
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -2192,7 +2192,7 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.ComplexMatrix4, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 128
   br label %.preheader84.i
@@ -2291,7 +2291,7 @@ populateKrausSuperOperator2.exit:                 ; preds = %42, %.preheader83.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrixN) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #17 {
+define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrixN) align 8 captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #17 {
   store i32 %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %7, align 8
@@ -2324,7 +2324,7 @@ define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixTwoQubitKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca %struct.ComplexMatrixN, align 8
   %8 = alloca [16 x [16 x double]], align 16
@@ -2480,7 +2480,7 @@ populateKrausSuperOperator4.exit:                 ; preds = %60, %.preheader83.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixMultiQubitKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @densmatr_mixMultiQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca [200 x i32], align 16
   %7 = alloca [200 x i32], align 16
   %8 = alloca %struct.ComplexMatrixN, align 8
@@ -2596,7 +2596,7 @@ declare void @createComplexMatrixN(ptr dead_on_unwind writable sret(%struct.Comp
 declare void @destroyComplexMatrixN(ptr noundef byval(%struct.ComplexMatrixN) align 8) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @densmatr_mixPauli(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #10 {
+define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.ComplexMatrix4, align 8
   %7 = alloca [4 x %struct.ComplexMatrix2], align 16
   br label %8
@@ -2714,7 +2714,7 @@ densmatr_mixKrausMap.exit:                        ; preds = %59
 }
 
 ; Function Attrs: nounwind uwtable
-define void @applyExponentiatedPauliHamil(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, double noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca [100 x i32], align 16
   %6 = alloca [100 x i32], align 16
   %7 = alloca [1024 x i8], align 16
@@ -2889,7 +2889,7 @@ define void @applyExponentiatedPauliHamil(ptr nocapture noundef readonly byval(%
 declare void @qasm_recordComment(ptr noundef byval(%struct.Qureg) align 8, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @applySymmetrizedTrotterCircuit(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, double noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @applySymmetrizedTrotterCircuit(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %4
@@ -2933,7 +2933,7 @@ tailrecurse:                                      ; preds = %8, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @agnostic_applyTrotterCircuit(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @agnostic_applyTrotterCircuit(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = fcmp une double %2, 0.000000e+00
   %7 = icmp sgt i32 %4, 0
   %or.cond = and i1 %6, %7
@@ -2956,7 +2956,7 @@ define void @agnostic_applyTrotterCircuit(ptr nocapture noundef readonly byval(%
 }
 
 ; Function Attrs: nounwind uwtable
-define void @agnostic_applyQFT(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @agnostic_applyQFT(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [2 x i32], align 4
   %5 = alloca [100 x i32], align 16
   %6 = alloca [1 x double], align 8
@@ -3148,10 +3148,10 @@ declare void @statevec_swapQubitAmps(ptr noundef byval(%struct.Qureg) align 8, i
 declare void @qasm_recordControlledGate(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 declare double @exp2(double) local_unnamed_addr
 
@@ -3162,10 +3162,10 @@ declare double @llvm.sqrt.f64(double) #20
 declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

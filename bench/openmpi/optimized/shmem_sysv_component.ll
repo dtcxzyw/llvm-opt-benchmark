@@ -26,7 +26,7 @@ define internal noundef i32 @sysv_open() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @sysv_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal noundef i32 @sysv_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_sysv_module, ptr %0, align 8
@@ -41,7 +41,7 @@ define internal noundef i32 @sysv_register() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
+define internal noundef i32 @sysv_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
   %4 = alloca %struct.shmid_ds, align 8
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8
@@ -112,7 +112,7 @@ define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5

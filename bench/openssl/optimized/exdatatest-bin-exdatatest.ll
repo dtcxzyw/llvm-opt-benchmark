@@ -348,7 +348,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @exnew(ptr nocapture readnone %parent, ptr noundef %ptr, ptr nocapture readnone %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal void @exnew(ptr readnone captures(none) %parent, ptr noundef %ptr, ptr readnone captures(none) %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %0 = load i32, ptr @saved_idx, align 4
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 32, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %idx, i32 noundef %0) #2
@@ -382,7 +382,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @exdup(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr noundef %from_d, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal noundef i32 @exdup(ptr readnone captures(none) %to, ptr readnone captures(none) %from, ptr noundef %from_d, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %0 = load i32, ptr @saved_idx, align 4
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %idx, i32 noundef %0) #2
@@ -416,7 +416,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exfree(ptr nocapture readnone %parent, ptr nocapture readnone %ptr, ptr nocapture readnone %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal void @exfree(ptr readnone captures(none) %parent, ptr readnone captures(none) %ptr, ptr readnone captures(none) %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %0 = load i32, ptr @saved_idx, align 4
   %call = tail call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 53, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %idx, i32 noundef %0) #2
@@ -445,7 +445,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exnew2(ptr nocapture readnone %parent, ptr noundef %ptr, ptr noundef %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal void @exnew2(ptr readnone captures(none) %parent, ptr noundef %ptr, ptr noundef %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef 74) #2
   %0 = load i32, ptr @saved_idx2, align 4
@@ -504,7 +504,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @exdup2(ptr noundef %to, ptr nocapture readnone %from, ptr noundef %from_d, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal noundef i32 @exdup2(ptr noundef %to, ptr readnone captures(none) %from, ptr noundef %from_d, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %0 = load i32, ptr @saved_idx2, align 4
   %cmp = icmp eq i32 %idx, %0
@@ -573,7 +573,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exfree2(ptr nocapture readnone %parent, ptr nocapture readnone %ptr, ptr noundef %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
+define internal void @exfree2(ptr readnone captures(none) %parent, ptr readnone captures(none) %ptr, ptr noundef %ad, i32 noundef %idx, i64 noundef %argl, ptr noundef %argp) #0 {
 entry:
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef %ad, i32 noundef %idx) #2
   %0 = load i32, ptr @saved_idx2, align 4

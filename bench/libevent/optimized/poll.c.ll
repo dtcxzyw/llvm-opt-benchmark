@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @poll_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
+define internal range(i32 -1, 1) i32 @poll_add(ptr noundef readonly captures(none) %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr noundef captures(none) %idx_) #0 {
 entry:
   %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -152,7 +152,7 @@ return:                                           ; preds = %if.end48, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
+define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr noundef captures(none) %idx_) #0 {
 entry:
   %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
@@ -447,7 +447,7 @@ declare ptr @event_mm_realloc_(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @event_warn(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @evutil_tv_to_msec_(ptr noundef) local_unnamed_addr #1
 
@@ -469,7 +469,7 @@ declare void @evsig_dealloc_(ptr noundef) local_unnamed_addr #1
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

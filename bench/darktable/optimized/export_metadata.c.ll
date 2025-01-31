@@ -270,7 +270,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
 
 143:                                              ; preds = %59
   %144 = load ptr, ptr %141, align 8, !tbaa !33
-  %145 = tail call i64 @strtol(ptr nocapture noundef %144, ptr noundef null, i32 noundef 16) #9
+  %145 = tail call i64 @strtol(ptr noundef captures(none) %144, ptr noundef null, i32 noundef 16) #9
   %146 = trunc i64 %145 to i32
   %147 = tail call ptr @g_list_remove(ptr noundef nonnull %141, ptr noundef %144) #9
   tail call void @g_free(ptr noundef %144) #9
@@ -482,7 +482,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -531,12 +531,12 @@ declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #3
 declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tags_toggled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_tags_toggled(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !27
@@ -580,7 +580,7 @@ declare i32 @gtk_tree_view_append_column(ptr noundef, ptr noundef) local_unnamed
 declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_formula_edited(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @_formula_edited(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -602,7 +602,7 @@ define internal void @_formula_edited(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_formula_editing_started(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal void @_formula_editing_started(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i64 @gtk_entry_get_type() #10
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %5) #9
   %7 = tail call ptr (...) @dt_gtkentry_get_default_path_compl_list() #9
@@ -611,7 +611,7 @@ define internal void @_formula_editing_started(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_key_press_on_list(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef range(i32 0, 2) i32 @_key_press_on_list(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 8, !tbaa !37
@@ -678,7 +678,7 @@ declare ptr @dt_exif_get_exiv2_taglist(...) local_unnamed_addr #3
 declare ptr @dt_util_str_to_glist(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -702,7 +702,7 @@ declare void @dtgtk_cairo_paint_plus_simple(ptr noundef, i32 noundef, i32 nounde
 declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr noundef initializes((32, 40)) %1) #0 {
+define internal void @_add_tag_button_clicked(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -843,7 +843,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
 declare void @dtgtk_cairo_paint_minus_simple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_delete_tag_button_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_delete_tag_button_clicked(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
@@ -891,7 +891,7 @@ declare void @dt_lib_export_metadata_set_conf(ptr noundef) local_unnamed_addr #3
 declare void @gtk_widget_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @gtk_widget_set_sensitive(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -915,7 +915,7 @@ declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @gtk_entry_set_activates_default(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef initializes((40, 48)) %1) #0 {
+define internal void @_tag_name_changed(ptr readnone captures(none) %0, ptr noundef initializes((40, 48)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = tail call i64 @gtk_entry_get_type() #10
@@ -943,13 +943,13 @@ declare i64 @gtk_tree_model_filter_get_type() local_unnamed_addr #5
 declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_metadata_activated(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @_metadata_activated(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   tail call fastcc void @_add_selected_metadata(ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_selected_metadata(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_add_selected_metadata(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
@@ -1039,7 +1039,7 @@ declare ptr @gtk_tree_model_filter_get_model(ptr noundef) local_unnamed_addr #3
 declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_set_matching_tag_visibility(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @_set_matching_tag_visibility(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !tbaa !36

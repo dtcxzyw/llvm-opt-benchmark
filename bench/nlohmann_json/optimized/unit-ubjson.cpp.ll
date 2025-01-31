@@ -2161,7 +2161,7 @@ $_ZTIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112ba
 declare noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #0
 
@@ -64393,7 +64393,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0E9stringifyEPSo"(ptr nocapture nonnull readnone align 8 %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0E9stringifyEPSo"(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %DOCTEST_CAPTURE_5.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
@@ -64477,10 +64477,10 @@ declare void @_ZN7doctest6detail7tlssPopEv(ptr sret(%"class.doctest::String") al
 declare void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
@@ -65066,7 +65066,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsImEeqIiEEDTcmcvveqclL_ZNS0_7declvalImEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr noalias sret(%"struct.doctest::detail::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(4) %rhs) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -69719,7 +69719,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -77492,7 +77492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -77647,7 +77647,7 @@ if.end86:                                         ; preds = %if.then.i.i.i.i.i52
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -83587,7 +83587,7 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE12handle_valueIRdEEPSF_OT_(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -92306,7 +92306,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -97111,16 +97111,16 @@ return:                                           ; preds = %for.inc, %if.else20
 declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -101276,7 +101276,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_19.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -101614,7 +101614,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_23.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -101759,7 +101759,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_27.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -101906,7 +101906,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_32.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102053,7 +102053,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_36.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102389,7 +102389,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_40.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102465,7 +102465,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_44.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102612,7 +102612,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_48.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102759,7 +102759,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_52.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102904,7 +102904,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_57.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -102980,7 +102980,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_61.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103056,7 +103056,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_65.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103132,7 +103132,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_69.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103208,7 +103208,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_73.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103740,7 +103740,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_86.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103816,7 +103816,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_90.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103892,7 +103892,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_94.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -103968,7 +103968,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_98.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -104044,7 +104044,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_103.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -104194,7 +104194,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_107.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -104270,7 +104270,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_111.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -104346,7 +104346,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_115.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -115773,13 +115773,13 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #18 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #18 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -129382,13 +129382,13 @@ return:                                           ; preds = %_ZN8nlohmann16json_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #18 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #18 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_7vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -129527,7 +129527,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this, i32 noundef %format, ptr noundef nonnull %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE12unexpect_eofENS1_14input_format_tEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %this, i32 noundef %format, ptr noundef nonnull %context) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.71", align 1
@@ -129634,7 +129634,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %format, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIjEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 captures(none) dereferenceable(552) %this, i32 noundef %format, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i32 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -129682,7 +129682,7 @@ for.end:                                          ; preds = %if.end, %_ZN8nlohma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %format, i16 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringItEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 captures(none) dereferenceable(552) %this, i32 noundef %format, i16 noundef zeroext %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i16 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -129730,7 +129730,7 @@ for.end:                                          ; preds = %if.end, %_ZN8nlohma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_(ptr nocapture noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %format, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringImEEbNS1_14input_format_tET_RSB_(ptr noundef nonnull align 8 captures(none) dereferenceable(552) %this, i32 noundef %format, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #4 align 2 {
 entry:
   %cmp2 = icmp eq i64 %len, 0
   br i1 %cmp2, label %for.end, label %for.body.lr.ph
@@ -132828,7 +132828,7 @@ return:                                           ; preds = %if.end.i173, %_ZN8n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE21get_ubjson_size_valueERmRbm(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result, ptr nocapture noundef nonnull align 1 dereferenceable(1) %is_ndarray, i64 noundef %prefix) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE21get_ubjson_size_valueERmRbm(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %is_ndarray, i64 noundef %prefix) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr.i524 = alloca %"struct.std::array.220", align 1
   %ref.tmp.i525 = alloca %"class.std::allocator.71", align 1
@@ -134503,7 +134503,7 @@ return:                                           ; preds = %if.then.i.i.i274, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE20get_ubjson_size_typeERSt4pairImmEb(ptr noundef nonnull align 8 dereferenceable(552) initializes((16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %result, i1 noundef zeroext %inside_ndarray) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE20get_ubjson_size_typeERSt4pairImmEb(ptr noundef nonnull align 8 dereferenceable(552) initializes((16, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %result, i1 noundef zeroext %inside_ndarray) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr.i53 = alloca %"struct.std::array.220", align 1
   %ref.tmp.i54 = alloca %"class.std::allocator.71", align 1
@@ -135955,7 +135955,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_239vE3$_0E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_239vE3$_0E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_242.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -136076,7 +136076,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_239vE3$_1E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_239vE3$_1E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_246.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -137122,7 +137122,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_0E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_0E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_252.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -137250,7 +137250,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_1E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_1E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_256.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -144234,7 +144234,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_2E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_2E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_260.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -158095,7 +158095,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_3E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_3E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_264.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -171524,7 +171524,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_4E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_4E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_268.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -171601,7 +171601,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_5E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_248vE3$_5E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_272.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -171871,10 +171871,10 @@ declare double @llvm.fabs.f64(double) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
@@ -171886,7 +171886,7 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #23

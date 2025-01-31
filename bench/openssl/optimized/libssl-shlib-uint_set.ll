@@ -6,14 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/ssl/quic/uint_set.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_uint_set_init(ptr nocapture noundef writeonly initializes((0, 24)) %s) local_unnamed_addr #0 {
+define void @ossl_uint_set_init(ptr noundef writeonly captures(none) initializes((0, 24)) %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_uint_set_destroy(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define void @ossl_uint_set_destroy(ptr noundef readonly captures(none) %s) local_unnamed_addr #1 {
 entry:
   %s.val = load ptr, ptr %s, align 8
   %cmp.not3 = icmp eq ptr %s.val, null
@@ -33,7 +33,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_uint_set_insert(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_uint_set_insert(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %range) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %range, align 8
   %end2 = getelementptr inbounds nuw i8, ptr %range, i64 8
@@ -424,7 +424,7 @@ return:                                           ; preds = %ossl_list_uint_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uint_set_merge_adjacent(ptr nocapture noundef %s, ptr nocapture noundef nonnull %x) unnamed_addr #1 {
+define internal fastcc void @uint_set_merge_adjacent(ptr noundef captures(none) %s, ptr noundef nonnull captures(none) %x) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %x, i64 8
   %x.val = load ptr, ptr %0, align 8
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end, %entry, %os
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr nocapture noundef %s, ptr nocapture noundef readonly %range) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_uint_set_remove(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %range) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %range, align 8
   %end2 = getelementptr inbounds nuw i8, ptr %range, i64 8
@@ -657,7 +657,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_uint_set_query(ptr nocapture noundef readonly %s, i64 noundef %v) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_uint_set_query(ptr noundef readonly captures(none) %s, i64 noundef %v) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 16
   %s.val = load i64, ptr %0, align 8
@@ -691,7 +691,7 @@ return:                                           ; preds = %for.cond, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

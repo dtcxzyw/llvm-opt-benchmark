@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DIGIT_TABLE = internal unnamed_addr constant [200 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = bitcast float %0 to i32
   %4 = icmp slt i32 %3, 0
   %5 = and i32 %3, 8388607
@@ -777,10 +777,10 @@ copy_special_str.exit:                            ; preds = %425, %to_chars_f.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @float_to_shortest_decimal_buf(float noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @float_to_shortest_decimal_buf(float noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr noundef %1)
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr %1, i64 %4

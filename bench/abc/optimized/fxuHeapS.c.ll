@@ -23,7 +23,7 @@ define noalias noundef ptr @Fxu_HeapSingleStart() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Fxu_HeapSingleStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Fxu_HeapSingleStop(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -38,10 +38,10 @@ define void @Fxu_HeapSingleStop(ptr nocapture noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fxu_HeapSinglePrint(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 20)) %1) local_unnamed_addr #4 {
+define void @Fxu_HeapSinglePrint(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((16, 20)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -123,7 +123,7 @@ Fxu_HeapSingleCheck.exit:                         ; preds = %8, %10, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_HeapSingleCheck(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #5 {
+define void @Fxu_HeapSingleCheck(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -156,15 +156,15 @@ define void @Fxu_HeapSingleCheck(ptr nocapture noundef initializes((16, 20)) %0)
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Fxu_HeapSingleCheckOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define void @Fxu_HeapSingleCheckOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fxu_HeapSingleInsert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @Fxu_HeapSingleInsert(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -256,7 +256,7 @@ Fxu_HeapSingleMoveUp.exit:                        ; preds = %.lr.ph.i, %46, %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @Fxu_HeapSingleUpdate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
@@ -529,7 +529,7 @@ Fxu_HeapSingleMoveUp.exit:                        ; preds = %94, %87, %76, %149,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_HeapSingleDelete(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define void @Fxu_HeapSingleDelete(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr %0, align 8
@@ -557,7 +557,7 @@ define void @Fxu_HeapSingleDelete(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Fxu_HeapSingleReadMax(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define ptr @Fxu_HeapSingleReadMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -575,7 +575,7 @@ define ptr @Fxu_HeapSingleReadMax(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define ptr @Fxu_HeapSingleGetMax(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -697,7 +697,7 @@ Fxu_HeapSingleMoveDn.exit:                        ; preds = %57, %50, %39, %5, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fxu_HeapSingleReadMaxWeight(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @Fxu_HeapSingleReadMaxWeight(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -717,13 +717,13 @@ define i32 @Fxu_HeapSingleReadMaxWeight(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

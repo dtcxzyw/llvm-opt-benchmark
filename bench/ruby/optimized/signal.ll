@@ -154,7 +154,7 @@ define internal fastcc void @reset_sigmask(i32 noundef %0) unnamed_addr #1 {
 declare i32 @raise(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 2, 4294967294) i64 @rb_f_kill(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #1 {
+define dso_local range(i64 2, 4294967294) i64 @rb_f_kill(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca [6 x i64], align 16
   %5 = alloca i64, align 8
@@ -463,7 +463,7 @@ signal_ignored.exit:                              ; preds = %94
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @signm2signo(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc i32 @signm2signo(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %5 = load i64, ptr %0, align 8
   %6 = and i64 %5, 255
   %7 = icmp eq i64 %6, 12
@@ -819,7 +819,7 @@ define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_trap_exit(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_trap_exit(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1482,7 +1482,7 @@ declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #2
 declare extern_weak void @rb_define_global_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sig_trap(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal i64 @sig_trap(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = alloca %struct.sigaction, align 8
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca [6 x i64], align 16
@@ -1898,7 +1898,7 @@ signo2signm.exit.thread:                          ; preds = %13, %signo2signm.ex
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @esignal_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #1 {
+define internal noundef i64 @esignal_init(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #1 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %0, 0
@@ -2020,7 +2020,7 @@ define internal i64 @esignal_signo(i64 noundef %0) #1 {
 declare void @rb_alias(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @interrupt_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal i64 @interrupt_init(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = alloca [2 x i64], align 16
   store i64 5, ptr %4, align 16
   %or.cond.not = icmp ult i32 %0, 2
@@ -2189,10 +2189,10 @@ ruby_signal.exit21:                               ; preds = %39, %49
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @sigbus(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
+define internal void @sigbus(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.39, i64 noundef 3, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2209,7 +2209,7 @@ define internal void @sigbus(i32 noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @sigill(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
+define internal void @sigill(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.41, i64 noundef 3, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2226,7 +2226,7 @@ define internal void @sigill(i32 noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @sigsegv(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
+define internal void @sigsegv(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.43, i64 noundef 4, i32 noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2406,7 +2406,7 @@ declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #2
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i64 @rb_hash_new() local_unnamed_addr #2
 
@@ -2545,13 +2545,13 @@ declare void @rb_ec_stack_overflow(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

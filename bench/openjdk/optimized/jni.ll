@@ -4851,7 +4851,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL20jni_invoke_nonstaticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.JavaCallArguments, align 8
   %.not.i = icmp eq ptr %1, null
@@ -6053,7 +6053,7 @@ define internal fastcc noundef ptr @_ZL13get_method_idP7JNIEnv_P7_jclassPKcS4_bP
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
   %17 = trunc i64 %16 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %18 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %15, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %7) #15
+  %18 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %15, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %7) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %19
@@ -6072,7 +6072,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %14, %19, %23
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %25 = trunc i64 %24 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %26 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %2, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
+  %26 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not.i39 = icmp eq ptr %26, null
   br i1 %.not.i39, label %_ZN12ResourceMarkD2Ev.exit.thread33, label %27
@@ -6140,7 +6140,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %35, %39, %43
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(196) %46) #15
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull @.str.32, ptr noundef nonnull %62, ptr noundef %66, ptr noundef %1, ptr noundef %2)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull @.str.32, ptr noundef nonnull %62, ptr noundef %66, ptr noundef %1, ptr noundef nonnull %2)
   %67 = load ptr, ptr %8, align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1087, ptr noundef %61, ptr noundef %67) #15
   %68 = load ptr, ptr %54, align 8
@@ -6242,7 +6242,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %35, %39, %43
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 264
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(196) %46) #15
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull @.str.32, ptr noundef nonnull %120, ptr noundef %124, ptr noundef %1, ptr noundef %2)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull @.str.32, ptr noundef nonnull %120, ptr noundef %124, ptr noundef %1, ptr noundef nonnull %2)
   %125 = load ptr, ptr %9, align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 1111, ptr noundef %119, ptr noundef %125) #15
   %126 = load ptr, ptr %112, align 8
@@ -19279,7 +19279,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %38, %42, %46
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %51 = trunc i64 %50 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %52 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %2, i32 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
+  %52 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not.i29 = icmp eq ptr %52, null
   br i1 %.not.i29, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %53
@@ -19298,7 +19298,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN10JNIHandles16re
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %59 = trunc i64 %58 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %60 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %3, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
+  %60 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %3, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i30 = icmp eq ptr %60, null
   br i1 %.not.i30, label %.thread, label %61
@@ -19331,7 +19331,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit31:    ; preds = %61, %65
   %77 = load i64, ptr %76, align 8
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1344), align 8
   %79 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %49) #15
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull @.str.12, ptr noundef %79, ptr noundef %2, ptr noundef %3)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %8, ptr noundef nonnull @.str.12, ptr noundef %79, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %80 = load ptr, ptr %8, align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 1765, ptr noundef %78, ptr noundef %80) #15
   %81 = load ptr, ptr %71, align 8
@@ -19393,7 +19393,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit31:    ; preds = %61, %65
   %111 = load i64, ptr %110, align 8
   %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1344), align 8
   %113 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %49) #15
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %10, ptr noundef nonnull @.str.12, ptr noundef %113, ptr noundef %2, ptr noundef %3)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %10, ptr noundef nonnull @.str.12, ptr noundef %113, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %114 = load ptr, ptr %10, align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 1775, ptr noundef %112, ptr noundef %114) #15
   %115 = load ptr, ptr %105, align 8
@@ -19496,7 +19496,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -22727,7 +22727,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %35 = trunc i64 %34 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %36 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %2, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
+  %36 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %2, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not.i25 = icmp eq ptr %36, null
   br i1 %.not.i25, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %37
@@ -22746,7 +22746,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN25WeakPreserveEx
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %43 = trunc i64 %42 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %44 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %3, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
+  %44 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %3, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i26 = icmp eq ptr %44, null
   br i1 %.not.i26, label %.thread50, label %45
@@ -22817,7 +22817,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %53, %57, %61
 
 77:                                               ; preds = %75, %69
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1344), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1998, ptr noundef %78, ptr noundef %2) #15
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1998, ptr noundef %78, ptr noundef nonnull %2) #15
   br label %84
 
 79:                                               ; preds = %75
@@ -22836,12 +22836,12 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %53, %57, %61
 
 .thread50:                                        ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1344), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1989, ptr noundef %85, ptr noundef %2) #15
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1989, ptr noundef %85, ptr noundef nonnull %2) #15
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 86:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1344), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1989, ptr noundef %87, ptr noundef %2) #15
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 1989, ptr noundef %87, ptr noundef nonnull %2) #15
   br label %.thread42
 
 .thread42:                                        ; preds = %86, %84, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -26541,7 +26541,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
   br i1 %.not, label %55, label %46
 
 46:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
-  %47 = call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef %.0.i.i, ptr noundef nonnull %45) #15
+  %47 = call noundef i32 @_ZN16java_lang_String11utf8_lengthEP7oopDescP16typeArrayOopDesc(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %45) #15
   %48 = sext i32 %47 to i64
   %49 = add nsw i64 %48, 1
   %50 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %49, i8 noundef zeroext 9, i32 noundef 1) #15
@@ -26550,7 +26550,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %32, %36, %40
 
 51:                                               ; preds = %46
   %52 = add nsw i32 %47, 1
-  %53 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef %.0.i.i, ptr noundef nonnull %45, ptr noundef nonnull %50, i32 noundef %52) #15
+  %53 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDescPci(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %45, ptr noundef nonnull %50, i32 noundef %52) #15
   %.not26 = icmp eq ptr %2, null
   br i1 %.not26, label %55, label %54
 
@@ -34081,7 +34081,7 @@ _ZNK5Klass12class_loaderEv.exit53:                ; preds = %72, %78
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #17
   %92 = trunc i64 %91 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %93 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %88, i32 noundef %92, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
+  %93 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %88, i32 noundef %92, ptr noundef nonnull align 4 dereferenceable(4) %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not.i54 = icmp eq ptr %93, null
   br i1 %.not.i54, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %94
@@ -34100,7 +34100,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %86, %94, %98
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #17
   %100 = trunc i64 %99 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %101 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %90, i32 noundef %100, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
+  %101 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %90, i32 noundef %100, ptr noundef nonnull align 4 dereferenceable(4) %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i55 = icmp eq ptr %101, null
   br i1 %.not.i55, label %.thread, label %102
@@ -34130,7 +34130,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit56:    ; preds = %102, %106
   %115 = load i64, ptr %114, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #15
   %116 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %47) #15
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.16, ptr noundef %116, ptr noundef %88, ptr noundef %90) #15
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.16, ptr noundef %116, ptr noundef nonnull %88, ptr noundef nonnull %90) #15
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1352), align 8
   %118 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %8, i1 noundef zeroext false) #15
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 2668, ptr noundef %117, ptr noundef %118) #15
@@ -34174,7 +34174,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit56:    ; preds = %102, %106
 
 136:                                              ; preds = %125
   %137 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %47) #15
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %137, ptr noundef %88, ptr noundef %90)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE67ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %137, ptr noundef nonnull %88, ptr noundef nonnull %90)
   br label %138
 
 138:                                              ; preds = %125, %136
@@ -35236,7 +35236,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit: ; preds = %_ZN10
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDesciiPci(ptr noundef %.0.i.i, ptr noundef %47, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 2147483647) #15
+  %71 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescP16typeArrayOopDesciiPci(ptr noundef nonnull %.0.i.i, ptr noundef %47, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 2147483647) #15
   br label %74
 
 72:                                               ; preds = %68
@@ -36697,7 +36697,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 define internal fastcc noundef ptr @_ZL9lookupOneP7JNIEnv_PKcP10JavaThread(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %5 = trunc i64 %4 to i32
-  %6 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %1, i32 noundef %5) #15
+  %6 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %1, i32 noundef %5) #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %7
 
@@ -37439,7 +37439,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN10JNIHandles22resolve_external_guardEP8_jobject(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z23copy_jni_function_tablePK19JNINativeInterface_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @_Z23copy_jni_function_tablePK19JNINativeInterface_(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @CheckJNICalls, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %_Z13jni_functionsv.exit.preheader
@@ -37956,7 +37956,7 @@ define hidden range(i32 -1, 1) i32 @jni_AttachCurrentThread(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL21attach_current_threadP7JavaVM_PPvS1_b(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL21attach_current_threadP7JavaVM_PPvS1_b(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.ExceptionMark, align 8
   %5 = alloca %class.HandleMark, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -44588,7 +44588,7 @@ declare void @_ZN3Jfr15on_thread_startEP6Thread(ptr noundef) local_unnamed_addr 
 declare void @_ZN8ciReplay6replayEP10JavaThread(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
 
@@ -46031,13 +46031,13 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

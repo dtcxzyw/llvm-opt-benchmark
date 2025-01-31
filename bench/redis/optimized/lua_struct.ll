@@ -814,7 +814,7 @@ while.end:                                        ; preds = %if.end19, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -823,7 +823,7 @@ declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
 declare void @luaL_buffinit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @optsize(ptr noundef %L, i8 noundef signext range(i8 1, 0) %opt, ptr nocapture noundef nonnull %fmt) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @optsize(ptr noundef %L, i8 noundef signext range(i8 1, 0) %opt, ptr noundef nonnull captures(none) %fmt) unnamed_addr #0 {
 entry:
   switch i8 %opt, label %sw.default [
     i8 66, label %return
@@ -978,12 +978,12 @@ declare double @luaL_checknumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @luaL_addlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @controloptions(ptr noundef %L, i32 noundef range(i32 -128, 128) %opt, ptr nocapture noundef nonnull %fmt, ptr nocapture noundef nonnull writeonly %h) unnamed_addr #0 {
+define internal fastcc void @controloptions(ptr noundef %L, i32 noundef range(i32 -128, 128) %opt, ptr noundef nonnull captures(none) %fmt, ptr noundef nonnull writeonly captures(none) %h) unnamed_addr #0 {
 entry:
   switch i32 %opt, label %sw.default [
     i32 32, label %sw.epilog
@@ -1090,7 +1090,7 @@ declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 

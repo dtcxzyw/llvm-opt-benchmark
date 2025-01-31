@@ -54,7 +54,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -135,13 +135,13 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   %47 = load ptr, ptr %5, align 8
   %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #4
   %49 = trunc i64 %48 to i32
-  %50 = tail call ptr @get_utf_8_string(ptr noundef %46, ptr noundef %47, i32 noundef %49) #3
+  %50 = tail call ptr @get_utf_8_string(ptr noundef %46, ptr noundef nonnull %47, i32 noundef %49) #3
   %51 = load i32, ptr @hf_form_key, align 4
   %52 = sub i32 %43, %.077
   %53 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef %.077, i32 noundef %52, ptr noundef %50) #3
   %54 = load ptr, ptr %31, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #4
-  %56 = tail call ptr @format_text(ptr noundef %54, ptr noundef %47, i64 noundef %55) #3
+  %56 = tail call ptr @format_text(ptr noundef %54, ptr noundef nonnull %47, i64 noundef %55) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.15, ptr noundef %56) #3
   %57 = add nuw i32 %43, 1
   %58 = load ptr, ptr %31, align 8
@@ -154,13 +154,13 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   %63 = load ptr, ptr %6, align 8
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #4
   %65 = trunc i64 %64 to i32
-  %66 = tail call ptr @get_utf_8_string(ptr noundef %62, ptr noundef %63, i32 noundef %65) #3
+  %66 = tail call ptr @get_utf_8_string(ptr noundef %62, ptr noundef nonnull %63, i32 noundef %65) #3
   %67 = load i32, ptr @hf_form_value, align 4
   %68 = sub i32 %59, %57
   %69 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %67, ptr noundef %0, i32 noundef %57, i32 noundef %68, ptr noundef %66) #3
   %70 = load ptr, ptr %31, align 8
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #4
-  %72 = tail call ptr @format_text(ptr noundef %70, ptr noundef %63, i64 noundef %71) #3
+  %72 = tail call ptr @format_text(ptr noundef %70, ptr noundef nonnull %63, i64 noundef %71) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.16, ptr noundef %72) #3
   %73 = add nuw i32 %59, 1
   %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73) #3
@@ -206,7 +206,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #3
   %8 = icmp sgt i32 %7, 0
@@ -334,7 +334,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
 declare ptr @get_utf_8_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

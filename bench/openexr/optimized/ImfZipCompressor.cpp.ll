@@ -142,7 +142,7 @@ _ZN7Imf_3_213ZipCompressorD2Ev.exit:              ; preds = %entry, %delete.notn
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7Imf_3_213ZipCompressor12numScanLinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK7Imf_3_213ZipCompressor12numScanLinesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %_numScanLines = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %_numScanLines, align 4
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -177,7 +177,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end

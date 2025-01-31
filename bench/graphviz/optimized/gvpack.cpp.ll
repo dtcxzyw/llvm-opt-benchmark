@@ -1167,7 +1167,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
           to label %376 unwind label %.loopexit.split-lp.loopexit.i
 
 376:                                              ; preds = %374
-  %377 = invoke ptr @agnameof(ptr noundef %332)
+  %377 = invoke ptr @agnameof(ptr noundef nonnull %332)
           to label %378 unwind label %.loopexit.split-lp.loopexit.i
 
 378:                                              ; preds = %376
@@ -1343,7 +1343,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
   %478 = load ptr, ptr %424, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 144
   store ptr %477, ptr %479, align 8
-  %480 = invoke ptr @agnxtnode(ptr noundef %332, ptr noundef nonnull %.0.i)
+  %480 = invoke ptr @agnxtnode(ptr noundef nonnull %332, ptr noundef nonnull %.0.i)
           to label %.preheader.i18 unwind label %.loopexit.split-lp.loopexit.i, !llvm.loop !12
 
 481:                                              ; preds = %387
@@ -1353,7 +1353,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
   br label %.loopexit.split-lp.i16
 
 483:                                              ; preds = %.preheader.i18
-  %484 = invoke ptr @agnameof(ptr noundef %332)
+  %484 = invoke ptr @agnameof(ptr noundef nonnull %332)
           to label %485 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 485:                                              ; preds = %483
@@ -1371,7 +1371,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
           to label %491 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 491:                                              ; preds = %489
-  invoke fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EE(ptr noundef %332, ptr noundef %488, ptr noundef %303, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  invoke fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EE(ptr noundef nonnull %332, ptr noundef %488, ptr noundef %303, ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %492 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 492:                                              ; preds = %491
@@ -1610,7 +1610,7 @@ declare i32 @packGraphs(i64 noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #0
 
@@ -1638,7 +1638,7 @@ declare i32 @parsePackModeInfo(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
@@ -1652,16 +1652,16 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
@@ -1685,7 +1685,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
@@ -1741,30 +1741,30 @@ define internal fastcc void @_ZL10init_graphP8Agraph_sbP5GVC_s(ptr noundef %0, i
   %.025.i = phi ptr [ %24, %.lr.ph.i ], [ %22, %16 ]
   tail call void @neato_init_node(ptr noundef nonnull %.025.i)
   %23 = tail call zeroext i1 @user_pos(ptr noundef %20, ptr noundef %21, ptr noundef nonnull %.025.i, i32 noundef %19)
-  %24 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.025.i)
+  %24 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.025.i)
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
-  %25 = tail call ptr @agfstnode(ptr noundef %0)
+  %25 = tail call ptr @agfstnode(ptr noundef nonnull %0)
   %.not2231.i = icmp eq ptr %25, null
   br i1 %.not2231.i, label %_ZL14init_node_edgeP8Agraph_s.exit, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %._crit_edge.i, %._crit_edge30.i
   %.132.i = phi ptr [ %29, %._crit_edge30.i ], [ %25, %._crit_edge.i ]
-  %26 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.132.i)
+  %26 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.132.i)
   %.not2326.i = icmp eq ptr %26, null
   br i1 %.not2326.i, label %._crit_edge30.i, label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph34.i, %.lr.ph29.i
   %.02127.i = phi ptr [ %28, %.lr.ph29.i ], [ %26, %.lr.ph34.i ]
   %27 = tail call i32 @common_init_edge(ptr noundef nonnull %.02127.i)
-  %28 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i)
+  %28 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02127.i)
   %.not23.i = icmp eq ptr %28, null
   br i1 %.not23.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !20
 
 ._crit_edge30.i:                                  ; preds = %.lr.ph29.i, %.lr.ph34.i
-  %29 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.132.i)
+  %29 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.132.i)
   %.not22.i = icmp eq ptr %29, null
   br i1 %.not22.i, label %_ZL14init_node_edgeP8Agraph_s.exit, label %.lr.ph34.i, !llvm.loop !21
 
@@ -1772,7 +1772,7 @@ _ZL14init_node_edgeP8Agraph_s.exit:               ; preds = %._crit_edge30.i, %.
   br i1 %1, label %30, label %.loopexit
 
 30:                                               ; preds = %_ZL14init_node_edgeP8Agraph_s.exit
-  %31 = tail call i32 @init_nop(ptr noundef %0, i32 noundef 0)
+  %31 = tail call i32 @init_nop(ptr noundef nonnull %0, i32 noundef 0)
   %.not33 = icmp eq i32 %31, 0
   br i1 %.not33, label %38, label %32
 
@@ -1780,7 +1780,7 @@ _ZL14init_node_edgeP8Agraph_s.exit:               ; preds = %._crit_edge30.i, %.
   %33 = icmp slt i32 %31, 0
   %.str.37..str.38 = select i1 %33, ptr @.str.37, ptr @.str.38
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %.str.37..str.38)
-  %35 = tail call ptr @agnameof(ptr noundef %0)
+  %35 = tail call ptr @agnameof(ptr noundef nonnull %0)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %35)
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %36, i8 noundef signext 10)
   tail call fastcc void @_ZL13graphviz_exiti(i32 noundef 1) #31
@@ -1792,13 +1792,13 @@ _ZL14init_node_edgeP8Agraph_s.exit:               ; preds = %._crit_edge30.i, %.
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @agfstnode(ptr noundef %0)
+  %42 = tail call ptr @agfstnode(ptr noundef nonnull %0)
   %.not3438 = icmp eq ptr %42, null
   br i1 %.not3438, label %.loopexit, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %41, %._crit_edge
   %.039 = phi ptr [ %53, %._crit_edge ], [ %42, %41 ]
-  %43 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.039)
+  %43 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.039)
   %.not3536 = icmp eq ptr %43, null
   br i1 %.not3536, label %._crit_edge, label %.lr.ph
 
@@ -1817,12 +1817,12 @@ _ZL14init_node_edgeP8Agraph_s.exit:               ; preds = %._crit_edge30.i, %.
   br label %51
 
 51:                                               ; preds = %.lr.ph, %49
-  %52 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.03037)
+  %52 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.03037)
   %.not35 = icmp eq ptr %52, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %51, %.lr.ph41
-  %53 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.039)
+  %53 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.039)
   %.not34 = icmp eq ptr %53, null
   br i1 %.not34, label %.loopexit, label %.lr.ph41, !llvm.loop !23
 
@@ -2241,7 +2241,7 @@ _ZL10cloneAttrsPvS_.exit:                         ; preds = %77, %39
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #18 {
+define internal fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3154,7 +3154,7 @@ define internal void @_GLOBAL__sub_I_gvpack.cpp() #22 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
@@ -3166,10 +3166,10 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

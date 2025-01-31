@@ -1274,7 +1274,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1317,7 +1317,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -1627,7 +1627,7 @@ define noundef ptr @_Z14aligned_mallocmm(i64 noundef %0, i64 noundef %1) local_u
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z12aligned_freePv(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define void @_Z12aligned_freePv(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #25
@@ -1635,16 +1635,16 @@ define void @_Z12aligned_freePv(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK10PolynomialILi0EEclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, double noundef %1) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK10PolynomialILi0EEclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, double noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK10PolynomialILi1EEclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK10PolynomialILi1EEclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
@@ -1656,7 +1656,7 @@ define noundef double @_ZNK10PolynomialILi1EEclEd(ptr nocapture noundef nonnull 
 declare double @llvm.fmuladd.f64(double, double, double) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK10PolynomialILi2EEclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK10PolynomialILi2EEclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, double noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
@@ -1673,22 +1673,22 @@ define noundef double @_ZN10PolynomialILi0EE16BSplineComponentEi(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10PolynomialILi0EE22BSplineComponentValuesEdPd(double noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #21 align 2 {
+define void @_ZN10PolynomialILi0EE22BSplineComponentValuesEdPd(double noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #21 align 2 {
   store double 1.000000e+00, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10PolynomialILi0EE20BinomialCoefficientsEPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN10PolynomialILi0EE20BinomialCoefficientsEPi(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #21 align 2 {
   store i32 1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PPolynomial) align 8 initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias writable writeonly sret(%class.PPolynomial) align 8 captures(none) initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %0, align 8
   %4 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 noundef 2, i64 noundef 16) #50
@@ -1708,19 +1708,19 @@ define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias nocaptu
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12TreeNodeDataC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((4, 5)) %0) unnamed_addr #21 align 2 {
+define void @_ZN12TreeNodeDataC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((4, 5)) %0) unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12TreeNodeDataD2Ev(ptr nocapture nonnull readnone align 4 %0) unnamed_addr #19 align 2 {
+define void @_ZN12TreeNodeDataD2Ev(ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #19 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = alloca [3 x i32], align 4
   %4 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
@@ -1774,7 +1774,7 @@ _ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEiPi.exit: ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEiPi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #23 align 2 {
+define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #23 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = load i64, ptr %0, align 8
   %6 = trunc i64 %5 to i32
@@ -1825,7 +1825,7 @@ define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEiPi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN10VertexData11CenterIndexEiPKiiPi(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #23 align 2 {
+define noundef i64 @_ZN10VertexData11CenterIndexEiPKiiPi(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #23 align 2 {
   %5 = sub i32 %2, %0
   br label %6
 
@@ -1859,7 +1859,7 @@ define noundef i64 @_ZN10VertexData11CenterIndexEiPKiiPi(i32 noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
@@ -1921,7 +1921,7 @@ _ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEiiPi.exit: ; preds = %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1980,7 +1980,7 @@ define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEiiPi(
 declare void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN10VertexData14CornerIndexKeyEPKi(ptr nocapture noundef readonly %0) local_unnamed_addr #17 align 2 {
+define noundef i64 @_ZN10VertexData14CornerIndexKeyEPKi(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1997,7 +1997,7 @@ define noundef i64 @_ZN10VertexData14CornerIndexKeyEPKi(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData11CornerIndexEiPKiiiPi(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData11CornerIndexEiPKiiiPi(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #10 align 2 {
   %6 = alloca [3 x i32], align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2037,7 +2037,7 @@ define noundef i64 @_ZN10VertexData11CornerIndexEiPKiiiPi(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [3 x i32], align 4
@@ -2109,7 +2109,7 @@ _ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEiiPi.exit: ; preds = %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [3 x i32], align 4
@@ -2176,14 +2176,14 @@ define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr
 declare void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEii(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca [3 x i32], align 4
   %5 = call noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4)
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2287,7 +2287,7 @@ define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr
 declare void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15SortedTreeNodesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #21 align 2 {
+define void @_ZN15SortedTreeNodesC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #21 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
@@ -2297,7 +2297,7 @@ define void @_ZN15SortedTreeNodesC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15SortedTreeNodesD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
+define void @_ZN15SortedTreeNodesD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %.preheader
@@ -2362,7 +2362,7 @@ define void @_ZN15SortedTreeNodesD2Ev(ptr nocapture noundef nonnull align 8 dere
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %2, null
   %.pre = load ptr, ptr %0, align 8
@@ -2500,7 +2500,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
+define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef i32 @_ZNK7OctNodeI12TreeNodeDataE8maxDepthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = add nsw i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2975,7 +2975,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #18
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData13cornerIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData13cornerIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -2988,7 +2988,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData13cornerIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData13cornerIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -2999,7 +2999,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData13cornerIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData13cornerIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3012,7 +3012,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData13cornerIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData13cornerIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -3023,7 +3023,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3037,7 +3037,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData11edgeIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14SliceTableData11edgeIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3049,7 +3049,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3063,7 +3063,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData11edgeIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14SliceTableData11edgeIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3075,7 +3075,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes14S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14SliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14SliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3089,7 +3089,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14Sli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14SliceTableData11faceIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14SliceTableData11faceIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3101,7 +3101,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN15SortedTreeNodes14Sli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14SliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14SliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3115,7 +3115,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14SliceTableData11faceIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14SliceTableData11faceIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3127,7 +3127,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK15SortedTreeNodes14Sl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3140,7 +3140,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11edgeIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11edgeIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3151,7 +3151,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11edgeIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3164,7 +3164,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15X
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11edgeIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11edgeIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3175,7 +3175,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15X
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3189,7 +3189,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11faceIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XSliceTableData11faceIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3201,7 +3201,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN15SortedTreeNodes15XS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11faceIndicesEPK7OctNodeI12TreeNodeDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3215,7 +3215,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15X
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11faceIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK15SortedTreeNodes15XSliceTableData11faceIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3589,7 +3589,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EEESaIS4_EED2Ev.
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK15SortedTreeNodes17setSliceTableDataERNS_14SliceTableDataEiii.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %6) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK15SortedTreeNodes17setSliceTableDataERNS_14SliceTableDataEiii.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %6) #24 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -4202,7 +4202,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZN7OctNod
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #26
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #26
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #27
@@ -4232,7 +4232,7 @@ declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #25
 declare !callback !45 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #25
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK15SortedTreeNodes17setSliceTableDataERNS_14SliceTableDataEiii.omp_outlined.11(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK15SortedTreeNodes17setSliceTableDataERNS_14SliceTableDataEiii.omp_outlined.11(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %2) #24 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4678,7 +4678,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EEESaIS4_EED2Ev.
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK15SortedTreeNodes18setXSliceTableDataERNS_15XSliceTableDataEiii.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK15SortedTreeNodes18setXSliceTableDataERNS_15XSliceTableDataEiii.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5064,7 +5064,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit119: ; preds = %189
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK15SortedTreeNodes18setXSliceTableDataERNS_15XSliceTableDataEiii.omp_outlined.12(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) #24 {
+define internal void @_ZNK15SortedTreeNodes18setXSliceTableDataERNS_15XSliceTableDataEiii.omp_outlined.12(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2) #24 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -5146,7 +5146,7 @@ define internal void @_ZNK15SortedTreeNodes18setXSliceTableDataERNS_15XSliceTabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN6OctreeIfE4_DotIfEEfRKT_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #17 align 2 {
+define noundef float @_ZN6OctreeIfE4_DotIfEEfRKT_S4_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #17 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = fmul float %3, %4
@@ -5154,7 +5154,7 @@ define noundef float @_ZN6OctreeIfE4_DotIfEEfRKT_S4_(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6OctreeIdE4_DotIdEEdRKT_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #17 align 2 {
+define noundef double @_ZN6OctreeIdE4_DotIdEEdRKT_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fmul double %3, %4
@@ -5162,7 +5162,7 @@ define noundef double @_ZN6OctreeIdE4_DotIdEEdRKT_S4_(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN6OctreeIfE4_DotI7Point3DIfEEEfRKT_S6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #17 align 2 {
+define noundef float @_ZN6OctreeIfE4_DotI7Point3DIfEEEfRKT_S6_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #17 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = load float, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5183,7 +5183,7 @@ define noundef float @_ZN6OctreeIfE4_DotI7Point3DIfEEEfRKT_S6_(ptr nocapture nou
 declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6OctreeIdE4_DotI7Point3DIdEEEdRKT_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #17 align 2 {
+define noundef double @_ZN6OctreeIdE4_DotI7Point3DIdEEEdRKT_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5201,21 +5201,21 @@ define noundef double @_ZN6OctreeIdE4_DotI7Point3DIdEEEdRKT_S6_(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroIfEEbRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroIfEEbRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #17 align 2 {
   %2 = load float, ptr %0, align 4
   %3 = fcmp oeq float %2, 0.000000e+00
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroIdEEbRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroIdEEbRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #17 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp oeq double %2, 0.000000e+00
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #17 align 2 {
   %2 = load float, ptr %0, align 4
   %3 = fcmp oeq float %2, 0.000000e+00
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5236,7 +5236,7 @@ define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroI7Point3DIdEEEbRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroI7Point3DIdEEEbRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #17 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp oeq double %2, 0.000000e+00
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5257,7 +5257,7 @@ define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroI7Point3DIdEEEbRKT_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z13HasGoodNormalR6CMeshO(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %0) local_unnamed_addr #28 {
+define noundef zeroext i1 @_Z13HasGoodNormalR6CMeshO(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5920,13 +5920,13 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #29
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: nounwind
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN27FilterScreenedPoissonPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6197,14 +6197,14 @@ define void @_ZTv0_n24_N27FilterScreenedPoissonPluginD0Ev(ptr noundef %0) unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.14, i32 noundef 21)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
+define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.14, i32 noundef 21), !noalias !65
   store ptr %3, ptr %0, align 8, !alias.scope !65
@@ -6212,7 +6212,7 @@ define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6227,7 +6227,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZNK27FilterScreenedPoissonPlugin10filterNameEi.exit
@@ -6243,7 +6243,7 @@ _ZNK27FilterScreenedPoissonPlugin10filterNameEi.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6258,7 +6258,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_u
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi.exit
@@ -6274,7 +6274,7 @@ _ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6293,7 +6293,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
@@ -6355,7 +6355,7 @@ define noundef i32 @_ZThn16_N27FilterScreenedPoissonPlugin15getRequirementsEPK7Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27FilterScreenedPoissonPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull readnone align 4 captures(none) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QDir, align 8
   %10 = alloca %class.QTemporaryDir, align 8
@@ -11078,7 +11078,7 @@ declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local
 declare void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N27FilterScreenedPoissonPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
+define void @_ZThn16_N27FilterScreenedPoissonPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN27FilterScreenedPoissonPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::map.166") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull align 4 poison, ptr noundef %6)
   ret void
@@ -17665,7 +17665,7 @@ _ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit: ; preds = %.split49.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #26
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN38TransformedOrientedPointStreamWithDataIf7Point3DIfEEC2E8XForm4x4IfER27OrientedPointStreamWithDataIfS1_E(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef byval(%struct.XForm4x4) align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -18420,7 +18420,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit132:                 ; preds = %242, %244
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #24 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -20548,7 +20548,7 @@ _ZN13DenseNodeDataIfLi2EED2Ev.exit14:             ; preds = %73, %76
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined.60(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(4760) %5) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined.60(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(4760) %5) #34 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -20769,7 +20769,7 @@ _ZNK6OctreeIfE4leafE7Point3DIfE.exit:             ; preds = %.lr.ph.i, %15, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined.60.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_Z8_ExecuteIfLi2EL12BoundaryType2E22PlyColorAndValueVertexIfEEiP19OrientedPointStreamIT_EN3vcg4Box3IfEER6CMeshOR12PoissonParamIS4_EPFbiPKcE.omp_outlined.60.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21939,7 +21939,7 @@ define linkonce_odr noundef i32 @_ZN17CoredFileMeshDataI22PlyColorAndValueVertex
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %5 = load ptr, ptr %4, align 8
   %6 = call noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(1064) %5, ptr noundef nonnull %3, i64 noundef 4)
-  br i1 %6, label %7, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  br i1 %6, label %7, label %54
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 4
@@ -21978,7 +21978,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
           to label %19 unwind label %51
 
 19:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  br i1 %18, label %20, label %.loopexit
+  br i1 %18, label %20, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 20:                                               ; preds = %19
   %21 = load i32, ptr %3, align 4
@@ -22018,7 +22018,7 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %41 = lshr exact i64 %40, 2
   %42 = trunc i64 %41 to i32
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph.preheader, label %.loopexit
+  br i1 %43, label %.lr.ph.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit
   %wide.trip.count = and i64 %41, 2147483647
@@ -22030,17 +22030,17 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, -1
   %.lobit = ashr i32 %45, 31
-  %.sink41 = xor i32 %45, %.lobit
+  %.sink38 = xor i32 %45, %.lobit
   %.sink = zext i1 %46 to i8
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %47, i64 %indvars.iv
-  store i32 %.sink41, ptr %48, align 4
+  store i32 %.sink38, ptr %48, align 4
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %49, i64 %indvars.iv, i32 1
   store i8 %.sink, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !274
+  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %.lr.ph, !llvm.loop !274
 
 51:                                               ; preds = %31, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %52 = landingpad { ptr, i32 }
@@ -22052,18 +22052,13 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit, %19
-  %.019 = phi i32 [ 0, %19 ], [ 1, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit ]
-  %.not.i.i.i23 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01938 = phi i32 [ %.019, %.loopexit ], [ 1, %.lr.ph ]
+_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.lr.ph, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit, %19
+  %.019 = phi i32 [ 0, %19 ], [ 1, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit ], [ 1, %.lr.ph ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  br label %54
 
-_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.loopexit.thread, %.loopexit, %2
-  %.1 = phi i32 [ 0, %2 ], [ %.019, %.loopexit ], [ %.01938, %.loopexit.thread ]
+54:                                               ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  %.1 = phi i32 [ %.019, %_ZNSt6vectorIiSaIiEED2Ev.exit24 ], [ 0, %2 ]
   ret i32 %.1
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53, %51
@@ -22436,7 +22431,7 @@ _ZNK8XForm4x4IfE14subDeterminantEii.exit24:       ; preds = %131
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #26
+declare noundef i32 @vsprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #26
 
 declare void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind writable sret(%class.QDebug) align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -22511,7 +22506,7 @@ declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7OctNodeI12TreeNodeDataED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
@@ -23564,15 +23559,15 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #26
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #26
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #26
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE19setDensityEstimatorILi2EEEPNS0_16DensityEstimatorIXT_EEERKSt6vectorINS0_11PointSampleESaIS6_EEif.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) #24 {
+define internal void @_ZN6OctreeIfE19setDensityEstimatorILi2EEEPNS0_16DensityEstimatorIXT_EEERKSt6vectorINS0_11PointSampleESaIS6_EEif.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) #24 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -27991,7 +27986,7 @@ _ZN7StencilI7Point3DIdELi5EED2Ev.exit88:          ; preds = %374, %.loopexit161,
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(2528) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(4040) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %12) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(2528) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(4040) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %12) #24 personality ptr @__gxx_personality_v0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
@@ -29305,7 +29300,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EEESaIS4_EED2Ev.exit6
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.82(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.82(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -29373,7 +29368,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.83(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.83(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) #34 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -30005,7 +30000,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EEESaIS4_EED2Ev.exit8
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.84(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(4040) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %9) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2ELS2_2E22FEMVFConstraintFunctorILi2ELS2_2ELi2ELS2_2EEK14SparseNodeDataI7Point3DIfELi2EES7_S6_IdEEEvRKT3_RKT4_R13DenseNodeDataIfXT_EEi.omp_outlined.84(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(4040) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %9) #24 personality ptr @__gxx_personality_v0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -38701,7 +38696,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE29BSplineUpSamplingCoefficients
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE11_downSampleIfLi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %7) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE11_downSampleIfLi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %7) #24 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -39377,7 +39372,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7OctNodeI12TreeNodeDataE11NeighborKe
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE9_upSampleI7Point3DIfELi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %7) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE9_upSampleI7Point3DIfELi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %7) #34 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -41198,7 +41193,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread: ; preds = %68, %63, %5
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE25_densifyInterpolationInfoILb0EEE14SparseNodeDataI15SinglePointDataIfXT_EELi0EERKSt6vectorINS0_11PointSampleESaIS7_EEfi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE25_densifyInterpolationInfoILb0EEE14SparseNodeDataI15SinglePointDataIfXT_EELi0EERKSt6vectorINS0_11PointSampleESaIS7_EEfi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2) #24 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -41367,7 +41362,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17BSplineComponents10derivativ
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE27addInterpolationConstraintsILi2EL12BoundaryType2ELb0EEEvRKNS0_17InterpolationInfoIXT1_EEER13DenseNodeDataIfXT_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE27addInterpolationConstraintsILi2EL12BoundaryType2ELb0EEEvRKNS0_17InterpolationInfoIXT1_EEER13DenseNodeDataIfXT_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %7) #24 personality ptr @__gxx_personality_v0 {
   %9 = alloca [3 x i32], align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -43495,7 +43490,7 @@ _ZNSt6vectorI12SparseMatrixIfESaIS1_EED2Ev.exit:  ; preds = %495, %_ZSt8_Destroy
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEE13DenseNodeDataIfXT_EERKT1_PNS0_17InterpolationInfoIXT2_EEERS6_iRKNS0_10SolverInfoE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEE13DenseNodeDataIfXT_EERKT1_PNS0_17InterpolationInfoIXT2_EEERS6_iRKNS0_10SolverInfoE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4) #24 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -43607,7 +43602,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEE13DenseNodeDataIfXT_EERKT1_PNS0_17InterpolationInfoIXT2_EEERS6_iRKNS0_10SolverInfoE.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEE13DenseNodeDataIfXT_EERKT1_PNS0_17InterpolationInfoIXT2_EEERS6_iRKNS0_10SolverInfoE.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
@@ -44069,7 +44064,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EEESaIS4_EED2Ev.exit8
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -44740,7 +44735,7 @@ _ZN7StencilIdLi5EED2Ev.exit46:                    ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.96(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.96(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6) #24 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -44861,7 +44856,7 @@ define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.96.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.96.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -45257,7 +45252,7 @@ define linkonce_odr noundef i32 @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.97(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.97(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -45363,7 +45358,7 @@ define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.97.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd.omp_outlined.97.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -45863,7 +45858,7 @@ define linkonce_odr void @_ZN12SparseMatrixIfED2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE9_upSampleIfLi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %7) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE9_upSampleIfLi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %7) #24 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -46410,7 +46405,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE26_setPointValuesFromCoarserILi2EL12BoundaryType2ELb0EEEvRNS0_17InterpolationInfoIXT1_EEEiRK11BSplineDataIXT_EXT0_EERK13DenseNodeDataIfXT_EE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE26_setPointValuesFromCoarserILi2EL12BoundaryType2ELb0EEEvRNS0_17InterpolationInfoIXT1_EEEiRK11BSplineDataIXT_EXT0_EERK13DenseNodeDataIfXT_EE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #34 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -46925,7 +46920,7 @@ define linkonce_odr void @_ZN12SparseMatrixIfE6ResizeEi(ptr noundef nonnull alig
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE30_getMatrixAndUpdateConstraintsILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_PKNS0_17InterpolationInfoIXT2_EEER12SparseMatrixIfER13DenseNodeDataIfXT_EERN22BSplineIntegrationDataIXT_EXT0_EXT_EXT0_EE18FunctionIntegrator10IntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERNSK_15ChildIntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERK11BSplineDataIXT_EXT0_EEiRKSG_b.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(2528) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %12, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(4040) %16, ptr noundef nonnull align 8 dereferenceable(64) %17) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE30_getMatrixAndUpdateConstraintsILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_PKNS0_17InterpolationInfoIXT2_EEER12SparseMatrixIfER13DenseNodeDataIfXT_EERN22BSplineIntegrationDataIXT_EXT0_EXT_EXT0_EE18FunctionIntegrator10IntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERNSK_15ChildIntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERK11BSplineDataIXT_EXT0_EEiRKSG_b.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(2528) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %12, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(4040) %16, ptr noundef nonnull align 8 dereferenceable(64) %17) #24 personality ptr @__gxx_personality_v0 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -49832,7 +49827,7 @@ define linkonce_odr void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_P
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6) #24 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -49918,7 +49913,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -49929,7 +49924,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.99(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.99(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6) #24 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -50015,7 +50010,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.99.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.99.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -50026,7 +50021,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.100(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.100(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5) #24 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -50103,7 +50098,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.100.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.100.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -50114,7 +50109,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.101(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.101(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5) #24 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -50168,7 +50163,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.102(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.102(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %8) #24 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -50259,7 +50254,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.102.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.102.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -50270,7 +50265,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.103(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.103(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #24 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -50363,7 +50358,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.103.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.103.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -50374,7 +50369,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.104(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5) #24 {
+define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp_outlined.104(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5) #24 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -50428,7 +50423,7 @@ define internal void @_ZN12SparseMatrixIfE7SolveCGIfEEiRKS0_PKT_iPS4_S4_ibbi.omp
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5) #24 {
+define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5) #24 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -50527,7 +50522,7 @@ define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -50546,7 +50541,7 @@ define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined.105(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) #24 {
+define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i.omp_outlined.105(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4) #24 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -50611,7 +50606,7 @@ define internal void @_ZNK12SparseMatrixIfE21MultiplyAndAddAverageIfEEvPKT_PS2_i
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK12SparseMatrixIfE8MultiplyIfEEvPKT_PS2_i.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) #24 {
+define internal void @_ZNK12SparseMatrixIfE8MultiplyIfEEvPKT_PS2_i.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) #24 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -50693,7 +50688,7 @@ define internal void @_ZNK12SparseMatrixIfE8MultiplyIfEEvPKT_PS2_i.omp_outlined(
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFromFinerILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EEEEvRKT1_RK11BSplineDataIXT_EXT0_EEiRK13DenseNodeDataIfXT_EERSD_.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(4040) %9) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFromFinerILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EEEEvRKT1_RK11BSplineDataIXT_EXT0_EEiRK13DenseNodeDataIfXT_EERSD_.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(4040) %9) #24 personality ptr @__gxx_personality_v0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -51176,7 +51171,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE50_updateCumulativeInterpolationConstraintsFromFinerILi2EL12BoundaryType2ELb0EEEvRKNS0_17InterpolationInfoIXT1_EEERK11BSplineDataIXT_EXT0_EEiRK13DenseNodeDataIfXT_EERSC_.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %8) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE50_updateCumulativeInterpolationConstraintsFromFinerILi2EL12BoundaryType2ELb0EEEvRKNS0_17InterpolationInfoIXT1_EEERK11BSplineDataIXT_EXT0_EEiRK13DenseNodeDataIfXT_EERSC_.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %8) #34 personality ptr @__gxx_personality_v0 {
   %10 = alloca [3 x i32], align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -51835,7 +51830,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7OctNodeI12TreeNodeDataE11NeighborKe
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -52399,7 +52394,7 @@ _ZN7StencilIdLi5EED2Ev.exit46:                    ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.107(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) %7) #24 {
+define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.107(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7) #24 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -52527,7 +52522,7 @@ define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.107.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.107.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -52801,7 +52796,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %61, %66, %_Z12GetGh
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.108(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) #24 {
+define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.108(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) #24 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -52914,7 +52909,7 @@ define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.108.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #35 {
+define internal void @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb.omp_outlined.108.omp.reduction.reduction_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #35 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load double, ptr %4, align 8
@@ -53033,7 +53028,7 @@ _ZNSt12_Vector_baseI12SparseMatrixIfESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE35_getSliceMatrixAndUpdateConstraintsILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_PKNS0_17InterpolationInfoIXT2_EEER12SparseMatrixIfER13DenseNodeDataIfXT_EERN22BSplineIntegrationDataIXT_EXT0_EXT_EXT0_EE18FunctionIntegrator10IntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERNSK_15ChildIntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERK11BSplineDataIXT_EXT0_EEiiRKSG_b.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %9, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(2528) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(4040) %17, ptr noundef nonnull align 8 dereferenceable(64) %18) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE35_getSliceMatrixAndUpdateConstraintsILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_PKNS0_17InterpolationInfoIXT2_EEER12SparseMatrixIfER13DenseNodeDataIfXT_EERN22BSplineIntegrationDataIXT_EXT0_EXT_EXT0_EE18FunctionIntegrator10IntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERNSK_15ChildIntegratorIXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEXqugtT_Li1ELi2EqueqT_Li1ELi1ELi0EEEERK11BSplineDataIXT_EXT0_EEiiRKSG_b.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %9, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(2528) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(4040) %17, ptr noundef nonnull align 8 dereferenceable(64) %18) #24 personality ptr @__gxx_personality_v0 {
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
@@ -53247,7 +53242,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE21_setMultiColorIndicesILi2EEEviiRSt6vectorIS2_IiSaIiEESaIS4_EE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull align 4 dereferenceable(108) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE21_setMultiColorIndicesILi2EEEviiRSt6vectorIS2_IiSaIiEESaIS4_EE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(108) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -53438,7 +53433,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; pre
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN12SparseMatrixIfE7SolveGSIfEEiRKSt6vectorIS2_IiSaIiEESaIS4_EERKS0_PKT_PSB_bi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12SparseMatrixIfE7SolveGSIfEEiRKSt6vectorIS2_IiSaIiEESaIS4_EERKS0_PKT_PSB_bi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5) #24 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -59751,7 +59746,7 @@ _ZSt8_DestroyIP20ConstPointSupportKeyILi2EEEvT_S3_.exit: ; preds = %_ZSt8_Destro
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK6OctreeIfE18coarseCoefficientsIfLi2EL12BoundaryType2EEE13DenseNodeDataIT_XT0_EERKS5_.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6OctreeIfE18coarseCoefficientsIfLi2EL12BoundaryType2EEE13DenseNodeDataIT_XT0_EERKS5_.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) #24 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -61946,7 +61941,7 @@ _ZN11BSplineDataILi1EL12BoundaryType2EE19FactorFunctionIndexEiRiS2_.exit: ; pred
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi2ELi1E22PlyColorAndValueVertexIfEEEvPKNS0_16DensityEstimatorIXT1_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT2_EERK13DenseNodeDataIfXT_EEfR13CoredMeshDataIT3_Ebbb.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi2ELi1E22PlyColorAndValueVertexIfEEEvPKNS0_16DensityEstimatorIXT1_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT2_EERK13DenseNodeDataIfXT_EEfR13CoredMeshDataIT3_Ebbb.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) #24 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -64509,7 +64504,7 @@ define linkonce_odr void @_ZN15SortedTreeNodes14SliceTableData5clearEv(ptr nound
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE26_copyFinerSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(320) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %10) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE26_copyFinerSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(320) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %10) #24 personality ptr @__gxx_personality_v0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -65782,7 +65777,7 @@ _ZNSt6vectorI20ConstPointSupportKeyILi2EESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE19_setSliceIsoCornersI22PlyColorAndValueVertexIfELi2EL12BoundaryType2EEEvRK13DenseNodeDataIfXT0_EES8_fiiiRSt6vectorINS0_11_SlabValuesIT_EESaISC_EERKNS0_10_EvaluatorIXT0_EXT1_EEEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %11, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %12) #34 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE19_setSliceIsoCornersI22PlyColorAndValueVertexIfELi2EL12BoundaryType2EEEvRK13DenseNodeDataIfXT0_EES8_fiiiRSt6vectorINS0_11_SlabValuesIT_EESaISC_EERKNS0_10_EvaluatorIXT0_EXT1_EEEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %12) #34 personality ptr @__gxx_personality_v0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
@@ -66012,7 +66007,7 @@ _ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ;
   br i1 %.not106, label %168, label %159
 
 159:                                              ; preds = %157
-  %160 = invoke { <2 x float>, <2 x float> } @_ZNK6OctreeIfE26_getCornerValueAndGradientILi2EL12BoundaryType2EEESt4pairIf7Point3DIfEERK20ConstPointSupportKeyIXT_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIfXT_EESJ_RKNS0_10_EvaluatorIXT_EXT0_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
+  %160 = invoke { <2 x float>, <2 x float> } @_ZNK6OctreeIfE26_getCornerValueAndGradientILi2EL12BoundaryType2EEESt4pairIf7Point3DIfEERK20ConstPointSupportKeyIXT_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIfXT_EESJ_RKNS0_10_EvaluatorIXT_EXT0_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
           to label %161 unwind label %.loopexit
 
 161:                                              ; preds = %159
@@ -66031,7 +66026,7 @@ _ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ;
   br label %173
 
 168:                                              ; preds = %157
-  %169 = invoke noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12BoundaryType2EEET_RK20ConstPointSupportKeyIXT0_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIS3_XT0_EESG_RKNS0_10_EvaluatorIXT0_EXT1_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
+  %169 = invoke noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12BoundaryType2EEET_RK20ConstPointSupportKeyIXT0_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIS3_XT0_EESG_RKNS0_10_EvaluatorIXT0_EXT1_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
           to label %170 unwind label %.loopexit
 
 170:                                              ; preds = %168
@@ -68249,7 +68244,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EEESaIS4_EED2Ev.
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE20_setSliceIsoVerticesILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEvPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfiiiRiR13CoredMeshDataIT2_ERSt6vectorINS0_11_SlabValuesISN_EESaISS_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nocapture noundef nonnull align 4 dereferenceable(4) %15, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %16) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE20_setSliceIsoVerticesILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEvPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfiiiRiR13CoredMeshDataIT2_ERSt6vectorINS0_11_SlabValuesISN_EESaISS_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %16) #24 personality ptr @__gxx_personality_v0 {
   %18 = alloca [3 x i32], align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
@@ -68488,7 +68483,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %172 = load i32, ptr %32, align 8
   %173 = add nsw i32 %172, %171
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
-  %174 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly %113, i32 noundef %169, i32 noundef %173, ptr noundef nonnull %18)
+  %174 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef nonnull readonly %113, i32 noundef %169, i32 noundef %173, ptr noundef nonnull %18)
           to label %175 unwind label %.loopexit.split-lp.loopexit
 
 175:                                              ; preds = %170
@@ -68498,7 +68493,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %178 = load ptr, ptr %11, align 8
   %179 = load float, ptr %13, align 4
   %180 = load i32, ptr %3, align 4
-  %181 = invoke noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEbPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfR20ConstPointSupportKeyIXT_EERSL_IXT0_EEPK7OctNodeI12TreeNodeDataEiiRKNS0_12_SliceValuesIT2_EERSW_(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef %176, ptr noundef %177, ptr noundef %178, float noundef %179, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %113, i32 noundef %154, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 4 dereferenceable(20) %23)
+  %181 = invoke noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEbPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfR20ConstPointSupportKeyIXT_EERSL_IXT0_EEPK7OctNodeI12TreeNodeDataEiiRKNS0_12_SliceValuesIT2_EERSW_(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef %176, ptr noundef %177, ptr noundef %178, float noundef %179, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull %113, i32 noundef %154, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 4 dereferenceable(20) %23)
           to label %182 unwind label %.loopexit.split-lp.loopexit
 
 182:                                              ; preds = %175
@@ -70400,7 +70395,7 @@ _ZNSt6vectorIN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EEESaIS4_EED2Ev.
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE17_setSliceIsoEdgesI22PlyColorAndValueVertexIfEEEviiiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %8) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE17_setSliceIsoEdgesI22PlyColorAndValueVertexIfEEEviiiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %8) #24 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.std::_Hashtable<long long, std::pair<const long long, std::vector<Octree<float>::_IsoEdge>>, std::allocator<std::pair<const long long, std::vector<Octree<float>::_IsoEdge>>>, std::__detail::_Select1st, std::equal_to<long long>, std::hash<long long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -71530,7 +71525,7 @@ _ZNSt10_HashtableIxSt4pairIKxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS5_EEESaIS8_ENSt8
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE27_copyFinerXSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(256) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %11) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE27_copyFinerXSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11) #24 personality ptr @__gxx_personality_v0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -72300,7 +72295,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; pred
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE21_setXSliceIsoVerticesILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEvPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfiiRiR13CoredMeshDataIT2_ERSt6vectorINS0_11_SlabValuesISN_EESaISS_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(320) %8, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 8 dereferenceable(256) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nocapture noundef nonnull align 4 dereferenceable(4) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %17) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE21_setXSliceIsoVerticesILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEvPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfiiRiR13CoredMeshDataIT2_ERSt6vectorINS0_11_SlabValuesISN_EESaISS_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(320) %8, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %17) #24 personality ptr @__gxx_personality_v0 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -73450,7 +73445,7 @@ _Z12SetIsoVertexIfEvR22PlyColorAndValueVertexIfE7Point3DIT_ES4_.exit: ; preds = 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE18_setXSliceIsoEdgesI22PlyColorAndValueVertexIfEEEviiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %9) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE18_setXSliceIsoEdgesI22PlyColorAndValueVertexIfEEEviiRSt6vectorINS0_11_SlabValuesIT_EESaIS7_EEi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9) #24 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.std::_Hashtable<long long, std::pair<const long long, std::vector<Octree<float>::_IsoEdge>>, std::allocator<std::pair<const long long, std::vector<Octree<float>::_IsoEdge>>>, std::__detail::_Select1st, std::equal_to<long long>, std::hash<long long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -74533,7 +74528,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; pred
 declare noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN6OctreeIfE14_setIsoSurfaceI22PlyColorAndValueVertexIfEEEviiRKNS0_12_SliceValuesIT_EES8_RKNS0_13_XSliceValuesIS5_EER13CoredMeshDataIS5_EbbRii.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %10, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %12) #24 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6OctreeIfE14_setIsoSurfaceI22PlyColorAndValueVertexIfEEEviiRKNS0_12_SliceValuesIT_EES8_RKNS0_13_XSliceValuesIS5_EER13CoredMeshDataIS5_EbbRii.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %10, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %12) #24 personality ptr @__gxx_personality_v0 {
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca [3 x i32], align 4
@@ -79018,7 +79013,7 @@ _ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit:     ; preds = %93
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27FilterScreenedPoissonPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.RichBool, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -80779,7 +80774,7 @@ declare void @_ZN9RichFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(56))
 declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N27FilterScreenedPoissonPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %3) unnamed_addr #31 align 2 {
+define void @_ZThn16_N27FilterScreenedPoissonPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1288) %3) unnamed_addr #31 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN27FilterScreenedPoissonPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %2, ptr nonnull align 8 poison)
   ret void
@@ -80809,12 +80804,12 @@ define noundef range(i32 -1, 526337) i32 @_ZThn16_NK27FilterScreenedPoissonPlugi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK27FilterScreenedPoissonPlugin11filterArityEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1) unnamed_addr #19 align 2 {
+define noundef i32 @_ZNK27FilterScreenedPoissonPlugin11filterArityEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef readnone captures(none) %1) unnamed_addr #19 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK27FilterScreenedPoissonPlugin11filterArityEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #19 align 2 {
+define noundef i32 @_ZThn16_NK27FilterScreenedPoissonPlugin11filterArityEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #19 align 2 {
   ret i32 3
 }
 
@@ -82475,18 +82470,18 @@ declare i32 @llvm.umin.i32(i32, i32) #41
 declare i32 @llvm.smin.i32(i32, i32) #41
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #41

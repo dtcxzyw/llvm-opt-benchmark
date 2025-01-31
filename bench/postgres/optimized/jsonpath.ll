@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.operationPriority = private unnamed_addr constant [38 x i32] [i32 1, i32 0, i32 6, i32 6, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonpath_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonpath_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -108,12 +108,12 @@ define dso_local noundef i64 @jsonpath_in(ptr nocapture noundef readonly %0) loc
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc i64 @jsonPathFromCstring(ptr noundef %4, i32 noundef %6, ptr noundef %8)
+  %9 = tail call fastcc i64 @jsonPathFromCstring(ptr noundef nonnull %4, i32 noundef %6, ptr noundef %8)
   ret i64 %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -178,7 +178,7 @@ define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @jsonpath_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @jsonpath_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -218,7 +218,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonpath_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonpath_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca %struct.JsonPathItem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -252,7 +252,7 @@ jsonPathToCstring.exit:                           ; preds = %1, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonpath_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonpath_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonPathItem, align 8
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca %struct.StringInfoData, align 8
@@ -338,14 +338,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jspInit(ptr nocapture noundef initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @jspInit(ptr noundef captures(none) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @jspInitByBuffer(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jspInitByBuffer(ptr nocapture noundef initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @jspInitByBuffer(ptr noundef captures(none) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr i8, ptr %1, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -529,7 +529,7 @@ define dso_local void @jspInitByBuffer(ptr nocapture noundef initializes((0, 16)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jspGetArg(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define dso_local void @jspGetArg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -539,7 +539,7 @@ define dso_local void @jspGetArg(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @jspGetNext(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @jspGetNext(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -558,7 +558,7 @@ define dso_local zeroext i1 @jspGetNext(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jspGetLeftArg(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define dso_local void @jspGetLeftArg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -568,7 +568,7 @@ define dso_local void @jspGetLeftArg(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @jspGetRightArg(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define dso_local void @jspGetRightArg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -578,7 +578,7 @@ define dso_local void @jspGetRightArg(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @jspGetBool(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @jspGetBool(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -587,14 +587,14 @@ define dso_local zeroext i1 @jspGetBool(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @jspGetNumeric(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @jspGetNumeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @jspGetString(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local ptr @jspGetString(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -611,7 +611,7 @@ define dso_local ptr @jspGetString(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @jspGetArraySubscript(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @jspGetArraySubscript(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1919,10 +1919,10 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

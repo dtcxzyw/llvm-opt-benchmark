@@ -89,7 +89,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -106,7 +106,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -247,7 +247,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 declare void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1544)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14ws_connecter_t7connectEv(ptr nocapture noundef nonnull align 8 dereferenceable(1560) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq14ws_connecter_t7connectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1560) %this) local_unnamed_addr #0 align 2 {
 entry:
   %err = alloca i32, align 4
   %len = alloca i32, align 4
@@ -304,7 +304,7 @@ return:                                           ; preds = %if.then4, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq14ws_connecter_t11tune_socketEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1560) %this, i32 noundef %fd_) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3zmq14ws_connecter_t11tune_socketEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1560) %this, i32 noundef %fd_) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq15tune_tcp_socketEi(i32 noundef %fd_)
   %tcp_maxrt = getelementptr inbounds nuw i8, ptr %this, i64 344

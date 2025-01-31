@@ -115,7 +115,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr nocapture noundef nonnull readonly %crm, ptr noundef nonnull %ctrl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull readonly captures(none) %crm, ptr noundef nonnull %ctrl) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crm, align 8
   %cmp1 = icmp eq ptr %0, null
@@ -1300,7 +1300,7 @@ declare ptr @ASN1_NULL_new() local_unnamed_addr #1
 declare ptr @OSSL_CRMF_POPOSIGNINGKEY_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_popo_signature(ptr nocapture noundef nonnull readonly %ps, ptr noundef %cr, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc i32 @create_popo_signature(ptr noundef nonnull readonly captures(none) %ps, ptr noundef %cr, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %name = alloca [80 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %name, i8 0, i64 80, i1 false)
@@ -1952,7 +1952,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @ossl_x509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1961,13 +1961,13 @@ declare i32 @EVP_PKEY_get_default_digest_name(ptr noundef, ptr noundef, i64 noun
 declare i32 @ASN1_item_sign_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

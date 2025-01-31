@@ -22,7 +22,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyEPN9Imath_3_24halfEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_27HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not4 = icmp eq i32 %nData, 0
   br i1 %tobool.not4, label %while.end, label %while.body.lr.ph
@@ -50,7 +50,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %data, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #4 align 2 {
+define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %data, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #4 align 2 {
 entry:
   %yStride = getelementptr inbounds nuw i8, ptr %data, i64 24
   %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
@@ -143,7 +143,7 @@ for.end29:                                        ; preds = %for.end, %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef captures(none) %data, i32 noundef %nData, i32 noundef %stride) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not19 = icmp eq i32 %nData, 0
   br i1 %tobool.not19, label %while.end, label %while.body.lr.ph
@@ -232,7 +232,7 @@ while.end:                                        ; preds = %if.end40, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef %base, i32 noundef %xStride, i32 noundef %yStride, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef captures(none) %base, i32 noundef %xStride, i32 noundef %yStride, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
 entry:
   %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %0 = load i32, ptr %y, align 4

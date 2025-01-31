@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef readonly captures(none) %bool_var2expr_map) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq i32 %lit.coerce, 0
   br i1 %cmp.i, label %if.then, label %if.else
@@ -94,7 +94,7 @@ if.end24:                                         ; preds = %if.then3, %if.then1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt12display_smt2ERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt12display_smt2ERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef readonly captures(none) %bool_var2expr_map) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp18 = alloca %struct.mk_pp, align 8
@@ -190,7 +190,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSoN3sat7literalEPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSoN3sat7literalEPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef readonly captures(none) %bool_var2expr_map) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq i32 %lit.coerce, 0
   br i1 %cmp.i, label %if.then, label %if.else
@@ -279,7 +279,7 @@ if.end15:                                         ; preds = %if.then3, %if.else1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRK7svectorIN3sat7literalEjE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %v) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRK7svectorIN3sat7literalEjE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %v) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %v, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -332,7 +332,7 @@ _Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit:  ; preds = %_ZN3satlsERSoNS_7li
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSojPKN3sat7literalEPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSojPKN3sat7literalEPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 noundef %num_lits, ptr noundef readonly captures(none) %lits, ptr noundef readonly captures(none) %bool_var2expr_map) local_unnamed_addr #3 {
 entry:
   %cmp6.not = icmp eq i32 %num_lits, 0
   br i1 %cmp6.not, label %for.end, label %for.body.preheader
@@ -363,7 +363,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_verboseERSoR11ast_managerjPKN3sat7literalEPKP4exprPKc(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, ptr nocapture noundef readonly %bool_var2expr_map, ptr noundef %sep) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_verboseERSoR11ast_managerjPKN3sat7literalEPKP4exprPKc(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_lits, ptr noundef readonly captures(none) %lits, ptr noundef readonly captures(none) %bool_var2expr_map, ptr noundef %sep) local_unnamed_addr #3 {
 entry:
   %cmp6.not = icmp eq i32 %num_lits, 0
   br i1 %cmp6.not, label %for.end, label %for.body.preheader
@@ -394,7 +394,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literalEjS3_(i32 noundef %num_lits1, ptr nocapture noundef readonly %lits1, i32 noundef %num_lits2, ptr nocapture noundef readonly %lits2) local_unnamed_addr #4 {
+define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literalEjS3_(i32 noundef %num_lits1, ptr noundef readonly captures(none) %lits1, i32 noundef %num_lits2, ptr noundef readonly captures(none) %lits2) local_unnamed_addr #4 {
 entry:
   %cmp13 = icmp ne i32 %num_lits1, 0
   %cmp29 = icmp ne i32 %num_lits2, 0

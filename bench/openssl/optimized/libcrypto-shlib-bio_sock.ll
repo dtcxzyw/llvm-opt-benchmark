@@ -99,7 +99,7 @@ declare void @BIO_ADDRINFO_free(ptr noundef) local_unnamed_addr #2
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_get_port(ptr noundef %str, ptr nocapture noundef writeonly %port_ptr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_get_port(ptr noundef %str, ptr noundef writeonly captures(none) %port_ptr) local_unnamed_addr #0 {
 entry:
   %res = alloca ptr, align 8
   store ptr null, ptr %res, align 8
@@ -388,13 +388,13 @@ declare ptr @BIO_ADDR_service_string(ptr noundef, i32 noundef) local_unnamed_add
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BIO_set_tcp_ndelay(i32 noundef %s, i32 noundef %on) local_unnamed_addr #0 {
@@ -434,7 +434,7 @@ BIO_socket_ioctl.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_sock_info(i32 noundef %sock, i32 noundef %type, ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %addr_len = alloca i32, align 4
   %cond = icmp eq i32 %type, 0
@@ -536,7 +536,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #4
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

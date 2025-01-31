@@ -967,7 +967,7 @@ declare hidden ptr @lj_meta_tset(ptr noundef, ptr noundef, ptr noundef) local_un
 declare hidden i32 @lj_meta_tailcall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
 declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1689,12 +1689,12 @@ if.then26:                                        ; preds = %for.end
   ret i32 0
 
 if.end30:                                         ; preds = %if.then, %for.end, %land.lhs.true, %ffi_clib_index.exit
-  tail call void @lj_err_caller(ptr noundef %L, i32 noundef 3574) #10
+  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 3574) #10
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_ffi_clib___gc(ptr nocapture noundef readonly %L) #0 {
+define internal noundef i32 @lj_cf_ffi_clib___gc(ptr noundef readonly captures(none) %L) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
@@ -3376,18 +3376,18 @@ lor.lhs.false:                                    ; preds = %while.cond.i
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false
-  call void @lj_err_arg(ptr noundef %L, i32 noundef 1, i32 noundef 2996) #10
+  call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 2996) #10
   unreachable
 
 if.end:                                           ; preds = %while.cond.i, %lor.lhs.false
   %sub.ptr.div.neg = sub i32 0, %idxprom.i.pn.in
-  %call10 = call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef %12, i32 noundef %sub.ptr.div.neg) #9
+  %call10 = call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef %12, i32 noundef %sub.ptr.div.neg) #9
   %15 = load i64, ptr %call10, align 8
   %cmp11 = icmp eq i64 %15, -1
   br i1 %cmp11, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  call void @lj_err_caller(ptr noundef %L, i32 noundef 951) #10
+  call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 951) #10
   unreachable
 
 if.end14:                                         ; preds = %if.end
@@ -3504,7 +3504,7 @@ lor.lhs.false9:                                   ; preds = %while.cond.i
   br i1 %cmp11, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false9
-  tail call void @lj_err_arg(ptr noundef %L, i32 noundef 1, i32 noundef 2996) #10
+  tail call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 2996) #10
   unreachable
 
 if.end:                                           ; preds = %while.cond.i, %while.cond.i, %lor.lhs.false9
@@ -3513,7 +3513,7 @@ if.end:                                           ; preds = %while.cond.i, %whil
   %12 = inttoptr i64 %and13 to ptr
   %shr14 = ashr i64 %11, 47
   %conv15 = trunc nsw i64 %shr14 to i32
-  tail call void @lj_cdata_setfin(ptr noundef %L, ptr noundef %3, ptr noundef %12, i32 noundef %conv15) #9
+  tail call void @lj_cdata_setfin(ptr noundef nonnull %L, ptr noundef %3, ptr noundef %12, i32 noundef %conv15) #9
   %13 = load ptr, ptr %base.i, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %add.ptr, ptr %top.i, align 8
@@ -3571,10 +3571,10 @@ declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare hidden i32 @lj_cparse_case(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3587,10 +3587,10 @@ declare hidden void @lj_clib_load(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

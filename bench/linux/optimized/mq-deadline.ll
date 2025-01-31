@@ -183,7 +183,7 @@ define internal noundef range(i32 -12, 1) i32 @dd_init_sched(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dd_exit_sched(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @dd_exit_sched(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 328
@@ -257,7 +257,7 @@ define internal void @dd_exit_sched(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dd_init_hctx(ptr nocapture noundef readonly %0, i32 %1) #2 align 16 {
+define internal noundef i32 @dd_init_hctx(ptr noundef readonly captures(none) %0, i32 %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -279,7 +279,7 @@ define internal noundef i32 @dd_init_hctx(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dd_depth_updated(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @dd_depth_updated(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -327,7 +327,7 @@ define internal zeroext i1 @dd_bio_merge(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #2 align 16 {
+define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -400,7 +400,7 @@ define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dd_request_merged(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal void @dd_request_merged(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %26
 
@@ -529,7 +529,7 @@ define internal void @dd_merged_requests(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @dd_limit_depth(i32 noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal void @dd_limit_depth(i32 noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = and i32 %0, 255
   %4 = icmp ne i32 %3, 0
   %5 = and i32 %0, 395264
@@ -557,14 +557,14 @@ define internal void @dd_limit_depth(i32 noundef %0, ptr nocapture noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @dd_prepare_request(ptr nocapture noundef writeonly initializes((192, 200)) %0) #4 align 16 {
+define internal void @dd_prepare_request(ptr noundef writeonly captures(none) initializes((192, 200)) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dd_finish_request(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @dd_finish_request(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -592,7 +592,7 @@ define internal void @dd_finish_request(ptr nocapture noundef readonly %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dd_insert_requests(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal void @dd_insert_requests(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8
@@ -810,7 +810,7 @@ define internal void @dd_insert_requests(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @dd_dispatch_request(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal ptr @dd_dispatch_request(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -891,7 +891,7 @@ define internal ptr @dd_dispatch_request(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @dd_has_work(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -977,13 +977,13 @@ declare dso_local ptr @elv_rb_former_request(ptr noundef, ptr noundef) #1
 declare dso_local ptr @elv_rb_latter_request(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @elevator_alloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @blk_queue_flag_set(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1031,7 +1031,7 @@ declare dso_local void @elv_rb_add(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @elv_rqhash_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @blk_mq_sched_try_insert_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1052,7 +1052,7 @@ declare void @llvm.write_register.i64(metadata, i64) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__dd_dispatch_request(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
   %4 = load volatile ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %28, label %6
@@ -1334,7 +1334,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_read_expire_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_read_expire_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 300
@@ -1347,7 +1347,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_read_expire_sho
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_read_expire_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_read_expire_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1385,7 +1385,7 @@ define internal i64 @deadline_read_expire_store(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_write_expire_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_write_expire_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 304
@@ -1398,7 +1398,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_write_expire_sh
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_write_expire_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_write_expire_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1436,7 +1436,7 @@ define internal i64 @deadline_write_expire_store(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_writes_starved_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_writes_starved_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
@@ -1447,7 +1447,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_writes_starved_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_writes_starved_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_writes_starved_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1474,7 +1474,7 @@ define internal i64 @deadline_writes_starved_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_front_merges_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_front_merges_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 316
@@ -1485,7 +1485,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_front_merges_sh
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_front_merges_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_front_merges_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1514,7 +1514,7 @@ define internal i64 @deadline_front_merges_store(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_async_depth_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_async_depth_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
@@ -1525,7 +1525,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_async_depth_sho
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_async_depth_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_async_depth_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1553,7 +1553,7 @@ define internal i64 @deadline_async_depth_store(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_fifo_batch_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_fifo_batch_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 308
@@ -1564,7 +1564,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_fifo_batch_show
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_fifo_batch_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_fifo_batch_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1592,7 +1592,7 @@ define internal i64 @deadline_fifo_batch_store(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @deadline_prio_aging_expire_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @deadline_prio_aging_expire_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 324
@@ -1605,7 +1605,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @deadline_prio_aging_expi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @deadline_prio_aging_expire_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @deadline_prio_aging_expire_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1655,7 +1655,7 @@ declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_read0_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_read0_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1694,7 +1694,7 @@ define internal noundef i32 @deadline_read0_next_rq_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_write0_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_write0_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1733,7 +1733,7 @@ define internal noundef i32 @deadline_write0_next_rq_show(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_read1_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_read1_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1772,7 +1772,7 @@ define internal noundef i32 @deadline_read1_next_rq_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_write1_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_write1_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1811,7 +1811,7 @@ define internal noundef i32 @deadline_write1_next_rq_show(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_read2_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_read2_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1850,7 +1850,7 @@ define internal noundef i32 @deadline_read2_next_rq_show(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_write2_next_rq_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_write2_next_rq_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1889,7 +1889,7 @@ define internal noundef i32 @deadline_write2_next_rq_show(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_batching_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_batching_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1901,7 +1901,7 @@ define internal noundef i32 @deadline_batching_show(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deadline_starved_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @deadline_starved_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1913,7 +1913,7 @@ define internal noundef i32 @deadline_starved_show(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dd_async_depth_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @dd_async_depth_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1925,7 +1925,7 @@ define internal noundef i32 @dd_async_depth_show(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dd_owned_by_driver_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @dd_owned_by_driver_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1962,7 +1962,7 @@ define internal noundef i32 @dd_owned_by_driver_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dd_queued_show(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @dd_queued_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1990,7 +1990,7 @@ define internal noundef i32 @dd_queued_show(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read0_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_read0_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2006,7 +2006,7 @@ define internal ptr @deadline_read0_fifo_start(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_read0_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_read0_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2019,7 +2019,7 @@ define internal void @deadline_read0_fifo_stop(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read0_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_read0_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2041,7 +2041,7 @@ declare dso_local ptr @seq_list_start(ptr noundef, i64 noundef) local_unnamed_ad
 declare dso_local ptr @seq_list_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write0_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_write0_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2057,7 +2057,7 @@ define internal ptr @deadline_write0_fifo_start(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_write0_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_write0_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2070,7 +2070,7 @@ define internal void @deadline_write0_fifo_stop(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write0_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_write0_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2083,7 +2083,7 @@ define internal ptr @deadline_write0_fifo_next(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read1_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_read1_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2099,7 +2099,7 @@ define internal ptr @deadline_read1_fifo_start(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_read1_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_read1_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2112,7 +2112,7 @@ define internal void @deadline_read1_fifo_stop(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read1_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_read1_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2125,7 +2125,7 @@ define internal ptr @deadline_read1_fifo_next(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write1_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_write1_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2141,7 +2141,7 @@ define internal ptr @deadline_write1_fifo_start(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_write1_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_write1_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2154,7 +2154,7 @@ define internal void @deadline_write1_fifo_stop(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write1_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_write1_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2167,7 +2167,7 @@ define internal ptr @deadline_write1_fifo_next(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read2_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_read2_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2183,7 +2183,7 @@ define internal ptr @deadline_read2_fifo_start(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_read2_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_read2_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2196,7 +2196,7 @@ define internal void @deadline_read2_fifo_stop(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_read2_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_read2_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2209,7 +2209,7 @@ define internal ptr @deadline_read2_fifo_next(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write2_fifo_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_write2_fifo_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2225,7 +2225,7 @@ define internal ptr @deadline_write2_fifo_start(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_write2_fifo_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_write2_fifo_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2238,7 +2238,7 @@ define internal void @deadline_write2_fifo_stop(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_write2_fifo_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_write2_fifo_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2257,7 +2257,7 @@ declare dso_local i32 @__blk_mq_debugfs_rq_show(ptr noundef, ptr noundef) local_
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch0_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_dispatch0_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2272,7 +2272,7 @@ define internal ptr @deadline_dispatch0_start(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_dispatch0_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_dispatch0_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2285,7 +2285,7 @@ define internal void @deadline_dispatch0_stop(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch0_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_dispatch0_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2297,7 +2297,7 @@ define internal ptr @deadline_dispatch0_next(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch1_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_dispatch1_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2313,7 +2313,7 @@ define internal ptr @deadline_dispatch1_start(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_dispatch1_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_dispatch1_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2326,7 +2326,7 @@ define internal void @deadline_dispatch1_stop(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch1_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_dispatch1_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2339,7 +2339,7 @@ define internal ptr @deadline_dispatch1_next(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch2_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @deadline_dispatch2_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2355,7 +2355,7 @@ define internal ptr @deadline_dispatch2_start(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deadline_dispatch2_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @deadline_dispatch2_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2368,7 +2368,7 @@ define internal void @deadline_dispatch2_stop(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @deadline_dispatch2_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+define internal ptr @deadline_dispatch2_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

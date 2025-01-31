@@ -420,7 +420,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.cpu_set_marchid = private unnamed_addr constant [3 x i32] [i32 32, i32 64, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @isa_ext_is_enabled(ptr nocapture noundef readonly %cpu, i32 noundef %ext_offset) local_unnamed_addr #0 {
+define dso_local zeroext i1 @isa_ext_is_enabled(ptr noundef readonly captures(none) %cpu, i32 noundef %ext_offset) local_unnamed_addr #0 {
 entry:
   %cfg = getelementptr inbounds nuw i8, ptr %cpu, i64 15312
   %idx.ext = zext i32 %ext_offset to i64
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @isa_ext_update_enabled(ptr nocapture noundef writeonly %cpu, i32 noundef %ext_offset, i1 noundef zeroext %en) local_unnamed_addr #1 {
+define dso_local void @isa_ext_update_enabled(ptr noundef writeonly captures(none) %cpu, i32 noundef %ext_offset, i1 noundef zeroext %en) local_unnamed_addr #1 {
 entry:
   %frombool = zext i1 %en to i8
   %cfg = getelementptr inbounds nuw i8, ptr %cpu, i64 15312
@@ -470,7 +470,7 @@ return:                                           ; preds = %cond.true2, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @riscv_cpu_set_misa(ptr nocapture noundef writeonly initializes((5008, 5024)) %env, i32 noundef %mxl, i32 noundef %ext) local_unnamed_addr #1 {
+define dso_local void @riscv_cpu_set_misa(ptr noundef writeonly captures(none) initializes((5008, 5024)) %env, i32 noundef %mxl, i32 noundef %ext) local_unnamed_addr #1 {
 entry:
   %misa_mxl = getelementptr inbounds nuw i8, ptr %env, i64 5008
   store i32 %mxl, ptr %misa_mxl, align 16
@@ -500,7 +500,7 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #16
   %sub = add i64 %call3, -10
-  %call4 = tail call noalias ptr @g_strndup(ptr noundef %call1, i64 noundef %sub) #14
+  %call4 = tail call noalias ptr @g_strndup(ptr noundef nonnull %call1, i64 noundef %sub) #14
   ret ptr %call4
 }
 
@@ -514,7 +514,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_cpu_finalize_features(ptr noundef %cpu, ptr noundef %errp) local_unnamed_addr #3 {
@@ -632,7 +632,7 @@ do.end:                                           ; preds = %riscv_validate_misa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_pmu_num_get(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @prop_pmu_num_get(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %pmu_num = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_pmu_num_set(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @prop_pmu_num_set(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %pmu_num = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
@@ -677,7 +677,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @riscv_isa_string(ptr nocapture noundef readonly %cpu) local_unnamed_addr #3 {
+define dso_local ptr @riscv_isa_string(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(18) ptr @g_malloc_n(i64 noundef 18, i64 noundef 1) #17
   %call1 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call, i64 noundef 18, ptr noundef nonnull @.str.249, i32 noundef 64) #14
@@ -761,7 +761,7 @@ if.end12:                                         ; preds = %for.inc.i, %for.end
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #9
@@ -792,13 +792,13 @@ entry:
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_cpu_list_entry(ptr noundef %data, ptr nocapture readnone %user_data) #3 {
+define internal void @riscv_cpu_list_entry(ptr noundef %data, ptr readnone captures(none) %user_data) #3 {
 entry:
   %call = tail call ptr @object_class_get_name(ptr noundef %data) #14
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #16
   %0 = trunc i64 %call1 to i32
   %conv = add i32 %0, -10
-  %call2 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.314, i32 noundef %conv, ptr noundef %call) #14
+  %call2 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.314, i32 noundef %conv, ptr noundef nonnull %call) #14
   ret void
 }
 
@@ -843,7 +843,7 @@ declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #4
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @qemu_printf(ptr noundef, ...) local_unnamed_addr #4
 
@@ -869,7 +869,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_cpu_class_init(ptr noundef %c, ptr nocapture readnone %data) #3 {
+define internal void @riscv_cpu_class_init(ptr noundef %c, ptr readnone captures(none) %data) #3 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU_CLASS) #14
   %call.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.331, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #14
@@ -1271,7 +1271,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @riscv_cpu_has_work(ptr nocapture readnone %cs) #2 {
+define internal noundef zeroext i1 @riscv_cpu_has_work(ptr readnone captures(none) %cs) #2 {
 entry:
   ret i1 true
 }
@@ -1456,7 +1456,7 @@ declare i32 @riscv_cpu_gdb_read_register(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @riscv_cpu_gdb_write_register(ptr noundef, ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_cpu_disas_set_info(ptr noundef %s, ptr nocapture noundef writeonly initializes((184, 192)) %info) #3 {
+define internal void @riscv_cpu_disas_set_info(ptr noundef %s, ptr noundef writeonly captures(none) initializes((184, 192)) %info) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %cfg = getelementptr inbounds nuw i8, ptr %call.i, i64 15312
@@ -1503,7 +1503,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @riscv_gdb_get_dynamic_xml(ptr noundef %cs, ptr nocapture noundef readonly %xmlname) #3 {
+define internal ptr @riscv_gdb_get_dynamic_xml(ptr noundef %cs, ptr noundef readonly captures(none) %xmlname) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %xmlname, ptr noundef nonnull dereferenceable(14) @.str.348) #16
@@ -1533,7 +1533,7 @@ return:                                           ; preds = %if.else, %if.then4,
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_get_mvendorid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_get_mvendorid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
@@ -1547,7 +1547,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_set_mvendorid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_set_mvendorid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
@@ -1578,7 +1578,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_get_mimpid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_get_mimpid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
@@ -1592,7 +1592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_set_mimpid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_set_mimpid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
@@ -1623,7 +1623,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_get_marchid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_get_marchid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
@@ -1637,7 +1637,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cpu_set_marchid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #3 {
+define internal void @cpu_set_marchid(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #3 {
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
@@ -1740,13 +1740,13 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

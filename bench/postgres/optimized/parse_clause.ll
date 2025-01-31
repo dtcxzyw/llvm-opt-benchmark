@@ -205,7 +205,7 @@ setNamespaceLateralState.exit23:                  ; preds = %.lr.ph16.i20, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [1 x i32], align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1553,7 +1553,7 @@ list_length.exit414:                              ; preds = %list_length.exit412
   %713 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %713)
   %714 = tail call i32 @errcode(i32 noundef 16806020) #9
-  %715 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %696) #9
+  %715 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %696) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1326, ptr noundef nonnull @__func__.transformFromClauseItem) #9
   unreachable
 
@@ -1577,7 +1577,7 @@ list_length.exit414:                              ; preds = %list_length.exit412
   %725 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %725)
   %726 = tail call i32 @errcode(i32 noundef 33583236) #9
-  %727 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %696) #9
+  %727 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %696) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1341, ptr noundef nonnull @__func__.transformFromClauseItem) #9
   unreachable
 
@@ -1634,7 +1634,7 @@ list_length.exit414:                              ; preds = %list_length.exit412
   %748 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %748)
   %749 = tail call i32 @errcode(i32 noundef 33583236) #9
-  %750 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %696) #9
+  %750 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %696) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1365, ptr noundef nonnull @__func__.transformFromClauseItem) #9
   unreachable
 
@@ -1652,7 +1652,7 @@ list_length.exit414:                              ; preds = %list_length.exit412
   %753 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %753)
   %754 = tail call i32 @errcode(i32 noundef 50360452) #9
-  %755 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %696) #9
+  %755 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %696) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1374, ptr noundef nonnull @__func__.transformFromClauseItem) #9
   unreachable
 
@@ -2471,7 +2471,7 @@ checkExprIsVarFree.exit:                          ; preds = %7
 declare ptr @coerce_to_specific_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
   store ptr null, ptr %8, align 8
@@ -2739,7 +2739,7 @@ declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformGroupingSet(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc ptr @transformGroupingSet(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -3015,7 +3015,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @transformGroupClauseExpr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef readonly %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc i32 @transformGroupClauseExpr(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef readonly %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %9
@@ -3140,7 +3140,7 @@ targetIsInSortList.exit:                          ; preds = %28, %19, %.lr.ph.i
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3197,7 +3197,7 @@ define dso_local ptr @transformSortClause(ptr noundef %0, ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findTargetlistEntrySQL99(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @findTargetlistEntrySQL99(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @transformExpr(ptr noundef %0, ptr noundef %1, i32 noundef %3) #9
   %6 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %6, null
@@ -3241,7 +3241,7 @@ define internal fastcc ptr @findTargetlistEntrySQL99(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findTargetlistEntrySQL92(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @findTargetlistEntrySQL92(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 61
   br i1 %6, label %7, label %61
@@ -3451,7 +3451,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %26, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local ptr @addTargetToSortList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -3727,7 +3727,7 @@ targetIsInSortList.exit:                          ; preds = %86, %82, %69, %128
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -4201,7 +4201,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %8 = icmp eq ptr %5, null
@@ -4382,7 +4382,7 @@ checkExprIsVarFree.exit:                          ; preds = %89, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4491,7 +4491,7 @@ define dso_local nonnull ptr @transformDistinctClause(ptr noundef %0, ptr nocapt
 declare ptr @get_sortgroupclause_tle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @addTargetToGroupList(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -4615,7 +4615,7 @@ targetIsInSortList.exit:                          ; preds = %27, %assignSortGrou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local ptr @transformDistinctOnClause(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge94, label %.lr.ph
@@ -4851,7 +4851,7 @@ targetIsInSortList.exit:                          ; preds = %93, %105
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @assignSortGroupRef(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define dso_local i32 @assignSortGroupRef(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -4967,7 +4967,7 @@ define internal fastcc i32 @get_matching_location(i32 noundef %0, ptr noundef re
 declare ptr @get_sortgroupref_tle(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @targetIsInSortList(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @targetIsInSortList(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -5047,7 +5047,7 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
+define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store ptr null, ptr %2, align 8
@@ -5313,14 +5313,14 @@ declare void @check_stack_depth() local_unnamed_addr #1
 declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @markRelsAsNulledBy(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @markRelsAsNulledBy(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   switch i32 %4, label %10 [
     i32 55, label %14
@@ -5385,12 +5385,12 @@ list_length.exit:                                 ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #0 {
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null
@@ -5585,7 +5585,7 @@ declare ptr @colNameToVar(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noun
 declare ptr @ParseExprKindName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checkTargetlistEntrySQL92(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @checkTargetlistEntrySQL92(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   switch i32 %2, label %36 [
     i32 19, label %4
     i32 20, label %39
@@ -5675,10 +5675,10 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

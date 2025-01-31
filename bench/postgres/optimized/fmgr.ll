@@ -107,14 +107,14 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_call_expr_arg_stable = private unnamed_addr constant [8 x i64] [i64 24, i64 poison, i64 32, i64 poison, i64 32, i64 32, i64 32, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmgr_info(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1) local_unnamed_addr #0 {
+define dso_local void @fmgr_info(i32 noundef %0, ptr noundef writeonly captures(none) initializes((8, 12), (24, 48)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef %1, ptr noundef %3, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef writeonly captures(none) initializes((8, 12), (24, 48)) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
@@ -279,7 +279,7 @@ fmgr_lookupByName.exit.thread:                    ; preds = %81, %75, %fmgr_look
   unreachable
 
 91:                                               ; preds = %fmgr_lookupByName.exit
-  tail call void @pfree(ptr noundef %78) #13
+  tail call void @pfree(ptr noundef nonnull %78) #13
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %1, align 8
@@ -456,13 +456,13 @@ fmgr_info_other_lang.exit:                        ; preds = %159
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmgr_info_cxt(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @fmgr_info_cxt(i32 noundef %0, ptr noundef writeonly captures(none) initializes((8, 12), (24, 48)) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmgr_symbol(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @fmgr_symbol(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 45, i64 noundef %4) #13
   %.not = icmp eq ptr %5, null
@@ -626,7 +626,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fmgr_info_copy(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local void @fmgr_info_copy(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
@@ -636,10 +636,10 @@ define dso_local void @fmgr_info_copy(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @fmgr_internal_function(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i32 @fmgr_internal_function(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr @fmgr_nbuiltins, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader.i, label %fmgr_lookupByName.exit.thread
@@ -2672,7 +2672,7 @@ define dso_local i64 @InputFunctionCall(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.23, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %14
@@ -2766,7 +2766,7 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @DirectInputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @DirectInputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.24, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %10
@@ -3440,7 +3440,7 @@ define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_fn_opclass_options(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @set_fn_opclass_options(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = icmp eq ptr %1, null
   %5 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext false) #13
@@ -3642,19 +3642,19 @@ declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

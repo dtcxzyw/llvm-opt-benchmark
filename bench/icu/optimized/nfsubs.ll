@@ -390,7 +390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7514NFSubstitution16makeSubstitutionEiPKNS_6NFRuleES3_PKNS_9NFRuleSetEPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(i32 noundef %pos, ptr noundef %rule, ptr noundef %predecessor, ptr noundef %ruleSet, ptr nocapture noundef readonly %formatter, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7514NFSubstitution16makeSubstitutionEiPKNS_6NFRuleES3_PKNS_9NFRuleSetEPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(i32 noundef %pos, ptr noundef %rule, ptr noundef %predecessor, ptr noundef %ruleSet, ptr noundef readonly captures(none) %formatter, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %description, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -908,7 +908,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7514NFSubstitutionD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7514NFSubstitutionD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -918,13 +918,13 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7514NFSubstitution10setDivisorEisR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, i32 %0, i16 signext %1, ptr nocapture nonnull readnone align 4 %2) unnamed_addr #6 align 2 {
+define void @_ZN6icu_7514NFSubstitution10setDivisorEisR10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i32 %0, i16 signext %1, ptr nonnull readnone align 4 captures(none) %2) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514NFSubstitution23setDecimalFormatSymbolsERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(2883) %newSymbols, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7514NFSubstitution23setDecimalFormatSymbolsERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(2883) %newSymbols, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #2 align 2 {
 entry:
   %numberFormat = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %numberFormat, align 8
@@ -949,13 +949,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7514NFSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7514NFSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7514NFSubstitution16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7514NFSubstitutioneqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7514NFSubstitutioneqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
@@ -1482,7 +1482,7 @@ declare void @_ZN6icu_7511Formattable9setDoubleEd(ptr noundef nonnull align 8 de
 declare void @_ZN6icu_7511Formattable7setLongEi(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7514NFSubstitution21isModulusSubstitutionEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef signext i8 @_ZNK6icu_7514NFSubstitution21isModulusSubstitutionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i8 0
 }
@@ -1530,7 +1530,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7521SameValueSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7521SameValueSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7521SameValueSubstitution16getStaticClassIDEvE7classID
 }
@@ -1542,13 +1542,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522MultiplierSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522MultiplierSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7522MultiplierSubstitution16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7522MultiplierSubstitutioneqERKNS_14NFSubstitutionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7522MultiplierSubstitutioneqERKNS_14NFSubstitutionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
@@ -1697,13 +1697,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519ModulusSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519ModulusSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7519ModulusSubstitution16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7519ModulusSubstitutioneqERKNS_14NFSubstitutionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7519ModulusSubstitutioneqERKNS_14NFSubstitutionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
@@ -1945,7 +1945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7524IntegralPartSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7524IntegralPartSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7524IntegralPartSubstitution16getStaticClassIDEvE7classID
 }
@@ -2463,7 +2463,7 @@ declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr 
 declare void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7526FractionalPartSubstitutioneqERKNS_14NFSubstitutionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7526FractionalPartSubstitutioneqERKNS_14NFSubstitutionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
@@ -2549,7 +2549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7526FractionalPartSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7526FractionalPartSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7526FractionalPartSubstitution16getStaticClassIDEvE7classID
 }
@@ -2561,7 +2561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7525AbsoluteValueSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7525AbsoluteValueSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7525AbsoluteValueSubstitution16getStaticClassIDEvE7classID
 }
@@ -2990,7 +2990,7 @@ ehcleanup75:                                      ; preds = %ehcleanup, %lpad
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7521NumeratorSubstitutioneqERKNS_14NFSubstitutionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7521NumeratorSubstitutioneqERKNS_14NFSubstitutionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) unnamed_addr #2 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
@@ -3076,7 +3076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7521NumeratorSubstitution17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7521NumeratorSubstitution17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret ptr @_ZZN6icu_7521NumeratorSubstitution16getStaticClassIDEvE7classID
 }
@@ -3429,7 +3429,7 @@ declare noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDs
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -3442,7 +3442,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noundef i64 @_ZN6icu_7510util64_powEjt(i32 noundef, i16 noundef zeroext) local_unnamed_addr #3
 
@@ -3456,10 +3456,10 @@ declare double @uprv_round_75(double noundef) local_unnamed_addr #3
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

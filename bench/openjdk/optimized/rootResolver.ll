@@ -150,7 +150,7 @@ _ZN22ReferenceLocateClosure13do_oop_sharedE13UnifiedOopRef.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure13do_cldg_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure13do_cldg_rootsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ReferenceLocateClosure, align 8
   %3 = alloca %class.CLDToOopClosure, align 8
   %4 = load ptr, ptr %0, align 8
@@ -178,7 +178,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure13do_cldg_rootsEv(p
 declare void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_rootsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ReferenceLocateClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -248,12 +248,12 @@ _ZN10OopStorage7oops_doI22ReferenceLocateClosureEEvPT_.exit: ; preds = %_ZN10Oop
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef zeroext i1 @_ZN10JNIHandles17is_global_storageEPK10OopStorage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ReferenceLocateClosure, align 8
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = alloca %class.CLDToOopClosure, align 8
@@ -360,7 +360,7 @@ _ZN22ReferenceToRootClosure20do_oop_storage_rootsEv.exit: ; preds = %_ZN10OopSto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_handle_areaEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_handle_areaEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
@@ -386,7 +386,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_h
 declare void @_ZN10HandleArea7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_jni_handlesEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_jni_handlesEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
@@ -412,7 +412,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure21do_thread_j
 declare void @_ZN14JNIHandleBlock7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_thread_stack_fastEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_thread_stack_fastEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.RootCallbackInfo, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -498,7 +498,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_thread_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure24do_thread_stack_detailedEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure24do_thread_stack_detailedEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.ReferenceLocateClosure, align 8
   %5 = alloca %class.StackFrameStream, align 8
@@ -672,7 +672,7 @@ declare void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr nound
 declare void @_ZN16JvmtiThreadState7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_java_threads_oopsEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_java_threads_oopsEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ReferenceLocateClosure, i64 16), ptr %3, align 8
@@ -696,7 +696,7 @@ define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure20do_java_thr
 declare void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_rootsEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN28ReferenceToThreadRootClosure15do_thread_rootsEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ReferenceLocateClosure, align 8
   %4 = alloca %class.ReferenceLocateClosure, align 8
   %5 = alloca %struct.RootCallbackInfo, align 8
@@ -969,7 +969,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef) local_unnamed_addr #1
 
@@ -1447,10 +1447,10 @@ declare noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef no
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

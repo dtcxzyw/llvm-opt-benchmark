@@ -99,7 +99,7 @@ define dso_local ptr @pcc_mbox_request_channel(ptr noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -108,10 +108,10 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @mbox_bind_client(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pcc_mbox_free_channel(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @pcc_mbox_free_channel(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -812,13 +812,13 @@ thread-pre-split11:                               ; preds = %.thread-pre-split11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -22, 1) i32 @parse_pcc_subspace(ptr nocapture noundef readonly %0, i64 %1) #6 align 16 {
+define internal range(i32 -22, 1) i32 @parse_pcc_subspace(ptr noundef readonly captures(none) %0, i64 %1) #6 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp ult i8 %3, 6
   %5 = select i1 %4, i32 0, i32 -22
@@ -844,7 +844,7 @@ declare dso_local i32 @acpi_register_gsi(ptr noundef, i32 noundef, i32 noundef, 
 declare dso_local ptr @ioremap_cache(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pcc_send_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @pcc_send_data(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -927,7 +927,7 @@ define internal void @pcc_shutdown(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pcc_chan_reg_read_modify_write(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pcc_chan_reg_read_modify_write(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8, !annotation !6

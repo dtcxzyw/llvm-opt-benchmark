@@ -255,7 +255,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -492,7 +492,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 6) i32 @_ZN6icu_7513PluralMapBase10toCategoryEPKc(ptr nocapture noundef readonly %pluralForm) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 6) i32 @_ZN6icu_7513PluralMapBase10toCategoryEPKc(ptr noundef readonly captures(none) %pluralForm) local_unnamed_addr #7 align 2 {
 entry:
   br label %for.body
 
@@ -519,7 +519,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7513PluralMapBase10toCategoryERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %pluralForm) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {

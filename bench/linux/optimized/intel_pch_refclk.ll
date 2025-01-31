@@ -58,7 +58,7 @@ declare dso_local void @intel_sbi_write(ptr noundef, i16 noundef zeroext, i32 no
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i32 0, -1974683648) i32 @lpt_iclkip(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, -1974683648) i32 @lpt_iclkip(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %3 = load i32, ptr %2, align 4
   br label %4
@@ -86,7 +86,7 @@ define dso_local range(i32 0, -1974683648) i32 @lpt_iclkip(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @lpt_program_iclkip(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 636

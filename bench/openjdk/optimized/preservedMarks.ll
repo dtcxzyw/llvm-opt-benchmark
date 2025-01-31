@@ -144,7 +144,7 @@ _ZN5StackI13PreservedMarkL8MEMFLAGS5EE3popEv.exit: ; preds = %11, %_ZN5StackI13P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN14PreservedMarks21adjust_preserved_markEP13PreservedMark(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14PreservedMarks21adjust_preserved_markEP13PreservedMark(ptr noundef captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 3
@@ -163,7 +163,7 @@ define hidden void @_ZN14PreservedMarks21adjust_preserved_markEP13PreservedMark(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN14PreservedMarks21adjust_during_full_gcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14PreservedMarks21adjust_during_full_gcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -307,7 +307,7 @@ _ZN14PreservedMarks7restoreEv.exit:               ; preds = %_ZN5StackI13Preserv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PreservedMarksSet4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   %5 = zext i32 %1 to i64
@@ -570,7 +570,7 @@ define hidden noundef ptr @_ZN17PreservedMarksSet11create_taskEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -794,7 +794,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

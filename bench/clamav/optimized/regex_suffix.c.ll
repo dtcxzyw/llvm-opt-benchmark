@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [47 x i8] c"parse_char_class: range_start not initialized\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.regex_list, align 8
   %6 = alloca %struct.text_buffer, align 8
   %7 = alloca %struct.node, align 8
@@ -118,7 +118,7 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -129,7 +129,7 @@ declare i64 @cli_regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) lo
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #2
 
@@ -689,10 +689,10 @@ make_node.exit129.thread:                         ; preds = %make_leaf.exit, %ma
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %.not41 = icmp eq ptr %0, null
   br i1 %.not41, label %.critedge36, label %.lr.ph
 
@@ -917,12 +917,12 @@ define internal fastcc noundef ptr @dup_node(ptr noundef readonly %0) unnamed_ad
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %.not113 = icmp eq ptr %0, null
   br i1 %.not113, label %.loopexit, label %.lr.ph
 

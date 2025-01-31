@@ -83,7 +83,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr n
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.COMPLEX, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %8
@@ -150,7 +150,7 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL14nzmg_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL14nzmg_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5

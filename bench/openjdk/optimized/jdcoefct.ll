@@ -109,7 +109,7 @@ define hidden void @jIDCoefC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @start_input_pass(ptr nocapture noundef initializes((176, 180)) %0) #1 {
+define internal void @start_input_pass(ptr noundef captures(none) initializes((176, 180)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -552,7 +552,7 @@ start_iMCU_row.exit:                              ; preds = %105, %113, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 420
@@ -680,7 +680,7 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr nocaptu
   %.05872 = phi i32 [ %74, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.06071 = phi ptr [ %72, %.lr.ph ], [ %71, %.lr.ph.preheader ]
   %.06170 = phi i32 [ %75, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  tail call void %62(ptr noundef %0, ptr noundef nonnull %.05778, ptr noundef %.06071, ptr noundef %.05974, i32 noundef %.05872) #4
+  tail call void %62(ptr noundef nonnull %0, ptr noundef nonnull %.05778, ptr noundef %.06071, ptr noundef %.05974, i32 noundef %.05872) #4
   %72 = getelementptr inbounds nuw i8, ptr %.06071, i64 128
   %73 = load i32, ptr %65, align 4
   %74 = add i32 %73, %.05872
@@ -721,12 +721,12 @@ define internal range(i32 0, 5) i32 @decompress_data(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_consume_data(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @dummy_consume_data(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -995,7 +995,7 @@ start_iMCU_row.exit:                              ; preds = %121, %129, %132
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [64 x i16], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %5 = load ptr, ptr %4, align 8

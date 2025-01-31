@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [27 x i8] c"unable to unset %s in '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_worktrees(ptr nocapture noundef %worktrees) local_unnamed_addr #0 {
+define dso_local void @free_worktrees(ptr noundef captures(none) %worktrees) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %worktrees, align 8
   %tobool.not15 = icmp eq ptr %0, null
@@ -120,7 +120,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_worktrees() local_unnamed_addr #0 {
@@ -504,7 +504,7 @@ declare ptr @get_git_common_dir() local_unnamed_addr #2
 declare ptr @git_common_path(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_worktree(ptr nocapture noundef readonly %list, ptr noundef %prefix, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local ptr @find_worktree(ptr noundef readonly captures(none) %list, ptr noundef %prefix, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %wt_path.i = alloca %struct.strbuf, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #19
@@ -544,7 +544,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
 land.lhs.true13.i:                                ; preds = %land.lhs.true.i, %for.body.i
   %idx.ext.pre-phi.i = phi i64 [ %3, %land.lhs.true.i ], [ 0, %for.body.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %idx.ext.pre-phi.i
-  %call14.i = tail call i32 @fspathcmp(ptr noundef %arg, ptr noundef %add.ptr.i) #17
+  %call14.i = tail call i32 @fspathcmp(ptr noundef nonnull %arg, ptr noundef nonnull %add.ptr.i) #17
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.then16.i, label %for.inc.i
 
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %for.end.loopexit.i,
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call ptr @prefix_filename(ptr noundef nonnull %prefix, ptr noundef %arg) #17
+  %call3 = tail call ptr @prefix_filename(ptr noundef nonnull %prefix, ptr noundef nonnull %arg) #17
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -633,7 +633,7 @@ return:                                           ; preds = %for.end.loopexit.i,
 declare ptr @prefix_filename(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_worktree_by_path(ptr nocapture noundef readonly %list, ptr noundef %p) local_unnamed_addr #0 {
+define dso_local ptr @find_worktree_by_path(ptr noundef readonly captures(none) %list, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %wt_path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %wt_path, ptr noundef nonnull align 8 dereferenceable(24) @__const.infer_backlink.inferred, i64 24, i1 false)
@@ -680,7 +680,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @real_pathdup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -691,7 +691,7 @@ declare i32 @fspathcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @is_main_worktree(ptr nocapture noundef readonly %wt) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @is_main_worktree(ptr noundef readonly captures(none) %wt) local_unnamed_addr #4 {
 entry:
   %id = getelementptr inbounds nuw i8, ptr %wt, i64 8
   %0 = load ptr, ptr %id, align 8
@@ -720,7 +720,7 @@ if.then2:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.infer_backlink.inferred, i64 24, i1 false)
   %call3 = tail call ptr (ptr, ptr, ...) @worktree_git_path(ptr noundef nonnull %wt, ptr noundef nonnull @.str.1) #17
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3) #19
-  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %call3, i64 noundef %call.i) #17
+  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %call3, i64 noundef %call.i) #17
   %buf = getelementptr inbounds nuw i8, ptr %path, i64 16
   %2 = load ptr, ptr %buf, align 8
   %call4 = call i32 @file_exists(ptr noundef %2) #17
@@ -798,7 +798,7 @@ declare void @strbuf_trim(ptr noundef) local_unnamed_addr #2
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @worktree_prune_reason(ptr nocapture noundef %wt, i64 noundef %expire) local_unnamed_addr #0 {
+define dso_local ptr @worktree_prune_reason(ptr noundef captures(none) %wt, i64 noundef %expire) local_unnamed_addr #0 {
 entry:
   %reason = alloca %struct.strbuf, align 8
   %path = alloca ptr, align 8
@@ -843,7 +843,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @should_prune_worktree(ptr noundef %id, ptr noundef %reason, ptr nocapture noundef writeonly initializes((0, 8)) %wtpath, i64 noundef %expire) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @should_prune_worktree(ptr noundef %id, ptr noundef %reason, ptr noundef writeonly captures(none) initializes((0, 8)) %wtpath, i64 noundef %expire) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   store ptr null, ptr %wtpath, align 8
@@ -864,7 +864,7 @@ if.end3.i:                                        ; preds = %if.then
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.27, %if.then ]
   %call.i37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #19
-  tail call void @strbuf_add(ptr noundef %reason, ptr noundef %retval.0.i, i64 noundef %call.i37) #17
+  tail call void @strbuf_add(ptr noundef %reason, ptr noundef nonnull %retval.0.i, i64 noundef %call.i37) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -891,7 +891,7 @@ if.end3.i39:                                      ; preds = %if.then11
 _.exit42:                                         ; preds = %if.then11, %if.end3.i39
   %retval.0.i41 = phi ptr [ %call.i40, %if.end3.i39 ], [ @.str.29, %if.then11 ]
   %call.i43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i41) #19
-  tail call void @strbuf_add(ptr noundef %reason, ptr noundef %retval.0.i41, i64 noundef %call.i43) #17
+  tail call void @strbuf_add(ptr noundef %reason, ptr noundef nonnull %retval.0.i41, i64 noundef %call.i43) #17
   br label %return
 
 if.end13:                                         ; preds = %if.end7
@@ -1003,7 +1003,7 @@ if.end3.i60:                                      ; preds = %if.then45
 _.exit63:                                         ; preds = %if.then45, %if.end3.i60
   %retval.0.i62 = phi ptr [ %call.i61, %if.end3.i60 ], [ @.str.32, %if.then45 ]
   %call.i64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i62) #19
-  tail call void @strbuf_add(ptr noundef %reason, ptr noundef %retval.0.i62, i64 noundef %call.i64) #17
+  tail call void @strbuf_add(ptr noundef %reason, ptr noundef nonnull %retval.0.i62, i64 noundef %call.i64) #17
   tail call void @free(ptr noundef %call22) #17
   br label %return
 
@@ -1035,7 +1035,7 @@ if.end3.i66:                                      ; preds = %if.then57
 _.exit69:                                         ; preds = %if.then57, %if.end3.i66
   %retval.0.i68 = phi ptr [ %call.i67, %if.end3.i66 ], [ @.str.34, %if.then57 ]
   %call.i70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i68) #19
-  tail call void @strbuf_add(ptr noundef %reason, ptr noundef %retval.0.i68, i64 noundef %call.i70) #17
+  tail call void @strbuf_add(ptr noundef %reason, ptr noundef nonnull %retval.0.i68, i64 noundef %call.i70) #17
   tail call void @free(ptr noundef nonnull %call22) #17
   br label %return
 
@@ -1053,7 +1053,7 @@ return:                                           ; preds = %if.end, %if.end59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @validate_worktree(ptr nocapture noundef readonly %wt, ptr noundef %errmsg, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @validate_worktree(ptr noundef readonly captures(none) %wt, ptr noundef %errmsg, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %wt_path = alloca %struct.strbuf, align 8
   %realpath = alloca %struct.strbuf, align 8
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @update_worktree_location(ptr nocapture noundef %wt, ptr noundef %path_) local_unnamed_addr #0 {
+define dso_local void @update_worktree_location(ptr noundef captures(none) %wt, ptr noundef %path_) local_unnamed_addr #0 {
 entry:
   %path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.infer_backlink.inferred, i64 24, i1 false)
@@ -1275,7 +1275,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @write_file(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @is_worktree_being_rebased(ptr noundef %wt, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_worktree_being_rebased(ptr noundef %wt, ptr noundef readonly captures(none) %target) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.wt_status_state, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state, i8 0, i64 184, i1 false)
@@ -1334,17 +1334,17 @@ land.end:                                         ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @wt_status_check_rebase(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @wt_status_state_free_buffers(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @is_worktree_being_bisected(ptr noundef %wt, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_worktree_being_bisected(ptr noundef %wt, ptr noundef readonly captures(none) %target) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.wt_status_state, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state, i8 0, i64 184, i1 false)
@@ -1395,7 +1395,7 @@ land.end:                                         ; preds = %land.rhs, %skip_pre
 declare i32 @wt_status_check_bisect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @is_shared_symref(ptr noundef %wt, ptr noundef %symref, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_shared_symref(ptr noundef %wt, ptr noundef %symref, ptr noundef readonly captures(none) %target) local_unnamed_addr #0 {
 entry:
   %state.i9 = alloca %struct.wt_status_state, align 8
   %state.i = alloca %struct.wt_status_state, align 8
@@ -1476,7 +1476,7 @@ is_worktree_being_rebased.exit:                   ; preds = %skip_prefix.exit.i
 if.end7:                                          ; preds = %is_worktree_being_rebased.exit.thread, %is_worktree_being_rebased.exit
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %state.i9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state.i9, i8 0, i64 184, i1 false)
-  %call.i10 = call i32 @wt_status_check_bisect(ptr noundef %wt, ptr noundef nonnull %state.i9) #17
+  %call.i10 = call i32 @wt_status_check_bisect(ptr noundef nonnull %wt, ptr noundef nonnull %state.i9) #17
   %tobool.i = icmp ne i32 %call.i10, 0
   %bisecting_from.i = getelementptr inbounds nuw i8, ptr %state.i9, i64 64
   %7 = load ptr, ptr %bisecting_from.i, align 8
@@ -1548,7 +1548,7 @@ declare ptr @get_worktree_ref_store(ptr noundef) local_unnamed_addr #2
 declare ptr @refs_resolve_ref_unsafe(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_shared_symref(ptr nocapture noundef readonly %worktrees, ptr noundef %symref, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local ptr @find_shared_symref(ptr noundef readonly captures(none) %worktrees, ptr noundef %symref, ptr noundef readonly captures(none) %target) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %worktrees, align 8
   %tobool.not7 = icmp eq ptr %0, null
@@ -1676,12 +1676,12 @@ declare i32 @verify_repository_format(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @clear_repository_format(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare ptr @readdir_skip_dot_and_dotdot(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_worktree_ref(ptr noundef readonly %wt, ptr noundef %sb, ptr noundef %refname) local_unnamed_addr #0 {
@@ -1714,14 +1714,14 @@ if.else:                                          ; preds = %if.then
 
 if.end6:                                          ; preds = %if.then5, %if.else, %land.lhs.true1, %entry
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %refname) #19
-  tail call void @strbuf_add(ptr noundef %sb, ptr noundef %refname, i64 noundef %call.i7) #17
+  tail call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %refname, i64 noundef %call.i7) #17
   ret void
 }
 
 declare i32 @parse_worktree_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @other_head_refs(ptr nocapture noundef readonly %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
+define dso_local i32 @other_head_refs(ptr noundef readonly captures(none) %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
 entry:
   %refname = alloca %struct.strbuf, align 8
   %oid = alloca %struct.object_id, align 4
@@ -1954,7 +1954,7 @@ for.end:                                          ; preds = %repair_gitfile.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @repair_noop(i32 %iserr, ptr nocapture readnone %path, ptr nocapture readnone %msg, ptr nocapture readnone %cb_data) unnamed_addr #9 {
+define internal void @repair_noop(i32 %iserr, ptr readnone captures(none) %path, ptr readnone captures(none) %msg, ptr readnone captures(none) %cb_data) unnamed_addr #9 {
 entry:
   ret void
 }
@@ -2262,10 +2262,10 @@ declare void @strbuf_rtrim(ptr noundef) local_unnamed_addr #2
 declare ptr @git_path(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #11
@@ -2280,7 +2280,7 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @init_worktree_config(ptr nocapture noundef %r) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init_worktree_config(ptr noundef captures(none) %r) local_unnamed_addr #0 {
 entry:
   %bare = alloca i32, align 4
   %cs = alloca %struct.config_set, align 8
@@ -2433,7 +2433,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @is_bare_repository() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
@@ -2464,16 +2464,16 @@ declare void @llvm.va_start.p0(ptr) #13
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

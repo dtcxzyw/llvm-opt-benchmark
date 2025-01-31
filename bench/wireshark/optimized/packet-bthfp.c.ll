@@ -1792,7 +1792,7 @@ declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2448,7 +2448,7 @@ declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2483,7 +2483,7 @@ define internal range(i32 0, 2) i32 @check_xapl(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_xapl_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_xapl_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2591,7 +2591,7 @@ define internal range(i32 0, 2) i32 @check_iphoneaccev(i32 noundef %0, i16 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2666,7 +2666,7 @@ define internal range(i32 0, 2) i32 @check_aplsiri(i32 noundef %0, i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 63
   %or.cond.i = and i1 %11, %12
@@ -2718,7 +2718,7 @@ define internal range(i32 0, 2) i32 @check_aplefm(i32 noundef %0, i16 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_aplefm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_aplefm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2765,7 +2765,7 @@ define internal range(i32 0, 2) i32 @check_biev(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2850,7 +2850,7 @@ define internal range(i32 0, 2) i32 @check_bind(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bind_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %13
 
@@ -2903,7 +2903,7 @@ define internal range(i32 0, 2) i32 @check_bac(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2949,7 +2949,7 @@ define internal range(i32 0, 2) i32 @check_bcs(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2997,7 +2997,7 @@ define internal range(i32 0, 2) i32 @check_bcc(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_no_parameter(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i32 %4, i16 zeroext %5, ptr nocapture readnone %6, i32 %7, i32 %8, ptr nocapture readnone %9) #5 {
+define internal noundef i32 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9) #5 {
   ret i32 0
 }
 
@@ -3016,7 +3016,7 @@ define internal range(i32 0, 2) i32 @check_btrh(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3069,7 +3069,7 @@ define internal range(i32 0, 2) i32 @check_bsir(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -3116,7 +3116,7 @@ define internal range(i32 0, 2) i32 @check_vgs(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3173,7 +3173,7 @@ define internal range(i32 0, 2) i32 @check_vgm(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3226,7 +3226,7 @@ define internal range(i32 0, 2) i32 @check_nrec(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3283,7 +3283,7 @@ define internal range(i32 0, 2) i32 @check_brsf(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3356,7 +3356,7 @@ define internal range(i32 0, 2) i32 @check_bvra(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3422,7 +3422,7 @@ define internal range(i32 0, 2) i32 @check_binp(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3478,7 +3478,7 @@ define internal range(i32 0, 2) i32 @check_bia(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.not19 = or i1 %11, %12
@@ -3538,7 +3538,7 @@ define internal range(i32 0, 2) i32 @check_ccwa(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_ccwa.exit
 
@@ -3682,7 +3682,7 @@ define internal range(i32 0, 2) i32 @check_chld(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_chld.exit
 
@@ -3798,7 +3798,7 @@ define internal range(i32 0, 2) i32 @check_cind(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cind_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr readnone captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %13
 
@@ -3856,7 +3856,7 @@ define internal range(i32 0, 2) i32 @check_clcc(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 13
   %or.cond = and i1 %11, %12
@@ -4031,7 +4031,7 @@ define internal range(i32 0, 2) i32 @check_cops(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cops_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cops_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = and i16 %5, -3
   %or.cond = icmp eq i16 %12, 61
@@ -4126,7 +4126,7 @@ define internal range(i32 0, 2) i32 @check_cmee(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmee_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -4164,7 +4164,7 @@ define internal range(i32 0, 2) i32 @check_cme(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cme_error_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cme_error_parameter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4217,7 +4217,7 @@ define internal range(i32 0, 2) i32 @check_clip(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_clip.exit
 
@@ -4360,7 +4360,7 @@ define internal range(i32 0, 2) i32 @check_cmer(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.not55 = or i1 %11, %12
@@ -4455,7 +4455,7 @@ define internal range(i32 0, 2) i32 @check_ciev(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4536,7 +4536,7 @@ define internal range(i32 0, 2) i32 @check_vts(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -4594,7 +4594,7 @@ define internal range(i32 0, 2) i32 @check_cnum(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4737,7 +4737,7 @@ define internal range(i32 0, 2) i32 @check_only_hs_role(i32 noundef %0, i16 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_uint_parameter(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @get_uint_parameter(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_packet_scope() #7
   %4 = add i32 %1, 1
   %5 = sext i32 %4 to i64

@@ -1051,7 +1051,7 @@ $_ZNK5clang16ConceptReference14getSourceRangeEv = comdat any
 @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE = private unnamed_addr constant [111 x i32] [i32 502, i32 503, i32 504, i32 poison, i32 505, i32 506, i32 507, i32 508, i32 509, i32 poison, i32 510, i32 511, i32 512, i32 poison, i32 513, i32 514, i32 515, i32 516, i32 517, i32 518, i32 519, i32 520, i32 521, i32 522, i32 523, i32 524, i32 525, i32 poison, i32 526, i32 527, i32 528, i32 poison, i32 529, i32 530, i32 531, i32 532, i32 533, i32 534, i32 535, i32 536, i32 537, i32 538, i32 539, i32 540, i32 541, i32 542, i32 poison, i32 543, i32 poison, i32 544, i32 545, i32 546, i32 547, i32 poison, i32 548, i32 poison, i32 poison, i32 549, i32 550, i32 551, i32 552, i32 553, i32 554, i32 555, i32 556, i32 557, i32 poison, i32 558, i32 559, i32 560, i32 561, i32 562, i32 563, i32 564, i32 565, i32 566, i32 567, i32 568, i32 569, i32 570, i32 571, i32 572, i32 573, i32 574, i32 575, i32 576, i32 577, i32 578, i32 579, i32 580, i32 581, i32 582, i32 583, i32 584, i32 585, i32 poison, i32 586, i32 587, i32 588, i32 589, i32 poison, i32 poison, i32 590, i32 591, i32 592, i32 593, i32 594, i32 595, i32 596, i32 poison, i32 597], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq i32 %1, 0
@@ -1114,7 +1114,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq i32 %1, 0
@@ -1199,7 +1199,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
+define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 4
   br label %3
 
@@ -1220,7 +1220,7 @@ define dso_local i32 @_ZNK5clang11ASTNodeKind12getCladeKindEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZNK5clang11ASTNodeKind11asStringRefEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang11ASTNodeKind11asStringRefEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
 _ZN4llvm9StringRefC2EPKc.exit:
   %1 = load i32, ptr %0, align 4
   %2 = zext i32 %1 to i64
@@ -1280,7 +1280,7 @@ _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17: ; preds = %.preheader.i.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0_(i32 %0, i32 %1) local_unnamed_addr #1 align 2 {
@@ -1323,7 +1323,7 @@ _ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 78, 175) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 78, 175) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %2 = load i32, ptr %1, align 4
@@ -1335,7 +1335,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 435) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 435) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = load i8, ptr %0, align 8
   %switch.tableidx = xor i8 %1, -128
@@ -1346,7 +1346,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 436, 501) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 436, 501) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
@@ -1357,7 +1357,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 7, 73) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
+define dso_local range(i32 7, 73) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 15
@@ -1379,7 +1379,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %_ZNK5clang7TypeLoc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 502, 598) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 502, 598) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 4
@@ -1390,7 +1390,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 599, 1016) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(35) %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 599, 1016) i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(35) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i16, ptr %1, align 8
@@ -1611,7 +1611,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
   %61 = getelementptr inbounds nuw [1018 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %60, i32 1
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #13
-  %64 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr %62, i64 %63)
+  %64 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr nonnull %62, i64 %63)
   %65 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull @.str.1019)
   br label %66
 
@@ -1820,7 +1820,7 @@ _ZNK5clang12DynTypedNode3getINS_7TypeLocEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i
   %30 = getelementptr inbounds nuw [1018 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %29, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #13
-  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %31, i64 %32)
+  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr nonnull %31, i64 %32)
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull @.str.1019)
   br label %35
 
@@ -2106,7 +2106,7 @@ _ZNK5clang16ConceptReference9getEndLocEv.exit:    ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #8
 
@@ -2117,10 +2117,10 @@ declare i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull align 8 derefere
 declare i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

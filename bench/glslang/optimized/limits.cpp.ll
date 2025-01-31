@@ -57,7 +57,7 @@ $_ZTVN7glslang16TIntermTraverserE = comdat any
 @_ZTVN7glslang16TIntermTraverserE = linkonce_odr unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr null, ptr @_ZN7glslang16TIntermTraverserD2Ev, ptr @_ZN7glslang16TIntermTraverserD0Ev, ptr @_ZN7glslang16TIntermTraverser11visitSymbolEPNS_13TIntermSymbolE, ptr @_ZN7glslang16TIntermTraverser18visitConstantUnionEPNS_20TIntermConstantUnionE, ptr @_ZN7glslang16TIntermTraverser11visitBinaryENS_6TVisitEPNS_13TIntermBinaryE, ptr @_ZN7glslang16TIntermTraverser10visitUnaryENS_6TVisitEPNS_12TIntermUnaryE, ptr @_ZN7glslang16TIntermTraverser14visitSelectionENS_6TVisitEPNS_16TIntermSelectionE, ptr @_ZN7glslang16TIntermTraverser14visitAggregateENS_6TVisitEPNS_16TIntermAggregateE, ptr @_ZN7glslang16TIntermTraverser9visitLoopENS_6TVisitEPNS_11TIntermLoopE, ptr @_ZN7glslang16TIntermTraverser11visitBranchENS_6TVisitEPNS_13TIntermBranchE, ptr @_ZN7glslang16TIntermTraverser11visitSwitchENS_6TVisitEPNS_13TIntermSwitchE] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser11visitBinaryENS_6TVisitEPNS_13TIntermBinaryE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser11visitBinaryENS_6TVisitEPNS_13TIntermBinaryE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK7glslang15TIntermOperator13modifiesStateEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #6
   br i1 %4, label %5, label %36
 
@@ -108,10 +108,10 @@ define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser11visitBinaryENS_6TVi
 declare noundef zeroext i1 @_ZNK7glslang15TIntermOperator13modifiesStateEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser10visitUnaryENS_6TVisitEPNS_12TIntermUnaryE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser10visitUnaryENS_6TVisitEPNS_12TIntermUnaryE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK7glslang15TIntermOperator13modifiesStateEv(ptr noundef nonnull align 8 dereferenceable(192) %2) #6
   br i1 %4, label %5, label %36
 
@@ -160,7 +160,7 @@ define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser10visitUnaryENS_6TVis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser14visitAggregateENS_6TVisitEPNS_16TIntermAggregateE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang19TInductiveTraverser14visitAggregateENS_6TVisitEPNS_16TIntermAggregateE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 4
@@ -488,7 +488,7 @@ define linkonce_odr void @_ZN7glslang19TInductiveTraverserD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang15TIndexTraverser11visitSymbolEPNS_13TIntermSymbolE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang15TIndexTraverser11visitSymbolEPNS_13TIntermSymbolE(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -547,7 +547,7 @@ _ZNKSt3setIxSt4lessIxESaIxEE4findERKx.exit:       ; preds = %2, %_ZNKSt8_Rb_tree
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang15TIndexTraverser14visitAggregateENS_6TVisitEPNS_16TIntermAggregateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang15TIndexTraverser14visitAggregateENS_6TVisitEPNS_16TIntermAggregateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 4
@@ -664,7 +664,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TIntermTraverser10visitUnar
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang16TIntermTraverserD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
@@ -684,7 +684,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TIntermTraverser14visitAggr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() local_unnamed_addr #1
 

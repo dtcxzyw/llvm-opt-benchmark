@@ -66,7 +66,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #2
 declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_ReadGlobal(ptr noalias nocapture sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
+define hidden void @_PyPathConfig_ReadGlobal(ptr noalias sret(%struct.PyStatus) align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.PyStatus, align 8
   %tmp10 = alloca %struct.PyStatus, align 8
@@ -206,15 +206,15 @@ done:                                             ; preds = %if.then74, %land.lh
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_UpdateGlobal(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef readonly %config) local_unnamed_addr #1 {
+define hidden void @_PyPathConfig_UpdateGlobal(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %config) local_unnamed_addr #1 {
 entry:
   %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
   %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
@@ -421,7 +421,7 @@ return:                                           ; preds = %error, %do.end88
 declare ptr @_PyMem_RawWcsdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #2
 
@@ -641,7 +641,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr nocapture noundef readonly %argv, ptr nocapture noundef writeonly %path0_p) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef readonly captures(none) %argv, ptr noundef writeonly captures(none) %path0_p) local_unnamed_addr #1 {
 entry:
   %fullpath = alloca [4096 x i32], align 16
   %link = alloca [4097 x i32], align 16

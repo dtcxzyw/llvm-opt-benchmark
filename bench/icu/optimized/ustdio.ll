@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL10DELIMITERS = internal constant [2 x i16] [i16 10, i16 0], align 2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_fsettransliterator_75(ptr noundef %file, i32 noundef %direction, ptr noundef %adopt, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @u_fsettransliterator_75(ptr noundef %file, i32 noundef %direction, ptr noundef %adopt, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_file_write_flush_75(ptr noundef %chars, i32 noundef %count, ptr nocapture noundef %f, i8 noundef signext %flushIO, i8 noundef signext %flushTranslit) local_unnamed_addr #0 {
+define i32 @u_file_write_flush_75(ptr noundef %chars, i32 noundef %count, ptr noundef captures(none) %f, i8 noundef signext %flushIO, i8 noundef signext %flushTranslit) local_unnamed_addr #0 {
 entry:
   %textLength.i = alloca i32, align 4
   %textLimit.i = alloca i32, align 4
@@ -477,7 +477,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @utrans_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fputs_75(ptr noundef %s, ptr nocapture noundef %f) local_unnamed_addr #0 {
+define i32 @u_fputs_75(ptr noundef %s, ptr noundef captures(none) %f) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @u_strlen_75(ptr noundef %s)
   %call.i = tail call i32 @u_file_write_flush_75(ptr noundef %s, i32 noundef %call, ptr noundef %f, i8 noundef signext 0, i8 noundef signext 0)
@@ -487,7 +487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_file_write_75(ptr noundef %chars, i32 noundef %count, ptr nocapture noundef %f) local_unnamed_addr #0 {
+define i32 @u_file_write_75(ptr noundef %chars, i32 noundef %count, ptr noundef captures(none) %f) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @u_file_write_flush_75(ptr noundef %chars, i32 noundef %count, ptr noundef %f, i8 noundef signext 0, i8 noundef signext 0)
   ret i32 %call
@@ -496,7 +496,7 @@ entry:
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 1114112) i32 @u_fputc_75(i32 noundef %uc, ptr nocapture noundef %f) local_unnamed_addr #0 {
+define range(i32 0, 1114112) i32 @u_fputc_75(i32 noundef %uc, ptr noundef captures(none) %f) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i16], align 2
   %cmp = icmp ult i32 %uc, 65536
@@ -542,7 +542,7 @@ declare void @ucnv_fromUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26ufile_fill_uchar_buffer_75P5UFILE(ptr noundef %f) local_unnamed_addr #0 {
@@ -668,18 +668,18 @@ declare ptr @u_memmove_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare signext i8 @ucnv_getMinCharSize_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ucnv_toUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end4, %entry, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ufile_getch_75(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %ch) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ufile_getch_75(ptr noundef %f, ptr noundef writeonly captures(none) initializes((0, 2)) %ch) local_unnamed_addr #0 {
 entry:
   store i16 -1, ptr %ch, align 2
   %str = getelementptr inbounds nuw i8, ptr %f, i64 24
@@ -897,7 +897,7 @@ ufile_getch_75.exit:                              ; preds = %if.then9.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ufile_getch32_75(ptr noundef %f, ptr nocapture noundef initializes((0, 4)) %c32) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ufile_getch32_75(ptr noundef %f, ptr noundef captures(none) initializes((0, 4)) %c32) local_unnamed_addr #0 {
 entry:
   store i32 65535, ptr %c32, align 4
   %str1 = getelementptr inbounds nuw i8, ptr %f, i64 24
@@ -1010,7 +1010,7 @@ ufile_getch32_75.exit:                            ; preds = %if.then8.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @u_fungetc_75(i32 noundef %ch, ptr nocapture noundef %f) local_unnamed_addr #5 {
+define i32 @u_fungetc_75(i32 noundef %ch, ptr noundef captures(none) %f) local_unnamed_addr #5 {
 entry:
   %str1 = getelementptr inbounds nuw i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1, align 8
@@ -1059,7 +1059,7 @@ if.end30:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_file_read_75(ptr nocapture noundef writeonly %chars, i32 noundef %count, ptr noundef %f) local_unnamed_addr #0 {
+define i32 @u_file_read_75(ptr noundef writeonly captures(none) %chars, i32 noundef %count, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %str1 = getelementptr inbounds nuw i8, ptr %f, i64 24
   %fLimit = getelementptr inbounds nuw i8, ptr %f, i64 32
@@ -1113,10 +1113,10 @@ do.end:                                           ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: allocsize(1)
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #7
@@ -1129,13 +1129,13 @@ declare void @utrans_transUChars_75(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

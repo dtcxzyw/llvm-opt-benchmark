@@ -740,7 +740,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal24GetProcStatsFieldAsInt64ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS0_15ProcStatsFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %proc_stats, i32 noundef %field_num) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN4base8internal24GetProcStatsFieldAsInt64ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS0_15ProcStatsFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %proc_stats, i32 noundef %field_num) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp4 = alloca i64, align 8
   %ref.tmp5 = alloca i64, align 8
@@ -788,7 +788,7 @@ declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char
 declare noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal24GetProcStatsFieldAsSizeTERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS0_15ProcStatsFieldsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %proc_stats, i32 noundef %field_num) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN4base8internal24GetProcStatsFieldAsSizeTERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS0_15ProcStatsFieldsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %proc_stats, i32 noundef %field_num) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp4 = alloca i64, align 8
   %ref.tmp5 = alloca i64, align 8
@@ -1599,7 +1599,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -2331,7 +2331,7 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

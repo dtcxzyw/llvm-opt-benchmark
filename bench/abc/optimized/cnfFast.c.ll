@@ -281,7 +281,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cnf_CollectVolume(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Cnf_CollectVolume(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #14
   %5 = getelementptr i8, ptr %2, i64 4
   %.val1113 = load i32, ptr %5, align 4
@@ -317,7 +317,7 @@ define void @Cnf_CollectVolume(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val2934 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val2934, 0
@@ -1769,7 +1769,7 @@ Vec_IntPush.exit248:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2372,7 +2372,7 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
 
 Cnf_CollectVolume.exit:                           ; preds = %314, %312
   store i32 0, ptr %9, align 4
-  call void @Cnf_CollectVolume_rec(ptr noundef %0, ptr noundef nonnull %302, ptr noundef nonnull %8)
+  call void @Cnf_CollectVolume_rec(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef nonnull %8)
   %.val185 = load i32, ptr %9, align 4
   %320 = icmp sgt i32 %.val185, 0
   br i1 %320, label %.lr.ph282, label %.critedge16
@@ -2488,7 +2488,7 @@ declare ptr @Aig_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @Aig_ManCleanMarkB(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @Cnf_CutCountClauses(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %1, i64 4
   %.val33 = load i32, ptr %6, align 4
@@ -2799,8 +2799,8 @@ define noundef i32 @Cnf_CountCnfSize(ptr noundef %0) local_unnamed_addr #0 {
 
 Cnf_CollectVolume.exit:                           ; preds = %46, %44
   store i32 0, ptr %7, align 4
-  tail call void @Cnf_CollectVolume_rec(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %6)
-  %52 = tail call i32 @Cnf_CutCountClauses(ptr poison, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %10)
+  tail call void @Cnf_CollectVolume_rec(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull %6)
+  %52 = tail call i32 @Cnf_CutCountClauses(ptr nonnull poison, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %10)
   %53 = add nsw i32 %52, %.03552
   %.pre = load ptr, ptr %14, align 8
   br label %.critedge
@@ -4125,25 +4125,25 @@ declare void @Aig_ManCleanMarkAB(ptr noundef) local_unnamed_addr #1
 declare void @Aig_ManCleanMarkA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

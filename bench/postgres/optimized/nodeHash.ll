@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [8 x i8] c"o%dof%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MultiExecHash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @MultiExecHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -830,7 +830,7 @@ define dso_local noundef ptr @ExecInitHash(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @ExecHash(ptr nocapture readnone %0) #2 {
+define internal noalias noundef nonnull ptr @ExecHash(ptr readnone captures(none) %0) #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #16
@@ -847,7 +847,7 @@ declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @ExecInitExprList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndHash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecEndNode(ptr noundef %3) #16
@@ -857,7 +857,7 @@ define dso_local void @ExecEndHash(ptr nocapture noundef readonly %0) local_unna
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecHashTableCreate(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.AttStatsSlot, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -1353,7 +1353,7 @@ ExecParallelHashTableAlloc.exit:                  ; preds = %.lr.ph.i, %165, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) local_unnamed_addr #3 {
+define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #3 {
   %10 = add i32 %1, 7
   %11 = and i32 %10, -8
   %12 = add i32 %11, 32
@@ -1522,7 +1522,7 @@ declare i32 @BarrierPhase(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @BarrierArriveAndWait(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr nocapture noundef initializes((64, 68), (256, 264)) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef captures(none) initializes((64, 68), (256, 264)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -1633,7 +1633,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelHashTableAlloc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecParallelHashTableAlloc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -1967,7 +1967,7 @@ dense_alloc.exit:                                 ; preds = %51, %64, %73
 declare ptr @ExecFetchSlotMinimalTuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ExecHashGetBucketAndBatch(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #7 {
+define dso_local void @ExecHashGetBucketAndBatch(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
   %5 = load i32, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
@@ -1995,7 +1995,7 @@ define dso_local void @ExecHashGetBucketAndBatch(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_addr #0 {
@@ -2476,7 +2476,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %43, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 noundef range(i64 16, 4294967312) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 noundef range(i64 16, 4294967312) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -2717,7 +2717,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecHashGetHashValue(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecHashGetHashValue(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -2837,7 +2837,7 @@ declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecScanHashBucket(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecScanHashBucket(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -2960,7 +2960,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
 declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecParallelScanHashBucket(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecParallelScanHashBucket(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -3081,7 +3081,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ExecPrepHashTableForUnmatched(ptr nocapture noundef writeonly initializes((260, 268), (272, 280)) %0) local_unnamed_addr #9 {
+define dso_local void @ExecPrepHashTableForUnmatched(ptr noundef writeonly captures(none) initializes((260, 268), (272, 280)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3092,7 +3092,7 @@ define dso_local void @ExecPrepHashTableForUnmatched(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecParallelPrepHashTableForUnmatched(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecParallelPrepHashTableForUnmatched(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -3167,7 +3167,7 @@ declare zeroext i1 @BarrierArriveAndDetachExceptLast(ptr noundef) local_unnamed_
 declare void @sts_end_parallel_scan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashTableDetachBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecHashTableDetachBatch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3276,7 +3276,7 @@ define dso_local void @ExecHashTableDetachBatch(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecScanHashTableForUnmatched(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecScanHashTableForUnmatched(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3384,7 +3384,7 @@ define dso_local noundef zeroext i1 @ExecScanHashTableForUnmatched(ptr nocapture
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3472,7 +3472,7 @@ define dso_local noundef zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashTableReset(ptr nocapture noundef initializes((24, 32), (160, 168), (224, 232)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecHashTableReset(ptr noundef captures(none) initializes((24, 32), (160, 168), (224, 232)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
@@ -3494,7 +3494,7 @@ define dso_local void @ExecHashTableReset(ptr nocapture noundef initializes((24,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExecHashTableResetMatchFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph26, label %.preheader
@@ -3585,7 +3585,7 @@ define dso_local void @ExecHashTableResetMatchFlags(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanHash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -3604,7 +3604,7 @@ define dso_local void @ExecReScanHash(ptr nocapture noundef readonly %0) local_u
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ExecHashGetSkewBucket(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local i32 @ExecHashGetSkewBucket(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -3645,7 +3645,7 @@ define dso_local i32 @ExecHashGetSkewBucket(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashEstimate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecHashEstimate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3682,7 +3682,7 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecHashInitializeDSM(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3724,12 +3724,12 @@ define dso_local void @ExecHashInitializeDSM(ptr nocapture noundef %0, ptr nocap
 declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecHashInitializeWorker(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3759,7 +3759,7 @@ define dso_local void @ExecHashInitializeWorker(ptr nocapture noundef %0, ptr no
 declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecShutdownHash(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecShutdownHash(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3824,7 +3824,7 @@ define dso_local void @ExecShutdownHash(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ExecHashAccumInstrumentation(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define dso_local void @ExecHashAccumInstrumentation(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
@@ -3857,7 +3857,7 @@ define dso_local void @ExecHashAccumInstrumentation(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashRetrieveInstrumentation(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecHashRetrieveInstrumentation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3886,7 +3886,7 @@ declare zeroext i1 @BarrierArriveAndDetach(ptr noundef) local_unnamed_addr #1
 declare void @dsa_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashTableDetach(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecHashTableDetach(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3958,7 +3958,7 @@ define dso_local void @ExecHashTableDetach(ptr nocapture noundef %0) local_unnam
 declare void @sts_end_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelHashTableSetCurrentBatch(ptr nocapture noundef initializes((0, 8), (24, 32), (68, 72), (232, 240), (264, 272)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecParallelHashTableSetCurrentBatch(ptr noundef captures(none) initializes((0, 8), (24, 32), (68, 72), (232, 240), (264, 272)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -4697,7 +4697,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecParallelHashIncreaseNumBuckets(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ExecParallelHashIncreaseNumBuckets(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -4893,7 +4893,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %96
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecParallelHashEnsureBatchAccessors(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ExecParallelHashEnsureBatchAccessors(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -5084,10 +5084,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL8utf32BOM = internal constant [8 x i8] c"\00\00\FE\FF\FF\FE\00\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -183,7 +183,7 @@ if.end67:                                         ; preds = %if.then66, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL44T_UConverter_toUnicode_UTF32_BE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL44T_UConverter_toUnicode_UTF32_BE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -760,7 +760,7 @@ return:                                           ; preds = %entry, %if.end84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
+define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef writeonly captures(none) %err) #2 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -844,10 +844,10 @@ declare void @ucnv_getNonSurrogateUnicodeSet_75(ptr noundef, ptr noundef, i32 no
 declare void @ucnv_fromUWriteBytes_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL31T_UConverter_toUnicode_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL31T_UConverter_toUnicode_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -1008,7 +1008,7 @@ if.end67:                                         ; preds = %if.then66, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL44T_UConverter_toUnicode_UTF32_LE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL44T_UConverter_toUnicode_UTF32_LE_OFFSET_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %entry, %if.end84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef writeonly %err) #2 {
+define internal noundef range(i32 0, 1114112) i32 @_ZL34T_UConverter_getNextUChar_UTF32_LEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef writeonly captures(none) %err) #2 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -1662,7 +1662,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL10_UTF32OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly initializes((76, 84)) %cnv, ptr nocapture readnone %pArgs, ptr nocapture readnone %pErrorCode) #5 {
+define internal void @_ZL10_UTF32OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr noundef writeonly captures(none) initializes((76, 84)) %cnv, ptr readnone captures(none) %pArgs, ptr readnone captures(none) %pErrorCode) #5 {
 entry:
   %mode.i = getelementptr inbounds nuw i8, ptr %cnv, i64 76
   store i32 0, ptr %mode.i, align 4
@@ -1672,7 +1672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL11_UTF32ResetP10UConverter21UConverterResetChoice(ptr nocapture noundef writeonly %cnv, i32 noundef %choice) #5 {
+define internal void @_ZL11_UTF32ResetP10UConverter21UConverterResetChoice(ptr noundef writeonly captures(none) %cnv, i32 noundef %choice) #5 {
 entry:
   %cmp = icmp slt i32 %choice, 2
   br i1 %cmp, label %if.end, label %if.then2
@@ -1693,7 +1693,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #0 {
+define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef captures(none) %pErrorCode) #0 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -1928,7 +1928,7 @@ if.end98:                                         ; preds = %sw.bb83, %sw.bb84, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
+define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #2 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8

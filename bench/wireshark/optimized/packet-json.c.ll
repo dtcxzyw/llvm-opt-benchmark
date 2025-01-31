@@ -296,7 +296,7 @@ define hidden void @proto_register_json() local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @init_json_parser._want_object, ptr noundef nonnull align 8 dereferenceable(80) %58, i64 80, i1 false)
   %59 = tail call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.144, ptr noundef null, ptr noundef null, ptr noundef null) #7
   store ptr %59, ptr @want_ignore, align 8
-  %60 = tail call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %58, ptr noundef %49, ptr noundef null) #7
+  %60 = tail call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull %49, ptr noundef null) #7
   store ptr %60, ptr @want, align 8
   %61 = load i32, ptr @proto_json, align 4
   %62 = tail call ptr @prefs_register_protocol(i32 noundef %61, ptr noundef null) #7
@@ -535,7 +535,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 107:                                              ; preds = %103
   %108 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %104) #7
   %109 = load ptr, ptr @text_lines_handle, align 8
-  %110 = call i32 @call_dissector_with_data(ptr noundef %109, ptr noundef %108, ptr noundef %1, ptr noundef %2, ptr noundef %3) #7
+  %110 = call i32 @call_dissector_with_data(ptr noundef %109, ptr noundef %108, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #7
   br label %115
 
 111:                                              ; preds = %103
@@ -554,7 +554,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_json_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_json_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %5
 }
@@ -687,7 +687,7 @@ declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #1
 declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -740,7 +740,7 @@ declare ptr @tvbparse_not_chars(i32 noundef, i32 noundef, i32 noundef, ptr nound
 declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @after_value(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1093,7 +1093,7 @@ thread-pre-split:                                 ; preds = %189
 declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_array(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @before_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = load i32, ptr @hf_json_array, align 4
@@ -1274,7 +1274,7 @@ join_strings.exit:                                ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @after_array(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_pop(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1355,10 +1355,10 @@ define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_member(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @before_member(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1531,7 +1531,7 @@ join_strings.exit:                                ; preds = %3, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_member(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @after_member(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_pop(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1644,7 +1644,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @before_object(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @before_object(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = load i32, ptr @hf_json_object, align 4
@@ -1794,7 +1794,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @after_object(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @after_object(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_pop(ptr noundef %4) #7
   %6 = load i32, ptr @json_compact, align 4
@@ -1874,7 +1874,7 @@ declare ptr @wmem_stack_peek(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_stack_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @get_json_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2162,7 +2162,7 @@ json_string_unescape.exit:                        ; preds = %18, %30, %63, %70, 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load ptr, ptr @json_header_fields_hash, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %2) #7
   %8 = icmp eq ptr %7, null
@@ -2223,7 +2223,7 @@ define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture nounde
   %42 = add i32 %41, %30
   %43 = load i32, ptr %32, align 4
   %44 = sub i32 %43, %34
-  tail call void %38(ptr noundef %40, ptr noundef %0, ptr noundef %3, i32 noundef %42, i32 noundef %44, ptr noundef %2, i32 noundef 1) #7
+  tail call void %38(ptr noundef %40, ptr noundef %0, ptr noundef %3, i32 noundef %42, i32 noundef %44, ptr noundef nonnull %2, i32 noundef 1) #7
   br label %59
 
 45:                                               ; preds = %22
@@ -2258,7 +2258,7 @@ declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2314,10 +2314,10 @@ declare zeroext i1 @json_validate(ptr noundef, i64 noundef) local_unnamed_addr #
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

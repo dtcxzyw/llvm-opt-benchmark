@@ -744,14 +744,14 @@ land.end:                                         ; preds = %_ZN4pbrt3LogIJNS_6P
 declare void @_ZNK4pbrt17AnimatedTransform11InterpolateEf(ptr sret(%"class.pbrt::Transform") align 4, ptr noundef nonnull align 4 dereferenceable(696), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare { <2 x float>, float } @_ZNK4pbrt17AnimatedTransformclENS_6Point3IfEEf(ptr noundef nonnull align 4 dereferenceable(696), <2 x float>, float, float noundef) local_unnamed_addr #1
 
 declare void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr sret(%"class.pbrt::Transform") align 4, <2 x float>, float) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: noreturn
 declare void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
@@ -882,7 +882,7 @@ _ZN4pbrt12StringPrintfIJRKNS_17AnimatedTransformERKNS_9TransformEEEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt6Camera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.10") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp.i.i15.i.i = alloca %"class.pbrt::Camera", align 8
   %agg.tmp.i.i.i.i = alloca %"class.pbrt::Camera", align 8
@@ -926,7 +926,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %lambda, ptr noundef %pRaster2) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt6Camera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %lambda, ptr noundef %pRaster2) local_unnamed_addr #0 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %this.val, 57
@@ -957,7 +957,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Camera6PDF_WeERKNS_3RayEPfS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, ptr nocapture noundef writeonly %pdfPos, ptr nocapture noundef writeonly %pdfDir) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt6Camera6PDF_WeERKNS_3RayEPfS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, ptr noundef writeonly captures(none) %pdfPos, ptr noundef writeonly captures(none) %pdfDir) local_unnamed_addr #5 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %this.val, 57
@@ -988,7 +988,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %ref, <2 x float> %u.coerce, ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.16") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %ref, <2 x float> %u.coerce, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %this.val, 57
@@ -1019,7 +1019,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Camera12InitMetadataEPNS_13ImageMetadataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef initializes((8, 73)) %metadata) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt6Camera12InitMetadataEPNS_13ImageMetadataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef initializes((8, 73)) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp.i.i.i10.i.i = alloca %"class.pbrt::Transform", align 4
   %ref.tmp2.i.i.i11.i.i = alloca %"class.pbrt::Transform", align 4
@@ -1091,7 +1091,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt6Camera8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt6Camera8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i13.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i11.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1285,7 +1285,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10CameraBaseC2ENS_20CameraBaseParametersE(ptr noundef nonnull align 8 dereferenceable(896) initializes((0, 896)) %this, ptr nocapture noundef readonly %p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10CameraBaseC2ENS_20CameraBaseParametersE(ptr noundef nonnull align 8 dereferenceable(896) initializes((0, 896)) %this, ptr noundef readonly captures(none) %p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef nonnull align 8 dereferenceable(824) %p, i64 824, i1 false)
@@ -1348,7 +1348,7 @@ if.end:                                           ; preds = %_ZN4pbrt7WarningIJE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull %camera, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10CameraBase23GenerateRayDifferentialENS_6CameraENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.10") align 8 captures(none) %agg.result, ptr noundef nonnull %camera, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %generate.i93 = alloca %class.anon.81, align 8
   %agg.tmp7892 = alloca %"struct.pbrt::CameraSample", align 8
@@ -1619,7 +1619,7 @@ cleanup:                                          ; preds = %invoke.cont145, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10CameraBase24FindMinimumDifferentialsENS_6CameraE(ptr noundef nonnull align 8 dereferenceable(896) initializes((884, 896)) %this, ptr nocapture noundef readonly %camera) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10CameraBase24FindMinimumDifferentialsENS_6CameraE(ptr noundef nonnull align 8 dereferenceable(896) initializes((884, 896)) %this, ptr noundef readonly captures(none) %camera) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i315 = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2149,7 +2149,7 @@ land.end170:                                      ; preds = %for.end, %_ZN4pbrt3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt10CameraBase12InitMetadataEPNS_13ImageMetadataE(ptr noundef nonnull align 8 dereferenceable(896) %this, ptr nocapture noundef writeonly initializes((8, 73)) %metadata) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt10CameraBase12InitMetadataEPNS_13ImageMetadataE(ptr noundef nonnull align 8 dereferenceable(896) %this, ptr noundef writeonly captures(none) initializes((8, 73)) %metadata) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.pbrt::Transform", align 4
   %ref.tmp2.i = alloca %"class.pbrt::Transform", align 4
@@ -2419,7 +2419,7 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt6Camera6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6MediumERKNS_15CameraTransformENS_4FilmEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Camera") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %medium, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt6Camera6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6MediumERKNS_15CameraTransformENS_4FilmEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Camera") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef readonly captures(none) %medium, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp = alloca %"class.pbrt::Film", align 8
   %agg.tmp1 = alloca %"class.pbrt::Medium", align 8
@@ -2506,7 +2506,7 @@ if.end41:                                         ; preds = %if.end38
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt17PerspectiveCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr nocapture noundef readonly %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt17PerspectiveCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef readonly captures(none) %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.pbrt::CameraBaseParameters", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2889,7 +2889,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i67, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt18OrthographicCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr nocapture noundef readonly %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt18OrthographicCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef readonly captures(none) %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.pbrt::CameraBaseParameters", align 8
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
@@ -3298,7 +3298,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr nocapture noundef readonly %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef readonly captures(none) %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i122 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4589,7 +4589,7 @@ eh.resume:                                        ; preds = %ehcleanup635, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt15SphericalCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr nocapture noundef readonly %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt15SphericalCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef readonly captures(none) %medium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.pbrt::CameraBaseParameters", align 8
   %agg.tmp3.i.i.i = alloca %"class.pbrt::Camera", align 8
@@ -5043,7 +5043,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare void @_ZNK4pbrt19ParameterDictionary12ReportUnusedEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt20CameraBaseParametersC2ERKNS_15CameraTransformENS_4FilmENS_6MediumERKNS_19ParameterDictionaryEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 848)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %film, ptr nocapture noundef readonly %medium, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt20CameraBaseParametersC2ERKNS_15CameraTransformENS_4FilmENS_6MediumERKNS_19ParameterDictionaryEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 848)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %film, ptr noundef readonly captures(none) %medium, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5198,7 +5198,7 @@ if.end:                                           ; preds = %_ZN4pbrt7WarningIJR
 declare noundef float @_ZNK4pbrt19ParameterDictionary11GetOneFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18OrthographicCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt18OrthographicCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.26") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %ray = alloca %"class.pbrt::Ray", align 8
   %ref.tmp34 = alloca %"struct.pbrt::CameraRay", align 8
@@ -5345,7 +5345,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt18OrthographicCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.10") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1440) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %ray = alloca %"class.pbrt::RayDifferential", align 8
   %ref.tmp129 = alloca %"struct.pbrt::CameraRayDifferential", align 8
@@ -5701,7 +5701,7 @@ invoke.cont:                                      ; preds = %entry
 declare void @_ZNK4pbrt19ParameterDictionary13GetFloatArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17PerspectiveCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt17PerspectiveCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.26") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %ray = alloca %"class.pbrt::Ray", align 8
   %ref.tmp39 = alloca %"struct.pbrt::CameraRay", align 8
@@ -5863,7 +5863,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt17PerspectiveCamera23GenerateRayDifferentialENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.10") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %ray = alloca %"class.pbrt::RayDifferential", align 8
   %ref.tmp156 = alloca %"struct.pbrt::CameraRayDifferential", align 8
@@ -6270,7 +6270,7 @@ invoke.cont:                                      ; preds = %entry
 declare void @_ZN4pbrt5ErrorEPKNS_7FileLocEPKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt17PerspectiveCamera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, ptr nocapture nonnull readnone align 4 %lambda, ptr noundef writeonly %pRasterOut) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt17PerspectiveCamera2WeERKNS_3RayERNS_18SampledWavelengthsEPNS_6Point2IfEE(ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, ptr nonnull readnone align 4 captures(none) %lambda, ptr noundef writeonly %pRasterOut) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %retval = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -6532,7 +6532,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17PerspectiveCamera6PDF_WeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ray, ptr nocapture noundef writeonly initializes((0, 4)) %pdfPos, ptr nocapture noundef writeonly initializes((0, 4)) %pdfDir) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt17PerspectiveCamera6PDF_WeERKNS_3RayEPfS4_(ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ray, ptr noundef writeonly captures(none) initializes((0, 4)) %pdfPos, ptr noundef writeonly captures(none) initializes((0, 4)) %pdfDir) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %d = getelementptr inbounds nuw i8, ptr %ray, i64 12
@@ -6657,7 +6657,7 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17PerspectiveCamera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %ref, <2 x float> %u.coerce, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt17PerspectiveCamera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.16") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %ref, <2 x float> %u.coerce, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %lensIntr = alloca %"class.pbrt::Interaction", align 8
   %pRaster = alloca %"class.pbrt::Point2", align 8
@@ -6888,7 +6888,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15SphericalCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(900) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt15SphericalCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.26") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(900) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %ray = alloca %"class.pbrt::Ray", align 8
   %ref.tmp34 = alloca %"struct.pbrt::CameraRay", align 8
@@ -7062,7 +7062,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15RealisticCameraC2ENS_20CameraBaseParametersERSt6vectorIfSaIfEEffNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 896)) %this, ptr nocapture noundef readonly %baseParameters, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lensParameters, float noundef %focusDistance, float noundef %setApertureDiameter, ptr nocapture noundef %apertureImage, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15RealisticCameraC2ENS_20CameraBaseParametersERSt6vectorIfSaIfEEffNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 896)) %this, ptr noundef readonly captures(none) %baseParameters, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lensParameters, float noundef %focusDistance, float noundef %setApertureDiameter, ptr noundef captures(none) %apertureImage, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont40:
   %agg.tmp.i = alloca %"class.std::function.93", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7912,7 +7912,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rCamera, ptr noundef writeonly %rOut) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %rCamera, ptr noundef writeonly %rOut) local_unnamed_addr #0 align 2 {
 entry:
   %rLens = alloca %"class.pbrt::Ray", align 16
   %t = alloca float, align 4
@@ -8381,7 +8381,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt15RealisticCamera21ComputeCardinalPointsENS_3RayES1_PfS2_(ptr nocapture noundef readonly %rIn, ptr nocapture noundef readonly %rOut, ptr nocapture noundef writeonly initializes((0, 4)) %pz, ptr nocapture noundef writeonly initializes((0, 4)) %fz) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4pbrt15RealisticCamera21ComputeCardinalPointsENS_3RayES1_PfS2_(ptr noundef readonly captures(none) %rIn, ptr noundef readonly captures(none) %rOut, ptr noundef writeonly captures(none) initializes((0, 4)) %pz, ptr noundef writeonly captures(none) initializes((0, 4)) %fz) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load float, ptr %rOut, align 8
   %fneg = fneg float %0
@@ -8411,7 +8411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera29ComputeThickLensApproximationEPfS1_(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef writeonly %pz, ptr nocapture noundef writeonly %fz) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt15RealisticCamera29ComputeThickLensApproximationEPfS1_(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef writeonly captures(none) %pz, ptr noundef writeonly captures(none) %fz) local_unnamed_addr #0 align 2 {
 entry:
   %rScene = alloca %"class.pbrt::Ray", align 8
   %rFilm = alloca %"class.pbrt::Ray", align 8
@@ -8534,7 +8534,7 @@ if.end16:                                         ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rCamera, ptr noundef writeonly %rOut) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %rCamera, ptr noundef writeonly %rOut) local_unnamed_addr #0 align 2 {
 entry:
   %o.i = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 8
@@ -9188,7 +9188,7 @@ return:                                           ; preds = %if.then39, %_ZN4pbr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera15SampleExitPupilENS_6Point2IfEES2_(ptr noalias nocapture writeonly sret(%"class.pstd::optional.67") align 4 initializes((0, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, <2 x float> %pFilm.coerce, <2 x float> %uLens.coerce) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4pbrt15RealisticCamera15SampleExitPupilENS_6Point2IfEES2_(ptr noalias writeonly sret(%"class.pstd::optional.67") align 4 captures(none) initializes((0, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, <2 x float> %pFilm.coerce, <2 x float> %uLens.coerce) local_unnamed_addr #10 align 2 {
 entry:
   %0 = fmul <2 x float> %pFilm.coerce, %pFilm.coerce
   %mul.i = extractelement <2 x float> %0, i64 0
@@ -9283,7 +9283,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias nocapture writeonly sret(%"class.pstd::optional.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef readonly byval(%"struct.pbrt::CameraSample") align 8 %sample, ptr nocapture nonnull readnone align 4 %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt15RealisticCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE(ptr noalias writeonly sret(%"class.pstd::optional.26") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef readonly byval(%"struct.pbrt::CameraSample") align 8 captures(none) %sample, ptr nonnull readnone align 4 captures(none) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rFilm = alloca %"class.pbrt::Ray", align 8
   %ray = alloca %"class.pbrt::Ray", align 8
@@ -9527,7 +9527,7 @@ _ZN4pbrt12StringPrintfIJRKfS2_S2_S2_EEENSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera14DrawLensSystemEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt15RealisticCamera14DrawLensSystemEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this) local_unnamed_addr #5 align 2 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i64, align 8
@@ -9710,7 +9710,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA6_KcRA25_S1_S3_RmS5_S6_EEEvNS_8LogLevelEPS1_iS8_DpOT_(i32 noundef %level, ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(6) %args, ptr noundef nonnull align 1 dereferenceable(25) %args1, ptr noundef nonnull align 1 dereferenceable(6) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 1 dereferenceable(25) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
@@ -9745,7 +9745,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera19DrawRayPathFromFilmERKNS_3RayEbb(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, i1 noundef zeroext %arrow, i1 noundef zeroext %toOpticalIntercept) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt15RealisticCamera19DrawRayPathFromFilmERKNS_3RayEbb(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, i1 noundef zeroext %arrow, i1 noundef zeroext %toOpticalIntercept) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %o.i = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 8
@@ -10218,7 +10218,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt15RealisticCamera20DrawRayPathFromSceneERKNS_3RayEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, i1 noundef zeroext %arrow, i1 noundef zeroext %toOpticalIntercept) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt15RealisticCamera20DrawRayPathFromSceneERKNS_3RayEbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %r, i1 noundef zeroext %arrow, i1 noundef zeroext %toOpticalIntercept) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %o.i = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 8
@@ -11701,7 +11701,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #13
@@ -11762,7 +11762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val, ptr nocapture readonly %this.8.val, ptr nocapture readonly %vert.coerce0, i64 %vert.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt15RealisticCamera6CreateERKNS_19ParameterDictionaryERKNS_15CameraTransformENS_4FilmENS_6MediumEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEENK3$_0clENSC_4spanIKNS_6Point2IfEEEE"(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val, ptr readonly captures(none) %this.8.val, ptr readonly captures(none) %vert.coerce0, i64 %vert.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -13904,7 +13904,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
@@ -16980,7 +16980,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -23003,7 +23003,7 @@ ehcleanup42:                                      ; preds = %lpad33, %ehcleanup2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt15RealisticCameraC1ENS1_20CameraBaseParametersERSt6vectorIfSaIfEEffNS1_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt15RealisticCameraC1ENS1_20CameraBaseParametersERSt6vectorIfSaIfEEffNS1_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #0 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
@@ -23042,7 +23042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt15RealisticCameraC1ENS1_20CameraBaseParametersERSt6vectorIfSaIfEEffNS1_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN4pbrt15RealisticCameraC1ENS1_20CameraBaseParametersERSt6vectorIfSaIfEEffNS1_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -27179,7 +27179,7 @@ entry:
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #22
@@ -27188,10 +27188,10 @@ declare i32 @llvm.fshr.i32(i32, i32, i32) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #22

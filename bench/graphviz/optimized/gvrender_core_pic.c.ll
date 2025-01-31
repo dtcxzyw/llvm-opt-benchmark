@@ -241,7 +241,7 @@ define internal void @pic_end_page(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -268,7 +268,7 @@ define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr noc
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %45, label %19
+  br i1 %.not, label %43, label %19
 
 19:                                               ; preds = %._crit_edge
   %20 = load ptr, ptr @pic_textspan.lastname, align 8
@@ -278,86 +278,86 @@ define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr noc
 21:                                               ; preds = %19
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %18) #8
   %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %45, label %23
+  br i1 %.not26, label %43, label %23
 
 23:                                               ; preds = %21, %19
-  %24 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %18)
-  %25 = ptrtoint ptr %18 to i64
+  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %18)
+  %24 = ptrtoint ptr %18 to i64
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %40, %23
-  %.tr15.i = phi i64 [ %24, %23 ], [ %42, %40 ]
-  br label %28
+tailrecurse.i:                                    ; preds = %38, %23
+  %.tr15.i = phi i64 [ %strlen.i, %23 ], [ %40, %38 ]
+  br label %27
 
-26:                                               ; preds = %28
-  %27 = add nuw nsw i64 %.01317.i, 1
-  %exitcond.not.i = icmp eq i64 %27, 33
-  br i1 %exitcond.not.i, label %36, label %28
+25:                                               ; preds = %27
+  %26 = add nuw nsw i64 %.01317.i, 1
+  %exitcond.not.i = icmp eq i64 %26, 33
+  br i1 %exitcond.not.i, label %34, label %27
 
-28:                                               ; preds = %26, %tailrecurse.i
-  %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %27, %26 ]
-  %29 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %31)
-  %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %32)
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef readonly %31, i64 noundef %33) #8
-  %.not.i.i.i.i = icmp eq i32 %34, 0
-  %35 = icmp eq i64 %.tr15.i, %32
-  %spec.select.i.i.i = and i1 %35, %.not.i.i.i.i
-  br i1 %spec.select.i.i.i, label %picfontname.exit, label %26
+27:                                               ; preds = %25, %tailrecurse.i
+  %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
+  %28 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %30)
+  %31 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %strlen.i.i.i)
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %30, i64 noundef %31) #8
+  %.not.i.i.i.i = icmp eq i32 %32, 0
+  %33 = icmp eq i64 %.tr15.i, %strlen.i.i.i
+  %spec.select.i.i.i = and i1 %33, %.not.i.i.i.i
+  br i1 %spec.select.i.i.i, label %picfontname.exit, label %25
 
-36:                                               ; preds = %26
-  %37 = trunc i64 %.tr15.i to i32
-  %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull @picgen_msghdr, i32 noundef %37, ptr noundef nonnull %18) #7
-  %39 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr15.i)
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %picfontname.exit, label %40
+34:                                               ; preds = %25
+  %35 = trunc i64 %.tr15.i to i32
+  %36 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull @picgen_msghdr, i32 noundef %35, ptr noundef nonnull %18) #7
+  %37 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr15.i)
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %picfontname.exit, label %38
 
-40:                                               ; preds = %36
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %41, %25
+38:                                               ; preds = %34
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %39, %24
   br label %tailrecurse.i
 
-picfontname.exit:                                 ; preds = %36, %28
-  %.0.i = phi ptr [ %29, %28 ], [ @.str.48, %36 ]
+picfontname.exit:                                 ; preds = %34, %27
+  %.0.i = phi ptr [ %28, %27 ], [ @.str.48, %34 ]
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %.0.i) #7
-  %43 = load ptr, ptr %14, align 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr @pic_textspan.lastname, align 8
-  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %41 = load ptr, ptr %14, align 8
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr @pic_textspan.lastname, align 8
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %.pre32 = load double, ptr %.phi.trans.insert31, align 8
-  br label %45
+  br label %43
 
-45:                                               ; preds = %picfontname.exit, %21, %._crit_edge
-  %46 = phi double [ %.pre32, %picfontname.exit ], [ %17, %21 ], [ %17, %._crit_edge ]
-  %47 = tail call double @llvm.maxnum.f64(double %46, double 1.000000e+00)
-  %48 = load double, ptr @pic_textspan.lastsize, align 8
-  %49 = fsub double %47, %48
-  %50 = tail call double @llvm.fabs.f64(double %49)
-  %51 = fcmp ogt double %50, 5.000000e-01
-  br i1 %51, label %52, label %54
+43:                                               ; preds = %picfontname.exit, %21, %._crit_edge
+  %44 = phi double [ %.pre32, %picfontname.exit ], [ %17, %21 ], [ %17, %._crit_edge ]
+  %45 = tail call double @llvm.maxnum.f64(double %44, double 1.000000e+00)
+  %46 = load double, ptr @pic_textspan.lastsize, align 8
+  %47 = fsub double %45, %46
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp ogt double %48, 5.000000e-01
+  br i1 %49, label %50, label %52
 
-52:                                               ; preds = %45
-  %53 = load double, ptr @Fontscale, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.45, double noundef %47, double noundef %53) #7
-  store double %47, ptr @pic_textspan.lastsize, align 8
-  br label %54
+50:                                               ; preds = %43
+  %51 = load double, ptr @Fontscale, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.45, double noundef %45, double noundef %51) #7
+  store double %45, ptr @pic_textspan.lastsize, align 8
+  br label %52
 
-54:                                               ; preds = %52, %45
-  %55 = fdiv double %8, 1.440000e+02
-  %56 = fadd double %.sroa.019.0, %55
-  %57 = fdiv double %17, 2.160000e+02
-  %58 = fadd double %2, %57
-  %59 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 34) #7
-  %60 = load ptr, ptr %3, align 8
-  tail call void @gvputs_nonascii(ptr noundef %0, ptr noundef %60) #7
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.46, double noundef %56, double noundef %58) #7
+52:                                               ; preds = %50, %43
+  %53 = fdiv double %8, 1.440000e+02
+  %54 = fadd double %.sroa.019.0, %53
+  %55 = fdiv double %17, 2.160000e+02
+  %56 = fadd double %2, %55
+  %57 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 34) #7
+  %58 = load ptr, ptr %3, align 8
+  tail call void @gvputs_nonascii(ptr noundef %0, ptr noundef %58) #7
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.46, double noundef %54, double noundef %56) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pic_ellipse(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal void @pic_ellipse(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, ptr @.str.84, ptr @.str.83
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -380,7 +380,7 @@ define internal void @pic_ellipse(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pic_polygon(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 %3) #0 {
+define internal void @pic_polygon(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 %3) #0 {
   %.not41.i = icmp eq i64 %2, 0
   br i1 %.not41.i, label %picptarray.exit, label %.lr.ph.i
 
@@ -423,7 +423,7 @@ picptarray.exit:                                  ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pic_bezier(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 %3) #0 {
+define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 %3) #0 {
   %5 = alloca [4 x %struct.pointf_s], align 16
   %6 = load double, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -496,7 +496,7 @@ define internal void @pic_bezier(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pic_polyline(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @pic_polyline(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %.not41.i = icmp eq i64 %2, 0
   br i1 %.not41.i, label %picptarray.exit, label %.lr.ph.i
 
@@ -537,7 +537,7 @@ declare void @gvprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3
@@ -545,7 +545,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.maxnum.f64(double, double) #5
@@ -561,10 +561,10 @@ declare void @gvputs_nonascii(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @gvputs(ptr noundef, ptr noundef) local_unnamed_addr #1
 

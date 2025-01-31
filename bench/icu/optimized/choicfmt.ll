@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7512ChoiceFormat17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7512ChoiceFormat17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7512ChoiceFormat16getStaticClassIDEvE7classID
 }
@@ -416,7 +416,7 @@ if.end47:                                         ; preds = %while.cond10, %whil
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
@@ -809,21 +809,21 @@ declare signext i8 @uprv_isPositiveInfinity_75(double noundef) local_unnamed_add
 declare signext i8 @uprv_isNegativeInfinity_75(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat9getLimitsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat9getLimitsERi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat11getClosuresERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat11getClosuresERi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat10getFormatsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat10getFormatsERi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null
@@ -852,7 +852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512ChoiceFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(488) %this, double noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512ChoiceFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(488) %this, double noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %appendTo, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %msgPattern = getelementptr inbounds nuw i8, ptr %this, i64 360
   %partsLength.i = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -1116,7 +1116,7 @@ return:                                           ; preds = %for.inc, %return.si
 declare noundef double @_ZNK6icu_7511Formattable9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7512ChoiceFormat5parseERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7512ChoiceFormat5parseERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos) unnamed_addr #1 align 2 {
 entry:
   %msgPattern = getelementptr inbounds nuw i8, ptr %this, i64 360
   %call = tail call noundef double @_ZN6icu_7512ChoiceFormat13parseArgumentERKNS_14MessagePatternEiRKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %pos)
@@ -1127,7 +1127,7 @@ entry:
 declare void @_ZN6icu_7511Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7512ChoiceFormat13parseArgumentERKNS_14MessagePatternEiRKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN6icu_7512ChoiceFormat13parseArgumentERKNS_14MessagePatternEiRKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
 entry:
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   %0 = load i32, ptr %index.i, align 8
@@ -1407,10 +1407,10 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

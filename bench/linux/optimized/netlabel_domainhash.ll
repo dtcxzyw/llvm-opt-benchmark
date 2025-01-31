@@ -983,7 +983,7 @@ define internal fastcc ptr @netlbl_domhsh_search_def(ptr noundef readonly %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @netlbl_domhsh_audit_add(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc void @netlbl_domhsh_audit_add(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = tail call ptr @netlbl_audit_start_common(i32 noundef 1409, ptr noundef %4) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %52, label %8
@@ -1480,7 +1480,7 @@ declare dso_local void @calipso_doi_putdef(ptr noundef) local_unnamed_addr #1
 declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6
@@ -2149,7 +2149,7 @@ define dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef %0, ptr noundef %1)
 declare dso_local ptr @netlbl_af6list_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlbl_domhsh_walk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local i32 @netlbl_domhsh_walk(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = load i32, ptr %0, align 4
   %6 = load volatile ptr, ptr @netlbl_domhsh, align 8
@@ -2244,10 +2244,10 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @netlbl_af4list_audit_addr(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

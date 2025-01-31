@@ -159,7 +159,7 @@ $_ZTVN6hermes3hbc14BCProviderBaseE = comdat any
 @_ZTVN6hermes6BufferE = external unnamed_addr constant { [4 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes9compileJSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_bbPNS_17DiagnosticHandlerESt8optionalISt17basic_string_viewIcS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL, ptr noundef nonnull align 8 dereferenceable(32) %bytecode, i1 noundef zeroext %optimize, i1 noundef zeroext %emitAsyncBreakCheck, ptr noundef %diagHandler, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %sourceMapBuf, i1 noundef zeroext %debug) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes9compileJSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_bbPNS_17DiagnosticHandlerESt8optionalISt17basic_string_viewIcS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL, ptr noundef nonnull align 8 dereferenceable(32) %bytecode, i1 noundef zeroext %optimize, i1 noundef zeroext %emitAsyncBreakCheck, ptr noundef %diagHandler, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %sourceMapBuf, i1 noundef zeroext %debug) local_unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.llvh::MemoryBufferRef", align 8
   %flags = alloca %"struct.hermes::hbc::CompileFlags", align 4
@@ -736,7 +736,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermesL18diagHandlerAdapterERKN4llvh12SMDiagnosticEPv(ptr noundef nonnull align 8 dereferenceable(360) %d, ptr noundef %context) #0 {
@@ -837,7 +837,7 @@ _ZN6hermes17DiagnosticHandler10DiagnosticD2Ev.exit: ; preds = %_ZNK4llvh8ArrayRe
 declare void @_ZN6hermes25runFullOptimizationPassesERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1033)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN6hermes3hbc18BytecodeSerializer9serializeERNS0_14BytecodeModuleERKSt5arrayIhLm20EE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(513), ptr noundef nonnull align 1 dereferenceable(20)) local_unnamed_addr #1
 
@@ -1071,7 +1071,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
@@ -1803,10 +1803,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

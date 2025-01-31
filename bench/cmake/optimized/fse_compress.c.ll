@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = shl nuw i32 1, %3
   %8 = add i32 %7, -1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -309,7 +309,7 @@ define dso_local range(i64 3, 536870915) i64 @FSE_NCountWriteBound(i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp ugt i32 %4, 12
   br i1 %6, label %17, label %7
 
@@ -337,7 +337,7 @@ define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 5, 13) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
+define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 5, 13) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 %1
   %8 = add i32 %3, 1
   %.not216 = icmp eq i32 %8, 0
@@ -638,7 +638,7 @@ define dso_local range(i32 5, 13) i32 @FSE_optimalTableLog(i32 noundef %0, i64 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %7, i32 11, i32 %1
   %8 = icmp ult i32 %spec.store.select, 5
@@ -987,7 +987,7 @@ FSE_normalizeM2.exit.thread:                      ; preds = %30, %173, %186, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly initializes((0, 8)) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local noundef i64 @FSE_buildCTable_rle(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %0, align 2
@@ -1006,7 +1006,7 @@ define dso_local noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = lshr i64 %3, 7
   %7 = add i64 %3, 12
   %8 = add i64 %7, %6
@@ -1017,7 +1017,7 @@ define dso_local i64 @FSE_compress_usingCTable(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
+define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %2, i64 %3
   %8 = icmp ult i64 %3, 3
   br i1 %8, label %BIT_closeCStream.exit, label %9

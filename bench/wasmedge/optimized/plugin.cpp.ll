@@ -1428,7 +1428,7 @@ _ZNSt10_HashtableIPKN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESt4pairIKS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1577,7 +1577,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge6Plugin6Plugin21getDefaultPluginPathsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.30") align 8 %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Plugin6Plugin21getDefaultPluginPathsB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.30") align 8 captures(none) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca %"class.std::vector.30", align 8
   %4 = alloca %"class.std::basic_string_view", align 8
@@ -2225,7 +2225,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2259,7 +2259,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -2298,7 +2298,7 @@ _ZN6spdlog6logger5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZNKSt10filesystem7__cxx114path11parent_pathEv(ptr dead_on_unwind writable sret(%"class.std::filesystem::__cxx11::path") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
 
@@ -4972,7 +4972,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
@@ -5647,7 +5647,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZN3fmt2v86detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #14
@@ -22142,7 +22142,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit.i: ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
   %307 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410) #27
-  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
+  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr nonnull %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_RKNS0_18basic_format_specsIS5_EENS1_10locale_refE.exit
 
 309:                                              ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
@@ -22411,7 +22411,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %79
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %82, i64 %66)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
   %84 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %85 = icmp eq i64 %82, %66
   %or.cond.i.i.i.i = and i1 %85, %84
@@ -23345,7 +23345,7 @@ define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_form
   br i1 %19, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %2, i64 %..i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
   %20 = icmp eq i32 %bcmp.i.i, 0
   %21 = icmp eq i64 %18, %3
   %or.cond.i = select i1 %20, i1 %21, i1 false
@@ -32657,7 +32657,7 @@ define linkonce_odr hidden void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %7, ptr %6) #27
+  %8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %7, ptr nonnull %6) #27
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #27
@@ -33612,7 +33612,7 @@ _ZNSt12_Vector_baseIN8WasmEdge6SymbolIvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister13createWrapperEPKNS0_12PluginModule16ModuleDescriptorE(ptr noundef %0) #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -33689,7 +33689,7 @@ _ZNSt13unordered_mapIPKN8WasmEdge6Plugin12PluginModule16ModuleDescriptorEPK25Was
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS0_6Plugin16PluginDescriptorERNS_2PO14ArgumentParserE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(88) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS0_6Plugin16PluginDescriptorERNS_2PO14ArgumentParserE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.318, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -34146,7 +34146,7 @@ _ZNSt10_HashtableIPKN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34157,12 +34157,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPNS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(25) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPNS0_6ToggleENS0_6ParserIbEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(25) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34173,12 +34173,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPaNS0_6ParserIaEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPaNS0_6ParserIaEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34189,12 +34189,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPsNS0_6ParserIsEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPsNS0_6ParserIsEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34205,12 +34205,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPiNS0_6ParserIiEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPiNS0_6ParserIiEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34221,12 +34221,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPlNS0_6ParserIlEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPlNS0_6ParserIlEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34237,12 +34237,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPhNS0_6ParserIhEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPhNS0_6ParserIhEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34253,12 +34253,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPtNS0_6ParserItEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPtNS0_6ParserItEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34269,12 +34269,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPjNS0_6ParserIjEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPjNS0_6ParserIjEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34285,12 +34285,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPmNS0_6ParserImEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPmNS0_6ParserImEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34301,12 +34301,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPfNS0_6ParserIfEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPfNS0_6ParserIfEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34317,12 +34317,12 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPdNS0_6ParserIdEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIPdNS0_6ParserIdEEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeESJ_S1Q_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister17addOptionsWrapperEPKNS6_6Plugin16PluginDescriptorERNS5_2PO14ArgumentParserEEUlRT_E_RSt7variantIJNSD_6OptionIPNSD_6ToggleENSD_6ParserIbEEEENSL_IPaNSO_IaEEEENSL_IPsNSO_IsEEEENSL_IPiNSO_IiEEEENSL_IPlNSO_IlEEEENSL_IPhNSO_IhEEEENSL_IPtNSO_ItEEEENSL_IPjNSO_IjEEEENSL_IPmNSO_ImEEEENSL_IPfNSO_IfEEEENSL_IPdNSO_IdEEEENSL_IP15WasmEdge_StringNSO_IS1L_EEEEEEEJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeESJ_S1Q_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(57) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %3, align 8
@@ -34333,7 +34333,7 @@ define internal void @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_a
   %.val.val.val = load ptr, ptr %.val.val, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.val.val) #27
   %6 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %.val2.val, i64 %.val2.val3
-  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIP15WasmEdge_StringNS0_6ParserIS5_EEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
+  tail call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor10add_optionINS0_6OptionIP15WasmEdge_StringNS0_6ParserIS5_EEEEEEvSt17basic_string_viewIcSt11char_traitsIcEERT_(ptr noundef nonnull align 8 dereferenceable(328) %6, i64 %5, ptr nonnull %.val.val.val, ptr noundef nonnull align 8 dereferenceable(49) %1) #27
   ret void
 }
 
@@ -37125,7 +37125,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO15stringToIntegerIlaEEN5cxx208ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) #19
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) #19
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #12
@@ -41165,7 +41165,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO15stringToIntegerImhEEN5cxx208ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) #19
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvvEZN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorC1INS2_6OptionIPhNS2_6ParserIhEEEEEERT_EUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
@@ -45197,7 +45197,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO16stringToFloatingIffEEN5cxx208e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr nocapture noundef) #19
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvvEZN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorC1INS2_6OptionIPfNS2_6ParserIfEEEEEERT_EUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
@@ -46206,7 +46206,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO16stringToFloatingIddEEN5cxx208e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) #19
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvvEZN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorC1INS2_6OptionIPdNS2_6ParserIdEEEEEERT_EUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
@@ -47830,7 +47830,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11ch
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.split
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.049, i64 16
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %6, ptr %.sroa.2.0.copyload.i.i, i64 %7)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %6, ptr %.sroa.2.0.copyload.i.i, i64 %7)
   %21 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %21, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit, label %23
 
@@ -47846,7 +47846,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_
   br i1 %.not40, label %.loopexit, label %.lr.ph.split, !llvm.loop !859
 
 .loopexit:                                        ; preds = %23, %18, %13, %3
-  %24 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %6, i64 noundef %7, i64 noundef 3339675911)
+  %24 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %6, i64 noundef %7, i64 noundef 3339675911)
           to label %28 unwind label %25
 
 25:                                               ; preds = %.loopexit
@@ -47984,7 +47984,7 @@ declare void @llvm.assume(i1 noundef) #22
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23
@@ -48002,10 +48002,10 @@ declare double @llvm.fabs.f64(double) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #23

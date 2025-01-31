@@ -39,7 +39,7 @@ define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr nounde
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %12 = tail call noalias ptr @wmem_strndup(ptr noundef null, ptr noundef %1, i64 noundef %11) #11
+  %12 = tail call noalias ptr @wmem_strndup(ptr noundef null, ptr noundef nonnull %1, i64 noundef %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call i32 @get_host_ipaddr6(ptr noundef %12, ptr noundef nonnull %13) #11
   %.not33 = icmp eq i32 %14, 0
@@ -47,7 +47,7 @@ define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr nounde
 
 .thread:                                          ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = tail call i32 @get_host_ipaddr6(ptr noundef %1, ptr noundef nonnull %15) #11
+  %16 = tail call i32 @get_host_ipaddr6(ptr noundef nonnull %1, ptr noundef nonnull %15) #11
   %.not3342 = icmp eq i32 %16, 0
   br i1 %.not3342, label %17, label %41
 
@@ -57,7 +57,7 @@ define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr nounde
   br i1 %.not34, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %1) #11
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #11
   store ptr %19, ptr %3, align 8
   br label %20
 
@@ -152,7 +152,7 @@ define internal noalias ptr @ipv6_to_repr(ptr noundef %0, ptr noundef %1, i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ipv6_set(ptr nocapture noundef writeonly initializes((8, 28)) %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @ipv6_set(ptr noundef writeonly captures(none) initializes((8, 28)) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void
@@ -165,7 +165,7 @@ define internal nonnull ptr @ipv6_get(ptr noundef readnone %0) #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -253,7 +253,7 @@ define internal i32 @ipv6_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #4 {
+define internal zeroext i1 @is_zero(ptr noundef readonly captures(none) %0) #4 {
   %2 = alloca %struct.e_in6_addr, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -263,7 +263,7 @@ define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @len(ptr readnone captures(none) %0) #2 {
   ret i32 16
 }
 
@@ -277,7 +277,7 @@ define internal void @slice(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @bitwise_and(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #3 {
+define internal noundef i32 @bitwise_and(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -366,12 +366,12 @@ declare void @ip6_to_str_buf(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @g_int64_hash(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -379,7 +379,7 @@ declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

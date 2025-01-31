@@ -236,7 +236,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
@@ -1309,7 +1309,7 @@ _ZNSt10unique_ptrIN6Assimp7ObjFile5ModelESt14default_deleteIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6Assimp13ObjFileParser9setBufferERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4176) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #7 align 2 {
+define void @_ZN6Assimp13ObjFileParser9setBufferERSt6vectorIcSaIcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(4176) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %buffer) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   store ptr %0, ptr %this, align 8
@@ -1321,10 +1321,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6Assimp13ObjFileParser8GetModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK6Assimp13ObjFileParser8GetModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_pModel = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_pModel, align 8
@@ -1655,7 +1655,7 @@ eh.resume:                                        ; preds = %lpad39, %lpad.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i64 @_ZN6Assimp13ObjFileParser32getNumComponentsInDataDefinitionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZN6Assimp13ObjFileParser32getNumComponentsInDataDefinitionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %.pre = load i8, ptr %0, align 1
@@ -1808,7 +1808,7 @@ while.end:                                        ; preds = %_ZN6Assimp10SkipSpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser10getVector3ERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser10getVector3ERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i95 = alloca float, align 4
   %ret.i47 = alloca float, align 4
@@ -2258,7 +2258,7 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser21getHomogeneousVector3ERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser21getHomogeneousVector3ERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i146 = alloca float, align 4
   %ret.i98 = alloca float, align 4
@@ -2829,7 +2829,7 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser14getTwoVectors3ERSt6vectorI10aiVector3tIfESaIS3_EES6_(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point3d_array_a, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point3d_array_b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser14getTwoVectors3ERSt6vectorI10aiVector3tIfESaIS3_EES6_(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point3d_array_a, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point3d_array_b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i241 = alloca float, align 4
   %ret.i193 = alloca float, align 4
@@ -3653,7 +3653,7 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6Assimp13ObjFileParser17getTexCoordVectorERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6Assimp13ObjFileParser17getTexCoordVectorERSt6vectorI10aiVector3tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point3d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i193 = alloca float, align 4
   %ret.i145 = alloca float, align 4
@@ -4344,7 +4344,7 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser7getFaceE15aiPrimitiveType(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this, i32 noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser7getFaceE15aiPrimitiveType(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this, i32 noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %number = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp76 = alloca %"class.std::allocator.2", align 1
@@ -5549,7 +5549,7 @@ eh.resume:                                        ; preds = %ehcleanup201, %ehcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp13ObjFileParser10getCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6Assimp13ObjFileParser10getCommentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %m_DataItEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5632,7 +5632,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser15getMaterialDescEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser15getMaterialDescEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::allocator.2", align 1
@@ -6186,7 +6186,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %m_DataItEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6748,7 +6748,7 @@ eh.resume:                                        ; preds = %ehcleanup117, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser12getGroupNameEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser12getGroupNameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %groupName = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %groupName) #24
@@ -7010,7 +7010,7 @@ cleanup:                                          ; preds = %invoke.cont13, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp13ObjFileParser14getGroupNumberEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6Assimp13ObjFileParser14getGroupNumberEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %m_DataItEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7085,7 +7085,7 @@ _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser13getObjectNameEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser13getObjectNameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strObjectName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::allocator.2", align 1
@@ -7359,7 +7359,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp13ObjFileParser12copyNextWordEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef writeonly %pBuffer, i64 noundef %length) local_unnamed_addr #11 align 2 {
+define void @_ZN6Assimp13ObjFileParser12copyNextWordEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this, ptr noundef writeonly captures(none) %pBuffer, i64 noundef %length) local_unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %m_DataItEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7501,7 +7501,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser10getVector2ERSt6vectorI10aiVector2tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %point2d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser10getVector2ERSt6vectorI10aiVector2tIfESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %point2d_array) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i47 = alloca float, align 4
   %ret.i = alloca float, align 4
@@ -7855,7 +7855,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #4
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
@@ -7863,7 +7863,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %m_DataItEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7976,7 +7976,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser12createObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %objName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser12createObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %objName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator.2", align 1
@@ -8136,7 +8136,7 @@ if.end:                                           ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser10createMeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %meshName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser10createMeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %meshName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(105) %call, ptr noundef nonnull align 8 dereferenceable(32) %meshName)
@@ -8478,7 +8478,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN6Assimp13ObjFileParser12needsNewMeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %materialName) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6Assimp13ObjFileParser12needsNewMeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %materialName) local_unnamed_addr #0 align 2 {
 entry:
   %m_pModel = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_pModel, align 8
@@ -8513,7 +8513,7 @@ return:                                           ; preds = %land.lhs.true8, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strMaterialName) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6Assimp13ObjFileParser16getMaterialIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(32) %strMaterialName) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %strMaterialName) #24
   br i1 %call, label %return, label %for.cond.preheader
@@ -8727,7 +8727,7 @@ declare void @_ZN6Assimp18ObjFileMtlImporterC1ERSt6vectorIcSaIcEERKNSt7__cxx1112
 declare void @_ZN6Assimp18ObjFileMtlImporterD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParser14getNewMaterialEv(ptr nocapture noundef nonnull align 8 dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParser14getNewMaterialEv(ptr noundef nonnull align 8 captures(none) dereferenceable(4176) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strMat = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator.2", align 1
@@ -9281,13 +9281,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJEPKcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(8) %u) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10672,7 +10672,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -12678,13 +12678,13 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20

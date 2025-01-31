@@ -353,7 +353,7 @@ qed_write_l1_table.exit:                          ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table(ptr noundef %s, ptr noundef captures(none) %request, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %request, align 8
   tail call void @qed_unref_l2_cache_entry(ptr noundef %0) #6
@@ -426,14 +426,14 @@ declare void @qed_commit_l2_cache_entry(ptr noundef, ptr noundef) local_unnamed_
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table_sync(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table_sync(ptr noundef %s, ptr noundef captures(none) %request, i64 noundef %offset) #0 {
 entry:
   %call = tail call i32 @qed_read_l2_table(ptr noundef %s, ptr noundef %request, i64 noundef %offset)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table(ptr noundef %s, ptr noundef readonly captures(none) %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file = getelementptr inbounds nuw i8, ptr %0, i64 16840
@@ -456,7 +456,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table_sync(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table_sync(ptr noundef %s, ptr noundef readonly captures(none) %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file.i = getelementptr inbounds nuw i8, ptr %0, i64 16840
@@ -501,7 +501,7 @@ entry:
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -538,10 +538,10 @@ declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

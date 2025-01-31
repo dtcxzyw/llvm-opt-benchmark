@@ -332,7 +332,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %for.cond.i.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z30grpc_is_binary_header_internalRK10grpc_slice(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z30grpc_is_binary_header_internalRK10grpc_slice(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %slice) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -361,7 +361,7 @@ _Z25grpc_key_is_binary_headerPKhm.exit:           ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @grpc_is_binary_header(ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %slice) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @grpc_is_binary_header(ptr noundef readonly byval(%struct.grpc_slice) align 8 captures(none) %slice) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -404,7 +404,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
@@ -420,7 +420,7 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

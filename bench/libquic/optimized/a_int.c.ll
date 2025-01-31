@@ -225,10 +225,10 @@ return:                                           ; preds = %if.end36.thread88, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @c2i_ASN1_INTEGER(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @c2i_ASN1_INTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -407,14 +407,14 @@ declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -543,7 +543,7 @@ return:                                           ; preds = %lor.lhs.false47, %i
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr nocapture noundef initializes((4, 8)) %a, i64 noundef %v) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) initializes((4, 8)) %a, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [9 x i8], align 1
   %type = getelementptr inbounds nuw i8, ptr %a, i64 4
@@ -791,12 +791,12 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i64 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ASN1_INTEGER_to_BN(ptr nocapture noundef readonly %ai, ptr noundef %bn) local_unnamed_addr #0 {
+define hidden ptr @ASN1_INTEGER_to_BN(ptr noundef readonly captures(none) %ai, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ai, i64 8
   %0 = load ptr, ptr %data, align 8

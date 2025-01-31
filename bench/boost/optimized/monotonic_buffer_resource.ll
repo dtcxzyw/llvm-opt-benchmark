@@ -49,7 +49,7 @@ $_ZTVN5boost9container9bad_allocE = comdat any
 @_ZN5boost9container3pmr25monotonic_buffer_resourceD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resource20increase_next_bufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resource20increase_next_bufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !3
   %4 = shl nuw i64 %3, 1
@@ -60,7 +60,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource20increase_next_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_least_toEm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = icmp ult i64 %4, %1
@@ -90,7 +90,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
@@ -132,7 +132,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory_resourceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null
@@ -181,7 +181,7 @@ _ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_leas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memory_resourceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %7
@@ -216,7 +216,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -262,7 +262,7 @@ _ZN5boost9container3pmr11block_slistD2Ev.exit:    ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resource7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resource7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !21
@@ -317,14 +317,14 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD0Ev(ptr noundef 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK5boost9container3pmr25monotonic_buffer_resource17upstream_resourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZNK5boost9container3pmr25monotonic_buffer_resource17upstream_resourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEmRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEmRm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = add i64 %1, -1
   %5 = sub i64 0, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -341,7 +341,7 @@ define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = add i64 %1, -1
   %4 = sub i64 0, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -357,21 +357,21 @@ define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK5boost9container3pmr25monotonic_buffer_resource14current_bufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK5boost9container3pmr25monotonic_buffer_resource14current_bufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource16next_buffer_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource16next_buffer_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource21allocate_from_currentEmm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource21allocate_from_currentEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %1
@@ -386,7 +386,7 @@ define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource21allocate
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource11do_allocateEmm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN5boost9container3pmr25monotonic_buffer_resource11do_allocateEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
   %4 = icmp ugt i64 %2, 16
   br i1 %4, label %5, label %7
 
@@ -489,7 +489,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resource13do_deallocateEPvmm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2, i64 %3) unnamed_addr #9 align 2 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resource13do_deallocateEPvmm(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) unnamed_addr #9 align 2 {
   ret void
 }
 
@@ -541,7 +541,7 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

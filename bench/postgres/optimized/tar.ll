@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"postgres\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @print_tar_number(ptr nocapture noundef writeonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @print_tar_number(ptr noundef writeonly captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = mul i32 %1, 3
   %5 = add i32 %4, -3
   %6 = zext nneg i32 %5 to i64
@@ -62,7 +62,7 @@ define dso_local void @print_tar_number(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local i64 @read_tar_number(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -128
   br i1 %4, label %.preheader, label %.preheader19
@@ -114,7 +114,7 @@ define dso_local i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @tarChecksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i32 @tarChecksum(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %1, %10
@@ -471,16 +471,16 @@ print_tar_number.exit115:                         ; preds = %.lr.ph.i107, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

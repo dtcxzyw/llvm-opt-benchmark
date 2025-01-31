@@ -281,12 +281,12 @@ define internal i32 @linebuffer_puts(ptr noundef %b, ptr noundef %str) #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @linebuffer_write(ptr noundef %b, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @linebuffer_write(ptr noundef %b, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @linebuffer_gets(ptr nocapture noundef readonly %b, ptr noundef %buf, i32 noundef %size) #2 {
+define internal i32 @linebuffer_gets(ptr noundef readonly captures(none) %b, ptr noundef %buf, i32 noundef %size) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
@@ -504,7 +504,7 @@ return:                                           ; preds = %if.end23, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @linebuffer_new(ptr nocapture noundef writeonly %bi) #2 {
+define internal range(i32 0, 2) i32 @linebuffer_new(ptr noundef writeonly captures(none) %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef 60) #5
   %cmp = icmp eq ptr %call, null
@@ -564,7 +564,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @linebuffer_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
+define internal i64 @linebuffer_callback_ctrl(ptr noundef readonly captures(none) %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
@@ -583,19 +583,19 @@ return:                                           ; preds = %entry, %if.end
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

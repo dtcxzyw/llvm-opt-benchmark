@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_MfsConvertAigToHop_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_MfsConvertAigToHop_rec(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -148,7 +148,7 @@ declare void @Aig_ManCleanData(ptr noundef) local_unnamed_addr #1
 declare ptr @Hop_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_MfsConvertHopToAig_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_MfsConvertHopToAig_rec(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %3, align 8
   %4 = and i32 %.val, 22
@@ -216,7 +216,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_MfsConvertHopToAig(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_MfsConvertHopToAig(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load ptr, ptr %4, align 8
@@ -344,7 +344,7 @@ define void @Abc_MfsConvertHopToAig(ptr nocapture noundef %0, ptr noundef %1) lo
 declare void @Hop_ConeUnmark_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkConstructAig_rec(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkConstructAig_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -508,7 +508,7 @@ declare ptr @Aig_Exor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @Aig_Or(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkConstructCare_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkConstructCare_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val32 = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 32
@@ -588,7 +588,7 @@ define ptr @Abc_NtkConstructCare_rec(ptr noundef %0, ptr nocapture noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NtkConstructAig(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Aig_ManStart(i32 noundef 1000) #3
   %4 = tail call ptr @Abc_NtkConstructAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = tail call ptr @Aig_ObjCreateCo(ptr noundef %3, ptr noundef %4) #3
@@ -825,7 +825,7 @@ declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkAigForConstraints(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1001,7 +1001,7 @@ define ptr @Abc_NtkAigForConstraints(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define double @Abc_NtkConstraintRatio(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define double @Abc_NtkConstraintRatio(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkAigForConstraints(ptr noundef %0, ptr poison)
   %4 = tail call ptr @Fra_SmlSimulateComb(ptr noundef %3, i32 noundef 256, i32 noundef 0) #3
   %5 = getelementptr i8, ptr %3, i64 24

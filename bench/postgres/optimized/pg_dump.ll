@@ -3338,7 +3338,7 @@ dumpNamespace.exit:                               ; preds = %800, %871
   %914 = load i32, ptr %428, align 8
   %915 = load i8, ptr %429, align 4
   %916 = trunc i8 %915 to i1
-  call void @appendStringLiteral(ptr noundef %878, ptr noundef %910, i32 noundef %914, i1 noundef zeroext %916) #14
+  call void @appendStringLiteral(ptr noundef %878, ptr noundef nonnull %910, i32 noundef %914, i1 noundef zeroext %916) #14
   br label %918
 
 917:                                              ; preds = %890
@@ -3357,7 +3357,7 @@ dumpNamespace.exit:                               ; preds = %800, %871
   %924 = load i32, ptr %428, align 8
   %925 = load i8, ptr %429, align 4
   %926 = trunc i8 %925 to i1
-  call void @appendStringLiteral(ptr noundef %878, ptr noundef %920, i32 noundef %924, i1 noundef zeroext %926) #14
+  call void @appendStringLiteral(ptr noundef %878, ptr noundef nonnull %920, i32 noundef %924, i1 noundef zeroext %926) #14
   br label %928
 
 927:                                              ; preds = %918
@@ -4044,9 +4044,9 @@ sub_0305.i:                                       ; preds = %1230, %.tail300.thr
 1249:                                             ; preds = %.lr.ph315.i
   %1250 = getelementptr i8, ptr %1247, i64 1
   store i8 0, ptr %1247, align 1
-  %1251 = call ptr @fmtId(ptr noundef %1246) #14
+  %1251 = call ptr @fmtId(ptr noundef nonnull %1246) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1032, ptr noundef nonnull @.str.987, ptr noundef %1251) #14
-  %1252 = call zeroext i1 @variable_is_guc_list_quote(ptr noundef %1246) #14
+  %1252 = call zeroext i1 @variable_is_guc_list_quote(ptr noundef nonnull %1246) #14
   br i1 %1252, label %1253, label %1268
 
 1253:                                             ; preds = %1249
@@ -4647,7 +4647,7 @@ sub_0262.i:                                       ; preds = %1503, %1501
   br i1 %1522, label %getFormattedOperatorName.exit.thread.i345, label %.tail.thread.i.i343
 
 .tail.thread.i.i343:                              ; preds = %.tail.i.i347, %1518
-  %1523 = call i64 @strtoul(ptr nocapture noundef nonnull %1402, ptr noundef null, i32 noundef 10) #14
+  %1523 = call i64 @strtoul(ptr noundef nonnull captures(none) %1402, ptr noundef null, i32 noundef 10) #14
   %1524 = trunc i64 %1523 to i32
   %1525 = call ptr @findOprByOid(i32 noundef %1524) #14
   %1526 = icmp eq ptr %1525, null
@@ -5024,7 +5024,7 @@ sub_0177.i:                                       ; preds = %1690, %.tail172.i, 
   br i1 %1703, label %getFormattedOperatorName.exit.thread.i, label %.tail.thread.i135.i
 
 .tail.thread.i135.i:                              ; preds = %.tail.i137.i, %1699
-  %1704 = call i64 @strtoul(ptr nocapture noundef nonnull %1657, ptr noundef null, i32 noundef 10) #14
+  %1704 = call i64 @strtoul(ptr noundef nonnull captures(none) %1657, ptr noundef null, i32 noundef 10) #14
   %1705 = trunc i64 %1704 to i32
   %1706 = call ptr @findOprByOid(i32 noundef %1705) #14
   %1707 = icmp eq ptr %1706, null
@@ -5063,7 +5063,7 @@ getFormattedOperatorName.exit.thread.i:           ; preds = %1717, %getFormatted
   br i1 %1721, label %sub_0184.i, label %.tail.thread.i139.i
 
 .tail.thread.i139.i:                              ; preds = %.tail.i141.i, %getFormattedOperatorName.exit.thread.i
-  %1722 = call i64 @strtoul(ptr nocapture noundef nonnull %1658, ptr noundef null, i32 noundef 10) #14
+  %1722 = call i64 @strtoul(ptr noundef nonnull captures(none) %1658, ptr noundef null, i32 noundef 10) #14
   %1723 = trunc i64 %1722 to i32
   %1724 = call ptr @findOprByOid(i32 noundef %1723) #14
   %1725 = icmp eq ptr %1724, null
@@ -10563,7 +10563,7 @@ sub_0121.i:                                       ; preds = %.tail116.thread.i, 
   br i1 %.not92.i, label %4514, label %4512
 
 4512:                                             ; preds = %.tail120.thread.i
-  %4513 = call ptr @fmtId(ptr noundef %4510) #14
+  %4513 = call ptr @fmtId(ptr noundef nonnull %4510) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %4432, ptr noundef nonnull @.str.1573, ptr noundef %4513) #14
   br label %4514
 
@@ -10992,7 +10992,7 @@ dumpDumpableObject.exit:                          ; preds = %788, %798, %dumpNam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @pg_logging_init(ptr noundef) local_unnamed_addr #2
 
@@ -11005,7 +11005,7 @@ declare void @init_parallel_dump_utils() local_unnamed_addr #2
 declare ptr @get_progname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @help(ptr noundef %0) unnamed_addr #4 {
@@ -11090,7 +11090,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #4 {
 declare void @exit_nicely(i32 noundef) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @InitDumpOptions(ptr noundef) local_unnamed_addr #2
 
@@ -11114,7 +11114,7 @@ declare zeroext i1 @parse_sync_method(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #4 {
+define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #4 {
   store i32 1, ptr %1, align 4
   %3 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.615) #14
   %4 = icmp eq i32 %3, 0
@@ -11432,7 +11432,7 @@ sub_2:                                            ; preds = %sub_1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_schema_name_patterns(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc void @expand_schema_name_patterns(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %1, align 8
@@ -11511,7 +11511,7 @@ prohibit_crossdb_refs.exit:                       ; preds = %25, %17
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.029 = phi i32 [ %40, %.lr.ph ], [ 0, %34 ]
   %37 = call ptr @PQgetvalue(ptr noundef %29, i32 noundef %.029, i32 noundef 0) #14
-  %38 = call i64 @strtoul(ptr nocapture noundef %37, ptr noundef null, i32 noundef 10) #14
+  %38 = call i64 @strtoul(ptr noundef captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
   call void @simple_oid_list_append(ptr noundef %2, i32 noundef %39) #14
   %40 = add nuw nsw i32 %.029, 1
@@ -11535,7 +11535,7 @@ prohibit_crossdb_refs.exit:                       ; preds = %25, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_table_name_patterns(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc void @expand_table_name_patterns(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 {
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %1, align 8
@@ -11631,7 +11631,7 @@ prohibit_crossdb_refs.exit:                       ; preds = %28, %20
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %.035 = phi i32 [ %46, %.lr.ph ], [ 0, %40 ]
   %43 = call ptr @PQgetvalue(ptr noundef %34, i32 noundef %.035, i32 noundef 0) #14
-  %44 = call i64 @strtoul(ptr nocapture noundef %43, ptr noundef null, i32 noundef 10) #14
+  %44 = call i64 @strtoul(ptr noundef captures(none) %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   call void @simple_oid_list_append(ptr noundef %2, i32 noundef %45) #14
   %46 = add nuw nsw i32 %.035, 1
@@ -11702,7 +11702,7 @@ define internal fastcc void @expand_foreign_server_name_patterns(ptr noundef %0)
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02 = phi i32 [ %24, %.lr.ph ], [ 0, %.preheader ]
   %21 = call ptr @PQgetvalue(ptr noundef %15, i32 noundef %.02, i32 noundef 0) #14
-  %22 = call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #14
+  %22 = call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #14
   %23 = trunc i64 %22 to i32
   call void @simple_oid_list_append(ptr noundef nonnull @foreign_servers_include_oids, i32 noundef %23) #14
   %24 = add nuw nsw i32 %.02, 1
@@ -11776,7 +11776,7 @@ define internal fastcc void @expand_extension_name_patterns(ptr noundef %0, i1 n
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.02 = phi i32 [ %27, %.lr.ph ], [ 0, %21 ]
   %24 = call ptr @PQgetvalue(ptr noundef %16, i32 noundef %.02, i32 noundef 0) #14
-  %25 = call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   call void @simple_oid_list_append(ptr noundef nonnull @extension_include_oids, i32 noundef %26) #14
   %27 = add nuw nsw i32 %.02, 1
@@ -11816,7 +11816,7 @@ define internal fastcc void @collectRoleNames(ptr noundef %0) unnamed_addr #4 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 0) #14
-  %11 = tail call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #14
+  %11 = tail call i64 @strtoul(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #14
   %12 = trunc i64 %11 to i32
   %13 = load ptr, ptr @rolenames, align 8
   %14 = getelementptr %struct.RoleNameItem, ptr %13, i64 %indvars.iv
@@ -11917,11 +11917,11 @@ define internal fastcc void @buildMatViewRefreshDependencies(ptr noundef %0) unn
 .lr.ph:                                           ; preds = %5, %41
   %.039 = phi i32 [ %42, %41 ], [ 0, %5 ]
   %14 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.039, i32 noundef %10) #14
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
+  %15 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #14
   %16 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.039, i32 noundef %11) #14
-  %17 = tail call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #14
+  %17 = tail call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.039, i32 noundef %12) #14
-  %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
+  %19 = tail call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #14
   %.sroa.3.0.insert.ext = shl i64 %17, 32
   %.sroa.012.0.insert.ext = and i64 %15, 4294967295
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.ext, %.sroa.012.0.insert.ext
@@ -12073,7 +12073,7 @@ define internal fastcc void @getLOs(ptr noundef %0) unnamed_addr #4 {
   store i32 2613, ptr %18, align 4
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %6) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %22, ptr %23, align 4
@@ -12095,7 +12095,7 @@ define internal fastcc void @getLOs(ptr noundef %0) unnamed_addr #4 {
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr null, ptr %34, align 8
   %35 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %7) #14
-  %36 = tail call i64 @strtoul(ptr nocapture noundef readonly %35, ptr noundef null, i32 noundef 10) #14
+  %36 = tail call i64 @strtoul(ptr noundef readonly captures(none) %35, ptr noundef null, i32 noundef 10) #14
   %37 = trunc i64 %36 to i32
   %38 = load i32, ptr @nrolenames, align 4
   %39 = icmp sgt i32 %38, 0
@@ -12225,14 +12225,14 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
   %.054 = phi i32 [ %49, %48 ], [ 0, %1 ]
   %.04753 = phi ptr [ %.152, %48 ], [ null, %1 ]
   %12 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %6) #14
-  %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #14
+  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #14
   %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %7) #14
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
+  %15 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
   %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %8) #14
-  %18 = tail call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #14
+  %18 = tail call i64 @strtoul(ptr noundef captures(none) %17, ptr noundef null, i32 noundef 10) #14
   %19 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %9) #14
-  %20 = tail call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #14
+  %20 = tail call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #14
   %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %10) #14
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq ptr %.04753, null
@@ -12325,7 +12325,7 @@ define internal fastcc void @getAdditionalACLs(ptr noundef %0) unnamed_addr #4 {
 .lr.ph:                                           ; preds = %1, %16
   %.068 = phi i32 [ %17, %16 ], [ 0, %1 ]
   %7 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.068, i32 noundef 0) #14
-  %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #14
+  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #14
   %9 = trunc i64 %8 to i32
   %10 = tail call ptr @findTableByOid(i32 noundef %9) #14
   %.not67 = icmp eq ptr %10, null
@@ -12363,10 +12363,10 @@ define internal fastcc void @getAdditionalACLs(ptr noundef %0) unnamed_addr #4 {
 .lr.ph71:                                         ; preds = %21, %58
   %.169 = phi i32 [ %59, %58 ], [ 0, %21 ]
   %26 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 0) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 1) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef %.169, i32 noundef 2) #14
   %33 = tail call i32 @atoi(ptr noundef %32) #15
@@ -12470,10 +12470,10 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   %.049 = phi i32 [ %58, %57 ], [ 0, %1 ]
   %.04048 = phi ptr [ %.147, %57 ], [ null, %1 ]
   %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %6) #14
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
+  %15 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
   %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %7) #14
-  %18 = tail call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #14
+  %18 = tail call i64 @strtoul(ptr noundef captures(none) %17, ptr noundef null, i32 noundef 10) #14
   %19 = trunc i64 %18 to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %8) #14
   %21 = tail call i32 @atoi(ptr noundef %20) #15
@@ -12585,10 +12585,10 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   %.053 = phi i32 [ %65, %64 ], [ 0, %1 ]
   %.04452 = phi ptr [ %.151, %64 ], [ null, %1 ]
   %15 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %7) #14
-  %16 = tail call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #14
+  %16 = tail call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #14
   %17 = trunc i64 %16 to i32
   %18 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %8) #14
-  %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
+  %19 = tail call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
   %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %9) #14
   %22 = tail call i32 @atoi(ptr noundef %21) #15
@@ -12707,7 +12707,7 @@ define internal fastcc noundef ptr @createBoundaryObjects() unnamed_addr #4 {
 declare void @getDumpableObjects(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addBoundaryDependencies(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @addBoundaryDependencies(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = getelementptr i8, ptr %2, i64 64
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -13021,13 +13021,13 @@ define internal fastcc void @dumpDatabase(ptr noundef %0) unnamed_addr #4 {
   %40 = tail call i32 @PQfnumber(ptr noundef %23, ptr noundef nonnull @.str.666) #14
   %41 = tail call i32 @PQfnumber(ptr noundef %23, ptr noundef nonnull @.str.346) #14
   %42 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %24) #14
-  %43 = tail call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #14
+  %43 = tail call i64 @strtoul(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #14
   %44 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %25) #14
-  %45 = tail call i64 @strtoul(ptr nocapture noundef %44, ptr noundef null, i32 noundef 10) #14
+  %45 = tail call i64 @strtoul(ptr noundef captures(none) %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %26) #14
   %48 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %27) #14
-  %49 = tail call i64 @strtoul(ptr nocapture noundef readonly %48, ptr noundef null, i32 noundef 10) #14
+  %49 = tail call i64 @strtoul(ptr noundef readonly captures(none) %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
   %51 = load i32, ptr @nrolenames, align 4
   %52 = icmp sgt i32 %51, 0
@@ -13105,10 +13105,10 @@ getRoleName.exit:                                 ; preds = %68
 86:                                               ; preds = %82, %84
   %.0269 = phi ptr [ %85, %84 ], [ null, %82 ]
   %87 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %34) #14
-  %88 = tail call i64 @strtoul(ptr nocapture noundef %87, ptr noundef null, i32 noundef 10) #14
+  %88 = tail call i64 @strtoul(ptr noundef captures(none) %87, ptr noundef null, i32 noundef 10) #14
   %89 = trunc i64 %88 to i32
   %90 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %35) #14
-  %91 = tail call i64 @strtoul(ptr nocapture noundef %90, ptr noundef null, i32 noundef 10) #14
+  %91 = tail call i64 @strtoul(ptr noundef captures(none) %90, ptr noundef null, i32 noundef 10) #14
   %92 = trunc i64 %91 to i32
   %93 = tail call ptr @PQgetvalue(ptr noundef %23, i32 noundef 0, i32 noundef %36) #14
   store ptr %93, ptr %3, align 8
@@ -13550,7 +13550,7 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
   store i32 0, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, i8 0, i64 16, i1 false)
-  %295 = call ptr @ArchiveEntry(ptr noundef %0, i64 0, i32 noundef %282, ptr noundef nonnull %7) #14
+  %295 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 0, i32 noundef %282, ptr noundef nonnull %7) #14
   br label %296
 
 296:                                              ; preds = %281, %278
@@ -13581,20 +13581,20 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
 .lr.ph:                                           ; preds = %298, %328
   %.0270308 = phi i32 [ %329, %328 ], [ 0, %298 ]
   %312 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %306) #14
-  %313 = call i64 @strtoul(ptr nocapture noundef %312, ptr noundef null, i32 noundef 10) #14
+  %313 = call i64 @strtoul(ptr noundef captures(none) %312, ptr noundef null, i32 noundef 10) #14
   %314 = trunc i64 %313 to i32
   %315 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %307) #14
-  %316 = call i64 @strtoul(ptr nocapture noundef %315, ptr noundef null, i32 noundef 10) #14
+  %316 = call i64 @strtoul(ptr noundef captures(none) %315, ptr noundef null, i32 noundef 10) #14
   %317 = trunc i64 %316 to i32
   %318 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %309) #14
-  %319 = call i64 @strtoul(ptr nocapture noundef %318, ptr noundef null, i32 noundef 10) #14
+  %319 = call i64 @strtoul(ptr noundef captures(none) %318, ptr noundef null, i32 noundef 10) #14
   %320 = trunc i64 %319 to i32
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %301, ptr noundef nonnull @.str.703, i32 noundef %314, i32 noundef %317, i32 noundef %320) #14
   %321 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %309) #14
-  %322 = call i64 @strtoul(ptr nocapture noundef %321, ptr noundef null, i32 noundef 10) #14
+  %322 = call i64 @strtoul(ptr noundef captures(none) %321, ptr noundef null, i32 noundef 10) #14
   %323 = trunc i64 %322 to i32
   %324 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %308) #14
-  %325 = call i64 @strtoul(ptr nocapture noundef %324, ptr noundef null, i32 noundef 10) #14
+  %325 = call i64 @strtoul(ptr noundef captures(none) %324, ptr noundef null, i32 noundef 10) #14
   %326 = trunc i64 %325 to i32
   switch i32 %323, label %328 [
     i32 2613, label %.sink.split
@@ -13630,7 +13630,7 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
   %337 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %338 = load ptr, ptr %300, align 8
   store ptr %338, ptr %337, align 8
-  %339 = call ptr @ArchiveEntry(ptr noundef %0, i64 0, i32 noundef %333, ptr noundef nonnull %8) #14
+  %339 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 0, i32 noundef %333, ptr noundef nonnull %8) #14
   call void @PQclear(ptr noundef %305) #14
   call void @destroyPQExpBuffer(ptr noundef nonnull %299) #14
   call void @destroyPQExpBuffer(ptr noundef nonnull %301) #14
@@ -13650,7 +13650,7 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
 declare ptr @NewRestoreOptions() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @ProcessArchiveRestoreOptions(ptr noundef) local_unnamed_addr #2
 
@@ -13860,7 +13860,7 @@ define dso_local void @getPolicies(ptr noundef %0, ptr noundef %1, i32 noundef %
   %indvars.iv144 = phi i64 [ 0, %58 ], [ %indvars.iv.next145, %122 ]
   %72 = trunc nuw nsw i64 %indvars.iv144 to i32
   %73 = tail call ptr @PQgetvalue(ptr noundef %55, i32 noundef %72, i32 noundef %61) #14
-  %74 = tail call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #14
+  %74 = tail call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = trunc i64 %74 to i32
   %76 = tail call ptr @findTableByOid(i32 noundef %75) #14
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -13870,12 +13870,12 @@ define dso_local void @getPolicies(ptr noundef %0, ptr noundef %1, i32 noundef %
   %80 = getelementptr %struct._policyInfo, ptr %70, i64 %indvars.iv144
   store i32 41, ptr %80, align 8
   %81 = tail call ptr @PQgetvalue(ptr noundef %55, i32 noundef %72, i32 noundef %60) #14
-  %82 = tail call i64 @strtoul(ptr nocapture noundef %81, ptr noundef null, i32 noundef 10) #14
+  %82 = tail call i64 @strtoul(ptr noundef captures(none) %81, ptr noundef null, i32 noundef 10) #14
   %83 = trunc i64 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %83, ptr %84, align 4
   %85 = tail call ptr @PQgetvalue(ptr noundef %55, i32 noundef %72, i32 noundef %59) #14
-  %86 = tail call i64 @strtoul(ptr nocapture noundef %85, ptr noundef null, i32 noundef 10) #14
+  %86 = tail call i64 @strtoul(ptr noundef captures(none) %85, ptr noundef null, i32 noundef 10) #14
   %87 = trunc i64 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %87, ptr %88, align 4
@@ -13977,7 +13977,7 @@ declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
 declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -13990,7 +13990,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #2
 declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getPublications(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8
@@ -14041,12 +14041,12 @@ define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writ
   store i32 42, ptr %32, align 8
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call ptr @PQgetvalue(ptr noundef %16, i32 noundef %33, i32 noundef %18) #14
-  %35 = tail call i64 @strtoul(ptr nocapture noundef %34, ptr noundef null, i32 noundef 10) #14
+  %35 = tail call i64 @strtoul(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 10) #14
   %36 = trunc i64 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %36, ptr %37, align 4
   %38 = tail call ptr @PQgetvalue(ptr noundef %16, i32 noundef %33, i32 noundef %19) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %40, ptr %41, align 4
@@ -14056,7 +14056,7 @@ define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writ
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %43, ptr %44, align 8
   %45 = tail call ptr @PQgetvalue(ptr noundef %16, i32 noundef %33, i32 noundef %21) #14
-  %46 = tail call i64 @strtoul(ptr nocapture noundef readonly %45, ptr noundef null, i32 noundef 10) #14
+  %46 = tail call i64 @strtoul(ptr noundef readonly captures(none) %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = load i32, ptr @nrolenames, align 4
   %49 = icmp sgt i32 %48, 0
@@ -14315,10 +14315,10 @@ define dso_local void @getPublicationNamespaces(ptr noundef %0) local_unnamed_ad
   %.061 = phi i32 [ %83, %82 ], [ 0, %9 ]
   %.05760 = phi i32 [ %.1, %82 ], [ 0, %9 ]
   %22 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %16) #14
-  %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #14
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #14
   %24 = trunc i64 %23 to i32
   %25 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %17) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = tail call ptr @findPublicationByOid(i32 noundef %24) #14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %82, label %29
@@ -14340,12 +14340,12 @@ define dso_local void @getPublicationNamespaces(ptr noundef %0) local_unnamed_ad
   %39 = getelementptr %struct._PublicationSchemaInfo, ptr %20, i64 %38
   store i32 44, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %14) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %42, ptr %43, align 4
   %44 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %15) #14
-  %45 = tail call i64 @strtoul(ptr nocapture noundef %44, ptr noundef null, i32 noundef 10) #14
+  %45 = tail call i64 @strtoul(ptr noundef captures(none) %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %46, ptr %47, align 4
@@ -14430,7 +14430,7 @@ declare ptr @findPublicationByOid(i32 noundef) local_unnamed_addr #2
 declare ptr @findNamespaceByOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @getPublicationTables(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8
@@ -14470,10 +14470,10 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   %.08898 = phi i32 [ %118, %117 ], [ 0, %13 ]
   %.08997 = phi i32 [ %.1, %117 ], [ 0, %13 ]
   %30 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %22) #14
-  %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
+  %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
   %33 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %23) #14
-  %34 = call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
+  %34 = call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #14
   %35 = call ptr @findPublicationByOid(i32 noundef %32) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %117, label %37
@@ -14496,12 +14496,12 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   %47 = getelementptr %struct._PublicationRelInfo, ptr %28, i64 %46
   store i32 43, ptr %47, align 8
   %48 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %20) #14
-  %49 = call i64 @strtoul(ptr nocapture noundef %48, ptr noundef null, i32 noundef 10) #14
+  %49 = call i64 @strtoul(ptr noundef captures(none) %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %50, ptr %51, align 4
   %52 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %21) #14
-  %53 = call i64 @strtoul(ptr nocapture noundef %52, ptr noundef null, i32 noundef 10) #14
+  %53 = call i64 @strtoul(ptr noundef captures(none) %52, ptr noundef null, i32 noundef 10) #14
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %54, ptr %55, align 4
@@ -14806,12 +14806,12 @@ is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, 
   store i32 45, ptr %78, align 8
   %79 = trunc nuw nsw i64 %indvars.iv to i32
   %80 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %79, i32 noundef %56) #14
-  %81 = tail call i64 @strtoul(ptr nocapture noundef %80, ptr noundef null, i32 noundef 10) #14
+  %81 = tail call i64 @strtoul(ptr noundef captures(none) %80, ptr noundef null, i32 noundef 10) #14
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %82, ptr %83, align 4
   %84 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %79, i32 noundef %57) #14
-  %85 = tail call i64 @strtoul(ptr nocapture noundef %84, ptr noundef null, i32 noundef 10) #14
+  %85 = tail call i64 @strtoul(ptr noundef captures(none) %84, ptr noundef null, i32 noundef 10) #14
   %86 = trunc i64 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %86, ptr %87, align 4
@@ -14821,7 +14821,7 @@ is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, 
   %90 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %89, ptr %90, align 8
   %91 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %79, i32 noundef %59) #14
-  %92 = tail call i64 @strtoul(ptr nocapture noundef readonly %91, ptr noundef null, i32 noundef 10) #14
+  %92 = tail call i64 @strtoul(ptr noundef readonly captures(none) %91, ptr noundef null, i32 noundef 10) #14
   %93 = trunc i64 %92 to i32
   %94 = load i32, ptr @nrolenames, align 4
   %95 = icmp sgt i32 %94, 0
@@ -15020,7 +15020,7 @@ selectDumpableObject.exit:                        ; preds = %176, %179, %182, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr #4 {
@@ -15069,10 +15069,10 @@ define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr 
   %.06781 = phi i32 [ 0, %.lr.ph.preheader ], [ %.168, %selectDumpableObject.exit ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @PQgetvalue(ptr noundef %13, i32 noundef %25, i32 noundef %17) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = tail call ptr @PQgetvalue(ptr noundef %13, i32 noundef %25, i32 noundef %18) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %.not75 = icmp eq i32 %.06781, %28
   br i1 %.not75, label %36, label %32
@@ -15204,7 +15204,7 @@ selectDumpableObject.exit:                        ; preds = %68, %71, %74, %80, 
 declare ptr @findSubscriptionByOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getNamespaces(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.177) #14
   %4 = load ptr, ptr %3, align 8
@@ -15233,12 +15233,12 @@ define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeo
   store i32 0, ptr %19, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %10) #14
-  %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #14
+  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #14
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %23, ptr %24, align 4
   %25 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %11) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %27, ptr %28, align 4
@@ -15260,11 +15260,11 @@ define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeo
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr null, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %13) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 100
   store i32 %42, ptr %43, align 4
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr noundef readonly captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -15540,7 +15540,7 @@ declare void @appendPGArray(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getExtensions(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getExtensions(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.185) #14
@@ -15572,12 +15572,12 @@ define dso_local ptr @getExtensions(ptr noundef %0, ptr nocapture noundef writeo
   store i32 1, ptr %22, align 8
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %23, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %26, ptr %27, align 4
   %28 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %23, i32 noundef %12) #14
-  %29 = tail call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #14
+  %29 = tail call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #14
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %30, ptr %31, align 4
@@ -15648,7 +15648,7 @@ selectDumpableExtension.exit:                     ; preds = %21, %56, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTypes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTypes(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.191) #14
   %4 = load ptr, ptr %3, align 8
@@ -15685,12 +15685,12 @@ define dso_local ptr @getTypes(ptr noundef %0, ptr nocapture noundef writeonly %
   store i32 2, ptr %27, align 8
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %10) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %31, ptr %32, align 4
   %33 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %11) #14
-  %34 = tail call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
+  %34 = tail call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #14
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %35, ptr %36, align 4
@@ -15700,7 +15700,7 @@ define dso_local ptr @getTypes(ptr noundef %0, ptr nocapture noundef writeonly %
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %38, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %13) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = tail call ptr @findNamespaceByOid(i32 noundef %42) #14
   %44 = icmp eq ptr %43, null
@@ -15727,7 +15727,7 @@ findNamespace.exit:                               ; preds = %26
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %55 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %16) #14
-  %56 = tail call i64 @strtoul(ptr nocapture noundef readonly %55, ptr noundef null, i32 noundef 10) #14
+  %56 = tail call i64 @strtoul(ptr noundef readonly captures(none) %55, ptr noundef null, i32 noundef 10) #14
   %57 = trunc i64 %56 to i32
   %58 = load i32, ptr @nrolenames, align 4
   %59 = icmp sgt i32 %58, 0
@@ -15783,12 +15783,12 @@ getRoleName.exit:                                 ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %27, i64 104
   store ptr %81, ptr %82, align 8
   %83 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %17) #14
-  %84 = tail call i64 @strtoul(ptr nocapture noundef %83, ptr noundef null, i32 noundef 10) #14
+  %84 = tail call i64 @strtoul(ptr noundef captures(none) %83, ptr noundef null, i32 noundef 10) #14
   %85 = trunc i64 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store i32 %85, ptr %86, align 8
   %87 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %28, i32 noundef %18) #14
-  %88 = tail call i64 @strtoul(ptr nocapture noundef %87, ptr noundef null, i32 noundef 10) #14
+  %88 = tail call i64 @strtoul(ptr noundef captures(none) %87, ptr noundef null, i32 noundef 10) #14
   %89 = trunc i64 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %27, i64 116
   store i32 %89, ptr %90, align 4
@@ -15990,12 +15990,12 @@ selectDumpableType.exit:                          ; preds = %118, %120, %136, %1
   %191 = getelementptr %struct._constraintInfo, ptr %184, i64 %indvars.iv.i
   store i32 20, ptr %191, align 8
   %192 = tail call ptr @PQgetvalue(ptr noundef %176, i32 noundef %187, i32 noundef %178) #14
-  %193 = tail call i64 @strtoul(ptr nocapture noundef %192, ptr noundef null, i32 noundef 10) #14
+  %193 = tail call i64 @strtoul(ptr noundef captures(none) %192, ptr noundef null, i32 noundef 10) #14
   %194 = trunc i64 %193 to i32
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 %194, ptr %195, align 4
   %196 = tail call ptr @PQgetvalue(ptr noundef %176, i32 noundef %187, i32 noundef %179) #14
-  %197 = tail call i64 @strtoul(ptr nocapture noundef %196, ptr noundef null, i32 noundef 10) #14
+  %197 = tail call i64 @strtoul(ptr noundef captures(none) %196, ptr noundef null, i32 noundef 10) #14
   %198 = trunc i64 %197 to i32
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 %198, ptr %199, align 4
@@ -16089,7 +16089,7 @@ thread-pre-split:                                 ; preds = %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOperators(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getOperators(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.202) #14
   %4 = load ptr, ptr %3, align 8
@@ -16120,12 +16120,12 @@ define dso_local ptr @getOperators(ptr noundef %0, ptr nocapture noundef writeon
   store i32 6, ptr %20, align 8
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %10) #14
-  %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #14
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #14
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %24, ptr %25, align 4
   %26 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %11) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %28, ptr %29, align 4
@@ -16135,7 +16135,7 @@ define dso_local ptr @getOperators(ptr noundef %0, ptr nocapture noundef writeon
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %31, ptr %32, align 8
   %33 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %13) #14
-  %34 = tail call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
+  %34 = tail call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #14
   %35 = trunc i64 %34 to i32
   %36 = tail call ptr @findNamespaceByOid(i32 noundef %35) #14
   %37 = icmp eq ptr %36, null
@@ -16150,7 +16150,7 @@ findNamespace.exit:                               ; preds = %19
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %36, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %14) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr noundef readonly captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr @nrolenames, align 4
   %44 = icmp sgt i32 %43, 0
@@ -16210,7 +16210,7 @@ getRoleName.exit:                                 ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i8 %69, ptr %70, align 8
   %71 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %16) #14
-  %72 = tail call i64 @strtoul(ptr nocapture noundef %71, ptr noundef null, i32 noundef 10) #14
+  %72 = tail call i64 @strtoul(ptr noundef captures(none) %71, ptr noundef null, i32 noundef 10) #14
   %73 = trunc i64 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store i32 %73, ptr %74, align 4
@@ -16280,7 +16280,7 @@ selectDumpableObject.exit:                        ; preds = %84, %87, %90, %95, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getCollations(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getCollations(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.208) #14
   %4 = load ptr, ptr %3, align 8
@@ -16309,12 +16309,12 @@ define dso_local ptr @getCollations(ptr noundef %0, ptr nocapture noundef writeo
   store i32 10, ptr %18, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %10) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %26, ptr %27, align 4
@@ -16324,7 +16324,7 @@ define dso_local ptr @getCollations(ptr noundef %0, ptr nocapture noundef writeo
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %13) #14
-  %32 = tail call i64 @strtoul(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #14
+  %32 = tail call i64 @strtoul(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #14
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @findNamespaceByOid(i32 noundef %33) #14
   %35 = icmp eq ptr %34, null
@@ -16339,7 +16339,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr noundef readonly captures(none) %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -16460,7 +16460,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getConversions(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getConversions(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.212) #14
   %4 = load ptr, ptr %3, align 8
@@ -16489,12 +16489,12 @@ define dso_local ptr @getConversions(ptr noundef %0, ptr nocapture noundef write
   store i32 11, ptr %18, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %10) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %26, ptr %27, align 4
@@ -16504,7 +16504,7 @@ define dso_local ptr @getConversions(ptr noundef %0, ptr nocapture noundef write
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %13) #14
-  %32 = tail call i64 @strtoul(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #14
+  %32 = tail call i64 @strtoul(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #14
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @findNamespaceByOid(i32 noundef %33) #14
   %35 = icmp eq ptr %34, null
@@ -16519,7 +16519,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr noundef readonly captures(none) %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -16640,7 +16640,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAccessMethods(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getAccessMethods(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 90600
@@ -16678,12 +16678,12 @@ define dso_local ptr @getAccessMethods(ptr noundef %0, ptr nocapture noundef wri
   store i32 7, ptr %21, align 8
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %22, i32 noundef %15) #14
-  %24 = tail call i64 @strtoul(ptr nocapture noundef %23, ptr noundef null, i32 noundef 10) #14
+  %24 = tail call i64 @strtoul(ptr noundef captures(none) %23, ptr noundef null, i32 noundef 10) #14
   %25 = trunc i64 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %25, ptr %26, align 4
   %27 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %22, i32 noundef %16) #14
-  %28 = tail call i64 @strtoul(ptr nocapture noundef %27, ptr noundef null, i32 noundef 10) #14
+  %28 = tail call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #14
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %29, ptr %30, align 4
@@ -16769,7 +16769,7 @@ selectDumpableAccessMethod.exit:                  ; preds = %50, %53, %56, %chec
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOpclasses(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getOpclasses(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.220) #14
   %4 = load ptr, ptr %3, align 8
@@ -16798,12 +16798,12 @@ define dso_local ptr @getOpclasses(ptr noundef %0, ptr nocapture noundef writeon
   store i32 8, ptr %18, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %10) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %26, ptr %27, align 4
@@ -16813,7 +16813,7 @@ define dso_local ptr @getOpclasses(ptr noundef %0, ptr nocapture noundef writeon
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %13) #14
-  %32 = tail call i64 @strtoul(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #14
+  %32 = tail call i64 @strtoul(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #14
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @findNamespaceByOid(i32 noundef %33) #14
   %35 = icmp eq ptr %34, null
@@ -16828,7 +16828,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr noundef readonly captures(none) %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -16949,7 +16949,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOpfamilies(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getOpfamilies(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.224) #14
   %4 = load ptr, ptr %3, align 8
@@ -16978,12 +16978,12 @@ define dso_local ptr @getOpfamilies(ptr noundef %0, ptr nocapture noundef writeo
   store i32 9, ptr %18, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %10) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %26, ptr %27, align 4
@@ -16993,7 +16993,7 @@ define dso_local ptr @getOpfamilies(ptr noundef %0, ptr nocapture noundef writeo
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %13) #14
-  %32 = tail call i64 @strtoul(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #14
+  %32 = tail call i64 @strtoul(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #14
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @findNamespaceByOid(i32 noundef %33) #14
   %35 = icmp eq ptr %34, null
@@ -17008,7 +17008,7 @@ findNamespace.exit:                               ; preds = %17
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %34, ptr %37, align 8
   %38 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %14) #14
-  %39 = tail call i64 @strtoul(ptr nocapture noundef readonly %38, ptr noundef null, i32 noundef 10) #14
+  %39 = tail call i64 @strtoul(ptr noundef readonly captures(none) %38, ptr noundef null, i32 noundef 10) #14
   %40 = trunc i64 %39 to i32
   %41 = load i32, ptr @nrolenames, align 4
   %42 = icmp sgt i32 %41, 0
@@ -17129,7 +17129,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getAggregates(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17188,12 +17188,12 @@ define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeo
   store i32 5, ptr %33, align 8
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %23) #14
-  %36 = tail call i64 @strtoul(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #14
+  %36 = tail call i64 @strtoul(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #14
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %37, ptr %38, align 4
   %39 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %24) #14
-  %40 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 10) #14
+  %40 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 10) #14
   %41 = trunc i64 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %41, ptr %42, align 4
@@ -17203,7 +17203,7 @@ define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeo
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %44, ptr %45, align 8
   %46 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %26) #14
-  %47 = tail call i64 @strtoul(ptr nocapture noundef %46, ptr noundef null, i32 noundef 10) #14
+  %47 = tail call i64 @strtoul(ptr noundef captures(none) %46, ptr noundef null, i32 noundef 10) #14
   %48 = trunc i64 %47 to i32
   %49 = tail call ptr @findNamespaceByOid(i32 noundef %48) #14
   %50 = icmp eq ptr %49, null
@@ -17230,7 +17230,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 88
   store ptr null, ptr %60, align 8
   %61 = tail call ptr @PQgetvalue(ptr noundef %18, i32 noundef %34, i32 noundef %29) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef readonly %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr noundef readonly captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   %64 = load i32, ptr @nrolenames, align 4
   %65 = icmp sgt i32 %64, 0
@@ -17396,7 +17396,7 @@ selectDumpableObject.exit:                        ; preds = %116, %119, %122, %1
 declare void @parseOidArray(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getFuncs(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17477,12 +17477,12 @@ define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly i
   store i32 4, ptr %43, align 8
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %31) #14
-  %46 = tail call i64 @strtoul(ptr nocapture noundef %45, ptr noundef null, i32 noundef 10) #14
+  %46 = tail call i64 @strtoul(ptr noundef captures(none) %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %47, ptr %48, align 4
   %49 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %32) #14
-  %50 = tail call i64 @strtoul(ptr nocapture noundef %49, ptr noundef null, i32 noundef 10) #14
+  %50 = tail call i64 @strtoul(ptr noundef captures(none) %49, ptr noundef null, i32 noundef 10) #14
   %51 = trunc i64 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %51, ptr %52, align 4
@@ -17492,7 +17492,7 @@ define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly i
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %54, ptr %55, align 8
   %56 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %34) #14
-  %57 = tail call i64 @strtoul(ptr nocapture noundef %56, ptr noundef null, i32 noundef 10) #14
+  %57 = tail call i64 @strtoul(ptr noundef captures(none) %56, ptr noundef null, i32 noundef 10) #14
   %58 = trunc i64 %57 to i32
   %59 = tail call ptr @findNamespaceByOid(i32 noundef %58) #14
   %60 = icmp eq ptr %59, null
@@ -17519,7 +17519,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %70 = getelementptr inbounds nuw i8, ptr %43, i64 88
   store ptr null, ptr %70, align 8
   %71 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %35) #14
-  %72 = tail call i64 @strtoul(ptr nocapture noundef readonly %71, ptr noundef null, i32 noundef 10) #14
+  %72 = tail call i64 @strtoul(ptr noundef readonly captures(none) %71, ptr noundef null, i32 noundef 10) #14
   %73 = trunc i64 %72 to i32
   %74 = load i32, ptr @nrolenames, align 4
   %75 = icmp sgt i32 %74, 0
@@ -17575,12 +17575,12 @@ getRoleName.exit:                                 ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %43, i64 96
   store ptr %97, ptr %98, align 8
   %99 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %36) #14
-  %100 = tail call i64 @strtoul(ptr nocapture noundef %99, ptr noundef null, i32 noundef 10) #14
+  %100 = tail call i64 @strtoul(ptr noundef captures(none) %99, ptr noundef null, i32 noundef 10) #14
   %101 = trunc i64 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %43, i64 104
   store i32 %101, ptr %102, align 8
   %103 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %44, i32 noundef %39) #14
-  %104 = tail call i64 @strtoul(ptr nocapture noundef %103, ptr noundef null, i32 noundef 10) #14
+  %104 = tail call i64 @strtoul(ptr noundef captures(none) %103, ptr noundef null, i32 noundef 10) #14
   %105 = trunc i64 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %43, i64 120
   store i32 %105, ptr %106, align 8
@@ -17691,7 +17691,7 @@ selectDumpableObject.exit:                        ; preds = %132, %135, %138, %1
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTables(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTables(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.251) #14
@@ -17819,12 +17819,12 @@ define dso_local ptr @getTables(ptr noundef %0, ptr nocapture noundef writeonly 
   store i32 12, ptr %81, align 8
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   %83 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %34) #14
-  %84 = tail call i64 @strtoul(ptr nocapture noundef %83, ptr noundef null, i32 noundef 10) #14
+  %84 = tail call i64 @strtoul(ptr noundef captures(none) %83, ptr noundef null, i32 noundef 10) #14
   %85 = trunc i64 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %85, ptr %86, align 4
   %87 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %35) #14
-  %88 = tail call i64 @strtoul(ptr nocapture noundef %87, ptr noundef null, i32 noundef 10) #14
+  %88 = tail call i64 @strtoul(ptr noundef captures(none) %87, ptr noundef null, i32 noundef 10) #14
   %89 = trunc i64 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %89, ptr %90, align 4
@@ -17834,7 +17834,7 @@ define dso_local ptr @getTables(ptr noundef %0, ptr nocapture noundef writeonly 
   %93 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %92, ptr %93, align 8
   %94 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %37) #14
-  %95 = tail call i64 @strtoul(ptr nocapture noundef %94, ptr noundef null, i32 noundef 10) #14
+  %95 = tail call i64 @strtoul(ptr noundef captures(none) %94, ptr noundef null, i32 noundef 10) #14
   %96 = trunc i64 %95 to i32
   %97 = tail call ptr @findNamespaceByOid(i32 noundef %96) #14
   %98 = icmp eq ptr %97, null
@@ -17865,12 +17865,12 @@ findNamespace.exit:                               ; preds = %80
   %111 = getelementptr inbounds nuw i8, ptr %81, i64 104
   store i8 %110, ptr %111, align 8
   %112 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %39) #14
-  %113 = tail call i64 @strtoul(ptr nocapture noundef %112, ptr noundef null, i32 noundef 10) #14
+  %113 = tail call i64 @strtoul(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 10) #14
   %114 = trunc i64 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %81, i64 176
   store i32 %114, ptr %115, align 8
   %116 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %40) #14
-  %117 = tail call i64 @strtoul(ptr nocapture noundef readonly %116, ptr noundef null, i32 noundef 10) #14
+  %117 = tail call i64 @strtoul(ptr noundef readonly captures(none) %116, ptr noundef null, i32 noundef 10) #14
   %118 = trunc i64 %117 to i32
   %119 = load i32, ptr @nrolenames, align 4
   %120 = icmp sgt i32 %119, 0
@@ -17989,7 +17989,7 @@ getRoleName.exit.tail:                            ; preds = %getRoleName.exit.ta
 
 175:                                              ; preds = %170
   %176 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %46) #14
-  %177 = tail call i64 @strtoul(ptr nocapture noundef %176, ptr noundef null, i32 noundef 10) #14
+  %177 = tail call i64 @strtoul(ptr noundef captures(none) %176, ptr noundef null, i32 noundef 10) #14
   %178 = trunc i64 %177 to i32
   %179 = getelementptr inbounds nuw i8, ptr %81, i64 188
   store i32 %178, ptr %179, align 4
@@ -18094,27 +18094,27 @@ sub_1373:                                         ; preds = %.tail375
   %231 = getelementptr inbounds nuw i8, ptr %81, i64 149
   store i8 %230, ptr %231, align 1
   %232 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %56) #14
-  %233 = tail call i64 @strtoul(ptr nocapture noundef %232, ptr noundef null, i32 noundef 10) #14
+  %233 = tail call i64 @strtoul(ptr noundef captures(none) %232, ptr noundef null, i32 noundef 10) #14
   %234 = trunc i64 %233 to i32
   %235 = getelementptr inbounds nuw i8, ptr %81, i64 152
   store i32 %234, ptr %235, align 8
   %236 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %57) #14
-  %237 = tail call i64 @strtoul(ptr nocapture noundef %236, ptr noundef null, i32 noundef 10) #14
+  %237 = tail call i64 @strtoul(ptr noundef captures(none) %236, ptr noundef null, i32 noundef 10) #14
   %238 = trunc i64 %237 to i32
   %239 = getelementptr inbounds nuw i8, ptr %81, i64 164
   store i32 %238, ptr %239, align 4
   %240 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %58) #14
-  %241 = tail call i64 @strtoul(ptr nocapture noundef %240, ptr noundef null, i32 noundef 10) #14
+  %241 = tail call i64 @strtoul(ptr noundef captures(none) %240, ptr noundef null, i32 noundef 10) #14
   %242 = trunc i64 %241 to i32
   %243 = getelementptr inbounds nuw i8, ptr %81, i64 160
   store i32 %242, ptr %243, align 8
   %244 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %59) #14
-  %245 = tail call i64 @strtoul(ptr nocapture noundef %244, ptr noundef null, i32 noundef 10) #14
+  %245 = tail call i64 @strtoul(ptr noundef captures(none) %244, ptr noundef null, i32 noundef 10) #14
   %246 = trunc i64 %245 to i32
   %247 = getelementptr inbounds nuw i8, ptr %81, i64 156
   store i32 %246, ptr %247, align 4
   %248 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %60) #14
-  %249 = tail call i64 @strtoul(ptr nocapture noundef %248, ptr noundef null, i32 noundef 10) #14
+  %249 = tail call i64 @strtoul(ptr noundef captures(none) %248, ptr noundef null, i32 noundef 10) #14
   %250 = trunc i64 %249 to i32
   %251 = getelementptr inbounds nuw i8, ptr %81, i64 168
   store i32 %250, ptr %251, align 8
@@ -18140,12 +18140,12 @@ sub_1373:                                         ; preds = %.tail375
   %263 = getelementptr inbounds nuw i8, ptr %81, i64 136
   store ptr %262, ptr %263, align 8
   %264 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %64) #14
-  %265 = tail call i64 @strtoul(ptr nocapture noundef %264, ptr noundef null, i32 noundef 10) #14
+  %265 = tail call i64 @strtoul(ptr noundef captures(none) %264, ptr noundef null, i32 noundef 10) #14
   %266 = trunc i64 %265 to i32
   %267 = getelementptr inbounds nuw i8, ptr %81, i64 180
   store i32 %266, ptr %267, align 4
   %268 = tail call ptr @PQgetvalue(ptr noundef %29, i32 noundef %82, i32 noundef %65) #14
-  %269 = tail call i64 @strtoul(ptr nocapture noundef %268, ptr noundef null, i32 noundef 10) #14
+  %269 = tail call i64 @strtoul(ptr noundef captures(none) %268, ptr noundef null, i32 noundef 10) #14
   %270 = trunc i64 %269 to i32
   %271 = getelementptr inbounds nuw i8, ptr %81, i64 184
   store i32 %270, ptr %271, align 8
@@ -18390,7 +18390,7 @@ declare void @ExecuteSqlStatement(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @fmtQualifiedId(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getOwnedSeqs(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @getOwnedSeqs(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -18460,7 +18460,7 @@ define dso_local void @getOwnedSeqs(ptr nocapture noundef readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getInherits(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getInherits(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.313) #14
   %4 = load ptr, ptr %3, align 8
@@ -18483,12 +18483,12 @@ define dso_local ptr @getInherits(ptr noundef %0, ptr nocapture noundef writeonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %13, i32 noundef %10) #14
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
+  %15 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
   %17 = getelementptr %struct._inhInfo, ptr %9, i64 %indvars.iv
   store i32 %16, ptr %17, align 4
   %18 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %13, i32 noundef %11) #14
-  %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
+  %19 = tail call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %20, ptr %21, align 4
@@ -18528,7 +18528,7 @@ define dso_local void @getPartitioningInfo(ptr noundef %0) local_unnamed_addr #4
 .lr.ph:                                           ; preds = %10, %22
   %.017 = phi i32 [ %24, %22 ], [ 0, %10 ]
   %16 = tail call ptr @PQgetvalue(ptr noundef %13, i32 noundef %.017, i32 noundef 0) #14
-  %17 = tail call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #14
+  %17 = tail call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = trunc i64 %17 to i32
   %19 = tail call ptr @findTableByOid(i32 noundef %18) #14
   %20 = icmp eq ptr %19, null
@@ -18668,7 +18668,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.0282 = phi i32 [ %81, %.loopexit ], [ -1, %._crit_edge ]
   %.0256281 = phi i32 [ %108, %.loopexit ], [ 0, %._crit_edge ]
   %69 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.0256281, i32 noundef %42) #14
-  %70 = tail call i64 @strtoul(ptr nocapture noundef %69, ptr noundef null, i32 noundef 10) #14
+  %70 = tail call i64 @strtoul(ptr noundef captures(none) %69, ptr noundef null, i32 noundef 10) #14
   %71 = trunc i64 %70 to i32
   %72 = sub i32 %39, %.0256281
   %73 = icmp sgt i32 %72, 1
@@ -18678,7 +18678,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.0261273 = phi i32 [ %79, %78 ], [ 1, %.lr.ph284 ]
   %74 = add i32 %.0261273, %.0256281
   %75 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %74, i32 noundef %42) #14
-  %76 = tail call i64 @strtoul(ptr nocapture noundef %75, ptr noundef null, i32 noundef 10) #14
+  %76 = tail call i64 @strtoul(ptr noundef captures(none) %75, ptr noundef null, i32 noundef 10) #14
   %77 = trunc i64 %76 to i32
   %.not = icmp eq i32 %77, %71
   br i1 %.not, label %78, label %._crit_edge276
@@ -18748,12 +18748,12 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %111 = getelementptr %struct._indxInfo, ptr %66, i64 %110
   store i32 15, ptr %111, align 8
   %112 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %40) #14
-  %113 = tail call i64 @strtoul(ptr nocapture noundef %112, ptr noundef null, i32 noundef 10) #14
+  %113 = tail call i64 @strtoul(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 10) #14
   %114 = trunc i64 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 %114, ptr %115, align 4
   %116 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %41) #14
-  %117 = tail call i64 @strtoul(ptr nocapture noundef %116, ptr noundef null, i32 noundef 10) #14
+  %117 = tail call i64 @strtoul(ptr noundef captures(none) %116, ptr noundef null, i32 noundef 10) #14
   %118 = trunc i64 %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 %118, ptr %119, align 4
@@ -18827,7 +18827,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %171 = zext i1 %169 to i8
   store i8 %171, ptr %170, align 2
   %172 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %44) #14
-  %173 = tail call i64 @strtoul(ptr nocapture noundef %172, ptr noundef null, i32 noundef 10) #14
+  %173 = tail call i64 @strtoul(ptr noundef captures(none) %172, ptr noundef null, i32 noundef 10) #14
   %174 = trunc i64 %173 to i32
   %175 = getelementptr inbounds nuw i8, ptr %111, i64 132
   store i32 %174, ptr %175, align 4
@@ -18846,12 +18846,12 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %181 = tail call ptr @pg_malloc(i64 noundef 112) #14
   store i32 20, ptr %181, align 8
   %182 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %57) #14
-  %183 = tail call i64 @strtoul(ptr nocapture noundef %182, ptr noundef null, i32 noundef 10) #14
+  %183 = tail call i64 @strtoul(ptr noundef captures(none) %182, ptr noundef null, i32 noundef 10) #14
   %184 = trunc i64 %183 to i32
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 %184, ptr %185, align 4
   %186 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %58) #14
-  %187 = tail call i64 @strtoul(ptr nocapture noundef %186, ptr noundef null, i32 noundef 10) #14
+  %187 = tail call i64 @strtoul(ptr noundef captures(none) %186, ptr noundef null, i32 noundef 10) #14
   %188 = trunc i64 %187 to i32
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 %188, ptr %189, align 4
@@ -18969,12 +18969,12 @@ define dso_local void @getExtendedStatistics(ptr noundef %0) local_unnamed_addr 
   store i32 17, ptr %23, align 8
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %12) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %27, ptr %28, align 4
   %29 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %13) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %31, ptr %32, align 4
@@ -18984,7 +18984,7 @@ define dso_local void @getExtendedStatistics(ptr noundef %0) local_unnamed_addr 
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %34, ptr %35, align 8
   %36 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %15) #14
-  %37 = tail call i64 @strtoul(ptr nocapture noundef %36, ptr noundef null, i32 noundef 10) #14
+  %37 = tail call i64 @strtoul(ptr noundef captures(none) %36, ptr noundef null, i32 noundef 10) #14
   %38 = trunc i64 %37 to i32
   %39 = tail call ptr @findNamespaceByOid(i32 noundef %38) #14
   %40 = icmp eq ptr %39, null
@@ -18999,7 +18999,7 @@ findNamespace.exit:                               ; preds = %.lr.ph
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %39, ptr %42, align 8
   %43 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %16) #14
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %43, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr noundef readonly captures(none) %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -19055,7 +19055,7 @@ getRoleName.exit:                                 ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %69, ptr %70, align 8
   %71 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %24, i32 noundef %17) #14
-  %72 = tail call i64 @strtoul(ptr nocapture noundef %71, ptr noundef null, i32 noundef 10) #14
+  %72 = tail call i64 @strtoul(ptr noundef captures(none) %71, ptr noundef null, i32 noundef 10) #14
   %73 = trunc i64 %72 to i32
   %74 = tail call ptr @findTableByOid(i32 noundef %73) #14
   %75 = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -19238,7 +19238,7 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
   %.0123147 = phi ptr [ null, %.lr.ph150.preheader ], [ %.1124, %.loopexit ]
   %50 = trunc nuw nsw i64 %indvars.iv163 to i32
   %51 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %41) #14
-  %52 = tail call i64 @strtoul(ptr nocapture noundef %51, ptr noundef null, i32 noundef 10) #14
+  %52 = tail call i64 @strtoul(ptr noundef captures(none) %51, ptr noundef null, i32 noundef 10) #14
   %53 = trunc i64 %52 to i32
   %54 = icmp eq ptr %.0123147, null
   br i1 %54, label %.preheader178, label %55
@@ -19277,12 +19277,12 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
   %68 = getelementptr %struct._constraintInfo, ptr %48, i64 %indvars.iv163
   store i32 21, ptr %68, align 8
   %69 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %39) #14
-  %70 = tail call i64 @strtoul(ptr nocapture noundef %69, ptr noundef null, i32 noundef 10) #14
+  %70 = tail call i64 @strtoul(ptr noundef captures(none) %69, ptr noundef null, i32 noundef 10) #14
   %71 = trunc i64 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %71, ptr %72, align 4
   %73 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %40) #14
-  %74 = tail call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #14
+  %74 = tail call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 %75, ptr %76, align 4
@@ -19306,7 +19306,7 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 88
   store ptr %87, ptr %88, align 8
   %89 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %43) #14
-  %90 = tail call i64 @strtoul(ptr nocapture noundef %89, ptr noundef null, i32 noundef 10) #14
+  %90 = tail call i64 @strtoul(ptr noundef captures(none) %89, ptr noundef null, i32 noundef 10) #14
   %91 = trunc i64 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %68, i64 96
   store i32 %91, ptr %92, align 8
@@ -19332,7 +19332,7 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
 
 103:                                              ; preds = %99
   %104 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %44) #14
-  %105 = tail call i64 @strtoul(ptr nocapture noundef %104, ptr noundef null, i32 noundef 10) #14
+  %105 = tail call i64 @strtoul(ptr noundef captures(none) %104, ptr noundef null, i32 noundef 10) #14
   %106 = trunc i64 %105 to i32
   %.not135 = icmp eq i32 %106, 0
   br i1 %.not135, label %.loopexit, label %.preheader
@@ -19379,7 +19379,7 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addConstrChildIdxDeps(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @addConstrChildIdxDeps(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.010 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %.010, null
@@ -19413,7 +19413,7 @@ define internal fastcc void @addConstrChildIdxDeps(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getRules(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getRules(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.368) #14
   %4 = load ptr, ptr %3, align 8
@@ -19443,12 +19443,12 @@ define dso_local ptr @getRules(ptr noundef %0, ptr nocapture noundef writeonly i
   store i32 18, ptr %18, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %10) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %11) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %26, ptr %27, align 4
@@ -19458,7 +19458,7 @@ define dso_local ptr @getRules(ptr noundef %0, ptr nocapture noundef writeonly i
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %19, i32 noundef %13) #14
-  %32 = tail call i64 @strtoul(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #14
+  %32 = tail call i64 @strtoul(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #14
   %33 = trunc i64 %32 to i32
   %34 = tail call ptr @findTableByOid(i32 noundef %33) #14
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -19653,7 +19653,7 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.0111137 = phi i32 [ %67, %.loopexit ], [ -1, %39 ]
   %.0113136 = phi i32 [ %82, %.loopexit ], [ 0, %39 ]
   %55 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.0113136, i32 noundef %45) #14
-  %56 = tail call i64 @strtoul(ptr nocapture noundef %55, ptr noundef null, i32 noundef 10) #14
+  %56 = tail call i64 @strtoul(ptr noundef captures(none) %55, ptr noundef null, i32 noundef 10) #14
   %57 = trunc i64 %56 to i32
   %58 = sub i32 %42, %.0113136
   %59 = icmp sgt i32 %58, 1
@@ -19663,7 +19663,7 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.0109128 = phi i32 [ %65, %64 ], [ 1, %.lr.ph139 ]
   %60 = add i32 %.0109128, %.0113136
   %61 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %60, i32 noundef %45) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr noundef captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   %.not = icmp eq i32 %63, %57
   br i1 %.not, label %64, label %._crit_edge131
@@ -19713,12 +19713,12 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   %85 = getelementptr %struct._triggerInfo, ptr %52, i64 %84
   store i32 19, ptr %85, align 8
   %86 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %43) #14
-  %87 = tail call i64 @strtoul(ptr nocapture noundef %86, ptr noundef null, i32 noundef 10) #14
+  %87 = tail call i64 @strtoul(ptr noundef captures(none) %86, ptr noundef null, i32 noundef 10) #14
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %88, ptr %89, align 4
   %90 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %44) #14
-  %91 = tail call i64 @strtoul(ptr nocapture noundef %90, ptr noundef null, i32 noundef 10) #14
+  %91 = tail call i64 @strtoul(ptr noundef captures(none) %90, ptr noundef null, i32 noundef 10) #14
   %92 = trunc i64 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %92, ptr %93, align 4
@@ -19758,7 +19758,7 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getEventTriggers(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 90300
@@ -19799,12 +19799,12 @@ define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef wri
   store i32 39, ptr %24, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %25, i32 noundef %15) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %28, ptr %29, align 4
   %30 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %25, i32 noundef %16) #14
-  %31 = tail call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
+  %31 = tail call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %32, ptr %33, align 4
@@ -19822,7 +19822,7 @@ define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef wri
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store ptr %41, ptr %42, align 8
   %43 = tail call ptr @PQgetvalue(ptr noundef %10, i32 noundef %25, i32 noundef %19) #14
-  %44 = tail call i64 @strtoul(ptr nocapture noundef readonly %43, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr noundef readonly captures(none) %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = load i32, ptr @nrolenames, align 4
   %47 = icmp sgt i32 %46, 0
@@ -19960,7 +19960,7 @@ selectDumpableObject.exit:                        ; preds = %89, %92, %95, %101,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getProcLangs(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.391) #14
   %4 = load ptr, ptr %3, align 8
@@ -19994,12 +19994,12 @@ define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeon
   store i32 22, ptr %23, align 8
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %10) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %27, ptr %28, align 4
   %29 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %11) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %31, ptr %32, align 4
@@ -20027,22 +20027,22 @@ define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeon
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 8
   %49 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %14) #14
-  %50 = tail call i64 @strtoul(ptr nocapture noundef %49, ptr noundef null, i32 noundef 10) #14
+  %50 = tail call i64 @strtoul(ptr noundef captures(none) %49, ptr noundef null, i32 noundef 10) #14
   %51 = trunc i64 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 100
   store i32 %51, ptr %52, align 4
   %53 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %15) #14
-  %54 = tail call i64 @strtoul(ptr nocapture noundef %53, ptr noundef null, i32 noundef 10) #14
+  %54 = tail call i64 @strtoul(ptr noundef captures(none) %53, ptr noundef null, i32 noundef 10) #14
   %55 = trunc i64 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %23, i64 104
   store i32 %55, ptr %56, align 8
   %57 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %16) #14
-  %58 = tail call i64 @strtoul(ptr nocapture noundef %57, ptr noundef null, i32 noundef 10) #14
+  %58 = tail call i64 @strtoul(ptr noundef captures(none) %57, ptr noundef null, i32 noundef 10) #14
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %23, i64 108
   store i32 %59, ptr %60, align 4
   %61 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %19) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef readonly %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr noundef readonly captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
   %64 = load i32, ptr @nrolenames, align 4
   %65 = icmp sgt i32 %64, 0
@@ -20177,7 +20177,7 @@ selectDumpableProcLang.exit:                      ; preds = %98, %101, %104, %ch
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getCasts(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getCasts(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20212,28 +20212,28 @@ define dso_local ptr @getCasts(ptr noundef %0, ptr nocapture noundef writeonly i
   store i32 23, ptr %22, align 8
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %23, i32 noundef %14) #14
-  %25 = call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %26, ptr %27, align 4
   %28 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %23, i32 noundef %15) #14
-  %29 = call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #14
+  %29 = call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #14
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %30, ptr %31, align 4
   call void @AssignDumpId(ptr noundef nonnull %22) #14
   %32 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %23, i32 noundef %16) #14
-  %33 = call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #14
+  %33 = call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #14
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i32 %34, ptr %35, align 8
   %36 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %23, i32 noundef %17) #14
-  %37 = call i64 @strtoul(ptr nocapture noundef %36, ptr noundef null, i32 noundef 10) #14
+  %37 = call i64 @strtoul(ptr noundef captures(none) %36, ptr noundef null, i32 noundef 10) #14
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 %38, ptr %39, align 4
   %40 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %23, i32 noundef %18) #14
-  %41 = call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
+  %41 = call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store i32 %42, ptr %43, align 8
@@ -20334,7 +20334,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 declare ptr @findTypeByOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTransforms(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTransforms(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -20374,33 +20374,33 @@ define dso_local ptr @getTransforms(ptr noundef %0, ptr nocapture noundef writeo
   store i32 34, ptr %23, align 8
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %16) #14
-  %26 = call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %27, ptr %28, align 4
   %29 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %17) #14
-  %30 = call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %31, ptr %32, align 4
   call void @AssignDumpId(ptr noundef nonnull %23) #14
   %33 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %18) #14
-  %34 = call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
+  %34 = call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #14
   %35 = trunc i64 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i32 %35, ptr %36, align 8
   %37 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %19) #14
-  %38 = call i64 @strtoul(ptr nocapture noundef %37, ptr noundef null, i32 noundef 10) #14
+  %38 = call i64 @strtoul(ptr noundef captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 68
   store i32 %39, ptr %40, align 4
   %41 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %20) #14
-  %42 = call i64 @strtoul(ptr nocapture noundef %41, ptr noundef null, i32 noundef 10) #14
+  %42 = call i64 @strtoul(ptr noundef captures(none) %41, ptr noundef null, i32 noundef 10) #14
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store i32 %43, ptr %44, align 8
   %45 = call ptr @PQgetvalue(ptr noundef %11, i32 noundef %24, i32 noundef %21) #14
-  %46 = call i64 @strtoul(ptr nocapture noundef %45, ptr noundef null, i32 noundef 10) #14
+  %46 = call i64 @strtoul(ptr noundef captures(none) %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 76
   store i32 %47, ptr %48, align 4
@@ -20411,7 +20411,7 @@ define dso_local ptr @getTransforms(ptr noundef %0, ptr nocapture noundef writeo
   %52 = call ptr @createPQExpBuffer() #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %52, ptr noundef nonnull @.str.743, i32 noundef %51) #14
   %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %53) #14
+  %54 = call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef %53) #14
   %55 = call ptr @PQgetvalue(ptr noundef %54, i32 noundef 0, i32 noundef 0) #14
   %56 = call ptr @fmtId(ptr noundef %55) #14
   %57 = call ptr @pg_strdup(ptr noundef %56) #14
@@ -20504,7 +20504,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %87, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
@@ -20651,7 +20651,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0537666 = phi i32 [ -1, %.lr.ph668 ], [ %95, %350 ]
   %.0542665 = phi i32 [ 0, %.lr.ph668 ], [ %342, %350 ]
   %83 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.0542665, i32 noundef %56) #14
-  %84 = tail call i64 @strtoul(ptr nocapture noundef %83, ptr noundef null, i32 noundef 10) #14
+  %84 = tail call i64 @strtoul(ptr noundef captures(none) %83, ptr noundef null, i32 noundef 10) #14
   %85 = trunc i64 %84 to i32
   %86 = sub i32 %55, %.0542665
   %87 = icmp sgt i32 %86, 1
@@ -20661,7 +20661,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0546653 = phi i32 [ %93, %92 ], [ 1, %82 ]
   %88 = add i32 %.0546653, %.0542665
   %89 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %88, i32 noundef %56) #14
-  %90 = tail call i64 @strtoul(ptr nocapture noundef %89, ptr noundef null, i32 noundef 10) #14
+  %90 = tail call i64 @strtoul(ptr noundef captures(none) %89, ptr noundef null, i32 noundef 10) #14
   %91 = trunc i64 %90 to i32
   %.not577 = icmp eq i32 %91, %85
   br i1 %.not577, label %92, label %._crit_edge656
@@ -21032,7 +21032,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %319 = getelementptr ptr, ptr %318, i64 %indvars.iv722
   store ptr %317, ptr %319, align 8
   %320 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %74) #14
-  %321 = tail call i64 @strtoul(ptr nocapture noundef %320, ptr noundef null, i32 noundef 10) #14
+  %321 = tail call i64 @strtoul(ptr noundef captures(none) %320, ptr noundef null, i32 noundef 10) #14
   %322 = trunc i64 %321 to i32
   %323 = load ptr, ptr %146, align 8
   %324 = getelementptr i32, ptr %323, i64 %indvars.iv722
@@ -21122,13 +21122,13 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0555671 = phi ptr [ null, %.lr.ph674 ], [ %.1556, %464 ]
   %370 = trunc nuw nsw i64 %indvars.iv726 to i32
   %371 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 0) #14
-  %372 = tail call i64 @strtoul(ptr nocapture noundef %371, ptr noundef null, i32 noundef 10) #14
+  %372 = tail call i64 @strtoul(ptr noundef captures(none) %371, ptr noundef null, i32 noundef 10) #14
   %373 = trunc i64 %372 to i32
   %374 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 1) #14
-  %375 = tail call i64 @strtoul(ptr nocapture noundef %374, ptr noundef null, i32 noundef 10) #14
+  %375 = tail call i64 @strtoul(ptr noundef captures(none) %374, ptr noundef null, i32 noundef 10) #14
   %376 = trunc i64 %375 to i32
   %377 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 2) #14
-  %378 = tail call i64 @strtoul(ptr nocapture noundef %377, ptr noundef null, i32 noundef 10) #14
+  %378 = tail call i64 @strtoul(ptr noundef captures(none) %377, ptr noundef null, i32 noundef 10) #14
   %379 = trunc i64 %378 to i32
   %380 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 3) #14
   %381 = tail call i32 @atoi(ptr noundef %380) #15
@@ -21335,7 +21335,7 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   %.5686 = phi i32 [ %501, %.loopexit ], [ -1, %472 ]
   %.0539685 = phi i32 [ %524, %.loopexit ], [ 0, %472 ]
   %489 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.0539685, i32 noundef %482) #14
-  %490 = tail call i64 @strtoul(ptr nocapture noundef %489, ptr noundef null, i32 noundef 10) #14
+  %490 = tail call i64 @strtoul(ptr noundef captures(none) %489, ptr noundef null, i32 noundef 10) #14
   %491 = trunc i64 %490 to i32
   %492 = sub i32 %476, %.0539685
   %493 = icmp sgt i32 %492, 1
@@ -21345,7 +21345,7 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   %.0535676 = phi i32 [ %499, %498 ], [ 1, %.lr.ph688 ]
   %494 = add i32 %.0535676, %.0539685
   %495 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %494, i32 noundef %482) #14
-  %496 = tail call i64 @strtoul(ptr nocapture noundef %495, ptr noundef null, i32 noundef 10) #14
+  %496 = tail call i64 @strtoul(ptr noundef captures(none) %495, ptr noundef null, i32 noundef 10) #14
   %497 = trunc i64 %496 to i32
   %.not574 = icmp eq i32 %497, %491
   br i1 %.not574, label %498, label %._crit_edge679
@@ -21413,12 +21413,12 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   %530 = getelementptr %struct._constraintInfo, ptr %479, i64 %529
   store i32 20, ptr %530, align 8
   %531 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %480) #14
-  %532 = tail call i64 @strtoul(ptr nocapture noundef %531, ptr noundef null, i32 noundef 10) #14
+  %532 = tail call i64 @strtoul(ptr noundef captures(none) %531, ptr noundef null, i32 noundef 10) #14
   %533 = trunc i64 %532 to i32
   %534 = getelementptr inbounds nuw i8, ptr %530, i64 4
   store i32 %533, ptr %534, align 4
   %535 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %481) #14
-  %536 = tail call i64 @strtoul(ptr nocapture noundef %535, ptr noundef null, i32 noundef 10) #14
+  %536 = tail call i64 @strtoul(ptr noundef captures(none) %535, ptr noundef null, i32 noundef 10) #14
   %537 = trunc i64 %536 to i32
   %538 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store i32 %537, ptr %538, align 4
@@ -21481,7 +21481,7 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @shouldPrintColumn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
+define dso_local zeroext i1 @shouldPrintColumn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -21516,7 +21516,7 @@ define dso_local zeroext i1 @shouldPrintColumn(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSParsers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSParsers(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.465) #14
   %4 = load ptr, ptr %3, align 8
@@ -21549,12 +21549,12 @@ define dso_local ptr @getTSParsers(ptr noundef %0, ptr nocapture noundef writeon
   store i32 27, ptr %22, align 8
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %10) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %26, ptr %27, align 4
   %28 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %11) #14
-  %29 = tail call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #14
+  %29 = tail call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #14
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %30, ptr %31, align 4
@@ -21564,7 +21564,7 @@ define dso_local ptr @getTSParsers(ptr noundef %0, ptr nocapture noundef writeon
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %33, ptr %34, align 8
   %35 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %13) #14
-  %36 = tail call i64 @strtoul(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #14
+  %36 = tail call i64 @strtoul(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #14
   %37 = trunc i64 %36 to i32
   %38 = tail call ptr @findNamespaceByOid(i32 noundef %37) #14
   %39 = icmp eq ptr %38, null
@@ -21579,27 +21579,27 @@ findNamespace.exit:                               ; preds = %21
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %38, ptr %41, align 8
   %42 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %14) #14
-  %43 = tail call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #14
+  %43 = tail call i64 @strtoul(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #14
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i32 %44, ptr %45, align 8
   %46 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %15) #14
-  %47 = tail call i64 @strtoul(ptr nocapture noundef %46, ptr noundef null, i32 noundef 10) #14
+  %47 = tail call i64 @strtoul(ptr noundef captures(none) %46, ptr noundef null, i32 noundef 10) #14
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 %48, ptr %49, align 4
   %50 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %16) #14
-  %51 = tail call i64 @strtoul(ptr nocapture noundef %50, ptr noundef null, i32 noundef 10) #14
+  %51 = tail call i64 @strtoul(ptr noundef captures(none) %50, ptr noundef null, i32 noundef 10) #14
   %52 = trunc i64 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store i32 %52, ptr %53, align 8
   %54 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %17) #14
-  %55 = tail call i64 @strtoul(ptr nocapture noundef %54, ptr noundef null, i32 noundef 10) #14
+  %55 = tail call i64 @strtoul(ptr noundef captures(none) %54, ptr noundef null, i32 noundef 10) #14
   %56 = trunc i64 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store i32 %56, ptr %57, align 4
   %58 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %18) #14
-  %59 = tail call i64 @strtoul(ptr nocapture noundef %58, ptr noundef null, i32 noundef 10) #14
+  %59 = tail call i64 @strtoul(ptr noundef captures(none) %58, ptr noundef null, i32 noundef 10) #14
   %60 = trunc i64 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store i32 %60, ptr %61, align 8
@@ -21669,7 +21669,7 @@ selectDumpableObject.exit:                        ; preds = %71, %74, %77, %82, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.473) #14
   %4 = load ptr, ptr %3, align 8
@@ -21700,12 +21700,12 @@ define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr nocapture noundef wr
   store i32 28, ptr %20, align 8
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %10) #14
-  %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #14
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #14
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %24, ptr %25, align 4
   %26 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %11) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %28, ptr %29, align 4
@@ -21715,7 +21715,7 @@ define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr nocapture noundef wr
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %31, ptr %32, align 8
   %33 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %13) #14
-  %34 = tail call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
+  %34 = tail call i64 @strtoul(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 10) #14
   %35 = trunc i64 %34 to i32
   %36 = tail call ptr @findNamespaceByOid(i32 noundef %35) #14
   %37 = icmp eq ptr %36, null
@@ -21730,7 +21730,7 @@ findNamespace.exit:                               ; preds = %19
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %36, ptr %39, align 8
   %40 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %14) #14
-  %41 = tail call i64 @strtoul(ptr nocapture noundef readonly %40, ptr noundef null, i32 noundef 10) #14
+  %41 = tail call i64 @strtoul(ptr noundef readonly captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr @nrolenames, align 4
   %44 = icmp sgt i32 %43, 0
@@ -21786,7 +21786,7 @@ getRoleName.exit:                                 ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %66, ptr %67, align 8
   %68 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %21, i32 noundef %16) #14
-  %69 = tail call i64 @strtoul(ptr nocapture noundef %68, ptr noundef null, i32 noundef 10) #14
+  %69 = tail call i64 @strtoul(ptr noundef captures(none) %68, ptr noundef null, i32 noundef 10) #14
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i32 %70, ptr %71, align 8
@@ -21869,7 +21869,7 @@ selectDumpableObject.exit:                        ; preds = %87, %90, %93, %98, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSTemplates(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSTemplates(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.479) #14
   %4 = load ptr, ptr %3, align 8
@@ -21899,12 +21899,12 @@ define dso_local ptr @getTSTemplates(ptr noundef %0, ptr nocapture noundef write
   store i32 29, ptr %19, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %10) #14
-  %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #14
+  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #14
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %23, ptr %24, align 4
   %25 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %11) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %27, ptr %28, align 4
@@ -21914,7 +21914,7 @@ define dso_local ptr @getTSTemplates(ptr noundef %0, ptr nocapture noundef write
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %30, ptr %31, align 8
   %32 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %13) #14
-  %33 = tail call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #14
+  %33 = tail call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #14
   %34 = trunc i64 %33 to i32
   %35 = tail call ptr @findNamespaceByOid(i32 noundef %34) #14
   %36 = icmp eq ptr %35, null
@@ -21929,12 +21929,12 @@ findNamespace.exit:                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %35, ptr %38, align 8
   %39 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %14) #14
-  %40 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 10) #14
+  %40 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 10) #14
   %41 = trunc i64 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i32 %41, ptr %42, align 8
   %43 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %15) #14
-  %44 = tail call i64 @strtoul(ptr nocapture noundef %43, ptr noundef null, i32 noundef 10) #14
+  %44 = tail call i64 @strtoul(ptr noundef captures(none) %43, ptr noundef null, i32 noundef 10) #14
   %45 = trunc i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 %45, ptr %46, align 4
@@ -22004,7 +22004,7 @@ selectDumpableObject.exit:                        ; preds = %56, %59, %62, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.484) #14
   %4 = load ptr, ptr %3, align 8
@@ -22034,12 +22034,12 @@ define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr nocapture noundef 
   store i32 30, ptr %19, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %10) #14
-  %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #14
+  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #14
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %23, ptr %24, align 4
   %25 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %11) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %27, ptr %28, align 4
@@ -22049,7 +22049,7 @@ define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr nocapture noundef 
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %30, ptr %31, align 8
   %32 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %13) #14
-  %33 = tail call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #14
+  %33 = tail call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #14
   %34 = trunc i64 %33 to i32
   %35 = tail call ptr @findNamespaceByOid(i32 noundef %34) #14
   %36 = icmp eq ptr %35, null
@@ -22064,7 +22064,7 @@ findNamespace.exit:                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %35, ptr %38, align 8
   %39 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %14) #14
-  %40 = tail call i64 @strtoul(ptr nocapture noundef readonly %39, ptr noundef null, i32 noundef 10) #14
+  %40 = tail call i64 @strtoul(ptr noundef readonly captures(none) %39, ptr noundef null, i32 noundef 10) #14
   %41 = trunc i64 %40 to i32
   %42 = load i32, ptr @nrolenames, align 4
   %43 = icmp sgt i32 %42, 0
@@ -22120,7 +22120,7 @@ getRoleName.exit:                                 ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %65, ptr %66, align 8
   %67 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %20, i32 noundef %15) #14
-  %68 = tail call i64 @strtoul(ptr nocapture noundef %67, ptr noundef null, i32 noundef 10) #14
+  %68 = tail call i64 @strtoul(ptr noundef captures(none) %67, ptr noundef null, i32 noundef 10) #14
   %69 = trunc i64 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store i32 %69, ptr %70, align 8
@@ -22190,7 +22190,7 @@ selectDumpableObject.exit:                        ; preds = %80, %83, %86, %91, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.489) #14
   %4 = load ptr, ptr %3, align 8
@@ -22223,12 +22223,12 @@ define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture nound
   store i32 31, ptr %22, align 8
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %10) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %26, ptr %27, align 4
   %28 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %11) #14
-  %29 = tail call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #14
+  %29 = tail call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #14
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %30, ptr %31, align 4
@@ -22252,7 +22252,7 @@ define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture nound
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store ptr null, ptr %43, align 8
   %44 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %23, i32 noundef %13) #14
-  %45 = tail call i64 @strtoul(ptr nocapture noundef readonly %44, ptr noundef null, i32 noundef 10) #14
+  %45 = tail call i64 @strtoul(ptr noundef readonly captures(none) %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr @nrolenames, align 4
   %48 = icmp sgt i32 %47, 0
@@ -22397,7 +22397,7 @@ selectDumpableObject.exit:                        ; preds = %90, %93, %96, %101,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getForeignServers(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.496) #14
   %4 = load ptr, ptr %3, align 8
@@ -22431,12 +22431,12 @@ define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef wr
   store i32 32, ptr %23, align 8
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %10) #14
-  %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
+  %26 = tail call i64 @strtoul(ptr noundef captures(none) %25, ptr noundef null, i32 noundef 10) #14
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %27, ptr %28, align 4
   %29 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %11) #14
-  %30 = tail call i64 @strtoul(ptr nocapture noundef %29, ptr noundef null, i32 noundef 10) #14
+  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %31, ptr %32, align 4
@@ -22460,7 +22460,7 @@ define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef wr
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 88
   store ptr null, ptr %44, align 8
   %45 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %13) #14
-  %46 = tail call i64 @strtoul(ptr nocapture noundef readonly %45, ptr noundef null, i32 noundef 10) #14
+  %46 = tail call i64 @strtoul(ptr noundef readonly captures(none) %45, ptr noundef null, i32 noundef 10) #14
   %47 = trunc i64 %46 to i32
   %48 = load i32, ptr @nrolenames, align 4
   %49 = icmp sgt i32 %48, 0
@@ -22516,7 +22516,7 @@ getRoleName.exit:                                 ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store ptr %71, ptr %72, align 8
   %73 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %24, i32 noundef %14) #14
-  %74 = tail call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #14
+  %74 = tail call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = trunc i64 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %23, i64 104
   store i32 %75, ptr %76, align 8
@@ -22613,7 +22613,7 @@ selectDumpableObject.exit:                        ; preds = %95, %98, %101, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getDefaultACLs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
+define dso_local ptr @getDefaultACLs(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.504) #14
@@ -22643,17 +22643,17 @@ define dso_local ptr @getDefaultACLs(ptr noundef %0, ptr nocapture noundef write
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %selectDumpableDefaultACL.exit ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %21, i32 noundef %14) #14
-  %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #14
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #14
   %24 = trunc i64 %23 to i32
   %25 = getelementptr %struct._defaultACLInfo, ptr %10, i64 %indvars.iv
   store i32 33, ptr %25, align 8
   %26 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %21, i32 noundef %12) #14
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %28, ptr %29, align 4
   %30 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %21, i32 noundef %11) #14
-  %31 = tail call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
+  %31 = tail call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %32, ptr %33, align 4
@@ -22692,7 +22692,7 @@ findNamespace.exit:                               ; preds = %20, %37
   %49 = getelementptr inbounds nuw i8, ptr %25, i64 88
   store ptr null, ptr %49, align 8
   %50 = tail call ptr @PQgetvalue(ptr noundef %6, i32 noundef %21, i32 noundef %13) #14
-  %51 = tail call i64 @strtoul(ptr nocapture noundef readonly %50, ptr noundef null, i32 noundef 10) #14
+  %51 = tail call i64 @strtoul(ptr noundef readonly captures(none) %50, ptr noundef null, i32 noundef 10) #14
   %52 = trunc i64 %51 to i32
   %53 = load i32, ptr @nrolenames, align 4
   %54 = icmp sgt i32 %53, 0
@@ -22786,7 +22786,7 @@ selectDumpableDefaultACL.exit:                    ; preds = %86, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getExtensionMembership(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @getExtensionMembership(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %31, label %5
 
@@ -22806,11 +22806,11 @@ define dso_local void @getExtensionMembership(ptr noundef %0, ptr nocapture noun
   %.033 = phi i32 [ %30, %29 ], [ 0, %5 ]
   %.02832 = phi ptr [ %.130, %29 ], [ null, %5 ]
   %14 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %10) #14
-  %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
+  %15 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 10) #14
   %16 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %11) #14
-  %17 = tail call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #14
+  %17 = tail call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %12) #14
-  %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
+  %19 = tail call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
   %21 = icmp eq ptr %.02832, null
   br i1 %21, label %25, label %22
@@ -22858,7 +22858,7 @@ declare ptr @findExtensionByOid(i32 noundef) local_unnamed_addr #2
 declare void @recordExtensionMembership(i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @processExtensionTables(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @processExtensionTables(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -22949,7 +22949,7 @@ define dso_local void @processExtensionTables(ptr noundef %0, ptr nocapture noun
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
-  %41 = call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
+  %41 = call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = load i32, ptr %35, align 8
   %44 = trunc i32 %43 to i1
@@ -23159,10 +23159,10 @@ makeTableDataInfo.exit.thread85:                  ; preds = %74, %64, %makeTable
 .lr.ph93:                                         ; preds = %._crit_edge, %160
   %.191 = phi i32 [ %161, %160 ], [ 0, %._crit_edge ]
   %139 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.191, i32 noundef %136) #14
-  %140 = call i64 @strtoul(ptr nocapture noundef %139, ptr noundef null, i32 noundef 10) #14
+  %140 = call i64 @strtoul(ptr noundef captures(none) %139, ptr noundef null, i32 noundef 10) #14
   %141 = trunc i64 %140 to i32
   %142 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.191, i32 noundef %137) #14
-  %143 = call i64 @strtoul(ptr nocapture noundef %142, ptr noundef null, i32 noundef 10) #14
+  %143 = call i64 @strtoul(ptr noundef captures(none) %142, ptr noundef null, i32 noundef 10) #14
   %144 = trunc i64 %143 to i32
   %145 = call ptr @findTableByOid(i32 noundef %141) #14
   %146 = call ptr @findTableByOid(i32 noundef %144) #14
@@ -23206,10 +23206,10 @@ makeTableDataInfo.exit.thread85:                  ; preds = %74, %64, %makeTable
 declare zeroext i1 @simple_oid_list_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makeTableDataInfo(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @makeTableDataInfo(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -23338,7 +23338,7 @@ declare void @buildShSecLabelQuery(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @emitShSecLabels(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dumpACL(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
+define internal fastcc noundef i32 @dumpACL(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #4 {
   %10 = alloca [2 x i32], align 4
   %11 = alloca %struct._archiveOpts, align 8
   %12 = load ptr, ptr %0, align 8
@@ -23586,22 +23586,22 @@ define internal fastcc void @dumpType(ptr noundef %0, ptr noundef %1) unnamed_ad
   %56 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %55) #14
   %57 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.795) #14
   %58 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %57) #14
-  %59 = tail call i64 @strtoul(ptr nocapture noundef %58, ptr noundef null, i32 noundef 10) #14
+  %59 = tail call i64 @strtoul(ptr noundef captures(none) %58, ptr noundef null, i32 noundef 10) #14
   %60 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.796) #14
   %61 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %60) #14
-  %62 = tail call i64 @strtoul(ptr nocapture noundef %61, ptr noundef null, i32 noundef 10) #14
+  %62 = tail call i64 @strtoul(ptr noundef captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.797) #14
   %64 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %63) #14
-  %65 = tail call i64 @strtoul(ptr nocapture noundef %64, ptr noundef null, i32 noundef 10) #14
+  %65 = tail call i64 @strtoul(ptr noundef captures(none) %64, ptr noundef null, i32 noundef 10) #14
   %66 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.798) #14
   %67 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %66) #14
-  %68 = tail call i64 @strtoul(ptr nocapture noundef %67, ptr noundef null, i32 noundef 10) #14
+  %68 = tail call i64 @strtoul(ptr noundef captures(none) %67, ptr noundef null, i32 noundef 10) #14
   %69 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.799) #14
   %70 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %69) #14
-  %71 = tail call i64 @strtoul(ptr nocapture noundef %70, ptr noundef null, i32 noundef 10) #14
+  %71 = tail call i64 @strtoul(ptr noundef captures(none) %70, ptr noundef null, i32 noundef 10) #14
   %72 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.800) #14
   %73 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %72) #14
-  %74 = tail call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #14
+  %74 = tail call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.801) #14
   %76 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef 0, i32 noundef %75) #14
   %77 = tail call i32 @PQfnumber(ptr noundef %38, ptr noundef nonnull @.str.802) #14
@@ -23678,7 +23678,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0.i
   %119 = phi ptr [ %40, %sub_0.i ], [ %40, %sub_1.i ], [ %118, %sub_2.i ]
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %18, ptr noundef nonnull @.str.810, ptr noundef %107, ptr noundef %119) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %18, ptr noundef nonnull @.str.810, ptr noundef %107, ptr noundef nonnull %119) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %18, ptr noundef nonnull @.str.812, ptr noundef %42) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %18, ptr noundef nonnull @.str.813, ptr noundef %44) #14
   %120 = and i64 %59, 4294967295
@@ -24079,7 +24079,7 @@ dumpBaseType.exit:                                ; preds = %248, %251
   %.0120.i = phi ptr [ null, %286 ], [ %290, %.sink.split.i23 ]
   %292 = tail call i32 @PQfnumber(ptr noundef %279, ptr noundef nonnull @.str.859) #14
   %293 = tail call ptr @PQgetvalue(ptr noundef %279, i32 noundef 0, i32 noundef %292) #14
-  %294 = tail call i64 @strtoul(ptr nocapture noundef %293, ptr noundef null, i32 noundef 10) #14
+  %294 = tail call i64 @strtoul(ptr noundef captures(none) %293, ptr noundef null, i32 noundef 10) #14
   %295 = trunc i64 %294 to i32
   %296 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %297 = load i32, ptr %296, align 8
@@ -24439,7 +24439,7 @@ dumpDomain.exit:                                  ; preds = %450, %425
   %508 = load i8, ptr %507, align 1
   %509 = icmp eq i8 %508, 116
   %510 = tail call ptr @PQgetvalue(ptr noundef %473, i32 noundef %.0152.i, i32 noundef %480) #14
-  %511 = tail call i64 @strtoul(ptr nocapture noundef %510, ptr noundef null, i32 noundef 10) #14
+  %511 = tail call i64 @strtoul(ptr noundef captures(none) %510, ptr noundef null, i32 noundef 10) #14
   %512 = trunc i64 %511 to i32
   br i1 %509, label %513, label %515
 
@@ -24984,7 +24984,7 @@ dumpCompositeType.exit:                           ; preds = %611, %dumpComposite
 788:                                              ; preds = %795, %.lr.ph112.i
   %.1111.i = phi i32 [ 0, %.lr.ph112.i ], [ %799, %795 ]
   %789 = tail call ptr @PQgetvalue(ptr noundef %749, i32 noundef %.1111.i, i32 noundef %783) #14
-  %790 = tail call i64 @strtoul(ptr nocapture noundef %789, ptr noundef null, i32 noundef 10) #14
+  %790 = tail call i64 @strtoul(ptr noundef captures(none) %789, ptr noundef null, i32 noundef 10) #14
   %791 = trunc i64 %790 to i32
   %792 = tail call ptr @PQgetvalue(ptr noundef %749, i32 noundef %.1111.i, i32 noundef %784) #14
   %793 = icmp eq i32 %.1111.i, 0
@@ -25220,7 +25220,7 @@ dumpEnumType.exit:                                ; preds = %853, %856
 922:                                              ; preds = %915, %911
   %923 = tail call i32 @PQfnumber(ptr noundef %887, ptr noundef nonnull @.str.916) #14
   %924 = tail call ptr @PQgetvalue(ptr noundef %887, i32 noundef 0, i32 noundef %923) #14
-  %925 = tail call i64 @strtoul(ptr nocapture noundef %924, ptr noundef null, i32 noundef 10) #14
+  %925 = tail call i64 @strtoul(ptr noundef captures(none) %924, ptr noundef null, i32 noundef 10) #14
   %926 = trunc i64 %925 to i32
   %.not106.i38 = icmp eq i32 %926, 0
   br i1 %.not106.i38, label %sub_0.i40, label %927
@@ -25678,7 +25678,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %73
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1186, ptr noundef %54) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1186, ptr noundef nonnull %54) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
@@ -25691,10 +25691,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   %81 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.1187, i64 noundef %79) #14
   %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %7) #15
   %83 = icmp eq i32 %82, 0
-  %spec.store.select.i = select i1 %83, ptr null, ptr %58
   %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %8) #15
   %85 = icmp eq i32 %84, 0
-  %spec.store.select1.i = select i1 %85, ptr null, ptr %57
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %87 = load i8, ptr %86, align 4
   %88 = trunc i8 %87 to i1
@@ -25797,18 +25795,17 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %.not156.i, label %153, label %152
 
 152:                                              ; preds = %140
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1196, ptr noundef %54) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1196, ptr noundef nonnull %54) #14
   br label %153
 
 153:                                              ; preds = %152, %140, %133
   %.0.i = phi ptr [ %108, %133 ], [ null, %152 ], [ null, %140 ]
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1197, ptr noundef %55) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1198, ptr noundef nonnull %56) #14
-  %.not157.i = icmp eq ptr %spec.store.select.i, null
-  br i1 %.not157.i, label %155, label %154
+  br i1 %83, label %155, label %154
 
 154:                                              ; preds = %153
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1199, ptr noundef nonnull %spec.store.select.i) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1199, ptr noundef nonnull %58) #14
   br label %156
 
 155:                                              ; preds = %153
@@ -25816,11 +25813,10 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %156
 
 156:                                              ; preds = %155, %154
-  %.not158.i = icmp eq ptr %spec.store.select1.i, null
-  br i1 %.not158.i, label %158, label %157
+  br i1 %85, label %158, label %157
 
 157:                                              ; preds = %156
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1201, ptr noundef nonnull %spec.store.select1.i) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %25, ptr noundef nonnull @.str.1201, ptr noundef nonnull %57) #14
   br label %159
 
 158:                                              ; preds = %156
@@ -28242,7 +28238,7 @@ dumpTableSchema.exit:                             ; preds = %1349, %1328
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpConstraint(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @dumpConstraint(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = alloca %struct._archiveOpts, align 8
   %4 = alloca %struct._archiveOpts, align 8
   %5 = alloca %struct._archiveOpts, align 8
@@ -28980,7 +28976,7 @@ nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge242, %ap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dumpLOs(ptr noundef %0, ptr nocapture readnone %1) #4 {
+define internal noundef i32 @dumpLOs(ptr noundef %0, ptr readnone captures(none) %1) #4 {
   %3 = alloca [16384 x i8], align 16
   %4 = tail call ptr @GetConnection(ptr noundef %0) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1525) #14
@@ -29003,7 +28999,7 @@ define internal noundef i32 @dumpLOs(ptr noundef %0, ptr nocapture readnone %1) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %.035 = phi i32 [ %29, %26 ], [ 0, %.lr.ph.preheader ]
   %10 = call ptr @PQgetvalue(ptr noundef %9, i32 noundef %.035, i32 noundef 0) #14
-  %11 = call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #14
+  %11 = call i64 @strtoul(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #14
   %12 = trunc i64 %11 to i32
   %13 = call i32 @lo_open(ptr noundef %4, i32 noundef %12, i32 noundef 262144) #14
   %14 = icmp eq i32 %13, -1
@@ -29052,7 +29048,7 @@ define internal noundef i32 @dumpLOs(ptr noundef %0, ptr nocapture readnone %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @binary_upgrade_extension_member(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc void @binary_upgrade_extension_member(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
@@ -29313,7 +29309,7 @@ findComments.exit:                                ; preds = %.lr.ph78.i, %72, %7
   %.14447 = phi ptr [ %.043.lcssa, %93 ], [ @dumpCommentExtended.empty_comment, %86 ], [ %.043.lcssa, %88 ]
   %94 = tail call ptr @createPQExpBuffer() #14
   %95 = tail call ptr @createPQExpBuffer() #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %94, ptr noundef nonnull @.str.764, ptr noundef %1) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %94, ptr noundef nonnull @.str.764, ptr noundef nonnull %1) #14
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %100, label %96
 
@@ -29337,7 +29333,7 @@ findComments.exit:                                ; preds = %.lr.ph78.i, %72, %7
   %106 = trunc i8 %105 to i1
   tail call void @appendStringLiteral(ptr noundef %94, ptr noundef %101, i32 noundef %103, i1 noundef zeroext %106) #14
   tail call void @appendPQExpBufferStr(ptr noundef %94, ptr noundef nonnull @.str.682) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %95, ptr noundef nonnull @.str.406, ptr noundef %1, ptr noundef %2) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %95, ptr noundef nonnull @.str.406, ptr noundef nonnull %1, ptr noundef %2) #14
   %107 = tail call i32 @createDumpId() #14
   %108 = load ptr, ptr %95, align 8
   store ptr %108, ptr %10, align 8
@@ -29551,7 +29547,7 @@ findSecLabels.exit:                               ; preds = %.lr.ph80.i, %74, %7
 89:                                               ; preds = %85
   %90 = load ptr, ptr %86, align 8
   %91 = tail call ptr @fmtId(ptr noundef %90) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %81, ptr noundef nonnull @.str.766, ptr noundef %91, ptr noundef %1) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %81, ptr noundef nonnull @.str.766, ptr noundef %91, ptr noundef nonnull %1) #14
   br i1 %.not40, label %96, label %92
 
 92:                                               ; preds = %89
@@ -29589,7 +29585,7 @@ findSecLabels.exit:                               ; preds = %.lr.ph80.i, %74, %7
 
 106:                                              ; preds = %._crit_edge
   %107 = tail call ptr @createPQExpBuffer() #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %107, ptr noundef nonnull @.str.406, ptr noundef %1, ptr noundef %2) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %107, ptr noundef nonnull @.str.406, ptr noundef nonnull %1, ptr noundef %2) #14
   %108 = tail call i32 @createDumpId() #14
   %109 = load ptr, ptr %107, align 8
   store ptr %109, ptr %9, align 8
@@ -29638,7 +29634,7 @@ define internal fastcc void @binary_upgrade_set_type_oids_by_type_oid(ptr nounde
   %8 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %7) #14
   %9 = tail call i32 @PQfnumber(ptr noundef %8, ptr noundef nonnull @.str.842) #14
   %10 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef 0, i32 noundef %9) #14
-  %11 = tail call i64 @strtoul(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #14
+  %11 = tail call i64 @strtoul(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #14
   %12 = trunc i64 %11 to i32
   tail call void @PQclear(ptr noundef %8) #14
   %.not = icmp eq i32 %12, 0
@@ -29687,11 +29683,11 @@ get_next_possible_free_pg_type_oid.exit:          ; preds = %.preheader46
   %30 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef %29) #14
   %31 = tail call i32 @PQfnumber(ptr noundef %30, ptr noundef nonnull @.str.105) #14
   %32 = tail call ptr @PQgetvalue(ptr noundef %30, i32 noundef 0, i32 noundef %31) #14
-  %33 = tail call i64 @strtoul(ptr nocapture noundef %32, ptr noundef null, i32 noundef 10) #14
+  %33 = tail call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #14
   %34 = trunc i64 %33 to i32
   %35 = tail call i32 @PQfnumber(ptr noundef %30, ptr noundef nonnull @.str.842) #14
   %36 = tail call ptr @PQgetvalue(ptr noundef %30, i32 noundef 0, i32 noundef %35) #14
-  %37 = tail call i64 @strtoul(ptr nocapture noundef %36, ptr noundef null, i32 noundef 10) #14
+  %37 = tail call i64 @strtoul(ptr noundef captures(none) %36, ptr noundef null, i32 noundef 10) #14
   %38 = trunc i64 %37 to i32
   tail call void @PQclear(ptr noundef %30) #14
   br label %56
@@ -29803,23 +29799,23 @@ define internal fastcc void @binary_upgrade_set_pg_class_oids(ptr noundef %0, pt
   %10 = load i8, ptr %9, align 1
   %11 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.700) #14
   %12 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef 0, i32 noundef %11) #14
-  %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #14
+  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 10) #14
   %14 = trunc i64 %13 to i32
   %15 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.882) #14
   %16 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef 0, i32 noundef %15) #14
-  %17 = tail call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #14
+  %17 = tail call i64 @strtoul(ptr noundef captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = trunc i64 %17 to i32
   %19 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.883) #14
   %20 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef 0, i32 noundef %19) #14
-  %21 = tail call i64 @strtoul(ptr nocapture noundef %20, ptr noundef null, i32 noundef 10) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.884) #14
   %24 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef 0, i32 noundef %23) #14
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #14
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
   %26 = trunc i64 %25 to i32
   %27 = tail call i32 @PQfnumber(ptr noundef %7, ptr noundef nonnull @.str.885) #14
   %28 = tail call ptr @PQgetvalue(ptr noundef %7, i32 noundef 0, i32 noundef %27) #14
-  %29 = tail call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #14
+  %29 = tail call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #14
   %30 = trunc i64 %29 to i32
   tail call void @appendPQExpBufferStr(ptr noundef %1, ptr noundef nonnull @.str.886) #14
   br i1 %3, label %39, label %31
@@ -29868,7 +29864,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @appendStringLiteralDQ(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_function_signature(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc ptr @format_function_signature(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -29927,7 +29923,7 @@ declare zeroext i1 @SplitGUCList(ptr noundef, i8 noundef signext, ptr noundef) l
 declare void @pg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_depends_on_extension(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
+define internal fastcc void @append_depends_on_extension(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 45
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
@@ -29970,7 +29966,7 @@ declare ptr @findOprByOid(i32 noundef) local_unnamed_addr #2
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @createDummyViewAsClause(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc noundef ptr @createDummyViewAsClause(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %2, ptr noundef nonnull @.str.1288) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -30038,7 +30034,7 @@ define internal fastcc noundef ptr @createDummyViewAsClause(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createViewAsClause(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc ptr @createViewAsClause(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -30090,7 +30086,7 @@ define internal fastcc ptr @createViewAsClause(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpTableConstraintComment(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @dumpTableConstraintComment(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @createPQExpBuffer() #14
@@ -30142,7 +30138,7 @@ declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) loc
 declare ptr @findFuncByOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dumpTableData_copy(ptr noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @dumpTableData_copy(ptr noundef %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -30344,7 +30340,7 @@ fmtCopyColumnList.exit:                           ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -30686,11 +30682,11 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %150
-  tail call void @archputs(ptr noundef %151, ptr noundef nonnull %0) #14
+  tail call void @archputs(ptr noundef nonnull %151, ptr noundef nonnull %0) #14
   br label %173
 
 156:                                              ; preds = %150
-  %157 = tail call i32 (ptr, ptr, ...) @archprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1455, ptr noundef %151) #14
+  %157 = tail call i32 (ptr, ptr, ...) @archprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1455, ptr noundef nonnull %151) #14
   br label %173
 
 158:                                              ; preds = %148, %148
@@ -30811,7 +30807,7 @@ declare void @archputs(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PQftype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @buildDefaultACLCommands(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -30826,7 +30822,7 @@ declare i32 @lo_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @EndLO(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @findDumpableDependencies(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #4 {
+define internal fastcc void @findDumpableDependencies(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #4 {
   %6 = load i32, ptr %1, align 8
   %.off = add i32 %6, -37
   %switch = icmp ult i32 %.off, 2
@@ -30918,10 +30914,10 @@ declare ptr @filter_object_type_name(i32 noundef) local_unnamed_addr #2
 declare void @filter_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

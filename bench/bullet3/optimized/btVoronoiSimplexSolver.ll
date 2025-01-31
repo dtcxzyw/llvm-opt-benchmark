@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver12removeVertexEi(ptr nocapture noundef nonnull align 4 dereferenceable(357) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver12removeVertexEi(ptr noundef nonnull align 4 captures(none) dereferenceable(357) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %dec = add nsw i32 %0, -1
@@ -37,10 +37,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield(ptr nocapture noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(1) %usedVerts) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield(ptr noundef nonnull align 4 captures(none) dereferenceable(357) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(1) %usedVerts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp sgt i32 %0, 3
@@ -159,7 +159,7 @@ if.end30:                                         ; preds = %if.then29, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver5resetEv(ptr nocapture noundef nonnull align 4 dereferenceable(357) initializes((0, 4), (292, 308), (312, 313), (336, 353), (356, 357)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 captures(none) dereferenceable(357) initializes((0, 4), (292, 308), (312, 313), (336, 353), (356, 357)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_cachedValidClosest = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i8 0, ptr %m_cachedValidClosest, align 4
@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(357) initializes((292, 308), (356, 357)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %w, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %q) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr noundef nonnull align 4 captures(none) dereferenceable(357) initializes((292, 308), (356, 357)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %w, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %q) local_unnamed_addr #0 align 2 {
 entry:
   %m_lastW = getelementptr inbounds nuw i8, ptr %this, i64 292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_lastW, ptr noundef nonnull align 4 dereferenceable(16) %w, i64 16, i1 false)
@@ -941,7 +941,7 @@ if.end320:                                        ; preds = %entry.if.end320_cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult(ptr nocapture nonnull readnone align 4 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, ptr nocapture noundef nonnull align 4 dereferenceable(37) initializes((0, 16), (20, 36)) %result) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver22closestPtPointTriangleERK9btVector3S2_S2_S2_R25btSubSimplexClosestResult(ptr nonnull readnone align 4 captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %c, ptr noundef nonnull align 4 captures(none) dereferenceable(37) initializes((0, 16), (20, 36)) %result) local_unnamed_addr #2 align 2 {
 entry:
   %m_usedVertices = getelementptr inbounds nuw i8, ptr %result, i64 16
   %bf.load.i = load i8, ptr %m_usedVertices, align 4
@@ -1183,7 +1183,7 @@ return:                                           ; preds = %if.end122, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult(ptr nocapture nonnull readnone align 4 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %d, ptr nocapture noundef nonnull align 4 dereferenceable(37) initializes((0, 16)) %finalResult) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver25closestPtPointTetrahedronERK9btVector3S2_S2_S2_S2_R25btSubSimplexClosestResult(ptr nonnull readnone align 4 captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %d, ptr noundef nonnull align 4 captures(none) dereferenceable(37) initializes((0, 16)) %finalResult) local_unnamed_addr #2 align 2 {
 entry:
   %tempResult = alloca %struct.btSubSimplexClosestResult, align 4
   %m_usedVertices.i = getelementptr inbounds nuw i8, ptr %tempResult, i64 16
@@ -1581,7 +1581,7 @@ return:                                           ; preds = %if.end187, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %v) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %v) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver28updateClosestVectorAndPointsEv(ptr noundef nonnull align 4 dereferenceable(357) %this)
   %m_cachedV = getelementptr inbounds nuw i8, ptr %this, i64 276
@@ -1590,7 +1590,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN22btVoronoiSimplexSolver9maxVertexEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN22btVoronoiSimplexSolver9maxVertexEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(357) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp5 = icmp sgt i32 %0, 0
@@ -1625,7 +1625,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK22btVoronoiSimplexSolver10getSimplexEP9btVector3S1_S1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this, ptr nocapture noundef writeonly %pBuf, ptr nocapture noundef writeonly %qBuf, ptr nocapture noundef writeonly %yBuf) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK22btVoronoiSimplexSolver10getSimplexEP9btVector3S1_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(357) %this, ptr noundef writeonly captures(none) %pBuf, ptr noundef writeonly captures(none) %qBuf, ptr noundef writeonly captures(none) %yBuf) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp8 = icmp sgt i32 %0, 0
@@ -1660,7 +1660,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %w) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(357) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %w) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %m_simplexVectorW = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -1737,7 +1737,7 @@ _ZNK9btVector3eqERKS_.exit:                       ; preds = %for.end, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver14backup_closestER9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %v) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver14backup_closestER9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(357) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %v) local_unnamed_addr #0 align 2 {
 entry:
   %m_cachedV = getelementptr inbounds nuw i8, ptr %this, i64 276
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %v, ptr noundef nonnull align 4 dereferenceable(16) %m_cachedV, i64 16, i1 false)
@@ -1745,7 +1745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK22btVoronoiSimplexSolver12emptySimplexEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(357) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22btVoronoiSimplexSolver12emptySimplexEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(357) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp eq i32 %0, 0
@@ -1753,7 +1753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %p1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %p2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %p1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %p2) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver28updateClosestVectorAndPointsEv(ptr noundef nonnull align 4 dereferenceable(357) %this)
   %m_cachedP1 = getelementptr inbounds nuw i8, ptr %this, i64 244
@@ -1767,7 +1767,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -1, 2) i32 @_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_(ptr nocapture noundef nonnull readnone align 4 dereferenceable(357) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %d) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN22btVoronoiSimplexSolver19pointOutsideOfPlaneERK9btVector3S2_S2_S2_S2_(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(357) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %c, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %d) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load float, ptr %b, align 4
   %1 = load float, ptr %a, align 4
@@ -1831,7 +1831,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

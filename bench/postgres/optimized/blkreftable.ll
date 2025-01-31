@@ -37,7 +37,7 @@ define dso_local ptr @CreateEmptyBlockRefTable() local_unnamed_addr #0 {
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -171,13 +171,13 @@ BlockRefTableEntrySetLimitBlock.exit:             ; preds = %.preheader.i, %._cr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %0, i64 %1, i64 %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(none) %0, i64 %1, i64 %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.BlockRefTableKey, align 8
   %6 = alloca %struct.BlockRefTableKey, align 8
   store i64 %1, ptr %6, align 8
@@ -365,7 +365,7 @@ blockreftable_grow.exit.i:                        ; preds = %77, %blockreftable_
   br i1 %95, label %blockreftable_insert_hash_internal.exit, label %96
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = call i32 @hash_bytes(ptr noundef %94, i32 noundef 16) #12
+  %97 = call i32 @hash_bytes(ptr noundef nonnull %94, i32 noundef 16) #12
   %.val73.i = load i32, ptr %15, align 4
   %98 = and i32 %.val73.i, %97
   %.not.i77.i = icmp ugt i32 %98, %.066111.i
@@ -482,7 +482,7 @@ blockreftable_insert_hash_internal.exit:          ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp ult i32 %1, %4
@@ -595,7 +595,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BlockRefTableMarkBlockModified(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @BlockRefTableMarkBlockModified(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -625,7 +625,7 @@ define dso_local void @BlockRefTableMarkBlockModified(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(none) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i32 %2, 16
   %5 = and i32 %2, 65535
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -887,7 +887,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @BlockRefTableGetEntry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.BlockRefTableKey, align 8
   %6 = alloca %struct.BlockRefTableKey, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
@@ -941,27 +941,23 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr nocapture noundef readon
 blockreftable_lookup.exit.thread:                 ; preds = %21, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %33
+  br label %32
 
 blockreftable_lookup.exit:                        ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %33, label %30
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = load i32, ptr %30, align 8
+  store i32 %31, ptr %3, align 4
+  br label %32
 
-30:                                               ; preds = %blockreftable_lookup.exit
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %32 = load i32, ptr %31, align 8
-  store i32 %32, ptr %3, align 4
-  br label %33
-
-33:                                               ; preds = %blockreftable_lookup.exit.thread, %30, %blockreftable_lookup.exit
-  %.0.i.i9 = phi ptr [ null, %blockreftable_lookup.exit.thread ], [ %28, %30 ], [ null, %blockreftable_lookup.exit ]
+32:                                               ; preds = %blockreftable_lookup.exit.thread, %blockreftable_lookup.exit
+  %.0.i.i9 = phi ptr [ null, %blockreftable_lookup.exit.thread ], [ %28, %blockreftable_lookup.exit ]
   ret ptr %.0.i.i9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @BlockRefTableEntryGetBlocks(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = lshr i32 %1, 16
   %7 = lshr i32 %2, 16
   %8 = and i32 %2, 65535
@@ -1088,7 +1084,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WriteBlockRefTable(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @WriteBlockRefTable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 BlockRefTableWrite.exit:
   %3 = alloca %struct.BlockRefTableKey, align 8
   %4 = alloca %struct.BlockRefTableKey, align 8
@@ -1440,7 +1436,7 @@ BlockRefTableWrite.exit54:                        ; preds = %180, %176, %151
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4
@@ -1687,7 +1683,7 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.BlockRefTableSerializedEntry, align 4
   %6 = alloca %struct.BlockRefTableSerializedEntry, align 4
   %7 = alloca i32, align 4
@@ -1757,7 +1753,7 @@ define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 65596
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65600
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 73800
@@ -1957,7 +1953,7 @@ BlockRefTableWrite.exit:                          ; preds = %2, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BlockRefTableSerializedEntry, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2212,7 +2208,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
@@ -2221,10 +2217,10 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i64 @llvm.ctpop.i64(i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10

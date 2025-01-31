@@ -194,7 +194,7 @@ $_ZNSt6vectorI16PJCoordOperationSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx1
 @_ZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ = hidden unnamed_addr alias void (ptr, i32, double, double, double, double, double, double, double, double, ptr, ptr, double, double, ptr, ptr, ptr), ptr @_ZN16PJCoordOperationC2EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @proj_coord(ptr dead_on_unwind noalias nocapture writable writeonly sret(%union.PJ_COORD) align 8 initializes((0, 32)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
+define void @proj_coord(ptr dead_on_unwind noalias writable writeonly sret(%union.PJ_COORD) align 8 captures(none) initializes((0, 32)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %6, align 8
@@ -290,7 +290,7 @@ proj_degree_input.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_geod(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %2, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %3) local_unnamed_addr #1 {
+define void @proj_geod(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %union.PJ_COORD, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
@@ -331,10 +331,10 @@ declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_C
 declare void @geod_inverse(ptr noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define double @proj_lp_dist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %1, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %2) local_unnamed_addr #1 {
+define double @proj_lp_dist(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -368,7 +368,7 @@ define double @proj_lp_dist(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @proj_lpz_dist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %1, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %2) local_unnamed_addr #1 {
+define double @proj_lpz_dist(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -427,7 +427,7 @@ proj_lp_dist.exit:                                ; preds = %11, %14
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define double @proj_xy_dist(ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %0, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %1) local_unnamed_addr #5 {
+define double @proj_xy_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #5 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -441,7 +441,7 @@ define double @proj_xy_dist(ptr nocapture noundef readonly byval(%union.PJ_COORD
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define double @proj_xyz_dist(ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %0, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %1) local_unnamed_addr #5 {
+define double @proj_xyz_dist(ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %0, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %1) local_unnamed_addr #5 {
   %.sroa.01.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.01.sroa.2.0.copyload = load double, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
@@ -461,7 +461,7 @@ define double @proj_xyz_dist(ptr nocapture noundef readonly byval(%union.PJ_COOR
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @proj_roundtrip(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define double @proj_roundtrip(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -1433,7 +1433,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORD(ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %5) local_unnamed_addr #1 {
+define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORD(ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca %union.PJ_COORD, align 8
   %8 = alloca %union.PJ_COORD, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1930,7 +1930,7 @@ _ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %276, %280
 declare noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK16PJCoordOperation14isInstantiableEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK16PJCoordOperation14isInstantiableEv(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
@@ -2316,7 +2316,7 @@ define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_add
 declare ptr @proj_clone(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %union.PJ_COORD, align 8
   %.not32 = icmp eq i64 %2, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -2693,10 +2693,10 @@ define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind noalias nocapture writable writeonly sret(%union.PJ_COORD) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %3) local_unnamed_addr #5 {
+define hidden void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind noalias writable writeonly sret(%union.PJ_COORD) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %3) local_unnamed_addr #5 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load double, ptr %5, align 8
@@ -2769,7 +2769,7 @@ define noundef ptr @proj_rtodms2(ptr noundef %0, i64 noundef %1, double noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2845,18 +2845,18 @@ _Z23pj_create_argv_internalP6pj_ctxiPPc.exit:     ; preds = %25, %30
 declare noundef ptr @_Z18pj_get_default_ctxv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 declare noundef i64 @_Z12pj_trim_argcPc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_Z12pj_trim_argvmPc(i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3437,7 +3437,7 @@ define noundef nonnull ptr @proj_area_create() local_unnamed_addr #1 {
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @proj_area_set_bbox(ptr nocapture noundef writeonly initializes((0, 1), (8, 40)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
+define void @proj_area_set_bbox(ptr noundef writeonly captures(none) initializes((0, 1), (8, 40)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
   store i8 1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %6, align 8
@@ -3494,7 +3494,7 @@ define void @proj_context_use_proj4_init_rules(ptr noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z25pj_add_type_crs_if_neededRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -3567,7 +3567,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr nocapture noundef writeonly initializes((0, 8)) %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr nocapture noundef writeonly initializes((0, 8)) %9, ptr nocapture noundef writeonly initializes((0, 8)) %10, i32 noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @proj_trans_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, ptr noundef writeonly captures(none) initializes((0, 8)) %9, ptr noundef writeonly captures(none) initializes((0, 8)) %10, i32 noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = alloca %struct.PJ_PROJ_INFO, align 8
   store double 0x7FF0000000000000, ptr %7, align 8
   store double 0x7FF0000000000000, ptr %8, align 8
@@ -3850,7 +3850,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i315: ; preds = %_ZNKSt6vectorIdSa
   br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %118
-  %137 = invoke i64 @proj_trans_generic(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %50, i64 noundef 8, i64 noundef %48, ptr noundef nonnull %53, i64 noundef 8, i64 noundef %48, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0)
+  %137 = invoke i64 @proj_trans_generic(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %50, i64 noundef 8, i64 noundef %48, ptr noundef nonnull %53, i64 noundef 8, i64 noundef %48, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0)
           to label %138 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit305.thread
 
 138:                                              ; preds = %._crit_edge
@@ -4169,7 +4169,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit303:                 ; preds = %223, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_pj_info(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_PROJ_INFO) align 8 initializes((0, 40)) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @proj_pj_info(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_PROJ_INFO) align 8 captures(none) initializes((0, 40)) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4411,7 +4411,7 @@ _ZNK16PJCoordOperation14isInstantiableEv.exit:    ; preds = %.lr.ph, %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef range(i32 -1, 2) i32 @_ZL24target_crs_lon_lat_orderP6pj_ctxP8PJconsts12PJ_DIRECTION(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
@@ -4550,7 +4550,7 @@ define internal fastcc noundef zeroext i1 @_ZL19contains_south_poleP8PJconsts12P
 declare double @llvm.fmuladd.f64(double, double, double) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef double @_ZL16antimeridian_minPKdi(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 4, 40005) %1) unnamed_addr #21 {
+define internal fastcc noundef double @_ZL16antimeridian_minPKdi(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 4, 40005) %1) unnamed_addr #21 {
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %3
 
@@ -4667,7 +4667,7 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef double @_ZL16antimeridian_maxPKdi(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 4, 40005) %1) unnamed_addr #21 {
+define internal fastcc noundef double @_ZL16antimeridian_maxPKdi(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 4, 40005) %1) unnamed_addr #21 {
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %3
 
@@ -6789,7 +6789,7 @@ define noalias noundef ptr @proj_context_destroy(ptr noundef %0) local_unnamed_a
 declare void @_ZN6pj_ctxD1Ev(ptr noundef nonnull align 8 dereferenceable(516)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_info(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_INFO) align 8 %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @proj_info(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_INFO) align 8 captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::vector.11", align 8
   store i64 0, ptr %2, align 8
@@ -6895,14 +6895,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_Z15pj_acquire_lockv() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #24
 
 declare noundef ptr @_Z14pj_get_releasev() local_unnamed_addr #2
 
 declare void @_Z26pj_get_default_searchpathsB5cxx11P6pj_ctx(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #25 {
+define internal fastcc noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) %2) unnamed_addr #25 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %29, label %5
 
@@ -7025,7 +7025,7 @@ define void @proj_grid_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 31) #34
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = invoke noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %22, i64 noundef 259)
+  %23 = invoke noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef %9, ptr noundef nonnull %1, ptr noundef nonnull %22, i64 noundef 259)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %18
@@ -7151,7 +7151,7 @@ _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2E
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %81 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 31) #34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %83 = invoke noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %82, i64 noundef 259)
+  %83 = invoke noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef %9, ptr noundef nonnull %1, ptr noundef nonnull %82, i64 noundef 259)
           to label %.noexc32 unwind label %90
 
 .noexc32:                                         ; preds = %78
@@ -7412,19 +7412,19 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
 declare noundef i32 @_Z12pj_find_fileP6pj_ctxPKcPcm(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 declare ptr @proj_context_get_database_metadata(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 declare noundef ptr @_Z10pj_mkparamPKc(ptr noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z14pj_expand_initP6pj_ctxP8ARG_list(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_factors(ptr dead_on_unwind noalias writable sret(%struct.P5_FACTORS) align 8 %0, ptr noundef %1, ptr nocapture noundef readonly byval(%union.PJ_COORD) align 8 %2) local_unnamed_addr #1 {
+define void @proj_factors(ptr dead_on_unwind noalias writable sret(%struct.P5_FACTORS) align 8 %0, ptr noundef %1, ptr noundef readonly byval(%union.PJ_COORD) align 8 captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.FACTORS, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -7792,7 +7792,7 @@ _ZL34isSpecialCaseForNAD83_to_NAD83HARNRKNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_"(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN16PJCoordOperationC1EiddddddddP8PJconstsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddPKcPKS0_SD_ENK3$_0clESD_RbSF_"(ptr noundef nonnull %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = tail call i32 @proj_get_type(ptr noundef nonnull %0)
@@ -7896,7 +7896,7 @@ declare void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef, ptr nounde
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
@@ -7912,7 +7912,7 @@ declare ptr @proj_crs_get_geodetic_crs(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @proj_crs_demote_to_2D(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -7942,7 +7942,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_112ObjectKeeperEEclEPS1_.exit: ; preds = %3
 declare double @sin(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14reproject_bboxP8PJconstsddddRdS1_S1_S1_(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %7, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14reproject_bboxP8PJconstsddddRdS1_S1_S1_(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   store double 0xFFEFFFFFFFFFFFFF, ptr %5, align 8
   store double 0xFFEFFFFFFFFFFFFF, ptr %6, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %7, align 8
@@ -8472,10 +8472,10 @@ declare noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr n
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #29
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) local_unnamed_addr #27
@@ -8733,13 +8733,13 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #30
 declare i64 @llvm.umax.i64(i64, i64) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31

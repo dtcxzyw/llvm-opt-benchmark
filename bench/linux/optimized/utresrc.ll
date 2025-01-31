@@ -151,10 +151,10 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp sgt i8 %4, -1
@@ -275,7 +275,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 1, 65539) i32 @acpi_ut_get_descriptor_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 1, 65539) i32 @acpi_ut_get_descriptor_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp sgt i8 %2, -1
   br i1 %3, label %7, label %4
@@ -299,7 +299,7 @@ define dso_local range(i32 1, 65539) i32 @acpi_ut_get_descriptor_length(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @acpi_ut_get_resource_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i8 @acpi_ut_get_resource_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = and i8 %2, 120
   %4 = icmp slt i8 %2, 0
@@ -308,10 +308,10 @@ define dso_local zeroext i8 @acpi_ut_get_resource_type(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i16 @acpi_ut_get_resource_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i16 @acpi_ut_get_resource_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp sgt i8 %2, -1
   br i1 %3, label %7, label %4
@@ -335,7 +335,7 @@ define dso_local zeroext i16 @acpi_ut_get_resource_length(ptr nocapture noundef 
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext range(i8 1, 4) i8 @acpi_ut_get_resource_header_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext range(i8 1, 4) i8 @acpi_ut_get_resource_header_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp sgt i8 %2, -1
   %4 = select i1 %3, i8 1, i8 3
@@ -343,7 +343,7 @@ define dso_local zeroext range(i8 1, 4) i8 @acpi_ut_get_resource_header_length(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [

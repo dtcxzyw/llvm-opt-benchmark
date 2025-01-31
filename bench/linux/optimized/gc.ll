@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched208, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 16 {
+define internal void @key_garbage_collector(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call i64 @ktime_get_real_seconds() #4
   %3 = load i8, ptr @key_garbage_collector.gc_state, align 1
   %4 = shl i8 %3, 1
@@ -515,7 +515,7 @@ declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #1
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @key_set_expiry(ptr nocapture noundef initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @key_set_expiry(ptr noundef captures(none) initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 9223372036854775807
@@ -604,7 +604,7 @@ declare void @llvm.assume(i1 noundef) #2
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @key_gc_timer_func(ptr nocapture readnone %0) #0 align 16 {
+define internal void @key_gc_timer_func(ptr readnone captures(none) %0) #0 align 16 {
   store i64 9223372036854775807, ptr @key_gc_next_run, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 1, ptr nonnull elementtype(i8) @key_gc_flags) #4, !srcloc !7
   %2 = load ptr, ptr @system_wq, align 8
@@ -646,7 +646,7 @@ declare dso_local void @keyring_gc(ptr noundef, i64 noundef) local_unnamed_addr 
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #1

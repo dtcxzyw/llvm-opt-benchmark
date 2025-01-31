@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN20FormatBufferResourceC1EPKcz = hidden unnamed_addr alias void (ptr, ptr, ...), ptr @_ZN20FormatBufferResourceC2EPKcz
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20FormatBufferResourceC2EPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ...) unnamed_addr #0 align 2 {
+define hidden void @_ZN20FormatBufferResourceC2EPKcz(ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ...) unnamed_addr #0 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i32 noundef 0) #3
   store ptr %4, ptr %0, align 8

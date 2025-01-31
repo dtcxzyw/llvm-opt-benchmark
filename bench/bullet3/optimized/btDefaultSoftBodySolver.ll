@@ -38,7 +38,7 @@ $_ZTI16btSoftBodySolver = comdat any
 @_ZN23btDefaultSoftBodySolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btDefaultSoftBodySolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 21), (28, 36), (40, 49)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 21), (28, 36), (40, 49)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_numberOfPositionIterations.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_timeScale.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -63,7 +63,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -134,13 +134,13 @@ _ZN23btDefaultSoftBodySolverD2Ev.exit:            ; preds = %entry, %if.then.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver20copyBackToSoftBodiesEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %bMove) unnamed_addr #3 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver20copyBackToSoftBodiesEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %bMove) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %softBodies, i1 zeroext %forceUpdate) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %softBodies, i1 zeroext %forceUpdate) unnamed_addr #4 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %softBodies, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -254,7 +254,7 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
@@ -298,13 +298,13 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN23btDefaultSoftBodySolver16checkInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN23btDefaultSoftBodySolver16checkInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float %solverdt) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, float %solverdt) unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
@@ -348,7 +348,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %softBody, ptr noundef %vertexBuffer) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %softBody, ptr noundef %vertexBuffer) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %vertexBuffer, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -462,7 +462,7 @@ if.end55:                                         ; preds = %for.body41, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyS1_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %softBody, ptr noundef %otherSoftBody) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %softBody, ptr noundef %otherSoftBody) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064) %softBody, ptr noundef %otherSoftBody)
   ret void
@@ -471,7 +471,7 @@ entry:
 declare void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyPK24btCollisionObjectWrapper(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %softBody, ptr noundef %collisionObjectWrap) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver16processCollisionEP10btSoftBodyPK24btCollisionObjectWrapper(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %softBody, ptr noundef %collisionObjectWrap) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064) %softBody, ptr noundef %collisionObjectWrap)
   ret void
@@ -480,7 +480,7 @@ entry:
 declare void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrapper(ptr noundef nonnull align 8 dereferenceable(2064), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float noundef %timeStep) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, float noundef %timeStep) unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4

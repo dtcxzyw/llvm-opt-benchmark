@@ -73,7 +73,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE4META17h5943cafa63638663E = internal constant <{ [16 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, ptr, ptr, [8 x i8], ptr, [9 x i8], [7 x i8] }> <{ [16 x i8] c"\03\00\00\00\00\00\00\00\01\00\00\00\04\04\00\00", ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.62, [8 x i8] c"'\00\00\00\00\00\00\00", ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.56, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.58, [8 x i8] c"\01\00\00\00\00\00\00\00", ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.59, ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.56, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.2, [9 x i8] c"\1C\00\00\00\00\00\00\00\01", [7 x i8] undef }>, align 8
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h363d9ff7136f6595E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define internal noundef nonnull align 8 ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h363d9ff7136f6595E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   ret ptr %2
 }
@@ -151,14 +151,14 @@ _ZN12actix_router8resource12insert_slash17hba1dd6d093853746E.exit: ; preds = %9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @_ZN12actix_router8resource11ResourceDef2id17h04e370c3925ac5dfE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define noundef i16 @_ZN12actix_router8resource11ResourceDef2id17h04e370c3925ac5dfE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i16, ptr %2, align 8, !noundef !3
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef6set_id17hf9004cc8f9c87063E(ptr nocapture writeonly align 8 initializes((144, 146)) %0, i16 %1) unnamed_addr #3 {
+define void @_ZN12actix_router8resource11ResourceDef6set_id17hf9004cc8f9c87063E(ptr writeonly align 8 captures(none) initializes((144, 146)) %0, i16 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 %1, ptr %3, align 8
   ret void
@@ -172,7 +172,7 @@ define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef4name17hd1b775b7eedb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define zeroext i1 @_ZN12actix_router8resource11ResourceDef9is_prefix17hd012253c72048f4bE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define zeroext i1 @_ZN12actix_router8resource11ResourceDef9is_prefix17hd012253c72048f4bE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %3 = load i8, ptr %2, align 2, !range !8, !noundef !3
   %4 = trunc nuw i8 %3 to i1
@@ -180,7 +180,7 @@ define zeroext i1 @_ZN12actix_router8resource11ResourceDef9is_prefix17hd012253c7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h8d402e7017907999E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h8d402e7017907999E(ptr readonly align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !9, !noundef !3
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %9
@@ -215,7 +215,7 @@ define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h8d402e701
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr nocapture writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 initializes((0, 17)) %0, ptr align 8 %1) unnamed_addr #3 {
+define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 captures(none) initializes((0, 17)) %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
@@ -225,7 +225,7 @@ define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h032e75abf27a770aE"(ptr nocapture align 8 %0) unnamed_addr #4 {
+define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h032e75abf27a770aE"(ptr align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %3 = load i64, ptr %2, align 8, !range !9, !noundef !3
   %4 = icmp eq i64 %3, 0
@@ -283,7 +283,7 @@ define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd77d006f7cd5620aE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd77d006f7cd5620aE"(ptr writeonly sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) initializes((0, 24)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !9, !noundef !3
   %5 = icmp eq i64 %4, 0
@@ -518,7 +518,7 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE(ptr nocapture readonly align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #1 {
+define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE(ptr readonly align 8 captures(none) %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #1 {
   %6 = alloca [4 x i8], align 4
   %7 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h4f1529533e466d24E"(ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4)
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -559,7 +559,7 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h334
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nocapture writeonly sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 1 %1, i64 %2, i1 zeroext %3, i1 zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr writeonly sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) %0, ptr align 1 %1, i64 %2, i1 zeroext %3, i1 zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, [3 x i64] }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -1757,7 +1757,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hc78cd5fb92cc2ec8E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8, ptr align 8) unnamed_addr #1
@@ -1952,10 +1952,10 @@ declare i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hc6e351ee063
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

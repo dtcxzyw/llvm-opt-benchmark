@@ -165,16 +165,16 @@ list_length.exit.thread:                          ; preds = %69
   br label %97
 
 92:                                               ; preds = %80, %87
-  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef nonnull %81, ptr noundef %5, ptr noundef %6)
+  call fastcc void @expand_single_inheritance_child(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef nonnull %81, ptr noundef %5, ptr noundef %6)
   %93 = load i32, ptr %6, align 4
-  %94 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %93, ptr noundef %1) #6
+  %94 = tail call ptr @build_simple_rel(ptr noundef nonnull %0, i32 noundef %93, ptr noundef %1) #6
   tail call void @table_close(ptr noundef nonnull %81, i32 noundef 0) #6
   br label %97
 
 .critedge:                                        ; preds = %.lr.ph143
-  call fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef %43, ptr noundef %5, ptr noundef %6)
+  call fastcc void @expand_single_inheritance_child(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, ptr noundef %43, ptr noundef %48, ptr noundef %43, ptr noundef %5, ptr noundef %6)
   %95 = load i32, ptr %6, align 4
-  %96 = tail call ptr @build_simple_rel(ptr noundef %0, i32 noundef %95, ptr noundef %1) #6
+  %96 = tail call ptr @build_simple_rel(ptr noundef nonnull %0, i32 noundef %95, ptr noundef %1) #6
   br label %97
 
 97:                                               ; preds = %.critedge, %92, %91
@@ -346,7 +346,7 @@ declare ptr @get_plan_rowmark(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @getRTEPermissionInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @expand_partitioned_rtentry(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   tail call void @check_stack_depth() #6
@@ -475,7 +475,7 @@ declare void @expand_planner_arrays(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7) unnamed_addr #0 {
+define internal fastcc void @expand_single_inheritance_child(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -695,7 +695,7 @@ list_length.exit106:                              ; preds = %66
   store ptr %143, ptr %141, align 8
   %144 = tail call ptr @makeVar(i32 noundef %30, i16 noundef signext -6, i32 noundef 26, i32 noundef -1, i32 noundef 0, i32 noundef 0) #6
   tail call void @add_row_identity_var(ptr noundef nonnull %0, ptr noundef %144, i32 noundef %30, ptr noundef nonnull @.str.6) #6
-  tail call void @add_row_identity_columns(ptr noundef nonnull %0, i32 noundef %30, ptr noundef nonnull %13, ptr noundef %5) #6
+  tail call void @add_row_identity_columns(ptr noundef nonnull %0, i32 noundef %30, ptr noundef nonnull %13, ptr noundef nonnull %5) #6
   br label %145
 
 145:                                              ; preds = %136, %140, %132
@@ -721,7 +721,7 @@ declare void @add_vars_to_targetlist(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @bms_make_singleton(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -776,7 +776,7 @@ define dso_local ptr @get_rel_all_updated_cols(ptr noundef %0, ptr nocapture nou
 declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @translate_col_privs_multilevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @translate_col_privs_multilevel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %28, label %6
 
@@ -827,7 +827,7 @@ declare ptr @get_dependent_generated_columns(ptr noundef, i32 noundef, ptr nound
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -1159,7 +1159,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @make_append_rel_info(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

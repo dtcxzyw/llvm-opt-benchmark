@@ -178,7 +178,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.eventText = private unnamed_addr constant [22 x ptr] [ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.105, ptr @.str.105, ptr @.str.105, ptr @.str.105, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @print_message(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ...) local_unnamed_addr #0 {
+define hidden void @print_message(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #0 {
   %5 = alloca [8704 x i8], align 16
   %6 = alloca [8704 x i8], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
@@ -205,7 +205,7 @@ declare void @llvm.va_start.p0(ptr) #1
 declare void @llvm.va_end.p0(ptr) #1
 
 ; Function Attrs: cold nounwind uwtable
-define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+define hidden void @error_message(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [8704 x i8], align 16
   %3 = alloca [8704 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
@@ -548,7 +548,7 @@ define hidden noundef nonnull ptr @jvmtiErrorText(i32 noundef %0) local_unnamed_
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define hidden void @tty_message(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [8704 x i8], align 16
   %3 = alloca [8704 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
@@ -572,7 +572,7 @@ define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_un
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -899,21 +899,21 @@ declare i32 @getpid() local_unnamed_addr #7
 declare i32 @sleep(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @utf8ToPlatform(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

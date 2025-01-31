@@ -179,7 +179,7 @@ declare ptr @UI_create_method(ptr noundef) local_unnamed_addr #1
 declare i32 @UI_method_set_opener(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ui_open(ptr nocapture readnone %ui) #2 {
+define internal noundef i32 @ui_open(ptr readnone captures(none) %ui) #2 {
 entry:
   ret i32 1
 }
@@ -225,7 +225,7 @@ return:                                           ; preds = %sw.bb, %entry, %if.
 declare i32 @UI_method_set_writer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ui_write(ptr nocapture readnone %ui, ptr nocapture readnone %uis) #2 {
+define internal noundef i32 @ui_write(ptr readnone captures(none) %ui, ptr readnone captures(none) %uis) #2 {
 entry:
   ret i32 1
 }
@@ -233,7 +233,7 @@ entry:
 declare i32 @UI_method_set_closer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ui_close(ptr nocapture readnone %ui) #2 {
+define internal noundef i32 @ui_close(ptr readnone captures(none) %ui) #2 {
 entry:
   ret i32 1
 }
@@ -272,13 +272,13 @@ declare i32 @UI_set_result_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ui_new_method_data(ptr nocapture readnone %parent, ptr nocapture readnone %ptr, ptr nocapture readnone %ad, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #2 {
+define internal void @ui_new_method_data(ptr readnone captures(none) %parent, ptr readnone captures(none) %ptr, ptr readnone captures(none) %ad, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ui_dup_method_data(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture noundef %pptr, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
+define internal range(i32 0, 2) i32 @ui_dup_method_data(ptr readnone captures(none) %to, ptr readnone captures(none) %from, ptr noundef captures(none) %pptr, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #0 {
 entry:
   %0 = load ptr, ptr %pptr, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ui_free_method_data(ptr nocapture readnone %parent, ptr noundef %ptr, ptr nocapture readnone %ad, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
+define internal void @ui_free_method_data(ptr readnone captures(none) %parent, ptr noundef %ptr, ptr readnone captures(none) %ad, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #0 {
 entry:
   tail call void @CRYPTO_free(ptr noundef %ptr, ptr noundef nonnull @.str, i32 noundef 85) #4
   ret void

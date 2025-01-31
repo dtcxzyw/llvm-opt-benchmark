@@ -744,7 +744,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %.coerce0, ptr readnone captures(none) %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::ClientCompressionFilter", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
@@ -963,7 +963,7 @@ _ZN9grpc_core22ImplementChannelFilterINS_23ClientCompressionFilterEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr.1") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias writeonly sret(%"class.absl::lts_20230802::StatusOr.1") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %.coerce0, ptr readnone captures(none) %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::ServerCompressionFilter", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
@@ -1259,7 +1259,7 @@ declare i32 @grpc_compression_algorithm_name(i32 noundef, ptr noundef) local_unn
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef %message, i32 noundef %algorithm) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23) %this, ptr noundef captures(none) %message, i32 noundef %algorithm) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.grpc_core::SliceBuffer", align 8
   %algo_name = alloca ptr, align 8
@@ -1456,7 +1456,7 @@ declare noundef i32 @_Z17grpc_msg_compress26grpc_compression_algorithmP17grpc_sl
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef %message, i64 %args.coerce0, i8 %args.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23) %this, ptr noundef captures(none) %message, i64 %args.coerce0, i8 %args.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp20 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1782,7 +1782,7 @@ eh.resume:                                        ; preds = %ehcleanup91, %ehcle
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN4absl12lts_2023080222ResourceExhaustedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr) local_unnamed_addr #0
 
@@ -1824,7 +1824,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(
 declare noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %outgoing_metadata) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(568) initializes((17, 18)) %outgoing_metadata) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outgoing_metadata, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
@@ -1871,7 +1871,7 @@ if.end:                                           ; preds = %if.then, %_ZN9grpc_
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i8 } @_ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %incoming_metadata) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %incoming_metadata) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %max_recv_message_length.sroa.0.0.extract.trunc12 = trunc i64 %0 to i32
@@ -1931,7 +1931,7 @@ if.end:                                           ; preds = %land.rhs, %land.lhs
 declare noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPK25grpc_call_context_elementm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %md, ptr nocapture noundef readonly %filter) #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 4)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(568) initializes((17, 18)) %md, ptr noundef readonly captures(none) %filter) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %md, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
@@ -1979,7 +1979,7 @@ _ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientToServerMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef %message, ptr nocapture noundef readonly %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientToServerMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %message, ptr noundef readonly captures(none) %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
@@ -2063,7 +2063,7 @@ if.end:                                           ; preds = %_ZN9grpc_core7Messa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %md, ptr nocapture noundef readonly %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %md, ptr noundef readonly captures(none) %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %0 = load i64, ptr %compression_engine_, align 8
@@ -2124,7 +2124,7 @@ _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerToClientMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef %message, ptr nocapture noundef readonly %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerToClientMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %message, ptr noundef readonly captures(none) %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
@@ -2178,7 +2178,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %md, ptr nocapture noundef readonly %filter) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %md, ptr noundef readonly captures(none) %filter) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %0 = load i64, ptr %compression_engine_, align 8
@@ -2238,7 +2238,7 @@ _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientToServerMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef %message, ptr nocapture noundef readonly %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientToServerMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %message, ptr noundef readonly captures(none) %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
@@ -2291,7 +2291,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((12, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %md, ptr nocapture noundef readonly %filter) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((12, 16)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(568) initializes((17, 18)) %md, ptr noundef readonly captures(none) %filter) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %md, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
@@ -2340,7 +2340,7 @@ _ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerToClientMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef %message, ptr nocapture noundef readonly %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerToClientMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEPS0_(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %message, ptr noundef readonly captures(none) %filter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %compression_engine_ = getelementptr inbounds nuw i8, ptr %filter, i64 24
@@ -3459,7 +3459,7 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6850,7 +6850,7 @@ lpad:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @grpc_slice_buffer_init(ptr noundef) local_unnamed_addr #0
 
@@ -10616,10 +10616,10 @@ declare extern_weak void @_ZTHN9grpc_core8Activity19g_current_activity_E() #0
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

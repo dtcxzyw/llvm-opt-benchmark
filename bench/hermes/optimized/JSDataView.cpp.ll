@@ -50,7 +50,7 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm10JSDataView6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %prototype.coerce) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm10JSDataView6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %prototype.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9536
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
@@ -109,7 +109,7 @@ _ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_10JSDataViewEEENS0_12Pseudo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm10JSDataViewC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((4, 32)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parent.coerce, ptr nocapture readonly %clazz.coerce) unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes2vm10JSDataViewC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(32) initializes((4, 32)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(none) %parent.coerce, ptr readonly captures(none) %clazz.coerce) unnamed_addr #2 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %parent.coerce, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152), i32 noundef) local_unnamed_addr #0
 

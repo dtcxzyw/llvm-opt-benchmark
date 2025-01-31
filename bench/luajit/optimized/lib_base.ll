@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [7 x i8] c"normal\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_ffh_coroutine_wrap_err(ptr noundef %L, ptr nocapture noundef %co) local_unnamed_addr #0 {
+define hidden void @lj_ffh_coroutine_wrap_err(ptr noundef %L, ptr noundef captures(none) %co) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %co, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -1176,7 +1176,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @lj_cf_gcinfo(ptr nocapture noundef %L) #4 {
+define internal noundef i32 @lj_cf_gcinfo(ptr noundef captures(none) %L) #4 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -1535,7 +1535,7 @@ declare hidden ptr @lj_ctype_rawref(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1566,7 +1566,7 @@ declare i32 @luaL_loadbufferx(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i32 @lua_loadx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @reader_func(ptr noundef %L, ptr nocapture readnone %ud, ptr noundef %size) #2 {
+define internal ptr @reader_func(ptr noundef %L, ptr readnone captures(none) %ud, ptr noundef %size) #2 {
 entry:
   tail call void @luaL_checkstack(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.8) #10
   %top = getelementptr inbounds nuw i8, ptr %L, i64 40
@@ -1650,7 +1650,7 @@ declare hidden ptr @lj_strfmt_wstrnum(ptr noundef, ptr noundef, ptr noundef) loc
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_coroutine_status(ptr noundef %L) #2 {
@@ -1732,7 +1732,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @lj_cf_coroutine_isyieldable(ptr nocapture noundef %L) #7 {
+define internal noundef i32 @lj_cf_coroutine_isyieldable(ptr noundef captures(none) %L) #7 {
 entry:
   %cframe = getelementptr inbounds nuw i8, ptr %L, i64 80
   %0 = load ptr, ptr %cframe, align 8

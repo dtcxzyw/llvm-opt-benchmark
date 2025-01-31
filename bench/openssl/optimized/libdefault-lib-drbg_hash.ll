@@ -155,7 +155,7 @@ declare i32 @ossl_drbg_lock(ptr noundef) #1
 declare void @ossl_drbg_unlock(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_hash_settable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %p_ctx) #2 {
+define internal noundef nonnull ptr @drbg_hash_settable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %p_ctx) #2 {
 entry:
   ret ptr @drbg_hash_settable_ctx_params.known_settable_ctx_params
 }
@@ -188,7 +188,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_hash_gettable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %p_ctx) #2 {
+define internal noundef nonnull ptr @drbg_hash_gettable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %p_ctx) #2 {
 entry:
   ret ptr @drbg_hash_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -255,7 +255,7 @@ return:                                           ; preds = %err, %if.then23, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef readonly captures(none) %vdrbg) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -338,7 +338,7 @@ declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 declare ptr @ossl_rand_drbg_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hash_new(ptr nocapture noundef writeonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_new(ptr noundef writeonly captures(none) %ctx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 376, ptr noundef nonnull @.str, i32 noundef 423) #5
   %cmp = icmp eq ptr %call, null
@@ -367,7 +367,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hash_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_instantiate(ptr noundef readonly captures(none) %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -416,7 +416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hash_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_reseed(ptr noundef readonly captures(none) %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -442,7 +442,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %counter = alloca [4 x i8], align 1
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
@@ -952,14 +952,14 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @ossl_prov_drbg_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr nocapture noundef readonly %drbg, i8 noundef zeroext range(i8 2, 4) %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr noundef readonly captures(none) %drbg, i8 noundef zeroext range(i8 2, 4) %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
 entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1

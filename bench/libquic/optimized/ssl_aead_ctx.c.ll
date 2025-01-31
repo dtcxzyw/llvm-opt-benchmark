@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/ssl_aead_ctx.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SSL_AEAD_CTX_new(i32 noundef %direction, i16 noundef zeroext %version, ptr noundef %cipher, ptr noundef %enc_key, i64 noundef %enc_key_len, ptr nocapture noundef readonly %mac_key, i64 noundef %mac_key_len, ptr nocapture noundef readonly %fixed_iv, i64 noundef %fixed_iv_len) local_unnamed_addr #0 {
+define hidden noundef ptr @SSL_AEAD_CTX_new(i32 noundef %direction, i16 noundef zeroext %version, ptr noundef %cipher, ptr noundef %enc_key, i64 noundef %enc_key_len, ptr noundef readonly captures(none) %mac_key, i64 noundef %mac_key_len, ptr noundef readonly captures(none) %fixed_iv, i64 noundef %fixed_iv_len) local_unnamed_addr #0 {
 entry:
   %aead = alloca ptr, align 8
   %discard = alloca i64, align 8
@@ -129,15 +129,15 @@ declare i32 @ssl_cipher_get_evp_aead(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @EVP_AEAD_nonce_length(ptr noundef) local_unnamed_addr #1
 
@@ -216,7 +216,7 @@ return:                                           ; preds = %entry, %SSL_AEAD_CT
 declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_AEAD_CTX_open(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr nocapture noundef readonly %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden i32 @SSL_AEAD_CTX_open(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr noundef readonly captures(none) %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %ad = alloca [13 x i8], align 8
   %nonce = alloca [16 x i8], align 16
@@ -409,12 +409,12 @@ return:                                           ; preds = %if.end61, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @EVP_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr nocapture noundef readonly %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_AEAD_CTX_seal(ptr noundef %aead, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, i16 noundef zeroext %wire_version, ptr noundef readonly captures(none) %seqnum, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %ad = alloca [13 x i8], align 8
   %nonce = alloca [16 x i8], align 16

@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN4FLAC7Encoder4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC7Encoder4FileD2Ev
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC7Encoder6StreamC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -31,7 +31,7 @@ entry:
 declare ptr @FLAC__stream_encoder_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC7Encoder6StreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC7Encoder6StreamD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -78,7 +78,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 declare void @FLAC__stream_encoder_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind sspstrong memory(inaccessiblemem: write) uwtable
-define void @_ZN4FLAC7Encoder6StreamD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN4FLAC7Encoder6StreamD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -88,7 +88,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_ogg_serial_numberEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_ogg_serial_numberEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -109,7 +109,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_ogg_serial_number(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream10set_verifyEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream10set_verifyEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -122,7 +122,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_verify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_streamable_subsetEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_streamable_subsetEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -135,7 +135,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_streamable_subset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_channelsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_channelsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -147,7 +147,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_channels(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream19set_bits_per_sampleEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream19set_bits_per_sampleEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -159,7 +159,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_bits_per_sample(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream15set_sample_rateEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream15set_sample_rateEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -171,7 +171,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_sample_rate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_compression_levelEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_compression_levelEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -183,7 +183,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_compression_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream13set_blocksizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream13set_blocksizeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -195,7 +195,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_blocksize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream22set_do_mid_side_stereoEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream22set_do_mid_side_stereoEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -208,7 +208,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_do_mid_side_stereo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream25set_loose_mid_side_stereoEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream25set_loose_mid_side_stereoEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -221,7 +221,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_loose_mid_side_stereo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream15set_apodizationEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %specification) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream15set_apodizationEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %specification) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -233,7 +233,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_apodization(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream17set_max_lpc_orderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream17set_max_lpc_orderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -245,7 +245,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_max_lpc_order(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream23set_qlp_coeff_precisionEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream23set_qlp_coeff_precisionEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -257,7 +257,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_qlp_coeff_precision(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream28set_do_qlp_coeff_prec_searchEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream28set_do_qlp_coeff_prec_searchEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -270,7 +270,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_do_qlp_coeff_prec_search(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream20set_do_escape_codingEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream20set_do_escape_codingEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -283,7 +283,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_do_escape_coding(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream30set_do_exhaustive_model_searchEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream30set_do_exhaustive_model_searchEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -296,7 +296,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_do_exhaustive_model_search(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream32set_min_residual_partition_orderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream32set_min_residual_partition_orderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -308,7 +308,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_min_residual_partition_order(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream32set_max_residual_partition_orderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream32set_max_residual_partition_orderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -320,7 +320,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_max_residual_partition_order(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream30set_rice_parameter_search_distEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream30set_rice_parameter_search_distEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -332,7 +332,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_rice_parameter_search_dist(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream26set_total_samples_estimateEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream26set_total_samples_estimateEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -344,7 +344,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_total_samples_estimate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_metadataEPP20FLAC__StreamMetadataj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %metadata, i32 noundef %num_blocks) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_metadataEPP20FLAC__StreamMetadataj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %metadata, i32 noundef %num_blocks) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -356,7 +356,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_metadata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_metadataEPPNS_8Metadata9PrototypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %metadata, i32 noundef %num_blocks) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream12set_metadataEPPNS_8Metadata9PrototypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %metadata, i32 noundef %num_blocks) unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %num_blocks to i64
   %0 = shl nuw nsw i64 %conv, 3
@@ -392,7 +392,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_limit_min_bitrateEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream21set_limit_min_bitrateEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -405,7 +405,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_limit_min_bitrate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream15set_num_threadsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream15set_num_threadsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %value) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -416,7 +416,7 @@ entry:
 declare i32 @FLAC__stream_encoder_set_num_threads(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define i32 @_ZNK4FLAC7Encoder6Stream9get_stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define i32 @_ZNK4FLAC7Encoder6Stream9get_stateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -427,7 +427,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define i32 @_ZNK4FLAC7Encoder6Stream24get_verify_decoder_stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define i32 @_ZNK4FLAC7Encoder6Stream24get_verify_decoder_stateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -438,7 +438,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_verify_decoder_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder6Stream30get_verify_decoder_error_statsEPmPjS3_S3_PiS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %absolute_sample, ptr noundef %frame_number, ptr noundef %channel, ptr noundef %sample, ptr noundef %expected, ptr noundef %got) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC7Encoder6Stream30get_verify_decoder_error_statsEPmPjS3_S3_PiS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %absolute_sample, ptr noundef %frame_number, ptr noundef %channel, ptr noundef %sample, ptr noundef %expected, ptr noundef %got) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -449,7 +449,7 @@ entry:
 declare void @FLAC__stream_encoder_get_verify_decoder_error_stats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream10get_verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream10get_verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -461,7 +461,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_verify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream21get_streamable_subsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream21get_streamable_subsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -473,7 +473,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_streamable_subset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream22get_do_mid_side_stereoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream22get_do_mid_side_stereoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -485,7 +485,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_do_mid_side_stereo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream25get_loose_mid_side_stereoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream25get_loose_mid_side_stereoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -497,7 +497,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_loose_mid_side_stereo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream12get_channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream12get_channelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -508,7 +508,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_channels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream19get_bits_per_sampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream19get_bits_per_sampleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -519,7 +519,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_bits_per_sample(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream15get_sample_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream15get_sample_rateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -530,7 +530,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_sample_rate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream13get_blocksizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream13get_blocksizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -541,7 +541,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_blocksize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream17get_max_lpc_orderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream17get_max_lpc_orderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -552,7 +552,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_max_lpc_order(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream23get_qlp_coeff_precisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream23get_qlp_coeff_precisionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -563,7 +563,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_qlp_coeff_precision(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream28get_do_qlp_coeff_prec_searchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream28get_do_qlp_coeff_prec_searchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -575,7 +575,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_do_qlp_coeff_prec_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream20get_do_escape_codingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream20get_do_escape_codingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -587,7 +587,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_do_escape_coding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream30get_do_exhaustive_model_searchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream30get_do_exhaustive_model_searchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -599,7 +599,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_do_exhaustive_model_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream32get_min_residual_partition_orderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream32get_min_residual_partition_orderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -610,7 +610,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_min_residual_partition_order(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream32get_max_residual_partition_orderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream32get_max_residual_partition_orderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -621,7 +621,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_max_residual_partition_order(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream30get_rice_parameter_search_distEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream30get_rice_parameter_search_distEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -632,7 +632,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_rice_parameter_search_dist(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i64 @_ZNK4FLAC7Encoder6Stream26get_total_samples_estimateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK4FLAC7Encoder6Stream26get_total_samples_estimateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -643,7 +643,7 @@ entry:
 declare i64 @FLAC__stream_encoder_get_total_samples_estimate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream21get_limit_min_bitrateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK4FLAC7Encoder6Stream21get_limit_min_bitrateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -655,7 +655,7 @@ entry:
 declare i32 @FLAC__stream_encoder_get_limit_min_bitrate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZNK4FLAC7Encoder6Stream15get_num_threadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK4FLAC7Encoder6Stream15get_num_threadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -677,7 +677,7 @@ entry:
 declare i32 @FLAC__stream_encoder_init_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream15write_callback_EPK19FLAC__StreamEncoderPKhmjjPv(ptr nocapture readnone %encoder, ptr noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 noundef %current_frame, ptr noundef %client_data) #0 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream15write_callback_EPK19FLAC__StreamEncoderPKhmjjPv(ptr readnone captures(none) %encoder, ptr noundef %buffer, i64 noundef %bytes, i32 noundef %samples, i32 noundef %current_frame, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 432
@@ -687,7 +687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream14seek_callback_EPK19FLAC__StreamEncodermPv(ptr nocapture readnone %encoder, i64 noundef %absolute_byte_offset, ptr noundef %client_data) #0 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream14seek_callback_EPK19FLAC__StreamEncodermPv(ptr readnone captures(none) %encoder, i64 noundef %absolute_byte_offset, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 440
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream14tell_callback_EPK19FLAC__StreamEncoderPmPv(ptr nocapture readnone %encoder, ptr noundef %absolute_byte_offset, ptr noundef %client_data) #0 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream14tell_callback_EPK19FLAC__StreamEncoderPmPv(ptr readnone captures(none) %encoder, ptr noundef %absolute_byte_offset, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 448
@@ -707,7 +707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder6Stream18metadata_callback_EPK19FLAC__StreamEncoderPK20FLAC__StreamMetadataPv(ptr nocapture readnone %encoder, ptr noundef %metadata, ptr noundef %client_data) #0 align 2 {
+define void @_ZN4FLAC7Encoder6Stream18metadata_callback_EPK19FLAC__StreamEncoderPK20FLAC__StreamMetadataPv(ptr readnone captures(none) %encoder, ptr noundef %metadata, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 456
@@ -728,7 +728,7 @@ entry:
 declare i32 @FLAC__stream_encoder_init_ogg_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream14read_callback_EPK19FLAC__StreamEncoderPhPmPv(ptr nocapture readnone %encoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream14read_callback_EPK19FLAC__StreamEncoderPhPmPv(ptr readnone captures(none) %encoder, ptr noundef %buffer, ptr noundef %bytes, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 424
@@ -738,7 +738,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream6finishEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream6finishEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -748,7 +748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream7processEPKPKij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %samples) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream7processEPKPKij(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %samples) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -760,7 +760,7 @@ entry:
 declare i32 @FLAC__stream_encoder_process(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream19process_interleavedEPKij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %samples) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC7Encoder6Stream19process_interleavedEPKij(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %samples) unnamed_addr #0 align 2 {
 entry:
   %encoder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %encoder_, align 8
@@ -772,31 +772,31 @@ entry:
 declare i32 @FLAC__stream_encoder_process_interleaved(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream13read_callbackEPhPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer, ptr nocapture readnone %bytes) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream13read_callbackEPhPm(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %buffer, ptr readnone captures(none) %bytes) unnamed_addr #10 align 2 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream13seek_callbackEm(ptr nocapture nonnull readnone align 8 %this, i64 %absolute_byte_offset) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream13seek_callbackEm(ptr nonnull readnone align 8 captures(none) %this, i64 %absolute_byte_offset) unnamed_addr #10 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Encoder6Stream13tell_callbackEPm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %absolute_byte_offset) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder6Stream13tell_callbackEPm(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %absolute_byte_offset) unnamed_addr #10 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define void @_ZN4FLAC7Encoder6Stream17metadata_callbackEPK20FLAC__StreamMetadata(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %metadata) unnamed_addr #10 align 2 {
+define void @_ZN4FLAC7Encoder6Stream17metadata_callbackEPK20FLAC__StreamMetadata(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %metadata) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC7Encoder4FileC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -807,7 +807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC7Encoder4FileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC7Encoder4FileD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -858,7 +858,7 @@ entry:
 declare i32 @FLAC__stream_encoder_init_FILE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder4File18progress_callback_EPK19FLAC__StreamEncodermmjjPv(ptr nocapture readnone %encoder, i64 noundef %bytes_written, i64 noundef %samples_written, i32 noundef %frames_written, i32 noundef %total_frames_estimate, ptr noundef %client_data) #0 align 2 {
+define void @_ZN4FLAC7Encoder4File18progress_callback_EPK19FLAC__StreamEncodermmjjPv(ptr readnone captures(none) %encoder, i64 noundef %bytes_written, i64 noundef %samples_written, i32 noundef %frames_written, i32 noundef %total_frames_estimate, ptr noundef %client_data) #0 align 2 {
 entry:
   %vtable = load ptr, ptr %client_data, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 512
@@ -926,13 +926,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @_ZN4FLAC7Encoder4File14write_callbackEPKhmjj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer, i64 %bytes, i32 %samples, i32 %current_frame) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN4FLAC7Encoder4File14write_callbackEPKhmjj(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %buffer, i64 %bytes, i32 %samples, i32 %current_frame) unnamed_addr #10 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define void @_ZN4FLAC7Encoder4File17progress_callbackEmmjj(ptr nocapture nonnull readnone align 8 %this, i64 %bytes_written, i64 %samples_written, i32 %frames_written, i32 %total_frames_estimate) unnamed_addr #10 align 2 {
+define void @_ZN4FLAC7Encoder4File17progress_callbackEmmjj(ptr nonnull readnone align 8 captures(none) %this, i64 %bytes_written, i64 %samples_written, i32 %frames_written, i32 %total_frames_estimate) unnamed_addr #10 align 2 {
 entry:
   ret void
 }

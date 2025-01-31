@@ -662,7 +662,7 @@ define void @zend_reflection_class_factory(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass___clone(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionClass___clone(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @reflection_exception_ptr, align 8
   %4 = tail call ptr @zend_throw_exception(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef 0) #13
   ret void
@@ -671,7 +671,7 @@ define hidden void @zim_ReflectionClass___clone(ptr nocapture readnone %0, ptr n
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Reflection_getModifierNames(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_Reflection_getModifierNames(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -772,7 +772,7 @@ declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local
 declare i32 @add_next_index_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionFunction___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1062,7 +1062,7 @@ declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...)
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunction___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1217,14 +1217,14 @@ define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load i8, ptr %1, align 8
@@ -1280,7 +1280,7 @@ define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr nocapt
   %.1472 = phi i64 [ %.0471, %22 ], [ %19, %16 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = getelementptr inbounds i8, ptr %26, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %3, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %3, i64 %14, i1 false)
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %.1472, ptr %29, align 8
@@ -1911,11 +1911,11 @@ define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr nocapt
   %334 = load i32, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %336 = load i32, ptr %335, align 4
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.127, ptr noundef %3, ptr noundef nonnull %332, i32 noundef %334, i32 noundef %336) #13
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.127, ptr noundef nonnull %3, ptr noundef nonnull %332, i32 noundef %334, i32 noundef %336) #13
   br label %337
 
 337:                                              ; preds = %329, %323
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.128, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.128, ptr noundef nonnull %3) #13
   %338 = load ptr, ptr %5, align 8
   %.not591 = icmp eq ptr %338, null
   br i1 %.not591, label %344, label %339
@@ -2156,7 +2156,7 @@ _function_parameter_string.exit:                  ; preds = %_function_closure_s
   %453 = and i32 %452, 536870912
   %.not596 = icmp eq i32 %453, 0
   %454 = select i1 %.not596, ptr @.str.131, ptr @.str.130
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.129, ptr noundef %3, ptr noundef nonnull %454) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.129, ptr noundef nonnull %3, ptr noundef nonnull %454) #13
   %455 = load ptr, ptr %389, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 -16
   %457 = load i32, ptr %456, align 8
@@ -2233,12 +2233,12 @@ _function_parameter_string.exit:                  ; preds = %_function_closure_s
   br label %492
 
 492:                                              ; preds = %485, %445
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.134, ptr noundef %3) #13
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.134, ptr noundef nonnull %3) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2306,7 +2306,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getName(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2361,7 +2361,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2432,7 +2432,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr nocapture 
 declare ptr @zend_get_closure_this_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getClosureScopeClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getClosureScopeClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2541,7 +2541,7 @@ zend_reflection_class_factory.exit:               ; preds = %34, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getClosureCalledClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getClosureCalledClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2670,7 +2670,7 @@ zend_reflection_class_factory.exit:               ; preds = %47, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2828,7 +2828,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr n
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction_getClosure(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunction_getClosure(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2896,7 +2896,7 @@ define hidden void @zim_ReflectionFunction_getClosure(ptr nocapture noundef read
 declare void @zend_create_fake_closure(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2949,7 +2949,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3002,7 +3002,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction_isAnonymous(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunction_isAnonymous(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3054,7 +3054,7 @@ define hidden void @zim_ReflectionFunction_isAnonymous(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction_isDisabled(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunction_isDisabled(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3077,7 +3077,7 @@ define hidden void @zim_ReflectionFunction_isDisabled(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3155,7 +3155,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3219,7 +3219,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3283,7 +3283,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3394,7 +3394,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -3462,7 +3462,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 33) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @reflect_attributes(i32 %.44.val, ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, 33) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -3982,7 +3982,7 @@ read_attributes.exit.thread:                      ; preds = %266, %211, %169, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4098,7 +4098,7 @@ declare void @zend_hash_copy(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @zval_add_ref(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4275,7 +4275,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunction_invokeArgs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = alloca ptr, align 8
@@ -4449,7 +4449,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4504,7 +4504,7 @@ define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4563,7 +4563,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4617,7 +4617,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4790,7 +4790,7 @@ has_internal_arg_info.exit.i:                     ; preds = %79
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i64 %94, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %101, ptr align 1 %93, i64 %94, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %101, ptr nonnull align 1 %93, i64 %94, i1 false)
   %102 = getelementptr inbounds [1 x i8], ptr %101, i64 0, i64 %94
   store i8 0, ptr %102, align 1
   store ptr %97, ptr %86, align 8
@@ -4829,7 +4829,7 @@ reflection_parameter_factory.exit:                ; preds = %92, %has_internal_a
 declare ptr @zend_hash_next_index_insert_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getExtension(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getExtension(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4914,7 +4914,7 @@ define internal fastcc void @reflection_extension_factory(ptr noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %3) #13
+  %11 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %3) #13
   %12 = tail call ptr @zend_hash_find(ptr noundef nonnull @module_registry, ptr noundef nonnull %6) #13
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.thread, label %13
@@ -4967,7 +4967,7 @@ define internal fastcc void @reflection_extension_factory(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -5038,7 +5038,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocaptur
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %33, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 1 %32, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %32, i64 %33, i1 false)
   %41 = getelementptr inbounds [1 x i8], ptr %40, i64 0, i64 %33
   store i8 0, ptr %41, align 1
   store ptr %36, ptr %1, align 8
@@ -5056,10 +5056,10 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionGenerator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -5124,7 +5124,7 @@ define hidden void @zim_ReflectionGenerator___construct(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionGenerator_getTrace(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5245,7 +5245,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
 declare void @zend_fetch_debug_backtrace(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getExecutingLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionGenerator_getExecutingLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -5291,7 +5291,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingLine(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getExecutingFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionGenerator_getExecutingFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -5352,7 +5352,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingFile(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getFunction(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionGenerator_getFunction(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -5640,7 +5640,7 @@ define internal fastcc void @reflection_method_factory(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getThis(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionGenerator_getThis(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -5698,7 +5698,7 @@ define hidden void @zim_ReflectionGenerator_getThis(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionGenerator_getExecutingGenerator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionGenerator_getExecutingGenerator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -5771,7 +5771,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingGenerator(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
@@ -6464,7 +6464,7 @@ has_internal_arg_info.exit441:                    ; preds = %315
   %337 = getelementptr inbounds nuw i8, ptr %334, i64 16
   store i64 %331, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %334, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %338, ptr align 1 %330, i64 %331, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %338, ptr nonnull align 1 %330, i64 %331, i1 false)
   %339 = getelementptr inbounds [1 x i8], ptr %338, i64 0, i64 %331
   store i8 0, ptr %339, align 1
   store ptr %334, ptr %322, align 8
@@ -6564,12 +6564,12 @@ declare void @zend_argument_error(ptr noundef, i32 noundef, ptr noundef, ...) lo
 declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -6730,7 +6730,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_parameter_string(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_parameter_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.142, i32 noundef %3) #13
   %.str.144..str.143 = select i1 %4, ptr @.str.144, ptr @.str.143
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull %.str.144..str.143) #13
@@ -7180,7 +7180,7 @@ get_default_from_recv.exit.thread:                ; preds = %get_recv_op.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7250,7 +7250,7 @@ has_internal_arg_info.exit:                       ; preds = %23
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 %35, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr align 1 %34, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %34, i64 %35, i1 false)
   %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 %35
   store i8 0, ptr %43, align 1
   store ptr %38, ptr %1, align 8
@@ -7287,7 +7287,7 @@ has_internal_arg_info.exit.thread:                ; preds = %23, %has_internal_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7538,7 +7538,7 @@ reflection_method_factory.exit:                   ; preds = %121, %137
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getDeclaringClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getDeclaringClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7636,7 +7636,7 @@ zend_reflection_class_factory.exit:               ; preds = %28, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7827,7 +7827,7 @@ zend_reflection_class_factory.exit:               ; preds = %80, %104
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_hasType(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_hasType(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7884,7 +7884,7 @@ define hidden void @zim_ReflectionParameter_hasType(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8051,7 +8051,7 @@ get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isArray(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isArray(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8118,7 +8118,7 @@ define hidden void @zim_ReflectionParameter_isArray(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isCallable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isCallable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8175,7 +8175,7 @@ define hidden void @zim_ReflectionParameter_isCallable(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_allowsNull(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_allowsNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8235,7 +8235,7 @@ define hidden void @zim_ReflectionParameter_allowsNull(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isPassedByReference(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isPassedByReference(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8292,7 +8292,7 @@ define hidden void @zim_ReflectionParameter_isPassedByReference(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8349,7 +8349,7 @@ define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getAttributes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -8406,7 +8406,7 @@ define hidden void @zim_ReflectionParameter_getAttributes(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getPosition(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_getPosition(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8459,7 +8459,7 @@ define hidden void @zim_ReflectionParameter_getPosition(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isOptional(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isOptional(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8513,7 +8513,7 @@ define hidden void @zim_ReflectionParameter_isOptional(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8627,7 +8627,7 @@ get_recv_op.exit.i:                               ; preds = %52
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getDefaultValue(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionParameter_getDefaultValue(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8774,7 +8774,7 @@ get_parameter_default.exit.thread14:              ; preds = %59, %49, %get_param
 declare i32 @zval_update_constant_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8956,7 +8956,7 @@ get_parameter_default.exit.thread25:              ; preds = %get_parameter_defau
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -9219,7 +9219,7 @@ get_parameter_default.exit.thread123:             ; preds = %get_parameter_defau
 declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isVariadic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isVariadic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9276,7 +9276,7 @@ define hidden void @zim_ReflectionParameter_isVariadic(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionParameter_isPromoted(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionParameter_isPromoted(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9333,7 +9333,7 @@ define hidden void @zim_ReflectionParameter_isPromoted(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionType_allowsNull(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionType_allowsNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9388,7 +9388,7 @@ define hidden void @zim_ReflectionType_allowsNull(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionType___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionType___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9472,7 +9472,7 @@ zend_named_reflection_type_to_string.exit:        ; preds = %27, %32, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionNamedType_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionNamedType_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9589,7 +9589,7 @@ zend_named_reflection_type_to_string.exit:        ; preds = %45, %50, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionNamedType_isBuiltin(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionNamedType_isBuiltin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9668,7 +9668,7 @@ define hidden void @zim_ReflectionNamedType_isBuiltin(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionUnionType_getTypes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionUnionType_getTypes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -10087,7 +10087,7 @@ reflection_type_factory.exit:                     ; preds = %56, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionIntersectionType_getTypes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionIntersectionType_getTypes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -10633,7 +10633,7 @@ define hidden void @zim_ReflectionMethod_createFromMethodName(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -10788,7 +10788,7 @@ define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionMethod_getClosure(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -10916,13 +10916,13 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_invoke(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_invoke(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @reflection_method_invoke(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -11240,13 +11240,13 @@ _copy_function.exit:                              ; preds = %.critedge2, %112
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_invokeArgs(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_invokeArgs(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @reflection_method_invoke(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isFinal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isFinal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11301,7 +11301,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isAbstract(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isAbstract(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11356,7 +11356,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isPublic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isPublic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11410,7 +11410,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isPrivate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isPrivate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11465,7 +11465,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isProtected(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isProtected(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11520,7 +11520,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isDeprecated(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isDeprecated(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11575,7 +11575,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isGenerator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isGenerator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11630,7 +11630,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isVariadic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isVariadic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11685,7 +11685,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_isStatic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_isStatic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -11740,7 +11740,7 @@ _function_check_flag.exit:                        ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11798,7 +11798,7 @@ define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11883,7 +11883,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -11985,7 +11985,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12053,7 +12053,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12125,7 +12125,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12193,7 +12193,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12265,7 +12265,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isConstructor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isConstructor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12340,7 +12340,7 @@ define hidden void @zim_ReflectionMethod_isConstructor(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_isDestructor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_isDestructor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12406,7 +12406,7 @@ define hidden void @zim_ReflectionMethod_isDestructor(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_getModifiers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_getModifiers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12461,7 +12461,7 @@ define hidden void @zim_ReflectionMethod_getModifiers(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_getDeclaringClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionMethod_getDeclaringClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12553,7 +12553,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_hasPrototype(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionMethod_hasPrototype(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12607,7 +12607,7 @@ define hidden void @zim_ReflectionMethod_hasPrototype(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_getPrototype(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionMethod_getPrototype(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12743,7 +12743,7 @@ reflection_method_factory.exit:                   ; preds = %63, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionMethod_setAccessible(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionMethod_setAccessible(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -12762,7 +12762,7 @@ define hidden void @zim_ReflectionMethod_setAccessible(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12982,7 +12982,7 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -13434,7 +13434,7 @@ define internal fastcc void @_class_const_string(ptr noundef nonnull %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -13516,7 +13516,7 @@ define hidden void @zim_ReflectionClassConstant_getName(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -13579,7 +13579,7 @@ define hidden void @zim_ReflectionClassConstant_getType(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_hasType(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_hasType(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -13634,7 +13634,7 @@ define hidden void @zim_ReflectionClassConstant_hasType(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_isPublic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_isPublic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -13688,7 +13688,7 @@ _class_constant_check_flag.exit:                  ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_isPrivate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_isPrivate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -13743,7 +13743,7 @@ _class_constant_check_flag.exit:                  ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_isProtected(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_isProtected(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -13798,7 +13798,7 @@ _class_constant_check_flag.exit:                  ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_isFinal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_isFinal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -13853,7 +13853,7 @@ _class_constant_check_flag.exit:                  ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getModifiers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getModifiers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -13908,7 +13908,7 @@ define hidden void @zim_ReflectionClassConstant_getModifiers(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getValue(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -14027,7 +14027,7 @@ declare i32 @zend_update_class_constant(ptr noundef, ptr noundef, ptr noundef) l
 declare void @zval_copy_ctor_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getDeclaringClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getDeclaringClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -14119,7 +14119,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getDocComment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getDocComment(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -14196,7 +14196,7 @@ define hidden void @zim_ReflectionClassConstant_getDocComment(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_getAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClassConstant_getAttributes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -14249,7 +14249,7 @@ define hidden void @zim_ReflectionClassConstant_getAttributes(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -14291,7 +14291,7 @@ define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionClass___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 0)
   ret void
 }
@@ -14495,7 +14495,7 @@ define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getStaticProperties(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getStaticProperties(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -14706,7 +14706,7 @@ declare void @zend_class_init_statics(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -14851,7 +14851,7 @@ define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture nou
 declare ptr @zend_std_get_static_property(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -14987,7 +14987,7 @@ declare zeroext i1 @zend_verify_ref_assignable_zval(ptr noundef, ptr noundef, i1
 declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getDefaultProperties(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -15052,7 +15052,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_class_vars(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_class_vars(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
@@ -15200,7 +15200,7 @@ property_get_default.exit:                        ; preds = %36, %44, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -16493,7 +16493,7 @@ _free_function.exit:                              ; preds = %503, %502, %484, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16561,7 +16561,7 @@ define hidden void @zim_ReflectionClass_getName(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isInternal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isInternal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16614,7 +16614,7 @@ define hidden void @zim_ReflectionClass_isInternal(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isUserDefined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isUserDefined(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16667,7 +16667,7 @@ define hidden void @zim_ReflectionClass_isUserDefined(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isAnonymous(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isAnonymous(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16722,7 +16722,7 @@ define hidden void @zim_ReflectionClass_isAnonymous(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getFileName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getFileName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16800,7 +16800,7 @@ define hidden void @zim_ReflectionClass_getFileName(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getStartLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getStartLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16864,7 +16864,7 @@ define hidden void @zim_ReflectionClass_getStartLine(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getEndLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getEndLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16928,7 +16928,7 @@ define hidden void @zim_ReflectionClass_getEndLine(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getDocComment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getDocComment(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -17005,7 +17005,7 @@ define hidden void @zim_ReflectionClass_getDocComment(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getAttributes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -17056,7 +17056,7 @@ define hidden void @zim_ReflectionClass_getAttributes(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getConstructor(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getConstructor(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -17180,7 +17180,7 @@ reflection_method_factory.exit:                   ; preds = %48, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_hasMethod(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -17285,7 +17285,7 @@ is_closure_invoke.exit.thread:                    ; preds = %is_closure_invoke.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getMethod(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -17587,7 +17587,7 @@ reflection_method_factory.exit60:                 ; preds = %125, %141
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getMethods(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getMethods(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca i64, align 8
@@ -17950,7 +17950,7 @@ _free_function.exit:                              ; preds = %191, %190, %174, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_hasProperty(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_hasProperty(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18055,7 +18055,7 @@ define hidden void @zim_ReflectionClass_hasProperty(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getProperty(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getProperty(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18452,10 +18452,10 @@ reflection_property_factory.exit160:              ; preds = %130, %143
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_property_factory_str(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @reflection_property_factory_str(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = and i64 %2, -8
   %7 = add i64 %6, 32
   %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #14
@@ -18580,7 +18580,7 @@ reflection_property_factory.exit:                 ; preds = %40, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getProperties(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getProperties(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca i64, align 8
@@ -18937,7 +18937,7 @@ _adddynproperty.exit:                             ; preds = %138, %reflection_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_hasConstant(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_hasConstant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18999,7 +18999,7 @@ define hidden void @zim_ReflectionClass_hasConstant(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getConstants(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getConstants(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -19184,7 +19184,7 @@ define hidden void @zim_ReflectionClass_getConstants(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getReflectionConstants(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getReflectionConstants(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca %struct._zval_struct, align 8
@@ -19388,7 +19388,7 @@ reflection_class_constant_factory.exit:           ; preds = %93, %108
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getConstant(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -19562,7 +19562,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getReflectionConstant(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getReflectionConstant(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -19724,7 +19724,7 @@ reflection_class_constant_factory.exit:           ; preds = %75, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isInstantiable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isInstantiable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -19801,7 +19801,7 @@ define hidden void @zim_ReflectionClass_isInstantiable(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isCloneable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isCloneable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -19928,7 +19928,7 @@ define hidden void @zim_ReflectionClass_isCloneable(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isInterface(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isInterface(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -19982,7 +19982,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isTrait(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isTrait(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -20037,7 +20037,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isEnum(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isEnum(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -20092,7 +20092,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isFinal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isFinal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -20147,7 +20147,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isReadOnly(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isReadOnly(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -20202,7 +20202,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isAbstract(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isAbstract(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -20257,7 +20257,7 @@ _class_check_flag.exit:                           ; preds = %5, %15, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getModifiers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getModifiers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -20312,7 +20312,7 @@ define hidden void @zim_ReflectionClass_getModifiers(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isInstance(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isInstance(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -20496,7 +20496,7 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
 declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -20574,7 +20574,7 @@ define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_newInstanceArgs(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20698,7 +20698,7 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getInterfaces(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getInterfaces(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -20834,7 +20834,7 @@ zend_reflection_class_factory.exit:               ; preds = %36, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getInterfaceNames(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -20936,7 +20936,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getTraits(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getTraits(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -21072,7 +21072,7 @@ zend_reflection_class_factory.exit:               ; preds = %34, %65
 declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getTraitNames(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -21167,7 +21167,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -21365,7 +21365,7 @@ declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare void @add_assoc_str_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getParentClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getParentClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -21466,7 +21466,7 @@ zend_reflection_class_factory.exit:               ; preds = %26, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isSubclassOf(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isSubclassOf(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -21630,7 +21630,7 @@ thread-pre-split:                                 ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_implementsInterface(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_implementsInterface(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -21812,7 +21812,7 @@ thread-pre-split:                                 ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_isIterable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_isIterable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -21891,7 +21891,7 @@ define hidden void @zim_ReflectionClass_isIterable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getExtension(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionClass_getExtension(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -21953,7 +21953,7 @@ define hidden void @zim_ReflectionClass_getExtension(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getExtensionName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -22019,7 +22019,7 @@ define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef r
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %31, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %31, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1
   store ptr %35, ptr %1, align 8
@@ -22037,7 +22037,7 @@ define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_inNamespace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_inNamespace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -22095,7 +22095,7 @@ define hidden void @zim_ReflectionClass_inNamespace(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getNamespaceName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getNamespaceName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -22180,7 +22180,7 @@ define hidden void @zim_ReflectionClass_getNamespaceName(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionClass_getShortName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -22282,13 +22282,13 @@ define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionObject___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionObject___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -22538,7 +22538,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -23135,7 +23135,7 @@ property_get_default.exit:                        ; preds = %164, %172, %174
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -23203,7 +23203,7 @@ define hidden void @zim_ReflectionProperty_getName(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isPublic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isPublic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23266,7 +23266,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isPrivate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isPrivate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23330,7 +23330,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isProtected(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isProtected(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23394,7 +23394,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isStatic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isStatic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23458,7 +23458,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isReadOnly(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isReadOnly(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23522,7 +23522,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isDefault(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isDefault(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -23575,7 +23575,7 @@ define hidden void @zim_ReflectionProperty_isDefault(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isPromoted(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isPromoted(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -23639,7 +23639,7 @@ _property_check_flag.exit:                        ; preds = %5, %15, %20, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getModifiers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_getModifiers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -23703,7 +23703,7 @@ define hidden void @zim_ReflectionProperty_getModifiers(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_getValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   store ptr null, ptr %3, align 8
@@ -23968,7 +23968,7 @@ declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unna
 declare ptr @zend_read_property_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionProperty_setValue(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -24160,7 +24160,7 @@ declare i32 @zend_update_static_property_ex(ptr noundef, ptr noundef, ptr nounde
 declare void @zend_update_property_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_isInitialized(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -24301,7 +24301,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getDeclaringClass(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionProperty_getDeclaringClass(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24397,7 +24397,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getDocComment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_getDocComment(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24479,7 +24479,7 @@ define hidden void @zim_ReflectionProperty_getDocComment(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionProperty_getAttributes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
@@ -24543,7 +24543,7 @@ define hidden void @zim_ReflectionProperty_getAttributes(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_setAccessible(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionProperty_setAccessible(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -24562,7 +24562,7 @@ define hidden void @zim_ReflectionProperty_setAccessible(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionProperty_getType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24630,7 +24630,7 @@ define hidden void @zim_ReflectionProperty_getType(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_hasType(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_hasType(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24694,7 +24694,7 @@ define hidden void @zim_ReflectionProperty_hasType(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24792,7 +24792,7 @@ property_get_default.exit:                        ; preds = %35, %43, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionProperty_getDefaultValue(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionProperty_getDefaultValue(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -24932,7 +24932,7 @@ property_get_default.exit:                        ; preds = %29, %37, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionExtension___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -25020,7 +25020,7 @@ define hidden void @zim_ReflectionExtension___construct(ptr nocapture noundef re
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 %50, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr align 1 %42, i64 %50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 1 %42, i64 %50, i1 false)
   %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %50
   store i8 0, ptr %58, align 1
   store ptr %53, ptr %49, align 8
@@ -25039,7 +25039,7 @@ define hidden void @zim_ReflectionExtension___construct(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionExtension___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca %struct.smart_str, align 8
@@ -26253,7 +26253,7 @@ _extension_string.exit:                           ; preds = %492, %497, %502
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionExtension_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -26308,7 +26308,7 @@ define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readon
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 %26, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr align 1 %25, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %25, i64 %26, i1 false)
   %34 = getelementptr inbounds [1 x i8], ptr %33, i64 0, i64 %26
   store i8 0, ptr %34, align 1
   store ptr %29, ptr %1, align 8
@@ -26321,7 +26321,7 @@ define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getVersion(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionExtension_getVersion(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -26398,7 +26398,7 @@ define hidden void @zim_ReflectionExtension_getVersion(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getFunctions(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getFunctions(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -26530,7 +26530,7 @@ reflection_function_factory.exit:                 ; preds = %44, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getConstants(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getConstants(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -26659,7 +26659,7 @@ define hidden void @zim_ReflectionExtension_getConstants(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getINIEntries(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getINIEntries(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -26818,7 +26818,7 @@ _addinientry.exit:                                ; preds = %40, %73, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getClasses(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -26902,7 +26902,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_extension_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @add_extension_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = load i8, ptr %0, align 8
   %8 = icmp eq i8 %7, 1
@@ -27016,7 +27016,7 @@ zend_reflection_class_factory.exit:               ; preds = %33, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getClassNames(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getClassNames(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27158,7 +27158,7 @@ add_extension_class.exit:                         ; preds = %72, %46, %43, %37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_getDependencies(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionExtension_getDependencies(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27288,7 +27288,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %65 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %58, i64 noundef %59, ptr noundef nonnull @.str.71, ptr noundef nonnull %.088, ptr noundef nonnull %61, ptr noundef nonnull %spec.select, ptr noundef nonnull %63, ptr noundef nonnull %64) #13
   %66 = load ptr, ptr %.089106, align 8
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #16
-  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef %66, i64 noundef %67, ptr noundef nonnull %54) #13
+  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull %66, i64 noundef %67, ptr noundef nonnull %54) #13
   %68 = getelementptr inbounds nuw i8, ptr %.089106, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not99 = icmp eq ptr %69, null
@@ -27299,7 +27299,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_info(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionExtension_info(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27350,7 +27350,7 @@ define hidden void @zim_ReflectionExtension_info(ptr nocapture noundef readonly 
 declare void @php_info_print_module(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_isPersistent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionExtension_isPersistent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27404,7 +27404,7 @@ define hidden void @zim_ReflectionExtension_isPersistent(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionExtension_isTemporary(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionExtension_isTemporary(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27458,7 +27458,7 @@ define hidden void @zim_ReflectionExtension_isTemporary(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionZendExtension___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -27512,7 +27512,7 @@ define hidden void @zim_ReflectionZendExtension___construct(ptr nocapture nounde
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %24, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %24, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1
   store ptr %35, ptr %31, align 8
@@ -27533,7 +27533,7 @@ define hidden void @zim_ReflectionZendExtension___construct(ptr nocapture nounde
 declare ptr @zend_get_extension(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -27739,7 +27739,7 @@ define hidden void @zim_ReflectionZendExtension___toString(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27793,7 +27793,7 @@ define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef re
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %25, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %24, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 1 %24, i64 %25, i1 false)
   %33 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 %25
   store i8 0, ptr %33, align 1
   store ptr %28, ptr %1, align 8
@@ -27806,7 +27806,7 @@ define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension_getVersion(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension_getVersion(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27885,7 +27885,7 @@ define hidden void @zim_ReflectionZendExtension_getVersion(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension_getAuthor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension_getAuthor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -27964,7 +27964,7 @@ define hidden void @zim_ReflectionZendExtension_getAuthor(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension_getURL(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension_getURL(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -28043,7 +28043,7 @@ define hidden void @zim_ReflectionZendExtension_getURL(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionZendExtension_getCopyright(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionZendExtension_getCopyright(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -28122,7 +28122,7 @@ define hidden void @zim_ReflectionZendExtension_getCopyright(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionReference___construct(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionReference___construct(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @reflection_exception_ptr, align 8
   %4 = tail call ptr @zend_throw_exception(ptr noundef %3, ptr noundef nonnull @.str.74, i64 noundef 0) #13
   ret void
@@ -28279,7 +28279,7 @@ is_ignorable_reference.exit.thread175:            ; preds = %37, %is_ignorable_r
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionReference_getId(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionReference_getId(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca %struct.PHP_SHA1_CTX, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -28368,21 +28368,21 @@ declare void @PHP_SHA1Update(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare void @PHP_SHA1Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute___construct(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionAttribute___construct(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @reflection_exception_ptr, align 8
   %4 = tail call ptr @zend_throw_exception(ptr noundef %3, ptr noundef nonnull @.str.77, i64 noundef 0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute___clone(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionAttribute___clone(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @reflection_exception_ptr, align 8
   %4 = tail call ptr @zend_throw_exception(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef 0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionAttribute___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -29484,7 +29484,7 @@ define internal fastcc void @format_default_value(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute_getName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionAttribute_getName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -29553,7 +29553,7 @@ define hidden void @zim_ReflectionAttribute_getName(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute_getTarget(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionAttribute_getTarget(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -29607,7 +29607,7 @@ define hidden void @zim_ReflectionAttribute_getTarget(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute_isRepeated(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionAttribute_isRepeated(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -29664,7 +29664,7 @@ define hidden void @zim_ReflectionAttribute_isRepeated(ptr nocapture noundef rea
 declare zeroext i1 @zend_is_attribute_repeated(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionAttribute_getArguments(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -29769,7 +29769,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
 declare i32 @zend_get_attribute_value(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionAttribute_newInstance(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -30179,7 +30179,7 @@ define internal fastcc void @attribute_ctor_cleanup(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %union._zend_function, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
@@ -30317,7 +30317,7 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 0)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %3, null
@@ -30361,7 +30361,7 @@ define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum_hasCase(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionEnum_hasCase(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -30430,7 +30430,7 @@ define hidden void @zim_ReflectionEnum_hasCase(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionEnum_getCase(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -30625,7 +30625,7 @@ reflection_enum_case_factory.exit:                ; preds = %101, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum_getCases(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ReflectionEnum_getCases(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -30826,7 +30826,7 @@ reflection_enum_case_factory.exit:                ; preds = %88, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum_isBacked(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionEnum_isBacked(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -30880,7 +30880,7 @@ define hidden void @zim_ReflectionEnum_isBacked(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionEnum_getBackingType(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -30955,7 +30955,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnumUnitCase___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionEnumUnitCase___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr poison)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %3, null
@@ -31010,7 +31010,7 @@ define hidden void @zim_ReflectionEnumUnitCase___construct(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnumUnitCase_getEnum(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionEnumUnitCase_getEnum(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -31102,7 +31102,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnumBackedCase___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionEnumBackedCase___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr readnone poison)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %3, null
@@ -31182,7 +31182,7 @@ zim_ReflectionEnumUnitCase___construct.exit.thread: ; preds = %zim_ReflectionEnu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -31291,7 +31291,7 @@ define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFiber___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ReflectionFiber___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -31380,7 +31380,7 @@ thread-pre-split:                                 ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFiber_getFiber(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFiber_getFiber(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -31502,7 +31502,7 @@ define hidden void @zim_ReflectionFiber_getTrace(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFiber_getExecutingLine(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFiber_getExecutingLine(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -31590,7 +31590,7 @@ define hidden void @zim_ReflectionFiber_getExecutingLine(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFiber_getExecutingFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFiber_getExecutingFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -31691,7 +31691,7 @@ define hidden void @zim_ReflectionFiber_getExecutingFile(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ReflectionFiber_getCallable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ReflectionFiber_getCallable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -40
@@ -33746,7 +33746,7 @@ register_class_ReflectionAttribute.exit:          ; preds = %867, %879, %886, %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @reflection_free_objects_storage(ptr noundef %0) #0 {
@@ -34045,7 +34045,7 @@ define internal ptr @_reflection_write_property(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @reflection_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @reflection_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4
@@ -34075,7 +34075,7 @@ define internal noundef nonnull ptr @reflection_objects_new(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_reflection(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_reflection(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #13
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101) #13
   tail call void @php_info_print_table_end() #13
@@ -34091,7 +34091,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #1
 declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @zend_type_to_string(ptr, i32) local_unnamed_addr #1
 
@@ -34149,7 +34149,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -34190,7 +34190,7 @@ declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
@@ -34199,10 +34199,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

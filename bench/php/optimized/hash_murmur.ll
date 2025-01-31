@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_murmur3f_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.5, ptr @PHP_MURMUR3FInit, ptr @PHP_MURMUR3FUpdate, ptr @PHP_MURMUR3FFinal, ptr @PHP_MURMUR3FCopy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.6, i64 16, i64 8, i64 40, i8 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3AInit(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1) #0 {
+define void @PHP_MURMUR3AInit(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %3
 
@@ -73,7 +73,7 @@ define void @PHP_MURMUR3AUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3AFinal(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef %1) #0 {
+define void @PHP_MURMUR3AFinal(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef captures(none) %1) #0 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -102,7 +102,7 @@ define void @PHP_MURMUR3AFinal(ptr nocapture noundef writeonly initializes((0, 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_MURMUR3ACopy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #1 {
+define noundef i32 @PHP_MURMUR3ACopy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #1 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -125,7 +125,7 @@ declare void @PMurHash32_Process(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare i32 @PMurHash32_Result(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3CInit(ptr nocapture noundef writeonly initializes((0, 36)) %0, ptr noundef %1) #0 {
+define void @PHP_MURMUR3CInit(ptr noundef writeonly captures(none) initializes((0, 36)) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %3
 
@@ -192,7 +192,7 @@ define void @PHP_MURMUR3CUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) #0 {
+define void @PHP_MURMUR3CFinal(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) #0 {
   %3 = alloca [4 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -269,7 +269,7 @@ define void @PHP_MURMUR3CFinal(ptr nocapture noundef writeonly initializes((0, 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_MURMUR3CCopy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 36)) %2) #1 {
+define noundef i32 @PHP_MURMUR3CCopy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 36)) %2) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -282,17 +282,17 @@ define noundef i32 @PHP_MURMUR3CCopy(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @PMurHash128x86_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @PMurHash128x86_Result(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3FInit(ptr nocapture noundef writeonly initializes((0, 36)) %0, ptr noundef %1) #0 {
+define void @PHP_MURMUR3FInit(ptr noundef writeonly captures(none) initializes((0, 36)) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -354,7 +354,7 @@ define void @PHP_MURMUR3FUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MURMUR3FFinal(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) #0 {
+define void @PHP_MURMUR3FFinal(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) #0 {
   %3 = alloca [2 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -429,7 +429,7 @@ define void @PHP_MURMUR3FFinal(ptr nocapture noundef writeonly initializes((0, 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_MURMUR3FCopy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 36)) %2) #1 {
+define noundef i32 @PHP_MURMUR3FCopy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 36)) %2) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

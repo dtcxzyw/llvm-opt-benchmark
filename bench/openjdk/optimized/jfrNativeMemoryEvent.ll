@@ -87,7 +87,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrNativeMemoryEvent16send_total_eventERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrNativeMemoryEvent16send_total_eventERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.EventNativeMemoryUsageTotal, align 8
   %3 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %4 = icmp sgt i32 %3, 1
@@ -124,7 +124,7 @@ define hidden void @_ZN20JfrNativeMemoryEvent16send_total_eventERK11TimeInstantI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL9get_usageRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL9get_usageRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load atomic i8, ptr @_ZGVZL9get_usageRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEE14last_timestamp acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %7, !prof !6
@@ -260,7 +260,7 @@ _ZN8JfrEventI27EventNativeMemoryUsageTotalE11write_eventEv.exit: ; preds = %9, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrNativeMemoryEvent15send_type_eventERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE8MEMFLAGSmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrNativeMemoryEvent15send_type_eventERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE8MEMFLAGSmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.EventNativeMemoryUsage, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -372,7 +372,7 @@ _ZN8JfrEventI22EventNativeMemoryUsageE11write_eventEv.exit: ; preds = %9, %38, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrNativeMemoryEvent16send_type_eventsERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrNativeMemoryEvent16send_type_eventsERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.EventNativeMemoryUsage, align 8
   %3 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %4 = icmp sgt i32 %3, 1
@@ -516,7 +516,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN8NMTUsageC1E15NMTUsageOptions(ptr noundef nonnull align 8 dereferenceable(699), i24) unnamed_addr #1
 
@@ -1846,13 +1846,13 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

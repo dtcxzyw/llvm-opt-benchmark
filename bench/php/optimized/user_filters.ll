@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [8 x i8] c"onclose\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_php_user_filter_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_php_user_filter_filter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -133,7 +133,7 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_php_user_filter_onCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_php_user_filter_onCreate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -155,7 +155,7 @@ define hidden void @zim_php_user_filter_onCreate(ptr nocapture noundef readonly 
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_php_user_filter_onClose(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_php_user_filter_onClose(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -370,7 +370,7 @@ register_class_php_user_filter.exit:              ; preds = %59, %71, %78, %79
 declare i32 @zend_register_list_destructors_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_bucket_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @php_bucket_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -406,7 +406,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define hidden i32 @userfilter_filter(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca [4 x %struct._zval_struct], align 16
@@ -735,7 +735,7 @@ declare ptr @php_stream_bucket_make_writeable(ptr noundef) local_unnamed_addr #1
 declare void @object_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_bucket_prepend(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_bucket_prepend(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @php_stream_bucket_attach(i32 noundef 0, ptr noundef %0)
   ret void
 }
@@ -946,7 +946,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_bucket_append(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_bucket_append(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @php_stream_bucket_attach(i32 noundef 1, ptr noundef %0)
   ret void
 }
@@ -1064,12 +1064,12 @@ declare noalias ptr @_emalloc_56() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @php_stream_bucket_new(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_get_filters(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_get_filters(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1151,7 +1151,7 @@ declare ptr @_php_get_stream_filters_hash() local_unnamed_addr #1
 declare i32 @add_next_index_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_filter_register(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_filter_register(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1318,7 +1318,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_item_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @filter_item_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1352,14 +1352,14 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 declare i32 @php_stream_filter_register_factory_volatile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1370,7 +1370,7 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare void @add_property_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @add_property_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1406,7 +1406,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
 7:                                                ; preds = %3
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
-  %10 = tail call ptr @zend_hash_str_find(ptr noundef %9, ptr noundef %0, i64 noundef %8) #11
+  %10 = tail call ptr @zend_hash_str_find(ptr noundef %9, ptr noundef nonnull %0, i64 noundef %8) #11
   %.not141 = icmp eq ptr %10, null
   br i1 %.not141, label %13, label %11
 
@@ -1422,7 +1422,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
 15:                                               ; preds = %13
   %16 = tail call noalias ptr @_safe_emalloc(i64 noundef %8, i64 noundef 1, i64 noundef 3) #11
   %17 = add i64 %8, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %0, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %0, i64 %17, i1 false)
   %.not143156 = icmp eq ptr %16, null
   br i1 %.not143156, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1486,7 +1486,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.28, ptr noundef %0, ptr noundef nonnull %44) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef nonnull %44) #11
   br label %86
 
 45:                                               ; preds = %37, %34
@@ -1505,7 +1505,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   br label %86
 
 53:                                               ; preds = %49
-  call void @add_property_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 10, ptr noundef %0) #11
+  call void @add_property_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 10, ptr noundef nonnull %0) #11
   %.not144 = icmp eq ptr %1, null
   br i1 %.not144, label %55, label %54
 
@@ -1672,10 +1672,10 @@ declare void @add_property_string_ex(ptr noundef, ptr noundef, i64 noundef, ptr 
 declare void @add_property_null_ex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

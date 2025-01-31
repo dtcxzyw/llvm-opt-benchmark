@@ -805,7 +805,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.except_stacknode, align 8
   %6 = alloca %struct.except_cleanup, align 8
   %7 = load ptr, ptr @xml_handle, align 8
@@ -1075,7 +1075,7 @@ proto_item_set_hidden.exit.tail:                  ; preds = %sub_1205
   br i1 %138, label %139, label %proto_item_set_hidden.exit.tail.thread
 
 139:                                              ; preds = %proto_item_set_hidden.exit.tail
-  call void @xmpp_iq(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_iq(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit.tail
@@ -1084,7 +1084,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %proto_item_set_hidden.exit.tail.thread
-  call void @xmpp_presence(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_presence(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 143:                                              ; preds = %proto_item_set_hidden.exit.tail.thread
@@ -1093,7 +1093,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %143
-  call void @xmpp_message(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_message(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 147:                                              ; preds = %143
@@ -1102,7 +1102,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %147
-  call void @xmpp_auth(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_auth(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 151:                                              ; preds = %147
@@ -1112,7 +1112,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
 
 154:                                              ; preds = %151
   %155 = load i32, ptr @ett_xmpp_challenge, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_challenge, i32 noundef %155, ptr noundef nonnull @.str.425) #4
+  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_challenge, i32 noundef %155, ptr noundef nonnull @.str.425) #4
   br label %194
 
 156:                                              ; preds = %151
@@ -1122,7 +1122,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
 
 159:                                              ; preds = %156
   %160 = load i32, ptr @ett_xmpp_response, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_response, i32 noundef %160, ptr noundef nonnull @.str.423) #4
+  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_response, i32 noundef %160, ptr noundef nonnull @.str.423) #4
   br label %194
 
 161:                                              ; preds = %156
@@ -1132,7 +1132,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
 
 164:                                              ; preds = %161
   %165 = load i32, ptr @ett_xmpp_success, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_success, i32 noundef %165, ptr noundef nonnull @.str.427) #4
+  call void @xmpp_challenge_response_success(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull @ei_xmpp_success, i32 noundef %165, ptr noundef nonnull @.str.427) #4
   br label %194
 
 166:                                              ; preds = %161
@@ -1141,7 +1141,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %166
-  call void @xmpp_failure(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_failure(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 170:                                              ; preds = %166
@@ -1150,7 +1150,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %170
-  call void @xmpp_xml_header(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_xml_header(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 174:                                              ; preds = %170
@@ -1159,7 +1159,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %174
-  call void @xmpp_stream(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_stream(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 178:                                              ; preds = %174
@@ -1168,7 +1168,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %178
-  call void @xmpp_features(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103) #4
+  call void @xmpp_features(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103) #4
   br label %194
 
 182:                                              ; preds = %178
@@ -1177,7 +1177,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %182
-  call void @xmpp_starttls(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
+  call void @xmpp_starttls(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   br label %194
 
 186:                                              ; preds = %182
@@ -1186,13 +1186,13 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %186
-  call void @xmpp_proceed(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
+  call void @xmpp_proceed(ptr noundef %44, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   br label %194
 
 190:                                              ; preds = %186
   call void @xmpp_proto_tree_show_first_child(ptr noundef %44) #4
   %191 = load ptr, ptr %103, align 8
-  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_xmpp_packet_unknown, ptr noundef nonnull @.str.467, ptr noundef %191) #4
+  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %44, ptr noundef nonnull @ei_xmpp_packet_unknown, ptr noundef nonnull @.str.467, ptr noundef %191) #4
   %193 = load ptr, ptr %38, align 8
   call void @col_set_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.468) #4
   br label %194
@@ -1314,7 +1314,7 @@ define internal void @cleanup_xmpp(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @xmpp_iq_reqresp_track(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

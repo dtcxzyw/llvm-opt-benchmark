@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.wmem_simple_free = private unnamed_addr constant [17 x i8] c"wmem_simple_free\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_simple_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
+define hidden void @wmem_simple_allocator_init(ptr noundef writeonly captures(none) initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 16) #4
   store ptr @wmem_simple_alloc, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35,7 +35,7 @@ define hidden void @wmem_simple_allocator_init(ptr nocapture noundef writeonly i
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal ptr @wmem_simple_alloc(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -67,7 +67,7 @@ define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i64 noundef %2) #0 {
+define internal ptr @wmem_simple_realloc(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -102,7 +102,7 @@ define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @wmem_simple_free(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   tail call void @wmem_free(ptr noundef null, ptr noundef %1) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -150,7 +150,7 @@ define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_simple_free_all(ptr nocapture noundef %0) #0 {
+define internal void @wmem_simple_free_all(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -178,7 +178,7 @@ define internal void @wmem_simple_free_all(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @wmem_simple_gc(ptr nocapture readnone %0) #2 {
+define internal void @wmem_simple_gc(ptr readnone captures(none) %0) #2 {
   ret void
 }
 

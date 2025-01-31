@@ -1702,7 +1702,7 @@ define internal void @sip_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @sip_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %6, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1711,19 +1711,19 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %5
-  br i1 %7, label %9, label %.thread116
+  br i1 %7, label %9, label %.thread117
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %0, align 8
   %11 = tail call ptr @stat_tap_find_table(ptr noundef %10, ptr noundef nonnull @.str.961) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
-  %.not109 = icmp eq i32 %13, 0
-  br i1 %.not109, label %.thread, label %.lr.ph
+  %.not112 = icmp eq i32 %13, 0
+  br i1 %.not112, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %20
-  %.086106 = phi i32 [ %21, %20 ], [ 0, %9 ]
-  %14 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %11, i32 noundef %.086106, i32 noundef 0) #15
+  %.086104 = phi i32 [ %21, %20 ], [ 0, %9 ]
+  %14 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %11, i32 noundef %.086104, i32 noundef 0) #15
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -1732,15 +1732,15 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = add nuw i32 %.086106, 1
+  %21 = add nuw i32 %.086104, 1
   %22 = load i32, ptr %12, align 4
   %23 = icmp ult i32 %21, %22
   br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !8
 
 24:                                               ; preds = %5
-  br i1 %7, label %93, label %.thread116
+  br i1 %7, label %93, label %.thread117
 
-.thread116:                                       ; preds = %8, %24
+.thread117:                                       ; preds = %8, %24
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %0, align 8
   %27 = tail call ptr @stat_tap_find_table(ptr noundef %26, ptr noundef nonnull @.str.980) #15
@@ -1750,7 +1750,7 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   %or.cond = icmp ult i32 %29, -600
   br i1 %or.cond, label %36, label %30
 
-30:                                               ; preds = %.thread116
+30:                                               ; preds = %.thread117
   %31 = tail call ptr @try_val_to_str(i32 noundef %.fr, ptr noundef nonnull @sip_response_code_vals) #15
   %.not93 = icmp eq ptr %31, null
   br i1 %.not93, label %32, label %36
@@ -1763,12 +1763,12 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
   %35 = sub nuw nsw i32 %34, %.zext
   br label %36
 
-36:                                               ; preds = %.thread116, %30, %32
-  %.087 = phi i32 [ %.fr, %30 ], [ %35, %32 ], [ 999, %.thread116 ]
+36:                                               ; preds = %.thread117, %30, %32
+  %.087 = phi i32 [ %.fr, %30 ], [ %35, %32 ], [ 999, %.thread117 ]
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %38 = load i32, ptr %37, align 4
-  %.not110 = icmp eq i32 %38, 0
-  br i1 %.not110, label %.thread, label %.lr.ph108
+  %.not113 = icmp eq i32 %38, 0
+  br i1 %.not113, label %.thread, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %36, %43
   %.088107 = phi i32 [ %44, %43 ], [ 0, %36 ]
@@ -1786,7 +1786,7 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
 
 .thread:                                          ; preds = %20, %.lr.ph, %43, %.lr.ph108, %9, %36
   %.084101 = phi ptr [ %27, %36 ], [ %11, %9 ], [ %27, %.lr.ph108 ], [ %27, %43 ], [ %11, %.lr.ph ], [ %11, %20 ]
-  %.085100 = phi i32 [ 0, %36 ], [ 0, %9 ], [ 0, %43 ], [ %.088107, %.lr.ph108 ], [ 0, %20 ], [ %.086106, %.lr.ph ]
+  %.085100 = phi i32 [ 0, %36 ], [ 0, %9 ], [ 0, %43 ], [ %.088107, %.lr.ph108 ], [ 0, %20 ], [ %.086104, %.lr.ph ]
   %47 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %.084101, i32 noundef %.085100, i32 noundef 1) #15
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
@@ -1847,11 +1847,11 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr nocapture noundef reado
 
 82:                                               ; preds = %79
   store double %67, ptr %75, align 8
-  %.pre115 = load double, ptr %71, align 8
+  %.pre116 = load double, ptr %71, align 8
   br label %83
 
 83:                                               ; preds = %82, %79
-  %84 = phi double [ %.pre115, %82 ], [ %73, %79 ]
+  %84 = phi double [ %.pre116, %82 ], [ %73, %79 ]
   %85 = uitofp i32 %70 to double
   %86 = fdiv double %84, %85
   %87 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -1919,7 +1919,7 @@ define internal void @sip_stat_reset(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_stat_free_table_item(ptr nocapture readnone %0, i32 %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define internal void @sip_stat_free_table_item(ptr readnone captures(none) %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %8
 
@@ -1937,7 +1937,7 @@ define internal void @sip_stat_free_table_item(ptr nocapture readnone %0, i32 %1
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_name_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #15
   %8 = load ptr, ptr %0, align 8
@@ -1947,7 +1947,7 @@ define internal void @sip_custom_header_fields_header_name_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_name_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1972,7 +1972,7 @@ define internal void @sip_custom_header_fields_header_name_tostr_cb(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_desc_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_desc_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1983,7 +1983,7 @@ define internal void @sip_custom_header_fields_header_desc_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_desc_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2009,7 +2009,7 @@ define internal void @sip_custom_header_fields_header_desc_tostr_cb(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_username_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_username_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #15
   %8 = load ptr, ptr %0, align 8
@@ -2019,7 +2019,7 @@ define internal void @sip_authorization_users_username_set_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_username_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_username_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2044,7 +2044,7 @@ define internal void @sip_authorization_users_username_tostr_cb(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_realm_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_realm_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2055,7 +2055,7 @@ define internal void @sip_authorization_users_realm_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_realm_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_realm_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2081,7 +2081,7 @@ define internal void @sip_authorization_users_realm_tostr_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_password_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_password_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2092,7 +2092,7 @@ define internal void @sip_authorization_users_password_set_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_password_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2122,7 +2122,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #15
   %6 = icmp ugt i8 %5, -9
   br i1 %6, label %7, label %11
@@ -2145,7 +2145,7 @@ define internal i32 @dissect_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sip_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sip_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #15
   %6 = icmp ugt i8 %5, -9
   br i1 %6, label %7, label %11
@@ -2312,7 +2312,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %0, align 8
@@ -2325,7 +2325,7 @@ define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @header_fields_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2364,7 +2364,7 @@ define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @header_fields_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2559,7 +2559,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %0, align 8
@@ -2577,7 +2577,7 @@ define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @authorization_users_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @authorization_users_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2616,7 +2616,7 @@ define internal noundef zeroext i1 @authorization_users_update_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @authorization_users_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @authorization_users_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2680,7 +2680,7 @@ declare void @ws_mempbrk_compile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @sip_follow_conv_filter(ptr noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal noalias ptr @sip_follow_conv_filter(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %5
 
@@ -2727,7 +2727,7 @@ define internal noalias noundef ptr @sip_follow_index_filter(i32 %0, i32 %1) #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @sip_follow_address_filter(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 {
+define internal noalias noundef ptr @sip_follow_address_filter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 {
   ret ptr null
 }
 
@@ -2748,7 +2748,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_sip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_sip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
   %6 = tail call fastcc i32 @dissect_sip_common(ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0)
   %7 = icmp sgt i32 %6, 0
@@ -2757,7 +2757,7 @@ define internal range(i32 0, 2) i32 @dissect_sip_heur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_sip_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_sip_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #15
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -2821,7 +2821,7 @@ declare void @g_free(ptr noundef) #1
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3092,7 +3092,7 @@ sip_parse_line.exit:                              ; preds = %101, %.thread.i, %8
   br i1 %156, label %157, label %160
 
 157:                                              ; preds = %152
-  %158 = call i32 @strncmp(ptr noundef %150, ptr noundef %154, i64 noundef %151) #16
+  %158 = call i32 @strncmp(ptr noundef %150, ptr noundef nonnull %154, i64 noundef %151) #16
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %sip_is_known_request.exit, label %160
 
@@ -3934,7 +3934,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 591:                                              ; preds = %sip_is_known_sip_header.exit
   %592 = call ptr @wmem_packet_scope() #15
   %593 = call ptr @tvb_get_string_enc(ptr noundef %592, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
-  %594 = call i64 @strtoul(ptr nocapture noundef %593, ptr noundef null, i32 noundef 10) #15
+  %594 = call i64 @strtoul(ptr noundef captures(none) %593, ptr noundef null, i32 noundef 10) #15
   %595 = trunc i64 %594 to i32
   %596 = load ptr, ptr @stat_info, align 8
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 48
@@ -4083,7 +4083,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
 668:                                              ; preds = %.lr.ph1841
   %669 = trunc nuw nsw i64 %indvars.iv to i32
   %670 = load i32, ptr @hf_sip_rack_rseq_no, align 4
-  %671 = call i64 @strtoul(ptr nocapture noundef nonnull %651, ptr noundef null, i32 noundef 10) #15
+  %671 = call i64 @strtoul(ptr noundef nonnull captures(none) %651, ptr noundef null, i32 noundef 10) #15
   %672 = trunc i64 %671 to i32
   %673 = call ptr @proto_tree_add_uint(ptr noundef %.21292, i32 noundef %670, ptr noundef %0, i32 noundef %360, i32 noundef %669, i32 noundef %672) #15
   br label %.loopexit1650
@@ -4147,7 +4147,7 @@ proto_item_set_hidden.exit:                       ; preds = %.critedge6, %425, %
   %694 = add i32 %.31302.lcssa, %360
   %695 = sub nsw i32 %692, %.31302.lcssa
   %696 = getelementptr i8, ptr %651, i64 %684
-  %697 = call i64 @strtoul(ptr nocapture noundef %696, ptr noundef null, i32 noundef 10) #15
+  %697 = call i64 @strtoul(ptr noundef captures(none) %696, ptr noundef null, i32 noundef 10) #15
   %698 = trunc i64 %697 to i32
   %699 = call ptr @proto_tree_add_uint(ptr noundef %.21292, i32 noundef %693, ptr noundef %0, i32 noundef %694, i32 noundef %695, i32 noundef %698) #15
   br label %.loopexit1649
@@ -4329,7 +4329,7 @@ proto_item_set_hidden.exit1523:                   ; preds = %proto_item_set_gene
   %796 = sub i32 %793, %.012661892
   %797 = call ptr @wmem_packet_scope() #15
   %798 = call ptr @tvb_get_string_enc(ptr noundef %797, ptr noundef %0, i32 noundef %360, i32 noundef %361, i32 noundef 2) #15
-  %799 = call i64 @strtoul(ptr nocapture noundef %798, ptr noundef null, i32 noundef 10) #15
+  %799 = call i64 @strtoul(ptr noundef captures(none) %798, ptr noundef null, i32 noundef 10) #15
   %800 = trunc i64 %799 to i32
   %801 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %792, ptr noundef %0, i32 noundef %.012661892, i32 noundef %796, i32 noundef %800) #15
   br label %.critedge1491
@@ -5840,7 +5840,7 @@ switch.early.test.i:                              ; preds = %1555
   %1571 = call ptr @tvb_get_string_enc(ptr noundef %1569, ptr noundef %0, i32 noundef %.11270, i32 noundef %1570, i32 noundef %1564) #15
   %1572 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1571) #16
   %1573 = trunc i64 %1572 to i32
-  %1574 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %1571, i32 noundef %1573, i32 noundef %1573) #15
+  %1574 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %1571, i32 noundef %1573, i32 noundef %1573) #15
   %1575 = load ptr, ptr %113, align 8
   %1576 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %1575, ptr noundef nonnull @.str.1084, ptr noundef %1568) #15
   call void @add_new_data_source(ptr noundef %3, ptr noundef %1574, ptr noundef %1576) #15
@@ -5982,7 +5982,7 @@ tvb_raw_text_add.exit:                            ; preds = %1616, %.lr.ph95.spl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6007,7 +6007,7 @@ declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @col_add_lstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -6082,7 +6082,7 @@ define internal fastcc void @sip_proto_set_format_text(ptr noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = sub i32 %2, %1
   %6 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %5) #15
   %.not = icmp slt i32 %6, %2
@@ -6194,7 +6194,7 @@ define internal fastcc i32 @dissect_sip_name_addr_or_addr_spec(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @display_sip_uri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc ptr @display_sip_uri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 4
@@ -6531,7 +6531,7 @@ define internal fastcc void @dissect_sip_p_charging_func_addresses(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_sip_uri(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
   %6 = sub i32 %2, %1
@@ -6735,7 +6735,7 @@ declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6752,7 +6752,7 @@ define internal fastcc void @sip_proto_tree_add_uint(ptr noundef %0, i32 noundef
 9:                                                ; preds = %7
   %10 = tail call ptr @wmem_packet_scope() #15
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef 2) #15
-  %12 = tail call i64 @strtoul(ptr nocapture noundef %11, ptr noundef null, i32 noundef 10) #15
+  %12 = tail call i64 @strtoul(ptr noundef captures(none) %11, ptr noundef null, i32 noundef 10) #15
   %13 = trunc i64 %12 to i32
   %14 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %13) #15
   br label %15
@@ -6764,12 +6764,12 @@ define internal fastcc void @sip_proto_tree_add_uint(ptr noundef %0, i32 noundef
 declare i32 @tvb_skip_wsp_return(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @sip_get_authorization(ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val) unnamed_addr #7 {
+define internal fastcc noundef ptr @sip_get_authorization(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #7 {
   %1 = load i32, ptr @sip_authorization_num_users, align 4
   %.not4 = icmp eq i32 %1, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -6807,7 +6807,7 @@ define internal fastcc noundef ptr @sip_get_authorization(ptr nocapture readonly
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca [33 x i8], align 16
   %5 = alloca [33 x i8], align 16
@@ -6883,7 +6883,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %47 = load ptr, ptr %6, align 8
   %48 = load ptr, ptr %0, align 8
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #16
-  call void @gcry_md_write(ptr noundef %47, ptr noundef %48, i64 noundef %49) #15
+  call void @gcry_md_write(ptr noundef %47, ptr noundef nonnull %48, i64 noundef %49) #15
   %50 = load ptr, ptr %6, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
@@ -6908,7 +6908,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %63 = load ptr, ptr %6, align 8
   %64 = load ptr, ptr %14, align 8
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #16
-  call void @gcry_md_write(ptr noundef %63, ptr noundef %64, i64 noundef %65) #15
+  call void @gcry_md_write(ptr noundef %63, ptr noundef nonnull %64, i64 noundef %65) #15
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
@@ -6941,7 +6941,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %85 = load ptr, ptr %6, align 8
   %86 = load ptr, ptr %18, align 8
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #16
-  call void @gcry_md_write(ptr noundef %85, ptr noundef %86, i64 noundef %87) #15
+  call void @gcry_md_write(ptr noundef %85, ptr noundef nonnull %86, i64 noundef %87) #15
   %88 = load ptr, ptr %6, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8
@@ -6966,7 +6966,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %101 = load ptr, ptr %6, align 8
   %102 = load ptr, ptr %22, align 8
   %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #16
-  call void @gcry_md_write(ptr noundef %101, ptr noundef %102, i64 noundef %103) #15
+  call void @gcry_md_write(ptr noundef %101, ptr noundef nonnull %102, i64 noundef %103) #15
   %104 = load ptr, ptr %6, align 8
   %105 = call ptr @gcry_md_read(ptr noundef %104, i32 noundef 0) #15
   %106 = call ptr @bytes_to_hexstr(ptr noundef nonnull %4, ptr noundef %105, i64 noundef 16) #15
@@ -6999,7 +6999,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %123 = load ptr, ptr %6, align 8
   %124 = load ptr, ptr %26, align 8
   %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #16
-  call void @gcry_md_write(ptr noundef %123, ptr noundef %124, i64 noundef %125) #15
+  call void @gcry_md_write(ptr noundef %123, ptr noundef nonnull %124, i64 noundef %125) #15
   %126 = load ptr, ptr %6, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i32, ptr %127, align 8
@@ -7024,7 +7024,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %139 = load ptr, ptr %6, align 8
   %140 = load ptr, ptr %32, align 8
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #16
-  call void @gcry_md_write(ptr noundef %139, ptr noundef %140, i64 noundef %141) #15
+  call void @gcry_md_write(ptr noundef %139, ptr noundef nonnull %140, i64 noundef %141) #15
   %142 = load ptr, ptr %6, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i32, ptr %143, align 8
@@ -7049,7 +7049,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %155 = load ptr, ptr %6, align 8
   %156 = load ptr, ptr %36, align 8
   %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #16
-  call void @gcry_md_write(ptr noundef %155, ptr noundef %156, i64 noundef %157) #15
+  call void @gcry_md_write(ptr noundef %155, ptr noundef nonnull %156, i64 noundef %157) #15
   %158 = load ptr, ptr %6, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load i32, ptr %159, align 8
@@ -7074,7 +7074,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
   %171 = load ptr, ptr %6, align 8
   %172 = load ptr, ptr %7, align 8
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %172) #16
-  call void @gcry_md_write(ptr noundef %171, ptr noundef %172, i64 noundef %173) #15
+  call void @gcry_md_write(ptr noundef %171, ptr noundef nonnull %172, i64 noundef %173) #15
   %174 = load ptr, ptr %6, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i32, ptr %175, align 8
@@ -7118,7 +7118,7 @@ define internal fastcc range(i32 0, 2) i32 @sip_validate_authorization(ptr nocap
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_sip_route_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._uri_offset_info, align 4
   %8 = sub i32 %5, %4
   %9 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %4, i32 noundef %8) #15
@@ -7464,7 +7464,7 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %149 = call ptr @wmem_packet_scope() #15
   %150 = call ptr @tvb_get_string_enc(ptr noundef %149, ptr noundef %0, i32 noundef %133, i32 noundef %135, i32 noundef 2) #15
   %151 = load i32, ptr @hf_sip_via_oc_val, align 4
-  %152 = call i64 @strtoul(ptr nocapture noundef %150, ptr noundef null, i32 noundef 10) #15
+  %152 = call i64 @strtoul(ptr noundef captures(none) %150, ptr noundef null, i32 noundef 10) #15
   %153 = trunc i64 %152 to i32
   %154 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %151, ptr noundef %0, i32 noundef %133, i32 noundef %135, i32 noundef %153) #15
   %.not.i = icmp eq ptr %154, null
@@ -7497,12 +7497,12 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %169 = call ptr @wmem_packet_scope() #15
   %170 = sub i32 %166, %.13.lcssa
   %171 = call ptr @tvb_get_string_enc(ptr noundef %169, ptr noundef %0, i32 noundef %133, i32 noundef %170, i32 noundef 2) #15
-  %172 = call i64 @strtoul(ptr nocapture noundef %171, ptr noundef null, i32 noundef 10) #15
+  %172 = call i64 @strtoul(ptr noundef captures(none) %171, ptr noundef null, i32 noundef 10) #15
   store i64 %172, ptr %8, align 8
   %173 = call ptr @wmem_packet_scope() #15
   %174 = add nuw i32 %166, 1
   %175 = call ptr @tvb_get_string_enc(ptr noundef %173, ptr noundef %0, i32 noundef %174, i32 noundef %135, i32 noundef 2) #15
-  %176 = call i64 @strtoul(ptr nocapture noundef %175, ptr noundef null, i32 noundef 10) #15
+  %176 = call i64 @strtoul(ptr noundef captures(none) %175, ptr noundef null, i32 noundef 10) #15
   %177 = trunc i64 %176 to i32
   %178 = mul i32 %177, 1000
   store i32 %178, ptr %12, align 8
@@ -7611,7 +7611,7 @@ define internal fastcc void @dissect_sip_reason_header(ptr noundef %0, ptr nound
   %.0 = select i1 %24, i32 %22, i32 %25
   %26 = call ptr @wmem_packet_scope() #15
   %27 = call ptr @tvb_get_string_enc(ptr noundef %26, ptr noundef %0, i32 noundef %21, i32 noundef %.0, i32 noundef 2) #15
-  %28 = call i64 @strtoul(ptr nocapture noundef %27, ptr noundef null, i32 noundef 10) #15
+  %28 = call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #15
   %29 = trunc i64 %28 to i32
   %30 = load ptr, ptr %6, align 8
   %31 = call i32 @g_ascii_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.1081) #15
@@ -7752,7 +7752,7 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   br label %.thread
 
 51:                                               ; preds = %48
-  %52 = tail call i64 @strtoul(ptr nocapture noundef nonnull %32, ptr noundef null, i32 noundef 10) #15
+  %52 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #15
   %53 = trunc i64 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -8123,7 +8123,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.sip_hash_key, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %7 = load i32, ptr %6, align 8
@@ -8646,7 +8646,7 @@ copy_address_wmem.exit118:                        ; preds = %copy_address_wmem.e
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @tvb_child_uncompress(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -8722,7 +8722,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8765,7 +8765,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @sip_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 0, 2) i32 @sip_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #16
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %addresses_equal.exit
@@ -8861,13 +8861,13 @@ declare ptr @fvalue_get_string(ptr noundef) local_unnamed_addr #1
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

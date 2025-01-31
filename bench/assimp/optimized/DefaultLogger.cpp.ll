@@ -487,12 +487,12 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %.str.2.message)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message) local_unnamed_addr #5 align 2 {
@@ -503,7 +503,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %.str.2.message)
   ret void
 }
 
@@ -516,7 +516,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %.str.2.message)
   ret void
 }
 
@@ -529,7 +529,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %.str.2.message)
   ret void
 }
 
@@ -542,7 +542,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %.str.2.message)
   ret void
 }
 
@@ -621,16 +621,16 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6Assimp13DefaultLogger11GetThreadIDEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2104) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZN6Assimp13DefaultLogger11GetThreadIDEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2104) %this) local_unnamed_addr #9 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %this, ptr nocapture noundef readonly %message, i32 noundef %ErrorSev) local_unnamed_addr #5 align 2 {
+define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %this, ptr noundef readonly captures(none) %message, i32 noundef %ErrorSev) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %message) #24
   %lastLen = getelementptr inbounds nuw i8, ptr %this, i64 2096
@@ -641,7 +641,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %lastMsg = getelementptr inbounds nuw i8, ptr %this, i64 41
-  %call4 = tail call i32 @strncmp(ptr noundef %message, ptr noundef nonnull %lastMsg, i64 noundef %call) #24
+  %call4 = tail call i32 @strncmp(ptr noundef nonnull %message, ptr noundef nonnull %lastMsg, i64 noundef %call) #24
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
@@ -659,7 +659,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   store i64 %call, ptr %lastLen, align 8
   %lastMsg9 = getelementptr inbounds nuw i8, ptr %this, i64 41
   %add = add i64 %call, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %lastMsg9, ptr align 1 %message, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %lastMsg9, ptr nonnull align 1 %message, i64 %add, i1 false)
   %2 = load i64, ptr %lastLen, align 8
   %add.ptr = getelementptr inbounds i8, ptr %lastMsg9, i64 %2
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr)
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStreamEj(ptr nocapture noundef nonnull align 8 dereferenceable(2104) %this, ptr noundef %pStream, i32 noundef %severity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(2104) %this, ptr noundef %pStream, i32 noundef %severity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ne ptr %pStream, null
   br i1 %cmp, label %if.end, label %return
@@ -861,7 +861,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12detachStreamEPNS_9LogStreamEj(ptr nocapture noundef nonnull align 8 dereferenceable(2104) %this, ptr noundef readnone %pStream, i32 noundef %severity) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12detachStreamEPNS_9LogStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(2104) %this, ptr noundef readnone %pStream, i32 noundef %severity) unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %pStream, null
   br i1 %cmp, label %return, label %if.end
@@ -954,7 +954,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp13DefaultLoggerC2ENS_6Logger11LogSeverityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2104) initializes((0, 12), (16, 42), (2096, 2104)) %this, i32 noundef %severity) unnamed_addr #12 align 2 {
+define void @_ZN6Assimp13DefaultLoggerC2ENS_6Logger11LogSeverityE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2104) initializes((0, 12), (16, 42), (2096, 2104)) %this, i32 noundef %severity) unnamed_addr #12 align 2 {
 entry:
   %m_Severity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %severity, ptr %m_Severity.i, align 8
@@ -967,7 +967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2104) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(2104) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 16), ptr %this, align 8
   %m_StreamArray = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1034,10 +1034,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1209,7 +1209,7 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %message, i64 noundef 1, i64 noundef %call)
+  %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %message, i64 noundef 1, i64 noundef %call)
   %2 = load ptr, ptr %m_pStream, align 8
   %vtable5 = load ptr, ptr %2, align 8
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 56
@@ -1458,7 +1458,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -1467,14 +1467,14 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare i32 @chdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_DefaultLogger.cpp() #17 section ".text.startup" {
@@ -1487,7 +1487,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

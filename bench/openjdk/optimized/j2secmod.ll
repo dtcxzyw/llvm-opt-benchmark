@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [60 x i8] c"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssVersionCheck(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssVersionCheck(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @p11FindFunction(ptr noundef %0, i64 noundef %2, ptr noundef nonnull @.str) #3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %20, label %7
@@ -53,7 +53,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssVersionChec
 declare ptr @p11FindFunction(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = tail call ptr @p11FindFunction(ptr noundef %0, i64 noundef %3, ptr noundef nonnull @.str.1) #3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread71, label %9
@@ -148,13 +148,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @p11FindFunction(ptr noundef %0, i64 noundef %2, ptr noundef nonnull @.str.9) #3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7

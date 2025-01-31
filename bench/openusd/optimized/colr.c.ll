@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [19 x i8] c"ARIB STD-B67 (HLG)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @avifColorPrimariesGetValues(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @avifColorPrimariesGetValues(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   br label %4
 
 3:                                                ; preds = %4
@@ -66,10 +66,10 @@ define hidden void @avifColorPrimariesGetValues(i16 noundef zeroext %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden zeroext i16 @avifColorPrimariesFind(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -185,7 +185,7 @@ primariesMatch.exit.thread:                       ; preds = %13, %20, %27, %34, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 25) i32 @avifTransferCharacteristicsGetGamma(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 25) i32 @avifTransferCharacteristicsGetGamma(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   switch i16 %0, label %5 [
     i16 4, label %.sink.split
     i16 5, label %3
@@ -234,7 +234,7 @@ define hidden zeroext range(i16 0, 9) i16 @avifTransferCharacteristicsFindByGamm
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @avifCalcYUVCoefficients(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @avifCalcYUVCoefficients(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [3 x float], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %7 = load i16, ptr %6, align 4
@@ -391,7 +391,7 @@ define internal float @avifToGamma709(float noundef %0) #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define hidden void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   br label %4
 
 3:                                                ; preds = %4

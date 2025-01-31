@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_hash_type_methods_ptr = internal constant %struct.pmix_hash_type_methods_t { ptr @pmix_hash_destruct_elt_ptr, ptr @pmix_hash_hash_elt_ptr }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_hash_table_construct(ptr nocapture noundef writeonly initializes((128, 184)) %0) #0 {
+define internal void @pmix_hash_table_construct(ptr noundef writeonly captures(none) initializes((128, 184)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret void
@@ -201,7 +201,7 @@ pmix_hash_table_init2.exit:                       ; preds = %pmix_tma_calloc.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_remove_all(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @pmix_hash_table_remove_all(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   %.not18 = icmp eq i64 %3, 0
@@ -252,7 +252,7 @@ define noundef i32 @pmix_hash_table_remove_all(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef initializes((176, 184)) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr noundef captures(none) initializes((176, 184)) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -477,7 +477,7 @@ pmix_tma_free.exit:                               ; preds = %57, %54, %pmix_tma_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint32(ptr nocapture noundef initializes((176, 184)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint32(ptr noundef captures(none) initializes((176, 184)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -580,7 +580,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef initializes((176, 184)) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr noundef captures(none) initializes((176, 184)) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -693,7 +693,7 @@ define range(i32 -29, 1) i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint64(ptr nocapture noundef initializes((176, 184)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint64(ptr noundef captures(none) initializes((176, 184)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -795,7 +795,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef initializes((176, 184)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_ptr(ptr noundef captures(none) initializes((176, 184)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -862,7 +862,7 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -973,10 +973,10 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef initializes((176, 184)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_ptr(ptr noundef captures(none) initializes((176, 184)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1103,7 +1103,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint32(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 136
@@ -1139,7 +1139,7 @@ pmix_hash_table_get_next_key_uint32.exit:         ; preds = %7, %4, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint32(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1188,7 +1188,7 @@ pmix_hash_table_get_next_elt.exit.thread:         ; preds = %18, %15, %pmix_hash
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_ptr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1227,7 +1227,7 @@ pmix_hash_table_get_next_key_ptr.exit:            ; preds = %8, %5, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_ptr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %7 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %0, i64 136
@@ -1279,7 +1279,7 @@ pmix_hash_table_get_next_elt.exit.thread:         ; preds = %19, %16, %pmix_hash
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint64(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 136
@@ -1315,7 +1315,7 @@ pmix_hash_table_get_next_key_uint64.exit:         ; preds = %7, %4, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint64(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1369,13 +1369,13 @@ define noundef i64 @pmix_hash_table_sizeof_hash_element() local_unnamed_addr #5 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @pmix_hash_hash_elt_uint32(ptr nocapture noundef readonly %0) #8 {
+define internal range(i64 0, 4294967296) i64 @pmix_hash_hash_elt_uint32(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1383,14 +1383,14 @@ define internal range(i64 0, 4294967296) i64 @pmix_hash_hash_elt_uint32(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @pmix_hash_hash_elt_uint64(ptr nocapture noundef readonly %0) #8 {
+define internal i64 @pmix_hash_hash_elt_uint64(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pmix_hash_destruct_elt_ptr(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pmix_hash_destruct_elt_ptr(ptr noundef captures(none) initializes((16, 24)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
@@ -1420,7 +1420,7 @@ pmix_tma_free.exit:                               ; preds = %11, %8, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i64 @pmix_hash_hash_elt_ptr(ptr nocapture noundef readonly %0) #9 {
+define internal i64 @pmix_hash_hash_elt_ptr(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -1453,10 +1453,10 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

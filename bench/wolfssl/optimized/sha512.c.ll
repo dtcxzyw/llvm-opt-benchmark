@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -132, 1) i32 @Sha512Update(ptr nocapture noundef nonnull %sha512, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -132, 1) i32 @Sha512Update(ptr noundef nonnull captures(none) %sha512, ptr noundef readonly captures(none) %data, i32 noundef %len) unnamed_addr #1 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds nuw i8, ptr %sha512, i64 192
@@ -454,7 +454,7 @@ return:                                           ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef %sha384, ptr noundef writeonly %hash) local_unnamed_addr #1 {
@@ -498,7 +498,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -192, 1) i32 @Sha512Final(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
+define internal fastcc range(i32 -192, 1) i32 @Sha512Final(ptr noundef nonnull captures(none) %sha512) unnamed_addr #1 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %sha512, i64 64
   %buffLen = getelementptr inbounds nuw i8, ptr %sha512, i64 192
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_Transform_Sha512(ptr nocapture noundef nonnull %sha512) unnamed_addr #1 {
+define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none) %sha512) unnamed_addr #1 {
 entry:
   %T = alloca [8 x i64], align 16
   %W = alloca [16 x i64], align 16
@@ -2240,7 +2240,7 @@ ForceZero.exit257:                                ; preds = %for.body.i243
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
@@ -2252,10 +2252,10 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 declare i64 @llvm.bswap.i64(i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

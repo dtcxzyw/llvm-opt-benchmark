@@ -31,7 +31,7 @@ $__clang_call_terminate = comdat any
 @_ZN16NavMeshPruneToolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16NavMeshPruneToolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 24), (36, 37)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((0, 24), (36, 37)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -176,14 +176,14 @@ _ZN16NavMeshPruneToolD2Ev.exit:                   ; preds = %1, %_ZN12NavmeshFla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16NavMeshPruneTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool4initEP6Sample(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16NavMeshPruneTool5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((36, 37)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneTool5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(37) initializes((36, 37)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -248,7 +248,7 @@ _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16NavMeshPruneTool10handleMenuEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneTool10handleMenuEv(ptr noundef nonnull align 8 captures(none) dereferenceable(37) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -475,7 +475,7 @@ _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
 declare noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0, ptr nocapture readnone %1, ptr noundef %2, i1 zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 captures(none) dereferenceable(37) %0, ptr readnone captures(none) %1, ptr noundef %2, i1 zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [3 x float], align 4
@@ -969,29 +969,29 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN13dtQueryFilterC1Ev(ptr noundef nonnull align 4 dereferenceable(260)) unnamed_addr #5
 
 declare noundef i32 @_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPf(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16NavMeshPruneTool12handleToggleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool12handleToggleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16NavMeshPruneTool10handleStepEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool10handleStepEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16NavMeshPruneTool12handleUpdateEf(ptr nocapture nonnull readnone align 8 %0, float %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool12handleUpdateEf(ptr nonnull readnone align 8 captures(none) %0, float %1) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -1184,7 +1184,7 @@ declare noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef n
 declare void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef, ptr noundef nonnull align 8 dereferenceable(100), i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16NavMeshPruneTool19handleRenderOverlayEPdS0_Pi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool19handleRenderOverlayEPdS0_Pi(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, -40
@@ -1214,7 +1214,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef i32 @_ZNK9dtNavMesh12getPolyFlagsEjPt(ptr noundef nonnull align 8 dereferenceable(100), i32 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1230,7 +1230,7 @@ declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #5
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
@@ -1242,10 +1242,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

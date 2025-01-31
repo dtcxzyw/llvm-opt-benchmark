@@ -124,7 +124,7 @@ if.end:                                           ; preds = %sz_psz2ind.exit.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @sz_boot(ptr nocapture noundef readonly %sc_data, i1 noundef zeroext %cache_oblivious) local_unnamed_addr #1 {
+define hidden void @sz_boot(ptr noundef readonly captures(none) %sc_data, i1 noundef zeroext %cache_oblivious) local_unnamed_addr #1 {
 entry:
   %cond = select i1 %cache_oblivious, i64 4096, i64 0
   store i64 %cond, ptr @sz_large_pad, align 8
@@ -266,7 +266,7 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #4
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4

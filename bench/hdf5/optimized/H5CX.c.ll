@@ -539,7 +539,7 @@ define range(i32 -1, 1) i32 @H5CX_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
 
@@ -558,7 +558,7 @@ define noundef i32 @H5CX_term_package() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @H5CX_pushed() local_unnamed_addr #5 {
@@ -647,7 +647,7 @@ define void @H5CX_push_special() local_unnamed_addr #6 {
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5CX_state_t_reg_free_list) #13
   store ptr %3, ptr %0, align 8
@@ -1003,7 +1003,7 @@ declare i64 @H5P_copy_plist(ptr noundef, i1 noundef zeroext) local_unnamed_addr 
 declare i32 @H5VL_inc_vol_wrapper(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @H5VL_copy_connector_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1156,7 +1156,7 @@ define range(i32 -1, 1) i32 @H5CX_free_state(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5CX_restore_state(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define noundef i32 @H5CX_restore_state(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8
   %3 = load ptr, ptr @H5CX_head_g, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1294,7 +1294,7 @@ define void @H5CX_set_lapl(i64 noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_set_apl(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_set_apl(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %0, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %11
@@ -1408,7 +1408,7 @@ define noundef i32 @H5CX_set_vol_wrap_ctx(ptr noundef %0) local_unnamed_addr #11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5CX_set_vol_connector_prop(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define noundef i32 @H5CX_set_vol_connector_prop(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 432
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
@@ -1433,7 +1433,7 @@ define i64 @H5CX_get_lapl() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_vol_wrap_ctx(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_vol_wrap_ctx(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %7
@@ -1466,7 +1466,7 @@ define range(i32 -1, 1) i32 @H5CX_get_vol_wrap_ctx(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5CX_get_vol_connector_prop(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #9 {
+define noundef i32 @H5CX_get_vol_connector_prop(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %4 = load i8, ptr %3, align 8
@@ -1503,7 +1503,7 @@ define i32 @H5CX_get_ring() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_btree_split_ratios(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_btree_split_ratios(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %4 = load i8, ptr %3, align 8
@@ -1577,7 +1577,7 @@ define range(i32 -1, 1) i32 @H5CX_get_btree_split_ratios(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_max_temp_buf(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_max_temp_buf(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %4 = load i8, ptr %3, align 8
@@ -1653,7 +1653,7 @@ define range(i32 -1, 1) i32 @H5CX_get_max_temp_buf(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_tconv_buf(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_tconv_buf(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load i8, ptr %3, align 8
@@ -1729,7 +1729,7 @@ define range(i32 -1, 1) i32 @H5CX_get_tconv_buf(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load i8, ptr %3, align 8
@@ -1805,7 +1805,7 @@ define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf_type(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf_type(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %4 = load i8, ptr %3, align 8
@@ -1881,7 +1881,7 @@ define range(i32 -1, 1) i32 @H5CX_get_bkgr_buf_type(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_vec_size(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_vec_size(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %4 = load i8, ptr %3, align 8
@@ -1957,7 +1957,7 @@ define range(i32 -1, 1) i32 @H5CX_get_vec_size(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_err_detect(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_err_detect(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %4 = load i8, ptr %3, align 8
@@ -2033,7 +2033,7 @@ define range(i32 -1, 1) i32 @H5CX_get_err_detect(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_filter_cb(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_filter_cb(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %4 = load i8, ptr %3, align 8
@@ -2107,7 +2107,7 @@ define range(i32 -1, 1) i32 @H5CX_get_filter_cb(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_data_transform(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_data_transform(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %4 = load i8, ptr %3, align 8
@@ -2183,7 +2183,7 @@ define range(i32 -1, 1) i32 @H5CX_get_data_transform(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_vlen_alloc_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_vlen_alloc_info(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %4 = load i8, ptr %3, align 8
@@ -2302,7 +2302,7 @@ define range(i32 -1, 1) i32 @H5CX_get_vlen_alloc_info(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_dt_conv_cb(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_dt_conv_cb(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %4 = load i8, ptr %3, align 8
@@ -2376,7 +2376,7 @@ define range(i32 -1, 1) i32 @H5CX_get_dt_conv_cb(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_selection_io_mode(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_selection_io_mode(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %4 = load i8, ptr %3, align 8
@@ -2452,7 +2452,7 @@ define range(i32 -1, 1) i32 @H5CX_get_selection_io_mode(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_no_selection_io_cause(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_no_selection_io_cause(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 337
   %4 = load i8, ptr %3, align 1
@@ -2534,7 +2534,7 @@ define range(i32 -1, 1) i32 @H5CX_get_no_selection_io_cause(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_actual_selection_io_mode(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_actual_selection_io_mode(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -2638,7 +2638,7 @@ define range(i32 -1, 1) i32 @H5CX_get_actual_selection_io_mode(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_modify_write_buf(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_modify_write_buf(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 330
   %4 = load i8, ptr %3, align 2
@@ -2715,7 +2715,7 @@ define range(i32 -1, 1) i32 @H5CX_get_modify_write_buf(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_encoding(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_encoding(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load i8, ptr %3, align 8
@@ -2792,7 +2792,7 @@ define range(i32 -1, 1) i32 @H5CX_get_encoding(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_intermediate_group(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_intermediate_group(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %4 = load i8, ptr %3, align 8
@@ -2869,7 +2869,7 @@ define range(i32 -1, 1) i32 @H5CX_get_intermediate_group(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_nlinks(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_nlinks(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %4 = load i8, ptr %3, align 8
@@ -2946,7 +2946,7 @@ define range(i32 -1, 1) i32 @H5CX_get_nlinks(ptr nocapture noundef writeonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_libver_bounds(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_libver_bounds(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @H5CX_head_g, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 416
   %5 = load i8, ptr %4, align 8
@@ -3090,7 +3090,7 @@ define range(i32 -1, 1) i32 @H5CX_get_libver_bounds(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_dset_min_ohdr_flag(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_dset_min_ohdr_flag(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 378
   %4 = load i8, ptr %3, align 2
@@ -3168,7 +3168,7 @@ define range(i32 -1, 1) i32 @H5CX_get_dset_min_ohdr_flag(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_ext_file_prefix(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_ext_file_prefix(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %4 = load i8, ptr %3, align 8
@@ -3245,7 +3245,7 @@ define range(i32 -1, 1) i32 @H5CX_get_ext_file_prefix(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_vds_prefix(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_vds_prefix(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %4 = load i8, ptr %3, align 8
@@ -3402,7 +3402,7 @@ define void @H5CX_set_actual_selection_io_mode(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_get_ohdr_flags(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_get_ohdr_flags(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %4 = load i8, ptr %3, align 4

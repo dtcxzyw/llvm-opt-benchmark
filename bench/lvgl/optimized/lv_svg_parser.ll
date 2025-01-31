@@ -609,15 +609,15 @@ _process_end_tag.exit:                            ; preds = %_get_svg_tag_type.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
@@ -626,7 +626,7 @@ declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @lv_svg_node_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_process_attrs_tag(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_process_attrs_tag(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.lv_svg_matrix_t, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %struct.lv_svg_matrix_t, align 4
@@ -6001,10 +6001,10 @@ declare zeroext i1 @lv_array_resize(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_parse_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #7 {
+define internal fastcc void @_parse_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #7 {
   %5 = alloca ptr, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = ptrtoint ptr %1 to i64
@@ -6167,7 +6167,7 @@ _parse_number.exit.thread:                        ; preds = %18, %22, %55, %47, 
 declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
@@ -6182,7 +6182,7 @@ declare float @sinf(float noundef) local_unnamed_addr #10
 declare float @tanf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #7 {
+define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) unnamed_addr #7 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = alloca ptr, align 8
@@ -6271,17 +6271,17 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone %
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %24, ptr %45, align 1, !tbaa !31
   store i8 %24, ptr %7, align 1, !tbaa !31
-  %46 = call i64 @strtol(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #14
+  %46 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #14
   %47 = trunc i64 %46 to i32
   %48 = load i8, ptr %30, align 1, !tbaa !31
   store i8 %48, ptr %45, align 1, !tbaa !31
   store i8 %48, ptr %7, align 1, !tbaa !31
-  %49 = call i64 @strtol(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #14
+  %49 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #14
   %50 = trunc i64 %49 to i32
   %51 = load i8, ptr %37, align 1, !tbaa !31
   store i8 %51, ptr %45, align 1, !tbaa !31
   store i8 %51, ptr %7, align 1, !tbaa !31
-  %52 = call i64 @strtol(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #14
+  %52 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #14
   %53 = trunc i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7) #14
   br label %111
@@ -6355,19 +6355,19 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone %
   store i8 %58, ptr %8, align 1, !tbaa !31
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %65, ptr %100, align 1, !tbaa !31
-  %101 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #14
+  %101 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #14
   %102 = trunc i64 %101 to i32
   %103 = load i8, ptr %71, align 1, !tbaa !31
   store i8 %103, ptr %8, align 1, !tbaa !31
   %104 = load i8, ptr %78, align 1, !tbaa !31
   store i8 %104, ptr %100, align 1, !tbaa !31
-  %105 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #14
+  %105 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #14
   %106 = trunc i64 %105 to i32
   %107 = load i8, ptr %85, align 1, !tbaa !31
   store i8 %107, ptr %8, align 1, !tbaa !31
   %108 = load i8, ptr %92, align 1, !tbaa !31
   store i8 %108, ptr %100, align 1, !tbaa !31
-  %109 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #14
+  %109 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #14
   %110 = trunc i64 %109 to i32
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #14
   br label %111
@@ -6522,13 +6522,13 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_anim_values_cb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6955,7 +6955,7 @@ _parse_number.exit171:                            ; preds = %.critedge.i140, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_anim_key_splines_cb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_anim_key_splines_cb(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7274,7 +7274,7 @@ _parse_number.exit111:                            ; preds = %.critedge.i80, %85,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_anim_begin_end_cb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_anim_begin_end_cb(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !80

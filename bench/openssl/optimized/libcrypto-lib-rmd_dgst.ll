@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @RIPEMD160_Update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data_, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %data_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -89,10 +89,10 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ripemd160_block_data_order(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %p, i64 noundef %num) local_unnamed_addr #0 {
+define void @ripemd160_block_data_order(ptr noundef captures(none) %ctx, ptr noundef readonly captures(none) %p, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %tobool.not1800 = icmp eq i64 %num, 0
   br i1 %tobool.not1800, label %for.end, label %for.body.lr.ph
@@ -1723,17 +1723,17 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @RIPEMD160_Transform(ptr nocapture noundef %c, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define void @RIPEMD160_Transform(ptr noundef captures(none) %c, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   tail call void @ripemd160_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RIPEMD160_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #3 {
+define noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 28
   %num = getelementptr inbounds nuw i8, ptr %c, i64 92
@@ -1883,7 +1883,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @RIPEMD160_Init(ptr nocapture noundef writeonly initializes((0, 96)) %c) local_unnamed_addr #5 {
+define noundef i32 @RIPEMD160_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %c) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)

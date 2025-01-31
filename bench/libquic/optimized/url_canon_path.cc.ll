@@ -13,7 +13,7 @@ $_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCh
 @_ZN3url14kHexCharLookupE = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %path, ptr noundef %output, ptr noundef captures(none) initializes((0, 4)) %out_path) local_unnamed_addr #0 {
 entry:
   %cur_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
@@ -137,7 +137,7 @@ _ZN3url12_GLOBAL__N_16DoPathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %path, ptr noundef %output, ptr noundef captures(none) initializes((0, 4)) %out_path) local_unnamed_addr #0 {
 entry:
   %cur_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
@@ -261,7 +261,7 @@ _ZN3url12_GLOBAL__N_16DoPathIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, i32 noundef %path_begin_in_output, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %path, i32 noundef %path_begin_in_output, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %path.val = load i32, ptr %path, align 4
   %0 = getelementptr inbounds nuw i8, ptr %path, i64 4
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %spec, i32 %path.0.val, i32 %path.4.val, i32 noundef %path_begin_in_output, ptr noundef %output) unnamed_addr #0 {
 entry:
   %add.i = add nsw i32 %path.4.val, %path.0.val
   %cmp58 = icmp sgt i32 %path.4.val, 0
@@ -1083,7 +1083,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, i32 noundef %path_begin_in_output, ptr noundef %output) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %path, i32 noundef %path_begin_in_output, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %path.val = load i32, ptr %path, align 4
   %0 = getelementptr inbounds nuw i8, ptr %path, i64 4
@@ -2177,10 +2177,10 @@ if.end39:                                         ; preds = %if.end39.sink.split
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -42,7 +42,7 @@ define dso_local i64 @_ZN4llvm10hash_valueERKNS_12DynamicAPIntE(ptr noundef nonn
 declare i64 @_ZN4llvm6detail10hash_valueERKNS0_16SlowDynamicAPIntE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm12DynamicAPInt20static_assert_layoutEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm12DynamicAPInt20static_assert_layoutEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   ret void
 }
 

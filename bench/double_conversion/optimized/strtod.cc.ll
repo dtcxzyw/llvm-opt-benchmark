@@ -95,7 +95,7 @@ return:                                           ; preds = %entry, %if.else.i13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr nocapture readonly %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr nocapture noundef nonnull writeonly %guess) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN17double_conversionL12ComputeGuessENS_6VectorIKcEEiPd(ptr readonly captures(none) %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef nonnull writeonly captures(none) %guess) unnamed_addr #0 {
 entry:
   %cached_power.i = alloca %"class.double_conversion::DiyFp", align 8
   %cached_decimal_exponent.i = alloca i32, align 4
@@ -567,7 +567,7 @@ return:                                           ; preds = %_ZN17double_convers
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN17double_conversionL22CompareBufferWithDiyFpENS_6VectorIKcEEiNS_5DiyFpE(ptr %buffer.coerce0, i32 %buffer.coerce1, i32 noundef %exponent, i64 %diy_fp.coerce0, i32 %diy_fp.coerce1) unnamed_addr #0 {
@@ -1031,10 +1031,10 @@ declare noundef i32 @_ZN17double_conversion6Bignum7CompareERKS0_S2_(ptr noundef 
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

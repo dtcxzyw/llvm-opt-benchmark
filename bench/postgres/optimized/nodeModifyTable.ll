@@ -549,14 +549,14 @@ declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecGetUpdateNewTuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecGetUpdateNewTuple(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -599,7 +599,7 @@ define dso_local noundef ptr @ExecGetUpdateNewTuple(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitMergeTupleSlots(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((64, 81)) %1) local_unnamed_addr #0 {
+define dso_local void @ExecInitMergeTupleSlots(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((64, 81)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -620,7 +620,7 @@ define dso_local void @ExecInitMergeTupleSlots(ptr nocapture noundef readonly %0
 declare ptr @table_slot_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecLookupResultRelByOid(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -2745,7 +2745,7 @@ declare void @EvalPlanQualEnd(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local void @ExecReScanModifyTable(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define dso_local void @ExecReScanModifyTable(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #8
@@ -5309,7 +5309,7 @@ declare void @ExecBSDeleteTriggers(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @ExecWithCheckOptions(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5577,7 +5577,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   br label %83
 
 83:                                               ; preds = %73, %69
-  %84 = call fastcc ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %84 = call fastcc ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %85 = load i8, ptr %9, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %118, label %87
@@ -5641,7 +5641,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %100
   unreachable
 
 118:                                              ; preds = %83
-  %119 = call ptr @ExecGetChildToRootMap(ptr noundef %1) #8
+  %119 = call ptr @ExecGetChildToRootMap(ptr noundef nonnull %1) #8
   %.not56.i = icmp eq ptr %119, null
   br i1 %.not56.i, label %126, label %120
 
@@ -5804,7 +5804,7 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
 
 ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, %.lr.ph5.i
   %204 = load ptr, ptr %14, align 8
-  call void @ExecARUpdateTriggers(ptr noundef %204, ptr noundef %146, ptr noundef %1, ptr noundef nonnull %135, ptr noundef %2, ptr noundef null, ptr noundef %144, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
+  call void @ExecARUpdateTriggers(ptr noundef %204, ptr noundef %146, ptr noundef nonnull %1, ptr noundef nonnull %135, ptr noundef %2, ptr noundef null, ptr noundef %144, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
   br label %257
 
 205:                                              ; preds = %table_tuple_fetch_row_version.exit
@@ -5890,7 +5890,7 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecUpdateEpilogue(ptr nocapture noundef nonnull readonly %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ExecUpdateEpilogue(ptr noundef nonnull readonly captures(none) %0, i32 %.4.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
@@ -6087,7 +6087,7 @@ declare zeroext i1 @ExecBRDeleteTriggers(ptr noundef, ptr noundef, ptr noundef, 
 declare void @ExecARDeleteTriggers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecCheckPlanOutput(ptr nocapture readonly %.64.val, ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ExecCheckPlanOutput(ptr readonly captures(none) %.64.val, ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -6216,7 +6216,7 @@ declare zeroext i1 @ExecBRInsertTriggers(ptr noundef, ptr noundef, ptr noundef) 
 declare zeroext i1 @ExecIRInsertTriggers(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecBatchInsert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @ExecBatchInsert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   store i32 %4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -6343,10 +6343,10 @@ declare ptr @MakeTransitionCaptureState(ptr noundef, i32 noundef, i32 noundef) l
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

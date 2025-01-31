@@ -26,14 +26,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [64 x i8] c"could not allocate huge page(s). falling back on standard pages\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_mpool_hugepage_hugepage_constructor(ptr nocapture noundef writeonly initializes((40, 64)) %0) #0 {
+define internal void @mca_mpool_hugepage_hugepage_constructor(ptr noundef writeonly captures(none) initializes((40, 64)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @mca_mpool_hugepage_hugepage_destructor(ptr nocapture noundef readonly %0) #1 {
+define internal void @mca_mpool_hugepage_hugepage_destructor(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
@@ -152,7 +152,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i31, %40, %o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mca_mpool_hugepage_alloc(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 %3) #2 {
+define internal ptr @mca_mpool_hugepage_alloc(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 16
   %7 = load ptr, ptr %6, align 8
@@ -161,7 +161,7 @@ define internal ptr @mca_mpool_hugepage_alloc(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mca_mpool_hugepage_realloc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 {
+define internal ptr @mca_mpool_hugepage_realloc(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -171,7 +171,7 @@ define internal ptr @mca_mpool_hugepage_realloc(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_mpool_hugepage_free(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @mca_mpool_hugepage_free(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -239,7 +239,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #3
 declare ptr @mca_allocator_component_lookup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %1) #2 {
+define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr noundef captures(none) %1) #2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -391,10 +391,10 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @getpid() local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
@@ -402,7 +402,7 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
@@ -419,7 +419,7 @@ declare i32 @opal_rb_tree_delete(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5

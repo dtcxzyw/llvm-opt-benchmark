@@ -15,7 +15,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZN4llvmL11heatPaletteE = internal constant [100 x [8 x i8]] [[8 x i8] c"#3d50c3\00", [8 x i8] c"#4055c8\00", [8 x i8] c"#4358cb\00", [8 x i8] c"#465ecf\00", [8 x i8] c"#4961d2\00", [8 x i8] c"#4c66d6\00", [8 x i8] c"#4f69d9\00", [8 x i8] c"#536edd\00", [8 x i8] c"#5572df\00", [8 x i8] c"#5977e3\00", [8 x i8] c"#5b7ae5\00", [8 x i8] c"#5f7fe8\00", [8 x i8] c"#6282ea\00", [8 x i8] c"#6687ed\00", [8 x i8] c"#6a8bef\00", [8 x i8] c"#6c8ff1\00", [8 x i8] c"#7093f3\00", [8 x i8] c"#7396f5\00", [8 x i8] c"#779af7\00", [8 x i8] c"#7a9df8\00", [8 x i8] c"#7ea1fa\00", [8 x i8] c"#81a4fb\00", [8 x i8] c"#85a8fc\00", [8 x i8] c"#88abfd\00", [8 x i8] c"#8caffe\00", [8 x i8] c"#8fb1fe\00", [8 x i8] c"#93b5fe\00", [8 x i8] c"#96b7ff\00", [8 x i8] c"#9abbff\00", [8 x i8] c"#9ebeff\00", [8 x i8] c"#a1c0ff\00", [8 x i8] c"#a5c3fe\00", [8 x i8] c"#a7c5fe\00", [8 x i8] c"#abc8fd\00", [8 x i8] c"#aec9fc\00", [8 x i8] c"#b2ccfb\00", [8 x i8] c"#b5cdfa\00", [8 x i8] c"#b9d0f9\00", [8 x i8] c"#bbd1f8\00", [8 x i8] c"#bfd3f6\00", [8 x i8] c"#c1d4f4\00", [8 x i8] c"#c5d6f2\00", [8 x i8] c"#c7d7f0\00", [8 x i8] c"#cbd8ee\00", [8 x i8] c"#cedaeb\00", [8 x i8] c"#d1dae9\00", [8 x i8] c"#d4dbe6\00", [8 x i8] c"#d6dce4\00", [8 x i8] c"#d9dce1\00", [8 x i8] c"#dbdcde\00", [8 x i8] c"#dedcdb\00", [8 x i8] c"#e0dbd8\00", [8 x i8] c"#e3d9d3\00", [8 x i8] c"#e5d8d1\00", [8 x i8] c"#e8d6cc\00", [8 x i8] c"#ead5c9\00", [8 x i8] c"#ecd3c5\00", [8 x i8] c"#eed0c0\00", [8 x i8] c"#efcebd\00", [8 x i8] c"#f1ccb8\00", [8 x i8] c"#f2cab5\00", [8 x i8] c"#f3c7b1\00", [8 x i8] c"#f4c5ad\00", [8 x i8] c"#f5c1a9\00", [8 x i8] c"#f6bfa6\00", [8 x i8] c"#f7bca1\00", [8 x i8] c"#f7b99e\00", [8 x i8] c"#f7b599\00", [8 x i8] c"#f7b396\00", [8 x i8] c"#f7af91\00", [8 x i8] c"#f7ac8e\00", [8 x i8] c"#f7a889\00", [8 x i8] c"#f6a385\00", [8 x i8] c"#f5a081\00", [8 x i8] c"#f59c7d\00", [8 x i8] c"#f4987a\00", [8 x i8] c"#f39475\00", [8 x i8] c"#f29072\00", [8 x i8] c"#f08b6e\00", [8 x i8] c"#ef886b\00", [8 x i8] c"#ed8366\00", [8 x i8] c"#ec7f63\00", [8 x i8] c"#e97a5f\00", [8 x i8] c"#e8765c\00", [8 x i8] c"#e57058\00", [8 x i8] c"#e36c55\00", [8 x i8] c"#e16751\00", [8 x i8] c"#de614d\00", [8 x i8] c"#dc5d4a\00", [8 x i8] c"#d85646\00", [8 x i8] c"#d65244\00", [8 x i8] c"#d24b40\00", [8 x i8] c"#d0473d\00", [8 x i8] c"#cc403a\00", [8 x i8] c"#ca3b37\00", [8 x i8] c"#c53334\00", [8 x i8] c"#c32e31\00", [8 x i8] c"#be242e\00", [8 x i8] c"#bb1b2c\00", [8 x i8] c"#b70d28\00"], align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm13getNumOfCallsERNS_8FunctionES1_(ptr noundef nonnull readnone align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4llvm13getNumOfCallsERNS_8FunctionES1_(ptr noundef nonnull readnone align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.010.016 = load ptr, ptr %3, align 8
   %.not1417 = icmp eq ptr %.sroa.010.016, null
@@ -185,7 +185,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -204,10 +204,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

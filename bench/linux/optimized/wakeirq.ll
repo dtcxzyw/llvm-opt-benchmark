@@ -237,7 +237,7 @@ define dso_local i32 @dev_pm_set_dedicated_wake_irq_reverse(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_pm_enable_wake_irq_check(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_pm_enable_wake_irq_check(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -290,7 +290,7 @@ define dso_local void @dev_pm_enable_wake_irq_check(ptr nocapture noundef readon
 declare dso_local void @enable_irq(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_pm_disable_wake_irq_check(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_pm_disable_wake_irq_check(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -329,7 +329,7 @@ define dso_local void @dev_pm_disable_wake_irq_check(ptr nocapture noundef reado
 declare dso_local void @disable_irq_nosync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_pm_enable_wake_irq_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_pm_enable_wake_irq_complete(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -454,7 +454,7 @@ declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_un
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @handle_threaded_wake_irq(i32 noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @handle_threaded_wake_irq(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = tail call ptr @irq_get_irq_data(i32 noundef %0) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8

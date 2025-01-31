@@ -172,7 +172,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.98 = private unnamed_addr constant [38 x i8] c"Failed to add VMD MEMBAR Shadow cap: \00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vfio_opt_rom_in_denylist(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vfio_opt_rom_in_denylist(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vendor_id.i = getelementptr inbounds nuw i8, ptr %vdev, i64 3496
@@ -249,7 +249,7 @@ entry:
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @vfio_pci_igd_opregion_init(ptr nocapture noundef initializes((3424, 3432)) %vdev, ptr nocapture noundef readonly %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @vfio_pci_igd_opregion_init(ptr noundef captures(none) initializes((3424, 3432)) %vdev, ptr noundef readonly captures(none) %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %size = getelementptr inbounds nuw i8, ptr %info, i64 16
@@ -548,7 +548,7 @@ vfio_vga_probe_nvidia_3d0_quirk.exit:             ; preds = %vfio_vga_probe_ati_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_vga_quirk_exit(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local void @vfio_vga_quirk_exit(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %vga = getelementptr inbounds nuw i8, ptr %vdev, i64 3416
   br label %for.body
@@ -605,7 +605,7 @@ for.end19:                                        ; preds = %for.inc17
 declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_vga_quirk_finalize(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
+define dso_local void @vfio_vga_quirk_finalize(ptr noundef readonly captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %vga = getelementptr inbounds nuw i8, ptr %vdev, i64 3416
   %.pre = load ptr, ptr %vga, align 8
@@ -1299,7 +1299,7 @@ vfio_probe_rtl8168_bar2_quirk.exit:               ; preds = %lor.lhs.false1.i88,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_bar_quirk_exit(ptr nocapture noundef readonly %vdev, i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local void @vfio_bar_quirk_exit(ptr noundef readonly captures(none) %vdev, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %bars = getelementptr inbounds nuw i8, ptr %vdev, i64 2888
   %idxprom = sext i32 %nr to i64
@@ -1359,7 +1359,7 @@ for.end11:                                        ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_ioeventfd_exit(ptr nocapture noundef readonly %vdev, ptr noundef %ioeventfd) unnamed_addr #0 {
+define internal fastcc void @vfio_ioeventfd_exit(ptr noundef readonly captures(none) %vdev, ptr noundef %ioeventfd) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8
@@ -1479,7 +1479,7 @@ trace_vfio_ioeventfd_exit.exit:                   ; preds = %if.end29, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_bar_quirk_finalize(ptr nocapture noundef readonly %vdev, i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local void @vfio_bar_quirk_finalize(ptr noundef readonly captures(none) %vdev, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %nr to i64
   %quirks.idx = mul nsw i64 %idxprom, 88
@@ -1583,7 +1583,7 @@ for.end6:                                         ; preds = %for.inc5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_setup_resetfn_quirk(ptr nocapture noundef %vdev) local_unnamed_addr #0 {
+define dso_local void @vfio_setup_resetfn_quirk(ptr noundef captures(none) %vdev) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vendor_id = getelementptr inbounds nuw i8, ptr %vdev, i64 3496
@@ -2153,14 +2153,14 @@ return:                                           ; preds = %vfio_add_nv_gpudire
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2212,7 +2212,7 @@ trace_vfio_quirk_ati_3c3_read.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_ati_3c3_quirk_write(ptr nocapture readnone %opaque, i64 %addr, i64 %data, i32 %size) #0 {
+define internal void @vfio_ati_3c3_quirk_write(ptr readnone captures(none) %opaque, i64 %addr, i64 %data, i32 %size) #0 {
 entry:
   %0 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %0, 2048
@@ -2230,7 +2230,7 @@ do.end:                                           ; preds = %entry, %if.then
 declare i32 @vfio_pci_read_config(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_nvidia_3d4_quirk_read(ptr nocapture noundef initializes((8, 12)) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_nvidia_3d4_quirk_read(ptr noundef captures(none) initializes((8, 12)) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %state = getelementptr inbounds nuw i8, ptr %opaque, i64 8
@@ -2244,7 +2244,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_3d4_quirk_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_nvidia_3d4_quirk_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i30 = alloca %struct.timeval, align 8
   %_now.i.i15 = alloca %struct.timeval, align 8
@@ -2405,7 +2405,7 @@ declare i64 @vfio_vga_read(ptr noundef, i64 noundef, i32 noundef) local_unnamed_
 declare void @vfio_vga_write(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_nvidia_3d0_quirk_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_nvidia_3d0_quirk_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2475,7 +2475,7 @@ if.end:                                           ; preds = %trace_vfio_quirk_nv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_3d0_quirk_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_nvidia_3d0_quirk_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2597,7 +2597,7 @@ declare void @vfio_pci_write_config(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_generic_window_quirk_address_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_generic_window_quirk_address_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %bars = getelementptr inbounds nuw i8, ptr %0, i64 2888
@@ -2614,7 +2614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_generic_window_quirk_address_write(ptr nocapture noundef initializes((20, 21)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_generic_window_quirk_address_write(ptr noundef captures(none) initializes((20, 21)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2716,7 +2716,7 @@ declare void @vfio_region_write(ptr noundef, i64 noundef, i64 noundef, i32 nound
 declare ptr @memory_region_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_generic_window_quirk_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_generic_window_quirk_data_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2787,7 +2787,7 @@ if.end:                                           ; preds = %trace_vfio_quirk_ge
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_generic_window_quirk_data_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_generic_window_quirk_data_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2860,7 +2860,7 @@ return:                                           ; preds = %if.end, %trace_vfio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @vfio_generic_quirk_mirror_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @vfio_generic_quirk_mirror_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2920,7 +2920,7 @@ trace_vfio_quirk_generic_mirror_read.exit:        ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_generic_quirk_mirror_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_generic_quirk_mirror_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -2972,7 +2972,7 @@ trace_vfio_quirk_generic_mirror_write.exit:       ; preds = %entry, %land.lhs.tr
 declare void @memory_region_set_enabled(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_nvidia_bar5_quirk_master_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_nvidia_bar5_quirk_master_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %window = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
@@ -2982,7 +2982,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_bar5_quirk_master_write(ptr nocapture noundef initializes((0, 4)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_nvidia_bar5_quirk_master_write(ptr noundef captures(none) initializes((0, 4)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %window = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
@@ -2995,7 +2995,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_nvidia_bar5_enable(ptr nocapture noundef %bar5) unnamed_addr #0 {
+define internal fastcc void @vfio_nvidia_bar5_enable(ptr noundef captures(none) %bar5) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %bar5, align 8
@@ -3070,7 +3070,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_nvidia_bar5_quirk_enable_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_nvidia_bar5_quirk_enable_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %window = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
@@ -3081,7 +3081,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_bar5_quirk_enable_write(ptr nocapture noundef initializes((4, 8)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_nvidia_bar5_quirk_enable_write(ptr noundef captures(none) initializes((4, 8)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %window = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %window, align 8
@@ -3096,7 +3096,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_bar0_quirk_reset(ptr nocapture noundef readonly %vdev, ptr nocapture noundef readonly %quirk) #0 {
+define internal void @vfio_nvidia_bar0_quirk_reset(ptr noundef readonly captures(none) %vdev, ptr noundef readonly captures(none) %quirk) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %quirk, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -3128,7 +3128,7 @@ vfio_drop_dynamic_eventfds.exit:                  ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_nvidia_quirk_mirror_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_nvidia_quirk_mirror_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -3305,7 +3305,7 @@ if.end74:                                         ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @vfio_ioeventfd_init(ptr nocapture noundef readonly %vdev, ptr noundef %mr, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
+define internal fastcc noundef ptr @vfio_ioeventfd_init(ptr noundef readonly captures(none) %vdev, ptr noundef %mr, i64 noundef range(i64 64, 0) %addr, i32 noundef %size, i64 noundef %data, ptr noundef %region, i64 noundef %region_addr) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vfio_ioeventfd = alloca %struct.vfio_device_ioeventfd, align 8
@@ -3518,7 +3518,7 @@ declare void @memory_region_add_eventfd(ptr noundef, i64 noundef, i32 noundef, i
 declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_rtl8168_quirk_address_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_rtl8168_quirk_address_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -3579,7 +3579,7 @@ if.end:                                           ; preds = %trace_vfio_quirk_rt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_rtl8168_quirk_address_write(ptr nocapture noundef initializes((16, 17)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_rtl8168_quirk_address_write(ptr noundef captures(none) initializes((16, 17)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -3668,7 +3668,7 @@ declare i32 @memory_region_dispatch_write(ptr noundef, i64 noundef, i64 noundef,
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vfio_rtl8168_quirk_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @vfio_rtl8168_quirk_data_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %data = alloca i64, align 8
@@ -3743,7 +3743,7 @@ if.end:                                           ; preds = %trace_vfio_quirk_rt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_rtl8168_quirk_data_write(ptr nocapture noundef initializes((12, 16)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @vfio_rtl8168_quirk_data_write(ptr noundef captures(none) initializes((12, 16)) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %conv = trunc i64 %data to i32
@@ -3774,13 +3774,13 @@ declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zero
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

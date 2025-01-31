@@ -769,7 +769,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4exec10LambdaExpr5toSqlB5cxx11EPSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS6_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr noundef %complexConstants) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4exec10LambdaExpr5toSqlB5cxx11EPSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS6_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %this, ptr noundef %complexConstants) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -892,7 +892,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec10LambdaExpr15evalSpecialFormERKNS0_17SelectivityVectorERNS1_7EvalCtxERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec10LambdaExpr15evalSpecialFormERKNS0_17SelectivityVectorERNS1_7EvalCtxERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %values = alloca %"class.std::vector.6", align 8
   %agg.tmp.ensured = alloca %"class.std::shared_ptr.29", align 8
@@ -2049,7 +2049,7 @@ ehcleanup69:                                      ; preds = %ehcleanup68, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec10LambdaExpr19makeTypeWithCaptureERNS1_7EvalCtxE(ptr nocapture noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec10LambdaExpr19makeTypeWithCaptureERNS1_7EvalCtxE(ptr noundef nonnull align 8 captures(none) dereferenceable(544) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parameterNames = alloca %"class.std::vector.53", align 8
   %parameterTypes = alloca %"class.std::vector.58", align 8
@@ -3796,7 +3796,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4exec10LambdaExpr20extractSubfieldsImplEPN5folly10F14FastMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS3_23HeterogeneousAccessHashISA_vEENS3_26HeterogeneousAccessEqualToISA_vEESaISt4pairIKSA_iEEEEPSt6vectorINS0_6common8SubfieldESaISN_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr noundef %shadowedNames, ptr noundef %subfields) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4exec10LambdaExpr20extractSubfieldsImplEPN5folly10F14FastMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS3_23HeterogeneousAccessHashISA_vEENS3_26HeterogeneousAccessEqualToISA_vEESaISt4pairIKSA_iEEEEPSt6vectorINS0_6common8SubfieldESaISN_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %this, ptr noundef %shadowedNames, ptr noundef %subfields) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i57 = alloca %"struct.std::pair.206", align 8
   %ref.tmp.i34 = alloca %class.anon.243, align 1
@@ -4034,7 +4034,7 @@ for.end31:                                        ; preds = %for.inc29, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec10LambdaExprD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4657,7 +4657,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
@@ -5743,7 +5743,7 @@ _ZNSt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS2_EED2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
@@ -6753,10 +6753,10 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %_ZN5boost13intru
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec12_GLOBAL__N_112ExprCallableESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   ret void
 }
@@ -6818,7 +6818,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec12_GLOBAL__N_112ExprCallableE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -7055,7 +7055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK8facebook5velox4exec12_GLOBAL__N_112ExprCallable10hasCaptureEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK8facebook5velox4exec12_GLOBAL__N_112ExprCallable10hasCaptureEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   %capture_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %capture_, align 8
@@ -7073,7 +7073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable5applyERKNS0_17SelectivityVectorEPS5_RKN5boost13intrusive_ptrINS0_6BufferEEEPNS1_7EvalCtxERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISJ_EESD_PSJ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %validRowsInReusedResult, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wrapCapture, ptr noundef %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(8) %elementToTopLevelRows, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable5applyERKNS0_17SelectivityVectorEPS5_RKN5boost13intrusive_ptrINS0_6BufferEEEPNS1_7EvalCtxERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISJ_EESD_PSJ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %validRowsInReusedResult, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wrapCapture, ptr noundef %context, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(8) %elementToTopLevelRows, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row = alloca %"class.std::shared_ptr.82", align 8
   %lambdaCtx = alloca %"class.facebook::velox::exec::EvalCtx", align 8
@@ -7225,7 +7225,7 @@ ehcleanup12:                                      ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable12applyNoThrowERKNS0_17SelectivityVectorEPS5_RKN5boost13intrusive_ptrINS0_6BufferEEEPNS1_7EvalCtxERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISJ_EERSH_INS0_10FlatVectorISH_IvEEEEPSJ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %validRowsInReusedResult, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wrapCapture, ptr nocapture noundef readonly %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %elementErrors, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable12applyNoThrowERKNS0_17SelectivityVectorEPS5_RKN5boost13intrusive_ptrINS0_6BufferEEEPNS1_7EvalCtxERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISJ_EERSH_INS0_10FlatVectorISH_IvEEEEPSJ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %validRowsInReusedResult, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wrapCapture, ptr noundef readonly captures(none) %context, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %elementErrors, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row = alloca %"class.std::shared_ptr.82", align 8
   %lambdaCtx = alloca %"class.facebook::velox::exec::EvalCtx", align 8
@@ -7369,7 +7369,7 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wrapCapture, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %context, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %wrapCapture, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.addr = alloca i32, align 4
   %allVectors = alloca %"class.std::vector.6", align 8
@@ -11741,7 +11741,7 @@ if.end:                                           ; preds = %_ZN5folly3f146detai
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #21
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
@@ -12645,10 +12645,10 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
@@ -12657,7 +12657,7 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 declare i32 @llvm.smin.i32(i32, i32) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #26

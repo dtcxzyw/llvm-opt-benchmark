@@ -244,7 +244,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   store i32 %86, ptr %84, align 4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %88 = load ptr, ptr %77, align 8
-  %89 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %87, ptr noundef nonnull @.str.28, ptr noundef %88, ptr noundef %76) #8
+  %89 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %87, ptr noundef nonnull @.str.28, ptr noundef %88, ptr noundef nonnull %76) #8
   %90 = ptrtoint ptr %84 to i64
   %91 = load ptr, ptr @CurrentMemoryContext, align 8
   %92 = tail call ptr @accumArrayResult(ptr noundef %.0192731.i, i64 noundef %90, i1 noundef zeroext false, i32 noundef 25, ptr noundef %91) #8
@@ -290,7 +290,7 @@ optionListToArray.exit:                           ; preds = %._crit_edge, %.lr.p
 declare ptr @untransformRelOptions(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -630,7 +630,7 @@ define dso_local void @AlterForeignServerOwner_oid(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca [7 x i64], align 16
   %5 = alloca [7 x i8], align 1
@@ -780,7 +780,7 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare ptr @GetForeignDataWrapperByName(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
@@ -789,7 +789,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) initializes((0, 1)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 1)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca [2 x i32], align 4
   store i8 0, ptr %2, align 1
   store i8 0, ptr %4, align 1
@@ -922,7 +922,7 @@ declare void @recordDependencyOnCurrentExtension(ptr noundef, i1 noundef zeroext
 declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca [7 x i64], align 16
   %5 = alloca [7 x i8], align 1
@@ -1131,7 +1131,7 @@ declare i64 @deleteDependencyRecordsForClass(i32 noundef, i32 noundef, i32 nound
 declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateForeignServer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateForeignServer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [8 x i64], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca %struct.ObjectAddress, align 4
@@ -1322,7 +1322,7 @@ declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterForeignServer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterForeignServer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [8 x i64], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -1459,7 +1459,7 @@ declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) loc
 declare ptr @GetForeignDataWrapper(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateUserMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateUserMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca [4 x i8], align 4
   %4 = alloca %struct.ObjectAddress, align 4
@@ -1650,7 +1650,7 @@ declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 n
 declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterUserMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
@@ -1796,7 +1796,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %32, %39, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @RemoveUserMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1947,7 +1947,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %64, %72, %.sink.spl
 declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CreateForeignTable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @CreateForeignTable(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca [3 x i8], align 1
   %5 = alloca %struct.ObjectAddress, align 4
@@ -2147,7 +2147,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = call zeroext i1 @IsImportableForeignTable(ptr noundef %74, ptr noundef %0) #8
+  %75 = call zeroext i1 @IsImportableForeignTable(ptr noundef %74, ptr noundef nonnull %0) #8
   br i1 %75, label %76, label %95
 
 76:                                               ; preds = %70
@@ -2207,7 +2207,7 @@ declare i32 @LookupCreationNamespace(ptr noundef) local_unnamed_addr #1
 declare ptr @GetFdwRoutine(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @import_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @import_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i32 @geterrposition() #8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %10
@@ -2246,7 +2246,7 @@ declare void @ProcessUtility(ptr noundef, ptr noundef, i1 noundef zeroext, i32 n
 declare ptr @defGetString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -2411,10 +2411,10 @@ declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

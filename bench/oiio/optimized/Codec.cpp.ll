@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon5CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6cineon5CodecC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
   %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon5CodecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon5CodecD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
   %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -139,7 +139,7 @@ _ZN6cineon5CodecD2Ev.exit:                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon5Codec5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon5Codec5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline, align 8
@@ -156,7 +156,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon5Codec4ReadERKNS_6HeaderEPNS_17ElementReadStreamERKNS_5BlockEPvNS_8DataSizeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data, i32 noundef %size) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN6cineon5Codec4ReadERKNS_6HeaderEPNS_17ElementReadStreamERKNS_5BlockEPvNS_8DataSizeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data, i32 noundef %size) unnamed_addr #6 align 2 {
 entry:
   %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline, align 8

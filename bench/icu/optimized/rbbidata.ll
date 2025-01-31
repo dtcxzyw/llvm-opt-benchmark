@@ -51,7 +51,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7515RBBIDataWrapper5init0Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) initializes((0, 40), (48, 56), (64, 72)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIDataWrapper5init0Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(137) initializes((0, 40), (48, 56), (64, 72)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fTrie = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %fTrie, align 8
@@ -308,7 +308,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515RBBIDataWrapper23isDataVersionAcceptableEPKh(ptr nocapture noundef readonly %version) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515RBBIDataWrapper23isDataVersionAcceptableEPKh(ptr noundef readonly captures(none) %version) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %version, align 1
   %cmp = icmp eq i8 %0, 6
@@ -387,7 +387,7 @@ declare void @udata_close_75(ptr noundef) local_unnamed_addr #4
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %other) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %other) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %other, align 8
@@ -414,7 +414,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7515RBBIDataWrapper8hashCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZN6icu_7515RBBIDataWrapper8hashCodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %fFTableLen = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7515RBBIDataWrapper9printDataEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(137) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6icu_7515RBBIDataWrapper9printDataEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(137) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -763,15 +763,15 @@ declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @udata_swapDataHeader_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 declare i32 @ucptrie_swap_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -144,7 +144,7 @@ declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pcnfsd_comment, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #3
   %7 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef nonnull @dissect_pcnfsd2_dissect_mapreq_arg_item, ptr noundef null) #3
@@ -152,7 +152,7 @@ define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pcnfsd_comment, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #3
   %7 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, ptr noundef nonnull @dissect_pcnfsd2_dissect_mapreq_res_item, ptr noundef null) #3
@@ -160,7 +160,7 @@ define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -219,7 +219,7 @@ pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
   %36 = add i32 %9, 4
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #4
   %38 = trunc i64 %37 to i32
-  %39 = call ptr @proto_tree_add_string(ptr noundef nonnull %11, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef %38, ptr noundef %.0) #3
+  %39 = call ptr @proto_tree_add_string(ptr noundef nonnull %11, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %.0) #3
   br label %40
 
 40:                                               ; preds = %pcnfsd_decode_obscure.exit, %34, %4
@@ -292,7 +292,7 @@ pcnfsd_decode_obscure.exit57:                     ; preds = %.lr.ph.i53, %57, %5
   %75 = load ptr, ptr %7, align 8
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #4
   %77 = trunc i64 %76 to i32
-  %78 = call ptr @proto_tree_add_string(ptr noundef nonnull %48, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef %77, ptr noundef %75) #3
+  %78 = call ptr @proto_tree_add_string(ptr noundef nonnull %48, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef %77, ptr noundef nonnull %75) #3
   br label %79
 
 79:                                               ; preds = %pcnfsd_decode_obscure.exit57, %72, %53
@@ -310,7 +310,7 @@ pcnfsd_decode_obscure.exit57:                     ; preds = %.lr.ph.i53, %57, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pcnfsd_status, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_pcnfsd_uid, align 4
@@ -353,7 +353,7 @@ declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_dissect_mapreq_arg_item(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_pcnfsd2_dissect_mapreq_arg_item(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @hf_pcnfsd_mapreq, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #3
   %8 = add i32 %1, 4
@@ -369,7 +369,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pcnfsd2_dissect_mapreq_res_item(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_pcnfsd2_dissect_mapreq_res_item(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr @hf_pcnfsd_mapreq, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #3
   %8 = add i32 %1, 4
@@ -388,10 +388,10 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

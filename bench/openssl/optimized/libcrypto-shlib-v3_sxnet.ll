@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxnet_v2i(ptr nocapture readnone %method, ptr nocapture readnone %ctx, ptr noundef %nval) #1 {
+define internal ptr @sxnet_v2i(ptr readnone captures(none) %method, ptr readnone captures(none) %ctx, ptr noundef %nval) #1 {
 entry:
   %sx = alloca ptr, align 8
   store ptr null, ptr %sx, align 8
@@ -82,7 +82,7 @@ return:                                           ; preds = %SXNET_add_id_asc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sxnet_i2r(ptr nocapture readnone %method, ptr nocapture noundef readonly %sx, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @sxnet_i2r(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %sx, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %v = alloca i64, align 8
   %0 = load ptr, ptr %sx, align 8
@@ -409,10 +409,10 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @SXNET_get_id_INTEGER(ptr nocapture noundef readonly %sx, ptr noundef %zone) local_unnamed_addr #1 {
+define ptr @SXNET_get_id_INTEGER(ptr noundef readonly captures(none) %sx, ptr noundef %zone) local_unnamed_addr #1 {
 entry:
   %ids = getelementptr inbounds nuw i8, ptr %sx, i64 8
   %0 = load ptr, ptr %ids, align 8
@@ -451,7 +451,7 @@ declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @SXNET_get_id_asc(ptr nocapture noundef readonly %sx, ptr noundef %zone) local_unnamed_addr #1 {
+define ptr @SXNET_get_id_asc(ptr noundef readonly captures(none) %sx, ptr noundef %zone) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
   %cmp = icmp eq ptr %call, null
@@ -502,7 +502,7 @@ return:                                           ; preds = %SXNET_get_id_INTEGE
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SXNET_get_id_ulong(ptr nocapture noundef readonly %sx, i64 noundef %lzone) local_unnamed_addr #1 {
+define ptr @SXNET_get_id_ulong(ptr noundef readonly captures(none) %sx, i64 noundef %lzone) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_new() #4
   %cmp = icmp eq ptr %call, null

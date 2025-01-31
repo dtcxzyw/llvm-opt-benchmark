@@ -203,7 +203,7 @@ declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @StreamServerPort(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @StreamServerPort(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [32 x i8], align 16
   %10 = alloca [64 x i8], align 16
@@ -645,12 +645,12 @@ Setup_AF_UNIX.exit:                               ; preds = %143, %175
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @pg_getaddrinfo_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1269,7 +1269,7 @@ define dso_local void @TouchSocketFiles() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @RemoveSocketFiles() local_unnamed_addr #7 {
@@ -1302,7 +1302,7 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 256) i32 @pq_getbyte() local_unnamed_addr #0 {
@@ -1527,7 +1527,7 @@ socket_set_nonblocking.exit:                      ; preds = %10
 declare i64 @secure_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not23 = icmp eq i64 %1, 0
   br i1 %.not23, label %.loopexit, label %.preheader
 
@@ -1568,7 +1568,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getbytes(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @pq_buffer_has_data() local_unnamed_addr #10 {
@@ -1833,7 +1833,7 @@ define internal fastcc range(i32 -1, 1) i32 @pq_discardbytes(i64 noundef range(i
 declare void @pg_re_throw() local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.b2 = load i1, ptr @PqCommBusy, align 1
@@ -1864,7 +1864,7 @@ define dso_local range(i32 -1, 1) i32 @pq_putmessage_v2(i8 noundef signext %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @internal_putbytes(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @internal_putbytes(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %.not17 = icmp eq i64 %1, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2145,7 +2145,7 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_tcp_keepalives_idle(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_tcp_keepalives_idle(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
   %4 = tail call i32 @pq_setkeepalivesidle(i32 noundef %0, ptr noundef %3)
   ret void
@@ -2209,7 +2209,7 @@ pq_getkeepalivesidle.exit:                        ; preds = %0, %4, %8, %11, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_tcp_keepalives_interval(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_tcp_keepalives_interval(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
   %4 = tail call i32 @pq_setkeepalivesinterval(i32 noundef %0, ptr noundef %3)
   ret void
@@ -2273,7 +2273,7 @@ pq_getkeepalivesinterval.exit:                    ; preds = %0, %4, %8, %11, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_tcp_keepalives_count(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_tcp_keepalives_count(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
   %4 = tail call i32 @pq_setkeepalivescount(i32 noundef %0, ptr noundef %3)
   ret void
@@ -2337,7 +2337,7 @@ pq_getkeepalivescount.exit:                       ; preds = %0, %4, %8, %11, %._
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_tcp_user_timeout(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_tcp_user_timeout(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyProcPort, align 8
   %4 = tail call i32 @pq_settcpusertimeout(i32 noundef %0, ptr noundef %3)
   ret void
@@ -2535,7 +2535,7 @@ define internal zeroext i1 @socket_is_send_pending() #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @socket_putmessage(i8 noundef signext %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @socket_putmessage(i8 noundef signext %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store i8 %0, ptr %4, align 1
@@ -2696,29 +2696,29 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 declare ptr @getgrnam(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #8
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

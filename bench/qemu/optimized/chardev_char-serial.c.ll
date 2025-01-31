@@ -44,7 +44,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_serial_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_serial_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
   %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_parse_serial(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr noundef %errp) #0 {
+define internal void @qemu_chr_parse_serial(ptr noundef %opts, ptr noundef writeonly captures(none) %backend, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.4) #7
   %cmp = icmp eq ptr %call, null
@@ -83,7 +83,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qmp_chardev_open_serial(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
+define internal void @qmp_chardev_open_serial(ptr noundef %chr, ptr noundef readonly captures(none) %backend, ptr readnone captures(none) %be_opened, ptr noundef %errp) #0 {
 entry:
   %tty.i = alloca %struct.termios, align 4
   %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @tty_serial_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef %arg) #0 {
+define internal range(i32 -95, 1) i32 @tty_serial_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr noundef captures(none) %arg) #0 {
 entry:
   %sarg = alloca i32, align 4
   %targ38 = alloca i32, align 4
@@ -433,7 +433,7 @@ if.end116:                                        ; preds = %if.then113, %sw.epi
 declare void @qemu_chr_open_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -456,10 +456,10 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -220,14 +220,14 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr @ws_optarg, align 8
-  %34 = call i64 @strtol(ptr nocapture noundef %33, ptr noundef null, i32 noundef 0) #14
+  %34 = call i64 @strtol(ptr noundef captures(none) %33, ptr noundef null, i32 noundef 0) #14
   %35 = trunc i64 %34 to i32
   %36 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %35) #14
   br label %.backedge
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr @ws_optarg, align 8
-  %39 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 0) #14
+  %39 = call i64 @strtol(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 0) #14
   %40 = trunc i64 %39 to i32
   store i32 %40, ptr @max_offset, align 4
   br label %.backedge
@@ -1552,7 +1552,7 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @text2pcap_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @text2pcap_cmdarg_err(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 11, i64 1, ptr %3) #17
   %5 = load ptr, ptr @stderr, align 8
@@ -1563,7 +1563,7 @@ define internal void @text2pcap_cmdarg_err(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @text2pcap_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @text2pcap_cmdarg_err_cont(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #16
   %5 = load ptr, ptr @stderr, align 8
@@ -1584,7 +1584,7 @@ declare void @init_report_message(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @wtap_init(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @wtap_dump_params_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1593,12 +1593,12 @@ declare i32 @text_import(ptr noundef) local_unnamed_addr #1
 declare i32 @ws_log_get_level() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @wtap_get_bytes_dumped(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_mapped_file_unref(ptr noundef) local_unnamed_addr #1
 
@@ -1607,7 +1607,7 @@ declare void @g_regex_unref(ptr noundef) local_unnamed_addr #1
 declare i32 @wtap_dump_close(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare void @ws_init_version_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1627,7 +1627,7 @@ define internal fastcc void @print_usage(ptr noundef %0) unnamed_addr #0 {
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 
@@ -1636,7 +1636,7 @@ declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @ws_strtou8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @wtap_name_to_encap(ptr noundef) local_unnamed_addr #1
 
@@ -1727,7 +1727,7 @@ declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 declare i32 @g_regex_get_string_number(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare void @show_version() local_unnamed_addr #1
 
@@ -1745,7 +1745,7 @@ declare ptr @wtap_encap_name(i32 noundef) local_unnamed_addr #1
 declare ptr @g_mapped_file_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -1761,7 +1761,7 @@ declare ptr @wtap_dump_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare ptr @wtap_dump_open_stdout(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @wtap_file_type_subtype_name(i32 noundef) local_unnamed_addr #1
 
@@ -1777,7 +1777,7 @@ declare i32 @wtap_encap_requires_phdr(i32 noundef) local_unnamed_addr #1
 declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @string_nat_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @string_nat_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @ws_ascii_strnatcmp(ptr noundef %3, ptr noundef %4) #14
@@ -1787,7 +1787,7 @@ define internal i32 @string_nat_compare(ptr nocapture noundef readonly %0, ptr n
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @string_elem_print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #11 {
+define internal void @string_elem_print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1812,16 +1812,16 @@ declare void @wtap_free_idb_info(ptr noundef) local_unnamed_addr #1
 declare void @wtap_dump_params_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

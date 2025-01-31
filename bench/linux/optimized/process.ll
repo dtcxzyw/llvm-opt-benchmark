@@ -115,7 +115,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arch_cpu_idl
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable___tss_limit_invalid1013, ptr @__UNIQUE_ID___addressable_arch_cpu_idle1025, ptr @__UNIQUE_ID___addressable_boot_option_idle_override1022, ptr @__UNIQUE_ID___addressable_cpu_tss_rw1012, ptr @__setup_idle_setup, ptr @arch_cpu_idle.__UNIQUE_ID___addressable___SCK__x86_idle1024, ptr @disable_TSC.__UNIQUE_ID___addressable___SCK__preempt_schedule1015, ptr @disable_cpuid.__UNIQUE_ID___addressable___SCK__preempt_schedule1017, ptr @enable_TSC.__UNIQUE_ID___addressable___SCK__preempt_schedule1016, ptr @enable_cpuid.__UNIQUE_ID___addressable___SCK__preempt_schedule1018, ptr @speculation_ctrl_update_current.__UNIQUE_ID___addressable___SCK__preempt_schedule1021], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @arch_dup_task_struct(ptr nocapture noundef writeonly initializes((3024, 3032)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @arch_dup_task_struct(ptr noundef writeonly captures(none) initializes((3024, 3032)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @arch_task_struct_size, align 4
   %4 = sext i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 64 %0, ptr align 64 %1, i64 %4, i1 false)
@@ -125,7 +125,7 @@ define dso_local noundef i32 @arch_dup_task_struct(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arch_release_task_struct(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -164,7 +164,7 @@ define dso_local void @exit_thread(ptr noundef %0) local_unnamed_addr #2 align 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @io_bitmap_exit(ptr noundef) local_unnamed_addr #3
@@ -173,7 +173,7 @@ declare dso_local void @io_bitmap_exit(ptr noundef) local_unnamed_addr #3
 declare dso_local void @fpu__drop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ret_from_fork(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
@@ -199,7 +199,7 @@ declare dso_local void @schedule_tail(ptr noundef) local_unnamed_addr #3
 declare dso_local void @syscall_exit_to_user_mode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @copy_thread(ptr noundef initializes((2840, 2904), (2944, 2952)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @copy_thread(ptr noundef initializes((2840, 2904), (2944, 2952)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -390,7 +390,7 @@ define dso_local i32 @copy_thread(ptr noundef initializes((2840, 2904), (2944, 2
 declare dso_local void @ret_from_fork_asm() #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @current_save_fsgs() local_unnamed_addr #3
@@ -1598,7 +1598,7 @@ define dso_local void @arch_cpu_idle() #10 section ".cpuidle.text" align 16 {
 declare dso_local void @__SCT__x86_idle() #3
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define dso_local void @stop_this_cpu(ptr nocapture noundef readnone %0) local_unnamed_addr #11 align 16 {
+define dso_local void @stop_this_cpu(ptr noundef readnone captures(none) %0) local_unnamed_addr #11 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_info) #21, !srcloc !69
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !70
@@ -1937,7 +1937,7 @@ define dso_local range(i64 0, -15) i64 @arch_align_stack(i64 noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @arch_randomize_brk(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local i64 @arch_randomize_brk(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @randomize_page(i64 noundef %3, i64 noundef 33554432) #19
@@ -2263,7 +2263,7 @@ declare dso_local i32 @tick_broadcast_oneshot_control(i32 noundef) local_unnamed
 declare dso_local void @tick_broadcast_control(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @cpu_idle_poll_ctrl(i1 noundef zeroext) local_unnamed_addr #3

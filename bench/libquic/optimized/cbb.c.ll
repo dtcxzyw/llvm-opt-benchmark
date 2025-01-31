@@ -6,17 +6,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CBB_zero(ptr nocapture noundef writeonly initializes((0, 32)) %cbb) local_unnamed_addr #0 {
+define hidden void @CBB_zero(ptr noundef writeonly captures(none) initializes((0, 32)) %cbb) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @CBB_init(ptr nocapture noundef writeonly initializes((0, 32)) %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @CBB_init(ptr noundef writeonly captures(none) initializes((0, 32)) %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call = tail call noalias ptr @malloc(i64 noundef %initial_capacity) #13
@@ -56,10 +56,10 @@ return:                                           ; preds = %cbb_init.exit, %ent
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr nocapture noundef writeonly initializes((0, 32)) %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr noundef writeonly captures(none) initializes((0, 32)) %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -85,7 +85,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @CBB_cleanup(ptr nocapture noundef %cbb) local_unnamed_addr #6 {
+define hidden void @CBB_cleanup(ptr noundef captures(none) %cbb) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -114,7 +114,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_finish(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, ptr noundef writeonly %out_len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_finish(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, ptr noundef writeonly %out_len) local_unnamed_addr #7 {
 entry:
   %is_top_level = getelementptr inbounds nuw i8, ptr %cbb, i64 26
   %0 = load i8, ptr %is_top_level, align 2
@@ -194,7 +194,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_flush(ptr nocapture noundef %cbb) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %cbb) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %cmp = icmp eq ptr %0, null
@@ -420,10 +420,10 @@ return:                                           ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @CBB_data(ptr nocapture noundef readonly %cbb) local_unnamed_addr #9 {
+define hidden ptr @CBB_data(ptr noundef readonly captures(none) %cbb) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %1 = load ptr, ptr %0, align 8
@@ -438,7 +438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @CBB_len(ptr nocapture noundef readonly %cbb) local_unnamed_addr #9 {
+define hidden i64 @CBB_len(ptr noundef readonly captures(none) %cbb) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %len = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -454,7 +454,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u8_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u8_length_prefixed(ptr noundef captures(none) %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
   %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -529,7 +529,7 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u16_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u16_length_prefixed(ptr noundef captures(none) %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
   %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -604,7 +604,7 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u24_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u24_length_prefixed(ptr noundef captures(none) %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
   %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -679,7 +679,7 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_asn1(ptr nocapture noundef %cbb, ptr noundef %out_contents, i8 noundef zeroext %tag) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_asn1(ptr noundef captures(none) %cbb, ptr noundef %out_contents, i8 noundef zeroext %tag) local_unnamed_addr #7 {
 entry:
   %0 = and i8 %tag, 31
   %cmp = icmp eq i8 %0, 31
@@ -827,7 +827,7 @@ return:                                           ; preds = %if.end10.i.i.i.i33,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u8(ptr nocapture noundef %cbb, i8 noundef zeroext %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u8(ptr noundef captures(none) %cbb, i8 noundef zeroext %value) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -893,7 +893,7 @@ return:                                           ; preds = %for.body.preheader.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_bytes(ptr nocapture noundef %cbb, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_bytes(ptr noundef captures(none) %cbb, ptr noundef readonly captures(none) %data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -959,10 +959,10 @@ return:                                           ; preds = %if.end10.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_space(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_space(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -1032,7 +1032,7 @@ return:                                           ; preds = %cbb_buffer_add.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_reserve(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_reserve(ptr noundef captures(none) %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBB_did_write(ptr nocapture noundef readonly %cbb, i64 noundef %len) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBB_did_write(ptr noundef readonly captures(none) %cbb, i64 noundef %len) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %len1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1123,7 +1123,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr nocapture noundef %cbb, i16 noundef zeroext %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr noundef captures(none) %cbb, i16 noundef zeroext %value) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -1199,7 +1199,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_u24(ptr nocapture noundef %cbb, i32 noundef %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u24(ptr noundef captures(none) %cbb, i32 noundef %value) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @CBB_discard_child(ptr nocapture noundef %cbb) local_unnamed_addr #10 {
+define hidden void @CBB_discard_child(ptr noundef captures(none) %cbb) local_unnamed_addr #10 {
 entry:
   %child = getelementptr inbounds nuw i8, ptr %cbb, i64 8
   %0 = load ptr, ptr %child, align 8
@@ -1298,7 +1298,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBB_add_asn1_uint64(ptr nocapture noundef %cbb, i64 noundef %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_asn1_uint64(ptr noundef captures(none) %cbb, i64 noundef %value) local_unnamed_addr #7 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 2)
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end10.i.i.i.i28,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

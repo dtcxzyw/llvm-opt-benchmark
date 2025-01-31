@@ -138,14 +138,14 @@ declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i3
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_rand_pool_buffer(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define ptr @ossl_rand_pool_buffer(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pool, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_entropy(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define i64 @ossl_rand_pool_entropy(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %entropy = getelementptr inbounds nuw i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_length(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define i64 @ossl_rand_pool_length(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %pool, i64 8
   %0 = load i64, ptr %len, align 8
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ossl_rand_pool_detach(ptr nocapture noundef initializes((48, 56)) %pool) local_unnamed_addr #3 {
+define ptr @ossl_rand_pool_detach(ptr noundef captures(none) initializes((48, 56)) %pool) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pool, align 8
   store ptr null, ptr %pool, align 8
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rand_pool_reattach(ptr nocapture noundef initializes((0, 8)) %pool, ptr noundef %buffer) local_unnamed_addr #0 {
+define void @ossl_rand_pool_reattach(ptr noundef captures(none) initializes((0, 8)) %pool, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   store ptr %buffer, ptr %pool, align 8
   %len = getelementptr inbounds nuw i8, ptr %pool, i64 8
@@ -184,7 +184,7 @@ entry:
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_entropy_available(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define i64 @ossl_rand_pool_entropy_available(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %entropy = getelementptr inbounds nuw i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
@@ -208,7 +208,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_entropy_needed(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define i64 @ossl_rand_pool_entropy_needed(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %entropy = getelementptr inbounds nuw i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy, align 8
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @ossl_rand_pool_bytes_needed(ptr nocapture noundef %pool, i32 noundef %entropy_factor) local_unnamed_addr #0 {
+define noundef i64 @ossl_rand_pool_bytes_needed(ptr noundef captures(none) %pool, i32 noundef %entropy_factor) local_unnamed_addr #0 {
 entry:
   %entropy.i = getelementptr inbounds nuw i8, ptr %pool, i64 48
   %0 = load i64, ptr %entropy.i, align 8
@@ -284,7 +284,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rand_pool_grow(ptr nocapture noundef %pool, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rand_pool_grow(ptr noundef captures(none) %pool, i64 noundef %len) unnamed_addr #0 {
 entry:
   %alloc_len = getelementptr inbounds nuw i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8
@@ -368,7 +368,7 @@ return:                                           ; preds = %entry, %if.end29, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_rand_pool_bytes_remaining(ptr nocapture noundef readonly %pool) local_unnamed_addr #2 {
+define i64 @ossl_rand_pool_bytes_remaining(ptr noundef readonly captures(none) %pool) local_unnamed_addr #2 {
 entry:
   %max_len = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr nocapture noundef %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr noundef captures(none) %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
   %max_len = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
@@ -450,10 +450,10 @@ return:                                           ; preds = %if.end5, %if.end16,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_rand_pool_add_begin(ptr nocapture noundef %pool, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @ossl_rand_pool_add_begin(ptr noundef captures(none) %pool, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end7, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rand_pool_add_end(ptr nocapture noundef %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add_end(ptr noundef captures(none) %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
   %alloc_len = getelementptr inbounds nuw i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8

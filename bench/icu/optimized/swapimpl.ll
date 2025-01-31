@@ -566,7 +566,7 @@ if.end81:                                         ; preds = %do.body, %if.end77
   %idx.ext85 = sext i32 %mul to i64
   %add.ptr86 = getelementptr inbounds i8, ptr %add.ptr58, i64 %idx.ext85
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr60, i64 %idx.ext85
-  %call89 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %add.ptr86, i32 noundef %17, ptr noundef %add.ptr88, ptr noundef nonnull %pErrorCode)
+  %call89 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef nonnull %add.ptr86, i32 noundef %17, ptr noundef %add.ptr88, ptr noundef nonnull %pErrorCode)
   %add90 = add nsw i32 %17, %mul
   %arrayidx91 = getelementptr inbounds nuw i8, ptr %indexes, i64 12
   %18 = load i32, ptr %arrayidx91, align 4
@@ -579,7 +579,7 @@ if.end81:                                         ; preds = %do.body, %if.end77
   %idx.ext95 = sext i32 %add90 to i64
   %add.ptr96 = getelementptr inbounds i8, ptr %add.ptr58, i64 %idx.ext95
   %add.ptr98 = getelementptr inbounds i8, ptr %add.ptr60, i64 %idx.ext95
-  %call99 = tail call noundef i32 %20(ptr noundef %ds, ptr noundef %add.ptr96, i32 noundef %mul94, ptr noundef %add.ptr98, ptr noundef nonnull %pErrorCode)
+  %call99 = tail call noundef i32 %20(ptr noundef %ds, ptr noundef nonnull %add.ptr96, i32 noundef %mul94, ptr noundef %add.ptr98, ptr noundef nonnull %pErrorCode)
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end81, %for.end
@@ -730,7 +730,7 @@ if.end76:                                         ; preds = %do.body, %if.end72
   %idx.ext80 = sext i32 %mul to i64
   %add.ptr81 = getelementptr inbounds i8, ptr %add.ptr53, i64 %idx.ext80
   %add.ptr83 = getelementptr inbounds i8, ptr %add.ptr55, i64 %idx.ext80
-  %call84 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %add.ptr81, i32 noundef %16, ptr noundef %add.ptr83, ptr noundef nonnull %pErrorCode)
+  %call84 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef nonnull %add.ptr81, i32 noundef %16, ptr noundef %add.ptr83, ptr noundef nonnull %pErrorCode)
   %add85 = add nsw i32 %16, %mul
   %arrayidx86 = getelementptr inbounds nuw i8, ptr %indexes, i64 12
   %17 = load i32, ptr %arrayidx86, align 4
@@ -739,7 +739,7 @@ if.end76:                                         ; preds = %do.body, %if.end72
   %idx.ext89 = sext i32 %add85 to i64
   %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr53, i64 %idx.ext89
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr55, i64 %idx.ext89
-  %call93 = tail call noundef i32 %18(ptr noundef %ds, ptr noundef %add.ptr90, i32 noundef %mul87, ptr noundef %add.ptr92, ptr noundef nonnull %pErrorCode)
+  %call93 = tail call noundef i32 %18(ptr noundef %ds, ptr noundef nonnull %add.ptr90, i32 noundef %mul87, ptr noundef %add.ptr92, ptr noundef nonnull %pErrorCode)
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end76, %for.end
@@ -894,7 +894,7 @@ if.end73:                                         ; preds = %do.body, %if.end69
   %idx.ext87 = sext i32 %add to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext87
   %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext87
-  %call91 = tail call noundef i32 %20(ptr noundef %ds, ptr noundef %add.ptr88, i32 noundef %15, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
+  %call91 = tail call noundef i32 %20(ptr noundef %ds, ptr noundef nonnull %add.ptr88, i32 noundef %15, ptr noundef %add.ptr90, ptr noundef nonnull %pErrorCode)
   %cmp94.not = icmp eq i32 %16, 0
   br i1 %cmp94.not, label %if.end102, label %if.then95
 
@@ -902,7 +902,7 @@ if.then95:                                        ; preds = %if.end73
   %idx.ext96 = sext i32 %add57 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext96
   %add.ptr99 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext96
-  %call100 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr97, i32 noundef %16, ptr noundef %add.ptr99, ptr noundef nonnull %pErrorCode)
+  %call100 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr97, i32 noundef %16, ptr noundef %add.ptr99, ptr noundef nonnull %pErrorCode)
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then95, %if.end73
@@ -914,7 +914,7 @@ if.then105:                                       ; preds = %if.end102
   %idx.ext106 = sext i32 %offset.0 to i64
   %add.ptr107 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext106
   %add.ptr109 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext106
-  %call110 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef %add.ptr107, i32 noundef %17, ptr noundef %add.ptr109, ptr noundef nonnull %pErrorCode)
+  %call110 = tail call i32 @utrie_swap_75(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr107, i32 noundef %17, ptr noundef %add.ptr109, ptr noundef nonnull %pErrorCode)
   %add111 = add nsw i32 %offset.0, %17
   br label %if.end112
 
@@ -924,7 +924,7 @@ if.end112:                                        ; preds = %if.then105, %if.end
   %idx.ext116 = sext i32 %offset.1 to i64
   %add.ptr117 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext116
   %add.ptr119 = getelementptr inbounds i8, ptr %add.ptr40, i64 %idx.ext116
-  %call120 = tail call noundef i32 %21(ptr noundef nonnull %ds, ptr noundef %add.ptr117, i32 noundef %mul63, ptr noundef %add.ptr119, ptr noundef nonnull %pErrorCode)
+  %call120 = tail call noundef i32 %21(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr117, i32 noundef %mul63, ptr noundef %add.ptr119, ptr noundef nonnull %pErrorCode)
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end112, %for.end
@@ -1376,7 +1376,7 @@ do.body:                                          ; preds = %if.end53
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext59
   %sub63 = sub nsw i32 %call4850, %call55
   %conv64 = sext i32 %sub63 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr60, ptr align 1 %add.ptr62, i64 %conv64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr60, ptr nonnull align 1 %add.ptr62, i64 %conv64, i1 false)
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end46, %if.end53, %do.body
@@ -1498,14 +1498,14 @@ return:                                           ; preds = %if.end59, %if.then4
 declare i32 @udata_readInt32_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @utrie_swapAnyVersion_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @utrie_swap_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6b2BodyD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6b2BodyD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN6b2BodyC2EPK9b2BodyDefP7b2World(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 6), (12, 124), (128, 184)) %this, ptr nocapture noundef readonly %bd, ptr noundef %world) unnamed_addr #0 align 2 {
+define void @_ZN6b2BodyC2EPK9b2BodyDefP7b2World(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((0, 6), (12, 124), (128, 184)) %this, ptr noundef readonly captures(none) %bd, ptr noundef %world) unnamed_addr #0 align 2 {
 entry:
   %m_userData = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i64 0, ptr %m_userData, align 8
@@ -179,7 +179,7 @@ if.end31:                                         ; preds = %if.then26, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6b2BodyD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6b2BodyD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -322,7 +322,7 @@ for.end24:                                        ; preds = %for.inc23, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body13ResetMassDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((28, 36), (144, 160)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN6b2Body13ResetMassDataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((28, 36), (144, 160)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %massData = alloca %struct.b2MassData, align 4
   %m_mass = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -675,7 +675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body14DestroyFixtureEP9b2Fixture(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %fixture) local_unnamed_addr #4 align 2 {
+define void @_ZN6b2Body14DestroyFixtureEP9b2Fixture(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %this, ptr noundef %fixture) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %fixture, null
   br i1 %cmp, label %if.end30, label %if.end
@@ -795,7 +795,7 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Body11SetMassDataEPK10b2MassData(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %massData) local_unnamed_addr #6 align 2 {
+define void @_ZN6b2Body11SetMassDataEPK10b2MassData(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %this, ptr noundef readonly captures(none) %massData) local_unnamed_addr #6 align 2 {
 entry:
   %m_world = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
@@ -902,7 +902,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6b2Body13ShouldCollideEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr noundef readonly %other) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK6b2Body13ShouldCollideEPKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, ptr noundef readonly %other) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -946,7 +946,7 @@ return:                                           ; preds = %if.then6, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body12SetTransformERK6b2Vec2f(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position, float noundef %angle) local_unnamed_addr #2 align 2 {
+define void @_ZN6b2Body12SetTransformERK6b2Vec2f(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %position, float noundef %angle) local_unnamed_addr #2 align 2 {
 entry:
   %m_world = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_world, align 8
@@ -1113,7 +1113,7 @@ if.end28:                                         ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body16SetFixedRotationEb(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, i1 noundef zeroext %flag) local_unnamed_addr #4 align 2 {
+define void @_ZN6b2Body16SetFixedRotationEb(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %this, i1 noundef zeroext %flag) local_unnamed_addr #4 align 2 {
 entry:
   %m_flags = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i16, ptr %m_flags, align 4
@@ -1137,7 +1137,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN6b2Body4DumpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_islandIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_islandIndex, align 8
@@ -1234,7 +1234,7 @@ declare float @sinf(float noundef) local_unnamed_addr #8
 declare float @cosf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

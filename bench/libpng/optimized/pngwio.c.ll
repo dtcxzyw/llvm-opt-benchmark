@@ -27,7 +27,7 @@ define void @png_write_data(ptr noalias noundef %0, ptr noundef %1, i64 noundef 
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_default_write_data(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
+define void @png_default_write_data(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %10, label %5
 
@@ -47,7 +47,7 @@ define void @png_default_write_data(ptr noundef %0, ptr nocapture noundef %1, i6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @png_flush(ptr noalias noundef %0) local_unnamed_addr #0 {
@@ -80,7 +80,7 @@ define void @png_default_flush(ptr noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_write_fn(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {

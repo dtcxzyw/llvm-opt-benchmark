@@ -166,7 +166,7 @@ declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.btle_mesh_transport_ctx_t, align 4
   %7 = alloca %struct._pbadv_fragment_key, align 4
@@ -465,7 +465,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pbadv_fragment_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @pbadv_fragment_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
@@ -475,7 +475,7 @@ define internal i32 @pbadv_fragment_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @pbadv_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @pbadv_fragment_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -496,7 +496,7 @@ define internal range(i32 0, 2) i32 @pbadv_fragment_equal(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @pbadv_fragment_temporary_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @pbadv_fragment_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #5
   %5 = load i32, ptr %2, align 4
   store i32 %5, ptr %4, align 4
@@ -508,7 +508,7 @@ define internal noalias noundef ptr @pbadv_fragment_temporary_key(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @pbadv_fragment_persistent_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @pbadv_fragment_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #5
   %5 = load i32, ptr %2, align 4
   store i32 %5, ptr %4, align 4

@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"/proc/self/exe\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN2EA4StdC21SetCurrentProcessPathEPKc(ptr nocapture noundef readnone %pPath) local_unnamed_addr #0 {
+define dso_local void @_ZN2EA4StdC21SetCurrentProcessPathEPKc(ptr noundef readnone captures(none) %pPath) local_unnamed_addr #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i64 -9223372036854775808, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPcii(ptr nocapture noundef %pPath, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -9223372036854775808, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPcii(ptr noundef captures(none) %pPath, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
 entry:
   %conv = sext i32 %pathCapacity to i64
   %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pPath, i64 noundef %conv) #14
@@ -37,7 +37,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPDsii(ptr noundef %pPath, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
@@ -81,7 +81,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii(ptr nocapture noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii(ptr noundef captures(none) %pDirectory, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
 entry:
   %conv = sext i32 %pathCapacity to i64
   %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pDirectory, i64 noundef %conv) #14
@@ -122,7 +122,7 @@ return:                                           ; preds = %if.else10, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i64 0, 2147483647) i64 @_ZN2EA4StdC26GetCurrentProcessDirectoryEPDsii(ptr noundef %pDirectory, i32 noundef %pathCapacity, i32 noundef %pathFlags) local_unnamed_addr #3 {
@@ -299,7 +299,7 @@ return:                                           ; preds = %entry, %_ZN2EA4StdC
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2EA4StdC17GetEnvironmentVarEPKcPcm(ptr nocapture noundef readonly %pName, ptr noundef %pValue, i64 noundef %valueCapacity) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN2EA4StdC17GetEnvironmentVarEPKcPcm(ptr noundef readonly captures(none) %pName, ptr noundef %pValue, i64 noundef %valueCapacity) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @getenv(ptr noundef %pName) #14
   %tobool.not = icmp eq ptr %call, null
@@ -315,7 +315,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef i64 @_ZN2EA4StdC7StrlcpyEPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -355,10 +355,10 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC5SpawnEPKDsPKS2_b(ptr nocapture noundef readnone %pPath, ptr nocapture noundef readnone %pArgumentArray, i1 noundef zeroext %wait) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN2EA4StdC5SpawnEPKDsPKS2_b(ptr noundef readnone captures(none) %pPath, ptr noundef readnone captures(none) %pArgumentArray, i1 noundef zeroext %wait) local_unnamed_addr #0 {
 entry:
   ret i32 -1
 }
@@ -422,14 +422,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define dso_local noundef i32 @_ZN2EA4StdC19ExecuteShellCommandEPKc(ptr nocapture noundef readonly %pCommand) local_unnamed_addr #11 {
+define dso_local noundef i32 @_ZN2EA4StdC19ExecuteShellCommandEPKc(ptr noundef readonly captures(none) %pCommand) local_unnamed_addr #11 {
 entry:
   %call = tail call i32 @system(ptr noundef %pCommand)
   ret i32 %call
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC21SearchEnvironmentPathEPKDsPDsS2_(ptr noundef %pFileName, ptr noundef %pPath, ptr noundef %pEnvironmentVar) local_unnamed_addr #3 {
@@ -452,7 +452,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC21SearchEnvironmentPathEPKcPcS2_(ptr nocapture noundef readnone %pFileName, ptr nocapture noundef readnone %pPath, ptr nocapture noundef readnone %pEnvironmentVar) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC21SearchEnvironmentPathEPKcPcS2_(ptr noundef readnone captures(none) %pFileName, ptr noundef readnone captures(none) %pPath, ptr noundef readnone captures(none) %pEnvironmentVar) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC8OpenFileEPKc(ptr nocapture noundef readnone %pPath) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC8OpenFileEPKc(ptr noundef readnone captures(none) %pPath) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

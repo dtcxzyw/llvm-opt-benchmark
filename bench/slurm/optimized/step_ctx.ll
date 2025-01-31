@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._job_fake_cred = private unnamed_addr constant [15 x i8] c"_job_fake_cred\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -217,7 +217,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @slurm_get_srun_port_range() local_unnamed_addr #2
 
@@ -235,7 +235,7 @@ declare zeroext i1 @launch_common_step_retry_errno(i32 noundef) local_unnamed_ad
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @xsignal_unblock(ptr noundef) local_unnamed_addr #2
 
@@ -427,13 +427,13 @@ define dso_local noundef ptr @step_ctx_create_no_alloc(ptr noundef %0, i32 nound
   %92 = getelementptr inbounds nuw i8, ptr %56, i64 56
   store ptr %91, ptr %92, align 8
   store i32 %55, ptr %91, align 4
-  %93 = call ptr @slurm_cred_faker(ptr noundef %56) #8
+  %93 = call ptr @slurm_cred_faker(ptr noundef nonnull %56) #8
   %94 = load ptr, ptr %47, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr %93, ptr %95, align 8
   store ptr null, ptr %67, align 8
   store ptr null, ptr %76, align 8
-  call void @slurm_cred_free_args(ptr noundef %56) #8
+  call void @slurm_cred_free_args(ptr noundef nonnull %56) #8
   br label %96
 
 96:                                               ; preds = %46, %7
@@ -495,7 +495,7 @@ declare void @step_launch_state_destroy(ptr noundef) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @getuid() local_unnamed_addr #7

@@ -45,14 +45,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"cuda\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @coll_base_module_construct(ptr nocapture noundef writeonly initializes((16, 592)) %0) #0 {
+define internal void @coll_base_module_construct(ptr noundef writeonly captures(none) initializes((16, 592)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(576) %2, i8 0, i64 576, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @coll_base_module_destruct(ptr nocapture noundef %0) #1 {
+define internal void @coll_base_module_destruct(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -114,7 +114,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @coll_base_comm_construct(ptr nocapture noundef writeonly initializes((16, 152)) %0) #0 {
+define internal void @coll_base_comm_construct(ptr noundef writeonly captures(none) initializes((16, 152)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   ret void
@@ -273,7 +273,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ompi_coll_base_comm_get_reqs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @ompi_coll_base_comm_get_reqs(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %23, label %4
 
@@ -327,7 +327,7 @@ define ptr @ompi_coll_base_comm_get_reqs(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_coll_base_register(i32 %0) #1 {
@@ -336,10 +336,10 @@ define internal noundef i32 @mca_coll_base_register(i32 %0) #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @ompi_coll_base_topo_destroy_tree(ptr noundef) local_unnamed_addr #5
 

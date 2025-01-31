@@ -70,7 +70,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %tree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6google8protobuf8internal14UntypedMapBase11DestroyTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %tree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 24
   %0 = load i64, ptr %size_.i.i, align 8
@@ -119,7 +119,7 @@ if.end:                                           ; preds = %cond.end.thread, %_
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14UntypedMapBase13EraseFromTreeEjN4absl12lts_2023080218container_internal14btree_iteratorINS5_10btree_nodeINS5_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS9_ENS1_12MapAllocatorISt4pairIKS9_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %b, ptr %tree_it.coerce0, i32 %tree_it.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal14UntypedMapBase13EraseFromTreeEjN4absl12lts_2023080218container_internal14btree_iteratorINS5_10btree_nodeINS5_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS9_ENS1_12MapAllocatorISt4pairIKS9_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %b, ptr %tree_it.coerce0, i32 %tree_it.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %table_, align 8
@@ -238,10 +238,10 @@ if.end17:                                         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6google8protobuf8internal14UntypedMapBase19VariantBucketNumberENS1_10VariantKeyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6google8protobuf8internal14UntypedMapBase19VariantBucketNumberENS1_10VariantKeyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %key.coerce0, null
   br i1 %cmp.i, label %_ZNK6google8protobuf8internal10VariantKey4HashEv.exit, label %cond.false.i
@@ -276,7 +276,7 @@ _ZNK6google8protobuf8internal10VariantKey4HashEv.exit: ; preds = %entry, %cond.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %b, ptr nocapture noundef readonly %get_key, ptr noundef %node) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal14UntypedMapBase18InsertUniqueInTreeEjPFNS1_10VariantKeyEPNS1_8NodeBaseEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %b, ptr noundef readonly captures(none) %get_key, ptr noundef %node) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.31", align 8
   %ref.tmp2.i.i = alloca %"class.std::tuple.34", align 8
@@ -489,7 +489,7 @@ cond.end:                                         ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1, 0) i64 @_ZN6google8protobuf8internal14UntypedMapBase13ConvertToTreeEPNS1_8NodeBaseEPFNS1_10VariantKeyES4_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %node, ptr nocapture noundef readonly %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 0) i64 @_ZN6google8protobuf8internal14UntypedMapBase13ConvertToTreeEPNS1_8NodeBaseEPFNS1_10VariantKeyES4_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %node, ptr noundef readonly captures(none) %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.31", align 8
   %ref.tmp2.i.i = alloca %"class.std::tuple.34", align 8
@@ -648,7 +648,7 @@ do.end:                                           ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14UntypedMapBase12TransferTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEEPFS6_S8_E(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %tree, ptr nocapture noundef readonly %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal14UntypedMapBase12TransferTreeEPN4absl12lts_202308029btree_mapINS1_10VariantKeyEPNS1_8NodeBaseESt4lessIS6_ENS1_12MapAllocatorISt4pairIKS6_S8_EEEEEPFS6_S8_E(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %tree, ptr noundef readonly captures(none) %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 24
   %0 = load i64, ptr %size_.i.i.i, align 8
@@ -789,7 +789,7 @@ do.end:                                           ; preds = %if.end12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14UntypedMapBase10ClearTableENS2_10ClearInputE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 %input.coerce0, ptr nocapture readonly %input.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal14UntypedMapBase10ClearTableENS2_10ClearInputE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i64 %input.coerce0, ptr readonly captures(none) %input.coerce1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alloc_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %alloc_, align 8
@@ -1518,7 +1518,7 @@ if.end26:                                         ; preds = %if.else.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %b, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %it) local_unnamed_addr #5 align 2 {
+define { ptr, i32 } @_ZNK6google8protobuf8internal14UntypedMapBase12FindFromTreeEjNS1_10VariantKeyEPN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIS3_PNS1_8NodeBaseESt4lessIS3_ENS1_12MapAllocatorISt4pairIKS3_SB_EEELi256ELb0EEEEERSH_PSH_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %b, ptr %key.coerce0, i64 %key.coerce1, ptr noundef writeonly %it) local_unnamed_addr #5 align 2 {
 entry:
   %key = alloca %"struct.google::protobuf::internal::VariantKey", align 8
   store ptr %key.coerce0, ptr %key, align 8
@@ -1588,7 +1588,7 @@ return:                                           ; preds = %if.end, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6google8protobuf8internal14UntypedMapBase16SpaceUsedInTableEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %sizeof_node) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK6google8protobuf8internal14UntypedMapBase16SpaceUsedInTableEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %sizeof_node) local_unnamed_addr #7 align 2 {
 entry:
   %num_buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %num_buckets_, align 4
@@ -1920,7 +1920,7 @@ declare void @llvm.assume(i1 noundef) #11
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE5eraseENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %iter.coerce0, i32 %iter.coerce1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3212,7 +3212,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18rebalance_or_splitEPNS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %iter) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3812,10 +3812,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #16
@@ -3827,7 +3827,7 @@ declare i8 @llvm.umin.i8(i8, i8) #16
 declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

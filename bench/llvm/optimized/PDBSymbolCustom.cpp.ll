@@ -14,7 +14,7 @@ $_ZNK4llvm3pdb9PDBSymbol9dumpRightERNS0_12PDBSymDumperE = comdat any
 @_ZTVN4llvm3pdb15PDBSymbolCustomE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN4llvm3pdb15PDBSymbolCustomD2Ev, ptr @_ZN4llvm3pdb15PDBSymbolCustomD0Ev, ptr @_ZNK4llvm3pdb15PDBSymbolCustom4dumpERNS0_12PDBSymDumperE, ptr @_ZNK4llvm3pdb9PDBSymbol9dumpRightERNS0_12PDBSymDumperE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb15PDBSymbolCustom12getDataBytesERNS_11SmallVectorIhLj32EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb15PDBSymbolCustom12getDataBytesERNS_11SmallVectorIhLj32EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

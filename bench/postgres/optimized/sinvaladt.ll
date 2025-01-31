@@ -305,7 +305,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @shmInvalBuffer, align 8
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph42, label %._crit_edge43
@@ -600,12 +600,12 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SIGetDataEntries(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @shmInvalBuffer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 65568
   %5 = load i32, ptr @MyProcNumber, align 4
@@ -733,7 +733,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

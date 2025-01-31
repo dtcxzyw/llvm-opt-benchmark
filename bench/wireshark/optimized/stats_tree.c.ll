@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.stats_tree_get_default_sort_col = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
-define ptr @stats_tree_node_to_str(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @stats_tree_node_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %4
 
@@ -99,12 +99,12 @@ define ptr @stats_tree_node_to_str(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_branch_max_namelen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @stats_tree_branch_max_namelen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @llvm.umin.i32(i32 %1, i32 32)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -161,7 +161,7 @@ define i32 @stats_tree_branch_max_namelen(ptr nocapture noundef readonly %0, i32
 27:                                               ; preds = %.lr.ph.i
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #20
   %29 = add i64 %28, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr nonnull align 1 %21, i64 %29, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %21, i64 %29, i1 false)
   br label %30
 
 30:                                               ; preds = %27, %24
@@ -172,7 +172,7 @@ define i32 @stats_tree_branch_max_namelen(ptr nocapture noundef readonly %0, i32
 
 stats_tree_get_displayname.exit:                  ; preds = %30, %16, %.preheader.i
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #20
-  tail call void @g_free(ptr noundef %17) #19
+  tail call void @g_free(ptr noundef nonnull %17) #19
   br label %35
 
 33:                                               ; preds = %.loopexit
@@ -215,7 +215,7 @@ define ptr @stats_tree_get_displayname(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
   %14 = add i64 %13, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %6, i64 %14, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %6, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %12, %9
@@ -229,7 +229,7 @@ define ptr @stats_tree_get_displayname(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -350,7 +350,7 @@ define internal fastcc void @free_stat_node(ptr noundef nonnull %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stats_tree_reset(ptr nocapture noundef initializes((16, 40), (96, 100), (120, 124)) %0) local_unnamed_addr #0 {
+define void @stats_tree_reset(ptr noundef captures(none) initializes((16, 40), (96, 100), (120, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double -1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -363,7 +363,7 @@ define void @stats_tree_reset(ptr nocapture noundef initializes((16, 40), (96, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reset_stat_node(ptr nocapture noundef initializes((16, 20), (40, 44)) %0) unnamed_addr #0 {
+define internal fastcc void @reset_stat_node(ptr noundef captures(none) initializes((16, 20), (40, 44)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -544,7 +544,7 @@ define void @stats_tree_reinit(ptr noundef %0) local_unnamed_addr #0 {
 52:                                               ; preds = %.lr.ph.i
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #20
   %54 = add i64 %53, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr nonnull align 1 %46, i64 %54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %46, i64 %54, i1 false)
   br label %55
 
 55:                                               ; preds = %52, %49
@@ -800,7 +800,7 @@ define noundef ptr @stats_tree_new(ptr noundef %0, ptr noundef %1, ptr noundef %
 40:                                               ; preds = %.lr.ph.i
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #20
   %42 = add i64 %41, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %34, i64 %42, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %34, i64 %42, i1 false)
   br label %43
 
 43:                                               ; preds = %40, %37
@@ -865,7 +865,7 @@ stats_tree_get_displayname.exit:                  ; preds = %43, %23, %.preheade
 70:                                               ; preds = %.lr.ph.i38
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #20
   %72 = add i64 %71, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %60, ptr nonnull align 1 %64, i64 %72, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %64, i64 %72, i1 false)
   br label %73
 
 73:                                               ; preds = %70, %67
@@ -955,7 +955,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_stat_menu_item(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @compare_stat_menu_item(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -991,7 +991,7 @@ define void @stats_tree_presentation(ptr noundef %0, ptr noundef %1, ptr noundef
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @setup_tree_presentation(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((80, 88), (104, 112)) %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @setup_tree_presentation(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((80, 88), (104, 112)) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %5, align 8
@@ -1194,7 +1194,7 @@ stats_tree_create_node.exit:                      ; preds = %stats_tree_parent_i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_parent_id_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @stats_tree_parent_id_by_name(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %1) #19
@@ -1333,7 +1333,7 @@ define i32 @stats_tree_manip_node_int(i32 noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_burst_calc(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @update_burst_calc(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 544), align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %114, label %4
@@ -1699,7 +1699,7 @@ define internal fastcc noalias noundef ptr @get_range(ptr noundef %0) unnamed_ad
   br i1 %9, label %11, label %14
 
 11:                                               ; preds = %5
-  %12 = tail call i64 @strtol(ptr nocapture noundef %10, ptr noundef null, i32 noundef 10) #19
+  %12 = tail call i64 @strtol(ptr noundef captures(none) %10, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
   store i32 %13, ptr %6, align 4
   br label %25
@@ -1710,7 +1710,7 @@ define internal fastcc noalias noundef ptr @get_range(ptr noundef %0) unnamed_ad
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i64 @strtol(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #19
+  %17 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #19
   %18 = trunc i64 %17 to i32
   %.pre = load ptr, ptr %7, align 8
   br label %19
@@ -1724,7 +1724,7 @@ define internal fastcc noalias noundef ptr @get_range(ptr noundef %0) unnamed_ad
   br i1 %.not19, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i64 @strtol(ptr nocapture noundef nonnull %20, ptr noundef null, i32 noundef 10) #19
+  %23 = tail call i64 @strtol(ptr noundef nonnull captures(none) %20, ptr noundef null, i32 noundef 10) #19
   %24 = trunc i64 %23 to i32
   br label %25
 
@@ -1741,7 +1741,7 @@ define internal fastcc noalias noundef ptr @get_range(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_create_range_node_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define i32 @stats_tree_create_range_node_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @new_stat_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %7 = add i32 %3, -1
   %8 = icmp sgt i32 %7, 0
@@ -1846,7 +1846,7 @@ stats_tree_parent_id_by_name.exit:                ; preds = %3, %8
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %14, align 8
-  %31 = call fastcc ptr @new_stat_node(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %30, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %31 = call fastcc ptr @new_stat_node(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef %30, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %32 = call fastcc ptr @get_range(ptr noundef nonnull %28)
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store ptr %32, ptr %33, align 8
@@ -1859,7 +1859,7 @@ stats_tree_parent_id_by_name.exit:                ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @stats_tree_tick_range(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %6, label %19
 
@@ -2093,10 +2093,10 @@ stats_tree_manip_node_int.exit:                   ; preds = %22, %25
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @stats_tree_get_default_sort_col(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 8) i32 @stats_tree_get_default_sort_col(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 16
@@ -2117,7 +2117,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8388609) i32 @stats_tree_is_default_sort_DESC(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 8388609) i32 @stats_tree_is_default_sort_DESC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8388608
@@ -2125,7 +2125,7 @@ define range(i32 0, 8388609) i32 @stats_tree_is_default_sort_DESC(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define nonnull ptr @stats_tree_get_column_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define nonnull ptr @stats_tree_get_column_name(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   switch i32 %1, label %15 [
     i32 0, label %3
     i32 1, label %16
@@ -2187,7 +2187,7 @@ define noundef range(i32 0, 37) i32 @stats_tree_get_column_size(i32 noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @stats_tree_get_values_from_node(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -2227,7 +2227,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr nocapture noundef readon
 23:                                               ; preds = %.lr.ph.i
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #20
   %25 = add i64 %24, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %17, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %17, i64 %25, i1 false)
   br label %26
 
 26:                                               ; preds = %23, %20
@@ -2549,7 +2549,7 @@ stats_tree_get_displayname.exit:                  ; preds = %26, %1, %.preheader
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @stats_tree_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 568), align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %18, label %6
@@ -2854,12 +2854,12 @@ define i32 @stats_tree_sort_compare(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @stats_tree_format_as_str(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @stats_tree_format_as_str(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = tail call i32 @stats_tree_branch_max_namelen(ptr noundef nonnull %6, i32 noundef 0)
@@ -3084,10 +3084,10 @@ declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
-define void @stats_tree_format_node_as_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @stats_tree_format_node_as_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.sortinfo, align 4
   %11 = alloca [16 x i8], align 16
@@ -3438,7 +3438,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stat_node_array_sortcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define i32 @stat_node_array_sortcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %2, align 4
@@ -3449,7 +3449,7 @@ define i32 @stat_node_array_sortcmp(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @xml_escape(ptr noundef) local_unnamed_addr #2
 
@@ -3477,10 +3477,10 @@ declare double @llvm.floor.f64(double) #15
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17

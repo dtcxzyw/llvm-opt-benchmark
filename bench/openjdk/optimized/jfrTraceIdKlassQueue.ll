@@ -86,13 +86,13 @@ $_Z28mspace_allocate_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuf
 @_ZN20JfrTraceIdKlassQueueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JfrTraceIdKlassQueueD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueueC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueueD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueueD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -128,7 +128,7 @@ _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyED2Ev.exit: ; preds = %4, %_ZN19Jfr
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20JfrTraceIdKlassQueue10initializeEmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN20JfrTraceIdKlassQueue10initializeEmmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 8) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -207,7 +207,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE10initializeEm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ReinitializeAllReleaseRetiredOp, align 8
   %3 = alloca %"class.JfrEpochQueue<JfrEpochQueueKlassPolicy>::ElementDispatch", align 8
   %4 = alloca %class.EpochDispatchOp, align 8
@@ -340,7 +340,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15Epo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueue7enqueueEPK5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueue7enqueueEPK5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7enqueueEPK5Klass(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %1)
   ret void
@@ -442,7 +442,7 @@ _ZN24JfrEpochQueueKlassPolicyI9JfrBufferE13store_elementEPK5KlassPS0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN20JfrTraceIdKlassQueue18get_enqueue_bufferEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN20JfrTraceIdKlassQueue18get_enqueue_bufferEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %4 = trunc i8 %3 to i1
   %.in.v.i = select i1 %4, i64 624, i64 616
@@ -452,7 +452,7 @@ define hidden noundef ptr @_ZN20JfrTraceIdKlassQueue18get_enqueue_bufferEP6Threa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20JfrTraceIdKlassQueue20renew_enqueue_bufferEP6Threadm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN20JfrTraceIdKlassQueue20renew_enqueue_bufferEP6Threadm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %6 = trunc i8 %5 to i1
@@ -478,7 +478,7 @@ _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE5renewEmP6Thread.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueue7iterateEPFvP5KlassEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueue7iterateEPFvP5KlassEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.KlassFunctor, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1153,7 +1153,7 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
 declare void @_ZN9JfrBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef) local_unnamed_addr #5
 
@@ -1677,10 +1677,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare void @_ZN9JfrBuffer11set_retiredEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

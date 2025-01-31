@@ -698,7 +698,7 @@ $_ZTIN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE = comdat 
 @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISF_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESI_IFvvEE = hidden unnamed_addr alias void (ptr, ptr, i64, ptr, ptr, ptr, ptr), ptr @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC2ERSt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISF_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESI_IFvvEE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntimeC2ESt10unique_ptrINS_3jsi7RuntimeESt14default_deleteIS5_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES6_ISF_EE(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 32)) %this, ptr nocapture noundef %runtime, i64 noundef %globalID, ptr noundef nonnull align 8 dereferenceable(373) %conf, ptr nocapture noundef %traceStream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntimeC2ESt10unique_ptrINS_3jsi7RuntimeESt14default_deleteIS5_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES6_ISF_EE(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 32)) %this, ptr noundef captures(none) %runtime, i64 noundef %globalID, ptr noundef nonnull align 8 dereferenceable(373) %conf, ptr noundef captures(none) %traceStream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %0 = load ptr, ptr %runtime, align 8
@@ -1849,14 +1849,14 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef zeroext i1 @_ZN8facebook6hermes13HermesRuntime16isHermesBytecodeEPKhm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @_ZN6hermes3hbc20BCProviderFromBuffer25getSourceHashFromBytecodeEN4llvh8ArrayRefIhEE(ptr sret(%"struct.std::array") align 1, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr sret(%"struct.std::array") align 1, ptr, i64) local_unnamed_addr #1
 
@@ -1987,7 +1987,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 -9223372036854, 9223372036855) i64 @_ZNK8facebook6hermes7tracing14TracingRuntime17getTimeSinceStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this) local_unnamed_addr #3 align 2 {
+define hidden range(i64 -9223372036854, 9223372036855) i64 @_ZNK8facebook6hermes7tracing14TracingRuntime17getTimeSinceStartEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #29
   %startTime_ = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -2094,7 +2094,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.facebook::jsi::BigInt", align 8
   %ref.tmp26 = alloca %"class.facebook::jsi::String", align 8
@@ -2643,7 +2643,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEE(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr nocapture noundef readonly %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEE(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef readonly captures(none) %ho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.39", align 8
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
@@ -5527,7 +5527,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 {
 entry:
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !223
@@ -5539,7 +5539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 {
 entry:
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !226
@@ -5701,7 +5701,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEE(ptr noalias nocapture readnone sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %buffer) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEE(ptr noalias readnone sret(%"class.facebook::jsi::ArrayBuffer") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %buffer) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #29
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.5)
@@ -5731,7 +5731,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 {
 entry:
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
@@ -5743,7 +5743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %buf) unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi11ArrayBufferE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %buf) unnamed_addr #0 align 2 {
 entry:
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
@@ -5755,7 +5755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN8facebook6hermes7tracing14TracingRuntime4dataERKNS_3jsi11ArrayBufferE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %buf) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN8facebook6hermes7tracing14TracingRuntime4dataERKNS_3jsi11ArrayBufferE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %buf) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #29
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.6)
@@ -6748,7 +6748,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime14argStringifyerEPKNS_3jsi5ValueEm(ptr noalias nocapture sret(%"class.std::vector.49") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr nocapture noundef readonly %args, i64 noundef %count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime14argStringifyerEPKNS_3jsi5ValueEm(ptr noalias sret(%"class.std::vector.49") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef readonly captures(none) %args, i64 noundef %count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.i = icmp ugt i64 %count, 576460752303423487
@@ -7481,7 +7481,7 @@ declare { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace12encodeBigIntEm(i6
 declare { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace12encodeObjectEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC2ESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EERKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISE_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESH_IFvvEE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr nocapture noundef %runtime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr nocapture noundef %traceStream, ptr nocapture noundef %commitAction, ptr nocapture noundef %rollbackAction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC2ESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EERKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISE_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESH_IFvvEE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef captures(none) %runtime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef captures(none) %traceStream, ptr noundef captures(none) %commitAction, ptr noundef captures(none) %rollbackAction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.facebook::jsi::Object", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
@@ -7689,7 +7689,7 @@ _ZN8facebook3jsi6ObjectD2Ev.exit39:               ; preds = %ehcleanup, %if.then
 declare noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC2ERSt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISF_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESI_IFvvEE(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %runtime, i64 noundef %globalID, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr nocapture noundef %traceStream, ptr nocapture noundef %commitAction, ptr nocapture noundef %rollbackAction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntimeC2ERSt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS4_EEmRKN6hermes2vm13RuntimeConfigES3_IN4llvh11raw_ostreamES5_ISF_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESI_IFvvEE(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 32)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %runtime, i64 noundef %globalID, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef captures(none) %traceStream, ptr noundef captures(none) %commitAction, ptr noundef captures(none) %rollbackAction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp2 = alloca %"class.std::unique_ptr.2", align 8
@@ -9052,7 +9052,7 @@ declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 de
 declare void @_ZN4llvh14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEE(ptr noalias sret(%"class.std::unique_ptr.72") align 8 %agg.result, ptr nocapture noundef %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef nonnull align 8 dereferenceable(32) %traceScratchPath, ptr noundef nonnull align 8 dereferenceable(32) %traceResultPath, ptr noundef %traceCompletionCallback) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEE(ptr noalias sret(%"class.std::unique_ptr.72") align 8 %agg.result, ptr noundef captures(none) %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef nonnull align 8 dereferenceable(32) %traceScratchPath, ptr noundef nonnull align 8 dereferenceable(32) %traceResultPath, ptr noundef %traceCompletionCallback) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ec = alloca %"class.std::error_code", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9557,7 +9557,7 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114: ; preds = %_ZNKSt
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EEb(ptr noalias sret(%"class.std::unique_ptr.72") align 8 %agg.result, ptr nocapture noundef %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr nocapture noundef %traceStream, i1 noundef zeroext %forReplay) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EEb(ptr noalias sret(%"class.std::unique_ptr.72") align 8 %agg.result, ptr noundef captures(none) %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef captures(none) %traceStream, i1 noundef zeroext %forReplay) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.54", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr.2", align 8
@@ -11697,7 +11697,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 declare void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm8GCConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12175,7 +12175,7 @@ ehcleanup12:                                      ; preds = %if.then.i.i.i34, %e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #17
@@ -12442,7 +12442,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN8facebook3jsi5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias writeonly sret(%"class.facebook::jsi::Value") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr nonnull readnone align 8 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::chrono::duration.37", align 8
   %agg.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12603,7 +12603,7 @@ unreachable.i.i.i:                                ; preds = %invoke.cont6.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -12950,7 +12950,7 @@ entry:
 declare void @_ZN8facebook3jsi10HostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
@@ -13084,7 +13084,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook3jsi21D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture nonnull readonly align 8 %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr nonnull readnone align 8 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr nonnull readonly align 8 captures(none) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %"class.facebook::jsi::Value", align 8
   %fun.i.i.i = alloca %"class.facebook::jsi::Function", align 8
@@ -13159,7 +13159,7 @@ eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i9.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -13185,7 +13185,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture nonnull readonly align 8 %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om"(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr nonnull readnone align 8 captures(none) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr nonnull readonly align 8 captures(none) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i58.i.i.i = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp.i59.i.i.i = alloca [1 x %"class.facebook::jsi::Value"], align 8
@@ -13585,7 +13585,7 @@ eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i116.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -13684,7 +13684,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #20 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #20 align 2 {
 entry:
   ret void
 }
@@ -15258,7 +15258,7 @@ declare noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObje
 declare void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
@@ -15628,7 +15628,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr4.i.i.i.i.i = alloca ptr, align 8
   %__args.addr6.i.i.i.i.i = alloca i64, align 8
@@ -15777,7 +15777,7 @@ _ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30cre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
@@ -16716,7 +16716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args) #0 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4
@@ -16725,7 +16725,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16757,7 +16757,7 @@ declare void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef no
 declare void @_ZN4llvh14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72), ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp2.i.i.i = alloca %"class.llvh::Twine", align 8
@@ -16859,7 +16859,7 @@ if.end14.i.i.i:                                   ; preds = %_ZNKSt8functionIFbv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
@@ -17011,7 +17011,7 @@ declare { i32, ptr } @_ZN4llvh3sys2fs6renameERKNS_5TwineES4_(ptr noundef nonnull
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.llvh::Twine", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
@@ -17027,7 +17027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -17078,14 +17078,14 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %__functor) #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -17105,13 +17105,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #20 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E9_M_invokeERKSt9_Any_data"(ptr nonnull readnone align 8 captures(none) %__functor) #20 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -17217,10 +17217,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
@@ -17232,7 +17232,7 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

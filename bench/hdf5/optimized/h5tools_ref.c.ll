@@ -35,7 +35,7 @@ define noundef i32 @term_ref_path_table() local_unnamed_addr #0 {
 declare i32 @H5SL_destroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @free_ref_path_info(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @free_ref_path_info(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #10
@@ -44,7 +44,7 @@ define internal noundef i32 @free_ref_path_info(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_info2_t, align 8
   %4 = alloca %struct.H5L_info2_t, align 8
   %5 = icmp eq ptr %0, null
@@ -93,7 +93,7 @@ declare i32 @H5Lget_info2(i64 noundef, ptr noundef, ptr noundef, i64 noundef) lo
 declare i32 @H5Oget_info_by_name3(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i32 @get_next_xid() local_unnamed_addr #4 {
@@ -297,7 +297,7 @@ define noundef i32 @fill_ref_path_table(i64 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -326,7 +326,7 @@ define internal i32 @ref_path_table_cmp(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %ref_path_table_put.exit
 
@@ -362,13 +362,13 @@ declare void @h5tools_setstatus(i32 noundef) local_unnamed_addr #1
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @H5SL_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

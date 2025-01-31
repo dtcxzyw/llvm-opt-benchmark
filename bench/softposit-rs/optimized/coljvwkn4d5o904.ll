@@ -299,7 +299,7 @@ define noundef i64 @_ZN9softposit5p16e17convert22convert_p16bits_to_u6417he8525e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e92E(double noundef %0, i16 noundef %1, ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %2, ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %3) unnamed_addr #1 {
+define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e92E(double noundef %0, i16 noundef %1, ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %2, ptr noalias noundef writeonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #1 {
   %5 = fcmp oeq double %0, 0.000000e+00
   br i1 %5, label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit, label %6
 

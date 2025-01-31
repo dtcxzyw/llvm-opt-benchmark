@@ -373,7 +373,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %
   br i1 %.not6, label %14, label %13
 
 13:                                               ; preds = %11
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_11ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %0)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_11ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %0)
   br label %14
 
 14:                                               ; preds = %11, %13
@@ -411,7 +411,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %22, %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ConcurrentGCBreakpoints21notify_active_to_idleEv() local_unnamed_addr #2 align 2 {

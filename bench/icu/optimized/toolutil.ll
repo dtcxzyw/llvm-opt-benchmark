@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
 
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @findDirname(ptr noundef %path, ptr noundef %buffer, i32 noundef %bufLen, ptr nocapture noundef %status) local_unnamed_addr #9 {
+define noundef ptr @findDirname(ptr noundef %path, ptr noundef %buffer, i32 noundef %bufLen, ptr noundef captures(none) %status) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -173,7 +173,7 @@ if.end:                                           ; preds = %entry
 if.then8:                                         ; preds = %if.end
   %resultPtr.0 = select i1 %tobool2.not, ptr @.str.1, ptr %path
   %conv9 = zext nneg i32 %resultLen.0 to i64
-  %call10 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef %resultPtr.0, i64 noundef %conv9) #22
+  %call10 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef nonnull %resultPtr.0, i64 noundef %conv9) #22
   %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv9
   store i8 0, ptr %arrayidx, align 1
   br label %return
@@ -191,7 +191,7 @@ return:                                           ; preds = %entry, %if.else11, 
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @findBasename(ptr noundef readonly %filename) local_unnamed_addr #12 {
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @uprv_mkdir(ptr nocapture noundef readonly %pathname, ptr nocapture noundef writeonly %status) local_unnamed_addr #13 {
+define void @uprv_mkdir(ptr noundef readonly captures(none) %pathname, ptr noundef writeonly captures(none) %status) local_unnamed_addr #13 {
 entry:
   %call = tail call i32 @mkdir(ptr noundef %pathname, i32 noundef 453) #22
   %tobool.not = icmp eq i32 %call, 0
@@ -225,13 +225,13 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext range(i8 0, 2) i8 @uprv_fileExists(ptr nocapture noundef readonly %file) local_unnamed_addr #13 {
+define signext range(i8 0, 2) i8 @uprv_fileExists(ptr noundef readonly captures(none) %file) local_unnamed_addr #13 {
 entry:
   %stat_buf = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %file, ptr noundef nonnull %stat_buf) #22
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uprv_compareGoldenFiles(ptr noundef %buffer, i32 noundef %bufferLen, ptr noundef %goldenFilePath, i1 noundef zeroext %overwrite) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
@@ -420,7 +420,7 @@ if.end4:                                          ; preds = %entry
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @utm_close(ptr noundef %mem) local_unnamed_addr #15 {
@@ -450,7 +450,7 @@ if.end4:                                          ; preds = %if.end, %entry
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @utm_getStart(ptr nocapture noundef readonly %mem) local_unnamed_addr #17 {
+define ptr @utm_getStart(ptr noundef readonly captures(none) %mem) local_unnamed_addr #17 {
 entry:
   %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %0 = load ptr, ptr %array, align 16
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @utm_countItems(ptr nocapture noundef readonly %mem) local_unnamed_addr #17 {
+define i32 @utm_countItems(ptr noundef readonly captures(none) %mem) local_unnamed_addr #17 {
 entry:
   %idx = getelementptr inbounds nuw i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
@@ -566,7 +566,7 @@ if.end52:                                         ; preds = %if.end50, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_allocN(ptr noundef %mem, i32 noundef %n) local_unnamed_addr #15 {
@@ -590,7 +590,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: allocsize(1)
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #20

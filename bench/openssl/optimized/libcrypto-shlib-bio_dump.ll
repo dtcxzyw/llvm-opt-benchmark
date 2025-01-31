@@ -13,14 +13,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump_cb(ptr nocapture noundef readonly %cb, ptr noundef %u, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
+define i32 @BIO_dump_cb(ptr noundef readonly captures(none) %cb, ptr noundef %u, ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_dump_indent_cb(ptr noundef %cb, ptr noundef %u, ptr noundef %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump_indent_cb(ptr nocapture noundef readonly %cb, ptr noundef %u, ptr nocapture noundef readonly %v, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
+define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %cb, ptr noundef %u, ptr noundef readonly captures(none) %v, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %buf = alloca [289 x i8], align 16
   %cmp = icmp slt i32 %indent, 0
@@ -186,14 +186,14 @@ return:                                           ; preds = %if.end109, %if.end1
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump_fp(ptr noundef %fp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
+define i32 @BIO_dump_fp(ptr noundef %fp, ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_fp, ptr noundef %fp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @write_fp(ptr nocapture noundef %data, i64 noundef %len, ptr nocapture noundef %fp) #2 {
+define internal noundef i32 @write_fp(ptr noundef captures(none) %data, i64 noundef %len, ptr noundef captures(none) %fp) #2 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %data, i64 noundef %len, i64 noundef 1, ptr noundef %fp)
   %conv = trunc i64 %call to i32
@@ -201,14 +201,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump_indent_fp(ptr noundef %fp, ptr nocapture noundef readonly %s, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
+define i32 @BIO_dump_indent_fp(ptr noundef %fp, ptr noundef readonly captures(none) %s, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_fp, ptr noundef %fp, ptr noundef %s, i32 noundef %len, i32 noundef %indent)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump(ptr noundef %bp, ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
+define i32 @BIO_dump(ptr noundef %bp, ptr noundef readonly captures(none) %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_bio, ptr noundef %bp, ptr noundef readonly %s, i32 noundef %len, i32 noundef 0)
   ret i32 %call.i
@@ -223,14 +223,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_dump_indent(ptr noundef %bp, ptr nocapture noundef readonly %s, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
+define i32 @BIO_dump_indent(ptr noundef %bp, ptr noundef readonly captures(none) %s, i32 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_dump_indent_cb(ptr noundef nonnull @write_bio, ptr noundef %bp, ptr noundef %s, i32 noundef %len, i32 noundef %indent)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_hex_string(ptr noundef %out, i32 noundef %indent, i32 noundef %width, ptr nocapture noundef readonly %data, i32 noundef %datalen) local_unnamed_addr #0 {
+define noundef i32 @BIO_hex_string(ptr noundef %out, i32 noundef %indent, i32 noundef %width, ptr noundef readonly captures(none) %data, i32 noundef %datalen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %datalen, 1
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -298,12 +298,12 @@ return:                                           ; preds = %entry, %if.end15
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5

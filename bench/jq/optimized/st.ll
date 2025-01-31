@@ -67,7 +67,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @onig_st_init_table(ptr noundef %0) local_unnamed_addr #4 {
@@ -253,7 +253,7 @@ onig_st_init_table_with_size.exit:                ; preds = %4, %new_size.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @onig_st_free_table(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @onig_st_free_table(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -300,7 +300,7 @@ define void @onig_st_free_table(ptr nocapture noundef %0) local_unnamed_addr #5 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_lookup(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i32 -5, 2) i32 @onig_st_insert(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -582,7 +582,7 @@ rehash.exit:                                      ; preds = %55, %new_size.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @onig_st_add_direct(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define void @onig_st_add_direct(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -700,7 +700,7 @@ rehash.exit:                                      ; preds = %18, %._crit_edge34.
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define noalias noundef ptr @onig_st_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #10
@@ -770,10 +770,10 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_delete(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -901,7 +901,7 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_delete_safe(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -980,7 +980,7 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @onig_st_cleanup_safe(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define void @onig_st_cleanup_safe(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1061,7 +1061,7 @@ onig_st_foreach.exit:                             ; preds = %._crit_edge.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @onig_st_foreach(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1185,10 +1185,10 @@ define internal noundef i32 @numhash(i64 noundef %0) #7 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @strhash(ptr nocapture noundef readonly %0) #9 {
+define internal i32 @strhash(ptr noundef readonly captures(none) %0) #9 {
   %2 = load i8, ptr %0, align 1
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph

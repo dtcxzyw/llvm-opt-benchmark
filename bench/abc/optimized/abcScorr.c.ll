@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [58 x i8] c"Deriving strashed network from input file %s has failed.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapGiaIntoNameId(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapGiaIntoNameId(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4
@@ -360,7 +360,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkTestScorrGetName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Abc_NtkTestScorrGetName(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = sext i32 %2 to i64
@@ -383,7 +383,7 @@ define ptr @Abc_NtkTestScorrGetName(ptr nocapture noundef readonly %0, ptr nocap
 declare ptr @Nm_ManFindNameById(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivPair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivPair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %7, align 8
   %8 = sext i32 %2 to i64
@@ -429,10 +429,10 @@ Abc_NtkTestScorrGetName.exit17.thread:            ; preds = %Abc_NtkTestScorrGet
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivConst(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %6, align 8
   %7 = sext i32 %2 to i64
@@ -464,31 +464,24 @@ define noundef nonnull ptr @Abc_NtkBmcFileName(ptr noundef %0) local_unnamed_add
   %2 = tail call ptr @Extra_FileNameGeneric(ptr noundef %0) #10
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %2, ptr noundef %4) #10
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %7, label %6
-
-6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #10
-  br label %7
-
-7:                                                ; preds = %1, %6
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %2, ptr noundef %4) #10
+  tail call void @free(ptr noundef %2) #10
   ret ptr @Abc_NtkBmcFileName.Buffer
 }
 
 declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkTestScorrWriteEquivGia(ptr nocapture noundef %0) #1 {
+define i32 @Abc_NtkTestScorrWriteEquivGia(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -499,23 +492,19 @@ define i32 @Abc_NtkTestScorrWriteEquivGia(ptr nocapture noundef %0) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %Abc_NtkBmcFileName.exit, label %11
+  br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %1
   store i32 0, ptr %9, align 8
   %12 = tail call ptr @Extra_FileNameGeneric(ptr noundef %8) #10
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
-  %15 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %12, ptr noundef %14) #10
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %Abc_NtkBmcFileName.exit, label %16
+  %15 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %12, ptr noundef %14) #10
+  tail call void @free(ptr noundef %12) #10
+  br label %16
 
-16:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %12) #10
-  br label %Abc_NtkBmcFileName.exit
-
-Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
-  %.052 = phi ptr [ %8, %1 ], [ @Abc_NtkBmcFileName.Buffer, %11 ], [ @Abc_NtkBmcFileName.Buffer, %16 ]
+16:                                               ; preds = %11, %1
+  %.052 = phi ptr [ @Abc_NtkBmcFileName.Buffer, %11 ], [ %8, %1 ]
   %17 = tail call noalias ptr @fopen(ptr noundef %.052, ptr noundef nonnull @.str.5)
   tail call void @Gia_ManSetPhase(ptr noundef %6) #10
   %18 = getelementptr i8, ptr %6, i64 32
@@ -524,7 +513,7 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Abc_NtkBmcFileName.exit
+.lr.ph:                                           ; preds = %16
   %22 = getelementptr i8, ptr %6, i64 192
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr i8, ptr %6, i64 16
@@ -536,7 +525,7 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
 
 29:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.exit.thread ]
-  %.0111 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsRo.exit.thread ]
+  %.0110 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsRo.exit.thread ]
   %.val = load ptr, ptr %18, align 8
   %30 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.not54 = icmp eq ptr %.val, null
@@ -547,8 +536,8 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
   %32 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val65, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 268435455
-  %.not103 = icmp eq i32 %34, 268435455
-  br i1 %.not103, label %Gia_ObjIsRo.exit.thread, label %35
+  %.not102 = icmp eq i32 %34, 268435455
+  br i1 %.not102, label %Gia_ObjIsRo.exit.thread, label %35
 
 35:                                               ; preds = %31
   %36 = zext nneg i32 %34 to i64
@@ -572,8 +561,8 @@ Gia_ObjIsRo.exit:                                 ; preds = %39
   %44 = getelementptr i8, ptr %.val5.i, i64 4
   %.val5.val.i = load i32, ptr %44, align 4
   %45 = sub nsw i32 %.val5.val.i, %.val4.i
-  %.not104 = icmp slt i32 %43, %45
-  br i1 %.not104, label %Gia_ObjIsRo.exit.thread, label %46
+  %.not103 = icmp slt i32 %43, %45
+  br i1 %.not103, label %Gia_ObjIsRo.exit.thread, label %46
 
 46:                                               ; preds = %Gia_ObjIsRo.exit
   %.val70 = load i64, ptr %37, align 4
@@ -585,10 +574,10 @@ Gia_ObjIsRo.exit82:                               ; preds = %46
   %48 = lshr i64 %.val70, 32
   %49 = trunc nuw i64 %48 to i32
   %50 = and i32 %49, 536870911
-  %.not105 = icmp sge i32 %50, %45
+  %.not104 = icmp sge i32 %50, %45
   %51 = and i64 %.val70, 2305843005455597567
   %narrow.i.not = icmp eq i64 %51, 2305843005455597567
-  %or.cond = or i1 %narrow.i.not, %.not105
+  %or.cond = or i1 %narrow.i.not, %.not104
   br i1 %or.cond, label %68, label %Gia_ObjIsRo.exit.thread
 
 Gia_ObjIsRo.exit82.thread:                        ; preds = %46
@@ -616,8 +605,8 @@ Gia_ObjIsRo.exit87:                               ; preds = %54
   %59 = getelementptr i8, ptr %.val5.i85, i64 4
   %.val5.val.i86 = load i32, ptr %59, align 4
   %60 = sub nsw i32 %.val5.val.i86, %.val4.i84
-  %.not106 = icmp slt i32 %58, %60
-  br i1 %.not106, label %Gia_ObjIsRo.exit87.thread, label %68
+  %.not105 = icmp slt i32 %58, %60
+  br i1 %.not105, label %Gia_ObjIsRo.exit87.thread, label %68
 
 Gia_ObjIsRo.exit87.thread:                        ; preds = %54, %Gia_ObjIsRo.exit87
   %.val72 = load i64, ptr %37, align 4
@@ -634,15 +623,15 @@ Gia_ObjIsRo.exit92:                               ; preds = %Gia_ObjIsRo.exit87.
   %65 = getelementptr i8, ptr %.val5.i90, i64 4
   %.val5.val.i91 = load i32, ptr %65, align 4
   %66 = sub nsw i32 %.val5.val.i91, %.val4.i89
-  %.not107 = icmp sge i32 %64, %66
+  %.not106 = icmp sge i32 %64, %66
   %67 = and i64 %.val72, 2305843005455597567
   %narrow.i93.not = icmp eq i64 %67, 2305843005455597567
-  %or.cond109 = or i1 %narrow.i93.not, %.not107
-  br i1 %or.cond109, label %68, label %Gia_ObjIsRo.exit.thread
+  %or.cond108 = or i1 %narrow.i93.not, %.not106
+  br i1 %or.cond108, label %68, label %Gia_ObjIsRo.exit.thread
 
 Gia_ObjIsRo.exit92.thread:                        ; preds = %Gia_ObjIsRo.exit87.thread
-  %.old108 = and i64 %.val72, 2305843005455597567
-  %narrow.i93.not.old = icmp eq i64 %.old108, 2305843005455597567
+  %.old107 = and i64 %.val72, 2305843005455597567
+  %narrow.i93.not.old = icmp eq i64 %.old107, 2305843005455597567
   br i1 %narrow.i93.not.old, label %68, label %Gia_ObjIsRo.exit.thread
 
 68:                                               ; preds = %52, %Gia_ObjIsRo.exit92.thread, %Gia_ObjIsRo.exit92, %Gia_ObjIsRo.exit87, %Gia_ObjIsRo.exit82, %Gia_ObjIsRo.exit82.thread
@@ -664,41 +653,41 @@ Abc_NtkTestScorrGetName.exit.i:                   ; preds = %70
   br i1 %76, label %Abc_NtkTestScorrWriteEquivConst.exit, label %77
 
 77:                                               ; preds = %Abc_NtkTestScorrGetName.exit.i
-  %.not.i94 = icmp sgt i64 %.val75, -1
-  %78 = select i1 %.not.i94, ptr @.str.2, ptr @.str.1
+  %.not.i = icmp sgt i64 %.val75, -1
+  %78 = select i1 %.not.i, ptr @.str.2, ptr @.str.1
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %75, ptr noundef nonnull %78, ptr noundef nonnull @.str.3) #10
   br label %Abc_NtkTestScorrWriteEquivConst.exit
 
 Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %70, %Abc_NtkTestScorrGetName.exit.i, %77
   %.0.i = phi i32 [ 1, %77 ], [ 0, %Abc_NtkTestScorrGetName.exit.i ], [ 0, %70 ]
-  %80 = add nsw i32 %.0.i, %.0111
+  %80 = add nsw i32 %.0.i, %.0110
   br label %Gia_ObjIsRo.exit.thread
 
 81:                                               ; preds = %68
   %.val76 = load i64, ptr %37, align 4
   %.val77 = load i64, ptr %30, align 4
   %82 = xor i64 %.val77, %.val76
-  %.val.i.i95 = load ptr, ptr %27, align 8
-  %83 = getelementptr inbounds nuw i32, ptr %.val.i.i95, i64 %36
+  %.val.i.i94 = load ptr, ptr %27, align 8
+  %83 = getelementptr inbounds nuw i32, ptr %.val.i.i94, i64 %36
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, -1
-  br i1 %85, label %Abc_NtkTestScorrGetName.exit.i96, label %86
+  br i1 %85, label %Abc_NtkTestScorrGetName.exit.i95, label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %28, align 8
   %88 = tail call ptr @Nm_ManFindNameById(ptr noundef %87, i32 noundef %84) #10
   %.val.i15.pre.i = load ptr, ptr %27, align 8
-  br label %Abc_NtkTestScorrGetName.exit.i96
+  br label %Abc_NtkTestScorrGetName.exit.i95
 
-Abc_NtkTestScorrGetName.exit.i96:                 ; preds = %86, %81
-  %.val.i15.i = phi ptr [ %.val.i15.pre.i, %86 ], [ %.val.i.i95, %81 ]
+Abc_NtkTestScorrGetName.exit.i95:                 ; preds = %86, %81
+  %.val.i15.i = phi ptr [ %.val.i15.pre.i, %86 ], [ %.val.i.i94, %81 ]
   %.0.i.i = phi ptr [ %88, %86 ], [ null, %81 ]
   %89 = getelementptr inbounds nuw i32, ptr %.val.i15.i, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, -1
   br i1 %91, label %Abc_NtkTestScorrWriteEquivPair.exit, label %Abc_NtkTestScorrGetName.exit17.i
 
-Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGetName.exit.i96
+Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGetName.exit.i95
   %92 = load ptr, ptr %28, align 8
   %93 = tail call ptr @Nm_ManFindNameById(ptr noundef %92, i32 noundef %90) #10
   %94 = icmp eq ptr %.0.i.i, null
@@ -707,44 +696,44 @@ Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGet
   br i1 %or.cond.i, label %Abc_NtkTestScorrWriteEquivPair.exit, label %96
 
 96:                                               ; preds = %Abc_NtkTestScorrGetName.exit17.i
-  %.not.i97 = icmp sgt i64 %82, -1
-  %97 = select i1 %.not.i97, ptr @.str.2, ptr @.str.1
+  %.not.i96 = icmp sgt i64 %82, -1
+  %97 = select i1 %.not.i96, ptr @.str.2, ptr @.str.1
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %97, ptr noundef nonnull %93) #10
   br label %Abc_NtkTestScorrWriteEquivPair.exit
 
-Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i96, %Abc_NtkTestScorrGetName.exit17.i, %96
-  %.0.i98 = phi i32 [ 1, %96 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i96 ]
-  %99 = add nsw i32 %.0.i98, %.0111
+Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i95, %Abc_NtkTestScorrGetName.exit17.i, %96
+  %.0.i97 = phi i32 [ 1, %96 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i95 ]
+  %99 = add nsw i32 %.0.i97, %.0110
   br label %Gia_ObjIsRo.exit.thread
 
 Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit92, %Gia_ObjIsRo.exit82, %39, %Abc_NtkTestScorrWriteEquivConst.exit, %Abc_NtkTestScorrWriteEquivPair.exit, %Gia_ObjIsRo.exit92.thread, %Gia_ObjIsRo.exit, %Gia_ObjIsRo.exit82.thread, %31
-  %.1 = phi i32 [ %80, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %99, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0111, %Gia_ObjIsRo.exit82.thread ], [ %.0111, %Gia_ObjIsRo.exit ], [ %.0111, %Gia_ObjIsRo.exit92.thread ], [ %.0111, %31 ], [ %.0111, %39 ], [ %.0111, %Gia_ObjIsRo.exit82 ], [ %.0111, %Gia_ObjIsRo.exit92 ]
+  %.1 = phi i32 [ %80, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %99, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0110, %Gia_ObjIsRo.exit82.thread ], [ %.0110, %Gia_ObjIsRo.exit ], [ %.0110, %Gia_ObjIsRo.exit92.thread ], [ %.0110, %31 ], [ %.0110, %39 ], [ %.0110, %Gia_ObjIsRo.exit82 ], [ %.0110, %Gia_ObjIsRo.exit92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = load i32, ptr %19, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
   br i1 %102, label %29, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %29, %Gia_ObjIsRo.exit.thread, %Abc_NtkBmcFileName.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Gia_ObjIsRo.exit.thread ], [ %.0111, %29 ]
+.critedge:                                        ; preds = %29, %Gia_ObjIsRo.exit.thread, %16
+  %.0.lcssa = phi i32 [ 0, %16 ], [ %.1, %Gia_ObjIsRo.exit.thread ], [ %.0110, %29 ]
   %103 = tail call i32 @fclose(ptr noundef %17)
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0.lcssa, ptr noundef %.052)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkTestScorrWriteEquivAig(ptr nocapture noundef %0) #1 {
+define i32 @Abc_NtkTestScorrWriteEquivAig(ptr noundef captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -755,32 +744,28 @@ define i32 @Abc_NtkTestScorrWriteEquivAig(ptr nocapture noundef %0) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %Abc_NtkBmcFileName.exit, label %11
+  br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %1
   store i32 0, ptr %9, align 8
   %12 = tail call ptr @Extra_FileNameGeneric(ptr noundef %8) #10
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
   %14 = getelementptr inbounds i8, ptr %8, i64 %13
-  %15 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %12, ptr noundef %14) #10
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %Abc_NtkBmcFileName.exit, label %16
+  %15 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_NtkBmcFileName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %12, ptr noundef %14) #10
+  tail call void @free(ptr noundef %12) #10
+  br label %16
 
-16:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %12) #10
-  br label %Abc_NtkBmcFileName.exit
-
-Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
-  %.050 = phi ptr [ %8, %1 ], [ @Abc_NtkBmcFileName.Buffer, %11 ], [ @Abc_NtkBmcFileName.Buffer, %16 ]
+16:                                               ; preds = %11, %1
+  %.050 = phi ptr [ @Abc_NtkBmcFileName.Buffer, %11 ], [ %8, %1 ]
   %17 = tail call noalias ptr @fopen(ptr noundef %.050, ptr noundef nonnull @.str.5)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 4
-  %.val100 = load i32, ptr %20, align 4
-  %21 = icmp sgt i32 %.val100, 0
+  %.val99 = load i32, ptr %20, align 4
+  %21 = icmp sgt i32 %.val99, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Abc_NtkBmcFileName.exit
+.lr.ph:                                           ; preds = %16
   %22 = getelementptr i8, ptr %6, i64 256
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr i8, ptr %6, i64 108
@@ -793,7 +778,7 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
 29:                                               ; preds = %.lr.ph, %Aig_ObjRepr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjRepr.exit.thread ]
   %30 = phi ptr [ %19, %.lr.ph ], [ %98, %Aig_ObjRepr.exit.thread ]
-  %.0102 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.exit.thread ]
+  %.0101 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.exit.thread ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val59 = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv
@@ -803,8 +788,8 @@ Abc_NtkBmcFileName.exit:                          ; preds = %16, %11, %1
 
 35:                                               ; preds = %29
   %.val63 = load ptr, ptr %22, align 8
-  %.not.i70 = icmp eq ptr %.val63, null
-  br i1 %.not.i70, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
+  %.not.i = icmp eq ptr %.val63, null
+  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %35
   %36 = getelementptr i8, ptr %33, i64 36
@@ -824,28 +809,28 @@ Aig_ObjRepr.exit:                                 ; preds = %35
   %45 = getelementptr i8, ptr %33, i64 24
   %.val.i = load i64, ptr %45, align 8
   %46 = and i64 %.val.i, 7
-  %.not.i71 = icmp eq i64 %46, 2
-  br i1 %.not.i71, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.exit.thread
+  %.not.i70 = icmp eq i64 %46, 2
+  br i1 %.not.i70, label %Saig_ObjIsLo.exit, label %Aig_ObjRepr.exit.thread
 
 Saig_ObjIsLo.exit:                                ; preds = %44
   %.val3.i = load i32, ptr %33, align 8
   %.val4.i = load i32, ptr %24, align 4
-  %.not96 = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not96, label %Aig_ObjRepr.exit.thread, label %47
+  %.not95 = icmp slt i32 %.val3.i, %.val4.i
+  br i1 %.not95, label %Aig_ObjRepr.exit.thread, label %47
 
 47:                                               ; preds = %Saig_ObjIsLo.exit
   %48 = getelementptr i8, ptr %40, i64 24
-  %.val.i72 = load i64, ptr %48, align 8
-  %49 = and i64 %.val.i72, 7
-  %.not.i73 = icmp eq i64 %49, 2
-  br i1 %.not.i73, label %Saig_ObjIsLo.exit76, label %Saig_ObjIsLo.exit76.thread
+  %.val.i71 = load i64, ptr %48, align 8
+  %49 = and i64 %.val.i71, 7
+  %.not.i72 = icmp eq i64 %49, 2
+  br i1 %.not.i72, label %Saig_ObjIsLo.exit75, label %Saig_ObjIsLo.exit75.thread
 
-Saig_ObjIsLo.exit76:                              ; preds = %47
-  %.val3.i74 = load i32, ptr %40, align 8
-  %.not97 = icmp slt i32 %.val3.i74, %.val4.i
-  br i1 %.not97, label %Saig_ObjIsLo.exit76.thread, label %59
+Saig_ObjIsLo.exit75:                              ; preds = %47
+  %.val3.i73 = load i32, ptr %40, align 8
+  %.not96 = icmp slt i32 %.val3.i73, %.val4.i
+  br i1 %.not96, label %Saig_ObjIsLo.exit75.thread, label %59
 
-Saig_ObjIsLo.exit76.thread:                       ; preds = %47, %Saig_ObjIsLo.exit76
+Saig_ObjIsLo.exit75.thread:                       ; preds = %47, %Saig_ObjIsLo.exit75
   %.val64 = load ptr, ptr %25, align 8
   %50 = icmp eq ptr %40, %.val64
   br i1 %50, label %59, label %Aig_ObjRepr.exit.thread
@@ -857,36 +842,36 @@ Saig_ObjIsLo.exit76.thread:                       ; preds = %47, %Saig_ObjIsLo.e
 
 53:                                               ; preds = %51
   %54 = getelementptr i8, ptr %33, i64 24
-  %.val.i77 = load i64, ptr %54, align 8
-  %55 = and i64 %.val.i77, 7
-  %.not.i78 = icmp eq i64 %55, 2
-  br i1 %.not.i78, label %Saig_ObjIsLo.exit81, label %Saig_ObjIsLo.exit81.thread
+  %.val.i76 = load i64, ptr %54, align 8
+  %55 = and i64 %.val.i76, 7
+  %.not.i77 = icmp eq i64 %55, 2
+  br i1 %.not.i77, label %Saig_ObjIsLo.exit80, label %Saig_ObjIsLo.exit80.thread
 
-Saig_ObjIsLo.exit81:                              ; preds = %53
-  %.val3.i79 = load i32, ptr %33, align 8
-  %.val4.i80 = load i32, ptr %24, align 4
-  %.not98 = icmp slt i32 %.val3.i79, %.val4.i80
-  br i1 %.not98, label %Saig_ObjIsLo.exit81.thread, label %59
+Saig_ObjIsLo.exit80:                              ; preds = %53
+  %.val3.i78 = load i32, ptr %33, align 8
+  %.val4.i79 = load i32, ptr %24, align 4
+  %.not97 = icmp slt i32 %.val3.i78, %.val4.i79
+  br i1 %.not97, label %Saig_ObjIsLo.exit80.thread, label %59
 
-Saig_ObjIsLo.exit81.thread:                       ; preds = %53, %Saig_ObjIsLo.exit81
+Saig_ObjIsLo.exit80.thread:                       ; preds = %53, %Saig_ObjIsLo.exit80
   %56 = getelementptr i8, ptr %40, i64 24
-  %.val.i82 = load i64, ptr %56, align 8
-  %57 = and i64 %.val.i82, 7
-  %.not.i83 = icmp eq i64 %57, 2
-  br i1 %.not.i83, label %Saig_ObjIsLo.exit86, label %Saig_ObjIsLo.exit86.thread
+  %.val.i81 = load i64, ptr %56, align 8
+  %57 = and i64 %.val.i81, 7
+  %.not.i82 = icmp eq i64 %57, 2
+  br i1 %.not.i82, label %Saig_ObjIsLo.exit85, label %Saig_ObjIsLo.exit85.thread
 
-Saig_ObjIsLo.exit86:                              ; preds = %Saig_ObjIsLo.exit81.thread
-  %.val3.i84 = load i32, ptr %40, align 8
-  %.val4.i85 = load i32, ptr %24, align 4
-  %.not99 = icmp slt i32 %.val3.i84, %.val4.i85
-  br i1 %.not99, label %Saig_ObjIsLo.exit86.thread, label %59
+Saig_ObjIsLo.exit85:                              ; preds = %Saig_ObjIsLo.exit80.thread
+  %.val3.i83 = load i32, ptr %40, align 8
+  %.val4.i84 = load i32, ptr %24, align 4
+  %.not98 = icmp slt i32 %.val3.i83, %.val4.i84
+  br i1 %.not98, label %Saig_ObjIsLo.exit85.thread, label %59
 
-Saig_ObjIsLo.exit86.thread:                       ; preds = %Saig_ObjIsLo.exit81.thread, %Saig_ObjIsLo.exit86
+Saig_ObjIsLo.exit85.thread:                       ; preds = %Saig_ObjIsLo.exit80.thread, %Saig_ObjIsLo.exit85
   %.val65 = load ptr, ptr %25, align 8
   %58 = icmp eq ptr %40, %.val65
   br i1 %58, label %59, label %Aig_ObjRepr.exit.thread
 
-59:                                               ; preds = %51, %Saig_ObjIsLo.exit86.thread, %Saig_ObjIsLo.exit86, %Saig_ObjIsLo.exit81, %Saig_ObjIsLo.exit76, %Saig_ObjIsLo.exit76.thread
+59:                                               ; preds = %51, %Saig_ObjIsLo.exit85.thread, %Saig_ObjIsLo.exit85, %Saig_ObjIsLo.exit80, %Saig_ObjIsLo.exit75, %Saig_ObjIsLo.exit75.thread
   %.val66 = load ptr, ptr %25, align 8
   %60 = icmp eq ptr %40, %.val66
   br i1 %60, label %61, label %74
@@ -908,14 +893,14 @@ Abc_NtkTestScorrGetName.exit.i:                   ; preds = %61
 
 69:                                               ; preds = %Abc_NtkTestScorrGetName.exit.i
   %70 = and i64 %.val67, 8
-  %.not.i87 = icmp eq i64 %70, 0
-  %71 = select i1 %.not.i87, ptr @.str.2, ptr @.str.1
+  %.not.i86 = icmp eq i64 %70, 0
+  %71 = select i1 %.not.i86, ptr @.str.2, ptr @.str.1
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %67, ptr noundef nonnull %71, ptr noundef nonnull @.str.3) #10
   br label %Abc_NtkTestScorrWriteEquivConst.exit
 
 Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %61, %Abc_NtkTestScorrGetName.exit.i, %69
   %.0.i = phi i32 [ 1, %69 ], [ 0, %Abc_NtkTestScorrGetName.exit.i ], [ 0, %61 ]
-  %73 = add nsw i32 %.0.i, %.0102
+  %73 = add nsw i32 %.0.i, %.0101
   br label %Aig_ObjRepr.exit.thread
 
 74:                                               ; preds = %59
@@ -926,28 +911,28 @@ Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %61, %Abc_NtkTestSco
   %77 = getelementptr i8, ptr %33, i64 24
   %.val69 = load i64, ptr %77, align 8
   %78 = xor i64 %.val69, %.val68
-  %.val.i.i88 = load ptr, ptr %27, align 8
+  %.val.i.i87 = load ptr, ptr %27, align 8
   %79 = sext i32 %.val61 to i64
-  %80 = getelementptr inbounds i32, ptr %.val.i.i88, i64 %79
+  %80 = getelementptr inbounds i32, ptr %.val.i.i87, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %Abc_NtkTestScorrGetName.exit.i89, label %83
+  br i1 %82, label %Abc_NtkTestScorrGetName.exit.i88, label %83
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr %28, align 8
   %85 = tail call ptr @Nm_ManFindNameById(ptr noundef %84, i32 noundef %81) #10
   %.val.i15.pre.i = load ptr, ptr %27, align 8
-  br label %Abc_NtkTestScorrGetName.exit.i89
+  br label %Abc_NtkTestScorrGetName.exit.i88
 
-Abc_NtkTestScorrGetName.exit.i89:                 ; preds = %83, %74
-  %.val.i15.i = phi ptr [ %.val.i15.pre.i, %83 ], [ %.val.i.i88, %74 ]
+Abc_NtkTestScorrGetName.exit.i88:                 ; preds = %83, %74
+  %.val.i15.i = phi ptr [ %.val.i15.pre.i, %83 ], [ %.val.i.i87, %74 ]
   %.0.i.i = phi ptr [ %85, %83 ], [ null, %74 ]
   %86 = getelementptr inbounds i32, ptr %.val.i15.i, i64 %38
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, -1
   br i1 %88, label %Abc_NtkTestScorrWriteEquivPair.exit, label %Abc_NtkTestScorrGetName.exit17.i
 
-Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGetName.exit.i89
+Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGetName.exit.i88
   %89 = load ptr, ptr %28, align 8
   %90 = tail call ptr @Nm_ManFindNameById(ptr noundef %89, i32 noundef %87) #10
   %91 = icmp eq ptr %.0.i.i, null
@@ -957,18 +942,18 @@ Abc_NtkTestScorrGetName.exit17.i:                 ; preds = %Abc_NtkTestScorrGet
 
 93:                                               ; preds = %Abc_NtkTestScorrGetName.exit17.i
   %94 = and i64 %78, 8
-  %.not.i90 = icmp eq i64 %94, 0
-  %95 = select i1 %.not.i90, ptr @.str.2, ptr @.str.1
+  %.not.i89 = icmp eq i64 %94, 0
+  %95 = select i1 %.not.i89, ptr @.str.2, ptr @.str.1
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %95, ptr noundef nonnull %90) #10
   br label %Abc_NtkTestScorrWriteEquivPair.exit
 
-Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i89, %Abc_NtkTestScorrGetName.exit17.i, %93
-  %.0.i91 = phi i32 [ 1, %93 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i89 ]
-  %97 = add nsw i32 %.0.i91, %.0102
+Abc_NtkTestScorrWriteEquivPair.exit:              ; preds = %Abc_NtkTestScorrGetName.exit.i88, %Abc_NtkTestScorrGetName.exit17.i, %93
+  %.0.i90 = phi i32 [ 1, %93 ], [ 0, %Abc_NtkTestScorrGetName.exit17.i ], [ 0, %Abc_NtkTestScorrGetName.exit.i88 ]
+  %97 = add nsw i32 %.0.i90, %.0101
   br label %Aig_ObjRepr.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %44, %35, %29, %Abc_NtkTestScorrWriteEquivPair.exit, %Abc_NtkTestScorrWriteEquivConst.exit, %Saig_ObjIsLo.exit86.thread, %Saig_ObjIsLo.exit, %Saig_ObjIsLo.exit76.thread, %Aig_ObjRepr.exit
-  %.1 = phi i32 [ %.0102, %29 ], [ %.0102, %Aig_ObjRepr.exit ], [ %73, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %97, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0102, %Saig_ObjIsLo.exit76.thread ], [ %.0102, %Saig_ObjIsLo.exit ], [ %.0102, %Saig_ObjIsLo.exit86.thread ], [ %.0102, %35 ], [ %.0102, %44 ]
+Aig_ObjRepr.exit.thread:                          ; preds = %44, %35, %29, %Abc_NtkTestScorrWriteEquivPair.exit, %Abc_NtkTestScorrWriteEquivConst.exit, %Saig_ObjIsLo.exit85.thread, %Saig_ObjIsLo.exit, %Saig_ObjIsLo.exit75.thread, %Aig_ObjRepr.exit
+  %.1 = phi i32 [ %.0101, %29 ], [ %.0101, %Aig_ObjRepr.exit ], [ %73, %Abc_NtkTestScorrWriteEquivConst.exit ], [ %97, %Abc_NtkTestScorrWriteEquivPair.exit ], [ %.0101, %Saig_ObjIsLo.exit75.thread ], [ %.0101, %Saig_ObjIsLo.exit ], [ %.0101, %Saig_ObjIsLo.exit85.thread ], [ %.0101, %35 ], [ %.0101, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load ptr, ptr %18, align 8
   %99 = getelementptr i8, ptr %98, i64 4
@@ -977,8 +962,8 @@ Aig_ObjRepr.exit.thread:                          ; preds = %44, %35, %29, %Abc_
   %101 = icmp slt i64 %indvars.iv.next, %100
   br i1 %101, label %29, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %Aig_ObjRepr.exit.thread, %Abc_NtkBmcFileName.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_NtkBmcFileName.exit ], [ %.1, %Aig_ObjRepr.exit.thread ]
+.critedge:                                        ; preds = %Aig_ObjRepr.exit.thread, %16
+  %.0.lcssa = phi i32 [ 0, %16 ], [ %.1, %Aig_ObjRepr.exit.thread ]
   %102 = tail call i32 @fclose(ptr noundef %17)
   %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0.lcssa, ptr noundef %.050)
   ret i32 %.0.lcssa
@@ -1195,7 +1180,7 @@ declare void @Cec_ManCorSetDefaultParams(ptr noundef) local_unnamed_addr #2
 declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @Cec_ManLSCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1212,7 +1197,7 @@ declare ptr @Abc_NtkFromDarSeqSweep(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cec_ManScorrCorrespondence(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define ptr @Cec_ManScorrCorrespondence(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.Ssw_Pars_t_, align 8
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16

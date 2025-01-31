@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @UCNV_FROM_U_CALLBACK_STOP_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readnone %fromUArgs, ptr nocapture noundef readnone %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define void @UCNV_FROM_U_CALLBACK_STOP_75(ptr noundef readnone captures(none) %context, ptr noundef readnone captures(none) %fromUArgs, ptr noundef readnone captures(none) %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef writeonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %reason, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -71,13 +71,13 @@ if.end:                                           ; preds = %lor.lhs.false31, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @UCNV_TO_U_CALLBACK_STOP_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readnone %toUArgs, ptr nocapture noundef readnone %codePoints, i32 noundef %length, i32 noundef %reason, ptr nocapture noundef readnone %err) local_unnamed_addr #1 {
+define void @UCNV_TO_U_CALLBACK_STOP_75(ptr noundef readnone captures(none) %context, ptr noundef readnone captures(none) %toUArgs, ptr noundef readnone captures(none) %codePoints, i32 noundef %length, i32 noundef %reason, ptr noundef readnone captures(none) %err) local_unnamed_addr #1 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UCNV_FROM_U_CALLBACK_SKIP_75(ptr noundef readonly %context, ptr nocapture noundef readnone %fromUArgs, ptr nocapture noundef readnone %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
+define void @UCNV_FROM_U_CALLBACK_SKIP_75(ptr noundef readonly %context, ptr noundef readnone captures(none) %fromUArgs, ptr noundef readnone captures(none) %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef writeonly captures(none) %err) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i32 %reason, 3
   br i1 %cmp, label %if.then, label %if.end64
@@ -160,7 +160,7 @@ if.end64:                                         ; preds = %if.end64.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @UCNV_FROM_U_CALLBACK_SUBSTITUTE_75(ptr noundef readonly %context, ptr noundef %fromArgs, ptr nocapture readnone %codeUnits, i32 %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef %err) #3 {
+define void @UCNV_FROM_U_CALLBACK_SUBSTITUTE_75(ptr noundef readonly %context, ptr noundef %fromArgs, ptr readnone captures(none) %codeUnits, i32 %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef %err) #3 {
 entry:
   %cmp = icmp slt i32 %reason, 3
   br i1 %cmp, label %if.then, label %if.end64
@@ -248,7 +248,7 @@ if.end64:                                         ; preds = %if.then56, %if.then
 declare void @ucnv_cbFromUWriteSub_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @UCNV_FROM_U_CALLBACK_ESCAPE_75(ptr noundef readonly %context, ptr noundef %fromArgs, ptr nocapture noundef readonly %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
+define void @UCNV_FROM_U_CALLBACK_ESCAPE_75(ptr noundef readonly %context, ptr noundef %fromArgs, ptr noundef readonly captures(none) %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
 entry:
   %valueString = alloca [48 x i16], align 16
   %myValueSource = alloca ptr, align 8
@@ -572,7 +572,7 @@ declare i32 @uprv_itou_75(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare void @ucnv_cbFromUWriteUChars_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UCNV_TO_U_CALLBACK_SKIP_75(ptr noundef readonly %context, ptr nocapture noundef readnone %toArgs, ptr nocapture noundef readnone %codeUnits, i32 noundef %length, i32 noundef %reason, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
+define void @UCNV_TO_U_CALLBACK_SKIP_75(ptr noundef readonly %context, ptr noundef readnone captures(none) %toArgs, ptr noundef readnone captures(none) %codeUnits, i32 noundef %length, i32 noundef %reason, ptr noundef writeonly captures(none) %err) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i32 %reason, 3
   br i1 %cmp, label %if.then, label %if.end5
@@ -597,7 +597,7 @@ if.end5:                                          ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @UCNV_TO_U_CALLBACK_SUBSTITUTE_75(ptr noundef readonly %context, ptr noundef %toArgs, ptr nocapture noundef readnone %codeUnits, i32 noundef %length, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
+define void @UCNV_TO_U_CALLBACK_SUBSTITUTE_75(ptr noundef readonly %context, ptr noundef %toArgs, ptr noundef readnone captures(none) %codeUnits, i32 noundef %length, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
 entry:
   %cmp = icmp slt i32 %reason, 3
   br i1 %cmp, label %if.then, label %if.end5
@@ -625,7 +625,7 @@ if.end5:                                          ; preds = %lor.lhs.false, %if.
 declare void @ucnv_cbToUWriteSub_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @UCNV_TO_U_CALLBACK_ESCAPE_75(ptr noundef readonly %context, ptr noundef %toArgs, ptr nocapture noundef readonly %codeUnits, i32 noundef %length, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
+define void @UCNV_TO_U_CALLBACK_ESCAPE_75(ptr noundef readonly %context, ptr noundef %toArgs, ptr noundef readonly captures(none) %codeUnits, i32 noundef %length, i32 noundef %reason, ptr noundef %err) local_unnamed_addr #3 {
 entry:
   %uniValueString = alloca [48 x i16], align 16
   %cmp = icmp sgt i32 %reason, 2

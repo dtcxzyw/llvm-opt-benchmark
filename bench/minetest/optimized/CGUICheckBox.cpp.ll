@@ -198,7 +198,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @_ZTTN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 1, i32 3)], comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUICheckBoxC2EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) %this, ptr noundef %vtt, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUICheckBoxC2EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) %this, ptr noundef %vtt, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef readonly byval(%"class.irr::core::rect") align 8 captures(none) %rectangle) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -318,10 +318,10 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUICheckBoxC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) initializes((320, 340)) %this, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUICheckBoxC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) initializes((320, 340)) %this, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef readonly byval(%"class.irr::core::rect") align 8 captures(none) %rectangle) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -630,10 +630,10 @@ return:                                           ; preds = %cond.true.i, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i32 @_ZN3irr2os5Timer7getTimeEv() local_unnamed_addr #3
 
@@ -1044,7 +1044,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox10setCheckedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((313, 314)) %this, i1 noundef zeroext %checked) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox10setCheckedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((313, 314)) %this, i1 noundef zeroext %checked) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %checked to i8
   %Checked = getelementptr inbounds nuw i8, ptr %this, i64 313
@@ -1053,7 +1053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox9isCheckedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox9isCheckedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %this) unnamed_addr #5 align 2 {
 entry:
   %Checked = getelementptr inbounds nuw i8, ptr %this, i64 313
   %0 = load i8, ptr %Checked, align 1, !tbaa !37, !range !43, !noundef !44
@@ -1062,7 +1062,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((315, 316)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox17setDrawBackgroundEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((315, 316)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Background = getelementptr inbounds nuw i8, ptr %this, i64 315
@@ -1071,7 +1071,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox23isDrawBackgroundEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox23isDrawBackgroundEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %this) unnamed_addr #5 align 2 {
 entry:
   %Background = getelementptr inbounds nuw i8, ptr %this, i64 315
   %0 = load i8, ptr %Background, align 1, !tbaa !39, !range !43, !noundef !44
@@ -1080,7 +1080,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((314, 315)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox13setDrawBorderEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(316) initializes((314, 315)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Border = getelementptr inbounds nuw i8, ptr %this, i64 314
@@ -1089,7 +1089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox19isDrawBorderEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(316) %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK3irr3gui12CGUICheckBox19isDrawBorderEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(316) %this) unnamed_addr #5 align 2 {
 entry:
   %Border = getelementptr inbounds nuw i8, ptr %this, i64 314
   %0 = load i8, ptr %Border, align 2, !tbaa !38, !range !43, !noundef !44
@@ -2977,7 +2977,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #3
 
@@ -2985,7 +2985,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
@@ -3110,7 +3110,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

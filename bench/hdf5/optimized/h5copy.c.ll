@@ -198,7 +198,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 parse_flag.exit:                                  ; preds = %15, %19, %22, %25, %28, %31, %34
   %.0.i = phi i32 [ 1, %15 ], [ 2, %19 ], [ 4, %22 ], [ 8, %25 ], [ 16, %28 ], [ 127, %31 ], [ 32, %34 ]
   %37 = or i32 %.0.i, %.0123145
-  %38 = tail call noalias ptr @strdup(ptr noundef %16) #13
+  %38 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #13
   store ptr %38, ptr @str_flag, align 8
   br label %59
 
@@ -531,7 +531,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   %197 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %196, ptr noundef nonnull dereferenceable(1) %190, i64 noundef %.065150) #13
   %198 = getelementptr inbounds i8, ptr %196, i64 %.065150
   store i8 0, ptr %198, align 1
-  %199 = tail call i32 @H5Lexists(i64 noundef %.0130, ptr noundef %196, i64 noundef 0) #13
+  %199 = tail call i32 @H5Lexists(i64 noundef %.0130, ptr noundef nonnull %196, i64 noundef 0) #13
   %200 = icmp slt i32 %199, 1
   br i1 %200, label %201, label %217
 
@@ -848,7 +848,7 @@ declare void @h5tools_setstatus(i32 noundef) local_unnamed_addr #1
 declare void @h5tools_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @usage() unnamed_addr #3 {
@@ -1159,14 +1159,14 @@ define internal fastcc void @leave(i32 noundef range(i32 0, 2) %0) unnamed_addr 
 declare i32 @H5_get_option(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @print_version(ptr noundef) local_unnamed_addr #1
 
 declare ptr @h5tools_getprogname() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @error_msg(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1177,7 +1177,7 @@ declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zer
 declare i64 @H5Fcreate(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i64 @H5Pcreate(i64 noundef) local_unnamed_addr #1
 
@@ -1188,18 +1188,18 @@ declare i32 @H5Pset_copy_object(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @H5Pset_create_intermediate_group(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @H5Lexists(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @H5tools_get_symlink_info(i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1222,7 +1222,7 @@ declare i32 @H5Eget_auto1(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5Eset_auto1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @h5tools_close() local_unnamed_addr #1
 
@@ -1230,16 +1230,16 @@ declare void @h5tools_close() local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

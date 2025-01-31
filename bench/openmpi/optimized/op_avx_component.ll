@@ -149,7 +149,7 @@ define internal range(i32 -8, 1) i32 @avx_component_init_query(i1 zeroext %0, i1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @avx_component_op_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef ptr @avx_component_op_query(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -362,7 +362,7 @@ declare i32 @mca_base_var_enum_create_flag(ptr noundef, ptr noundef, ptr noundef
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5

@@ -242,7 +242,7 @@ return:                                           ; preds = %if.then.i, %cleanup
 declare void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10StringUtil9parseJSONEN12v8_inspector10StringViewE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.v8_inspector::StringView") align 8 %string) local_unnamed_addr #0 {
+define dso_local void @_ZN4node9inspector8protocol10StringUtil9parseJSONEN12v8_inspector10StringViewE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef readonly byval(%"class.v8_inspector::StringView") align 8 captures(none) %string) local_unnamed_addr #0 {
 entry:
   %m_length.i = getelementptr inbounds nuw i8, ptr %string, i64 8
   %0 = load i64, ptr %m_length.i, align 8
@@ -276,7 +276,7 @@ return:                                           ; preds = %if.end5, %if.then2,
 declare void @_ZN4node9inspector8protocol19parseJSONCharactersEPKhj(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10StringUtil16StringViewToUtf8B5cxx11EN12v8_inspector10StringViewE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.v8_inspector::StringView") align 8 %view) local_unnamed_addr #0 {
+define dso_local void @_ZN4node9inspector8protocol10StringUtil16StringViewToUtf8B5cxx11EN12v8_inspector10StringViewE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly byval(%"class.v8_inspector::StringView") align 8 captures(none) %view) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -399,7 +399,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4node9inspector8protocol10StringUtil8toDoubleEPKcmPb(ptr noundef %buffer, i64 noundef %length, ptr nocapture noundef writeonly initializes((0, 1)) %ok) local_unnamed_addr #0 {
+define dso_local noundef double @_ZN4node9inspector8protocol10StringUtil8toDoubleEPKcmPb(ptr noundef %buffer, i64 noundef %length, ptr noundef writeonly captures(none) initializes((0, 1)) %ok) local_unnamed_addr #0 {
 entry:
   %stream = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -455,7 +455,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10StringUtil15binaryToMessageB5cxx11ESt6vectorIhSaIhEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef readonly %message) local_unnamed_addr #0 {
+define dso_local void @_ZN4node9inspector8protocol10StringUtil15binaryToMessageB5cxx11ESt6vectorIhSaIhEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(none) %message) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %message, align 8
@@ -630,13 +630,13 @@ do.end5:                                          ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #1
 

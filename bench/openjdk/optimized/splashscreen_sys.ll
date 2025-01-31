@@ -127,7 +127,7 @@ declare i32 @platformByteOrder(...) local_unnamed_addr #2
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -137,7 +137,7 @@ declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @iconv_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -225,7 +225,7 @@ declare void @initRect(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @BitmapToYXBandedRectangles(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden i32 @SplashTime() local_unnamed_addr #7 {
@@ -243,10 +243,10 @@ define hidden i32 @SplashTime() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @msec2timeval(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #9 {
+define hidden void @msec2timeval(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #9 {
   %3 = udiv i32 %0, 1000
   %4 = zext nneg i32 %3 to i64
   store i64 %4, ptr %1, align 8
@@ -321,7 +321,7 @@ define hidden void @FreeColors(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashCreateWindow(ptr nocapture noundef initializes((10636, 10644), (11792, 11800)) %0) local_unnamed_addr #0 {
+define hidden void @SplashCreateWindow(ptr noundef captures(none) initializes((10636, 10644), (11792, 11800)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XSizeHints, align 8
   %3 = alloca %struct.XSetWindowAttributes, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -416,7 +416,7 @@ SplashUpdateSizeHints.exit:                       ; preds = %1, %29
 declare i64 @XCreateFontCursor(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((10636, 10644)) %0) unnamed_addr #0 {
+define internal fastcc void @SplashCenter(ptr noundef captures(none) initializes((10636, 10644)) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -505,7 +505,7 @@ declare ptr @XAllocWMHints() local_unnamed_addr #2
 declare i32 @XSetWMHints(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashUpdateShape(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @SplashUpdateShape(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
@@ -554,7 +554,7 @@ define hidden void @SplashUpdateShape(ptr nocapture noundef readonly %0) local_u
 declare void @XShapeCombineRectangles(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashRevertShape(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @SplashRevertShape(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @shapeSupported, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
@@ -687,7 +687,7 @@ declare i32 @XPutImage(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 n
 declare ptr @XDefaultGCOfScreen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashRemoveDecoration(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @SplashRemoveDecoration(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca %struct.PROPMOTIFWMHINTS, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 11712
@@ -941,7 +941,7 @@ define hidden void @sendctl(ptr noundef readonly %0, i8 noundef signext %1) loca
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unnamed_addr #0 {
@@ -1212,7 +1212,7 @@ declare void @initColorCube(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @XStoreColors(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashCleanupPlatform(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @SplashCleanupPlatform(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1604,7 +1604,7 @@ define hidden void @SplashLock(ptr noundef %0) local_unnamed_addr #0 {
 declare void @SplashNextFrame(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @XPending(ptr noundef) local_unnamed_addr #2
 
@@ -1746,7 +1746,7 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #1
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @XStoreName(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1856,7 +1856,7 @@ sendctl.exit:                                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @SplashGetScaledImageName(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define zeroext i8 @SplashGetScaledImageName(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   store float 1.000000e+00, ptr %2, align 4
   %6 = tail call double (...) @getNativeScaleFactor() #16
   %7 = fptrunc double %6 to float
@@ -1878,7 +1878,7 @@ declare i32 @XHeightOfScreen(ptr noundef) local_unnamed_addr #2
 declare void @XSetWMNormalHints(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
@@ -1887,13 +1887,13 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

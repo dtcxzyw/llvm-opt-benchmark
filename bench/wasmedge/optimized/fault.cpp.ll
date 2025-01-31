@@ -47,7 +47,7 @@ _ZN8WasmEdge12_GLOBAL__N_115increaseHandlerEv.exit: ; preds = %1, %7
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge5FaultD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge5FaultD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = atomicrmw sub ptr @_ZN8WasmEdge12_GLOBAL__N_112handlerCountE, i32 1 seq_cst, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %_ZN8WasmEdge12_GLOBAL__N_115decreaseHandlerEv.exit
@@ -67,7 +67,7 @@ _ZN8WasmEdge12_GLOBAL__N_115decreaseHandlerEv.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8WasmEdge12_GLOBAL__N_112localHandlerE)
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -80,10 +80,10 @@ define void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr nocapture noundef rea
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal void @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.__sigset_t, align 8
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -129,10 +129,10 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

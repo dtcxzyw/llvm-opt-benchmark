@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL15g_u_scanf_infos = internal unnamed_addr constant <{ [89 x %struct.u_scanf_info], [19 x %struct.u_scanf_info] }> <{ [89 x %struct.u_scanf_info] [%struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 1, ptr @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 9, ptr @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 10, ptr @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 8, ptr @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 8, ptr @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 2, ptr @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 3, ptr @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info { i32 6, ptr @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 5, ptr @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info zeroinitializer, %struct.u_scanf_info { i32 3, ptr @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_ }], [19 x %struct.u_scanf_info] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, -2147483648) i32 @u_scanf_parse_75(ptr noundef %f, ptr noundef %patternSpecification, ptr nocapture noundef %ap) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @u_scanf_parse_75(ptr noundef %f, ptr noundef %patternSpecification, ptr noundef captures(none) %ap) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %argConsumed = alloca i32, align 4
@@ -363,7 +363,7 @@ declare signext i8 @u_feof_75(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture readnone %info, ptr nocapture readnone %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly initializes((0, 4)) %argConverted) #0 {
+define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr readnone captures(none) %info, ptr readnone captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) initializes((0, 4)) %argConverted) #0 {
 entry:
   store i32 0, ptr %argConverted, align 4
   %call = tail call zeroext i16 @u_fgetc_75(ptr noundef %input)
@@ -379,7 +379,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef initializes((13, 14)) %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef captures(none) initializes((13, 14)) %info, ptr noundef readonly captures(none) %args, ptr noundef readnone captures(none) %fmt, ptr noundef readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %0 = load i32, ptr %info, align 4
   %cmp = icmp slt i32 %0, 0
@@ -397,7 +397,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %parsePos = alloca i32, align 4
@@ -537,7 +537,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %scientificParsePos = alloca i32, align 4
@@ -669,7 +669,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %parsePos = alloca i32, align 4
@@ -761,7 +761,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %c = alloca i16, align 2
@@ -916,7 +916,7 @@ if.end37:                                         ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %parsePos = alloca i32, align 4
@@ -1010,7 +1010,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
@@ -1141,7 +1141,7 @@ if.end40:                                         ; preds = %if.then31, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr noundef %fmt, ptr nocapture noundef writeonly initializes((0, 4)) %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr noundef %fmt, ptr noundef writeonly captures(none) initializes((0, 4)) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %status = alloca i32, align 4
   %c = alloca i32, align 4
@@ -1286,7 +1286,7 @@ return:                                           ; preds = %if.end49.thread57, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef initializes((13, 14)) %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef captures(none) initializes((13, 14)) %info, ptr noundef readonly captures(none) %args, ptr noundef readnone captures(none) %fmt, ptr noundef readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %0 = load i32, ptr %info, align 4
   %cmp = icmp slt i32 %0, 0
@@ -1304,7 +1304,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %parsePos = alloca i32, align 4
@@ -1445,7 +1445,7 @@ return:                                           ; preds = %if.end9, %_ZL23u_sc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %parsePos = alloca i32, align 4
@@ -1564,7 +1564,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr nocapture readnone %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly initializes((0, 4)) %argConverted) #2 {
+define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr readnone captures(none) %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) initializes((0, 4)) %argConverted) #2 {
 entry:
   %fSkipArg = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load i8, ptr %fSkipArg, align 4
@@ -1608,7 +1608,7 @@ if.end13:                                         ; preds = %if.then2, %if.else8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
@@ -1717,7 +1717,7 @@ if.end21:                                         ; preds = %if.then12, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %len = alloca i32, align 4
@@ -1813,7 +1813,7 @@ if.end12:                                         ; preds = %if.then11, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %c.i = alloca i16, align 2
   %source = alloca ptr, align 8
@@ -2023,7 +2023,7 @@ return:                                           ; preds = %if.end, %if.end59, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %fmt, ptr readnone captures(none) %fmtConsumed, ptr noundef writeonly captures(none) %argConverted) #0 {
 entry:
   %call = tail call noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr noundef %info, ptr noundef %args, ptr poison, ptr poison, ptr noundef %argConverted)
   ret i32 %call
@@ -2153,13 +2153,13 @@ declare void @ucnv_fromUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @u_releaseDefaultConverter_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

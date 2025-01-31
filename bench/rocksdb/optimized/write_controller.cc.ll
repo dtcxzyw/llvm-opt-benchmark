@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7rocksdb23CompactionPressureTokenD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb23CompactionPressureTokenD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15WriteController12GetStopTokenEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15WriteController12GetStopTokenEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = atomicrmw add ptr %this, i32 1 seq_cst, align 4
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
@@ -39,7 +39,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15WriteController13GetDelayTokenEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %write_rate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15WriteController13GetDelayTokenEm(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %write_rate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %total_delayed_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = atomicrmw add ptr %total_delayed_, i32 1 seq_cst, align 4
@@ -68,7 +68,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15WriteController26GetCompactionPressureTokenEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15WriteController26GetCompactionPressureTokenEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %total_compaction_pressure_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %total_compaction_pressure_, i32 1 seq_cst, align 4
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb15WriteController9IsStoppedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK7rocksdb15WriteController9IsStoppedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr %this monotonic, align 8
   %cmp = icmp sgt i32 %0, 0
@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS_11SystemClockEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %clock, i64 noundef %num_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS_11SystemClockEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %clock, i64 noundef %num_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr %this monotonic, align 8
   %cmp = icmp sgt i32 %0, 0
@@ -182,7 +182,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 18446744073709552) i64 @_ZN7rocksdb15WriteController18NowMicrosMonotonicEPNS_11SystemClockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef %clock) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 18446744073709552) i64 @_ZN7rocksdb15WriteController18NowMicrosMonotonicEPNS_11SystemClockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %this, ptr noundef %clock) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %clock, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
@@ -196,7 +196,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb14StopWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb14StopWriteTokenD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -214,7 +214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb15DelayWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb15DelayWriteTokenD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb23CompactionPressureTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb23CompactionPressureTokenD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 16), ptr %this, align 8
   %controller_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -255,7 +255,7 @@ entry:
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

@@ -500,7 +500,7 @@ declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @ShmemAlloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @PGSemaphoreCreate() local_unnamed_addr #1
 
@@ -1204,7 +1204,7 @@ define dso_local i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ProcStructLock, align 8
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !9
   %.not = icmp eq i8 %4, 0
@@ -2160,7 +2160,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare ptr @GetBlockingAutoVacuumPgproc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #1
 

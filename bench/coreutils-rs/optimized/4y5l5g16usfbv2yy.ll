@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.15bfce9fba53db2e615623d4acd8fae1.6 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.15bfce9fba53db2e615623d4acd8fae1.4, [16 x i8] c"K\00\00\00\00\00\00\00C\01\00\00\0D\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments6new_v117h30bf1d769ab653e6E(ptr nocapture writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments6new_v117h30bf1d769ab653e6E(ptr writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
@@ -46,7 +46,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h30bf1d769ab653e6E(ptr nocapt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments9new_const17hf2f084e038c81550E(ptr nocapture writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments9new_const17hf2f084e038c81550E(ptr writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = icmp ugt i64 %2, 1
   br i1 %5, label %11, label %6

@@ -207,7 +207,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12ToolGroupCap6toJsonERN4Json5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(40) %object) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12ToolGroupCap6toJsonERN4Json5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(40) %object) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Json::Value", align 8
   %ref.tmp3 = alloca %"class.Json::Value", align 8
@@ -322,7 +322,7 @@ eh.resume:                                        ; preds = %ehcleanup31, %lpad4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN4Json5ValueC1Ei(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) unnamed_addr #0
 
@@ -337,12 +337,12 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(p
 declare void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN4Json5ValueC1Ed(ptr noundef nonnull align 8 dereferenceable(40), double noundef) unnamed_addr #0
 
@@ -485,7 +485,7 @@ declare noundef zeroext i1 @_ZNK4Json5Value8isDoubleEv(ptr noundef nonnull align
 declare noundef float @_ZNK4Json5Value7asFloatEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16ToolCapabilities9serializeERSot(ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_version) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK16ToolCapabilities9serializeERSot(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_version) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i = alloca %"class.std::allocator.42", align 1
@@ -1828,7 +1828,7 @@ _ZNSt13unordered_mapIifSt4hashIiESt8equal_toIiESaISt4pairIKifEEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16ToolCapabilities13serializeJsonERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK16ToolCapabilities13serializeJsonERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %root = alloca %"class.Json::Value", align 8
   %ref.tmp = alloca %"class.Json::Value", align 8
@@ -3686,7 +3686,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %__begin1.sroa.0.0172 = phi ptr [ %11, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %stop) #25
   %16 = load ptr, ptr %__begin1.sroa.0.0172, align 8, !tbaa !38
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %16, ptr noundef null) #25
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %16, ptr noundef null) #25
   %conv.i = fptrunc double %call.i.i to float
   store float %conv.i, ptr %stop, align 4, !tbaa !26
   %cmp = fcmp nsz uge float %conv.i, 0.000000e+00
@@ -4789,7 +4789,7 @@ eh.resume:                                        ; preds = %_ZNSt7__cxx1112basi
 declare double @llvm.pow.f64(double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr nocapture noundef readonly %tp, float noundef %time_from_last_punch, i16 noundef zeroext %initial_wear) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr noundef readonly captures(none) %tp, float noundef %time_from_last_punch, i16 noundef zeroext %initial_wear) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load float, ptr %tp, align 8, !tbaa !29
   %div = fdiv nsz float %time_from_last_punch, %0
@@ -4885,7 +4885,7 @@ if.end:                                           ; preds = %_Z19calculateResult
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilities(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr nocapture noundef readonly %tp) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilities(ptr noundef nonnull align 8 dereferenceable(56) %armor_groups, ptr noundef readonly captures(none) %tp) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load float, ptr %tp, align 8, !tbaa !29
   %div.i = fdiv nsz float 1.000000e+06, %0
@@ -5351,7 +5351,7 @@ cond.true:                                        ; preds = %_ZNSt7__cxx1112basi
 
 cond.false:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74
   %9 = load ptr, ptr %call.i49, align 8, !tbaa !38
-  %call.i.i76 = call nsz double @strtod(ptr nocapture noundef nonnull %9, ptr noundef null) #25
+  %call.i.i76 = call nsz double @strtod(ptr noundef nonnull captures(none) %9, ptr noundef null) #25
   %conv.i = fptrunc double %call.i.i76 to float
   br label %cond.end
 
@@ -5373,7 +5373,7 @@ cond.true22:                                      ; preds = %cond.end
 
 cond.false25:                                     ; preds = %cond.end
   %13 = load ptr, ptr %call.i67, align 8, !tbaa !38
-  %call.i.i82 = call nsz double @strtod(ptr nocapture noundef nonnull %13, ptr noundef null) #25
+  %call.i.i82 = call nsz double @strtod(ptr noundef nonnull captures(none) %13, ptr noundef null) #25
   %conv.i83 = fptrunc double %call.i.i82 to float
   br label %cond.end27
 
@@ -5526,7 +5526,7 @@ declare noundef i32 @_Z12f32Tou32Slowf(float noundef) local_unnamed_addr #0
 declare noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -6255,7 +6255,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #18
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
@@ -6424,7 +6424,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9IMetadata9getStrin
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -8285,7 +8285,7 @@ declare i16 @llvm.bswap.i16(i16) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

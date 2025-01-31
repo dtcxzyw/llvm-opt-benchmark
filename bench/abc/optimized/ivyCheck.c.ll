@@ -309,7 +309,7 @@ Ivy_ObjFaninId1.exit110.thread:                   ; preds = %Ivy_ObjFaninId1.exi
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @Ivy_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -320,7 +320,7 @@ declare i32 @Ivy_TableCountEntries(ptr noundef) local_unnamed_addr #2
 declare i32 @Ivy_ManIsAcyclic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Ivy_ManCheckFanoutNums(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Ivy_ManCheckFanoutNums(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -474,7 +474,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br i1 %42, label %95, label %43
 
 43:                                               ; preds = %37
-  tail call void @Ivy_ObjCollectFanouts(ptr noundef %0, ptr noundef nonnull %41, ptr noundef nonnull %5) #7
+  tail call void @Ivy_ObjCollectFanouts(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %5) #7
   %.val124 = load i32, ptr %6, align 4
   %44 = icmp sgt i32 %.val124, 0
   br i1 %44, label %.lr.ph161, label %.critedge4
@@ -697,7 +697,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge6, %131
 declare void @Ivy_ObjCollectFanouts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef i32 @Ivy_ManCheckChoices(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -779,10 +779,10 @@ define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

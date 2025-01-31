@@ -114,7 +114,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @aeGetSetSize(ptr nocapture noundef readonly %eventLoop) local_unnamed_addr #3 {
+define dso_local i32 @aeGetSetSize(ptr noundef readonly captures(none) %eventLoop) local_unnamed_addr #3 {
 entry:
   %setsize = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aeSetDontWait(ptr nocapture noundef %eventLoop, i32 noundef %noWait) local_unnamed_addr #4 {
+define dso_local void @aeSetDontWait(ptr noundef captures(none) %eventLoop, i32 noundef %noWait) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %noWait, 0
   %flags1 = getelementptr inbounds nuw i8, ptr %eventLoop, i64 72
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @aeResizeSetSize(ptr nocapture noundef %eventLoop, i32 noundef %setsize) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @aeResizeSetSize(ptr noundef captures(none) %eventLoop, i32 noundef %setsize) local_unnamed_addr #0 {
 entry:
   %setsize1 = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize1, align 4
@@ -231,7 +231,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeStop(ptr nocapture noundef writeonly initializes((40, 44)) %eventLoop) local_unnamed_addr #6 {
+define dso_local void @aeStop(ptr noundef writeonly captures(none) initializes((40, 44)) %eventLoop) local_unnamed_addr #6 {
 entry:
   %stop = getelementptr inbounds nuw i8, ptr %eventLoop, i64 40
   store i32 1, ptr %stop, align 8
@@ -239,7 +239,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask, ptr noundef %proc, ptr noundef %clientData) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(none) %eventLoop, i32 noundef %fd, i32 noundef %mask, ptr noundef %proc, ptr noundef %clientData) local_unnamed_addr #0 {
 entry:
   %ee.i = alloca %struct.epoll_event, align 4
   %setsize = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
@@ -322,7 +322,7 @@ return:                                           ; preds = %if.end11, %if.then1
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @aeDeleteFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask) local_unnamed_addr #0 {
+define dso_local void @aeDeleteFileEvent(ptr noundef captures(none) %eventLoop, i32 noundef %fd, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %ee.i = alloca %struct.epoll_event, align 4
   %setsize = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
@@ -416,7 +416,7 @@ if.end24:                                         ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @aeGetFileClientData(ptr nocapture noundef readonly %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
+define dso_local ptr @aeGetFileClientData(ptr noundef readonly captures(none) %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
 entry:
   %setsize = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
@@ -443,7 +443,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @aeGetFileEvents(ptr nocapture noundef readonly %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
+define dso_local i32 @aeGetFileEvents(ptr noundef readonly captures(none) %eventLoop, i32 noundef %fd) local_unnamed_addr #8 {
 entry:
   %setsize = getelementptr inbounds nuw i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize, align 4
@@ -464,7 +464,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @aeCreateTimeEvent(ptr nocapture noundef %eventLoop, i64 noundef %milliseconds, ptr noundef %proc, ptr noundef %clientData, ptr noundef %finalizerProc) local_unnamed_addr #0 {
+define dso_local i64 @aeCreateTimeEvent(ptr noundef captures(none) %eventLoop, i64 noundef %milliseconds, ptr noundef %proc, ptr noundef %clientData, ptr noundef %finalizerProc) local_unnamed_addr #0 {
 entry:
   %timeEventNextId = getelementptr inbounds nuw i8, ptr %eventLoop, i64 8
   %0 = load i64, ptr %timeEventNextId, align 8
@@ -514,7 +514,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @aeDeleteTimeEvent(ptr nocapture noundef readonly %eventLoop, i64 noundef %id) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @aeDeleteTimeEvent(ptr noundef readonly captures(none) %eventLoop, i64 noundef %id) local_unnamed_addr #9 {
 entry:
   %timeEventHead = getelementptr inbounds nuw i8, ptr %eventLoop, i64 32
   %te.05 = load ptr, ptr %timeEventHead, align 8
@@ -1038,7 +1038,7 @@ return:                                           ; preds = %if.end11, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1066,7 +1066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeSetBeforeSleepProc(ptr nocapture noundef writeonly initializes((56, 64)) %eventLoop, ptr noundef %beforesleep) local_unnamed_addr #6 {
+define dso_local void @aeSetBeforeSleepProc(ptr noundef writeonly captures(none) initializes((56, 64)) %eventLoop, ptr noundef %beforesleep) local_unnamed_addr #6 {
 entry:
   %beforesleep1 = getelementptr inbounds nuw i8, ptr %eventLoop, i64 56
   store ptr %beforesleep, ptr %beforesleep1, align 8
@@ -1074,7 +1074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeSetAfterSleepProc(ptr nocapture noundef writeonly initializes((64, 72)) %eventLoop, ptr noundef %aftersleep) local_unnamed_addr #6 {
+define dso_local void @aeSetAfterSleepProc(ptr noundef writeonly captures(none) initializes((64, 72)) %eventLoop, ptr noundef %aftersleep) local_unnamed_addr #6 {
 entry:
   %aftersleep1 = getelementptr inbounds nuw i8, ptr %eventLoop, i64 64
   store ptr %aftersleep, ptr %aftersleep1, align 8
@@ -1102,10 +1102,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #12
 declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

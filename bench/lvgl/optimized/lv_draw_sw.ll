@@ -150,7 +150,7 @@ execute_drawing_unit.exit:                        ; preds = %11, %18, %22, %26, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @evaluate(ptr nocapture readnone %0, ptr nocapture noundef %1) #2 {
+define internal noundef i32 @evaluate(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !20
   %.off = add i32 %4, -5
@@ -240,7 +240,7 @@ define void @lv_draw_sw_deinit() local_unnamed_addr #0 {
 declare void @lv_draw_sw_mask_deinit() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_draw_sw_rgb565_swap(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = lshr i32 %1, 1
   %4 = icmp ugt i32 %1, 15
   br i1 %4, label %.lr.ph, label %.preheader
@@ -434,7 +434,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_rotate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   switch i32 %6, label %rotate90_l8.exit [
     i32 1, label %9
     i32 2, label %70

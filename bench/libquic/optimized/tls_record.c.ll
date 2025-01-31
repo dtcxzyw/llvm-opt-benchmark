@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/tls_record.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl_record_sequence_update(ptr nocapture noundef %seq, i64 noundef %seq_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl_record_sequence_update(ptr noundef captures(none) %seq, i64 noundef %seq_len) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -38,7 +38,7 @@ return:                                           ; preds = %for.body, %for.end
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ssl_record_prefix_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden i64 @ssl_record_prefix_len(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method, align 8
@@ -180,7 +180,7 @@ return:                                           ; preds = %ssl_needs_record_sp
 declare i64 @SSL_AEAD_CTX_max_overhead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @tls_open_record(ptr noundef %ssl, ptr noundef writeonly captures(none) %out_type, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, ptr noundef writeonly captures(none) %out_consumed, ptr noundef writeonly captures(none) %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %type = alloca i8, align 1
@@ -361,7 +361,7 @@ declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @tls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr noundef captures(none) %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %frag_len = alloca i64, align 8
   store i64 0, ptr %frag_len, align 8
@@ -453,7 +453,7 @@ return:                                           ; preds = %if.end28, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len) unnamed_addr #0 {
 entry:
   %ciphertext_len = alloca i64, align 8
   %cmp = icmp ult i64 %max_out, 5
@@ -562,7 +562,7 @@ return:                                           ; preds = %ssl_record_sequence
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_set_read_state(ptr nocapture noundef readonly %ssl, ptr noundef %aead_ctx) local_unnamed_addr #0 {
+define hidden void @ssl_set_read_state(ptr noundef readonly captures(none) %ssl, ptr noundef %aead_ctx) local_unnamed_addr #0 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method, align 8
@@ -597,12 +597,12 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @SSL_AEAD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_set_write_state(ptr nocapture noundef readonly %ssl, ptr noundef %aead_ctx) local_unnamed_addr #0 {
+define hidden void @ssl_set_write_state(ptr noundef readonly captures(none) %ssl, ptr noundef %aead_ctx) local_unnamed_addr #0 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %method, align 8

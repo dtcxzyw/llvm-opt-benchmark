@@ -259,7 +259,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @ENGINE_by_id(ptr noundef %name) #4
+  %call1 = tail call ptr @ENGINE_by_id(ptr noundef nonnull %name) #4
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then14, label %if.end4
 
@@ -280,7 +280,7 @@ err:                                              ; preds = %if.end4, %if.then7
 if.then14:                                        ; preds = %if.end, %err
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.TS_CONF_set_default_engine) #4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 127, ptr noundef nonnull @.str.8, ptr noundef %name) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 127, ptr noundef nonnull @.str.8, ptr noundef nonnull %name) #4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %err
@@ -294,7 +294,7 @@ return:                                           ; preds = %entry, %if.end15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 
@@ -798,7 +798,7 @@ err:                                              ; preds = %for.end, %if.else36
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @TS_RESP_CTX_set_accuracy(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

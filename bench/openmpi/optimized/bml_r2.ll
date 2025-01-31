@@ -257,12 +257,12 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @ompi_proc_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mca_bml_r2_del_proc_btl(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #3 {
+define internal noundef i32 @mca_bml_r2_del_proc_btl(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -755,7 +755,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %14, %12, %78, %81, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq i64 %0, 0
   br i1 %5, label %.loopexit109, label %6
@@ -1034,7 +1034,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_bml_r2_del_procs(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @mca_bml_r2_del_procs(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %.not81 = icmp eq i64 %0, 0
   br i1 %.not81, label %.loopexit70, label %.lr.ph
@@ -1245,7 +1245,7 @@ opal_obj_run_destructors.exit69:                  ; preds = %.lr.ph.i66, %81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mca_bml_r2_add_btl(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @mca_bml_r2_add_btl(ptr readnone captures(none) %0) #4 {
   ret i32 -7
 }
 
@@ -1609,7 +1609,7 @@ define internal i32 @mca_bml_r2_register_error(ptr noundef %0) #0 {
 declare i32 @opal_progress_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr #0 {
@@ -1787,7 +1787,7 @@ opal_obj_new.exit.thread11:                       ; preds = %.lr.ph.i.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16, 1) i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -16, 1) i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2
@@ -2009,7 +2009,7 @@ mca_bml_base_btl_array_get_index.exit.thread:     ; preds = %31, %37, %mca_bml_b
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr nocapture noundef nonnull initializes((216, 224)) %0) unnamed_addr #6 {
+define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr noundef nonnull captures(none) initializes((216, 224)) %0) unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val44 = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 184
@@ -2171,7 +2171,7 @@ mca_bml_base_btl_array_get_index.exit53:          ; preds = %mca_bml_base_btl_ar
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @opal_argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2180,13 +2180,13 @@ declare noalias ptr @opal_argv_join(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @btl_exclusivity_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @btl_exclusivity_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -2210,7 +2210,7 @@ declare i32 @opal_progress_register(ptr noundef) local_unnamed_addr #2
 declare i32 @opal_progress_register_lp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @btl_bandwidth_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal i32 @btl_bandwidth_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -2226,7 +2226,7 @@ define internal i32 @btl_bandwidth_compare(ptr nocapture noundef readonly %0, pt
 declare i32 @opal_bitmap_clear_all_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare zeroext i1 @opal_bitmap_is_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 

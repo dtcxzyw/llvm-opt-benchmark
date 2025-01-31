@@ -231,7 +231,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x %struct.ScanKeyData], align 16
   %3 = alloca %struct.InternalGrant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2387,7 +2387,7 @@ ExecGrant_Parameter.exit:                         ; preds = %recordExtensionInit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.InternalDefaultACL, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2790,7 +2790,7 @@ SetDefaultACLsInSchemas.exit:                     ; preds = %SetDefaultACLsInSch
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2984,7 +2984,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetDefaultACL(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @SetDefaultACL(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
@@ -5590,7 +5590,7 @@ recordExtensionInitPriv.exit:                     ; preds = %109, %112
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ExecGrant_Type_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @ExecGrant_Type_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -5654,7 +5654,7 @@ define internal void @ExecGrant_Type_check(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ExecGrant_Language_check(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @ExecGrant_Language_check(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -5691,7 +5691,7 @@ declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @aclcopy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @select_best_grantor(i32 noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6277,10 +6277,10 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

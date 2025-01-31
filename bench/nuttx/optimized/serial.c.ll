@@ -137,7 +137,7 @@ declare i32 @nxsem_reset(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 declare void @nxmutex_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -245,7 +245,7 @@ up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @uart_close(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @uart_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -354,7 +354,7 @@ uart_datareceived.exit:                           ; preds = %.lr.ph.i.i, %up_irq
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
+define internal i64 @uart_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -878,7 +878,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uart_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @uart_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1601,7 +1601,7 @@ up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uart_poll(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
+define internal i32 @uart_poll(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1794,10 +1794,10 @@ declare i32 @nxsem_get_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @nxsem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #4

@@ -10,12 +10,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"(IIII)V\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @JNI_OnLoad(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 65538
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_awt_SplashScreen__1update(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
+define void @Java_java_awt_SplashScreen__1update(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %34, label %11
@@ -76,7 +76,7 @@ define void @Java_java_awt_SplashScreen__1update(ptr noundef %0, ptr nocapture n
 declare void @SplashLock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -90,7 +90,7 @@ declare void @SplashUpdate(ptr noundef) local_unnamed_addr #2
 declare void @SplashUnlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1isVisible(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1isVisible(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %4
 
@@ -108,7 +108,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1isVisible(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %56, label %5
@@ -203,7 +203,7 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_awt_SplashScreen__1getInstance(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define i64 @Java_java_awt_SplashScreen__1getInstance(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call ptr (...) @SplashGetInstance() #6
   %4 = ptrtoint ptr %3 to i64
   ret i64 %4
@@ -212,7 +212,7 @@ define i64 @Java_java_awt_SplashScreen__1getInstance(ptr nocapture noundef readn
 declare ptr @SplashGetInstance(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_awt_SplashScreen__1close(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_java_awt_SplashScreen__1close(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -230,7 +230,7 @@ define void @Java_java_awt_SplashScreen__1close(ptr nocapture noundef readnone %
 declare void @SplashClosePlatform(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_awt_SplashScreen__1getImageFileName(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define ptr @Java_java_awt_SplashScreen__1getImageFileName(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %15, label %5
@@ -256,7 +256,7 @@ define ptr @Java_java_awt_SplashScreen__1getImageFileName(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_awt_SplashScreen__1getImageJarName(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define ptr @Java_java_awt_SplashScreen__1getImageJarName(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %15, label %5
@@ -282,7 +282,7 @@ define ptr @Java_java_awt_SplashScreen__1getImageJarName(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1setImageData(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1setImageData(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %21, label %5
 
@@ -316,7 +316,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1setImageData(ptr 
 declare i32 @SplashLoadMemory(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Java_java_awt_SplashScreen__1getScaleFactor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define float @Java_java_awt_SplashScreen__1getScaleFactor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %8, label %4
 

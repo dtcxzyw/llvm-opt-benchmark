@@ -89,7 +89,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_helpe
 @llvm.compiler.used = appending global [21 x ptr] [ptr @__UNIQUE_ID___addressable___nf_conntrack_helper_find860, ptr @__UNIQUE_ID___addressable___nf_ct_try_assign_helper881, ptr @__UNIQUE_ID___addressable_nf_conntrack_helper_put862, ptr @__UNIQUE_ID___addressable_nf_conntrack_helper_register901, ptr @__UNIQUE_ID___addressable_nf_conntrack_helper_try_module_get861, ptr @__UNIQUE_ID___addressable_nf_conntrack_helper_unregister902, ptr @__UNIQUE_ID___addressable_nf_conntrack_helpers_register904, ptr @__UNIQUE_ID___addressable_nf_conntrack_helpers_unregister905, ptr @__UNIQUE_ID___addressable_nf_ct_helper_expectfn_find_by_name891, ptr @__UNIQUE_ID___addressable_nf_ct_helper_expectfn_find_by_symbol894, ptr @__UNIQUE_ID___addressable_nf_ct_helper_expectfn_register887, ptr @__UNIQUE_ID___addressable_nf_ct_helper_expectfn_unregister888, ptr @__UNIQUE_ID___addressable_nf_ct_helper_ext_add869, ptr @__UNIQUE_ID___addressable_nf_ct_helper_hash854, ptr @__UNIQUE_ID___addressable_nf_ct_helper_hsize855, ptr @__UNIQUE_ID___addressable_nf_ct_helper_init903, ptr @__UNIQUE_ID___addressable_nf_ct_helper_log897, ptr @__UNIQUE_ID___addressable_nf_nat_helper_put868, ptr @__UNIQUE_ID___addressable_nf_nat_helper_register906, ptr @__UNIQUE_ID___addressable_nf_nat_helper_try_module_get865, ptr @__UNIQUE_ID___addressable_nf_nat_helper_unregister907], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local ptr @__nf_conntrack_helper_find(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local ptr @__nf_conntrack_helper_find(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = load i32, ptr @nf_ct_helper_hsize, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.loopexit, label %6
@@ -143,13 +143,13 @@ define dso_local ptr @__nf_conntrack_helper_find(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @nf_conntrack_helper_try_module_get(ptr noundef %0, i16 noundef zeroext %1, i8 noundef zeroext %2) #3 align 16 {
@@ -342,7 +342,7 @@ define dso_local void @nf_conntrack_helper_put(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2, 1) i32 @nf_nat_helper_try_module_get(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i8 noundef zeroext %2) #3 align 16 {
+define dso_local range(i32 -2, 1) i32 @nf_nat_helper_try_module_get(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) #3 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !14
@@ -453,13 +453,13 @@ define dso_local range(i32 -2, 1) i32 @nf_nat_helper_try_module_get(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_nat_helper_put(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local void @nf_nat_helper_put(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 142
   br label %3
 
@@ -721,7 +721,7 @@ define dso_local void @nf_ct_helper_expectfn_register(ptr noundef initializes((0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_ct_helper_expectfn_unregister(ptr nocapture noundef %0) #3 align 16 {
+define dso_local void @nf_ct_helper_expectfn_unregister(ptr noundef captures(none) %0) #3 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -735,7 +735,7 @@ define dso_local void @nf_ct_helper_expectfn_unregister(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local ptr @nf_ct_helper_expectfn_find_by_name(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @nf_ct_helper_expectfn_find_by_name(ptr noundef readonly captures(none) %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -778,7 +778,7 @@ define dso_local ptr @nf_ct_helper_expectfn_find_by_symbol(ptr noundef readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_ct_helper_log(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ...) #3 align 16 {
+define dso_local void @nf_ct_helper_log(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ...) #3 align 16 {
   %4 = alloca %struct.va_format, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
@@ -1047,7 +1047,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -1089,7 +1089,7 @@ declare dso_local void @synchronize_rcu() local_unnamed_addr #4
 declare dso_local void @nf_ct_expect_iterate_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @expect_iter_me(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #3 align 16 {
+define internal zeroext i1 @expect_iter_me(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -1138,7 +1138,7 @@ define internal zeroext i1 @expect_iter_me(ptr nocapture noundef readonly %0, pt
 declare dso_local void @nf_ct_iterate_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unhelp(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #3 align 16 {
+define internal noundef i32 @unhelp(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1183,7 +1183,7 @@ define internal noundef i32 @unhelp(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @nf_ct_helper_init(ptr nocapture noundef writeonly initializes((40, 56), (72, 76), (94, 95), (96, 104), (112, 120), (128, 132)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 align 16 {
+define dso_local void @nf_ct_helper_init(ptr noundef writeonly captures(none) initializes((40, 56), (72, 76), (94, 95), (96, 104), (112, 120), (128, 132)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 74
   store i16 %1, ptr %13, align 2
   %14 = trunc i16 %2 to i8
@@ -1341,7 +1341,7 @@ define dso_local void @nf_nat_helper_register(ptr noundef initializes((0, 16)) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_nat_helper_unregister(ptr nocapture noundef %0) #3 align 16 {
+define dso_local void @nf_nat_helper_unregister(ptr noundef captures(none) %0) #3 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_ct_nat_helpers_mutex) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

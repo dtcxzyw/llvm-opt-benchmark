@@ -51,7 +51,7 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
   %4 = getelementptr inbounds nuw [11 x ptr], ptr @luaT_typenames, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #3
-  %7 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef %5, i64 noundef %6)
+  %7 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %6)
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2944
   %10 = getelementptr inbounds nuw [11 x ptr], ptr %9, i64 0, i64 %indvars.iv
@@ -73,7 +73,7 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
   %18 = getelementptr inbounds nuw [21 x ptr], ptr @luaT_eventname, i64 0, i64 %indvars.iv20
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #3
-  %21 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %19, i64 noundef %20)
+  %21 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %19, i64 noundef %20)
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 3032
   %24 = getelementptr inbounds nuw [21 x ptr], ptr %23, i64 0, i64 %indvars.iv20
@@ -97,7 +97,7 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
 declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z10luaT_gettmP5Table3TMSP7TString(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -124,7 +124,7 @@ define hidden noundef ptr @_Z10luaT_gettmP5Table3TMSP7TString(ptr noundef %0, i3
 declare hidden noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %12 [
@@ -172,7 +172,7 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %.thread [
@@ -263,7 +263,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %.thread.i [

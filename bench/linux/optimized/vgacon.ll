@@ -103,7 +103,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_vga_con: ; .
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_vga_con350, ptr @__UNIQUE_ID_file351, ptr @__UNIQUE_ID_license352, ptr @__setup_no_scroll, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @no_scroll(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @no_scroll(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i8 0, ptr @vga_hardscroll_enabled, align 1
   store i1 true, ptr @vga_hardscroll_user_enable, align 1
   ret i32 1
@@ -494,17 +494,17 @@ define internal void @vgacon_deinit(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @vgacon_clear(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
+define internal void @vgacon_clear(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @vgacon_putc(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
+define internal void @vgacon_putc(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @vgacon_putcs(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
+define internal void @vgacon_putcs(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -823,7 +823,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @vgacon_switch(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -891,7 +891,7 @@ define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   switch i32 %1, label %186 [
     i32 0, label %4
     i32 1, label %136
@@ -1460,7 +1460,7 @@ vga_set_palette.exit:                             ; preds = %104
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load i8, ptr @vga_video_type, align 1
@@ -1512,7 +1512,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @vgacon_font_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vgacon_font_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = load i8, ptr @vga_video_type, align 1
   %5 = icmp ult i8 %4, 32
   %6 = icmp ne i32 %2, 32
@@ -1613,7 +1613,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_resize(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vgacon_set_palette(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @vgacon_set_palette(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load i8, ptr @vga_video_type, align 1
   %4 = icmp eq i8 %3, 34
   br i1 %4, label %5, label %vga_set_palette.exit
@@ -1707,7 +1707,7 @@ define internal void @vgacon_scrolldelta(ptr noundef %0, i32 noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr nocapture noundef writeonly %0) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr noundef writeonly captures(none) %0) #1 align 16 {
   %2 = load i1, ptr @vga_is_gfx, align 1
   br i1 %2, label %15, label %3
 
@@ -1741,7 +1741,7 @@ define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @vgacon_save_screen(ptr nocapture noundef %0) #3 align 16 {
+define internal void @vgacon_save_screen(ptr noundef captures(none) %0) #3 align 16 {
   %2 = load i1, ptr @vgacon_save_screen.vga_bootup_console, align 4
   br i1 %2, label %12, label %3
 
@@ -1782,7 +1782,7 @@ define internal void @vgacon_save_screen(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i8 @vgacon_build_attr(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #4 align 16 {
+define internal zeroext i8 @vgacon_build_attr(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #4 align 16 {
   %8 = load i1, ptr @vga_can_do_color, align 1
   br i1 %8, label %9, label %28
 
@@ -1862,7 +1862,7 @@ define internal zeroext i8 @vgacon_build_attr(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @vgacon_invert_region(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #5 align 16 {
+define internal void @vgacon_invert_region(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #5 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2091,13 +2091,13 @@ define internal fastcc void @vgacon_set_cursor_size(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vgacon_doresize(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @vgacon_doresize(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13

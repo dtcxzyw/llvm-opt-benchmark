@@ -1436,7 +1436,7 @@ if.then262:                                       ; preds = %if.then258
 if.end264:                                        ; preds = %if.then258
   %arrayidx265 = getelementptr inbounds [111 x i8], ptr %sigs_doit, i64 0, i64 %55
   store i8 1, ptr %arrayidx265, align 1
-  %call266 = call noalias ptr @CRYPTO_strdup(ptr noundef %call183, ptr noundef nonnull @.str.108, i32 noundef 2150) #15
+  %call266 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %call183, ptr noundef nonnull @.str.108, i32 noundef 2150) #15
   %58 = load i64, ptr @sigs_algs_len, align 8
   %inc267 = add i64 %58, 1
   store i64 %inc267, ptr @sigs_algs_len, align 8
@@ -5584,7 +5584,7 @@ for.body3261:                                     ; preds = %for.cond3258.prehea
   br i1 %cmp3266, label %land.lhs.true3268, label %sub_01938
 
 land.lhs.true3268:                                ; preds = %for.body3261
-  %call3270 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %712, ptr noundef nonnull @.str.235, ptr noundef nonnull %bits3262, ptr noundef nonnull %sfx) #15
+  %call3270 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %712, ptr noundef nonnull @.str.235, ptr noundef nonnull %bits3262, ptr noundef nonnull %sfx) #15
   %cmp3271 = icmp eq i32 %call3270, 1
   br i1 %cmp3271, label %if.end3293, label %sub_01938
 
@@ -5649,7 +5649,7 @@ if.end3312:                                       ; preds = %if.end3312.sink.spl
   %cond3323 = select i1 %cmp3305, ptr @.str.109, ptr %712
   %cond3325 = select i1 %cmp3299, ptr @.str.106, ptr %cond3323
   %call3326 = call ptr @app_get0_propq() #15
-  %call3327 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3313, ptr noundef %cond3325, ptr noundef %call3326) #15
+  %call3327 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3313, ptr noundef nonnull %cond3325, ptr noundef %call3326) #15
   %tobool3328.not = icmp eq ptr %call3327, null
   br i1 %tobool3328.not, label %if.then3340, label %lor.lhs.false3329
 
@@ -5668,7 +5668,7 @@ land.lhs.true3335:                                ; preds = %lor.lhs.false3333
 
 if.then3340:                                      ; preds = %land.lhs.true3335, %lor.lhs.false3329, %if.end3312
   %720 = load ptr, ptr @bio_err, align 8
-  %call3341 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %720, ptr noundef nonnull @.str.238, ptr noundef %712) #15
+  %call3341 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %720, ptr noundef nonnull @.str.238, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3342:                                       ; preds = %land.lhs.true3335, %lor.lhs.false3333
@@ -5719,7 +5719,7 @@ lor.lhs.false3378:                                ; preds = %lor.lhs.false3365, 
 
 if.then3382:                                      ; preds = %lor.lhs.false3378, %land.lhs.true3374, %land.lhs.true3361, %lor.lhs.false3354, %if.end3348
   %724 = load ptr, ptr @bio_err, align 8
-  %call3383 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %724, ptr noundef nonnull @.str.242, ptr noundef %712) #15
+  %call3383 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %724, ptr noundef nonnull @.str.242, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3384:                                       ; preds = %lor.lhs.false3378
@@ -5734,7 +5734,7 @@ if.end3384:                                       ; preds = %lor.lhs.false3378
 
 if.then3392:                                      ; preds = %if.end3384
   %727 = load ptr, ptr @bio_err, align 8
-  %call3393 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %727, ptr noundef nonnull @.str.245, ptr noundef %712) #15
+  %call3393 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %727, ptr noundef nonnull @.str.245, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3394:                                       ; preds = %if.end3384
@@ -5744,7 +5744,7 @@ if.end3394:                                       ; preds = %if.end3384
 
 if.then3398:                                      ; preds = %if.end3394
   %728 = load ptr, ptr @bio_err, align 8
-  %call3399 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %728, ptr noundef nonnull @.str.246, ptr noundef %712) #15
+  %call3399 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %728, ptr noundef nonnull @.str.246, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3400:                                       ; preds = %if.end3394
@@ -5784,7 +5784,7 @@ lor.lhs.false3430:                                ; preds = %lor.lhs.false3417, 
 
 if.then3434:                                      ; preds = %lor.lhs.false3430, %land.lhs.true3426, %land.lhs.true3413, %lor.lhs.false3406, %if.end3400
   %731 = load ptr, ptr @bio_err, align 8
-  %call3435 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %731, ptr noundef nonnull @.str.247, ptr noundef %712) #15
+  %call3435 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %731, ptr noundef nonnull @.str.247, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3436:                                       ; preds = %lor.lhs.false3430
@@ -5795,7 +5795,7 @@ if.end3436:                                       ; preds = %lor.lhs.false3430
 
 if.then3440:                                      ; preds = %if.end3436
   %733 = load ptr, ptr @bio_err, align 8
-  %call3441 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %733, ptr noundef nonnull @.str.249, ptr noundef %712) #15
+  %call3441 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %733, ptr noundef nonnull @.str.249, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3442:                                       ; preds = %if.end3436
@@ -5817,7 +5817,7 @@ lor.lhs.false3449:                                ; preds = %lor.lhs.false3446
 
 if.then3452:                                      ; preds = %lor.lhs.false3449, %lor.lhs.false3446, %if.end3442
   %737 = load ptr, ptr @bio_err, align 8
-  %call3453 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %737, ptr noundef nonnull @.str.250, ptr noundef %712) #15
+  %call3453 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %737, ptr noundef nonnull @.str.250, ptr noundef nonnull %712) #15
   br label %if.end3535.thread
 
 if.end3454:                                       ; preds = %lor.lhs.false3449
@@ -5858,7 +5858,7 @@ if.end3535.thread:                                ; preds = %if.then3452, %if.th
   br label %if.then3538
 
 if.end3535:                                       ; preds = %if.end3454
-  call fastcc void @kskey_print_message(ptr noundef %712, ptr noundef nonnull @.str.251, i32 noundef %seconds.sroa.46.0)
+  call fastcc void @kskey_print_message(ptr noundef nonnull %712, ptr noundef nonnull @.str.251, i32 noundef %seconds.sroa.46.0)
   %.b.i1636 = load i1, ptr @usertime, align 4
   %not..b.i1637 = xor i1 %.b.i1636, true
   %744 = zext i1 %not..b.i1637 to i32
@@ -5869,14 +5869,14 @@ if.end3535:                                       ; preds = %if.end3454
   %745 = load ptr, ptr @bio_err, align 8
   %.b1155 = load i1, ptr @mr, align 4
   %cond3502 = select i1 %.b1155, ptr @.str.252, ptr @.str.253
-  %call3503 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %745, ptr noundef nonnull %cond3502, i64 noundef %conv3499, ptr noundef %712, double noundef %call3500) #15
+  %call3503 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %745, ptr noundef nonnull %cond3502, i64 noundef %conv3499, ptr noundef nonnull %712, double noundef %call3500) #15
   %conv3504 = sitofp i32 %call3498 to double
   %div3505 = fdiv double %conv3504, %call3500
   %746 = load i32, ptr @testnum, align 4
   %idxprom3506 = zext i32 %746 to i64
   %arrayidx3507 = getelementptr inbounds nuw [111 x [3 x double]], ptr @kems_results, i64 0, i64 %idxprom3506
   store double %div3505, ptr %arrayidx3507, align 8
-  call fastcc void @kskey_print_message(ptr noundef %712, ptr noundef nonnull @.str.254, i32 noundef %seconds.sroa.46.0)
+  call fastcc void @kskey_print_message(ptr noundef nonnull %712, ptr noundef nonnull @.str.254, i32 noundef %seconds.sroa.46.0)
   %.b.i1640 = load i1, ptr @usertime, align 4
   %not..b.i1641 = xor i1 %.b.i1640, true
   %747 = zext i1 %not..b.i1641 to i32
@@ -5887,14 +5887,14 @@ if.end3535:                                       ; preds = %if.end3454
   %748 = load ptr, ptr @bio_err, align 8
   %.b1154 = load i1, ptr @mr, align 4
   %cond3515 = select i1 %.b1154, ptr @.str.255, ptr @.str.256
-  %call3516 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %748, ptr noundef nonnull %cond3515, i64 noundef %conv3512, ptr noundef %712, double noundef %call3513) #15
+  %call3516 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %748, ptr noundef nonnull %cond3515, i64 noundef %conv3512, ptr noundef nonnull %712, double noundef %call3513) #15
   %conv3517 = sitofp i32 %call3511 to double
   %div3518 = fdiv double %conv3517, %call3513
   %749 = load i32, ptr @testnum, align 4
   %idxprom3519 = zext i32 %749 to i64
   %arrayidx3521 = getelementptr inbounds nuw [111 x [3 x double]], ptr @kems_results, i64 0, i64 %idxprom3519, i64 1
   store double %div3518, ptr %arrayidx3521, align 8
-  call fastcc void @kskey_print_message(ptr noundef %712, ptr noundef nonnull @.str.257, i32 noundef %seconds.sroa.46.0)
+  call fastcc void @kskey_print_message(ptr noundef nonnull %712, ptr noundef nonnull @.str.257, i32 noundef %seconds.sroa.46.0)
   %.b.i1644 = load i1, ptr @usertime, align 4
   %not..b.i1645 = xor i1 %.b.i1644, true
   %750 = zext i1 %not..b.i1645 to i32
@@ -5905,7 +5905,7 @@ if.end3535:                                       ; preds = %if.end3454
   %751 = load ptr, ptr @bio_err, align 8
   %.b1153 = load i1, ptr @mr, align 4
   %cond3528 = select i1 %.b1153, ptr @.str.258, ptr @.str.259
-  %call3529 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %751, ptr noundef nonnull %cond3528, i64 noundef %conv3525, ptr noundef %712, double noundef %call3526) #15
+  %call3529 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %751, ptr noundef nonnull %cond3528, i64 noundef %conv3525, ptr noundef nonnull %712, double noundef %call3526) #15
   %conv3530 = sitofp i32 %call3524 to double
   %div3531 = fdiv double %conv3530, %call3526
   %752 = load i32, ptr @testnum, align 4
@@ -5972,7 +5972,7 @@ if.end3578:                                       ; preds = %if.then3576, %for.b
   br i1 %cmp3580, label %land.lhs.true3582, label %sub_01941
 
 land.lhs.true3582:                                ; preds = %if.end3578
-  %call3584 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %757, ptr noundef nonnull @.str.235, ptr noundef nonnull %bits3570, ptr noundef nonnull %sfx3569) #15
+  %call3584 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %757, ptr noundef nonnull @.str.235, ptr noundef nonnull %bits3570, ptr noundef nonnull %sfx3569) #15
   %cmp3585 = icmp eq i32 %call3584, 1
   br i1 %cmp3585, label %if.then3587, label %sub_01941
 
@@ -6034,7 +6034,7 @@ lor.lhs.false3616:                                ; preds = %lor.lhs.false3612
 if.end3636:                                       ; preds = %sub_11942, %sub_01941, %if.end3590.tail
   %call3627 = call ptr @app_get0_libctx() #15
   %call3634 = call ptr @app_get0_propq() #15
-  %call3635 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3627, ptr noundef %cmp3628, ptr noundef %call3634) #15
+  %call3635 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3627, ptr noundef nonnull %cmp3628, ptr noundef %call3634) #15
   %tobool3637.not = icmp eq ptr %call3635, null
   br i1 %tobool3637.not, label %if.end3801.thread, label %lor.lhs.false3638
 
@@ -7222,10 +7222,10 @@ return:                                           ; preds = %if.end4709, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7322,7 +7322,7 @@ declare i32 @opt_provider(i32 noundef) local_unnamed_addr #1
 declare ptr @app_load_config_modules(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kems_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @kems_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_KEM_get0_provider(ptr noundef %0) #15
@@ -7365,7 +7365,7 @@ if.end:                                           ; preds = %entry, %if.then, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @EVP_KEM_get0_name(ptr noundef) local_unnamed_addr #1
 
@@ -7374,7 +7374,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @EVP_KEM_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @signatures_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @signatures_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef %0) #15
@@ -7425,7 +7425,7 @@ declare ptr @opt_rest() local_unnamed_addr #1
 declare i32 @app_RAND_load() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #1
 
@@ -9931,7 +9931,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Digest_MD2_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Digest_MD2_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10024,7 +10024,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Digest_MDC2_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Digest_MDC2_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10078,7 +10078,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Digest_MD4_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Digest_MD4_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10132,7 +10132,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @MD5_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @MD5_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10186,7 +10186,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SHA1_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SHA1_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10240,7 +10240,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SHA256_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SHA256_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10294,7 +10294,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SHA512_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SHA512_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10348,7 +10348,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @WHIRLPOOL_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @WHIRLPOOL_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10402,7 +10402,7 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Digest_RMD160_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Digest_RMD160_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -10456,10 +10456,10 @@ EVP_Digest_loop.exit:                             ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -10468,7 +10468,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mac_setup(ptr noundef %name, ptr nocapture noundef nonnull initializes((0, 8)) %mac, ptr noundef nonnull %params, ptr nocapture noundef writeonly %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mac_setup(ptr noundef %name, ptr noundef nonnull captures(none) initializes((0, 8)) %mac, ptr noundef nonnull %params, ptr noundef writeonly captures(none) %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #15
   %call1 = tail call ptr @app_get0_propq() #15
@@ -10510,7 +10510,7 @@ return:                                           ; preds = %for.body, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @HMAC_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @HMAC_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %mac.i = alloca [64 x i8], align 16
   %outl.i = alloca i64, align 8
@@ -10563,7 +10563,7 @@ EVP_MAC_loop.exit:                                ; preds = %for.body.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mac_teardown(ptr nocapture noundef nonnull %mac, ptr nocapture noundef readonly %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
+define internal fastcc void @mac_teardown(ptr noundef nonnull captures(none) %mac, ptr noundef readonly captures(none) %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
 entry:
   %cmp4.not = icmp eq i32 %loopargs_len, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -10634,7 +10634,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Cipher_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Cipher_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10679,7 +10679,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MAC_init(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @GHASH_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @GHASH_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10716,7 +10716,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @RAND_bytes_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @RAND_bytes_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10746,7 +10746,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Update_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Update_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %outl = alloca i32, align 4
   %0 = load ptr, ptr %args, align 8
@@ -11154,7 +11154,7 @@ err:                                              ; preds = %for.end134, %for.en
 declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Update_loop_ccm(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Update_loop_ccm(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %outl = alloca i32, align 4
   %tag = alloca [12 x i8], align 1
@@ -11271,7 +11271,7 @@ if.end43:                                         ; preds = %if.then41, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Update_loop_aead(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Update_loop_aead(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %outl = alloca i32, align 4
   %aad = alloca [13 x i8], align 1
@@ -11406,7 +11406,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EVP_Digest_md_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EVP_Digest_md_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   %md.i = alloca ptr, align 8
@@ -11467,7 +11467,7 @@ declare i32 @EVP_CIPHER_get_key_length(ptr noundef) local_unnamed_addr #1
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CMAC_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @CMAC_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %mac.i = alloca [64 x i8], align 16
   %outl.i = alloca i64, align 8
@@ -11520,7 +11520,7 @@ EVP_MAC_loop.exit:                                ; preds = %for.body.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KMAC128_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @KMAC128_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %mac.i = alloca [64 x i8], align 16
   %outl.i = alloca i64, align 8
@@ -11573,7 +11573,7 @@ EVP_MAC_loop.exit:                                ; preds = %for.body.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KMAC256_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @KMAC256_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %mac.i = alloca [64 x i8], align 16
   %outl.i = alloca i64, align 8
@@ -11664,7 +11664,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @RSA_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @RSA_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11718,7 +11718,7 @@ declare i32 @EVP_PKEY_verify_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_verify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @RSA_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @RSA_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11767,7 +11767,7 @@ declare i32 @EVP_PKEY_encrypt_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @RSA_encrypt_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @RSA_encrypt_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11821,7 +11821,7 @@ declare i32 @EVP_PKEY_decrypt_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @RSA_decrypt_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @RSA_decrypt_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %rsa_num = alloca i64, align 8
   %0 = load ptr, ptr %args, align 8
@@ -11875,7 +11875,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @DSA_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @DSA_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11925,7 +11925,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @DSA_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @DSA_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11970,7 +11970,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_ecdsa(ptr nocapture noundef readonly %curve) unnamed_addr #0 {
+define internal fastcc ptr @get_ecdsa(ptr noundef readonly captures(none) %curve) unnamed_addr #0 {
 entry:
   %key = alloca ptr, align 8
   %params = alloca ptr, align 8
@@ -12102,7 +12102,7 @@ return:                                           ; preds = %if.end48, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ECDSA_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @ECDSA_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12152,7 +12152,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ECDSA_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @ECDSA_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12205,7 +12205,7 @@ declare i32 @EVP_PKEY_derive(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ECDH_EVP_derive_key_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @ECDH_EVP_derive_key_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %ecdh_ctx = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -12249,7 +12249,7 @@ declare i32 @EVP_DigestVerifyInit(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @EVP_DigestSign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EdDSA_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EdDSA_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12305,7 +12305,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EdDSA_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @EdDSA_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12370,7 +12370,7 @@ declare i32 @EVP_PKEY_CTX_set1_id(ptr noundef, ptr noundef, i32 noundef) local_u
 declare ptr @EVP_sm3() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SM2_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SM2_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %sm2sigsize = alloca i64, align 8
   %0 = load ptr, ptr %args, align 8
@@ -12443,7 +12443,7 @@ for.end:                                          ; preds = %if.end20, %for.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SM2_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SM2_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %buf1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12510,7 +12510,7 @@ declare ptr @EVP_PKEY_new() local_unnamed_addr #1
 declare i32 @EVP_PKEY_CTX_set_dh_nid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @FFDH_derive_key_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @FFDH_derive_key_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %outlen = alloca i64, align 8
   %0 = load ptr, ptr %args, align 8
@@ -12542,7 +12542,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @OSSL_PARAM_construct_uint(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -12575,7 +12575,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KEM_keygen_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @KEM_keygen_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %pkey = alloca ptr, align 8
   %0 = load ptr, ptr %args, align 8
@@ -12612,7 +12612,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KEM_encaps_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @KEM_encaps_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %out_len = alloca i64, align 8
   %secret_len = alloca i64, align 8
@@ -12660,7 +12660,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @KEM_decaps_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @KEM_decaps_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %secret_len = alloca i64, align 8
   %0 = load ptr, ptr %args, align 8
@@ -12710,14 +12710,14 @@ declare i32 @EVP_PKEY_paramgen_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_CTX_set_dsa_paramgen_bits(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @EVP_PKEY_paramgen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SIG_keygen_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SIG_keygen_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %pkey = alloca ptr, align 8
   %0 = load ptr, ptr %args, align 8
@@ -12750,7 +12750,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SIG_sign_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SIG_sign_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %md = alloca [32 x i8], align 16
   %sig_len = alloca i64, align 8
@@ -12802,7 +12802,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SIG_verify_loop(ptr nocapture noundef readonly %args) #0 {
+define internal i32 @SIG_verify_loop(ptr noundef readonly captures(none) %args) #0 {
 entry:
   %md = alloca [32 x i8], align 16
   %0 = load ptr, ptr %args, align 8
@@ -12849,7 +12849,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @OpenSSL_version(i32 noundef) local_unnamed_addr #1
 
@@ -12953,7 +12953,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare i32 @pipe(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #6
@@ -12964,27 +12964,27 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @dup(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #8
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
@@ -12993,25 +12993,25 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11

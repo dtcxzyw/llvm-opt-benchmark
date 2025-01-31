@@ -251,13 +251,13 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @virtio_iommu_instance_init(ptr nocapture readnone %obj) #2 {
+define internal void @virtio_iommu_instance_init(ptr readnone captures(none) %obj) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_iommu_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #13
@@ -458,7 +458,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 37)) %config_data) #0 {
+define internal void @virtio_iommu_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) initializes((0, 37)) %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
@@ -535,7 +535,7 @@ trace_virtio_iommu_get_config.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config_data) #0 {
+define internal void @virtio_iommu_set_config(ptr noundef %vdev, ptr noundef readonly captures(none) %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iter.i = alloca %struct._GHashTableIter, align 8
@@ -657,7 +657,7 @@ return:                                           ; preds = %trace_virtio_iommu_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_iommu_get_features(ptr noundef %vdev, i64 noundef %f, ptr nocapture readnone %errp) #0 {
+define internal i64 @virtio_iommu_get_features(ptr noundef %vdev, i64 noundef %f, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
@@ -702,7 +702,7 @@ trace_virtio_iommu_get_features.exit:             ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_set_status(ptr nocapture readnone %vdev, i8 noundef zeroext %status) #0 {
+define internal void @virtio_iommu_set_status(ptr readnone captures(none) %vdev, i8 noundef zeroext %status) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -749,7 +749,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1999,7 +1999,7 @@ declare void @pci_setup_iommu(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_freeze_granule(ptr nocapture noundef %notifier, ptr nocapture readnone %data) #0 {
+define internal void @virtio_iommu_freeze_granule(ptr noundef captures(none) %notifier, ptr readnone captures(none) %data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iter.i8 = alloca %struct._GHashTableIter, align 8
@@ -2142,7 +2142,7 @@ declare void @qemu_add_machine_init_done_notifier(ptr noundef) local_unnamed_add
 declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_system_reset(ptr nocapture noundef initializes((572, 573)) %opaque) #0 {
+define internal void @virtio_iommu_system_reset(ptr noundef captures(none) initializes((572, 573)) %opaque) #0 {
 entry:
   %iter.i = alloca %struct._GHashTableIter, align 8
   %iommu_pci_bus.i = alloca ptr, align 8
@@ -2251,7 +2251,7 @@ declare void @virtqueue_push(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @virtio_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2393,7 +2393,7 @@ if.end14:                                         ; preds = %if.else10, %if.then
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_notify_map_cb(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %value, ptr noundef %data) #0 {
+define internal noundef i32 @virtio_iommu_notify_map_cb(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %data) #0 {
 entry:
   %0 = load i64, ptr %key, align 8
   %high = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -2406,7 +2406,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2423,7 +2423,7 @@ declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @pci_bus_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_notify_unmap_cb(ptr nocapture noundef readonly %key, ptr nocapture readnone %value, ptr noundef %data) #0 {
+define internal noundef i32 @virtio_iommu_notify_unmap_cb(ptr noundef readonly captures(none) %key, ptr readnone captures(none) %value, ptr noundef %data) #0 {
 entry:
   %0 = load i64, ptr %key, align 8
   %high = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -2526,7 +2526,7 @@ declare i64 @dma_aligned_pow2_mask(i64 noundef, i64 noundef, i32 noundef) local_
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @interval_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %user_data) #8 {
+define internal range(i32 -1, 2) i32 @interval_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr readnone captures(none) %user_data) #8 {
 entry:
   %high = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i64, ptr %high, align 8
@@ -2748,7 +2748,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr %struct.ReservedRegion, ptr %12, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %13 = load ptr, ptr %resv_regions.i, align 16
-  %call1.i = tail call ptr @resv_region_list_insert(ptr noundef %13, ptr noundef %call.i) #13
+  %call1.i = tail call ptr @resv_region_list_insert(ptr noundef %13, ptr noundef nonnull %call.i) #13
   store ptr %call1.i, ptr %resv_regions.i, align 16
   %inc.i = add nuw i32 %i.08.i, 1
   %14 = load i32, ptr %nr_prop_resv_regions.i, align 8
@@ -2760,9 +2760,9 @@ add_prop_resv_regions.exit:                       ; preds = %for.body.i, %trace_
   %call15 = tail call ptr @get_system_memory() #13
   %call16 = tail call ptr @get_system_memory() #13
   %call17 = tail call i64 @memory_region_size(ptr noundef %call16) #13
-  tail call void @memory_region_init_alias(ptr noundef nonnull %bypass_mr, ptr noundef %opaque, ptr noundef nonnull @.str.47, ptr noundef %call15, i64 noundef 0, i64 noundef %call17) #13
+  tail call void @memory_region_init_alias(ptr noundef nonnull %bypass_mr, ptr noundef nonnull %opaque, ptr noundef nonnull @.str.47, ptr noundef %call15, i64 noundef 0, i64 noundef %call17) #13
   %iommu_mr = getelementptr inbounds nuw i8, ptr %call8, i64 32
-  tail call void @memory_region_init_iommu(ptr noundef nonnull %iommu_mr, i64 noundef 288, ptr noundef nonnull @.str.46, ptr noundef %opaque, ptr noundef %call7, i64 noundef -1) #13
+  tail call void @memory_region_init_iommu(ptr noundef nonnull %iommu_mr, i64 noundef 288, ptr noundef nonnull @.str.46, ptr noundef nonnull %opaque, ptr noundef %call7, i64 noundef -1) #13
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef %call.i34, i32 noundef 0) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef nonnull %bypass_mr, i32 noundef 0) #13
@@ -2819,7 +2819,7 @@ declare void @virtio_delete_queue(ptr noundef) local_unnamed_addr #1
 declare void @virtio_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #2 {
+define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %a, ptr noundef %b, ptr readnone captures(none) %user_data) #2 {
 entry:
   %0 = ptrtoint ptr %a to i64
   %conv = trunc i64 %0 to i32
@@ -3049,7 +3049,7 @@ virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @reconstruct_endpoints(ptr nocapture readnone %key, ptr noundef %value, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @reconstruct_endpoints(ptr readnone captures(none) %key, ptr noundef %value, ptr noundef captures(none) %data) #0 {
 entry:
   %iommu_pci_bus.i.i = alloca ptr, align 8
   %iter.i.i = alloca %struct._GHashTableIter, align 8
@@ -3148,7 +3148,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @domain_preload(ptr nocapture noundef writeonly initializes((8, 16)) %opaque) #0 {
+define internal noundef i32 @domain_preload(ptr noundef writeonly captures(none) initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #13
   %mappings = getelementptr inbounds nuw i8, ptr %opaque, i64 8
@@ -3157,7 +3157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_memory_region_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_iommu_memory_region_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.27, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION_CLASS) #13
   %translate = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -3174,7 +3174,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_translate(ptr noalias nocapture writeonly sret(%struct.IOMMUTLBEntry) align 8 initializes((0, 36)) %agg.result, ptr nocapture noundef readonly %mr, i64 noundef %addr, i32 noundef %flag, i32 %iommu_idx) #0 {
+define internal void @virtio_iommu_translate(ptr noalias writeonly sret(%struct.IOMMUTLBEntry) align 8 captures(none) initializes((0, 36)) %agg.result, ptr noundef readonly captures(none) %mr, i64 noundef %addr, i32 noundef %flag, i32 %iommu_idx) #0 {
 entry:
   %_now.i.i63 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3463,7 +3463,7 @@ unlock:                                           ; preds = %if.then37, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_replay(ptr noundef %mr, ptr nocapture readnone %n) #0 {
+define internal void @virtio_iommu_replay(ptr noundef %mr, ptr readnone captures(none) %n) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %mr, i64 -32
   %0 = load ptr, ptr %add.ptr, align 16
@@ -3509,7 +3509,7 @@ unlock:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @virtio_iommu_notify_flag_changed(ptr nocapture noundef readonly %iommu_mr, i32 noundef %old, i32 noundef %new, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @virtio_iommu_notify_flag_changed(ptr noundef readonly captures(none) %iommu_mr, i32 noundef %old, i32 noundef %new, ptr noundef %errp) #0 {
 entry:
   %_now.i.i3 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3613,7 +3613,7 @@ return:                                           ; preds = %trace_virtio_iommu_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @virtio_iommu_set_page_size_mask(ptr nocapture noundef readonly %mr, i64 noundef %new_mask, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @virtio_iommu_set_page_size_mask(ptr noundef readonly captures(none) %mr, i64 noundef %new_mask, ptr noundef %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %mr, i64 -32
@@ -3912,7 +3912,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr %struct.ReservedRegion, ptr %22, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, i64 24, i1 false)
   %23 = load ptr, ptr %resv_regions.i, align 16
-  %call1.i.i = tail call ptr @resv_region_list_insert(ptr noundef %23, ptr noundef %call.i.i) #13
+  %call1.i.i = tail call ptr @resv_region_list_insert(ptr noundef %23, ptr noundef nonnull %call.i.i) #13
   store ptr %call1.i.i, ptr %resv_regions.i, align 16
   %inc.i.i = add nuw i32 %i.08.i.i, 1
   %24 = load i32, ptr %nr_prop_resv_regions.i.i, align 8
@@ -4050,7 +4050,7 @@ return:                                           ; preds = %trace_virtio_iommu_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_remap(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %value, ptr noundef %data) #0 {
+define internal noundef i32 @virtio_iommu_remap(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef %data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds nuw i8, ptr %data, i64 232
@@ -4112,10 +4112,10 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

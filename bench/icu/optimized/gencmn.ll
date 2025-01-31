@@ -86,7 +86,7 @@ if.end29:                                         ; preds = %if.end4
   %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 114), align 2
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %14 = load ptr, ptr %arrayidx30, align 8
-  %call31 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 0) #5
+  %call31 = tail call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 0) #5
   %conv32 = trunc i64 %call31 to i32
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 194), align 2
   %tobool34.not = icmp eq i8 %15, 0
@@ -136,15 +136,15 @@ return:                                           ; preds = %cond.end86, %if.end
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare void @createCommonDataFile(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

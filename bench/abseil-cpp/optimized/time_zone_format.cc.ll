@@ -71,7 +71,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw = private unnamed_addr constant [14 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl13time_internal4cctz6detail6formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt6chrono10time_pointINSB_3_V212system_clockENSB_8durationIlSt5ratioILl1ELl1EEEEEERKNSF_IlSG_ILl1ELl1000000000000000EEEERKNS1_9time_zoneE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %format, ptr noundef nonnull align 8 dereferenceable(8) %tp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fs, ptr noundef nonnull align 8 dereferenceable(8) %tz) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13time_internal4cctz6detail6formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNSt6chrono10time_pointINSB_3_V212system_clockENSB_8durationIlSt5ratioILl1ELl1EEEEEERKNSF_IlSG_ILl1ELl1000000000000000EEEERKNS1_9time_zoneE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %format, ptr noundef nonnull align 8 dereferenceable(8) %tp, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %fs, ptr noundef nonnull align 8 dereferenceable(8) %tz) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %al = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
   %tm = alloca %struct.tm, align 8
@@ -2350,7 +2350,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16ToWeekERKNS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cd, i32 noundef range(i32 0, 7) %week_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16ToWeekERKNS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cd, i32 noundef range(i32 0, 7) %week_start) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %cd, align 8
   %rem = srem i64 %0, 400
@@ -2452,7 +2452,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_(ptr noundef readonly %dp, i32 noundef range(i32 0, 3) %width, i32 noundef range(i32 0, 2) %min, i32 noundef range(i32 6, 1025) %max, ptr nocapture noundef nonnull writeonly %vp) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_(ptr noundef readonly %dp, i32 noundef range(i32 0, 3) %width, i32 noundef range(i32 0, 2) %min, i32 noundef range(i32 6, 1025) %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %dp, null
   br i1 %cmp.not, label %if.end52, label %if.then
@@ -2559,7 +2559,7 @@ if.end52:                                         ; preds = %if.then2, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS1_9time_zoneEPNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1EEEEEEPNSI_IlSJ_ILl1ELl1000000000000000EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(32) %format, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tz, ptr nocapture noundef writeonly %sec, ptr nocapture noundef writeonly %fs, ptr noundef %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz6detail5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS1_9time_zoneEPNSt6chrono10time_pointINSE_3_V212system_clockENSE_8durationIlSt5ratioILl1ELl1EEEEEEPNSI_IlSJ_ILl1ELl1000000000000000EEEEPS8_(ptr noundef nonnull align 8 dereferenceable(32) %format, ptr noundef nonnull align 8 dereferenceable(32) %input, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %tz, ptr noundef writeonly captures(none) %sec, ptr noundef writeonly captures(none) %fs, ptr noundef %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %year = alloca i64, align 8
   %tm = alloca %struct.tm, align 8
@@ -3744,10 +3744,10 @@ eh.resume:                                        ; preds = %ehcleanup535, %lpad
 declare i32 @isspace(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIlEEPKcS6_iT_S7_PS7_(ptr noundef nonnull readonly %dp, i32 noundef range(i32 0, 5) %width, i64 noundef %min, i64 noundef %max, ptr nocapture noundef nonnull writeonly %vp) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIlEEPKcS6_iT_S7_PS7_(ptr noundef nonnull readonly %dp, i32 noundef range(i32 0, 5) %width, i64 noundef %min, i64 noundef %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dp, align 1
   %cmp1 = icmp eq i8 %0, 45
@@ -3851,7 +3851,7 @@ if.end54:                                         ; preds = %lor.lhs.false, %whi
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef nonnull %dp, i8 %mode.0.val, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #7 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_111ParseOffsetEPKcS5_Pi(ptr noundef nonnull %dp, i8 %mode.0.val, ptr noundef nonnull writeonly captures(none) %offset) unnamed_addr #7 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %dp, i64 1
   %0 = load i8, ptr %dp, align 1
@@ -4158,7 +4158,7 @@ if.end60:                                         ; preds = %if.end60.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef nonnull readonly %dp, ptr nocapture noundef nonnull writeonly %subseconds) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef nonnull readonly %dp, ptr noundef nonnull writeonly captures(none) %subseconds) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dp, align 1
   %conv12 = sext i8 %0 to i32
@@ -5296,10 +5296,10 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15

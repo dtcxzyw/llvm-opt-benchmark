@@ -219,7 +219,7 @@ define void @register_log_conversation_filter(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -241,7 +241,7 @@ define hidden void @conversation_filters_cleanup() local_unnamed_addr #0 {
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @conversation_filter_free(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @conversation_filter_free(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @g_free(ptr noundef %0) #5
   ret void
 }

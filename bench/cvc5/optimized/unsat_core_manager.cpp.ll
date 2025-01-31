@@ -218,7 +218,7 @@ entry:
 declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt16UnsatCoreManager12getUnsatCoreESt10shared_ptrINS0_9ProofNodeEERKNS1_10AssertionsERSt6vectorINS0_12NodeTemplateILb1EEESaISB_EEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pfn, ptr noundef nonnull align 8 dereferenceable(272) %as, ptr noundef nonnull align 8 dereferenceable(24) %core, i1 noundef zeroext %isInternal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt16UnsatCoreManager12getUnsatCoreESt10shared_ptrINS0_9ProofNodeEERKNS1_10AssertionsERSt6vectorINS0_12NodeTemplateILb1EEESaISB_EEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %pfn, ptr noundef nonnull align 8 dereferenceable(272) %as, ptr noundef nonnull align 8 dereferenceable(24) %core, i1 noundef zeroext %isInternal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %fassumps = alloca %"class.std::vector.262", align 8
   %coreSet = alloca %"class.std::set", align 8
@@ -1364,7 +1364,7 @@ declare noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal6EnvO
 declare void @_ZNK4cvc58internal9LogicInfo14getLogicStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
@@ -1401,7 +1401,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt16UnsatCoreManager27getRelevantQuantTermVectorsESt10shared_ptrINS0_9ProofNodeEERSt3mapINS0_12NodeTemplateILb1EEENS0_17InstantiationListESt4lessIS8_ESaISt4pairIKS8_S9_EEERS6_IS8_St6vectorIS8_SaIS8_EESB_SaISC_ISD_SK_EEEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr noundef %pfn, ptr noundef nonnull align 8 dereferenceable(48) %insts, ptr noundef nonnull align 8 dereferenceable(48) %sks, i1 noundef zeroext %getDebugInfo) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt16UnsatCoreManager27getRelevantQuantTermVectorsESt10shared_ptrINS0_9ProofNodeEERSt3mapINS0_12NodeTemplateILb1EEENS0_17InstantiationListESt4lessIS8_ESaISt4pairIKS8_S9_EEERS6_IS8_St6vectorIS8_SaIS8_EESB_SaISC_ISD_SK_EEEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef %pfn, ptr noundef nonnull align 8 dereferenceable(48) %insts, ptr noundef nonnull align 8 dereferenceable(48) %sks, i1 noundef zeroext %getDebugInfo) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %ref.tmp9.i628 = alloca %"class.std::tuple.565", align 8
   %ref.tmp10.i629 = alloca %"class.std::tuple.557", align 1
@@ -7529,10 +7529,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

@@ -3061,7 +3061,7 @@ define hidden void @proto_register_dhcp() local_unnamed_addr #0 {
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dhcp_time_in_s_secs_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @dhcp_time_in_s_secs_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = tail call ptr @signed_time_secs_to_str(ptr noundef null, i32 noundef %1) #9
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1622, ptr noundef %3, i32 noundef %1) #9
   tail call void @wmem_free(ptr noundef null, ptr noundef %3) #9
@@ -3069,7 +3069,7 @@ define internal void @dhcp_time_in_s_secs_fmt(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dhcp_time_in_u_secs_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @dhcp_time_in_u_secs_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %.not = icmp eq i32 %1, -1
   br i1 %.not, label %6, label %3
 
@@ -3090,7 +3090,7 @@ define internal void @dhcp_time_in_u_secs_fmt(ptr nocapture noundef writeonly %0
 declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_opt_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_opt_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef %0) #9
@@ -3099,7 +3099,7 @@ define internal void @uat_dhcp_records_opt_set_cb(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_opt_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_opt_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1857, i32 noundef %6) #9
   store ptr %7, ptr %1, align 8
@@ -3112,7 +3112,7 @@ define internal void @uat_dhcp_records_opt_tostr_cb(ptr nocapture noundef readon
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_text_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_text_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3123,7 +3123,7 @@ define internal void @uat_dhcp_records_text_set_cb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_text_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_text_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -3151,7 +3151,7 @@ define internal void @uat_dhcp_records_text_tostr_cb(ptr nocapture noundef reado
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_ftype_set_cb(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_ftype_set_cb(ptr noundef writeonly captures(none) initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3193,7 +3193,7 @@ define internal void @uat_dhcp_records_ftype_set_cb(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_records_ftype_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_dhcp_records_ftype_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -3285,7 +3285,7 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhcp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @dhcp_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @str_to_val_idx(ptr noundef %3, ptr noundef nonnull @opt53_text) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %18, label %8
@@ -3435,7 +3435,7 @@ define internal void @dhcp_cleanup_protocol() #0 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3841,7 +3841,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
@@ -3851,7 +3851,7 @@ define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @uat_dhcp_record_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef zeroext i1 @uat_dhcp_record_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = add i32 %3, -1
   %or.cond = icmp ult i32 %4, 254
@@ -3867,7 +3867,7 @@ define internal noundef zeroext i1 @uat_dhcp_record_update_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_dhcp_record_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_dhcp_record_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #9
@@ -4053,7 +4053,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_basic_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_dhcpopt_basic_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i8, ptr %3, align 8
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %6
@@ -4083,7 +4083,7 @@ declare void @dissector_add_uint_range(ptr noundef, ptr noundef, ptr noundef) lo
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_policy_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_policy_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 7
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4116,7 +4116,7 @@ define internal i32 @dissect_dhcpopt_policy_filter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_static_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_static_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 7
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4170,7 +4170,7 @@ define internal i32 @dissect_dhcpopt_vendor_specific_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -4286,7 +4286,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_dhcp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_dhcp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_dhcp_option_dhcp, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #9
@@ -4302,7 +4302,7 @@ define internal i32 @dissect_dhcpopt_dhcp(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_param_request_list(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_param_request_list(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4339,7 +4339,7 @@ define internal i32 @dissect_dhcpopt_vendor_class_identifier(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %.thread149
@@ -4516,7 +4516,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_netware_ip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_netware_ip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -4617,7 +4617,7 @@ dissect_netware_ip_suboption.exit:                ; preds = %10, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp ult i32 %6, 2
@@ -4728,7 +4728,7 @@ define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_slp_directory_agent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_slp_directory_agent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp eq i32 %6, 0
@@ -4785,7 +4785,7 @@ define internal i32 @dissect_dhcpopt_slp_directory_agent(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_slp_service_scope(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_slp_service_scope(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_dhcp_option_slp_service_scope_value, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %7 = load i32, ptr @hf_dhcp_option_slp_service_scope_string, align 4
@@ -4796,7 +4796,7 @@ define internal i32 @dissect_dhcpopt_slp_service_scope(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_client_full_domain_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_client_full_domain_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -4853,7 +4853,7 @@ define internal i32 @dissect_dhcpopt_client_full_domain_name(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -5138,7 +5138,7 @@ dhcp_dhcp_decode_agent_info.exit:                 ; preds = %10, %28, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp slt i32 %6, 14
@@ -5275,7 +5275,7 @@ dhcp_handle_basic_types.exit:                     ; preds = %66, %.split237.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_novell_servers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_novell_servers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @novell_string, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader, label %8
@@ -5316,7 +5316,7 @@ define internal i32 @dissect_dhcpopt_novell_servers(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_dhcp_authentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_dhcpopt_dhcp_authentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -5412,7 +5412,7 @@ define internal i32 @dissect_dhcpopt_dhcp_authentication(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_client_architecture(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_client_architecture(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %7 = icmp sgt i32 %6, 1
@@ -5452,7 +5452,7 @@ define internal i32 @dissect_dhcpopt_client_architecture(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_client_network_interface_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_client_network_interface_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp eq i8 %5, 1
   br i1 %6, label %7, label %12
@@ -5470,7 +5470,7 @@ define internal i32 @dissect_dhcpopt_client_network_interface_id(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %.thread42
@@ -5523,7 +5523,7 @@ define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_civic_location(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_civic_location(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp ugt i32 %6, 2
@@ -5579,7 +5579,7 @@ define internal i32 @dissect_dhcpopt_civic_location(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_dhcp_captive_portal(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_dhcp_captive_portal(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_dhcp_option_captive_portal, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #9
@@ -5605,7 +5605,7 @@ proto_item_set_url.exit:                          ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %7, label %9
@@ -5685,7 +5685,7 @@ define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -5796,7 +5796,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -6000,7 +6000,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %10, label %.preheader54
@@ -6109,7 +6109,7 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_packetcable_ccc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_packetcable_ccc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
@@ -6579,7 +6579,7 @@ dissect_packetcable_i05_ccc.exit:                 ; preds = %107, %98, %79, %59,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [16 x i8], align 16
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp eq i32 %6, 16
@@ -6947,7 +6947,7 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_vi_vendor_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_vi_vendor_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7047,7 +7047,7 @@ define internal i32 @dissect_dhcpopt_vi_vendor_class(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_vi_vendor_specific_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_vi_vendor_specific_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7165,7 +7165,7 @@ dissect_vendor_generic_suboption.exit:            ; preds = %39, %51, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_forcerenew_nonce(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_forcerenew_nonce(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -7185,7 +7185,7 @@ define internal i32 @dissect_dhcpopt_forcerenew_nonce(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_rdnss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_rdnss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -7225,7 +7225,7 @@ define internal i32 @dissect_dhcpopt_rdnss(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_bulk_lease_status_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_bulk_lease_status_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -7257,7 +7257,7 @@ define internal i32 @dissect_dhcpopt_bulk_lease_status_code(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_bulk_lease_base_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_bulk_lease_base_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %8, label %6
@@ -7278,7 +7278,7 @@ define internal i32 @dissect_dhcpopt_bulk_lease_base_time(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_bulk_lease_query_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_bulk_lease_query_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %8, label %6
@@ -7299,7 +7299,7 @@ define internal i32 @dissect_dhcpopt_bulk_lease_query_start(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_bulk_lease_query_end(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_bulk_lease_query_end(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %8, label %6
@@ -7320,7 +7320,7 @@ define internal i32 @dissect_dhcpopt_bulk_lease_query_end(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = icmp ult i32 %6, 5
@@ -7382,7 +7382,7 @@ define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_portparams(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_portparams(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %8, label %6
@@ -7407,7 +7407,7 @@ define internal i32 @dissect_dhcpopt_portparams(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_6RD_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_6RD_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp ult i32 %5, 22
   br i1 %6, label %7, label %9
@@ -7463,7 +7463,7 @@ define internal i32 @dissect_dhcpopt_6RD_option(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -7563,7 +7563,7 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [5 x i8], align 1
@@ -7752,7 +7752,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   %102 = add i32 %.0165196.i, 4
   %103 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %102, i64 noundef 4) #9
   store i8 0, ptr %40, align 1
-  %104 = call i64 @strtoul(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #9
+  %104 = call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #9
   %105 = trunc i64 %104 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.2106, i32 noundef %105) #9
   %106 = load i32, ptr @ett_dhcp_option, align 4
@@ -7915,7 +7915,7 @@ dissect_packetcable_mta_cap.exit:                 ; preds = %.loopexit.i, %31, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_packetcable_cm_vendor_id_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_packetcable_cm_vendor_id_heur(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp ult i32 %5, 10
   br i1 %6, label %25, label %7
@@ -7955,7 +7955,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_cm_vendor_id_heur(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_id_heur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_id_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp slt i32 %5, 10
   br i1 %6, label %14, label %7
@@ -7977,7 +7977,7 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_id_heur(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_alcatel_lucent_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_alcatel_lucent_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %test_encapsulated_vendor_options.exit, label %7
@@ -8145,7 +8145,7 @@ test_encapsulated_vendor_options.exit:            ; preds = %16, %15, %dissect_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -8390,7 +8390,7 @@ dissect_vendor_pxeclient_suboption.exit:          ; preds = %21, %24, %28, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cablelabs_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_cablelabs_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -8661,7 +8661,7 @@ dissect_vendor_cablelabs_suboption.exit:          ; preds = %58, %61, %65, %81, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_aruba_ap_vendor_info_heur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_aruba_ap_vendor_info_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -8687,7 +8687,7 @@ define internal range(i32 0, 2) i32 @dissect_aruba_ap_vendor_info_heur(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_aruba_instant_ap_vendor_info_heur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_aruba_instant_ap_vendor_info_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -8728,7 +8728,7 @@ define internal range(i32 0, 2) i32 @dissect_aruba_instant_ap_vendor_info_heur(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -8958,7 +8958,7 @@ dissect_vendor_bsdp_suboption.exit:               ; preds = %21, %27, %41, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -9035,7 +9035,7 @@ dissect_vendor_aerohive_suboption.exit:           ; preds = %18, %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -9118,7 +9118,7 @@ dissect_vendor_cisco_suboption.exit:              ; preds = %18, %36, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #9
   %7 = icmp slt i32 %6, 1
@@ -9194,7 +9194,7 @@ define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 258) i32 @dissect_vendor_tr111_suboption(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 258) i32 @dissect_vendor_tr111_suboption(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #9
   %7 = icmp slt i32 %6, 1
@@ -9283,7 +9283,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %30, %33
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @tvb_get_string_enc(ptr noundef %57, ptr noundef %0, i32 noundef 2, i32 noundef %14, i32 noundef 0) #9
-  %59 = tail call i64 @strtol(ptr nocapture noundef %58, ptr noundef null, i32 noundef 16) #9
+  %59 = tail call i64 @strtol(ptr noundef captures(none) %58, ptr noundef null, i32 noundef 16) #9
   %60 = trunc i64 %59 to i32
   %61 = load i32, ptr %44, align 4
   %62 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %61, ptr noundef %0, i32 noundef 2, i32 noundef %14, i32 noundef %60) #9
@@ -9306,7 +9306,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %30, %33
 declare ptr @signed_time_secs_to_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9321,7 +9321,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -9334,7 +9334,7 @@ declare ptr @stat_tap_init_table(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @stat_tap_add_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @stat_tap_init_table_row(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9345,7 +9345,7 @@ declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @stat_tap_set_field_data(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 
@@ -9360,7 +9360,7 @@ declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dhcp_clear_uat_dhcpopt(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dhcp_clear_uat_dhcpopt(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   tail call void @dissector_reset_uint(ptr noundef nonnull @.str.1487, i32 noundef %4) #9
@@ -9394,7 +9394,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca %struct.dhcp_option_data, align 8
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #9
   %13 = zext i8 %12 to i32
@@ -9626,7 +9626,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   switch i32 %4, label %.loopexit [
     i32 6, label %35
     i32 3, label %44
@@ -10046,7 +10046,7 @@ declare i32 @get_dns_name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, pt
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @tvb_new_composite() local_unnamed_addr #1
 
@@ -10331,7 +10331,7 @@ define internal fastcc void @dissect_vendor_avaya_param(ptr noundef %0, ptr noun
   br label %162
 
 160:                                              ; preds = %149
-  %161 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_subopt_unknown_type, ptr noundef nonnull @.str.2058, ptr noundef %9) #9
+  %161 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_subopt_unknown_type, ptr noundef nonnull @.str.2058, ptr noundef nonnull %9) #9
   br label %162
 
 162:                                              ; preds = %23, %38, %54, %70, %93, %87, %106, %122, %137, %160, %158, %152, %145, %129, %114, %98, %79, %62, %46, %30, %15
@@ -10345,7 +10345,7 @@ declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -10356,7 +10356,7 @@ declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -10367,14 +10367,14 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_docsis_cm_cap(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 4) #9
@@ -10391,7 +10391,7 @@ define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonl
 
 15:                                               ; preds = %5
   %16 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %8, i32 noundef 12, i64 noundef 2) #9
-  %17 = tail call i64 @strtoul(ptr nocapture noundef %8, ptr noundef null, i32 noundef 16) #9
+  %17 = tail call i64 @strtoul(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 16) #9
   %18 = load i32, ptr @hf_dhcp_docsis_cm_cap_len, align 4
   %19 = trunc i64 %17 to i32
   %20 = and i32 %19, 255
@@ -10426,11 +10426,11 @@ define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonl
 38:                                               ; preds = %.lr.ph
   %39 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 4) #9
   %40 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %39, i32 noundef %.1193, i64 noundef 2) #9
-  %41 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 16) #9
+  %41 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 16) #9
   %42 = trunc i64 %41 to i8
   %43 = add i32 %.1193, 2
   %44 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %39, i32 noundef %43, i64 noundef 2) #9
-  %45 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 16) #9
+  %45 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 16) #9
   %46 = trunc i64 %45 to i8
   %47 = and i64 %45, 255
   %48 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef %47) #9
@@ -10448,7 +10448,7 @@ define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonl
   %51 = shl nuw nsw i32 %indvars.iv.tr.i, 1
   %52 = add i32 %49, %51
   %53 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %39, i32 noundef %52, i64 noundef 2) #9
-  %54 = tail call i64 @strtoul(ptr nocapture noundef nonnull %39, ptr noundef null, i32 noundef 16) #9
+  %54 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 16) #9
   %55 = trunc i64 %54 to i8
   %56 = getelementptr i8, ptr %48, i64 %indvars.iv.i
   store i8 %55, ptr %56, align 1
@@ -10885,13 +10885,13 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #8

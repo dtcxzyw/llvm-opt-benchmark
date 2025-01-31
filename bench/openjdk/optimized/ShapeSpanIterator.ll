@@ -952,7 +952,7 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
   %6 = fcmp olt float %1, %3
   %. = select i1 %6, float %1, float %3
   %.41 = select i1 %6, float %3, float %1
@@ -1003,7 +1003,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture no
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1156,7 +1156,7 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr noundef captures(none) %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1428,7 +1428,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %GetSpanDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ShapeSIGetPathBox(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #4 {
+define internal void @ShapeSIGetPathBox(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %5 = load float, ptr %4, align 4
   %6 = tail call float @llvm.floor.f32(float %5)
@@ -1525,7 +1525,7 @@ ShapeSIIntersectClipBox.exit:                     ; preds = %18, %13, %37, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+define internal void @ShapeSIIntersectClipBox(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %2, %8
@@ -1614,7 +1614,7 @@ GetSpanData.exit.thread:                          ; preds = %17, %11, %GetSpanDa
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
+define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2055,7 +2055,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %10, %GetSpanDa
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1) #5 {
+define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 noundef %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 4
@@ -2164,7 +2164,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeIterator(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
+define noundef i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeIterator(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   ret i64 ptrtoint (ptr @ShapeSIFuncs to i64)
 }
 
@@ -2213,7 +2213,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -2570,22 +2570,22 @@ GetSpanData.exit:                                 ; preds = %17
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1784
   %201 = load ptr, ptr %200, align 8
-  tail call void %201(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %201(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #14
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 1784
   %204 = load ptr, ptr %203, align 8
-  tail call void %204(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
+  tail call void %204(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br i1 %.4174, label %.thread212, label %.critedge
 
 .thread212.critedge:                              ; preds = %88
   %205 = load ptr, ptr %0, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 1784
   %207 = load ptr, ptr %206, align 8
-  tail call void %207(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %54, i32 noundef 2) #14
+  tail call void %207(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 2) #14
   %208 = load ptr, ptr %0, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 1784
   %210 = load ptr, ptr %209, align 8
-  tail call void %210(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
+  tail call void %210(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br label %.thread212
 
 .thread212:                                       ; preds = %.thread212.critedge, %43, %.loopexit
@@ -2637,7 +2637,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
   %6 = fcmp ogt float %2, %4
   %. = select i1 %6, i8 -1, i8 1
   %.81 = select i1 %6, float %2, float %4
@@ -3777,7 +3777,7 @@ GetSpanData.exit:                                 ; preds = %9, %10, %14
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) #1 {
+define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -3944,7 +3944,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) #1 {
+define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
@@ -4087,7 +4087,7 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
+define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -4241,7 +4241,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) #0 {
+define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
@@ -4435,7 +4435,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr nocapture noundef %0) #1 {
+define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -4515,7 +4515,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr nocapture noundef %0) #1 {
+define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -4627,12 +4627,12 @@ GetSpanData.exit:                                 ; preds = %9, %10, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ShapeSIClose(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 {
+define internal void @ShapeSIClose(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc float @ptSegDistSq(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #6 {
@@ -4677,10 +4677,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4

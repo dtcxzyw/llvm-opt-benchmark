@@ -676,7 +676,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i68, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL10TestIntRetPi(ptr nocapture noundef %p) #2 {
+define internal noundef i32 @_ZL10TestIntRetPi(ptr noundef captures(none) %p) #2 {
 entry:
   %0 = load i32, ptr %p, align 4
   %add = add nsw i32 %0, 1
@@ -986,7 +986,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i87, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) #2 align 2 {
+define internal void @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %inc = add nsw i32 %0, 1
@@ -995,7 +995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) #2 align 2 {
+define internal void @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %inc = add nsw i32 %0, 1
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) #2 align 2 {
+define internal noundef i32 @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %inc = add nsw i32 %0, 1
@@ -1013,7 +1013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) #2 align 2 {
+define internal noundef i32 @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %inc = add nsw i32 %0, 1
@@ -3176,7 +3176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_Z28TestFixedFunctionCapturelessIN5eastl14fixed_functionILi0EFiiEEEEiv() local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -4034,7 +4034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4064,7 +4064,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
@@ -4092,7 +4092,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4122,7 +4122,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
@@ -4150,7 +4150,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4180,7 +4180,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
@@ -4208,7 +4208,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFiv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4238,7 +4238,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
@@ -4266,7 +4266,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %to, ptr nocapture noundef %from, i32 noundef %ops) #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef %to, ptr noundef captures(none) %from, i32 noundef %ops) #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %return.fold.split [
     i32 3, label %return
@@ -4379,13 +4379,13 @@ return:                                           ; preds = %entry, %return.fold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7InvokerERKNS0_15functor_storageILi24EEE"(ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7InvokerERKNS0_15functor_storageILi24EEE"(ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7FunctorvJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7FunctorvJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4404,13 +4404,13 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7FunctorvJEE7InvokerERKNS0_15functor_storageILi24EEE(ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal void @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7FunctorvJEE7InvokerERKNS0_15functor_storageILi24EEE(ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4429,7 +4429,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7InvokerERKNS0_15functor_storageILi24EEE(ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7InvokerERKNS0_15functor_storageILi24EEE(ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret i32 5
 }
@@ -4442,7 +4442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4461,7 +4461,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7InvokerERKNS0_15functor_storageILi0EEE(ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7InvokerERKNS0_15functor_storageILi0EEE(ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret i32 42
 }
@@ -4474,7 +4474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4493,13 +4493,13 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE(i32 noundef returned %args, ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE(i32 noundef returned %args, ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret i32 %args
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4518,13 +4518,13 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_0vJEE7InvokerERKNS0_15functor_storageILi0EEE"(ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_0vJEE7InvokerERKNS0_15functor_storageILi0EEE"(ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr nocapture readnone %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef readnone %to, ptr readnone captures(none) %from, i32 noundef %ops) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4543,7 +4543,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE"(i32 noundef returned %args, ptr nocapture nonnull readnone align 8 %functor) #9 align 2 {
+define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE"(i32 noundef returned %args, ptr nonnull readnone align 8 captures(none) %functor) #9 align 2 {
 entry:
   ret i32 %args
 }
@@ -4617,7 +4617,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4642,7 +4642,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %functor, align 8
   %1 = getelementptr inbounds nuw i8, ptr %functor, i64 8
@@ -4888,7 +4888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr nocapture noundef readonly %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -4914,7 +4914,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %functor, i64 4
@@ -5061,10 +5061,10 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

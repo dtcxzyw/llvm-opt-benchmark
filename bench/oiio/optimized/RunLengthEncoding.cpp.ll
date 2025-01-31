@@ -84,7 +84,7 @@ _ZN3dpx17RunLengthEncodingD2Ev.exit:              ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx17RunLengthEncoding5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx17RunLengthEncoding5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, ptr noundef %fd, i32 noundef %element, ptr nocapture nonnull readnone align 4 %block, ptr nocapture readnone %data, i32 noundef %size) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, ptr noundef %fd, i32 noundef %element, ptr nonnull readnone align 4 captures(none) %block, ptr readnone captures(none) %data, i32 noundef %size) unnamed_addr #4 align 2 {
 entry:
   %or.cond.i = icmp ugt i32 %element, 7
   br i1 %or.cond.i, label %return, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit

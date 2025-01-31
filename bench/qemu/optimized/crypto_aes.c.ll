@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @AES_imc_rot = internal unnamed_addr constant [256 x i32] [i32 0, i32 185403662, i32 370807324, i32 488053522, i32 741614648, i32 658058550, i32 976107044, i32 824393514, i32 1483229296, i32 1399144830, i32 1316117100, i32 1165972322, i32 1952214088, i32 2136040774, i32 1648787028, i32 1766553434, i32 -1328508704, i32 -1143105042, i32 -1496677636, i32 -1379431438, i32 -1662733096, i32 -1746289194, i32 -1963022652, i32 -2114736182, i32 -390539120, i32 -474623586, i32 -22885748, i32 -173030526, i32 -997393240, i32 -813566554, i32 -761860428, i32 -644094022, i32 2075868123, i32 1890988757, i32 1839278535, i32 1722556617, i32 1468997603, i32 1552029421, i32 1100287487, i32 1251476721, i32 601060267, i32 685669029, i32 902390199, i32 1053059257, i32 266819475, i32 82468509, i32 436028815, i32 317738113, i32 -882136261, i32 -1067015627, i32 -579749593, i32 -696471511, i32 -413167869, i32 -330136051, i32 -247096033, i32 -95906799, i32 -1828461749, i32 -1743852987, i32 -2061897385, i32 -1911228327, i32 -1086863501, i32 -1271214467, i32 -1456614033, i32 -1574904735, i32 -160598355, i32 -44007517, i32 -529046351, i32 -344298049, i32 -631680363, i32 -783000677, i32 -868007799, i32 -951170681, i32 -1375387939, i32 -1526188077, i32 -1205916479, i32 -1290656305, i32 -2110711067, i32 -1992551445, i32 -1809118983, i32 -1624899081, i32 1186850381, i32 1303441219, i32 1353184337, i32 1537932639, i32 1787413109, i32 1636092795, i32 2090061929, i32 2006899047, i32 517320253, i32 366520115, i32 147831841, i32 63092015, i32 853641733, i32 971801355, i32 620468249, i32 804688151, i32 -1915335306, i32 -2032450440, i32 -1681105046, i32 -1866377628, i32 -1578997426, i32 -1427152832, i32 -1208452270, i32 -1124765092, i32 -708967162, i32 -558691320, i32 -1012656358, i32 -928440812, i32 -108388034, i32 -226023376, i32 -275762398, i32 -459458004, i32 1023860118, i32 906744984, i32 723308426, i32 538035844, i32 288553390, i32 440397984, i32 120122290, i32 203809468, i32 1701746150, i32 1852021992, i32 1937016826, i32 2021232372, i32 1230680542, i32 1113045200, i32 1598071746, i32 1414376140, i32 -136647615, i32 -52959921, i32 -507445667, i32 -355600557, i32 -605108103, i32 -790380169, i32 -839591323, i32 -956705941, i32 -1347247055, i32 -1530942145, i32 -1180125651, i32 -1297760477, i32 -2088337399, i32 -2004121337, i32 -1784901099, i32 -1634624741, i32 1191869601, i32 1275557295, i32 1360031421, i32 1511876531, i32 1799248025, i32 1613975959, i32 2099530373, i32 1982415755, i32 526529745, i32 342834655, i32 158869197, i32 41234371, i32 861278441, i32 945494503, i32 625738485, i32 776014843, i32 -1939744870, i32 -2022908268, i32 -1703164538, i32 -1854485368, i32 -1604979806, i32 -1420232020, i32 -1236278850, i32 -1119688528, i32 -737566742, i32 -553347356, i32 -1038905866, i32 -920746760, i32 -130171950, i32 -214912292, i32 -299390514, i32 -450191168, i32 1018251130, i32 935087732, i32 715871590, i32 564550760, i32 277177154, i32 461924940, i32 111112542, i32 227702864, i32 1691946762, i32 1876166148, i32 1925389590, i32 2043548696, i32 1223502642, i32 1138762300, i32 1593260334, i32 1442459680, i32 28809964, i32 179999714, i32 397248752, i32 480281086, i32 763608788, i32 646887386, i32 999926984, i32 815048134, i32 1507840668, i32 1389550482, i32 1338359936, i32 1154009486, i32 1978398372, i32 2129067946, i32 1676797112, i32 1761406390, i32 -1318647284, i32 -1167457534, i32 -1484974064, i32 -1401941730, i32 -1655493068, i32 -1772214470, i32 -1958134744, i32 -2143013594, i32 -384875908, i32 -503166094, i32 -15380384, i32 -199730834, i32 -985962940, i32 -835293366, i32 -752782248, i32 -668172970, i32 2047648055, i32 1895934009, i32 1813426987, i32 1729870373, i32 1446544655, i32 1563790337, i32 1076008723, i32 1261411869, i32 577038663, i32 694804553, i32 880737115, i32 1064563285, i32 240176511, i32 90031217, i32 407560035, i32 323475053, i32 -891538985, i32 -1043253031, i32 -590994485, i32 -674551099, i32 -420997649, i32 -303751967, i32 -252573709, i32 -67170563, i32 -1833666137, i32 -1715900247, i32 -2068943941, i32 -1885117771, i32 -1098883681, i32 -1249028975, i32 -1466282109, i32 -1550367091], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_MC_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @aesenc_MC_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
   %idxprom9.i = zext i8 %0 to i64
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_MC_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @aesenc_MC_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr i8, ptr %st, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -260,7 +260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_SB_SR_AK_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local void @aesenc_SB_SR_AK_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %k.val = load <16 x i8>, ptr %k, align 16
   %0 = load i8, ptr %s, align 1
@@ -364,7 +364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_SB_SR_AK_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local void @aesenc_SB_SR_AK_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %k.val = load <16 x i8>, ptr %k, align 16
   %arrayidx.i = getelementptr i8, ptr %s, i64 15
@@ -468,7 +468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_SB_SR_MC_AK_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
+define dso_local void @aesenc_SB_SR_MC_AK_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
   %idxprom9.i = zext i8 %0 to i64
@@ -587,7 +587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesenc_SB_SR_MC_AK_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
+define dso_local void @aesenc_SB_SR_MC_AK_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr i8, ptr %st, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -702,7 +702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_IMC_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @aesdec_IMC_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
   %idxprom9.i = zext i8 %0 to i64
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_IMC_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @aesdec_IMC_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr i8, ptr %st, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -938,7 +938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local void @aesdec_ISB_ISR_AK_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %k.val = load <16 x i8>, ptr %k, align 16
   %0 = load i8, ptr %s, align 1
@@ -1042,7 +1042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
+define dso_local void @aesdec_ISB_ISR_AK_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %k) local_unnamed_addr #1 {
 entry:
   %k.val = load <16 x i8>, ptr %k, align 16
   %arrayidx.i = getelementptr i8, ptr %s, i64 15
@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_IMC_AK_gen(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
+define dso_local void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %st, align 1
   %idxprom9.i = zext i8 %0 to i64
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_IMC_AK_genrev(ptr nocapture noundef writeonly initializes((0, 16)) %r, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #0 {
+define dso_local void @aesdec_ISB_ISR_IMC_AK_genrev(ptr noundef writeonly captures(none) initializes((0, 16)) %r, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr i8, ptr %st, i64 15
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1380,7 +1380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_IMC_gen(ptr nocapture noundef initializes((0, 16)) %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #1 {
+define dso_local void @aesdec_ISB_ISR_AK_IMC_gen(ptr noundef captures(none) initializes((0, 16)) %ret, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #1 {
 entry:
   %k.val.i = load <16 x i8>, ptr %rk, align 16
   %0 = load i8, ptr %st, align 1
@@ -1583,7 +1583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @aesdec_ISB_ISR_AK_IMC_genrev(ptr nocapture noundef initializes((0, 16)) %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) local_unnamed_addr #1 {
+define dso_local void @aesdec_ISB_ISR_AK_IMC_genrev(ptr noundef captures(none) initializes((0, 16)) %ret, ptr noundef readonly captures(none) %st, ptr noundef readonly captures(none) %rk) local_unnamed_addr #1 {
 entry:
   %k.val.i = load <16 x i8>, ptr %rk, align 16
   %arrayidx.i.i = getelementptr i8, ptr %st, i64 15

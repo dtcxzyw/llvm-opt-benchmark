@@ -329,7 +329,7 @@ declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i64 @mca_smsc_cma_get_user_ns_id() local_unnamed_addr #1
 
@@ -397,7 +397,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @mca_smsc_cma_copy_to(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define range(i32 -1, 1) i32 @mca_smsc_cma_copy_to(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.iovec, align 8
   %7 = alloca %struct.iovec, align 8
   store ptr %1, ptr %6, align 8
@@ -444,7 +444,7 @@ define range(i32 -1, 1) i32 @mca_smsc_cma_copy_to(ptr nocapture noundef readonly
 declare i64 @process_vm_writev(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @mca_smsc_cma_copy_from(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define range(i32 -1, 1) i32 @mca_smsc_cma_copy_from(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.iovec, align 8
   %7 = alloca %struct.iovec, align 8
   store ptr %2, ptr %6, align 8
@@ -491,22 +491,22 @@ define range(i32 -1, 1) i32 @mca_smsc_cma_copy_from(ptr nocapture noundef readon
 declare i64 @process_vm_readv(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @mca_smsc_cma_map_peer_region(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readnone %2, i64 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #5 {
+define noalias noundef ptr @mca_smsc_cma_map_peer_region(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @mca_smsc_cma_unmap_peer_region(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @mca_smsc_cma_unmap_peer_region(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @mca_smsc_cma_register_region(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #5 {
+define noalias noundef ptr @mca_smsc_cma_register_region(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @mca_smsc_cma_deregister_region(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @mca_smsc_cma_deregister_region(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret void
 }
 

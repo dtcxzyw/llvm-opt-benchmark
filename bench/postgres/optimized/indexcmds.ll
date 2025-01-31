@@ -579,7 +579,7 @@ declare ptr @makeIndexInfo(i32 noundef, i32 noundef, i32 noundef, ptr noundef, p
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ComputeIndexAttrs(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef readonly %6, ptr noundef readonly %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %15, ptr nocapture noundef %16) unnamed_addr #0 {
+define internal fastcc void @ComputeIndexAttrs(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef readonly %6, ptr noundef readonly %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %15, ptr noundef captures(none) %16) unnamed_addr #0 {
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i16, align 2
@@ -1961,7 +1961,7 @@ ChooseIndexName.exit:                             ; preds = %ChooseIndexNameAddi
   %344 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %344)
   %345 = call i32 @errcode(i32 noundef 67137668) #12
-  %346 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %.1562) #12
+  %346 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %.1562) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 850, ptr noundef nonnull @__func__.DefineIndex) #12
   unreachable
 
@@ -2830,7 +2830,7 @@ list_length.exit557:                              ; preds = %748, %750
   %838 = load i32, ptr %28, align 4
   %839 = load i32, ptr %29, align 4
   call void @SetUserIdAndSecContext(i32 noundef %838, i32 noundef %839) #12
-  call void @table_close(ptr noundef %768, i32 noundef 0) #12
+  call void @table_close(ptr noundef nonnull %768, i32 noundef 0) #12
   br i1 %.not533572, label %840, label %882
 
 840:                                              ; preds = %.thread569
@@ -3163,7 +3163,7 @@ declare i32 @GetDefaultTablespace(i8 noundef signext, i1 noundef zeroext) local_
 declare ptr @get_tablespace_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @transformRelOptions(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -3204,7 +3204,7 @@ declare ptr @find_all_inheritors(i32 noundef, i32 noundef, ptr noundef) local_un
 declare void @list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @BuildIndexInfo(ptr noundef) local_unnamed_addr #1
 
@@ -3219,7 +3219,7 @@ declare zeroext i1 @CompareIndexInfo(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @get_relation_idx_constraint_oid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @IndexSetParentIndex(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @IndexSetParentIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ObjectAddress, align 4
@@ -3653,7 +3653,7 @@ declare zeroext i1 @IsPreferredType(i8 noundef signext, i32 noundef) local_unnam
 declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GetOperatorFromWellKnownStrategy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @GetOperatorFromWellKnownStrategy(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i16, ptr %3, align 2
@@ -3800,7 +3800,7 @@ define dso_local ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.047.lcssa = phi i32 [ %5, %15 ], [ %.148, %.lr.ph ]
   %.1.lcssa = phi i32 [ %.046, %15 ], [ %.2, %.lr.ph ]
-  %24 = tail call i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %.047.lcssa, i32 noundef %.047.lcssa) #12
+  %24 = tail call i32 @pg_mbcliplen(ptr noundef nonnull %0, i32 noundef %.047.lcssa, i32 noundef %.047.lcssa) #12
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %._crit_edge
@@ -3815,7 +3815,7 @@ define dso_local ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef
   %31 = sext i32 %30 to i64
   %32 = tail call ptr @palloc(i64 noundef %31) #12
   %33 = sext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %0, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %0, i64 %33, i1 false)
   br i1 %.not, label %41, label %34
 
 34:                                               ; preds = %27
@@ -3854,12 +3854,12 @@ define dso_local ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ChooseRelationName(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -3881,7 +3881,7 @@ define dso_local noundef ptr @ChooseRelationName(ptr noundef %0, ptr noundef %1,
 12:                                               ; preds = %10, %.split.us
   call void @pfree(ptr noundef %8) #12
   %13 = add i32 %.0.us, 1
-  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.49, ptr noundef %2, i32 noundef %13) #12
+  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %2, i32 noundef %13) #12
   br label %.split.us
 
 .split:                                           ; preds = %5
@@ -3895,7 +3895,7 @@ define dso_local noundef ptr @ChooseRelationName(ptr noundef %0, ptr noundef %1,
   %.014 = phi i32 [ %18, %.lr.ph ], [ 0, %.split ]
   call void @pfree(ptr noundef %17) #12
   %18 = add i32 %.014, 1
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.49, ptr noundef %2, i32 noundef %18) #12
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %2, i32 noundef %18) #12
   %20 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6)
   %21 = call i32 @get_relname_relid(ptr noundef %20, i32 noundef %3) #12
   %.not = icmp eq i32 %21, 0
@@ -4432,7 +4432,7 @@ ReindexMultipleTables.exit:                       ; preds = %.backedge.i, %163
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #1
 
@@ -4495,7 +4495,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForReindexIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define internal void @RangeVarCallbackForReindexIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = load i32, ptr %3, align 4
   %6 = and i32 %5, 8
   %.not = icmp eq i32 %6, 0
@@ -4568,7 +4568,7 @@ define internal void @RangeVarCallbackForReindexIndex(ptr nocapture noundef read
 declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = alloca %struct.ReindexErrorInfo, align 8
   %7 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #12
@@ -4645,7 +4645,7 @@ define internal fastcc void @ReindexPartitions(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.PGRUsage, align 8
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i64], align 16
@@ -5691,7 +5691,7 @@ declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
 declare i32 @get_rel_namespace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @reindex_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @reindex_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %10 [
@@ -5720,7 +5720,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReindexMultipleInternal(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @ReindexMultipleInternal(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.ReindexParams, align 8
   %5 = alloca %struct.ReindexParams, align 8
   %6 = alloca %struct.ReindexParams, align 8
@@ -5913,13 +5913,13 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #11

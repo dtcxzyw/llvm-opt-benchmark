@@ -34,7 +34,7 @@ define void @Extra_UtilGetoptReset() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   store ptr null, ptr @globalUtilOptarg, align 8
   %4 = load ptr, ptr @pScanStr, align 8
   %5 = icmp eq ptr %4, null
@@ -149,7 +149,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef nonnull ptr @Extra_UtilPrintTime(i64 noundef %0) local_unnamed_addr #2 {
@@ -163,7 +163,7 @@ define noundef nonnull ptr @Extra_UtilPrintTime(i64 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef ptr @Extra_UtilStrsav(ptr noundef readonly %0) local_unnamed_addr #5 {
@@ -183,13 +183,13 @@ define noundef ptr @Extra_UtilStrsav(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef ptr @Extra_UtilTildeExpand(ptr noundef readonly %0) local_unnamed_addr #5 {
@@ -209,7 +209,7 @@ Extra_UtilStrsav.exit:                            ; preds = %1, %3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Extra_UtilCheckFile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Extra_UtilCheckFile(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
 sub_0:
   %2 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %2, 120
@@ -224,7 +224,7 @@ sub_1:                                            ; preds = %sub_0
 
 .tail:                                            ; preds = %sub_0, %sub_1
   %spec.store.select = phi ptr [ %1, %sub_0 ], [ %6, %sub_1 ]
-  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %spec.store.select)
+  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull %spec.store.select)
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %11
 
@@ -238,13 +238,13 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 
@@ -266,8 +266,8 @@ define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %15
 
-15:                                               ; preds = %49, %8
-  %.130 = phi ptr [ %11, %8 ], [ %50, %49 ]
+15:                                               ; preds = %47, %8
+  %.130 = phi ptr [ %11, %8 ], [ %48, %47 ]
   %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.130, i32 noundef 58) #14
   %.not.not = icmp eq ptr %16, null
   br i1 %.not.not, label %sub_0, label %17
@@ -278,8 +278,8 @@ define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1
 
 sub_0:                                            ; preds = %17, %15
   %18 = load i8, ptr %.130, align 1
-  %.not50 = icmp eq i8 %18, 46
-  br i1 %.not50, label %.tail, label %.tail.thread
+  %.not49 = icmp eq i8 %18, 46
+  br i1 %.not49, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %19 = getelementptr inbounds nuw i8, ptr %.130, i64 1
@@ -303,73 +303,60 @@ sub_0:                                            ; preds = %17, %15
   %30 = add i64 %28, 4
   %31 = add i64 %30, %29
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #17
-  %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %.130, ptr noundef %0) #16
+  %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %.130, ptr noundef nonnull %0) #16
   br label %Extra_UtilStrsav.exit
 
-Extra_UtilStrsav.exit:                            ; preds = %23, %.tail.thread
+Extra_UtilStrsav.exit:                            ; preds = %.tail.thread, %23
   %.0 = phi ptr [ %32, %.tail.thread ], [ %26, %23 ]
-  %34 = icmp eq ptr %.0, null
-  br i1 %34, label %Extra_UtilTildeExpand.exit.thread, label %35
-
-35:                                               ; preds = %Extra_UtilStrsav.exit
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #14
-  %37 = add i64 %36, 1
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #17
-  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %.0) #16
+  %34 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #14
+  %35 = add i64 %34, 1
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #17
+  %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %.0) #16
   tail call void @free(ptr noundef nonnull %.0) #16
   br label %Extra_UtilTildeExpand.exit.thread
 
-Extra_UtilTildeExpand.exit.thread:                ; preds = %22, %Extra_UtilStrsav.exit, %35
-  %.0.i.i45 = phi ptr [ %38, %35 ], [ null, %Extra_UtilStrsav.exit ], [ null, %22 ]
-  %40 = load i8, ptr %2, align 1
-  %.not.i = icmp eq i8 %40, 120
+Extra_UtilTildeExpand.exit.thread:                ; preds = %22, %Extra_UtilStrsav.exit
+  %.0.i.i45 = phi ptr [ %36, %Extra_UtilStrsav.exit ], [ null, %22 ]
+  %38 = load i8, ptr %2, align 1
+  %.not.i = icmp eq i8 %38, 120
   br i1 %.not.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %Extra_UtilTildeExpand.exit.thread
-  %41 = load i8, ptr %14, align 1
-  %42 = icmp eq i8 %41, 0
-  %43 = select i1 %42, ptr @.str.4, ptr %2
+  %39 = load i8, ptr %14, align 1
+  %40 = icmp eq i8 %39, 0
+  %41 = select i1 %40, ptr @.str.4, ptr %2
   br label %.tail.i
 
 .tail.i:                                          ; preds = %sub_1.i, %Extra_UtilTildeExpand.exit.thread
-  %spec.store.select.i = phi ptr [ %2, %Extra_UtilTildeExpand.exit.thread ], [ %43, %sub_1.i ]
-  %44 = tail call noalias ptr @fopen(ptr noundef readonly %.0.i.i45, ptr noundef %spec.store.select.i)
-  %.not47 = icmp eq ptr %44, null
-  br i1 %.not47, label %47, label %45
+  %spec.store.select.i = phi ptr [ %2, %Extra_UtilTildeExpand.exit.thread ], [ %41, %sub_1.i ]
+  %42 = tail call noalias ptr @fopen(ptr noundef readonly %.0.i.i45, ptr noundef nonnull %spec.store.select.i)
+  %.not = icmp eq ptr %42, null
+  br i1 %.not, label %45, label %43
+
+43:                                               ; preds = %.tail.i
+  %44 = tail call i32 @fclose(ptr noundef nonnull %42)
+  br label %.loopexit
 
 45:                                               ; preds = %.tail.i
-  %46 = tail call i32 @fclose(ptr noundef nonnull %44)
-  %.not40 = icmp eq ptr %11, null
-  br i1 %.not40, label %52, label %.sink.split
-
-47:                                               ; preds = %.tail.i
   %.not38 = icmp eq ptr %.0.i.i45, null
-  br i1 %.not38, label %49, label %48
+  br i1 %.not38, label %47, label %46
 
-48:                                               ; preds = %47
+46:                                               ; preds = %45
   tail call void @free(ptr noundef nonnull %.0.i.i45) #16
-  br label %49
+  br label %47
 
-49:                                               ; preds = %47, %48
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  br i1 %.not.not, label %51, label %15
+47:                                               ; preds = %45, %46
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  br i1 %.not.not, label %.loopexit, label %15
 
-51:                                               ; preds = %49
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %52, label %.sink.split
-
-.sink.split:                                      ; preds = %51, %45
-  %.028.ph = phi ptr [ %.0.i.i45, %45 ], [ null, %51 ]
-  tail call void @free(ptr noundef nonnull %11) #16
-  br label %52
-
-52:                                               ; preds = %.sink.split, %51, %45
-  %.028 = phi ptr [ %.0.i.i45, %45 ], [ null, %51 ], [ %.028.ph, %.sink.split ]
+.loopexit:                                        ; preds = %47, %43
+  %.028 = phi ptr [ %.0.i.i45, %43 ], [ null, %47 ]
+  tail call void @free(ptr noundef %11) #16
   ret ptr %.028
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define void @Extra_UtilMMout_Of_Memory(i64 noundef %0) #10 {
@@ -383,7 +370,7 @@ define void @Extra_UtilMMout_Of_Memory(i64 noundef %0) #10 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
@@ -442,10 +429,10 @@ define void @Extra_MemTest() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

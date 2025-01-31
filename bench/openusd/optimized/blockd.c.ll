@@ -47,7 +47,7 @@ define hidden zeroext i8 @av1_above_block_mode(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_set_entropy_contexts(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+define hidden void @av1_set_entropy_contexts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %6 to i64
@@ -148,10 +148,10 @@ max_block_high.exit:                              ; preds = %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_reset_entropy_context(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @av1_reset_entropy_context(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = add nsw i32 %2, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr %5, align 4
@@ -201,7 +201,7 @@ define hidden void @av1_reset_entropy_context(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_reset_loop_filter_delta(ptr nocapture noundef writeonly initializes((10752, 10753)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @av1_reset_loop_filter_delta(ptr noundef writeonly captures(none) initializes((10752, 10753)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10752
   store i8 0, ptr %3, align 16
   %.inv = icmp slt i32 %1, 2
@@ -212,7 +212,7 @@ define hidden void @av1_reset_loop_filter_delta(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @av1_reset_loop_restoration(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden void @av1_reset_loop_restoration(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -266,7 +266,7 @@ define hidden void @av1_reset_loop_restoration(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @av1_setup_block_planes(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %.lr.ph23
 

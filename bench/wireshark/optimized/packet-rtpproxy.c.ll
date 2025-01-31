@@ -400,7 +400,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1126,7 +1126,7 @@ declare ptr @tvb_format_text_wsp(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load ptr, ptr %8, align 8
@@ -1323,7 +1323,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %38 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef %30, i32 noundef %37) #7
   %39 = load ptr, ptr %7, align 8
   %40 = call ptr @tvb_format_text(ptr noundef %39, ptr noundef %0, i32 noundef %32, i32 noundef %30) #7
-  %41 = call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #7
+  %41 = call i64 @strtoul(ptr noundef captures(none) %40, ptr noundef null, i32 noundef 10) #7
   %42 = trunc i64 %41 to i32
   %43 = call ptr @val_to_str_ext_const(i32 noundef %42, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.142, ptr noundef %43) #7
@@ -1434,7 +1434,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
 117:                                              ; preds = %102
   %118 = load ptr, ptr %7, align 8
   %119 = call ptr @tvb_format_text(ptr noundef %118, ptr noundef %0, i32 noundef %14, i32 noundef %106) #7
-  %120 = call i64 @strtoul(ptr nocapture noundef %119, ptr noundef null, i32 noundef 10) #7
+  %120 = call i64 @strtoul(ptr noundef captures(none) %119, ptr noundef null, i32 noundef 10) #7
   %121 = trunc i64 %120 to i32
   %122 = load ptr, ptr @rtp_events_handle, align 8
   call void @dissector_add_uint(ptr noundef nonnull @.str.181, i32 noundef %121, ptr noundef %122) #7
@@ -1476,7 +1476,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   %150 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %14, i32 noundef %141, i32 noundef %149) #7
   %151 = load ptr, ptr %7, align 8
   %152 = call ptr @tvb_format_text(ptr noundef %151, ptr noundef %0, i32 noundef %14, i32 noundef %141) #7
-  %153 = call i64 @strtoul(ptr nocapture noundef %152, ptr noundef null, i32 noundef 10) #7
+  %153 = call i64 @strtoul(ptr noundef captures(none) %152, ptr noundef null, i32 noundef 10) #7
   %154 = trunc i64 %153 to i32
   %155 = call ptr @val_to_str_ext_const(i32 noundef %154, ptr noundef nonnull @rtp_payload_type_vals_ext, ptr noundef nonnull @.str.143) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull @.str.142, ptr noundef %155) #7
@@ -1519,7 +1519,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtpproxy_add_tag(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtpproxy_add_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %3, i32 noundef -1, i8 noundef zeroext 32) #7
   %8 = icmp slt i32 %7, 0
@@ -1733,10 +1733,10 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1749,7 +1749,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1766,14 +1766,14 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @wmem_strsplit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

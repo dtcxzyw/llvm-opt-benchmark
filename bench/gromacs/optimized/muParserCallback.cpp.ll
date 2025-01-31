@@ -103,7 +103,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdvEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdvEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -122,7 +122,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdvEb(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddEbiNS_8ECmdCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddEbiNS_8ECmdCodeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -141,7 +141,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddEbiNS_8ECmdCodeE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -160,7 +160,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddEb(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -179,7 +179,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddEb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddEbiNS_18EOprtAssociativityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddEbiNS_18EOprtAssociativityE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -198,7 +198,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddEbiNS_18EOprtAssociativityE(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -217,7 +217,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddddEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -236,7 +236,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddEb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -255,7 +255,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddEb(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -274,7 +274,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddEb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -293,7 +293,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddddEb(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -312,7 +312,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddddEb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFddddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFddddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -331,7 +331,7 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddddddEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdddddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdddddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -350,7 +350,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddddddEb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -376,7 +376,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvES1_b(ptr nocapture noundef nonnull w
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvdES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvdES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -399,7 +399,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdES1_b(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -422,7 +422,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddES1_b(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvdddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvdddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -445,7 +445,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddES1_b(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -468,7 +468,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddES1_b(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvdddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvdddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -491,7 +491,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddES1_b(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -514,7 +514,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddES1_b(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -537,7 +537,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddES1_b(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -560,7 +560,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddES1_b(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -583,7 +583,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddddES1_b(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -606,7 +606,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddddES1_b(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -625,7 +625,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiEb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiidEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiidEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -644,7 +644,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -663,7 +663,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddEb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiidddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiidddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -682,7 +682,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddEb(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -701,7 +701,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddEb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiidddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiidddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -720,7 +720,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddEb(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -739,7 +739,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddEb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiidddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiidddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -758,7 +758,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddddEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -777,7 +777,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddEb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiidddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiidddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -796,7 +796,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddddddEb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -815,7 +815,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddddEb(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -838,7 +838,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiES1_b(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviidES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviidES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -861,7 +861,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidES1_b(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -884,7 +884,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddES1_b(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviidddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviidddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -907,7 +907,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddES1_b(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -930,7 +930,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddES1_b(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviidddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviidddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -953,7 +953,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddES1_b(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -976,7 +976,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddES1_b(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -999,7 +999,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddES1_b(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1022,7 +1022,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddES1_b(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1045,7 +1045,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddddES1_b(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1068,7 +1068,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddddES1_b(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKdiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKdiEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1087,7 +1087,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKdiEb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKdiES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKdiES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1110,7 +1110,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKdiES1_b(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1129,7 +1129,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcdEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcdEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1148,7 +1148,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdEb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1167,7 +1167,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcddEb(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcdddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcdddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1186,7 +1186,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdddEb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1205,7 +1205,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcddddEb(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPKcdddddEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPKcdddddEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1224,7 +1224,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdddddEb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1247,7 +1247,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcES1_b(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1270,7 +1270,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdES1_b(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1293,7 +1293,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddES1_b(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1316,7 +1316,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddES1_b(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1339,7 +1339,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddddES1_b(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddddES1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddddES1_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   store ptr %1, ptr %6, align 16
@@ -1362,7 +1362,7 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddddES1_b(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu14ParserCallbackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2mu14ParserCallbackC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -1516,7 +1516,7 @@ define void @_ZN2mu14ParserCallback6AssignERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2mu14ParserCallbackD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
+define void @_ZN2mu14ParserCallbackD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8192
@@ -1614,7 +1614,7 @@ _ZN2mu14ParserCallback6AssignERKS0_.exit:         ; preds = %2, %22
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK2mu14ParserCallback5CloneEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1633,7 +1633,7 @@ define noundef nonnull ptr @_ZNK2mu14ParserCallback5CloneEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2mu14ParserCallback13IsOptimizableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK2mu14ParserCallback13IsOptimizableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -1641,7 +1641,7 @@ define noundef zeroext i1 @_ZNK2mu14ParserCallback13IsOptimizableEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK2mu14ParserCallback7GetAddrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK2mu14ParserCallback7GetAddrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8192
@@ -1653,7 +1653,7 @@ define noundef ptr @_ZNK2mu14ParserCallback7GetAddrEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK2mu14ParserCallback11GetUserDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK2mu14ParserCallback11GetUserDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8192
@@ -1672,7 +1672,7 @@ define noundef ptr @_ZNK2mu14ParserCallback11GetUserDataEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK2mu14ParserCallback7IsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK2mu14ParserCallback7IsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8192
@@ -1697,35 +1697,35 @@ _ZNK2mu14ParserCallback11GetUserDataEv.exit:      ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK2mu14ParserCallback7GetCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK2mu14ParserCallback7GetCodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK2mu14ParserCallback7GetTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK2mu14ParserCallback7GetTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK2mu14ParserCallback6GetPriEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK2mu14ParserCallback6GetPriEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK2mu14ParserCallback16GetAssociativityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK2mu14ParserCallback16GetAssociativityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 16) i32 @_ZNK2mu14ParserCallback7GetArgcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 16) i32 @_ZNK2mu14ParserCallback7GetArgcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16384
@@ -1779,10 +1779,10 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

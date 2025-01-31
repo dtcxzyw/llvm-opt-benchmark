@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.mempoolinfo_s = type { i64, i64, i64, i64, i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
+define ptr @mempool_multiple_init(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %.not = icmp samesign ult i64 %11, 2
   br i1 %.not, label %12, label %82
@@ -175,11 +175,11 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %80, label %.lr.ph136, label %._crit_edge137, !llvm.loop !9
 
 ._crit_edge137:                                   ; preds = %.lr.ph136, %.loopexit
-  tail call fastcc void @mempool_multiple_free_chunk(ptr noundef %16, ptr noundef nonnull %29)
+  tail call fastcc void @mempool_multiple_free_chunk(ptr noundef nonnull %16, ptr noundef nonnull %29)
   br label %81
 
 81:                                               ; preds = %18, %._crit_edge137
-  tail call void %5(ptr noundef %6, ptr noundef %16) #6
+  tail call void %5(ptr noundef %6, ptr noundef nonnull %16) #6
   br label %82
 
 82:                                               ; preds = %._crit_edge, %10, %81, %70
@@ -188,7 +188,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -382,7 +382,7 @@ define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mempool_multiple_free_callback(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @mempool_multiple_free_callback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -398,7 +398,7 @@ declare i32 @mempool_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @fls(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @nxrmutex_init(ptr noundef) local_unnamed_addr #1
 
@@ -867,7 +867,7 @@ mempool_multiple_alloc.exit:                      ; preds = %107, %41, %39, %._c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1093,7 +1093,7 @@ mempool_multiple_find.exit.thread:                ; preds = %47, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @mempool_multiple_foreach(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -1114,7 +1114,7 @@ define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.mallinfo) align 4 initializes((0, 28)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias writable writeonly sret(%struct.mallinfo) align 4 captures(none) initializes((0, 28)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mempoolinfo_s, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 24, i1 false)
@@ -1219,7 +1219,7 @@ declare i32 @nxrmutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @mempool_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i64 @mempool_multiple_info_task(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1257,7 +1257,7 @@ define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr no
 declare i64 @mempool_info_task(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mempool_multiple_memdump(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mempool_multiple_memdump(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0

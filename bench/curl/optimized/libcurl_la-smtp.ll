@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @smtp_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @smtp_setup_connection(ptr noundef writeonly captures(none) initializes((392, 400)) %data, ptr noundef captures(none) %conn) #0 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_do(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %done) #0 {
+define internal i32 @smtp_do(ptr noundef %data, ptr noundef captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i.i.i = alloca i8, align 1
   %host.i.i.i = alloca %struct.hostname, align 8
@@ -788,7 +788,7 @@ return:                                           ; preds = %if.end25, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_connect(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @smtp_connect(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   %localhost.i = alloca [1025 x i8], align 16
@@ -945,7 +945,7 @@ return:                                           ; preds = %if.end.i, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @smtp_multi_statemach(ptr noundef %data, ptr noundef writeonly captures(none) %done) #0 {
 entry:
   %ssldone3 = alloca i8, align 1
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -995,7 +995,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_doing(ptr noundef %data, ptr nocapture noundef %dophase_done) #0 {
+define internal i32 @smtp_doing(ptr noundef %data, ptr noundef captures(none) %dophase_done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ssldone3.i)
@@ -1319,7 +1319,7 @@ return:                                           ; preds = %if.then100, %if.els
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -1856,7 +1856,7 @@ if.then14.i:                                      ; preds = %if.else.i103
   %arrayidx.i108 = getelementptr inbounds i8, ptr %33, i64 %call.i98
   store i8 10, ptr %arrayidx.i108, align 1
   %add.i = add i64 %call.i98, 1
-  %call15.i = call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %33, i64 noundef %add.i) #8
+  %call15.i = call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %33, i64 noundef %add.i) #8
   store i8 0, ptr %arrayidx.i108, align 1
   br label %if.end.i104
 
@@ -2010,7 +2010,7 @@ return:                                           ; preds = %if.else26.i, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @smtp_endofresp(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef readonly %line, i64 noundef %len, ptr nocapture noundef writeonly %resp) #0 {
+define internal noundef zeroext i1 @smtp_endofresp(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef readonly captures(none) %line, i64 noundef %len, ptr noundef writeonly captures(none) %resp) #0 {
 entry:
   %tmpline = alloca [6 x i8], align 1
   %cmp = icmp ult i64 %len, 4
@@ -2051,7 +2051,7 @@ if.then34:                                        ; preds = %if.end
   %conv38.sroa.sel = getelementptr inbounds nuw i8, ptr %tmpline, i64 %conv38.sroa.sel.v
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %conv38.sroa.sel, i8 0, i64 %7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %tmpline, ptr noundef nonnull align 1 dereferenceable(3) %line, i64 %conv38, i1 false)
-  %call = call i64 @strtol(ptr nocapture noundef nonnull %tmpline, ptr noundef null, i32 noundef 10) #8
+  %call = call i64 @strtol(ptr noundef nonnull captures(none) %tmpline, ptr noundef null, i32 noundef 10) #8
   %call40 = tail call i32 @curlx_sltosi(i64 noundef %call) #8
   %cmp41 = icmp eq i32 %call40, 1
   %spec.store.select = select i1 %cmp41, i32 0, i32 %call40
@@ -2178,7 +2178,7 @@ declare i32 @Curl_ssl_cfilter_add(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @Curl_pp_sendf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i16 @Curl_sasl_decode_mech(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2408,14 +2408,14 @@ return:                                           ; preds = %if.then5, %if.end62
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @Curl_is_ASCII_name(ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_free_idnconverted_hostname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @Curl_idnconvert_hostname(ptr noundef) local_unnamed_addr #1
 
@@ -2508,7 +2508,7 @@ declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noun
 declare i32 @curlx_sltosi(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @smtp_perform_auth(ptr noundef %data, ptr noundef %mech, ptr noundef %initresp) #0 {
@@ -2534,7 +2534,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_continue_auth(ptr noundef %data, ptr nocapture readnone %mech, ptr noundef %resp) #0 {
+define internal i32 @smtp_continue_auth(ptr noundef %data, ptr readnone captures(none) %mech, ptr noundef %resp) #0 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -2545,7 +2545,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_cancel_auth(ptr noundef %data, ptr nocapture readnone %mech) #0 {
+define internal i32 @smtp_cancel_auth(ptr noundef %data, ptr readnone captures(none) %mech) #0 {
 entry:
   %conn = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -2555,7 +2555,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smtp_get_message(ptr nocapture noundef readonly %data, ptr noundef %out) #0 {
+define internal noundef i32 @smtp_get_message(ptr noundef readonly captures(none) %data, ptr noundef %out) #0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %data, i64 3224
   %0 = load ptr, ptr %buffer, align 8
@@ -2684,16 +2684,16 @@ declare i32 @Curl_pp_disconnect(ptr noundef) local_unnamed_addr #1
 declare void @Curl_sasl_cleanup(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

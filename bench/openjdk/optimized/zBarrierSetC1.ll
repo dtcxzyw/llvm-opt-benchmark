@@ -163,7 +163,7 @@ $_ZTV38ZStoreBarrierRuntimeStubCodeGenClosure = comdat any
 @_ZN13ZBarrierSetC1C1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13ZBarrierSetC1C2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ZLoadBarrierStubC1C2ER9LIRAccess7LIR_OprPh(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ZLoadBarrierStubC1C2ER9LIRAccess7LIR_OprPh(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 128)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -242,42 +242,42 @@ define hidden void @_ZN18ZLoadBarrierStubC1C2ER9LIRAccess7LIR_OprPh(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK18ZLoadBarrierStubC110decoratorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK18ZLoadBarrierStubC110decoratorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK18ZLoadBarrierStubC13refEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK18ZLoadBarrierStubC13refEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK18ZLoadBarrierStubC18ref_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK18ZLoadBarrierStubC18ref_addrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK18ZLoadBarrierStubC13tmpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK18ZLoadBarrierStubC13tmpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK18ZLoadBarrierStubC112runtime_stubEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK18ZLoadBarrierStubC112runtime_stubEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ZLoadBarrierStubC15visitEP16LIR_OpVisitState(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef initializes((569, 570)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ZLoadBarrierStubC15visitEP16LIR_OpVisitState(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef captures(none) initializes((569, 570)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 569
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -539,7 +539,7 @@ declare noundef ptr @_ZN11ZBarrierSet9assemblerEv() local_unnamed_addr #2
 declare void @_ZNK20ZBarrierSetAssembler29generate_c1_load_barrier_stubEP13LIR_AssemblerP18ZLoadBarrierStubC1(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19ZStoreBarrierStubC1C2ER9LIRAccess7LIR_OprS2_S2_bPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 121), (128, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 %2, i64 %3, i64 %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #3 align 2 {
+define hidden void @_ZN19ZStoreBarrierStubC1C2ER9LIRAccess7LIR_OprS2_S2_bPh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 121), (128, 136)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2, i64 %3, i64 %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #3 align 2 {
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
@@ -576,35 +576,35 @@ define hidden void @_ZN19ZStoreBarrierStubC1C2ER9LIRAccess7LIR_OprS2_S2_bPh(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK19ZStoreBarrierStubC18ref_addrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK19ZStoreBarrierStubC18ref_addrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK19ZStoreBarrierStubC112new_zaddressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK19ZStoreBarrierStubC112new_zaddressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK19ZStoreBarrierStubC112new_zpointerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK19ZStoreBarrierStubC112new_zpointerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK19ZStoreBarrierStubC13tmpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK19ZStoreBarrierStubC13tmpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierStubC19is_atomicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierStubC19is_atomicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -612,14 +612,14 @@ define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierStubC19is_atomicEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK19ZStoreBarrierStubC112runtime_stubEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK19ZStoreBarrierStubC112runtime_stubEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierStubC15visitEP16LIR_OpVisitState(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef initializes((569, 570)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ZStoreBarrierStubC15visitEP16LIR_OpVisitState(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef captures(none) initializes((569, 570)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 569
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -819,7 +819,7 @@ define hidden void @_ZN19ZStoreBarrierStubC19emit_codeEP13LIR_Assembler(ptr noun
 declare void @_ZNK20ZBarrierSetAssembler30generate_c1_store_barrier_stubEP13LIR_AssemblerP19ZStoreBarrierStubC1(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ZBarrierSetC1C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN13ZBarrierSetC1C2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV13ZBarrierSetC1, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -827,7 +827,7 @@ define hidden void @_ZN13ZBarrierSetC1C2Ev(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK13ZBarrierSetC148load_barrier_on_oop_field_preloaded_runtime_stubEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK13ZBarrierSetC148load_barrier_on_oop_field_preloaded_runtime_stubEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = and i64 %1, 32768
   %.not = icmp eq i64 %3, 0
   %.0.in.v = select i1 %.not, i64 8, i64 16
@@ -837,7 +837,7 @@ define hidden noundef ptr @_ZNK13ZBarrierSetC148load_barrier_on_oop_field_preloa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK13ZBarrierSetC139store_barrier_on_oop_field_runtime_stubEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK13ZBarrierSetC139store_barrier_on_oop_field_runtime_stubEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %.0.in.v = select i1 %1, i64 24, i64 32
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
   %.0 = load ptr, ptr %.0.in, align 8
@@ -845,7 +845,7 @@ define hidden noundef ptr @_ZNK13ZBarrierSetC139store_barrier_on_oop_field_runti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK13ZBarrierSetC15colorER9LIRAccess7LIR_Opr(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 returned %2) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZNK13ZBarrierSetC15colorER9LIRAccess7LIR_Opr(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 returned %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -948,7 +948,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %42, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13ZBarrierSetC112load_barrierER9LIRAccess7LIR_Opr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13ZBarrierSetC112load_barrierER9LIRAccess7LIR_Opr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 32768
@@ -1178,7 +1178,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %116, %121
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK13ZBarrierSetC113store_barrierER9LIRAccess7LIR_Oprb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZNK13ZBarrierSetC113store_barrierER9LIRAccess7LIR_Oprb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = and i64 %2, 391
   %7 = icmp eq i64 %6, 3
@@ -2277,7 +2277,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %50, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ZStoreBarrierRuntimeStubCodeGenClosure, align 8
   %4 = alloca %class.ZStoreBarrierRuntimeStubCodeGenClosure, align 8
   %5 = alloca %class.ZLoadBarrierRuntimeStubCodeGenClosure, align 8
@@ -3500,13 +3500,13 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

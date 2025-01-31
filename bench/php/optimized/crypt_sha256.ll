@@ -16,19 +16,19 @@ target triple = "x86_64-pc-linux-gnu"
 @fillbuf = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @__php_stpncpy(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @__php_stpncpy(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %2)
-  %5 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %5 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2) #15
   %6 = getelementptr inbounds i8, ptr %0, i64 %spec.select
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @php_sha256_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
@@ -89,7 +89,7 @@ sub_2:                                            ; preds = %sub_1
   %.0387 = phi i64 [ %26, %32 ], [ 5000, %24 ], [ 5000, %.tail ]
   %.0386 = phi i1 [ true, %32 ], [ false, %24 ], [ false, %.tail ]
   %.1 = phi ptr [ %33, %32 ], [ %spec.select, %24 ], [ %spec.select, %.tail ]
-  %35 = tail call i64 @strcspn(ptr noundef %.1, ptr noundef nonnull @.str) #14
+  %35 = tail call i64 @strcspn(ptr noundef nonnull %.1, ptr noundef nonnull @.str) #14
   %spec.select434 = tail call i64 @llvm.umin.i64(i64 %35, i64 16)
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %37 = ptrtoint ptr %0 to i64
@@ -117,7 +117,7 @@ sub_2:                                            ; preds = %sub_1
   %50 = and i64 %49, 3
   %51 = sub nsw i64 0, %50
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr align 1 %0, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %0, i64 %36, i1 false)
   br label %53
 
 53:                                               ; preds = %46, %34
@@ -134,7 +134,7 @@ sub_2:                                            ; preds = %sub_1
   %57 = add nuw nsw i64 %spec.select434, 5
   %58 = alloca i8, i64 %57, align 16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %59, ptr align 1 %.1, i64 %spec.select434, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %59, ptr nonnull align 1 %.1, i64 %spec.select434, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %spec.select434
   store i8 0, ptr %60, align 1
   br label %61
@@ -165,7 +165,7 @@ sub_2:                                            ; preds = %sub_1
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %71, align 4
   call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %6)
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %.2, i64 noundef %spec.select434, ptr noundef %6)
   store i32 1779033703, ptr %7, align 4
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1150833019, ptr %72, align 4
@@ -188,7 +188,7 @@ sub_2:                                            ; preds = %sub_1
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %81, align 4
   call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %7)
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %7)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %.2, i64 noundef %spec.select434, ptr noundef %7)
   call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %7)
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %79, align 4
@@ -494,7 +494,7 @@ sha256_finish_ctx.exit449:                        ; preds = %215
 
 231:                                              ; preds = %._crit_edge483, %231
   %.4392486 = phi i64 [ 0, %._crit_edge483 ], [ %232, %231 ]
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %7)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %.2, i64 noundef %spec.select434, ptr noundef %7)
   %232 = add nuw nsw i64 %.4392486, 1
   %233 = load i8, ptr %4, align 4
   %234 = zext i8 %233 to i64
@@ -720,7 +720,7 @@ sha256_finish_ctx.exit463:                        ; preds = %331
   %351 = zext nneg i32 %350 to i64
   %.spec.select434 = call i64 @llvm.umin.i64(i64 %spec.select434, i64 %351)
   %352 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2) #14
-  %353 = call ptr @strncpy(ptr noundef %.2397, ptr noundef readonly %.2, i64 noundef %.spec.select434) #15
+  %353 = call ptr @strncpy(ptr noundef %.2397, ptr noundef nonnull readonly %.2, i64 noundef %.spec.select434) #15
   %354 = trunc nuw nsw i64 %spec.select434 to i32
   %355 = call i32 @llvm.umin.i32(i32 %350, i32 %354)
   %356 = sub nsw i32 %.0383, %355
@@ -1245,22 +1245,22 @@ sha256_finish_ctx.exit471:                        ; preds = %620
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
+define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -1404,7 +1404,7 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 13:                                               ; preds = %12, %2
   %14 = phi i32 [ %5, %12 ], [ %6, %2 ]
   %15 = phi ptr [ %10, %12 ], [ %.pre, %2 ]
-  %16 = tail call ptr @php_sha256_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %14)
+  %16 = tail call ptr @php_sha256_crypt_r(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, i32 noundef %14)
   br label %17
 
 17:                                               ; preds = %8, %13
@@ -1413,10 +1413,10 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef range(i64 8, -63) %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
+define internal fastcc void @sha256_process_block(ptr noundef readonly captures(none) %0, i64 noundef range(i64 8, -63) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #7 {
   %4 = alloca [64 x i32], align 16
   %5 = lshr i64 %1, 2
   %6 = load i32, ptr %2, align 4
@@ -1597,7 +1597,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

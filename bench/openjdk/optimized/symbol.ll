@@ -77,7 +77,7 @@ define hidden noundef i32 @_ZN6Symbol22pack_hash_and_refcountEsi(i16 noundef sig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6SymbolC2EPKhii(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN6SymbolC2EPKhii(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = tail call noundef i32 @_ZN2os6randomEv() #17
   %sext = shl i32 %5, 16
   %6 = or i32 %sext, %3
@@ -97,7 +97,7 @@ define hidden void @_ZN6SymbolC2EPKhii(ptr noundef nonnull align 4 dereferenceab
 declare noundef i32 @_ZN2os6randomEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN6SymbolC2ERKS_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #4 align 2 {
@@ -135,7 +135,7 @@ define hidden void @_ZN6Symbol13set_permanentEv(ptr noundef nonnull align 4 dere
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = icmp slt i32 %3, 1
   br i1 %5, label %.loopexit, label %6
 
@@ -220,7 +220,7 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 42) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %14
@@ -237,7 +237,7 @@ define hidden noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr nocapture n
 _ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i:     ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %12 = and i64 %6, 4294967295
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %11, ptr %1, i64 %12)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %11, ptr nonnull %1, i64 %12)
   %13 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZNK6Symbol6equalsEPKc.exit
 
@@ -283,7 +283,7 @@ _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %35, %14
   %.pre-phi.i.i = phi i64 [ 0, %14 ], [ %wide.trip.count.i.i, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 %.pre-phi.i.i
   store i8 0, ptr %39, align 1
-  %40 = tail call noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef %1, ptr noundef %31) #17
+  %40 = tail call noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef nonnull %1, ptr noundef %31) #17
   %41 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i, label %43, label %42
@@ -313,7 +313,7 @@ _ZNK6Symbol6equalsEPKc.exit:                      ; preds = %45, %43, %_ZNK6Symb
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -349,7 +349,7 @@ _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %10, %1
 declare noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %17
 
@@ -390,7 +390,7 @@ define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr nocapture noundef no
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -517,7 +517,7 @@ declare noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef, i32 noundef
 declare void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -548,7 +548,7 @@ define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 
 declare void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %.loopexit
 
@@ -610,10 +610,10 @@ _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %12, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -1128,7 +1128,7 @@ define hidden void @_ZN6Symbol14make_permanentEv(ptr noundef nonnull align 4 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.LogStream, align 8
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
@@ -1350,7 +1350,7 @@ declare void @llvm.trap() #13
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
@@ -1359,10 +1359,10 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i16 @llvm.umin.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

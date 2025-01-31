@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [6 x i8] c"?????\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_setup_connection(ptr noundef initializes((384, 392)) %0, ptr nocapture noundef %1) #0 {
+define internal i32 @smb_setup_connection(ptr noundef initializes((384, 392)) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 24) #12
@@ -124,7 +124,7 @@ smb_parse_url_path.exit:                          ; preds = %32, %7, %17, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @smb_do(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #1 {
+define internal range(i32 0, 4) i32 @smb_do(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %1, align 1
@@ -136,7 +136,7 @@ define internal range(i32 0, 4) i32 @smb_do(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 68) i32 @smb_connect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 68) i32 @smb_connect(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4904
@@ -173,7 +173,7 @@ define internal range(i32 0, 68) i32 @smb_connect(ptr nocapture noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 832
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr @Curl_cstrdup, align 8
-  %21 = tail call ptr %20(ptr noundef %14) #12
+  %21 = tail call ptr %20(ptr noundef nonnull %14) #12
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 840
   store ptr %21, ptr %22, align 8
   %.not31 = icmp eq ptr %21, null
@@ -209,7 +209,7 @@ define internal range(i32 0, 68) i32 @smb_connect(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i32 @smb_connection_state(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -355,7 +355,7 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_request_state(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i32 @smb_request_state(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smb_tree_disconnect, align 1
   %4 = alloca %struct.smb_close, align 1
   %5 = alloca i64, align 8
@@ -880,7 +880,7 @@ smb_send_write.exit.thread:                       ; preds = %select.unfold119, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @smb_getsock(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 {
+define internal noundef i32 @smb_getsock(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %2, align 4
@@ -888,7 +888,7 @@ define internal noundef i32 @smb_getsock(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smb_disconnect(ptr nocapture readnone %0, ptr nocapture noundef %1, i1 zeroext %2) #0 {
+define internal noundef i32 @smb_disconnect(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i1 zeroext %2) #0 {
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %6 = load ptr, ptr %5, align 8
@@ -919,7 +919,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_and_recv(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_and_recv(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -1090,7 +1090,7 @@ smb_recv_message.exit:                            ; preds = %.thread44.thread, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @smb_send_setup(ptr noundef %0) unnamed_addr #0 {
@@ -1177,7 +1177,7 @@ define internal fastcc i32 @smb_send_setup(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_message(ptr noundef %0, i8 noundef zeroext range(i8 4, -93) %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_message(ptr noundef %0, i8 noundef zeroext range(i8 4, -93) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = tail call i32 @Curl_get_upload_buffer(ptr noundef %0) #12
   %.not = icmp eq i32 %6, 0
@@ -1260,7 +1260,7 @@ smb_send.exit:                                    ; preds = %7, %43
 declare i32 @Curl_get_upload_buffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #7
@@ -1279,7 +1279,7 @@ declare zeroext i16 @Curl_read16_be(ptr noundef) local_unnamed_addr #3
 declare zeroext i16 @Curl_read16_le(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1288,7 +1288,7 @@ declare void @Curl_ntlm_core_lm_resp(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1302,10 +1302,10 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

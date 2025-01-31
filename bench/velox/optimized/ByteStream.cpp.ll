@@ -93,7 +93,7 @@ $_ZTIN8facebook5velox12OutputStreamE = comdat any
 @.str.15 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9ByteRange8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9ByteRange8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -135,7 +135,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox15ByteInputStream8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox15ByteInputStream8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss)
@@ -254,7 +254,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox15ByteInputStream5atEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox15ByteInputStream5atEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %current_, align 8
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8facebook5velox15ByteInputStream4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK8facebook5velox15ByteInputStream4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_, align 8
@@ -325,7 +325,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8facebook5velox15ByteInputStream13remainingSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK8facebook5velox15ByteInputStream13remainingSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_, align 8
@@ -370,7 +370,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZNK8facebook5velox15ByteInputStream5tellpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define { i64, i64 } @_ZNK8facebook5velox15ByteInputStream5tellpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_, align 8
@@ -418,7 +418,7 @@ return:                                           ; preds = %entry, %if.then8
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox15ByteInputStream5seekpESt4fposI11__mbstate_tE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox15ByteInputStream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #6 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_, align 8
@@ -464,7 +464,7 @@ return:                                           ; preds = %entry, %if.then11
 }
 
 ; Function Attrs: mustprogress nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN8facebook5velox15ByteInputStream4nextEb(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %throwIfPastEnd) unnamed_addr #7 align 2 {
+define void @_ZN8facebook5velox15ByteInputStream4nextEb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %throwIfPastEnd) unnamed_addr #7 align 2 {
 entry:
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %current_, align 8
@@ -806,7 +806,7 @@ if.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8facebook5velox16ByteOutputStream4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK8facebook5velox16ByteOutputStream4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_, align 8
@@ -852,7 +852,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream10appendBoolEbi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i1 noundef zeroext %value, i32 noundef %count) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox16ByteOutputStream10appendBoolEbi(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i1 noundef zeroext %value, i32 noundef %count) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %count, 1
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -942,7 +942,7 @@ return:                                           ; preds = %for.cond, %_ZN8face
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream6extendEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox16ByteOutputStream6extendEi(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1162,7 +1162,7 @@ if.end52:                                         ; preds = %if.then49, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream10appendBitsEPKmii(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %bits, i32 noundef %begin, i32 noundef %end) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox16ByteOutputStream10appendBitsEPKmii(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, ptr noundef %bits, i32 noundef %begin, i32 noundef %end) local_unnamed_addr #0 align 2 {
 entry:
   %sub = sub nsw i32 %end, %begin
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1559,7 +1559,7 @@ for.end34:                                        ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream16appendStringViewENS0_10StringViewE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i64 %value.coerce0, ptr %value.coerce1) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox16ByteOutputStream16appendStringViewENS0_10StringViewE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i64 %value.coerce0, ptr %value.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %value = alloca %"struct.facebook::velox::StringView", align 8
   store i64 %value.coerce0, ptr %value, align 8
@@ -1575,7 +1575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream16appendStringViewESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i64 %value.coerce0, ptr %value.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox16ByteOutputStream16appendStringViewESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i64 %value.coerce0, ptr %value.coerce1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = trunc i64 %value.coerce0 to i32
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1722,7 +1722,7 @@ if.end:                                           ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZNK8facebook5velox16ByteOutputStream5tellpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #3 align 2 {
+define { i64, i64 } @_ZNK8facebook5velox16ByteOutputStream5tellpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_, align 8
@@ -1770,7 +1770,7 @@ return:                                           ; preds = %entry, %if.then8
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox16ByteOutputStream5seekpESt4fposI11__mbstate_tE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox16ByteOutputStream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #6 align 2 {
 entry:
   %ranges_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_.i, align 8
@@ -1837,7 +1837,7 @@ return:                                           ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox16ByteOutputStream5flushEPNS0_12OutputStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox16ByteOutputStream5flushEPNS0_12OutputStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, ptr noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %ranges_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_.i, align 8
@@ -1967,7 +1967,7 @@ if.end36:                                         ; preds = %if.then34, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN8facebook5velox16ByteOutputStream13writePositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN8facebook5velox16ByteOutputStream13writePositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_, align 8
@@ -1999,7 +1999,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i32 noundef %bytes) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this, i32 noundef %bytes) local_unnamed_addr #10 align 2 {
 entry:
   %allocatedBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %allocatedBytes_, align 8
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox16ByteOutputStream11inputStreamEv(ptr noalias nocapture writeonly sret(%"class.facebook::velox::ByteInputStream") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox16ByteOutputStream11inputStreamEv(ptr noalias writeonly sret(%"class.facebook::velox::ByteInputStream") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ranges_, align 8
@@ -2103,7 +2103,7 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit13: ; preds = %cond.tru
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox16ByteOutputStream8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox16ByteOutputStream8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss)
@@ -2223,7 +2223,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox17IOBufOutputStream8getIOBufERKSt8functionIFvvEE(ptr noalias sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %releaseFn) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox17IOBufOutputStream8getIOBufERKSt8functionIFvvEE(ptr noalias sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %releaseFn) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
@@ -2521,7 +2521,7 @@ ehcleanup:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_18freeFuncEPvS2_(ptr nocapture readnone %0, ptr noundef initializes((0, 8)) %userData) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_18freeFuncEPvS2_(ptr readnone captures(none) %0, ptr noundef initializes((0, 8)) %userData) #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %userData, align 8
   %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %userData, i64 8
@@ -2720,7 +2720,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZNK8facebook5velox17IOBufOutputStream5tellpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define { i64, i64 } @_ZNK8facebook5velox17IOBufOutputStream5tellpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %out_, align 8
@@ -2770,7 +2770,7 @@ _ZNK8facebook5velox16ByteOutputStream5tellpEv.exit: ; preds = %entry, %if.then8.
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox17IOBufOutputStream5seekpESt4fposI11__mbstate_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %pos.coerce0, i64 %pos.coerce1) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox17IOBufOutputStream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 %pos.coerce0, i64 %pos.coerce1) unnamed_addr #6 align 2 {
 entry:
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %out_, align 8
@@ -2838,7 +2838,7 @@ _ZN8facebook5velox16ByteOutputStream5seekpESt4fposI11__mbstate_tE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox15ByteInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3143,7 +3143,7 @@ if.end23:                                         ; preds = %if.else.i48, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
@@ -3188,7 +3188,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
@@ -3224,10 +3224,10 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #20
 declare i8 @llvm.fshr.i8(i8, i8, i8) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

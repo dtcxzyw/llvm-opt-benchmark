@@ -900,7 +900,7 @@ if.end93:                                         ; preds = %if.then91, %err
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -950,7 +950,7 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -965,7 +965,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @ENGINE_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @EVP_PKEY_get_size(ptr noundef) local_unnamed_addr #1
 
@@ -992,7 +992,7 @@ declare ptr @EVP_PKEY_meth_new(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_pkey_meths(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @test_pkey_meths(ptr nocapture readnone %e, ptr noundef writeonly %pmeth, ptr nocapture noundef writeonly %pnids, i32 noundef %nid) #6 {
+define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none) %e, ptr noundef writeonly %pmeth, ptr noundef writeonly captures(none) %pnids, i32 noundef %nid) #6 {
 entry:
   %cmp = icmp eq ptr %pmeth, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1022,7 +1022,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare void @EVP_PKEY_meth_set_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @test_encrypt(ptr nocapture readnone %ctx, ptr nocapture readnone %sig, ptr nocapture readnone %siglen, ptr nocapture readnone %tbs, i64 %tbslen) #7 {
+define internal noundef i32 @test_encrypt(ptr readnone captures(none) %ctx, ptr readnone captures(none) %sig, ptr readnone captures(none) %siglen, ptr readnone captures(none) %tbs, i64 %tbslen) #7 {
 entry:
   store i1 true, ptr @called_encrypt, align 4
   ret i32 1

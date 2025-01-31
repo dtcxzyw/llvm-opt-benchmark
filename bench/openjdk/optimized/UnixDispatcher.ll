@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [13 x i8] c"Close failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_UnixDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_UnixDispatcher_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #3
   %5 = icmp slt i32 %4, 0
@@ -39,7 +39,7 @@ declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_UnixDispatcher_close0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_UnixDispatcher_close0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #3
   %.not.i = icmp eq i32 %4, -1
   br i1 %.not.i, label %closeFileDescriptor.exit, label %5
@@ -60,7 +60,7 @@ closeFileDescriptor.exit:                         ; preds = %3, %5, %8
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_UnixDispatcher_preClose0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_UnixDispatcher_preClose0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #3
   %5 = load i32, ptr @preCloseFD, align 4
   %6 = icmp sgt i32 %5, -1

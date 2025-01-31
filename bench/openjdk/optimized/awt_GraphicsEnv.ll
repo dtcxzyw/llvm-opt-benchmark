@@ -157,7 +157,7 @@ define void @Java_sun_awt_X11GraphicsConfig_initIDs(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr @usingXinerama, align 4
   %4 = load ptr, ptr @x11Screens, align 8
@@ -309,7 +309,7 @@ resetNativeData.exit:                             ; preds = %.lr.ph, %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @XScreenCount(ptr noundef) local_unnamed_addr #2
 
@@ -430,7 +430,7 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
+define hidden ptr @awt_init_Display(ptr noundef %0, ptr readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = load ptr, ptr @awt_display, align 8
   %.not = icmp eq ptr %4, null
@@ -550,7 +550,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @XkbIgnoreExtension(i32 noundef) local_unnamed_addr #2
 
@@ -563,7 +563,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @XSetIOErrorHandler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xioerror_handler(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @xioerror_handler(ptr readnone captures(none) %0) #0 {
   %2 = load i8, ptr @awtLockInited, align 1
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %11, label %3
@@ -622,7 +622,7 @@ define internal fastcc void @xineramaInit() unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_X11GraphicsEnvironment_getDefaultScreenNum(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define i32 @Java_sun_awt_X11GraphicsEnvironment_getDefaultScreenNum(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr @awt_display, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %5 = load i32, ptr %4, align 8
@@ -655,14 +655,14 @@ ensureConfigsInited.exit:                         ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsEnvironment_initDisplay(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsEnvironment_initDisplay(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   store i8 %2, ptr @glxRequested, align 1
   %4 = tail call ptr @awt_init_Display(ptr noundef %0, ptr poison)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
@@ -755,20 +755,20 @@ declare zeroext i8 @GLXGC_IsGLXAvailable(...) local_unnamed_addr #2
 declare void @awt_output_flush(...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @Java_sun_awt_X11GraphicsEnvironment_getNumScreens(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
+define i32 @Java_sun_awt_X11GraphicsEnvironment_getNumScreens(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @awt_numScreens, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i64 @Java_sun_awt_X11GraphicsDevice_getDisplay(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
+define i64 @Java_sun_awt_X11GraphicsDevice_getDisplay(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr @awt_display, align 8
   %4 = ptrtoint ptr %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @XShmAttachXErrHandler(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
+define hidden noundef i32 @XShmAttachXErrHandler(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %4 = load i8, ptr %3, align 2
   %5 = icmp eq i8 %4, 1
@@ -796,7 +796,7 @@ define hidden void @resetXShmAttachFailed() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden void @TryInitMITShm(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XShmSegmentInfo, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1207,7 +1207,7 @@ declare i32 @XShmDetach(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @shmdt(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11GraphicsEnvironment_checkShmExt(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11GraphicsEnvironment_checkShmExt(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @TryInitMITShm(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -1216,7 +1216,7 @@ define i32 @Java_sun_awt_X11GraphicsEnvironment_checkShmExt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11GraphicsEnvironment_getDisplayString(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11GraphicsEnvironment_getDisplayString(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %5 = load ptr, ptr %4, align 8
@@ -1228,7 +1228,7 @@ define ptr @Java_sun_awt_X11GraphicsEnvironment_getDisplayString(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11GraphicsDevice_getNumConfigs(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11GraphicsDevice_getNumConfigs(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @x11Screens, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %struct._AwtScreenData, ptr %4, i64 %5
@@ -1262,7 +1262,7 @@ ensureConfigsInited.exit:                         ; preds = %3, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11GraphicsDevice_getConfigVisualId(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11GraphicsDevice_getConfigVisualId(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
@@ -1313,7 +1313,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11GraphicsDevice_getConfigDepth(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11GraphicsDevice_getConfigDepth(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
@@ -1363,7 +1363,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11GraphicsDevice_getConfigColormap(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11GraphicsDevice_getConfigColormap(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
@@ -1414,7 +1414,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %96, label %6
@@ -1591,7 +1591,7 @@ declare i32 @XFreePixmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
+define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
@@ -1609,7 +1609,7 @@ define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
+define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
@@ -1720,10 +1720,10 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2373,7 +2373,7 @@ declare void @awtJNI_CreateColorData(ptr noundef, ptr noundef, i32 noundef) loca
 declare ptr @awtJNI_GetColorModel(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.XWindowAttributes, align 8
   store i32 0, ptr %4, align 4
@@ -2655,12 +2655,12 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
@@ -2807,7 +2807,7 @@ declare i32 @XdbeQueryExtension(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i64 @XdbeAllocateBackBufferName(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -2899,7 +2899,7 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 declare i32 @XdbeDeallocateBackBufferName(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.XdbeSwapInfo, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
@@ -3014,7 +3014,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @XdbeEndIdiom(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsConfig_isTranslucencyCapable(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsConfig_isTranslucencyCapable(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %10, label %5
 
@@ -3032,7 +3032,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsConfig_isTranslucencyC
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3408,7 +3408,7 @@ declare ptr @XdbeGetVisualInfo(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @XdbeFreeVisualInfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_pRunningXinerama(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_pRunningXinerama(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @usingXinerama, align 4
   %.not = icmp ne i32 %3, 0
   %4 = zext i1 %.not to i8
@@ -3416,7 +3416,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_pRunningXi
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExtension(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExtension(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -3755,7 +3755,7 @@ X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8
@@ -3916,7 +3916,7 @@ X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
@@ -4133,7 +4133,7 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -4329,7 +4329,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -4467,7 +4467,7 @@ define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -4556,7 +4556,7 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define double @Java_sun_awt_X11GraphicsDevice_getNativeScaleFactor(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define double @Java_sun_awt_X11GraphicsDevice_getNativeScaleFactor(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call double (...) @getNativeScaleFactor() #17
   ret double %4
 }
@@ -4566,7 +4566,7 @@ declare double @getNativeScaleFactor(...) local_unnamed_addr #2
 declare i64 @XVisualIDFromVisual(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare i64 @GLXGC_FindBestVisual(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -4726,13 +4726,13 @@ declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @XSendEvent(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #16

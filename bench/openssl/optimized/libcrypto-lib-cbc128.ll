@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_cbc128_encrypt(ptr nocapture noundef readonly %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %if.end40, label %while.cond.preheader
@@ -94,10 +94,10 @@ if.end40:                                         ; preds = %entry, %if.then39, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_cbc128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define void @CRYPTO_cbc128_decrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %key, ptr noundef %ivec, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %union.anon, align 8
   %cmp = icmp eq i64 %len, 0

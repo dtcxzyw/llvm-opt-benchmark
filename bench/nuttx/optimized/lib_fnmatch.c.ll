@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #2
   %5 = icmp eq ptr %4, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -21,7 +21,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
   %.012.lcssa = phi ptr [ %0, %3 ], [ %7, %6 ]
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.lcssa) #2
   %11 = trunc i64 %10 to i32
-  %12 = tail call fastcc i32 @fnmatch_one(ptr noundef %.012.lcssa, i32 noundef %11, ptr noundef %1)
+  %12 = tail call fastcc i32 @fnmatch_one(ptr noundef nonnull %.012.lcssa, i32 noundef %11, ptr noundef %1)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %6
@@ -31,7 +31,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
   %15 = ptrtoint ptr %.01215 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = tail call fastcc i32 @fnmatch_one(ptr noundef %.01215, i32 noundef %17, ptr noundef %1)
+  %18 = tail call fastcc i32 @fnmatch_one(ptr noundef nonnull %.01215, i32 noundef %17, ptr noundef %1)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %6
 
@@ -44,7 +44,7 @@ define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readon
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = sext i32 %1 to i64
   %6 = icmp sgt i32 %1, 0
@@ -202,10 +202,10 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

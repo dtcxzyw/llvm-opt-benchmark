@@ -115,7 +115,7 @@ define zeroext i8 @lv_color_brightness(i24 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_color_filter_dsc_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @lv_color_filter_dsc_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #1 {
   store ptr %1, ptr %0, align 8, !tbaa !3
   ret void
 }

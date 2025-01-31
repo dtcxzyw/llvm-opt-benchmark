@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN7Imf_3_214FastHufDecoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_214FastHufDecoderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214FastHufDecoderC2ERPKciiii(ptr nocapture noundef nonnull align 8 dereferenceable(21456) initializes((0, 10), (16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %table, i32 noundef %numBytes, i32 noundef %minSymbol, i32 noundef %maxSymbol, i32 noundef %rleSymbol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_214FastHufDecoderC2ERPKciiii(ptr noundef nonnull align 8 captures(none) dereferenceable(21456) initializes((0, 10), (16, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %table, i32 noundef %numBytes, i32 noundef %minSymbol, i32 noundef %maxSymbol, i32 noundef %rleSymbol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %base = alloca [59 x i64], align 16
   %offset = alloca [59 x i64], align 16
@@ -614,7 +614,7 @@ declare double @llvm.ceil.f64(double) #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214FastHufDecoder11buildTablesEPmS1_(ptr nocapture noundef nonnull align 8 dereferenceable(21456) %this, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_214FastHufDecoder11buildTablesEPmS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(21456) %this, ptr noundef readonly captures(none) %base, ptr noundef readonly captures(none) %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ljBase = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
@@ -785,7 +785,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_214FastHufDecoderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21456) %this) unnamed_addr #9 align 2 {
+define hidden void @_ZN7Imf_3_214FastHufDecoderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21456) %this) unnamed_addr #9 align 2 {
 entry:
   %_idToSymbol = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_idToSymbol, align 8
@@ -807,7 +807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214FastHufDecoder6decodeEPKhiPti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21456) %this, ptr nocapture noundef readonly %src, i32 noundef %numSrcBits, ptr nocapture noundef %dst, i32 noundef %numDstElems) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_214FastHufDecoder6decodeEPKhiPti(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(21456) %this, ptr noundef readonly captures(none) %src, i32 noundef %numSrcBits, ptr noundef captures(none) %dst, i32 noundef %numDstElems) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp slt i32 %numSrcBits, 128
   br i1 %cmp, label %if.then, label %if.end
@@ -1352,10 +1352,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -1367,7 +1367,7 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

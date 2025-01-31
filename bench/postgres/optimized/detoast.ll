@@ -123,7 +123,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 1
   br i1 %3, label %4, label %8
@@ -178,7 +178,7 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
@@ -641,7 +641,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %10

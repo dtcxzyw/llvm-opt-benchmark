@@ -646,7 +646,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib11VanillaSwapEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -731,7 +731,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1446,7 +1446,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_6PeriodES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES3_NS_10DayCounterESD_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_6PeriodES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES3_NS_10DayCounterESD_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %length, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i8 = alloca %"class.QuantLib::Date", align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8
@@ -2413,7 +2413,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2742,7 +2742,7 @@ _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_6PeriodES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES3_NS_10DayCounterESD_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %maturity, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_6PeriodES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES3_NS_10DayCounterESD_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %maturity, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %length, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i12 = alloca %"class.QuantLib::Date", align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8
@@ -3399,7 +3399,7 @@ ehcleanup37:                                      ; preds = %ehcleanup36, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_4DateERKNS_6PeriodERKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES6_NS_10DayCounterESG_NS7_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %exerciseDate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_4DateERKNS_6PeriodERKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES6_NS_10DayCounterESG_NS7_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %exerciseDate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %length, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::Handle.37", align 8
@@ -4030,7 +4030,7 @@ eh.resume:                                        ; preds = %ehcleanup41, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_4DateERKNS_6PeriodERKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES6_NS_10DayCounterESG_NS7_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %exerciseDate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_4DateERKNS_6PeriodERKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEES6_NS_10DayCounterESG_NS7_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %exerciseDate, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %length, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::Handle.37", align 8
@@ -4674,7 +4674,7 @@ ehcleanup35:                                      ; preds = %ehcleanup34, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_4DateES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEERKNS_6PeriodENS_10DayCounterESG_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %exerciseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC2ERKNS_4DateES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEERKNS_6PeriodENS_10DayCounterESG_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %exerciseDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %endDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle.37", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -5286,7 +5286,7 @@ eh.resume:                                        ; preds = %ehcleanup33, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_4DateES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEERKNS_6PeriodENS_10DayCounterESG_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %exerciseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %fixedLegTenor, ptr nocapture noundef %fixedLegDayCounter, ptr nocapture noundef %floatingLegDayCounter, ptr nocapture noundef %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SwaptionHelperC1ERKNS_4DateES3_RKNS_6HandleINS_5QuoteEEEN5boost10shared_ptrINS_9IborIndexEEERKNS_6PeriodENS_10DayCounterESG_NS4_INS_18YieldTermStructureEEENS_22BlackCalibrationHelper20CalibrationErrorTypeEddNS_14VolatilityTypeEdjNS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %exerciseDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %endDate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volatility, ptr noundef captures(none) %index, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %fixedLegTenor, ptr noundef captures(none) %fixedLegDayCounter, ptr noundef captures(none) %floatingLegDayCounter, ptr noundef captures(none) %termStructure, i32 noundef %errorType, double noundef %strike, double noundef %nominal, i32 noundef %type, double noundef %shift, i32 noundef %settlementDays, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle.37", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -10413,7 +10413,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 declare void @_ZN8QuantLib16EuropeanExerciseC1ERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14SwaptionHelper8makeSwapENS_8ScheduleES1_dNS_4Swap4TypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.39") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %fixedSchedule, ptr noundef %floatSchedule, double noundef %exerciseRate, i32 noundef %type) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14SwaptionHelper8makeSwapENS_8ScheduleES1_dNS_4Swap4TypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::shared_ptr.39") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %fixedSchedule, ptr noundef %floatSchedule, double noundef %exerciseRate, i32 noundef %type) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseRate.addr = alloca double, align 8
   %type.addr = alloca i32, align 4
@@ -11579,7 +11579,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10shared_ptrIN8QuantLib20OvernightIndexedSwapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13449,7 +13449,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
@@ -14587,7 +14587,7 @@ _ZN8QuantLib22BlackCalibrationHelperD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -15597,7 +15597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #24
 
 declare void @_ZN8QuantLib23BachelierSwaptionEngineC1ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterENS_6detail24BlackStyleSwaptionEngineINSD_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #7
 

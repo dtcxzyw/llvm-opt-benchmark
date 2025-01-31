@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE = local_unnamed_addr constant float 1.000000e+01, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 1, 1073741825) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfi(ptr nocapture noundef nonnull readnone align 1 dereferenceable(4) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1, 1073741825) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfi(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(4) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = fcmp ogt float %1, 0.000000e+00
   %5 = icmp sgt i32 %2, 2
   %6 = shl nuw nsw i32 1, %2
@@ -17,7 +17,7 @@ define noundef range(i32 1, 1073741825) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 1, -2147483647) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr nocapture noundef nonnull readnone align 1 dereferenceable(4) %0, float noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1, -2147483647) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease25DetermineVertexVertexRuleEfiPKf(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(4) %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = fcmp ogt float %1, 0.000000e+00
   br i1 %5, label %._crit_edge.thread, label %.preheader
 
@@ -54,7 +54,7 @@ define noundef range(i32 1, -2147483647) i32 @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #1 align 2 {
+define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeightAtVertexEffiPKfS4_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) local_unnamed_addr #1 align 2 {
   %7 = fcmp ogt float %1, 0.000000e+00
   %8 = fcmp ole float %2, 0.000000e+00
   %or.cond44 = and i1 %7, %8
@@ -145,7 +145,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease31ComputeFractionalWeigh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpnessAtVertexEfiPKf(ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %0, float noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
+define noundef float @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease30SubdivideEdgeSharpnessAtVertexEfiPKf(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
@@ -226,7 +226,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease18decrementSharpnessEf.exit: ; preds = %15, %1
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease36SubdivideEdgeSharpnessesAroundVertexEiPKfPf(ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Sdc6Crease36SubdivideEdgeSharpnessesAroundVertexEiPKfPf(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0

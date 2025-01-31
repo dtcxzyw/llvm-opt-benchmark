@@ -150,7 +150,7 @@ declare void @index_rescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i
 declare void @InstrStopNode(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanBitmapIndexScan(ptr nocapture noundef initializes((276, 277)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanBitmapIndexScan(ptr noundef captures(none) initializes((276, 277)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -215,7 +215,7 @@ declare void @ExecIndexEvalRuntimeKeys(ptr noundef, ptr noundef, i32 noundef) lo
 declare zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndBitmapIndexScan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndBitmapIndexScan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -344,7 +344,7 @@ define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @ExecBitmapIndexScan(ptr nocapture readnone %0) #2 {
+define internal noalias noundef nonnull ptr @ExecBitmapIndexScan(ptr readnone captures(none) %0) #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
@@ -373,7 +373,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

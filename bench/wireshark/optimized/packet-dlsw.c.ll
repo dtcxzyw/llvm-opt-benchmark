@@ -361,7 +361,7 @@ define hidden void @proto_register_dlsw() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dlsw_fmt_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @dlsw_fmt_version(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %3, 255
   %5 = and i32 %1, 255
@@ -382,7 +382,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlsw_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_dlsw_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @try_val_to_str(i32 noundef %6, ptr noundef nonnull @dlsw_version_vals) #5
@@ -428,14 +428,14 @@ define hidden void @proto_reg_handoff_dlsw() local_unnamed_addr #0 {
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -634,7 +634,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %.lr.ph104.i
-  %148 = call ptr @proto_tree_add_expert(ptr noundef %124, ptr noundef %1, ptr noundef nonnull @ei_dlsw_vec_len_invalid, ptr noundef %125, i32 noundef %.096102.i, i32 noundef 1) #5
+  %148 = call ptr @proto_tree_add_expert(ptr noundef %124, ptr noundef nonnull %1, ptr noundef nonnull @ei_dlsw_vec_len_invalid, ptr noundef %125, i32 noundef %.096102.i, i32 noundef 1) #5
   br label %dissect_dlsw_capex.exit
 
 149:                                              ; preds = %.lr.ph104.i
@@ -880,7 +880,7 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65791) i32 @get_dlsw_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65791) i32 @get_dlsw_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 1
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -892,10 +892,10 @@ define internal range(i32 0, 65791) i32 @get_dlsw_pdu_len(ptr nocapture readnone
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

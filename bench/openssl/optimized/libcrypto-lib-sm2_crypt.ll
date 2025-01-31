@@ -62,7 +62,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr nocapture noundef writeonly %pt_size) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_plaintext_size(ptr noundef %ct, i64 noundef %ct_size, ptr noundef writeonly captures(none) %pt_size) local_unnamed_addr #1 {
 entry:
   %ct.addr = alloca ptr, align 8
   store ptr %ct, ptr %ct.addr, align 8
@@ -97,7 +97,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr nocapture noundef writeonly %ct_size) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_ciphertext_size(ptr noundef %key, ptr noundef %digest, i64 noundef %msg_len, ptr noundef writeonly captures(none) %ct_size) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %key) #4
   %call1 = tail call fastcc i64 @ec_field_size(ptr noundef %call)
@@ -167,7 +167,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr nocapture noundef %ciphertext_len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_encrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %ciphertext_buf, ptr noundef captures(none) %ciphertext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext_buf.addr = alloca ptr, align 8
   %ctext_struct = alloca %struct.SM2_Ciphertext_st, align 8
@@ -362,7 +362,7 @@ if.end89:                                         ; preds = %for.end
   br i1 %cmp91, label %if.then110, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %if.end89
-  %call94 = tail call i32 @EVP_DigestUpdate(ptr noundef %call, ptr noundef %call32, i64 noundef %call9) #4
+  %call94 = tail call i32 @EVP_DigestUpdate(ptr noundef %call, ptr noundef nonnull %call32, i64 noundef %call9) #4
   %cmp95 = icmp eq i32 %call94, 0
   br i1 %cmp95, label %if.then110, label %lor.lhs.false97
 
@@ -484,7 +484,7 @@ declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @BN_priv_rand_range_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -523,7 +523,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr nocapture noundef %ptext_len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_sm2_decrypt(ptr noundef %key, ptr noundef %digest, ptr noundef %ciphertext, i64 noundef %ciphertext_len, ptr noundef %ptext_buf, ptr noundef captures(none) %ptext_len) local_unnamed_addr #1 {
 entry:
   %ciphertext.addr = alloca ptr, align 8
   store ptr %ciphertext, ptr %ciphertext.addr, align 8
@@ -621,7 +621,7 @@ if.end63:                                         ; preds = %lor.lhs.false59
 
 lor.lhs.false68:                                  ; preds = %if.end63
   %add.ptr = getelementptr inbounds i8, ptr %call36, i64 %call1
-  %call70 = call i32 @BN_bn2binpad(ptr noundef nonnull %call29, ptr noundef %add.ptr, i32 noundef %conv64) #4
+  %call70 = call i32 @BN_bn2binpad(ptr noundef nonnull %call29, ptr noundef nonnull %add.ptr, i32 noundef %conv64) #4
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %if.then121.sink.split, label %lor.lhs.false73
 
@@ -662,7 +662,7 @@ if.end93:                                         ; preds = %for.end
   br i1 %tobool95.not, label %if.then121.sink.split, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %if.end93
-  %call97 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call89, ptr noundef %call36, i64 noundef %call1) #4
+  %call97 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call89, ptr noundef nonnull %call36, i64 noundef %call1) #4
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.then121.sink.split, label %lor.lhs.false99
 
@@ -672,7 +672,7 @@ lor.lhs.false99:                                  ; preds = %lor.lhs.false96
   br i1 %tobool102.not, label %if.then121.sink.split, label %lor.lhs.false103
 
 lor.lhs.false103:                                 ; preds = %lor.lhs.false99
-  %call105 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call89, ptr noundef %add.ptr, i64 noundef %call1) #4
+  %call105 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call89, ptr noundef nonnull %add.ptr, i64 noundef %call1) #4
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then121.sink.split, label %lor.lhs.false107
 

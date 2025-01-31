@@ -113,7 +113,7 @@ define dso_local void @sema_decl_stack_push(ptr noundef %0) local_unnamed_addr #
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @sema_decl_stack_find_decl_member(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @sema_decl_stack_find_decl_member(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524688), align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524696), align 8
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524688), align 8
@@ -142,7 +142,7 @@ sema_decl_stack_resolve_symbol.exit:              ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_members_to_decl_stack(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @add_members_to_decl_stack(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -569,7 +569,7 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @sema_resolve_method_in_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #4 {
+define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 8
@@ -689,7 +689,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 127
@@ -1007,7 +1007,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_check_type_variable_array(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @sema_check_type_variable_array(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -1098,7 +1098,7 @@ define dso_local noundef zeroext i1 @sema_check_type_variable_array(ptr nocaptur
 declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1229,7 +1229,7 @@ declare ptr @type_get_inferred_array(ptr noundef) local_unnamed_addr #5
 declare ptr @type_get_inferred_vector(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @unit_resolve_parameterized_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16), (48, 49)) %1) local_unnamed_addr #2 {
+define dso_local ptr @unit_resolve_parameterized_symbol(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 16), (48, 49)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1315,7 +1315,7 @@ switch.early.test:                                ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_find_decl_in_private_imports(ptr noundef readonly %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc ptr @sema_find_decl_in_private_imports(ptr noundef readonly %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.fr = freeze ptr %5
@@ -1493,7 +1493,7 @@ sema_find_decl_in_module.exit.thread:             ; preds = %68, %72, %63, %matc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_find_decl_in_global(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc ptr @sema_find_decl_in_global(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1846,7 +1846,7 @@ matches_subpath.exit.thread:                      ; preds = %76, %80, %67, %matc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1973,7 +1973,7 @@ define internal fastcc void @sema_report_error_on_decl(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_find_symbol(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local ptr @sema_find_symbol(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.NameResolve, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 40, i1 false)
@@ -2011,10 +2011,10 @@ define dso_local ptr @sema_find_symbol(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @sema_find_label_symbol(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @sema_find_label_symbol(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2053,7 +2053,7 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2089,7 +2089,7 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.NameResolve, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 40, i1 false)
@@ -2156,7 +2156,7 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_find_path_symbol(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local ptr @sema_find_path_symbol(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.NameResolve, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2385,7 +2385,7 @@ matches_subpath.exit79.thread:                    ; preds = %76, %80, %68, %matc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_resolve_symbol(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 %3) local_unnamed_addr #2 {
+define dso_local ptr @sema_resolve_symbol(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) local_unnamed_addr #2 {
   %5 = alloca %struct.NameResolve, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2613,10 +2613,10 @@ matches_subpath.exit79.thread:                    ; preds = %77, %81, %69, %matc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_add_local(ptr nocapture noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @sema_add_local(ptr noundef captures(none) %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2977,7 +2977,7 @@ sema_append_local.exit:                           ; preds = %167, %176
 declare void @sema_shadow_error(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_unwrap_var(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @sema_unwrap_var(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3099,7 +3099,7 @@ sema_append_local.exit:                           ; preds = %55, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_rewrap_var(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @sema_rewrap_var(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -3204,7 +3204,7 @@ sema_append_local.exit:                           ; preds = %43, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_erase_var(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @sema_erase_var(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3319,7 +3319,7 @@ sema_append_local.exit:                           ; preds = %50, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_erase_unwrapped(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @sema_erase_unwrapped(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3446,7 +3446,7 @@ declare ptr @module_find_symbol(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @decltable_get(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef readonly %0, ptr readonly %.56.val.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @decl_is_visible(ptr noundef readonly captures(none) %0, ptr readonly %.56.val.0.val) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.56.val.0.val, %2
   br i1 %3, label %.loopexit, label %.preheader4
@@ -3622,7 +3622,7 @@ declare ptr @decl_to_name(ptr noundef) local_unnamed_addr #5
 declare zeroext i1 @decl_needs_prefix(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 8), (48, 49)) %1) unnamed_addr #2 {
+define internal fastcc ptr @sema_resolve_path_symbol(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 8), (48, 49)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %1, align 8
@@ -3707,7 +3707,7 @@ matches_subpath.exit.thread:                      ; preds = %31, %35, %22, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_no_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc ptr @sema_resolve_no_path_symbol(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -3835,7 +3835,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #5
 declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

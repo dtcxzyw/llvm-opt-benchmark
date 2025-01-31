@@ -209,14 +209,14 @@ declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_u
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_add_input_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_input_string(ptr noundef captures(none) %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %prompt, i32 noundef 0, i32 noundef 1, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @general_allocate_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @general_allocate_string(ptr noundef captures(none) %ui, ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @general_allocate_prompt(ptr noundef %prompt, i32 noundef %prompt_freeable, i32 noundef %type, i32 noundef %input_flags, ptr noundef %result_buf)
   %cmp.not = icmp eq ptr %call, null
@@ -310,7 +310,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_dup_input_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
+define i32 @UI_dup_input_string(ptr noundef captures(none) %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prompt, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -333,14 +333,14 @@ return:                                           ; preds = %if.then, %if.end3
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_add_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_verify_string(ptr noundef captures(none) %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %prompt, i32 noundef 0, i32 noundef 2, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_dup_verify_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_verify_string(ptr noundef captures(none) %ui, ptr noundef %prompt, i32 noundef %flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prompt, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -361,14 +361,14 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_add_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_input_boolean(ptr noundef captures(none) %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_boolean(ptr noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef 0, i32 noundef %flags, ptr noundef %result_buf)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @general_allocate_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @general_allocate_boolean(ptr noundef captures(none) %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ok_chars, null
   br i1 %cmp, label %if.then, label %if.else
@@ -509,7 +509,7 @@ if.end34:                                         ; preds = %if.then2, %free_str
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_dup_input_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_input_boolean(ptr noundef captures(none) %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %flags, ptr noundef %result_buf) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prompt, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -570,14 +570,14 @@ return:                                           ; preds = %err, %if.end24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_add_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_info_string(ptr noundef captures(none) %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %text, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_dup_info_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_info_string(ptr noundef captures(none) %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %text, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -598,14 +598,14 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_add_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_add_error_string(ptr noundef captures(none) %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @general_allocate_string(ptr noundef %ui, ptr noundef %text, i32 noundef 0, i32 noundef 5, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @UI_dup_error_string(ptr nocapture noundef %ui, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @UI_dup_error_string(ptr noundef captures(none) %ui, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %text, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -697,10 +697,10 @@ return:                                           ; preds = %if.then, %if.end45,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -798,7 +798,7 @@ return:                                           ; preds = %UI_add_user_data.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_user_data(ptr nocapture noundef readonly %ui) local_unnamed_addr #4 {
+define ptr @UI_get0_user_data(ptr noundef readonly captures(none) %ui) local_unnamed_addr #4 {
 entry:
   %user_data = getelementptr inbounds nuw i8, ptr %ui, i64 16
   %0 = load ptr, ptr %user_data, align 8
@@ -806,7 +806,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @UI_get0_result(ptr nocapture noundef readonly %ui, i32 noundef %i) local_unnamed_addr #0 {
+define ptr @UI_get0_result(ptr noundef readonly captures(none) %ui, i32 noundef %i) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -851,7 +851,7 @@ return:                                           ; preds = %sw.bb.i, %if.end4, 
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_result_string(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define ptr @UI_get0_result_string(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %.off = add i32 %0, -1
@@ -871,7 +871,7 @@ return:                                           ; preds = %entry, %sw.bb
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_get_result_length(ptr nocapture noundef readonly %ui, i32 noundef %i) local_unnamed_addr #0 {
+define i32 @UI_get_result_length(ptr noundef readonly captures(none) %ui, i32 noundef %i) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -915,7 +915,7 @@ return:                                           ; preds = %sw.bb.i, %if.end4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_string_length(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define i32 @UI_get_result_string_length(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %.off = add i32 %0, -1
@@ -1100,7 +1100,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef %ui, i32 noundef %cmd, i64 noundef %i, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef %ui, i32 noundef %cmd, i64 noundef %i, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %f) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ui, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1167,14 +1167,14 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get_method(ptr nocapture noundef readonly %ui) local_unnamed_addr #4 {
+define ptr @UI_get_method(ptr noundef readonly captures(none) %ui) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %ui, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @UI_set_method(ptr nocapture noundef writeonly initializes((0, 8)) %ui, ptr noundef returned %meth) local_unnamed_addr #5 {
+define noundef ptr @UI_set_method(ptr noundef writeonly captures(none) initializes((0, 8)) %ui, ptr noundef returned %meth) local_unnamed_addr #5 {
 entry:
   store ptr %meth, ptr %ui, align 8
   ret ptr %meth
@@ -1503,14 +1503,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_string_type(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define i32 @UI_get_string_type(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_input_flags(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define i32 @UI_get_input_flags(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %input_flags = getelementptr inbounds nuw i8, ptr %uis, i64 16
   %0 = load i32, ptr %input_flags, align 8
@@ -1518,7 +1518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_output_string(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define ptr @UI_get0_output_string(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %out_string = getelementptr inbounds nuw i8, ptr %uis, i64 8
   %0 = load ptr, ptr %out_string, align 8
@@ -1526,7 +1526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_action_string(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define ptr @UI_get0_action_string(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %cond = icmp eq i32 %0, 3
@@ -1543,7 +1543,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_get0_test_string(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define ptr @UI_get0_test_string(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %cond = icmp eq i32 %0, 2
@@ -1560,7 +1560,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_minsize(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define i32 @UI_get_result_minsize(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %.off = add i32 %0, -1
@@ -1578,7 +1578,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @UI_get_result_maxsize(ptr nocapture noundef readonly %uis) local_unnamed_addr #4 {
+define i32 @UI_get_result_maxsize(ptr noundef readonly captures(none) %uis) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %uis, align 8
   %.off = add i32 %0, -1
@@ -1596,16 +1596,16 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @UI_set_result(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @UI_set_result(ptr noundef captures(none) %ui, ptr noundef captures(none) %uis, ptr noundef readonly captures(none) %result) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result) #8
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @UI_set_result_ex(ptr noundef %ui, ptr noundef %uis, ptr noundef %result, i32 noundef %conv)
+  %call1 = tail call i32 @UI_set_result_ex(ptr noundef %ui, ptr noundef %uis, ptr noundef nonnull %result, i32 noundef %conv)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @UI_set_result_ex(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %ui, ptr noundef captures(none) %uis, ptr noundef readonly captures(none) %result, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %ui, i64 40
   %0 = load i32, ptr %flags, align 8
@@ -1796,7 +1796,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

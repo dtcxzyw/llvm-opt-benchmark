@@ -343,15 +343,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -552,7 +552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3SkyC2EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %vtt, i32 noundef %id, ptr nocapture noundef readonly %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3SkyC2EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %vtt, i32 noundef %id, ptr noundef readonly captures(none) %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i754 = alloca i64, align 8
   %__dnew.i.i644 = alloca i64, align 8
@@ -2679,7 +2679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSEOS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3487,7 +3487,7 @@ declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11c
 declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Sky12setStarCountEt(ptr nocapture noundef nonnull align 8 dereferenceable(3016) %this, i16 noundef zeroext %star_count) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Sky12setStarCountEt(ptr noundef nonnull align 8 captures(none) dereferenceable(3016) %this, i16 noundef zeroext %star_count) local_unnamed_addr #5 align 2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %this, i64 2948
   %0 = load i32, ptr %count, align 4, !tbaa !136
@@ -3575,7 +3575,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3SkyC1EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) initializes((3016, 3036)) %this, i32 noundef %id, ptr nocapture noundef readonly %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3SkyC1EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) initializes((3016, 3036)) %this, i32 noundef %id, ptr noundef readonly captures(none) %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i771 = alloca i64, align 8
   %__dnew.i.i661 = alloca i64, align 8
@@ -6719,7 +6719,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Sky8draw_sunEPN3irr5video12IVideoDriverERKNS1_6SColorES6_f(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %driver, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %suncolor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %suncolor2, float noundef %wicked_time_of_day) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Sky8draw_sunEPN3irr5video12IVideoDriverERKNS1_6SColorES6_f(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %driver, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %suncolor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %suncolor2, float noundef %wicked_time_of_day) local_unnamed_addr #5 align 2 {
 entry:
   %vertices = alloca %"struct.std::array", align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #31
@@ -6929,7 +6929,7 @@ if.end38:                                         ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Sky9draw_moonEPN3irr5video12IVideoDriverERKNS1_6SColorES6_f(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %driver, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %mooncolor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %mooncolor2, float noundef %wicked_time_of_day) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN3Sky9draw_moonEPN3irr5video12IVideoDriverERKNS1_6SColorES6_f(ptr noundef nonnull align 8 dereferenceable(3016) %this, ptr noundef %driver, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %mooncolor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %mooncolor2, float noundef %wicked_time_of_day) local_unnamed_addr #10 align 2 {
 entry:
   %vertices = alloca %"struct.std::array", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %vertices) #31
@@ -8497,7 +8497,7 @@ return:                                           ; preds = %for.body, %_ZN3Sky1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZN3Sky15getSunDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3016) %this) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, float } @_ZN3Sky15getSunDirectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3016) %this) local_unnamed_addr #14 align 2 {
 entry:
   %m_time_of_day = getelementptr inbounds nuw i8, ptr %this, i64 2468
   %0 = load float, ptr %m_time_of_day, align 4, !tbaa !194
@@ -8560,7 +8560,7 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZN3Sky16getMoonDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3016) %this) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, float } @_ZN3Sky16getMoonDirectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3016) %this) local_unnamed_addr #14 align 2 {
 entry:
   %m_time_of_day = getelementptr inbounds nuw i8, ptr %this, i64 2468
   %0 = load float, ptr %m_time_of_day, align 4, !tbaa !194
@@ -8625,7 +8625,7 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3Sky13draw_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEffRKNS2_6SColorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3016) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(144) initializes((0, 144)) %vertices, float noundef %pos_1, float noundef %pos_2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %c) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN3Sky13draw_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEffRKNS2_6SColorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(3016) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(144) initializes((0, 144)) %vertices, float noundef %pos_1, float noundef %pos_2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %c) local_unnamed_addr #15 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %c, align 4, !tbaa !94
   store float %pos_1, ptr %vertices, align 4, !tbaa !22
@@ -8672,7 +8672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3Sky14place_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3016) %this, ptr nocapture noundef nonnull align 4 dereferenceable(144) %vertices, float noundef %horizon_position, float noundef %day_position) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN3Sky14place_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3016) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(144) %vertices, float noundef %horizon_position, float noundef %day_position) local_unnamed_addr #16 align 2 {
 entry:
   %body_orbit_tilt = getelementptr inbounds nuw i8, ptr %this, i64 2736
   %0 = load float, ptr %body_orbit_tilt, align 8, !tbaa !134
@@ -8974,7 +8974,7 @@ cleanup.done22:                                   ; preds = %if.then.i.i46, %_ZN
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN3Sky11updateStarsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3016) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3Sky11updateStarsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3016) %this) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %rgen = alloca %class.PcgRandom, align 8
   %r = alloca %"class.irr::core::vector3d", align 8
@@ -10320,7 +10320,7 @@ declare void @_ZN9PcgRandomC1Emm(ptr noundef nonnull align 8 dereferenceable(16)
 declare noundef i32 @_ZN9PcgRandom5rangeEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3Sky12setSkyColorsERK8SkyColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) initializes((2668, 2696)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %sky_color) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN3Sky12setSkyColorsERK8SkyColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3016) initializes((2668, 2696)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %sky_color) local_unnamed_addr #15 align 2 {
 entry:
   %sky_color2 = getelementptr inbounds nuw i8, ptr %this, i64 2668
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sky_color2, ptr noundef nonnull align 4 dereferenceable(28) %sky_color, i64 28, i1 false), !tbaa.struct !277
@@ -10328,7 +10328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3Sky14setHorizonTintEN3irr5video6SColorES2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) initializes((2696, 2704), (2964, 2965)) %this, i32 %sun_tint.coerce, i32 %moon_tint.coerce, ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN3Sky14setHorizonTintEN3irr5video6SColorES2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3016) initializes((2696, 2704), (2964, 2965)) %this, i32 %sun_tint.coerce, i32 %moon_tint.coerce, ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint) local_unnamed_addr #9 align 2 {
 entry:
   %fog_sun_tint = getelementptr inbounds nuw i8, ptr %this, i64 2696
   store i32 %sun_tint.coerce, ptr %fog_sun_tint, align 8, !tbaa !94
@@ -12886,7 +12886,7 @@ _ZN3irr5scene10ISceneNodeD2Ev.exit:               ; preds = %if.then.i.i.i.i.i.i
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -14354,7 +14354,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #11
@@ -14872,7 +14872,7 @@ declare void @llvm.assume(i1 noundef) #27
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

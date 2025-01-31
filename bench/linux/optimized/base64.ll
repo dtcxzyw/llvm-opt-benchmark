@@ -12,7 +12,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_base64_decod
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_base64_decode4, ptr @__UNIQUE_ID___addressable_base64_encode3], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @base64_encode(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @base64_encode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %.thread5
 
@@ -90,7 +90,7 @@ define dso_local i32 @base64_encode(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @base64_decode(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local i32 @base64_decode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %.loopexit8
 
@@ -175,7 +175,7 @@ define dso_local i32 @base64_decode(ptr nocapture noundef readonly %0, i32 nound
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4

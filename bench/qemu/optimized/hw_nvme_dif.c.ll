@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.34, ptr @.str.35, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.36, ptr @.str.35, i32 135, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext range(i16 0, 16770) i16 @nvme_check_prinfo(ptr nocapture noundef readonly %ns, i8 noundef zeroext %prinfo, i64 noundef %slba, i64 noundef %reftag) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 16770) i16 @nvme_check_prinfo(ptr noundef readonly captures(none) %ns, i8 noundef zeroext %prinfo, i64 noundef %slba, i64 noundef %reftag) local_unnamed_addr #0 {
 entry:
   %pif = getelementptr inbounds nuw i8, ptr %ns, i64 8496
   %0 = load i8, ptr %pif, align 8
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_dif_pract_generate_dif(ptr nocapture noundef readonly %ns, ptr noundef readonly %buf, i64 noundef %len, ptr nocapture noundef %mbuf, i64 %mlen, i16 noundef zeroext %apptag, ptr nocapture noundef %reftag) local_unnamed_addr #1 {
+define dso_local void @nvme_dif_pract_generate_dif(ptr noundef readonly captures(none) %ns, ptr noundef readonly %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i16 noundef zeroext %apptag, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -569,7 +569,7 @@ return:                                           ; preds = %for.inc.i33, %for.i
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 16770) i16 @nvme_dif_check(ptr nocapture noundef readonly %ns, ptr noundef readonly %buf, i64 noundef %len, ptr nocapture noundef %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr nocapture noundef %reftag) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 16770) i16 @nvme_dif_check(ptr noundef readonly captures(none) %ns, ptr noundef readonly %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
 entry:
   %_now.i.i79.i.i = alloca %struct.timeval, align 8
   %_now.i.i63.i.i = alloca %struct.timeval, align 8
@@ -1274,10 +1274,10 @@ return:                                           ; preds = %if.then15, %for.inc
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 7) i16 @nvme_dif_mangle_mdata(ptr nocapture noundef readonly %ns, ptr noundef writeonly %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 7) i16 @nvme_dif_mangle_mdata(ptr noundef readonly captures(none) %ns, ptr noundef writeonly %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8
@@ -1987,7 +1987,7 @@ declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #5
 declare void @g_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 
@@ -2211,13 +2211,13 @@ out:                                              ; preds = %out.sink.split, %if
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

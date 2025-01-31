@@ -78,7 +78,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @EvaluateIdentity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal void @EvaluateIdentity(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -88,7 +88,7 @@ define internal void @EvaluateIdentity(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsPipelineCheckAndRetreiveStages(ptr nocapture noundef readonly %0, i32 noundef %1, ...) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @cmsPipelineCheckAndRetreiveStages(ptr noundef readonly captures(none) %0, i32 noundef %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.045.i = load ptr, ptr %0, align 8
   %.not6.i = icmp eq ptr %.045.i, null
@@ -212,7 +212,7 @@ cmsPipelineStageCount.exit:                       ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @cmsPipelineStageCount(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @cmsPipelineStageCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %.045 = load ptr, ptr %0, align 8
   %.not6 = icmp eq ptr %.045, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -238,7 +238,7 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_cmsStageGetPtrToCurveSet(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden ptr @_cmsStageGetPtrToCurveSet(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -359,7 +359,7 @@ _cmsStageAllocPlaceholder.exit.thread:            ; preds = %34, %31, %_cmsStage
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateCurves(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvaluateCurves(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -397,7 +397,7 @@ define internal void @EvaluateCurves(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @CurveSetDup(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -490,7 +490,7 @@ define internal ptr @CurveSetDup(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @CurveSetElemTypeFree(ptr nocapture noundef readonly %0) #0 {
+define internal void @CurveSetElemTypeFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -583,7 +583,7 @@ define hidden ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = mul i32 %2, %1
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_cmsStageAllocPlaceholder.exit.thread, label %8
@@ -700,7 +700,7 @@ _cmsStageAllocPlaceholder.exit.thread:            ; preds = %.preheader, %15, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @EvaluateMatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -770,7 +770,7 @@ define internal void @EvaluateMatrix(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MatrixElemDup(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @MatrixElemDup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -808,7 +808,7 @@ define internal ptr @MatrixElemDup(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @MatrixElemTypeFree(ptr nocapture noundef readonly %0) #0 {
+define internal void @MatrixElemTypeFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1027,7 +1027,7 @@ _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cms
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateCLUTfloatIn16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvaluateCLUTfloatIn16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1103,7 +1103,7 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i10, %FromFl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @CLUTElemDup(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @CLUTElemDup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1187,7 +1187,7 @@ define internal ptr @CLUTElemDup(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @CLutElemTypeFree(ptr nocapture noundef readonly %0) #0 {
+define internal void @CLutElemTypeFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1434,7 +1434,7 @@ _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cms
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateCLUTfloat(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvaluateCLUTfloat(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1496,7 +1496,7 @@ cmsStageFree.exit:                                ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i16], align 16
   %6 = alloca [128 x i16], align 16
   %7 = icmp eq ptr %0, null
@@ -1789,7 +1789,7 @@ CubeSize.exit.thread:                             ; preds = %29, %.lr.ph.i, %..l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @IdentitySampler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #8 {
+define internal noundef i32 @IdentitySampler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -1840,10 +1840,10 @@ _cmsQuickSaturateWord.exit:                       ; preds = %2, %9, %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x float], align 16
   %6 = alloca [128 x float], align 16
   %7 = icmp eq ptr %0, null
@@ -2137,7 +2137,7 @@ CubeSize.exit.thread:                             ; preds = %29, %.lr.ph.i, %..l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i16], align 16
   %6 = icmp ugt i32 %0, 15
   br i1 %6, label %CubeSize.exit.thread, label %7
@@ -2243,7 +2243,7 @@ CubeSize.exit.thread:                             ; preds = %13, %.lr.ph.i, %41,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x float], align 16
   %6 = icmp ugt i32 %0, 15
   br i1 %6, label %CubeSize.exit.thread, label %7
@@ -2378,7 +2378,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateLab2XYZ(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @EvaluateLab2XYZ(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %0, align 4
@@ -2604,7 +2604,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %2, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Clipper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #8 {
+define internal void @Clipper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -2655,7 +2655,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateXYZ2Lab(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @EvaluateXYZ2Lab(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %0, align 4
@@ -2714,48 +2714,48 @@ define hidden ptr @_cmsStageAllocLabPrelin(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @cmsBuildParametricToneCurve(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsStageInputChannels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @cmsStageInputChannels(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsStageOutputChannels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @cmsStageOutputChannels(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsStageType(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @cmsStageType(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsStageData(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @cmsStageData(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetStageContextID(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @cmsGetStageContextID(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsStageNext(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @cmsStageNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -2915,7 +2915,7 @@ BlessLUT.exit.thread:                             ; preds = %26, %cmsPipelineGet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_LUTeval16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_LUTeval16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [2 x [128 x float]], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3010,7 +3010,7 @@ FromFloatTo16.exit:                               ; preds = %_cmsQuickSaturateWo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_LUTevalFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_LUTevalFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [2 x [128 x float]], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3053,21 +3053,21 @@ define internal void @_LUTevalFloat(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsGetPipelineContextID(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @cmsGetPipelineContextID(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsPipelineInputChannels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @cmsPipelineInputChannels(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsPipelineOutputChannels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @cmsPipelineOutputChannels(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -3127,7 +3127,7 @@ cmsStageFree.exit:                                ; preds = %.lr.ph, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsPipelineEval16(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @cmsPipelineEval16(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3536,7 +3536,7 @@ BlessLUT.exit:                                    ; preds = %30, %.lr.ph.i, %cms
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsPipelineUnlinkStage(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @cmsPipelineUnlinkStage(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -3635,7 +3635,7 @@ BlessLUT.exit:                                    ; preds = %cmsPipelineGetPtrTo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsPipelineCat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsPipelineCat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %.029.pre37 = load ptr, ptr %1, align 8
@@ -3860,7 +3860,7 @@ cmsPipelineInsertStage.exit:                      ; preds = %17, %.lr.ph.i.i, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @cmsPipelineSetSaveAs8bitsFlag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden i32 @cmsPipelineSetSaveAs8bitsFlag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   store i32 %1, ptr %3, align 8
@@ -3868,13 +3868,13 @@ define hidden i32 @cmsPipelineSetSaveAs8bitsFlag(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @cmsPipelineGetPtrToFirstStage(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @cmsPipelineGetPtrToFirstStage(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @cmsPipelineGetPtrToLastStage(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @cmsPipelineGetPtrToLastStage(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -3890,7 +3890,7 @@ define hidden ptr @cmsPipelineGetPtrToLastStage(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsPipelineSetOptimizationParameters(ptr nocapture noundef writeonly initializes((16, 32), (40, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #14 {
+define hidden void @_cmsPipelineSetOptimizationParameters(ptr noundef writeonly captures(none) initializes((16, 32), (40, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3903,7 +3903,7 @@ define hidden void @_cmsPipelineSetOptimizationParameters(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16
@@ -4132,7 +4132,7 @@ EuclideanDistance.exit:                           ; preds = %48
 declare i32 @_cmsMAT3solve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare float @cmsEvalToneCurveFloat(ptr noundef, float noundef) local_unnamed_addr #1
 

@@ -552,7 +552,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrength10ini
 declare void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrength18setLogicallyStrongEb(ptr noundef nonnull align 8 dereferenceable(544), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager7addTermENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr nocapture noundef readonly %sol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager7addTermENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef readonly captures(none) %sol) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %solb = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -1619,7 +1619,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

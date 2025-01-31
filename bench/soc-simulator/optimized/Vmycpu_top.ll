@@ -365,7 +365,7 @@ _ZTWN9Verilated3t_sE.exit5:                       ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10Vmycpu_topD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN10Vmycpu_topD2Ev(ptr noundef nonnull align 64 captures(none) dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
@@ -406,7 +406,7 @@ _ZN10Vmycpu_topD2Ev.exit:                         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Vmycpu_top9eval_stepEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN10Vmycpu_top9eval_stepEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -455,12 +455,12 @@ declare void @_Z27Vmycpu_top___024root___evalP20Vmycpu_top___024root(ptr noundef
 declare void @_ZN9Verilated9endOfEvalEP21VerilatedEvalMsgQueue(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN10Vmycpu_top13eventsPendingEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(416) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN10Vmycpu_top13eventsPendingEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #7 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN10Vmycpu_top12nextTimeSlotEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN10Vmycpu_top12nextTimeSlotEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
   tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   ret i64 0
 }
@@ -468,7 +468,7 @@ define dso_local noundef i64 @_ZN10Vmycpu_top12nextTimeSlotEv(ptr nocapture noun
 declare void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK10Vmycpu_top4nameEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef ptr @_ZNK10Vmycpu_top4nameEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -477,7 +477,7 @@ define dso_local noundef ptr @_ZNK10Vmycpu_top4nameEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN10Vmycpu_top5finalEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN10Vmycpu_top5finalEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -488,7 +488,7 @@ define dso_local void @_ZN10Vmycpu_top5finalEv(ptr nocapture noundef nonnull rea
 declare void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) unnamed_addr #8 align 2 {
+define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -497,17 +497,17 @@ define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK10Vmycpu_top9modelNameEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZNK10Vmycpu_top9modelNameEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #7 align 2 {
   ret ptr @.str.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK10Vmycpu_top7threadsEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10Vmycpu_top7threadsEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10Vmycpu_top12prepareCloneEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK10Vmycpu_top12prepareCloneEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN16VerilatedContext12prepareCloneEv(ptr noundef nonnull align 8 dereferenceable(608) %3)
@@ -517,7 +517,7 @@ define dso_local void @_ZNK10Vmycpu_top12prepareCloneEv(ptr nocapture noundef no
 declare void @_ZN16VerilatedContext12prepareCloneEv(ptr noundef nonnull align 8 dereferenceable(608)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10Vmycpu_top7atCloneEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK10Vmycpu_top7atCloneEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN16VerilatedContext18threadPoolpOnCloneEv(ptr noundef nonnull align 8 dereferenceable(608) %3)

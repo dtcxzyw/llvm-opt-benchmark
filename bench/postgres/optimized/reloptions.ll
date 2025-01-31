@@ -190,7 +190,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @init_local_reloptions(ptr noundef writeonly captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8
@@ -198,7 +198,7 @@ define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @register_reloptions_validator(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @register_reloptions_validator(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @lappend(ptr noundef %4, ptr noundef %1) #12
@@ -306,7 +306,7 @@ add_reloption.exit:                               ; preds = %._crit_edge.i, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_local_bool_reloption(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @add_local_bool_reloption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @palloc(i64 noundef 40) #12
   %7 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %7, ptr %6, align 8
@@ -445,7 +445,7 @@ add_reloption.exit:                               ; preds = %._crit_edge.i, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_local_int_reloption(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local void @add_local_int_reloption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @palloc(i64 noundef 48) #12
   %9 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %9, ptr %8, align 8
@@ -587,7 +587,7 @@ add_reloption.exit:                               ; preds = %._crit_edge.i, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_local_real_reloption(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local void @add_local_real_reloption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @palloc(i64 noundef 56) #12
   %9 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %9, ptr %8, align 8
@@ -729,7 +729,7 @@ add_reloption.exit:                               ; preds = %._crit_edge.i, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_local_enum_reloption(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local void @add_local_enum_reloption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @palloc(i64 noundef 56) #12
   %9 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %9, ptr %8, align 8
@@ -918,7 +918,7 @@ allocate_reloption.exit:                          ; preds = %18, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_local_string_reloption(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local void @add_local_string_reloption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %9, label %8
 
@@ -1074,7 +1074,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %46
-  %52 = call i32 @strncmp(ptr noundef nonnull %24, ptr noundef %42, i64 noundef %47) #13
+  %52 = call i32 @strncmp(ptr noundef nonnull %24, ptr noundef nonnull %42, i64 noundef %47) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.loopexit.split.us.us, label %54
 
@@ -1135,7 +1135,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %80
-  %86 = call i32 @strncmp(ptr noundef nonnull %60, ptr noundef %76, i64 noundef %81) #13
+  %86 = call i32 @strncmp(ptr noundef nonnull %60, ptr noundef nonnull %76, i64 noundef %81) #13
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.loopexit.split, label %88
 
@@ -1304,7 +1304,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   store i32 %160, ptr %158, align 4
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %162 = load ptr, ptr %151, align 8
-  %163 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %161, ptr noundef nonnull @.str.7, ptr noundef %162, ptr noundef %.077) #12
+  %163 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %161, ptr noundef nonnull @.str.7, ptr noundef %162, ptr noundef nonnull %.077) #12
   %164 = ptrtoint ptr %158 to i64
   %165 = load ptr, ptr @CurrentMemoryContext, align 8
   %166 = call ptr @accumArrayResult(ptr noundef %.3139, i64 noundef %164, i1 noundef zeroext false, i32 noundef 25, ptr noundef %165) #12
@@ -1338,13 +1338,13 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1393,7 +1393,7 @@ define dso_local ptr @untransformRelOptions(i64 noundef %0) local_unnamed_addr #
 
 18:                                               ; preds = %15, %.lr.ph
   %.0 = phi ptr [ %17, %15 ], [ null, %.lr.ph ]
-  %19 = call ptr @makeDefElem(ptr noundef %13, ptr noundef %.0, i32 noundef -1) #12
+  %19 = call ptr @makeDefElem(ptr noundef nonnull %13, ptr noundef %.0, i32 noundef -1) #12
   %20 = call ptr @lappend(ptr noundef %.01720, ptr noundef %19) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %3, align 4
@@ -1416,7 +1416,7 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #2
 declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -1608,7 +1608,7 @@ define dso_local noundef ptr @view_reloptions(i64 noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @index_reloptions(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @index_reloptions(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %6, label %4
 
@@ -1628,7 +1628,7 @@ define dso_local noundef ptr @default_reloptions(i64 noundef %0, i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %.b.i = load i1, ptr @need_initialization, align 1
   br i1 %.b.i, label %8, label %7
 
@@ -1806,7 +1806,7 @@ allocateReloptStruct.exit:                        ; preds = %84, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = trunc i64 %1 to i32
   %9 = icmp sgt i32 %3, 0
   br i1 %9, label %.preheader.lr.ph, label %._crit_edge110
@@ -2021,7 +2021,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @build_local_reloptions(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @build_local_reloptions(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %list_length.exit, label %5
@@ -2622,7 +2622,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2968,7 +2968,7 @@ parse_one_reloption.exit:                         ; preds = %179, %12
   %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %189)
   %190 = call i32 @errcode(i32 noundef 50856066) #12
-  %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef %185) #12
+  %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %185) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1470, ptr noundef nonnull @__func__.parseRelOptionsInternal) #12
   unreachable
 
@@ -2994,7 +2994,7 @@ parse_one_reloption.exit:                         ; preds = %179, %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare zeroext i1 @parse_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3011,7 +3011,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3019,7 +3019,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

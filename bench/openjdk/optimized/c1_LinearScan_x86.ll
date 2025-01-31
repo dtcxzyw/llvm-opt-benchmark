@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN10LinearScan18allocate_fpu_stackEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan18allocate_fpu_stackEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   ret void
 }
 

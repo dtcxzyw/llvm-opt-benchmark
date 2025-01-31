@@ -1154,7 +1154,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -1171,7 +1171,7 @@ define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Luau::Variant") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Luau::Variant") align 8 captures(none) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -184,7 +184,7 @@ define ptr @Ver_ParseFile(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br label %Ver_ParseStart.exit
 
 Ver_ParseStart.exit:                              ; preds = %9, %10
-  %.0.i = phi ptr [ %calloc.i, %10 ], [ null, %9 ]
+  %.0.i = phi ptr [ null, %9 ], [ %calloc.i, %10 ]
   %38 = load i32, ptr @glo_fMapped, align 4
   store i32 %38, ptr %.0.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
@@ -1212,12 +1212,12 @@ Ver_ParseFreeData.exit:                           ; preds = %18, %21
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @Ver_StreamGetLineNumber(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ver_ParseFindOrCreateNetwork(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Ver_ParseFindOrCreateNetwork(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_DesFindModelByName(ptr noundef %4, ptr noundef %1) #19
@@ -1284,12 +1284,12 @@ define ptr @Ver_ParseFindNet(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
 declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1409,10 +1409,10 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %65, %62, %35, %32, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ver_ParseLookupSuffix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef i32 @Ver_ParseLookupSuffix(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 -1, ptr %3, align 4
   store i32 -1, ptr %2, align 4
@@ -1442,7 +1442,7 @@ define noundef i32 @Ver_ParseLookupSuffix(ptr nocapture noundef readonly %0, ptr
 declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ver_ParseInsertsSuffix(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @Ver_ParseInsertsSuffix(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1480,7 +1480,7 @@ declare i32 @st__strhash(ptr noundef, i32 noundef) #1
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = tail call i32 @atoi(ptr noundef nonnull %6) #21
@@ -1629,10 +1629,10 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %58, %55, %31, %28, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %sext = shl i64 %5, 32
   %6 = ashr exact i64 %sext, 32
@@ -1656,7 +1656,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
 
 ._crit_edge:                                      ; preds = %10, %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %1) #19
+  %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1) #19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1717,7 +1717,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
 
 ._crit_edge53:                                    ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %1) #19
+  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %1) #19
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1764,10 +1764,10 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %60, %57, %31, %28, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @atoi(ptr noundef %1) #21
   br label %4
 
@@ -2074,7 +2074,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %144, %51, %78, %75,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -2145,7 +2145,7 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ver_FindGateInput(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Ver_FindGateInput(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mio_GateReadPins(ptr noundef %0) #19
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -2201,7 +2201,7 @@ declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #1
 declare ptr @Mio_GateReadTwin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Ver_ParseFreeBundle(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Ver_ParseFreeBundle(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -2230,7 +2230,7 @@ Vec_PtrFree.exit:                                 ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnamed_addr #0 {
@@ -2830,7 +2830,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %238 = getelementptr inbounds nuw ptr, ptr %.val341.i, i64 %indvars.iv538.i
   %239 = load ptr, ptr %238, align 8
   %240 = load ptr, ptr %239, align 8
-  %241 = call i32 @strncmp(ptr noundef %240, ptr noundef %208, i64 noundef %236) #21
+  %241 = call i32 @strncmp(ptr noundef %240, ptr noundef nonnull %208, i64 noundef %236) #21
   %.not307.i = icmp eq i32 %241, 0
   br i1 %.not307.i, label %242, label %246
 
@@ -2855,7 +2855,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %250 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %251 = load ptr, ptr %250, align 8
   %252 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
-  %253 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %249, ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %208, ptr noundef %251, ptr noundef %252) #19
+  %253 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %249, ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef nonnull %208, ptr noundef %251, ptr noundef %252) #19
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3016,7 +3016,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %325 = getelementptr inbounds nuw ptr, ptr %.val338.i, i64 %indvars.iv555.i
   %326 = load ptr, ptr %325, align 8
   %327 = load ptr, ptr %326, align 8
-  %328 = call i32 @strncmp(ptr noundef %327, ptr noundef %295, i64 noundef %323) #21
+  %328 = call i32 @strncmp(ptr noundef %327, ptr noundef nonnull %295, i64 noundef %323) #21
   %.not302.i = icmp eq i32 %328, 0
   br i1 %.not302.i, label %329, label %333
 
@@ -3296,7 +3296,7 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3570,7 +3570,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %45, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ver_ParseReportUndefBoxes(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @Ver_ParseReportUndefBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3794,10 +3794,10 @@ Ver_NtkIsDefined.exit74.thread:                   ; preds = %.lr.ph93, %Ver_NtkI
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val4054 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val4054, 0
@@ -3926,7 +3926,7 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef re
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -4027,7 +4027,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define ptr @Ver_ParseGetNondrivenBundle(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -4187,7 +4187,7 @@ Ver_ParseFormalNetsAreDriven.exit.us.us:          ; preds = %55, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4452,7 +4452,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %91, %88, %115, %.cr
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [200 x i8], align 16
   %4 = getelementptr i8, ptr %1, i64 4
   %.val113160 = load i32, ptr %4, align 4
@@ -4795,7 +4795,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge12, %142
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val19 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val19, 0
@@ -4851,7 +4851,7 @@ define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Ver_ParsePrintLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1000 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -5362,10 +5362,10 @@ Ver_NtkIsDefined.exit231:                         ; preds = %202
 declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
@@ -7106,7 +7106,7 @@ Ver_ParseFindNet.exit:                            ; preds = %24, %26, %28
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %28, %Ver_ParseFindNet.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.85, ptr noundef %.2) #19
+  %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.85, ptr noundef nonnull %.2) #19
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7379,7 +7379,7 @@ Ver_ParseFindNet.exit:                            ; preds = %17, %19, %21
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %21, %Ver_ParseFindNet.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef %.1) #19
+  %26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef nonnull %.1) #19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -9215,7 +9215,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ver_ParseRemoveSuffixTable(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Ver_ParseRemoveSuffixTable(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -9286,7 +9286,7 @@ define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr nou
 declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 declare ptr @Abc_NtkCreateNodeBuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9311,7 +9311,7 @@ declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPush(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_IntPush(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -9382,12 +9382,12 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare signext i8 @Ver_StreamScanChar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #1
 
@@ -9400,16 +9400,16 @@ declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 declare void @Abc_DesFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
@@ -9421,13 +9421,13 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1241,7 +1241,7 @@ declare void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16))
 declare noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z9is_sortedjPKP4expr(i32 noundef %num, ptr nocapture noundef readonly %ns) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z9is_sortedjPKP4expr(i32 noundef %num, ptr noundef readonly captures(none) %ns) local_unnamed_addr #3 {
 entry:
   %cmp5 = icmp ult i32 %num, 2
   br i1 %cmp5, label %return, label %for.body.preheader
@@ -1273,7 +1273,7 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z6lex_ltjPKP3astS2_(i32 noundef %num, ptr nocapture noundef readonly %n1, ptr nocapture noundef readonly %n2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z6lex_ltjPKP3astS2_(i32 noundef %num, ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(none) %n2) local_unnamed_addr #3 {
 entry:
   %cmp10.not = icmp eq i32 %num, 0
   br i1 %cmp10.not, label %return, label %for.body.preheader

@@ -686,7 +686,7 @@ $_ZTVN6hermes2vm20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEE = comdat an
 @_ZN6hermes2vm7HadesGCD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm7HadesGCD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm17FreelistBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr nocapture noundef readnone %cell, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm17FreelistBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef readnone captures(none) %cell, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #0 {
 entry:
   %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm7HadesGC6OldGen12FreelistCell2vtE, ptr %vtp_.i, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen11finishAllocEPNS0_6GCCellEj(ptr nocapture noundef nonnull align 8 dereferenceable(6672) %this, ptr noundef returned %cell, i32 noundef %sz) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen11finishAllocEPNS0_6GCCellEj(ptr noundef nonnull align 8 captures(none) dereferenceable(6672) %this, ptr noundef returned %cell, i32 noundef %sz) local_unnamed_addr #1 align 2 {
 entry:
   %conv.i = sext i32 %sz to i64
   %allocatedBytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen23incrementAllocatedBytesEi(ptr nocapture noundef nonnull align 8 dereferenceable(6672) %this, i32 noundef %incr) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen23incrementAllocatedBytesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(6672) %this, i32 noundef %incr) local_unnamed_addr #2 align 2 {
 entry:
   %conv = sext i32 %incr to i64
   %allocatedBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -750,7 +750,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes2vm7HadesGC6OldGen13SegmentBucket18removeFromFreelistEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK6hermes2vm7HadesGC6OldGen13SegmentBucket18removeFromFreelistEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -944,7 +944,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm7Hades
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 277) i32 @_ZN6hermes2vm7HadesGC6OldGen17getFreelistBucketEj(i32 noundef %size) local_unnamed_addr #6 align 2 {
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this, ptr noundef %freeRangeStart, ptr noundef %freeRangeEnd, ptr nocapture noundef nonnull align 8 dereferenceable(6408) %segBuckets, i1 noundef zeroext %setHead) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this, ptr noundef %freeRangeStart, ptr noundef %freeRangeEnd, ptr noundef nonnull align 8 captures(none) dereferenceable(6408) %segBuckets, i1 noundef zeroext %setHead) local_unnamed_addr #4 align 2 {
 entry:
   %boundary.i = alloca %"class.hermes::vm::CardTable::Boundary", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %freeRangeEnd to i64
@@ -1019,7 +1019,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm7Hades
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE(ptr nocapture noundef nonnull align 8 dereferenceable(6672) %this, i64 noundef %bucket, ptr nocapture noundef %segBucket) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE(ptr noundef nonnull align 8 captures(none) dereferenceable(6672) %this, i64 noundef %bucket, ptr noundef captures(none) %segBucket) local_unnamed_addr #1 align 2 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %segBucket, i64 16
   %0 = load ptr, ptr %this, align 8
@@ -1082,7 +1082,7 @@ _ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE(ptr nocapture noundef nonnull align 8 dereferenceable(6672) %this, ptr nocapture noundef %prevLoc, i64 noundef %bucket, ptr nocapture noundef readonly %segBucket) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE(ptr noundef nonnull align 8 captures(none) dereferenceable(6672) %this, ptr noundef captures(none) %prevLoc, i64 noundef %bucket, ptr noundef readonly captures(none) %segBucket) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %pointerBase_.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1148,7 +1148,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 declare void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes2vm7HadesGC11HeapSegment16getFirstCellHeadEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %cardIdx) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm7HadesGC11HeapSegment16getFirstCellHeadEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %cardIdx) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %conv = trunc i64 %cardIdx to i32
@@ -1732,7 +1732,7 @@ return:                                           ; preds = %for.end86, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen13externalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen13externalBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %externalBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %externalBytes_, align 8
@@ -1742,7 +1742,7 @@ entry:
 declare void @_ZN6hermes2vm6GCBase13untrackObjectEPKNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen15initializeSweepEv(ptr nocapture noundef nonnull align 8 dereferenceable(6672) initializes((6648, 6656)) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen15initializeSweepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(6672) initializes((6648, 6656)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1780,7 +1780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen22sweepSegmentsRemainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen22sweepSegmentsRemainingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %sweepIterator_ = getelementptr inbounds nuw i8, ptr %this, i64 6648
   %0 = load i64, ptr %sweepIterator_, align 8
@@ -1788,7 +1788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen13getMemorySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen13getMemorySizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1854,7 +1854,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGenC2ERS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6672) initializes((0, 6648)) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGenC2ERS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(6672) initializes((0, 6648)) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc) unnamed_addr #4 align 2 {
 entry:
   store ptr %gc, ptr %this, align 8
   %segments_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1928,10 +1928,10 @@ arrayinit.end2:                                   ; preds = %arrayinit.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGCC2ERNS0_6GCBase11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEESA_INS0_15StorageProviderEEj(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr nocapture noundef %crashMgr, ptr nocapture noundef %provider, i32 %vmExperimentFlags) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGCC2ERNS0_6GCBase11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEESA_INS0_15StorageProviderEEj(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr noundef captures(none) %crashMgr, ptr noundef captures(none) %provider, i32 %vmExperimentFlags) unnamed_addr #4 align 2 {
 entry:
   %__dnew.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.std::allocator.16", align 1
@@ -2258,7 +2258,7 @@ _ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev.exit: ; preds = %_ZSt3ma
 declare void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i32 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm7HadesGC12getKindAsStrB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZNK6hermes2vm7HadesGC12getKindAsStrB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.16", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #34
@@ -2527,7 +2527,7 @@ _ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE5clearEv.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen18setTargetSizeBytesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6672) initializes((88, 104)) %this, i64 noundef %targetSizeBytes) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen18setTargetSizeBytesEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(6672) initializes((88, 104)) %this, i64 noundef %targetSizeBytes) local_unnamed_addr #0 align 2 {
 entry:
   %conv = uitofp i64 %targetSizeBytes to double
   %targetSizeBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -3292,7 +3292,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 declare void @_ZN6hermes2vm6GCBase11getHeapInfoERNS1_8HeapInfoE(ptr noundef nonnull align 8 dereferenceable(741), ptr noundef nonnull align 8 dereferenceable(384)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC14allocatedBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC14allocatedBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %youngGen_ = getelementptr inbounds nuw i8, ptr %this, i64 800
   %0 = load ptr, ptr %youngGen_, align 8
@@ -3311,7 +3311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen11numSegmentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen11numSegmentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3347,7 +3347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC24getYoungGenExternalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC24getYoungGenExternalBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ygExternalBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 8080
   %0 = load i64, ptr %ygExternalBytes_, align 8
@@ -3928,7 +3928,7 @@ if.then.i.i.i177:                                 ; preds = %if.end22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC23getCrashManagerHeapInfoERNS0_12CrashManager15HeapInformationE(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %crashInfo) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC23getCrashManagerHeapInfoERNS0_12CrashManager15HeapInformationE(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %crashInfo) unnamed_addr #4 align 2 {
 entry:
   %info = alloca %"struct.hermes::vm::GCBase::HeapInfo", align 8
   store i32 0, ptr %info, align 8
@@ -5773,7 +5773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen14allocatedBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen14allocatedBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %allocatedBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %allocatedBytes_, align 8
@@ -5781,7 +5781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, -4194303) i64 @_ZNK6hermes2vm7HadesGC16segmentFootprintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 0, -4194303) i64 @_ZNK6hermes2vm7HadesGC16segmentFootprintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 928
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 896
@@ -5828,7 +5828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen5beginEv(ptr noalias nocapture writeonly sret(%"struct.std::_Deque_iterator") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen5beginEv(ptr noalias writeonly sret(%"struct.std::_Deque_iterator") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5850,7 +5850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen3endEv(ptr noalias nocapture writeonly sret(%"struct.std::_Deque_iterator") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen3endEv(ptr noalias writeonly sret(%"struct.std::_Deque_iterator") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -6707,7 +6707,7 @@ _ZNSt10shared_ptrISt7promiseIvEED2Ev.exit:        ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr noalias nocapture writeonly sret(%"class.std::lock_guard") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr noalias writeonly sret(%"class.std::lock_guard") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ogPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 7584
   store atomic i8 1, ptr %ogPaused_ monotonic, align 8
@@ -7145,7 +7145,7 @@ return:                                           ; preds = %entry, %_ZN6hermes2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen15targetSizeBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen15targetSizeBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #8 align 2 {
 entry:
   %avg_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load double, ptr %avg_.i, align 8
@@ -7154,7 +7154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #15 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC6OldGen4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #15 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7197,7 +7197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC6OldGen10popSegmentEv(ptr noalias sret(%"class.hermes::vm::HadesGC::HeapSegment") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(6672) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC6OldGen10popSegmentEv(ptr noalias sret(%"class.hermes::vm::HadesGC::HeapSegment") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #4 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !103
@@ -7352,7 +7352,7 @@ _ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EE8pop_backEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC30addSegmentExtentToCrashManagerERKNS1_11HeapSegmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %seg, ptr noundef nonnull align 8 dereferenceable(32) %extraName) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC30addSegmentExtentToCrashManagerERKNS1_11HeapSegmentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %seg, ptr noundef nonnull align 8 dereferenceable(32) %extraName) local_unnamed_addr #4 align 2 {
 entry:
   %segmentName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7769,7 +7769,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC21updateOldGenThresholdEv(ptr nocapture noundef nonnull align 8 dereferenceable(8152) %this) local_unnamed_addr #16 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC21updateOldGenThresholdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #16 align 2 {
 entry:
   %oldGenMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 7664
   %0 = load ptr, ptr %oldGenMarker_, align 8
@@ -9799,7 +9799,7 @@ _ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EE5clearEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC29updateWeakReferencesForOldGenEv(ptr nocapture noundef nonnull align 8 dereferenceable(8152) %this) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC29updateWeakReferencesForOldGenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !137
@@ -10212,7 +10212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC24setYoungGenExternalBytesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8152) initializes((8080, 8088)) %this, i64 noundef %sz) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC24setYoungGenExternalBytesEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8152) initializes((8080, 8088)) %this, i64 noundef %sz) local_unnamed_addr #0 align 2 {
 entry:
   %ygExternalBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 8080
   store i64 %sz, ptr %ygExternalBytes_, align 8
@@ -10264,7 +10264,7 @@ if.end:                                           ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, i64 %value.coerce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, i64 %value.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %ogMarkingBarriers_ = getelementptr inbounds nuw i8, ptr %this, i64 7657
   %0 = load i8, ptr %ogMarkingBarriers_, align 1
@@ -10312,7 +10312,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, i64 %oldValue.coerce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, i64 %oldValue.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %oldValue.coerce, -844424930131969
   br i1 %cmp.i, label %if.then, label %if.else
@@ -10400,7 +10400,7 @@ if.end8:                                          ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, ptr noundef %value) local_unnamed_addr #18 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, ptr noundef %value) local_unnamed_addr #18 align 2 {
 entry:
   %0 = ptrtoint ptr %loc to i64
   %1 = ptrtoint ptr %value to i64
@@ -10434,7 +10434,7 @@ if.end6:                                          ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, i32 %value.coerce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, i32 %value.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %ogMarkingBarriers_ = getelementptr inbounds nuw i8, ptr %this, i64 7657
   %0 = load i8, ptr %ogMarkingBarriers_, align 1
@@ -10489,7 +10489,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_13HermesValue32E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, i32 %oldValue.coerce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_13HermesValue32E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, i32 %oldValue.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %conv.i1.i = and i32 %oldValue.coerce, 4
   %cmp.i = icmp eq i32 %conv.i1.i, 0
@@ -10585,7 +10585,7 @@ if.end13:                                         ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, ptr noundef %value) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, ptr noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %loc, align 4
   %cmp.i.i.not = icmp eq i32 %0, 0
@@ -10681,7 +10681,7 @@ _ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_.exit: ; preds = %if.end, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, i32 %oldValue.coerce) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, i32 %oldValue.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %and.i.i = and i32 %oldValue.coerce, -4194304
   %youngGenCP_.i = getelementptr inbounds nuw i8, ptr %this, i64 832
@@ -10740,7 +10740,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm12Mark
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, i64 %value.coerce) local_unnamed_addr #18 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, i64 %value.coerce) local_unnamed_addr #18 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %value.coerce, -844424930131969
   br i1 %cmp.i, label %if.end, label %return
@@ -10777,7 +10777,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %loc, i32 %value.coerce) local_unnamed_addr #18 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC27constructorWriteBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %loc, i32 %value.coerce) local_unnamed_addr #18 align 2 {
 entry:
   %conv.i1.i = and i32 %value.coerce, 4
   %cmp.i = icmp eq i32 %conv.i1.i, 0
@@ -10821,7 +10821,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC32constructorWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8152) %this, ptr noundef %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC32constructorWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8152) %this, ptr noundef %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
 entry:
   %0 = ptrtoint ptr %start to i64
   %and.i.i = and i64 %0, -4194304
@@ -10835,7 +10835,7 @@ entry:
 declare void @_ZN6hermes2vm9CardTable25dirtyCardsForAddressRangeEPKvS3_(ptr noundef nonnull align 1 dereferenceable(16384), ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC32constructorWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8152) %this, ptr noundef %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC32constructorWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8152) %this, ptr noundef %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
 entry:
   %0 = ptrtoint ptr %start to i64
   %and.i.i = and i64 %0, -4194304
@@ -10847,7 +10847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr nocapture noundef readonly %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef readonly captures(none) %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
 entry:
   %cmp3.not = icmp eq i32 %numHVs, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -10870,7 +10870,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr nocapture noundef readonly %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC29snapshotWriteBarrierRangeSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef readonly captures(none) %start, i32 noundef %numHVs) local_unnamed_addr #4 align 2 {
 entry:
   %cmp3.not = icmp eq i32 %numHVs, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -10893,7 +10893,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalEPNS0_6GCCellE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %oldValue) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalEPNS0_6GCCellE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %oldValue) local_unnamed_addr #4 align 2 {
 entry:
   %youngGen_.i = getelementptr inbounds nuw i8, ptr %this, i64 800
   %0 = load ptr, ptr %youngGen_.i, align 8
@@ -10946,7 +10946,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm12Mark
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_8SymbolIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, i32 %symbol.coerce) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_8SymbolIDE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, i32 %symbol.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %oldGenMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 7664
   %0 = load ptr, ptr %oldGenMarker_, align 8
@@ -10977,7 +10977,7 @@ _ZN6hermes2vm7HadesGC12MarkAcceptor10markSymbolENS0_8SymbolIDE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC18weakRefReadBarrierEPNS0_6GCCellE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %value) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC18weakRefReadBarrierEPNS0_6GCCellE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %ogMarkingBarriers_ = getelementptr inbounds nuw i8, ptr %this, i64 7657
   %0 = load i8, ptr %ogMarkingBarriers_, align 1
@@ -11036,7 +11036,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm12Mark
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm7HadesGC22canAllocExternalMemoryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, i32 noundef %size) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm7HadesGC22canAllocExternalMemoryEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, i32 noundef %size) unnamed_addr #8 align 2 {
 entry:
   %conv = zext i32 %size to i64
   %maxHeapSize_ = getelementptr inbounds nuw i8, ptr %this, i64 744
@@ -11046,7 +11046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm7HadesGC10ttiReachedEv(ptr nocapture noundef nonnull align 8 dereferenceable(8152) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC10ttiReachedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8152) %this) unnamed_addr #2 align 2 {
 entry:
   %revertToYGAtTTI_ = getelementptr inbounds nuw i8, ptr %this, i64 7697
   %0 = load i8, ptr %revertToYGAtTTI_, align 1
@@ -12371,7 +12371,7 @@ entry:
 declare void @_ZN6hermes2vm18AlignedHeapSegment10resetLevelILNS0_12AdviseUnusedE0EEEvv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7HadesGC24updateYoungGenSizeFactorEv(ptr nocapture noundef nonnull align 8 dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm7HadesGC24updateYoungGenSizeFactorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ygCollectionStats_ = getelementptr inbounds nuw i8, ptr %this, i64 7728
   %0 = load ptr, ptr %ygCollectionStats_, align 8
@@ -12430,7 +12430,7 @@ declare void @_ZN6hermes2vm6GCBase13recordGCStatsERKNS0_16GCAnalyticsEventEPNS1_
 declare void @_ZN6hermes2vm6GCBase13checkTripwireEm(ptr noundef nonnull align 8 dereferenceable(741), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC13externalBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC13externalBytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %ygExternalBytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 8080
   %0 = load i64, ptr %ygExternalBytes_.i, align 8
@@ -12441,7 +12441,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC13heapFootprintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK6hermes2vm7HadesGC13heapFootprintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 928
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 896
@@ -12494,7 +12494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm7HadesGC21getVMFootprintForTestEv(ptr noalias sret(%"class.llvh::ErrorOr.130") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK6hermes2vm7HadesGC21getVMFootprintForTestEv(ptr noalias sret(%"class.llvh::ErrorOr.130") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ygFootprint = alloca %"class.llvh::ErrorOr.130", align 8
   %youngGen_ = getelementptr inbounds nuw i8, ptr %this, i64 800
@@ -12590,7 +12590,7 @@ cleanup14:                                        ; preds = %for.body, %_ZNK4llv
 declare void @_ZN6hermes8oscompat12vm_footprintEPcS1_(ptr sret(%"class.llvh::ErrorOr.130") align 8, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK6hermes2vm7HadesGC6OldGen5beginEv(ptr noalias nocapture writeonly sret(%"struct.std::_Deque_iterator.135") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
+define hidden void @_ZNK6hermes2vm7HadesGC6OldGen5beginEv(ptr noalias writeonly sret(%"struct.std::_Deque_iterator.135") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -12612,7 +12612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK6hermes2vm7HadesGC6OldGen3endEv(ptr noalias nocapture writeonly sret(%"struct.std::_Deque_iterator.135") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
+define hidden void @_ZNK6hermes2vm7HadesGC6OldGen3endEv(ptr noalias writeonly sret(%"struct.std::_Deque_iterator.135") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this) local_unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -12634,7 +12634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN6hermes2vm7HadesGC6OldGenixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(6672) %this, i64 noundef %i) local_unnamed_addr #15 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN6hermes2vm7HadesGC6OldGenixEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6672) %this, i64 noundef %i) local_unnamed_addr #15 align 2 {
 entry:
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !199
@@ -12688,7 +12688,7 @@ declare void @_ZN6hermes2vm14AlignedStorageC1EOS1_(ptr noundef nonnull align 8 d
 declare void @_ZN6hermes2vm14AlignedStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6hermes2vm7HadesGC8inOldGenEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this, ptr noundef %p) local_unnamed_addr #15 align 2 {
+define hidden noundef zeroext i1 @_ZNK6hermes2vm7HadesGC8inOldGenEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this, ptr noundef %p) local_unnamed_addr #15 align 2 {
 entry:
   %compactee_ = getelementptr inbounds nuw i8, ptr %this, i64 8088
   %0 = load ptr, ptr %compactee_, align 8
@@ -12898,7 +12898,7 @@ lor.end:                                          ; preds = %"_ZSt6any_ofISt15_D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 8192, 0) i64 @_ZN6hermes2vm7HadesGC12getDrainRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 8192, 0) i64 @_ZN6hermes2vm7HadesGC12getDrainRateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %avg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8072
   %0 = load double, ptr %avg_.i, align 8
@@ -12909,7 +12909,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm19RootSectionAcceptor16beginRootSectionENS1_7SectionE(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %section) unnamed_addr #4 comdat align 2 {
@@ -13018,7 +13018,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare void @_ZN6hermes2vm18AlignedHeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
@@ -13263,7 +13263,7 @@ _ZNSt12_Vector_baseIN6hermes2vm16GCAnalyticsEventESaIS2_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 declare i64 @_ZN6hermes8oscompat15thread_cpu_timeEv() local_unnamed_addr #7
 
@@ -14768,7 +14768,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPN6her
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N6hermes2vm16DroppingAcceptorINS0_7HadesGC12MarkAcceptorEED1Ev(ptr noundef %this) unnamed_addr #23 comdat align 2 {
@@ -17245,7 +17245,7 @@ if.end16:                                         ; preds = %if.then8.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #26
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
@@ -17803,7 +17803,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #27
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #4 align 2 {
 entry:
   %__args.val = load ptr, ptr %__args, align 8
   %bf.load.i.i.i.i.i = load i32, ptr %__args.val, align 4
@@ -17832,7 +17832,7 @@ cond.true.i.i.i.i:                                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN6hermes2vm6GCCellEEZNS1_7HadesGC25getHeapInfoWithMallocSizeERNS1_6GCBase8HeapInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -18476,7 +18476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #4 align 2 {
 entry:
   %__my_lock2.i.i.i.i = alloca %"class.std::unique_lock.256", align 8
   %call.val = load ptr, ptr %__functor, align 8
@@ -18665,7 +18665,7 @@ _ZNSt3_V222condition_variable_any4waitISt11unique_lockISt15recursive_mutexEEEvRT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN6hermes2vm7HadesGC21collectOGInBackgroundEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #2 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -25452,10 +25452,10 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
@@ -25470,7 +25470,7 @@ declare i32 @llvm.umin.i32(i32, i32) #31
 declare void @llvm.assume(i1 noundef) #32
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #33
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #31

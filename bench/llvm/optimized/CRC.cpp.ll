@@ -53,7 +53,7 @@ _ZN4llvm5crc32EjNS_8ArrayRefIhEE.exit:            ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 4
   %5 = xor i32 %4, -1
   store i32 %5, ptr %0, align 4

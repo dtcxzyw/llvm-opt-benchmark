@@ -350,7 +350,7 @@ _ZNK16stackChunkHandleclEv.exit4:                 ; preds = %_ZNK16stackChunkHan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -382,7 +382,7 @@ define hidden noundef zeroext i1 @_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -434,7 +434,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackVa
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK14compiledVFrame10set_localsEP20StackValueCollection(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK14compiledVFrame10set_localsEP20StackValueCollection(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @.str.4) #13
@@ -670,7 +670,7 @@ _ZN29jvmtiDeferredLocalVariableSet12set_value_atEi9BasicType6jvalue.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14compiledVFrame12update_stackE9BasicTypei6jvalue(ptr noundef nonnull align 8 dereferenceable(5076) %0, i8 noundef zeroext %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
@@ -689,7 +689,7 @@ define hidden void @_ZN14compiledVFrame12update_stackE9BasicTypei6jvalue(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14compiledVFrame14update_monitorEiP11MonitorInfo(ptr noundef nonnull align 8 dereferenceable(5076) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14compiledVFrame14update_monitorEiP11MonitorInfo(ptr noundef nonnull align 8 dereferenceable(5076) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZNK11MonitorInfo5ownerEv.exit, label %6
@@ -729,7 +729,7 @@ _ZNK11MonitorInfo5ownerEv.exit:                   ; preds = %3, %6
 declare void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet12set_value_atEi9BasicType6jvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, i32 noundef %1, i8 noundef zeroext %2, i64 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet12set_value_atEi9BasicType6jvalue(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, i32 noundef %1, i8 noundef zeroext %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
@@ -1292,7 +1292,7 @@ _ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1772,7 +1772,7 @@ _ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14compiledVFrame4codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14compiledVFrame4codeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef %3) #12
@@ -1788,7 +1788,7 @@ declare void @_ZN11MonitorInfoC1EP7oopDescP9BasicLockbb(ptr noundef nonnull alig
 declare noundef ptr @_ZN9ScopeDesc8monitorsEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1946,7 +1946,7 @@ _ZN14compiledVFrameC2EPK5framePK11RegisterMapP10JavaThreadP9ScopeDesci.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14compiledVFrame6is_topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14compiledVFrame6is_topEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1966,7 +1966,7 @@ declare noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 
 declare noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14compiledVFrame6methodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14compiledVFrame6methodEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1986,7 +1986,7 @@ define hidden noundef ptr @_ZNK14compiledVFrame6methodEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -1) i32 @_ZNK14compiledVFrame3bciEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK14compiledVFrame3bciEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2012,7 +2012,7 @@ _ZNK14compiledVFrame7raw_bciEv.exit:              ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK14compiledVFrame7raw_bciEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK14compiledVFrame7raw_bciEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2035,7 +2035,7 @@ define hidden noundef i32 @_ZNK14compiledVFrame7raw_bciEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14compiledVFrame16should_reexecuteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14compiledVFrame16should_reexecuteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2059,7 +2059,7 @@ define hidden noundef zeroext i1 @_ZNK14compiledVFrame16should_reexecuteEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14compiledVFrame21has_ea_local_in_scopeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14compiledVFrame21has_ea_local_in_scopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2085,7 +2085,7 @@ define hidden noundef zeroext i1 @_ZNK14compiledVFrame21has_ea_local_in_scopeEv(
 declare noundef ptr @_ZN9ScopeDesc7objectsEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14compiledVFrame10arg_escapeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5076) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK14compiledVFrame10arg_escapeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5076) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2161,7 +2161,7 @@ declare noundef ptr @_ZNK6vframe6senderEv(ptr noundef nonnull align 8 dereferenc
 declare noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSetC2EP6MethodiPli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 12), (16, 28), (32, 41)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSetC2EP6MethodiPli(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 12), (16, 28), (32, 41)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %6, align 8
@@ -2197,7 +2197,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSetC2EP6MethodiPli(ptr nocapt
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSetD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSetD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -2251,7 +2251,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSetD2Ev(ptr nocapture noundef
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_valueEP20StackValueCollection9BasicTypei6jvalue(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_valueEP20StackValueCollection9BasicTypei6jvalue(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i64 %4) local_unnamed_addr #0 align 2 {
   %.sroa.018.sroa.0.sroa.0.sroa.10.0.extract.shift111 = lshr i64 %4, 8
   %.sroa.018.sroa.0.sroa.10.0.extract.shift112 = lshr i64 %4, 16
   switch i8 %2, label %48 [
@@ -2398,7 +2398,7 @@ declare void @_ZN20StackValueCollection10set_obj_atEi6Handle(ptr noundef nonnull
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -2439,7 +2439,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN26jvmtiDeferredLocalVariableC2Ei9BasicType6jvalue(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 1), (8, 20)) %0, i32 noundef %1, i8 noundef zeroext %2, i64 %3) unnamed_addr #7 align 2 {
+define hidden void @_ZN26jvmtiDeferredLocalVariableC2Ei9BasicType6jvalue(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 1), (8, 20)) %0, i32 noundef %1, i8 noundef zeroext %2, i64 %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8
   store i8 %2, ptr %0, align 8
@@ -3055,7 +3055,7 @@ _ZN13GrowableArrayIP26jvmtiDeferredLocalVariableE10deallocateEPS1_.exit: ; preds
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

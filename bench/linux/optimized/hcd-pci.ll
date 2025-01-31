@@ -758,7 +758,7 @@ define internal i32 @hcd_pci_restore(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hcd_pci_poweroff_late(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @hcd_pci_poweroff_late(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -855,7 +855,7 @@ define internal noundef i32 @hcd_pci_suspend_noirq(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @hcd_pci_resume_noirq(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef i32 @hcd_pci_resume_noirq(ptr readnone captures(none) %0) #3 align 16 {
   ret i32 0
 }
 

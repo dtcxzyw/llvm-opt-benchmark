@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [49 x i8] c"Error: A counter-example did not refine classes!\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ivy_FraigParamsDefault(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #0 {
+define void @Ivy_FraigParamsDefault(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store i32 32, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -64,10 +64,10 @@ define void @Ivy_FraigParamsDefault(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -886,7 +886,7 @@ Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_FraigMiter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -1135,7 +1135,7 @@ declare void @Ivy_ManStop(ptr noundef) local_unnamed_addr #4
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
@@ -1429,7 +1429,7 @@ Ivy_ObjFaninPhase.exit79:                         ; preds = %77, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigSimulate(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigSimulate(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2811,7 +2811,7 @@ Vec_PtrFree.exit:                                 ; preds = %538, %541
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigStop(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %4 = load i32, ptr %3, align 4
@@ -3012,7 +3012,7 @@ Vec_PtrFree.exit:                                 ; preds = %96, %99
 declare ptr @Ivy_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigMiterProve(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigMiterProve(ptr noundef captures(none) %0) unnamed_addr #2 {
 Abc_Clock.exit:
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
@@ -3467,7 +3467,7 @@ declare ptr @Ivy_ObjCreatePo(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @Ivy_ManCleanup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Ivy_NodeAssignRandom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3501,7 +3501,7 @@ define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_NodeAssignConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Ivy_NodeAssignConst(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -3530,7 +3530,7 @@ define void @Ivy_NodeAssignConst(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigAssignRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Ivy_FraigAssignRandom(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -3599,7 +3599,7 @@ Ivy_NodeAssignRandom.exit:                        ; preds = %Ivy_NodeAssignRando
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigAssignDist1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define void @Ivy_FraigAssignDist1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3710,7 +3710,7 @@ Ivy_NodeAssignConst.exit:                         ; preds = %Ivy_NodeAssignConst
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -3741,7 +3741,7 @@ define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_NodeComplementSim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define void @Ivy_NodeComplementSim(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3770,7 +3770,7 @@ define void @Ivy_NodeComplementSim(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
   %4 = getelementptr i8, ptr %1, i64 32
   %.val10 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val10, i64 32
@@ -3806,7 +3806,7 @@ define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
+define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4005,7 +4005,7 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_NodeSimulate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define void @Ivy_NodeSimulate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val100 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 16
@@ -4309,7 +4309,7 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define i32 @Ivy_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -4341,7 +4341,7 @@ define i32 @Ivy_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigSimulateOne(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Ivy_FraigSimulateOne(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -4436,7 +4436,7 @@ Abc_Clock.exit15:                                 ; preds = %.critedge, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigSimulateOneSim(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Ivy_FraigSimulateOneSim(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -4528,7 +4528,7 @@ define void @Ivy_NodeAddToClass(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigAddClass(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @Ivy_FraigAddClass(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -4563,7 +4563,7 @@ define void @Ivy_FraigAddClass(ptr nocapture noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) local_unnamed_addr #11 {
+define void @Ivy_FraigInsertClass(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 56
@@ -4598,7 +4598,7 @@ define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigRemoveClass(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @Ivy_FraigRemoveClass(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %7
@@ -4658,12 +4658,12 @@ define void @Ivy_FraigRemoveClass(ptr nocapture noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Ivy_FraigCountPairsClasses(ptr nocapture noundef readnone %0) local_unnamed_addr #12 {
+define noundef i32 @Ivy_FraigCountPairsClasses(ptr noundef readnone captures(none) %0) local_unnamed_addr #12 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Ivy_FraigCreateClasses(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32
@@ -4956,10 +4956,10 @@ Ivy_FraigAddClass.exit:                           ; preds = %104, %105
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr i8, ptr %1, i64 48
   %.047105133 = load ptr, ptr %3, align 8
   %cond106134 = icmp eq ptr %.047105133, null
@@ -5293,7 +5293,7 @@ tailrecurse:                                      ; preds = %100
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
+define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val29 = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val29, i64 32
@@ -5393,7 +5393,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5537,7 +5537,7 @@ Ivy_FraigCheckOutputSimsSavePattern.exit:         ; preds = %50, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_FraigRefineClasses(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i32 @Ivy_FraigRefineClasses(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = load ptr, ptr %0, align 8
@@ -5681,7 +5681,7 @@ define i32 @Ivy_FraigCountClassNodes(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_FraigPrintSimClasses(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define void @Ivy_FraigPrintSimClasses(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.04 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %.04, null
@@ -5712,7 +5712,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigSavePattern0(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define void @Ivy_FraigSavePattern0(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5724,7 +5724,7 @@ define void @Ivy_FraigSavePattern0(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigSavePattern1(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define void @Ivy_FraigSavePattern1(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5736,7 +5736,7 @@ define void @Ivy_FraigSavePattern1(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define void @Ivy_FraigSavePattern(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5805,7 +5805,7 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define void @Ivy_FraigSavePattern2(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5873,7 +5873,7 @@ define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Ivy_FraigSavePattern3(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5966,7 +5966,7 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigCleanPatScores(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @Ivy_FraigCleanPatScores(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5993,7 +5993,7 @@ define void @Ivy_FraigCleanPatScores(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -6094,7 +6094,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigResimulate(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Ivy_FraigResimulate(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6499,7 +6499,7 @@ Ivy_FraigCleanPatScores.exit72:                   ; preds = %197, %Ivy_FraigAssi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_FraigPrintActivity(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define void @Ivy_FraigPrintActivity(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -6531,7 +6531,7 @@ define void @Ivy_FraigPrintActivity(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigAddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @Ivy_FraigAddClausesMux(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i32], align 16
@@ -6623,7 +6623,7 @@ declare ptr @Ivy_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val37 = load i32, ptr %4, align 4
   %5 = add nsw i32 %.val37, 1
@@ -6809,7 +6809,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %1
 declare i32 @Ivy_ObjIsMuxType(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -6918,7 +6918,7 @@ define noundef ptr @Ivy_FraigCollectSuper(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Ivy_FraigObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #15 {
+define void @Ivy_FraigObjAddToFrontier(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #15 {
   %4 = getelementptr i8, ptr %1, i64 40
   %.val9 = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %.val9 to i64
@@ -7020,7 +7020,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 176
@@ -7163,7 +7163,7 @@ veci_push.exit:                                   ; preds = %14, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -7603,12 +7603,12 @@ declare ptr @Cudd_bddVectorCompose(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32
@@ -7782,7 +7782,7 @@ Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -7999,7 +7999,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #29
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #25
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #25
   call void @free(ptr noundef %9) #25
   br label %16
 
@@ -8022,10 +8022,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @rand() local_unnamed_addr #17
@@ -8040,7 +8040,7 @@ declare void @sat_solver_setnvars(ptr noundef, i32 noundef) local_unnamed_addr #
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -8408,7 +8408,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigSetActivityFactors(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigSetActivityFactors(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -8558,7 +8558,7 @@ declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #4
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #21
@@ -8567,7 +8567,7 @@ declare void @llvm.va_start.p0(ptr) #21
 declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #22
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #22
@@ -8576,10 +8576,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #22
 declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23

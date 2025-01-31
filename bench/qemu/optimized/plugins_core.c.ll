@@ -66,7 +66,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @plugin_unregister_cb__locked(ptr nocapture noundef %ctx, i32 noundef %ev) local_unnamed_addr #0 {
+define dso_local void @plugin_unregister_cb__locked(ptr noundef captures(none) %ctx, i32 noundef %ev) local_unnamed_addr #0 {
 entry:
   %callbacks = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %idxprom = zext i32 %ev to i64
@@ -125,7 +125,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @plugin_cpu_update__locked(ptr noundef %k, ptr nocapture readnone %v, ptr nocapture readnone %udata) #0 {
+define internal void @plugin_cpu_update__locked(ptr noundef %k, ptr readnone captures(none) %v, ptr readnone captures(none) %udata) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %k, i64 -712
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 104), align 8
@@ -452,7 +452,7 @@ return:                                           ; preds = %entry, %plugin_id_t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @plugin_vcpu_for_each(ptr nocapture noundef readonly %k, ptr nocapture readnone %v, ptr nocapture noundef readonly %udata) #0 {
+define internal void @plugin_vcpu_for_each(ptr noundef readonly captures(none) %k, ptr readnone captures(none) %v, ptr noundef readonly captures(none) %udata) #0 {
 entry:
   %0 = load i32, ptr %k, align 4
   %cb = getelementptr inbounds nuw i8, ptr %udata, i64 8
@@ -465,7 +465,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @plugin_register_inline_op(ptr nocapture noundef %arr, i32 noundef %rw, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
+define dso_local void @plugin_register_inline_op(ptr noundef captures(none) %arr, i32 noundef %rw, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -501,7 +501,7 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @plugin_register_dyn_cb__udata(ptr nocapture noundef %arr, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
+define dso_local void @plugin_register_dyn_cb__udata(ptr noundef captures(none) %arr, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -532,7 +532,7 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @plugin_register_vcpu_mem_cb(ptr nocapture noundef %arr, ptr noundef %cb, i32 noundef %flags, i32 noundef %rw, ptr noundef %udata) local_unnamed_addr #0 {
+define dso_local void @plugin_register_vcpu_mem_cb(ptr noundef captures(none) %arr, ptr noundef %cb, i32 noundef %flags, i32 noundef %rw, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -565,7 +565,7 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_tb_trans_cb(ptr nocapture noundef readnone %cpu, ptr noundef %tb) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_tb_trans_cb(ptr noundef readnone captures(none) %cpu, ptr noundef %tb) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 32) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
@@ -592,7 +592,7 @@ for.end:                                          ; preds = %while.end5, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_vcpu_syscall(ptr nocapture noundef readonly %cpu, i64 noundef %num, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5, i64 noundef %a6, i64 noundef %a7, i64 noundef %a8) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_vcpu_syscall(ptr noundef readonly captures(none) %cpu, i64 noundef %num, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5, i64 noundef %a6, i64 noundef %a7, i64 noundef %a8) local_unnamed_addr #0 {
 entry:
   %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
   %0 = load i64, ptr %plugin_mask, align 8
@@ -631,7 +631,7 @@ for.end:                                          ; preds = %while.end6, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_vcpu_syscall_ret(ptr nocapture noundef readonly %cpu, i64 noundef %num, i64 noundef %ret) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_vcpu_syscall_ret(ptr noundef readonly captures(none) %cpu, i64 noundef %num, i64 noundef %ret) local_unnamed_addr #0 {
 entry:
   %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
   %0 = load i64, ptr %plugin_mask, align 8
@@ -670,7 +670,7 @@ for.end:                                          ; preds = %while.end6, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_vcpu_idle_cb(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_vcpu_idle_cb(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 40) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
@@ -702,7 +702,7 @@ plugin_vcpu_cb__simple.exit:                      ; preds = %while.end5.i, %entr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_vcpu_resume_cb(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_vcpu_resume_cb(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 48) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
@@ -786,7 +786,7 @@ plugin_cb__simple.exit:                           ; preds = %while.end5.i, %entr
 declare void @qht_iter_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @free_dyn_cb_arr(ptr noundef %p, i32 %h, ptr nocapture readnone %userp) #0 {
+define internal noundef zeroext i1 @free_dyn_cb_arr(ptr noundef %p, i32 %h, ptr readnone captures(none) %userp) #0 {
 entry:
   %call = tail call ptr @g_array_free(ptr noundef %p, i32 noundef 1) #10
   ret i1 true
@@ -795,7 +795,7 @@ entry:
 declare void @qht_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @exec_inline_op(ptr nocapture noundef readonly %cb) local_unnamed_addr #0 {
+define dso_local void @exec_inline_op(ptr noundef readonly captures(none) %cb) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %cb, i64 24
   %1 = load i32, ptr %0, align 8
@@ -818,7 +818,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_plugin_vcpu_mem_cb(ptr nocapture noundef readonly %cpu, i64 noundef %vaddr, i32 noundef %oi, i32 noundef %rw) local_unnamed_addr #0 {
+define dso_local void @qemu_plugin_vcpu_mem_cb(ptr noundef readonly captures(none) %cpu, i64 noundef %vaddr, i32 noundef %oi, i32 noundef %rw) local_unnamed_addr #0 {
 entry:
   %plugin_mem_cbs = getelementptr inbounds nuw i8, ptr %cpu, i64 704
   %0 = load ptr, ptr %plugin_mem_cbs, align 16
@@ -1163,13 +1163,13 @@ declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_joaat_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str, ptr @PHP_JOAATInit, ptr @PHP_JOAATUpdate, ptr @PHP_JOAATFinal, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.1, i64 4, i64 4, i64 4, i8 0 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_JOAATInit(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_JOAATInit(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr readnone captures(none) %1) #0 {
   store i32 0, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_JOAATUpdate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define void @PHP_JOAATUpdate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = load i32, ptr %0, align 4
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %joaat_buf.exit, label %.lr.ph.i
@@ -42,7 +42,7 @@ joaat_buf.exit:                                   ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_JOAATFinal(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #1 {
+define void @PHP_JOAATFinal(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 4
   %5 = mul i32 %4, 9

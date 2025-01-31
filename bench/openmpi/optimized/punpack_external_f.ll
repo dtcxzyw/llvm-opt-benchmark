@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Unpack_external_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_unpack_external_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_unpack_external_f(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef writeonly %7, i32 noundef %8) #0 {
+define void @ompi_unpack_external_f(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly %7, i32 noundef %8) #0 {
   %10 = alloca ptr, align 8
   %11 = load i32, ptr %6, align 4
   %12 = tail call ptr @PMPI_Type_f2c(i32 noundef %11) #5
@@ -140,7 +140,7 @@ declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @PMPI_Unpack_external(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3

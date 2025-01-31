@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.COMPLEX = type { double, double }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %5
   %.sroa.012.0.copyload = load double, ptr %6, align 8
@@ -53,7 +53,7 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, double %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, double %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %6
   %.sroa.032.0.copyload = load double, ptr %7, align 8

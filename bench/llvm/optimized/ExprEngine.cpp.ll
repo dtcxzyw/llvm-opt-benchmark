@@ -1090,10 +1090,10 @@ declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnul
 declare { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i8, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare { ptr, i8 } @_ZN5clang4ento11SValBuilder11makeZeroValENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412), i64) local_unnamed_addr #1
 
@@ -1135,7 +1135,7 @@ declare noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef no
 declare { ptr, i8 } @_ZN5clang4ento11SValBuilder10getCXXThisEPKNS_13CXXMethodDeclEPKNS_17StackFrameContextE(ptr noundef nonnull align 8 dereferenceable(412), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine29createTemporaryRegionIfNeededEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEPKNS_4ExprESC_PPKNS0_9SubRegionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull align 8 dereferenceable(796) %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine29createTemporaryRegionIfNeededEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEPKNS_4ExprESC_PPKNS0_9SubRegionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(796) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::ento::BlockCounter", align 8
   %9 = alloca %"class.clang::ento::BlockCounter", align 8
   %10 = alloca %"class.clang::ento::EnvironmentEntry", align 8
@@ -1655,7 +1655,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValEPK
 declare noundef ptr @_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsERN4llvm15SmallVectorImplIPKS0_EERNS2_INS_19SubobjectAdjustmentEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine26getObjectUnderConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.568") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine26getObjectUnderConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.568") align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
   %.sroa.04.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %.sroa.04.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1774,7 +1774,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjectsUnderConstructionEEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine24finishObjectConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine24finishObjectConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::ConstructedObjectKey", align 8
   %6 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -1863,7 +1863,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine28setIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine28setIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.582", align 8
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::ImmutableMap.1241", align 8
@@ -2000,7 +2000,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_125IndexOfElementToConstructEEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine18getPendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine18getPendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #20
   %6 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115PendingInitLoopEE8GDMIndexEvE5Index) #20
@@ -2073,7 +2073,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_115PendingInitLoopEEENS0_17Progr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine21removePendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine21removePendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.582", align 8
   %6 = alloca %"class.llvm::ImmutableMap.1241", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -2204,7 +2204,7 @@ _ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_115PendingInitLoopEEEN4llvm18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine18setPendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine18setPendingInitLoopEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.582", align 8
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::ImmutableMap.1241", align 8
@@ -2341,7 +2341,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115PendingInitLoopEEEN4llvm18Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine28getIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine28getIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #20
   %6 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_125IndexOfElementToConstructEE8GDMIndexEvE5Index) #20
@@ -2414,7 +2414,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_125IndexOfElementToConstructEEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine31removeIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine31removeIndexOfElementToConstructEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.582", align 8
   %6 = alloca %"class.llvm::ImmutableMap.1241", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -2545,7 +2545,7 @@ _ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_125IndexOfElementToConstructE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine26getPendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextE(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento10ExprEngine26getPendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextE(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #20
   %5 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_123PendingArrayDestructionEE8GDMIndexEvE5Index) #20
@@ -2610,7 +2610,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_123PendingArrayDestructionEEENS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine26setPendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine26setPendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.llvm::ImmutableMap.1270", align 8
@@ -2743,7 +2743,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_123PendingArrayDestructionEEEN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine29removePendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine29removePendingArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::ImmutableMap.1270", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -2870,7 +2870,7 @@ _ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_123PendingArrayDestructionEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine26addObjectUnderConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextENS0_4SValE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull %3, ptr %4, i8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine26addObjectUnderConstructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERKNS_23ConstructionContextItemEPKNS_15LocationContextENS0_4SValE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %3, ptr %4, i8 %5) local_unnamed_addr #0 align 2 {
   %.sroa.0 = alloca %"class.clang::ConstructionContextItem", align 8
   %7 = alloca %"class.(anonymous namespace)::ConstructedObjectKey", align 8
   %8 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
@@ -2968,7 +2968,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ArrayInitLoopExprEKNS1_4ExprEEEDaPT0_.exit.t
 declare noundef ptr @_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_124ObjectsUnderConstructionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.(anonymous namespace)::ConstructedObjectKey") align 8 %2, ptr %3, i8 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_124ObjectsUnderConstructionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly byval(%"class.(anonymous namespace)::ConstructedObjectKey") align 8 captures(none) %2, ptr %3, i8 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.608", align 8
   %.sroa.014.i = alloca %"struct.std::pair.592", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -3164,7 +3164,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_124ObjectsUnderConstructionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.(anonymous namespace)::ConstructedObjectKey") align 8 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_124ObjectsUnderConstructionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly byval(%"class.(anonymous namespace)::ConstructedObjectKey") align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.(anonymous namespace)::ConstructedObjectKey", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3352,7 +3352,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine15elideDestructorEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine15elideDestructorEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::ConstructedObjectKey", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %2, ptr %5, align 8
@@ -3367,7 +3367,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine15elideDestructorEN4llvm18Intru
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine23cleanupElidedDestructorEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine23cleanupElidedDestructorEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::ConstructedObjectKey", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %2, ptr %5, align 8
@@ -3382,7 +3382,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine23cleanupElidedDestructorEN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine18isDestructorElidedEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine18isDestructorElidedEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_20CXXBindTemporaryExprEPKNS_15LocationContextE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_124ObjectsUnderConstructionEE8GDMIndexEvE5Index) #20
   %.not.i.i = icmp eq ptr %5, null
@@ -3476,7 +3476,7 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_124ObjectsUnderConstruction
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine29areAllObjectsFullyConstructedEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextES9_(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine29areAllObjectsFullyConstructedEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextES9_(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %5 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::ConstructedObjectKey, clang::ento::SVal>::iterator", align 8
   %6 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::ConstructedObjectKey, clang::ento::SVal>::iterator", align 8
@@ -3624,7 +3624,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine13processAssumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef readonly %2, ptr %3, i8 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine13processAssumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef readonly captures(none) %2, ptr %3, i8 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -3656,7 +3656,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare void @_ZN5clang4ento14CheckerManager24runCheckersForEvalAssumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEb(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8, ptr noundef nonnull align 8 dereferenceable(1552), ptr noundef, ptr, i8, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine20processRegionChangesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEESK_PKNS_15LocationContextEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.746") align 8 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine20processRegionChangesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEESK_PKNS_15LocationContextEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.746") align 8 captures(none) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -3688,7 +3688,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare void @_ZN5clang4ento14CheckerManager27runCheckersForRegionChangesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEESK_PKNS_15LocationContextEPKNS0_9CallEventE(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8, ptr noundef nonnull align 8 dereferenceable(1552), ptr noundef, ptr noundef, ptr, i64, ptr noundef byval(%"class.llvm::ArrayRef.746") align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4ento10ExprEngine9printJsonERN4llvm11raw_ostreamENS2_18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEPKcjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4ento10ExprEngine9printJsonERN4llvm11raw_ostreamENS2_18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15LocationContextEPKcjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
@@ -5077,7 +5077,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL33printObjectsUnderConstructionJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
+define internal void @_ZL33printObjectsUnderConstructionJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %"class.clang::ento::SVal", align 8
   %8 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %9 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
@@ -5945,7 +5945,7 @@ _ZN4llvm11raw_ostreamlsEc.exit98:                 ; preds = %404, %402, %393, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL37printIndicesOfElementsToConstructJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
+define internal void @_ZL37printIndicesOfElementsToConstructJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %"struct.clang::PrintingPolicy", align 8
   %8 = alloca %"class.llvm::ImmutableMap<std::pair<const clang::CXXConstructExpr *, const clang::LocationContext *>, unsigned int>::iterator", align 8
   %9 = alloca %"class.llvm::ImmutableMap<std::pair<const clang::CXXConstructExpr *, const clang::LocationContext *>, unsigned int>::iterator", align 8
@@ -6700,7 +6700,7 @@ _ZN4llvm11raw_ostreamlsEc.exit126:                ; preds = %367, %365, %356, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL24printPendingInitLoopJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
+define internal void @_ZL24printPendingInitLoopJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %"struct.clang::PrintingPolicy", align 8
   %8 = alloca %"class.llvm::ImmutableMap<std::pair<const clang::CXXConstructExpr *, const clang::LocationContext *>, unsigned int>::iterator", align 8
   %9 = alloca %"class.llvm::ImmutableMap<std::pair<const clang::CXXConstructExpr *, const clang::LocationContext *>, unsigned int>::iterator", align 8
@@ -7460,7 +7460,7 @@ _ZN4llvm11raw_ostreamlsEc.exit125:                ; preds = %368, %366, %357, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL33printPendingArrayDestructionsJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
+define internal void @_ZL33printPendingArrayDestructionsJsonRN4llvm11raw_ostreamENS_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS3_15LocationContextEjb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %"class.llvm::ImmutableMap<const clang::LocationContext *, unsigned int>::iterator", align 8
   %8 = alloca %"class.llvm::ImmutableMap<const clang::LocationContext *, unsigned int>::iterator", align 8
   %9 = alloca %"class.llvm::ImmutableMap<const clang::LocationContext *, unsigned int>::iterator", align 8
@@ -12325,7 +12325,7 @@ declare { ptr, i8 } @_ZNK5clang4ento12ProgramState9getLValueEPKNS_17IndirectFiel
 declare { ptr, i8 } @_ZNK5clang4ento12ProgramState9getLValueEPKNS_9FieldDeclENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine8evalBindERNS0_15ExplodedNodeSetEPKNS_4StmtEPNS0_12ExplodedNodeENS0_4SValES9_bPKNS_12ProgramPointE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr %4, i8 %5, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine8evalBindERNS0_15ExplodedNodeSetEPKNS_4StmtEPNS0_12ExplodedNodeENS0_4SValES9_bPKNS_12ProgramPointE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr %4, i8 %5, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %11 = alloca %"struct.std::pair.1068", align 8
   %12 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -12646,7 +12646,7 @@ declare { ptr, i8 } @_ZN5clang4ento12StoreManager17evalDerivedToBaseENS0_4SValEN
 declare noundef ptr @_ZNK5clang18CXXCtorInitializer12getBaseClassEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine31prepareStateForArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionERKNS_8QualTypeEPKNS_15LocationContextEPNS0_4SValE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.875") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine31prepareStateForArrayDestructionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionERKNS_8QualTypeEPKNS_15LocationContextEPNS0_4SValE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair.875") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::ento::DefinedOrUnknownSVal", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -14785,7 +14785,7 @@ declare noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonn
 declare noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine29processCleanupTemporaryBranchEPKNS_20CXXBindTemporaryExprERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine29processCleanupTemporaryBranchEPKNS_20CXXBindTemporaryExprERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(796) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.clang::ento::BranchNodeBuilder", align 8
@@ -14930,7 +14930,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23: ; preds =
 declare noundef ptr @_ZN5clang4ento17BranchNodeBuilder12generateNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEbPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(50), ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprERNS0_15ExplodedNodeSetES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprERNS0_15ExplodedNodeSetES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.clang::ento::StmtNodeBuilder", align 8
@@ -15151,7 +15151,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef readonly %2, ptr readonly %3, i64 %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef readonly captures(none) %2, ptr readonly %3, i64 %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::DenseSet.757", align 8
   %9 = alloca %class.CollectReachableSymbolsCallback, align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -16184,7 +16184,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit95:       ; preds = %_ZN5clang4ento15Exp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine15VisitGCCAsmStmtEPKNS_10GCCAsmStmtEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine15VisitGCCAsmStmtEPKNS_10GCCAsmStmtEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.clang::ento::EnvironmentEntry", align 8
@@ -16399,7 +16399,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit60: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine14VisitMSAsmStmtEPKNS_9MSAsmStmtEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine14VisitMSAsmStmtEPKNS_9MSAsmStmtEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca ptr, align 8
@@ -16496,7 +16496,7 @@ declare void @_ZN5clang4ento10ExprEngine16VisitLogicalExprEPKNS_14BinaryOperator
 declare void @_ZN5clang4ento10ExprEngine19VisitBinaryOperatorEPKNS_14BinaryOperatorEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr noundef nonnull align 8 dereferenceable(796), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine33evalEagerlyAssumeBinOpBifurcationERNS0_15ExplodedNodeSetES3_PKNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine33evalEagerlyAssumeBinOpBifurcationERNS0_15ExplodedNodeSetES3_PKNS_4ExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -16850,7 +16850,7 @@ declare void @_ZN5clang4ento10ExprEngine24VisitCompoundLiteralExprEPKNS_19Compou
 declare void @_ZN5clang4ento10ExprEngine16VisitCXXThisExprEPKNS_11CXXThisExprEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr noundef nonnull align 8 dereferenceable(796), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine22VisitCommonDeclRefExprEPKNS_4ExprEPKNS_9NamedDeclEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine22VisitCommonDeclRefExprEPKNS_4ExprEPKNS_9NamedDeclEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %7 = alloca %"class.clang::ProgramPoint", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -18700,7 +18700,7 @@ declare void @_ZN5clang4ento12ExplodedNode14addPredecessorEPS1_RNS0_13ExplodedGr
 declare void @_ZN5clang4ento10CoreEngine15enqueueStmtNodeEPNS0_12ExplodedNodeEPKNS_8CFGBlockEj(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine23processCFGBlockEntranceERKNS_9BlockEdgeERNS0_20NodeBuilderWithSinksEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine23processCFGBlockEntranceERKNS_9BlockEdgeERNS0_20NodeBuilderWithSinksEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.clang::ento::BlockCounter", align 8
@@ -19257,7 +19257,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ento12ExplodedNodeELb1EE9push_backES4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine26setWhetherHasMoreIterationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine26setWhetherHasMoreIterationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.971", align 8
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::ImmutableMap.1442", align 8
@@ -19395,7 +19395,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_124ObjCForHasMoreIterationsEEEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine20removeIterationStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine20removeIterationStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.971", align 8
   %6 = alloca %"class.llvm::ImmutableMap.1442", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -19525,7 +19525,7 @@ _ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_124ObjCForHasMoreIterationsEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine16hasMoreIterationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextE(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine16hasMoreIterationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextE(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapISt4pairIPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextEEbNS2_16ImutKeyValueInfoISB_bEEEEvE8MakeDataEPKPv.exit.i:
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_124ObjCForHasMoreIterationsEE8GDMIndexEvE5Index) #20
@@ -19965,7 +19965,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i: ; preds
   %180 = load i8, ptr %.0.i, align 8, !noalias !444
   %181 = add i8 %180, 126
   %spec.select.i.i.i.i.i.i.i.i.i53 = icmp ult i8 %181, -127
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i53, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split, label %182
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i53, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134, label %182
 
 182:                                              ; preds = %179
   %.sroa.0.0.copyload.i.i = load i64, ptr %130, align 8, !noalias !444
@@ -19999,11 +19999,11 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i: ; preds
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %201, align 8, !noalias !444
   %.not.i.i.i.i.i51.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
   %202 = select i1 %200, i1 true, i1 %.not.i.i.i.i.i51.i
-  br i1 %202, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split
+  br i1 %202, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134
 
 203:                                              ; preds = %193
   %204 = icmp eq i8 %191, 10
-  br i1 %204, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split
+  br i1 %204, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %182
   %205 = load i32, ptr %190, align 16, !noalias !444
@@ -20011,7 +20011,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %182
   %207 = and i32 %206, 511
   %208 = add nsw i32 %207, -429
   %spec.select.i50.i = icmp ult i32 %208, 20
-  br i1 %spec.select.i50.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split
+  br i1 %spec.select.i50.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit53.i: ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %203, %195
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %170) #20, !noalias !444
@@ -20194,7 +20194,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit59.i: ; preds
   %spec.select.i = select i1 %297, ptr %.fca.0.extract10.i, ptr %.fca.0.extract5109.i
   %spec.select125.i = select i1 %297, i8 %.fca.1.extract11.i, i8 %.fca.1.extract6111.i
   %spec.select.i60.i = icmp ult i8 %spec.select125.i, 2
-  br i1 %spec.select.i60.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit70.i, label %.thread116.i
+  br i1 %spec.select.i60.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134, label %.thread116.i
 
 .thread116.i:                                     ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit59.i, %169
   %.sroa.3.0121.i = phi i8 [ %spec.select125.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit59.i ], [ %.fca.1.extract11.i, %169 ]
@@ -20221,10 +20221,6 @@ _ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread129: ; pr
   %304 = load ptr, ptr %131, align 8, !noalias !444
   store ptr null, ptr %131, align 8, !noalias !444
   br label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread.sink.split
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit70.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit59.i
-  %.not.i.i71.i = icmp eq ptr %170, null
-  br i1 %.not.i.i71.i, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123, label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split
 
 _ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %168) #20, !noalias !444
@@ -20254,22 +20250,19 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.not.i.i4.i = icmp eq ptr %.sroa.4.4120, null
   br i1 %.not.i.i4.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i.i.i.i, label %313
 
-_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split: ; preds = %203, %195, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %179, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit70.i
+_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134: ; preds = %203, %195, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %179, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit59.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %170) #20, !noalias !444
-  br label %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123
-
-_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123: ; preds = %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123.sink.split, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit70.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   store ptr %139, ptr %23, align 8
   br i1 %.not.i.i49, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit61, label %306
 
-306:                                              ; preds = %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123
+306:                                              ; preds = %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %139) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit61
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit61: ; preds = %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread123, %306
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit61: ; preds = %_ZL15assumeConditionPKN5clang4StmtEPNS_4ento12ExplodedNodeE.exit.thread134, %306
   %307 = call noundef ptr @_ZN5clang4ento17BranchNodeBuilder12generateNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEbPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(50) %22, ptr noundef nonnull %23, i1 noundef zeroext true, ptr noundef nonnull %133) #20
   %308 = load ptr, ptr %23, align 8
   %.not.i.i62 = icmp eq ptr %308, null
@@ -20412,7 +20405,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare void @_ZN5clang4ento14CheckerManager29runCheckersForBranchConditionEPKNS_4StmtERNS0_15ExplodedNodeSetEPNS0_12ExplodedNodeERNS0_10ExprEngineE(ptr noundef nonnull align 8 dereferenceable(1552), ptr noundef, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef nonnull align 8 dereferenceable(796)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine24processStaticInitializerEPKNS_8DeclStmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(796) initializes((616, 624)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine24processStaticInitializerEPKNS_8DeclStmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(796) initializes((616, 624)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::ImmutableSet", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %10 = alloca %"class.llvm::ImmutableSet", align 8
@@ -20693,7 +20686,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine19processIndirectGotoERNS0_23IndirectGotoNodeBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine19processIndirectGotoERNS0_23IndirectGotoNodeBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %4 = alloca %"class.clang::ento::IndirectGotoNodeBuilder::iterator", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -21299,7 +21292,7 @@ declare void @_ZN5clang4ento14CheckerManager25runCheckersForEndFunctionERNS0_18N
 declare void @_ZN5clang4ento10CoreEngine20enqueueEndOfFunctionERNS0_15ExplodedNodeSetEPKNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine13processSwitchERNS0_17SwitchNodeBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine13processSwitchERNS0_17SwitchNodeBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %4 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %5 = alloca %"class.clang::ento::SwitchNodeBuilder::iterator", align 8
@@ -21737,7 +21730,7 @@ declare noundef ptr @_ZNK5clang11BindingDecl13getHoldingVarEv(ptr noundef nonnul
 declare noundef ptr @_ZN5clang4ento12StoreManager20GetElementZeroRegionEPKNS0_9SubRegionENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine8evalLoadERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEPKNS_15ProgramPointTagENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %6, ptr noundef %7, i64 %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine8evalLoadERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEPKNS_15ProgramPointTagENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %6, ptr noundef %7, i64 %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %11 = alloca %"class.clang::ProgramPoint", align 8
   %12 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
@@ -21926,7 +21919,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %68, %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine27processPointerEscapedOnBindEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefISt4pairINS0_4SValES9_EEEPKNS_15LocationContextENS0_17PointerEscapeKindEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef %2, ptr %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine27processPointerEscapedOnBindEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefISt4pairINS0_4SValES9_EEEPKNS_15LocationContextENS0_17PointerEscapeKindEPKNS0_9CallEventE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef captures(none) %2, ptr %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SmallVector.1062", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
@@ -22144,7 +22137,7 @@ declare noundef ptr @_ZNK5clang4ento9VarRegion13getStackFrameEv(ptr noundef nonn
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine27processPointerEscapedOnBindEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValES7_PKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef readonly %2, ptr %3, i8 %4, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine27processPointerEscapedOnBindEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValES7_PKNS_15LocationContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef readonly captures(none) %2, ptr %3, i8 %4, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.1068", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   store ptr %3, ptr %8, align 8
@@ -22176,7 +22169,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine29notifyCheckersOfPointerEscapeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEEPKNS0_9CallEventERNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr nocapture noundef %2, ptr noundef %3, ptr readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine29notifyCheckersOfPointerEscapeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEEPKNS0_9CallEventERNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind noalias writable sret(%"class.llvm::IntrusiveRefCntPtr.503") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr readonly %4, i64 %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %10 = alloca %"class.llvm::DenseSet.757", align 8
   %11 = alloca ptr, align 8
@@ -22590,7 +22583,7 @@ declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef
 declare void @_ZN5clang4ento14CheckerManager18runCheckersForBindERNS0_15ExplodedNodeSetERKS2_NS0_4SValES6_PKNS_4StmtERNS0_10ExprEngineERKNS_12ProgramPointE(ptr noundef nonnull align 8 dereferenceable(1552), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr, i8, ptr noundef byval(%"class.clang::ento::SVal") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(796), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9evalStoreERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValESE_PKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %6, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9evalStoreERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValESE_PKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %6, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %.not = icmp eq ptr %2, null
@@ -22664,7 +22657,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %.loopexit, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine12evalLocationERNS0_15ExplodedNodeSetEPKNS_4StmtES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEb(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine12evalLocationERNS0_15ExplodedNodeSetEPKNS_4StmtES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValEb(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly byval(%"class.clang::ento::SVal") align 8 captures(none) %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %10 = alloca %"class.clang::ProgramPoint", align 8
   %11 = alloca ptr, align 8
@@ -22916,7 +22909,7 @@ define dso_local { ptr, ptr } @_ZN5clang4ento10ExprEngine36geteagerlyAssumeBinOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EbN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(796) %0, i1 noundef zeroext %1, ptr nonnull @.str.32, i64 0)
   %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
@@ -22927,7 +22920,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEb(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EbN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, i1 noundef zeroext %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EbN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, i1 noundef zeroext %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.llvm::FoldingSetIterator", align 8
   %8 = alloca %"class.llvm::FoldingSetIterator", align 8
@@ -23100,7 +23093,7 @@ declare noundef zeroext i1 @_ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProg
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEN4llvm8ArrayRefIPKNS0_12ExplodedNodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEN4llvm8ArrayRefIPKNS0_12ExplodedNodeEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EN4llvm8ArrayRefIPKNS0_12ExplodedNodeEEENS2_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(796) %0, ptr %1, i64 %2, ptr nonnull @.str.32, i64 0)
   %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
@@ -23111,7 +23104,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine9ViewGraphEN4llvm8ArrayRefIPKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EN4llvm8ArrayRefIPKNS0_12ExplodedNodeEEENS2_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine9DumpGraphB5cxx11EN4llvm8ArrayRefIPKNS0_12ExplodedNodeEEENS2_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(796) %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::unique_ptr.1177", align 8
   %9 = alloca %"class.std::allocator.117", align 1
@@ -23556,7 +23549,7 @@ define dso_local noundef nonnull ptr @_ZN5clang4ento17ProgramStateTraitINS0_21Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine6anchorEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(796) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine6anchorEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(796) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -23588,7 +23581,7 @@ define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD0Ev(ptr noundef nonn
 declare void @_ZN5clang4ento11BugReporterC2ERNS0_15BugReporterDataE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef ptr @_ZN5clang4ento16MemRegionManager12getVarRegionEPKNS_7VarDeclEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -23611,7 +23604,7 @@ declare noundef i32 @_ZNK5clang4ento12BlockCounter13getNumVisitedEPKNS_17StackFr
 declare noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
@@ -23762,7 +23755,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIN12_GLOBAL__N_120Constr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_EixEOj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_EixEOj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %0, i32 %.0.val) unnamed_addr #0 align 2 {
   %.val.i = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val4.i = load i32, ptr %2, align 8
@@ -24025,7 +24018,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -24765,7 +24758,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
@@ -27601,7 +27594,7 @@ declare noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicVa
 declare { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventEEN31CollectReachableSymbolsCallback11VisitSymbolEPKNS0_7SymExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventEEN31CollectReachableSymbolsCallback11VisitSymbolEPKNS0_7SymExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30812,7 +30805,7 @@ common.ret10:                                     ; preds = %8, %common.ret
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS7_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %4 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %5 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
@@ -31203,7 +31196,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE10createNodeEPNS_11ImutAVLTreeIS7_EERKSt4pairIS3_S6_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE10createNodeEPNS_11ImutAVLTreeIS7_EERKSt4pairIS3_S6_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load i64, ptr %5, align 8
   %6 = and i64 %.val7, -2
@@ -31397,7 +31390,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIN12_GLOBAL__N_120Constr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE11balanceTreeEPNS_11ImutAVLTreeIS7_EERKSt4pairIS3_S6_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE11balanceTreeEPNS_11ImutAVLTreeIS7_EERKSt4pairIS3_S6_ESB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE9getHeightEPNS_11ImutAVLTreeIS7_EE.exit, label %5
 
@@ -31920,7 +31913,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE16removeMinBindingEPNS_11ImutAVLTreeIS7_EERSB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEE16removeMinBindingEPNS_11ImutAVLTreeIS7_EERSB_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val10 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val10, null
@@ -31948,7 +31941,7 @@ common.ret13:                                     ; preds = %6, %common.ret
 declare void @_ZNK5clang15LocationContext9printJsonERN4llvm11raw_ostreamEPKcjbSt8functionIFvPKS0_EE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124ObjectsUnderConstructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124ObjectsUnderConstructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
@@ -31994,7 +31987,7 @@ _ZSt10__invoke_rIvRZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124ObjectsUnderConstructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124ObjectsUnderConstructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_124ObjectsUnderConstructionEPFvRN4llvm11raw_ostreamENS4_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS8_15LocationContextEjbEJEEvS6_SC_SH_SE_jbSE_T0_DpOT1_EUlSH_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -32032,7 +32025,7 @@ _ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125IndexOfElementToConstructEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125IndexOfElementToConstructEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
@@ -32078,7 +32071,7 @@ _ZSt10__invoke_rIvRZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125IndexOfElementToConstructEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125IndexOfElementToConstructEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_125IndexOfElementToConstructEPFvRN4llvm11raw_ostreamENS4_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS8_15LocationContextEjbEJEEvS6_SC_SH_SE_jbSE_T0_DpOT1_EUlSH_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -32116,7 +32109,7 @@ _ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115PendingInitLoopEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115PendingInitLoopEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
@@ -32162,7 +32155,7 @@ _ZSt10__invoke_rIvRZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115PendingInitLoopEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115PendingInitLoopEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_115PendingInitLoopEPFvRN4llvm11raw_ostreamENS4_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS8_15LocationContextEjbEJEEvS6_SC_SH_SE_jbSE_T0_DpOT1_EUlSH_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -32200,7 +32193,7 @@ _ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123PendingArrayDestructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123PendingArrayDestructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E9_M_invokeERKSt9_Any_dataOS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
@@ -32246,7 +32239,7 @@ _ZSt10__invoke_rIvRZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123PendingArrayDestructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN5clang15LocationContextEEZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123PendingArrayDestructionEPFvRN4llvm11raw_ostreamENS8_18IntrusiveRefCntPtrIKNS0_4ento12ProgramStateEEEPKcS3_jbEJEEvSA_SF_S3_SH_jbSH_T0_DpOT1_EUlS3_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL38printStateTraitWithLocationContextJsonIN12_GLOBAL__N_123PendingArrayDestructionEPFvRN4llvm11raw_ostreamENS4_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKcPKNS8_15LocationContextEjbEJEEvS6_SC_SH_SE_jbSE_T0_DpOT1_EUlSH_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -39635,7 +39628,7 @@ declare void @_ZN5clang4ento12BlockCounter7FactoryD1Ev(ptr noundef nonnull align
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
@@ -39644,10 +39637,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #17

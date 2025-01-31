@@ -179,7 +179,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib18PlainVanillaPayoffEEE = comda
 @_ZN8QuantLib15BlackCalculatorC1ENS_6Option4TypeEdddd = unnamed_addr alias void (ptr, i32, double, double, double, double), ptr @_ZN8QuantLib15BlackCalculatorC2ENS_6Option4TypeEdddd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -196,7 +196,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
@@ -318,7 +318,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculatorC2ERKN5boost10shared_ptrINS_17StrikedTypePayoffEEEddd(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib15BlackCalculatorC2ERKN5boost10shared_ptrINS_17StrikedTypePayoffEEEddd(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib15BlackCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %0 = load ptr, ptr %p, align 8, !tbaa !18
@@ -350,7 +350,7 @@ _ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEptEv.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculator10initializeERKN5boost10shared_ptrINS_17StrikedTypePayoffEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BlackCalculator10initializeERKN5boost10shared_ptrINS_17StrikedTypePayoffEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1677,7 +1677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_6PayoffE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_6PayoffE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i12 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1997,26 +1997,26 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: noreturn uwtable
-define void @_ZThn8_N8QuantLib15BlackCalculator10Calculator5visitERNS_6PayoffE(ptr nocapture noundef readnone %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #13 align 2 {
+define void @_ZThn8_N8QuantLib15BlackCalculator10Calculator5visitERNS_6PayoffE(ptr noundef readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #13 align 2 {
 entry:
   tail call void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_6PayoffE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %p)
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_18PlainVanillaPayoffE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_18PlainVanillaPayoffE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn16_N8QuantLib15BlackCalculator10Calculator5visitERNS_18PlainVanillaPayoffE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZThn16_N8QuantLib15BlackCalculator10Calculator5visitERNS_18PlainVanillaPayoffE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_19CashOrNothingPayoffE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %payoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_19CashOrNothingPayoffE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %payoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2230,7 +2230,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn24_N8QuantLib15BlackCalculator10Calculator5visitERNS_19CashOrNothingPayoffE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %payoff) unnamed_addr #15 align 2 {
+define void @_ZThn24_N8QuantLib15BlackCalculator10Calculator5visitERNS_19CashOrNothingPayoffE(ptr noundef readonly captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %payoff) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_19CashOrNothingPayoffE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %payoff)
@@ -2238,7 +2238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_20AssetOrNothingPayoffE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %payoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_20AssetOrNothingPayoffE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %payoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2446,7 +2446,7 @@ unreachable:                                      ; preds = %invoke.cont28
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn32_N8QuantLib15BlackCalculator10Calculator5visitERNS_20AssetOrNothingPayoffE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %payoff) unnamed_addr #15 align 2 {
+define void @_ZThn32_N8QuantLib15BlackCalculator10Calculator5visitERNS_20AssetOrNothingPayoffE(ptr noundef readonly captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %payoff) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_20AssetOrNothingPayoffE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %payoff)
@@ -2454,7 +2454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_9GapPayoffE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %payoff) unnamed_addr #16 align 2 {
+define void @_ZN8QuantLib15BlackCalculator10Calculator5visitERNS_9GapPayoffE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %payoff) unnamed_addr #16 align 2 {
 entry:
   %secondStrike_.i = getelementptr inbounds nuw i8, ptr %payoff, i64 24
   %0 = load double, ptr %secondStrike_.i, align 8, !tbaa !86
@@ -2468,7 +2468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZThn40_N8QuantLib15BlackCalculator10Calculator5visitERNS_9GapPayoffE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %payoff) unnamed_addr #16 align 2 {
+define void @_ZThn40_N8QuantLib15BlackCalculator10Calculator5visitERNS_9GapPayoffE(ptr noundef readonly captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %payoff) unnamed_addr #16 align 2 {
 entry:
   %secondStrike_.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 24
   %0 = load double, ptr %secondStrike_.i.i, align 8, !tbaa !86
@@ -2482,7 +2482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator5valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator5valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %discount_, align 8, !tbaa !31
@@ -2501,7 +2501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator5deltaEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, double noundef %spot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15BlackCalculator5deltaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, double noundef %spot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2711,7 +2711,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator12deltaForwardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator12deltaForwardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %stdDev_, align 8, !tbaa !30
@@ -2785,7 +2785,7 @@ cleanup:                                          ; preds = %if.else7, %if.else,
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator17elasticityForwardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator17elasticityForwardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %discount_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %discount_.i, align 8, !tbaa !31
@@ -2838,7 +2838,7 @@ cleanup:                                          ; preds = %if.else7, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator5gammaEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, double noundef %spot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15BlackCalculator5gammaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, double noundef %spot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3060,7 +3060,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator12gammaForwardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator12gammaForwardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %stdDev_, align 8, !tbaa !30
@@ -3328,7 +3328,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator4vegaEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15BlackCalculator4vegaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3532,7 +3532,7 @@ unreachable:                                      ; preds = %invoke.cont13
 declare double @sqrt(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator3rhoEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15BlackCalculator3rhoEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3734,7 +3734,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator11dividendRhoEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15BlackCalculator11dividendRhoEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, double noundef %maturity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3933,7 +3933,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator17strikeSensitivityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator17strikeSensitivityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %stdDev_, align 8, !tbaa !30
@@ -3966,7 +3966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15BlackCalculator11strikeGammaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
+define noundef double @_ZNK8QuantLib15BlackCalculator11strikeGammaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #17 align 2 {
 entry:
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %stdDev_, align 8, !tbaa !30
@@ -4111,7 +4111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4175,7 +4175,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #21
@@ -4255,7 +4255,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7514SimpleTimeZone17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7514SimpleTimeZone17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7514SimpleTimeZone16getStaticClassIDEvE7classID
 }
@@ -84,7 +84,7 @@ entry:
 declare void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514SimpleTimeZone20clearTransitionRulesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((120, 121), (128, 160)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone20clearTransitionRulesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((120, 121), (128, 160)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %initialRule = getelementptr inbounds nuw i8, ptr %this, i64 128
   %transitionRulesInitialized = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -99,7 +99,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
@@ -142,7 +142,7 @@ invoke.cont2:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone9constructEiaaaiNS0_8TimeModeEaaaiS1_iR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 75), (76, 91), (92, 104), (108, 120)) %this, i32 noundef %rawOffsetGMT, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone9constructEiaaaiNS0_8TimeModeEaaaiS1_iR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((72, 75), (76, 91), (92, 104), (108, 120)) %this, i32 noundef %rawOffsetGMT, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %rawOffset = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset, align 4
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiaaaiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsDST, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
@@ -238,7 +238,7 @@ invoke.cont2:                                     ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiNS0_8TimeModeEaaaiS4_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SimpleTimeZoneC2EiRKNS_13UnicodeStringEaaaiNS0_8TimeModeEaaaiS4_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %rawOffsetGMT, ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %savingsStartMonth, i8 noundef signext %savingsStartDay, i8 noundef signext %savingsStartDayOfWeek, i32 noundef %savingsStartTime, i32 noundef %savingsStartTimeMode, i8 noundef signext %savingsEndMonth, i8 noundef signext %savingsEndDay, i8 noundef signext %savingsEndDayOfWeek, i32 noundef %savingsEndTime, i32 noundef %savingsEndTimeMode, i32 noundef %savingsDST, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %ID)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514SimpleTimeZoneE, i64 16), ptr %this, align 8
@@ -289,7 +289,7 @@ invoke.cont2:                                     ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone11decodeRulesER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -562,7 +562,7 @@ _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 121)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((120, 121)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %initialRule = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %initialRule, align 8
@@ -890,7 +890,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514SimpleTimeZone12setStartYearEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((96, 100), (120, 121)) %this, i32 noundef %year) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone12setStartYearEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((96, 100), (120, 121)) %this, i32 noundef %year) local_unnamed_addr #3 align 2 {
 entry:
   %startYear = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %year, ptr %startYear, align 8
@@ -900,7 +900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv = trunc i32 %month to i8
   %startMonth = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1018,7 +1018,7 @@ _ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode.exit: ; preds = %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone15decodeStartRuleER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1130,7 +1130,7 @@ if.end91:                                         ; preds = %if.end91.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiNS0_8TimeModeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv.i = trunc i32 %month to i8
   %startMonth.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1207,7 +1207,7 @@ _ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeEaR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, i8 noundef signext %after, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeEaR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((72, 75), (76, 84), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, i8 noundef signext %after, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq i8 %after, 0
   %sub = sub nsw i32 0, %dayOfMonth
@@ -1328,7 +1328,7 @@ _ZN6icu_7514SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfWeekInMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv = trunc i32 %month to i8
   %endMonth = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1447,7 +1447,7 @@ _ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode.exit: ; preds = %if.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone13decodeEndRuleER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1560,7 +1560,7 @@ if.end91:                                         ; preds = %if.end91.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiNS0_8TimeModeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiNS0_8TimeModeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %time, i32 noundef %mode, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %conv.i = trunc i32 %month to i8
   %endMonth.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1638,7 +1638,7 @@ _ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeEaR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, i8 noundef signext %after, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeEaR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((84, 91), (92, 96), (120, 121)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i32 noundef %time, i32 noundef %mode, i8 noundef signext %after, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq i8 %after, 0
   %sub = sub nsw i32 0, %dayOfMonth
@@ -1877,7 +1877,7 @@ return:                                           ; preds = %_ZN6icu_755Grego19p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7514SimpleTimeZone9getOffsetEhiiihiiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %monthLength, i32 noundef %prevMonthLength, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK6icu_7514SimpleTimeZone9getOffsetEhiiihiiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %monthLength, i32 noundef %prevMonthLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2167,7 +2167,7 @@ return:                                           ; preds = %if.else106, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514SimpleTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %rawOffsetGMT, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %savingsDST, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7514SimpleTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %rawOffsetGMT, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %savingsDST, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %doy_unused.i18 = alloca i32, align 4
   %doy_unused.i = alloca i32, align 4
@@ -2312,7 +2312,7 @@ if.end52:                                         ; preds = %if.else, %if.then13
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEdiPi(double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7514SimpleTimeZone12getRawOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_7514SimpleTimeZone12getRawOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #7 align 2 {
 entry:
   %rawOffset = getelementptr inbounds nuw i8, ptr %this, i64 100
   %0 = load i32, ptr %rawOffset, align 4
@@ -2320,7 +2320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514SimpleTimeZone12setRawOffsetEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((100, 104), (120, 121)) %this, i32 noundef %offsetMillis) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone12setRawOffsetEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((100, 104), (120, 121)) %this, i32 noundef %offsetMillis) unnamed_addr #3 align 2 {
 entry:
   %rawOffset = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 %offsetMillis, ptr %rawOffset, align 4
@@ -2330,7 +2330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514SimpleTimeZone13setDSTSavingsEiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((120, 121)) %this, i32 noundef %millisSavedDuringDST, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7514SimpleTimeZone13setDSTSavingsEiR10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((120, 121)) %this, i32 noundef %millisSavedDuringDST, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %millisSavedDuringDST, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -2351,7 +2351,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7514SimpleTimeZone13getDSTSavingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_7514SimpleTimeZone13getDSTSavingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #7 align 2 {
 entry:
   %dstSavings = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %dstSavings, align 4
@@ -2359,7 +2359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone15useDaylightTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 {
+define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone15useDaylightTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #7 align 2 {
 entry:
   %useDaylight = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i8, ptr %useDaylight, align 8
@@ -2700,7 +2700,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7514SimpleTimeZone20checkTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2853,7 +2853,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SimpleTimeZone19initTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SimpleTimeZone19initTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tzid = alloca %"class.icu_75::UnicodeString", align 8
   %firstStdStart = alloca double, align 8
@@ -3637,7 +3637,7 @@ declare void @_ZN6icu_7519InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noun
 declare void @_ZN6icu_7518TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32), double noundef, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK6icu_7514SimpleTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK6icu_7514SimpleTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #7 align 2 {
 entry:
   %useDaylight = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load i8, ptr %useDaylight, align 8
@@ -3647,7 +3647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514SimpleTimeZone16getTimeZoneRulesERPKNS_19InitialTimeZoneRuleEPPKNS_12TimeZoneRuleERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %initial, ptr nocapture noundef writeonly %trsrules, ptr nocapture noundef nonnull align 4 dereferenceable(4) %trscount, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7514SimpleTimeZone16getTimeZoneRulesERPKNS_19InitialTimeZoneRuleEPPKNS_12TimeZoneRuleERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %initial, ptr noundef writeonly captures(none) %trsrules, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %trscount, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3725,7 +3725,7 @@ declare noundef signext i8 @_ZNK6icu_7513BasicTimeZone24hasEquivalentTransitions
 declare void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZoneRuleERPNS_18AnnualTimeZoneRuleES6_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72), double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
@@ -3736,16 +3736,16 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZNK6icu_758TimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72), double noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

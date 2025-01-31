@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %this) unnamed_addr #1 align 2 {
+define void @_ZN5folly5CodelC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr @_ZN3fLI20FLAGS_codel_intervalE, align 4, !tbaa !7
   %conv.i = sext i32 %0 to i64
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %options) unnamed_addr #1 align 2 {
+define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) initializes((0, 34)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %options) unnamed_addr #1 align 2 {
 entry:
   store i64 0, ptr %this, align 8, !tbaa !11
   %codelIntervalTimeNs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -72,7 +72,7 @@ entry:
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5folly5Codel23overloaded_explicit_nowENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_10time_pointINS1_3_V212steady_clockES5_EE(ptr nocapture noundef nonnull align 8 dereferenceable(34) %this, i64 %delay.coerce, i64 %now.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly5Codel23overloaded_explicit_nowENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_10time_pointINS1_3_V212steady_clockES5_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(34) %this, i64 %delay.coerce, i64 %now.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this seq_cst, align 8
   %interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -153,7 +153,7 @@ cleanup:                                          ; preds = %land.lhs.true61, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZNK5folly5Codel10getOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 {
+define { i64, i64 } @_ZNK5folly5Codel10getOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 {
 entry:
   %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %interval_ monotonic, align 8
@@ -166,7 +166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK5folly5Codel16getSloughTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(34) %this, i64 %delay.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %mul.i = shl nsw i64 %delay.coerce, 1
   ret i64 %mul.i
@@ -175,7 +175,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -2147483648, 101) i32 @_ZN5folly5Codel7getLoadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 101) i32 @_ZN5folly5Codel7getLoadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %interval_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %interval_.i monotonic, align 8
@@ -192,14 +192,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly5Codel11getMinDelayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN5folly5Codel11getMinDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this seq_cst, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5Codel10setOptionsERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %options) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5Codel10setOptionsERKNS0_7OptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(34) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %options) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %targetDelay_.i = getelementptr inbounds nuw i8, ptr %options, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %targetDelay_.i, align 8, !tbaa !14
@@ -245,7 +245,7 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_ZN5folly5Codel15getIntervalTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN5folly5Codel15getIntervalTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(34) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %codelIntervalTimeNs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %codelIntervalTimeNs_ seq_cst, align 8

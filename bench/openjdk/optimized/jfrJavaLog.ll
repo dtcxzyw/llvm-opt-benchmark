@@ -703,7 +703,7 @@ _ZL13highest_levelRK9LogTagSet.exit184:           ; preds = %112, %.split.loop.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10JavaThread(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrJavaLog9log_eventEP7JNIEnv_iP13_jobjectArraybP10JavaThread(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LogMessageTemplate, align 8
   %7 = alloca %class.LogMessageTemplate.2, align 8
   %8 = icmp eq ptr %2, null

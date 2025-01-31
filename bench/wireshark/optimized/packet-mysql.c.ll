@@ -1653,7 +1653,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -1861,7 +1861,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_mysql_compressed_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_mysql_compressed_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_letoh24(ptr noundef %1, i32 noundef %2) #8
   %6 = add i32 %5, 7
   ret i32 %6
@@ -1992,14 +1992,14 @@ define internal i32 @dissect_mysql_compressed_pdu(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_mysql_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_mysql_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_letoh24(ptr noundef %1, i32 noundef %2) #8
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -2673,7 +2673,7 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
   %373 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %374 = load ptr, ptr %373, align 8
   %375 = load i32, ptr %9, align 4
-  call void @wmem_tree_insert32(ptr noundef %374, i32 noundef %375, ptr noundef %351) #8
+  call void @wmem_tree_insert32(ptr noundef %374, i32 noundef %375, ptr noundef nonnull %351) #8
   %.val78.i.i = load ptr, ptr %333, align 8
   %376 = getelementptr i8, ptr %.val78.i.i, i64 50
   %.val78.val.i.i = load i16, ptr %376, align 2
@@ -5399,7 +5399,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5410,7 +5410,7 @@ declare i32 @proto_is_frame_protocol(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #8
@@ -5449,7 +5449,7 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mariadb_dissect_caps_or_flags(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 5, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @mariadb_dissect_caps_or_flags(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 5, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) unnamed_addr #0 {
   switch i32 %2, label %15 [
     i32 7, label %10
     i32 5, label %8
@@ -5491,7 +5491,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 4, 6) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 4, 6) %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1160) #8
@@ -5572,7 +5572,7 @@ my_tvb_strsize.exit32:                            ; preds = %32, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_ok_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_ok_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.1161) #8
@@ -6234,7 +6234,7 @@ mysql_set_conn_state.exit:                        ; preds = %.loopexit, %341
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr %4, align 8
   %8 = load i32, ptr @hf_mysql_fld_catalog, align 4
@@ -6463,7 +6463,7 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %80, %83, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1181) #8
@@ -6545,7 +6545,7 @@ define internal fastcc i32 @my_tvb_strsize(ptr noundef %0, i32 noundef %1) unnam
 declare i32 @tvb_strnlen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 10) i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 10) i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
@@ -6705,7 +6705,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_tiny(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_tiny(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_tiny, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #8
@@ -6716,7 +6716,7 @@ define internal void @mysql_dissect_exec_tiny(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_unsigned_tiny(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_unsigned_tiny(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_unsigned_tiny, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #8
@@ -6727,7 +6727,7 @@ define internal void @mysql_dissect_exec_unsigned_tiny(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_short(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_short(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_short, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #8
@@ -6738,7 +6738,7 @@ define internal void @mysql_dissect_exec_short(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_unsigned_short(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_unsigned_short(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_unsigned_short, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #8
@@ -6749,7 +6749,7 @@ define internal void @mysql_dissect_exec_unsigned_short(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_long(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_long(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_long, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #8
@@ -6760,7 +6760,7 @@ define internal void @mysql_dissect_exec_long(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_unsigned_long(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_unsigned_long(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_unsigned_long, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #8
@@ -6771,7 +6771,7 @@ define internal void @mysql_dissect_exec_unsigned_long(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_float(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_float(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_float, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef -2147483648) #8
@@ -6782,7 +6782,7 @@ define internal void @mysql_dissect_exec_float(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_double(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_double(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_double, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -6793,12 +6793,12 @@ define internal void @mysql_dissect_exec_double(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @mysql_dissect_exec_null(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 {
+define internal void @mysql_dissect_exec_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_datetime(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_datetime(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #8
   %6 = load i32, ptr @hf_mysql_exec_field_datetime_length, align 4
@@ -6861,7 +6861,7 @@ define internal void @mysql_dissect_exec_datetime(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_longlong(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_longlong(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_longlong, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -6872,7 +6872,7 @@ define internal void @mysql_dissect_exec_longlong(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_unsigned_longlong(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_unsigned_longlong(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_mysql_exec_field_unsigned_longlong, align 4
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -6883,7 +6883,7 @@ define internal void @mysql_dissect_exec_unsigned_longlong(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_time(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_time(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #8
   %6 = load i32, ptr @hf_mysql_exec_field_time_length, align 4
@@ -6942,7 +6942,7 @@ define internal void @mysql_dissect_exec_time(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mysql_dissect_exec_string(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @mysql_dissect_exec_string(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #8
   switch i8 %5, label %23 [
@@ -6992,7 +6992,7 @@ define internal void @mysql_dissect_exec_string(ptr noundef %0, ptr nocapture no
 declare i32 @ssl_starttls_ack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_connattrs_entry_to_tree(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @add_connattrs_entry_to_tree(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_mysql_connattrs_attr, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
@@ -7097,7 +7097,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mysql_exec_param, align 4
   %8 = load i32, ptr %2, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 2, i32 noundef 0) #8
@@ -7185,13 +7185,13 @@ declare void @except_free(ptr noundef) local_unnamed_addr #1
 declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

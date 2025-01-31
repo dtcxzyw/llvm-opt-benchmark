@@ -191,7 +191,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @time_module_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @time_module_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -213,7 +213,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @time_module_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @time_module_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -243,7 +243,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @time_module_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @time_module_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %0, align 8
@@ -273,7 +273,7 @@ time_module_clear.exit:                           ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_time(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_time(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetSystemClockWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -292,7 +292,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_time_ns(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_time_ns(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetSystemClockWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -310,7 +310,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_clock_gettime(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @time_clock_gettime(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %tp.i = alloca %struct.timespec, align 8
   %call.i = tail call i32 @PyLong_AsInt(ptr noundef %arg) #11
@@ -362,7 +362,7 @@ exit:                                             ; preds = %time_clockid_conver
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_clock_gettime_ns(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @time_clock_gettime_ns(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %t.i = alloca i64, align 8
@@ -417,7 +417,7 @@ exit:                                             ; preds = %time_clockid_conver
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @time_clock_settime(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @time_clock_settime(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %clk_id = alloca i32, align 4
   %obj = alloca ptr, align 8
@@ -456,7 +456,7 @@ return:                                           ; preds = %if.end7, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @time_clock_settime_ns(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @time_clock_settime_ns(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %clk_id = alloca i32, align 4
   %obj = alloca ptr, align 8
@@ -495,7 +495,7 @@ return:                                           ; preds = %if.end7, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_clock_getres(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @time_clock_getres(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %clk_id = alloca i32, align 4
   %tp = alloca %struct.timespec, align 8
@@ -530,7 +530,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_pthread_getcpuclockid(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @time_pthread_getcpuclockid(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %thread_id = alloca i64, align 8
   %clk_id = alloca i32, align 4
@@ -563,7 +563,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @time_sleep(ptr nocapture readnone %self, ptr noundef %timeout_obj) #0 {
+define internal noundef ptr @time_sleep(ptr readnone captures(none) %self, ptr noundef %timeout_obj) #0 {
 entry:
   %timeout_abs.i = alloca %struct.timespec, align 8
   %monotonic.i = alloca i64, align 8
@@ -638,7 +638,7 @@ return:                                           ; preds = %4, %pysleep.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_gmtime(ptr nocapture noundef readonly %module, ptr noundef %args) #0 {
+define internal ptr @time_gmtime(ptr noundef readonly captures(none) %module, ptr noundef %args) #0 {
 entry:
   %ot.i = alloca ptr, align 8
   %whent.i = alloca i64, align 8
@@ -698,7 +698,7 @@ return:                                           ; preds = %parse_time_t_args.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_localtime(ptr nocapture noundef readonly %module, ptr noundef %args) #0 {
+define internal ptr @time_localtime(ptr noundef readonly captures(none) %module, ptr noundef %args) #0 {
 entry:
   %ot.i = alloca ptr, align 8
   %whent.i = alloca i64, align 8
@@ -756,7 +756,7 @@ return:                                           ; preds = %parse_time_t_args.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_asctime(ptr nocapture noundef readonly %module, ptr noundef %args) #0 {
+define internal ptr @time_asctime(ptr noundef readonly captures(none) %module, ptr noundef %args) #0 {
 entry:
   %tup = alloca ptr, align 8
   %buf = alloca %struct.tm, align 8
@@ -816,7 +816,7 @@ return:                                           ; preds = %if.else, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_ctime(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @time_ctime(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %ot.i = alloca ptr, align 8
   %whent.i = alloca i64, align 8
@@ -889,7 +889,7 @@ return:                                           ; preds = %parse_time_t_args.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_mktime(ptr nocapture noundef readonly %module, ptr noundef %tm_tuple) #0 {
+define internal ptr @time_mktime(ptr noundef readonly captures(none) %module, ptr noundef %tm_tuple) #0 {
 entry:
   %tm = alloca %struct.tm, align 8
   %0 = getelementptr i8, ptr %module, i64 32
@@ -924,7 +924,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_strftime(ptr nocapture noundef readonly %module, ptr noundef %args) #0 {
+define internal ptr @time_strftime(ptr noundef readonly captures(none) %module, ptr noundef %args) #0 {
 entry:
   %tup = alloca ptr, align 8
   %buf = alloca %struct.tm, align 8
@@ -1026,7 +1026,7 @@ return:                                           ; preds = %if.end24, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_strptime(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @time_strptime(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53) #11
   %tobool.not = icmp eq ptr %call, null
@@ -1055,7 +1055,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_tzset(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_tzset(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #11
   %cmp = icmp eq ptr %call, null
@@ -1095,7 +1095,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_monotonic(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_monotonic(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetMonotonicClockWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -1114,7 +1114,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_monotonic_ns(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_monotonic_ns(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetMonotonicClockWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -1132,7 +1132,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_process_time(ptr nocapture noundef readonly %module, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_process_time(ptr noundef readonly captures(none) %module, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %0 = getelementptr i8, ptr %module, i64 32
@@ -1153,7 +1153,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_process_time_ns(ptr nocapture noundef readonly %module, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_process_time_ns(ptr noundef readonly captures(none) %module, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %0 = getelementptr i8, ptr %module, i64 32
@@ -1173,7 +1173,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_thread_time(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_thread_time(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %t = alloca i64, align 8
@@ -1206,7 +1206,7 @@ return:                                           ; preds = %_PyTime_GetThreadTi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_thread_time_ns(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_thread_time_ns(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %t = alloca i64, align 8
@@ -1238,7 +1238,7 @@ return:                                           ; preds = %_PyTime_GetThreadTi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_perf_counter(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_perf_counter(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetPerfCounterWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -1257,7 +1257,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_perf_counter_ns(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_perf_counter_ns(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %t = alloca i64, align 8
   %call.i = call i32 @_PyTime_GetPerfCounterWithInfo(ptr noundef nonnull %t, ptr noundef null) #11
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_get_clock_info(ptr nocapture noundef readonly %module, ptr noundef %args) #0 {
+define internal ptr @time_get_clock_info(ptr noundef readonly captures(none) %module, ptr noundef %args) #0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %res.i = alloca %struct.timespec, align 8
@@ -1621,7 +1621,7 @@ declare i32 @_PyTime_GetMonotonicClockWithInfo(ptr noundef, ptr noundef) local_u
 declare i32 @_PyTime_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tmtotuple(ptr %state.0.val, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
+define internal fastcc ptr @tmtotuple(ptr %state.0.val, ptr noundef nonnull readonly captures(none) %p) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyStructSequence_New(ptr noundef %state.0.val) #11
   %cmp = icmp eq ptr %call, null
@@ -1728,7 +1728,7 @@ declare i32 @_PyTime_localtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef nonnull initializes((0, 56)) %p, ptr noundef %format) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr noundef readonly captures(none) %state, ptr noundef %args, ptr noundef nonnull initializes((0, 56)) %p, ptr noundef %format) unnamed_addr #0 {
 entry:
   %y = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %p, i8 0, i64 56, i1 false)
@@ -1820,7 +1820,7 @@ return:                                           ; preds = %if.then27, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @checktm(ptr nocapture noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @checktm(ptr noundef nonnull captures(none) %buf) unnamed_addr #0 {
 entry:
   %tm_mon = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %0 = load i32, ptr %tm_mon, align 8
@@ -1927,7 +1927,7 @@ return:                                           ; preds = %if.then42, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @PyStructSequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1938,12 +1938,12 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @PyUnicode_AsWideCharString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -2084,7 +2084,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @py_process_time(ptr noundef %state, ptr noundef nonnull %tp, ptr noundef writeonly %info) unnamed_addr #0 {
@@ -2249,7 +2249,7 @@ declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @_PyTime_FromTimeval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare double @_PyTimeFraction_Resolution(ptr noundef) local_unnamed_addr #1
 
@@ -2263,7 +2263,7 @@ declare i64 @clock() local_unnamed_addr #2
 declare i32 @_PyTime_GetPerfCounterWithInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @PyDict_New() local_unnamed_addr #1
 
@@ -2383,10 +2383,10 @@ declare i32 @_Py_GetTicksPerSecond(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTimeFraction_Set(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

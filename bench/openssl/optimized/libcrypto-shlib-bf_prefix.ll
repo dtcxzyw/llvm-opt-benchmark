@@ -87,7 +87,7 @@ land.lhs.true25:                                  ; preds = %if.then21
   %call26 = call ptr @BIO_next(ptr noundef %b) #4
   %7 = load ptr, ptr %call, align 8
   %call29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #5
-  %call30 = call i32 @BIO_write_ex(ptr noundef %call26, ptr noundef %7, i64 noundef %call29, ptr noundef nonnull %dontcare) #4
+  %call30 = call i32 @BIO_write_ex(ptr noundef %call26, ptr noundef nonnull %7, i64 noundef %call29, ptr noundef nonnull %dontcare) #4
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %return, label %if.end33
 
@@ -172,7 +172,7 @@ define internal i32 @prefix_puts(ptr noundef %b, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #5
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @BIO_write(ptr noundef %b, ptr noundef %str, i32 noundef %conv) #4
+  %call1 = tail call i32 @BIO_write(ptr noundef %b, ptr noundef nonnull %str, i32 noundef %conv) #4
   ret i32 %call1
 }
 
@@ -304,7 +304,7 @@ declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) lo
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 

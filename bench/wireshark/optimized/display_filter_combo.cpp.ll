@@ -516,7 +516,7 @@ define void @_ZN18DisplayFilterCombo11onActivatedEi(ptr noundef nonnull align 8 
 declare void @_ZN9QComboBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @dfilter_recent_combo_write_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @dfilter_recent_combo_write_all(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @_ZL24cur_display_filter_combo, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -530,7 +530,7 @@ define void @dfilter_recent_combo_write_all(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18DisplayFilterCombo11writeRecentEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18DisplayFilterCombo11writeRecentEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
   %4 = alloca %class.QString, align 8
   %5 = tail call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -625,7 +625,7 @@ declare noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 derefere
 declare void @_ZNK9QComboBox8itemTextEi(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZN9QDateTime22currentMSecsSinceEpochEv() local_unnamed_addr #4
@@ -947,7 +947,7 @@ declare void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
@@ -1090,13 +1090,13 @@ _ZN9QtPrivate15FunctionPointerIM18DisplayFilterComboFviEE4callINS_4ListIJiEEEvEE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4545,7 +4545,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -5488,7 +5488,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -6802,7 +6802,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i64, align 8
@@ -6981,7 +6981,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set.33", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i64, align 8
@@ -7428,7 +7428,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set.33", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i64, align 8
@@ -8151,7 +8151,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit91:           ; preds = %_ZNSt3setIiSt4lessI
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil24GetSupportedCallingCodesEPSt3setIiSt4lessIiESaIiEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set.43", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -9359,7 +9359,7 @@ _ZNSt8_Rb_treeIN4i18n12phonenumbers15PhoneNumberUtil15PhoneNumberTypeES3_St9_Ide
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set.43", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -9976,7 +9976,7 @@ _ZNSt3setIN4i18n12phonenumbers15PhoneNumberUtil15PhoneNumberTypeESt4lessIS3_ESaI
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil32GetSupportedTypesForNonGeoEntityEiPSt3setINS1_15PhoneNumberTypeESt4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::list", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -10870,7 +10870,7 @@ _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -12548,7 +12548,7 @@ _ZN7testing15AssertionResultD2Ev.exit254:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -14598,7 +14598,7 @@ _ZN7testing15AssertionResultD2Ev.exit309:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -15917,7 +15917,7 @@ _ZN7testing15AssertionResultD2Ev.exit194:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -16813,7 +16813,7 @@ _ZN7testing15AssertionResultD2Ev.exit137:         ; preds = %320, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -17339,7 +17339,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -17611,7 +17611,7 @@ _ZN7testing15AssertionResultD2Ev.exit33:          ; preds = %91, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19593,7 +19593,7 @@ declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetExample
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers11PhoneNumber16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20535,7 +20535,7 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %302, %_ZNKSt14defau
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetInvalidExampleNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -21044,7 +21044,7 @@ _ZN7testing15AssertionResultD2Ev.exit72:          ; preds = %161, %_ZNKSt14defau
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31GetExampleNumberForNonGeoEntityEiPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -21745,7 +21745,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %223, %_ZNKSt14defau
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetExampleNumberForTypeENS1_15PhoneNumberTypeEPNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -22919,7 +22919,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -23654,7 +23654,7 @@ _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %248, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -24153,7 +24153,7 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %167, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -25712,7 +25712,7 @@ _ZN7testing15AssertionResultD2Ev.exit240:         ; preds = %530, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -26446,7 +26446,7 @@ _ZN7testing15AssertionResultD2Ev.exit104:         ; preds = %246, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -27177,7 +27177,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %245, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -27908,7 +27908,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %245, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -29343,7 +29343,7 @@ _ZN7testing15AssertionResultD2Ev.exit225:         ; preds = %485, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31823,7 +31823,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32164,7 +32164,7 @@ _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %104, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32507,7 +32507,7 @@ _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %105, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35105,7 +35105,7 @@ _ZN7testing15AssertionResultD2Ev.exit424:         ; preds = %807, %_ZNKSt14defau
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil35FormatOutOfCountryKeepingAlphaCharsERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -36154,7 +36154,7 @@ _ZN7testing15AssertionResultD2Ev.exit166:         ; preds = %335, %_ZNKSt14defau
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil35FormatNationalNumberWithCarrierCodeERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -37625,7 +37625,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43647,7 +43647,7 @@ _ZN7testing15AssertionResultD2Ev.exit1020:        ; preds = %1889, %_ZNKSt14defa
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil28FormatNumberForMobileDialingERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPSA_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .thread.i.i:
   %1 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -45388,7 +45388,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFor
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -45777,7 +45777,7 @@ _ZN7testing15AssertionResultD2Ev.exit50:          ; preds = %131, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -46197,7 +46197,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %138, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -47741,7 +47741,7 @@ _ZN7testing15AssertionResultD2Ev.exit232:         ; preds = %549, %_ZNKSt14defau
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31GetLengthOfGeographicalAreaCodeERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -49540,7 +49540,7 @@ _ZN7testing15AssertionResultD2Ev.exit270:         ; preds = %639, %_ZNKSt14defau
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil34GetLengthOfNationalDestinationCodeERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -49883,7 +49883,7 @@ declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23GetCountryCodeFor
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil21GetCountryMobileTokenEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -51452,7 +51452,7 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %472, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -52216,7 +52216,7 @@ _ZN7testing15AssertionResultD2Ev.exit120:         ; preds = %203, %236, %_ZNKSt1
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil14IsNANPACountryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -53009,7 +53009,7 @@ _ZN7testing15AssertionResultD2Ev.exit114:         ; preds = %235, %265, %_ZNKSt1
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil13IsValidNumberERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -56271,7 +56271,7 @@ declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil22IsValidNum
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22GetRegionCodeForNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -57312,7 +57312,7 @@ _ZN7testing15AssertionResultD2Ev.exit149:         ; preds = %323, %354, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca ptr, align 8
@@ -57921,7 +57921,7 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %202, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -58650,7 +58650,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %247, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -60969,7 +60969,7 @@ declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossible
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil25IsPossibleNumberForStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -62948,7 +62948,7 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %626, %655, %_ZNKSt1
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23IsPossibleNumberForTypeERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -63297,7 +63297,7 @@ _ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %86, %115, %_ZNKSt14
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -63756,7 +63756,7 @@ _ZN7testing15AssertionResultD2Ev.exit61:          ; preds = %123, %151, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -64541,7 +64541,7 @@ _ZN7testing15AssertionResultD2Ev.exit116:         ; preds = %232, %260, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -65688,7 +65688,7 @@ _ZN7testing15AssertionResultD2Ev.exit171:         ; preds = %407, %_ZNKSt14defau
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -67891,7 +67891,7 @@ _ZN7testing15AssertionResultD2Ev.exit343:         ; preds = %773, %_ZNKSt14defau
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -68276,7 +68276,7 @@ _ZN7testing15AssertionResultD2Ev.exit51:          ; preds = %131, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -68785,7 +68785,7 @@ _ZN7testing15AssertionResultD2Ev.exit70:          ; preds = %176, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -70264,7 +70264,7 @@ _ZN7testing15AssertionResultD2Ev.exit229:         ; preds = %518, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -71985,7 +71985,7 @@ _ZN7testing15AssertionResultD2Ev.exit267:         ; preds = %605, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -73756,7 +73756,7 @@ _ZN7testing15AssertionResultD2Ev.exit281:         ; preds = %506, %541, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -75483,7 +75483,7 @@ declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil21TruncateTo
 declare void @_ZN4i18n12phonenumbers11PhoneNumberC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -76181,7 +76181,7 @@ _ZN7testing15AssertionResultD2Ev.exit99:          ; preds = %203, %231, %_ZNKSt1
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -85551,7 +85551,7 @@ declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20ParseAndKeepRawIn
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil22FormatInOriginalFormatERKNS0_11PhoneNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -86323,7 +86323,7 @@ _ZN7testing15AssertionResultD2Ev.exit108:         ; preds = %272, %_ZNKSt14defau
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil13GetNumberTypeERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -86968,7 +86968,7 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %227, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -87613,7 +87613,7 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %227, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88143,7 +88143,7 @@ _ZN7testing15AssertionResultD2Ev.exit70:          ; preds = %183, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88413,7 +88413,7 @@ _ZN7testing15AssertionResultD2Ev.exit32:          ; preds = %92, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88559,7 +88559,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88705,7 +88705,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88851,7 +88851,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -88997,7 +88997,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -89800,7 +89800,7 @@ _ZN7testing15AssertionResultD2Ev.exit129:         ; preds = %253, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -91068,7 +91068,7 @@ _ZN7testing15AssertionResultD2Ev.exit211:         ; preds = %386, %_ZNKSt14defau
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil21GetNddPrefixForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPS7_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -92588,7 +92588,7 @@ _ZN7testing15AssertionResultD2Ev.exit259:         ; preds = %_ZNK4i18n12phonenum
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -93197,7 +93197,7 @@ _ZN7testing15AssertionResultD2Ev.exit100:         ; preds = %_ZNK4i18n12phonenum
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -93539,7 +93539,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -93734,7 +93734,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %56, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -93929,7 +93929,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %56, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -94309,7 +94309,7 @@ _ZN7testing15AssertionResultD2Ev.exit48:          ; preds = %113, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -94506,7 +94506,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %57, %_ZNKSt14defaul
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil19NormalizeDigitsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -94703,7 +94703,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %57, %_ZNKSt14defaul
 declare void @_ZNK4i18n12phonenumbers15PhoneNumberUtil27NormalizeDiallableCharsOnlyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -96336,7 +96336,7 @@ _ZN7testing15AssertionResultD2Ev.exit283:         ; preds = %528, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneMetadata", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -97738,7 +97738,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_string
 declare void @_ZN4i18n12phonenumbers13PhoneMetadataD1Ev(ptr noundef nonnull align 8 dereferenceable(280)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -99144,7 +99144,7 @@ _ZN7testing15AssertionResultD2Ev.exit232:         ; preds = %436, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -103082,7 +103082,7 @@ _ZN7testing15AssertionResultD2Ev.exit650:         ; preds = %1325, %_ZNKSt14defa
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -103880,7 +103880,7 @@ _ZN7testing15AssertionResultD2Ev.exit116:         ; preds = %263, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -104144,7 +104144,7 @@ _ZN7testing15AssertionResultD2Ev.exit31:          ; preds = %85, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -106945,7 +106945,7 @@ declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsNumberMatchWith
 declare noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil13IsNumberMatchERKNS0_11PhoneNumberES4_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -107252,7 +107252,7 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %108, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -107428,7 +107428,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %60, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -107724,7 +107724,7 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %103, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -107914,7 +107914,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %63, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -110045,7 +110045,7 @@ _ZN7testing15AssertionResultD2Ev.exit372:         ; preds = %636, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -111882,7 +111882,7 @@ _ZN7testing15AssertionResultD2Ev.exit312:         ; preds = %569, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -114506,7 +114506,7 @@ _ZN7testing15AssertionResultD2Ev.exit449:         ; preds = %800, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -123166,7 +123166,7 @@ _ZN7testing15AssertionResultD2Ev.exit1575:        ; preds = %2674, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -125069,7 +125069,7 @@ _ZN7testing15AssertionResultD2Ev.exit327:         ; preds = %584, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -128808,7 +128808,7 @@ _ZN7testing15AssertionResultD2Ev.exit651:         ; preds = %1147, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -129780,7 +129780,7 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %296, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -132899,7 +132899,7 @@ _ZN7testing15AssertionResultD2Ev.exit539:         ; preds = %962, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -134496,7 +134496,7 @@ _ZN7testing15AssertionResultD2Ev.exit273:         ; preds = %489, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -136384,7 +136384,7 @@ _ZN7testing15AssertionResultD2Ev.exit323:         ; preds = %577, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca i32, align 4
@@ -142603,7 +142603,7 @@ _ZN7testing15AssertionResultD2Ev.exit1097:        ; preds = %1922, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -145485,7 +145485,7 @@ _ZN7testing15AssertionResultD2Ev.exit493:         ; preds = %885, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -146764,7 +146764,7 @@ _ZN7testing15AssertionResultD2Ev.exit215:         ; preds = %396, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -159421,7 +159421,7 @@ _ZN7testing15AssertionResultD2Ev.exit2309:        ; preds = %3892, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -162619,7 +162619,7 @@ _ZN7testing15AssertionResultD2Ev.exit553:         ; preds = %975, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -163691,7 +163691,7 @@ _ZN7testing15AssertionResultD2Ev.exit179:         ; preds = %324, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -165154,7 +165154,7 @@ _ZN7testing15AssertionResultD2Ev.exit249:         ; preds = %444, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -166009,7 +166009,7 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %257, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -167970,7 +167970,7 @@ _ZN7testing15AssertionResultD2Ev.exit327:         ; preds = %607, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -172978,7 +172978,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %51, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.i18n::phonenumbers::PhoneNumber", align 8
   %3 = alloca %"class.testing::AssertionResult", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -173561,7 +173561,7 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %165, %193, %_ZNKSt1
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil27CanBeInternationallyDialledERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_Test8TestBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -176494,7 +176494,7 @@ declare noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv() lo
 declare void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -183661,7 +183661,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -200017,13 +200017,13 @@ __cxx_global_var_init.1518.exit:                  ; preds = %2501
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

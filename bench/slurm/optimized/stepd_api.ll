@@ -236,7 +236,7 @@ _sockname_regex_init.exit.thread:                 ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 2)) %3) #0 {
+define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3) #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.sockaddr_un, align 2
   %7 = alloca ptr, align 8
@@ -297,7 +297,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
 
 33:                                               ; preds = %29
   %34 = add i64 %31, 1
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._step_connect, ptr noundef %30, i64 noundef %34, i64 noundef 108) #12
+  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._step_connect, ptr noundef nonnull %30, i64 noundef %34, i64 noundef 108) #12
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %_step_connect.exit.thread
 
@@ -1090,7 +1090,7 @@ define i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -6731,7 +6731,7 @@ declare ptr @slurm_conf_expand_slurmd_path(ptr noundef, ptr noundef, ptr noundef
 declare void @slurm_conf_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -6741,7 +6741,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
@@ -7310,7 +7310,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -7942,7 +7942,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @receive_fd_over_pipe(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -9146,15 +9146,15 @@ define internal void @_free_step_loc_t(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [5 x %struct.regmatch_t], align 16
   %5 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false)
@@ -9179,7 +9179,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   %16 = sext i32 %15 to i64
   %17 = call ptr @xstrndup(ptr noundef nonnull %12, i64 noundef %16) #12
   store ptr %17, ptr %5, align 8
-  %18 = call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #12
+  %18 = call i64 @strtoul(ptr noundef captures(none) %17, ptr noundef null, i32 noundef 10) #12
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %2, align 4
   call void @slurm_xfree(ptr noundef nonnull %5) #12
@@ -9193,7 +9193,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   %27 = sext i32 %26 to i64
   %28 = call ptr @xstrndup(ptr noundef nonnull %23, i64 noundef %27) #12
   store ptr %28, ptr %5, align 8
-  %29 = call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #12
+  %29 = call i64 @strtoul(ptr noundef captures(none) %28, ptr noundef null, i32 noundef 10) #12
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 4
@@ -9212,7 +9212,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   %40 = getelementptr inbounds i8, ptr %1, i64 %39
   %41 = call ptr @xstrndup(ptr noundef nonnull %40, i64 noundef %38) #12
   store ptr %41, ptr %5, align 8
-  %42 = call i64 @strtoul(ptr nocapture noundef %41, ptr noundef null, i32 noundef 10) #12
+  %42 = call i64 @strtoul(ptr noundef captures(none) %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %43, ptr %44, align 4
@@ -9232,12 +9232,12 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @regfree(ptr noundef) local_unnamed_addr #1
 
@@ -9402,7 +9402,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @getuid() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -9775,7 +9775,7 @@ define i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10441,7 +10441,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -12578,7 +12578,7 @@ declare void @jobacctinfo_pack(ptr noundef, i16 noundef zeroext, i16 noundef zer
 declare void @free_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -12817,7 +12817,7 @@ declare i32 @jobacctinfo_getinfo(ptr noundef, i32 noundef, ptr noundef, i16 noun
 declare void @jobacctinfo_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -13553,7 +13553,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -13884,7 +13884,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef initializes((0, 24)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef zeroext %1, ptr noundef captures(none) initializes((0, 24)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 19, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -14187,7 +14187,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
@@ -14379,7 +14379,7 @@ define i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @gethostname_short(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -14431,7 +14431,7 @@ define internal fastcc void @_handle_stray_script(ptr noundef %0, i32 noundef %1
 declare i64 @time(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14444,13 +14444,13 @@ declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 nou
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

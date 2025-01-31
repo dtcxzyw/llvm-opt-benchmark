@@ -782,7 +782,7 @@ ehcleanup42:                                      ; preds = %ehcleanup41, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
@@ -792,12 +792,12 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6duckdb17PragmaFunctionSetC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZN6duckdb14PragmaFunction15PragmaStatementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFvRNS_13ClientContextERKNS_18FunctionParametersEE(ptr dead_on_unwind writable sret(%"class.duckdb::PragmaFunction") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL30PragmaEnableProfilingStatementERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL30PragmaEnableProfilingStatementERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_profiler = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -3733,7 +3733,7 @@ eh.resume:                                        ; preds = %ehcleanup286, %ehcl
 declare void @_ZN6duckdb16BuiltinFunctions11AddFunctionENS_14PragmaFunctionE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL22PragmaDisableProfilingERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL22PragmaDisableProfilingERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_profiler = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -3742,7 +3742,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24PragmaEnableVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL24PragmaEnableVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %query_verification_enabled = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -3754,7 +3754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25PragmaDisableVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL25PragmaDisableVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %query_verification_enabled = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -3766,7 +3766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL32PragmaEnableExternalVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL32PragmaEnableExternalVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_external = getelementptr inbounds nuw i8, ptr %call, i64 113
@@ -3775,7 +3775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL33PragmaDisableExternalVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL33PragmaDisableExternalVerificationERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_external = getelementptr inbounds nuw i8, ptr %call, i64 113
@@ -3784,7 +3784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL22PragmaVerifySerializerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL22PragmaVerifySerializerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_serializer = getelementptr inbounds nuw i8, ptr %call, i64 114
@@ -3793,7 +3793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL29PragmaDisableVerifySerializerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL29PragmaDisableVerifySerializerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_serializer = getelementptr inbounds nuw i8, ptr %call, i64 114
@@ -3802,7 +3802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL28PragmaEnableForceParallelismERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL28PragmaEnableForceParallelismERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_parallelism = getelementptr inbounds nuw i8, ptr %call, i64 117
@@ -3811,7 +3811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL29PragmaDisableForceParallelismERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL29PragmaDisableForceParallelismERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %verify_parallelism = getelementptr inbounds nuw i8, ptr %call, i64 117
@@ -3820,7 +3820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23PragmaEnableObjectCacheERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL23PragmaEnableObjectCacheERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %object_cache_enable = getelementptr inbounds nuw i8, ptr %call, i64 323
@@ -3829,7 +3829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24PragmaDisableObjectCacheERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL24PragmaDisableObjectCacheERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %object_cache_enable = getelementptr inbounds nuw i8, ptr %call, i64 323
@@ -3838,7 +3838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL21PragmaEnableOptimizerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL21PragmaEnableOptimizerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_optimizer = getelementptr inbounds nuw i8, ptr %call, i64 115
@@ -3847,7 +3847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL22PragmaDisableOptimizerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL22PragmaDisableOptimizerERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_optimizer = getelementptr inbounds nuw i8, ptr %call, i64 115
@@ -3856,7 +3856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL21PragmaForceCheckpointERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL21PragmaForceCheckpointERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %force_checkpoint = getelementptr inbounds nuw i8, ptr %call, i64 325
@@ -3865,7 +3865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23PragmaEnableProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL23PragmaEnableProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_progress_bar = getelementptr inbounds nuw i8, ptr %call, i64 88
@@ -3874,7 +3874,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24PragmaDisableProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL24PragmaDisableProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %enable_progress_bar = getelementptr inbounds nuw i8, ptr %call, i64 88
@@ -3883,7 +3883,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL28PragmaEnablePrintProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL28PragmaEnablePrintProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %print_progress_bar = getelementptr inbounds nuw i8, ptr %call, i64 89
@@ -3892,7 +3892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL29PragmaDisablePrintProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL29PragmaDisablePrintProgressBarERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %print_progress_bar = getelementptr inbounds nuw i8, ptr %call, i64 89
@@ -3901,7 +3901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL32PragmaEnableCheckpointOnShutdownERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL32PragmaEnableCheckpointOnShutdownERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %checkpoint_on_shutdown = getelementptr inbounds nuw i8, ptr %call, i64 326
@@ -3910,7 +3910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL33PragmaDisableCheckpointOnShutdownERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %parameters) #0 {
+define internal void @_ZN6duckdbL33PragmaDisableCheckpointOnShutdownERNS_13ClientContextERKNS_18FunctionParametersE(ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %checkpoint_on_shutdown = getelementptr inbounds nuw i8, ptr %call, i64 326
@@ -3927,7 +3927,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15PragmaTableInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15PragmaTableInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4205,7 +4205,7 @@ _ZNK6duckdb6vectorINS_5ValueELb1EE3getILb1EEERKS1_m.exit: ; preds = %entry
 declare void @_ZNK6duckdb5Value8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PragmaShowTablesB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PragmaShowTablesB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4226,7 +4226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24PragmaShowTablesExpandedB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb24PragmaShowTablesExpandedB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4247,7 +4247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb19PragmaShowDatabasesB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19PragmaShowDatabasesB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4268,7 +4268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PragmaAllProfilingB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PragmaAllProfilingB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4289,7 +4289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PragmaDatabaseListB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PragmaDatabaseListB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4310,7 +4310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PragmaCollationsB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PragmaCollationsB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -4331,7 +4331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20PragmaFunctionsQueryB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20PragmaFunctionsQueryB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -6487,7 +6487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13PragmaVersionB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13PragmaVersionB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -6509,7 +6509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14PragmaPlatformB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14PragmaPlatformB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -8070,7 +8070,7 @@ _ZN6duckdb10unique_ptrINS_10FileHandleESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN6duckdb6ParserC1ENS_13ParserOptionsE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef byval(%"struct.duckdb::ParserOptions") align 8) unnamed_addr #2
 
@@ -8128,7 +8128,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PragmaCopyDatabaseB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PragmaCopyDatabaseB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i127 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -8765,7 +8765,7 @@ ehcleanup50:                                      ; preds = %if.then.i.i219, %_Z
 declare void @_ZN6duckdb13KeywordHelper21WriteOptionallyQuotedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PragmaDatabaseSizeB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PragmaDatabaseSizeB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -8786,7 +8786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17PragmaStorageInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17PragmaStorageInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr noundef nonnull align 8 dereferenceable(80) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8896,7 +8896,7 @@ ehcleanup7:                                       ; preds = %if.then.i.i27, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PragmaMetadataInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PragmaMetadataInfoB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -8917,7 +8917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15PragmaUserAgentB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15PragmaUserAgentB5cxx11ERNS_13ClientContextERKNS_18FunctionParametersE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr nonnull readnone align 8 captures(none) %parameters) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -11890,7 +11890,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN6duckdb14PragmaFunctionESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__result) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {

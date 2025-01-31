@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e3762ebce4f348cf301f624a85134ded.185 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"b'\\\\'" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork17hdcbce7c014a7e889E"(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, i32 %2, ptr align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$13generate_fork17hdcbce7c014a7e889E"(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, i32 %2, ptr align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [32 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = alloca [32 x i8], align 8
@@ -1217,7 +1217,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E"(ptr noalias nocapture nonnull writeonly align 8 %0, i32 %.240.val, i32 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$8fork_end17hd15aeed181fd90f6E"(ptr noalias nonnull writeonly align 8 captures(none) %0, i32 %.240.val, i32 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -1279,7 +1279,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$9fork_read17ha090c17335e98de0E"(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, i32 %2, ptr nonnull align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$9fork_read17ha090c17335e98de0E"(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr align 8 %1, i32 %2, ptr nonnull align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
@@ -1778,7 +1778,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$15fast_loop_macro17hadfcf242289472b1E"(ptr noalias nocapture nonnull writeonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$15fast_loop_macro17hadfcf242289472b1E"(ptr noalias nonnull writeonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
@@ -4367,7 +4367,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator9Generator3new17hc6d72877db58b090E(ptr nocapture writeonly sret([248 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2, i32 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator9Generator3new17hc6d72877db58b090E(ptr writeonly sret([248 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, i32 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
@@ -4470,7 +4470,7 @@ define hidden void @_ZN13logos_codegen9generator9Generator3new17hc6d72877db58b09
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator9Generator8generate17h9f3c2cf60fe5f209E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator9Generator8generate17h9f3c2cf60fe5f209E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -7258,7 +7258,7 @@ define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen9generator14byte_to_tokens17hc68097ea47fa566cE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen9generator14byte_to_tokens17hc68097ea47fa566cE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [1 x i8], align 1
   %5 = alloca [32 x i8], align 8
@@ -8492,7 +8492,7 @@ define hidden void @_ZN13logos_codegen9generator14byte_to_tokens17hc68097ea47fa5
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_ZN13logos_codegen5graph4fork4Fork8branches17h4bd8d98ad8ac2dcfE(ptr align 8) unnamed_addr #0
@@ -8561,7 +8561,7 @@ declare align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10or_defa
 declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f76107c7a45475E"(ptr align 8, i8, i8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64, i64) unnamed_addr #2
@@ -8855,10 +8855,10 @@ declare void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

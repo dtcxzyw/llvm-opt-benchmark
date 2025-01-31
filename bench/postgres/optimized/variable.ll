@@ -195,7 +195,7 @@ find_simple.exit58.thread61.sink.split:           ; preds = %27, %42, %50
   %64 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = tail call ptr @mm_alloc(i64 noundef 32) #8
-  %67 = tail call ptr @mm_strdup(ptr noundef %0) #8
+  %67 = tail call ptr @mm_strdup(ptr noundef nonnull %0) #8
   store ptr %67, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %.sink78, ptr %68, align 8
@@ -213,7 +213,7 @@ find_simple.exit58.thread61:                      ; preds = %.lr.ph.i53, %find_s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -400,7 +400,7 @@ define dso_local void @remove_typedefs(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @remove_variables(i32 noundef %0) local_unnamed_addr #0 {
@@ -570,7 +570,7 @@ define dso_local void @reset_variables() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_variable_to_head(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @add_variable_to_head(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @mm_alloc(i64 noundef 24) #8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -583,7 +583,7 @@ define dso_local void @add_variable_to_head(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_variable_to_tail(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @add_variable_to_tail(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @mm_alloc(i64 noundef 24) #8
   %5 = load ptr, ptr %0, align 8
   br label %6
@@ -623,7 +623,7 @@ define dso_local void @add_variable_to_tail(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @remove_variable_from_list(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define dso_local void @remove_variable_from_list(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.01215 = load ptr, ptr %0, align 8
   %.not.not16 = icmp eq ptr %.01215, null
   br i1 %.not.not16, label %.critedge, label %.lr.ph.preheader
@@ -709,7 +709,7 @@ define dso_local void @dump_variables(ptr noundef %0, i32 noundef %1) local_unna
 declare void @ECPGdump_a_type(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_indicator(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @check_indicator(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %1
@@ -792,10 +792,10 @@ define dso_local noundef ptr @get_typedef(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @adjust_array(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local void @adjust_array(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = tail call i32 @atoi(ptr noundef %4) #9
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %16
@@ -1040,7 +1040,7 @@ sub_0:                                            ; preds = %83
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @find_struct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {

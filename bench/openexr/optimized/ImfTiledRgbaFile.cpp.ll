@@ -113,7 +113,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_219TiledRgbaOutputFile4ToYaC2ERNS_15TiledOutputFileENS_12RgbaChannelsE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (32, 56)) %this, ptr noundef nonnull align 8 dereferenceable(25) %outputFile, i32 noundef %rgbaChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_219TiledRgbaOutputFile4ToYaC2ERNS_15TiledOutputFileENS_12RgbaChannelsE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 9), (32, 56)) %this, ptr noundef nonnull align 8 dereferenceable(25) %outputFile, i32 noundef %rgbaChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 4
   store ptr %outputFile, ptr %this, align 8
@@ -275,7 +275,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_219TiledRgbaOutputFile4ToYa14setFrameBufferEPKNS_4RgbaEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((56, 80)) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN7Imf_3_219TiledRgbaOutputFile4ToYa14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((56, 80)) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #4 align 2 {
 entry:
   %_fbBase = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %base, ptr %_fbBase, align 8
@@ -550,7 +550,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare void @_ZNK7Imf_3_215TiledOutputFile17dataWindowForTileEiiii(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN7Imf_3_27RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -582,7 +582,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_5SliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKcRKNS_6HeaderENS_12RgbaChannelsEiiNS_9LevelModeENS_17LevelRoundingModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKcRKNS_6HeaderENS_12RgbaChannelsEiiNS_9LevelModeENS_17LevelRoundingModeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
@@ -851,7 +851,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFileC2ERNS_7OStreamERKNS_6HeaderENS_12RgbaChannelsEiiNS_9LevelModeENS_17LevelRoundingModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFileC2ERNS_7OStreamERKNS_6HeaderENS_12RgbaChannelsEiiNS_9LevelModeENS_17LevelRoundingModeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
@@ -936,7 +936,7 @@ declare noundef ptr @_ZNK7Imf_3_27OStream8fileNameEv(ptr noundef nonnull align 8
 declare void @_ZN7Imf_3_215TiledOutputFileC1ERNS_7OStreamERKNS_6HeaderEi(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(49), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiNS_9LevelModeENS_17LevelRoundingModeERKN9Imath_3_23BoxINS5_4Vec2IiEEEESB_NS_12RgbaChannelsEfNS7_IfEEfNS_9LineOrderENS_11CompressionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiNS_9LevelModeENS_17LevelRoundingModeERKN9Imath_3_23BoxINS5_4Vec2IiEEEESB_NS_12RgbaChannelsEfNS7_IfEEfNS_9LineOrderENS_11CompressionEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
@@ -1026,7 +1026,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad6, %lp
 declare void @_ZN7Imf_3_26HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), float noundef, ptr noundef nonnull align 4 dereferenceable(8), float noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiiiNS_9LevelModeENS_17LevelRoundingModeENS_12RgbaChannelsEfN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, i32 noundef %width, i32 noundef %height, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiiiNS_9LevelModeENS_17LevelRoundingModeENS_12RgbaChannelsEfN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, i32 noundef %width, i32 noundef %height, i32 noundef %tileXSize, i32 noundef %tileYSize, i32 noundef %mode, i32 noundef %rmode, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
@@ -1105,7 +1105,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad5, %lp
 declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49), i32 noundef, i32 noundef, float noundef, ptr noundef nonnull align 4 dereferenceable(8), float noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFileD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 16), ptr %this, align 8
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1153,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp = alloca %"struct.Imf_3_2::Slice", align 8
@@ -1250,7 +1250,7 @@ if.end:                                           ; preds = %invoke.cont17, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile6headerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1259,7 +1259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile11frameBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile11frameBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1270,7 +1270,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_215TiledOutputFile11frameBufferEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile13displayWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1282,7 +1282,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_219TiledRgbaOutputFile10dataWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1294,7 +1294,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK7Imf_3_219TiledRgbaOutputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK7Imf_3_219TiledRgbaOutputFile16pixelAspectRatioEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1307,7 +1307,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header16pixelAspectRatioEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_219TiledRgbaOutputFile18screenWindowCenterEv(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_219TiledRgbaOutputFile18screenWindowCenterEv(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1325,7 +1325,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK7Imf_3_219TiledRgbaOutputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK7Imf_3_219TiledRgbaOutputFile17screenWindowWidthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1338,7 +1338,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header17screenWindowWidthEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9lineOrderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1351,7 +1351,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile11compressionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1364,7 +1364,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 32) i32 @_ZNK7Imf_3_219TiledRgbaOutputFile8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 32) i32 @_ZNK7Imf_3_219TiledRgbaOutputFile8channelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.0", align 1
@@ -1559,7 +1559,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9tileXSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9tileXSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1570,7 +1570,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9tileXSizeEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9tileYSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9tileYSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1581,7 +1581,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9tileYSizeEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9levelModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9levelModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1592,7 +1592,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9levelModeEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile17levelRoundingModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile17levelRoundingModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1603,7 +1603,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile17levelRoundingModeEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1614,7 +1614,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9numLevelsEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10numXLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10numXLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1625,7 +1625,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile10numXLevelsEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10numYLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10numYLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1636,7 +1636,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile10numYLevelsEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_219TiledRgbaOutputFile12isValidLevelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_219TiledRgbaOutputFile12isValidLevelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1647,7 +1647,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7Imf_3_215TiledOutputFile12isValidLevelEii(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10levelWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile10levelWidthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1658,7 +1658,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile10levelWidthEi(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile11levelHeightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile11levelHeightEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1669,7 +1669,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile11levelHeightEi(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numXTilesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numXTilesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1680,7 +1680,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9numXTilesEi(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numYTilesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_219TiledRgbaOutputFile9numYTilesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1691,7 +1691,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_215TiledOutputFile9numYTilesEi(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_219TiledRgbaOutputFile18dataWindowForLevelEi(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_219TiledRgbaOutputFile18dataWindowForLevelEi(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1702,7 +1702,7 @@ entry:
 declare void @_ZNK7Imf_3_215TiledOutputFile18dataWindowForLevelEi(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(25), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_219TiledRgbaOutputFile18dataWindowForLevelEii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_219TiledRgbaOutputFile18dataWindowForLevelEii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1713,7 +1713,7 @@ entry:
 declare void @_ZNK7Imf_3_215TiledOutputFile18dataWindowForLevelEii(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_219TiledRgbaOutputFile17dataWindowForTileEiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_219TiledRgbaOutputFile17dataWindowForTileEiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1724,7 +1724,7 @@ entry:
 declare void @_ZNK7Imf_3_215TiledOutputFile17dataWindowForTileEiii(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_219TiledRgbaOutputFile17dataWindowForTileEiiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_219TiledRgbaOutputFile17dataWindowForTileEiiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -1733,7 +1733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_toYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYa, align 8
@@ -1757,7 +1757,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN7Imf_3_215TiledOutputFile9writeTileEiii(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_toYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYa, align 8
@@ -1779,7 +1779,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_toYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYa, align 8
@@ -1822,7 +1822,7 @@ if.end:                                           ; preds = %for.cond2.for.inc6_
 declare void @_ZN7Imf_3_215TiledOutputFile10writeTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_toYa.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYa.i, align 8
@@ -1863,7 +1863,7 @@ _ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiiii.exit: ; preds = %for.cond2.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile6FromYaC2ERNS_14TiledInputFileE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (32, 56)) %this, ptr noundef nonnull align 8 dereferenceable(16) %inputFile) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile6FromYaC2ERNS_14TiledInputFileE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 8), (32, 56)) %this, ptr noundef nonnull align 8 dereferenceable(16) %inputFile) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 4
   store ptr %inputFile, ptr %this, align 8
@@ -1953,7 +1953,7 @@ _ZN7Imf_3_27Array2DINS_4RgbaEED2Ev.exit:          ; preds = %lpad, %delete.notnu
 declare noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214TiledInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile6FromYa14setFrameBufferEPNS_4RgbaEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride, ptr noundef nonnull align 8 dereferenceable(32) %channelNamePrefix) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile6FromYa14setFrameBufferEPNS_4RgbaEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride, ptr noundef nonnull align 8 dereferenceable(32) %channelNamePrefix) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3140,7 +3140,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_218TiledRgbaInputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_218TiledRgbaInputFile6headerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3149,7 +3149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7Imf_3_218TiledRgbaInputFile8fileNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK7Imf_3_218TiledRgbaInputFile8fileNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3158,7 +3158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_218TiledRgbaInputFile11frameBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_218TiledRgbaInputFile11frameBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3169,7 +3169,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_214TiledInputFile11frameBufferEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_218TiledRgbaInputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_218TiledRgbaInputFile13displayWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3179,7 +3179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_218TiledRgbaInputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_218TiledRgbaInputFile10dataWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3189,7 +3189,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK7Imf_3_218TiledRgbaInputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK7Imf_3_218TiledRgbaInputFile16pixelAspectRatioEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3200,7 +3200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218TiledRgbaInputFile18screenWindowCenterEv(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218TiledRgbaInputFile18screenWindowCenterEv(ptr noalias writeonly sret(%"class.Imath_3_2::Vec2.8") align 4 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3216,7 +3216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK7Imf_3_218TiledRgbaInputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK7Imf_3_218TiledRgbaInputFile17screenWindowWidthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3227,7 +3227,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9lineOrderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3238,7 +3238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile11compressionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3249,7 +3249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile7versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile7versionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3260,7 +3260,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile7versionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_218TiledRgbaInputFile10isCompleteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_218TiledRgbaInputFile10isCompleteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3271,7 +3271,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7Imf_3_214TiledInputFile10isCompleteEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9tileXSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9tileXSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3282,7 +3282,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9tileXSizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9tileYSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9tileYSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3293,7 +3293,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9tileYSizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9levelModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9levelModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3304,7 +3304,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9levelModeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile17levelRoundingModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile17levelRoundingModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3315,7 +3315,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile17levelRoundingModeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3326,7 +3326,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9numLevelsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10numXLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10numXLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3337,7 +3337,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile10numXLevelsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10numYLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10numYLevelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3348,7 +3348,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile10numYLevelsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_218TiledRgbaInputFile12isValidLevelEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_218TiledRgbaInputFile12isValidLevelEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3359,7 +3359,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7Imf_3_214TiledInputFile12isValidLevelEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10levelWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile10levelWidthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3370,7 +3370,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile10levelWidthEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile11levelHeightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile11levelHeightEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3381,7 +3381,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile11levelHeightEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numXTilesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numXTilesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %lx) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3392,7 +3392,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9numXTilesEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numYTilesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_218TiledRgbaInputFile9numYTilesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3403,7 +3403,7 @@ entry:
 declare noundef i32 @_ZNK7Imf_3_214TiledInputFile9numYTilesEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218TiledRgbaInputFile18dataWindowForLevelEi(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218TiledRgbaInputFile18dataWindowForLevelEi(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3414,7 +3414,7 @@ entry:
 declare void @_ZNK7Imf_3_214TiledInputFile18dataWindowForLevelEi(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218TiledRgbaInputFile18dataWindowForLevelEii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218TiledRgbaInputFile18dataWindowForLevelEii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3425,7 +3425,7 @@ entry:
 declare void @_ZNK7Imf_3_214TiledInputFile18dataWindowForLevelEii(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218TiledRgbaInputFile17dataWindowForTileEiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218TiledRgbaInputFile17dataWindowForTileEiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3436,7 +3436,7 @@ entry:
 declare void @_ZNK7Imf_3_214TiledInputFile17dataWindowForTileEiii(ptr sret(%"class.Imath_3_2::Box") align 4, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218TiledRgbaInputFile17dataWindowForTileEiiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218TiledRgbaInputFile17dataWindowForTileEiiii(ptr noalias sret(%"class.Imath_3_2::Box") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_inputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
@@ -3445,7 +3445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_fromYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_fromYa, align 8
@@ -3469,7 +3469,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN7Imf_3_214TiledInputFile8readTileEiii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_fromYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_fromYa, align 8
@@ -3491,7 +3491,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #3 align 2 {
 entry:
   %_fromYa = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_fromYa, align 8
@@ -3534,7 +3534,7 @@ if.end:                                           ; preds = %for.cond2.for.inc6_
 declare void @_ZN7Imf_3_214TiledInputFile9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %l) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %l) local_unnamed_addr #3 align 2 {
 entry:
   %_fromYa.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_fromYa.i, align 8
@@ -3575,7 +3575,7 @@ _ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiiii.exit: ; preds = %for.cond2.for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %newPixels) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %newPixels) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -3586,7 +3586,7 @@ entry:
 declare void @_ZN7Imf_3_215TiledOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219TiledRgbaOutputFile9breakTileEiiiiiic(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly, i32 noundef %offset, i32 noundef %length, i8 noundef signext %c) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_219TiledRgbaOutputFile9breakTileEiiiiiic(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly, i32 noundef %offset, i32 noundef %length, i8 noundef signext %c) local_unnamed_addr #3 align 2 {
 entry:
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
@@ -4165,10 +4165,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

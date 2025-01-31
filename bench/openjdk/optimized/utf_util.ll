@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @utf8sToUtf8mLength(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -133,7 +133,7 @@ define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @utf8sToUtf8m(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   %invariant.gep73 = getelementptr i8, ptr %0, i64 2
   %5 = icmp sgt i32 %1, 0
@@ -300,7 +300,7 @@ define internal fastcc void @utfError(i32 noundef range(i32 158, 474) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @utf8mToUtf8sLength(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @utf8mToUtf8sLength(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -424,7 +424,7 @@ define hidden i32 @utf8mToUtf8sLength(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @utf8mToUtf8s(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -734,7 +734,7 @@ define hidden i32 @utf8FromPlatform(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
@@ -752,7 +752,7 @@ declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @iconv_close(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.stbcc__build_all_connections_for_cluster.5 = private unnamed_addr constant [4 x i64] [i64 0, i64 0, i64 1, i64 1], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbcc_query_grid_node_connection(ptr nocapture noundef readonly %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stbcc_query_grid_node_connection(ptr noundef readonly captures(none) %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #0 {
 entry:
   %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y1 to i64
@@ -71,10 +71,10 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbcc_query_grid_open(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @stbcc_query_grid_open(ptr noundef readonly captures(none) %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
   %map = getelementptr inbounds nuw i8, ptr %g, i64 20
   %idxprom = sext i32 %y to i64
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbcc_get_unique_id(ptr nocapture noundef readonly %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
+define i32 @stbcc_get_unique_id(ptr noundef readonly captures(none) %g, i32 noundef %x, i32 noundef %y) local_unnamed_addr #0 {
 entry:
   %clump_for_node = getelementptr inbounds nuw i8, ptr %g, i64 131092
   %idxprom = sext i32 %y to i64
@@ -121,7 +121,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @stbcc__clump_find(ptr nocapture noundef %g, i32 %n.coerce) local_unnamed_addr #2 {
+define i32 @stbcc__clump_find(ptr noundef captures(none) %g, i32 %n.coerce) local_unnamed_addr #2 {
 entry:
   %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   %bf.lshr = lshr i32 %n.coerce, 22
@@ -151,7 +151,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__clump_union(ptr nocapture noundef %g, i64 %m.coerce0, i32 %m.coerce1, i32 noundef %x, i32 noundef %y, i32 noundef %idx) local_unnamed_addr #2 {
+define void @stbcc__clump_union(ptr noundef captures(none) %g, i64 %m.coerce0, i32 %m.coerce1, i32 noundef %x, i32 noundef %y, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %m.sroa.2.0.extract.shift = lshr i64 %m.coerce0, 32
   %cluster = getelementptr inbounds nuw i8, ptr %g, i64 2228244
@@ -200,7 +200,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_connected_components_for_clumps(ptr nocapture noundef %g) local_unnamed_addr #2 {
+define void @stbcc__build_connected_components_for_clumps(ptr noundef captures(none) %g) local_unnamed_addr #2 {
 entry:
   %cluster4 = getelementptr inbounds nuw i8, ptr %g, i64 2228244
   br label %for.cond1.preheader
@@ -405,7 +405,7 @@ for.end135:                                       ; preds = %for.inc133
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_all_connections_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #3 {
+define void @stbcc__build_all_connections_for_cluster(ptr noundef captures(none) %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   %num_adj = alloca [512 x i8], align 16
@@ -614,10 +614,10 @@ for.end154:                                       ; preds = %for.body132, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(none) %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %connected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %connected, i8 0, i64 512, i1 false)
@@ -810,7 +810,7 @@ for.end:                                          ; preds = %stbcc__add_clump_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr noundef captures(none) %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %cmp = icmp sgt i32 %cx, -1
   br i1 %cmp, label %land.lhs.true, label %if.end9
@@ -851,7 +851,7 @@ if.end9:                                          ; preds = %if.then, %if.then8,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_update_grid(ptr nocapture noundef %g, i32 noundef %x, i32 noundef %y, i32 noundef %solid) local_unnamed_addr #2 {
+define void @stbcc_update_grid(ptr noundef captures(none) %g, i32 noundef %x, i32 noundef %y, i32 noundef %solid) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %solid, 0
   %map = getelementptr inbounds nuw i8, ptr %g, i64 20
@@ -1043,7 +1043,7 @@ if.end55:                                         ; preds = %entry, %if.then54, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_connections_to_adjacent_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
+define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(none) %g, i32 noundef %cx, i32 noundef %cy, i32 noundef %dx, i32 noundef %dy) local_unnamed_addr #3 {
 entry:
   %disconnected = alloca [64 x [8 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %disconnected, i8 0, i64 512, i1 false)
@@ -1242,7 +1242,7 @@ for.end:                                          ; preds = %if.end108, %if.else
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__build_clumps_for_cluster(ptr nocapture noundef %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #2 {
+define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %g, i32 noundef %cx, i32 noundef %cy) local_unnamed_addr #2 {
 entry:
   %cbi = alloca %struct.stbcc__cluster_build_info, align 2
   %mul = shl i32 %cx, 5
@@ -1862,7 +1862,7 @@ for.end597:                                       ; preds = %for.body582, %for.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly initializes((16, 20)) %g) local_unnamed_addr #5 {
+define void @stbcc_update_batch_begin(ptr noundef writeonly captures(none) initializes((16, 20)) %g) local_unnamed_addr #5 {
 entry:
   %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 1, ptr %in_batched_update, align 4
@@ -1870,7 +1870,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_update_batch_end(ptr nocapture noundef initializes((16, 20)) %g) local_unnamed_addr #2 {
+define void @stbcc_update_batch_end(ptr noundef captures(none) initializes((16, 20)) %g) local_unnamed_addr #2 {
 entry:
   %in_batched_update = getelementptr inbounds nuw i8, ptr %g, i64 16
   store i32 0, ptr %in_batched_update, align 4
@@ -1885,7 +1885,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_init_grid(ptr nocapture noundef initializes((0, 20)) %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
+define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %g, ptr noundef readonly captures(none) %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
 entry:
   store i32 %w, ptr %g, align 4
   %h2 = getelementptr inbounds nuw i8, ptr %g, i64 4
@@ -2023,7 +2023,7 @@ for.end58:                                        ; preds = %for.inc56, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbcc__add_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #7 {
+define void @stbcc__add_clump_connection(ptr noundef captures(none) %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #7 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -2083,7 +2083,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__remove_clump_connection(ptr nocapture noundef %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #3 {
+define void @stbcc__remove_clump_connection(ptr noundef captures(none) %g, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #3 {
 entry:
   %shr = ashr i32 %x1, 5
   %shr1 = ashr i32 %y1, 5
@@ -2166,7 +2166,7 @@ if.end78:                                         ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i16 @stbcc__incluster_find(ptr nocapture noundef %cbi, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
+define i16 @stbcc__incluster_find(ptr noundef captures(none) %cbi, i32 noundef %x, i32 noundef %y) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %y to i64
   %idxprom1 = sext i32 %x to i64
@@ -2200,7 +2200,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc__incluster_union(ptr nocapture noundef %cbi, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #2 {
+define void @stbcc__incluster_union(ptr noundef captures(none) %cbi, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2) local_unnamed_addr #2 {
 entry:
   %call = tail call i16 @stbcc__incluster_find(ptr noundef %cbi, i32 noundef %x1, i32 noundef %y1)
   %p.sroa.3.0.extract.shift = lshr i16 %call, 8
@@ -2230,7 +2230,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc__switch_root(ptr nocapture noundef writeonly %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #5 {
+define void @stbcc__switch_root(ptr noundef writeonly captures(none) %cbi, i32 noundef %x, i32 noundef %y, i16 %p.coerce) local_unnamed_addr #5 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i16 %p.coerce, 8
   %p.sroa.3.0.extract.trunc = zext nneg i16 %p.sroa.3.0.extract.shift to i64

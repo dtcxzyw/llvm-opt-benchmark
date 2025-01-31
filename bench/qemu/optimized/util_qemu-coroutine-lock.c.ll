@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_co_queue_wait_impl(ptr nocapture noundef %queue, ptr noundef readonly %lock, i32 noundef %flags) #1 {
+define dso_local void @qemu_co_queue_wait_impl(ptr noundef captures(none) %queue, ptr noundef readonly %lock, i32 noundef %flags) #1 {
 entry:
   %call = tail call ptr @qemu_coroutine_self() #9
   %and = and i32 %flags, 1
@@ -304,7 +304,7 @@ qemu_co_enter_all_impl.exit:                      ; preds = %if.end9.i.us.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_co_queue_empty(ptr nocapture noundef readonly %queue) local_unnamed_addr #4 {
+define dso_local zeroext i1 @qemu_co_queue_empty(ptr noundef readonly captures(none) %queue) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %0, null
@@ -312,14 +312,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_mutex_init(ptr nocapture noundef writeonly initializes((0, 48)) %mutex) local_unnamed_addr #0 {
+define dso_local void @qemu_co_mutex_init(ptr noundef writeonly captures(none) initializes((0, 48)) %mutex) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mutex, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_co_mutex_lock(ptr noundef %mutex) #1 {
@@ -806,7 +806,7 @@ return:                                           ; preds = %if.end7, %trace_qem
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_co_mutex_wake(ptr nocapture noundef writeonly initializes((8, 16)) %mutex, ptr noundef %co) #1 {
+define internal void @qemu_co_mutex_wake(ptr noundef writeonly captures(none) initializes((8, 16)) %mutex, ptr noundef %co) #1 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %ctx = getelementptr inbounds nuw i8, ptr %co, i64 40
@@ -1300,14 +1300,14 @@ if.end20:                                         ; preds = %qemu_co_rwlock_mayb
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @push_waiter(ptr nocapture noundef %mutex, ptr noundef initializes((0, 8)) %w) #1 {
+define internal void @push_waiter(ptr noundef captures(none) %mutex, ptr noundef initializes((0, 8)) %w) #1 {
 entry:
   %call = tail call ptr @qemu_coroutine_self() #9
   store ptr %call, ptr %w, align 8
@@ -1333,10 +1333,10 @@ do.end9:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

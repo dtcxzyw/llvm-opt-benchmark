@@ -90,7 +90,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local void @thermal_cooling_device_update(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_thermal_cpufreq_exit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -140,7 +140,7 @@ define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly 
 declare dso_local i32 @freq_qos_remove_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -195,7 +195,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -295,7 +295,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define internal i32 @processor_set_cur_state(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -400,7 +400,7 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_processor_thermal_init(ptr nocapture noundef initializes((864, 872)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_processor_thermal_init(ptr noundef captures(none) initializes((864, 872)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull @processor_cooling_ops) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %3, ptr %4, align 8
@@ -464,7 +464,7 @@ declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unname
 declare dso_local void @thermal_cooling_device_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_processor_thermal_exit(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_processor_thermal_exit(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

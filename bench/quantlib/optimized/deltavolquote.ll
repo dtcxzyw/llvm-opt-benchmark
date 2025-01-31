@@ -129,7 +129,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv = private unnamed_addr constant [127 x i8] c"typename boost::detail::sp_member_access<T>::type boost::shared_ptr<QuantLib::Quote>::operator->() const [T = QuantLib::Quote]\00", align 1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -214,7 +214,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -227,7 +227,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC2EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC2EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, double noundef %delta, ptr noundef captures(none) %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -574,7 +574,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC1EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC1EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, double noundef %delta, ptr noundef captures(none) %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -827,7 +827,7 @@ lpad5:                                            ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC2ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC2ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef captures(none) %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -1082,7 +1082,7 @@ lpad6:                                            ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC1ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC1ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, ptr noundef captures(none) %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -1545,7 +1545,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DeltaVolQuote5deltaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib13DeltaVolQuote5deltaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load double, ptr %delta_, align 8, !tbaa !30
@@ -1553,7 +1553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DeltaVolQuote8maturityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib13DeltaVolQuote8maturityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %maturity_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load double, ptr %maturity_, align 8, !tbaa !48
@@ -1630,7 +1630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8QuantLib13DeltaVolQuote7atmTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK8QuantLib13DeltaVolQuote7atmTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %atmType_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %atmType_, align 8, !tbaa !49
@@ -1638,7 +1638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8QuantLib13DeltaVolQuote9deltaTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK8QuantLib13DeltaVolQuote9deltaTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
   %deltaType_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %deltaType_, align 8, !tbaa !47
@@ -2073,7 +2073,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
@@ -2426,7 +2426,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
@@ -2440,7 +2440,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

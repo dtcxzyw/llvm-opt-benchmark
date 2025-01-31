@@ -249,7 +249,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___SCT__tp_fu
 declare dso_local i32 @__SCT__tp_func_add_device_to_group(ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_add_device_to_group(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_add_device_to_group(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_add_device_to_group, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -270,21 +270,21 @@ define dso_local noundef i32 @__traceiter_add_device_to_group(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_add_device_to_group(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_add_device_to_group(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_remove_device_from_group(ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_remove_device_from_group(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_remove_device_from_group(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_remove_device_from_group, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -305,7 +305,7 @@ define dso_local noundef i32 @__traceiter_remove_device_from_group(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_remove_device_from_group(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_remove_device_from_group(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -313,7 +313,7 @@ define dso_local void @__probestub_remove_device_from_group(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_attach_device_to_domain(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_attach_device_to_domain(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_attach_device_to_domain(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_attach_device_to_domain, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -334,7 +334,7 @@ define dso_local noundef i32 @__traceiter_attach_device_to_domain(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_attach_device_to_domain(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_attach_device_to_domain(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -342,7 +342,7 @@ define dso_local void @__probestub_attach_device_to_domain(ptr nocapture readnon
 declare dso_local i32 @__SCT__tp_func_map(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_map(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_map(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_map, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -363,7 +363,7 @@ define dso_local noundef i32 @__traceiter_map(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_map(ptr nocapture readnone %0, i64 %1, i64 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_map(ptr readnone captures(none) %0, i64 %1, i64 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -371,7 +371,7 @@ define dso_local void @__probestub_map(ptr nocapture readnone %0, i64 %1, i64 %2
 declare dso_local i32 @__SCT__tp_func_unmap(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_unmap(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_unmap(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_unmap, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -392,7 +392,7 @@ define dso_local noundef i32 @__traceiter_unmap(ptr nocapture readnone %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_unmap(ptr nocapture readnone %0, i64 %1, i64 %2, i64 %3) #2 align 16 {
+define dso_local void @__probestub_unmap(ptr readnone captures(none) %0, i64 %1, i64 %2, i64 %3) #2 align 16 {
   ret void
 }
 
@@ -400,7 +400,7 @@ define dso_local void @__probestub_unmap(ptr nocapture readnone %0, i64 %1, i64 
 declare dso_local i32 @__SCT__tp_func_io_page_fault(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_io_page_fault(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_io_page_fault(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_io_page_fault, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -421,12 +421,12 @@ define dso_local noundef i32 @__traceiter_io_page_fault(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_io_page_fault(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_io_page_fault(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i32 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -498,7 +498,7 @@ define internal void @trace_event_raw_event_iommu_group_event(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_iommu_group_event(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
@@ -594,7 +594,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -664,7 +664,7 @@ define internal void @trace_event_raw_event_iommu_device_event(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @perf_trace_iommu_device_event(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
@@ -1177,13 +1177,13 @@ define internal void @perf_trace_iommu_error(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -1192,7 +1192,7 @@ declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_iommu_group_event(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {

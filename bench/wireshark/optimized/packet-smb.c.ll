@@ -3891,7 +3891,7 @@ define hidden noundef i32 @dissect_nt_create_options(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dissect_smb_fid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) local_unnamed_addr #0 {
+define hidden ptr @dissect_smb_fid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly %9) local_unnamed_addr #0 {
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %12
 
@@ -4327,7 +4327,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @fid_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4422,7 +4422,7 @@ define hidden noundef i32 @dissect_security_information_mask(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_nt_user_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden i32 @dissect_nt_user_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.pr = load i16, ptr %3, align 2
   br label %5
 
@@ -4507,7 +4507,7 @@ declare i32 @dissect_nt_64bit_time(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_nt_get_user_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden i32 @dissect_nt_get_user_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.pr = load i32, ptr %3, align 4
   br label %5
 
@@ -4550,7 +4550,7 @@ define hidden i32 @dissect_nt_get_user_quota(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -4594,7 +4594,7 @@ define hidden i32 @dissect_get_dfs_request_data(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef captures(none) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
   %9 = load i16, ptr %6, align 2
@@ -4729,10 +4729,10 @@ unicode_to_str.exit:                              ; preds = %23, %51, %54
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_get_dfs_referral_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5048,7 +5048,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr nocapture noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef nonnull captures(none) %7) unnamed_addr #0 {
   %9 = load i16, ptr %5, align 2
   %10 = icmp ult i16 %9, 4
   br i1 %10, label %105, label %11
@@ -5210,7 +5210,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %43, label %9
@@ -5272,7 +5272,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5294,7 +5294,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5316,7 +5316,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5338,7 +5338,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5360,7 +5360,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5382,7 +5382,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5404,7 +5404,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5426,7 +5426,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i16, ptr %4, align 2
   %10 = icmp ult i16 %9, 4
@@ -5490,7 +5490,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %get_unicode_or_asci
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfi_SMB_FILE_STREAM_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfi_SMB_FILE_STREAM_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = load i16, ptr %4, align 2
   %10 = icmp ult i16 %9, 4
@@ -5639,7 +5639,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %52, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %50, label %9
@@ -5711,7 +5711,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %8, 0
@@ -5776,7 +5776,7 @@ define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %31, label %8
@@ -5835,7 +5835,7 @@ define internal fastcc noundef i32 @dissect_file_ext_attr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %22, label %9
@@ -5867,7 +5867,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_sfi_SMB_FILE_PIPE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_sfi_SMB_FILE_PIPE_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %15, label %9
@@ -5889,7 +5889,7 @@ define hidden noundef i32 @dissect_sfi_SMB_FILE_PIPE_INFO(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_nt_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_nt_quota(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i16, ptr %3, align 2
   %6 = icmp ult i16 %5, 24
   br i1 %6, label %42, label %7
@@ -5950,7 +5950,7 @@ define hidden noundef i32 @dissect_nt_quota(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfsi_FS_VOLUME_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfsi_FS_VOLUME_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %get_unicode_or_ascii_string.exit.thread, label %9
@@ -6051,7 +6051,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %40, %30, %get_unico
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfsi_FS_SIZE_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfsi_FS_SIZE_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %4, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %35, label %8
@@ -6101,7 +6101,7 @@ define hidden noundef i32 @dissect_qfsi_FS_SIZE_INFO(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfsi_FS_DEVICE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfsi_FS_DEVICE_INFO(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %4, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %22, label %8
@@ -6132,7 +6132,7 @@ define hidden noundef i32 @dissect_qfsi_FS_DEVICE_INFO(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfsi_FS_ATTRIBUTE_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfsi_FS_ATTRIBUTE_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %4, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %get_unicode_or_ascii_string.exit.thread, label %8
@@ -6209,7 +6209,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %33, %23, %get_unico
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfsi_FS_OBJECTID_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfsi_FS_OBJECTID_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %4, align 2
   %7 = icmp ult i16 %6, 64
   br i1 %7, label %13, label %8
@@ -6230,7 +6230,7 @@ define hidden noundef i32 @dissect_qfsi_FS_OBJECTID_INFO(ptr noundef %0, ptr nou
 declare i32 @dissect_smb2_FILE_OBJECTID_BUFFER(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfsi_FS_FULL_SIZE_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfsi_FS_FULL_SIZE_INFO(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i16, ptr %4, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %42, label %8
@@ -6365,7 +6365,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_smb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.smb_saved_info_key_t, align 4
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -7275,7 +7275,7 @@ decode_smb_error.exit370:                         ; preds = %482, %484, %486, %4
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @smbstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @smbstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
@@ -7353,7 +7353,7 @@ define internal range(i32 0, 2) i32 @smbstat_packet(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @smbstat_init(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @smbstat_init(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.2694, ptr noundef null, ptr noundef %1, i32 noundef 256, ptr noundef nonnull @.str.2695, ptr noundef nonnull @.str.34, ptr noundef null) #15
   %4 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.2696, ptr noundef null, ptr noundef %1, i32 noundef 256, ptr noundef nonnull @.str.2697, ptr noundef nonnull @.str.37, ptr noundef null) #15
   %5 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.2698, ptr noundef null, ptr noundef %1, i32 noundef 256, ptr noundef nonnull @.str.2698, ptr noundef nonnull @.str.40, ptr noundef null) #15
@@ -7378,7 +7378,7 @@ define internal void @smbstat_init(ptr nocapture readnone %0, ptr noundef %1) #0
 declare i32 @register_export_object(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smb_eo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @smb_eo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load i32, ptr %3, align 8
   %7 = icmp eq i32 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -7668,7 +7668,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_smb_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_smb_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #15
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %17, label %7
@@ -7719,7 +7719,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef nonnull captures(none) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
@@ -7765,7 +7765,7 @@ dissect_dfs_referral_strings.exit:                ; preds = %.lr.ph.split.i.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dfs_referral_strings(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
@@ -7828,7 +7828,7 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_hash_tables(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @free_hash_tables(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -7901,7 +7901,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @smb_saved_info_hash_matched(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @smb_saved_info_hash_matched(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7910,7 +7910,7 @@ define internal i32 @smb_saved_info_hash_matched(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @smb_saved_info_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @smb_saved_info_equal_matched(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -7959,14 +7959,14 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb_tid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6) unnamed_addr #0 {
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %9
 
@@ -8234,7 +8234,7 @@ declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -8345,7 +8345,7 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_empty(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_empty(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %8
 
@@ -8422,7 +8422,7 @@ proto_item_set_generated.exit:                    ; preds = %23, %20, %15, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_open_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_open_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -8553,7 +8553,7 @@ thread-pre-split.thread:                          ; preds = %76, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_open_file_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_open_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -8662,7 +8662,7 @@ dissect_smb_UTIME.exit:                           ; preds = %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_create_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_create_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -8824,7 +8824,7 @@ thread-pre-split.thread:                          ; preds = %91, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_create_file_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_create_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -8893,7 +8893,7 @@ define internal i32 @dissect_create_file_response(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_close_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_close_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -8969,7 +8969,7 @@ dissect_smb_UTIME.exit:                           ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_flush_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_flush_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -9016,7 +9016,7 @@ define internal i32 @dissect_flush_file_request(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -9139,7 +9139,7 @@ thread-pre-split.thread:                          ; preds = %68, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -9306,7 +9306,7 @@ thread-pre-split.thread:                          ; preds = %77, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rename_file_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_rename_file_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %8
 
@@ -9405,7 +9405,7 @@ proto_item_set_generated.exit52:                  ; preds = %35, %32, %proto_ite
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_query_information_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
@@ -9491,7 +9491,7 @@ thread-pre-split.thread:                          ; preds = %45, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_query_information_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_query_information_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -9574,7 +9574,7 @@ dissect_smb_UTIME.exit:                           ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_set_information_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_set_information_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -9705,7 +9705,7 @@ thread-pre-split.thread:                          ; preds = %72, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_read_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_read_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -9798,7 +9798,7 @@ define internal i32 @dissect_read_file_request(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_read_file_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_read_file_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %8
 
@@ -9964,7 +9964,7 @@ proto_item_set_generated.exit126:                 ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_file_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_write_file_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %8
 
@@ -10161,7 +10161,7 @@ proto_item_set_generated.exit151:                 ; preds = %15, %74, %71, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_file_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_write_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %8
 
@@ -10279,7 +10279,7 @@ proto_item_set_generated.exit65:                  ; preds = %15, %27, %52, %49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lock_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_lock_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10332,7 +10332,7 @@ define internal i32 @dissect_lock_request(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_create_temporary_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_create_temporary_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -10459,7 +10459,7 @@ thread-pre-split.thread:                          ; preds = %68, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_create_temporary_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_create_temporary_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %9
@@ -10542,7 +10542,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_create_new_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_create_new_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10589,7 +10589,7 @@ define internal i32 @dissect_create_new_response(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_seek_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_seek_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10642,7 +10642,7 @@ define internal i32 @dissect_seek_file_request(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_seek_file_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_seek_file_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10689,7 +10689,7 @@ define internal i32 @dissect_seek_file_response(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_lock_and_read_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_lock_and_read_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10757,7 +10757,7 @@ define internal i32 @dissect_lock_and_read_response(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_unknown(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_unknown(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10795,7 +10795,7 @@ define internal noundef i32 @dissect_unknown(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_read_raw_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_read_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10899,7 +10899,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %32, %33, %34, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_read_mpx_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_read_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -10958,7 +10958,7 @@ define internal i32 @dissect_read_mpx_request(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_read_mpx_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_read_mpx_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11044,7 +11044,7 @@ dissect_file_data.exit:                           ; preds = %55, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_raw_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_write_raw_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11169,7 +11169,7 @@ dissect_file_data.exit:                           ; preds = %71, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_raw_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_write_raw_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11216,7 +11216,7 @@ define internal i32 @dissect_write_raw_response(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_mpx_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_write_mpx_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11341,7 +11341,7 @@ dissect_file_data.exit:                           ; preds = %71, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_mpx_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_write_mpx_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11388,7 +11388,7 @@ define internal i32 @dissect_write_mpx_response(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_and_close_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_write_and_close_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11435,7 +11435,7 @@ define internal i32 @dissect_write_and_close_response(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11494,7 +11494,7 @@ define internal i32 @dissect_set_information2_request(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_query_information2_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_query_information2_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -11541,7 +11541,7 @@ define internal i32 @dissect_query_information2_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_query_information2_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_query_information2_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -12333,7 +12333,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -13983,7 +13983,7 @@ thread-pre-split326.thread:                       ; preds = %.thread.thread, %th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -15627,7 +15627,7 @@ dissect_transaction2_response_data.exit:          ; preds = %494, %492, %854, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_copy_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -15767,7 +15767,7 @@ thread-pre-split.thread:                          ; preds = %87, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -15858,7 +15858,7 @@ thread-pre-split.thread:                          ; preds = %47, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_move_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -15998,7 +15998,7 @@ thread-pre-split.thread:                          ; preds = %87, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_echo_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_echo_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -16037,7 +16037,7 @@ define internal noundef i32 @dissect_echo_request(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_echo_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_echo_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -16074,7 +16074,7 @@ define internal noundef i32 @dissect_echo_response(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_and_close_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_write_and_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %9 = load i32, ptr @hf_smb_word_count, align 4
@@ -17642,7 +17642,7 @@ proto_item_set_generated.exit123:                 ; preds = %24, %36, %61, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_sid(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -17689,7 +17689,7 @@ define internal i32 @dissect_sid(ptr noundef %0, ptr nocapture readnone %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_find_notify_close(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_find_notify_close(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -17736,7 +17736,7 @@ define internal i32 @dissect_find_notify_close(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -17866,7 +17866,7 @@ thread-pre-split.thread:                          ; preds = %78, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tree_connect_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_tree_connect_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -17915,7 +17915,7 @@ define internal i32 @dissect_tree_connect_response(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_negprot_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_negprot_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %.not = icmp eq ptr %5, null
@@ -18050,7 +18050,7 @@ define internal i32 @dissect_negprot_request(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_negprot_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_negprot_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -19788,7 +19788,7 @@ thread-pre-split.thread:                          ; preds = %112, %thread-pre-sp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_query_information_disk_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_query_information_disk_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -19847,37 +19847,37 @@ define internal i32 @dissect_query_information_disk_response(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_search_dir_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_search_dir_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_search_dir_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal noundef i32 @dissect_search_dir_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_find_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_find_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal noundef i32 @dissect_find_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_response(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_find_close_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_find_close_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_find_close_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_find_close_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -19959,7 +19959,7 @@ define internal i32 @dissect_find_close_response(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_nt_transaction_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -20368,7 +20368,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_nt_transaction_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %9
@@ -21131,7 +21131,7 @@ define internal i32 @dissect_nt_create_andx_response(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nt_cancel_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_nt_cancel_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21167,7 +21167,7 @@ define internal i32 @dissect_nt_cancel_request(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -21301,7 +21301,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -21395,7 +21395,7 @@ thread-pre-split.thread:                          ; preds = %50, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21442,7 +21442,7 @@ define internal i32 @dissect_open_print_file_response(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_write_print_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_write_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21523,7 +21523,7 @@ dissect_file_data.exit:                           ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_close_print_file_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_close_print_file_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21570,7 +21570,7 @@ define internal i32 @dissect_close_print_file_request(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_get_print_queue_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_get_print_queue_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21620,7 +21620,7 @@ define internal i32 @dissect_get_print_queue_request(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef readonly %5) #0 {
+define internal i32 @dissect_get_print_queue_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef readonly %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21796,7 +21796,7 @@ dissect_print_queue_element.exit.thread:          ; preds = %get_unicode_or_asci
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_send_single_block_message_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_send_single_block_message_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21897,7 +21897,7 @@ define internal i32 @dissect_send_single_block_message_request(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_forwarded_name(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_forwarded_name(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -21953,7 +21953,7 @@ define internal i32 @dissect_forwarded_name(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_get_machine_name_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_get_machine_name_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -22009,7 +22009,7 @@ define internal i32 @dissect_get_machine_name_response(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_send_multi_block_message_start_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_send_multi_block_message_start_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -22084,7 +22084,7 @@ define internal i32 @dissect_send_multi_block_message_start_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_message_group_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_message_group_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -22131,7 +22131,7 @@ define internal i32 @dissect_message_group_id(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_send_multi_block_message_text_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @dissect_send_multi_block_message_text_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #15
   %8 = load i32, ptr @hf_smb_word_count, align 4
   %9 = zext i8 %7 to i32
@@ -22518,7 +22518,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #0 {
+define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef nonnull readonly captures(none) %8) unnamed_addr #0 {
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %10, i32 noundef %5) #15
   %12 = tail call ptr @wmem_packet_scope() #15
@@ -22726,7 +22726,7 @@ declare i32 @g_str_hash(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @signed_time_msecs_to_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -22995,12 +22995,12 @@ define internal fastcc noundef i32 @dissect_smb_datetime(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -23130,7 +23130,7 @@ define internal fastcc noundef i32 @dissect_open_flags(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #15
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -23176,7 +23176,7 @@ define internal fastcc noundef i32 @dissect_ff2_flags(ptr noundef %0, ptr nocapt
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_spi_loi_vals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i16, ptr %5, align 2
   %.not = icmp eq i16 %9, 0
@@ -23507,7 +23507,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %61, label %8
@@ -23597,7 +23597,7 @@ define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i16, ptr %3, align 2
@@ -23697,7 +23697,7 @@ define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %95, label %8
@@ -23836,7 +23836,7 @@ define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, i32 %.24.val) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %get_unicode_or_ascii_string.exit.thread, label %8
@@ -23887,7 +23887,7 @@ get_unicode_or_ascii_string.exit.thread:          ; preds = %get_unicode_or_asci
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = load i16, ptr %4, align 2
   %9 = icmp ult i16 %8, 2
@@ -24081,7 +24081,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %117, label %8
@@ -24259,7 +24259,7 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @smb_trans_defragment(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %3) #15
   %.not = icmp eq i32 %8, 0
   %9 = icmp ugt i32 %4, %5
@@ -24364,7 +24364,7 @@ declare ptr @fragment_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @fragment_get(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -26649,7 +26649,7 @@ dissect_find_file_unix_info2.exit:                ; preds = %.sink.split.i, %123
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -27102,7 +27102,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = load i16, ptr %2, align 2
   %6 = icmp ult i16 %5, 4
   br i1 %6, label %59, label %7
@@ -27188,7 +27188,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, i32 %.24.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -27239,10 +27239,10 @@ declare i32 @dissect_ntlmv2_response(ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -27378,7 +27378,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = load i32, ptr @ett_smb_search_resume_key, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 21, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1163) #15
   %9 = load i16, ptr %3, align 2
@@ -27612,7 +27612,7 @@ dissect_search_dir_info.exit.thread:              ; preds = %.lr.ph.split, %get_
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 65536) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef nonnull %7, i32 noundef range(i32 0, 65536) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) unnamed_addr #0 {
   %12 = load i32, ptr @ett_smb_nt_trans_param, align 4
   %13 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @nt_cmd_vals_ext, ptr noundef nonnull @.str.2684) #15
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.2633, ptr noundef %13) #15
@@ -27949,7 +27949,7 @@ define internal void @smb_dir_specific_rights(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -28307,7 +28307,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare noalias ptr @g_filename_display_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_chunk(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_slist_length(ptr noundef %5) #15
@@ -28563,7 +28563,7 @@ declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #9
 declare ptr @g_try_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -28572,10 +28572,10 @@ declare i32 @llvm.umin.i32(i32, i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
@@ -28584,7 +28584,7 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #12

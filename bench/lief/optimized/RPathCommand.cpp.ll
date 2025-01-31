@@ -121,7 +121,7 @@ define void @_ZN4LIEF5MachO12RPathCommandD0Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO12RPathCommandC2ERKNS0_7details13rpath_commandE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define void @_ZN4LIEF5MachO12RPathCommandC2ERKNS0_7details13rpath_commandE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4

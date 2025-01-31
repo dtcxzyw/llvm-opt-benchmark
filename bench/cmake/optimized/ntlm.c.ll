@@ -22,7 +22,7 @@ define dso_local noundef zeroext i1 @Curl_auth_is_ntlm_supported() local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @Curl_bufref_ptr(ptr noundef %1) #7
   %5 = tail call i64 @Curl_bufref_len(ptr noundef %1) #7
   store i32 0, ptr %2, align 8
@@ -159,10 +159,10 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef initializes((12, 16)) %5, ptr noundef %6) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef captures(none) initializes((12, 16)) %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr @Curl_cfree, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -184,7 +184,7 @@ define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #1 {
+define dso_local void @Curl_auth_cleanup_ntlm(ptr noundef captures(none) initializes((12, 16)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -258,7 +258,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %.not141, label %35, label %153
 
 35:                                               ; preds = %33
-  %36 = call i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef %.1121, i64 noundef %27, ptr noundef %.0119, i64 noundef %.0, ptr noundef nonnull %12, ptr noundef nonnull %14) #7
+  %36 = call i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef nonnull %.1121, i64 noundef %27, ptr noundef nonnull %.0119, i64 noundef %.0, ptr noundef nonnull %12, ptr noundef nonnull %14) #7
   %.not142 = icmp eq i32 %36, 0
   br i1 %.not142, label %37, label %153
 
@@ -402,10 +402,10 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %exitcond.not.i, label %unicodecpy.exit, label %.lr.ph.i, !llvm.loop !5
 
 unicodecpy.exit.thread:                           ; preds = %110
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %.0119, i64 %.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %.0119, i64 %.0, i1 false)
   %121 = add i64 %98, %.0
   %122 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %121
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %.1121, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr nonnull align 1 %.1121, i64 %27, i1 false)
   %123 = add i64 %121, %27
   %124 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %124, ptr noundef nonnull align 16 dereferenceable(11) %11, i64 11, i1 false)
@@ -478,13 +478,13 @@ unicodecpy.exit154:                               ; preds = %.lr.ph.i151, %unico
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -511,7 +511,7 @@ declare zeroext i16 @Curl_read16_le(ptr noundef) local_unnamed_addr #2
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

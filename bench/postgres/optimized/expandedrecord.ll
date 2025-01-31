@@ -78,7 +78,7 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   %33 = add nsw i64 %32, 208
   %34 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef %33) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %34, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef %34, ptr noundef nonnull @ER_methods, ptr noundef %29) #7
+  tail call void @EOH_init_header(ptr noundef nonnull %34, ptr noundef nonnull @ER_methods, ptr noundef %29) #7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store i32 1384727874, ptr %35, align 8
   %36 = getelementptr i8, ptr %34, i64 208
@@ -164,12 +164,12 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @EOH_init_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ER_mc_callback(ptr nocapture noundef %0) #0 {
+define internal void @ER_mc_callback(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -245,7 +245,7 @@ define dso_local noundef ptr @make_expanded_record_from_tupdesc(ptr noundef %0, 
   %28 = add nsw i64 %27, 208
   %29 = tail call ptr @MemoryContextAlloc(ptr noundef %24, i64 noundef %28) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %29, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef %29, ptr noundef nonnull @ER_methods, ptr noundef %24) #7
+  tail call void @EOH_init_header(ptr noundef nonnull %29, ptr noundef nonnull @ER_methods, ptr noundef %24) #7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 1384727874, ptr %30, align 8
   %31 = getelementptr i8, ptr %29, i64 208
@@ -379,7 +379,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %2, %expanded_record
   %38 = add nsw i64 %37, 208
   %39 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %38) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %39, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef %39, ptr noundef nonnull @ER_methods, ptr noundef %34) #7
+  tail call void @EOH_init_header(ptr noundef nonnull %39, ptr noundef nonnull @ER_methods, ptr noundef %34) #7
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store i32 1384727874, ptr %40, align 8
   %41 = getelementptr i8, ptr %39, i64 208
@@ -871,7 +871,7 @@ define dso_local ptr @expanded_record_fetch_tupdesc(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expanded_record_get_tuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @expanded_record_get_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -1123,7 +1123,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %5, %expanded_record
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @expanded_record_lookup_field(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @expanded_record_lookup_field(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -1645,7 +1645,7 @@ declare ptr @detoast_external_attr(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4
@@ -2297,7 +2297,7 @@ declare void @assign_record_type_typmod(ptr noundef) local_unnamed_addr #1
 declare i64 @heap_compute_data_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @heap_fill_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2402,7 +2402,7 @@ get_short_term_cxt.exit:                          ; preds = %36, %40
   %53 = tail call ptr @MemoryContextAlloc(ptr noundef %49, i64 noundef %52) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %53, i8 0, i64 208, i1 false)
   %54 = load ptr, ptr %33, align 8
-  tail call void @EOH_init_header(ptr noundef %53, ptr noundef nonnull @ER_methods, ptr noundef %54) #7
+  tail call void @EOH_init_header(ptr noundef nonnull %53, ptr noundef nonnull @ER_methods, ptr noundef %54) #7
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 48
   store i32 1384727874, ptr %55, align 8
   %56 = getelementptr i8, ptr %53, i64 208
@@ -2461,10 +2461,10 @@ get_short_term_cxt.exit:                          ; preds = %36, %40
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

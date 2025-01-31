@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [7 x i8] c"system\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = add i32 %2, -65538
@@ -284,7 +284,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal noundef i32 @socketTransport_getCapabilities(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   store i16 7, ptr %1, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 0, ptr %.sroa.8.0..sroa_idx, align 2
@@ -292,7 +292,7 @@ define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @socketTransport_attach(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal i32 @socketTransport_attach(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -558,7 +558,7 @@ connectToAddr.exit:                               ; preds = %96, %.connectToAddr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca [20 x i8], align 16
   %6 = alloca %struct.sockaddr_storage, align 8
@@ -832,7 +832,7 @@ startListening.exit:                              ; preds = %88
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_stopListening(ptr nocapture readnone %0) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_stopListening(ptr readnone captures(none) %0) #0 {
   %2 = load i32, ptr @serverSocketFD, align 4
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %17
@@ -885,7 +885,7 @@ setLastError.exit:                                ; preds = %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 204) i32 @socketTransport_accept(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 204) i32 @socketTransport_accept(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.in6_addr, align 4
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca i32, align 4
@@ -1136,7 +1136,7 @@ thread-pre-split34:                               ; preds = %103, %111
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal zeroext range(i8 0, 2) i8 @socketTransport_isOpen(ptr nocapture readnone %0) #2 {
+define internal zeroext range(i8 0, 2) i8 @socketTransport_isOpen(ptr readnone captures(none) %0) #2 {
   %2 = load i32, ptr @socketFD, align 4
   %3 = icmp sgt i32 %2, -1
   %. = zext i1 %3 to i8
@@ -1144,7 +1144,7 @@ define internal zeroext range(i8 0, 2) i8 @socketTransport_isOpen(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_close(ptr nocapture readnone %0) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_close(ptr readnone captures(none) %0) #0 {
   %2 = load i32, ptr @socketFD, align 4
   store i32 -1, ptr @socketFD, align 4
   %3 = icmp slt i32 %2, 0
@@ -1165,7 +1165,7 @@ define internal range(i32 0, 203) i32 @socketTransport_close(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_readPacket(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_readPacket(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %18
@@ -1493,7 +1493,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = alloca [1011 x i8], align 16
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %18
@@ -1705,7 +1705,7 @@ send_fully.exit40:                                ; preds = %.lr.ph.i38, %95, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 205) i32 @socketTransport_getLastError(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 205) i32 @socketTransport_getLastError(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load i32, ptr @tlsIndex, align 4
   %4 = tail call ptr @dbgsysTlsGet(i32 noundef %3) #13
   %5 = icmp eq ptr %4, null
@@ -1732,7 +1732,7 @@ define internal range(i32 0, 205) i32 @socketTransport_getLastError(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
   %3 = alloca %struct.in_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = icmp eq ptr %1, null
@@ -2108,13 +2108,13 @@ parseAllowedPeers.exit:                           ; preds = %104, %108, %150, %1
 declare i32 @dbgsysTlsAlloc(...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setLastError(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @setLastError(i32 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [255 x i8], align 16
   %4 = icmp eq i32 %0, 202
   br i1 %4, label %5, label %7
@@ -2733,13 +2733,13 @@ declare i32 @dbgsysGetLastIOError(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @dbgsysTlsGet(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @dbgsysTlsPut(i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2747,7 +2747,7 @@ declare void @dbgsysTlsPut(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -2800,10 +2800,10 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i32 @dbgsysRecv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -2829,7 +2829,7 @@ declare i32 @dbgsysAccept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i32 @dbgsysNetworkToHostLong(i32 noundef) local_unnamed_addr #3
 
@@ -2838,19 +2838,19 @@ declare i32 @dbgsysHostToNetworkLong(i32 noundef) local_unnamed_addr #3
 declare zeroext i16 @dbgsysHostToNetworkShort(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

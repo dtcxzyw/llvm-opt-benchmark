@@ -174,7 +174,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   %7 = load i64, ptr @ShenandoahGarbageThreshold, align 8
   %8 = mul i64 %7, %6
@@ -516,7 +516,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristics18record_cycle_startEv(ptr 
 declare void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahAllocationRate24allocation_counter_resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 16)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahAllocationRate24allocation_counter_resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(168) initializes((0, 16)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
   store double %2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -743,7 +743,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristics30adjust_last_trigger_parametersEd(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristics30adjust_last_trigger_parametersEd(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %25 [
@@ -839,7 +839,7 @@ _ZN28ShenandoahAdaptiveHeuristics22adjust_spike_thresholdEd.exit: ; preds = %_ZN
 declare void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_margin_of_errorEd(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_margin_of_errorEd(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load double, ptr %3, align 8
   %5 = fadd double %1, %4
@@ -861,7 +861,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_margin_of_errorEd(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_spike_thresholdEd(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristics22adjust_spike_thresholdEd(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load double, ptr %3, align 8
   %5 = fsub double %4, %1
@@ -1577,7 +1577,7 @@ define hidden void @_ZN24ShenandoahAllocationRateC2Ev(ptr noundef nonnull align 
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK24ShenandoahAllocationRate18instantaneous_rateEdm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, double noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef double @_ZNK24ShenandoahAllocationRate18instantaneous_rateEdm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, double noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load double, ptr %0, align 8
@@ -1741,7 +1741,7 @@ declare void @llvm.va_end.p0(ptr) #7
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9
@@ -1750,10 +1750,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #9
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -190,7 +190,7 @@ declare void @mca_rcache_base_mem_cb(ptr noundef, i64 noundef, ptr noundef, i1 n
 declare ptr @opal_proc_local_get() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @mca_rcache_base_module_destroy(ptr noundef readnone %0) local_unnamed_addr #0 {
@@ -286,7 +286,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %36
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @safety_valve() #0 {

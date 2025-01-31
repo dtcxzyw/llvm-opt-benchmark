@@ -476,7 +476,7 @@ $_ZZNK5folly17BaseFormatterImplINS_9FormatterILb0EJRNS_5RangeIPKcEEEEELb0ESt16in
 @_ZN5folly7dynamicC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly7dynamicC2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK5folly7dynamic8typeNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK5folly7dynamic8typeNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7.i = alloca %"class.google::LogMessageFatal", align 8
   %0 = load i32, ptr %this, align 8, !tbaa !7
@@ -677,14 +677,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
@@ -701,7 +701,7 @@ entry:
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
@@ -754,7 +754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail21baseFormatterCallImplILb0ELb0ENS0_27BaseFormatterAppendToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRT1_mPKiPFSt17integral_constantIbXT0_EERKNS0_17BaseFormatterBaseEmEPKPFvSI_RNS_9FormatArgESB_ESI_(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %nargs, ptr noundef %widths, ptr noundef %used, ptr noundef %funs, ptr noundef nonnull align 8 dereferenceable(16) %base) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1845,7 +1845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEE4callIJNS_5RangeIPKcEES9_S9_S8_cS8_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v3, ptr noundef nonnull align 8 dereferenceable(8) %v5, ptr noundef nonnull align 1 dereferenceable(1) %v7, ptr noundef nonnull align 8 dereferenceable(8) %v9, ptr noundef nonnull align 8 dereferenceable(8) %v11) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2791,7 +2791,7 @@ _ZN5folly12format_value12formatNumberINS_6detail27BaseFormatterAppendToStringINS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 declare void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3926,7 +3926,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp65 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load i32, ptr %a, align 8, !tbaa !7
@@ -5222,7 +5222,7 @@ lpad:                                             ; preds = %_ZNR5folly8Expected
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5follyeqERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
@@ -5602,7 +5602,7 @@ land.end:                                         ; preds = %for.inc.i, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5folly7dynamic4hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5folly7dynamic4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i = alloca i64, align 8
   %hash1.i.i.i = alloca i64, align 8
@@ -5823,7 +5823,7 @@ return:                                           ; preds = %for.body.i55, %for.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #22
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #23
@@ -8735,7 +8735,7 @@ terminate.lpad:                                   ; preds = %invoke.cont64, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEDn(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr nocapture readnone %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEDn(ptr noundef nonnull returned align 8 dereferenceable(40) %this, ptr readnone captures(none) %0) local_unnamed_addr #8 align 2 {
 entry:
   %1 = load i32, ptr %this, align 8, !tbaa !7
   %cmp = icmp eq i32 %1, 0
@@ -8753,7 +8753,7 @@ if.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic6atImplERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %idx) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic6atImplERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %idx) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"struct.folly::dynamic", align 8
   %ref.tmp7 = alloca %"struct.folly::dynamic", align 8
@@ -9567,7 +9567,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEENSt9en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %idx.coerce0, ptr %idx.coerce1) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %idx.coerce0, ptr %idx.coerce1) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %widths.i.i.i.i = alloca [2 x i32], align 8
   %out.i.i.i = alloca %"struct.folly::detail::BaseFormatterAppendToString", align 8
@@ -10339,7 +10339,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_3f146detail19NodeContainerPolicyINS_7dynami
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNKR5folly7dynamic10getDefaultENS_5RangeIPKcEERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNKR5folly7dynamic10getDefaultENS_5RangeIPKcEERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -10519,7 +10519,7 @@ cond.end:                                         ; preds = %for.inc.i, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNKR5folly7dynamic10getDefaultENS_5RangeIPKcEEOS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNKR5folly7dynamic10getDefaultENS_5RangeIPKcEEOS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -10702,7 +10702,7 @@ cleanup:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNO5folly7dynamic10getDefaultENS_5RangeIPKcEERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNO5folly7dynamic10getDefaultENS_5RangeIPKcEERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -10885,7 +10885,7 @@ cleanup:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNO5folly7dynamic10getDefaultENS_5RangeIPKcEEOS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNO5folly7dynamic10getDefaultENS_5RangeIPKcEEOS0_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %k.coerce0, ptr %k.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -11065,7 +11065,7 @@ cond.end:                                         ; preds = %for.inc.i.i, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNKR5folly7dynamic11get_ptrImplERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %idx) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNKR5folly7dynamic11get_ptrImplERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %idx) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"struct.folly::dynamic", align 8
   %ref.tmp7 = alloca %"struct.folly::dynamic", align 8
@@ -11260,7 +11260,7 @@ cleanup45:                                        ; preds = %for.inc.i, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %idx.coerce0, ptr %idx.coerce1) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %idx.coerce0, ptr %idx.coerce1) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -11439,7 +11439,7 @@ cleanup:                                          ; preds = %for.inc.i, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8, !tbaa !7
   switch i32 %0, label %cleanup.cont18 [
@@ -11480,7 +11480,7 @@ return:                                           ; preds = %cleanup16, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN5folly7dynamic5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_St6vectorIS0_SaIS0_EEEES8_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr %first.coerce, ptr %last.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define ptr @_ZN5folly7dynamic5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_St6vectorIS0_SaIS0_EEEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr %first.coerce, ptr %last.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 8, !tbaa !7
   %cmp.not.i.not.i = icmp eq i32 %0, 1
@@ -11559,7 +11559,7 @@ _ZNSt6vectorIN5folly7dynamicESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7dynamic10merge_diffERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %source, ptr noundef nonnull align 8 dereferenceable(40) %target) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7dynamic10merge_diffERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %source, ptr noundef nonnull align 8 dereferenceable(40) %target) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i246 = alloca %"struct.std::pair.109", align 8
   %ref.tmp9.i247 = alloca ptr, align 8
@@ -12632,7 +12632,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Expected.137") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %jsonPtr) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Expected.137") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %jsonPtr) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i = alloca i64, align 8
@@ -13442,7 +13442,7 @@ declare i64 @llvm.smax.i64(i64, i64) #23
 declare i64 @llvm.smin.i64(i64, i64) #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

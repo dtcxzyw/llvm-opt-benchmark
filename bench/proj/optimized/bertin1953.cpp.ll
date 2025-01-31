@@ -109,7 +109,7 @@ declare double @cos(double noundef) local_unnamed_addr #3
 declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = fadd double %0, 0xBFD26E40D7653223

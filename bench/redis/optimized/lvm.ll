@@ -54,15 +54,15 @@ cleanup:                                          ; preds = %if.else, %if.then3,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare hidden i32 @luaO_str2d(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @luaV_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @luaV_tostring(ptr noundef %L, ptr noundef captures(none) %obj) local_unnamed_addr #0 {
 entry:
   %s = alloca [32 x i8], align 16
   %tt = getelementptr inbounds nuw i8, ptr %obj, i64 8
@@ -87,12 +87,12 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaV_gettable(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 {
@@ -245,7 +245,7 @@ declare hidden ptr @luaH_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare hidden ptr @luaT_gettm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare hidden ptr @luaT_gettmbyobj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -254,7 +254,7 @@ declare hidden void @luaG_typeerror(ptr noundef, ptr noundef, ptr noundef) local
 declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaV_settable(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
+define hidden void @luaV_settable(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr noundef readonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %temp = alloca %struct.lua_TValue, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp) #9
@@ -564,7 +564,7 @@ cleanup16.i:                                      ; preds = %if.else8.i
   %sub.i = sub i64 %ll.054.i, %inc.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %r.055.i, i64 %inc.i
   %sub14.i = sub i64 %lr.056.i, %inc.i
-  %call.i = tail call i32 @strcoll(ptr noundef %add.ptr12.i, ptr noundef %add.ptr13.i) #10
+  %call.i = tail call i32 @strcoll(ptr noundef nonnull %add.ptr12.i, ptr noundef %add.ptr13.i) #10
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.else.i, label %l_strcmp.exit
 
@@ -686,7 +686,7 @@ cleanup:                                          ; preds = %lor.end.fold.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @luaV_equalval(ptr noundef %L, ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaV_equalval(ptr noundef %L, ptr noundef readonly captures(none) %t1, ptr noundef readonly captures(none) %t2) local_unnamed_addr #0 {
 entry:
   %tt = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !4
@@ -2156,7 +2156,7 @@ cleanup16.i.i:                                    ; preds = %if.else8.i.i
   %sub.i.i = sub i64 %ll.054.i.i, %inc.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %r.055.i.i, i64 %inc.i.i
   %sub14.i.i = sub i64 %lr.056.i.i, %inc.i.i
-  %call.i.i = call i32 @strcoll(ptr noundef %add.ptr12.i.i, ptr noundef %add.ptr13.i.i) #10
+  %call.i.i = call i32 @strcoll(ptr noundef nonnull %add.ptr12.i.i, ptr noundef %add.ptr13.i.i) #10
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %l_strcmp.exit.i
 
@@ -2798,7 +2798,7 @@ if.then1249:                                      ; preds = %for.body1244
 
 if.else1258:                                      ; preds = %for.body1244
   %add.ptr1262 = getelementptr inbounds nuw %struct.lua_TValue, ptr %base.1, i64 %idxprom1253
-  %call1263 = call ptr @luaF_findupval(ptr noundef %L, ptr noundef %add.ptr1262) #9
+  %call1263 = call ptr @luaF_findupval(ptr noundef nonnull %L, ptr noundef %add.ptr1262) #9
   br label %for.inc1268
 
 for.inc1268:                                      ; preds = %if.else1258, %if.then1249
@@ -3101,7 +3101,7 @@ declare hidden ptr @luaF_findupval(ptr noundef, ptr noundef) local_unnamed_addr 
 declare hidden void @luaD_growstack(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare hidden i32 @luaO_rawequalObj(ptr noundef, ptr noundef) local_unnamed_addr #2
 

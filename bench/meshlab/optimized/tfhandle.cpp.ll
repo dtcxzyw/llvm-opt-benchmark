@@ -157,7 +157,7 @@ _ZN8TFHandle20updateTfHandlesStateE7QPointF.exit: ; preds = %.noexc10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, double, double, i32 noundef, i32 noundef) unnamed_addr #2
 
@@ -172,7 +172,7 @@ declare void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 derefer
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, double %1, double %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, double %1, double %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = fadd double %1, -1.000000e+01
   %6 = fptrunc double %5 to float
@@ -261,7 +261,7 @@ define void @_ZThn16_N8TFHandleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QColor, align 4
   %7 = alloca %class.QBrush, align 8
@@ -344,7 +344,7 @@ declare void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 
 declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #7 align 2 {
+define void @_ZThn16_N8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef %1, ptr poison, ptr poison)
   ret void
@@ -353,7 +353,7 @@ define void @_ZThn16_N8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QW
 declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) unnamed_addr #8 align 2 {
+define void @_ZNK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sub nsw i32 0, %4
@@ -371,7 +371,7 @@ define void @_ZNK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn16_NK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
+define void @_ZThn16_NK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5
@@ -540,7 +540,7 @@ declare noundef float @_Z21absolute2RelativeValfff(float noundef, float noundef)
 declare void @_ZN9TfChannel15updateKeysOrderEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %0)
   ret void
 }
@@ -548,14 +548,14 @@ define void @_ZN8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr nound
 declare void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr nocapture noundef readnone %1) unnamed_addr #7 align 2 {
+define void @_ZThn16_N8TFHandle15mousePressEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr noundef readnone captures(none) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8TFHandle7clickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull align 8 dereferenceable(81) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %0)
   ret void
 }
@@ -563,17 +563,17 @@ define void @_ZN8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr
 declare void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr nocapture noundef readnone %1) unnamed_addr #7 align 2 {
+define void @_ZThn16_N8TFHandle21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent(ptr noundef %0, ptr noundef readnone captures(none) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8TFHandle13doubleClickedEPS_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull align 8 dereferenceable(81) %3)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

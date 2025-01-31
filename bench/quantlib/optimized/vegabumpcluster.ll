@@ -66,7 +66,7 @@ $_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt8valarrayIbESt6vector
 @_ZN8QuantLib18VegaBumpCollectionC1ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib18VegaBumpCollectionC2ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -83,10 +83,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15VegaBumpClusterC2Emmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, i64 noundef %factorBegin, i64 noundef %factorEnd, i64 noundef %rateBegin, i64 noundef %rateEnd, i64 noundef %stepBegin, i64 noundef %stepEnd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15VegaBumpClusterC2Emmmmmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this, i64 noundef %factorBegin, i64 noundef %factorEnd, i64 noundef %rateBegin, i64 noundef %rateEnd, i64 noundef %stepBegin, i64 noundef %stepEnd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -727,7 +727,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib15VegaBumpCluster13doesIntersectERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %comparee) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib15VegaBumpCluster13doesIntersectERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %comparee) local_unnamed_addr #8 align 2 {
 entry:
   %factorEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %factorEnd_, align 8, !tbaa !8
@@ -780,7 +780,7 @@ return:                                           ; preds = %if.end17, %if.end12
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib15VegaBumpCluster12isCompatibleERKN5boost10shared_ptrINS_11MarketModelEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volStructure) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib15VegaBumpCluster12isCompatibleERKN5boost10shared_ptrINS_11MarketModelEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volStructure) local_unnamed_addr #3 align 2 {
 entry:
   %rateEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %rateEnd_, align 8, !tbaa !10
@@ -879,7 +879,7 @@ return:                                           ; preds = %_ZNK5boost10shared_
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14firstAliveRateEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18VegaBumpCollectionC2ERKN5boost10shared_ptrINS_11MarketModelEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(43) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volStructure, i1 noundef zeroext %factorwiseBumping) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18VegaBumpCollectionC2ERKN5boost10shared_ptrINS_11MarketModelEEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(43) initializes((0, 40)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volStructure, i1 noundef zeroext %factorwiseBumping) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %thisCluster = alloca %"class.QuantLib::VegaBumpCluster", align 8
   %thisCluster42 = alloca %"class.QuantLib::VegaBumpCluster", align 8
@@ -1434,7 +1434,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18VegaBumpCollectionC2ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 41)) %this, ptr nocapture noundef %allBumps, ptr nocapture noundef %volStructure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18VegaBumpCollectionC2ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 41)) %this, ptr noundef captures(none) %allBumps, ptr noundef captures(none) %volStructure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1686,7 +1686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection6isFullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection6isFullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.std::vector.34", align 8
   %model = alloca %"class.std::valarray", align 8
@@ -2507,7 +2507,7 @@ _ZNSt12_Vector_baseISt6vectorISt8valarrayIbESaIS2_EESaIS4_EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection16isNonOverlappingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection16isNonOverlappingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.std::vector.34", align 8
   %model = alloca %"class.std::valarray", align 8
@@ -2898,7 +2898,7 @@ return:                                           ; preds = %_ZNSt6vectorIS_ISt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection10isSensibleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib18VegaBumpCollection10isSensibleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %this) local_unnamed_addr #3 align 2 {
 entry:
   %checked_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %checked_, align 8, !tbaa !44, !range !57, !noundef !58
@@ -2919,7 +2919,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZNK8QuantLib18VegaBumpCollection11numberBumpsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZNK8QuantLib18VegaBumpCollection11numberBumpsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !32
@@ -2935,7 +2935,7 @@ entry:
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
@@ -2944,7 +2944,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
@@ -3379,7 +3379,7 @@ unreachable:                                      ; preds = %invoke.cont5
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

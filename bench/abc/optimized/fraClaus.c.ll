@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.9 = private unnamed_addr constant [28 x i8] c"Error: BMC solver is unsat.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fra_ClausRunBmc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunBmc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @Fra_ClausRunBmc(ptr nocapture noundef readonly %0) l
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fra_ClausRunSat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunSat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 1
   %4 = sext i32 %3 to i64
@@ -194,10 +194,10 @@ define range(i32 0, 2) i32 @Fra_ClausRunSat(ptr nocapture noundef readonly %0) l
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fra_ClausRunSat0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunSat0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -230,7 +230,7 @@ define range(i32 0, 2) i32 @Fra_ClausRunSat0(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @transpose32a(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @transpose32a(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %25
@@ -279,7 +279,7 @@ define void @transpose32a(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define i32 @Fra_ClausProcessClausesCut(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [16 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -458,10 +458,10 @@ transpose32a.exit:                                ; preds = %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define i32 @Fra_ClausProcessClausesCut2(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
   %5 = alloca [16 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
@@ -578,7 +578,7 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [16 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -807,7 +807,7 @@ transpose32a.exit:                                ; preds = %77
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = shl nsw i32 %3, 5
@@ -824,15 +824,15 @@ define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocaptu
 
 .lr.ph:                                           ; preds = %1
   %12 = getelementptr i8, ptr %9, i64 8
-  %.val52 = load ptr, ptr %12, align 8
+  %.val51 = load ptr, ptr %12, align 8
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %17
 
 .critedge.preheader:                              ; preds = %26, %1
   %13 = icmp sgt i32 %3, 0
-  br i1 %13, label %.lr.ph58, label %._crit_edge
+  br i1 %13, label %.lr.ph57, label %._crit_edge
 
-.lr.ph58:                                         ; preds = %.critedge.preheader
+.lr.ph57:                                         ; preds = %.critedge.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %smin = tail call i32 @llvm.smin.i32(i32 %4, i32 1)
@@ -841,7 +841,7 @@ define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocaptu
 
 17:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %18 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %.val51, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %26, label %21
@@ -859,47 +859,47 @@ define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocaptu
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %17, !llvm.loop !30
 
-27:                                               ; preds = %.lr.ph58, %.critedge
-  %.057 = phi i32 [ %4, %.lr.ph58 ], [ %32, %.critedge ]
-  %.04356 = phi i32 [ 0, %.lr.ph58 ], [ %31, %.critedge ]
-  %28 = zext nneg i32 %.057 to i64
+27:                                               ; preds = %.lr.ph57, %.critedge
+  %.056 = phi i32 [ %4, %.lr.ph57 ], [ %32, %.critedge ]
+  %.04355 = phi i32 [ 0, %.lr.ph57 ], [ %31, %.critedge ]
+  %28 = zext nneg i32 %.056 to i64
   %29 = getelementptr inbounds nuw i32, ptr %calloc, i64 %28
   %30 = load i32, ptr %29, align 4
-  %31 = add nsw i32 %30, %.04356
+  %31 = add nsw i32 %30, %.04355
   %.not = icmp slt i32 %31, %15
   br i1 %.not, label %.critedge, label %._crit_edge
 
 .critedge:                                        ; preds = %27
-  %32 = add nsw i32 %.057, -1
-  %33 = icmp sgt i32 %.057, 1
+  %32 = add nsw i32 %.056, -1
+  %33 = icmp sgt i32 %.056, 1
   br i1 %33, label %27, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.critedge, %27, %.critedge.preheader
-  %.0.lcssa = phi i32 [ %4, %.critedge.preheader ], [ %.057, %27 ], [ %16, %.critedge ]
-  br i1 %11, label %.lr.ph64, label %.critedge2
+  %.0.lcssa = phi i32 [ %4, %.critedge.preheader ], [ %.056, %27 ], [ %16, %.critedge ]
+  br i1 %11, label %.lr.ph63, label %.critedge2
 
-.lr.ph64:                                         ; preds = %._crit_edge
+.lr.ph63:                                         ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %35
 
-35:                                               ; preds = %.lr.ph64, %46
-  %36 = phi ptr [ %9, %.lr.ph64 ], [ %47, %46 ]
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next68, %46 ]
-  %.14461 = phi i32 [ 0, %.lr.ph64 ], [ %.2, %46 ]
+35:                                               ; preds = %.lr.ph63, %46
+  %36 = phi ptr [ %9, %.lr.ph63 ], [ %47, %46 ]
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next67, %46 ]
+  %.14460 = phi i32 [ 0, %.lr.ph63 ], [ %.2, %46 ]
   %37 = getelementptr i8, ptr %36, i64 8
-  %.val53 = load ptr, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv67
+  %.val52 = load ptr, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv66
   %39 = load i32, ptr %38, align 4
-  %.not50 = icmp slt i32 %39, %.0.lcssa
-  br i1 %.not50, label %45, label %40
+  %.not49 = icmp slt i32 %39, %.0.lcssa
+  br i1 %.not49, label %45, label %40
 
 40:                                               ; preds = %35
   %41 = load i32, ptr %34, align 8
-  %42 = icmp slt i32 %.14461, %41
+  %42 = icmp slt i32 %.14460, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = add nsw i32 %.14461, 1
+  %44 = add nsw i32 %.14460, 1
   br label %46
 
 45:                                               ; preds = %40, %35
@@ -909,44 +909,37 @@ define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocaptu
 
 46:                                               ; preds = %45, %43
   %47 = phi ptr [ %36, %43 ], [ %.pre, %45 ]
-  %.2 = phi i32 [ %44, %43 ], [ %.14461, %45 ]
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %.2 = phi i32 [ %44, %43 ], [ %.14460, %45 ]
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %48 = getelementptr i8, ptr %47, i64 4
-  %.val51 = load i32, ptr %48, align 4
-  %49 = sext i32 %.val51 to i64
-  %50 = icmp slt i64 %indvars.iv.next68, %49
+  %.val50 = load i32, ptr %48, align 4
+  %49 = sext i32 %.val50 to i64
+  %50 = icmp slt i64 %indvars.iv.next67, %49
   br i1 %50, label %35, label %.critedge2, !llvm.loop !32
 
 .critedge2:                                       ; preds = %46, %._crit_edge
   %.144.lcssa = phi i32 [ 0, %._crit_edge ], [ %.2, %46 ]
-  %.not48 = icmp eq ptr %calloc, null
-  br i1 %.not48, label %52, label %51
+  tail call void @free(ptr noundef %calloc) #22
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %.144.lcssa, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %53 = load i32, ptr %52, align 4
+  %.not48 = icmp eq i32 %53, 0
+  br i1 %.not48, label %56, label %54
 
-51:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %calloc) #22
-  br label %52
+54:                                               ; preds = %.critedge2
+  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.144.lcssa, i32 noundef 1, i32 noundef %.0.lcssa, i32 noundef %5)
+  br label %56
 
-52:                                               ; preds = %.critedge2, %51
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.144.lcssa, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %55 = load i32, ptr %54, align 4
-  %.not49 = icmp eq i32 %55, 0
-  br i1 %.not49, label %58, label %56
-
-56:                                               ; preds = %52
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.144.lcssa, i32 noundef 1, i32 noundef %.0.lcssa, i32 noundef %5)
-  br label %58
-
-58:                                               ; preds = %56, %52
+56:                                               ; preds = %54, %.critedge2
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausRecordClause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Fra_ClausRecordClause(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %6, 536870912
@@ -1192,7 +1185,7 @@ Vec_IntPush.exit25:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausRecordClause2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Fra_ClausRecordClause2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %6 = load i8, ptr %5, align 1
   %7 = icmp sgt i8 %6, 0
@@ -1437,7 +1430,7 @@ Vec_IntPush.exit25:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fra_ClausSmlNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodeIsConst(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1474,7 +1467,7 @@ define range(i32 0, 2) i32 @Fra_ClausSmlNodeIsConst(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1520,7 +1513,7 @@ define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImp(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImpC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImpC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1565,7 +1558,7 @@ define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImpC(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClausCollectLatchClauses(ptr nocapture noundef %0, ptr nocapture noundef initializes((24, 28)) %1) local_unnamed_addr #0 {
+define noundef i32 @Fra_ClausCollectLatchClauses(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((24, 28)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 %4, 5
@@ -2870,7 +2863,7 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fra_ClausProcessClauses(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausProcessClauses(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca [32 x i32], align 16
   %5 = alloca [16 x ptr], align 16
@@ -3814,7 +3807,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #22
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #22
   call void @free(ptr noundef %9) #22
   br label %16
 
@@ -3837,7 +3830,7 @@ declare ptr @Fra_SmlSimulateComb(ptr noundef, i32 noundef, i32 noundef) local_un
 declare void @Aig_MmFixedStop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Fra_ClausProcessClauses2(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Fra_ClausProcessClauses2(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
@@ -4323,7 +4316,7 @@ declare ptr @Cnf_DataWriteIntoSolver(ptr noundef, i32 noundef, i32 noundef) loca
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausBmcClauses(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Fra_ClausBmcClauses(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -4566,7 +4559,7 @@ define i32 @Fra_ClausBmcClauses(ptr nocapture noundef readonly %0) local_unnamed
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fra_ClausSimInfoClean(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @Fra_ClausSimInfoClean(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4602,7 +4595,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %13, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausSimInfoRealloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Fra_ClausSimInfoRealloc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -4713,7 +4706,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %51, %Vec_PtrRealloc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausSimInfoRecord(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Fra_ClausSimInfoRecord(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -4780,7 +4773,7 @@ define void @Fra_ClausSimInfoRecord(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [16 x ptr], align 16
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
@@ -4917,7 +4910,7 @@ define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausInductiveClauses(ptr nocapture noundef initializes((96, 100)) %0) local_unnamed_addr #0 {
+define i32 @Fra_ClausInductiveClauses(ptr noundef captures(none) initializes((96, 100)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5556,7 +5549,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i42, %Vec_Pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Fra_ClausFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5714,7 +5707,7 @@ Vec_IntFree.exit46:                               ; preds = %39, %42
 declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausAddToStorage(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Fra_ClausAddToStorage(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -5964,7 +5957,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define void @Fra_ClausPrintIndClauses(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = alloca [9 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -6047,7 +6040,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Fra_ClausGetLiteral(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
+define ptr @Fra_ClausGetLiteral(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
 Aig_ManObj.exit:
   %3 = ashr i32 %2, 1
   %4 = sext i32 %3 to i64
@@ -6073,7 +6066,7 @@ Aig_ManObj.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Fra_ClausWriteIndClauses(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6242,7 +6235,7 @@ declare void @Ioa_WriteAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
+define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
   %6 = alloca [16 x ptr], align 16
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %.preheader.thread
@@ -6333,7 +6326,7 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClausEstimateCoverage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Fra_ClausEstimateCoverage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca [16 x ptr], align 16
   %4 = alloca %struct.timespec, align 8
@@ -7111,7 +7104,7 @@ declare ptr @Cnf_DeriveSimple(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Fra_InvariantVerify(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
@@ -7123,13 +7116,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17
@@ -7138,7 +7131,7 @@ declare void @llvm.va_start.p0(ptr) #17
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
@@ -7150,10 +7143,10 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

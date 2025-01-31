@@ -912,7 +912,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [42 x i8] c"async generator raised StopAsyncIteration\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @no_intrinsic1(ptr noundef %tstate, ptr nocapture readnone %unused) #0 {
+define internal noalias noundef ptr @no_intrinsic1(ptr noundef %tstate, ptr readnone captures(none) %unused) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @_PyErr_SetString(ptr noundef %tstate, ptr noundef %0, ptr noundef nonnull @.str.17) #4
@@ -1330,7 +1330,7 @@ return:                                           ; preds = %49, %import_all_fro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stopiteration_error(ptr nocapture noundef readonly %tstate, ptr noundef %exc) #0 {
+define internal ptr @stopiteration_error(ptr noundef readonly captures(none) %tstate, ptr noundef %exc) #0 {
 entry:
   %current_frame = getelementptr inbounds nuw i8, ptr %tstate, i64 64
   %0 = load ptr, ptr %current_frame, align 8
@@ -1447,14 +1447,14 @@ return:                                           ; preds = %if.end.i.i29, %if.e
 declare ptr @_PyAsyncGenValueWrapperNew(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @unary_pos(ptr nocapture readnone %unused, ptr noundef %value) #0 {
+define internal ptr @unary_pos(ptr readnone captures(none) %unused, ptr noundef %value) #0 {
 entry:
   %call = tail call ptr @PyNumber_Positive(ptr noundef %value) #4
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @list_to_tuple(ptr nocapture readnone %unused, ptr nocapture noundef readonly %v) #0 {
+define internal ptr @list_to_tuple(ptr readnone captures(none) %unused, ptr noundef readonly captures(none) %v) #0 {
 entry:
   %ob_item = getelementptr inbounds nuw i8, ptr %v, i64 24
   %0 = load ptr, ptr %ob_item, align 8
@@ -1465,7 +1465,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @make_typevar(ptr nocapture readnone %_unused_ignored, ptr noundef %v) #0 {
+define internal ptr @make_typevar(ptr readnone captures(none) %_unused_ignored, ptr noundef %v) #0 {
 entry:
   %call = tail call ptr @_Py_make_typevar(ptr noundef %v, ptr noundef null, ptr noundef null) #4
   ret ptr %call
@@ -1480,7 +1480,7 @@ declare ptr @_Py_subscript_generic(ptr noundef, ptr noundef) #1
 declare ptr @_Py_make_typealias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @no_intrinsic2(ptr noundef %tstate, ptr nocapture readnone %unused1, ptr nocapture readnone %unused2) #0 {
+define internal noalias noundef ptr @no_intrinsic2(ptr noundef %tstate, ptr readnone captures(none) %unused1, ptr readnone captures(none) %unused2) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @_PyErr_SetString(ptr noundef %tstate, ptr noundef %0, ptr noundef nonnull @.str.17) #4
@@ -1488,21 +1488,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @prep_reraise_star(ptr nocapture readnone %unused, ptr noundef %orig, ptr noundef %excs) #0 {
+define internal ptr @prep_reraise_star(ptr readnone captures(none) %unused, ptr noundef %orig, ptr noundef %excs) #0 {
 entry:
   %call = tail call ptr @_PyExc_PrepReraiseStar(ptr noundef %orig, ptr noundef %excs) #4
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @make_typevar_with_bound(ptr nocapture readnone %_unused_ignored, ptr noundef %name, ptr noundef %evaluate_bound) #0 {
+define internal ptr @make_typevar_with_bound(ptr readnone captures(none) %_unused_ignored, ptr noundef %name, ptr noundef %evaluate_bound) #0 {
 entry:
   %call = tail call ptr @_Py_make_typevar(ptr noundef %name, ptr noundef %evaluate_bound, ptr noundef null) #4
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @make_typevar_with_constraints(ptr nocapture readnone %_unused_ignored, ptr noundef %name, ptr noundef %evaluate_constraints) #0 {
+define internal ptr @make_typevar_with_constraints(ptr readnone captures(none) %_unused_ignored, ptr noundef %name, ptr noundef %evaluate_constraints) #0 {
 entry:
   %call = tail call ptr @_Py_make_typevar(ptr noundef %name, ptr noundef null, ptr noundef %evaluate_constraints) #4
   ret ptr %call
@@ -1583,7 +1583,7 @@ declare i32 @PyErr_GivenExceptionMatches(ptr noundef, ptr noundef) local_unnamed
 declare ptr @_PyUnicode_FromASCII(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyException_SetCause(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1598,10 +1598,10 @@ declare ptr @_Py_make_typevar(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @_PyExc_PrepReraiseStar(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1675,7 +1675,7 @@ if.then142:                                       ; preds = %if.then6.i, %merge_
   %190 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds nuw i8, ptr %o, i64 32
   %191 = load i64, ptr %len, align 8
-  call void @create_notes_commit(ptr noundef %188, ptr noundef %local_tree, ptr noundef %189, ptr noundef %190, i64 noundef %191, ptr noundef %result_oid) #15
+  call void @create_notes_commit(ptr noundef %188, ptr noundef %local_tree, ptr noundef %189, ptr noundef %190, i64 noundef %191, ptr noundef nonnull %result_oid) #15
   br label %found_result
 
 found_result:                                     ; preds = %if.then142, %if.end134, %if.end121, %if.then66, %if.then63
@@ -1693,7 +1693,7 @@ found_result:                                     ; preds = %if.then142, %if.end
   br i1 %tobool151.not, label %do.end155, label %if.then152
 
 if.then152:                                       ; preds = %found_result
-  %call153 = call ptr @oid_to_hex(ptr noundef %result_oid) #15
+  %call153 = call ptr @oid_to_hex(ptr noundef nonnull %result_oid) #15
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.15, i32 noundef %result.0, ptr noundef %call153) #15
   br label %do.end155
 
@@ -1721,7 +1721,7 @@ declare ptr @repo_get_merge_bases(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @null_oid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @get_commit_tree_oid(ptr noundef) local_unnamed_addr #2
 
@@ -1736,7 +1736,7 @@ declare void @free_commit_list(ptr noundef) local_unnamed_addr #2
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @notes_merge_commit(ptr nocapture noundef readonly %o, ptr noundef %partial_tree, ptr noundef %partial_commit, ptr noundef %result_oid) local_unnamed_addr #0 {
+define dso_local noundef i32 @notes_merge_commit(ptr noundef readonly captures(none) %o, ptr noundef %partial_tree, ptr noundef %partial_commit, ptr noundef %result_oid) local_unnamed_addr #0 {
 entry:
   %path = alloca %struct.strbuf, align 8
   %st = alloca %struct.stat, align 8
@@ -1923,7 +1923,7 @@ while.end:                                        ; preds = %while.cond.backedge
   %call60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #17
   call void @create_notes_commit(ptr noundef %25, ptr noundef %partial_tree, ptr noundef %26, ptr noundef nonnull %arrayidx, i64 noundef %call60, ptr noundef %result_oid) #15
   %27 = load ptr, ptr @the_repository, align 8
-  call void @repo_unuse_commit_buffer(ptr noundef %27, ptr noundef %partial_commit, ptr noundef %call) #15
+  call void @repo_unuse_commit_buffer(ptr noundef %27, ptr noundef %partial_commit, ptr noundef nonnull %call) #15
   %28 = load i32, ptr %verbosity, align 8
   %cmp62 = icmp sgt i32 %28, 3
   br i1 %cmp62, label %if.then64, label %if.end67
@@ -1940,17 +1940,17 @@ if.end67:                                         ; preds = %if.then64, %while.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @repo_get_commit_buffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @git_path_buf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #3
@@ -1960,22 +1960,22 @@ declare ptr @readdir_skip_dot_and_dotdot(ptr noundef) local_unnamed_addr #2
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @index_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @add_note(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @repo_unuse_commit_buffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @notes_merge_abort(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local i32 @notes_merge_abort(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.notes_merge_abort.buf, i64 24, i1 false)
@@ -2000,10 +2000,10 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @remove_dir_recursively(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @repo_diff_setup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2016,7 +2016,7 @@ declare void @diffcore_std(ptr noundef) local_unnamed_addr #2
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @find_notes_merge_pair_pos(ptr noundef %list, i32 noundef %len, ptr nocapture noundef nonnull readonly %obj, i32 noundef range(i32 0, 2) %insert_new, ptr nocapture noundef nonnull writeonly %occupied) unnamed_addr #8 {
+define internal fastcc ptr @find_notes_merge_pair_pos(ptr noundef %list, i32 noundef %len, ptr noundef nonnull readonly captures(none) %obj, i32 noundef range(i32 0, 2) %insert_new, ptr noundef nonnull writeonly captures(none) %occupied) unnamed_addr #8 {
 entry:
   %0 = load i32, ptr @find_notes_merge_pair_pos.last_index, align 4
   %cmp = icmp slt i32 %0, %len
@@ -2150,7 +2150,7 @@ if.end38:                                         ; preds = %if.else26, %if.then
 declare void @diff_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @combine_notes_overwrite(ptr noundef, ptr noundef) #2
 
@@ -2304,19 +2304,19 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

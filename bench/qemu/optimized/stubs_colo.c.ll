@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @migrate_start_colo_process(ptr nocapture noundef readnone %s) local_unnamed_addr #1 {
+define dso_local void @migrate_start_colo_process(ptr noundef readnone captures(none) %s) local_unnamed_addr #1 {
 entry:
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str) #4
   tail call void @abort() #5

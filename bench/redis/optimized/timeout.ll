@@ -135,7 +135,7 @@ declare i32 @clusterRedirectBlockedClientIfNeeded(ptr noundef) local_unnamed_add
 declare void @unblockClientOnError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @encodeTimeoutKey(ptr nocapture noundef writeonly initializes((0, 16)) %buf, i64 noundef %timeout, ptr noundef %c) local_unnamed_addr #0 {
+define dso_local void @encodeTimeoutKey(ptr noundef writeonly captures(none) initializes((0, 16)) %buf, i64 noundef %timeout, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @intrev64(i64 noundef %timeout) #3
   store i64 %call, ptr %buf, align 1
@@ -147,7 +147,7 @@ entry:
 declare i64 @intrev64(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @decodeTimeoutKey(ptr nocapture noundef readonly %buf, ptr nocapture noundef writeonly initializes((0, 8)) %toptr, ptr nocapture noundef writeonly initializes((0, 8)) %cptr) local_unnamed_addr #0 {
+define dso_local void @decodeTimeoutKey(ptr noundef readonly captures(none) %buf, ptr noundef writeonly captures(none) initializes((0, 8)) %toptr, ptr noundef writeonly captures(none) initializes((0, 8)) %cptr) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %buf, align 1
   store i64 %0, ptr %toptr, align 8
@@ -305,7 +305,7 @@ declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %c, ptr noundef %object, ptr nocapture noundef writeonly %timeout, i32 noundef %unit) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getTimeoutFromObjectOrReply(ptr noundef %c, ptr noundef %object, ptr noundef writeonly captures(none) %timeout, i32 noundef %unit) local_unnamed_addr #0 {
 entry:
   %tval = alloca i64, align 8
   %ftval = alloca x86_fp80, align 16

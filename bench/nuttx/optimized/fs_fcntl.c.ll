@@ -15,7 +15,7 @@ define i32 @file_fcntl(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i32 @file_vfcntl(ptr noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

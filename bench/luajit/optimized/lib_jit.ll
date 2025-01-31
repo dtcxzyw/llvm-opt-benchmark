@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden void @lj_dispatch_update(ptr noundef) local_unnamed_addr #1
 
@@ -1336,7 +1336,7 @@ if.then:                                          ; preds = %jit_checktrace.exit
   %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @jit_trlinkname, i64 0, i64 %idxprom
   %15 = load ptr, ptr %arrayidx, align 8
   %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #11
-  %call9 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %15, i64 noundef %call8) #8
+  %call9 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef nonnull %15, i64 noundef %call8) #8
   %16 = ptrtoint ptr %call9 to i64
   %or.i = or i64 %16, -703687441776640
   store i64 %or.i, ptr %13, align 8
@@ -1692,7 +1692,7 @@ cond.true31:                                      ; preds = %for.body
 
 cond.false37:                                     ; preds = %for.body
   %27 = trunc nuw nsw i64 %22 to i32
-  %call39 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %13, i32 noundef %27) #8
+  %call39 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef nonnull %13, i32 noundef %27) #8
   br label %cond.end40
 
 cond.end40:                                       ; preds = %cond.false37, %cond.true31
@@ -1719,7 +1719,7 @@ cond.true48:                                      ; preds = %for.end
   br label %cond.end57
 
 cond.false54:                                     ; preds = %for.end
-  %call56 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %13, i32 noundef %add) #8
+  %call56 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef nonnull %13, i32 noundef %add) #8
   br label %cond.end57
 
 cond.end57:                                       ; preds = %cond.false54, %cond.true48
@@ -1868,7 +1868,7 @@ declare hidden void @lj_debug_pushloc(ptr noundef, ptr noundef, i32 noundef) loc
 declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare hidden ptr @lj_debug_uvname(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2100,7 +2100,7 @@ if.end14:                                         ; preds = %for.inc, %for.cond.
 declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare hidden void @lj_dispatch_init_hotcount(ptr noundef) local_unnamed_addr #1
 
@@ -2108,10 +2108,10 @@ declare hidden void @lj_dispatch_init_hotcount(ptr noundef) local_unnamed_addr #
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

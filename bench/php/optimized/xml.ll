@@ -262,7 +262,7 @@ define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_xml(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_xml(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #16
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #16
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #16
@@ -272,7 +272,7 @@ define hidden void @zm_info_xml(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_xml(ptr nocapture noundef writeonly initializes((0, 8)) %0) #1 {
+define internal void @zm_globals_ctor_xml(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #1 {
   store ptr @.str.5, ptr %0, align 8
   ret void
 }
@@ -327,7 +327,7 @@ define internal noundef nonnull ptr @xml_parser_create_object(ptr noundef %0) #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @xml_parser_free_obj(ptr noundef %0) #0 {
@@ -1141,7 +1141,7 @@ xml_parser_free_ltags.exit:                       ; preds = %5, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xml_parser_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @xml_parser_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #16
   %5 = getelementptr inbounds i8, ptr %0, i64 -488
   %6 = load ptr, ptr %5, align 8
@@ -1806,7 +1806,7 @@ define internal ptr @xml_parser_get_gc(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @xml_parser_get_constructor(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @xml_parser_get_constructor(ptr readnone captures(none) %0) #0 {
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.118) #16
   ret ptr null
 }
@@ -2001,7 +2001,7 @@ _xml_decode_tag.exit282:                          ; preds = %_xml_xmlcharlen.exi
   %81 = load ptr, ptr %80, align 8
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #19
   %83 = load ptr, ptr %21, align 8
-  %84 = call fastcc ptr @xml_utf8_decode(ptr noundef %81, i64 noundef %82, ptr noundef %83)
+  %84 = call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %81, i64 noundef %82, ptr noundef %83)
   store ptr %84, ptr %8, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
@@ -2241,7 +2241,7 @@ _xml_decode_tag.exit291:                          ; preds = %_xml_xmlcharlen.exi
   %209 = load ptr, ptr %208, align 8
   %210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #19
   %211 = load ptr, ptr %21, align 8
-  %212 = call fastcc ptr @xml_utf8_decode(ptr noundef %209, i64 noundef %210, ptr noundef %211)
+  %212 = call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %209, i64 noundef %210, ptr noundef %211)
   store ptr %212, ptr %11, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4
@@ -2359,12 +2359,12 @@ _xml_decode_tag.exit291:                          ; preds = %_xml_xmlcharlen.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @_zend_new_array_0() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xml_utf8_decode(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @xml_utf8_decode(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   store i64 0, ptr %4, align 8
@@ -3290,7 +3290,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
 292:                                              ; preds = %273
   %293 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %287) #19
   %294 = load ptr, ptr %288, align 8
-  %295 = call ptr @zend_hash_str_find(ptr noundef %294, ptr noundef %287, i64 noundef %293) #16
+  %295 = call ptr @zend_hash_str_find(ptr noundef %294, ptr noundef nonnull %287, i64 noundef %293) #16
   %296 = icmp eq ptr %295, null
   br i1 %296, label %297, label %302
 
@@ -3300,7 +3300,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   %299 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %299, align 8
   %300 = load ptr, ptr %288, align 8
-  %301 = call ptr @zend_hash_str_update(ptr noundef %300, ptr noundef %287, i64 noundef %293, ptr noundef nonnull %4) #16
+  %301 = call ptr @zend_hash_str_update(ptr noundef %300, ptr noundef nonnull %287, i64 noundef %293, ptr noundef nonnull %4) #16
   br label %302
 
 302:                                              ; preds = %297, %292
@@ -3330,7 +3330,7 @@ _xml_add_to_info.exit:                            ; preds = %273, %302
   %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %312) #19
   %314 = call i64 @llvm.umin.i64(i64 %313, i64 %.pre-phi375)
   %315 = getelementptr inbounds i8, ptr %312, i64 %314
-  call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i64 noundef 3, ptr noundef %315) #16
+  call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i64 noundef 3, ptr noundef nonnull %315) #16
   call void @add_assoc_str_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i64 noundef 5, ptr noundef %68) #16
   call void @add_assoc_string_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i64 noundef 4, ptr noundef nonnull @.str.20) #16
   %316 = load i32, ptr %266, align 8
@@ -3375,7 +3375,7 @@ _xml_add_to_info.exit:                            ; preds = %273, %302
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -4647,7 +4647,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %17, %_xml_xmlcharle
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parser_create(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_xml_parser_create(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_xml_parser_create_impl(i32 %.val, ptr noundef %1, i32 noundef 0)
@@ -4787,7 +4787,7 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parser_create_ns(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_xml_parser_create_ns(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %3, align 4
   tail call fastcc void @php_xml_parser_create_impl(i32 %.val, ptr noundef %1, i32 noundef 1)
@@ -4795,7 +4795,7 @@ define hidden void @zif_xml_parser_create_ns(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_object(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -7403,7 +7403,7 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_xml_check_string_method_arg(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @php_xml_check_string_method_arg(i32 noundef range(i32 0, 4) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
@@ -7492,7 +7492,7 @@ define internal fastcc noundef zeroext i1 @php_xml_check_string_method_arg(i32 n
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_element_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info, align 8
   %5 = alloca %struct._zend_fcall_info_cache, align 8
@@ -7663,7 +7663,7 @@ define hidden void @zif_xml_set_element_handler(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @zend_parse_parameters_ex(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -7672,7 +7672,7 @@ declare void @zend_release_fcall_info_cache(ptr noundef) local_unnamed_addr #4
 declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xml_set_handler(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @xml_set_handler(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %35, label %4
@@ -7794,7 +7794,7 @@ define internal fastcc void @xml_set_handler(ptr noundef %0, ptr nocapture nound
 declare void @php_XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_character_data_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_character_data_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -7819,7 +7819,7 @@ define hidden void @zif_xml_set_character_data_handler(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xml_set_handler_parse_callable(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zend_fcall_info, align 8
   %6 = alloca %struct._zend_fcall_info_cache, align 8
@@ -7899,7 +7899,7 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr nocapture no
 declare void @php_XML_SetCharacterDataHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_processing_instruction_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_processing_instruction_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -7926,7 +7926,7 @@ define hidden void @zif_xml_set_processing_instruction_handler(ptr nocapture nou
 declare void @php_XML_SetProcessingInstructionHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_default_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_default_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -7953,7 +7953,7 @@ define hidden void @zif_xml_set_default_handler(ptr nocapture noundef readonly %
 declare void @php_XML_SetDefaultHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -7980,7 +7980,7 @@ define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr nocapture nound
 declare void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_notation_decl_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_notation_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -8007,7 +8007,7 @@ define hidden void @zif_xml_set_notation_decl_handler(ptr nocapture noundef read
 declare void @php_XML_SetNotationDeclHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_external_entity_ref_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_external_entity_ref_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -8034,7 +8034,7 @@ define hidden void @zif_xml_set_external_entity_ref_handler(ptr nocapture nounde
 declare void @php_XML_SetExternalEntityRefHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_start_namespace_decl_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_start_namespace_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -8061,7 +8061,7 @@ define hidden void @zif_xml_set_start_namespace_decl_handler(ptr nocapture nound
 declare void @php_XML_SetStartNamespaceDeclHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_set_end_namespace_decl_handler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_set_end_namespace_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   store ptr null, ptr %3, align 8
@@ -8088,7 +8088,7 @@ define hidden void @zif_xml_set_end_namespace_decl_handler(ptr nocapture noundef
 declare void @php_XML_SetEndNamespaceDeclHandler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_parse(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -8166,7 +8166,7 @@ define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocaptu
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_parse_into_struct(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8378,7 +8378,7 @@ xml_parser_free_ltags.exit:                       ; preds = %80, %._crit_edge.i
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_get_error_code(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_get_error_code(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8412,7 +8412,7 @@ define hidden void @zif_xml_get_error_code(ptr nocapture noundef readonly %0, pt
 declare i32 @php_XML_GetErrorCode(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_error_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_error_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8461,7 +8461,7 @@ define hidden void @zif_xml_error_string(ptr nocapture noundef readonly %0, ptr 
 declare ptr @php_XML_ErrorString(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_get_current_line_number(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_get_current_line_number(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8495,7 +8495,7 @@ define hidden void @zif_xml_get_current_line_number(ptr nocapture noundef readon
 declare i32 @php_XML_GetCurrentLineNumber(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_get_current_column_number(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_get_current_column_number(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8529,7 +8529,7 @@ define hidden void @zif_xml_get_current_column_number(ptr nocapture noundef read
 declare i32 @php_XML_GetCurrentColumnNumber(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_get_current_byte_index(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_get_current_byte_index(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8563,7 +8563,7 @@ define hidden void @zif_xml_get_current_byte_index(ptr nocapture noundef readonl
 declare i32 @php_XML_GetCurrentByteIndex(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parser_free(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_parser_free(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8602,7 +8602,7 @@ define hidden void @zif_xml_parser_free(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parser_set_option(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_parser_set_option(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -8791,7 +8791,7 @@ declare ptr @zend_zval_type_name(ptr noundef) local_unnamed_addr #4
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_xml_parser_get_option(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_xml_parser_get_option(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -8870,7 +8870,7 @@ define hidden void @zif_xml_parser_get_option(ptr nocapture noundef readonly %0,
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %43, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr align 1 %42, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 1 %42, i64 %43, i1 false)
   %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 %43
   store i8 0, ptr %51, align 1
   store ptr %46, ptr %1, align 8
@@ -8928,7 +8928,7 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -8967,16 +8967,16 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15

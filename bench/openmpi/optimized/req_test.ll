@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_ftmpi_enabled = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_test(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ompi_request_default_test(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -146,7 +146,7 @@ declare zeroext i1 @ompi_request_is_failed_fn(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_progress() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_test_any(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @ompi_request_default_test_any(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %.not69 = icmp eq i64 %0, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
@@ -295,7 +295,7 @@ define i32 @ompi_request_default_test_any(i64 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.critedge92._crit_edge, label %.lr.ph
 
@@ -516,10 +516,10 @@ define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %.not99 = icmp eq i64 %0, 0
   br i1 %.not99, label %._crit_edge.thread, label %.lr.ph
 

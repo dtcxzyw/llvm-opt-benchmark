@@ -2572,7 +2572,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2630,7 +2630,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -8746,7 +8746,7 @@ invoke.cont6:                                     ; preds = %while.cond.preheade
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i, align 4
   %cmp3.i.i = icmp eq i32 %5, 0
-  br i1 %cmp3.i.i, label %cleanup50, label %invoke.cont8
+  br i1 %cmp3.i.i, label %for.cond.preheader.i.i.i.i, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %6 = add i32 %5, -1
@@ -8800,7 +8800,7 @@ if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit: ; preds = %if.then2.i.i.i.i, %if.end.i.i.i32, %if.then.i.i.i.i
   %14 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %14, null
-  br i1 %cmp.i.i, label %cleanup50, label %invoke.cont6
+  br i1 %cmp.i.i, label %for.cond.preheader.i.i.i.i, label %invoke.cont6
 
 lpad:                                             ; preds = %entry
   %15 = landingpad { ptr, i32 }
@@ -8818,7 +8818,7 @@ lpad4.loopexit.split-lp:                          ; preds = %invoke.cont, %invok
   br label %ehcleanup
 
 while.end:                                        ; preds = %for.body.i
-  br i1 %full, label %invoke.cont15, label %cleanup50
+  br i1 %full, label %invoke.cont15, label %for.cond.preheader.i.i.i.i
 
 invoke.cont15:                                    ; preds = %while.end
   %16 = add i32 %5, -1
@@ -9152,7 +9152,7 @@ if.then45:                                        ; preds = %for.cond.i143, %inv
           to label %cleanup unwind label %lpad20.loopexit.split-lp
 
 cleanup:                                          ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit124, %invoke.cont41, %if.then45
-  br i1 %tobool.not.i.i, label %cleanup50, label %if.then.i.i.i
+  br i1 %tobool.not.i.i, label %for.cond.preheader.i.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
   %m_ref_count.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %call18, i64 8
@@ -9160,11 +9160,11 @@ if.then.i.i.i:                                    ; preds = %cleanup
   %dec.i.i.i.i = add i32 %66, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i157, align 4
   %cmp.i.i.i158 = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp.i.i.i158, label %if.then2.i.i.i, label %cleanup50
+  br i1 %cmp.i.i.i158, label %if.then2.i.i.i, label %for.cond.preheader.i.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %call, ptr noundef nonnull %call18)
-          to label %cleanup50 unwind label %terminate.lpad.i
+          to label %for.cond.preheader.i.i.i.i unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %67 = landingpad { ptr, i32 }
@@ -9173,11 +9173,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   call void @__clang_call_terminate(ptr %68) #21
   unreachable
 
-cleanup50:                                        ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit, %invoke.cont6, %while.end, %if.then2.i.i.i, %if.then.i.i.i, %cleanup
-  %cmp.i.i.i.i159 = icmp eq ptr %call.i.i.i.i24, null
-  br i1 %cmp.i.i.i.i159, label %_ZN13obj_hashtableI4exprED2Ev.exit, label %for.cond.preheader.i.i.i.i
-
-for.cond.preheader.i.i.i.i:                       ; preds = %while.cond.preheader, %cleanup50
+for.cond.preheader.i.i.i.i:                       ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8pop_backEv.exit, %invoke.cont6, %while.end, %cleanup, %if.then.i.i.i, %if.then2.i.i.i, %while.cond.preheader
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call.i.i.i.i24)
           to label %_ZN13obj_hashtableI4exprED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -9188,7 +9184,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   call void @__clang_call_terminate(ptr %70) #21
   unreachable
 
-_ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %cleanup50, %for.cond.preheader.i.i.i.i
+_ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %for.cond.preheader.i.i.i.i
   store ptr null, ptr %hcore, align 8
   %71 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i161 = icmp eq ptr %71, null
@@ -11034,13 +11030,13 @@ declare i32 @llvm.umin.i32(i32, i32) #16
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

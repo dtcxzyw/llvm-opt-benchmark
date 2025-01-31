@@ -45,8 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [34 x i8] c"error during transform evaluation\00", align 1
 @__func__.H5Z__xform_find_type = private unnamed_addr constant [21 x i8] c"H5Z__xform_find_type\00", align 1
 @.str.14 = private unnamed_addr constant [29 x i8] c"could not find matching type\00", align 1
-@__func__.H5Z__xform_parse = private unnamed_addr constant [17 x i8] c"H5Z__xform_parse\00", align 1
-@.str.15 = private unnamed_addr constant [24 x i8] c"No expression provided?\00", align 1
 @__func__.H5Z__parse_expression = private unnamed_addr constant [22 x i8] c"H5Z__parse_expression\00", align 1
 @.str.16 = private unnamed_addr constant [28 x i8] c"Unable to allocate new node\00", align 1
 @.str.17 = private unnamed_addr constant [40 x i8] c"Error parsing data transform expression\00", align 1
@@ -69,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.H5Z__get_token = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 6, i32 4, i32 poison, i32 5, i32 poison, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_xform_eval(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_xform_eval(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.result, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -742,10 +740,10 @@ declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.result, align 8
   %6 = alloca %struct.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -7009,24 +7007,24 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %.thread120, label %16
+  br i1 %12, label %.thread107, label %16
 
-.thread120:                                       ; preds = %9
+.thread107:                                       ; preds = %9
   %13 = load i64, ptr @H5E_RESOURCE_g, align 8
   %14 = load i64, ptr @H5E_NOSPACE_g, align 8
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1413, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.5) #12
-  br label %99
+  br label %95
 
 16:                                               ; preds = %9
   %17 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %0) #12
   store ptr %17, ptr %3, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %94, label %.preheader
+  br i1 %18, label %90, label %.preheader
 
 .preheader:                                       ; preds = %16
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
-  %.not91 = icmp eq i64 %19, 0
-  br i1 %.not91, label %69, label %.lr.ph
+  %.not90 = icmp eq i64 %19, 0
+  br i1 %.not90, label %H5Z__xform_parse.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = tail call ptr @__ctype_b_loc() #16
@@ -7036,8 +7034,8 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph, %55
   %24 = phi i64 [ 0, %.lr.ph ], [ %57, %55 ]
-  %.190 = phi i32 [ 0, %.lr.ph ], [ %.2, %55 ]
-  %.05688 = phi i32 [ 0, %.lr.ph ], [ %56, %55 ]
+  %.189 = phi i32 [ 0, %.lr.ph ], [ %.2, %55 ]
+  %.05687 = phi i32 [ 0, %.lr.ph ], [ %56, %55 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i64
@@ -7048,7 +7046,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not68, label %55, label %31
 
 31:                                               ; preds = %23
-  %.not69 = icmp ne i32 %.05688, 0
+  %.not69 = icmp ne i32 %.05687, 0
   %32 = icmp ugt i64 %22, %24
   %or.cond78 = and i1 %.not69, %32
   br i1 %or.cond78, label %33, label %53
@@ -7060,7 +7058,7 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 34:                                               ; preds = %33, %33
-  %35 = add i32 %.05688, -1
+  %35 = add i32 %.05687, -1
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
   %38 = load i8, ptr %37, align 1
@@ -7074,15 +7072,15 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond79, label %44, label %53
 
 44:                                               ; preds = %34
-  %45 = add i32 %.05688, 1
+  %45 = add i32 %.05687, 1
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = sext i8 %48 to i64
   %50 = getelementptr inbounds i16, ptr %21, i64 %49
   %51 = load i16, ptr %50, align 2
-  %.fr87 = freeze i16 %51
-  %52 = and i16 %.fr87, 2048
+  %.fr86 = freeze i16 %51
+  %52 = and i16 %.fr86, 2048
   %.not71.not = icmp eq i16 %52, 0
   br i1 %.not71.not, label %switch.early.test, label %55
 
@@ -7093,19 +7091,19 @@ switch.early.test:                                ; preds = %44
   ]
 
 53:                                               ; preds = %switch.early.test, %34, %33, %31
-  %54 = add i32 %.190, 1
+  %54 = add i32 %.189, 1
   br label %55
 
 55:                                               ; preds = %switch.early.test, %switch.early.test, %44, %23, %53
-  %.2 = phi i32 [ %.190, %switch.early.test ], [ %54, %53 ], [ %.190, %23 ], [ %.190, %44 ], [ %.190, %switch.early.test ]
-  %56 = add i32 %.05688, 1
+  %.2 = phi i32 [ %.189, %switch.early.test ], [ %54, %53 ], [ %.189, %23 ], [ %.189, %44 ], [ %.189, %switch.early.test ]
+  %56 = add i32 %.05687, 1
   %57 = zext i32 %56 to i64
   %58 = icmp ugt i64 %19, %57
   br i1 %58, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %.thread98, label %59
+  br i1 %.not, label %H5Z__xform_parse.exit, label %59
 
 59:                                               ; preds = %._crit_edge
   %60 = zext i32 %.2 to i64
@@ -7114,99 +7112,82 @@ switch.early.test:                                ; preds = %44
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
-  br i1 %64, label %65, label %.thread98
+  br i1 %64, label %65, label %H5Z__xform_parse.exit
 
 65:                                               ; preds = %59
   %66 = load i64, ptr @H5E_RESOURCE_g, align 8
   %67 = load i64, ptr @H5E_NOSPACE_g, align 8
   %68 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1443, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.7) #12
-  br label %.thread104
+  br label %.thread94
 
-.thread98:                                        ; preds = %59, %._crit_edge
+H5Z__xform_parse.exit:                            ; preds = %.preheader, %59, %._crit_edge
+  %.1.lcssa93 = phi i32 [ %.2, %59 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  br label %H5Z__xform_parse.exit
-
-69:                                               ; preds = %.preheader
-  store i32 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %H5Z__xform_parse.exit.thread, label %H5Z__xform_parse.exit
-
-H5Z__xform_parse.exit.thread:                     ; preds = %69
-  %70 = load i64, ptr @H5E_ARGS_g, align 8
-  %71 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_parse, i32 noundef 535, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.15) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  br label %78
-
-H5Z__xform_parse.exit:                            ; preds = %.thread98, %69
-  %.1.lcssa97101 = phi i32 [ %.2, %.thread98 ], [ 0, %69 ]
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %0, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %0, ptr %74, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %0, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %0, ptr %70, align 8
   store ptr %0, ptr %2, align 8
-  %75 = call fastcc ptr @H5Z__parse_expression(ptr noundef %2, ptr noundef nonnull %10)
-  call fastcc void @H5Z__xform_reduce_tree(ptr noundef %75)
+  %71 = call fastcc ptr @H5Z__parse_expression(ptr noundef %2, ptr noundef nonnull %10)
+  call fastcc void @H5Z__xform_reduce_tree(ptr noundef %71)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %75, ptr %76, align 8
-  %77 = icmp eq ptr %75, null
-  br i1 %77, label %78, label %82
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %71, ptr %72, align 8
+  %73 = icmp eq ptr %71, null
+  br i1 %73, label %74, label %78
 
-78:                                               ; preds = %H5Z__xform_parse.exit.thread, %H5Z__xform_parse.exit
-  %.1.lcssa97102 = phi i32 [ 0, %H5Z__xform_parse.exit.thread ], [ %.1.lcssa97101, %H5Z__xform_parse.exit ]
-  %79 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %80 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1452, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.8) #12
-  br label %.thread104
+74:                                               ; preds = %H5Z__xform_parse.exit
+  %75 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %76 = load i64, ptr @H5E_NOSPACE_g, align 8
+  %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1452, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.8) #12
+  br label %.thread94
 
-82:                                               ; preds = %H5Z__xform_parse.exit
-  %83 = load i32, ptr %10, align 8
-  %.not67 = icmp eq i32 %.1.lcssa97101, %83
-  br i1 %.not67, label %.thread, label %84
+78:                                               ; preds = %H5Z__xform_parse.exit
+  %79 = load i32, ptr %10, align 8
+  %.not67 = icmp eq i32 %.1.lcssa93, %79
+  br i1 %.not67, label %.thread, label %80
 
-84:                                               ; preds = %82
-  %85 = load i64, ptr @H5E_ARGS_g, align 8
-  %86 = load i64, ptr @H5E_BADTYPE_g, align 8
-  %87 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1458, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.9) #12
-  call fastcc void @H5Z__xform_destroy_parse_tree(ptr noundef nonnull %75)
-  br label %.thread104
+80:                                               ; preds = %78
+  %81 = load i64, ptr @H5E_ARGS_g, align 8
+  %82 = load i64, ptr @H5E_BADTYPE_g, align 8
+  %83 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1458, i64 noundef %81, i64 noundef %82, ptr noundef nonnull @.str.9) #12
+  call fastcc void @H5Z__xform_destroy_parse_tree(ptr noundef nonnull %71)
+  br label %.thread94
 
-.thread104:                                       ; preds = %84, %65, %78
-  %.055109 = phi i32 [ %.1.lcssa97101, %84 ], [ %.1.lcssa97102, %78 ], [ 1, %65 ]
-  %88 = call ptr @H5MM_xfree(ptr noundef nonnull %17) #12
-  %.not74 = icmp eq i32 %.055109, 0
-  br i1 %.not74, label %.thread111, label %89
+.thread94:                                        ; preds = %80, %65, %74
+  %.05597 = phi i32 [ %.1.lcssa93, %80 ], [ %.1.lcssa93, %74 ], [ 1, %65 ]
+  %84 = call ptr @H5MM_xfree(ptr noundef nonnull %17) #12
+  %.not74 = icmp eq i32 %.05597, 0
+  br i1 %.not74, label %.thread99, label %85
 
-89:                                               ; preds = %.thread104
-  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %.not75 = icmp eq ptr %91, null
-  br i1 %.not75, label %.thread111, label %92
+85:                                               ; preds = %.thread94
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %.not75 = icmp eq ptr %87, null
+  br i1 %.not75, label %.thread99, label %88
 
-92:                                               ; preds = %89
-  %93 = call ptr @H5MM_xfree(ptr noundef nonnull %91) #12
-  br label %.thread111
+88:                                               ; preds = %85
+  %89 = call ptr @H5MM_xfree(ptr noundef nonnull %87) #12
+  br label %.thread99
 
-94:                                               ; preds = %16
-  %95 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %96 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %97 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1418, i64 noundef %95, i64 noundef %96, ptr noundef nonnull @.str.6) #12
-  br label %.thread111
+90:                                               ; preds = %16
+  %91 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %92 = load i64, ptr @H5E_NOSPACE_g, align 8
+  %93 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1418, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.6) #12
+  br label %.thread99
 
-.thread111:                                       ; preds = %.thread104, %94, %89, %92
-  %98 = call ptr @H5MM_xfree(ptr noundef nonnull %10) #12
-  br label %99
+.thread99:                                        ; preds = %.thread94, %90, %85, %88
+  %94 = call ptr @H5MM_xfree(ptr noundef nonnull %10) #12
+  br label %95
 
-99:                                               ; preds = %.thread120, %.thread111
-  %100 = call ptr @H5MM_xfree(ptr noundef nonnull %3) #12
+95:                                               ; preds = %.thread107, %.thread99
+  %96 = call ptr @H5MM_xfree(ptr noundef nonnull %3) #12
   br label %.thread
 
-.thread:                                          ; preds = %5, %82, %99
-  %.086 = phi ptr [ null, %99 ], [ %3, %82 ], [ null, %5 ]
-  ret ptr %.086
+.thread:                                          ; preds = %5, %78, %95
+  %.085 = phi ptr [ null, %95 ], [ %3, %78 ], [ null, %5 ]
+  ret ptr %.085
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -7215,7 +7196,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
@@ -7273,7 +7254,7 @@ define noundef i32 @H5Z_xform_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %3
@@ -7425,7 +7406,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %125 [
@@ -7709,18 +7690,18 @@ define zeroext i1 @H5Z_xform_noop(ptr noundef readonly %0) local_unnamed_addr #7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5Z_xform_extract_xform_str(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define ptr @H5Z_xform_extract_xform_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @H5T_cmp(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_expression(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_expression(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__parse_term(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
@@ -8011,7 +7992,7 @@ H5Z__op_is_numbs.exit33.thread:                   ; preds = %H5Z__op_is_numbs.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
@@ -8388,7 +8369,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__get_token(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -8613,10 +8594,10 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull initializes((3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5Z__do_op(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @H5Z__do_op(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %246 [
@@ -9077,10 +9058,10 @@ define internal fastcc void @H5Z__do_op(ptr nocapture noundef nonnull %0) unname
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

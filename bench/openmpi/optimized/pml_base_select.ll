@@ -493,7 +493,7 @@ opal_list_remove_first.exit96:                    ; preds = %opal_obj_run_destru
 
 opal_obj_run_destructors.exit101:                 ; preds = %.lr.ph.i98, %._crit_edge126
   %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 76), align 4
-  %200 = call i32 @mca_base_components_close(i32 noundef %199, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 80), ptr noundef %.056.lcssa140) #10
+  %200 = call i32 @mca_base_components_close(i32 noundef %199, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 80), ptr noundef nonnull %.056.lcssa140) #10
   %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 24), align 8
   %.not77 = icmp eq ptr %201, null
   br i1 %.not77, label %204, label %202
@@ -548,10 +548,10 @@ mca_pml_base_pml_selected.exit:                   ; preds = %208, %213
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -564,10 +564,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @ompi_rte_abort(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @mca_base_components_close(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -625,7 +625,7 @@ declare ptr @mca_base_component_to_string(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Put(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @ompi_pml_base_check_pml, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %.loopexit
@@ -822,7 +822,7 @@ define internal fastcc range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected_im
   %82 = load ptr, ptr %6, align 8
   %83 = icmp eq ptr %82, null
   %84 = select i1 %83, ptr @.str.21, ptr %82
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef %80, ptr noundef %0, ptr noundef %81, ptr noundef nonnull %84, ptr noundef nonnull %44) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef %80, ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %84, ptr noundef nonnull %44) #10
   call void @free(ptr noundef nonnull %44) #10
   %85 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %85) #10
@@ -852,7 +852,7 @@ declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -861,10 +861,10 @@ declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

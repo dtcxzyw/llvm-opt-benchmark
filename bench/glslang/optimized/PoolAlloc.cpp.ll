@@ -56,7 +56,7 @@ define void @_ZN7glslang22SetThreadPoolAllocatorEPNS_14TPoolAllocatorE(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 8), (40, 84)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 8), (40, 84)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
   store i64 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -109,7 +109,7 @@ _ZN7glslang14TPoolAllocator4pushEv.exit:          ; preds = %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocator4pushEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocator4pushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -188,7 +188,7 @@ _ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE9push_backERKS2_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
@@ -239,12 +239,12 @@ _ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EED2Ev.exit: ; preds =
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK7glslang11TAllocation15checkGuardBlockEPhhPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #4 align 2 {
+define void @_ZNK7glslang11TAllocation15checkGuardBlockEPhhPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocator3popEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocator3popEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -307,7 +307,7 @@ define void @_ZN7glslang14TPoolAllocator3popEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocator6popAllEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocator6popAllEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -386,7 +386,7 @@ _ZN7glslang14TPoolAllocator3popEv.exit:           ; preds = %9, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -481,7 +481,7 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK7glslang11TAllocation14checkAllocListEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
+define void @_ZNK7glslang11TAllocation14checkAllocListEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -498,10 +498,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

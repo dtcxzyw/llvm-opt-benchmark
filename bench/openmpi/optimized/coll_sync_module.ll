@@ -33,14 +33,14 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_coll_sync_module_construct(ptr nocapture noundef writeonly initializes((592, 1713)) %0) #0 {
+define internal void @mca_coll_sync_module_construct(ptr noundef writeonly captures(none) initializes((592, 1713)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1121) %2, i8 0, i64 1121, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_coll_sync_module_destruct(ptr nocapture noundef %0) #1 {
+define internal void @mca_coll_sync_module_destruct(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -538,7 +538,7 @@ define noundef i32 @mca_coll_sync_init_query(i1 noundef zeroext %0, i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_coll_sync_comm_query(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @mca_coll_sync_comm_query(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_component, i64 284), align 4
   %4 = icmp eq i32 %3, 0
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sync_component, i64 288), align 8
@@ -613,7 +613,7 @@ opal_obj_new.exit.thread:                         ; preds = %13, %2, %opal_obj_n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_coll_sync_module_enable(ptr nocapture noundef initializes((592, 1704)) %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 -13, 1) i32 @mca_coll_sync_module_enable(ptr noundef captures(none) initializes((592, 1704)) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8
@@ -915,13 +915,13 @@ declare i32 @mca_coll_sync_scatter(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare i32 @mca_coll_sync_scatterv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7

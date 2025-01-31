@@ -949,7 +949,7 @@ _ZN5eastl6rbtreeIiiNS_4lessIiEENS_9allocatorENS_8use_selfIiEELb0ELb1EEaSESt16ini
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN5eastl3setIiNS_4lessIiEENS_9allocatorEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(41) %x) local_unnamed_addr #0 comdat align 2 {
@@ -18723,25 +18723,18 @@ invoke.cont325:                                   ; preds = %if.end16.i799, %lan
           to label %call.i.i.i.noexc804 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc804:                              ; preds = %invoke.cont325
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i798, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc806 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i798, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i.i unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc806:                                        ; preds = %call.i.i.i.noexc804
-  %isnull.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i798, null
-  br i1 %isnull.i.i.i.i, label %invoke.cont329, label %delete.notnull.i.i.i.i
-
-delete.notnull.i.i.i.i:                           ; preds = %.noexc806
+delete.notnull.i.i.i.i:                           ; preds = %call.i.i.i.noexc804
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i798) #13
-  br label %invoke.cont329
-
-invoke.cont329:                                   ; preds = %delete.notnull.i.i.i.i, %.noexc806
   %244 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i809 = icmp eq ptr %244, null
   br i1 %cmp.not5.i.i.i809, label %invoke.cont339, label %while.body.i.i.i811
 
-while.body.i.i.i811:                              ; preds = %invoke.cont329, %while.body.i.i.i811
-  %__x.addr.07.i.i.i812 = phi ptr [ %__x.addr.1.i.i.i819, %while.body.i.i.i811 ], [ %244, %invoke.cont329 ]
-  %__y.addr.06.i.i.i813 = phi ptr [ %__y.addr.1.i.i.i816, %while.body.i.i.i811 ], [ %200, %invoke.cont329 ]
+while.body.i.i.i811:                              ; preds = %delete.notnull.i.i.i.i, %while.body.i.i.i811
+  %__x.addr.07.i.i.i812 = phi ptr [ %__x.addr.1.i.i.i819, %while.body.i.i.i811 ], [ %244, %delete.notnull.i.i.i.i ]
+  %__y.addr.06.i.i.i813 = phi ptr [ %__y.addr.1.i.i.i816, %while.body.i.i.i811 ], [ %200, %delete.notnull.i.i.i.i ]
   %_M_storage.i.i.i.i.i814 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i812, i64 32
   %245 = load i32, ptr %_M_storage.i.i.i.i.i814, align 4
   %cmp.i.i.i.i815 = icmp slt i32 %245, 1
@@ -18763,8 +18756,8 @@ lor.lhs.false.i.i823:                             ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i826 = select i1 %cmp.i4.i.i825, ptr %200, ptr %__y.addr.1.i.i.i816
   br label %invoke.cont339
 
-invoke.cont339:                                   ; preds = %invoke.cont329, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i821, %lor.lhs.false.i.i823
-  %retval.sroa.0.0.i.i827 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i821 ], [ %200, %invoke.cont329 ], [ %spec.select.i.i826, %lor.lhs.false.i.i823 ]
+invoke.cont339:                                   ; preds = %delete.notnull.i.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i821, %lor.lhs.false.i.i823
+  %retval.sroa.0.0.i.i827 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i821 ], [ %200, %delete.notnull.i.i.i.i ], [ %spec.select.i.i826, %lor.lhs.false.i.i823 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i827, ptr noundef nonnull align 8 dereferenceable(32) %200) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #13
   %247 = load i64, ptr %_M_node_count.i.i.i.i.i581, align 8
@@ -18944,25 +18937,18 @@ invoke.cont384:                                   ; preds = %if.end16.i919, %lan
           to label %call.i.i.i923.noexc unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i923.noexc:                              ; preds = %invoke.cont384
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i918, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc928 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i918, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i.i925 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc928:                                        ; preds = %call.i.i.i923.noexc
-  %isnull.i.i.i.i924 = icmp eq ptr %retval.sroa.0.0.i918, null
-  br i1 %isnull.i.i.i.i924, label %invoke.cont388, label %delete.notnull.i.i.i.i925
-
-delete.notnull.i.i.i.i925:                        ; preds = %.noexc928
+delete.notnull.i.i.i.i925:                        ; preds = %call.i.i.i923.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i918) #13
-  br label %invoke.cont388
-
-invoke.cont388:                                   ; preds = %delete.notnull.i.i.i.i925, %.noexc928
   %264 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i932 = icmp eq ptr %264, null
   br i1 %cmp.not5.i.i.i932, label %invoke.cont398, label %while.body.i.i.i934
 
-while.body.i.i.i934:                              ; preds = %invoke.cont388, %while.body.i.i.i934
-  %__x.addr.07.i.i.i935 = phi ptr [ %__x.addr.1.i.i.i942, %while.body.i.i.i934 ], [ %264, %invoke.cont388 ]
-  %__y.addr.06.i.i.i936 = phi ptr [ %__y.addr.1.i.i.i939, %while.body.i.i.i934 ], [ %200, %invoke.cont388 ]
+while.body.i.i.i934:                              ; preds = %delete.notnull.i.i.i.i925, %while.body.i.i.i934
+  %__x.addr.07.i.i.i935 = phi ptr [ %__x.addr.1.i.i.i942, %while.body.i.i.i934 ], [ %264, %delete.notnull.i.i.i.i925 ]
+  %__y.addr.06.i.i.i936 = phi ptr [ %__y.addr.1.i.i.i939, %while.body.i.i.i934 ], [ %200, %delete.notnull.i.i.i.i925 ]
   %_M_storage.i.i.i.i.i937 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i935, i64 32
   %265 = load i32, ptr %_M_storage.i.i.i.i.i937, align 4
   %cmp.i.i.i.i938 = icmp slt i32 %265, 5
@@ -18984,8 +18970,8 @@ lor.lhs.false.i.i946:                             ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i949 = select i1 %cmp.i4.i.i948, ptr %200, ptr %__y.addr.1.i.i.i939
   br label %invoke.cont398
 
-invoke.cont398:                                   ; preds = %invoke.cont388, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i944, %lor.lhs.false.i.i946
-  %retval.sroa.0.0.i.i950 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i944 ], [ %200, %invoke.cont388 ], [ %spec.select.i.i949, %lor.lhs.false.i.i946 ]
+invoke.cont398:                                   ; preds = %delete.notnull.i.i.i.i925, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i944, %lor.lhs.false.i.i946
+  %retval.sroa.0.0.i.i950 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i944 ], [ %200, %delete.notnull.i.i.i.i925 ], [ %spec.select.i.i949, %lor.lhs.false.i.i946 ]
   %call.i1.i.i954 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i950, ptr noundef nonnull align 8 dereferenceable(32) %200) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i954) #13
   %267 = load i64, ptr %_M_node_count.i.i.i.i.i581, align 8
@@ -19466,25 +19452,18 @@ invoke.cont480:                                   ; preds = %if.end16.i1113, %la
           to label %call.i.i.i1117.noexc unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i1117.noexc:                             ; preds = %invoke.cont480
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1112, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc1122 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1112, ptr noundef nonnull align 8 dereferenceable(41) %call192)
+          to label %delete.notnull.i.i.i.i1119 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1122:                                       ; preds = %call.i.i.i1117.noexc
-  %isnull.i.i.i.i1118 = icmp eq ptr %retval.sroa.0.0.i1112, null
-  br i1 %isnull.i.i.i.i1118, label %invoke.cont484, label %delete.notnull.i.i.i.i1119
-
-delete.notnull.i.i.i.i1119:                       ; preds = %.noexc1122
+delete.notnull.i.i.i.i1119:                       ; preds = %call.i.i.i1117.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i1112) #13
-  br label %invoke.cont484
-
-invoke.cont484:                                   ; preds = %delete.notnull.i.i.i.i1119, %.noexc1122
   %309 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i1126 = icmp eq ptr %309, null
   br i1 %cmp.not5.i.i.i1126, label %invoke.cont494, label %while.body.i.i.i1128
 
-while.body.i.i.i1128:                             ; preds = %invoke.cont484, %while.body.i.i.i1128
-  %__x.addr.07.i.i.i1129 = phi ptr [ %__x.addr.1.i.i.i1136, %while.body.i.i.i1128 ], [ %309, %invoke.cont484 ]
-  %__y.addr.06.i.i.i1130 = phi ptr [ %__y.addr.1.i.i.i1133, %while.body.i.i.i1128 ], [ %200, %invoke.cont484 ]
+while.body.i.i.i1128:                             ; preds = %delete.notnull.i.i.i.i1119, %while.body.i.i.i1128
+  %__x.addr.07.i.i.i1129 = phi ptr [ %__x.addr.1.i.i.i1136, %while.body.i.i.i1128 ], [ %309, %delete.notnull.i.i.i.i1119 ]
+  %__y.addr.06.i.i.i1130 = phi ptr [ %__y.addr.1.i.i.i1133, %while.body.i.i.i1128 ], [ %200, %delete.notnull.i.i.i.i1119 ]
   %_M_storage.i.i.i.i.i1131 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1129, i64 32
   %310 = load i32, ptr %_M_storage.i.i.i.i.i1131, align 4
   %cmp.i.i.i.i1132 = icmp slt i32 %310, 60
@@ -19506,8 +19485,8 @@ lor.lhs.false.i.i1140:                            ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i1143 = select i1 %cmp.i4.i.i1142, ptr %200, ptr %__y.addr.1.i.i.i1133
   br label %invoke.cont494
 
-invoke.cont494:                                   ; preds = %invoke.cont484, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1138, %lor.lhs.false.i.i1140
-  %retval.sroa.0.0.i.i1144 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1138 ], [ %200, %invoke.cont484 ], [ %spec.select.i.i1143, %lor.lhs.false.i.i1140 ]
+invoke.cont494:                                   ; preds = %delete.notnull.i.i.i.i1119, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1138, %lor.lhs.false.i.i1140
+  %retval.sroa.0.0.i.i1144 = phi ptr [ %200, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1138 ], [ %200, %delete.notnull.i.i.i.i1119 ], [ %spec.select.i.i1143, %lor.lhs.false.i.i1140 ]
   %call.i1.i.i1148 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1144, ptr noundef nonnull align 8 dereferenceable(32) %200) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1148) #13
   %312 = load i64, ptr %_M_node_count.i.i.i.i.i581, align 8
@@ -23437,7 +23416,7 @@ invoke.cont396:                                   ; preds = %if.end16.i1210, %la
           to label %call.i.i.i.noexc1221 unwind label %_ZN10TestObjectD2Ev.exit2190
 
 call.i.i.i.noexc1221:                             ; preds = %invoke.cont396
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1209, ptr noundef nonnull align 8 dereferenceable(41) %call215)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1209, ptr noundef nonnull align 8 dereferenceable(41) %call215)
           to label %.noexc1223 unwind label %_ZN10TestObjectD2Ev.exit2190
 
 .noexc1223:                                       ; preds = %call.i.i.i.noexc1221
@@ -23826,7 +23805,7 @@ invoke.cont481:                                   ; preds = %if.end16.i1459, %la
           to label %call.i.i.i1463.noexc unwind label %_ZN10TestObjectD2Ev.exit2254
 
 call.i.i.i1463.noexc:                             ; preds = %invoke.cont481
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1458, ptr noundef nonnull align 8 dereferenceable(41) %call215)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1458, ptr noundef nonnull align 8 dereferenceable(41) %call215)
           to label %.noexc1472 unwind label %_ZN10TestObjectD2Ev.exit2254
 
 .noexc1472:                                       ; preds = %call.i.i.i1463.noexc
@@ -24340,7 +24319,7 @@ invoke.cont609:                                   ; preds = %if.end16.i1795, %la
           to label %call.i.i.i1799.noexc unwind label %_ZN10TestObjectD2Ev.exit2334
 
 call.i.i.i1799.noexc:                             ; preds = %invoke.cont609
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1794, ptr noundef nonnull align 8 dereferenceable(41) %call215)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1794, ptr noundef nonnull align 8 dereferenceable(41) %call215)
           to label %.noexc1808 unwind label %_ZN10TestObjectD2Ev.exit2334
 
 .noexc1808:                                       ; preds = %call.i.i.i1799.noexc
@@ -28041,25 +28020,18 @@ invoke.cont323:                                   ; preds = %if.end16.i853, %lan
           to label %call.i.i.i.noexc unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont323
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i852, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc857 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i852, ptr noundef nonnull align 8 dereferenceable(41) %call189)
+          to label %delete.notnull.i.i.i.i unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc857:                                        ; preds = %call.i.i.i.noexc
-  %isnull.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i852, null
-  br i1 %isnull.i.i.i.i, label %invoke.cont327, label %delete.notnull.i.i.i.i
-
-delete.notnull.i.i.i.i:                           ; preds = %.noexc857
+delete.notnull.i.i.i.i:                           ; preds = %call.i.i.i.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i852) #13
-  br label %invoke.cont327
-
-invoke.cont327:                                   ; preds = %delete.notnull.i.i.i.i, %.noexc857
   %226 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i860 = icmp eq ptr %226, null
   br i1 %cmp.not5.i.i.i860, label %invoke.cont333, label %while.body.i.i.i862
 
-while.body.i.i.i862:                              ; preds = %invoke.cont327, %while.body.i.i.i862
-  %__x.addr.07.i.i.i863 = phi ptr [ %__x.addr.1.i.i.i870, %while.body.i.i.i862 ], [ %226, %invoke.cont327 ]
-  %__y.addr.06.i.i.i864 = phi ptr [ %__y.addr.1.i.i.i867, %while.body.i.i.i862 ], [ %203, %invoke.cont327 ]
+while.body.i.i.i862:                              ; preds = %delete.notnull.i.i.i.i, %while.body.i.i.i862
+  %__x.addr.07.i.i.i863 = phi ptr [ %__x.addr.1.i.i.i870, %while.body.i.i.i862 ], [ %226, %delete.notnull.i.i.i.i ]
+  %__y.addr.06.i.i.i864 = phi ptr [ %__y.addr.1.i.i.i867, %while.body.i.i.i862 ], [ %203, %delete.notnull.i.i.i.i ]
   %_M_storage.i.i.i.i.i865 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i863, i64 32
   %227 = load i32, ptr %_M_storage.i.i.i.i.i865, align 4
   %cmp.i.i.i.i866 = icmp slt i32 %227, 1
@@ -28081,8 +28053,8 @@ lor.lhs.false.i.i874:                             ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i877 = select i1 %cmp.i4.i.i876, ptr %203, ptr %__y.addr.1.i.i.i867
   br label %invoke.cont333
 
-invoke.cont333:                                   ; preds = %lor.lhs.false.i.i874, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i872, %invoke.cont327
-  %retval.sroa.0.0.i.i878 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i872 ], [ %203, %invoke.cont327 ], [ %spec.select.i.i877, %lor.lhs.false.i.i874 ]
+invoke.cont333:                                   ; preds = %lor.lhs.false.i.i874, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i872, %delete.notnull.i.i.i.i
+  %retval.sroa.0.0.i.i878 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i872 ], [ %203, %delete.notnull.i.i.i.i ], [ %spec.select.i.i877, %lor.lhs.false.i.i874 ]
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i878, ptr noundef nonnull align 8 dereferenceable(32) %203) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #13
   %229 = load i64, ptr %_M_node_count.i.i.i.i.i635, align 8
@@ -28231,25 +28203,18 @@ invoke.cont382:                                   ; preds = %if.end16.i955, %lan
           to label %call.i.i.i959.noexc unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i959.noexc:                              ; preds = %invoke.cont382
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i954, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc963 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i954, ptr noundef nonnull align 8 dereferenceable(41) %call189)
+          to label %delete.notnull.i.i.i.i961 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc963:                                        ; preds = %call.i.i.i959.noexc
-  %isnull.i.i.i.i960 = icmp eq ptr %retval.sroa.0.0.i954, null
-  br i1 %isnull.i.i.i.i960, label %invoke.cont386, label %delete.notnull.i.i.i.i961
-
-delete.notnull.i.i.i.i961:                        ; preds = %.noexc963
+delete.notnull.i.i.i.i961:                        ; preds = %call.i.i.i959.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i954) #13
-  br label %invoke.cont386
-
-invoke.cont386:                                   ; preds = %delete.notnull.i.i.i.i961, %.noexc963
   %241 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i967 = icmp eq ptr %241, null
   br i1 %cmp.not5.i.i.i967, label %invoke.cont392, label %while.body.i.i.i969
 
-while.body.i.i.i969:                              ; preds = %invoke.cont386, %while.body.i.i.i969
-  %__x.addr.07.i.i.i970 = phi ptr [ %__x.addr.1.i.i.i977, %while.body.i.i.i969 ], [ %241, %invoke.cont386 ]
-  %__y.addr.06.i.i.i971 = phi ptr [ %__y.addr.1.i.i.i974, %while.body.i.i.i969 ], [ %203, %invoke.cont386 ]
+while.body.i.i.i969:                              ; preds = %delete.notnull.i.i.i.i961, %while.body.i.i.i969
+  %__x.addr.07.i.i.i970 = phi ptr [ %__x.addr.1.i.i.i977, %while.body.i.i.i969 ], [ %241, %delete.notnull.i.i.i.i961 ]
+  %__y.addr.06.i.i.i971 = phi ptr [ %__y.addr.1.i.i.i974, %while.body.i.i.i969 ], [ %203, %delete.notnull.i.i.i.i961 ]
   %_M_storage.i.i.i.i.i972 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i970, i64 32
   %242 = load i32, ptr %_M_storage.i.i.i.i.i972, align 4
   %cmp.i.i.i.i973 = icmp slt i32 %242, 5
@@ -28271,8 +28236,8 @@ lor.lhs.false.i.i981:                             ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i984 = select i1 %cmp.i4.i.i983, ptr %203, ptr %__y.addr.1.i.i.i974
   br label %invoke.cont392
 
-invoke.cont392:                                   ; preds = %lor.lhs.false.i.i981, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i979, %invoke.cont386
-  %retval.sroa.0.0.i.i985 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i979 ], [ %203, %invoke.cont386 ], [ %spec.select.i.i984, %lor.lhs.false.i.i981 ]
+invoke.cont392:                                   ; preds = %lor.lhs.false.i.i981, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i979, %delete.notnull.i.i.i.i961
+  %retval.sroa.0.0.i.i985 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i979 ], [ %203, %delete.notnull.i.i.i.i961 ], [ %spec.select.i.i984, %lor.lhs.false.i.i981 ]
   %call.i1.i.i989 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i985, ptr noundef nonnull align 8 dereferenceable(32) %203) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i989) #13
   %244 = load i64, ptr %_M_node_count.i.i.i.i.i635, align 8
@@ -28582,25 +28547,18 @@ invoke.cont478:                                   ; preds = %if.end16.i1139, %la
           to label %call.i.i.i1143.noexc unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i1143.noexc:                             ; preds = %invoke.cont478
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1138, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc1147 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1138, ptr noundef nonnull align 8 dereferenceable(41) %call189)
+          to label %delete.notnull.i.i.i.i1145 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1147:                                       ; preds = %call.i.i.i1143.noexc
-  %isnull.i.i.i.i1144 = icmp eq ptr %retval.sroa.0.0.i1138, null
-  br i1 %isnull.i.i.i.i1144, label %invoke.cont482, label %delete.notnull.i.i.i.i1145
-
-delete.notnull.i.i.i.i1145:                       ; preds = %.noexc1147
+delete.notnull.i.i.i.i1145:                       ; preds = %call.i.i.i1143.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i1138) #13
-  br label %invoke.cont482
-
-invoke.cont482:                                   ; preds = %delete.notnull.i.i.i.i1145, %.noexc1147
   %268 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i1151 = icmp eq ptr %268, null
   br i1 %cmp.not5.i.i.i1151, label %invoke.cont488, label %while.body.i.i.i1153
 
-while.body.i.i.i1153:                             ; preds = %invoke.cont482, %while.body.i.i.i1153
-  %__x.addr.07.i.i.i1154 = phi ptr [ %__x.addr.1.i.i.i1161, %while.body.i.i.i1153 ], [ %268, %invoke.cont482 ]
-  %__y.addr.06.i.i.i1155 = phi ptr [ %__y.addr.1.i.i.i1158, %while.body.i.i.i1153 ], [ %203, %invoke.cont482 ]
+while.body.i.i.i1153:                             ; preds = %delete.notnull.i.i.i.i1145, %while.body.i.i.i1153
+  %__x.addr.07.i.i.i1154 = phi ptr [ %__x.addr.1.i.i.i1161, %while.body.i.i.i1153 ], [ %268, %delete.notnull.i.i.i.i1145 ]
+  %__y.addr.06.i.i.i1155 = phi ptr [ %__y.addr.1.i.i.i1158, %while.body.i.i.i1153 ], [ %203, %delete.notnull.i.i.i.i1145 ]
   %_M_storage.i.i.i.i.i1156 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i1154, i64 32
   %269 = load i32, ptr %_M_storage.i.i.i.i.i1156, align 4
   %cmp.i.i.i.i1157 = icmp slt i32 %269, 60
@@ -28622,8 +28580,8 @@ lor.lhs.false.i.i1165:                            ; preds = %_ZNSt8_Rb_treeIiiSt
   %spec.select.i.i1168 = select i1 %cmp.i4.i.i1167, ptr %203, ptr %__y.addr.1.i.i.i1158
   br label %invoke.cont488
 
-invoke.cont488:                                   ; preds = %lor.lhs.false.i.i1165, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1163, %invoke.cont482
-  %retval.sroa.0.0.i.i1169 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1163 ], [ %203, %invoke.cont482 ], [ %spec.select.i.i1168, %lor.lhs.false.i.i1165 ]
+invoke.cont488:                                   ; preds = %lor.lhs.false.i.i1165, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1163, %delete.notnull.i.i.i.i1145
+  %retval.sroa.0.0.i.i1169 = phi ptr [ %203, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i1163 ], [ %203, %delete.notnull.i.i.i.i1145 ], [ %spec.select.i.i1168, %lor.lhs.false.i.i1165 ]
   %call.i1.i.i1173 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i1169, ptr noundef nonnull align 8 dereferenceable(32) %203) #15
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i1173) #13
   %271 = load i64, ptr %_M_node_count.i.i.i.i.i635, align 8
@@ -32545,7 +32503,7 @@ invoke.cont394:                                   ; preds = %if.end16.i1220, %la
           to label %call.i.i.i.noexc unwind label %_ZN10TestObjectD2Ev.exit2145
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont394
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1219, ptr noundef nonnull align 8 dereferenceable(41) %call212)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1219, ptr noundef nonnull align 8 dereferenceable(41) %call212)
           to label %.noexc1223 unwind label %_ZN10TestObjectD2Ev.exit2145
 
 .noexc1223:                                       ; preds = %call.i.i.i.noexc
@@ -32884,7 +32842,7 @@ invoke.cont479:                                   ; preds = %if.end16.i1434, %la
           to label %call.i.i.i1438.noexc unwind label %_ZN10TestObjectD2Ev.exit2209
 
 call.i.i.i1438.noexc:                             ; preds = %invoke.cont479
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1433, ptr noundef nonnull align 8 dereferenceable(41) %call212)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1433, ptr noundef nonnull align 8 dereferenceable(41) %call212)
           to label %.noexc1446 unwind label %_ZN10TestObjectD2Ev.exit2209
 
 .noexc1446:                                       ; preds = %call.i.i.i1438.noexc
@@ -33332,7 +33290,7 @@ invoke.cont607:                                   ; preds = %if.end16.i1743, %la
           to label %call.i.i.i1747.noexc unwind label %_ZN10TestObjectD2Ev.exit2289
 
 call.i.i.i1747.noexc:                             ; preds = %invoke.cont607
-  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1742, ptr noundef nonnull align 8 dereferenceable(41) %call212)
+  invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef nonnull %retval.sroa.0.0.i1742, ptr noundef nonnull align 8 dereferenceable(41) %call212)
           to label %.noexc1755 unwind label %_ZN10TestObjectD2Ev.exit2289
 
 .noexc1755:                                       ; preds = %call.i.i.i1747.noexc
@@ -44793,7 +44751,7 @@ while.end:                                        ; preds = %_ZN5eastl6rbtreeI11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN5eastl6rbtreeIiiNS_4lessIiEENS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoCopySubtreeEPKNS_11rbtree_nodeIiEEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %pNodeSource, ptr noundef %pNodeDest) local_unnamed_addr #0 comdat align 2 {
@@ -50919,7 +50877,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE22_M_insert_range_uniqueIPiEENSt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
@@ -53477,10 +53435,10 @@ return:                                           ; preds = %_ZN5eastl6rbtreeI11
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z10rangeArrayPii(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @_Z10rangeArrayPii(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -26,7 +26,7 @@ define void @_Z10rangeArrayPii(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @_Z13insertionSortPfPiiii(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp slt i32 %4, 0
   %.not52 = icmp sgt i32 %2, %3
   %or.cond = or i1 %6, %.not52
@@ -116,7 +116,7 @@ define void @_Z13insertionSortPfPiiii(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z12BinarySearchPKfiifi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = add nsw i32 %2, 2
   %7 = add nsw i32 %1, 1
   %8 = icmp sgt i32 %4, -1
@@ -171,7 +171,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_Z15start_binsearchPfPiiifi(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef i32 @_Z15start_binsearchPfPiiifi(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp slt i32 %5, 0
   %.not52.i = icmp sgt i32 %2, %3
   %or.cond.i = or i1 %.not52.i, %7

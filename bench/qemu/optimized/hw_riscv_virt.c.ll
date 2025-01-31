@@ -265,7 +265,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_virt_machine_init_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @virt_is_acpi_enabled(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local zeroext i1 @virt_is_acpi_enabled(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %acpi = getelementptr inbounds nuw i8, ptr %s, i64 3856
   %0 = load i32, ptr %acpi, align 8
@@ -313,7 +313,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
+define internal void @virt_machine_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #1 {
 entry:
   %str = alloca [128 x i8], align 16
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #14
@@ -963,7 +963,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_machine_device_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr nocapture readnone %errp) #1 {
+define internal void @virt_machine_device_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr readnone captures(none) %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %platform_bus_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 368
@@ -993,7 +993,7 @@ declare void @machine_class_allow_dynamic_sysbus_dev(ptr noundef, ptr noundef) l
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @virt_get_aclint(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
+define internal zeroext i1 @virt_get_aclint(ptr noundef %obj, ptr readnone captures(none) %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %have_aclint = getelementptr inbounds nuw i8, ptr %call.i, i64 3828
@@ -1003,7 +1003,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_set_aclint(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #1 {
+define internal void @virt_set_aclint(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #1 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
@@ -1017,7 +1017,7 @@ declare void @object_class_property_set_description(ptr noundef, ptr noundef, pt
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @virt_get_aia(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
+define internal noalias ptr @virt_get_aia(ptr noundef %obj, ptr readnone captures(none) %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %aia_type = getelementptr inbounds nuw i8, ptr %call.i, i64 3832
@@ -1031,7 +1031,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_set_aia(ptr noundef %obj, ptr nocapture noundef readonly %val, ptr noundef %errp) #1 {
+define internal void @virt_set_aia(ptr noundef %obj, ptr noundef readonly captures(none) %val, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %val, ptr noundef nonnull dereferenceable(5) @.str.92) #18
@@ -1073,7 +1073,7 @@ if.end13:                                         ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @virt_get_aia_guests(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
+define internal noalias ptr @virt_get_aia_guests(ptr noundef %obj, ptr readnone captures(none) %errp) #1 {
 entry:
   %val = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
@@ -1085,7 +1085,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_set_aia_guests(ptr noundef %obj, ptr nocapture noundef readonly %val, ptr noundef %errp) #1 {
+define internal void @virt_set_aia_guests(ptr noundef %obj, ptr noundef readonly captures(none) %val, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %call1 = tail call i32 @atoi(ptr noundef %val) #18
@@ -1104,12 +1104,12 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_get_acpi(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #1 {
+define internal void @virt_get_acpi(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #1 {
 entry:
   %acpi = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_set_acpi(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #1 {
+define internal void @virt_set_acpi(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #14
   %acpi = getelementptr inbounds nuw i8, ptr %call.i, i64 3856
@@ -1188,7 +1188,7 @@ declare ptr @drive_get(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr
 declare ptr @load_device_tree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virt_machine_done(ptr noundef %notifier, ptr nocapture readnone %data) #1 {
+define internal void @virt_machine_done(ptr noundef %notifier, ptr readnone captures(none) %data) #1 {
 entry:
   %qdt_tmp.i91.i = alloca [4 x i32], align 16
   %qdt_tmp26.i.i = alloca [2 x i32], align 8
@@ -1752,7 +1752,7 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
 create_fdt_imsic.exit.i.i:                        ; preds = %while.cond.i.i.i.i
   %inc1.i.i.i = add i32 %phandle.0.i, 2
   %inc.i117.i.i = add i32 %phandle.0.i, 1
-  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef readonly %call11.i.i, i32 noundef %inc.i117.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
+  call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 671088640, ptr noundef readonly %call11.i.i, i32 noundef %inc.i117.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %create_fdt_imsic.exit.i.i, %for.end.i.i
@@ -2226,7 +2226,7 @@ create_fdt_pcie.exit.i:                           ; preds = %for.body38.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp31.i.i)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %qdt_tmp60.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i54.i)
-  %call.i.i55.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
+  %call.i.i55.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call1.i57.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.155, i64 noundef 1048576) #14
   %fdt.i58.i = getelementptr inbounds nuw i8, ptr %call.i.i55.i, i64 40
   %162 = load ptr, ptr %fdt.i58.i, align 8
@@ -2287,7 +2287,7 @@ create_fdt_reset.exit.i:                          ; preds = %for.body.i62.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i54.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i68.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %qdt_tmp28.i.i)
-  %call.i.i69.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
+  %call.i.i69.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call1.i70.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.166, i64 noundef 268435456) #14
   %fdt.i71.i = getelementptr inbounds nuw i8, ptr %call.i.i69.i, i64 40
   %179 = load ptr, ptr %fdt.i71.i, align 8
@@ -2501,7 +2501,7 @@ declare void @qemu_guest_getrandom_nofail(ptr noundef, i64 noundef) local_unname
 declare i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @riscv_pmu_generate_fdt_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2512,7 +2512,7 @@ declare i64 @riscv_find_and_load_firmware(ptr noundef, ptr noundef, i64 noundef,
 declare ptr @pflash_cfi01_get_blk(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @riscv_setup_firmware_boot(ptr noundef) local_unnamed_addr #2
 
@@ -2548,7 +2548,7 @@ declare i32 @llvm.bswap.i32(i32) #9
 declare i32 @qemu_fdt_setprop_string_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_fdt_one_imsic(ptr noundef %s, i64 noundef range(i64 603979776, 671088641) %base_addr, ptr nocapture noundef readonly %intc_phandles, i32 noundef %msi_phandle, i1 noundef zeroext %m_mode, i32 noundef %imsic_guest_bits) unnamed_addr #1 {
+define internal fastcc void @create_fdt_one_imsic(ptr noundef %s, i64 noundef range(i64 603979776, 671088641) %base_addr, ptr noundef readonly captures(none) %intc_phandles, i32 noundef %msi_phandle, i1 noundef zeroext %m_mode, i32 noundef %imsic_guest_bits) unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #14
   %call1 = tail call i32 @riscv_socket_count(ptr noundef %call.i) #14
@@ -2716,7 +2716,7 @@ if.end107:                                        ; preds = %imsic_num_bits.exit
 declare void @platform_bus_add_all_fdt_nodes(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_fdt_one_aplic(ptr noundef %s, i32 noundef range(i32 0, -2147483648) %socket, i64 noundef range(i64 201326592, 70368962248705) %aplic_addr, i32 noundef %msi_phandle, ptr nocapture noundef readonly %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
+define internal fastcc void @create_fdt_one_aplic(ptr noundef %s, i32 noundef range(i32 0, -2147483648) %socket, i64 noundef range(i64 201326592, 70368962248705) %aplic_addr, i32 noundef %msi_phandle, ptr noundef readonly captures(none) %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
 entry:
   %qdt_tmp = alloca [4 x i32], align 16
   %qdt_tmp56 = alloca [3 x i32], align 4
@@ -2841,7 +2841,7 @@ if.end78:                                         ; preds = %for.end73, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @qemu_fdt_get_phandle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2856,15 +2856,15 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare zeroext i1 @visit_type_OnOffAuto(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

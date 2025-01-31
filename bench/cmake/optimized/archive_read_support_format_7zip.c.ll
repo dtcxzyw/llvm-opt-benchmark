@@ -1039,7 +1039,7 @@ slurp_central_directory.exit:                     ; preds = %26, %skip_sfx.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
+define internal i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1404,7 +1404,7 @@ free_decompression.exit:                          ; preds = %29, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @archive_read_support_format_7zip_capabilities(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @archive_read_support_format_7zip_capabilities(ptr readnone captures(none) %0) #3 {
   ret i32 3
 }
 
@@ -1435,14 +1435,14 @@ define internal i32 @archive_read_format_7zip_has_encrypted_entries(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @archive_string_conversion_from_charset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1471,10 +1471,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare ptr @archive_entry_copy_fflags_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @archive_entry_copy_symlink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1554,7 +1554,7 @@ read_consume.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @decode_encoded_header_info(ptr noundef %0, ptr nocapture noundef initializes((0, 104)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @decode_encoded_header_info(ptr noundef %0, ptr noundef captures(none) initializes((0, 104)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1634,7 +1634,7 @@ define internal fastcc void @read_consume(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setup_decode_folder(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @setup_decode_folder(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca ptr, align 8
   %6 = alloca [3 x ptr], align 16
@@ -2237,7 +2237,7 @@ define internal fastcc range(i32 -30, 1) i32 @seek_pack(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_StreamsInfo(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @free_StreamsInfo(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #17
@@ -2337,7 +2337,7 @@ free_CodersInfo.exit:                             ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_Header(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_Header(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2373,7 +2373,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Header(ptr noundef %0, ptr noc
   %20 = phi ptr [ %36, %parse_7zip_uint64.exit ], [ %18, %.preheader390 ]
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
-  %23 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %23 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %24 = icmp eq ptr %23, null
   br i1 %22, label %38, label %25
 
@@ -2393,7 +2393,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Header(ptr noundef %0, ptr noc
   br i1 %.not.i, label %parse_7zip_uint64.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %32 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %parse_7zip_uint64.exit.thread, label %34
 
@@ -2404,7 +2404,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Header(ptr noundef %0, ptr noc
   br i1 %exitcond.not.i, label %parse_7zip_uint64.exit, label %29, !llvm.loop !20
 
 parse_7zip_uint64.exit:                           ; preds = %29, %34
-  %36 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %36 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %parse_7zip_uint64.exit.thread, label %.lr.ph
 
@@ -2421,12 +2421,12 @@ thread-pre-split:                                 ; preds = %38
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  %43 = tail call fastcc i32 @read_StreamsInfo(ptr noundef %0, ptr noundef %6)
+  %43 = tail call fastcc i32 @read_StreamsInfo(ptr noundef nonnull %0, ptr noundef %6)
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %parse_7zip_uint64.exit.thread, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %46 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %parse_7zip_uint64.exit.thread, label %._crit_edge505
 
@@ -2446,7 +2446,7 @@ thread-pre-split:                                 ; preds = %38
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %53 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %53 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %parse_7zip_uint64.exit.thread, label %55
 
@@ -2466,7 +2466,7 @@ thread-pre-split:                                 ; preds = %38
 .lr.ph413:                                        ; preds = %55, %58
   %.01622.i342412 = phi i32 [ %59, %58 ], [ 128, %55 ]
   %indvars.iv.i341411 = phi i64 [ %indvars.iv.next.i344, %58 ], [ 0, %55 ]
-  %61 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %61 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %parse_7zip_uint64.exit.thread, label %63
 
@@ -2512,7 +2512,7 @@ parse_7zip_uint64.exit347:                        ; preds = %63, %._crit_edge
   br i1 %82, label %parse_7zip_uint64.exit.thread, label %.preheader386
 
 .preheader386:                                    ; preds = %79
-  %83 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %83 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %84 = icmp eq ptr %83, null
   br i1 %84, label %parse_7zip_uint64.exit.thread, label %.lr.ph439
 
@@ -2534,7 +2534,7 @@ parse_7zip_uint64.exit347:                        ; preds = %63, %._crit_edge
   br i1 %95, label %257, label %96
 
 96:                                               ; preds = %91
-  %97 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %97 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %98 = icmp eq ptr %97, null
   br i1 %98, label %parse_7zip_uint64.exit.thread, label %99
 
@@ -2552,7 +2552,7 @@ parse_7zip_uint64.exit347:                        ; preds = %63, %._crit_edge
   br i1 %.not.i350, label %114, label %104
 
 104:                                              ; preds = %102
-  %105 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %105 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %106 = icmp eq ptr %105, null
   br i1 %106, label %parse_7zip_uint64.exit.thread, label %107
 
@@ -2610,7 +2610,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
 
 131:                                              ; preds = %127
   %132 = load i64, ptr %52, align 8
-  %133 = tail call fastcc i32 @read_Bools(ptr noundef %0, ptr noundef nonnull %129, i64 noundef %132)
+  %133 = tail call fastcc i32 @read_Bools(ptr noundef nonnull %0, ptr noundef nonnull %129, i64 noundef %132)
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %parse_7zip_uint64.exit.thread, label %.preheader378
 
@@ -2642,7 +2642,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %145
-  %148 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef %.2358)
+  %148 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef %.2358)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
@@ -2659,7 +2659,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %155, label %parse_7zip_uint64.exit.thread, label %156
 
 156:                                              ; preds = %152
-  %157 = tail call fastcc i32 @read_Bools(ptr noundef %0, ptr noundef nonnull %154, i64 noundef %153)
+  %157 = tail call fastcc i32 @read_Bools(ptr noundef nonnull %0, ptr noundef nonnull %154, i64 noundef %153)
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
@@ -2668,7 +2668,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %159
-  %162 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef %.2358)
+  %162 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef %.2358)
   %163 = icmp eq ptr %162, null
   br i1 %163, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
@@ -2685,17 +2685,17 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %169, label %parse_7zip_uint64.exit.thread, label %170
 
 170:                                              ; preds = %166
-  %171 = tail call fastcc i32 @read_Bools(ptr noundef %0, ptr noundef nonnull %168, i64 noundef %167)
+  %171 = tail call fastcc i32 @read_Bools(ptr noundef nonnull %0, ptr noundef nonnull %168, i64 noundef %167)
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
 173:                                              ; preds = %124, %124, %124
-  %174 = tail call fastcc i32 @read_Times(ptr noundef %0, ptr noundef %1, i32 noundef %94)
+  %174 = tail call fastcc i32 @read_Times(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %94)
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
 176:                                              ; preds = %124
-  %177 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %177 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %178 = icmp eq ptr %177, null
   br i1 %178, label %parse_7zip_uint64.exit.thread, label %179
 
@@ -2730,7 +2730,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   %.0251421 = phi i64 [ %195, %193 ], [ %180, %.preheader381 ]
   %.0254420 = phi ptr [ %194, %193 ], [ %189, %.preheader381 ]
   %..0251 = tail call i64 @llvm.umin.i64(i64 %.0251421, i64 65536)
-  %191 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef %..0251)
+  %191 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef %..0251)
   %192 = icmp eq ptr %191, null
   br i1 %192, label %parse_7zip_uint64.exit.thread, label %193
 
@@ -2795,7 +2795,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %216, label %.lr.ph433, label %.loopexit379, !llvm.loop !24
 
 217:                                              ; preds = %124
-  %218 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 2)
+  %218 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 2)
   %219 = icmp eq ptr %218, null
   br i1 %219, label %parse_7zip_uint64.exit.thread, label %220
 
@@ -2822,7 +2822,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br label %233
 
 230:                                              ; preds = %227
-  %231 = tail call fastcc i32 @read_Bools(ptr noundef %0, ptr noundef nonnull %225, i64 noundef %228)
+  %231 = tail call fastcc i32 @read_Bools(ptr noundef nonnull %0, ptr noundef nonnull %225, i64 noundef %228)
   %232 = icmp slt i32 %231, 0
   br i1 %232, label %parse_7zip_uint64.exit.thread, label %._crit_edge506
 
@@ -2846,7 +2846,7 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %.not311, label %246, label %240
 
 240:                                              ; preds = %.lr.ph418
-  %241 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 4)
+  %241 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 4)
   %242 = icmp eq ptr %241, null
   br i1 %242, label %parse_7zip_uint64.exit.thread, label %243
 
@@ -2869,13 +2869,13 @@ parse_7zip_uint64.exit354:                        ; preds = %107, %114
   br i1 %252, label %.loopexit379, label %.split
 
 .split:                                           ; preds = %251, %124
-  %253 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef %.2358)
+  %253 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef %.2358)
   %254 = icmp eq ptr %253, null
   br i1 %254, label %parse_7zip_uint64.exit.thread, label %.loopexit379
 
 .loopexit379:                                     ; preds = %246, %.critedge, %137, %233, %._crit_edge423, %.preheader378, %.split, %251, %173, %170, %161, %156, %147
   %.3 = phi i32 [ %.0260438, %.split ], [ %.0260438, %251 ], [ %.0260438, %173 ], [ %.0260438, %161 ], [ %.0260438, %170 ], [ %.0260438, %147 ], [ %.0260438, %156 ], [ 0, %.preheader378 ], [ %.0260438, %._crit_edge423 ], [ %.0260438, %233 ], [ %spec.select, %137 ], [ %.0260438, %.critedge ], [ %.0260438, %246 ]
-  %255 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %255 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %256 = icmp eq ptr %255, null
   br i1 %256, label %parse_7zip_uint64.exit.thread, label %91
 
@@ -3151,7 +3151,7 @@ parse_7zip_uint64.exit.thread:                    ; preds = %parse_7zip_uint64.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_stream(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @read_stream(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -3340,7 +3340,7 @@ define internal fastcc i64 @read_stream(ptr noundef %0, ptr nocapture noundef wr
   br i1 %.not90, label %109, label %106
 
 106:                                              ; preds = %104
-  %107 = tail call fastcc i64 @extract_pack_stream(ptr noundef %0, i64 noundef 0)
+  %107 = tail call fastcc i64 @extract_pack_stream(ptr noundef nonnull %0, i64 noundef 0)
   %108 = icmp slt i64 %107, 0
   br i1 %108, label %.loopexit, label %115
 
@@ -3350,16 +3350,16 @@ define internal fastcc i64 @read_stream(ptr noundef %0, ptr nocapture noundef wr
   br i1 %.not91, label %114, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call fastcc i64 @extract_pack_stream(ptr noundef %0, i64 noundef 0)
+  %112 = tail call fastcc i64 @extract_pack_stream(ptr noundef nonnull %0, i64 noundef 0)
   %113 = icmp slt i64 %112, 0
   br i1 %113, label %.loopexit, label %115
 
 114:                                              ; preds = %109
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.15) #17
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.15) #17
   br label %.loopexit
 
 115:                                              ; preds = %106, %111, %101
-  %116 = tail call fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr noundef %1, i64 noundef %.297, i64 noundef 0)
+  %116 = tail call fastcc i64 @get_uncompressed_data(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %.297, i64 noundef 0)
   %117 = icmp slt i64 %116, 0
   br i1 %117, label %.loopexit, label %118
 
@@ -3392,7 +3392,7 @@ read_consume.exit:                                ; preds = %126, %121, %118
   br i1 %.not89, label %._crit_edge, label %101, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %read_consume.exit, %.preheader
-  %132 = tail call fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3)
+  %132 = tail call fastcc i64 @get_uncompressed_data(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %111, %106, %86, %68, %93, %59, %22, %14, %._crit_edge, %114, %58, %36, %27, %25, %17
@@ -3688,7 +3688,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %170
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.21) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.21) #17
   br label %decompress.exit.thread
 
 174:                                              ; preds = %170
@@ -3762,7 +3762,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br label %199
 
 198:                                              ; preds = %195
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.22, i32 noundef %196) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.22, i32 noundef %196) #17
   br label %decompress.exit.thread
 
 199:                                              ; preds = %197, %195
@@ -3789,7 +3789,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br i1 %cond.i, label %209, label %208
 
 208:                                              ; preds = %206
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.23) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.23) #17
   br label %decompress.exit.thread
 
 209:                                              ; preds = %206
@@ -3797,7 +3797,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br label %211
 
 210:                                              ; preds = %202
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.24) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.24) #17
   br label %decompress.exit.thread
 
 211:                                              ; preds = %209, %202
@@ -3820,7 +3820,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br i1 %switch.i, label %221, label %220
 
 220:                                              ; preds = %216
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.25, i32 noundef %219) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.25, i32 noundef %219) #17
   br label %decompress.exit.thread
 
 221:                                              ; preds = %216
@@ -3845,7 +3845,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
 
 230:                                              ; preds = %226
   %231 = call ptr @ZSTD_getErrorName(i64 noundef %228) #17
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.26, ptr noundef %231) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.26, ptr noundef %231) #17
   br label %decompress.exit.thread
 
 232:                                              ; preds = %226
@@ -3868,7 +3868,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br i1 %or.cond7.i, label %243, label %244
 
 243:                                              ; preds = %239, %237
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.27) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.27) #17
   br label %decompress.exit.thread
 
 244:                                              ; preds = %239
@@ -3890,7 +3890,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
 
 249:                                              ; preds = %246
   store i32 -1, ptr %92, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.28) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.28) #17
   br label %decompress.exit.thread
 
 250:                                              ; preds = %246
@@ -3926,7 +3926,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
 
 261:                                              ; preds = %258
   store i32 -1, ptr %92, align 4
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.29) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.29) #17
   br label %decompress.exit.thread
 
 262:                                              ; preds = %258
@@ -3962,7 +3962,7 @@ define internal fastcc range(i64 -30, 1) i64 @extract_pack_stream(ptr noundef %0
   br i1 %276, label %258, label %.critedge.i, !llvm.loop !29
 
 277:                                              ; preds = %188
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.27) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.27) #17
   br label %decompress.exit.thread
 
 .critedge.i:                                      ; preds = %273, %265, %232, %221, %211, %199, %190
@@ -4380,7 +4380,7 @@ thread-pre-split.i:                               ; preds = %arm64_Convert.exit,
   br i1 %514, label %515, label %516
 
 515:                                              ; preds = %509
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.21) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.21) #17
   br label %decompress.exit.thread
 
 516:                                              ; preds = %509
@@ -4460,7 +4460,7 @@ decompress.exit:                                  ; preds = %506, %516
   br i1 %or.cond145, label %543, label %544
 
 543:                                              ; preds = %541
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.16) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.16) #17
   br label %.loopexit
 
 544:                                              ; preds = %541
@@ -4492,7 +4492,7 @@ read_consume.exit:                                ; preds = %544, %549
   br i1 %559, label %560, label %561
 
 560:                                              ; preds = %558
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.16) #17
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.16) #17
   br label %.loopexit
 
 561:                                              ; preds = %558
@@ -4506,7 +4506,7 @@ read_consume.exit:                                ; preds = %544, %549
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8
@@ -4593,10 +4593,10 @@ define internal fastcc i64 @get_uncompressed_data(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #11 {
+define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #11 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20136
   %6 = load i64, ptr %5, align 8
@@ -5029,7 +5029,7 @@ declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #1
 declare ptr @ZSTD_getErrorName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext i8 @ppmd_read(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2072
@@ -5096,7 +5096,7 @@ define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_StreamsInfo(ptr noundef %0, ptr nocapture noundef initializes((0, 104)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_StreamsInfo(ptr noundef %0, ptr noundef captures(none) initializes((0, 104)) %1) unnamed_addr #0 {
   %3 = alloca %struct._7z_digests, align 8
   %4 = alloca %struct._7z_digests, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2072
@@ -6969,7 +6969,7 @@ read_PackInfo.exit.thread:                        ; preds = %.lr.ph.i, %.lr.ph97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_7zip_uint64(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_7zip_uint64(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -7029,7 +7029,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_7zip_uint64(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_Digests(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_Digests(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %read_Bools.exit.thread, label %5
 
@@ -7128,7 +7128,7 @@ read_Bools.exit.thread:                           ; preds = %18, %47, %40, %read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_Bools(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_Bools(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -7170,7 +7170,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Bools(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @folder_uncompressed_size(ptr nocapture noundef readonly %0) unnamed_addr #13 {
+define internal fastcc i64 @folder_uncompressed_size(ptr noundef readonly captures(none) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -7234,7 +7234,7 @@ define internal fastcc i64 @folder_uncompressed_size(ptr nocapture noundef reado
 declare void @archive_entry_set_is_metadata_encrypted(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.lzma_options_delta, align 8
   %6 = alloca [4 x %struct.lzma_filter], align 16
   %7 = load i64, ptr %2, align 8
@@ -7759,7 +7759,7 @@ declare i32 @cm_zlib_inflateReset(ptr noundef) local_unnamed_addr #1
 declare i32 @cm_zlib_inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_Times(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 256) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_Times(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 1, 256) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -7799,7 +7799,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Times(ptr noundef %0, ptr noca
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %24 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.sink.split, label %26
 
@@ -7823,7 +7823,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_Times(ptr noundef %0, ptr noca
   br i1 %36, label %.lr.ph.i, label %read_Bools.exit.thread, !llvm.loop !58
 
 read_Bools.exit.thread:                           ; preds = %29, %20, %19
-  %37 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %37 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.sink.split, label %39
 
@@ -7833,7 +7833,7 @@ read_Bools.exit.thread:                           ; preds = %29, %20, %19
   br i1 %.not53, label %68, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %42 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.sink.split, label %44
 
@@ -7853,7 +7853,7 @@ read_Bools.exit.thread:                           ; preds = %29, %20, %19
 .lr.ph:                                           ; preds = %44, %47
   %.01622.i80 = phi i32 [ %48, %47 ], [ 128, %44 ]
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %44 ]
-  %50 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 1)
+  %50 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 1)
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.sink.split, label %52
 
@@ -7914,7 +7914,7 @@ parse_7zip_uint64.exit:                           ; preds = %52, %._crit_edge
   br i1 %.not54.us, label %95, label %74
 
 74:                                               ; preds = %.lr.ph85.split.us
-  %75 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 8)
+  %75 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 8)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.sink.split, label %77
 
@@ -7968,7 +7968,7 @@ fileTimeToUtc.exit.us:                            ; preds = %87, %77
   br i1 %.not54.us89, label %125, label %104
 
 104:                                              ; preds = %.lr.ph85.split.us87
-  %105 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 8)
+  %105 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 8)
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.sink.split, label %107
 
@@ -8022,7 +8022,7 @@ fileTimeToUtc.exit63.us:                          ; preds = %117, %107
   br i1 %.not54.us92, label %155, label %134
 
 134:                                              ; preds = %.lr.ph85.split.us90
-  %135 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 8)
+  %135 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 8)
   %136 = icmp eq ptr %135, null
   br i1 %136, label %.sink.split, label %137
 
@@ -8076,7 +8076,7 @@ fileTimeToUtc.exit66.us:                          ; preds = %147, %137
   br i1 %.not54, label %167, label %164
 
 164:                                              ; preds = %.lr.ph85.split
-  %165 = tail call fastcc ptr @header_bytes(ptr noundef %0, i64 noundef 8)
+  %165 = tail call fastcc ptr @header_bytes(ptr noundef nonnull %0, i64 noundef 8)
   %166 = icmp eq ptr %165, null
   br i1 %166, label %.sink.split, label %._crit_edge108
 
@@ -8104,7 +8104,7 @@ fileTimeToUtc.exit66.us:                          ; preds = %147, %137
 declare i32 @cm_zlib_inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
@@ -8116,10 +8116,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8LPredictorsSub_C = hidden local_unnamed_addr global [16 x ptr] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
+define hidden void @VP8LBitEntropyInit(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %2, align 4
@@ -42,7 +42,7 @@ define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2) local_unnamed_addr #1 {
+define hidden void @VP8LBitsEntropyUnrefined(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 20)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 -1, ptr %4, align 4
@@ -140,7 +140,7 @@ VP8LFastSLog2.exit24:                             ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr nocapture noundef %0, i32 noundef %1) #2 {
+define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef captures(none) %0, i32 noundef %1) #2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -171,7 +171,7 @@ define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LTransformColor_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define hidden void @VP8LTransformColor_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -221,7 +221,7 @@ define hidden void @VP8LTransformColor_C(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #2 {
+define hidden void @VP8LCollectColorRedTransforms_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) #2 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge13
 
@@ -272,7 +272,7 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) #2 {
+define hidden void @VP8LCollectColorBlueTransforms_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6) #2 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge17
 
@@ -329,7 +329,7 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LBundleColorMap_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define hidden void @VP8LBundleColorMap_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %7, label %.preheader
 
@@ -756,10 +756,10 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
@@ -941,7 +941,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal i32 @ExtraCost_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -979,7 +979,7 @@ define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #8 {
+define internal i32 @ExtraCostCombined_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1030,7 +1030,7 @@ define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @CombinedShannonEntropy_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal float @CombinedShannonEntropy_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %45
@@ -1157,7 +1157,7 @@ VP8LFastSLog2.exit38:                             ; preds = %57, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2, ptr nocapture noundef initializes((0, 24)) %3) #1 {
+define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 20)) %2, ptr noundef captures(none) initializes((0, 24)) %3) #1 {
   %5 = load i32, ptr %0, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1339,7 +1339,7 @@ VP8LFastSLog2.exit:                               ; preds = %93, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 20)) %3, ptr nocapture noundef initializes((0, 24)) %4) #1 {
+define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 20)) %3, ptr noundef captures(none) initializes((0, 24)) %4) #1 {
   %6 = load i32, ptr %0, align 4
   %7 = load i32, ptr %1, align 4
   %8 = add i32 %7, %6
@@ -1526,7 +1526,7 @@ VP8LFastSLog2.exit:                               ; preds = %99, %103
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVector_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #2 {
+define internal void @AddVector_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1552,7 +1552,7 @@ define internal void @AddVector_C(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVectorEq_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal void @AddVectorEq_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1577,7 +1577,7 @@ define internal void @AddVectorEq_C(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @VectorMismatch_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #8 {
+define internal i32 @VectorMismatch_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %.critedge
 
@@ -1609,7 +1609,7 @@ define internal i32 @VectorMismatch_C(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorSub0_C(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define internal void @PredictorSub0_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1636,7 +1636,7 @@ define internal void @PredictorSub0_C(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorSub1_C(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1670,7 +1670,7 @@ define internal void @PredictorSub1_C(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1705,7 +1705,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1740,7 +1740,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1775,7 +1775,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1810,7 +1810,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1845,7 +1845,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1880,7 +1880,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1915,7 +1915,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1950,7 +1950,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1985,7 +1985,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2020,7 +2020,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2055,7 +2055,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 

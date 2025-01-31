@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15ClassFileStreamC1EPKhiPKcbb = hidden unnamed_addr alias void (ptr, ptr, i32, ptr, i1, i1), ptr @_ZN15ClassFileStreamC2EPKhiPKcbb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr nocapture noundef nonnull readnone align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 34, ptr noundef %3, ptr noundef nonnull @.str.4) #6
   ret void
@@ -22,7 +22,7 @@ define hidden void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(pt
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %0, align 8
@@ -44,7 +44,7 @@ define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15ClassFileStream12clone_bufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15ClassFileStream12clone_bufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -69,10 +69,10 @@ define hidden noundef ptr @_ZNK15ClassFileStream12clone_bufferEv(ptr nocapture n
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15ClassFileStream12clone_sourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15ClassFileStream12clone_sourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -91,13 +91,13 @@ define hidden noundef ptr @_ZNK15ClassFileStream12clone_sourceEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK15ClassFileStream5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK15ClassFileStream5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

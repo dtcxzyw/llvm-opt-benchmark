@@ -170,7 +170,7 @@ $_ZTIN2cv22WarpPerspectiveInvokerE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_imgwarp.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5remapERKNS_11_InputArrayERKNS_12_OutputArrayES2_S2_iiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5remapERKNS_11_InputArrayERKNS_12_OutputArrayES2_S2_iiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -879,7 +879,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %275, %278
 declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIhLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #2 {
+define internal void @_ZN2cvL12remapNearestIhLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #2 {
   %7 = alloca [512 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -1213,7 +1213,7 @@ select.unfold:                                    ; preds = %39, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIaLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #2 {
+define internal void @_ZN2cvL12remapNearestIaLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #2 {
   %7 = alloca [512 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -1547,7 +1547,7 @@ select.unfold:                                    ; preds = %39, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestItLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #2 {
+define internal void @_ZN2cvL12remapNearestItLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #2 {
   %7 = alloca [512 x i16], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -1882,7 +1882,7 @@ select.unfold:                                    ; preds = %40, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIsLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #2 {
+define internal void @_ZN2cvL12remapNearestIsLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #2 {
   %7 = alloca [512 x i16], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -2217,7 +2217,7 @@ select.unfold:                                    ; preds = %40, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIiLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #2 {
+define internal void @_ZN2cvL12remapNearestIiLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #2 {
   %7 = alloca [512 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -2549,7 +2549,7 @@ select.unfold:                                    ; preds = %37, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIfLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #0 {
+define internal void @_ZN2cvL12remapNearestIfLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #0 {
   %7 = alloca [512 x float], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -2880,7 +2880,7 @@ select.unfold:                                    ; preds = %36, %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIdLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture nonnull readnone align 4 %5) #0 {
+define internal void @_ZN2cvL12remapNearestIdLb0EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr nonnull readnone align 4 captures(none) %5) #0 {
   %7 = alloca [512 x double], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -3210,7 +3210,7 @@ select.unfold:                                    ; preds = %35, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #2 {
+define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #2 {
   %7 = alloca [512 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -3535,7 +3535,7 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #2 {
+define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #2 {
   %7 = alloca [512 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -3860,7 +3860,7 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #2 {
+define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #2 {
   %7 = alloca [512 x i16], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -4186,7 +4186,7 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #2 {
+define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #2 {
   %7 = alloca [512 x i16], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -4512,7 +4512,7 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #2 {
+define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #2 {
   %7 = alloca [512 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -4835,7 +4835,7 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #0 {
+define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #0 {
   %7 = alloca [512 x float], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -5157,7 +5157,7 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5) #0 {
+define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5) #0 {
   %7 = alloca [512 x double], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -5478,7 +5478,7 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10RemapNoVecILb0EEEsLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readonly align 4 %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10RemapNoVecILb0EEEsLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readonly align 4 captures(none) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -6767,7 +6767,7 @@ define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10Rema
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readonly align 4 %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readonly align 4 captures(none) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -7959,7 +7959,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readonly align 4 %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readonly align 4 captures(none) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -9151,7 +9151,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readonly align 4 %7) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readonly align 4 captures(none) %7) #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -10200,7 +10200,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readonly align 4 %7) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb0EEEfLb0EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readonly align 4 captures(none) %7) #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -11296,7 +11296,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10RemapNoVecILb1EEEsLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10RemapNoVecILb1EEEsLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -12640,7 +12640,7 @@ define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10Rema
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -13887,7 +13887,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -15134,7 +15134,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -16238,7 +16238,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb1EEEfLb1EEEvRKNS_3MatERS5_S7_S7_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -17389,7 +17389,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -18007,7 +18007,7 @@ select.unfold:                                    ; preds = %49, %46, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIftEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIftEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -18508,7 +18508,7 @@ select.unfold:                                    ; preds = %50, %47, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIfsEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIfsEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -19009,7 +19009,7 @@ select.unfold:                                    ; preds = %50, %47, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #0 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -19791,7 +19791,7 @@ select.unfold:                                    ; preds = %46, %43, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #0 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -20623,7 +20623,7 @@ select.unfold:                                    ; preds = %45, %42, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -21228,7 +21228,7 @@ define internal void @_ZN2cvL12remapBicubicINS_11FixedPtCastIihLi15EEEsLi32768EL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIftEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIftEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -21716,7 +21716,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIftEEfLi1ELb1EEEvRKNS_3MatER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -22204,7 +22204,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -22973,7 +22973,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIffEEfLi1ELb1EEEvRKNS_3MatER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 {
+define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca [4 x i32], align 16
   %11 = alloca [4 x i32], align 16
@@ -23792,7 +23792,7 @@ define internal void @_ZN2cvL12remapBicubicINS_4CastIddEEfLi1ELb1EEEvRKNS_3MatER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -24307,7 +24307,7 @@ select.unfold:                                    ; preds = %49, %46, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIftEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIftEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -24799,7 +24799,7 @@ select.unfold:                                    ; preds = %50, %47, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIfsEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIfsEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -25291,7 +25291,7 @@ select.unfold:                                    ; preds = %50, %47, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIffEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #0 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIffEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -25752,7 +25752,7 @@ select.unfold:                                    ; preds = %46, %43, %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIddEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture nonnull readnone align 4 %7) #0 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIddEEfLi1ELb0EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr nonnull readnone align 4 captures(none) %7) #0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -26227,7 +26227,7 @@ select.unfold:                                    ; preds = %45, %42, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i8], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -26729,7 +26729,7 @@ define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIftEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIftEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -27208,7 +27208,7 @@ define internal void @_ZN2cvL13remapLanczos4INS_4CastIftEEfLi1ELb1EEEvRKNS_3MatE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #2 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #2 {
   %9 = alloca [512 x i16], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -27687,7 +27687,7 @@ define internal void @_ZN2cvL13remapLanczos4INS_4CastIfsEEfLi1ELb1EEEvRKNS_3MatE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIffEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIffEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 {
   %9 = alloca [512 x float], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -28135,7 +28135,7 @@ define internal void @_ZN2cvL13remapLanczos4INS_4CastIffEEfLi1ELb1EEEvRKNS_3MatE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL13remapLanczos4INS_4CastIddEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %7) #0 {
+define internal void @_ZN2cvL13remapLanczos4INS_4CastIddEEfLi1ELb1EEEvRKNS_3MatERS3_S5_S5_PKviRKNS_7Scalar_IdEERKNS_6Point_IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7) #0 {
   %9 = alloca [512 x double], align 16
   %10 = alloca [8 x i32], align 16
   %11 = alloca [8 x i32], align 16
@@ -29950,7 +29950,7 @@ declare void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenc
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal10warpAffineEiPKhmiiPhmiiPKdiiS5_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr nocapture noundef readonly %12) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal10warpAffineEiPKhmiiPhmiiPKdiiS5_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::Mat", align 8
   %15 = alloca %"class.cv::Mat", align 8
   %16 = alloca %"class.cv::AutoBuffer", align 8
@@ -30178,7 +30178,7 @@ define linkonce_odr hidden void @_ZN2cv17WarpAffineInvokerD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv10warpAffineERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_5Size_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv10warpAffineERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_5Size_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -30596,7 +30596,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %181, %184
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #1
 
@@ -30604,7 +30604,7 @@ declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal15warpPerspectiveEiPKhmiiPhmiiPKdiiS5_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr nocapture noundef readonly %12) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal15warpPerspectiveEiPKhmiiPhmiiPKdiiS5_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::Mat", align 8
   %15 = alloca %"class.cv::Mat", align 8
   %16 = alloca %"class.cv::Range", align 4
@@ -30727,7 +30727,7 @@ define linkonce_odr hidden void @_ZN2cv22WarpPerspectiveInvokerD2Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15warpPerspectiveERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_5Size_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15warpPerspectiveERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_5Size_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::utils::trace::details::Region", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -31091,7 +31091,7 @@ declare noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr noundef nonnull align 8 de
 declare noundef double @_ZN2cv6invertERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv20getRotationMatrix2D_ENS_6Point_IfEEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Matx.0") align 8 initializes((0, 48)) %0, <2 x float> %1, double noundef %2, double noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv20getRotationMatrix2D_ENS_6Point_IfEEdd(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::Matx.0") align 8 captures(none) initializes((0, 48)) %0, <2 x float> %1, double noundef %2, double noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv20getRotationMatrix2D_ENS_6Point_IfEEddE26__cv_trace_location_fn3472)
   %6 = fmul double %2, 0x3F91DF46A2529D39
@@ -31148,7 +31148,7 @@ declare double @cos(double noundef) local_unnamed_addr #9
 declare double @sin(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv23getPerspectiveTransformEPKNS_6Point_IfEES3_i(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv23getPerspectiveTransformEPKNS_6Point_IfEES3_i(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca [8 x [8 x double]], align 16
@@ -31334,7 +31334,7 @@ declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 declare noundef zeroext i1 @_ZN2cv5solveERKNS_11_InputArrayES2_RKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv18getAffineTransformEPKNS_6Point_IfEES3_(ptr dead_on_unwind noalias nonnull writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv18getAffineTransformEPKNS_6Point_IfEES3_(ptr dead_on_unwind noalias nonnull writable sret(%"class.cv::Mat") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca [36 x double], align 16
   %6 = alloca [6 x double], align 16
@@ -32361,7 +32361,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvWarpAffine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.CvScalar) align 8 %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvWarpAffine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(none) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
@@ -32505,7 +32505,7 @@ define void @cvWarpAffine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 no
 declare void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @cvWarpPerspective(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%struct.CvScalar) align 8 %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvWarpPerspective(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(none) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
@@ -32647,7 +32647,7 @@ define void @cvWarpPerspective(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvRemap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%struct.CvScalar) align 8 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvRemap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(none) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::Mat", align 8
@@ -33060,7 +33060,7 @@ _ZN2cv3MatC2IdLi2ELi3EEERKNS_4MatxIT_XT0_EXT1_EEEb.exit: ; preds = %_ZN2cv20getR
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetPerspectiveTransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @cvGetPerspectiveTransform(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33152,7 +33152,7 @@ define noundef ptr @cvGetPerspectiveTransform(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetAffineTransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @cvGetAffineTransform(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35969,10 +35969,10 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
@@ -35981,7 +35981,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 declare i64 @llvm.smin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
